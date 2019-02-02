@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 65531b5507f9e3af3a9666074d9dcd9b7ee20271
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: df9dc7d25ff0304effadbf27751042e9961c75c0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231193"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562036"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Snabbstart för PowerShell i Azure Cloudshell
 
@@ -27,6 +27,8 @@ Det här dokumentet beskriver hur du använder PowerShell i Cloud Shell i den [A
 
 > [!NOTE]
 > En [Bash i Azure Cloud Shell](quickstart.md) Snabbstart finns också.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="start-cloud-shell"></a>Starta Cloudshell
 
@@ -48,7 +50,7 @@ PS Azure:\> Get-Date
 # Expected Output
 Friday, July 27, 2018 7:08:48 AM
 
-PS Azure:\> Get-AzureRmVM -Status
+PS Azure:\> Get-AzVM -Status
 
 # Expected Output
 ResourceGroupName       Name       Location                VmSize   OsType     ProvisioningState  PowerState
@@ -222,7 +224,7 @@ Du kan också navigera till den `VirtualMachines` directory första och kör `En
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
  ```
 
-### <a name="discover-webapps"></a>Identifiera Webbappar
+### <a name="discover-webapps"></a>Discover WebApps
 
 Genom att ange i den `WebApps` katalogen, du kan enkelt navigera dina webbresurser för appar
 
@@ -238,7 +240,7 @@ mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   We
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
 
 # You can use Azure cmdlets to Start/Stop your web apps
-PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
+PS Azure:\MySubscriptionName\WebApps> Start-AzWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
@@ -266,7 +268,7 @@ För att autentisera till servrar eller virtuella datorer med SSH, generera offe
 ### <a name="using-ssh"></a>Med hjälp av SSH
 
 Följ instruktionerna [här](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) att skapa en ny VM-konfiguration med hjälp av AzureRM-cmdletar.
-Tidigare anrop till `New-AzureRmVM` för att sätta igång distributionen, lägga till offentlig SSH-nyckel i VM-konfigurationen.
+Tidigare anrop till `New-AzVM` för att sätta igång distributionen, lägga till offentlig SSH-nyckel i VM-konfigurationen.
 Den nya virtuella datorn innehåller den offentliga nyckeln i den `~\.ssh\authorized_keys` plats, vilket innebär att autentiseringsuppgifter är kostnadsfria SSH-session till den virtuella datorn.
 
 ```azurepowershell-interactive
@@ -277,10 +279,10 @@ ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa
 
 # Ensure VM config is updated with SSH keys
 $sshPublicKey = Get-Content "$HOME\.ssh\id_rsa.pub"
-Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+Add-AzVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
-New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
+New-AzVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
 
 # SSH to the VM
 ssh azureuser@MyVM.Domain.Com
@@ -288,7 +290,7 @@ ssh azureuser@MyVM.Domain.Com
 
 ## <a name="list-available-commands"></a>Lista tillgängliga kommandon
 
-Under `Azure` enhet, Skriv `Get-AzureRmCommand` att hämta sammanhangsberoende Azure-kommandon.
+Under `Azure` enhet, Skriv `Get-AzCommand` att hämta sammanhangsberoende Azure-kommandon.
 
 Du kan alltid använda `Get-Command *azurerm* -Module AzureRM.*` att ta reda på tillgängliga Azure-kommandon.
 
@@ -307,7 +309,7 @@ Get-Help
 För ett visst kommando kan du fortfarande göra `Get-Help` följt av en cmdlet.
 
 ```azurepowershell-interactive
-Get-Help Get-AzureRmVM
+Get-Help Get-AzVM
 ```
 
 ## <a name="use-azure-files-to-store-your-data"></a>Använda Azure Files för att lagra dina data

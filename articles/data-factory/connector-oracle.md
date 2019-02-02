@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 64f348880bf8872c61a1d1c90930c25ce9551bbf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016922"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658037"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Aktuell version](connector-oracle.md)
 
@@ -58,7 +58,7 @@ Följande egenskaper har stöd för Oracle-länkade tjänsten.
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till **Oracle**. | Ja |
-| connectionString | Anger information som behövs för att ansluta till Oracle Database-instans. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Stöd för anslutningstypen**: Du kan använda **Oracle-SID** eller **Oracle-tjänstnamn** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänstens namn: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
+| connectionString | Anger information som behövs för att ansluta till Oracle Database-instans. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `password` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. <br><br>**Stöd för anslutningstypen**: Du kan använda **Oracle-SID** eller **Oracle-tjänstnamn** att identifiera din databas:<br>– Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänstens namn: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!TIP]
@@ -126,6 +126,34 @@ Följande egenskaper har stöd för Oracle-länkade tjänsten.
 }
 ```
 
+**Exempel: lagra lösenord i Azure Key Vault**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-datauppsättningen.
@@ -251,27 +279,27 @@ När du kopierar data från och till Oracle, används följande mappningar från
 
 | Oracle-datatypen | Data Factory tillfälliga datatyp |
 |:--- |:--- |
-| BFILE |Byte] |
-| BLOB |Byte]<br/>(endast kan användas på Oracle 10g och senare) |
-| CHAR |Sträng |
-| CLOB |Sträng |
+| BFILE |Byte[] |
+| BLOB |Byte[]<br/>(endast kan användas på Oracle 10g och senare) |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLYTTAL |Decimal, sträng (om precision > 28) |
 | HELTAL |Decimal, sträng (om precision > 28) |
-| LÅNG |Sträng |
-| LÄNGE RÅDATA |Byte] |
-| NCHAR |Sträng |
-| NCLOB |Sträng |
-| ANTAL |Decimal, sträng (om precision > 28) |
-| NVARCHAR2 |Sträng |
-| RÅDATA |Byte] |
-| RAD-ID |Sträng |
-| TIDSSTÄMPEL |DateTime |
-| TIDSSTÄMPEL MED LOKALA TIDSZON |Sträng |
-| TIDSSTÄMPEL MED TIDSZON |Sträng |
+| LONG |String |
+| LÄNGE RÅDATA |Byte[] |
+| NCHAR |String |
+| NCLOB |String |
+| NUMBER |Decimal, sträng (om precision > 28) |
+| NVARCHAR2 |String |
+| RÅDATA |Byte[] |
+| RAD-ID |String |
+| TIMESTAMP |DateTime |
+| TIDSSTÄMPEL MED LOKALA TIDSZON |String |
+| TIDSSTÄMPEL MED TIDSZON |String |
 | HELTALET |Tal |
-| VARCHAR2 |Sträng |
-| XML |Sträng |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Datatyperna intervall år till månad och INTERVALLET dag till andra stöds inte.

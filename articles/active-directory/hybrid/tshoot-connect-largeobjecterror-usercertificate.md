@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e0d5e466da8804e89ffecd38dd2db6e37a3cb334
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195625"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663646"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synkronisering: Hantera LargeObject-fel som orsakats av userCertificate-attributet
 
@@ -33,7 +33,7 @@ LargeObject-fel kan ha orsakats av andra AD-attribut. För att bekräfta att det
 
 Använd någon av följande metoder för att hämta listan med objekt i din klient med LargeObject-fel:
 
- * Om din klient har aktiverats för Azure AD Connect Health för synkronisering, kan du referera till den [felrapport för synkronisering](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) tillhandahålls.
+ * Om din klient har aktiverats för Azure AD Connect Health för synkronisering, kan du referera till den [felrapport för synkronisering](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) tillhandahålls.
  
  * E-postmeddelandet för directory synkroniseringsfel som skickas i slutet av varje synkroniseringscykel med en lista över objekt med LargeObject-fel. 
  * Den [Synchronization Service Manager Operations-fliken](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) visar en lista över objekt med LargeObject-fel om du klickar på den senaste exporten till Azure AD-åtgärd.

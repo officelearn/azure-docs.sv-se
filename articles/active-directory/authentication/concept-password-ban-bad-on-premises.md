@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: b99c1b99fe87c755d6092876ccd598d926289192
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 816c459ca6edd7204ccdcdf9d402f2d4499d9116
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077838"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662531"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Förhandsversion: Använda Azure AD-lösenordsskydd för Windows Server Active Directory
 
@@ -29,7 +29,7 @@ Azure AD-lösenordsskydd är en ny funktion i offentlig förhandsversion som til
 Det finns tre programvarukomponenter som utgör Azure AD-lösenordsskydd:
 
 * Azure AD lösenord protection proxy-tjänsten körs på alla domänanslutna datorer i den aktuella Active Directory-skogen. Den vidarebefordrar begäranden från domänkontrollanter till Azure AD och returnerar svaret från Azure AD tillbaka till domänkontrollanten.
-* Azure AD lösenord protection DC agent-tjänsten tar emot lösenord verifiering förfrågningar från DLL-filen för DC-agenten lösenord filter, bearbetar dem med hjälp av den aktuella lokalt tillgängliga lösenordsprincipen och returnerar resultatet (pass\fail). Den här tjänsten ansvarar för att med jämna mellanrum (en gång per timme) anropa Azure AD lösenord protection proxy-tjänsten för att hämta nya versioner av lösenordsprincipen. Kommunikation för anrop till och från Azure AD lösenord protection proxy-tjänsten hanteras via RPC (Remote Procedure Call) via TCP. Vid hämtning lagras nya principer i en sysvol-mappen där de kan replikeras till andra domänkontrollanter. DC-agenttjänsten övervakar även sysvol-mappen för ändringar om andra domänkontrollanter har skrivit det nya lösenordsprinciper, om en lämpligt senaste princip är redan tillgänglig kontroll av Azure AD lösenord protection proxy-tjänsten kommer att hoppas över.
+* Azure AD lösenord protection DC agent-tjänsten tar emot lösenord verifiering förfrågningar från DLL-filen för DC-agenten lösenord filter, bearbetar dem med hjälp av den aktuella lokalt tillgängliga lösenordsprincipen och returnerar resultatet (pass\fail). Den här tjänsten ansvarar för att med jämna mellanrum (en gång per timme) anropa Azure AD lösenord protection proxy-tjänsten för att hämta nya versioner av lösenordsprincipen. Kommunikation mellan Azure AD lösenord protection DC agent-tjänsten och Azure AD lösenord protection proxy-tjänsten hanteras med hjälp av RPC (Remote Procedure Call) via TCP. Vid hämtning lagras nya principer i en sysvol-mappen där de kan replikeras till andra domänkontrollanter. DC-agenttjänsten övervakar även sysvol-mappen för ändringar om andra domänkontrollanter har skrivit nya lösenordsprinciper där. Om det finns redan en princip för lämpligt senaste sedan hämtningsbegäranden ny princip kommer att hoppas över.
 * DC-agenten lösenord filter-DLL: en tar emot förfrågningar för verifiering av lösenord från operativsystemet och vidarebefordrar dem till Azure AD lösenord protection DC agent-tjänsten körs lokalt på domänkontrollanten.
 
 ![Hur Azure AD-lösenord protection komponenter fungerar tillsammans](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
@@ -57,7 +57,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
 * Det finns inga Active Directory-domän eller skogens funktionella nivå (DFL\FFL) minimikrav.
 * Programvaran inte skapar eller kräver några konton i Active Directory-domäner som den skyddar.
 * Stegvis distribution stöds med kompromiss att lösenordsprinciper gäller endast där domain controller-agenten är installerad.
-* Det rekommenderas att installera DC-agenten på alla domänkontrollanter så tvingande för skydd av lösenord. 
+* Det rekommenderas att installera DC-agenten på alla domänkontrollanter så tvingande för skydd av lösenord.
 * Azure AD-lösenordsskydd är inte en i realtid principmodulen för programmet. Det kan finnas en fördröjning under tiden mellan en lösenordsändring princip för konfiguration och hur lång tid det når och tillämpas på alla domänkontrollanter.
 
 ## <a name="next-steps"></a>Nästa steg

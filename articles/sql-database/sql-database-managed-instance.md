@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 2582f7eff052968c4a08eefd0027f9785451a564
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465715"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562818"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Använda SQL Database Managed Instance med virtuella nätverk och nästan 100% kompatibilitet
 
@@ -75,7 +75,7 @@ Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) i Mana
 Du kan välja mellan av maskinvara i vCore-modellen.
 
 - **Gen 4** logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, SSD, enheter anslutna fysiska kärnor, 7 GB RAM-minne per kärna och storlekar på mellan 8 och 24 virtuella kärnor.
-- **5: e generationen** logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3-GHz-processorer, snabb eNVM SSD, hyper-threaded logiska kärna, och beräkna storlekar mellan 8 och 80 kärnor.
+- **5: e generationen** logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3-GHz-processorer, snabb NVMe SSD, hyper-threaded logiska kärna, och beräkna storlekar mellan 8 och 80 kärnor.
 
 Mer information om skillnaden mellan maskinvarugenerationer i [resursgränser för hanterad instans](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -158,7 +158,7 @@ Introduceras en ny syntax för att skapa AAD inloggningar (**förhandsversion**)
 
 Hanterad instans kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster med [Azure Active Directory-integrering](sql-database-aad-authentication.md). Den här funktionen förenklar hanteringen av behörighet och ger ökad säkerhet. Azure Active Directory stöder [multifaktorautentisering](sql-database-ssms-mfa-authentication-configure.md) (MFA) för att öka säkerheten för data och program med stöd för en process med enkel inloggning.
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 Hanterad instans autentisering refererar till hur användarna bekräfta sin identitet vid anslutning till databasen. SQL Database stöder två typer av autentisering:  
 

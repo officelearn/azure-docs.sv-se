@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7dffa1480be73f1dbf5e99d11fd8d33eb2ab9038
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196420"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562210"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure Active Directory B2C med hjälp av en anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I Azure Active Directory (Azure AD) B2C är resursägarens lösenord autentiseringsuppgifter (ROPC) flöde en flöde för OAuth-standardautentisering. I det här flödet utbyter ett program, även kallat den förlitande parten, giltiga autentiseringsuppgifter för token. Autentiseringsuppgifterna som innehåller användar-ID och lösenord. De token som returneras är en ID-token, åtkomst-token och en uppdateringstoken. 
+I Azure Active Directory (Azure AD) B2C är resursägarens lösenord autentiseringsuppgifter (ROPC) flöde en flöde för OAuth-standardautentisering. I det här flödet utbyter ett program, även kallat den förlitande parten, giltiga autentiseringsuppgifter för token. Autentiseringsuppgifterna som innehåller användar-ID och lösenord. De token som returneras är en ID-token, åtkomst-token och en uppdateringstoken.
 
 Följande alternativ kan användas i flödet ROPC:
 
 - **Native Client** -interaktion från användaren under autentiseringen sker när koden körs på en enhet för användaren sida.
 - **Offentliga klientflödet** -bara användaren autentiseringsuppgifter som har samlats in av ett program som skickas i API-anrop. Autentiseringsuppgifterna för programmet skickas inte.
-- **Lägga till nya anspråk** -ID-token innehållet kan ändras för att lägga till nya anspråk. 
+- **Lägga till nya anspråk** -ID-token innehållet kan ändras för att lägga till nya anspråk.
 
 Följande flöden stöds inte:
 
@@ -43,7 +43,7 @@ Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**. 
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
 4. Välj **program**, och välj sedan **Lägg till**.
 5. Ange ett namn för programmet, till exempel *ROPC_Auth_app*.
 6. Välj **nr** för **Web App/Web API**, och välj sedan **Ja** för **Native client**.
@@ -193,7 +193,7 @@ Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C
           </Metadata>
         </TechnicalProfile>
       </TechnicalProfiles>
-    </ClaimsProvider>    
+    </ClaimsProvider>
     ```
 
 6. Lägg till en **UserJourneys** elementet och dess underordnade element till den **TrustFrameworkPolicy** element:
@@ -201,7 +201,7 @@ Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
-        <OrchestrationSteps>
+      <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="ResourceOwnerFlow" TechnicalProfileReferenceId="ResourceOwnerPasswordCredentials-OAUTH2" />
@@ -267,7 +267,7 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 - Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
 - Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägare autentiseringsuppgifter lösenordsprincip.
 
-| Nyckel | Value |
+| Nyckel | Värde |
 | --- | ----- |
 | användarnamn | `user-account` |
 | lösenord | `password1` |
@@ -278,7 +278,7 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 
 - Ersätt `user-account` med namnet på ett användarkonto i din klient.
 - Ersätt `password1` med lösenordet för användarkontot.
-- Ersätt `application-id` med program-ID från den *ROPC_Auth_app* registrering. 
+- Ersätt `application-id` med program-ID från den *ROPC_Auth_app* registrering.
 - *Offline_access* är valfritt om du vill få en uppdateringstoken.
 
 Den faktiska POST-begäran som ser ut som i följande exempel:
@@ -291,17 +291,16 @@ Content-Type: application/x-www-form-urlencoded
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
-
 Ett lyckat svar med offlineåtkomst ser ut som i följande exempel:
 
 ```JSON
-{ 
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...", 
-    "token_type": "Bearer", 
-    "expires_in": "3600", 
-    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...", 
-    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..." 
-} 
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
+    "token_type": "Bearer",
+    "expires_in": "3600",
+    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..."
+}
 ```
 
 ## <a name="redeem-a-refresh-token"></a>Lösa in en uppdateringstoken
@@ -313,7 +312,7 @@ Skapa en POST-anrop som den som visas här. Använd informationen i följande ta
 - Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
 - Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägare autentiseringsuppgifter lösenordsprincip.
 
-| Nyckel | Value |
+| Nyckel | Värde |
 | --- | ----- |
 | _typ av beviljande | refresh_token |
 | response_type | id_token |
@@ -322,7 +321,7 @@ Skapa en POST-anrop som den som visas här. Använd informationen i följande ta
 | refresh_token | `refresh-token` |
 
 - Ersätt `application-id` med program-ID från den *ROPC_Auth_app* registrering.
-- Ersätt `refresh-token` med den **refresh_token** som skickades i föregående svar. 
+- Ersätt `refresh-token` med den **refresh_token** som skickades i föregående svar.
 
 Ett lyckat svar ser ut som i följande exempel:
 
@@ -350,5 +349,3 @@ Azure AD B2C uppfyller OAuth 2.0-standarder för lösenord-autentiseringsuppgift
 
 - Se ett fullständigt exempel på det här scenariot i den [startpaket för Azure Active Directory B2C-anpassad princip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
 - Mer information om de token som används av Azure Active Directory B2C i den [Token referens](active-directory-b2c-reference-tokens.md).
-
-

@@ -1,6 +1,6 @@
 ---
 title: Blockera äldre autentisering till Azure Active Directory (Azure AD) med villkorlig åtkomst | Microsoft Docs
-description: Lär dig hur du konfigurerar en princip för villkorlig åtkomst i Azure Active Directory (Azure AD) för åtkomstförsök från ej betrodda nätverk.
+description: Lär dig hur du kan förbättra din säkerhetsposition genom att blockera äldre autentisering med hjälp av Azure AD villkorsstyrd åtkomst.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5ff4861c288b82d6ce90d85c38ef3f92eb299ea4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076851"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562988"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Anvisningar: Blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
 Om du vill ge dina användare enkel åtkomst till dina appar i molnet, stöder Azure Active Directory (Azure AD) ett stort antal autentiseringsprotokoll, inklusive äldre autentisering. Äldre protokoll stöder dock inte multifaktorautentisering (MFA). MFA är ett vanligt krav adress identitetsstöld i många miljöer. 
+
 
 Om din miljö är redo att blockera äldre autentisering för att förbättra din klient protection kan göra du det här målet med villkorlig åtkomst. Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst att blockera äldre autentisering för din klient.
 
@@ -119,8 +120,7 @@ Det kan ta upp till 24 timmar innan principen ska träda i kraft.
 
 Du kan välja alla tillgängliga bevilja kontroller för det andra villkoret för klienter; slutanvändarens upplevelse är dock alltid samma - blockerat åtkomsten.
 
-Du kan konfigurera alla andra villkor bredvid det andra villkoret för klienter.
-Till exempel om du bara vill att blockera äldre autentisering för mobila enheter, ställa in den **enhetsplattformar** villkor genom att välja:
+Om du blockerar äldre autentisering med hjälp av det andra villkoret som klienter kan ange du också villkor för enhetens plattform och plats. Till exempel om du bara vill att blockera äldre autentisering för mobila enheter, ställa in den **enhetsplattformar** villkor genom att välja:
 
 - Android
 

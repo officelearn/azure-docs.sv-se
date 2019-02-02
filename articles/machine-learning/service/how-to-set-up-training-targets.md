@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 75caad2c183ba2d3c5442a3620705c6af8070755
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250715"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659600"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
@@ -159,7 +159,7 @@ Du kan använda en inbyggd system conda-miljö, en redan befintlig Python-miljö
 
 Använda Azure Data Science Virtual Machine (DSVM) som virtuell Azure-dator med det här scenariot. Den här virtuella datorn är en förkonfigurerad datavetenskap och AI-utvecklingsmiljö i Azure. Den virtuella datorn erbjuder en granskad val av verktyg och ramverk för fullständig livscykel machine learning-utveckling. Mer information om hur du använder DSVM med Azure Machine Learning finns [konfigurera en utvecklingsmiljö](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Skapa**: Skapa en DSVM innan du använder den för att träna din modell. Om du vill skapa den här resursen [etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Skapa**: Skapa en DSVM innan du använder den för att träna din modell. Om du vill skapa den här resursen [etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > Azure Machine Learning stöder endast virtuella datorer som kör Ubuntu. När du skapar en virtuell dator eller välj en befintlig virtuell dator, väljer du en virtuell dator med Ubuntu.
@@ -384,5 +384,5 @@ Se dessa anteckningsböcker för exempel på utbildning med olika beräkningsmå
 
 * [Självstudier: Träna en modell](tutorial-train-models-with-aml.md) använder hanterade beräkningsmål för att träna en modell.
 * När du har en tränad modell, lär du dig [hur och var du vill distribuera modeller](how-to-deploy-and-where.md).
-* Visa den [RunConfiguration klass](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK-referens.
+* Visa den [RunConfiguration klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK-referens.
 * [Använda Azure Machine Learning-tjänsten med Azure-nätverk](how-to-enable-virtual-network.md)

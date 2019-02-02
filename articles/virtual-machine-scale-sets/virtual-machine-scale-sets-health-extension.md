@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 1ac7b5f41c0c941db08a63c516febabaf9f07b3e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491390"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565980"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Med hjälp av programmets hälsotillstånd anger tillägg med VM-skalningsuppsättning
 Övervakning av programmets hälsotillstånd är ett viktigt signal för att hantera och uppgradera din distribution. Azure VM-skalningsuppsättningar har stöd för [löpande uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) inklusive [automatiska uppgraderingar av OS-avbildning](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälsoövervakning av enskilda instanser att uppgradera din distribution .
 
 Den här artikeln beskrivs hur du kan använda tillägget programmets hälsotillstånd för att övervaka hälsotillståndet för dina program distribuerade på VM-skalningsuppsättningar.
 
-## <a name="pre-requisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du är bekant med:
 -   Azure-dator [tillägg](../virtual-machines/extensions/overview.md)
 -   [Ändra](virtual-machine-scale-sets-upgrade-scale-set.md) VM-skalningsuppsättningar

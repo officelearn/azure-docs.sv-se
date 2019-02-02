@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 34b70b1a6a77a20a034a7822d9c4961c36cdd51c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888999"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663969"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -40,17 +40,12 @@ DSCForLinux tillägg publiceras och stöds av Microsoft. OMI och DSC-agenten ins
 
 ### <a name="operating-system"></a>Operativsystem
 
-DSC-Linux-tillägget har stöd för alla de [tillägget stöds operativsystem](https://azurewiki.cloudapp.netVMAgentExtension/extensionSupportedOSs) utom:
+DSC-Linux-tillägget har stöd för alla de [på Azure-godkända Linux-distributioner](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) utom:
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 6,5 och högre |
-| Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
-| RHEL| 6,5 och högre  |
-| openSUSE| 13.1 och högre  |
-| SUSE Linux Enterprise Server| 11 SP3 och högre  |
-
-  
+| Debian | Alla versioner |
+| Ubuntu| 18.04 |
  
 ### <a name="internet-connectivity"></a>Internetanslutning
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 35c5731d260fb63dece3d2b8ae4f4a4522fb91b8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153412"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564805"
 ---
 # <a name="date-claims-transformations"></a>Datum anspråk omvandlingar
 
@@ -23,7 +23,7 @@ ms.locfileid: "55153412"
 
 Den här artikeln innehåller exempel för att använda anspråk datumtransformeringar av Identitetsramverk schemat i Azure Active Directory (Azure AD) B2C. Mer information finns i [ClaimsTransformations](claimstransformations.md).
 
-## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
+## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
 Kontrollerar att ett datum och tid anspråk (strängdatatypen) är senare än ett andra datum och tid Anspråkstypen (sträng data) och utlöser ett undantag.
 
@@ -85,7 +85,6 @@ Den tekniska profilen självkontrollerad anropar verifieringen **inloggning utan
     - **rightOperand**: 2018-10-01T14:00:00.0000000Z
 - Resultat: Fel uppstod
 
-
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
 Konverterar en **datum** ClaimType till en **DateTime** ClaimType. Anspråkstransformering konverterar en tid-format och lägger till 12:00:00 AM i datumet.
@@ -98,7 +97,7 @@ Konverterar en **datum** ClaimType till en **DateTime** ClaimType. Anspråkstran
 Exemplet nedan visar konvertering av anspråket `dateOfBirth` (datum datatyp) till en annan anspråk `dateOfBirthWithTime` (datatypen dateTime).
 
 ```XML
-<ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
+  <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
     </InputClaims>
@@ -163,7 +162,7 @@ Om du vill köra anspråksomvandling, måste du först hämta den aktuella datum
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="result" />
-  </OutputClaims>      
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -175,6 +174,5 @@ Om du vill köra anspråksomvandling, måste du först hämta den aktuella datum
 - Indataparametrar:
     - **operatorn**: senare än
     - **timeSpanInSeconds**: 7776000 (90 dagar)
-- Utgående anspråk: 
+- Utgående anspråk:
     - **resultatet**: true
-

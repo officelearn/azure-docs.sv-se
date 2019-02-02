@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301262"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564960"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -55,7 +55,7 @@ S: Klicka på ”filter” på den vänstra pan att visa en förhandsgranskning 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>F. Varför får jag felet: ”Registrera resursprovidern” Microsoft.Insights ”för den här prenumerationen om du vill aktivera den här frågan” i loggar efter Detaljgranskning i från virtuell dator? 
 
-S: Många resursproviders registreras automatiskt som standard, men du kan behöva registrera några resursproviders manuellt. Den här koden konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Mer information finns i [Resursproviders och resurstyper](../../azure-resource-manager/resource-manager-supported-services.md#portal).
+S: Många resursproviders registreras automatiskt som standard, men du kan behöva registrera några resursproviders manuellt. Den här koden konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Mer information finns i [Resursproviders och resurstyper](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>F. Varför kan jag får ingen åtkomst felmeddelande vid åtkomst till loggar från en sida för virtuell dator? 
 

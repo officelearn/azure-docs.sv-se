@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: aa38fe3da118515b20d9b743a9a22b54e338051a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fcd8f4f8408c7c51265802fde057146e6cdbb090
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463720"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657628"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på. 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du kopplar en permanent disk till den virtuella dato
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Koppla en ny disk till en virtuell dator
 
-Om du vill lägga till en ny, tom datadisk på den virtuella datorn använder den [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) med den `--new` parametern. Om den virtuella datorn är i en Tillgänglighetszon, skapas disken automatiskt i samma zon som den virtuella datorn. Mer information finns i [översikt över Tillgänglighetszoner](../../availability-zones/az-overview.md). I följande exempel skapas en disk med namnet *myDataDisk* som är 50 Gb i storlek:
+Om du vill lägga till en ny, tom datadisk på den virtuella datorn använder den [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) med den `--new` parametern. Om den virtuella datorn är i en Tillgänglighetszon, skapas disken automatiskt i samma zon som den virtuella datorn. Mer information finns i [översikt över Tillgänglighetszoner](../../availability-zones/az-overview.md). I följande exempel skapas en disk med namnet *myDataDisk* som är 50 Gb i storlek:
 
 ```azurecli
 az vm disk attach \
@@ -42,7 +42,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk 
 
-Om du vill koppla en befintlig disk, disk-ID: t och skicka ID som den [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) kommando. Följande Exempelfrågor för en disk med namnet *myDataDisk* i *myResourceGroup*, kopplar den till den virtuella datorn med namnet *myVM*:
+Om du vill koppla en befintlig disk, disk-ID: t och skicka ID som den [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) kommando. Följande Exempelfrågor för en disk med namnet *myDataDisk* i *myResourceGroup*, kopplar den till den virtuella datorn med namnet *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)

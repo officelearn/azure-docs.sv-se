@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 14eb92141a9d27d9f8978abb6d5c9a738c821ead
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866312"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565589"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Använda elastic database-klientbibliotek med Dapper
 Det här dokumentet är för utvecklare som förlitar sig på Dapper att skapa program, men också vilja ta del av [elastisk databas-tooling](sql-database-elastic-scale-introduction.md) skapar du program att implementera horisontell partitionering för att skala ut datanivån.  Det här dokumentet visar ändringarna i Dapper-baserade program som är nödvändiga för att integrera med verktyg för elastiska databaser. Vår fokus ligger på att skriva fragmenthanterings för elastiska databaser och databeroende routning med Dapper. 
@@ -49,9 +49,9 @@ Istället för att använda det traditionella sättet att skapa anslutningar fö
 ### <a name="requirements-for-dapper-integration"></a>Krav för Dapper integrering
 När du arbetar med både elastic database-klientbibliotek och Dapper-API: er som du vill behålla följande egenskaper:
 
-* **Skala ut**: vi vill lägga till eller ta bort databaser från datanivån för delat program efter behov för kapacitetskraven för programmet. 
-* **Konsekvens**: eftersom programmet skalas ut med horisontell partitionering, behöver du utföra databeroende routning. Vi vill använda databeroende routning funktionerna i biblioteket för att göra detta. I synnerhet du vill behålla verifieringen och konsekvens garanterar tillhandahålls av anslutningar som är asynkron via fragmentkartehanteraren för att undvika skadade eller fel frågeresultat. Detta säkerställer att anslutningar till en viss shardlet avvisade eller stoppas om (till exempel) i shardlet för närvarande har flyttats till en annan shard med dela/Sammanslå API: er.
-* **Objektmappningen**: vi vill behålla praktiskt mappningar som tillhandahålls av Dapper att översätta mellan klasser i programmet och de underliggande strukturerna för databasen. 
+* **Skala ut**: Vi vill lägga till eller ta bort databaser från datanivån för delat program efter behov för kapacitetskraven för programmet. 
+* **Konsekvens**: Du behöver utföra databeroende routning eftersom programmet skalas ut med horisontell partitionering. Vi vill använda databeroende routning funktionerna i biblioteket för att göra detta. I synnerhet du vill behålla verifieringen och konsekvens garanterar tillhandahålls av anslutningar som är asynkron via fragmentkartehanteraren för att undvika skadade eller fel frågeresultat. Detta säkerställer att anslutningar till en viss shardlet avvisade eller stoppas om (till exempel) i shardlet för närvarande har flyttats till en annan shard med dela/Sammanslå API: er.
+* **Objekt-mappning**: Vi vill behålla praktiskt mappningar som tillhandahålls av Dapper att översätta mellan klasser i programmet och de underliggande strukturerna för databasen. 
 
 Följande avsnitt innehåller råd om kraven för programmen baserat på **Dapper** och **DapperExtensions**.
 
@@ -137,7 +137,7 @@ Och här är exempelkod för frågan:
     }
 
 ### <a name="handling-transient-faults"></a>Hantering av tillfälliga fel
-Microsoft Patterns & Practices-teamet publicerade den [hantering av Programblocket tillfälliga](https://msdn.microsoft.com/library/hh680934.aspx) kan hjälpa programutvecklare minimera villkor för vanliga tillfälliga fel påträffades vid körning i molnet. Mer information finns i [Perseverance, hemlighet för alla framgångar: med den hantering av Programblocket tillfälliga](https://msdn.microsoft.com/library/dn440719.aspx).
+Microsoft Patterns & Practices-teamet publicerade den [hantering av Programblocket tillfälliga](https://msdn.microsoft.com/library/hh680934.aspx) kan hjälpa programutvecklare minimera villkor för vanliga tillfälliga fel påträffades vid körning i molnet. Mer information finns i [Perseverance, hemlighet för alla framgångar: Med hjälp av Programblocket för hantering av tillfälliga fel](https://msdn.microsoft.com/library/dn440719.aspx).
 
 Kodexemplet är beroende av tillfälliga fel-biblioteket för att skydda mot tillfälliga fel. 
 

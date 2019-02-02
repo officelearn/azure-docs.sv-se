@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 17d8eff39eabb2f7b4968bf74d2482b980fe8060
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116627"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565963"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
 I den [Azure-portalen](https://portal.azure.com) du kan konfigurera övervakning av programprestanda för dina webbappar, mobila serverdelar och API-appar i [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrumenterar din app så att den skickar telemetri om sina aktiviteter till Application Insights-tjänsten, där informationen lagras och analyseras. Där kan du använda diagram med mätvärden och sökverktyg för att diagnostisera problem, förbättra prestanda och utvärdera användningen.
@@ -25,7 +25,7 @@ I den [Azure-portalen](https://portal.azure.com) du kan konfigurera övervakning
 ## <a name="run-time-or-build-time"></a>Vid körning eller utveckling
 Du kan konfigurera övervakning genom att instrumentera appen på något av två sätt:
 
-* **Körning** – du kan välja ett tillägg för prestandaövervakning när din app service redan är live. Du behöver inte återskapa eller installera om appen. Du får en standarduppsättning med paket som övervakar svarstider, framgångsfrekvens, undantag, beroenden och så vidare. 
+* **Körning** – du kan välja ett tillägg för prestandaövervakning när din app service redan är live. Du behöver inte återskapa eller installera om din app. Du får en standarduppsättning med paket som övervakar svarstider, framgångsfrekvens, undantag, beroenden och så vidare. 
 * **Vid utveckling** – Du kan installera ett paket i din app i samband med utvecklingen. Det här alternativet är mer flexibelt. Förutom motsvarande standardpaket kan du skriva kod för att anpassa telemetrin eller skicka din egen telemetri. Du kan logga specifika aktiviteter eller registrera händelser baserat på semantiken för din appdomän. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentering i samband med körning med Application Insights
@@ -42,14 +42,27 @@ Om du redan kör en app service i Azure måste du redan tillgång till viss öve
 
     ![Instrumentera din webbapp](./media/azure-web-apps/create-resource.png)
 
-2. Du kan välja hur du vill att application insights för att samla in data per plattform för ditt program när du har angett vilken resurs som ska användas.
+2. Du kan välja hur du vill att application insights för att samla in data per plattform för ditt program när du har angett vilken resurs som ska användas. (Övervakning av ASP.NET-app är på som standard med två olika nivåer för insamling av.)
 
-    ![Välj alternativ per plattform](./media/azure-web-apps/choose-options.png)
+    ![Välj alternativ per plattform](./media/azure-web-apps/choose-options-new.png)
+
+    * .NET **grundläggande samling** nivå erbjuder grundläggande enkelinstanser APM-funktioner.
+    
+    * .NET **rekommenderas samling** nivå:
+        * Lägger till trender för processor, minne och i/o-användning.
+        * Korrelerar micro-tjänster över begäran/beroende gränser.
+        * Samlar in användningstrender och gör det möjligt för korrelation från tillgänglighetsresultat med transaktioner.
+        * Samlar in undantag som ohanterat av värdprocessen.
+        * Förbättrar precisionen för APM-måtten under belastning, när sampling används.
+    
+    .NET core erbjuder **rekommenderas samling** eller är inaktiverad för .NET Core 2.0 och 2.1.
 
 3. **Instrumentera din apptjänst** när Application Insights har installerats.
 
-   **Aktivera övervakning på klientsidan** för sidvy och användartelemetri.
+   **Aktivera övervakning på klientsidan** för sidan sidvy och användartelemetri.
 
+    (Detta är aktiverat som standard för .NET Core-appar med **rekommenderas samling**, oavsett om appinställningen 'APPINSIGHTS_JAVASCRIPT_ENABLED' är närvarande. Detaljerad UI-baserad stöd för inaktivering av övervakning på klientsidan är inte tillgänglig för .NET Core.)
+    
    * Välj Inställningar > Programinställningar
    * Under Appinställningar lägger du till ett nytt nyckel/värde-par:
 
@@ -57,6 +70,7 @@ Om du redan kör en app service i Azure måste du redan tillgång till viss öve
 
     Värde:`true`
    * **Spara** inställningarna och **starta om** din app.
+
 4. Utforska övervakningsdata för din app genom att välja **inställningar** > **Programinsikter** > **visa mer i Application Insights**.
 
 Senare kan du skapa appen med Application Insights om du vill.
@@ -85,16 +99,12 @@ Application Insights kan tillhandahålla mer detaljerad telemetri genom installa
 
 *Hur växlar jag till att skicka telemetri till en annan Application Insights-resurs?*
 
-* I Visual Studio högerklickar du på projektet, väljer **Konfigurera Application Insights** och väljer önskad resurs. Du får möjlighet att skapa en ny resurs. Återskapa och distribuera igen.
+* Högerklicka på projektet i Visual Studio, Välj **konfigurera Application Insights**, och väljer önskad resurs. Du får möjlighet att skapa en ny resurs. Återskapa och distribuera igen.
 
 ## <a name="more-telemetry"></a>Mer telemetri
 
 * [Data om webbsidesinläsning](../../azure-monitor/app/javascript.md)
 * [Anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md)
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -102,10 +112,19 @@ Application Insights kan tillhandahålla mer detaljerad telemetri genom installa
 
 Aktivera Javascript via App Services kan orsaka html-svar på att stängas.
 
-- Lösning 1: Ange APPINSIGHTS_JAVASCRIPT_ENABLED inställningen till false eller ta bort det helt och starta om
-- Lösning 2: Lägg till sdk via kod och ta bort tillägget (Profiler och Snapshot debugger inte med den här konfigurationen)
+* Lösning 1: Ange APPINSIGHTS_JAVASCRIPT_ENABLED inställningen till false eller ta bort det helt och starta om
+* Lösning 2: Lägg till sdk via kod och ta bort tillägget (Profiler och Snapshot debugger inte med den här konfigurationen)
 
 Vi följer upp problemet [här](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+
+För .NET Core följande är för närvarande **stöds inte**:
+
+* Fristående distribution.
+* Appar som riktar in sig på .NET Framework.
+* 2.2 för .NET core-program.
+
+> [!NOTE]
+> .NET core 2.0 och .NET Core 2.1 stöds. När du lägger till stöd för .NET Core 2.2 kommer att uppdateras i den här artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kör profileraren för din live-app](../../azure-monitor/app/profiler.md).

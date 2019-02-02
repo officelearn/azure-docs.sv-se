@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244257"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660127"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Certifikatkrav för Azure Stack-infrastruktur för offentliga nycklar
 
@@ -49,7 +49,7 @@ I följande lista beskrivs kraven på certifikaten som behövs för att distribu
 - Pfx-filer för certifikatet måste ha värdena ”serverautentisering (1.3.6.1.5.5.7.3.1)” och ”klientautentisering (1.3.6.1.5.5.7.3.2)” i fältet ”förbättrad nyckelanvändning”.
 - Certifikatets ”utfärdat till”: fältet får inte vara samma som dess ”utfärdat av”: fält.
 - Lösenorden för alla certifikat pfx-filer måste vara samma vid tidpunkten för distribution
-- Lösenord för den certifikat PFX-filen måste vara ett komplext lösenord.
+- Lösenord för den certifikat PFX-filen måste vara ett komplext lösenord. Skapa ett lösenord som uppfyller följande komplexitetskrav för lösenord. En minsta längd på åtta tecken. Lösenordet innehåller minst tre av följande: versala bokstäver, gemena bokstäver, siffror från 0 till 9, specialtecken, alfabetiskt tecken som är varken versaler eller gemener. Anteckna det här lösenordet. Du använder den som en parameter för distribution.
 - Se till att ämnesnamn och Alternativt ämnesnamn i ämne alternativt namn för tillägget (x509v3_config) matchningen. Fältet för certifikatmottagarens alternativa namn kan du ange ytterligare värdnamn (webbplatser, IP-adresser, vanliga namn) som ska skyddas av ett enda SSL-certifikat.
 
 > [!NOTE]  

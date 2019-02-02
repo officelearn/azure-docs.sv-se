@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 90cd6f640188408771b3a64a31aadf89cfefcaae
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487871"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563345"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer (förhandsversion)
 Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med hjälp av Log Analytics och Azure Monitor, har de inte utvecklats modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
@@ -142,13 +142,6 @@ Här du snabbt kan identifiera de övre kritiska problem som identifieras av hea
 Den **VM-distribution av operativsystem** i listan visas virtuella datorer som anges av version av Windows eller Linux-distribution, tillsammans med deras version. I varje kategori för operativsystemet, de virtuella datorerna är uppdelade ytterligare baserat på hälsotillståndet för den virtuella datorn. 
 
 ![VM-Insights VM distribution perspektiv](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
-
-Hälsotillstånden som definierats för en virtuell dator finns: 
-
-* **Felfria** – inga problem har identifierats för den virtuella datorn och den fungerar som krävs.  
-* **Kritiska** – en eller flera kritiska problem har identifierats som behöver åtgärdas om du vill återställa normal drift som förväntat. 
-* **Varning** – ett eller flera problem har identifierats som behöver åtgärdas eller hälsostatus kan bli kritiska.  
-* **Okänd** – om tjänsten inte kunde upprätta en anslutning med den virtuella datorn att status ändras till ett okänt tillstånd.  
 
 Du kan klicka på valfri kolumn-artikel - **antal virtuella datorer**, **kritisk**, **varning**, **felfri** eller **okänd** till detaljnivån i **virtuella datorer** sidan finns i en lista över filtrerade resultat som matchar den markerade kolumnen. Om vi vill granska alla virtuella datorer som kör till exempel **Red Hat Enterprise Linux-version 7.5**, klicka på den **antal virtuella datorer** värdet för det OS och det öppnas sidan därefter visa en lista över de virtuella datorerna som matchar filtret och deras kända hälsotillstånd.  
 

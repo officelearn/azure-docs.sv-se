@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477866"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563838"
 ---
 # <a name="onboarding-requirements"></a>Värvningskrav
 
@@ -33,7 +33,7 @@ Den här listan monterar krav för att köra SAP HANA på Azure (stora instanser
 
 **Nätverksanslutning**
 
-- ExpressRoute mellan en lokal plats till Azure: Se till att beställa på minst 1 Gbit/s-anslutning från Leverantören för att ansluta ditt lokala Datacenter till Azure. Anslutningen mellan stora HANA-instansen enheter och Azure använder ExpressRoute-teknik. Den här ExpressRoute-anslutning mellan stora HANA-instansen enheter och Azure ingår i priset för enheter för stora HANA-instansen. Därför som kund inte uppstå ytterligare kostnader utöver din ExpressRoute-länken mellan lokala och Azure.
+- ExpressRoute mellan en lokal plats till Azure: Se till att beställa på minst 1 Gbit/s-anslutning från Leverantören för att ansluta ditt lokala Datacenter till Azure. Anslutningen mellan stora HANA-instansen enheter och Azure använder ExpressRoute-teknik. Den här ExpressRoute-anslutning mellan stora HANA-instansen enheter och Azure ingår i priset för stora HANA-instansen-enheter, inklusive alla data-ingående och utgående avgifter för den här specifika ExpressRoute-krets. Därför som kund inte uppstå ytterligare kostnader utöver din ExpressRoute-länken mellan lokala och Azure.
 
 **Operativsystem**
 

@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 085f95e1df67a12afac5c327b4368efd275600b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ab268a27d8ce2f91c52dd5b5df0c22a564831e56
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100182"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663697"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hur: Planera implementeringen hybrid Azure Active Directory join
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen hybrid Azure Active Directory join
 
 På liknande sätt som en användare blir en enhet till en identitet som du vill skydda och också använda för att skydda dina resurser, alltid och överallt. Det kan du göra genom att överföra enheternas identiteter till Azure Active Directory på något av följande sätt:
 
@@ -111,7 +111,7 @@ Om din organisation kräver Internetåtkomst via en autentiserad proxyserver fö
 
 Hybrid Azure AD-anslutning är en process för att automatiskt registrera dina lokala domänanslutna enheter med Azure AD. Det finns fall där du inte vill att alla dina enheter att registrera automatiskt. Om det här gäller för dig, se [hur du styr hybrid Azure AD-anslutning av dina enheter](hybrid-azuread-join-control.md).
 
-Om din Windows 10-domänanslutna enheter är redan [Azure AD-registrerad](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) till din klient, bör du ta bort det aktuella tillståndet innan du aktiverar Hybrid Azure AD-anslutning. Dubbel tillståndet för en enhet ska vara både, hybrid Azure AD-anslutning och Azure AD-registrerad stöds inte. Följande ändringar har gjorts att undvika det här dubbel tillståndet från Windows 10 1809 version: 
+Om din Windows 10-domänanslutna enheter är redan [Azure AD-registrerad](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) till din klient, bör du ta bort det aktuella tillståndet innan du aktiverar Hybrid Azure AD-anslutning. Dubbel tillståndet för en enhet ska vara både, hybrid Azure AD-anslutning och Azure AD-registrerad stöds inte. Följande ändringar har gjorts att undvika det här dubbel tillståndet från Windows 10 1809 version: 
  - Alla befintliga Azure AD-registrerad tillstånd skulle tas bort automatiskt när enheten är Hybrid Azure AD-anslutna. 
  - Du kan förhindra att dina domänansluten enhet som Azure AD-registrerad genom att lägga till den här registernyckeln - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, ”BlockAADWorkplaceJoin” = DWORD: 00000001
 

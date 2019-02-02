@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004892"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658122"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i ditt program med Azure IoT Central
 
@@ -23,6 +23,8 @@ Den här artikeln beskrivs hur du som en operatör att hantera enheter i Azure I
 - Upprätthålla en uppdaterad förteckning över dina enheter.
 - Håll din enhetsmetadata uppdaterad genom att ändra de värden som lagras i egenskaperna för enheten.
 - Styra beteendet för dina enheter genom att uppdatera en inställning i en specifik enhet från den **inställningar** sidan.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="view-your-devices"></a>Visa dina enheter
 
@@ -116,7 +118,7 @@ Massregistrera enheter för export från ditt program:
 
     [![Exporten lyckades](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. Den exporterade CSV-filen innehåller följande kolumner: **enhets-Id, enhetsnamn, Priamry/sekundär enhetsnycklar och primära och sekundära certifikat thumbrpints**
+1. Den exporterade CSV-filen innehåller följande kolumner: **Enhets-Id, enhetsnamn, Priamry/sekundär enhetsnycklar och primära och sekundära certifikat thumbrpints**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

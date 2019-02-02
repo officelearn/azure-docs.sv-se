@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7505715641462f4a07d999ea419632bd91e925fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 28b73a70ef9ffd4e73117d599448434823747eca
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438923"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567408"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en grupp
 
@@ -66,7 +66,7 @@ Ange i sökrutan överst på portalen *nätverkssäkerhetsgrupper*. När **nätv
 2. Välj den nya nätverkssäkerhetsgruppen i listan som du vill visa information om. Under **inställningar** du kan visa den **ingående säkerhetsregler** och **utgående säkerhetsregler**, **nätverksgränssnitt** och  **Undernät** nätverkssäkerhetsgruppen är kopplad till. Du kan också aktivera eller inaktivera **diagnostikloggar** och visa **gällande säkerhetsregler**. Mer information finns i [diagnostikloggar](virtual-network-nsg-manage-log.md) och [visa gällande säkerhetsregler](diagnose-network-traffic-filter-problem.md).
 3. Mer information om vanliga Azure inställningarna finns i följande artiklar:
     *   [Aktivitetslogg](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Åtkomstkontroll (IAM)](../role-based-access-control/overview.md)
     *   [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Lås](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automationsskript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)

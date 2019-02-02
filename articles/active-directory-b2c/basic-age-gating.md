@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e3e60a7ee435cb23bd6a7f78d409691c94d6c49e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153274"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562444"
 ---
-# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Aktivera åldershantering i Azure Active Directory B2C
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Aktivera Åldershantering i Azure Active Directory B2C
 
 >[!IMPORTANT]
 >Den här funktionen är en allmänt tillgänglig förhandsversion. Använd inte funktionen för program i produktion. 
@@ -103,7 +103,7 @@ När din klient har ställts in för användning av åldershantering, du kan sed
 1. Skapa ett användarflöde som har åldershantering aktiverat.
 2. När du har skapat användarflödet Välj **egenskaper** på menyn.
 3. I den **åldershantering** väljer **aktiverad**.
-4. Du kan sedan bestämmer hur du vill hantera användare som identifierar som minderåriga. För **registrering eller inloggning**, du väljer `Allow minors to access your application` eller `Block minors from accessing your application`. Om blockerar minderåriga är valt väljer du `Send a JSON bcak to the application` eller `Show an error message`. 
+4. Du kan sedan bestämmer hur du vill hantera användare som identifierar som minderåriga. För **registrering eller inloggning**, du väljer `Allow minors to access your application` eller `Block minors from accessing your application`. Om blockerar minderåriga är valt väljer du `Send a JSON back to the application` eller `Show an error message`. 
 
 
 

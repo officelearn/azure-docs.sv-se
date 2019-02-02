@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4be3de8de4332e8ffb0e88e612a3041829ccd606
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267138"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658580"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-utdata till Azure Cosmos DB  
 Stream Analytics kan riktas mot [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) att aktivera arkivering och låg latens datafrågor för Ostrukturerade JSON-data för JSON-utdata. Det här dokumentet beskriver några av metodtipsen för att implementera den här konfigurationen.
@@ -49,7 +49,7 @@ Om inkommande JSON-dokumentet har ett befintligt ID-fält att fältet används a
 Om du vill spara <i>alla</i> dokument, inklusive som med en dubblett-ID, byta namn på ID-fältet i din fråga (med nyckelordet AS) och låt Cosmos DB skapa ID-fältet eller ersätta ID med en annan kolumn värde (med hjälp av nyckelordet AS eller med inställningen dokument-ID).
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Datapartitionering i Cosmos DB
-Azure Cosmos DB [obegränsad](../cosmos-db/partition-data.md) är den rekommenderade metoden för att partitionera dina data, som Azure Cosmos DB automatiskt skalar partitioner baserat på din arbetsbelastning. Vid skrivning till obegränsade behållare, använder Stream Analytics så många parallella skrivare som tidigare frågesteg eller indata som partitioneringsschema.
+Azure Cosmos DB [obegränsad](../cosmos-db/partition-data.md) behållare är den rekommenderade metoden för att partitionera dina data, som Azure Cosmos DB automatiskt skalar partitioner baserat på din arbetsbelastning. Vid skrivning till obegränsade behållare, använder Stream Analytics så många parallella skrivare som föregående fråga steg eller indata partitioneringsschema.
 > [!Note]
 > För närvarande stöder Azure Stream Analytics endast obegränsade samlingar med partitionsnycklar på den översta nivån. Till exempel `/region` stöds. Kapslade partitionsnycklar (t.ex. `/region/name`) stöds inte. 
 

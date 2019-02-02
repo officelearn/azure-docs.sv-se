@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80510b4f3f07b96b9084108fcb89c75e108cbc65
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fda7d6d3fddf2f4529a983ce2d4991797a5c8448
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096859"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661844"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -59,11 +59,9 @@ Azure Disk Encryption stöds på följande Linux-server-distributioner och versi
 | CentOS | 6.7 | Datadisk |
 | CentOS | 6.6 | Datadisk |
 | CentOS | 6.5 | Datadisk |
-| openSUSE | SUSE:openSUSE-Leap:42.3:latest | Datadisk |
-| SLES | SUSE:SLES-Priority:12-SP4:latest | Datadisk |
-| SLES | SUSE:SLES-HPC:12-SP3:latest | Datadisk |
-| SLES | SUSE:SLES-Priority:12-SP3:latest | Datadisk |
-
+| openSUSE | 42.3 | Datadisk |
+| SLES | 12-SP4 | Datadisk |
+| SLES | 12-SP3 | Datadisk |
 
 *__Ny ADE implementering har stöd för RHEL-OS- och datadisk för RHEL7 betala per användning-avbildningar. ADE stöds för närvarande inte för RHEL Bring-Your-Own-prenumeration (BYOS)-avbildningar. Också finns den [Azure Disk Encryption för Linux](azure-security-disk-encryption-linux.md) artikeln för mer information.__
 

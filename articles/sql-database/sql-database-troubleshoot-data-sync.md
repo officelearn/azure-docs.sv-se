@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/20/2018
+ms.openlocfilehash: d9e1eee9ab45e9f3a74f296e555c8f91802f36ab
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723900"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563192"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Felsöka problem med SQL Data Sync
 
@@ -62,12 +62,12 @@ Något av följande villkor kan resultera i en synkroniseringsgrupp som fastnat 
 
 - **Lösning**. Se till att klientagenten är online och försök sedan igen.
 
-- **Orsak**. Klientagenten är avinstallerade eller saknas.
+- **Orsak**. Klientagenten är avinstallerad eller saknas.
 
-- **Lösning**. Om klientagenten avinstallerats eller på annat sätt saknas:
+- **Lösning**. Om klientagenten är avinstallerad eller saknas:
 
-    1. Ta bort agenten XML-filen från installationsmappen för SQL Data Sync, om filen finns.
-    1. Installera agenten på den lokala datorn (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.
+    1. Ta bort agentens XML-fil från installationsmappen för SQL Data Sync, om filen finns.
+    1. Installera agenten på en lokal dator (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.
 
 - **Orsak**. SQL Data Sync-tjänsten har stoppats.
 
@@ -152,11 +152,11 @@ Det går inte att ditt försök att ta bort en synkroniseringsgrupp. Något av f
 
 - **Lösning**. Kontrollera att klientagenten är online och försök sedan igen.
 
-- **Orsak**. Klientagenten är avinstallerade eller saknas.
+- **Orsak**. Klientagenten är avinstallerad eller saknas.
 
-- **Lösning**. Om klientagenten avinstallerats eller på annat sätt saknas:  
-    a. Ta bort agenten XML-filen från installationsmappen för SQL Data Sync, om filen finns.  
-    b. Installera agenten på den lokala datorn (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.
+- **Lösning**. Om klientagenten är avinstallerad eller saknas:  
+    a. Ta bort agentens XML-fil från installationsmappen för SQL Data Sync, om filen finns.  
+    b. Installera agenten på en lokal dator (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.
 
 - **Orsak**. En databas är offline.
 
@@ -231,8 +231,8 @@ Du kan inte ta bort en synkroniseringsgrupp inom tre minuter efter att avinstall
   1. Ta bort en synkroniseringsgrupp medan de associerade synkroniseringsagenter är online (rekommenderas).
   1. Om agenten är offline men är installerat, kan du ta den online på den lokala datorn. Vänta tills statusen för agenten ska visas som **Online** i SQL Data Sync-portalen. Ta sedan bort synkroniseringsgruppen.
   1. Om agenten är offline eftersom det avinstallerades:  
-    a.  Ta bort agenten XML-filen från installationsmappen för SQL Data Sync, om filen finns.  
-    b.  Installera agenten på den lokala datorn (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.  
+    a.  Ta bort agentens XML-fil från installationsmappen för SQL Data Sync, om filen finns.  
+    b.  Installera agenten på en lokal dator (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.  
     c. Försök att ta bort synkroniseringsgruppen.
 
 ### <a name="setup-restore"></a> Vad händer när jag återställer en förlorad eller skadad databas?
@@ -244,7 +244,7 @@ Mer information om SQL Data Sync finns:
 
 -   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md)
 -   Konfigurera Data Sync
-    - I portalen – [självstudien: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
+    - I portalen – [Självstudie: Konfigurera SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server lokalt](sql-database-get-started-sql-data-sync.md)
     - Med PowerShell
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)

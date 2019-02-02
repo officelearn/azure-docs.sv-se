@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236938"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661096"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autentisering och auktorisering med Power BI-Arbetsytesamlingar
 
@@ -38,15 +38,15 @@ Token som appen är en JWT (JSON Web Token) som har signerats av en av dina nyck
 
 Din apptoken kan innehålla följande anspråk:
 
-| Begär | Beskrivning |    
+| Begäran | Beskrivning |    
 | --- | --- |
 | **ver** |Versionen av apptoken. 0.2.0 är den aktuella versionen. |
 | **aud** |Den avsedda mottagaren av token. För att använda Power BI-Arbetsytesamlingar: *https:\//analysis.windows.net/powerbi/api*. |
 | **ISS** |En sträng som anger det program som utfärdade token. |
 | **typ** |Typ av apptoken som håller på att skapas. Aktuella den enda typ som stöds är **bädda in**. |
-| **nätverkskonfiguration** |Namn på arbetsytesamling token utfärdas för. |
-| **WID** |Arbetsyte-ID token utfärdas för. |
-| **RID** |Rapport-ID token utfärdas för. |
+| **wcn** |Namn på arbetsytesamling token utfärdas för. |
+| **wid** |Arbetsyte-ID token utfärdas för. |
+| **rid** |Rapport-ID token utfärdas för. |
 | **användarnamn** (valfritt) |Användarnamn är används med RLS en sträng som kan hjälpa dig att identifiera användaren när du använder RLS-regler. |
 | **roller** (valfritt) |En sträng som innehåller rollerna som kan väljas när du använder säkerhet på radnivå regler. Om du skickar mer än en roll bör de skickas som en matris för förekomster av textsträngen. |
 | **SCP** (valfritt) |En sträng som innehåller omfång för behörigheter. Om du skickar mer än en roll bör de skickas som en matris för förekomster av textsträngen. |
@@ -84,7 +84,7 @@ Body
 
 ```
 
-Det finns metoder i SDK: er som underlättar skapandet av apptoken. Till exempel för .NET kan du titta på den [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) klass och [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) metoder.
+Det finns metoder i SDK: er som underlättar skapandet av apptoken. Till exempel för .NET kan du titta på den [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) klass och [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) metoder.
 
 För .NET-SDK kan du referera till [scope](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -94,7 +94,7 @@ När du använder inbäddningstoken kan du begränsa användningen av de resurse
 
 Här följer några tillgängliga scope för Power BI-Arbetsytesamlingar.
 
-|Omfång|Beskrivning|
+|Scope|Beskrivning|
 |---|---|
 |Dataset.Read|Ger behörighet att läsa den angivna datamängden.|
 |Dataset.Write|Ger behörighet att skriva till den angivna datamängden.|
@@ -176,10 +176,10 @@ Efter **Power BI-Arbetsytesamlingar** skickar en rapport till användaren, anvä
 
 ## <a name="see-also"></a>Se även
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Kom igång med Microsoft Power BI-Arbetsytesamlingar exempel](get-started-sample.md)  
 [Vanliga scenarier för Microsoft Power BI-Arbetsytesamlingar](scenarios.md)  
 [Kom igång med Microsoft Power BI-Arbetsytesamlingar](get-started.md)  
-[Power BI-CSharp Git-lagringsplats](https://github.com/Microsoft/PowerBI-CSharp)
+[PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)
 
 Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)

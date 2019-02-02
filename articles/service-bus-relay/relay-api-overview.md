@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c7aec700a1077bc1a1b56afb5d8d07f47f4c6e8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700380"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663102"
 ---
 # <a name="available-relay-apis"></a>Tillgängliga Relay API: er
 
@@ -39,7 +39,7 @@ Den [ytterligare information](#additional-information) innehåller mer informati
 
 #### <a name="net"></a>.NET
 
-.NET-ekosystem har flera körningar, därför det finns flera .NET-bibliotek för Relay. .NET Standard-biblioteket kan köras med .NET Core eller .NET Framework, medan i .NET Framework-biblioteket kan bara köras i en miljö med .NET Framework. Läs mer på .NET Frameworks [ramverksversioner](/dotnet/articles/standard/frameworks#framework-versions).
+.NET-ekosystem har flera körningar, därför det finns flera .NET-bibliotek för Relay. .NET Standard-biblioteket kan köras med .NET Core eller .NET Framework, medan i .NET Framework-biblioteket kan bara köras i en miljö med .NET Framework. Läs mer på .NET Frameworks [ramverksversioner](/dotnet/articles/standard/frameworks).
 
 .NET Framework-biblioteket som endast stöder WCF-programmeringsmodellen och förlitar sig på en binär protokoll baserat på WCF `net.tcp` transport. Det här protokollet och biblioteket bevaras för bakåtkompatibilitet kompatibilitet med befintliga program.
 

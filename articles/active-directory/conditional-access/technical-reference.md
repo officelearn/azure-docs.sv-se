@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9677f6e7f78f241c863fdd9cc88fcfb7298d9164
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302112"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563753"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -177,24 +177,27 @@ I princip för villkorlig åtkomst kan du välja **mobilappar och skrivbordsklie
 Den här inställningen påverkar åtkomstförsök från följande mobilappar och skrivbordsklienter: 
 
 
-|Klientappar|Måltjänsten|Plattform|
-|---|---|---|
-|Azure RemoteApp|Azure RemoteApp-tjänsten|Windows 10, Windows 8.1, Windows 7, iOS, Android och Mac OS X|
-|Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, iOS och Android|
-|E-post/kalender/personer app, Outlook 2016 Outlook 2013 |Office 365 Exchange Online|Windows 10|
-|MFA- och platspolicy för appar. Enhetsbaserade principer stöds inte. |Alla Mina appar apptjänst|Android och iOS|
-|Microsoft Teams-tjänster – detta styr alla tjänster som stöder Microsoft Teams och alla dess klient Apps - Windows-skrivbordet och iOS, Android, WP och Webbklient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS |
-|Office 2016-appar, Office 2013, OneDrive-Synkroniseringsklienten (se [anteckningar](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016-appar, universella Office-appar, Office 2013, OneDrive-Synkroniseringsklienten (se [anteckningar](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-grupper stöd planeras i framtiden, stöd för SharePoint-appar planeras i framtiden|Office 365 SharePoint Online|Windows 10|
-|Office 2016 för macOS (Word, Excel, PowerPoint, OneNote endast). OneDrive för företag-stöd planeras för framtiden|Office 365 SharePoint Online|Mac OS X|
-|Office-mobilappar|Office 365 SharePoint Online|Android, iOS|
-|Office Yammer-appen|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office för Mac OS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013, Skype för företag|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Outlook-mobilappen|Office 365 Exchange Online|Android, iOS|
-|Power BI-app|Power BI-tjänsten|Windows 10, Windows 8.1, Windows 7, Android och iOS|
-|Skype för företag|Office 365 Exchange Online|Android, IOS |
-|Azure DevOps-app|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS och Android|
+| Klientappar| Måltjänsten| Plattform |
+| --- | --- | --- |
+| Azure RemoteApp| Azure RemoteApp-tjänsten| Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS|
+| Dynamics CRM-app| Dynamics CRM| Windows 10, Windows 8.1, iOS och Android|
+| E-post/kalender/personer app, Outlook 2016 Outlook 2013 (med modern autentisering)| Office 365 Exchange Online| Windows 10|
+| MFA- och platspolicy för appar. Enhetsbaserade principer stöds inte.| Alla Mina appar apptjänst| Android och iOS|
+| Microsoft Teams-tjänster – detta styr alla tjänster som stöder Microsoft Teams och alla dess klient Apps - Windows-skrivbordet och iOS, Android, WP och Webbklient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS|
+| Office 2016-appar, Office 2013 (med modern autentisering), OneDrive synkronisera klient (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Office 2016-appar, universella Office-appar, Office 2013 (med modern autentisering), OneDrive-Synkroniseringsklienten (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-grupper stöd planeras i framtiden, stöd för SharePoint-appar planeras i framtiden| Office 365 SharePoint Online| Windows 10|
+| Office 2016 (Word, Excel, PowerPoint och OneNote endast). OneDrive för företag-stöd planeras för framtiden| Office 365 SharePoint Online| macOS|
+| Office 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Office-mobilappar| Office 365 SharePoint Online| Android, iOS|
+| Office Yammer-appen| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Outlook 2016 (Office för Mac OS)| Office 365 Exchange Online| macOS|
+| Outlook 2016, Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Outlook-mobilappen| Office 365 Exchange Online| Android, iOS|
+| Power BI-app| Power BI-tjänsten| Windows 10, Windows 8.1, Windows 7, Android och iOS|
+| Skype för företag| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS och Android|
+
 
 
 ## <a name="support-for-legacy-authentication"></a>Stöd för äldre autentisering
@@ -214,27 +217,33 @@ Du kan kräva att en försöka valda moln-appar måste göras från en godkänd 
 Den här inställningen gäller för klientappar som följande:
 
 
-- Microsoft Intune Managed Browser
-- Microsoft PowerBI
-- Microsoft Invoicing
-- Microsoft Launcher
+
 - Microsoft Azure Information Protection
+- Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
 - Microsoft Kaizala 
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft PowerApps
+- Microsoft PowerBI
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
 - Microsoft StaffHub
+- Microsoft Stream
 - Microsoft Teams
+- Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
-- Microsoft To-Do
-- Microsoft Stream
-- Microsoft Edge
+- Microsoft Yammer
+
+
 
 
 

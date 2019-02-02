@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 36efb943855d36d1f830ba08554eabd0a8a88f50
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3ed781b7d3388015de93a81fb745764a8ad95baa
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169339"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663198"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -69,11 +69,11 @@ Att blockera en gästanvändare åtkomst till den [Azure-portalen](https://porta
 Ja. Multi-Factor authentication och konsument e-postkonton stöds både för Azure AD B2B-samarbete.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Har du stöd för återställning av lösenord för användare i Azure AD B2B-samarbetet?
-Om din Azure AD-klient är arbetskatalogen för en användare, kan du [återställa användarens lösenord](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal#how-to-reset-the-password-for-a-user) från Azure-portalen. Men du kan inte direkt återställa ett lösenord för en gästanvändare som loggar in med ett konto som hanteras av någon annan Azure AD directory eller extern identitetsprovider. Endast gästanvändaren eller en administratör i användarens arbetskatalog kan återställa lösenordet. Här följer några exempel på hur lösenordsåterställning fungerar för gästanvändare:
+Om din Azure AD-klient är arbetskatalogen för en användare, kan du [återställa användarens lösenord](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) från Azure-portalen. Men du kan inte direkt återställa ett lösenord för en gästanvändare som loggar in med ett konto som hanteras av någon annan Azure AD directory eller extern identitetsprovider. Endast gästanvändaren eller en administratör i användarens arbetskatalog kan återställa lösenordet. Här följer några exempel på hur lösenordsåterställning fungerar för gästanvändare:
  
 * Gästanvändare som loggar in med ett Microsoft-konto (till exempel guestuser@live.com) kan återställa sina lösenord med Microsoft-konto lösenordsåterställning via självbetjäning (SSPR). Se [så återställer du lösenordet för ditt Microsoft-konto](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Gästanvändare som loggar in med ett Google-konto eller någon annan extern identitetsprovider kan återställa sina lösenord med hjälp av deras identitetsprovider SSPR-metoden. Till exempel en gästanvändare med det Google-kontot guestuser@gmail.com kan återställa sina lösenord genom att följa instruktionerna i [ändring eller återställa lösenordet](https://support.google.com/accounts/answer/41078).
-* Om identitets-klient är en just-in-time (JIT) eller ”viral” klient kan (dvs. det är en separat, ohanterad Azure-klient), endast gästanvändaren återställa sina lösenord. Ibland en organisation kommer [tar över hanteringen av viral klienter](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) som skapas när anställda använda sina e-postadresser för att registrera dig för tjänster. När organisationen tar över en av viral klientorganisation kan kan bara en administratör i organisationen återställa användarens lösenord eller aktivera SSPR. Om det behövs, som organisationen som bjuder in kan du ta bort användarkontot från din katalog och skicka om inbjudan.
+* Om identitets-klient är en just-in-time (JIT) eller ”viral” klient kan (dvs. det är en separat, ohanterad Azure-klient), endast gästanvändaren återställa sina lösenord. Ibland en organisation kommer [tar över hanteringen av viral klienter](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) som skapas när anställda använda sina e-postadresser för att registrera dig för tjänster. När organisationen tar över en av viral klientorganisation kan kan bara en administratör i organisationen återställa användarens lösenord eller aktivera SSPR. Om det behövs, som organisationen som bjuder in kan du ta bort användarkontot från din katalog och skicka om inbjudan.
 * Om gästanvändarens arbetskatalogen är Azure AD-klienten, kan du återställa användarens lösenord. Exempelvis kan du kan ha skapat en användare eller en användare har synkroniserats från din lokala Active Directory och ange deras UserType gäst. Du kan återställa sina lösenord från Azure portal eftersom den här användaren är homed i din katalog.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Tillhandahåller Microsoft Dynamics 365 support på nätet för Azure AD B2B-samarbete?

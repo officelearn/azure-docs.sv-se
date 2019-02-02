@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0937ad12ad74209e84ee1316a090af8a6469a044
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f74dc441016a0064aca388ce4881eeae9e7bc6d0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151625"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657866"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhetsöverväganden för att komma åt appar med Azure AD Application Proxy
 
@@ -48,7 +48,7 @@ Använd rikare principkontroller innan anslutningar till nätverket upprättas.
 
 Med [villkorlig åtkomst](../conditional-access/overview.md), kan du ange begränsningar på vilken trafik tillåts åtkomst till backend-server-program. Du kan skapa principer som begränsar inloggningar baserat på plats, styrkan hos autentisering och användarprofilen för risken.
 
-Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer, att lägga till ytterligare en säkerhetsnivå till din användarautentiseringar. Dessutom kan dina program kan också dirigeras till Microsoft Cloud App Security via Azure AD villkorsstyrd åtkomst för att tillhandahålla övervakning i realtid och kontroller, via [åtkomst](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) och [session](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) principer
+Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer, att lägga till ytterligare en säkerhetsnivå till din användarautentiseringar. Dessutom kan dina program kan också dirigeras till Microsoft Cloud App Security via Azure AD villkorsstyrd åtkomst för att tillhandahålla övervakning i realtid och kontroller, via [åtkomst](https://docs.microsoft.com/cloud-app-security/access-policy-aad) och [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad) principer
 
 ### <a name="traffic-termination"></a>Trafik-avslutning
 

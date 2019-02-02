@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 98a4d0ace2113c3936e13d357d0d8b641982d7c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099740"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567952"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-data som indata till Stream Analytics
 
@@ -26,7 +26,7 @@ Stream Analytics har förstklassig integrering med Azure-dataströmmar som indat
 Dessa indata resurser kan finnas i samma Azure-prenumeration som Stream Analytics-jobb eller en annan prenumeration.
 
 ### <a name="compression"></a>Komprimering
-Stream Analytics stöder komprimering för alla stream inkommande datakällor. Referenstyper stöds för tillfället är: None, GZip, och Deflate-komprimering. Stöd för komprimering är inte tillgängligt för referensdata. Om Indataformatet är Avro-data som är komprimerade, hanteras den transparent. Du behöver inte ange Komprimeringstypen med Avro-serialisering. 
+Stream Analytics stöder komprimering för alla stream inkommande datakällor. Referenstyper stöds för tillfället är: Ingen, GZip, och Deflate-komprimering. Stöd för komprimering är inte tillgängligt för referensdata. Om Indataformatet är Avro-data som är komprimerade, hanteras den transparent. Du behöver inte ange Komprimeringstypen med Avro-serialisering. 
 
 ## <a name="create-edit-or-test-inputs"></a>Skapa, redigera eller testa indata
 Du kan använda den [Azure-portalen](https://portal.azure.com) till [Skapa ny indata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) och visa eller redigera befintliga indata på ditt direktuppspelningsjobb. Du kan också testa inkommande anslutningar och [testfrågor](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) från exempeldata. När du skriver en fråga visas indata i FROM-satsen. Du kan hämta listan över tillgängliga indata från den **fråga** i portalen. Om du vill använda flera inmatningar kan du `JOIN` dem eller skriva flera `SELECT` frågor.
@@ -75,7 +75,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> När du använder Event Hub som en slutpunkt för IoT Hub vägar, du kan komma åt i IoT Hub medadata med hjälp av den [funktionen GetMetadataPropertyValue](https://msdn.microsoft.com/library/azure/mt793845.aspx).
+> När du använder Event Hub som en slutpunkt för IoT Hub vägar, du kan komma åt i IoT Hub metadata med hjälp av den [funktionen GetMetadataPropertyValue](https://msdn.microsoft.com/library/azure/mt793845.aspx).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Stream-data från IoT Hub
@@ -171,7 +171,7 @@ FROM Input
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure portal](stream-analytics-quick-create-portal.md)
+> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

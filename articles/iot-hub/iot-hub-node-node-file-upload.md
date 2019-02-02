@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 12ff4fef5e04819e967a39fe65845b89790e22d6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b3afbeb5a3fa2cda6ec5eaabe368163a370352d1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234462"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568200"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
 
@@ -69,7 +69,7 @@ I det här avsnittet skapar du enhetsapp för att ladda upp en fil till IoT hub.
 
 1. Lägg till följande ```require```-instruktioner i början av **SimulatedDevice.js**-filen:
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var fs = require('fs');
@@ -79,7 +79,7 @@ I det här avsnittet skapar du enhetsapp för att ladda upp en fil till IoT hub.
 
 1. Lägg till en ```deviceconnectionstring```-variabel och använd den för att skapa en **Client**-instans.  Ersätt ```{deviceconnectionstring}``` med namnet på den enhet som du skapade i den _skapar en IoT Hub_ avsnittet:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{deviceconnectionstring}';
     var filename = 'myimage.png';
     ```
@@ -89,14 +89,14 @@ I det här avsnittet skapar du enhetsapp för att ladda upp en fil till IoT hub.
 
 1. Lägg till följande kod för att ansluta klienten:
 
-    ```nodejs
+    ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
 1. Skapa ett motanrop och Använd den **uploadToBlob** funktionen för att ladda upp filen.
 
-    ```nodejs
+    ```javascript
     fs.stat(filename, function (err, stats) {
         const rr = fs.createReadStream(filename);
     
@@ -136,7 +136,7 @@ Du kan använda den **iothubowner** anslutningssträngen från din IoT-hubb för
 
 1. Lägg till följande ```require``` instruktioner i början av den **FileUploadNotification.js** fil:
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var Client = require('azure-iothub').Client;
@@ -144,7 +144,7 @@ Du kan använda den **iothubowner** anslutningssträngen från din IoT-hubb för
 
 1. Lägg till en ```iothubconnectionstring```-variabel och använd den för att skapa en **Client**-instans.  Ersätt ```{iothubconnectionstring}``` med anslutningssträngen till IoT-hubben som du skapade i den _skapar en IoT Hub_ avsnittet:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     ```
 
@@ -153,13 +153,13 @@ Du kan använda den **iothubowner** anslutningssträngen från din IoT-hubb för
 
 1. Lägg till följande kod för att ansluta klienten:
 
-    ```nodejs
+    ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
 1. Öppna klienten och använda den **getFileNotificationReceiver** funktionen för att få statusuppdateringar.
 
-    ```nodejs
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);

@@ -11,22 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 15a16201f83cc9e7244eb0be9d4e185d5e1e3922
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/25/2018
+ms.openlocfilehash: 065b2511da568ee2cdc0a989b34905b4010ea32e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165167"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562495"
 ---
 # <a name="building-scalable-cloud-databases"></a>Skapa skalbara molndatabaser
+
 Skala ut databaser kan enkelt utföras med hjälp av skalbara verktyg och funktioner för Azure SQL Database. Framför allt, du kan använda den **Elastic Database-klientbiblioteket** att skapa och hantera utskalade databaser. Den här funktionen kan du enkelt utveckla fragmenterade (sharded) program med hundratals – eller till och med tusentals – av Azure SQL-databaser. [Elastiska jobb](sql-database-elastic-jobs-powershell.md) kan sedan användas för att enkelt hantering av dessa databaser.
 
 Så här hämtar:
+
 * Java-versionen av biblioteket, se [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 * .NET-versionen av biblioteket, se [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="documentation"></a>Dokumentation
+
 1. [Kom igång med Elastic Database-verktyg](sql-database-elastic-scale-get-started.md)
 2. [Elastic Database-funktioner](sql-database-elastic-scale-introduction.md)
 3. [Karthantering för shard](sql-database-elastic-scale-shard-map-management.md)
@@ -45,9 +48,10 @@ Så här hämtar:
 16. [Vanliga frågor och svar för elastiska Databasverktyg](sql-database-elastic-scale-faq.md)
 
 ## <a name="client-capabilities"></a>Funktioner i klientprogrammet
+
 Skala ut program med hjälp av *horisontell partitionering* medför utmaningar för såväl utvecklaren som administratören. Klientbiblioteket förenklar administrativa uppgifter genom att tillhandahålla verktyg som låter både utvecklare och administratörer hantera utskalade databaser. Det finns många databaser som kallas ”shards”, för att hantera i ett typexempel. Kunder som är samordnad i samma databas och det finns en databas per kund (en enda klient schemat). Klientbiblioteket innehåller följande funktioner:
 
-- **Fragmentkarthantering**: en särskild databas som heter ”fragmentkartehanteraren” har skapats. Fragmentkarthantering är möjligheten för ett program för att hantera metadata om dess shards. Utvecklare kan använda den här funktionen för att registrera databaser som shards, beskriver mappningar av enskilda horisontell partitionering nycklar eller nyckelintervall till dessa databaser och underhålla dessa metadata med antalet och sammansättning av databaser som utvecklas för att återspegla ändringar i kapacitet. Utan elastic database-klientbiblioteket, skulle du behöva ta lite tid att skriva management-kod när du implementerar horisontell partitionering. Mer information finns i [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md).
+- **Fragmentkarthantering**: En särskild databas som heter ”fragmentkartehanteraren” har skapats. Fragmentkarthantering är möjligheten för ett program för att hantera metadata om dess shards. Utvecklare kan använda den här funktionen för att registrera databaser som shards, beskriver mappningar av enskilda horisontell partitionering nycklar eller nyckelintervall till dessa databaser och underhålla dessa metadata med antalet och sammansättning av databaser som utvecklas för att återspegla ändringar i kapacitet. Utan elastic database-klientbiblioteket, skulle du behöva ta lite tid att skriva management-kod när du implementerar horisontell partitionering. Mer information finns i [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md).
 
 - **Databeroende routning**: Anta att en begäran som kommer in i programmet. Baserat på horisontell partitionering nyckelvärdet för begäran kan måste programmet fastställa rätt databas baserat på nyckelvärdet. Sedan öppnas en anslutning till databasen för att bearbeta begäran. Databeroende routning ger möjlighet att öppna anslutningar med ett enda enkelt anrop till fragmentkartan för programmet. Databeroende routning har ett annat område i infrastrukturkod som omfattas nu av funktioner i klientbiblioteket för elastiska databaser. Mer information finns i [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md).
 - **Multi-shard-frågor (MSQ)**: Multi-shard-frågor fungerar när en begäran omfattar flera (eller alla) shards. En Multi-shard-fråga körs samma T-SQL-kod på alla shards eller en uppsättning shards. Resultaten från deltagande shards slås samman i en övergripande resultatmängden med hjälp av UNION ALL-semantik. Funktioner som exponeras via klientbiblioteket hanterar många aktiviteter, inklusive: anslutningshanteringen, tråd management, hantering av fel och mellanresultat bearbetning. MSQ kan fråga upp till hundratals shards. Mer information finns i [Multi-shard-frågor](sql-database-elastic-scale-multishard-querying.md).

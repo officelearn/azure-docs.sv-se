@@ -11,15 +11,15 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: b841f985c758cb1e354d3c3537c532a253e81d92
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 10/23/2018
+ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945934"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566303"
 ---
-# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: Skapa en virtuell tjänsts slutpunkt och VNet-regel för SQL
+# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Skapa en virtuell tjänstslutpunkt och VNet-regel för SQL
 
 Både Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) stöder virtuella tjänstslutpunkter.
 
@@ -31,7 +31,7 @@ Den här artikeln innehåller och beskriver ett PowerShell-skript som utför fö
 1. Skapar ett Microsoft Azure *virtuella tjänstslutpunkt* på ditt undernät.
 2. Lägger till slutpunkten i brandväggen för din Azure SQL Database-server, skapa en *virtuell nätverksregel*.
 
-Beskrivs i din motivering för att skapa en regel: [virtuella tjänstens slutpunkter för Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
+Din motivering för att skapa en regel förklaras i: [Tjänstslutpunkter i virtuella för Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
 > Om allt du behöver är att utvärdera eller lägga till den virtuella tjänstslutpunkten *typnamn* för SQL-databas till ditt undernät du gå vidare till mer [dirigera PowerShell-skript](#a-verify-subnet-is-endpoint-ps-100).
@@ -42,11 +42,11 @@ Den här artikeln visar den **New-AzureRmSqlServerVirtualNetworkRule** cmdlet: e
 
 I följande lista visas de andra *större* cmdletar som du måste köra för att förbereda för anrop till **New-AzureRmSqlServerVirtualNetworkRule**. I den här artikeln dessa anrop sker i [skriptet 3 ”virtuella nätverk regeln”](#a-script-30):
 
-1. [Ny-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): skapar ett undernätsobjekt.
-2. [Ny-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): skapar det virtuella nätverket, vilket ger det undernätet.
-3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): tilldelar en virtuell tjänstslutpunkt till undernätet.
-4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): kvarstår uppdateringar som görs till det virtuella nätverket.
-5. [Ny-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): när ditt undernät är en slutpunkt, lägger till ditt undernät som en virtuell nätverksregel i Åtkomstkontrollistan för Azure SQL Database-servern.
+1. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): Skapar ett undernätsobjekt.
+2. [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): Skapar det virtuella nätverket, vilket ger det undernätet.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): Tilldelar en virtuell tjänstslutpunkt till undernätet.
+4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): Håller kvar uppdateringar som görs till det virtuella nätverket.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): När ditt undernät är en slutpunkt, lägger du till ditt undernät som en virtuell nätverksregel i Åtkomstkontrollistan för Azure SQL Database-servern.
    - Denna cmdlet erbjuder parametern **- IgnoreMissingVNetServiceEndpoint**, från i Azure RM PowerShell-modul version 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Förutsättningar för att köra PowerShell
@@ -63,7 +63,7 @@ Vår demonstration PowerShell-skript är uppdelad i en sekvens med mindre skript
 
 <a name="a-script-10" />
 
-### <a name="script-1-variables"></a>Skriptet 1: variabler
+### <a name="script-1-variables"></a>Skriptet 1: Variabler
 
 Det här första PowerShell-skriptet tilldelar variabler värden. Efterföljande skripten är beroende av dessa variabler.
 
@@ -112,12 +112,12 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-### <a name="script-2-prerequisites"></a>Skript 2: krav
+### <a name="script-2-prerequisites"></a>Skriptet 2: Förutsättningar
 
 Det här skriptet förbereder för nästa skriptet, där endpoint-åtgärden är. Det här skriptet skapar du följande visas objekt, men endast om de inte redan finns. Du kan hoppa över skriptet 2 om du är säker på att dessa objekt redan finns:
 
 - Azure-resursgrupp
-- Azure SQL Database-server
+- Azure SQL Database server
 
 ### <a name="powershell-script-2-source-code"></a>Källkoden för PowerShell-skriptet 2
 
@@ -289,11 +289,11 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 <a name="a-script-40" />
 
-## <a name="script-4-clean-up"></a>Skript 4: Rensa
+## <a name="script-4-clean-up"></a>Skriptet 4: Rensa
 
 Det här sista skriptet tar bort de resurser som skript som du tidigare skapade för demonstrationen av. Dock begär skriptet bekräftelse innan du tar bort följande:
 
-- Azure SQL Database-server
+- Azure SQL Database server
 - Azure-resursgrupp
 
 Du kan köra skript 4 efter att skriptet 1 har slutförts.

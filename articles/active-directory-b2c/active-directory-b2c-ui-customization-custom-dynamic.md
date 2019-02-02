@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7c17b873daf3cf77760f934b6c8a591f232b0c7b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187087"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658206"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer
 
@@ -155,7 +155,7 @@ Leta upp den `<img>` element som innehåller den `ID` värdet *background_backgr
     Den **skapa App Service** öppnas. I den kan du börja skapa alla Azure-resurser för att köra ASP.NET-webbapp i Azure.
 
     > [!NOTE]
-    > Mer information om hur du publicerar finns i [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Mer information om hur du publicerar finns i [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. I den **Webbappnamnet** skriver du ett unikt appnamn (giltiga tecken är a – z, A – Z, 0-9 och bindestreck (-). Webbadressen till webbappen är `http://<app_name>.azurewebsites.NET`, där `<app_name>` är webbappens namn. Du kan godkänna namnet som genereras automatiskt och som är unikt.
 

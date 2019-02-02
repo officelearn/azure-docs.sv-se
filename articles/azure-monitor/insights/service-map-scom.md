@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 19e842fc3674536972327c3bc6d31641560e38db
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187219"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659192"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta-integrering med System Center Operations Manager
-  > [!NOTE]
-  > Den här funktionen är en allmänt tillgänglig förhandsversion.
-  > 
-  
+
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Tjänstkarta kan du visa dina servrar på sätt som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration krävs förutom installationen av en agent. Mer information finns i den [Tjänstkarta dokumentation]( service-map.md).
 
 Med den här integreringen mellan Service Map och System Center Operations Manager kan du automatiskt skapa diagram över distribuerade program i Operations Manager som är baserade på dynamiska beroende-kartor i Tjänstkartan.
@@ -43,7 +40,7 @@ Du kan aktivera integrering mellan Operations Manager och Service Map genom att 
 * Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>Konfigurera Service Map-integrering
-När du har installerat en ny nod i hanteringspaketet Tjänstkarta **Tjänstkarta**, visas under **Operations Management Suite** i den **Administration** fönstret. 
+När du har installerat en ny nod i hanteringspaketet Tjänstkarta **Tjänstkarta**, visas under **Operations Management Suite** i den **Administration** fönstret.
 
 >[!NOTE]
 >[Operations Management Suite har en samling tjänster](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) som finns med Log Analytics, vilket är nu en del av [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -63,11 +60,11 @@ Om du vill konfigurera Service Map integration, gör du följande:
     ![Operations Manager-konfiguration-arbetsyta](media/service-map-scom/scom-config-workspace.png)
 
 4. I den **val av dator** fönstret väljer vilka kartan datorgrupper som du vill synkronisera till Operations Manager. Klicka på **Lägg till/ta bort datorgrupper**, Välj grupper i listan över **tillgängliga datorgrupper**, och klicka på **Lägg till**.  När du har valt grupper klickar du på **Ok** ska slutföras.
-    
+
     ![I Operations Manager Configuration datorgrupper](media/service-map-scom/scom-config-machine-groups.png)
-    
+
 5. I den **Serverval** fönstret Konfigurera du gruppen Service Map servrar med de servrar som du vill synkronisera mellan Operations Manager och Service Map. Klicka på **Lägg till/ta bort servrar**.   
-    
+
     Servern för att integrationen ska skapa ett diagram över distribuerade program för en server, måste vara:
 
     * Hanteras av Operations Manager
@@ -91,7 +88,7 @@ När Log Analytics-arbetsytan är ansluten, visas en ny mapp Tjänstkartan i den
 ![Fönstret Operations Manager-övervakning](media/service-map-scom/scom-monitoring.png)
 
 Mappen Tjänstkarta har fyra noder:
-* **Aktiva aviseringar**: Visar en lista över alla aktiva aviseringar om kommunikationen mellan Operations Manager och Service Map.  Observera att dessa aviseringar inte är Log Analytics aviseringar som synkroniseras till Operations Manager. 
+* **Aktiva aviseringar**: Visar en lista över alla aktiva aviseringar om kommunikationen mellan Operations Manager och Service Map.  Observera att dessa aviseringar inte är Log Analytics aviseringar som synkroniseras till Operations Manager.
 
 * **Servrar**: Visar en lista över de övervakade servrarna som är konfigurerade att synkronisera från Tjänstkarta.
 
@@ -120,9 +117,9 @@ En regel _Microsoft.SystemCenter.ServiceMapImport.Rule_, har skapats för att re
 
 ![Egenskapsfönstret åsidosättningar i Operations Manager](media/service-map-scom/scom-overrides.png)
 
-* **Aktiverad**: Aktivera eller inaktivera automatiska uppdateringar. 
+* **Aktiverad**: Aktivera eller inaktivera automatiska uppdateringar.
 * **IntervalMinutes**: Återställa tiden mellan uppdateringar. Standardintervallet är en timme. Om du vill synkronisera server maps oftare, ändrar du värdet.
-* **TimeoutSeconds**: Återställa hur lång tid innan tidsgränsen uppnås för begäran. 
+* **TimeoutSeconds**: Återställa hur lång tid innan tidsgränsen uppnås för begäran.
 * **TimeWindowMinutes**: Återställa tidsperioden för att köra frågor mot data. Standardvärdet är 60 minuter-fönstret. Det maximala värdet som tillåts av Service Map är 60 minuter.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar

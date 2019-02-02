@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8a54ab9e45838a81a2ea4e2e425114e19a65ba76
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320947"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563855"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en Linux-dator i Azure med Azure Active Directory-autentisering (förhandsversion)
 
@@ -105,7 +105,7 @@ Azure rollbaserad åtkomstkontroll (RBAC)-princip bestämmer vem som kan logga i
 > [!NOTE]
 > Om du vill tillåta en användare att logga in på den virtuella datorn via SSH måste du tilldela antingen den *administratörsinloggning för virtuell dator* eller *användarinloggning för virtuell dator* roll. En Azure-användare med den *ägare* eller *deltagare* roller som är tilldelade för en virtuell dator inte automatiskt har behörighet att logga in på den virtuella datorn via SSH.
 
-I följande exempel används [az-rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) att tilldela den *administratörsinloggning för virtuell dator* rollen till den virtuella datorn för din aktuella Azure-användare. Användarnamnet för din aktiva Azure-konto hämtas med [az konto show](/cli/azure/account#az-account-show), och *omfång* är inställd på den virtuella datorn som skapades i föregående steg med [az vm show](/cli/azure/vm#az-vm-show). Omfånget kan också tilldelas en resurs gruppen eller på prenumerationsnivån och normal RBAC arv av behörigheter gäller. Mer information finns i [rollbaserade åtkomstkontroller](../../azure-resource-manager/resource-group-overview.md#access-control)
+I följande exempel används [az-rolltilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) att tilldela den *administratörsinloggning för virtuell dator* rollen till den virtuella datorn för din aktuella Azure-användare. Användarnamnet för din aktiva Azure-konto hämtas med [az konto show](/cli/azure/account#az-account-show), och *omfång* är inställd på den virtuella datorn som skapades i föregående steg med [az vm show](/cli/azure/vm#az-vm-show). Omfånget kan också tilldelas en resurs gruppen eller på prenumerationsnivån och normal RBAC arv av behörigheter gäller. Mer information finns i [rollbaserade åtkomstkontroller](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)

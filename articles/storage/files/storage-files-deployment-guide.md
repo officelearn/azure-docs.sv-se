@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d17389af1129c63d2c0eadfac04c034669200620
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1b62bb6b00e1add93ee4215507d1b110dcf51424
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462740"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566999"
 ---
 # <a name="how-to-deploy-azure-files"></a>Så här distribuerar du Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Den här artikeln visar hur du distribuerar Azure Files praktiskt taget i din organisation.
@@ -77,7 +77,7 @@ Följande steg ska importera data från en lokal plats till Azure-filresursen.
     
     Se [förbereda CSV-filen driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) för mer information.
 
-6. Använd den [WAImportExport verktyget](https://www.microsoft.com/en-us/download/details.aspx?id=55280) att kopiera data till en eller flera hårddiskar.
+6. Använd den [WAImportExport verktyget](https://www.microsoft.com/download/details.aspx?id=55280) att kopiera data till en eller flera hårddiskar.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>

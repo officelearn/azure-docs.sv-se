@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a64a1e35811b8bcdf721425580fe66641cb8ebe2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052146"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661011"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
@@ -43,6 +43,10 @@ Om du vill visa kostnadsdata, måste en användare ha minst skrivskyddad åtkoms
 Följande diagram illustrerar förhållandet mellan kostnadshantering scope med roller och inställningar för EA.
 
 ![Diagram över relationen mellan kostnadshantering scope med roller och EA portalinställningar](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+
+När **DA visa debiteringar** är inaktiverade i EA-portalen visas ett meddelande om *kostnader inaktiverad för din organisation* när du försöker visa kostnader för avdelningar och konton.
+
+På liknande sätt när **AO visa debiteringar** är inaktiverade i EA-portalen visas ett meddelande om *kostnader inaktiverad för din organisation* när du försöker visa kostnaderna för registreringskonton, hanteringsgrupper, prenumerationer och resursgrupper.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Aktivera åtkomst till kostnader i EA-portalen
 

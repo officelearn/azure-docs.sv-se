@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 141caeb180fd0f5663c0fd51aadb0a397665c6d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dac7e458339e24e0bb6663f4ff0d5e98bc814aad
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168625"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658648"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för ett Azure AD-galleriprogram
 
-När du lägger till ett program från den [Azure AD-Programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery), du kan välja mellan hur du vill att användarna att logga in på programmet. Du kan konfigurera det här alternativet när som helst genom att välja den **enkel inloggning** navigering objekt i ett Enterprise-program i den [Azure-portalen](https://portal.azure.com/).
+När du lägger till ett program från den [Azure AD-Programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), du kan välja mellan hur du vill att användarna att logga in på programmet. Du kan konfigurera det här alternativet när som helst genom att välja den **enkel inloggning** navigering objekt i ett Enterprise-program i den [Azure-portalen](https://portal.azure.com/).
 
 En av enkel inloggning metoder tillgängliga för dig är det [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) alternativet. Detta är ett bra sätt att komma igång med att integrera program till Azure AD snabbt och kan du:
 
@@ -41,7 +41,7 @@ En av enkel inloggning metoder tillgängliga för dig är det [lösenordsbaserad
 
 -   Tillåt en **administratör** ange delade användarnamnet eller lösenordet som används av en grupp människor med hjälp av uppdatera autentiseringsuppgifterna funktionen när [tilldela en grupp till ett program](#assign-an-application-to-a-group-directly)
 
-I följande avsnitt beskrivs hur du kan aktivera [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) till ett program som redan finns i den [Azure AD-Programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+I följande avsnitt beskrivs hur du kan aktivera [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) till ett program som redan finns i den [Azure AD-Programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="overview-of-steps-required"></a>Översikt över steg som krävs
 Konfigurera ett program från Azure AD-galleriet som du behöver:

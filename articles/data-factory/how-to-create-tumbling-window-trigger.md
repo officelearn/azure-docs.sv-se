@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: 6efccdb3034bb25e60904c858f346ff9a5695fc0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e5910d08cf7ea5e1da094a0313513123d7c7813c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019732"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567045"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Skapa en utlösare som kör en pipeline på ett rullande fönster
 Den här artikeln innehåller steg för att skapa, starta och övervaka en utlösare för rullande fönster. Allmän information om utlösare och typerna som stöds finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
@@ -33,7 +33,7 @@ Om du vill skapa en utlösare för rullande fönster i Azure portal, Välj **utl
 ## <a name="tumbling-window-trigger-type-properties"></a>Rullande fönster Typegenskaper för utlösare
 Ett rullande fönster har följande egenskaper för typ av utlösare:
 
-```  
+```
 {
     "name": "MyTriggerName",
     "properties": {
@@ -47,39 +47,38 @@ Ett rullande fönster har följande egenskaper för typ av utlösare:
             "delay": "<<timespan – optional>>",
             “maxConcurrency”: <<int>> (required, max allowed: 50),
             "retryPolicy": {
-                "count":  <<int - optional, default: 0>>,
+                "count": <<int - optional, default: 0>>,
                 “intervalInSeconds”: <<int>>,
             }
         },
-        "pipeline":
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "MyPipelineName"
+        "pipeline": {
+            "pipelineReference": {
+                "type": "PipelineReference",
+                "referenceName": "MyPipelineName"
+            },
+            "parameters": {
+                "parameter1": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 },
-                "parameters": {
-                    "parameter1": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "parameter2": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "parameter3": "https://mydemo.azurewebsites.net/api/demoapi"
-                }
+                "parameter2": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
+                },
+                "parameter3": "https://mydemo.azurewebsites.net/api/demoapi"
             }
-      }    
+        }
+    }
 }
-```  
+```
 
 Följande tabell innehåller en översikt över de viktigaste JSON-element som är relaterade till upprepning och schemaläggning i en utlösare för rullande fönster:
 
-| JSON-element | Beskrivning | Typ | Tillåtna värden | Krävs |
+| JSON-element | Beskrivning | Type | Tillåtna värden | Krävs |
 |:--- |:--- |:--- |:--- |:--- |
-| **typ** | Typ av utlösaren. Typen är det fasta värdet ”TumblingWindowTrigger”. | Sträng | "TumblingWindowTrigger" | Ja |
-| **runtimeState** | Körningstiden för det aktuella tillståndet för utlösaren.<br/>**Obs!** Det här elementet har \<readOnly >. | Sträng | ”Started”, Stoppad ”” ”inaktiverad” | Ja |
-| **frequency** | En sträng som representerar frekvens (minuter eller timmar) att utlösaren ska återkomma. Om den **startTime** datumvärden är större än den **frekvens** värde, den **startTime** datum anses när fönstret gränserna beräknas. Till exempel om den **frekvens** värdet är per timme och **startTime** värdet är 2017-09-01T10:10:10Z, det första fönstret är (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Sträng | ”minut”, ”hour”  | Ja |
+| **typ** | Typ av utlösaren. Typen är det fasta värdet ”TumblingWindowTrigger”. | String | "TumblingWindowTrigger" | Ja |
+| **runtimeState** | Körningstiden för det aktuella tillståndet för utlösaren.<br/>**Obs!** Det här elementet har \<readOnly >. | String | ”Started”, Stoppad ”” ”inaktiverad” | Ja |
+| **frequency** | En sträng som representerar frekvens (minuter eller timmar) att utlösaren ska återkomma. Om den **startTime** datumvärden är större än den **frekvens** värde, den **startTime** datum anses när fönstret gränserna beräknas. Till exempel om den **frekvens** värdet är per timme och **startTime** värdet är 2017-09-01T10:10:10Z, det första fönstret är (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | ”minut”, ”hour”  | Ja |
 | **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Till exempel om den **intervall** är 3 och **frekvens** är ”hour” utlösaren återkommer var tredje timme. | Integer | Ett positivt heltal. | Ja |
 | **startTime**| Den första förekomsten, vilket kan vara i förflutna. Den första utlösaren är (**startTime**, **startTime** + **intervall**). | DateTime | Ett DateTime-värde. | Ja |
 | **endTime**| Den sista förekomsten, vilket kan vara i förflutna. | DateTime | Ett DateTime-värde. | Ja |
@@ -92,32 +91,31 @@ Följande tabell innehåller en översikt över de viktigaste JSON-element som �
 
 Du kan använda den **WindowStart** och **WindowEnd** systemvariabler av utlösare för rullande fönster i din **pipeline** definition (det vill säga för en del av en fråga). Skicka systemvariablerna som parametrar till din pipeline i den **utlösaren** definition. I följande exempel visar hur du skickar dessa variabler som parametrar:
 
-```  
+```
 {
     "name": "MyTriggerName",
     "properties": {
         "type": "TumblingWindowTrigger",
             ...
-        "pipeline":
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "MyPipelineName"
+        "pipeline": {
+            "pipelineReference": {
+                "type": "PipelineReference",
+                "referenceName": "MyPipelineName"
+            },
+            "parameters": {
+                "MyWindowStart": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 },
-                "parameters": {
-                    "MyWindowStart": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "MyWindowEnd": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    }
+                "MyWindowEnd": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 }
             }
-      }    
+        }
+    }
 }
-```  
+```
 
 Du använder den **WindowStart** och **WindowEnd** system variabelvärdena i pipeline-definition använder parametrarna ”MyWindowStart” och ”MyWindowEnd”, i enlighet med detta.
 
@@ -135,10 +133,10 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
 
 1. Skapa en JSON-fil med namnet **MyTrigger.json** i mappen C:\ADFv2QuickStartPSH\ med följande innehåll:
 
-   > [!IMPORTANT]
-   > Innan du sparar JSON-fil, ange värdet för den **startTime** elementet så att den aktuella UTC-tiden. Ange värdet för den **endTime** element till en timme efter den aktuella UTC-tiden.
+    > [!IMPORTANT]
+    > Innan du sparar JSON-fil, ange värdet för den **startTime** elementet så att den aktuella UTC-tiden. Ange värdet för den **endTime** element till en timme efter den aktuella UTC-tiden.
 
-    ```json   
+    ```json
     {
       "name": "PerfTWTrigger",
       "properties": {
@@ -167,7 +165,7 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
         "runtimeState": "Started"
       }
     }
-    ```  
+    ```
 
 2. Skapa en utlösare med hjälp av den **Set-AzureRmDataFactoryV2Trigger** cmdlet:
 

@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
-ms.date: 04/02/2018
-ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/16/2018
+ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352219"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567391"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuera och utforska ett delat program för flera innehavare
 
@@ -137,14 +137,14 @@ En central **Evenemangshubben** webbsidan innehåller en lista med länkar till 
 
 Om du vill styra distributionen av inkommande begäranden, Wingtip-appen använder [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Sidan händelser för varje klient innehåller klientnamnet i URL: en. Varje URL innehåller också ditt specifika användare-värde. Varje URL följs formatet visas med hjälp av följande steg:
 
-- http://events.wingtip-mt.&lt; användare&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Evenemangsappen Parsar klientnamnet från URL: en. Innehavarens namn är *fabrikamjazzclub* i föregående exempel-URL.
 2. Appen sedan hashar klientnamnet för att skapa en nyckel för att komma åt en katalog med hjälp av [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md).
 3. Appen söker efter nyckeln i katalogen och erhåller motsvarande platsen för klientens databas.
 4. Appen använder informationen som platsen för att hitta och tillgång till en databas som innehåller alla data för klientorganisationen.
 
-### <a name="events-hub"></a>Evenemangshubben
+### <a name="events-hub"></a>Events Hub
 
 1. Den **Evenemangshubben** visar en lista över alla klienter som är registrerade i katalogen och deras platser.
 2. Den **Evenemangshubben** använder utökade metadata i katalogen för att hämta det klientnamn som är associerade med varje avbildning att konstruera URL: er.

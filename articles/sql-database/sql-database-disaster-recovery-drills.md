@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: cffafa68d155273de3b747c0399ce435f609b9fb
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: 5d754ae558d485036a9a55f573a3f40162ed9f84
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602213"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561135"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Utföra Programåterställningstest
 
@@ -26,7 +26,7 @@ Du rekommenderas att verifieringen av programberedskap för återställningsarbe
 Utföra ett programåterställningstest består av:
 
 * Simulering nivån avbrott
-* Återställa
+* Återställs
 * Verifiera programåterställning integritet inlägg
 
 Beroende på hur du [utformats för ditt program för affärskontinuitet](sql-database-business-continuity.md), arbetsflödet att köra detaljerade kan variera. Den här artikeln beskriver Metodtips för att utföra ett programåterställningstest i samband med Azure SQL Database.

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2017
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016656"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661249"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Store-autentiseringsuppgifter i Azure Key Vault
 
@@ -27,9 +27,6 @@ För närvarande stöder alla aktivitetstyper utom anpassad aktivitet den här f
 ## <a name="prerequisites"></a>Förutsättningar
 
 Den här funktionen är beroende av tjänstidentiteten för data factory. Lär dig hur det fungerar från [tjänstidentitet för datafabrik](data-factory-service-identity.md) och se till att din data factory har en associerad.
-
->[!TIP]
->I Azure Key Vault, när du skapar en hemlighet **put hela värdet för en hemlig egenskap att ADF länkad tjänst begär (t.ex. anslutning sträng/lösenord/tjänstens huvudnamn nyckel/osv)**. Till exempel för Azure Storage länkade tjänsten, placera `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` som AKV-hemlighet och sedan referens i fältet ”connectionString” från ADF; för den länkade tjänsten av Dynamics, placera `myPassword` som AKV-hemlighet sedan referera i ”password” fält från ADF. Finns i varje anslutning/compute-artikel på stöds egenskapsinformationen.
 
 ## <a name="steps"></a>Steg
 
@@ -44,10 +41,10 @@ Om du vill referera till en autentiseringsuppgift lagras i Azure Key Vault, mås
 
 Följande egenskaper har stöd för Azure Key Vault-länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **AzureKeyVault**. | Ja |
-| BaseUrl | Ange URL: en för Azure Key Vault. | Ja |
+| baseUrl | Ange URL: en för Azure Key Vault. | Ja |
 
 **Med redigering av Användargränssnittet:**
 
@@ -77,7 +74,7 @@ Välj den etablerade Azure Key Vault där dina autentiseringsuppgifter lagras. D
 
 Följande egenskaper stöds när du konfigurerar ett fält i den länkade tjänsten refererar till en hemlighet i nyckelvalvet:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för fältet måste anges till: **AzureKeyVaultSecret**. | Ja |
 | secretName | Namnet på hemlighet i azure key vault. | Ja |

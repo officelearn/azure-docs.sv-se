@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3468f9341e0a8406733877a05798e427dd454fff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93ce86a438fca47100a34da2524515b46bcad574
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167571"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567170"
 ---
 # <a name="object-detection"></a>Objektidentifiering
 
@@ -87,6 +87,15 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar när du söker 
 }
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="limitations"></a>Begränsningar
 
-Lär dig begrepp [kategorisera bilder](concept-categorizing-images.md) och [som beskriver avbildningar](concept-describing-images.md).
+Det är viktigt att notera begränsningarna i funktionen för identifiering av objekt så att du kan undvika eller minimera effekterna av FALSKT negativ (missade objekt) och begränsad information.
+* Objekt identifieras vanligtvis inte om de är mycket liten (mindre än 5% av bilden).
+* Objekt identifieras vanligtvis inte om de är placerade mycket bra tillsammans (en stack med nivåer, till exempel).
+* Objekt särskiljs inte med hjälp av varumärke eller produkt-namn (olika typer av sodavatten på en store-hylla, till exempel). Men du kan få varumärke information från en avbildning med hjälp av den [varumärken identifiering](concept-brand-detection.md) funktionen.
+
+## <a name="use-the-api"></a>Använda API: et
+Funktionen för identifiering av objekt är en del av den [analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Du kan anropa detta API via en intern SDK eller REST-anrop. När du får det fullständiga JSON-svaret helt enkelt parsa strängen för innehållet i den `"objects"` avsnittet.
+
+* [Snabbstart: Analysera en bild (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)

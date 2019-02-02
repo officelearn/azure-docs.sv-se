@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5054fdc08c7a0a1b3833ed95784f6018ac5c697e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451211"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659260"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Använda Azure Policy för att begränsa installation av tillägg på virtuella Linux-datorer
 
@@ -115,7 +115,7 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Tilldela principen
 
-Det här exemplet tilldelar principen till en resurs med [az principtilldelningens skapa](/cli/azure/policy/assignment#az_policy_assignment_create). Alla virtuella datorer som skapats i den **myResourceGroup** resursgrupp kommer inte att kunna installera Linux VM-åtkomst eller anpassade skripttillägg för Linux. Resursgruppen måste finnas innan du kan tilldela principen.
+Det här exemplet tilldelar principen till en resurs med [az principtilldelningens skapa](/cli/azure/policy/assignment). Alla virtuella datorer som skapats i den **myResourceGroup** resursgrupp kommer inte att kunna installera Linux VM-åtkomst eller anpassade skripttillägg för Linux. Resursgruppen måste finnas innan du kan tilldela principen.
 
 Använd [az kontolista](/cli/azure/account?view=azure-cli-latest#az_account_list) att få ditt prenumerations-ID du använder i stället för den i det här exemplet.
 

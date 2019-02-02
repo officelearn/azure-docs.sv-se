@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: cc322f44760ddf0a7cd28751c895a7c4938dbbc0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867248"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565487"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installera översikt över elastiska databasjobb
 
@@ -51,7 +51,7 @@ Om du redan har installerat **elastiska databasjobb** via portalen från en befi
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>Installera elastiska jobb med hjälp av PowerShell
-1. Öppna ett Microsoft Azure PowerShell-kommandofönster och gå till katalogen \tools underordnade under mappen Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: skriver cd \tools
+1. Starta ett Microsoft Azure PowerShell-kommandofönster och gå till katalogen \tools underordnade under mappen Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: Skriv cd \tools
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 

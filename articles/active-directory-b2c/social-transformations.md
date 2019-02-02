@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9fab5394fadc029b9415370c6bc8c0a3a3642054
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 52ec7c83b4070a4c38963b3ab12f58f923fa889d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156708"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562636"
 ---
 # <a name="social-accounts-claims-transformations"></a>Anspråksomvandlingar för konton i sociala medier
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I Azure Active Directory (Azure AD) B2C identiteter för socialt konto lagras i en `userIdentities` attribut för en **alternativeSecurityIdCollection** Anspråkstypen. Varje objekt i den **alternativeSecurityIdCollection** anger utfärdaren (namn på identitetsprovider, till exempel facebook.com) och `issuerUserId`, som är unikt användar-ID för utgivaren. 
+I Azure Active Directory (Azure AD) B2C identiteter för socialt konto lagras i en `userIdentities` attribut för en **alternativeSecurityIdCollection** Anspråkstypen. Varje objekt i den **alternativeSecurityIdCollection** anger utfärdaren (namn på identitetsprovider, till exempel facebook.com) och `issuerUserId`, som är unikt användar-ID för utgivaren.
 
 ```JSON
 "userIdentities": [{
@@ -46,7 +46,7 @@ Skapar en JSON-representation av användarens alternativeSecurityId egenskap som
 | InputClaim | identityProvider | sträng | ClaimType som anger till exempel facebook.com providernamn socialt konto identitet. |
 | OutputClaim | alternativeSecurityId | sträng | ClaimType som skapas när ClaimsTransformation har anropats. Innehåller information om identiteten för en användare med sociala kontot. Den **utfärdare** är värdet för den `identityProvider` anspråk. Den **issuerUserId** är värdet för den `key` anspråk i base64-format. |
 
-Använd detta anspråk omvandlingen att generera en `alternativeSecurityId` ClaimType. Den används av alla sociala providern tekniska profiler, till exempel `Facebook-OAUTH`. Följande anspråkstransformering tar emot det sociala konto användar-ID och namnet på identitetsprovider. Utdata från den här tekniska profilen är en JSON-sträng-format som kan användas i Azure AD directory services.  
+Använd detta anspråk omvandlingen att generera en `alternativeSecurityId` ClaimType. Den används av alla sociala providern tekniska profiler, till exempel `Facebook-OAUTH`. Följande anspråkstransformering tar emot det sociala konto användar-ID och namnet på identitetsprovider. Utdata från den här tekniska profilen är en JSON-sträng-format som kan användas i Azure AD directory services.
 
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
@@ -70,7 +70,7 @@ Använd detta anspråk omvandlingen att generera en `alternativeSecurityId` Clai
 
 ## <a name="additemtoalternativesecurityidcollection"></a>AddItemToAlternativeSecurityIdCollection
 
-Lägger till en `AlternativeSecurityId` till en `alternativeSecurityIdCollection` anspråk. 
+Lägger till en `AlternativeSecurityId` till en `alternativeSecurityIdCollection` anspråk.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
@@ -78,21 +78,21 @@ Lägger till en `AlternativeSecurityId` till en `alternativeSecurityIdCollection
 | InputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråkstransformering om det är tillgängligt i principen. Om anspråkstransformering lägger till den `item` i slutet av samlingen. |
 | OutputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Den nya samlingen som innehåller båda objekten från indata `collection` och `item`. |
 
-I följande exempel länkas en ny sociala identitet med ett befintligt konto. Länka en ny sociala identitet: 
+I följande exempel länkas en ny sociala identitet med ett befintligt konto. Länka en ny sociala identitet:
 1. I den **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingObjectId** tekniska profiler utdata användarens **alternativeSecurityIds** anspråk.
-1. Be användaren att logga in med något av de identitetsprovidrar som inte är associerade med den här användaren. 
-1. Med hjälp av den **CreateAlternativeSecurityId** anspråk omvandling, skapa en ny **alternativeSecurityId** Anspråkstyp med namnet `AlternativeSecurityId2` 
-1. Anropa den **AddItemToAlternativeSecurityIdCollection** anspråk omvandlingen att lägga till den **AlternativeSecurityId2** anspråk i den befintliga **AlternativeSecurityIds** anspråk. 
+1. Be användaren att logga in med något av de identitetsprovidrar som inte är associerade med den här användaren.
+1. Med hjälp av den **CreateAlternativeSecurityId** anspråk omvandling, skapa en ny **alternativeSecurityId** Anspråkstyp med namnet `AlternativeSecurityId2`
+1. Anropa den **AddItemToAlternativeSecurityIdCollection** anspråk omvandlingen att lägga till den **AlternativeSecurityId2** anspråk i den befintliga **AlternativeSecurityIds** anspråk.
 1. Spara den **alternativeSecurityIds** anspråk till användarkontot
 
 ```XML
 <ClaimsTransformation Id="AddAnotherAlternativeSecurityId" TransformationMethod="AddItemToAlternativeSecurityIdCollection">
   <InputClaims>
-      <InputClaim ClaimTypeReferenceId="AlternativeSecurityId2" TransformationClaimType="item" />
-      <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="AlternativeSecurityId2" TransformationClaimType="item" />
+    <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
   </InputClaims>
   <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
+    <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -114,7 +114,7 @@ Returnerar lista över certifikatutfärdare från den **alternativeSecurityIdCol
 | InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | ClaimType som används för att hämta en lista över identitetsleverantörer (utfärdare). |
 | OutputClaim | identityProvidersCollection | stringCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Lista över identitetsprovidrar som associeras med det inkommande anspråket alternativeSecurityIdCollection |
 
-Följande anspråkstransformering läser användaren **alternativeSecurityIds** anspråk och extraherar listan över identitet providernamn kopplade till kontot. Använda utdata **identityProvidersCollection** ska visas för användaren lista över identitetsleverantörer som är kopplade till kontot. Eller filtrera listan över identitetsleverantörer baserat på utdata på sidan identitet providern val av **identityProvidersCollection** anspråk. Så att användaren kan välja för att länka ny sociala identitet som inte redan är associerad med kontot. 
+Följande anspråkstransformering läser användaren **alternativeSecurityIds** anspråk och extraherar listan över identitet providernamn kopplade till kontot. Använda utdata **identityProvidersCollection** ska visas för användaren lista över identitetsleverantörer som är kopplade till kontot. Eller filtrera listan över identitetsleverantörer baserat på utdata på sidan identitet providern val av **identityProvidersCollection** anspråk. Så att användaren kan välja för att länka ny sociala identitet som inte redan är associerad med kontot.
 
 ```XML
 <ClaimsTransformation Id="ExtractIdentityProviders" TransformationMethod="GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation">
@@ -134,7 +134,7 @@ Följande anspråkstransformering läser användaren **alternativeSecurityIds** 
 
 ## <a name="removealternativesecurityidbyidentityprovider"></a>RemoveAlternativeSecurityIdByIdentityProvider
 
-Tar bort en **AlternativeSecurityId** från en **alternativeSecurityIdCollection** anspråk. 
+Tar bort en **AlternativeSecurityId** från en **alternativeSecurityIdCollection** anspråk.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
@@ -142,9 +142,9 @@ Tar bort en **AlternativeSecurityId** från en **alternativeSecurityIdCollection
 | InputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråkstransformering. Anspråkstransformering tar bort Identityprovidern från samlingen. |
 | OutputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Den nya samlingen, när Identityprovidern tagits bort från samlingen. |
 
-I följande exempel tar bort länkar för en av sociala med ett befintligt konto. Att Avlänka en sociala identitet: 
+I följande exempel tar bort länkar för en av sociala med ett befintligt konto. Att Avlänka en sociala identitet:
 1. I den **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingObjectId** tekniska profiler utdata användarens **alternativeSecurityIds** anspråk.
-2. Be användaren att välja vilka sociala konto för att ta bort från listan identitetsprovidrarna som är associerade med den här användaren. 
+2. Be användaren att välja vilka sociala konto för att ta bort från listan identitetsprovidrarna som är associerade med den här användaren.
 3. Anropa ett anspråk omvandling tekniska profilen som anropar den **RemoveAlternativeSecurityIdByIdentityProvider** omvandling som har tagit bort det valda sociala identitet, med hjälp av namn på identitetsprovider av anspråk.
 4. Spara den **alternativeSecurityIds** anspråk till användarkontot.
 
@@ -157,7 +157,7 @@ I följande exempel tar bort länkar för en av sociala med ett befintligt konto
     <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
     </OutputClaims>
-</ClaimsTransformation>               
+</ClaimsTransformation>
 </ClaimsTransformations>
 ```
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 2a057c311a8b080b695492664df0eaabc5609b35
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 15bd3cf2ab6ea5285662610c2c0a850bb180e2f8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856799"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658784"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Hur du krypterar en Linux-dator i Azure
 
@@ -107,7 +107,7 @@ Skapa en virtuell dator med [az vm skapa](/cli/azure/vm#az-vm-create) och bifoga
 az vm create \
     --resource-group $resourcegroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
     --admin-username azureuser \
     --generate-ssh-keys \
     --data-disk-sizes-gb 5
@@ -119,7 +119,7 @@ SSH till den virtuella datorn med den *publicIpAddress* visas i utdata från fö
 ## <a name="encrypt-the-virtual-machine"></a>Kryptera den virtuella datorn
 
 
-Kryptera din virtuella dator med [az vm encryption aktivera](/cli/azure/vm/encryption#az-vm-encryption-enable). I följande exempel används den *$sp_id* och *$sp_password* variabler från föregående [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) kommando:
+Kryptera din virtuella dator med [az vm encryption aktivera](/cli/azure/vm/encryption#az-vm-encryption-enable):
 
 ```azurecli-interactive
 az vm encryption enable \

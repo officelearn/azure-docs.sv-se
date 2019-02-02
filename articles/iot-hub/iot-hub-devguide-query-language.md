@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 65de1279c47f5992dd82e9f4634b3de52925769c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157215"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568387"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
@@ -207,7 +207,7 @@ Frågefunktioner som exponeras av den [Azure IoT service SDK för Node.js](iot-h
 
 Här är ett exempel på en enkel fråga:
 
-```nodejs
+```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
@@ -468,8 +468,8 @@ Följande matematiska funktioner stöds i vägar villkor:
 | Square(x) | Returnerar för det angivna numeriska värdet. |
 | CEILING(x) | Returnerar det minsta heltalsvärdet som är större än eller lika med det angivna numeriska uttrycket. |
 | FLOOR(x) | Returnerar det största heltalsvärdet som är mindre än eller lika med det angivna numeriska uttrycket. |
-| Sign(x) | Returnerar positiv (+ 1), noll (0) eller minustecken (-1) i det angivna numeriska uttrycket.|
-| Rot(x) | Returnerar kvadratroten för det angivna numeriska värdet. |
+| SIGN(x) | Returnerar positiv (+ 1), noll (0) eller minustecken (-1) i det angivna numeriska uttrycket.|
+| SQRT(x) | Returnerar kvadratroten för det angivna numeriska värdet. |
 
 I vägar villkor stöds följande typkontroll och omvandling funktioner:
 
@@ -496,7 +496,7 @@ Följande sträng-funktioner stöds i vägar villkor:
 | DELSTRÄNGEN (sträng, start [, längd]) | Returnerar en del av ett stränguttryck med början vid den angivna nollbaserade teckenpositionen och fortsätter med den angivna längden eller i slutet av strängen. |
 | INDEX_OF (string, fragment) | Returnerar startpositionen för den första förekomsten av det andra stränguttrycket i det första angivna stränguttrycket eller -1 om strängen inte hittas.|
 | STARTS_WITH (x, y) | Returnerar ett booleskt värde som anger om först stränguttryck börjar med andra. |
-| ENDS_WITH (x, y) | Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra. |
+| ENDS_WITH(x, y) | Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra. |
 | CONTAINS(x,y) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra. |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -4,7 +4,7 @@ description: Skapa din första Windows-containerapp på Azure Service Fabric. Sk
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: timlt
+manager: jpconnock
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 01/25/2019
 ms.author: twhitney
-ms.openlocfilehash: 38979d80e25e0430082b7819d506b653c35697e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e1024fadf6a68307e42b57ee3c383977b7b4fb9b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172961"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562529"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
+Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här artikeln visar hur du skapar en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/) program och distribuera det till ett Service Fabric-kluster som körs på den lokala datorn. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
 
 > [!NOTE]
 > Den här artikeln gäller för en Windows-utvecklingsmiljö.  Körningstiden för Service Fabric-kluster och Docker-körning måste köras på samma OS.  Du kan inte köra Windows-behållare på en Linux-kluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 * En utvecklingsdator som kör:
   * Visual Studio 2015 eller Visual Studio 2017.
   * [Service Fabric SDK och verktyg](service-fabric-get-started.md).
@@ -41,10 +43,10 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 
   Den här artikeln är måste version (build) av Windows Server med behållare som körs på klusternoderna matcha på utvecklingsdatorn. Detta är eftersom du skapa docker-avbildningen på utvecklingsdatorn och det finns begränsningar för kompatibilitet mellan versioner av behållaren OS och värdoperativsystemet som den har distribuerats. Mer information finns i [Windows Server-behållare OS- och OS-kompatibilitet](#windows-server-container-os-and-host-os-compatibility). 
   
-  Om du vill kontrollera vilken version av Windows Server med behållare som du behöver för ditt kluster, kör den `ver` från en Windows-kommandotolk på utvecklingsdatorn:
+Om du vill kontrollera vilken version av Windows Server med behållare som du behöver för ditt kluster, kör den `ver` från en Windows-kommandotolk på utvecklingsdatorn:
 
-  * Om versionen innehåller *x.x.14323.x*och välj sedan *Windows Server 2016 Datacenter med behållare* för operativsystemet när [skapar ett kluster](service-fabric-cluster-creation-via-portal.md). Du kan också [prova Service Fabric utan kostnad](https://aka.ms/tryservicefabric) med ett party-kluster.
-  * Om versionen innehåller *x.x.16299.x*och välj sedan *WindowsServerSemiAnnual Datacenter-Core-1709-med-behållare* för operativsystemet när [skapar ett kluster](service-fabric-cluster-creation-via-portal.md). Du kan inte använda ett partykluster men.
+* Om versionen innehåller *x.x.14323.x*och välj sedan *Windows Server 2016 Datacenter med behållare* för operativsystemet när [skapar ett kluster](service-fabric-cluster-creation-via-portal.md).
+  * Om versionen innehåller *x.x.16299.x*och välj sedan *WindowsServerSemiAnnual Datacenter-Core-1709-med-behållare* för operativsystemet när [skapar ett kluster](service-fabric-cluster-creation-via-portal.md).
 
 * Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration.
 
@@ -57,6 +59,7 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 > 
 
 ## <a name="define-the-docker-container"></a>Definiera Dockercontainer
+
 Skapa en avbildning baserat på [Python-avbildningen](https://hub.docker.com/_/python/) på Docker Hub.
 
 Ange Docker-containern i en Dockerfile. Dockerfile innehåller instruktioner för att konfigurera miljön i din container, läsa in programmet du vill köra och mappa portar. Dockerfile är indata för kommandot `docker build` som skapar avbildningen.
@@ -166,6 +169,7 @@ docker rm my-web-site
 
 <a id="Push-Containers"></a>
 ## <a name="push-the-image-to-the-container-registry"></a>Överför avbildningen till containerregistret
+
 När du har kontrollerat att behållaren körs på utvecklingsdatorn överför du avbildningen till registret i Azure Container Registry.
 
 Kör ``docker login`` för att logga in till containerregistret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
@@ -257,6 +261,7 @@ Konfigurera en värdport som används för att kommunicera med containern. Portb
 > Ytterligare PortBindings för en tjänst kan läggas till med att deklarera ytterligare PortBinding element med tillämpliga egenskapsvärden.
 
 ## <a name="configure-container-registry-authentication"></a>Konfigurera autentisering av containerregister
+
 Konfigurera autentisering av containerregister genom att lägga till `RepositoryCredentials` i `ContainerHostPolicies` filen ApplicationManifest.xml. Lägg till kontot och lösenordet för containerregistret myregistry.azurecr.io, så att tjänsten kan ladda ned containeravbildningen från centrallagret.
 
 ```xml
@@ -448,7 +453,8 @@ Programmet är redo när den är i ```Ready``` tillstånd: ![Redo][2]
 Öppna en webbläsare och navigera till http://containercluster.westus2.cloudapp.azure.com:8081. Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
-Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-cluster-delete.md). [Party-kluster](https://try.servicefabric.azure.com/) tas bort automatiskt efter ett par timmar.
+
+Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-cluster-delete.md).
 
 När du har överfört avbildningen till containerregistret kan du ta bort den lokala avbildningen från utvecklingsdatorn:
 

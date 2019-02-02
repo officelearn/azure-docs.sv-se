@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 3fb9f98e94191c019b78c5666d2ff5336cc895eb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fdbae70718ad62f96dda85e2d9574c7ec2d5ef23
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021874"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561101"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
@@ -30,7 +30,7 @@ Titta på följande videoklipp för en tio minuter introduktion och demonstratio
 
 
 > [!NOTE]
-> Integrering som beskrivs i den här artikeln är beroende av [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Se till att prenumerationen är registrerad med Event Grid-resursprovidern. Mer information finns i [resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md#portal).
+> Integrering som beskrivs i den här artikeln är beroende av [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Se till att prenumerationen är registrerad med Event Grid-resursprovidern. Mer information finns i [resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>Data Factory-användargränssnitt
 
@@ -69,10 +69,10 @@ Följande tabell innehåller en översikt över de element som är relaterade ti
 
 | **JSON-Element** | **Beskrivning** | **Typ** | **Tillåtna värden** | **Krävs** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **Omfång** | Resurs-ID för Azure Resource Manager för Lagringskontot. | Sträng | Azure Resource Manager-ID | Ja |
-| **händelser** | Typ av händelser som orsakar den här utlösaren utlöses. | Matris    | Microsoft.Storage.BlobCreated Microsoft.Storage.BlobDeleted | Ja, valfri kombination av dessa värden. |
-| **blobPathBeginsWith** | Blobbsökvägen måste börja med det angivna mönstret för utlösaren utlöses. Till exempel `/records/blobs/december/` bara utlöses utlösaren för blobbar i den `december` mapp under den `records` behållare. | Sträng   | | Du måste ange ett värde för minst en av de här egenskaperna: `blobPathBeginsWith` eller `blobPathEndsWith`. |
-| **blobPathEndsWith** | Blobbsökväg måste avslutas med det angivna mönstret för utlösaren utlöses. Till exempel `december/boxes.csv` bara utlöses utlösaren för BLOB-objekt med namnet `boxes` i en `december` mapp. | Sträng   | | Du måste ange ett värde för minst en av de här egenskaperna: `blobPathBeginsWith` eller `blobPathEndsWith`. |
+| **Omfång** | Resurs-ID för Azure Resource Manager för Lagringskontot. | String | Azure Resource Manager ID | Ja |
+| **händelser** | Typ av händelser som orsakar den här utlösaren utlöses. | Matris    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Ja, valfri kombination av dessa värden. |
+| **blobPathBeginsWith** | Blobbsökvägen måste börja med det angivna mönstret för utlösaren utlöses. Till exempel `/records/blobs/december/` bara utlöses utlösaren för blobbar i den `december` mapp under den `records` behållare. | String   | | Du måste ange ett värde för minst en av de här egenskaperna: `blobPathBeginsWith` eller `blobPathEndsWith`. |
+| **blobPathEndsWith** | Blobbsökväg måste avslutas med det angivna mönstret för utlösaren utlöses. Till exempel `december/boxes.csv` bara utlöses utlösaren för BLOB-objekt med namnet `boxes` i en `december` mapp. | String   | | Du måste ange ett värde för minst en av de här egenskaperna: `blobPathBeginsWith` eller `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Exempel på händelsebaserade utlösare
 

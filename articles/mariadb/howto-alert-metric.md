@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244247"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661708"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Använda Azure portal för att ställa in aviseringar i mått för Azure Database for MariaDB
 
@@ -27,7 +27,7 @@ Du kan konfigurera en avisering om att göra följande när den utlöses:
 Du kan konfigurera och få information om Varningsregler med:
 * [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST-API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
+* [Azure Monitor REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Skapa en aviseringsregel på ett mått
 1. I den [Azure-portalen](https://portal.azure.com/), väljer Azure Database for MariaDB-server som du vill övervaka.

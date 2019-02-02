@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 315a51f847920d4751d100f147bb5218676015c6
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c1ac1a0fccc2ac9a428a04a1b15030c489968a3f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495674"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563702"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -251,8 +251,8 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Namnet på filen eller katalogen är ogiltig. | Byt namn på filen eller katalogen i fråga. Se [hantering av tecken som inte stöds](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) för mer information. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | En fil har ändrats, men ändringen har ännu inte identifierats av synkronisering. Återställer synkronisera om den här ändringen har identifierats. | Ingen åtgärd krävs. |
-| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Filen kan inte synkroniseras eftersom Azure file share gränsen har nåtts. | För att lösa problemet, se [du nått lagringsgränsen för Azure file-resursen](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) avsnittet i felsökningsguiden. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Det här felet kan inträffa om filen är krypterad med en lösning som inte stöds (till exempel NTFS EFS) eller filen har ett väntetillstånd. | Om filen är krypterad med en lösning för stöds inte dekryptera filen och använder en stöds encryption-lösningen. En lista över supportlösningar finns i [krypteringslösningar](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) avsnitt i Planeringsguiden. Om filen finns i en delete väntetillstånd, kommer filen tas bort när alla öppna filreferenser stängs. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Filen kan inte synkroniseras eftersom Azure file share gränsen har nåtts. | För att lösa problemet, se [du nått lagringsgränsen för Azure file-resursen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) avsnittet i felsökningsguiden. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Det här felet kan inträffa om filen är krypterad med en lösning som inte stöds (till exempel NTFS EFS) eller filen har ett väntetillstånd. | Om filen är krypterad med en lösning för stöds inte dekryptera filen och använder en stöds encryption-lösningen. En lista över supportlösningar finns i [krypteringslösningar](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) avsnitt i Planeringsguiden. Om filen finns i en delete väntetillstånd, kommer filen tas bort när alla öppna filreferenser stängs. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen och måste därför synkroniseras igen. | Ingen åtgärd krävs. |
 

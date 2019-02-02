@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 78746324c240e0a1bfab81ca1e45f231909328c0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321438"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661198"
 ---
 # <a name="application-architecture-on-azure"></a>Programarkitektur på Azure
 Om du vill att skydda din molnbaserade lösningar på Microsoft Azure, utgör arkitektoniska grundläggande är viktigt. Arkitekter, designers och implementerare dra nytta av stora kunskaper om arkitektur för program och tjänster. Den här grundläggande kunskapen hjälper dig att förstå alla komponenter i dina molnbaserade lösningar och gör det lättare att integrera säkerhet i alla aspekter av din design och implementering.
@@ -42,10 +42,10 @@ Varje skissen inkluderar följande:
 [Visa Visio och symboler utbildning video](https://aka.ms/CnESymbolsVideo) och sedan [ladda ned molnet och Enterprise-symbolen](https://aka.ms/CnESymbols) för att skapa tekniska material som beskriver Azure, Windows Server, SQL Server med flera. Du kan använda symbolerna i Arkitekturdiagram, utbildningsmaterial, presentationer, datablad, informationsgrafik, faktablad och även från tredje part böcker om boken träna personer ska få använda Microsoft-produkter. De är inte avsedda för användning i användargränssnitt.
 
 ## <a name="3d-blueprint-visio-template"></a>3D-skissen Visio-mall
-3D-versionerna av den [Microsoft arkitekturritningar](https://aka.ms/azblueprints) ursprungligen skapats i ett icke-Microsoft-verktyg. En ny mall för Visio 2013 (och senare) som levereras med den 5 augusti 2015 som en del av en [Microsoft Architecture certifiering kursen distribueras på EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
+3D-versionerna av den [Microsoft arkitekturritningar](https://aka.ms/azblueprints) ursprungligen skapats i ett icke-Microsoft-verktyg. En ny mall för Visio 2013 (och senare) som levereras med den 5 augusti 2015 som en del av en [Microsoft Architecture certifiering kursen distribueras på EDX.ORG](https://docs.microsoft.com/azure/architecture/).
 
 Mallen är också tillgängligt utanför kursen.
 
 * [Visa på utbildningsvideon](https://aka.ms/3dBlueprintTemplateVideo) först så att du vet vad du kan göra
 * Ladda ned den [Microsoft 3d skissen Visio-mall](https://aka.ms/3DBlueprintTemplate)
-* Ladda ned den [Cloud och Enterprise-symboler](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) ska användas med 3D-mallen
+* Ladda ned den [Cloud och Enterprise-symboler](https://docs.microsoft.com/azure/architecture/) ska användas med 3D-mallen

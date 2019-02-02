@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: be1e7ab953c55581645a9702fc4759cb603e7ecc
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: c0ec8b98ff711f8e5746d6d4731266ed4b09cc8f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54357869"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658852"
 ---
 # <a name="using-chef-with-azure"></a>Använda Chef med Azure
 [Chef](http://www.chef.io) är en kraftfull automatisering plattform som omvandlar infrastruktur med virtuella datorer på Azure till koden. Chef automatiserar hur infrastrukturen konfigureras, distribueras och hanteras i nätverket, oavsett dess storlek.
@@ -21,7 +21,7 @@ ms.locfileid: "54357869"
 Den här artikeln beskriver fördelarna med att använda Chef för att hantera Azure-infrastrukturen.
 
 ## <a name="chef-extension-on-azure"></a>Chef-tillägget på Azure
-Etablera en virtuell dator med Chef-klienten som körs som en bakgrundstjänst med den [Chef tillägget](https://docs.microsoft.com/en-us/azure/chef/chef-extension-portal) på Azure Portal. Dessa virtuella datorer är nu redo att hanteras av en Chef-server när etablerats.
+Etablera en virtuell dator med Chef-klienten som körs som en bakgrundstjänst med den [Chef tillägget](https://docs.microsoft.com/azure/chef/chef-extension-portal) på Azure Portal. Dessa virtuella datorer är nu redo att hanteras av en Chef-server när etablerats.
 
 ## <a name="chef-cloud-shell"></a>Chef Cloud Shell
 Använd Chef arbetsstation direkt i Azure Cloudshell! Kör alla dina Chef verktyg och InSpec rätt från Cloud Shell. Du kan använda Chef-kommandon från:

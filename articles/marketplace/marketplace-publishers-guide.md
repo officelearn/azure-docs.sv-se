@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43badaada3de352ec7bafeb422965a047261a1e4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753973"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656842"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace och AppSource publiceringsguide
 
 Publiceringsguide för Marketplace är utformat för att hjälpa nya och befintliga utgivare Lär dig hur du använder butiker i den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) att öka sin verksamhet i samarbete med Microsoft genom att ange program och tjänster.
 
 >[!Note]
->Marknaden här refererar till både Azure Marketplace och AppSource.  Se [en Marketplace, två butikerna gör](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) för mer information.
+>Marknaden här refererar till både Azure Marketplace och AppSource.  Se [en Marketplace, två butikerna gör](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) för mer information.
 
 Den här guiden innehåller följande avsnitt: 
 *   Vad Marketplace är och hur det fungerar 

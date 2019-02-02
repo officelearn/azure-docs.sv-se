@@ -11,15 +11,16 @@ author: jodebrui
 ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: fbe05186b317d3c24dca55197c2989155b5543bd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228053"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565929"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Använda Minnesintern OLTP kan förbättra programprestanda i SQL-databas
+
 [In-Memory OLTP](sql-database-in-memory.md) kan användas för att förbättra prestandan för transaktionsbearbetning och datainmatning tillfälliga datascenarier i [Premium och affärskritisk nivå](sql-database-service-tiers-vcore.md) databaser utan att öka prisnivån. 
 
 > [!NOTE] 
@@ -28,7 +29,8 @@ ms.locfileid: "51228053"
 
 Följ dessa steg om du vill använda InMemory-OLTP i den befintliga databasen.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Steg 1: Kontrollera att du använder en databas för Premium och affärskritisk nivå
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Steg 1: Se till att du använder en databas för Premium och affärskritisk nivå
+
 In-Memory OLTP stöds bara i databaser för Premium och affärskritisk nivå. InMemory-stöds om det returnerade resultatet är 1 (inte 0):
 
 ```
@@ -105,7 +107,7 @@ INSERT INTO <new_memory_optimized_table>
 ```
 
 
-## <a name="step-5-optional-migrate-stored-procedures"></a>Steg 5 (valfritt): migrera lagrade procedurer
+## <a name="step-5-optional-migrate-stored-procedures"></a>Steg 5 (valfritt): Migrera lagrade procedurer
 Funktionen minnesinterna kan också ändra en lagrad procedur för bättre prestanda.
 
 ### <a name="considerations-with-natively-compiled-stored-procedures"></a>Att tänka på med internt kompilerade lagrade procedurer
@@ -149,7 +151,7 @@ Migreringssteg är:
 4. Byt namn på den gamla lagrade proceduren med hjälp av SP_RENAME. Eller helt enkelt.
 5. Köra redigerade skapa proceduren T-SQL-skriptet.
 
-## <a name="step-6-run-your-workload-in-test"></a>Steg 6: Kör arbetsbelastningen i testet
+## <a name="step-6-run-your-workload-in-test"></a>Steg 6: Kör din arbetsbelastning i testet
 Köra en arbetsbelastning i din testdatabas som liknar den arbetsbelastning som körs i produktionsdatabasen. Detta bör visa prestandaökning genom din användning av funktionen i minnet för tabeller och lagrade procedurer.
 
 Stora attribut för arbetsbelastningen är:

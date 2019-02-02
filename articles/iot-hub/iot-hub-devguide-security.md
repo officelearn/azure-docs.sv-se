@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: ecde1c19a56a7f99284fe738a19eac07322c2dae
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f347c9ca3d56bedcc838d72ca15793bd13ee19ad
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826181"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563940"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -57,7 +57,7 @@ Till exempel i en typisk IoT-lösning:
 > [!NOTE]
 > Se [behörigheter](#iot-hub-permissions) detaljerad information.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 Azure IoT Hub ger åtkomst till slutpunkterna genom att verifiera en token mot principer för delad åtkomst och identitet säkerhetsreferenser för registret.
 
@@ -146,7 +146,7 @@ Här är de förväntade värdena:
 
 Följande kodfragment i Node.js visar en funktion som kallas **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins`. I nästa avsnitt förklarar vi hur du initierar olika indata för olika token användningsfall.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -260,7 +260,7 @@ En token som skapats för att få åtkomst till alla funktioner i enheten bör t
 
 Ett exempel med hjälp av den föregående Node.js-funktionen är:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var deviceKey ="...";
 
@@ -294,7 +294,7 @@ Till exempel en token service med hjälp av skapats i förväg delad åtkomstpri
 
 Ett exempel med hjälp av den föregående Node.js-funktionen är:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var policyName = 'device';
 var policyKey = '...';
@@ -328,7 +328,7 @@ Till exempel en tjänst som genererar med hjälp av skapats i förväg delad åt
 * Principnamn: `registryRead`,
 * helst upphör att gälla.
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices";
 var policyName = 'registryRead';
 var policyKey = '...';

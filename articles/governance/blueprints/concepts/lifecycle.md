@@ -4,17 +4,17 @@ description: Läs mer om livscykel som passerar en skiss och information om varj
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309814"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563719"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Förstå livscykeln för en Azure-skiss
 
@@ -33,8 +33,7 @@ För att helt förstå en skiss och stegen kan går vi igenom en standard livscy
 
 ## <a name="creating-and-editing-a-blueprint"></a>Skapa och redigera en skiss
 
-När du skapar en skiss, Lägg till artefakter, spara till en hanteringsgrupp och tillhandahålls ett unikt namn och en unik version. Skissen är nu i en **Draft** läge och kan ännu inte tilldelas.
-I den **Draft** läge, det kan fortsätta att uppdateras och ändras.
+När du skapar en skiss, Lägg till artefakter, spara till en hanteringsgrupp eller prenumeration och tillhandahålls ett unikt namn och en unik version. Skissen är nu i en **Draft** läge och kan ännu inte tilldelas. I den **Draft** läge, det kan fortsätta att uppdateras och ändras.
 
 En publicerad aldrig skissen i **Draft** läge visar en annan ikon på den **Skissdefinitioner** sidan än de som har **publicerad**. Den **senaste versionen** visas också som **Draft** för dessa publicerade aldrig skisser.
 

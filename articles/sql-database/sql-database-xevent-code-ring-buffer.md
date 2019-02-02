@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 2aaab17f3ba9352e2ee9448acbbc2d2ca2b9d077
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/19/2018
+ms.openlocfilehash: b15a884821fa067c329766169cb4c704e9ed069a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607650"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563073"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ringbuffertens målkod för utökade händelser i SQL-databas
 
@@ -57,7 +57,7 @@ Det här avsnittet anger ett Transact-SQL-kodexempel som:
 
 Med mycket små ändringar, kan du köra följande kodexempel i ringbufferten på Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden '_databas' namnet på vissa dynamiska hanteringsvyer (DMV) används i FROM-satsen i steg 5. Exempel:
 
-* sys.dm_xe **_databas**_session_targets
+* sys.dm_xe **_database**_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;

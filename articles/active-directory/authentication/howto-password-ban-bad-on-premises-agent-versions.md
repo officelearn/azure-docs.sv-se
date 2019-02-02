@@ -1,28 +1,66 @@
 ---
-title: Versionshistorik för Azure AD lösenord protection agent på plats
+title: Versionshistorik för Azure AD-lösenord Protection agent på plats
 description: Dokument-versionen och beteende ändringshistorik
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: ccfe62e0002e3420303130840f1a0d393efb3420
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bcf5176728b520cae5d31750384f316efe244b7e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078771"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663629"
 ---
-# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Förhandsversion:  Azure AD protection agent version lösenordshistorik
+# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Förhandsversion:  Versionshistorik för Azure AD-lösenordsskydd agent
 
 |     |
 | --- |
 | Azure AD-lösenordsskydd är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12650"></a>1.2.65.0
+
+Utgivningsdatum: 2/1/2019
+
+Ändringar:
+
+* DC-agenten och proxy-tjänsten stöds nu på Server Core. Mininimum OS kraven är desamma som för innan du: Windows Server 2012 för DC-agenter och Windows Server 2012 R2 för proxyservrar.
+* Cmdlet: registrera AzureADPasswordProtectionProxy och registrera AzureADPasswordProtectionForest har nu stöd för enhet-kod-baserade Azure autentiseringslägen.
+* Cmdleten Get-AzureADPasswordProtectionDCAgent ignorerar felaktig och/eller ogiltig tjänstanslutningspunkter. Det löser buggen där domänkontrollanter skulle ibland visas flera gånger i utdata.
+* Cmdleten Get-AzureADPasswordProtectionSummaryReport ignorerar felaktig och/eller ogiltig tjänstanslutningspunkter. Det löser buggen där domänkontrollanter skulle ibland visas flera gånger i utdata.
+* Powershell-modulen Proxy är nu registrerad från % ProgramFiles%\WindowsPowerShell\Modules. Miljövariabeln för den datorn PSModulePath ändras inte längre.
+* En ny cmdlet Get-AzureADPasswordProtectionProxy har lagts till som gör det enklare att identifiera registrerade proxyservrar i en skog eller domän.
+* DC-agenten använder en ny mapp i sysvol-resursen för att replikera lösenordsprinciper och andra filer.
+
+   Gamla mapp:
+
+   `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
+
+   Ny plats:
+
+   `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
+
+   (Den här ändringen gjordes att undvika falska positiva ”ägarlösa Grupprincipobjektet” varningar.)
+
+   > [!NOTE]
+   > Ingen migrering eller delning av data ska ske mellan mappen gamla och den nya mappen. Äldre DC-agentversionerna fortsätter att använda den gamla platsen tills uppgraderats till den här versionen eller senare. När alla DC-agenter använder version 1.2.65.0 eller senare, gamla sysvol-mappen raderas manuellt.
+
+* DC-agenten och proxy tjänsten nu identifiera och ta bort felaktig kopior av deras respektive tjänstanslutningspunkter.
+* Varje DC-agent tar regelbundet bort felaktig och inaktuella tjänstanslutningspunkter i dess domän, för både DC-agenten och proxy tjänstanslutningspunkter. Båda DC-agenten och proxy tjänstanslutningspunkter betraktas som inaktuella om dess pulsslag tidsstämpel är äldre än sju dagar.
+* DC-agenten kommer nu att förnya certifikat över flera skogar efter behov.
+* Proxy-tjänsten kommer nu att förnya proxy certifikatet efter behov.
+* Uppdateringar av lösenord verifieringsalgoritm: lista med globala förbjudna lösenord och kundspecifika förbjudna lösenordslistan (om konfigurerad) kombineras före lösenord verifieringar. En lösenordet kan nu avvisas (misslyckas eller endast granskning) om den innehåller token från båda globala och kundspecifika listan. Händelseloggen dokumentationen har uppdaterats för att återspegla detta. Se [övervaka Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-monitor.md).
+* Prestanda och stabilitet korrigeringar
+* Förbättrad loggning
+
+> [!WARNING]
+> Begränsade funktioner: DC agent-tjänsten i den här versionen (1.2.65.0) stoppas bearbetar begäranden från lösenord verifiering från och med September 1 2019.  DC-agenttjänsten i tidigare versioner att (se listan nedan) stoppa bearbetningen från och med juli 1 2019. DC-agenttjänsten i alla versioner loggas 10021 händelser i Admin-händelseloggen på två månader fram dessa tidsgränser. Alla tid begränsningar bort i kommande GA-versionen. Proxy agent-tjänsten är inte begränsade i alla versioner, men fortfarande bör uppgraderas till den senaste versionen för att kunna utnyttja alla efterföljande felkorrigeringar och andra förbättringar.
 
 ## <a name="12250"></a>1.2.25.0
 
@@ -39,6 +77,7 @@ Korrigeringar:
 Ändringar:
 
 * Den lägsta operativsystemnivå för en Proxy-tjänsten är nu Windows Server 2012 R2. Den minsta nödvändiga operativsystemnivå för en DC-agenttjänsten ligger kvar på Windows Server 2012.
+* Proxy-tjänsten kräver nu .NET version 4.6.2 eller senare.
 * Lösenord verifieringsalgoritm använder en tabell för normalisering av utökade tecken. Detta kan resultera i lösenord avvisas som godkändes i tidigare versioner.
 
 ## <a name="12100"></a>1.2.10.0

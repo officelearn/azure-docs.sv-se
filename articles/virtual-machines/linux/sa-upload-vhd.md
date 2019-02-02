@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: efb8887085ad1f6f47667b1305191e514de74330
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a04c4d41d9682389347009446c590fc4e27400b1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468190"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659549"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Ladda upp och skapa en Linux VM från anpassad disk med Azure CLI
 
@@ -54,7 +54,7 @@ Lista över åtkomstnycklarna för ditt lagringskonto med [az nycklar lagringsko
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-Skapa en behållare i ditt lagringskonto med hjälp av lagringskontots åtkomstnyckel du fick med [az storage container skapa](/cli/azure/storage/container#az_storage_container_create). I följande exempel skapas en behållare med namnet `mydisks` med storage nyckelvärdet från `key1`:
+Skapa en behållare i ditt lagringskonto med hjälp av lagringskontots åtkomstnyckel du fick med [az storage container skapa](/cli/azure/storage/container). I följande exempel skapas en behållare med namnet `mydisks` med storage nyckelvärdet från `key1`:
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
@@ -164,7 +164,7 @@ info:    storage account keys list command OK
 Anteckna `key1` eftersom du ska använda för att interagera med ditt lagringskonto i nästa steg.
 
 ## <a name="create-a-storage-container"></a>Skapa en lagringsbehållare
-På samma sätt som du skapar olika kataloger för att organisera logiskt ditt lokala filsystem, skapa behållare i ett lagringskonto för att organisera dina diskar. Ett lagringskonto kan innehålla valfritt antal behållare. Skapa en behållare med [az storage container skapa](/cli/azure/storage/container#az_storage_container_create).
+På samma sätt som du skapar olika kataloger för att organisera logiskt ditt lokala filsystem, skapa behållare i ett lagringskonto för att organisera dina diskar. Ett lagringskonto kan innehålla valfritt antal behållare. Skapa en behållare med [az storage container skapa](/cli/azure/storage/container).
 
 I följande exempel skapas en behållare med namnet `mydisks`:
 

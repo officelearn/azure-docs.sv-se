@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 12c71086509b0c7017b8326c46ed4a31270ef261
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102135"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657390"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -117,7 +117,7 @@ Om du använder någon Webbadressbaserad brandväggsproxy för att styra utgåen
 
 **Insamlaren kan inte ansluta till internet på grund av en certifikatsverifieringen misslyckades**
 
-Detta kan inträffa om du använder en spärrande proxy för att ansluta till Internet och om du inte har importerat proxycertifikat in på den Virtuella insamlardatorn. Du kan importera proxy-certifikatet med hjälp av stegen som beskrivs [här](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
+Detta kan inträffa om du använder en spärrande proxy för att ansluta till Internet och om du inte har importerat proxycertifikat in på den Virtuella insamlardatorn. Du kan importera proxy-certifikatet med hjälp av stegen som beskrivs [här](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 **Insamlaren kan inte ansluta till projektet med projekt-ID och nyckel jag kopierade från portalen.**
 

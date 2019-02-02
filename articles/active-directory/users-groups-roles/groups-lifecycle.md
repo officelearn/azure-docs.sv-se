@@ -14,12 +14,12 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 98ed7ce3eb58aa870a3cb06864631cd108410195
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 12b23b8a062859da111a067b2655425a611b6c20
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508750"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658257"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera en princip för Office 365-grupper
 
@@ -53,15 +53,16 @@ Läs mer om behörigheter för att återställa en borttagen grupp [återställa
   
   ![Bladet upphör att gälla](./media/groups-lifecycle/expiration-settings.png)
 
-4. På den **upphör att gälla** bladet kan du:
+3. På den **upphör att gälla** bladet kan du:
 
   * Ange gruppens livstid i dagar. Du kan välja någon av de förinställda värdena, eller ett anpassat värde (bör vara 31 dagar eller mer). 
   * Ange en e-postadress där förnyelse och förfallodatum meddelanden ska skickas när en grupp har ingen ägare. 
   * Välj vilka Office 365-grupper går ut. Du kan aktivera förfallotid för **alla** Office 365-grupper som du kan välja att aktivera endast **valda** Office 365-grupper, eller välj **ingen**  att inaktivera upphör att gälla för alla grupper.
   * Spara dina inställningar när du är klar genom att välja **spara**.
 
+## <a name="email-notifications"></a>E-postmeddelanden
 
-E-postmeddelanden som den här skickas till Office 365-gruppägare 30 dagar, 15 dagar och 1 dag före förfallodatumet i gruppen.
+E-postmeddelanden som den här skickas till Office 365-gruppägare 30 dagar, 15 dagar och 1 dag före förfallodatumet i gruppen. Språket för e-postmeddelandet bestäms av grupper i det språk du föredrar eller klient språk. Om gruppägaren har definierat ett språk du föredrar, eller flera ägare har samma önskat språk, används det språket. Klient språk används för alla andra fall.
 
 ![Meddelande om utgången e-post](./media/groups-lifecycle/expiration-notification.png)
 

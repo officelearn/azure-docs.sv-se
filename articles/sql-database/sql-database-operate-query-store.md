@@ -11,25 +11,25 @@ author: bonova
 ms.author: bonova
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: cf5035d4dd1c58baff66bd5edbdac42c08d6baab
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/19/2018
+ms.openlocfilehash: 3ceb8569d952f2947870ce7314f869623b2d87f9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600191"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562954"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Använda Query Store i Azure SQL Database
+
 Query Store i Azure är en fullständigt hanterad databas-funktion som kontinuerligt samlas in och Detaljerad historisk information om alla frågor. Du kan tänka Query Store som liknar ett flygplan svart data låda som avsevärt förenklar frågeprestanda felsökning både för moln och lokala kunder. Den här artikeln beskriver specifika aspekter av operativsystem Query Store i Azure. Med dessa data i förväg insamlade fråga kan du snabbt diagnostisera och lösa problem med prestanda och därför lägga mer tid på kärnverksamheten. 
 
 Query Store har [globalt tillgänglig](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) i Azure SQL Database sedan November 2015. Query Store är grunden för prestandaanalys och justeringsfunktioner, till exempel [SQL Database Advisor och prestanda instrumentpanel](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). För tillfället för publiceringen av den här artikeln körs Query Store i mer än 200 000 användardatabaser i Azure, samla in frågan-relaterad information i flera månader utan avbrott.
 
 > [!IMPORTANT]
 > Microsoft håller på att aktivera Query Store för alla Azure SQL-databaser (befintliga och nya). 
-> 
-> 
 
 ## <a name="optimal-query-store-configuration"></a>Optimala Query Store-konfiguration
+
 Det här avsnittet beskrivs standardvärdena för optimal konfiguration som är utformade för att säkerställa tillförlitlig drift Query Store och beroende funktioner, till exempel [SQL Database Advisor och prestanda instrumentpanel](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Standardkonfigurationen är optimerat för kontinuerlig datainsamling som är minimal tid i OFF/READ_ONLY tillstånd.
 
 | Konfiguration | Beskrivning | Standard | Kommentar |
@@ -44,19 +44,17 @@ Det här avsnittet beskrivs standardvärdena för optimal konfiguration som är 
 
 > [!IMPORTANT]
 > Dessa standardinställningar tillämpas automatiskt i det sista steget i Query Store-aktivering i alla Azure SQL-databaser (se föregående viktigt meddelande). Efter den här lyser ändra Azure SQL Database inte konfigurationsvärden som angetts av kunder, om inte de försämrade primära arbetsbelastning eller tillförlitliga åtgärder av Query Store.
-> 
-> 
 
 Om du vill hålla dig med de anpassade inställningarna kan använda [ALTER DATABASE med Query Store alternativ](https://msdn.microsoft.com/library/bb522682.aspx) att återställa konfigurationen till föregående tillstånd. Kolla in [bästa praxis med Query Store](https://msdn.microsoft.com/library/mt604821.aspx) för att lära dig hur upp valde optimala konfigurationsparametrar.
 
 ## <a name="next-steps"></a>Nästa steg
+
 [SQL Database Performance Insight](sql-database-performance.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
+
 Mer information finns i följande artiklar:
 
-* [En svart låda för data för din databas](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
-* [Övervakning av prestanda med hjälp av Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-* [Query Store-användningsscenarier](https://msdn.microsoft.com/library/mt614796.aspx)
- 
-
+- [En svart låda för data för din databas](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
+- [Övervakning av prestanda med hjälp av Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Query Store-användningsscenarier](https://msdn.microsoft.com/library/mt614796.aspx)

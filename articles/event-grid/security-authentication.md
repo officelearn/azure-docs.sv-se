@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 1761dafd04a4b8d27a16af4a5e1b0034b90c51a0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382926"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656880"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -29,7 +29,7 @@ Webhooks är en av de många sätt att ta emot händelser från Azure Event Grid
 
 Liksom många andra tjänster som stöder webhooks måste Event Grid du bevisa ägarskapet för Webhook-slutpunkt innan den startar leverera händelser till denna slutpunkt. Det här kravet förhindrar att en obehörig användare överbelasta slutpunkten med händelser. När du använder någon av de tre Azure-tjänster som anges nedan, hanterar den här verifieringen automatiskt i Azure-infrastrukturen:
 
-* Azure Logic Apps med [Event Grid-koppling](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Logic Apps med [Event Grid-koppling](https://docs.microsoft.com/connectors/azureeventgrid/)
 * Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 * Azure Functions med [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md)
 

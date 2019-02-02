@@ -3,7 +3,7 @@ title: Azure Service Fabric patch orchestration application | Microsoft Docs
 description: Programmet att automatisera uppdatering av operativsystemet på Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
-ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 2/01/2019
+ms.author: brkhande
+ms.openlocfilehash: 646a64435ba02877d2588b8debbb3920a32a5cf1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155314"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563090"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -413,3 +413,6 @@ En administratör måste ingripa och avgöra varför programmet eller kluster fi
 - Åtgärda regression där POA 1.3.0 fungerar inte på Windows Server 2012 R2 eller lägre på grund av fel i inaktivera automatiska uppdateringar. 
 - Åtgärda fel där InstallWindowsOSOnlyUpdates configuration alltid har valts som True.
 - Ändra standardvärdet för InstallWindowsOSOnlyUpdates till FALSKT.
+
+### <a name="version-132"></a>Version 1.3.2
+- Åtgärda ett problem som berörs uppdatering livscykel på en nod om det finns noder med namn som är del av namnet på aktuella noden. För sådana noder, möjliga korrigeringar saknas eller omstart väntar. 

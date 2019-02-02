@@ -11,18 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: f1aa037afd0fa1cbe37add24a354e4dc62c13b9a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 12/12/2018
+ms.openlocfilehash: 6ebef74cee6f919fe6b8cf666db06e0ab22cec73
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310138"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566932"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ansluta till SQL-databas med C och C++
+
 Det här inlägget är att C och C++-utvecklare som försöker ansluta till Azure SQL DB. Det är uppdelad i avsnitt så att du kan gå till avsnittet som bäst samlar in ditt intresse.
 
 ## <a name="prerequisites-for-the-cc-tutorial"></a>Förutsättningar för självstudien om C/C++
+
 Se till att du har följande objekt:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).

@@ -1,5 +1,5 @@
 ---
-title: 'Alltid krypterad: Azure SQL Database - Windows-certifikatarkiv | Microsoft Docs'
+title: 'Alltid krypterad: Azure SQL-databas – Windows-certifikatarkiv | Microsoft Docs'
 description: Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med databaskryptering med guiden alltid krypterad i SQL Server Management Studio (SSMS). Den också visar hur du lagrar krypteringsnycklarna i Windows-certifikatarkiv.
 keywords: kryptera data, sql-kryptering, databaskryptering, känsliga data krypteras alltid
 services: sql-database
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: de8bb0adf45a7cdaf9cc0d9a451af203e01e87da
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231727"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564890"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Windows-certifikatarkiv
 
@@ -98,7 +98,7 @@ SSMS innehåller en guide för att enkelt konfigurera Always Encrypted genom att
    
     ![Kryptera kolumner](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-Guiden alltid krypterad innehåller följande avsnitt: **Kolumnurval**, **huvudnyckeln Configuration** (CMK) **verifiering**, och **sammanfattning** .
+Guiden alltid krypterad innehåller följande avsnitt: **Kolumnurval**, **huvudnyckeln Configuration** (CMK) **verifiering**, och **sammanfattning**.
 
 ### <a name="column-selection"></a>Kolumnurval
 Klicka på **nästa** på den **introduktion** kan du öppna den **Kolumnurval** sidan. På den här sidan kan du väljer vilka kolumner som du vill kryptera, [typen av kryptering, och vilka kolumnkrypteringsnyckel (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) att använda.

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 1f2539ed7ea407e2a1931ab2eb5951e61e4c7b03
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056275"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565228"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig hur du etablerar nya klienter och registrera dem i katalogen
 
@@ -155,9 +155,9 @@ Skriptet etablerar en batch med ytterligare klienter. Den använder en [Azure Re
 
 Andra etableringsmönster som inte ingår i den här självstudien:
 
-**Företablering av databaser**: företablering mönstret utnyttjar faktumet att databaser i en elastisk pool inte lägga till extra kostnader. Faktureringen sker för den elastiska poolen, inte databaserna. Inaktiva databaser inte konsumerar några resurser. Du kan minska tiden för att lägga till klientorganisationer genom företablering av databaser i poolen och allokera dem efter behov. Antalet företablerade databaser kan justeras efter behov för att ha en buffert som är lämpliga för den förväntade etableringstakten.
+**Företablering av databaser**: Företablering mönstret utnyttjar faktumet att databaser i en elastisk pool inte lägga till extra kostnader. Faktureringen sker för den elastiska poolen, inte databaserna. Inaktiva databaser inte konsumerar några resurser. Du kan minska tiden för att lägga till klientorganisationer genom företablering av databaser i poolen och allokera dem efter behov. Antalet företablerade databaser kan justeras efter behov för att ha en buffert som är lämpliga för den förväntade etableringstakten.
 
-**Automatisk etablering**: I mönstret för automatisk etablering, en etableringstjänst etablerar servrar, pooler och databaser automatiskt efter behov. Om du vill kan inkludera du företablering av databaser i elastiska pooler. Om databaser inaktiveras och tas bort, kan luckorna i elastiska pooler fyllas av etableringstjänsten. En sådan tjänst kan vara enkla eller komplexa, till exempel hantera etablering över flera geografier och ställa in geo-replikering för haveriberedskap. 
+**Automatisk etablering**: I mönstret för automatisk etablering etablerar en etableringstjänst servrar, pooler och databaser automatiskt efter behov. Om du vill kan inkludera du företablering av databaser i elastiska pooler. Om databaser inaktiveras och tas bort, kan luckorna i elastiska pooler fyllas av etableringstjänsten. En sådan tjänst kan vara enkla eller komplexa, till exempel hantera etablering över flera geografier och ställa in geo-replikering för haveriberedskap. 
 
 Med mönstret för automatisk etablering skickar ett program eller skript du en etableringsbegäran till en kö för att behandlas av etableringstjänsten. Den frågar sedan tjänsten för att avgöra när det slutförts. Om företablering används, hanteras begäranden snabbt. Tjänsten etablerar en ersättningsdatabas i bakgrunden.
 

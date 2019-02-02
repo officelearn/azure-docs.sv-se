@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 9d542f7c2cdeb20806a2db98005ffc03cf72144c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238024"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658427"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes på Azure Stack är en förhandsversion.
+> Kubernetes på Azure Stack är en förhandsversion. Azure Stack-frånkopplade scenariot stöds inte för närvarande av förhandsversionen.
 
 Du kan följa stegen i den här artikeln för att distribuera och konfigurera resurser för Kubernetes i en enda, samordnad åtgärd. Stegen använder en lösningsmall för Azure Resource Manager. Du behöver för att samla in nödvändig information om installationen av Azure Stack, generera mallen och sedan distribuera till molnet. Azure Stack-mallen använder inte samma hanterade AKS-tjänsten erbjuds i globala Azure.
 

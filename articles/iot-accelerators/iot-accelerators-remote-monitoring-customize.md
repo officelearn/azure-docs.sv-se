@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dc2b38f8e8065b8d8763365bf0cbad56ae00cd4b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462207"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565436"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa lösningsacceleratorn för fjärrövervakning
 
@@ -84,7 +84,7 @@ Eftersom panelerna hantera sin egen layout och storlek, kan du enkelt ändra lay
 * Växla positionerna för panelerna kartan och telemetri.
 * Ändra de relativa bredden på panelerna kartan och analys.
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -156,7 +156,7 @@ Eftersom panelerna hantera sin egen layout och storlek, kan du enkelt ändra lay
 
 Du kan också lägga till flera instanser av samma panelen eller flera versioner om du [Duplicera och anpassa en panel](#duplicate-and-customize-an-existing-control). I följande exempel visas hur du lägger till två instanser av panelen telemetri. Om du vill göra dessa ändringar, redigera den `src/components/pages/dashboard/dashboard.js` fil:
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -247,19 +247,19 @@ Följande steg beskriver hur du duplicera en befintlig panelen, ändra den och s
 
 1. I den **alertsPanel.js** fil i den **cust_alerts** mappen redigera namnet på klassen för att vara **CustAlertsPanel**:
 
-    ```nodejs
+    ```javascript
     export class CustAlertsPanel extends Component {
     ```
 
 1. Lägg till följande rad i den `src/components/pages/dashboard/panels/index.js` fil:
 
-    ```nodejs
+    ```javascript
     export * from './cust_alerts';
     ```
 
 1. Ersätt `alertsPanel` med `CustAlertsPanel` i den `src/components/pages/dashboard/dashboard.js` fil:
 
-    ```nodejs
+    ```javascript
     import {
       OverviewPanel,
       CustAlertsPanel,
@@ -287,7 +287,7 @@ Nu har du ersätta ursprungligt **aviseringar** panelen med en kopia som kallas 
 
 1. Ändra kolumndefinitionen enligt följande kodavsnitt:
 
-    ```nodejs
+    ```javascript
     this.columnDefs = [
       rulesColumnDefs.severity,
       {
@@ -312,7 +312,7 @@ Filerna i den `src/components/pages/dashboard/panels/telemtry` mappen definiera 
 
 1. I den `src/services/telemetryService.js` filen, leta upp den anropade funktionen **getTelemetryByDeviceIdP15M**. Skapa en kopia av den här funktionen och ändra kopian på följande sätt:
 
-    ```nodejs
+    ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
       return TelemetryService.getTelemetryByMessages({
         from: 'NOW-PT5M',
@@ -325,7 +325,7 @@ Filerna i den `src/components/pages/dashboard/panels/telemtry` mappen definiera 
 
 1. Om du vill använda den här nya funktionen för att fylla i diagrammet telemetri, öppna den `src/components/pages/dashboard/dashboard.js` filen. Leta upp den rad som initierar telemetriströmmen och ändra det på följande sätt:
 
-    ```node.js
+    ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
@@ -339,7 +339,7 @@ Den **instrumentpanelen** sidan visar KPI: er i den **Analytics** panelen. Dessa
 
 1. Öppna filen `src/components/pages/dashboard/dashboard.js`. Ändra den **initialState** objekt att inkludera en **warningAlertsChange** egenskap enligt följande:
 
-    ```nodejs
+    ```javascript
     const initialState = {
       ...
 
@@ -359,7 +359,7 @@ Den **instrumentpanelen** sidan visar KPI: er i den **Analytics** panelen. Dessa
 
 1. Ändra den **currentAlertsStats** objekt som inkluderas **totalWarningCount** som en egenskap:
 
-    ```nodejs
+    ```javascript
     return {
       openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
@@ -371,7 +371,7 @@ Den **instrumentpanelen** sidan visar KPI: er i den **Analytics** panelen. Dessa
 
 1. Beräkna ny KPI. Hitta beräkning för antalet kritiska aviseringar. Duplicera koden och ändra kopian på följande sätt:
 
-    ```nodejs
+    ```javascript
     // ================== Warning Alerts Count - START
     const currentWarningAlerts = currentAlertsStats.totalWarningCount;
     const previousWarningAlerts = previousAlerts.reduce(
@@ -384,7 +384,7 @@ Den **instrumentpanelen** sidan visar KPI: er i den **Analytics** panelen. Dessa
 
 1. Inkludera den nya **warningAlertsChange** KPI i KPI-stream:
 
-    ```nodejs
+    ```javascript
     return ({
       analyticsIsPending: false,
       analyticsVersion: this.state.analyticsVersion + 1,
@@ -402,7 +402,7 @@ Den **instrumentpanelen** sidan visar KPI: er i den **Analytics** panelen. Dessa
 
 1. Inkludera den nya **warningAlertsChange** KPI i tillståndsdata som används för att återge Användargränssnittet:
 
-    ```nodejs
+    ```javascript
     const {
       ...
 
@@ -421,7 +421,7 @@ Den **instrumentpanelen** sidan visar KPI: er i den **Analytics** panelen. Dessa
 
 1. Uppdatera data som skickas till panelen KPI: er:
 
-    ```node.js
+    ```javascript
     <AnalyticsPanel
       timeSeriesExplorerUrl={timeSeriesParamUrl}
       topAlerts={topAlertsWithName}
@@ -439,13 +439,13 @@ Du är nu klar med ändringarna i den `src/components/pages/dashboard/dashboard.
 
 1. Ändra följande rad med kod för att hämta ny KPI-värde på följande sätt:
 
-    ```nodejs
+    ```javascript
     const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
 1. Ändra koden för att visa det nya KPI-värdet på följande sätt:
 
-    ```nodejs
+    ```javascript
     <div className="analytics-cell">
       <div className="analytics-header">{t('dashboard.panels.analytics.criticalAlerts')}</div>
       <div className="critical-alerts">

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: cdfb1e11a2eb468e390546d69617ff4cadd17a7e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422736"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658884"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -63,7 +63,7 @@ Azure Storage Explorer fungerar på andra distributioner, men endast som visas o
 
 Du måste också ha följande beroenden/bibliotek installeras för körning av Azure Storage Explorer på Linux:
 
-* [.NET core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * libsecret (Obs: libsecret 1.so.0 måste vara tillgängliga på din dator. Om du har en annan version av libsecret installerad kan du länka mjuk dess so-fil till libsecret 1.so.0)
 * libgconf-2-4
 * Uppdaterade GCC
@@ -84,12 +84,12 @@ I Storage Explorer finns flera olika sätt att ansluta till lagringskonton. Du k
 
 Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 
-* [Ansluta till en Azure-prenumeration](#connect-to-an-azure-subscription): hantera lagringsresurser som hör till din Azure-prenumeration.
-* [Arbeta med lokal utvecklingslagring](#work-with-local-development-storage): hantera lokal lagring med hjälp av Azure Storage-emulatorn.
-* [Ansluta till extern lagring](#attach-or-detach-an-external-storage-account): hantera lagringsresurser som hör till en annan Azure-prenumeration eller nationella Azure-moln med hjälp av lagringskontots namn, nyckel och slutpunkter.
-* [Ansluta ett lagringskonto med hjälp av en SAS](#attach-storage-account-using-sas): hantera lagringsresurser som tillhör en annan Azure-prenumeration med hjälp av en signatur för delad åtkomst (SAS).
-* [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas): hantera en specifik lagringstjänst (blobcontainer, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
-* [Ansluta till ett Azure Cosmos DB-konto med hjälp av en anslutningssträng](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): hantera Cosmos DB-konto med hjälp av en anslutningssträng.
+* [Ansluta till en Azure-prenumeration](#connect-to-an-azure-subscription): Hantera lagringsresurser som hör till din Azure-prenumeration.
+* [Arbeta med lokal utvecklingslagring](#work-with-local-development-storage): Hantera lokal lagring med hjälp av Azure Storage-emulatorn.
+* [Ansluta till extern lagring](#attach-or-detach-an-external-storage-account): Hantera lagringsresurser som hör till en annan Azure-prenumeration eller som är nationella Azure-moln med hjälp av lagringskontots namn, nyckel och slutpunkter.
+* [Ansluta ett lagringskonto med hjälp av en SAS](): Hantera lagringsresurser som hör till en annan Azure-prenumeration med hjälp av en signatur för delad åtkomst (SAS).
+* [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas): Hantera en specifik lagringstjänst (blobbehållare, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
+* [Ansluta till ett Azure Cosmos DB-konto med hjälp av en anslutningssträng](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Hantera Cosmos DB-konto med hjälp av en anslutningssträng.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
 
@@ -243,7 +243,7 @@ För att illustrera detta antar vi att Användare A är administratör för en A
 
     ![Dialogrutan Anslut till Azure Storage][16]
 
-3. Välj **använda en anslutningssträng** och klistra in anslutningssträngen i den **anslutningssträng:** fält. Klicka på den **nästa** knappen.
+3. Välj **använda en anslutningssträng** och klistra in anslutningssträngen i den **anslutningssträng:** fält. Klicka på knappen **Nästa**.
 
     ![Dialogrutan Anslut till Azure Storage][17]
 
@@ -275,7 +275,7 @@ I det här sammanhanget, kan en tjänst vara en blobbehållare, kö, tabell elle
 
     ![Dialogrutan Anslut till Azure Storage][16]
 
-3. Välj **använder en SAS-URI** och klistra in din URI till den **URI:** fält. Klicka på den **nästa** knappen.
+3. Välj **använder en SAS-URI** och klistra in din URI till den **URI:** fält. Klicka på knappen **Nästa**.
 
     ![Dialogrutan Anslut till Azure Storage][19]
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: eafc5dbd89d5727fac0040816785dbfcdf123b62
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022027"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563629"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon Redshift med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54022027"
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [Amazon Redshift-anslutningsappen i V2](../connector-amazon-redshift.md).
 
-Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från Amazon Redshift. Artikeln bygger vidare på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten. 
+Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från Amazon Redshift. Artikeln bygger vidare på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
 
 Data Factory stöder för närvarande endast flyttar data från Amazon Redshift till en [mottagarens datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Flytta data från andra datalager till Amazon Redshift stöds inte.
 
@@ -44,13 +44,13 @@ Du kan skapa en pipeline med en Kopieringsaktivitet för att flytta data från e
 
 Det enklaste sättet att skapa en pipeline är att använda Azure Data Factory-Kopieringsguiden. En snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera finns i den [självstudien: Skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
 
-Du kan också skapa en pipeline med hjälp av Azure portal, Visual Studio, Azure PowerShell eller andra verktyg. Azure Resource Manager-mallar, .NET-API eller REST API kan också användas för att skapa pipelinen. Stegvisa anvisningar om hur du skapar en pipeline med en Kopieringsaktivitet finns i den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Du kan också skapa en pipeline med hjälp av Azure portal, Visual Studio, Azure PowerShell eller andra verktyg. Azure Resource Manager-mallar, .NET-API eller REST API kan också användas för att skapa pipelinen. Stegvisa anvisningar om hur du skapar en pipeline med en Kopieringsaktivitet finns i den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager: 
+Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
 1. Skapa länkade tjänster för att länka indata och utdata datalager till datafabriken.
-2. Skapa datauppsättningar som representerar inkommande och utgående data för kopieringen. 
-3. Skapa en pipeline med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
+2. Skapa datauppsättningar som representerar inkommande och utgående data för kopieringen.
+3. Skapa en pipeline med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
 
 När du använder guiden Kopiera skapas automatiskt JSON-definitioner för dessa Data Factory-entiteter. När du använder verktyg eller API: er (med undantag för .NET-API) kan definiera du Data Factory-entiteter med hjälp av JSON-format. Den [JSON-exempel: Kopiera data från Amazon Redshift till Azure Blob storage](#json-example-copy-data-from-amazon-redshift-to-azure-blob) visar JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för Amazon Redshift.
 
@@ -60,12 +60,12 @@ I följande avsnitt beskrivs de JSON-egenskaper som används för att definiera 
 
 I följande tabell innehåller beskrivningar av JSON-element som är specifika för en Amazon Redshift länkad tjänst.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
-| **Server** |IP-adressen eller värdnamnet namnet på Amazon Redshift-servern. |Ja |
-| **Port** |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter klientanslutningar. |Nej (standard är 5439) |
-| **databasen** |Namnet på Amazon Redshift-databas. |Ja |
+| **server** |IP-adressen eller värdnamnet namnet på Amazon Redshift-servern. |Ja |
+| **port** |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter klientanslutningar. |Nej (standard är 5439) |
+| **database** |Namnet på Amazon Redshift-databas. |Ja |
 | **användarnamn** |Namnet på den användare som har åtkomst till databasen. |Ja |
 | **Lösenord** |Lösenordet för användarkontot. |Ja |
 
@@ -75,9 +75,9 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera d
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i arkivet. **TypeProperties** avsnittet för en datauppsättning av typen **RelationalTable**, vilket inkluderar Amazon Redshift-datamängd har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| **Tabellnamn** |Namnet på tabellen i Amazon Redshift-databas som den länkade tjänsten refererar till. |Nej (om den **fråga** egenskapen för en Kopieringsaktivitet av typen **RelationalSource** har angetts) |
+| **tableName** |Namnet på tabellen i Amazon Redshift-databas som den länkade tjänsten refererar till. |Nej (om den **fråga** egenskapen för en Kopieringsaktivitet av typen **RelationalSource** har angetts) |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
@@ -85,7 +85,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera a
 
 För Kopieringsaktiviteten, när källan är av typen **AmazonRedshiftSource**, följande egenskaper är tillgängliga i **typeProperties** avsnittet:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **Fråga** | Använd anpassad fråga för att läsa data. |Nej (om den **tableName** egenskapen för en datauppsättning som har angetts) |
 | **redshiftUnloadSettings** | Innehåller Egenskapsgruppen när du använder Redshift **INAKTIVERAS** kommando. | Nej |
@@ -94,7 +94,7 @@ För Kopieringsaktiviteten, när källan är av typen **AmazonRedshiftSource**, 
 
 Du kan också använda den **RelationalSource** typ, som inkluderar Amazon Redshift, med följande egenskap i den **typeProperties** avsnittet. Obs den här typ av datakälla inte stöder Redshift **INAKTIVERAS** kommando.
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **Fråga** |Använd anpassad fråga för att läsa data. | Nej (om den **tableName** egenskapen för en datauppsättning som har angetts) |
 
@@ -139,7 +139,7 @@ För det här exemplet, Kopieringsaktivitet först tar bort data från Amazon Re
 ```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>JSON-exempel: Kopiera data från Amazon Redshift till Azure Blob storage
-Detta exempel visar hur du kopierar data från en Amazon Redshift-databas till Azure Blob Storage. Datan kan kopieras direkt till någon [stöds mottagare](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet.  
+Detta exempel visar hur du kopierar data från en Amazon Redshift-databas till Azure Blob Storage. Datan kan kopieras direkt till någon [stöds mottagare](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet.
 
 Exemplet har följande data factory-entiteter:
 
@@ -162,7 +162,7 @@ Exemplet kopierar data från ett frågeresultat i Amazon Redshift till en Azure-
         "typeProperties":
         {
             "server": "< The IP address or host name of the Amazon Redshift server >",
-            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
+            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
             "database": "<The database name of the Amazon Redshift database>",
             "username": "<username>",
             "password": "<password>"
@@ -333,15 +333,15 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | SMALLINT |Int16 |
 | HELTAL |Int32 |
 | BIGINT |Int64 |
-| DECIMALTAL |Decimal |
-| VERKLIGA |Enkel |
-| DUBBEL PRECISION |Double-värde |
-| BOOLESKT VÄRDE |Sträng |
-| CHAR |Sträng |
-| VARCHAR |Sträng |
+| DECIMAL |Decimal |
+| VERKLIGA |Single |
+| DUBBEL PRECISION |Double |
+| BOOLESKT VÄRDE |String |
+| CHAR |String |
+| VARCHAR |String |
 | DATE |DateTime |
-| TIDSSTÄMPEL |DateTime |
-| TEXT |Sträng |
+| TIMESTAMP |DateTime |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
 Om du vill lära dig mer om att mappa kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
@@ -350,7 +350,7 @@ Om du vill lära dig mer om att mappa kolumner i datauppsättningen för källan
 När du kopierar data från en relationsdatabas, Tänk repeterbarhet att undvika oväntade resultat. I Azure Data Factory kan du köra en sektor manuellt. Du kan också konfigurera återförsök **princip** för en datauppsättning för att köra en sektor när ett fel uppstår. Se till att samma data läses, oavsett hur många gånger sektorn ska köras på nytt. Kontrollera också att samma data är läst oavsett hur du vill köra sektorn. Mer information finns i [Repeatable läser från relationella källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Prestanda- och justering
-Lär dig mer om viktiga faktorer som påverkar prestanda för Kopieringsaktiviteten och sätt att optimera prestanda i den [kopiera aktivitet prestanda- och Justeringsguide](data-factory-copy-activity-performance.md). 
+Lär dig mer om viktiga faktorer som påverkar prestanda för Kopieringsaktiviteten och sätt att optimera prestanda i den [kopiera aktivitet prestanda- och Justeringsguide](data-factory-copy-activity-performance.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Stegvisa instruktioner för att skapa en pipeline med Kopieringsaktivitet finns i den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

@@ -1,27 +1,25 @@
 ---
-title: Hämta videoinsikter - Videosökning i Bing
+title: Hämta information i video med hjälp av Sök-API för Bing-Video
 titlesuffix: Azure Cognitive Services
-description: Visar hur du använder den Videosökning i Bing för att få mer information om en video.
+description: Lär dig hur du använder den Videosökning i Bing för att få mer information om videor, till exempel relaterade videor.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9c36208a35d66fcd6df6ac2ccd4a28c55ed92937
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5abc5ee96c503bed9509e3d35b442ea5e0330ac7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170794"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568217"
 ---
 # <a name="get-insights-about-a-video"></a>Få insikter om en video
 
-Varje video innehåller en video-ID som du kan använda för att få mer information om videon, till exempel relaterade videor.  
-  
-För att få insikter om en video kan du samla in dess [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token i svaret. 
+Varje video som returneras av Sök-API för Bing-Video innehåller en video-ID som du kan använda för att få mer information om den, till exempel relaterade videor. För att få insikter om en video kan hämta dess [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token i API-svaret. 
 
 ```json
     "value" : [
@@ -36,9 +34,9 @@ För att få insikter om en video kan du samla in dess [videoId](https://docs.mi
     ],
 ```
 
-Nu ska du skicka följande GET-begäran till slutpunkten för Video information. Ange den [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) frågeparameter till den `videoId` token. Om du vill ange de insikter som du vill hämta, ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) frågeparameter. Om du vill hämta alla insikter, ange `modules` till alla. Svaret innehåller alla insikter som du har begärt, om det är tillgängligt.
+Därefter skicka en GET-begäran till slutpunkten för information om videon med-ID. Ange den [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) frågeparameter till den `videoId` token. Om du vill ange de insikter som du vill hämta, ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) frågeparameter. Om du vill hämta alla insikter, ange `modules` till alla. Svaret innehåller alla de insikter som du har begärt, om det är tillgängligt.
 
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -50,9 +48,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-related-videos-insights"></a>Informationshämtning relaterade videor  
 
-För att få videor som är relaterade till den angivna videon kan du ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) frågeparameter till RelatedVideos.
+För att få videor som är relaterade till den angivna videon kan du ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) frågeparameter till `RelatedVideos`.
   
-```  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -61,10 +59,10 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
+
+Svaret på den här begäran har en högsta [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) objekt i stället för en [videor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) objekt.  
   
-Följande är svaret på den tidigare begäran. Det översta objektet är en [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) objekt i stället för en [videor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) objekt.  
-  
-```  
+```json
 {
     "_type" : "Api.VideoDetails.VideoDetails",
     "relatedVideos" : {
@@ -95,3 +93,9 @@ Följande är svaret på den tidigare begäran. Det översta objektet är en [Vi
     }
 }
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Sök efter trendande videor](trending-videos.md)
+

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 017abd72b3aa1547844f977c3efda69e59901a6f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/01/2019
+ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487956"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657883"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Läs repliker i Azure Database för PostgreSQL
 
@@ -21,6 +21,8 @@ ms.locfileid: "55487956"
 Läs replik-funktionen kan du replikera data från en Azure Database for PostgreSQL-server (master) upp till fem skrivskyddade servrar (läsa repliker) inom samma Azure-region. Läs repliker uppdateras asynkront med inbyggda replikeringsteknik för PostgreSQL-motorn.
 
 Repliker är nya servrar som kan hanteras på liknande sätt som normala fristående Azure Database for PostgreSQL-servrar. För varje skrivskyddad replik faktureras du för den etablerade beräkningen i virtuella kärnor och den etablerade lagringen i GB/månad.
+
+Gå till den [how-to sidan information om hur du skapar och hanterar repliker](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-read-replicas"></a>När du ska använda skrivskyddade repliker
 Läs replica-funktionen är avsett för att förbättra prestanda och skalning för läsintensiva arbetsbelastningar. Skrivskyddade arbetsbelastningar kan exempelvis vara isolerade på replikerna medan skrivning arbetsbelastningar kan dirigeras till huvudservern.
@@ -56,7 +58,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 och i Kommandotolken anger du lösenordet för användarkontot.
 
 ## <a name="monitoring-replication"></a>Övervakning av replikeringen
-Det finns en **Max Lag över repliker** mått som är tillgängliga i Azure Monitor. Detta mått är tillgängliga på den överordnade servern. Mätvärdet visar fördröjning mellan huvudservern och de flesta släpar repliken. 
+Det finns en **Max Lag över repliker** mått som är tillgängliga i Azure Monitor. Detta mått är tillgängliga på den överordnade servern. Mätvärdet visar fördröjningen i byte mellan huvudservern och mest släpar repliken. 
 
 Vi ger även en **repliken fördröjning** mått i Azure Monitor. Det här måttet är tillgängligt för repliker endast. 
 

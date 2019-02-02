@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 0f5dc5cc7d981eb162ba101671b1e967ddf4bfff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 1d350cae379c5ec790413775138225b60b9c5e32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868471"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564943"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
 
@@ -83,7 +83,7 @@ Dela / sammanslå verktyget körs som en Azure-webbtjänst. En administratör el
 
   Dela / sammanslå-tjänsten använder en databas att upprätthålla dess status och att hålla loggar under bearbetning av begäran. Du skapar den här databasen i sin prenumeration samt anslutningssträngen för den i konfigurationsfilen för service-distributionen. Administratörer från användarens organisation kan också ansluta till den här databasen att granska begäran om förlopp och undersöka detaljerad information om potentiella fel.
 
-- **Horisontell partitionering medvetenhet**
+- **Sharding-awareness**
 
   Dela / sammanslå tjänsten skiljer mellan (1) shardade tabeller, (2) referenstabeller och (3) vanliga tabeller. Semantiken för en åtgärd för dela/sammanslå/flytta beror på vilken typ av tabellen används och definieras enligt följande:
 
@@ -158,7 +158,7 @@ Dela / sammanslå service-paketet innehåller en arbetsroll och en webbroll. Web
 
   Sammanfoga operations flytta shardletar till en befintlig shard. Du kan identifiera det befintliga fragmentet genom att tillhandahålla adressintervallsgränser för befintliga intervallet som du vill sammanfoga med.
 
-- **Batchstorlek**
+- **Batch Size**
 
   Batchstorleken styr antalet shardletar går offline i taget under dataförflyttning. Det här är ett heltalsvärde där du kan använda lägre värden när du är känsliga för långa stilleståndsperioder för shardletar. Högre värden ökar den tid som en viss shardlet är offline men kan du förbättra prestandan.
 
@@ -190,7 +190,7 @@ Dela / sammanslå Service tillhandahåller den **RequestStatus** tabellen i stor
 
   Tid och datum när begäran startade.
 
-- **Åtgärds-ID**
+- **OperationId**
 
   Ett GUID som unikt identifierar begäran. Den här förfrågan kan också användas för att avbryta åtgärden medan det pågår fortfarande.
 
@@ -212,7 +212,7 @@ Dela / sammanslå Service tillhandahåller den **RequestStatus** tabellen i stor
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-Dela / sammanslå-tjänsten använder Azure Diagnostics baserat på Azure SDK 2.5 för övervakning och diagnostik. Du styr diagnostikkonfigurationen som beskrivs här: [hur du aktiverar diagnostik i Azure Cloud Services och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md). Det nedladdade paketet innehåller två diagnostikkonfigurationer – en för webbrollen och en för arbetsrollen. Den innehåller definitioner för att logga prestandaräknare, IIS-loggar, händelseloggar i Windows och händelseloggar för dela / sammanslå program.
+Dela / sammanslå-tjänsten använder Azure Diagnostics baserat på Azure SDK 2.5 för övervakning och diagnostik. Du kan styra diagnostikkonfigurationen som beskrivs här: [Aktivera diagnostik i Azure-molntjänster och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md). Det nedladdade paketet innehåller två diagnostikkonfigurationer – en för webbrollen och en för arbetsrollen. Den innehåller definitioner för att logga prestandaräknare, IIS-loggar, händelseloggar i Windows och händelseloggar för dela / sammanslå program.
 
 ## <a name="deploy-diagnostics"></a>Distribuera diagnostik
 
@@ -230,7 +230,7 @@ Om du vill aktivera övervakning och diagnostik med diagnostik-konfiguration fö
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-Du hittar mer information om hur du konfigurerar och distribuerar här diagnostikinställningar: [hur du aktiverar diagnostik i Azure Cloud Services och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md).
+Du hittar mer information om hur du konfigurerar och distribuerar diagnostikinställningar här: [Aktivera diagnostik i Azure-molntjänster och virtuella datorer](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Hämta diagnostik
 

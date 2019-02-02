@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f6aee3c42c7c01d226732245b47dfb87e07a5ce4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dd254f0640e17bdc055171dde69b04103f389354
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464467"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659838"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Öppna portar och slutpunkter till en Linux VM med Azure CLI
 
@@ -74,7 +74,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Du kan också associera Nätverkssäkerhetsgruppen med ett virtuellt nätverksundernät med [az network vnet-undernät update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) istället för bara till nätverksgränssnittet på en enskild virtuell dator. I följande exempel kopplar ett befintligt undernät med namnet *mySubnet* i den *myVnet* virtuellt nätverk med Nätverkssäkerhetsgruppen med namnet *myNetworkSecurityGroup*:
+Du kan också associera Nätverkssäkerhetsgruppen med ett virtuellt nätverksundernät med [az network vnet-undernät update](/cli/azure/network/vnet/subnet) istället för bara till nätverksgränssnittet på en enskild virtuell dator. I följande exempel kopplar ett befintligt undernät med namnet *mySubnet* i den *myVnet* virtuellt nätverk med Nätverkssäkerhetsgruppen med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network vnet subnet update \

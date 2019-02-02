@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 1/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: ef7b4377da541068cef7cdd2de5a98d33c3b80ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 88ffa70f7ac21a2c28af994f1e2ed3b6939f6ad9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199102"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567425"
 ---
 # <a name="azure-marketplace-participation-policies"></a>Deltagandepolicyer för Azure Marketplace
 
@@ -35,7 +35,7 @@ Dessa deltagandepolicyer för Microsoft Azure Marketplace gäller alla utgivare 
 
 1. Utgivare måste befinna sig i ett försäljningsland som stöds av Azure Marketplace. Azure Marketplace har för närvarande stöd för följande försäljningsländer:  Afghanistan, Albanien, Algeriet, Angola, Antigua och Barbuda, Argentina, Armenien, Australien, Österrike, Azerbajdzjan, Bahrain, Bangladesh, Vitryssland, Belgien, Benin, Bolivia, Bosnien och Hercegovina, Botswana, Brasilien, Bulgarien, Burkina Faso, Burundi, Kambodja, Kamerun, Kanada, Centralafrikanska republiken, Tchad, Chile, Colombia, Komorerna, Demokratiska republiken Kongo, Republiken Kongo, Costa Rica, Côte D'Ivoire, Kroatien, Cypern, Tjeckien, Danmark, Dominica, Dominikanska republiken, Ecuador, Egypten, El Salvador, Eritrea, Estland, Etiopien, Fiji, Finland, Frankrike, Georgien, Tyskland, Ghana, Grekland, Guatemala, Guinea, Haiti, Honduras, Hongkong SAR, Ungern, Island, Indien, Indonesien, Irak, Irland, Israel, Italien, Jamaica, Japan, Jordanien, Kazakstan, Kenya, Sydkorea, Kuwait, Laos, Lettland, Libanon, Liberia, Liechtenstein, Litauen, Luxemburg,, Madagaskar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexiko, Monaco, Mongoliet, Montenegro, Marocko, Moçambique, Nepal, Nederländerna, Nya Zeeland, Nicaragua, Niger, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Qatar, Rumänien, Ryssland, Rwanda, Saudiarabien, Senegal, Serbien, Sierra Leone, Singapore, Slovakien, Slovenien, Somalia, Sydafrika, Spanien, Sri Lanka, Sverige, Schweiz, Tadzjikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad och Tobago, Tunisien, Turkiet, Turkmenistan, Uganda, Ukraina, Förenade Arabemiraten, Storbritannien, USA, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, Zimbabwe.
 
-1. Utgivare måste tillgängliggöra varje erbjudande i minst ett köpland som stöds av Azure Marketplace. Azure Marketplace har för närvarande stöd för följande köpländer:  Algeriet, Argentina, Australien, Bahrain, Belgien, Brasilien, Bulgarien, Chile, Colombia, Costa Rica, Cypern, Danmark, Dominikanska republiken, Ecuador, Egypten, El Salvador, Estland, Filippinerna, Finland, Frankrike, Förenade Arabemiraten, Grekland, Guatemala, Hongkong SAR, Indien, Indonesien, Irland, Island, Israel, Italien, Japan, Jordanien, Kanada, Kazakstan, Kenya, Kroatien, Kuwait, Lettland, Liechtenstein, Litauen, Luxemburg, Makedonien (f. d. jugoslaviska republiken), Malaysia, Malta, Marocko, Mexiko, Montenegro, Nederländerna, Nigeria, Norge, Nya Zeeland, Oman, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico*, Qatar, Rumänien, Ryssland, Saudiarabien, Schweiz, Serbien, Singapore, Slovakien, Slovenien, Spanien, Sri Lanka, Storbritannien, Sverige, Sydafrika, Sydkorea, Taiwan, Thailand, Tjeckien, Trinidad och Tobago, Tunisien, Turkiet, Tyskland, Ukraina, Ungern, Uruguay, USA, Venezuela, Vitryssland, Österrike. 
+1. Utgivare måste tillgängliggöra varje erbjudande i minst ett köpland som stöds av Azure Marketplace. Azure Marketplace har för närvarande stöd för följande köpländer: Algeriet, Argentina, Australien, Bahrain, Belgien, Brasilien, Bulgarien, Chile, Colombia, Costa Rica, Cypern, Danmark, Dominikanska republiken, Ecuador, Egypten, El Salvador, Estland, Filippinerna, Finland, Frankrike, Förenade Arabemiraten, Grekland, Guatemala, Hongkong SAR, Indien, Indonesien, Irland, Island, Israel, Italien, Japan, Jordanien, Kanada, Kazakstan, Kenya, Kroatien, Kuwait, Lettland, Liechtenstein, Litauen, Luxemburg, Makedonien (f. d. jugoslaviska republiken), Malaysia, Malta, Marocko, Mexiko, Montenegro, Nederländerna, Nigeria, Norge, Nya Zeeland, Oman, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico*, Qatar, Rumänien, Ryssland, Saudiarabien, Schweiz, Serbien, Singapore, Slovakien, Slovenien, Spanien, Sri Lanka, Storbritannien, Sverige, Sydafrika, Sydkorea, Taiwan, Thailand, Tjeckien, Trinidad och Tobago, Tunisien, Turkiet, Tyskland, Ukraina, Ungern, Uruguay, USA, Venezuela, Vitryssland, Österrike.
 
 1. Utgivare måste ha en god ekonomisk situation.
 
@@ -47,7 +47,7 @@ Dessa deltagandepolicyer för Microsoft Azure Marketplace gäller alla utgivare 
 
 1. Utgivare måste meddela tillgängligheten för sitt erbjudande på Azure Marketplace på sin offentliga webbplats och måste ange hyperlänkar till registreringssidorna på deras erbjudanden [ https://azuremarketplace.microsoft.com/marketplace/ ](https://azuremarketplace.microsoft.com/marketplace/).
 
-1. Utgivare måste klassificera varje erbjudande utifrån en eller flera klassificeringstaxonomier som tillhandahålls av Microsoft, inklusive de kategorier som beskrivs i avsnitt 4 i det här dokumentet. Om Microsoft anser att en utgivare har valt felaktig klassificering, den förbehåller sig rätten att omklassificera ett erbjudande.
+1. Utgivare måste klassificera varje erbjudande utifrån en eller flera klassificeringstaxonomier som tillhandahålls av Microsoft, inklusive de kategorier som beskrivs i den **erbjuder klassificering definitioner** i det här dokumentet. Om Microsoft anser att en utgivare har valt felaktig klassificering, den förbehåller sig rätten att omklassificera ett erbjudande.
 
 1. Om en utgivares erbjudande är Microsoft Azure Certified och kan inte köras i första hand i Microsoft Azure, måste utgivaren tillgängliggöra en betald version av erbjudandet på Marketplace, inom 90 dagar för att publicera en kostnadsfri eller BYOL-version av erbjudandet.
 
@@ -122,7 +122,7 @@ När du har publicerat ett tjänsterbjudande på Marketplace måste utgivare beh
     * Erbjudandet får konsekvent många supportärenden; eller
     * Utgivaren har inte följt villkoren i publiceringsavtalet för Microsoft Marketplace, publiceringsriktlinjerna för Marketplace eller detta dokument.
 
-1. Av olika anledningar kan du bestämma dig för att ta bort erbjudandet från Marketplace. Om du tar bort erbjudandet garanteras att nya kunder inte längre kan köpa eller distribuera ditt erbjudande, men det påverkar inte befintliga kunder. Uppsägning av erbjudandet handlar om att säga upp tjänsten och/eller licensavtalet mellan dig och dina befintliga kunder. Vägledning och principer som relaterar till borttagning av erbjudande och uppsägning regleras av publiceringsavtalet för Microsoft Marketplace (se avsnitt 7). Du kan begära borttagning eller uppsägning genom att logga ett supportärende.
+1. Av olika anledningar kan du bestämma dig för att ta bort erbjudandet från Marketplace. Om du tar bort erbjudandet garanteras att nya kunder inte längre kan köpa eller distribuera ditt erbjudande, men det påverkar inte befintliga kunder. Uppsägning av erbjudandet handlar om att säga upp tjänsten och/eller licensavtalet mellan dig och dina befintliga kunder. Vägledning och principer som relaterar till borttagning av erbjudande och uppsägning regleras av Publiceringsavtalet för Microsoft Marketplace (se avsnittet ”betalningsvillkor”). Du kan begära borttagning eller uppsägning genom att logga ett supportärende.
 
 ## <a name="payment-terms"></a>Betalningsvillkor
 
@@ -138,19 +138,35 @@ Microsoft tillåter att utgivare tar med följande Microsoft-programvaruprodukte
 
 ## <a name="taxes"></a>Skatter
 
-1. **Microsoft-Remitteringsländer.**
+1. **Ansvar för skatter gällande slutet kundförsäljning.**
 
-    1. Följande länder är Microsoft-Remitteringsländer, enligt definitionen i Publiceringsavtalet för Microsoft Marketplace: EU, Kanada, Indien, Irland, Liechtenstein, Monaco, Nya Zeeland, Norge, Puerto Rico, Sydkorea, Schweiz, USA. Australien, Saudiarabien, Taiwan och Förenade Arabemiraten finns Microsoft Remittance länder endast för direkt webbförsäljning.
+    1. I allmänhet var och en av Microsofts och utgivarens ansvar för skatter gällande slutet kundförsäljning beror på landet och köp scenariot där erbjudanden säljs.
 
-    1. I Irland debiterar Microsoft irländsk moms till alla irländska kunder (såvida inte en irländsk kund uppger information för ett giltigt VAT 56B-certifikat). För företagskunder inom EU och i Norge (utanför Irland) tillämpar Microsoft momsbefrielse när det finns ett giltigt momsregistreringsnummer. Om inget giltigt momsregistreringsnummer uppges debiteras kunder moms enligt den tillämpliga momssatsen i kundens land/jurisdiktion.
+    1. I vissa länder (**Microsoft hanterade länder**) Microsoft ansvara för att hantera slutet kunden skattesatser som kan omfatta verifierar företag status för kunderna genom att hämta momsregistreringsnummer eller undantagscertifikat djupare hanterade relationer med kunderna och beräkna, samla in och/eller remittering skatter.  I fall där försäljning görs via partner, förutsätter Microsoft alla partner är företag och korrekt ur sina skatteskyldigheter.  Mer information finns i den [vanliga frågor och svar](https://automaticbillingspec.blob.core.windows.net/spec/FAQ%20for%20ISV%20Azure%20Marketplace%20Updates%20March%202019.pdf).
 
-    1. Microsoft debiterar schweizisk moms för alla kunder i Schweiz och Liechtenstein.
+    1. För alla länder som inte är Microsoft-hanterade länder (**ISV hanteras länder**), utgivare inser och godkänner att utgivare har eget ansvar att ta reda på och hantera slutet kunden skatt, till exempel registrering, skatt beräkning, samling och remittering och verifiering av företag status för kunder och tillhandahållande av skatt fakturor till kunder, för alla erbjudanden som sådana utgivare väljer att tillgängliggöra i ISV hanteras länder/regioner.  Utgivare är medveten om att, med avseende på varje försäljning i ett ISV-hanterade land Microsoft för närvarande inte kanske kan tillhandahålla.
 
-1. **ISV-Remitteringsländer.**
+    1. End-kunder kan köpa erbjudanden direkt från Microsoft eller från Microsoft-partners som utgivare licenser sin produkt.  Det finns också flera olika licensprogram.  I vissa fall kan Microsoft hanterade länder/regioner kan bli ISV hanteras länder och tvärtom (se avsnittet om **Microsoft hanterade länder**nedan). Information om köp kundscenarier finns i [Azure Marketplace vanliga frågor och svar](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide).
 
-    1. ISV-Remitteringsländer omfattar alla köpländer länder som definieras i avsnitt 1 (3) i den här principen som inte är Microsoft-Remitteringsländer. Dessutom behandlas Australien, Saudiarabien, Taiwan och Förenade Arabemiraten via Enterprise-kanalen som ISV-remitteringsförsäljning. Men med avseende på utgivare i Taiwan, Microsoft inte kan bekräfta att sådana taiwanesiska utgivare är samla in och remittering tillämpliga skatter.
+1. **Microsoft-hanterade länder.**
 
-    1. Om utgivare väljer att tillgängliggöra erbjudanden i ett ISV-Remitteringsland, har sådana utgivare eget ansvar att kontrollera sin eventuella momsskyldighet i ISV-Remitteringslandet, om sådana.  De måste är medvetna om att Microsoft kan för närvarande inte kunna tillhandahålla de transaktionsuppgifter som krävs för utgivare att ge kunder momsfakturor.
+    1. Följande länder är Microsoft-hanterade länder för försäljning via alla kunden köpa scenarier: Armenien, Vitryssland, EU, Kanada, Indien, Irland, Liechtenstein, Monaco, Nya Zeeland, Norge, Puerto Rico, Ryssland, Saudiarabien, Serbien, Sydkorea, Schweiz, Taiwan, Turkiet, Förenade Arabemiraten och USA. 
+
+    1. Australien är ett Microsoft-hanterade land för försäljning via alla köp kundscenarier utom Enterprise Agreement-kund köp scenario.
+
+    1. Microsoft hanterar slutet kunden skatt för utgivaren bekvämlighets skull och har övertagit de vanligaste scenarierna för att fastställa länder och strategier för att hantera slutet kunden skatt.
+
+    1. Microsoft lämnar inga garantier att Microsofts åtgärder helt att uppfylla skyldigheter som utgivare i Microsoft-hanterade länder.  För alla Microsoft hanterade länder/regioner rekommenderar Microsoft starkt utgivare arbeta med sina egna skatt rådgivare att avgöra om Microsoft Managed SKATTEINBETALNING tillräckligt bemöta krav på efterlevnad av utgivare.  Detta är särskilt viktigt för alla Microsoft hanterade länder som utgivare sälja sina produkter.  Till exempel en utgivare upprättas i och sälja erbjudanden i Saudiarabien kan bestämma att förlita dig på Microsoft för att hantera skatt inte kanske är tillräckliga för att uppfylla utgivarens efterlevnad skyldigheter.
+
+1. **ISV-hanterade länder.**
+
+    1. ISV-hanterade länder omfattar Australien, för alla försäljningar via Enterprise Agreement-kunder köper scenario och alla länder/regioner som inte refererar till i avsnittet på **Microsoft hanterade länder**.
+
+1. **Specialfall.**
+
+    1. *Brasilien*.  För försäljningen i Brasilien via alla kunden köpa scenarier utom CSP, Brasilien är ett Microsoft-hanterade land och Microsoft fungerar som en återförsäljare i stället för utgivare-agenten.  Köpa scenario, Microsoft fungerar som utgivare agenten och säljer från en entitet i Brasilien till brasilianska CSP: er som Microsoft förutsätter är kompatibel för försäljningen i Brasilien via CSP-kund. 
+
+    1. *Mexiko*.  Mexiko är ett Microsoft-hanterade land för försäljning i Mexiko via Enterprise Agreement-kund köp scenariot, och Microsoft fungerar som en återförsäljare i stället för utgivare-agenten.  För försäljning i Mexiko via alla köp kundscenarier utom Enterprise-avtal, Mexiko är en ISV hanteras land och Microsoft fungerar som utgivare agent.
 
 ## <a name="security-events"></a>Säkerhetshändelser
 

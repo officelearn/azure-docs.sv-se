@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: ee56f77ef6ed3c759573a5a96d854c54f297b2ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77b7e6aef4d0d38fa3ea9f9b9a740ffc25aff7f9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462366"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660025"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File storage på virtuella Linux-datorer med SMB
 
@@ -58,7 +58,7 @@ STORAGEACCT=$(az storage account create \
 
 När du skapar ett lagringskonto skapas nycklar för kontot i par så att de kan roteras utan avbrott i tjänsten. När du växlar till den andra nyckeln i paret kan du skapa ett nytt nyckelpar. Ny lagringskontonycklar skapas alltid i par, så att du alltid har minst en oanvända lagringskontonyckel redo att växla till.
 
-Visa lagringskontonycklarna med [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#list). Det här exemplet lagrar värdet för nyckel 1 i den **STORAGEKEY** variabeln.
+Visa lagringskontonycklarna med [az nycklar lagringskontolistan](/cli/azure/storage/account/keys). Det här exemplet lagrar värdet för nyckel 1 i den **STORAGEKEY** variabeln.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \

@@ -11,33 +11,38 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: de758d38626107f28211f79a4772c3e887085776
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599842"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563226"
 ---
 # <a name="split-merge-security-configuration"></a>Dela / sammanslå säkerhetskonfiguration
+
 Om du vill använda tjänsten dela/Sammanslå, måste du konfigurera säkerhet på rätt sätt. Tjänsten är en del av funktionen elastisk skalning av Microsoft Azure SQL Database. Mer information finns i [elastisk skala dela och slå samman Service-självstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="configuring-certificates"></a>Konfigurera certifikat
+
 Certifikat är konfigurerade på två sätt. 
 
 1. [Konfigurera SSL-certifikat](#to-configure-the-ssl-certificate)
 2. [Konfigurera klientcertifikat](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Hämta certifikat
+
 Certifikat kan hämtas från offentliga certifikatutfärdare (CA) eller från den [Windows Certifikattjänsten](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Det här är de här metoderna att hämta certifikat.
 
 Om dessa alternativ inte är tillgängliga kan du generera **självsignerade certifikat**.
 
 ## <a name="tools-to-generate-certificates"></a>Verktyg för att generera certifikat
+
 * [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Att köra verktyg
+
 * Från en Kommandotolken för utvecklare för Visual Studios Se [Visual Studio-kommandotolk](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     Om installerat kan du gå till:
@@ -46,9 +51,11 @@ Om dessa alternativ inte är tillgängliga kan du generera **självsignerade cer
 * Hämta WDK från [Windows 8.1: Hämta paket och verktyg](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Konfigurera SSL-certifikat
+
 Ett SSL-certifikat krävs för att kryptera kommunikationen och autentisera servern. Välj den lämpligaste av tre scenarierna nedan och kör alla steg:
 
 ### <a name="create-a-new-self-signed-certificate"></a>Skapa ett nytt självsignerat certifikat
+
 1. [Skapa ett självsignerat certifikat](#create-a-self-signed-certificate)
 2. [Skapa PFX-filen för självsignerat SSL-certifikat](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [Ladda upp SSL-certifikat till Molntjänsten](#upload-ssl-certificate-to-cloud-service)

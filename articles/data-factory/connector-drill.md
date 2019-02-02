@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 2dd02e50ecde19b3affd26a024c4734e99fc4978
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fa0a1eb590d99b48e737794352625848f3d3dc8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017335"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661300"
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>Kopiera data från ökad detaljnivå med Azure Data Factory (förhandsversion)
 
@@ -44,8 +44,8 @@ Följande egenskaper har stöd för ökad detaljnivå länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **öka detaljnivån** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till ökad detaljnivå. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| typ | Type-egenskapen måste anges till: **Drill** | Ja |
+| connectionString | En ODBC-anslutningssträng att ansluta till ökad detaljnivå. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `pwd` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -57,8 +57,8 @@ Följande egenskaper har stöd för ökad detaljnivå länkade tjänsten:
         "type": "Drill",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "ConnectionType=Direct;Host=<host>;Port=<port>;AuthenticationType=Plain;UID=<user name>;PWD=<password>"
+                "type": "SecureString",
+                "value": "ConnectionType=Direct;Host=<host>;Port=<port>;AuthenticationType=Plain;UID=<user name>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -68,6 +68,36 @@ Följande egenskaper har stöd för ökad detaljnivå länkade tjänsten:
     }
 }
 ```
+
+**Exempel: lagra lösenord i Azure Key Vault**
+
+```json
+{
+    "name": "DrillLinkedService",
+    "properties": {
+        "type": "Drill",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "ConnectionType=Direct;Host=<host>;Port=<port>;AuthenticationType=Plain;UID=<user name>;"
+            },
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 

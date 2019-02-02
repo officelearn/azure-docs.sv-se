@@ -12,16 +12,20 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 01/31/2019
-ms.openlocfilehash: 80da1058f17b69d82d851bb38482afa0b31daac1
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 3fa0977a8239a3d0db1aea99d39a2079945b724a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508879"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567731"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
-Azure SQL Database Managed Instance tillhandahåller hög kompatibilitet med en lokal SQL Server Database Engine. De flesta SQL Server Database Engine-funktioner stöds i hanterade instanser. Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den här artikeln sammanfattar och förklarar skillnaderna. <a name="Differences"></a>
+Azure SQL Database Managed Instance tillhandahåller hög kompatibilitet med en lokal SQL Server Database Engine. De flesta SQL Server Database Engine-funktioner stöds i hanterade instanser.
+
+![Migrering](./media/sql-database-managed-instance/migration.png)
+
+Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den här artikeln sammanfattar och förklarar skillnaderna. <a name="Differences"></a>
 - [Tillgänglighet](#availability) inklusive skillnaderna i [alltid på](#always-on-availability) och [säkerhetskopior](#backup),
 - [Security](#security) inklusive skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credentials), [kryptografiproviders](#cryptographic-providers), [Inloggningar / användare](#logins--users), [nyckel och huvudnyckeln för tjänsten](#service-key-and-service-master-key),
 - [Konfigurationen](#configuration) inklusive skillnaderna i [buffra pool tillägget](#buffer-pool-extension), [sortering](#collation), [kompatibilitetsnivå](#compatibility-levels),[databas spegling](#database-mirroring), [databasalternativ](#database-options), [SQL Server Agent](#sql-server-agent), [Tabellalternativ](#tables),

@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 68c87b0fd892d5972e8c6b225c7c7bce3b3704db
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 45ff4ff79a443e49a7d01a41a249db9e4d0a070b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449970"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560812"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Hur du använder Notification Hubs från Java
 
@@ -39,7 +39,7 @@ SDK stöder för närvarande:
 * Vanliga skickar
 * Schemalagda skickar
 * Asynkrona åtgärder via Java NIO
-* Plattformar som stöds: APNS (iOS), GCM (Android), WNS (Windows Store-appar), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android utan Google-tjänster)
+* Plattformar som stöds: APNS (iOS), FCM (Android), WNS (Windows Store-appar), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android utan Google-tjänster)
 
 ## <a name="sdk-usage"></a>SDK-användning
 
@@ -120,7 +120,7 @@ Att skapa:
     hub.createRegistration(reg);
     ```
 
-På samma sätt kan du skapa registreringar för Android (GCM), Windows Phone (MPNS) och Kindle Fire (ADM).
+På samma sätt kan du skapa registreringar för Android (FCM), Windows Phone (MPNS) och Kindle Fire (ADM).
 
 **Skapa mallregistreringar:**
 
@@ -318,7 +318,7 @@ Meddelande-objektet är helt enkelt en brödtext med rubriker, vissa verktygsmet
 
     ```java
     String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-    Notification n = Notification.createGcmNotification(message);
+    Notification n = Notification.createFcmNotification(message);
     hub.sendNotification(n);
     ```
 

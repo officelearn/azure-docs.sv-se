@@ -11,18 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/21/2018
-ms.openlocfilehash: ce489bae3a59da47ad6f3677ef493618d01fd6b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 09/25/2018
+ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196658"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567136"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Komma igång med Temporala tabeller i Azure SQL Database
+
 Temporala tabeller är en ny funktion för programmering i Azure SQL Database som hjälper dig att spåra och analysera den fullständiga historiken för ändringar i dina data, utan att behöva anpassad kodning. Temporala tabeller lagrar data som är nära förknippat med tiden kontext så att lagrade fakta kan tolkas som giltiga endast inom den specifika perioden. Den här egenskapen för Temporala tabeller möjliggör effektiv tidsbaserade analys och få information från de datautvecklingen.
 
 ## <a name="temporal-scenario"></a>Den temporala Scenario
+
 Den här artikeln beskrivs stegen för att använda Temporala tabeller i ett scenario för programmet. Anta att du vill spåra användaraktivitet på en ny webbplats som utvecklas från grunden eller på en befintlig webbplats som du vill utöka med användaren aktivitet analytics. I det här förenklad exemplet förutsätter vi att antalet besökta webbsidor under en viss tidsperiod är en indikator som ska samlas in och övervakas i webbplats-databasen som finns på Azure SQL Database. Målet med historisk analys av användaraktivitet är att få indata för att göra om webbplats och ge bättre upplevelse för besökare.
 
 Databasmodellen för det här scenariot är mycket enkelt – användaren aktivitet mått representeras med en enda heltalsfält **PageVisited**, och registreras tillsammans med grundläggande information om användarens profil. Dessutom för tidsbaserade analys du ser till att en serie med rader för varje användare, där varje rad motsvarar antalet sidor som en viss användare som har besökt under en viss tidsperiod.

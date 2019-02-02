@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863541"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567017"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Komma igång med Elastic Database-jobb
 
@@ -261,18 +261,18 @@ För närvarande tillåter körningsprinciper för att definiera:
 * Namn: Identifierare för körningsprincipen.
 * Tidsgräns för jobb: Total tid innan ett jobb har avbrutits av Elastic Database-jobb.
 * Inledande återförsöksintervallet: Intervall ska gå innan nytt försök görs.
-* Maximalt återförsöksintervall: Tak för återförsöksintervall att använda.
-* Gör om intervallet Backoff koefficienten: Koefficienten som används för att beräkna nästa intervall mellan försök.  Följande formel används: (inledande återförsöksintervallet) * Math.pow ((intervall Backoff koefficienten) (antal nya försök) – 2).
+* Maximalt antal försök intervall: Tak för återförsöksintervall att använda.
+* Gör om intervallet Backoff koefficienten: Koefficienten som används för att beräkna nästa intervall mellan försök.  Följande formel används: (Inledande återförsöksintervallet) * Math.pow ((intervall Backoff koefficienten) (antal återförsök) – 2).
 * Maximalt antal försök: Det maximala antalet återförsök försöker utföra i ett jobb.
 
 RemoteSigned använder följande värden:
 
 * Namn: RemoteSigned
 * Tidsgräns för jobb: 1 vecka
-* Inledande återförsöksintervallet: 100 millisekunder
-* Maximalt återförsöksintervall: 30 minuter
-* Försök intervall koefficienten: 2
-* Maximalt antal försök: 2 147 483 647
+* Inledande återförsöksintervallet:  100 millisekunder
+* Maximalt antal försök intervall: 30 minuter
+* Gör om intervall koefficienten: 2
+* Maximalt antal försök: 2,147,483,647
 
 Skapa önskade körningsprincipen:
 
@@ -307,8 +307,8 @@ Elastic Database-jobb har stöd för begäranden för annullering av jobb.  Om e
 
 Det finns två olika sätt att Elastic Database-jobb kan utföra en uppsägning:
 
-1. Avbryta pågående aktiviteter: om ett avbrott identifieras när en aktivitet körs för närvarande en uppsägning prövas inom körs för närvarande aspekt av aktiviteten.  Till exempel: om det finns en tidskrävande fråga som för närvarande utförs när en uppsägning görs, det är ett försök att avbryta frågan.
-2. Annullerad omförsök: Om ett avbrott har identifierats av kontroll tråd innan en aktivitet startas för körning, kontroll-tråd undviker starta uppgiften och försäkrar begäran som har avbrutits.
+1. Avbryta pågående aktiviteter: Om ett avbrott identifieras när en aktivitet körs för närvarande, görs en uppsägning inom körs för närvarande aspekt av aktiviteten.  Exempel: Om det finns en tidskrävande fråga som för närvarande utförs när en uppsägning görs, finns det ett försök att avbryta frågan.
+2. Det antal försök att avbryta aktiviteten: Om ett avbrott har identifierats av kontroll tråd innan en aktivitet startas för körning, kontroll-tråd undviker starta uppgiften och försäkrar begäran som har avbrutits.
 
 Om ett jobb avbrott har begärts för ett överordnat jobb, är på avbrottsbegäran användas för det överordnade jobbet och alla dess underordnade jobb.
 

@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e7386e2f926132f5657bdb17011dafe1e1c7b101
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 09/24/2018
+ms.openlocfilehash: 95103ec7438a01e73617587bf919404e2bdcc686
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063089"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567204"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Villkorlig åtkomst (MFA) med Azure SQL Database och Data Warehouse  
 
@@ -41,7 +41,7 @@ Följande steg visar hur du konfigurerar SQL-databas om du vill framtvinga princ
   ![Välj användare och grupper](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
 4.  Välj **Molnappar**, klickar du på **Välj appar**. Du kan se alla appar som är tillgängliga för villkorlig åtkomst. Välj **Azure SQL Database**, längst ned på sidan klickar du på **Välj**, och klicka sedan på **klar**.  
-  ![Välj SQL-databas](./media/sql-database-conditional-access/select-sql-database.png)  
+  ![select SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
   Om du inte hittar **Azure SQL Database** visas i följande tredje skärmbild, gör du följande:   
   - Logga in på din Azure SQL DB/DW-instans med hjälp av SSMS med en AAD-administratörskonto.  
   - Köra `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  

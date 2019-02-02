@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c207fb866cdd17e4db1796e415c159eb887eef08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8d2d8d0595099081498202a3103caa10df8cf67d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243563"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657849"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Distribuera Kubernetes i Azure Stack med Azure Active Directory
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes på Azure Stack är en förhandsversion.
+> Kubernetes på Azure Stack är en förhandsversion. Azure Stack-frånkopplade scenariot stöds inte för närvarande av förhandsversionen.
 
 Du kan följa stegen i den här artikeln för att distribuera och konfigurera resurser för Kubernetes, när du använder Azure Active Directory (Azure AD) som din identity management-tjänsten, i en enda, samordnad åtgärd.
 

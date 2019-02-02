@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 534d1785336c68a771722f0f464eae278551ffc0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913584"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660246"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med hjälp av MQTT-protokollet
 
@@ -60,17 +60,17 @@ När du gör detta, se till att kontrollera följande:
 * AMQP returnerar fel för många villkor, medan MQTT avslutar anslutningen. Din undantagshantering logic kan därför kräva några ändringar.
 * MQTT stöder inte den *avvisa* åtgärder när du tar emot [meddelanden från moln till enhet][lnk-messaging]. Om din backend-app behöver på ett svar från enhetsappen, bör du använda [direkta metoder][lnk-methods].
 
-## <a name="using-the-mqtt-protocol-directly"></a>Med hjälp av MQTT-protokollet direkt
+## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Med hjälp av MQTT-protokollet direkt (som en enhet)
 
 Om en enhet inte kan använda SDK: er för enheter, kan det fortfarande ansluta till slutpunkterna offentliga enheter med hjälp av MQTT-protokollet på port 8883. I den **CONNECT** paket enheten ska använda följande värden:
 
 * För den **ClientId** fältet, Använd den **deviceId**.
 
-* För den **användarnamn** fältet, Använd `{iothubhostname}/{device_id}/api-version=2018-06-30`, där `{iothubhostname}` är fullständig CName för IoT-hubben.
+* För den **användarnamn** fältet, Använd `{iothubhostname}/{device_id}/?api-version=2018-06-30`, där `{iothubhostname}` är fullständig CName för IoT-hubben.
 
     Om namnet på IoT-hubben är till exempel **contoso.azure-devices.net** och om namnet på din enhet är **MyDevice01**, fullständiga **användarnamn** fältet ska innehålla:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
+    `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
 * För den **lösenord** fältet, använda en SAS-token. Formatet för SAS-token är desamma som för HTTPS- och AMQP-protokoll:
 
@@ -108,6 +108,16 @@ För Device Explorer:
 MQTT ansluta och koppla från paket, IoT Hub skickar en händelse på den **Operations Monitoring** kanal. Den här händelsen har ytterligare information som kan hjälpa dig att felsöka anslutningsproblem.
 
 App för enheter kan ange en **kommer** meddelande i den **CONNECT** paket. Enhetsappen ska använda `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som den **kommer** ämnesnamn definiera **kommer** meddelanden ska vidarebefordras som ett telemetri-meddelande. I det här fallet om nätverksanslutningen är stängd, men en **DISCONNECT** paket togs inte emot tidigare från enheten, IoT Hub och skickar sedan den **kommer** meddelandet som anges i den **CONNECT** paketet till telemetri-kanalen. Telemetri kanalen kan vara antingen standard **händelser** slutpunkt eller en anpassad slutpunkt som definierats av IoT Hub routning. Meddelandet har den **iothub-MessageType** egenskapen med värdet **kommer** tilldelade till den.
+
+## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Med hjälp av MQTT-protokollet direkt (som en modul)
+
+Ansluta till IoT Hub via MQTT med hjälp av en modul-identitet som genereras liknar enheten (beskrivs [ovan](#using-the-mqtt-protocol-directly-as-a-device)) men du måste använda följande:
+* Ange klient-id `{device_id}/{module_id}`.
+* Om autentisering med användarnamn och lösenord, anger användarnamnet `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` och använda SAS-token som är associerade med identiteten som modulen som lösenord.
+* Använd `devices/{device_id}/modules/{module_id}/messages/events/` som ämnet för att publicera telemetri.
+* Använd `devices/{device_id}/modules/{module_id}/messages/events/` som kommer ämnet.
+* Twin GET och PATCH ämnen är identiska för moduler och enheter.
+* Avsnittet twin status är identisk för moduler och enheter.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL-konfiguration
 

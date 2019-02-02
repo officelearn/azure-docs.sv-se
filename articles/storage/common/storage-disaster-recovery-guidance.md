@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b203acefb962d5b3a782ba0ce1e667b6f18b7951
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: bc79379d1b893beffc085e79b7643fcb6e1dc26f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508937"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657322"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery och storage-konto redundans (förhandsversion) i Azure Storage
 
@@ -104,7 +104,7 @@ När lagringskontot har konfigurerats om för geo-redundans, är det möjligt at
 
 För att undvika dataförluster, kontrollera värdet för den **senaste synkroniseringstid** egenskapen innan du växlar tillbaka. Jämför den senaste synkronisering till den senaste tider dessa data skrevs till den nya primärt att utvärdera förväntade data går förlorade. 
 
-## <a name="initiate-an-account-failover"></a>Initiera en konto-redundans
+## <a name="initiate-an-account-failover"></a>Initiera en kontoredundans
 
 Du kan initiera en konto-redundans från Azure portal, PowerShell, Azure CLI eller Azure Storage resource provider API. Läs mer om hur du påbörja en växling [påbörja en växling (förhandsversion) för kontot](storage-initiate-account-failover.md).
 
@@ -152,6 +152,7 @@ Ohanterade diskar lagras som sidblobar i Azure Storage. När en virtuell dator k
 4. Vänta tills den **senaste synkroniseringstid** har uppdaterats och är senare än den tid då du tog bort den virtuella datorn. Det här steget är viktigt, eftersom om den sekundära slutpunkten inte har uppdaterats helt med VHD-filerna när redundansväxlingen sker, sedan den virtuella datorn inte kanske fungerar korrekt i den nya primära regionen.
 5. Initiera växling vid fel för kontot.
 6. Vänta tills kontot redundansväxlingen är klar och den sekundära regionen har blivit den nya primära regionen.
+6. Skapa ett lagringskonto i den nya primära regionen och kopiera den ohanterade disken till den.
 7. Skapa en virtuell dator i den nya primära regionen och ansluta de virtuella hårddiskarna.
 8. Starta den nya virtuella datorn.
 

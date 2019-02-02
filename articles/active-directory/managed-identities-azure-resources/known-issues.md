@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbe6d04dfcf9174b15cde71f7becbb371eaee4b2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189467"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662490"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
 
@@ -154,8 +154,8 @@ Som en tillfällig lösning när prenumerationen har flyttats, kan du inaktivera
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>Kända problem med användartilldelade hanterade identiteter
 
-- Skapa en hanterad Användartilldelad identitet med specialtecken (t.ex. understreck) i namnet, stöds inte.
-- Användartilldelad identitetsnamn är begränsade till 24 tecken. Om namnet är längre än 24 tecken, misslyckas identiteten som ska tilldelas till en resurs (dvs. den virtuella datorn.)
+- Användartilldelad identitetsnamn är begränsade till minst 3 tecken och högst 128 tecken. Om namnet är längre än 128 tecken, misslyckas identiteten som ska tilldelas till en resurs (dvs. den virtuella datorn.)
+- Användartilldelad identitetsnamn kan innehålla följande tecken: a-z, A - Z,-, \_, 0-9. Skapa en hanterad Användartilldelad identitet med tecken utanför den här teckenuppsättningen (d.v.s. asterisk) i namnet, stöds inte.
 - Om du använder tillägget för virtuell dator hanterad identitet, (planerad för utfasning i januari 2019) är gränsen 32 användartilldelade hanterade identiteter. Gränsen som stöds är 512 utan tillägget för virtuell dator hanterad identitet.  
 - Om du flyttar en hanterad Användartilldelad identitet till en annan resursgrupp kommer identiteten att avbryta. Därför kommer du inte att kunna begära token för den identiteten. 
 - Överföra en prenumeration till en annan katalog bryts alla befintliga hanterade användartilldelade-identiteter. 

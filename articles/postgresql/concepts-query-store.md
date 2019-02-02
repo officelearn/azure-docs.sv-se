@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/01/2019
+ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546920"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660739"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
 
@@ -83,9 +83,9 @@ När Query Store är aktiverat sparas data i windows för 15 minuters aggregerin
 Följande alternativ är tillgängliga för att konfigurera Query Store-parametrar.
 | **Parametern** | **Beskrivning** | **Standard** | **Adressintervall**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Anger vilka instruktioner spåras. | längst upp | Ingen, uppifrån, alla |
+| pg_qs.query_capture_mode | Anger vilka instruktioner spåras. | inga | Ingen, uppifrån, alla |
 | pg_qs.max_query_text_length | Anger den maximala frågelängd som kan sparas. Längre frågor trunkeras. | 6000 | 100 - 10K |
-| pg_qs.retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 – 30 |
+| pg_qs.retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 - 30 |
 | pg_qs.track_utility | Anger om verktygskommandon spåras | på | på, av |
 
 Följande alternativ gäller specifikt för att vänta statistik.
@@ -95,7 +95,7 @@ Följande alternativ gäller specifikt för att vänta statistik.
 | Pgms_wait_sampling.history_period | Ange frekvens, i millisekunder, vid vilken vänta samplas händelser. | 100 | 1-600000 |
 
 > [!NOTE] 
-> **pg_qs.query_capture_mode** ersätter **pgms_wait_sampling.query_capture_mode**. Om pg_qs.query_capture_mode är NONE, har pgms_wait_sampling.query_capture_mode inställningen ingen effekt.
+> **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. Om pg_qs.query_capture_mode är NONE, har pgms_wait_sampling.query_capture_mode inställningen ingen effekt.
 
 
 Använd den [Azure-portalen](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md) att hämta eller ange ett annat värde för en parameter.
@@ -111,8 +111,8 @@ Den här vyn returnerar alla data i Query Store. Det finns en rad för varje dis
 |**Namn**   |**Typ** | **Referenser**  | **Beskrivning**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | ID: T från tabellen runtime_stats_entries|
-|user_id    |OID    |pg_authid.OID  |OID för användare som har utfört instruktionen|
-|t %{db_id/  |OID    |pg_database.OID    |OID för databasen där instruktionen kördes|
+|user_id    |oid    |pg_authid.oid  |OID för användare som har utfört instruktionen|
+|db_id  |oid    |pg_database.oid    |OID för databasen där instruktionen kördes|
 |query_id   |bigint  || Intern hash-koden som beräknas från utdragets parsningsträd|
 |query_sql_text |Varchar(10000)  || Text för en representativ-instruktion. Olika frågor med samma struktur är klustrade tillsammans. den här texten är texten för först frågor i klustret.|
 |plan_id    |bigint |   |ID för den plan som motsvarar den här frågan är inte tillgängligt ännu|
@@ -151,8 +151,8 @@ Den här vyn returnerar vänta händelsedata i Query Store. Det finns en rad fö
 
 |**Namn**|  **Typ**|   **Referenser**| **Beskrivning**|
 |---|---|---|---|
-|user_id    |OID    |pg_authid.OID  |OID för användare som har utfört instruktionen|
-|t %{db_id/  |OID    |pg_database.OID    |OID för databasen där instruktionen kördes|
+|user_id    |oid    |pg_authid.oid  |OID för användare som har utfört instruktionen|
+|db_id  |oid    |pg_database.oid    |OID för databasen där instruktionen kördes|
 |query_id   |bigint     ||Intern hash-koden som beräknas från utdragets parsningsträd|
 |event_type |text       ||Vilken typ av händelse som väntar på serverdelen|
 |händelse  |text       ||Vänta händelsenamn om serverdelen väntar på|
@@ -160,11 +160,11 @@ Den här vyn returnerar vänta händelsedata i Query Store. Det finns en rad fö
 
 
 ### <a name="functions"></a>Functions
-Query_store.qs_reset() returnerar void
+Query_store.qs_reset() returns void
 
 `qs_reset` tar bort all statistik som samlas in hittills av Query Store. Den här funktionen kan endast utföras av administratörsrollen.
 
-Query_store.staging_data_reset() returnerar void
+Query_store.staging_data_reset() returns void
 
 `staging_data_reset` tar bort all statistik som samlas in i minnet av Query Store (d.v.s. data i minnet som inte har rensats ännu till databasen). Den här funktionen kan endast utföras av administratörsrollen.
 

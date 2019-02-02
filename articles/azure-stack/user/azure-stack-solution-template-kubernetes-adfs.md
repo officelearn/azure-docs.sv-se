@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b032dea67bba6f78b8172e772ab2f8fe492f39f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fa95915615efdd8832a983d03a600beec23d1247
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250443"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658954"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Distribuera Kubernetes i Azure Stack med hjälp av Active Directory Federation Services
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes på Azure Stack är en förhandsversion.
+> Kubernetes på Azure Stack är en förhandsversion. Azure Stack-frånkopplade scenariot stöds inte för närvarande av förhandsversionen.
 
 Du kan följa stegen i den här artikeln för att distribuera och konfigurera resurser för Kubernetes. Följ dessa steg när Active Directory Federation Services (AD FS) är identity management-tjänsten.
 
@@ -66,7 +66,7 @@ Du måste arbeta med Azure Stack-administratör för att konfigurera tjänstens 
 
     - Du behöver följande typer av information:
 
-        | Value | Beskrivning |
+        | Värde | Beskrivning |
         | ---   | ---         |
         | Azure Resource Manager-slutpunkten | Microsoft Azure Resource Manager är en management-ramverk som gör att administratörer kan distribuera, hantera och övervaka Azure-resurser. Azure Resource Manager kan hantera dessa uppgifter som en grupp i stället, i en enda åtgärd.<br>Slutpunkten i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/`<br>Slutpunkten i integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Ditt prenumerations-ID | Den [prenumerations-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
@@ -107,7 +107,7 @@ Du måste arbeta med Azure Stack-administratör för att konfigurera tjänstens 
 
     - Du behöver följande typer av information:
 
-        | Value | Beskrivning |
+        | Värde | Beskrivning |
         | ---   | ---         |
         | Sökväg för certifikatets | FQDN eller filsökväg till certifikatet. |
         | Certifikatlösenord | Lösenordet för certifikatet. |

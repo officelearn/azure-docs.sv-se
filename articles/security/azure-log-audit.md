@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 93370b927f825752b8ce2b5e9d4ca94b3a4e0536
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306258"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664190"
 ---
 # <a name="azure-logging-and-auditing"></a>Loggning och granskning i Azure
 
@@ -194,7 +194,7 @@ Lagringsanalys loggar följande typer av autentiserade och anonyma begäranden:
 
 Nätverket loggning och övervakning i Azure är omfattande och består av två olika kategorier:
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Scenariobaserade nätverksövervakning tillhandahålls med funktionerna i Network Watcher. Den här tjänsten innefattar paketinsamling, nästa hopp, IP-flöde verifiera säkerhetsgruppvy, NSG-flödesloggar. Scenariot på övervakning ger en heltäckande vy av nätverksresurser, till skillnad från enskilda resource nätverksövervakning.
+* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Scenariobaserade nätverksövervakning tillhandahålls med funktionerna i Network Watcher. Den här tjänsten innefattar paketinsamling, nästa hopp, IP-flöde verifiera säkerhetsgruppvy, NSG-flödesloggar. Scenariot på övervakning ger en heltäckande vy av nätverksresurser, till skillnad från enskilda resource nätverksövervakning.
 
 * [Resursövervakning](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Nivån Resursövervakning består av fyra funktioner, diagnostikloggar, mätvärden, felsökning och resurshälsa. Alla dessa funktioner bygger på nätverksnivå för resursen.
 
@@ -336,7 +336,7 @@ Det finns fyra sätt att [samla in loggar och mått för Azure-tjänster](https:
 |Cognitive Services|    Microsoft.CognitiveServices/<br>konton|       Diagnostik|||
 |Azure Data Lake Analytics| Microsoft.DataLakeAnalytics/<br>konton|   Diagnostik|||
 |Azure Data Lake Store| Microsoft.DataLakeStore/<br>konton|   Diagnostik|||
-|Azure Event Hub-namnområdet| Microsoft.EventHub/<br>Namnområden|  Diagnostik|    Diagnostik||
+|Azure Event Hub-namnområdet| Microsoft.EventHub/<br>namnrymder|  Diagnostik|    Diagnostik||
 |Azure IoT Hub| Microsoft.Devices/<br>IotHubs||     Diagnostik||
 |Azure Key Vault|   Microsoft.KeyVault/<br>Valv|  Diagnostik  || [Key Vault-analys](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Azure Load Balancer|   Microsoft.Network/<br>belastningsutjämnare|    Diagnostik|||
@@ -345,7 +345,7 @@ Det finns fyra sätt att [samla in loggar och mått för Azure-tjänster](https:
 |Nätverkssäkerhetsgrupper|   Microsoft.Network/<br>networksecuritygroups|Diagnostik||   [Azure Network Security Group analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Recovery-valv|   Microsoft.RecoveryServices/<br>Valv|||[Azure Recovery Services-analys (förhandsversion)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Söktjänster|   Microsoft.Search/<br>searchServices|    Diagnostik|    Diagnostik||
-|Service Bus-namnområde| Microsoft.ServiceBus/<br>Namnområden|    Diagnostik|Diagnostik|    [Service Bus-analys (förhandsversion)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Service Bus-namnområde| Microsoft.ServiceBus/<br>namnrymder|    Diagnostik|Diagnostik|    [Service Bus-analys (förhandsversion)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Storage||    [Service Fabric-analys (förhandsversion)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servrar /<br>databaser||       Diagnostik||
 ||Microsoft.Sql/<br>servrar /<br>elasticPools||||

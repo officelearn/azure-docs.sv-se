@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 2523db3d817b4281b6435374ef0cca4e1d2da695
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 432f2495dd1b4c8aeb761d12904adf26f3c24c0b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005865"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660705"
 ---
 # <a name="available-event-hubs-apis"></a>Tillgängliga Event Hubs API: er
 
@@ -43,13 +43,13 @@ Läs mer om aktuell status för varje runtime-bibliotek, [ytterligare informatio
 
 #### <a name="net"></a>.NET
 
-.NET-ekosystem har flera körningar, så det finns flera .NET-bibliotek för Event Hubs. .NET Standard-biblioteket kan köras med .NET Core eller .NET Framework, medan i .NET Framework-biblioteket kan bara köras i en miljö med .NET Framework. Mer information om .NET Framework-versioner finns i [ramverksversioner](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+.NET-ekosystem har flera körningar, så det finns flera .NET-bibliotek för Event Hubs. .NET Standard-biblioteket kan köras med .NET Core eller .NET Framework, medan i .NET Framework-biblioteket kan bara köras i en miljö med .NET Framework. Mer information om .NET Framework-versioner finns i [ramverksversioner](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
 
 #### <a name="node"></a>Node
 
 Den [Node.js-bibliotek](https://github.com/Azure/azure-event-hubs-node) är för närvarande i förhandsversion och underhålls som ett sida-projekt av Microsoft-anställda och externa deltagare. Alla bidrag inklusive källkoden är välkomna och kommer att granskas.
 
-## <a name="management-apis"></a>Management-API: er
+## <a name="management-apis"></a>API:er för hantering
 
 I följande tabell visas alla tillgängliga bibliotek för management-specifika. Ingen av dessa bibliotek innehåller runtime operations och är för att hantera Händelsehubbar entiteter.
 

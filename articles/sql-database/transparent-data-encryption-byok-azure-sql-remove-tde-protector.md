@@ -11,21 +11,24 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 08/07/2017
-ms.openlocfilehash: 6675a68222e09be9a092ad21ee318a53a0a39ca5
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 10/12/2018
+ms.openlocfilehash: 8ffda7fd1b987e34dc0e8157b535ccef65571247
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311311"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567901"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett Transparent datakryptering (TDE)-skydd med hjälp av PowerShell
+
 ## <a name="prerequisites"></a>Förutsättningar
+
 - Du måste ha en Azure-prenumeration och vara administratör på den aktuella prenumerationen
 - Du måste ha Azure PowerShell-version 4.2.0 eller senare installerat och körs. 
 - Den här guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skyddet för en Azure SQL Database eller datalagret. Se [Transparent datakryptering med BYOK-stöd](transparent-data-encryption-byok-azure-sql.md) vill veta mer.
 
 ## <a name="overview"></a>Översikt
+
 Den här guiden beskriver hur du svarar på ett potentiellt komprometterade TDE-skydd för en Azure SQL-databas eller datalager som använder transparent Datakryptering med stöd för ta med din egen nyckel (BYOK). Läs mer om BYOK-stöd för transparent Datakryptering i den [översiktssidan](transparent-data-encryption-byok-azure-sql.md). 
 
 Följande procedurer bör endast göras i extrema fall eller i miljöer för testning. Granska den här guiden noggrant, som tar bort aktivt används TDE-skydd från Azure Key Vault kan resultera i **dataförlust**. 
@@ -35,10 +38,12 @@ Om en nyckel är någonsin misstänkt äventyras, så att en tjänst eller en an
 Tänk på att om TDE-skyddet tas bort i Key Vault **blockeras alla anslutningar till krypterade databaser under servern och databaserna hamnar i offlineläge och tas bort inom 24 timmar**. Gamla säkerhetskopior som krypterats med den komprometterade nyckeln är inte längre tillgängliga.
 
 Den här guiden går via två sätt beroende på det önskade resultatet efter incident svaret:
+
 - Att hålla Azure SQL-databaser / Data Warehouses **tillgänglig**
 - Att göra Azure SQL-databaser / Data Warehouses **otillgängligt**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Att behålla krypterade resurser tillgängliga
+
 1. Skapa en [ny nyckel i Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Kontrollera att den här nya nyckeln skapas i ett separat nyckelvalv från potentiellt komprometterade TDE-skyddet, eftersom åtkomstkontroll etableras på en valvnivå. 
 2. Lägg till den nya nyckeln till servern med den [Lägg till AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) och [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdletar och uppdatera som serverns nya TDE-skydd.
 
@@ -48,7 +53,7 @@ Den här guiden går via två sätt beroende på det önskade resultatet efter i
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -KeyId <KeyVaultKeyId>
-   
+
    # Set the key as the TDE protector for all resources under the server
    Set-AzureRmSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
@@ -60,7 +65,6 @@ Den här guiden går via två sätt beroende på det önskade resultatet efter i
 
    >[!NOTE]
    > Det kan ta några minuter innan det nya TDE-skyddet tillämpas på alla databaser och sekundära databaser under servern.
-   >
 
    ```powershell
    Get-AzureRmSqlServerTransparentDataEncryptionProtector `
@@ -78,7 +82,7 @@ Den här guiden går via två sätt beroende på det önskade resultatet efter i
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
    ```
- 
+
 5. Ta bort den komprometterade nyckeln från Key Vault med hjälp av den [Remove-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet. 
 
    ```powershell
@@ -86,22 +90,23 @@ Den här guiden går via två sätt beroende på det önskade resultatet efter i
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName>
    ```
- 
+
 6. Att återställa en nyckel till Key Vault i framtiden med den [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey) cmdlet:
    ```powershell
    Restore-AzureKeyVaultKey `
    -VaultName <KeyVaultName> `
    -InputFile <BackupFilePath>
    ```
- 
+
 ## <a name="to-make-the-encrypted-resources-inaccessible"></a>Att göra krypterade resurserna otillgängligt
+
 1. Ta bort de databaser som krypteras med den potentiellt komprometterade nyckeln.
-Filer för databasen och loggfiler säkerhetskopieras automatiskt, så en point-in-time-återställning av databasen kan göras när som helst (förutsatt att du anger nyckeln). Databaserna måste släppas innan borttagningen av en aktiv TDE-skydd för att förhindra dataförlust på upp till 10 minuter för de senaste transaktionerna. 
+
+   Filer för databasen och loggfiler säkerhetskopieras automatiskt, så en point-in-time-återställning av databasen kan göras när som helst (förutsatt att du anger nyckeln). Databaserna måste släppas innan borttagningen av en aktiv TDE-skydd för att förhindra dataförlust på upp till 10 minuter för de senaste transaktionerna. 
 2. Säkerhetskopiera nyckelmaterial av TDE-skydd i Key Vault.
 3. Ta bort potentiellt komprometterade nyckeln från Key Vault
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du rotera TDE-skydd för en server för att uppfylla krav på säkerhet: [rotera Transparent datakryptering skydd med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md)
-
-- Kom igång med Bring Your Own Key stöd för transparent Datakryptering: [aktivera TDE med din egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
+- Lär dig mer om att rotera TDE-skydd för en server för att uppfylla krav på säkerhet: [Rotera Transparent datakryptering skydd med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+- Kom igång med Bring Your Own Key stöd för transparent Datakryptering: [Aktivera transparent Datakryptering med din egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)

@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 05/14/2018
-ms.openlocfilehash: ad1ae537038c84aac7bebe40a1db124521933f3d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608910"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567561"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Video indexeras och kommenterade för flera innehavare SaaS-app med Azure SQL Database
 
@@ -77,7 +77,7 @@ Följande rubriker finns länkar till sina motsvarande kommenterade avsnitten se
 - [31. Schemahantering i skala, 1:10:33](#anchor-image-wtip-min11033)
 - [32. Distribuerade frågor över klientdatabaser, 1:12:21](#anchor-image-wtip-min11221)
 - [33. Demonstration av biljett generering, 1:12:32](#anchor-image-wtip-min11232)
-- [34. SSMS ad hoc-analyser, 1:12:46](#anchor-image-wtip-min11246)
+- [34. SSMS adhoc analytics, 1:12:46](#anchor-image-wtip-min11246)
 - [35. Extrahera klientdata till SQL DW, 1:16:32](#anchor-image-wtip-min11632)
 - [36. Diagram över dagliga försäljning distribution, 1:16:48](#anchor-image-wtip-min11648)
 - [37. Avsluta och anrop till åtgärden, 1:19:52](#anchor-image-wtip-min11952)

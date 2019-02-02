@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229259"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567850"
 ---
 # <a name="how-traffic-manager-works"></a>Så här fungerar Traffic Manager
 
@@ -47,7 +47,7 @@ För att uppnå den här konfigurationen kan utföra de följande steg:
 ![Traffic Manager DNS-konfiguration][1]
 
 > [!NOTE]
-> När du använder en anpassad domän med Azure Traffic Manager, måste du använda en CNAME-post så att den pekar ditt domännamn för anpassad till ditt Traffic Manager-domännamn. DNS-standarden tillåter inte att du kan skapa en CNAME-post på 'apex ”(eller rot) i en domän. Därför skapa du inte en CNAME-post för ”contoso.com” (kallas ibland för en ”utan www-domän). Du kan bara skapa en CNAME-post för en domän under ”contoso.com”, till exempel ”www.contoso.com”. För att undvika denna begränsning, bör du använda en enkel HTTP-omdirigering till direkta begäranden för ”contoso.com” till ett alternativt namn, till exempel ”www.contoso.com”.
+> När du använder en anpassad domän med Azure Traffic Manager, måste du använda en CNAME-post så att den pekar ditt domännamn för anpassad till ditt Traffic Manager-domännamn. DNS-standarden tillåter inte att du kan skapa en CNAME-post på 'apex ”(eller rot) i en domän. Därför skapa du inte en CNAME-post för ”contoso.com” (kallas ibland för en ”utan www-domän). Du kan bara skapa en CNAME-post för en domän under ”contoso.com”, till exempel ”www.contoso.com”. För att undvika denna begränsning, rekommenderar vi som är värd för din DNS-domän på [Azure DNS](../dns/dns-overview.md) och använder [Alias poster](../dns/tutorial-alias-tm.md) att peka mot din traffic manager-profil. Du kan också använda en enkel HTTP-omdirigering till direkta begäranden för ”contoso.com” till ett alternativt namn, till exempel ”www.contoso.com”.
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Hur klienter ansluter via Traffic Manager
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 73073d5240f29906ade5f9b92cf81fec2f99a3d4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473212"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661980"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,10 +98,10 @@ För att konfigurera loggning och mått för ditt storage-konto med hjälp av de
 
 Kom igång med PowerShell för Azure, se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-1. Använd den [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet för att lägga till ditt Azure-konto till PowerShell-fönstret:
+1. Använd den [Lägg till AzAccount](/powershell/module/az.account/add-azaccount) cmdlet för att lägga till ditt Azure-konto till PowerShell-fönstret:
    
     ```powershell
-    Add-AzureAccount
+    Add-AzAccount
     ```
 
 2. I den **logga in på Microsoft Azure** fönstret anger du e-postadress och lösenord som är associerat med ditt konto. Azure autentiserar och sparar autentiseringsuppgifterna och stänger sedan fönstret.
@@ -110,7 +110,7 @@ Kom igång med PowerShell för Azure, se [hur du installerar och konfigurerar du
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. Aktivera lagringsloggning för Blob-tjänsten:

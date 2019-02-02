@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 366a38951363d52df3d52d3a670943dc41211c8a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494008"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564212"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrera din PostgreSQL-databas med säkerhetskopiering och återställning
 Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en dumpfil och [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) att återställa PostgreSQL-databasen från en arkivfil som skapats av pg_dump.
@@ -83,7 +83,7 @@ Ett sätt att migrera din befintliga PostgreSQL-databas till Azure Database för
 - Bör du göra följande innan återställningen på aktiva Azure Database for PostgreSQL-server:
     - Inaktivera fråga prestandaspårning, eftersom du inte behöver dessa statistik under migreringen. Du kan göra detta genom att ange pg_stat_statements.track och pg_qs.query_capture_mode pgms_wait_sampling.query_capture_mode till ingen.
 
-    - Använd en hög beräknings- och minnesresurser sku, som 32 vCore Minnesoptimerade, för att snabba upp migreringen. Du kan enkelt skala tillbaka ned till din önskade sku när återställningen är klar. Ju högre SKU: n, mer paralellism du kan uppnå genom att öka motsvarande `-j` parameter i kommandot pg_restore. 
+    - Använd en hög beräknings- och extra minne sku som 32 vCore Minnesoptimerade, för att snabba upp migreringen. Du kan enkelt skala tillbaka ned till din önskade sku när återställningen är klar. Ju högre SKU: n, mer parallellitet du kan uppnå genom att öka motsvarande `-j` parameter i kommandot pg_restore. 
 
     - Fler IOPS på målservern kan förbättra prestandan för återställning. Du kan etablera fler IOPS genom att öka serverns lagringsstorlek. Det går inte att ångra den här inställningen, men överväga om en högre IOPS skulle ha nytta av din faktiska arbetsbelastning i framtiden.
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 48cdd064155bfbdfa2fef2ce5a8410e4c95e4c3b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 76756a49e967235e7cc349c1881669ba3cc48c8d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461074"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664173"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore-baserade köpa modellen lagringsgränser för elastiska pooler
 
@@ -198,7 +198,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
-|Minne (GB)|11|22|33|44|55|66|77|
+|Minne (GB)|10.2|220.4|30.6|40.8|51|61.2|71.4|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |Maximal datastorlek (GB)|1024|1024|1024|1536|1536|1536|1536|

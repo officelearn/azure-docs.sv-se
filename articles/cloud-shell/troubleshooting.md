@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 72f85761db08652f0dff7f36fbcb2ef90654e078
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334405"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568540"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsökning av & begränsningar i Azure Cloud Shell
 
@@ -29,57 +29,57 @@ Kända lösningar för att felsöka problem i Azure Cloud Shell omfattar:
 
 ### <a name="early-timeouts-in-firefox"></a>Tidig tidsgränser i FireFox
 
-- **Information om**: Cloud Shell använder en öppen websocket att skicka indata/utdata till din webbläsare. FireFox har förinställda principer som kan stänga websocket tidigt orsakar tidig tidsgränser i Cloud Shell.
-- **Lösning**: öppna FireFox och navigera till ”om: config” i dialogrutan. Sök efter ”network.websocket.timeout.ping.request” och ändra värdet från 0 till 10.
+- **Information om**: Cloudshell använder en öppen websocket att skicka indata/utdata till din webbläsare. FireFox har förinställda principer som kan stänga websocket tidigt orsakar tidig tidsgränser i Cloud Shell.
+- **Upplösning**: Öppna FireFox och navigera till ”om: config” i dialogrutan. Sök efter ”network.websocket.timeout.ping.request” och ändra värdet från 0 till 10.
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Inaktivera Cloud Shell i ett låst nätverk miljö
 
 - **Information om**: Administratörer kan inaktivera åtkomst till Cloud Shell för sina användare. Cloudshell använder åtkomst till den `ux.console.azure.com` domäner som kan nekas, stoppas alla åtkomst till Cloud Shell entrypoints inklusive portal.azure.com, shell.azure.com, Visual Studio Code Azure-kontotillägg och docs.microsoft.com.
-- **Lösning**: begränsa åtkomst till `ux.console.azure.com` via nätverksinställningar för din miljö. Cloud Shell-ikonen finns kvar i portal.azure.com, men ansluta inte till tjänsten.
+- **Upplösning**: Begränsa åtkomsten till `ux.console.azure.com` via nätverksinställningar för din miljö. Cloud Shell-ikonen finns kvar i portal.azure.com, men ansluta inte till tjänsten.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Storage-dialogruta - fel: 403 RequestDisallowedByPolicy
 
-- **Information om**: när du skapar ett lagringskonto via Cloud Shell, är det misslyckades på grund av en Azure policy placeras av din administratör. Felmeddelandet innehåller: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Lösning**: Kontakta Azure-administratören om du vill ta bort eller uppdatera Azure policy nekar skapa lager.
+- **Information om**: När du skapar ett lagringskonto via Cloud Shell, är det misslyckades på grund av en Azure policy placeras av din administratör. Felmeddelandet innehåller: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Upplösning**: Kontakta Azure-administratören om du vill ta bort eller uppdatera Azure policy nekar skapa lager.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Storage-dialogruta - fel: 400 DisallowedOperation
 
-- **Information om**: när du använder Azure Active Directory-prenumeration kan du kan inte skapa lagring.
-- **Lösning**: använda en Azure-prenumeration kan skapa lagringsresurser. Azure AD-prenumerationer kan inte skapa Azure-resurser.
+- **Information om**: När du använder Azure Active Directory-prenumeration kan skapa du inte lagring.
+- **Upplösning**: Använda en Azure-prenumeration kan skapa lagringsresurser. Azure AD-prenumerationer kan inte skapa Azure-resurser.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal utdata - fel: Det gick inte att ansluta terminal: går inte att upprätta websocket. Tryck på `Enter` återansluta.
-- **Information om**: Cloud Shell kräver möjligheten att upprätta en websocket-anslutning till Cloud Shell-infrastruktur.
-- **Lösning**: Kontrollera att du har konfigurerat dina nätverksinställningar för att aktivera skicka https-begäranden och websocket-förfrågningar till domäner på *. console.azure.com.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal utdata - fel: Det gick inte att ansluta terminal: Det går inte att upprätta websocket. Tryck på `Enter` återansluta.
+- **Information om**: Cloudshell kräver möjligheten att upprätta en websocket-anslutning till Cloud Shell-infrastruktur.
+- **Upplösning**: Kontrollera att du har konfigurerat dina nätverksinställningar för att aktivera skicka https-begäranden och websocket-förfrågningar till domäner på *. console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Ange din Cloud Shell-anslutning till stöd för att använda TLS 1.2
- - **Information om**: för att definiera TLS-version för din anslutning till Cloud Shell, måste du ange specifika inställningar för webbläsaren.
- - **Lösning**: Gå till säkerhetsinställningarna i webbläsaren och markera kryssrutan bredvid ”Använd TLS 1.2”.
+ - **Information om**: För att definiera TLS-version för din anslutning till Cloud Shell, måste du ange specifika inställningar för webbläsaren.
+ - **Upplösning**: Gå till säkerhetsinställningarna i webbläsaren och markera kryssrutan bredvid ”Använd TLS 1.2”.
 
 ## <a name="bash-troubleshooting"></a>Bash-felsökning
 
 ### <a name="cannot-run-the-docker-daemon"></a>Det går inte att köra docker-daemon
 
-- **Information om**: Cloud Shell använder en behållare för att vara värd för miljön shell, som ett resultat som kör daemon är inte tillåtet.
-- **Lösning**: använda [docker-dator](https://docs.docker.com/machine/overview/), som installeras som standard för att hantera docker-behållare från en fjärransluten Docker-värd.
+- **Information om**: Cloudshell använder en behållare för att vara värd för miljön shell, som ett resultat som kör daemon är inte tillåtet.
+- **Upplösning**: Använda [docker-dator](https://docs.docker.com/machine/overview/), som installeras som standard för att hantera docker-behållare från en fjärransluten Docker-värd.
 
 ## <a name="powershell-troubleshooting"></a>Felsökning av PowerShell
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
-- **Information om**: om en användare startar ett GUI-program, returnerar inte meddelandet. När en klona en privat GitHub-lagringsplats som har tvåfaktorautentisering aktiverat, exempelvis visas en dialogruta för att slutföra tvåfaktorautentisering.
-- **Lösning**: Stäng och öppna gränssnittet.
+- **Information om**: Om en användare startar ett GUI-program, returnerar prompten inte. När en klona en privat GitHub-lagringsplats som har tvåfaktorautentisering aktiverat, exempelvis visas en dialogruta för att slutföra tvåfaktorautentisering.
+- **Upplösning**: Stäng och öppna gränssnittet.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Felsökning av fjärrhantering av virtuella Azure-datorer
 > [!NOTE]
 > Virtuella Azure-datorer måste ha en offentlig IP-adress som riktas mot.
 
-- **Information om**: på grund av Windows-brandväggen standardinställningarna för WinRM att användaren kan se följande fel: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Lösning**: kör `Enable-AzureRmVMPSRemoting` att aktivera alla aspekter av PowerShell-fjärrkommunikation på måldatorn.
+- **Information om**: På grund av Windows-brandväggen standardinställningarna för WinRM kan användaren se följande fel: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Upplösning**:  Kör `Enable-AzureRmVMPSRemoting` att aktivera alla aspekter av PowerShell-fjärrkommunikation på måldatorn.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` uppdaterar inte resultatet i Azure-enheten
 
-- **Information om**: som standard att optimera användarupplevelsen, resultatet av `dir` cachelagras i Azure-enheten.
-- **Lösning**: när du skapar, uppdatera eller ta bort en Azure-resurs, kör du `dir -force` att uppdatera resultatet i Azure-enheten.
+- **Information om**: Som standard att optimera användarupplevelsen, resultatet av `dir` cachelagras i Azure-enheten.
+- **Upplösning**: När du skapar, uppdatera eller ta bort en Azure-resurs, kör du `dir -force` att uppdatera resultatet i Azure-enheten.
 
 ## <a name="general-limitations"></a>Allmänna begränsningar
 
@@ -143,7 +143,7 @@ Med hjälp av PowerShell-cmdletar, kan inte användare skapa filer under Azure-e
 
 ### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>Kommandon som skapar GUI popup-fönster stöds inte
 
-Om du kör ett kommando som skapar en Windows-dialogruta som `Connect-AzureAD` eller `Connect-AzureRmAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Om du kör ett kommando som skapar en Windows-dialogruta som `Connect-AzureAD`, `Connect-AzureRmAccount`, eller `Connect-AzAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Tabbifyllning kan utlösa PSReadline undantag
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: cf06be778fb1bd251b55adcc503db63a2adf3f8b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197933"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658274"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Event Hubs-protokollguide
 
@@ -134,7 +134,7 @@ Ett anrop för ”ta emot” på API-nivå som översätter till en *flow* perfo
 
 Lås för ett meddelande som släpps när överföringen är i ett av de terminal *accepterat*, *avvisade*, eller *är*. Meddelandet tas bort från Service Bus när avslutat tillstånd är *accepterat*. Den finns kvar i Service Bus och levereras till nästa mottagaren när överföringen når något av andra tillstånd. Service Bus flyttas automatiskt meddelandet till entitetens obeställbara meddelanden. kön när den når den maximalt antal leveranser tillåts för entiteten på grund av upprepade avvisningar eller versioner.
 
-Även om Service Bus-API: er inte visar dessa alternativ idag, använda en lägre nivå AMQP-protokollet klient länken kredit modellen för att aktivera ”pull-style” interaktionen för att utfärda en enhet av kredit för varje receive-begäran till en ”push-style”-modell av utfärda ett stort antal länka krediter och ta emot meddelanden när de blir tillgängliga utan några ytterligare åtgärder. Push stöds via den [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) eller [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) inställningar för enhetsegenskaper. När de är noll, använder AMQP-klienten den som länk-kredit.
+Även om Service Bus-API: er inte visar dessa alternativ idag, använda en lägre nivå AMQP-protokollet klient länken kredit modellen för att aktivera ”pull-style” interaktionen för att utfärda en enhet av kredit för varje receive-begäran till en ”push-style”-modell av utfärda ett stort antal länka krediter och ta emot meddelanden när de blir tillgängliga utan några ytterligare åtgärder. Push stöds via den [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) eller [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) inställningar för enhetsegenskaper. När de är noll, använder AMQP-klienten den som länk-kredit.
 
 I det här sammanhanget är det viktigt att förstå att klockan för förfallodatum för låset på meddelandet i entiteten startar när meddelandet tas från entiteten, inte när meddelandet placeras på kabeln. När klienten visar kan ta emot meddelanden genom att utfärda länk kredit, förväntas det därför aktivt hämta meddelanden över nätverket och vara redo att hantera dem. Annars upphört meddelandelåset innan meddelandet levereras även. Användning av länk-kredit flödeskontroll återspegla direkt omedelbar beredskap utan tillgängliga meddelanden som skickas till mottagaren.
 
@@ -214,7 +214,7 @@ Egenskaper som programmet behöver definierar bör mappas till AMQP'S `applicati
 | --- | --- | --- |
 | hållbar |- |- |
 | prioritet |- |- |
-| ttl |TTL-värde för det här meddelandet |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| ttl |TTL-värde för det här meddelandet |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | Antal leveranser |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -222,17 +222,17 @@ Egenskaper som programmet behöver definierar bör mappas till AMQP'S `applicati
 
 | Fältnamn | Användning | API-namn |
 | --- | --- | --- |
-| message-id |Programdefinierade, fri form identifierare för det här meddelandet. Används för identifiering av dubbletter. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| message-id |Programdefinierade, fri form identifierare för det här meddelandet. Används för identifiering av dubbletter. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | användar-id |Programdefinierade användar-ID, tolkas inte av Service Bus. |Är inte tillgängliga via Service Bus-API. |
-| till |Programdefinierade mål-ID, tolkas inte av Service Bus. |[Till](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| ämne |Programdefinierade syfte meddelandeidentifieraren, tolkas inte av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| Svara till |Programdefinierade svars-path indikator, tolkas inte av Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| till |Programdefinierade mål-ID, tolkas inte av Service Bus. |[Till](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ämne |Programdefinierade syfte meddelandeidentifieraren, tolkas inte av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| Svara till |Programdefinierade svars-path indikator, tolkas inte av Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Korrelations-id |Programdefinierade Korrelations-ID, tolkas inte av Service Bus. |[Korrelations-ID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | innehållstyp |Programdefinierade innehållstyp indikator för brödtexten, tolkas inte av Service Bus. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Programdefinierade Innehållskodning indikator för brödtexten, tolkas inte av Service Bus. |Är inte tillgängliga via Service Bus-API. |
-| absolute-expiry-time |Anger på vilka absoluta snabb meddelandet upphör att gälla. Ignoreras på indata (sidhuvud TTL observeras), auktoritativa på utdata. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |Anger på vilka absoluta snabb meddelandet upphör att gälla. Ignoreras på indata (sidhuvud TTL observeras), auktoritativa på utdata. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Skapandetid |Deklarerar då meddelandet skapades. Inte används av Service Bus |Är inte tillgängliga via Service Bus-API. |
-| grupp-id |Programdefinierade identifierare för en uppsättning meddelanden. Används för Service Bus-sessioner. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| grupp-id |Programdefinierade identifierare för en uppsättning meddelanden. Används för Service Bus-sessioner. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | group-sequence |Räknare som identifierar den relativa sekvensnumret för meddelandet i en session. Ignoreras av Service Bus. |Är inte tillgängliga via Service Bus-API. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 

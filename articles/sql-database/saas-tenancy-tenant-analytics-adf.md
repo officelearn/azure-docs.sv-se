@@ -11,13 +11,13 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: 4b2c9f17bc9c6e9bbc280116d074bd0f1e3d3e38
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: 7d4748ced196abdb4f3f0bcb70ad6fe254b24bf7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606052"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657596"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Utforska SaaS-analyser med Azure SQL Database, SQL Data Warehouse, Data Factory och Power BI
 
@@ -193,11 +193,11 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 3. I den **hämta Data** väljer **Azure SQL Database**.
 4. Ange namnet på servern i inloggningsfönstret databasen (**catalog-dpt -&lt;användaren&gt;. database.windows.net**). Välj **Import** för **läge för dataanslutning**, och klicka sedan på **OK**. 
 
-    ![Logga i-till-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
+    ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
 5. Välj **databasen** i den vänstra rutan, ange användarnamn = *developer*, och ange lösenord = *P@ssword1*. Klicka på **Anslut**.  
 
-    ![databas-inloggning](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. I den **Navigator** rutan under analysdatabas, Välj tabellerna som star-schema: **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** och **dim_Dates**. Välj sedan **belastningen**. 
 

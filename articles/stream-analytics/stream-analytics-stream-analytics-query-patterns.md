@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ffcf81ee8637c2ce01b3a7822d179609bd9dbfaa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794540"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663510"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråga efter exempel för vanliga mönster för Stream Analytics-användning
 
@@ -387,7 +387,7 @@ Till exempel har 2 i följd bilar från samma Se angett avgift vägen inom de se
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
+| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
 | Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Utdata**:
@@ -495,16 +495,16 @@ Till exempel generera en händelse var femte sekund som rapporterar den nyligen 
 
 | t | värde |
 | --- | --- |
-| ”2014-01-01T06:01:00” |1 |
-| ”2014-01-01T06:01:05” |2 |
-| ”2014-01-01T06:01:10” |3 |
-| ”2014-01-01T06:01:15” |4 |
-| ”2014-01-01T06:01:30” |5 |
-| ”2014-01-01T06:01:35” |6 |
+| "2014-01-01T06:01:00" |1 |
+| "2014-01-01T06:01:05" |2 |
+| "2014-01-01T06:01:10" |3 |
+| "2014-01-01T06:01:15" |4 |
+| "2014-01-01T06:01:30" |5 |
+| "2014-01-01T06:01:35" |6 |
 
 **Utdata (första 10 raderna)**:
 
-| windowend | lastevent.t | lastevent.Value |
+| windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
@@ -539,30 +539,30 @@ Till exempel i en IoT-scenario för home ugnar en avisering måste aktiveras nä
 
 | time | deviceId | sensorName | värde |
 | --- | --- | --- | --- |
-| ”2018-01-01T16:01:00” | ”Oven1” | ”temp” |120 |
-| ”2018-01-01T16:01:00” | ”Oven1” | ”power” |15 |
-| ”2018-01-01T16:02:00” | ”Oven1” | ”temp” |100 |
-| ”2018-01-01T16:02:00” | ”Oven1” | ”power” |15 |
-| ”2018-01-01T16:03:00” | ”Oven1” | ”temp” |70 |
-| ”2018-01-01T16:03:00” | ”Oven1” | ”power” |15 |
-| ”2018-01-01T16:04:00” | ”Oven1” | ”temp” |50 |
-| ”2018-01-01T16:04:00” | ”Oven1” | ”power” |15 |
-| ”2018-01-01T16:05:00” | ”Oven1” | ”temp” |30 |
-| ”2018-01-01T16:05:00” | ”Oven1” | ”power” |8 |
-| ”2018-01-01T16:06:00” | ”Oven1” | ”temp” |20 |
-| ”2018-01-01T16:06:00” | ”Oven1” | ”power” |8 |
-| ”2018-01-01T16:07:00” | ”Oven1” | ”temp” |20 |
-| ”2018-01-01T16:07:00” | ”Oven1” | ”power” |8 |
-| ”2018-01-01T16:08:00” | ”Oven1” | ”temp” |20 |
-| ”2018-01-01T16:08:00” | ”Oven1” | ”power” |8 |
+| "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
+| "2018-01-01T16:01:00" | "Oven1" | ”power” |15 |
+| "2018-01-01T16:02:00" | "Oven1" | "temp" |100 |
+| "2018-01-01T16:02:00" | "Oven1" | ”power” |15 |
+| "2018-01-01T16:03:00" | "Oven1" | "temp" |70 |
+| "2018-01-01T16:03:00" | "Oven1" | ”power” |15 |
+| "2018-01-01T16:04:00" | "Oven1" | "temp" |50 |
+| "2018-01-01T16:04:00" | "Oven1" | ”power” |15 |
+| "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
+| "2018-01-01T16:05:00" | "Oven1" | ”power” |8 |
+| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:06:00" | "Oven1" | ”power” |8 |
+| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:07:00" | "Oven1" | ”power” |8 |
+| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:08:00" | "Oven1" | ”power” |8 |
 
 **Utdata**:
 
-| eventTime | deviceId | Temp | alertmessage som | maxPowerDuringLast3mins |
+| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
-| ”2018-01-01T16:05:00” | ”Oven1” |30 | ”Kort krets uppvärmning element” |15 |
-| ”2018-01-01T16:06:00” | ”Oven1” |20 | ”Kort krets uppvärmning element” |15 |
-| ”2018-01-01T16:07:00” | ”Oven1” |20 | ”Kort krets uppvärmning element” |15 |
+| "2018-01-01T16:05:00" | "Oven1" |30 | ”Kort krets uppvärmning element” |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 | ”Kort krets uppvärmning element” |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 | ”Kort krets uppvärmning element” |15 |
 
 **Lösningen**:
 
@@ -687,7 +687,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Förklaring**: [Antal (DISTINKTA tid)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) returnerar antalet distinkta värden i kolumnen tid inom ett tidsintervall. Du kan sedan använda utdata från det här steget för att beräkna genomsnitt per enhet genom att ta bort dubbletter.
+**Förklaring**: [Antal (DISTINKTA tid)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) returnerar antalet distinkta värden i kolumnen tid inom ett tidsintervall. Du kan sedan använda utdata från det här steget för att beräkna genomsnitt per enhet genom att ta bort dubbletter.
 
 ## <a name="get-help"></a>Få hjälp
 För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/17/2018
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d622f6f03f9d132f3c57910d8a60c5731ad7c94
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425793"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657424"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker
 
@@ -185,16 +185,18 @@ Spara den *Export RunAsCertificateToHybridWorker* runbook på datorn med en `.ps
 
 ## <a name="job-behavior"></a>Jobbet beteende
 
-Jobb hanteras något annorlunda på Hybrid Runbook Worker än de är när de körs på Azure sandbox-miljöer. En viktig skillnad är att det finns ingen gräns på varaktighet för jobb på Hybrid Runbook Worker. Runbooks som kördes i Azure sandbox-miljöer är begränsade till tre timmar grund av [rättmätiga del](automation-runbook-execution.md#fair-share). För en tidskrävande runbook som du vill se till att det kan stå emot möjliga omstart. Exempel: om datorn som är värd för Hybrid worker startar om. Om värddatorn för Hybrid worker startar om datorn startar alla runbook-jobb som körs från början eller från den senaste kontrollpunkten för PowerShell Workflow-runbooks. När du har en runbook jobbet startas om mer än 3 gånger och det är pausat.
+Jobb hanteras något annorlunda på Hybrid Runbook Worker än de är när de körs på Azure sandbox-miljöer. En viktig skillnad är att det finns ingen gräns på varaktighet för jobb på Hybrid Runbook Worker. Runbooks som kördes i Azure sandbox-miljöer är begränsade till tre timmar grund av [rättmätiga del](automation-runbook-execution.md#fair-share). För en tidskrävande-runbook som du vill se till att det kan stå emot möjliga omstart. Exempel: om datorn som är värd för Hybrid worker startar om. Om värddatorn för Hybrid worker startar om datorn startar alla runbook-jobb som körs från början eller från den senaste kontrollpunkten för PowerShell Workflow-runbooks. När du har en runbook jobbet startas om mer än 3 gånger och det är pausat.
 
 ## <a name="run-only-signed-runbooks"></a>Kör endast signerade Runbooks
 
-Hybrid Runbook Worker kan konfigureras för att köra endast signerade runbooks med viss konfiguration. I följande avsnitt beskrivs hur du ställer in Hybrid Runbook Worker-arbeten för att köra signerade runbooks och hur du registrerar dina runbooks.
+Hybrid Runbook Worker kan konfigureras för att köra endast signerade runbooks med viss konfiguration. I följande avsnitt beskrivs hur du ställer in Hybrid Runbook Worker-arbeten för att köra signerade [Windows Hybrid Runbook Worker](#windows-hybrid-runbook-worker) och [Linux Hybrid Runbook Worker](#linux-hybrid-runbook-worker)
 
 > [!NOTE]
 > När du har konfigurerat en Hybrid Runbook Worker för att köra endast signerade runbooks, runbook-flöden som har **inte** har registrerat kommer gick inte att köra på worker.
 
-### <a name="create-signing-certificate"></a>Skapa signeringscertifikat
+### <a name="windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker
+
+#### <a name="create-signing-certificate"></a>Skapa signeringscertifikat
 
 I följande exempel skapas ett självsignerat certifikat som kan användas för signering av runbooks. Exemplet skapar certifikatet och exporterar den. Certifikatet har importerats till Hybrid Runbook Worker senare. Tumavtrycket returneras, det här värdet används senare för att referera till certifikatet.
 
@@ -220,7 +222,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 $SigningCert.Thumbprint
 ```
 
-### <a name="configure-the-hybrid-runbook-workers"></a>Konfigurera Hybrid Runbook Worker
+#### <a name="configure-the-hybrid-runbook-workers"></a>Konfigurera Hybrid Runbook Worker
 
 Kopiera certifikatet som skapades för varje Hybrid Runbook Worker i en grupp. Kör följande skript för att importera certifikatet och konfigurera Hybrid Worker för att använda verifiera signaturen på runbooks.
 
@@ -236,7 +238,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
 ```
 
-### <a name="sign-your-runbooks-using-the-certificate"></a>Registrera dina Runbooks med hjälp av certifikatet
+#### <a name="sign-your-runbooks-using-the-certificate"></a>Registrera dina Runbooks med hjälp av certifikatet
 
 Med Hybrid Runbook Worker-arbeten som konfigurerats för att använda endast signerade runbooks, måste du logga runbooks som ska användas på den Hybrid Runbook Worker. Använd följande exempel PowerShell för att registrera dina runbooks.
 
@@ -246,6 +248,64 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
 När runbooken har signerats, måste de importeras till ditt Automation-konto och publiceras med signaturblocket. Läs hur man importerar runbooks i [importera en runbook från en fil till Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+### <a name="linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker
+
+Om du vill registrera runbooks på en Linux Hybrid Runbook Worker Hybrid Runbook Worker måste ha den [GPG](https://gnupg.org/index.html) körbara finns på datorn.
+
+#### <a name="create-a-gpg-keyring-and-keypair"></a>Skapa en GPG-nyckelringen och nyckelpar
+
+Att skapa nyckelpar måste du använda Hybrid Runbook Worker-konto och i nyckelringen `nxautomation`.
+
+Använd `sudo` logga in som den `nxautomation` konto.
+
+```bash
+sudo su – nxautomation
+```
+
+En gång med hjälp av den `nxautomation` konto, generera gpg-nyckelpar.
+
+```bash
+sudo gpg --generate-key
+```
+
+GPG vägleder dig genom stegen för att skapa nyckelpar. Du måste ange ett namn, en e-postadress, förfallotid, lösenfras och vänta tills tillräckligt med entropi på datorn för nyckeln som ska genereras.
+
+Eftersom katalogen GPG genererades med sudo, måste du ändra ägaren till nxautomation. 
+
+Kör följande kommando för att ändra ägaren.
+
+```bash
+sudo chown -R nxautomation ~/.gnupg
+```
+
+#### <a name="make-the-keyring-available-the-hybrid-runbook-worker"></a>Tillgängliggöra nyckelringen Hybrid Runbook Worker
+
+När nyckelringen har skapats kan behöver du göra den tillgänglig för Hybrid Runbook Worker. Ändra filen `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` att inkludera i följande exempel i avsnittet `[worker-optional]`
+
+```bash
+gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+```
+
+#### <a name="verify-signature-validation-is-on"></a>Kontrollera verifiera signaturen är aktiverad
+
+Om verifiera signaturen har inaktiverats på datorn, måste du aktivera den. Kör följande kommando för att aktivera verifiera signaturen. Ersätt `<LogAnalyticsworkspaceId>` med arbetsytans Id.
+
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
+```
+
+#### <a name="sign-a-runbook"></a>Registrera en runbook
+
+När verifiera signaturen har konfigurerats kan kan du använda följande kommando för att logga en runbook:
+
+```bash
+gpg –clear-sign <runbook name>
+```
+
+Signerade runbook har namn `<runbook name>.asc`.
+
+Signerade runbook kan nu överföras till Azure Automation och kan köras som en vanlig runbook.
 
 ## <a name="troubleshoot"></a>Felsöka
 

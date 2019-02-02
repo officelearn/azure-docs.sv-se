@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c197ead3a7b0f61b9dd5f1e3ea0bd197c23a2778
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180780"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568183"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -97,7 +97,7 @@ Den **TechnicalProfile** innehåller följande element:
 | OutputClaimsTransformations | 0:1 | En lista över tidigare definierad referenser till anspråksomvandlingar som ska köras när anspråk som tas emot från anspråksleverantören. |
 | ValidationTechnicalProfiles | 0: n | En lista över referenser till andra tekniska profiler som den tekniska profilen används för verifiering. Mer information finns i [tekniska profil](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Styr produktionen av ämnesnamnet i tokens där ämnesnamnet anges separat från anspråk. Till exempel OAuth eller SAML.  |
-| IncludeClaimsFromTechnicalProfile | 0:1 | En identifierare för en tekniska profilen som du vill att alla inkommande och utgående anspråk som ska läggas till den här tekniska profilen. Den refererade tekniska profilen måste definieras i samma principfil. | 
+| IncludeClaimsFromTechnicalProfile | 0:1 | En identifierare för en tekniska profilen som du vill att alla inkommande och utgående anspråk som ska läggas till den här tekniska profilen. Den refererade tekniska profilen måste definieras i samma principfil. |
 | IncludeTechnicalProfile |0:1 | En identifierare för en tekniska profilen som du vill att alla data som ska läggas till den här tekniska profilen. Den refererade tekniska profilen måste finnas i samma principfil. |
 | UseTechnicalProfileForSessionManagement | 0:1 | En annan tekniska profil som ska användas för sessionshantering. |
 |EnabledForUserJourneys| 0:1 |Kontroller om den tekniska profilen körs i en användarresa.  |
@@ -108,7 +108,7 @@ Den **protokollet** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted`, eller `None`. |
+| Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted`, eller `None`. |
 | Hanterare | Nej | När protokollnamnet är inställd på `Proprietary`, ange det fullständigt kvalificerade namnet på sammansättningen som används av Azure AD B2C för att fastställa protokollhanteraren. |
 
 ### <a name="metadata"></a>Metadata
@@ -168,7 +168,7 @@ Den **InputClaims** elementet innehåller följande element:
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Förväntade indata Anspråkstypen. |
 
-#### <a name="inputclaim"></a>InputClaim 
+#### <a name="inputclaim"></a>InputClaim
 
 Den **InputClaim** elementet innehåller följande attribut:
 
@@ -186,7 +186,7 @@ Den **PersistedClaims** elementet innehåller följande element:
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | Anspråkstyp ska sparas. |
 
-#### <a name="persistedclaim"></a>PersistedClaim 
+#### <a name="persistedclaim"></a>PersistedClaim
 
 Den **PersistedClaim** elementet innehåller följande attribut:
 
@@ -204,7 +204,7 @@ Den **OutputClaims** elementet innehåller följande element:
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | Förväntad utdata Anspråkstypen. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 Den **OutputClaim** elementet innehåller följande attribut:
 
@@ -275,9 +275,9 @@ Den **UseTechnicalProfileForSessionManagement** elementet innehåller följande 
 Den **ClaimsProviderSelections** i en användare resa definierar en lista med alternativ för val av anspråk providern och deras inbördes ordning. Med den **EnabledForUserJourneys** element som du filtrera vilka anspråksprovidern är tillgängligt för användaren. Den **EnabledForUserJourneys** elementet innehåller något av följande värden:
 
 - **Alltid**, köra den tekniska profilen.
-- **Aldrig**, hoppa över den tekniska profilen. 
-- **OnClaimsExistence** köra endast när ett visst krav som anges i den tekniska profilen finns. 
-- **OnItemExistenceInStringCollectionClaim**, köra endast när det finns ett objekt i ett anspråk för insamling av strängen. 
+- **Aldrig**, hoppa över den tekniska profilen.
+- **OnClaimsExistence** köra endast när ett visst krav som anges i den tekniska profilen finns.
+- **OnItemExistenceInStringCollectionClaim**, köra endast när det finns ett objekt i ett anspråk för insamling av strängen.
 - **OnItemAbsenceInStringCollectionClaim** köra endast när ett objekt finns inte i ett anspråk för insamling av strängen.
 
 Med hjälp av **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** eller **OnItemAbsenceInStringCollectionClaim**, måste du ange följande metadata: **ClaimTypeOnWhichToEnable** anger Anspråkstyp som ska utvärderas, **ClaimValueOnWhichToEnable** anger det värde som ska jämföras.
@@ -289,22 +289,10 @@ Följande tekniska profil körs bara om den **identityProviders** sträng samlin
   <DisplayName>Unlink Facebook</DisplayName>
 ...
     <Metadata>
-        <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
-        <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
-    </Metadata>        
+      <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
+      <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
+    </Metadata>
 ...
   <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```
-
-
-
-
-
-
-
-
-
-
-
-

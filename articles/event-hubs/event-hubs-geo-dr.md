@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091354"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562215"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
@@ -41,13 +41,13 @@ Funktionen disaster recovery implementerar metadata katastrofåterställning och
 
 I den här artikeln används följande termer:
 
--  *Alias*: namnet på en haveriberedskapskonfiguration som du har konfigurerat. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använder den här anslutningssträngen för alias för att ansluta till ett namnområde. 
+-  *Alias*: Namnet på en haveriberedskapskonfiguration som du har konfigurerat. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använder den här anslutningssträngen för alias för att ansluta till ett namnområde. 
 
--  *Primära och sekundära namnområdet*: namnområden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara ett namnområde för befintliga eller nya). Det sekundära namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan båda är synkroniserade, så att båda sömlöst kan godkänna meddelanden utan program kod eller anslutningen sträng ändringar. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
+-  *Primära och sekundära namnområdet*: Namnområden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara ett namnområde för befintliga eller nya). Det sekundära namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan båda är synkroniserade, så att båda sömlöst kan godkänna meddelanden utan program kod eller anslutningen sträng ändringar. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
 
--  *Metadata*: entiteter, till exempel händelsehubbar och konsumentgrupper; och deras egenskaper för tjänsten som är associerade med namnområdet. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden och händelser som replikeras inte. 
+-  *Metadata*: Entiteter, till exempel händelsehubbar och konsumentgrupper; och deras egenskaper för tjänsten som är associerade med namnområdet. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden och händelser som replikeras inte. 
 
--  *Redundans*: aktiveringsprocessen för det sekundära namnområdet.
+-  *Redundans*: Att aktivera det sekundära namnområdet.
 
 ## <a name="setup-and-failover-flow"></a>Installation och redundans flöde
 
@@ -102,12 +102,12 @@ Observera följande överväganden att tänka på med den här versionen:
 
 4. Synkronisera enheter kan ta lite tid, cirka 50 – 100 entiteter per minut.
 
-## <a name="availability-zones-preview"></a>Tillgänglighetszoner (förhandsversion)
+## <a name="availability-zones"></a>Tillgänglighetszoner 
 
-Event Hubs Standard-SKU stöder också [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom en Azure-region. 
+Har stöd för Event Hubs Standard-SKU [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom en Azure-region. 
 
 > [!NOTE]
-> Förhandsversionen av Tillgänglighetszoner stöds bara i den **centrala USA**, **östra USA 2**, och **Frankrike, centrala** regioner.
+> Tillgänglighetszoner support för Azure Event Hubs Standard ingår endast i [Azure-regioner](../availability-zones/az-overview.md#regions-that-support-availability-zones) där tillgänglighetszoner finns.
 
 Du kan aktivera Tillgänglighetszoner på nya namnområden, med hjälp av Azure portal. Event Hubs stöder inte migreringen av befintliga namnområden. Du kan inte inaktivera redundans när du har aktiverat i namnområdet.
 

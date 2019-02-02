@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fe98caa2a78722d621c43f1ef708e24add0efb56
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228805"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664122"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure avancerad hotidentifiering
 
@@ -29,7 +29,7 @@ Azure tillhandahåller en mängd olika alternativ för att konfigurera och anpas
 
 ## <a name="azure-active-directory-identity-protection"></a>Identitetsskydd för Azure Active Directory
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) är en [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition-funktion som innehåller en översikt över riskhändelser och potentiella problem som kan påverka din organisations identiteter. Identity Protection använder befintliga Azure AD funktioner för identifiering av avvikelser som är tillgängliga via [Azure AD avvikande aktivitetsrapporter](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), och introducerar nya typer av riskhändelser som kan identifiera avvikelser i realtid.
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) är en [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition-funktion som innehåller en översikt över riskhändelser och potentiella problem som kan påverka din organisations identiteter. Identity Protection använder befintliga Azure AD funktioner för identifiering av avvikelser som är tillgängliga via [Azure AD avvikande aktivitetsrapporter](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports), och introducerar nya typer av riskhändelser som kan identifiera avvikelser i realtid.
 
 ![Azure AD Identity Protection-diagram](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 
@@ -75,7 +75,7 @@ PIM hjälper dig att:
 
 -   Få aviseringar om åtkomst till en privilegierad roll.
 
-## <a name="azure-log-analytics"></a>Azure Logganalys
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
 [Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en Microsoft molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Eftersom Log Analytics har implementerats som en molnbaserad tjänst kan kan du ha den igång snabbt med minsta möjliga investering i infrastrukturtjänster. Nya säkerhetsfunktioner levereras automatiskt, sparar löpande underhåll och Uppgraderingskostnader.
 
@@ -341,7 +341,7 @@ Med verktyg för att upptäcka Shadow IT, utvärdera risker, genomdriva principe
 
 | | |
 |---|---|
-| Identifiera | Upptäck shadow IT med Cloud App Security. Få insyn genom att identifiera appar, aktiviteter, användare, data och filer i molnmiljön. Identifiera tredjepartsappar som är anslutna till molnet.|
+| Utforska | Upptäck shadow IT med Cloud App Security. Få insyn genom att identifiera appar, aktiviteter, användare, data och filer i molnmiljön. Identifiera tredjepartsappar som är anslutna till molnet.|
 |Undersök | Undersök dina molnappar med hjälp av datautredningsverktyg djupdykning riskfyllda appar, specifika användare och filer i nätverket. Hitta mönster i data som samlas in från molnet. Generera rapporter för molnövervakning. |
 | Kontroll | Minska riskerna genom att ange principer och varningar för att uppnå full kontroll över molntrafiken i nätverket. Använda Cloud App Security för att migrera användarna till säkra sanktionerade molnappar app alternativ. |
 | Skydda | Använd Cloud App Security att sanktionera eller förbjuda program, tillämpa skydd mot dataförlust, kontrollera behörigheter och delning och skapa anpassade rapporter och aviseringar. |

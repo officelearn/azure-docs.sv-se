@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c8d34ecb46721a8dd8dc1b1ad9f73c9f2ca2b3a2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507407"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564450"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -265,11 +265,11 @@ Du kan till exempel inställd 0x100000 och se om prestanda bli bättre.
 
 ### <a name="cause"></a>Orsak
 
-Fel AadDsTenantNotFound händer när du försöker [aktivera Azure Active Directory (AAD)-autentisering för Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) på ett lagringskonto där [AAD Domain Service(AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) skapas inte i AAD klient i samma prenumeration.  
+Fel AadDsTenantNotFound händer när du försöker [aktivera Azure Active Directory (AAD)-autentisering för Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) på ett lagringskonto där [AAD Domain Service(AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) skapas inte i AAD klient i samma prenumeration.  
 
 ### <a name="solution"></a>Lösning
 
-Aktivera AAD DS på AAD-klient för den prenumeration som ditt lagringskonto har distribuerats till. Du måste ha administratörsbehörighet för AAD-klient för att skapa en hanterad domän. Om du inte är administratör för Azure AD-klient, kontakta administratören och följ de stegvisa anvisningarna till [aktivera Azure Active Directory Domain Services med Azure portal](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Aktivera AAD DS på AAD-klient för den prenumeration som ditt lagringskonto har distribuerats till. Du måste ha administratörsbehörighet för AAD-klient för att skapa en hanterad domän. Om du inte är administratör för Azure AD-klient, kontakta administratören och följ de stegvisa anvisningarna till [aktivera Azure Active Directory Domain Services med Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att snabbt lösa ditt problem.

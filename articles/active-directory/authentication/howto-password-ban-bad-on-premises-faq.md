@@ -1,23 +1,23 @@
 ---
-title: Lokala Azure AD-lösenordsskydd vanliga frågor och svar
-description: Lokala Azure AD-lösenordsskydd vanliga frågor och svar
+title: Den lokala Azure AD lösenordsskydd vanliga frågor och svar
+description: Den lokala Azure AD lösenordsskydd vanliga frågor och svar
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: f690625fda07bdbff671567f0292cc8e1cabeda1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 62bda3a1c9cb9d53578c2d471b9e63d1f0873234
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078703"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663306"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Förhandsversion: Azure AD lösenord skydd lokalt – vanliga frågor och svar
+# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Förhandsversion: Azure AD-lösenordsskydd lokalt – vanliga frågor och svar
 
 |     |
 | --- |
@@ -28,17 +28,17 @@ ms.locfileid: "55078703"
 
 **F: När uppnår allmän tillgänglighet (GA) i Azure AD-lösenordsskydd?**
 
-Vi har inte meddelat allmän tillgänglighet datum än.
+Allmän tillgänglighet planeras Q1 CY2019 (före slutet av mars 2019). Tack för alla som har skickat feedback om funktionen på datum - vi uppskattar den!
 
-**F: Är den lokala Azure AD-lösenordsskydd som stöds i icke-offentlig moln?**
+**F: Är den lokala Azure AD-lösenord Protection stöds i icke-offentlig moln?**
 
-Nej, den lokala Azure AD-lösenordsskydd stöds bara i det offentliga molnet.
+Nej, lokala Azure AD-lösenord skydd stöds endast i det offentliga molnet.
 
-**F: Hur kan jag använda fördelarna med Azure AD lösenord skydd till en delmängd av Mina lokala användare?**
+**F: Hur kan jag använda Azure AD-lösenordsskydd fördelar till en delmängd av Mina lokala användare?**
 
 Stöds ej. När distribuerats och aktiverats, Azure AD-lösenordsskydd skilja inte – alla användare får lika säkerhetsfördelarna.
 
-**F: Finns det stöd för att installera Azure AD-lösenordsskydd sida vid sida med andra filter-lösenordsbaserade produkter?**
+**F: Finns det stöd för att installera Azure AD-lösenord Protection sida vid sida med andra filter-lösenordsbaserade produkter?**
 
 Ja. Stöd för flera filter DLL-filer för registrerade lösenord är en core Windows-funktion och inte specifikt för Azure AD-lösenordsskydd. Alla registrerade lösenord filter DLL: er måste godkänna innan ett lösenord har godkänts.
 
@@ -62,6 +62,6 @@ Nej.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har en lokal Azure AD protection lösenordsfråga som inte besvaras här kan du skicka in ett feedbackobjekt nedan – tack!
+Om du har en lokal Azure AD-lösenordsskydd fråga som inte besvaras här kan du skicka in ett feedbackobjekt nedan – tack!
 
 [Distribuera Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-deploy.md)

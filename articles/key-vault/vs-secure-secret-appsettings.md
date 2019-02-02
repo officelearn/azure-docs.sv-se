@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 8f3cdf366830549c3ebb9c5680ecf36d1053d1d9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075302"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662314"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>På ett säkert sätt spara hemliga programinställningar för ett webbprogram
 
@@ -32,7 +32,7 @@ För att säkerställa utvecklingsprocessen är säker, skapas verktyg och ramve
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET och .NET core-program
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Spara inställningarna för hemliga i användaren hemlighet store som ligger utanför kontrollen källmapp
-Om du gör en snabb prototyp eller om du inte har tillgång till internet, börja med att flytta din hemliga inställningar utanför kontrollen källmappen till användaren hemlighet store. Hemlig användararkivet är en fil som sparats användaren profiler i mappen, så att hemligheter inte checkas in till källkontroll. Följande diagram visar hur [användaren hemlighet](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) fungerar.
+Om du gör en snabb prototyp eller om du inte har tillgång till internet, börja med att flytta din hemliga inställningar utanför kontrollen källmappen till användaren hemlighet store. Hemlig användararkivet är en fil som sparats användaren profiler i mappen, så att hemligheter inte checkas in till källkontroll. Följande diagram visar hur [användaren hemlighet](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) fungerar.
 
 ![Användaren hemlighet håller hemliga inställningar utanför källkontroll](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 

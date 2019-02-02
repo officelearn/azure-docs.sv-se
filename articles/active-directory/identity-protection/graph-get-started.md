@@ -17,12 +17,12 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: b82458de95014d22625a9c8029e064ed21120488
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ee2f0387ee3c56dda7cd1a89f5c808f55699856
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158306"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658631"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
@@ -251,7 +251,7 @@ Grattis, du har skapat just ditt första anrop till Microsoft Graph!
 Nu kan du fråga identitet riskhändelser och använda data men du vill.
 
 
-Om du vill veta mer om Microsoft Graph och hur du skapar program med Graph API kan ta en titt på [dokumentation](https://docs.microsoft.com/en-us/graph/overview) och mycket mer på den [Microsoft Graph plats](https://developer.microsoft.com/en-us/graph). 
+Om du vill veta mer om Microsoft Graph och hur du skapar program med Graph API kan ta en titt på [dokumentation](https://docs.microsoft.com/graph/overview) och mycket mer på den [Microsoft Graph plats](https://developer.microsoft.com/en-us/graph). 
 
 
 Relaterad information finns i:

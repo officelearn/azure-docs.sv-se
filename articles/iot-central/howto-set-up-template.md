@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 61bc9da45ac420e5683be1ea3ad253eae9c0ba5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158949"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657747"
 ---
 # <a name="set-up-a-device-template"></a>Konfigurera en enhetsmall
 
@@ -39,6 +39,8 @@ Från den här enheten mallen en operatör kan skapa och ansluta riktiga fläkt 
 
 > [!NOTE]
 > Endast builders och administratörer kan skapa, redigera och ta bort enheten mallar. Alla användare kan skapa enheter på den **Device Explorer** sida från befintliga mallar för enheten.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="create-a-device-template"></a>Skapa en mall för enhet
 
@@ -71,7 +73,7 @@ Om du vill lägga till ett nytt mått i telemetri, Välj **Redigera mall**, och 
 Du kan exempelvis lägga till en ny temperatur telemetri mätning:
 | Visningsnamn        | Fältnamn    |  Enheter    | Min   |Max|
 | --------------------| ------------- |-----------|-------|---|
-| Temperatur         | Temp          |  degC     |  0    |100|
+| Temperatur         | temp          |  degC     |  0    |100|
 
 ![”Skapa telemetri” formuläret med information om temperatur mätning](./media/howto-set-up-template/measurementsform.png)
 
@@ -84,11 +86,11 @@ När du har valt **klar**, **temperatur** mått visas i listan över mått. Du k
 ### <a name="create-an-event-measurement"></a>Skapa en händelse
 Om du vill lägga till en ny händelse mätning, Välj **Redigera mall**, och klicka sedan på den **+ ny mätning** knappen. Välj **händelse** som mätningen skriver och anger informationen den **Skapa händelse** formuläret.
 
-Ange den **visningsnamn**, **fältnamn**, och **allvarlighetsgrad** information om händelsen. Du kan välja mellan tre tillgängliga nivåer av allvarlighetsgrad: **fel**, **varning**, och **Information**.  
+Ange den **visningsnamn**, **fältnamn**, och **allvarlighetsgrad** information om händelsen. Du kan välja mellan tre tillgängliga nivåer av allvarlighetsgrad: **Fel**, **varning**, och **Information**.  
 
 Exempel: du kan lägga till en ny **fläkt meddelar fel** händelse.
 
-| Visningsnamn        | Fältnamn    |  Standard-allvarlighetsgrad | 
+| Visningsnamn        | Fältnamn    |  Standardvärde för allvarlighetsgrad | 
 | --------------------| ------------- |-----------|
 | Fel på fläktmotor     | fanmotorerror |  Fel    | 
 
@@ -134,15 +136,15 @@ Inställningar styr en enhet. De gör att operatörer för programmet och ange i
 
 Inställningarna kan vara i något av tre tillstånd. Enheten rapporterar tillståndet.
 
-- **Synkroniserad**: enheten har ändrats för att återspegla värdet.
+- **Synkroniserad**: Enheten har ändrats för att återspegla värdet.
 
-- **Väntande**: enheten för närvarande att inställningens värde.
+- **Väntande**: Enheten för närvarande ändrar till inställningens värde.
 
-- **Fel**: enheten har returnerat ett fel.
+- **Fel**: Enheten har returnerat ett fel.
 
 Du kan till exempel lägga till en ny fläkt hastighet inställning genom att välja **Redigera mall** och ange i den nya **nummer** inställningen:
 
-| Visningsnamn  | Fältnamn    |  Enheter  | Decimaler |Inledande|
+| Visningsnamn  | Fältnamn    |  Enheter  | Decimals |Inledande|
 | --------------| ------------- |---------| ---------|---- |
 | Fläkthastighet     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -165,7 +167,7 @@ Det finns två kategorier med egenskaper:
 
 Du kan till exempel lägga till enheternas plats som en ny **Text** egenskapen (en programegenskap) genom att välja **Redigera mall** och ange i den nya egenskapen:
 
-| Visningsnamn  | Fältnamn | Beskär inledande blanksteg  | Trimma avslutande blanksteg  | Skiftlägeskänslighet| Minimilängd | Maxlängd |
+| Visningsnamn  | Fältnamn | Ta bort inledande blanksteg  | Ta bort avslutande blanksteg  | Skiftlägeskänslighet| Minimilängd | Maxlängd |
 | --------------| -----------|---------| ---------|---- |----|----|
 | Plats      | LOC        | Av     |  Av     | Blandat  | 0 | 100|
 
@@ -234,9 +236,9 @@ Kommandon används för att hantera en enhet. De gör att operatörer av ditt pr
 
 Hur skiljer sig ett kommando från en inställning? 
 
-* **Ange**: en är en konfiguration som du vill tillämpa på en enhet och du vill att enheten att spara konfigurationen tills du ändrar den. Till exempel vill du ange temperaturen för din frysfartyg och du vill att även om frysfartyg startas om. 
+* **Ange**: En inställning är en konfiguration som du vill tillämpa på en enhet och du vill att enheten att spara konfigurationen tills du ändrar den. Till exempel vill du ange temperaturen för din frysfartyg och du vill att även om frysfartyg startas om. 
 
-* **Kommandot**: du använda kommandon för att omedelbart köra ett kommando på enheten via fjärranslutning från IoT Central. Om en enhet inte är ansluten kommandot tidsgränsen och misslyckas. Exempelvis kan du starta om en enhet.  
+* **Kommandot**: Du kan använda kommandon för att omedelbart köra ett kommando på enheten via en fjärranslutning från IoT Central. Om en enhet inte är ansluten kommandot tidsgränsen och misslyckas. Exempelvis kan du starta om en enhet.  
 
 
 Exempel: du kan lägga till en ny **Echo** kommandot genom att välja **redigera mallen**, klicka på **+ nytt kommando**, och ange i det nya kommandot:

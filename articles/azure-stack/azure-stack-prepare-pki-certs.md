@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247212"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656727"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Förbereda Azure Stack PKI-certifikat för användning i distributionen eller rotation
+
 Certifikatdatabasen [hämtas från din Certifikatutfärdare valfri](azure-stack-get-pki-certs.md) måste importeras och exporteras med egenskaper som matchar certifikatkrav för Azure Stack.
 
-
 ## <a name="prepare-certificates-for-deployment"></a>Förbereda certifikat för distribution
+
 Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat som ska användas för att distribuera en ny Azure Stack-miljö eller för att rotera hemligheter i en befintlig Azure Stack-miljö: 
 
 ### <a name="import-the-certificate"></a>Importera certifikatet
@@ -83,7 +84,9 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
     
     ![Guiden för export av certifikat med markerat alternativ](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. Välj **lösenord** och ange ett lösenord för certifikaten. Kom ihåg lösenordet eftersom den används som distributionsparameter. Välj **Nästa**.
+1. Välj **lösenord** och ange ett lösenord för certifikaten. Skapa ett lösenord som uppfyller följande komplexitetskrav för lösenord. En minsta längd på åtta tecken. Lösenordet innehåller minst tre av följande: versala bokstäver, gemena bokstäver, siffror från 0 till 9, specialtecken, alfabetiskt tecken som är varken versaler eller gemener. Anteckna det här lösenordet. Du använder den som en parameter för distribution.
+
+1. Välj **Nästa**.
 
 1. Välj ett filnamn och plats för pfx-fil att exportera. Välj **Nästa**.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 3a7c823493369735df23360645004b0bec85dbd7
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 08fdbc80c0f7dd1093020d64f4fc6f04fb7a88ae
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885515"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657050"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Konfigurera insamling av mätvärden för Azure PaaS-resurs med Log Analytics
 
@@ -37,7 +37,7 @@ Kontrollera att du har följande Azure Resource Manager-moduler som installerats
 >[!NOTE]
 >Vi rekommenderar att alla dina Azure Resource Manager-moduler är samma version för att garantera kompatibilitet när du kör Azure Resource Manager-kommandon från PowerShell.
 >
-Om du vill installera den senaste versionen av Azure Resource Manager-moduler på din dator, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+Om du vill installera den senaste versionen av Azure Resource Manager-moduler på din dator, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.1).  
 
 ## <a name="enable-azure-diagnostics"></a>Aktivera Azure-diagnostik  
 Konfigurera Azure Diagnostics för PaaS-resurser åstadkoms genom att köra skriptet **aktivera AzureRMDiagnostics.ps1**, som är tillgängligt från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52).  Skriptet har stöd för följande scenarier:

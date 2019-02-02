@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7e293018f2dc248fae8de8bd9e82943606f4ead
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9d2d7297ea5978687ef6dc791d5a333016060da7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239510"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659940"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Lägg till Kubernetes i Azure Stack Marketplace
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!note]  
-> Kubernetes på Azure Stack är en förhandsversion.
+> Kubernetes på Azure Stack är en förhandsversion. Azure Stack-frånkopplade scenariot stöds inte för närvarande av förhandsversionen.
 
 Du kan erbjuda Kubernetes som ett Marketplace-objekt till dina användare. Användarna kan sedan distribuera Kubernetes i en enda, samordnad åtgärd.
 
@@ -69,7 +69,7 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
 
     - Du behöver följande typer av information:
 
-       | Value | Beskrivning |
+       | Värde | Beskrivning |
        | ---   | ---         |
        | Lösenord | Lösenordet för certifikatet. |
        | Lokala certifikatsökväg | Sökvägen och namnet på certifikatet. Exempel: `path\certfilename.pfx` |
@@ -109,7 +109,7 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
 
     - Du behöver följande typer av information:
 
-       | Value | Beskrivning                     |
+       | Värde | Beskrivning                     |
        | ---   | ---                             |
        | ERCS IP | I ASDK Privilegierade slutpunkten är normalt `AzS-ERCS01`. |
        | Programnamn | Ett kort namn för tjänstobjektet program. |

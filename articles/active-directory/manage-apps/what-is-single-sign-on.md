@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 9e06e53f83dd05d53b76a2a07e465133f052dba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157711"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664037"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 Lägger till säkerhet och bekvämlighet enkel inloggning (SSO) när användare-inloggning till program i Azure Active Directory (AD Azure). Den här artikeln beskrivs metoderna som enkel inloggning och hjälper dig att välja den lämpligaste SSO-metoden när du konfigurerar dina program.
@@ -49,9 +49,7 @@ I följande tabell sammanfattas metoderna som enkel inloggning och länkar till 
 | [Rubrikbaserad](#header-based-sso) | endast lokalt | Använd rubrikbaserad enkel inloggning när programmet använder rubriker för autentisering. Kräver PingAccess för Azure AD-huvud-baserad enkel inloggning. Programproxy använder Azure AD för att autentisera användaren och sedan skickar trafik via kopplingstjänsten.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect och OAuth
-Med OpenID Connect och OAuth kan aktivera du en enkel inloggning som gör enklare att lägga till ett enterprise-program till Azure AD. Programadministratören behöver inte konfigurera enkel inloggning. I stället Azure AD lägger till programmet när administratören [ger användargodkännande](configure-user-consent.md). 
-
-Den [SDK: er](../develop/reference-v2-libraries.md) för OpenID Connect och OAuth är lätta att införa och programmet blir redo att använda MS Graph. 
+När du utvecklar nya program, kan du använda moderna protokoll som OpenID Connect och OAuth för att uppnå den bästa enkel inloggning för din app på flera enhetsplattformar. OAuth gör att användare och administratörer att [ge medgivande](configure-user-consent.md) för skyddade resurser som [MS Graph](/graph/overview). Vi ger enkelt för att införa [SDK: er](../develop/reference-v2-libraries.md) för din app och dessutom din app är redo att använda [MS Graph](/graph/overview).
 
 Mer information finns i:
 

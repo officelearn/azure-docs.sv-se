@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 6d84c83efa194543ed10aaed82362021b7053476
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576212"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566245"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen att göra det för att gå smidigt. Ägna tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter.
@@ -88,7 +88,7 @@ Lyckad kunderna har detaljerad planer där föregående frågorna beskrivs, doku
 
 Följande har ett problem upptäcks i många av de större migreringarna. Detta är inte en fullständig förteckning och du bör använda den [stöds inte funktioner och konfigurationer](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) för mer information.  Du kan eller inte kan stöta på dessa tekniska problem, men om du vill lösa dessa innan du försöker migrera säkerställer en jämnare upplevelse.
 
-- **Gör en Validera/Förbered/Avbryt testsändning** – detta är kanske det viktigaste steget för att se till att klassisk till Azure Resource Manager migreringen lyckades. Migreringen API har tre huvudsakliga steg: verifiera, förbereda och sedan spara. Verifiera att läsa statusen för din klassiska miljö och returnera ett resultat av alla problem. Men eftersom vissa problem kan finnas i Azure Resource Manager-stacken, kommer verifiera inte fånga allt. Nästa steg i migreringsprocessen, Förbered kan exponera dessa problem. Förbereda att flytta metadata från klassiskt läge till Azure Resource Manager, men kommer inte genomför flytten och ska inte ta bort eller ändra något på sidan för klassisk. Testsändningen innebär att förbereda migreringen och sedan avbryts (**inte transaktionen**) Förbered migreringen. Målet med Validera/förbereda/Avbryt testsändning är att se alla metadata i Azure Resource Manager-stacken, undersöka den (*programmatiskt eller i portalen*), och kontrollera att allt migreras korrekt och gå igenom technical problem.  Kommer också att få en uppfattning om varaktighet för migrering så att du kan planera för avbrott på lämpligt sätt.  En Validera/förbereda/Avbryt medför några driftavbrott; Därför är det icke störande för program som körs på.
+- **Gör en Validera/Förbered/Avbryt testsändning** – detta är kanske det viktigaste steget för att se till att klassisk till Azure Resource Manager migreringen lyckades. Migreringen API har tre steg: Validera, förbereda och sedan spara. Verifiera att läsa statusen för din klassiska miljö och returnera ett resultat av alla problem. Men eftersom vissa problem kan finnas i Azure Resource Manager-stacken, kommer verifiera inte fånga allt. Nästa steg i migreringsprocessen, Förbered kan exponera dessa problem. Förbereda att flytta metadata från klassiskt läge till Azure Resource Manager, men kommer inte genomför flytten och ska inte ta bort eller ändra något på sidan för klassisk. Testsändningen innebär att förbereda migreringen och sedan avbryts (**inte transaktionen**) Förbered migreringen. Målet med Validera/förbereda/Avbryt testsändning är att se alla metadata i Azure Resource Manager-stacken, undersöka den (*programmatiskt eller i portalen*), och kontrollera att allt migreras korrekt och gå igenom technical problem.  Kommer också att få en uppfattning om varaktighet för migrering så att du kan planera för avbrott på lämpligt sätt.  En Validera/förbereda/Avbryt medför några driftavbrott; Därför är det icke störande för program som körs på.
   - Objekten nedan måste lösas innan testsändningen, men ett testsändning test kommer också bra att tömma ut dessa förberedelsesteg om de missat. Vi har sett testsändning ska vara ett säkert och ovärderliga sätt att se till att migreringsberedskap under enterprise-migrering.
   - När förbereder körs, kontrollen plan (Azure hanteringsåtgärder) kommer att låsas för hela virtuella nätverk, så att inga ändringar kan göras till VM-metadata under Validera/förbereda/Avbryt.  Men annars eventuella program-funktionen (RD, VM användning osv) påverkas.  Användare av de virtuella datorerna vet inte att testsändningen körs.
 
@@ -201,7 +201,7 @@ Saker att tänka på:
 
 Vara meningsfullt på vilka tjänster som du nu vill aktivera i Azure Resource Manager.  Många kunder tycker det nedan intressanta för sina Azure-miljöer:
 
-- [Rollbaserad åtkomstkontroll](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [Rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md).
 - [Azure Resource Manager-mallar för distribution av enklare och mer kontrollerad](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Taggar](../../azure-resource-manager/resource-group-using-tags.md).
 - [Kontroll av aktivitet](../../azure-resource-manager/resource-group-audit.md)

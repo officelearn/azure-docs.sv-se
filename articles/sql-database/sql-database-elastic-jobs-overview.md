@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865530"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565249"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Hantera utskalade molndatabaser
 
@@ -67,7 +67,7 @@ Definiera anpassade grupper av Azure SQL-databaser och definiera scheman för at
 > [!NOTE]
 > Reducerad uppsättning funktioner som är begränsad till SQL Azure elastiska pooler finns i Azure-portalen. Använd PowerShell APIs för att få åtkomst till den fullständiga uppsättningen aktuella funktionerna.
 
-## <a name="applications"></a>Program
+## <a name="applications"></a>Appar
 
 - Utföra administrativa uppgifter, till exempel att distribuera ett nytt schema.
 - Uppdatera data produkten Referensinformation vanliga över alla databaser. Eller scheman för automatiska uppdateringar varje veckodag efter timmar.
@@ -81,8 +81,8 @@ Definiera anpassade grupper av Azure SQL-databaser och definiera scheman för at
 2. Använd PowerShell APIs för att få åtkomst till fler funktioner, till exempel skapa egendefinierat databassamlingar, att lägga till scheman och/eller samla in resultatet anger. Använda portalen för enkel installation och skapa/övervakning av jobb som är begränsad till körning mot en **elastisk pool**.
 3. Skapa krypterade autentiseringsuppgifter för jobbkörning och [lägga till användare (eller rollen) i varje databas i gruppen](sql-database-security-overview.md).
 4. Skapa en idempotent T-SQL-skript som kan köras mot varje databas i gruppen.
-5. Följ dessa steg för att skapa jobb med hjälp av Azure portal: [skapa och hantera elastiska databasjobb](sql-database-elastic-jobs-create-and-manage.md).
-6. Eller Använd PowerShell-skript: [skapa och hantera en SQL Database elastic database-jobb med hjälp av PowerShell (förhandsversion)](sql-database-elastic-jobs-powershell.md).
+5. Följ dessa steg för att skapa jobb med hjälp av Azure portal: [Skapa och hantera elastiska databasjobb](sql-database-elastic-jobs-create-and-manage.md).
+6. Eller Använd PowerShell-skript: [Skapa och hantera en SQL Database elastic database-jobb med hjälp av PowerShell (förhandsversion)](sql-database-elastic-jobs-powershell.md).
 
 ## <a name="idempotent-scripts"></a>Idempotent-skript
 
@@ -137,7 +137,7 @@ Följande komponenter fungerar tillsammans för att skapa en Azure-molntjänst s
 1. En Azure SQL Database anges en **kontrolldatabas** som lagrar alla data för metadata och tillstånd.
 2. Control-databasen används av den **tjänst** att starta och spåra jobb att köra.
 3. Två olika roller kommunicerar med kontroll-databasen:
-   - Domänkontrollant: Avgör vilka jobb som kräver åtgärder att utföra det begärda jobbet och återförsök misslyckade jobb genom att skapa nya aktiviteter i jobbet.
+   - Domänkontrollant: Anger vilka jobb som kräver åtgärder att utföra det begärda jobbet och återförsök misslyckade jobb genom att skapa nya aktiviteter i jobbet.
    - Jobbaktiviteter: Utför jobbaktiviteterna.
 
 ### <a name="job-task-types"></a>Uppgiften jobbtyper

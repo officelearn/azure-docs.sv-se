@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 3a8b3a22eb4bdaed0142f8afc6f92128be32eca3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4b9c57785b9b3176def495af6bc5956d70fa5c35
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971128"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657917"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -48,7 +48,7 @@ Komponent-versioner som är associerade med HDInsight-klusterversioner som lista
 | Apache Storm |1.2.1 |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | Apache Mahout |-|0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 eller senare |1.5.2 |1.3.1 (endast Windows) |-|-|
+| Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (endast Windows) |-|-|
 | Apache Livy |0,5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
 | Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
@@ -74,11 +74,11 @@ I tabellerna nedan listas versionerna av HDInsight. HDP-versioner som motsvarar 
 
 I följande tabell visas de versioner av HDInsight som är tillgängliga i Azure Portal samt andra distributionsmetoder som PowerShell och .NET SDK.
 
-| HDInsight-version | HDP-version | VM-OS | Utgivningsdatum | Support upphör att gälla | Slutdatum | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
+| HDInsight-version | HDP-version | VM OS | Utgivningsdatum | Support upphör att gälla | Slutdatum | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 <br> (Förhandsversion) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 september 2018 | | |Ja |Ja |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
-| HDInsight 3.5 <br> (Spark) * |HDP 2.6 |Ubuntu 16.0.4 LTS |30 september 2016 |Den 13 mars 2019 |Den 13 mars 2019 |Ja |Ja |
+| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 september 2016 |Den 13 mars 2019 |Den 13 mars 2019 |Ja |Ja |
 
 *&ast; Stöd för HDInsight 3.5 utökades endast för Spark klustertyper*
 
@@ -90,7 +90,7 @@ I följande tabell visas de versioner av HDInsight som är tillgängliga i Azure
 
 I följande tabell visas de versioner av HDInsight som är **inte** tillgängliga i Azure Portal.
 
-| HDInsight-version | HDP-version | VM-OS | Utgivningsdatum | Support upphör att gälla | Slutdatum | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
+| HDInsight-version | HDP-version | VM OS | Utgivningsdatum | Support upphör att gälla | Slutdatum | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 <br> (Icke-Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 september 2016 |Den 5 september 2017 |28 juni 2018 |Ja |Nej |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Den 29 mars 2016 |Den 29 december 2016 |9 januari 2018 |Ja |Nej |
@@ -162,7 +162,7 @@ När HDInsight på Windows har dragits tillbaka, det går inte att du skapar ett
 ### <a name="which-versions-of-hdinsight-on-windows-are-affected"></a>Vilka versioner av HDInsight på Windows påverkas?
 Azure HDInsight version 3.3 är den senaste versionen av HDInsight för Windows. Innan HDInsight på Windows har dragits tillbaka måste alla HDInsight-Windows-kluster version 3.3 eller tidigare migreras till HDInsight på Linux version 3.5 eller senare. Migrera dina kluster till HDInsight i Linux kan du behålla möjligheten att skapa nya kluster eller ändra storlek på befintliga kluster. 
 
-### <a name="what-do-i-need-to-do"></a>Vad behöver jag göra?
+### <a name="what-do-i-need-to-do"></a>Vad måste jag göra?
 Migrera dina HDInsight Windows-kluster till ett stöds HDInsight Linux-kluster innan 31 juli 2018. Läs mer i den [HDInsight migrace](hdinsight-migrate-from-windows-to-linux.md). Information om Azure HDInsight-versioner finns i listan över [versioner som stöds](hdinsight-component-versioning.md#supported-hdinsight-versions). 
 
 ### <a name="where-do-i-find-the-cluster-os-type"></a>Var hittar jag kluster-OS-typ?
@@ -228,16 +228,46 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
 
 * Alla regioner utom södra Brasilien och västra Japan:
 
-  | Klustertyp | Hadoop | HBase | Interaktiv fråga | Storm | Spark  | ML-Server |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | Huvud: standardstorleken för virtuella datorer |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
-  | Huvud: rekommenderade storlekar för Virtuella datorer |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |A4 v2<br/> A8 v2<br/> A2m v2 |D12 v2<br/> D13 v2<br/> D14 v2 |D12 v2<br/> D13 v2<br/> D14 v2 |
-  | Worker: standardstorleken för virtuella datorer |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
-  | Worker: rekommenderade storlekar för Virtuella datorer |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |D3 v2<br/> D4 v2<br/> D12 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
-  | ZooKeeper: standardstorleken för virtuella datorer | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
-  | ZooKeeper: rekommenderade storlekar för Virtuella datorer | |A4 v2<br/> A8 v2<br/> A2m v2 | | A2 v2<br/> A4 v2<br/> A8 v2 | | |
-  | Edge: standardstorleken för virtuella datorer | | | | | |D4 v2 |
-  | Edge: Rekommenderad storlek för virtuell dator | | | | | |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
+<html><body><table width="100%">
+<tr align="left"><th>Klustertyp</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interaktiv fråga</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server&nbsp;</th><th>Kafka&nbsp;</th></tr>
+
+<tr><td>Huvud: standardstorleken för virtuella datorer</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="4" valign="top">Huvud: rekommenderade storlekar för Virtuella datorer</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td><td>A2M v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td><td>D3 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td><td>D4 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td><td>D12 v2</td></tr>
+
+<tr><td>Worker: standardstorleken för virtuella datorer</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td><td>4 D12v2 med 2 S30 diskar per meddelandekö</td></tr>
+
+<tr><td rowspan="8" valign="top">Worker: rekommenderade storlekar för Virtuella datorer</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td><td>D13 v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td><td>DS12 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td><td>DS13 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td><td>E4 v3</td></tr>
+<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td><td>ES4 v3</td></tr>
+<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td><td>E8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td><td>ES8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td><td></td></tr>
+
+<tr><td>ZooKeeper: standardstorleken för virtuella datorer</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="3" valign="top">ZooKeeper: rekommenderade storlekar för Virtuella datorer</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td><td>A2M v2</td></tr>
+<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td><td>D3 v2</td></tr>
+<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td><td>E8 v3</td></tr>
+
+<tr align="left"><td>Edge: standardstorleken för virtuella datorer</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+
+<tr><td rowspan="8" valign="top">Edge: Rekommenderad storlek för virtuell dator</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td><td></td></tr>
+
+</table></body></html>
+
 * Södra Brasilien och västra Japan endast (ingen v2-storlekar):
 
   | Klustertyp | Hadoop | HBase | Interaktiv fråga |Storm | Spark | ML Services |

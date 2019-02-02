@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e37bc5f46a1a56357e3dff9d1f67de7dcc2537b0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055313"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562903"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Etablera och katalogisera nya klienter i ett SaaS-program med hjälp av ett delat Azure SQL-databas för flera innehavare
 
@@ -28,7 +28,7 @@ Den här artikeln har två huvuddelar:
 - [Diskussion](#goto_2_conceptual) av etablera och katalogisera av nya klienter.
 
 - [Självstudien](#goto_1_tutorial) som visar PowerShell-skriptkod som genomför etablera och katalogisera.
-    - I självstudiekursen används Wingtip biljetter SaaS-program, anpassade till mönstret fragmenterade (sharded) databas för flera innehavare.
+  - I självstudiekursen används Wingtip biljetter SaaS-program, anpassade till mönstret fragmenterade (sharded) databas för flera innehavare.
 
 <a name="goto_2_conceptual"/>
 
@@ -143,12 +143,12 @@ I det här avsnittet ska se du en lista med viktiga åtgärder för etablering s
 
 Här följer nyckelelement för etablering arbetsflödet du går igenom:
 
-- **Beräkna den nya klientnyckeln**: hash-funktion som används för att skapa klientnyckeln från klientnamnet.
-- **Kontrollera om klientnyckeln redan finns**: katalogen kontrolleras för att se till att nyckeln inte redan har registrerats.
-- **Initiera klienten i standard klientdatabasen**: klientdatabasen har uppdaterats för att lägga till nya klientinformation.  
-- **Registrera klient i katalogen**: mappningen mellan den nya klientnyckeln och den befintliga tenants1-databasen har lagts till i katalogen. 
-- **Lägga till klientens namn i en katalog tillägget tabellen**: namnet på platsen har lagts till i tabellen klienter i katalogen.  Här beskrivs hur katalogdatabasen kan utökas för att stödja ytterligare programspecifik data.
-- **Öppna sidan för evenemang för den nya innehavaren**: den *Bushwillow Blues* händelser sidan öppnas i webbläsaren.
+- **Beräkna den nya klientnyckeln**: En hash-funktion används för att skapa klientnyckeln från klientnamnet.
+- **Kontrollera om klientnyckeln redan finns**: Katalogen kontrolleras för att se till att nyckeln inte redan har registrerats.
+- **Initiera klienten i standard klientdatabasen**: Klientdatabasen har uppdaterats för att lägga till nya klientinformation.  
+- **Registrera klient i katalogen**: Mappningen mellan den nya klientnyckeln och den befintliga tenants1-databasen har lagts till i katalogen. 
+- **Lägga till klientens namn i en katalog tillägget tabellen**: Namnet på platsen har lagts till i tabellen klienter i katalogen.  Här beskrivs hur katalogdatabasen kan utökas för att stödja ytterligare programspecifik data.
+- **Öppna sidan för evenemang för den nya innehavaren**: Den *Bushwillow Blues* händelser sidan öppnas i webbläsaren.
 
    ![evenemang](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -161,7 +161,7 @@ För att förstå hur Wingtip-programmet implementerar etableringen i en delad d
    - **$VenueType** = **blues**, en av de fördefinierade platstyperna: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (gemener, utan blanksteg).
    - **$DemoScenario** = **1**, för att etablera en klient i en delad databas med andra klienter.
 
-2. Lägg till en brytpunkt genom att placera markören var som helst på rad 38, raden: *New-Tenant ”*, och tryck sedan på **F9**.
+2. Lägg till en brytpunkt genom att placera markören var som helst på rad 38, raden: *Ny klient ”*, och tryck sedan på **F9**.
 
    ![brytpunkt](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -181,14 +181,14 @@ Mer information om hur du felsöker PowerShell-skript finns i [Tips om att arbet
 
 Följande är de viktigaste elementen i arbetsflödet som du går igenom vid spårning av skriptet:
 
-- **Beräkna den nya klientnyckeln**: hash-funktion som används för att skapa klientnyckeln från klientnamnet.
-- **Kontrollera om klientnyckeln redan finns**: katalogen kontrolleras för att se till att nyckeln inte redan har registrerats.
-- **Skapa en ny klientdatabas**: databasen har skapats genom att kopiera den *basetenantdb* databasen med en Resource Manager-mall.  Det nya databasnamnet baseras på klientens namn.
-- **Lägga till databasen i katalogen**: nya klientdatabasen registreras som ett fragment i katalogen.
-- **Initiera klienten i standard klientdatabasen**: klientdatabasen har uppdaterats för att lägga till nya klientinformation.  
-- **Registrera klient i katalogen**: mappningen mellan den nya klientnyckeln och *sequoiasoccer* databas läggs till i katalogen.
-- **Klientnamn har lagts till i katalogen**: namnet på platsen har lagts till i tabellen klienter tillägget i katalogen.
-- **Öppna sidan för evenemang för den nya innehavaren**: den *Sequoia fotboll* händelser sidan öppnas i webbläsaren.
+- **Beräkna den nya klientnyckeln**: En hash-funktion används för att skapa klientnyckeln från klientnamnet.
+- **Kontrollera om klientnyckeln redan finns**: Katalogen kontrolleras för att se till att nyckeln inte redan har registrerats.
+- **Skapa en ny klientdatabas**: Databasen har skapats genom att kopiera den *basetenantdb* databasen med en Resource Manager-mall.  Det nya databasnamnet baseras på klientens namn.
+- **Lägga till databasen i katalogen**: Nya klientdatabasen registreras som ett fragment i katalogen.
+- **Initiera klienten i standard klientdatabasen**: Klientdatabasen har uppdaterats för att lägga till nya klientinformation.  
+- **Registrera klient i katalogen**: Mappningen mellan den nya klientnyckeln och *sequoiasoccer* databas läggs till i katalogen.
+- **Klientnamn har lagts till i katalogen**: Namnet på platsen har lagts till i tabellen klienter tillägget i katalogen.
+- **Öppna sidan för evenemang för den nya innehavaren**: Den *Sequoia fotboll* händelser sidan öppnas i webbläsaren.
 
    ![evenemang](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 

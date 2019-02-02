@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888166"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563991"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
@@ -80,7 +80,7 @@ Server-SDK: er är tillgängliga för .NET, Java, Node.js, PHP och Python. Notif
 
 ### <a name="which-client-platforms-do-you-support"></a>Vilka klientplattformar stöder ni?
 
-Push-meddelanden stöds för [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Kina (Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome-appar](notification-hubs-chrome-push-notifications-get-started.md), och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information går du till den [Notification Hubs komma igång-Självstudier] sidan.
+Push-meddelanden stöds för [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Kina (Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) och Android, [Chrome-appar](notification-hubs-chrome-push-notifications-get-started.md), och [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Mer information går du till den [Notification Hubs komma igång-Självstudier] sidan.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Har du stöd för SMS, e-post eller webb-meddelanden?
 
@@ -144,7 +144,7 @@ Namnområden kan användas för distribution av gruppering. De kan också använ
 
 #### <a name="geo-distribution"></a>GEO-replikering
 
-GEO-replikering är inte alltid viktiga i scenarier för push-meddelande. Olika PNSes (till exempel APNS eller GCM) som levererar push-meddelanden till enheter som inte är jämnt.
+GEO-replikering är inte alltid viktiga i scenarier för push-meddelande. Olika PNSes (till exempel APNS eller FCM) som levererar push-meddelanden till enheter som inte är jämnt.
 
 Om du har ett program som används för globalt kan skapa du hubbar i olika namnområden med hjälp av Notification Hubs-tjänsten i olika Azure-regioner runtom i världen.
 
@@ -207,7 +207,7 @@ Azure Meddelandehubbar ger flera funktioner för felsökning, särskilt för det
 Azure Notification Hubs kan visa dessa data i den [Azure Portal]. Information om mått som är tillgängliga på den [Notification Hubs mått] sidan.
 
 > [!NOTE]
-> Lyckade meddelanden innebär helt enkelt att push-meddelanden har levererats till externa PNS (till exempel APNS för Apple) eller GCM för Google. Ansvarar för att leverera meddelanden till målenheterna pns-systemet. Normalt exponerar PNS inte mått för leverans till tredje part.  
+> Lyckade meddelanden innebär helt enkelt att push-meddelanden har levererats till externa PNS (till exempel APNS för Apple) eller FCM för Google. Ansvarar för att leverera meddelanden till målenheterna pns-systemet. Normalt exponerar PNS inte mått för leverans till tredje part.  
 
 Vi erbjuder även möjligheten att exportera dessa data programmässigt (på Standard-nivån). Mer information finns i [Notification Hubs mått-exempel].
 

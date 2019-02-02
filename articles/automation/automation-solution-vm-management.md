@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476404"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658394"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -136,7 +136,7 @@ I en miljö med minst två eller flera komponenter på flera virtuella datorer s
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Rikta instruktionen start och stopp av VM-lista
 
-1. Lägg till en **sequencestart** och en **sequencestop** taggen med ett positivt heltalsvärde till virtuella datorer som du planerar att lägga till den **VMList** variabeln. 
+1. Lägg till en **sequencestart** och en **sequencestop** taggen med ett positivt heltalsvärde till virtuella datorer som du planerar att lägga till den **VMList** parametern.
 1. Kör den **SequencedStartStop_Parent** runbook med parametern åtgärd inställd **starta**, Lägg till en kommaavgränsad lista över virtuella datorer i den *VMList* parameter och ange sedan den WHATIF parameter **SANT**. Förhandsgranska dina ändringar.
 1. Konfigurera den **External_ExcludeVMNames** parameter med en kommaavgränsad lista över virtuella datorer (VM1, VM2 VM3).
 1. Det här scenariot inte att behandla den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupnames** variabler. Det här scenariot måste du skapa ett eget Automation-schema. Mer information finns i [schemaläggning av en runbook i Azure Automation](../automation/automation-schedules.md).
@@ -285,8 +285,8 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 
 |Söka i data | Beskrivning|
 |----------|----------|
-|Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | ```search Category == "JobLogs" | där (RunbookName_s == ”ScheduledStartStop_Parent”) | där (ResultType == ”slutfört”)  | Sammanfatta |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Sortera efter TimeGenerated fall '''|
-|Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | ```search Category == "JobLogs" | där (RunbookName_s == ”SequencedStartStop_Parent”) | där (ResultType == ”slutfört”) | Sammanfatta |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Sortera efter TimeGenerated fall '''|
+|Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>Visa lösningen
 
@@ -319,13 +319,29 @@ Följande är ett exempel e-postmeddelande som skickas när lösningen stängs a
 
 ![Automation uppdateringshantering lösning sidan](media/automation-solution-vm-management/email.png)
 
+## <a name="add-exclude-vms"></a>Lägg till eller undanta virtuella datorer
+
+Lösningen ger möjlighet att lägga till virtuella datorer för att vara mål för lösningen eller uttryckligen utelämna datorer från lösningen.
+
+### <a name="add-a-vm"></a>Lägg till en virtuell dator
+
+Det finns ett par alternativ som du kan använda för att se till att en virtuell dator ingår i lösningen Starta/Stoppa när den körs.
+
+* Var och en av överordnat [runbooks](#runbooks) av lösningen har en **VMList** parametern. Du kan skicka en kommaavgränsad lista över namn på virtuella datorer till den här parametern när schemaläggning av lämplig överordnad runbook för din situation och dessa virtuella datorer kommer att inkluderas när lösningen körs.
+
+* Om du vill välja flera virtuella datorer, ange den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** med namnen på resursen som innehåller de virtuella datorerna som du vill starta eller stoppa. Du kan också ange ett värde `*`, har den lösning som körs mot alla resursgrupper i prenumerationen.
+
+### <a name="exclude-a-vm"></a>Undanta en virtuell dator
+
+Om du vill exkludera en virtuell dator från lösningen kan du lägga till den till den **External_ExcludeVMNames** variabeln. Den här variabeln är en kommaavgränsad lista med specifika virtuella datorer ska undantas från lösningen Starta/Stoppa.
+
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Ändra scheman för start och avstängning
 
-Hantera scheman för start och avstängning i den här lösningen följer samma steg som beskrivs i [schemaläggning av en runbook i Azure Automation](automation-schedules.md).
+Hantera scheman för start och avstängning i den här lösningen följer samma steg som beskrivs i [schemaläggning av en runbook i Azure Automation](automation-schedules.md). Det måste finnas en separat schema för att starta och stoppa virtuella datorer.
 
-Konfigurera lösningen så att bara stoppa virtuella datorer vid en viss tidpunkt stöds. Om du vill göra det måste du:
+Konfigurera lösningen så att bara stoppa virtuella datorer vid en viss tidpunkt stöds. I det här scenariot du helt enkelt skapa en **stoppa** schema och ingen motsvarande **starta** schemalagda. Om du vill göra det måste du:
 
-1. Se till att du har lagt till resursgrupper för de virtuella datorerna ska stängas av om den **External_Start_ResourceGroupNames** variabeln.
+1. Se till att du har lagt till resursgrupper för de virtuella datorerna ska stängas av om den **External_Stop_ResourceGroupNames** variabeln.
 2. Skapa ett eget schema för den tid som du vill stänga av de virtuella datorerna.
 3. Navigera till den **ScheduledStartStop_Parent** runbook och klicka på **schema**. På så sätt kan du välja det schema som du skapade i föregående steg.
 4. Välj **parametrar och körinställningar** och ange parametern åtgärd för att ”stoppa”.

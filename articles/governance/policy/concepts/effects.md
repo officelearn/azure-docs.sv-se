@@ -4,17 +4,17 @@ description: Azure principdefinitionen har olika effekter som bestämmer hur kom
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: cf30d5dd8648a2b1da3f4a40399376182bf342c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912517"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562308"
 ---
 # <a name="understand-policy-effects"></a>Förstå Policy-effekter
 
@@ -50,7 +50,7 @@ Lägg till används för att lägga till fler fält till den begärda resursen u
 
 ### <a name="append-evaluation"></a>Lägga till utvärderingen
 
-Lägg till utvärderar innan begäran bearbetas av en Resursprovider under skapandet eller uppdatering av en resurs. Lägg till lägger till fält i resursen när den **om** villkoret för principregeln är uppfyllt. Om Lägg till effekten skulle åsidosätter ett värde i den ursprungliga begäran med ett annat värde kan sedan den fungerar som en nekandeeffekt och avvisar begäran.
+Lägg till utvärderar innan begäran bearbetas av en Resursprovider under skapandet eller uppdatering av en resurs. Lägg till lägger till fält i resursen när den **om** villkoret för principregeln är uppfyllt. Om Lägg till effekten skulle åsidosätter ett värde i den ursprungliga begäran med ett annat värde kan sedan den fungerar som en nekandeeffekt och avvisar begäran. Om du vill lägga till ett nytt värde i en befintlig matris, använda den **[\*]** version av alias.
 
 När en principdefinition med effekten append körs som en del av en utvärderingscykel, göra den inte ändringar i resurser som redan finns. Istället markeras alla resurser som uppfyller den **om** villkoret som icke-kompatibel.
 
@@ -89,7 +89,8 @@ Exempel 2: Två **fält/värde** par att lägga till en uppsättning taggar.
 }
 ```
 
-Exempel 3: Enkel **fält/värde** parkopplas med en [alias](definition-structure.md#aliases) med en matris **värdet** att ange IP-regler för ett lagringskonto.
+Exempel 3: Enkel **fält/värde** parkopplas med en icke -**[\*]**
+[alias](definition-structure.md#aliases) med en matris **värdet** att ange IP-regler för en Storage-konto. När den icke -**[\*]** alias är en matris, effekten lägger till den **värdet** som hela matrisen. Om matrisen redan finns inträffar en neka-händelse från konflikten.
 
 ```json
 "then": {
@@ -100,6 +101,21 @@ Exempel 3: Enkel **fält/värde** parkopplas med en [alias](definition-structure
             "action": "Allow",
             "value": "134.5.0.0/21"
         }]
+    }]
+}
+```
+
+Exempel 4: Enkel **fält/värde** parkopplas med en **[\*]** [alias](definition-structure.md#aliases) med en matris **värdet** att ange IP-regler för ett lagringskonto. Med hjälp av den **[\*]** alias, effekten lägger till den **värdet** till en potentiellt befintliga. Om matrisen inte än finns, skapas den.
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
     }]
 }
 ```
@@ -259,7 +275,7 @@ Den **information** egenskapen för DeployIfNotExists effekterna har alla subege
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (valfritt)
   - Tillåtna värden är _prenumeration_ och _ResourceGroup_.
-  - Anger typ av distribution som ska utföras. _Prenumeration_ anger en [distribution på abonnemangsnivå](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resursgrupp.
+  - Anger typ av distribution ska utlösas. _Prenumeration_ anger en [distribution på abonnemangsnivå](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resursgrupp.
   - En _plats_ egenskapen måste anges i den _distribution_ när du använder prenumeration på distributioner.
   - Standardvärdet är _ResourceGroup_.
 - **Distribution** [krävs]

@@ -1,23 +1,23 @@
 ---
-title: Azure AD protection preview lösenordsåtgärder och rapportering
-description: Azure AD lösenord protection preview efter distributionen åtgärder och rapportering
+title: Azure AD-lösenordsskydd preview-åtgärder och rapportering
+description: Efter distributionen driften av Azure AD-lösenordsskydd förhandsversionen och rapportering
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 8d7002a014fc6cfab1888a6bc97c0f864de1d99d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a77a6dd8b408fd8151cb12b7d0269b8890ef929b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080879"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662422"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Förhandsversion: Azure AD lösenord protection operativa procedurer
+# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Förhandsversion: Azure AD-lösenordsskydd operativa procedurer
 
 |     |
 | --- |
@@ -38,7 +38,7 @@ Följ anvisningarna i artikeln [konfigurera listan över anpassade förbjudna l�
    * När du är nöjd med funktionen kan du växla den **läge** till **tvingande**
 1. Klicka på **Spara**
 
-![Aktivera Azure AD-lösenord protection komponenter i Azure portal](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
+![Aktivera Azure AD-lösenordsskydd komponenter i Azure portal](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 
 ## <a name="audit-mode"></a>Granskningsläge
 
@@ -51,7 +51,7 @@ Granskningsläget är avsedd som ett sätt att köra programvaran i ett ”vad h
 
 Framtvinga läge är avsett för den slutgiltiga konfigurationen. I granskningsläget ovan utvärderar varje DC-agenttjänsten inkommande lösenord enligt principen är aktiva för tillfället. Om läget tvinga är aktiverad om ett lösenord som anses vara osäkra enligt principen avvisas.
 
-När ett lösenord avvisas i läget tvinga av Azure AD-lösenordsskydd DC-agenten, är synliga effekten setts av en användare identiskt med vad de skulle se om sitt lösenord avvisades av tvingande för traditionella lokala lösenord komplexitet. En användare kan till exempel se följande traditionella felmeddelande visas på skärmen Windows logon\change lösenord:
+När ett lösenord avvisas i läget tvinga av Azure AD-lösenord Protection DC-agenten, är synliga effekten setts av en användare identiskt med vad de skulle se om sitt lösenord avvisades av tvingande för traditionella lokala lösenord komplexitet. En användare kan till exempel se följande traditionella felmeddelande visas på skärmen Windows logon\change lösenord:
 
 `Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
 
@@ -61,49 +61,8 @@ Berörda användare kan behöva arbeta med sina IT-personal att förstå de nya 
 
 ## <a name="enable-mode"></a>Aktivera läge
 
-Den här inställningen bör normalt lämnas i aktiverad (Ja) standardtillståndet. Konfigurerar den här inställningen inaktiverad (Nej) gör alla distribuerade Azure AD-lösenord skyddsagenter DC försättas i ett overksamt läget där alla lösenord godkänns som – är, och inga aktiviteter för verifiering kommer att utförda helst (till exempel inte ens granskningshändelser ska genereras).
-
-## <a name="usage-reporting"></a>Användningsrapport
-
-Den `Get-AzureADPasswordProtectionSummaryReport` cmdlet kan användas för att generera en övergripande vy över aktiviter. Ett exempel på utdata från denna cmdlet är följande:
-
-```PowerShell
-Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
-DomainController                : bplrootdc2
-PasswordChangesValidated        : 6677
-PasswordSetsValidated           : 9
-PasswordChangesRejected         : 10868
-PasswordSetsRejected            : 34
-PasswordChangeAuditOnlyFailures : 213
-PasswordSetAuditOnlyFailures    : 3
-PasswordChangeErrors            : 0
-PasswordSetErrors               : 1
-```
-
-Omfånget för cmdletens reporting kan påverkas med någon av parametrarna – skog, - domän eller – DomainController. Inte anger en parameter innebär – skog.
-
-> [!NOTE]
-> Denna cmdlet fungerar genom att öppna en PowerShell-session till varje domänkontrollant. För att lyckas, stöd för PowerShell-fjärrsession måste vara aktiverat på varje domänkontrollant och klienten måste ha tillräcklig behörighet. Mer information om kraven för PowerShell-fjärrsession kör du ”Get-Help about_Remote_Troubleshooting” i ett PowerShell-fönster.
-
-> [!NOTE]
-> Denna cmdlet fungerar genom att via fjärranslutning fråga varje DC agenttjänsten Admin-händelseloggen. Om Loggboken innehåller stora mängder händelser, kan cmdlet: en ta lång tid att slutföra. Massinläsning nätverket förfrågningar av stora datauppsättningar kan också påverka domänkontrollantens prestanda. Den här cmdleten bör därför användas noggrant i produktionsmiljöer.
-
-## <a name="dc-agent-discovery"></a>Identifiering av DC-Agent
-
-Den `Get-AzureADPasswordProtectionDCAgent` cmdlet kan användas för att visa grundläggande information om de olika DC-agenter som körs i en domän eller skog. Den här informationen hämtas från serviceConnectionPoint-objekt som har registrerats av körs DC agenten tjänster. Ett exempel på utdata från denna cmdlet är följande:
-
-```PowerShell
-Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
-
-De olika egenskaperna uppdateras med varje DC-agenttjänsten ungefärliga timme. Data kan fortfarande komma replikeringsfördröjning för Active Directory.
-
-Omfånget för cmdletens fråga kan påverkas med hjälp av antingen parametrarna – skog eller -domän.
+Den här inställningen bör normalt lämnas i aktiverad (Ja) standardtillståndet. Konfigurerar den här inställningen inaktiverad (Nej) gör alla distribuerade Azure AD-lösenord Protection DC-agenter att komma in i ett overksamt läge där alla lösenord godkänns som – är, och inga aktiviteter för verifiering kommer att utförda helst (till exempel inte ens granskningshändelser ska genereras).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Felsökning och övervakning för Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-troubleshoot.md)
+[Övervakning för Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-monitor.md)

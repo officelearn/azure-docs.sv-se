@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723152"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663579"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använd Key Vault-referenser för App Service och Azure Functions (förhandsversion)
 
@@ -37,7 +37,7 @@ För att kunna läsa hemligheter från Nyckelvalvet, måste du ha ett valv som s
    > [!NOTE] 
    > Key Vault refererar till för närvarande endast stöd för system tilldelade hanterade identiteter. Användartilldelade identiteter kan inte användas.
 
-1. Skapa en [åtkomstprincipen i Nyckelvalvet](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för applikationsidentitet som du skapade tidigare. Aktivera hemliga behörighet ”Get” för den här principen.
+1. Skapa en [åtkomstprincipen i Nyckelvalvet](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för applikationsidentitet som du skapade tidigare. Aktivera hemliga behörighet ”Get” för den här principen. Konfigurera inte ”åtkomsträttigheter program” eller `appliationId` inställningar, eftersom det är inte kompatibel med en hanterad identitet.
 
 ## <a name="reference-syntax"></a>Referens-syntax
 
@@ -46,8 +46,8 @@ En referens för Key Vault är i formatet `@Microsoft.KeyVault({referenceString}
 > [!div class="mx-tdBreakAll"]
 > | Referenssträng                                                            | Beskrivning                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri =_secretUri_                                                       | Den **SecretUri** ska vara fullständig dataplanet URI för en hemlighet i Key Vault, inklusive en version, t.ex. https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName =_vaultName_; SecretName =_secretName_; SecretVersion =_secretVersion_ | Den **VaultName** ska namnet på Key Vault-resursen. Den **SecretName** bör vara namnet på mål-hemlighet. Den **SecretVersion** ska vara version av hemligheten att använda. |
+> | SecretUri=_secretUri_                                                       | Den **SecretUri** ska vara fullständig dataplanet URI för en hemlighet i Key Vault, inklusive en version, t.ex. https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | Den **VaultName** ska namnet på Key Vault-resursen. Den **SecretName** bör vara namnet på mål-hemlighet. Den **SecretVersion** ska vara version av hemligheten att använda. |
 
 > [!NOTE] 
 > I den aktuella förhandsversionen krävs versioner. När du roterar hemligheter, kommer du behöva uppdatera versionen i konfigurationen av programmet.

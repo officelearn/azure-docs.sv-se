@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 707ee508b0615ab873b60b45eb1d9f0294313367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d815bae2478d8853c63cd773cbfeaf5d3e90458c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464577"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659771"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Använda Azure CLI med Azure Storage
 
@@ -38,7 +38,7 @@ Den här guiden förutsätter att du förstår de grundläggande principerna fö
 Ladda ned och installera Azure CLI genom att följa anvisningarna som beskrivs i [installera Azure CLI](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> Om du har problem med installationen kan ta en titt på [Installation felsökning](/cli/azure/install-az-cli2#installation-troubleshooting) i artikeln, och [installera felsökning](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide på GitHub.
+> Om du har problem med installationen kan ta en titt på [Installation felsökning](/cli/azure/install-az-cli2) i artikeln, och [installera felsökning](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide på GitHub.
 >
 
 ## <a name="working-with-the-cli"></a>Arbeta med CLI

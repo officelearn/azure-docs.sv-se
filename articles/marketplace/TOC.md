@@ -67,7 +67,7 @@
 
 ### [Hantera erbjudanden](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Skapa erbjudande](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [Publicera erbjudande](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Visa erbjudandestatus](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Uppdatera erbjudande](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Ta bort erbjudande](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -140,6 +140,17 @@
 #### [Skapa tekniska tillgångar för IoT Edge-moduler](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 #### [Publicera erbjudande för IoT Edge-moduler](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [Uppdatera befintligt erbjudande](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+### [Erbjudande för Power BI-appen](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [Förutsättningar](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [Skapa erbjudande för Power BI-appen](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [fliken Erbjudandeinställningar](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [Fliken Teknisk information](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [Fliken Butiksinformation](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [Fliken Kontakter](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [Tekniska resurser för att skapa Power BI-appen](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [Publicera erbjudande för Power BI-appen](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [Uppdatera befintligt erbjudande](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
 
 ### [Erbjudande för SaaS-program](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [Förutsättningar](./cloud-partner-portal/saas-app/cpp-prerequisites.md)

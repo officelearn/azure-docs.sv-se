@@ -1,0 +1,149 @@
+items:
+- name: Grunderna i Azure IoT
+  href: /azure/iot-fundamentals
+- name: Dokumentation om Azure IoT Central (nytt användargränssnitt)
+  href: ../iot-central/index.yml?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: Översikt
+  items:
+  - name: Vad är Azure IoT Central?
+    href: ../iot-central/overview-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: IoT-lösningsalternativ
+    href: ../iot-central/overview-iot-options.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Genomgång av användargränssnittet
+    href: ../iot-central/overview-iot-central-tour-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: Snabbstarter
+  items:
+  - name: Skapa ett nytt program
+    href: ../iot-central/quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  expanded: true
+- name: Självstudier
+  items:
+  - name: 1 – Definiera en ny enhetstyp
+    href: ../iot-central/tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: 2 – Konfigurera regler
+    href: ../iot-central/tutorial-configure-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: 3 – Anpassa operator-vyn
+    href: ../iot-central/tutorial-customize-operator-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: 4 – Övervaka dina enheter
+    href: ../iot-central/tutorial-monitor-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: 5 – Lägg till en enhet
+    href: ../iot-central/tutorial-add-device.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: Begrepp
+  items:
+  - name: Arkitektur
+    href: ../iot-central/concepts-architecture.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Anslutning
+    href: ../iot-central/concepts-connectivity.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: Instruktionsguider
+  items:
+  - name: Ansluta enheter
+    items:
+    - name: Förbereda och ansluta ett (allmänt) Node.js-program
+      href: ../iot-central/howto-connect-nodejs.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Förbereda och ansluta MXChip IoT DevKit
+      href: ../iot-central/howto-connect-devkit.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Förbereda och ansluta Raspberry Pi (Python)
+      href: ../iot-central/howto-connect-raspberry-pi-python.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Förbereda och ansluta Raspberry Pi (C#)
+      href: ../iot-central/howto-connect-raspberry-pi-csharp.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Förbereda och ansluta en Windows IoT Core-enhet
+      href: ../iot-central/howto-connect-windowsiotcore.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Övervaka enhetsanslutning med hjälp av kommandoraden
+      href: ../iot-central/howto-use-iotc-explorer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Hantera enheter
+    items:
+    - name: Konfigurera en enhetsmall
+      href: ../iot-central/howto-set-up-template-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Hantera dina enheter
+      href: ../iot-central/howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Köra ett jobb
+      href: ../iot-central/howto-run-a-job.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Använda enhetsuppsättningar
+      href: ../iot-central/howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Version av enhetsmall
+      href: ../iot-central/howto-version-devicetemplate.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Övervakning och analys
+    items:
+    - name: Skapa regel för telemetri
+      href: ../iot-central/howto-create-telemetry-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Skapa en händelseregel
+      href: ../iot-central/howto-create-event-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Analysera dina enhetsdata
+      href: ../iot-central/howto-create-analytics.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Åtgärder och utökningsbarhet
+    items:
+    - name: Skapa webhook-åtgärder efter regler
+      href: ../iot-central/howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Bygga arbetsflöden i Microsoft Flow
+      href: ../iot-central/howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Skapa arbetsflöden i Azure Logic Apps
+      href: ../iot-central/howto-build-azure-logic-apps.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Utlösa Azure Functions
+      href: ../iot-central/howto-trigger-azure-functions.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Exportera dina data
+      href: ../iot-central/howto-export-data.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      items:
+      - name: Exportera till Event Hubs och Service Bus
+        href: ../iot-central/howto-export-data-event-hubs-service-bus.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      - name: Exportera till Blob Storage
+        href: ../iot-central/howto-export-data-blob-storage.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Visualisera dina data i Power BI
+      href: ../iot-central/howto-connect-powerbi.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Ansluta andra IoT-moln
+      href: ../iot-central/howto-build-iotc-device-bridge.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Administration
+    items:
+    - name: Administrera ditt program
+      href: ../iot-central/howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Förbereda och ladda upp avbildning
+      href: ../iot-central/howto-prepare-images.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Hantera IOT Central från Azure-hanteringsportalen
+      href: ../iot-central/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Hantera IoT Central från Azure PowerShell
+      href: ../iot-central/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Skapa och hantera ett program som molnlösningsleverantör
+      href: ../iot-central/howto-create-and-manage-applications-as-CSP.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Konfigurera startsidan
+      href: ../iot-central/howto-configure-homepage.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Personanpassning
+    items:
+    - name: Hantera dina inställningar
+      href: ../iot-central/howto-manage-preferences.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: Relaterat
+  items:
+  - name: Lösningar
+    items:
+    - name: IoT-lösningsacceleratorer
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: /microsoft-iot-central
+  - name: Plattformstjänster
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: Platsbaserade tjänster
+      href: /azure/location-based-services
+    - name: Tjänst-SDK:er
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: SDK:er för IoT-enheter
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+- name: Resurser
+  items:
+  - name: Kunddataförfrågningar
+    href: ../iot-central/iot-central-customer-data-requests.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Webbläsare som stöds
+    href: ../iot-central/iot-central-supported-browsers.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+ms.openlocfilehash: ff26be9c367f80009fb1eda1632fcbda38f6a9ea
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664462"

@@ -1,36 +1,28 @@
----
-ms.openlocfilehash: 55adc512447160b409af0002a72ec2473409d796
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54489261"
----
-# <a name="contributing-to-microsoft-azure-documentation"></a>Bidra till dokumentation om Microsoft Azure
+# Contributing to Microsoft Azure Documentation
 
-Tack för att du kan bidra till Microsoft Azure-dokumentationen.
+Thank you for taking the time to contribute to the Microsoft Azure documentation.
 
-Den här handboken beskriver några allmänna ämnen kring bidrag och avser ut våra [deltagarguiden](https://docs.microsoft.com/contribute) mer detaljerade förklaringar tillämpliga.
+This guide covers some general topics around contribution and refers out to our [contributors guide](https://docs.microsoft.com/contribute) for more detailed explanations where relevant.
 
-## <a name="code-of-conduct"></a>Uppförandekod
+## Code of Conduct
 
-Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/).
-Mer information finns i den [kod för vanliga frågor om uppförandekod](https://opensource.microsoft.com/codeofconduct/faq/), eller kontakta [ opencode@microsoft.com ](mailto:opencode@microsoft.com) har ytterligare frågor eller kommentarer.
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/), or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-## <a name="how-can-i-contribute"></a>Hur kan jag bidra?
+## How can I contribute?
 
-Det finns en mängd olika sätt att bidra till dokumentationen, Läs avsnitten nedan för att ta reda på vilken som passar dig.
+There are a variety of ways to contribute to the documentation, review the sections below to find out which one is right for you.
 
-### <a name="reporting-bugs-and-suggesting-enhancements"></a>Rapportera buggar och förslag på förbättringar
+### Reporting Bugs and Suggesting Enhancements
 
-Använd verktyget Feedback längst ned i artikeln för att skicka in buggar och förslag.
+Please use the Feedback tool at the bottom of any article to submit bugs and suggestions.
 
-![Feedback-verktyget](media/feedback-tool.png)
+![Feedback Tool](media/feedback-tool.png)
 
-### <a name="editing-in-github"></a>Redigering i GitHub
+### Editing in GitHub
 
-Följer du anvisningarna för [Quick redigerar befintliga dokument](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents) i vår guide för deltagare.
+Follow the guidance for [Quick edits to existing documents](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents) in our contributors guide.
 
-### <a name="pull-request"></a>Pull-begäran
+### Pull Request
 
-Läser du igenom informationen för [Pull-begäranden](https://docs.microsoft.com/contribute/how-to-write-workflows-major#pull-request-processing) i vår guide för deltagare.
+Review the guidance for [Pull Requests](https://docs.microsoft.com/contribute/how-to-write-workflows-major#pull-request-processing) in our contributors guide.

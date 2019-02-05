@@ -1,134 +1,124 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Appinux | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-katalogintegrering med Appinux | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Appinux.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f329341b-fb77-42e5-b6a6-0cd641d19670
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2018
+ms.topic: tutorial
+ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a9b8e7738f2974b4c672af0e50e2ad510f0d41c2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: MT
+ms.openlocfilehash: 3231818bbc747ff5a8b9f3adc081071d6db13941
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098114"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182395"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Självstudier: Azure Active Directory-integration med Appinux
+# <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Självstudier: Azure Active Directory-katalogintegrering med Appinux
 
-I den här självstudien får du lära dig hur du integrerar Appinux med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Appinux med Azure Active Directory (AD Azure).
+När du integrerar Appinux med Azure AD får du följande fördelar:
 
-Integrera Appinux med Azure AD ger dig följande fördelar:
+* I Azure AD kan du styra vem som har åtkomst till Appinux.
+* Du kan göra så att dina användare automatiskt loggas in på Appinux (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Appinux.
-- Du kan aktivera användarna att automatiskt få loggat in på Appinux (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Appinux behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med Appinux, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Appinux enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Appinux-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Att lägga till Appinux från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* Appinux har stöd för **SP**-initierad enkel inloggning
+* Appinux stöder **just-in-time**-användaretablering
 
-## <a name="adding-appinux-from-the-gallery"></a>Att lägga till Appinux från galleriet
+## <a name="adding-appinux-from-the-gallery"></a>Lägga till Appinux från galleriet
 
-För att konfigurera integrering av Appinux i Azure AD, som du behöver lägga till Appinux från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integrering av Appinux i Azure AD måste du lägga till Appinux från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Appinux från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Appinux**väljer **Appinux** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Appinux**, väljer **Appinux** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Appinux i resultatlistan](./media/appinux-tutorial/tutorial_appinux_addfromgallery.png)
+     ![Appinux i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Appinux baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Appinux baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Appinux upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Appinux är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Appinux upprättas.
+Om du vill konfigurera och testa Azure AD enkel inloggning med Appinux måste du utföra följande byggblock:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Appinux, måste du utföra följande byggblock:
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Appinux](#configure-appinux-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Appinux-testanvändare](#create-appinux-test-user)** – för att ha en motsvarighet för Britta Simon i Appinux som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Appinux](#creating-an-appinux-test-user)**  – du har en motsvarighet för Britta Simon i Appinux som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Appinux program.
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Appinux:
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Appinux:**
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **Appinux** och väljer **Enkel inloggning**.
 
-1. I Azure-portalen på den **Appinux** program integration-sidan klickar du på **enkel inloggning**.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera enkel inloggning för länken][4]
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/appinux-tutorial/tutorial_general_301.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** ikonen för att öppna **SAML grundkonfiguration** dialogrutan.
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/appinux-tutorial/tutorial_appinux_editurl.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+    ![Information om enkel inloggning med Appinux-domäner och -URL:er](common/sp-identifier.png)
 
-    ![Appinux domän och URL: er med enkel inloggning för information](./media/appinux-tutorial/tutorial_appinux_url1.png)
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<Appinux_SUBDOMAIN>.appinux.com`
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<Appinux_SUBDOMAIN>.appinux.com`
-
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<Appinux_SUBDOMAIN>.appinux.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<Appinux_SUBDOMAIN>.appinux.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Appinux klienten supportteamet](https://support.appinux.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för Appinux-klienten](https://support.appinux.com/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Appinux program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **användarattribut** dialogrutan.
+5. Appinux-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![Attributet avsnittet](./media/appinux-tutorial/edit_attribute.png)
+    ![image](common/edit-attribute.png)
 
-    ![Attributet avsnittet](./media/appinux-tutorial/tutorial_namespace.png)
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-6. I den **användaranspråk** avsnittet på den **användarattribut** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
-
-    | **Namn** | **Namespace** | **Attribut för datakälla**|
+    | **Namn** | **Namnområde** | **Källattribut**|
     | ---------|---------------| --------- |
     | `givenname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
     | `surname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
@@ -141,107 +131,110 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `wanshort` | `http://appinux.com/windowsaccountname2` | `extractmailprefix([userprincipalname])` |
     | `nameidentifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
 
-    a. Klicka på **Lägg till nytt anspråk** att öppna den **hantera användaranspråk** dialogrutan.
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![Nytt attribut](./media/appinux-tutorial/new_save_attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Lägg till attribut](./media/appinux-tutorial/new_attribute_details.png)
+    ![image](common/new-attribute-details.png)
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. I den **Namespace** textrutan skriver namnområdesvärdet som visas för den raden.
+    c. I textrutan **Namnrymd** anger du det namnrymdsvärde som visas för den raden.
 
-    d. Välj källa som **attributet**.
+    d. Välj Källa som **Attribut**.
 
-    e. Från den **källattribut** anger attributvärdet som visas för den raden.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
     f. Klicka på **Ok**
 
     g. Klicka på **Spara**.
 
-7. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned **Federation Metadata XML** och spara för metadatafilen på datorn.
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](./media/appinux-tutorial/tutorial_appinux_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-8. Att konfigurera enkel inloggning på **Appinux** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Appinux supportteamet](https://support.appinux.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+8. I avsnittet **Konfigurera Appinux** kopierar du lämpliga URL:er efter behov.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    a. Inloggnings-URL
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+    b. Azure AD-identifierare
 
-    ![Skapa en Azure AD-användare][100]
+    c. Utloggnings-URL
 
-2. Välj **ny användare** överst på skärmen.
+### <a name="configure-appinux-single-sign-on"></a>Konfigurera enkel inloggning för Appinux
 
-    ![Skapa en Azure AD-användare för testning](./media/appinux-tutorial/create_aaduser_01.png) 
+För att konfigurera enkel inloggning på **Appinux**-sidan behöver du skicka nedladdade **XML-federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Appinux](https://support.appinux.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-3. Utför följande steg i egenskaperna för användaren.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-    ![Skapa en Azure AD-användare för testning](./media/appinux-tutorial/create_aaduser_02.png)
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    a. I den **namn** anger **BrittaSimon**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+
+2. Välj **Ny användare** överst på skärmen.
+
+    ![Knappen Ny användare](common/new-user.png)
+
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
-    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Välj **Skapa**.
+    d. Klicka på **Skapa**.
 
-### <a name="creating-an-appinux-test-user"></a>Skapa en Appinux testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Appinux. Appinux stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Appinux om det inte finns ännu.
->[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [Appinux supportteamet](https://support.appinux.com).
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Appinux.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Appinux**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Appinux.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
+2. I listan med program väljer du **Appinux**.
 
-    ![Tilldela användare][201]
+    ![Länken Appinux i listan med program](common/all-applications.png)
 
-2. I listan med program väljer **Appinux**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Konfigurera enkel inloggning](./media/appinux-tutorial/tutorial_appinux_app.png) 
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Tilldela användare][202]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-5. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-6. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
+### <a name="create-appinux-test-user"></a>Skapa Appinux-testanvändare
 
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+I det här avsnittet skapas en användare som heter Britta Simon i Appinux. Appinux stöder just-in-time-etablering av användare, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Appinux skapas en ny efter autentisering.
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+> [!Note]
+> Om du vill skapa en användare manuellt kan du kontakta [Appinux-supportteamet](https://support.appinux.com).
 
-När du klickar på panelen Appinux i åtkomstpanelen du bör få automatiskt loggat in på ditt Appinux program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
+
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på Appinux-panelen på åtkomstpanelen bör du automatiskt loggas in i Appinux-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/appinux-tutorial/tutorial_general_01.png
-[2]: ./media/appinux-tutorial/tutorial_general_02.png
-[3]: ./media/appinux-tutorial/tutorial_general_03.png
-[4]: ./media/appinux-tutorial/tutorial_general_04.png
-
-[100]: ./media/appinux-tutorial/tutorial_general_100.png
-
-[200]: ./media/appinux-tutorial/tutorial_general_200.png
-[201]: ./media/appinux-tutorial/tutorial_general_201.png
-[202]: ./media/appinux-tutorial/tutorial_general_202.png
-[203]: ./media/appinux-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

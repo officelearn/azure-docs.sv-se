@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a71635abd036bb89546dd3421af97cd9b88f4327
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d271642a432d8a149fbe468087a0598c91e7c36
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440053"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902387"
 ---
 # <a name="tutorial-use-data-copy-service-to-directly-ingest-data-into-azure-data-box-preview"></a>Självstudier: Använda datakopieringstjänsten för att direkt mata in data i Azure Data Box (förhandsversion)
 
@@ -24,11 +24,12 @@ Använd datakopieringstjänsten:
 - I NAS-miljöer (nätverksansluten lagring) där de mellanliggande värdarna kanske inte är tillgängliga.
 - Med små filer som kräver veckor för inmatning och uppladdning av data. Den här tjänsten förbättrar avsevärt tiden för inmatning och uppladdning av data.
 
-I den här guiden får du lära dig att:
+I den här självstudien lär du dig:
 
 > [!div class="checklist"]
+> * Nödvändiga komponenter
 > * Kopiera data till Data Box
-> * Förbered för att skicka Data Box.
+
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -60,13 +61,13 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
     |-------------------------------|---------|
     |Jobbnamn                       |Ett unikt namn med färre än 230 tecken för jobbet. Följande tecken tillåts inte i jobbnamnet: \<, \>, \|, \?, \*, \\, \:, \/ och \\\.         |
     |Källplats                |Ange SMB-sökvägen till datakällan i formatet: `\\<ServerIPAddress>\<ShareName>` eller `\\<ServerName>\<ShareName>`.        |
-    |Användarnamn                       |Användarnamn för åtkomst till datakällan.        |
+    |Användarnamn                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan.        |
     |Lösenord                       |Lösenord för åtkomst till datakällan.           |
     |Mållagringskonto    |Välj mållagringskonto för uppladdning av data i den nedrullningsbara listan.         |
     |Mållagringstyp       |Välj mållagringstyp bland blockblob, sidblob eller Azure Files.        |
     |Målcontainer/-resurs    |Ange namnet på containern eller resursen för uppladdning av data till mållagringskontot. Namnet kan vara ett resursnamn eller ett containernamn. Exempel: `myshare` eller `mycontainer`. Du kan även ange i formatet `sharename\directory_name` eller `containername\virtual_directory_name` i molnet.        |
     |Matchningsmönster för filkopiering    | Ange matchningsmönster för filnamn på följande två sätt.<ul><li>**Använda uttryck med endast jokertecken** `*` och `?` stöds i uttryck med jokertecken. Till exempel matchar det här uttrycket `*.vhd` alla filer som har filnamnstillägget .vhd. På samma sätt matchar `*.dl?` alla filer vars filnamnstillägg är antingen `.dl` eller `.dll`. Dessutom matchar `*foo` alla filer vars namn slutar med `foo`.<br>Du kan ange uttryck med jokertecken direkt i fältet. Som standard behandlas det värde som anges i fältet som uttryck med jokertecken.</li><li>**Använda reguljära uttryck** – POSIX-baserade reguljära uttryck stöds. Till exempel matchar det reguljära uttrycket `.*\.vhd` alla filer som har filnamnstillägget `.vhd`. För reguljära uttryck anger du `<pattern>` direkt som `regex(<pattern>)`. <li>Mer information om reguljära uttryck finns i [snabbreferensen för reguljära uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |Filoptimering              |När det här är aktiverat packas filerna vid inmatningen. Detta förbättrar datakopieringen för små filer.        |
+    |Filoptimering              |När det här är aktiverat packas filer som är mindre än 1 MB vid inmatningen. Detta förbättrar datakopieringen för små filer. Du kan spara betydande tid när antalet filer långt överstiger antalet kataloger.        |
  
 4. Klicka på **Starta**. Indata valideras, och om validering lyckas startas ett jobb. Det kan ta några minuter för jobbet att startas.
 
@@ -106,9 +107,7 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
     - I den här versionen kan du inte ta bort ett jobb.
     
     - Du kan skapa obegränsade jobb men köra högst 10 jobb parallellt åt gången.
-    - Om filoptimering är på packas de små filerna vid inmatningen för att förbättra prestanda för kopiering. I de här fallen ser du en packad fil (GUID som namn) såsom det visas i följande skärmbild.
-
-        ![Exempel på en packad fil](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+    - Om filoptimering är på packas de små filerna vid inmatningen för att förbättra prestanda för kopiering. I de här fallen ser du en packad fil (GUID som namn). Ta inte bort den här filen som den kommer att packas upp under överföringen.
 
 6. När jobbet pågår på sidan **Kopiera data**:
 
@@ -139,18 +138,14 @@ När kopieringsjobbet är klart kan du gå till **Förbered för att skicka**.
 >[!NOTE]
 > Förbered för att skicka kan inte köras medan kopieringsjobb pågår.
 
-## <a name="prepare-to-ship"></a>Förbereda för att skicka
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## <a name="next-steps"></a>Nästa steg
 
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
+> * Nödvändiga komponenter
 > * Kopiera data till Data Box
-> * Förbereda för att skicka Data Box
+
 
 Gå vidare till nästa självstudie och lär dig hur du skickar tillbaka din Data Box-enhet till Microsoft.
 

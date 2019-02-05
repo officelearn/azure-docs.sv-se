@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 23912f9d004d051c422f93e8b10f1aa6cb8b2626
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a39fc2d0e1a57322f3cce63fa298657c1f938e55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959503"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100741"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Snabbstart: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory
 
@@ -56,7 +56,7 @@ Kom igång genom att slutföra följande krav:
 
 Om du vill göra så att appen kan autentisera användare och hämta token behöver du först registrera den i din Azure AD-klientorganisation:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Om du är inloggad i flera kataloger kan du behöva se till att du är i rätt katalog. Gör det genom att klicka på ditt konto i fältet längst upp. Under **kataloglistan** väljer du den Azure AD-klientorganisation där du vill registrera programmet.
 1. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
 1. Klicka på **Appregistreringar** och välj sedan **Lägg till**.
@@ -73,9 +73,9 @@ Om du vill göra så att appen kan autentisera användare och hämta token behö
     1. Klicka på **Spara** för att spara manifestet.
 
 1. Ge behörigheter till hela klientorganisationen för programmet. Gå till **Inställningar > Nödvändiga behörigheter** och välj knappen **Bevilja behörigheter** i det översta fältet.
-1. Välj **Ja** för att bekräfta.
+1. Bekräfta genom att välja **Ja**.
 
-## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Steg 2: Installera ADAL och konfigurera ensidesappen
+## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Steg 2: Installera ADAL och konfigurera den enkelsidiga appen
 
 Nu när du har ett program i Azure AD kan du installera adal.js och skriva din identitetsrelaterade kod.
 
@@ -101,7 +101,7 @@ För att ensidesappens serverdels att göra-API ska kunna acceptera token från 
    * `ida:Tenant` är domänen för din Azure AD-klientorganisation – till exempel contoso.onmicrosoft.com.
    * `ida:Audience` är det klient-ID för din app som du kopierade från portalen.
 
-## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Steg 3: Använda ADAL för att säkra sidor i ensidesappen
+## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>Steg 3: Använda ADAL för att skydda sidor i den enkelsidiga appen
 
 Adal.js integreras med AngularJS-vägen och HTTP-providers, så du kan hjälpa till att säkra enskilda vyer i din ensidesapp.
 

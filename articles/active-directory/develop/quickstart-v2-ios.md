@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 49ced3277a659ddacef239c7a1394cbe5ce06ac9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2f91cfc6c391bb22ca5f75a7a72123b695380aff
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973617"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094316"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en intern iOS-app
 
@@ -42,7 +42,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 > 1. Välj **Lägg till plattform**, välj **Internt program** och välj sedan **Spara**.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera programmet
+> #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
 > För att kodexemplet för den här snabbstarten ska fungera behöver du lägga till en svars-URL som `msal<AppId>://auth` (när msal<AppId> är detta program-ID).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()

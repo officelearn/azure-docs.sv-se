@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: a6a8fee942edf4cec98a6d2f46eb2f63b7595c09
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200055"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696814"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Traffic Manager
 
@@ -285,7 +285,7 @@ Ja. Molntjänst ”mellanlagring” platser kan konfigureras i Traffic Manager s
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Traffic Manager som har stöd för IPv6-slutpunkter?
 
-Traffic Manager tillhandahåller inte IPv6-addressible namnservrar för närvarande. Traffic Manager kan dock fortfarande användas av IPv6-klienter som ansluter till IPv6-slutpunkter. En klient gör inte DNS-begäranden direkt till Traffic-Manager. I stället använder klienten en rekursiv DNS-tjänst. En endast-IPv6-klient skickar begäranden till den rekursiva DNS-tjänsten via IPv6. Sedan bör tjänsten rekursiv kunna kontakta Traffic Managers namnservrar som använder IPv4.
+Traffic Manager ger för närvarande inte IPv6-adresserbara namnservrarna. Traffic Manager kan dock fortfarande användas av IPv6-klienter som ansluter till IPv6-slutpunkter. En klient gör inte DNS-begäranden direkt till Traffic-Manager. I stället använder klienten en rekursiv DNS-tjänst. En endast-IPv6-klient skickar begäranden till den rekursiva DNS-tjänsten via IPv6. Sedan bör tjänsten rekursiv kunna kontakta Traffic Managers namnservrar som använder IPv4.
 
 Traffic Manager svarar med DNS-namn eller IP-adressen för slutpunkten. Det finns två alternativ för att stödja en IPv6-slutpunkt. Du kan lägga till slutpunkten som ett DNS-namn som har en associerad AAAA-post och Traffic Manager kommer hälsokontrollen som slutpunkten och gå sedan tillbaka den som en CNAME-post anger i frågesvaret. Du kan också lägga till slutpunkten direkt med IPv6-adress och Traffic Manager returnerar en typ AAAA-post i frågesvaret. 
 
@@ -349,7 +349,7 @@ När en fråga tas emot mot en profil, hittar Traffic Manager först den slutpun
 För profiler med routningmetod än Flervärden är:
 |Inkommande query-fråga|    Typ av slutpunkt|  Svar som tillhandahålls|
 |--|--|--|
-|ALLA |  A / AAAA / CNAME |  Mål-slutpunkt| 
+|ANY |  A / AAAA / CNAME |  Mål-slutpunkt| 
 |A |    A / CNAME | Mål-slutpunkt|
 |A |    AAAA |  INGA DATA |
 |AAAA | AAAA / CNAME |  Mål-slutpunkt|
@@ -361,7 +361,7 @@ För profiler med routningsmetod inställd på Flervärden är:
 
 |Inkommande query-fråga|    Typ av slutpunkt | Svar som tillhandahålls|
 |--|--|--|
-|ALLA |  Blandning av A och AAAA | Målslutpunkter|
+|ANY |  Blandning av A och AAAA | Målslutpunkter|
 |A |    Blandning av A och AAAA | Endast Målslutpunkter av typ A|
 |AAAA   |Blandning av A och AAAA|     Målslutpunkter av typen AAAA|
 |CNAME |    Blandning av A och AAAA | INGA DATA |

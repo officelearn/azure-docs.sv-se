@@ -3,7 +3,7 @@ title: Självstudier – Skapa en pipeline för utveckling i Azure med Jenkins |
 description: Självstudier – I den här självstudiekursen lär du dig hur du skapar en virtuell Jenkins-dator i Azure som hämtar data från GitHub vid varje kodincheckning och skapar en ny Docker-container för att köra din app.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1a29d58ca96793c44878a6755cc74edeab6a7c4b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470854"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189875"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Självstudier: Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
 
@@ -75,7 +75,7 @@ Innan du kan skapa en virtuell dator skapar du en resursgrupp med [az group crea
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init-jenkins.txt* om du har sparat filen utanför din aktuella arbetskatalog.
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init-jenkins.txt* om du har sparat filen utanför din aktuella arbetskatalog.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \

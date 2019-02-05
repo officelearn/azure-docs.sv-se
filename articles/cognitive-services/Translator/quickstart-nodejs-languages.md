@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Hämta lista över språk som stöds, Node.js – Translator Text'
+title: 'Snabbstart: Hämta en lista över språk som stöds, Node.js – Translator Text'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t med Node.js.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 2d87173384a171d6b96ffa52c1d0bf80069a34c2
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 71af575273b7299979679fa149c4960143b2b221
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250673"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208354"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Snabbstart: Använd Translator Text API för att hämta en lista över språk som stöds med Node.js
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Snabbstart: Använda Translator Text API för att hämta en lista över språk som stöds med Node.js
 
 I den här snabbstarten lär du dig hur du gör en GET-begäran som returnerar en lista över språk som stöds med hjälp av Node.js och Translator Text REST API.
 
@@ -42,7 +42,7 @@ const uuidv4 = require('uuid/v4');
 > [!NOTE]
 > Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `npm install request uuidv4`.
 
-De här modulerna krävs för att skapa HTTP-begäran och skapa en unik identifierare för rubriken `'X-ClientTraceId'`.
+De här modulerna krävs för att skapa HTTP-begäran och skapa en unik identifierare för `'X-ClientTraceId'`-sidhuvudet.
 
 ## <a name="set-the-subscription-key"></a>Ange prenumerationsnyckeln
 
@@ -65,10 +65,10 @@ if (!subscriptionKey) {
 
 ## <a name="configure-the-request"></a>Konfigurera begäran
 
-Metoden `request()`, som görs tillgänglig via begärandemodulen, gör att vi kan skicka HTTP-metoden, URL:en, begärandeparametrarna, sidhuvudena och JSON-brödtexten som ett `options`-objekt. I det här kodfragmentet konfigurerar vi begäran:
+Metoden `request()`, som görs tillgänglig via begärandemodulen, gör att vi kan skicka HTTP-metoden, URL:en, begärandeparametrarna, sidhuvudena och JSON-brödtexten som ett `options`-objekt. I det här kodavsnittet konfigurerar vi begäran:
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: Språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```javascript
 let options = {
@@ -91,7 +91,7 @@ let options = {
 
 Det enklaste sättet att autentisera en begäran är att skicka din prenumerationsnyckel som ett `Ocp-Apim-Subscription-Key`-sidhuvud, vilket är det vi använder i det här exemplet. Alternativt kan du byta din prenumerationsnyckel mot en åtkomsttoken och skicka vidare åtkomsttoken som ett `Authorization`-sidhuvud för att verifiera din begäran. Mer information finns i [Autentisering](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
-## <a name="make-the-request-and-print-the-response"></a>Göra en begäran och skriva ut svaret
+## <a name="make-the-request-and-print-the-response"></a>Göra begäran och skriva ut svaret
 
 Nu skapar vi begäran med hjälp av metoden `request()`. Det tar det `options`-objekt som vi skapade i föregående avsnitt som det första argumentet, och skriver sedan ut det förenklade JSON-svaret.
 

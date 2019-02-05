@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 09af064a1c072996171e6afa4f043e84f18612b4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2ec11412b5b0e713742029f05c91a6ecbe78c344
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467420"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210700"
 ---
 # <a name="quickstart-query-for-entities"></a>Snabbstart: Fråga efter entiteter
 
@@ -33,7 +33,7 @@ Använd `queryScenario`-fältet i `entities`-objektet för att fastställa fråg
 -   Attraktion 
  
 För att avgöra vilken typ av entitet som ingår i svaret använder du fältet `entityTypeHints`, som visas i frågan för Bill Gates.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -44,13 +44,13 @@ För att avgöra vilken typ av entitet som ingår i svaret använder du fältet 
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 Följande är en fråga för Space Needle:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 Svaret innehåller svaret `entities`. Observera fälten `entityScenario` och `entityTypeHints`. 
-````
+```
   "entities": {
     "value": [
       {
@@ -108,19 +108,19 @@ Svaret innehåller svaret `entities`. Observera fälten `entityScenario` och `en
       }
     ]
   },
-````
+```
 
 En fråga kan returnera en lista om den är relevant.
 
 **Fråga:** Följande fråga söker efter en lista över hotade arter:
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
 **Svar:** Svaret innehåller en lista som formaterats för visning som värden i tabellform:
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -217,7 +217,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
     ]
   },
 
-````
+```
 
 
 ## <a name="next-steps"></a>Nästa steg

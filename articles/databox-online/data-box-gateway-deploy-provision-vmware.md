@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167162"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099166"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Självstudie: Etablera Azure Data Box Gateway i VMware (förhandsversion)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Självstudier: Etablera Azure Data Box Gateway i VMware (förhandsversion)
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudien beskrivs hur du etablerar Data Box Gateway på ett värdsystem som kör VMware ESXi 6.0 eller 6.5. 
+I den här självstudien beskrivs hur du etablerar Data Box Gateway på ett värdsystem som kör VMware ESXi 6.0, 6.5 eller 6.7. 
 
 Du måste ha administratörsbehörighet för att etablera och ansluta till en virtuell enhet. Etableringen och den inledande installationen kan ta ungefär 10 minuter att slutföra.
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Kraven för att etablera en virtuell enhet på ett värdsystem som kör VMware ESXi 6.0 eller 6.5 är följande.
+Kraven för att etablera en virtuell enhet på ett värdsystem som kör VMware ESXi 6.0, 6.5 eller 6.7 är följande.
 
 ### <a name="for-the-data-box-gateway-resource"></a>För Data Box Gateway-resursen
 
@@ -53,7 +53,7 @@ Innan du börjar ska du kontrollera att:
 
 Innan du distribuerar en virtuell enhet kontrollerar du att:
 
-* Du har åtkomst till ett värdsystem som kör VMware (ESXi 6.0 eller 6.5) som kan användas till att etablera en enhet.
+* Du har åtkomst till ett värdsystem som kör VMware (ESXi 6.0, 6.5 eller 6.7) som kan användas till att etablera en enhet.
 * Värdsystemet kan dedikera följande resurser för att etablera den virtuella enheten:
 
   * Minst 4 kärnor.
@@ -71,9 +71,9 @@ Innan du börjar:
 
 ## <a name="check-the-host-system"></a>Kontrollera värdsystemet
 
-Om du vill skapa en virtuell enhet måste du ha följande:
+För att skapa en virtuell enhet behöver du följande:
 
-* Åtkomst till ett värdsystem som kör VMware ESXi Server 6.0 eller 6.5. Värdsystemet kan dedikera följande resurser för den virtuella enheten:
+* Åtkomst till ett värdsystem som kör VMware ESXi Server 6.0, 6.5 eller 6.7. Värdsystemet kan dedikera följande resurser för den virtuella enheten:
  
   * Minst 4 kärnor.
   * Minst 8 GB RAM. 
@@ -192,7 +192,7 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Steg 5–7 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg och går till steg 8. Om du har startat enheten i en icke-DHCP-miljö visas ett meddelande om detta: **Use the Set-HcsIPAddress cmdlet to configure the network** (Använd cmdleten Set-HcsIPAddress för att konfigurera nätverket). 
+6. Steg 5–7 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg och går till steg 8. Om du startade enheten i en icke-DHCP-miljö visas ett meddelande som reflekterar det: **Använd cmdlet Set-HcsIPAddress för att ställa in nätverket**. 
    
 7. Konfigurera nätverket genom att i kommandotolken använda kommandot `Get-HcsIpAddress` för att lista de nätverksgränssnitt som har aktiverats på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
 

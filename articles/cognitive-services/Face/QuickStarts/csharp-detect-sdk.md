@@ -6,18 +6,18 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: caaef0f7fdbfc3ad639deddb328c98334ad3e99d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578169"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213333"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av .NET SDK för ansiktsigenkänning
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Snabbstart: Identifiera ansikten i en bild med .NET SDK för ansiktsigenkänning
 
 I den här snabbstarten ska du använda SDK för ansiktsigenkänningstjänsten med C# för att identifiera ansikten i en bild. Ett exempel på koden i den här snabbstarten finns i ansiktsigenkänningsprojektet i databasen [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) på GitHub.
 
@@ -97,4 +97,4 @@ Male 37   Female 56
 I den här snabbstarten har du skapat ett enkelt .NET-konsolprogram som kan använda tjänsten Ansikts-API till att identifiera ansikten i både lokala och fjärranslutna bilder. Följ sedan en mer djupgående självstudie för att se hur du kan visa ansiktsinformation för användaren på ett intuitivt sätt.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Skapa en WPF-app för att upptäcka och analysera ansikten i en bild](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [Självstudier: Skapa en WPF-app för att upptäcka och analysera ansikten i en bild](../Tutorials/FaceAPIinCSharpTutorial.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6fca764c191c801cbca86c573339b397e61ead07
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256737"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700238"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
@@ -147,7 +147,7 @@ I följande exempel visas hur du aktiverar diagnostikloggar via Azure PowerShell
 
     Connect-AzureRmAccount 
 
-    SELECT-AzureSubscription - SubscriptionId 
+    Select-AzureSubscription -SubscriptionId 
 
 2. Om du vill aktivera diagnostikloggar i ett lagringskonto, anger du det här kommandot:
 
@@ -192,7 +192,7 @@ Core analytics loggarna genereras varje timme och data som samlas in och lagras 
 |Profilnamn |Namnet på den CDN-profilen|
 |Namnet på slutpunkten |Namnet på CDN-slutpunkten|
 |År|  Fyrsiffrigt representation av året, till exempel 2017|
-|Månad| Tvåsiffrig representation av månadsnummer. 01 = januari... 12 = December|
+|Månad| Tvåsiffrig representation av månadsnummer. 01 = januari... 12=December|
 |Dag|   Tvåsiffrig representation av dagen i månaden|
 |PT1H.json| Faktiska JSON-fil som analytics-data ska lagras|
 
@@ -290,7 +290,7 @@ Följ dessa steg för att lägga till en hanteringslösning för Log Analytics:
 
 ### <a name="offers-and-pricing-tiers"></a>Erbjudanden och prisnivåer
 
-Du kan se erbjudanden och prisnivåer för hanteringslösningar [här](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Du kan se erbjudanden och prisnivåer för hanteringslösningar [här](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
 
 ### <a name="customizing-views"></a>Anpassa vyer
 

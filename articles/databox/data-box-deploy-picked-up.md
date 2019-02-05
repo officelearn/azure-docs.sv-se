@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358566"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900518"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box och verifiera datauppladdning till Azure
 
@@ -22,18 +22,27 @@ Den här självstudien beskriver hur du returnerar Azure Data Box och verifierar
 I den här självstudien får du lära dig om ämnen som:
 
 > [!div class="checklist"]
+> * Nödvändiga komponenter
+> * Förbereda för att skicka
 > * Skicka Data Box till Microsoft
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du börjar bör du slutföra följande [självstudie: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md).
+Innan du börjar ska du kontrollera att:
+
+- Du har slutfört självstudien [: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md). 
+- Kopieringsjobben har slutförts. Förbered för att skicka kan inte köras om kopieringsjobb pågår.
+
+## <a name="prepare-to-ship"></a>Förbereda för att skicka
+
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## <a name="ship-data-box-back"></a>Skicka tillbaka Data Box
 
 1. Kontrollera att enheten är avstängd och kablarna har tagits bort. Rulla upp strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
-2. Om enheten levereras i USA kontrollerar du att fraktsedeln visas på E-ink-skärmen och bokar hämtning hos ett transportföretag. Om etiketten är skadad, har tappats bort eller inte visas på E-ink-skärmen laddar du ned adressetiketten från Azure-portalen och fäster den på enheten. Öppna **Översikt > Ladda ned adressetikett**. 
+2. Om enheten levereras i USA kontrollerar du att fraktsedeln visas på E-ink-skärmen och bokar hämtning hos ett transportföretag. Om etiketten är skadad, har tappats bort eller inte visas på E-ink-skärmen går du till **Översikt > Ladda ned adressetikett** i Azure-portalen. Ladda ned en adressetikett och fäst den på enheten.
 
     Om enheten levereras i Europa visar E-ink-skärmen inte fraktsedeln. I stället inkluderas returfraktsedeln i det genomskinliga facket under leveransfraktsedeln. Ta bort den gamla fraktsedeln och se till att fraktsedeln är väl synlig.
     
@@ -43,7 +52,7 @@ Innan du börjar bör du slutföra följande [självstudie: Kopiera data till Az
 
 ## <a name="verify-data-upload-to-azure"></a>Kontrollera datauppladdning till Azure
 
-När Microsoft tar emot och genomsöker enheten uppdateras orderstatusen till **mottagen**. Sedan görs en fysisk kontroll av skador eller tecken på manipulation. 
+När Microsoft tar emot och genomsöker enheten uppdateras orderstatusen till **mottagen**. Sedan görs en fysisk kontroll av skador eller tecken på manipulation.
 
 När kontrollen har slutförts ansluts Data Box till nätverket i Azure-datacentret. Datakopieringen startar automatiskt. Beroende på datastorleken kan kopieringen ta några timmar upp till dagar att slutföra. Du kan övervaka kopieringsförloppet i portalen.
 
@@ -65,6 +74,8 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
+> * Nödvändiga komponenter
+> * Förbereda för att skicka
 > * Skicka Data Box till Microsoft
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box

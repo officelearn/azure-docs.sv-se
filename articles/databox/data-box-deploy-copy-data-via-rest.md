@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215294"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900892"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Självstudier: Kopiera data till Azure Data Box Blob-lagring via REST-API:er  
 
@@ -22,9 +22,9 @@ Den här självstudien beskriver procedurer för att ansluta till Azure Data Box
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
+> * Nödvändiga komponenter
 > * Ansluta till Data Box Blob-lagring via *http* eller *https*
 > * Kopiera data till Data Box
-> * Förbereda för att skicka
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -201,18 +201,17 @@ Om du bara vill kopiera källresurser som inte finns i målet, så ange båda pa
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
 
-## <a name="prepare-to-ship"></a>Förbereda för att skicka
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
+Nästa steg är att förbereda enheten för leverans.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
+> * Nödvändiga komponenter
 > * Ansluta till Data Box Blob-lagring via *http* eller *https*
 > * Kopiera data till Data Box
-> * Förbereda för att skicka
+
 
 Gå vidare till nästa självstudie och lär dig hur du skickar tillbaka din Data Box-enhet till Microsoft.
 

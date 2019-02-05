@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 01/25/2019
+ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150758"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461754"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använda SQL Server Management Studio för att ansluta till och fråga i en Azure SQL-databas
 
@@ -30,7 +30,9 @@ För att slutföra den här kursen behöver du:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### <a name="install-the-latest-ssms"></a>Installera den senaste SSMS
+* En konfigurerad brandväggsregel på servernivå. Mer information finns i [Skapa brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md).
+
+## <a name="install-the-latest-ssms"></a>Installera den senaste SSMS
 
 Innan du börjar bör du kontrollera att du har installerat senaste [SSMS][ssms-install-latest-84g]. 
 
@@ -43,7 +45,7 @@ Innan du börjar bör du kontrollera att du har installerat senaste [SSMS][ssms-
 Anslut till din Azure SQL Database-server i SMSS. 
 
 > [!IMPORTANT]
-> En logisk Azure SQL Database-server avlyssnar port 1433. Brandväggen måste ha den här porten öppen för att man ska kunna ansluta till en logisk server bakom företagets brandvägg.
+> En Azure SQL Database-server avlyssnar port 1433. För att anslutning ska kunna ske till en SQL Database-server inifrån en företagsbrandvägg måste brandväggen ha den här porten öppen.
 >
 
 1. Öppna SSMS. Dialogrutan **Anslut till server** visas.

@@ -5,18 +5,18 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632398"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216752"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exempel: så här extraherar du nyckelfraser i textanalys
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exempel: Så här extraherar du nyckelfraser i textanalys
 
 [API:et för extrahering av nyckelfras](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) utvärderar ostrukturerad text och returnerar en lista med nyckelfraser för varje JSON-dokument. 
 
@@ -71,7 +71,7 @@ Dokumentstorleken måste vara under 5 000 tecken per dokument och du kan ha upp 
 
 Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
-+ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [Nyckelfraser API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för nyckelfraser](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
 + Ange HTTP-slutpunkten för nyckelfrasextrahering, med hjälp av en Textanalys-resurs på Azure eller en instansierad [Textanalys-container](text-analytics-how-to-install-containers.md). Den måste innehålla `/keyPhrases`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 8be3156aaeb9651b97999b7b06fec8034e902c36
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663901"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700629"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Skapa en Linux-dator i en tillgänglighetszon med Azure CLI
 
@@ -29,13 +29,13 @@ Den här artikeln beskriver hur använder Azure CLI för att skapa en Linux-VM i
 
 Om du vill använda en tillgänglighetszon skapar du din virtuella dator i en [Azure-region som stöds](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
-Se till att du har installerat senast [Azure CLI](/cli/azure/install-az-cli2) och inloggad på ett Azure-konto med [az-inloggning](/cli/azure/reference-index#az_login).
+Se till att du har installerat senast [Azure CLI](/cli/azure/install-az-cli2) och inloggad på ett Azure-konto med [az-inloggning](/cli/azure/reference-index).
 
 
 ## <a name="check-vm-sku-availability"></a>Kontrollera tillgänglighet för SKU för virtuell dator
 Tillgängligheten för VM-storlek eller SKU: er kan variera beroende på region och zon. När du planerar för användningen av tillgänglighetszoner kan du visa tillgängliga VM SKU:er via Azure-region och zon. Den möjligheten säkerställer att du väljer en lämplig VM-storlek och hämtar önskad elasticitet i flera zoner. Mer information om olika VM-typer och -storlekar finns i [Översikt över VM-storlekar](sizes.md).
 
-Du kan visa de tillgängliga VM SKU: er med den [az vm list-skus](/cli/azure/vm#az_vm_list_skus) kommando. Följande exempel visar tillgängliga VM SKU:er i regionen *usaöstra2*:
+Du kan visa de tillgängliga VM SKU: er med den [az vm list-skus](/cli/azure/vm) kommando. Följande exempel visar tillgängliga VM SKU:er i regionen *usaöstra2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
@@ -74,7 +74,7 @@ Resursgruppens namn anges när du skapar eller ändrar en virtuell dator som du 
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create). 
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm). 
 
 När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, bestämning av diskstorlek och administrativa autentiseringsuppgifter. I det här exemplet skapas en virtuell dator med namnet *myVM* som kör Ubuntu Server. Den virtuella datorn skapas i tillgänglighetszon *1*. Som standard skapas den virtuella datorn i den *Standard_DS1_v2* storlek.
 
@@ -102,7 +102,7 @@ Det kan ta några minuter att skapa den virtuella datorn. När den virtuella dat
 
 När den virtuella datorn har distribuerats i en tillgänglighetszon, skapas en hanterad disk för den virtuella datorn i samma tillgänglighetszon. Som standard skapas också en offentlig IP-adress i zonen. I följande exempel få information om dessa resurser.
 
-Kontrollera att den Virtuella datorns hanterad disk i tillgänglighetszon genom att använda den [az vm show](/cli/azure/vm#az_vm_show) kommando för att hämta diskens ID. I det här exemplet lagras disk-id i en variabel som används i ett senare steg. 
+Kontrollera att den Virtuella datorns hanterad disk i tillgänglighetszon genom att använda den [az vm show](/cli/azure/vm) kommando för att hämta diskens ID. I det här exemplet lagras disk-id i en variabel som används i ett senare steg. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
@@ -149,7 +149,7 @@ Utdata visar att de hanterade diskarna är i samma tillgänglighetszon som den v
 }
 ```
 
-Använd den [az vm list-ip-adresser](/cli/azure/vm#az_vm_list_ip_addresses) kommando för att returnera namnet på offentlig IP-adressresurs i *myVM*. I det här exemplet har namnet lagras i en variabel som används i ett senare steg.
+Använd den [az vm list-ip-adresser](/cli/azure/vm) kommando för att returnera namnet på offentlig IP-adressresurs i *myVM*. I det här exemplet har namnet lagras i en variabel som används i ett senare steg.
 
 ```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)

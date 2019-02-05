@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: a0082be25ec4ad326e4473cbe69f9ff029898f5b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a2f0d97d6b7040f874fc03ffe19f247cdc742c77
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988905"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103657"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Snabbstart: Konfigurera ett klientprogram för åtkomst till webb-API:er (förhandsversion)
 
@@ -38,7 +38,7 @@ Dessutom, innan en klient kan komma åt ett webb-API som görs tillgängligt av 
 I den här snabbstarten visas hur du konfigurerar din app för att:
 
 * [Lägga till omdirigerings-URI:er för programmet](#add-redirect-uris-to-your-application)
-* [Lägga till autentiseringsuppgifter i ditt webbprogram](#add-credentials-to-your-web-application)
+* [Lägga till autentiseringsuppgifter i webbappen](#add-credentials-to-your-web-application)
 * [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

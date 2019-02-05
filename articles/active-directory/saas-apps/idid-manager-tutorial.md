@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/11/2019
+ms.date: 1/25/2019
 ms.author: jeedes
-ms.openlocfilehash: baf78fc0bc0941c9466f77a77ef922f3fe3d62b3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a12a0b383db63cc80aea045ca5afe6c75b0b83a9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823041"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Självstudier: Azure Active Directory-integrering med iDiD Manager
 
@@ -70,10 +70,10 @@ För att konfigurera integreringen av iDiD Manager med Azure AD måste du lägga
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning Azure AD med [programnamn] baserat på en testanvändare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i [Programnamn] upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med iDiD Manager baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i iDiD Manager upprättas.
 
-För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] behöver du utföra följande byggstenar:
+För att konfigurera och testa Azure AD enkel inloggning med iDiD Manager måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för iDiD Manager](#configure-idid-manager-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
@@ -86,7 +86,7 @@ För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] b
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra följande steg:
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med IDiD Manager:
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **iDiD Manager**-programintegrering och väljer **Enkel inloggning**.
 
@@ -100,18 +100,20 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera programmet i **SP**-initierat läge:
+4. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
 
-    ![Information om enkel inloggning med iDiD Manager-domäner och -URL:er](common/both-preintegrated-signon.png)
+    ![Information om enkel inloggning med iDiD Manager-domäner och -URL:er](common/preintegrated.png)
 
-    a. Klicka på **Ange ytterligare URL:er**.
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    b. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://idid2.fi/saml/login/<domain>`
+    ![Information om enkel inloggning med iDiD Manager-domäner och -URL:er](common/metadata-upload-additional-signon.png)
+
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://idid2.fi/saml/login/<domain>`
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för iDiD Manager](mailto:support@idid.fi) och be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
+6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
@@ -187,3 +189,4 @@ När du klickar på iDiD Manager-panelen i åtkomstpanelen bör du automatiskt l
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

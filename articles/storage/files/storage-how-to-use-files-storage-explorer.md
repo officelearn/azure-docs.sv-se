@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.subservice: files
+ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944226"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452251"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure Storage Explorer
 Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med Azure Storage Explorer. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
@@ -33,9 +33,9 @@ Du kan inte skapa nya resurser med Storage Explorer. can't use Storage Explorer 
 ## <a name="connect-storage-explorer-to-azure-resources"></a>Ansluta Storage Explorer till Azure-resurser
 När du först startar Storage Explorer visas fönstret **Microsoft Azure Storage Explorer – anslut**. I Storage Explorer finns flera olika sätt att ansluta till lagringskonton: 
 
-- **Logga in med Azure-kontot**: Du kan logga in med autentiseringsuppgifterna för din organisation eller ditt Microsoft-konto. 
-- **Anslut till ett specifikt lagringskontot med en anslutningssträng eller SAS-token**: En anslutningssträng är en speciell sträng som innehåller ett lagringskontonamn och en lagringskontonyckel/SAS-token. Med denna token får Storage Explorer direktåtkomst till lagringskontot (istället för att bara se alla lagringskonton på Azure-kontot). Mer information om anslutningssträngar finns i [Konfigurera anslutningssträngar för Azure Storage](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-- **Ansluta till ett specifikt lagringskonto med ett lagringskontonamn och nyckel**: Anslut till Azure Storage genom att använda lagringskontonamnet och nyckeln till ditt lagringskonto.
+- **Logga in med ditt Azure-konto**: Du kan logga in med autentiseringsuppgifterna för din organisation eller ditt Microsoft-konto. 
+- **Ansluta till ett specifikt lagringskonto med hjälp av en anslutningssträng eller SAS-token**: En anslutningssträng är en särskild sträng som innehåller ett lagringskontonamn och lagringskontonyckel/SAS-token. Med denna token får Storage Explorer direktåtkomst till lagringskontot (istället för att bara se alla lagringskonton på Azure-kontot). Mer information om anslutningssträngar finns i [Konfigurera anslutningssträngar för Azure Storage](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- **Ansluta till ett specifikt lagringskonto med hjälp av ett lagringskontonamn och en nyckel**: Använd lagringskontonamnet och nyckeln för ditt lagringskonto för att ansluta till Azure Storage.
 
 I den här snabbstarten loggar vi för enkelhetens skull in med ditt Azure-konto. Välj **Lägg till ett Azure-konto** och välj sedan **Logga in**. Följ anvisningarna för att logga in på ditt Azure-konto.
 

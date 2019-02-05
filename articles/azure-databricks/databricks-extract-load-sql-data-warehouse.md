@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: de1033a6e43105f92775682458677a4578a410b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4fab67a0ea93f287ddd3d5d0d5bc42a5dcfbe75c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265495"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104719"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Självstudie: Extrahera, transformera och läsa in data med Azure Databricks
 
 I den här självstudien får du utföra en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks. Du extraherar data från Azure Data Lake Store till Azure Databricks, kör transformationer av data i Azure Databricks och läser sedan in dessa transformerade data i Azure SQL Data Warehouse.
 
-Stegen i den här självstudien använder SQL Data Warehouse-anslutningsappen så att Azure Databricks kan överföra data till Azure Databricks. Den här anslutningsappen använder i sin tur Azure Blob Storage som temporär lagring för de data som överförs mellan ett Azure Databricks-kluster och Azure SQL Data Warehouse.
+Stegen i den här självstudiekursen använder SQL Data Warehouse-anslutningsappen så att Azure Databricks kan överföra data till Azure Databricks. Den här anslutningsappen använder i sin tur Azure Blob Storage som temporär lagring för de data som överförs mellan ett Azure Databricks-kluster och Azure SQL Data Warehouse.
 
 Följande bild visar programflödet:
 
@@ -56,7 +56,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure-portalen.
+1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure Portal.
 
     ![Databricks på Azure-portalen](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
@@ -72,7 +72,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
     |**Plats**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
-    |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Den här självstudien kan inte utföras med hjälp av en kostnadsfri utvärderingsprenumeration på grund begränsningar för ökad kvot. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Välj **Fäst på instrumentpanelen** och välj sedan **Skapa**.
 
@@ -102,9 +102,9 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Skapa ett Azure Data Lake Store-konto
 
-I det här avsnittet skapar du ett Azure Data Lake Store-konto och associerar ett tjänstens huvudnamn för Azure Active Directory med det. Senare i den här självstudien kommer du att använda det här tjänstens huvudnamn i Azure Databricks för att få åtkomst till Azure Data Lake Store.
+I det här avsnittet skapar du ett Azure Data Lake Store-konto och associerar ett tjänstens huvudnamn för Azure Active Directory med det. Senare i den här självstudiekursen kommer du att använda det här tjänstens huvudnamn i Azure Databricks för att få åtkomst till Azure Data Lake Store.
 
-1. Välj **Skapa en resurs** > **Storage** > **Data Lake Store** i [Azure-portalen](https://portal.azure.com).
+1. Välj **Skapa en resurs** > **Storage** > **Data Lake Store** i [Azure Portal](https://portal.azure.com).
 3. På bladet **Ny Data Lake Store**, anger du de värden som visas på följande skärmbild:
 
     ![Skapa ett nytt Azure Data Lake Store-konto](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Skapa ett nytt Azure Data Lake-konto")
@@ -115,7 +115,7 @@ I det här avsnittet skapar du ett Azure Data Lake Store-konto och associerar et
     |---------|---------|
     |**Namn**     | Ange ett unikt namn Data Lake Store-kontot.        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Välj samma resursgrupp för den här självstudien som du använde när du skapade Azure Databricks-arbetsytan.  |
+    |**Resursgrupp**     | Välj samma resursgrupp för den här självstudiekursen som du använde när du skapade Azure Databricks-arbetsytan.  |
     |**Plats**     | Välj **USA, östra 2**.  |
     |**Prissättningspaket**     |  Välj **Betala per användning**. |
     | **Krypteringsinställningar** | Behåll standardinställningarna. |
@@ -126,7 +126,7 @@ Du skapar nu ett tjänstens huvudnamn för Azure Active Directory och associerar
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Skapa ett tjänstens huvudnamn för Azure Active Directory
 
-1. Välj **Alla tjänster** i [Azure-portalen](https://portal.azure.com) och sök sedan efter **Azure Active Directory**.
+1. Välj **Alla tjänster** i [Azure Portal](https://portal.azure.com) och sök sedan efter **Azure Active Directory**.
 
 2. Välj **Appregistreringar**.
 
@@ -195,7 +195,7 @@ När du loggar in med programmet måste du skicka klientorganisations-ID:t med d
 
 I det här avsnittet kommer du att överföra en exempeldatafil till Data Lake Store. Du kan använda den här filen senare i Azure Databricks om du vill köra vissa transformationer. De exempeldata (**small_radio_json.json**) som du använder i den här självstudien är tillgängliga på den här [Github-lagringsplatsen](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
-1. Välj det Data Lake Store-konto som du skapade i [Azure-portalen](https://portal.azure.com).
+1. Välj det Data Lake Store-konto som du skapade i [Azure Portal](https://portal.azure.com).
 
 2. Klicka på **Datautforskaren** på fliken **Översikt**.
 
@@ -209,7 +209,7 @@ I det här avsnittet kommer du att överföra en exempeldatafil till Data Lake S
 
     ![Alternativet Överför](./media/databricks-extract-load-sql-data-warehouse/upload-data.png "Alternativet Överför")
 
-5. I den här självstudien får du överföra en datafil till Data Lake Store-roten. Så, nu är filen tillgänglig på `adl://<YOUR_DATA_LAKE_STORE_ACCOUNT_NAME>.azuredatalakestore.net/small_radio_json.json`.
+5. I den här självstudiekursen får du överföra en datafil till Data Lake Store-roten. Så, nu är filen tillgänglig på `adl://<YOUR_DATA_LAKE_STORE_ACCOUNT_NAME>.azuredatalakestore.net/small_radio_json.json`.
 
 ## <a name="associate-service-principal-with-azure-data-lake-store"></a>Associera tjänstens huvudnamn med Azure Data Lake Store
 
@@ -437,7 +437,7 @@ När du är klar med självstudien kan du avsluta klustret. Detta gör du genom 
 Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_\_ minuters inaktivitet** när klustret skapades. I sådant fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien lärde du dig att:
+I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en Azure Databricks-arbetsyta
@@ -449,7 +449,7 @@ I den här självstudien lärde du dig att:
 > * Transformera data med Azure Databricks
 > * Läs in data till Azure SQL Data Warehouse
 
-Gå vidare till nästa självstudie och lär dig mer om att strömma realtidsdata i Azure Databricks med Azure Event Hubs.
+Gå vidare till nästa självstudiekurs och lär dig mer om att strömma realtidsdata i Azure Databricks med Azure Event Hubs.
 
 > [!div class="nextstepaction"]
 >[Strömma data i Azure Databricks med Event Hubs](databricks-stream-from-eventhubs.md)

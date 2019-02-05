@@ -8,20 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2018
+ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3e5e364e9c3327e9d666a9a3096573267d0e1983
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0aa15c34e6fd6c7952a457d36e072bc91d4d5dab
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727616"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102180"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet
 
@@ -107,7 +107,7 @@ Den här snabbstarten kräver [.NET Core 2.1](https://www.microsoft.com/net/down
     
 #### <a name="step-4-admin-consent"></a>Steg 4: Administratörsmedgivande
 
-Alla *appspecifika behörigheter* kräver godkännande av administratör, vilket betyder att de kräver att en global administratör för din katalog ger sitt medgivande till din app. Välj ett av alternativen nedan, beroende på din roll:
+Om du försöker köra programmet nu returneras ett fel av typen *HTTP 403 – Ej tillåtet*: `Insufficient privileges to complete the operation`. Detta inträffar eftersom *appspecifika behörigheter* kräver administratörens godkännande, vilket innebär att en global administratör för din katalog måste ge sitt godkännande till ditt program. Välj ett av alternativen nedan, beroende på din roll:
 
 ##### <a name="global-tenant-administrator"></a>Global innehavaradministratör
 
@@ -149,6 +149,9 @@ dotnet run
 
 Du bör se en lista över användare i Azure AD-katalogen som resultat.
 
+> [!IMPORTANT]
+> Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klienthemligheten läggs till som oformaterad text till dina projektfiler rekommenderar vi att du av säkerhetsskäl använder ett certifikat i stället för en klienthemlighet innan programmet används som produktionsprogram. Mer information om hur du använder ett certifikat finns i [dessa instruktioner](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) på GitHub-lagringsplatsen för det här exemplet.
+
 ## <a name="more-information"></a>Mer information
 
 ### <a name="msalnet"></a>MSAL.NET
@@ -158,7 +161,13 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
  Du kan installera MSAL.NET genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
+```
+
+Om du inte använder Visual Studio kan du köra följande kommando för att lägga till MSAL i projektet:
+
+```console
+dotnet add package Microsoft.Identity.Client
 ```
 
 ### <a name="msal-initialization"></a>MSAL-initiering

@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Konvertera textskript, C# – Translator Text'
+title: 'Snabbstart: Omvandla textskript, C# – Translator Text'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig hur du translittererar (konverterar) text från ett skript till ett annat med hjälp av .NET Core och Translator Text REST API. I det här exemplet translittereras japanska till det latinska alfabetet.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 7beddd7f7f21466ee404303b2727370d0cfc86f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889148"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220170"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Snabbstart: Använda Translator Text API för att transkribera en sträng med hjälp av C#
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Snabbstart: Använda Translator Text API för att transkribera text med hjälp av C#
 
 I den här snabbstarten lär du dig hur du translittererar (konverterar) text från ett skript till ett annat med hjälp av .NET Core (C#) och Translator Text REST API. I det angivna exemplet translittereras japanska till det latinska alfabetet.
 

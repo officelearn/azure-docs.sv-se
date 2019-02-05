@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Skapa en enkelsidig app för videosökning i Bing'
+title: 'Självstudier: Skapa en enkelsidig app med videosökning i Bing'
 titlesuffix: Azure Cognitive Services
 description: Förklarar hur du använder API:et för videosökning i Bing i webbprogram med en enda sida.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: rosh
-ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 5661cab24d3c5ada401f416a3d39b1a787094b5c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226611"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175119"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Självstudie: Skapa en enkelsidig app med videosökning
+# <a name="tutorial-single-page-video-search-app"></a>Självstudier: Enkelsidig app med videosökning
 Med API för videosökning i Bing kan du söka på webben och få videoresultat som är relevanta för en sökfråga. I de här självstudierna skapar vi ett enkelsidigt program som använder API för sökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -29,19 +29,19 @@ Med API för videosökning i Bing kan du söka på webben och få videoresultat 
 
 ![JSON, HTTP-rådataresultat](./media/json-http-raw-results.png)
 
-I den här självstudiekursappen visas hur du:
+Den här självstudieappen visar hur du:
 > [!div class="checklist"]
-> * Anropa API för videosökning i Bing i JavaScript
-> * Skicka sökalternativ till API: et för Bing Search
-> * Visa videosökningsresultat eller inkludera webbsidor, nyheter eller bilder
-> * Sök tidsramar på 24 timmar, den senaste veckan, månaden eller all tillgänglig tid
-> * Bläddra igenom sökresultat
-> * Hantera Bing-klient-ID och prenumerationsnyckeln för API:et
-> * Hantera fel som kan uppstå
+> * anropar API:t för videosökning i Bing i JavaScript
+> * skickar sökalternativ till API: et för Bing Search
+> * visar videosökningsresultat eller inkludera webbsidor, nyheter eller bilder
+> * söker i tidsramar på 24 timmar, den senaste veckan, månaden eller all tillgänglig tid
+> * bläddrar igenom sökresultat
+> * hanterar Bing-klient-ID och prenumerationsnyckeln för API:et
+> * hanterar fel som kan uppstå.
 
-Självstudiekurssidan är helt självständigt. Den använder inte några externa ramverk, formatmallar eller bildfiler. Den använder endast JavaScript-språkfunktioner som stöds och fungerar med aktuella versioner av alla större webbläsare.
+Självstudiesidan är helt självständigt. Den använder inte några externa ramverk, formatmallar eller bildfiler. Den använder endast JavaScript-språkfunktioner som stöds och fungerar med aktuella versioner av alla större webbläsare.
 
-I den här självstudien diskuterar vi delar av källkoden. Den fullständiga [källkoden](tutorial-bing-video-search-single-page-app-source.md) är tillgänglig. Om du vill köra exemplet kopierar du och klistrar in källkoden i en textredigerare och sparar den som `bing.html`.
+I den här självstudien diskuterar vi delar av källkoden. Den fullständiga [källkoden](tutorial-bing-video-search-single-page-app-source.md) är tillgänglig. Om du vill köra exemplet kopierar du och klistrar in källkoden i en textredigerare och sparar det som `bing.html`.
 
 ## <a name="app-components"></a>Appkomponenter
 Som andra enkelsidiga webbappar innehåller den här självstudiekursprogrammet tre delar:
@@ -49,7 +49,7 @@ Som andra enkelsidiga webbappar innehåller den här självstudiekursprogrammet 
 > [!div class="checklist"]
 > * HTML – definierar struktur och innehåll på sidan
 > * CSS – definierar utseendet på sidan
-> * JavaScript – definierar beteendet för sidan
+> * JavaScript – definierar beteendet för sidan.
 
 Större delen av HTML och CSS är konventionell, så det tas inte upp i självstudien. HTML-koden innehåller sökformuläret där användaren anger en fråga och väljer sökalternativ. Formuläret är kopplat till JavaScript som gör en sökning med hjälp av attributet `onsubmit` för `<form>`-taggen:
 
@@ -62,7 +62,7 @@ HTML-koden innehåller också avdelningar (HTML `<div>`-taggar) där sökresulta
 
 ## <a name="managing-subscription-key"></a>Hantera prenumerationsnyckel
 
-För att undvika att lägga till prenumerationsnyckeln för API:et för Bing Search i koden använder vi webbläsarens beständiga lagring för att lagra nyckeln. Innan nyckeln lagras efterfrågar vi användarens nyckel. Om nyckeln senare avvisas av API:et ogiltigförklarar vi den lagrade nyckeln så att användaren tillfrågas igen.
+För att undvika att lägga till prenumerationsnyckeln för API:et för Bing-sökning i koden använder vi webbläsarens beständiga lagring för att lagra nyckeln. Innan nyckeln lagras efterfrågar vi användarens nyckel. Om nyckeln senare avvisas av API:et ogiltigförklarar vi den lagrade nyckeln så att användaren tillfrågas igen.
 
 Vi definierar funktionerna `storeValue` och `retrieveValue` med antingen objektet `localStorage` (inte i alla webbläsare) eller en cookie. Funktionen `getSubscriptionKey()` använder dessa funktioner för att lagra och hämta användarens nyckel.
 
@@ -138,10 +138,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-Till exempel kan parametern `SafeSearch` i ett faktiskt API-anrop vara `strict`, `moderate`, eller `off`, med `moderate` som standardvärde. Vårt formuläret använder en kryssruta som bara har två tillstånd. JavaScript-koden konverterar den här inställningen till antingen `strict` eller `off` (`moderate` används inte).
+Till exempel kan parametern `SafeSearch` i ett faktiskt API-anrop vara `strict`, `moderate`, eller `off`, med `moderate` som standardvärde. Vårt formulär använder en kryssruta som bara har två tillstånd. JavaScript-koden konverterar den här inställningen till antingen `strict` eller `off` (`moderate` används inte).
 
 ## <a name="performing-the-request"></a>Utföra förfrågan
-Beroende på frågan, alternativsträngen och API-nyckeln använder funktionen `BingWebSearch` ett `XMLHttpRequest`-objekt för att göra begäran till Bing-sökningsslutpunkten.
+Beroende på frågan, alternativsträngen och API-nyckeln använder funktionen `BingWebSearch` ett `XMLHttpRequest`-objekt för att göra begäran till slutpunkten för Bing-sökningen.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -256,7 +256,7 @@ function handleOnLoad() {
 ```
 
 > [!IMPORTANT]
-> Om ett fel uppstår i sökåtgärden returnerar API för nyhetssökning i Bing en icke-200-HTTP-statuskod och inkluderar felinformation i JSON-svaret. Om begäran var begränsad returnerar API:et ett tomt svar.
+> Om ett fel uppstår i sökåtgärden returnerar API:et för nyhetssökning i Bing en icke-200-HTTP-statuskod och inkluderar felinformation i JSON-svaret. Om begäran var begränsad returnerar API:et ett tomt svar.
 En lyckad HTTP-begäran betyder *inte* nödvändigtvis att själva sökningen lyckades. 
 
 En stor del av koden i de båda föregående funktionerna är dedikerade för felhantering. Fel kan inträffa i följande steg:
@@ -264,8 +264,8 @@ En stor del av koden i de båda föregående funktionerna är dedikerade för fe
 |Fas|Potentiella fel|Hanterat av|
 |-|-|-|
 |Skapa objekt för JavaScript-begäran|Ogiltig URL|`try`/`catch` blockera|
-|Skapa förfrågan|Nätverksfel, avbrutna anslutningar|`error` och `abort` händelsehanterare|
-|Genomföra sökningen|Ogiltig begäran, ogiltig JSON, hastighetsbegränsningar|tests i `load` händelsehanterare|
+|Skapa begäran|Nätverksfel, avbrutna anslutningar|Händelsehanterare för `error` och `abort`|
+|Genomföra sökningen|Ogiltig begäran, ogiltig JSON, hastighetsbegränsningar|tester i händelsehanterare för `load`|
 
 Fel hanteras genom att anropa `renderErrorMessage()` med all känd information om felet. Om svaret klarar alla feltester anropar vi `renderSearchResults()` för att visa sökresultatet på sidan.
 
@@ -287,7 +287,7 @@ function renderSearchResults(results) {
     }
 }
 ```
-Sökresultaten returneras som `value`-objektet på den översta nivån i JSON-svaret. Vi skickar dem till vår funktion `renderResultsItems()`, som går itererar dem och anropar en funktion för att rendera varje objekt i HTML-format. Den resulterande HTML-filen returneras till `renderSearchResults()`, där den infogas i `results`-divisionen på sidan.
+Sökresultaten returneras som `value`-objektet på den översta nivån i JSON-svaret. Vi skickar dem till vår funktion `renderResultsItems()`, som itererar dem och anropar en funktion för att rendera varje objekt i HTML-format. Den resulterande HTML-filen returneras till `renderSearchResults()`, där den infogas i `results`-divisionen på sidan.
 
 ```javascript
 // render search results
@@ -306,7 +306,7 @@ Sökresultaten returneras som `value`-objektet på den översta nivån i JSON-sv
 }
 ```
 
-API för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
+API:et för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
 
 |Relation|Beskrivning|
 |-|-|
@@ -369,7 +369,7 @@ Renderarfunktionen:
 > [!div class="checklist"]
 > * Skapar en styckestagg och tilldelar den till klassen `images` och skickar den till html-matrisen.
 > * Beräknar miniatyrbildstorlek (bredden är högst 60 bildpunkter, höjden beräknas proportionellt).
-> * Skapar HTML `<img>`-tagg för att visa miniatyrbilden. 
+> * Skapar HTML `<img>`-taggen för att visa miniatyrbilden. 
 > * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 > * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
@@ -380,7 +380,7 @@ Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud 
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket innebär två viktiga fördelar.
 
-Först hjälper Bing-sökmotorn till med att tillämpa den senaste kontext på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
+Först hjälper Bing-sökmotorn till med att tillämpa tidigare kontexter på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
 
 Därefter väljer Bing slumpmässigt ut användare som ska prova nya funktioner innan de blir allmänt tillgängliga. Om samma klient-ID tillhandahålls med varje begäran säkerställer det att användare som ser funktionen alltid ser den. Utan klient-ID kan användaren se en funktion som sedan försvinner, till synes slumpmässigt, i sökresultatet.
 
@@ -391,7 +391,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 
 I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
 
-Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando ett kommandofönster:
+Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 
     npm install -g cors-proxy-server
 

@@ -10,22 +10,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 012fdfa4faf10cacaf85819517f358c1af1ab39d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0231b67ee56de5e1729c02ed3d87b2461f025b84
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830714"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887435"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Snabbstart: SSH/RDP över IoT Hub-enhetsströmmar med hjälp av Node.js-proxyprogram (förhandsversion)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-[IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. I den här snabbstarten beskrivs körningen av ett Node.js-proxyprogram som körs på tjänstsidan för att göra så att SSH- och RDP-trafik kan skickas till enheten via en enhetsström. En översikt över konfigurationen finns på [den här sidan](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp). Under den allmänna förhandsversionen stöder Node.js SDK endast enhetsströmmar på tjänstsidan. Därför omfattar den här snabbstarten bara instruktioner för att köra proxyn på tjänstsidan. Du bör köra en tillhörande proxy på enhetssidan som finns tillgängligt i guiderna för [C-snabbstart](./quickstart-device-streams-proxy-c.md) eller [C#-snabbstart](./quickstart-device-streams-proxy-csharp.md).
+[IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. Den här snabbstarten beskriver körningen av ett Node.js-proxyprogram som körs på tjänstsidan för att tillåta att SSH- och RDP-trafik skickas till enheten via en enhetsström. [Här](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) finns en översikt över installationen. Under den allmänna förhandsversionen stöder Node.js SDK endast enhetsströmmar på tjänstsidan. Därför innehåller den här snabbstarten endast instruktioner för att köra den tjänstlokala proxyn. Du bör köra en tillhörande enhetslokal proxy som är tillgänglig i [C-snabbstarten](./quickstart-device-streams-proxy-c.md) och [C#-snabbstarten](./quickstart-device-streams-proxy-csharp.md).
 
-Först beskrivs konfiguration för SSH (via port `22`). Sedan beskrivs hur du ändrar konfigurationen för RDP (som använder port 3389). Eftersom enhetsströmmar är program- och protokolloberoende kan samma exempel ändras (vanligtvis genom att kommunikationsportarna ändras) med avseende på andra typer av programtrafik.
+Först beskrivs konfiguration för SSH (via port 22). Sedan beskrivs hur du ändrar konfigurationen för RDP (som använder port 3389). Eftersom enhetsströmmar är program- och protokolloberoende kan samma exempel ändras att passa andra typer av ”klient/server”-programtrafik (vanligtvis genom att kommunikationsportarna ändras).
 
-Koden visar initiering och användning av en enhetsström och kan även återanvändas för annan programtrafik (förutom RDP och SSH).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att kunna köra programmet på tjänstsidan i den här snabbstarten behöver du ha Node.js v4.x.x eller senare på utvecklingsdatorn.
+För att kunna köra det tjänstlokala programmet i den här snabbstarten behöver du ha Node.js v4.x.x eller senare på utvecklingsdatorn.
 
 Du kan ladda ned Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
 
@@ -86,14 +85,14 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH till en enhet via enhetsströmmar
 
-### <a name="run-the-device-side-proxy"></a>Köra proxyn på enhetssidan
+### <a name="run-the-device-local-proxy"></a>Köra den enhetslokala proxyn
 
-Som tidigare nämnts stöder IoT Hub Node.js SDK endast enhetsströmmar på tjänstsidan. För programmet på enhetssidan använder du tillhörande enhetsproxyprogram som finns tillgängliga i guiderna för [C-snabbstart](./quickstart-device-streams-proxy-c.md) eller [C#-snabbstart](./quickstart-device-streams-proxy-csharp.md). Se till att proxyn på enhetssidan körs innan du fortsätter till nästa steg.
+Som tidigare nämnts stöder IoT Hub Node.js SDK endast enhetsströmmar på tjänstsidan. För det enhetslokala programmet använder du de associerade enhetsproxyprogrammen som är tillgängliga i [C-snabbstarten](./quickstart-device-streams-proxy-c.md) och [C#-snabbstarten](./quickstart-device-streams-proxy-csharp.md). Se till att den enhetslokala proxyn körs innan du fortsätter till nästa steg.
 
 
-### <a name="run-the-service-side-proxy"></a>Köra proxy på tjänstsidan
+### <a name="run-the-service-local-proxy"></a>Köra den tjänstlokala proxyn
 
-Förutsatt att proxyn på enhetssidan körs följer du stegen nedan för att köra proxyn på tjänstsidan som skrivits i Node.js:
+Förutsatt att den [enhetslokala proxyn](#run-the-device-local-proxy) körs följer du stegen nedan för att köra den tjänstlokala proxyn som skrivits i Node.js.
 
 - Ange autentiseringsuppgifter för tjänsten, målets enhets-ID där SSH-daemon körs samt portnumret för den proxy som körs på enheten som miljövariabler.
 ```
@@ -107,7 +106,7 @@ Förutsatt att proxyn på enhetssidan körs följer du stegen nedan för att kö
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
 ```
-Ändra `MyDevice` till det enhets-ID som du har valt för enheten.
+Ändra värdena ovan så att de matchar ditt enhets-ID och anslutningssträngen.
 
 - Gå till `Quickstarts/device-streams-service` i den uppackade projektmappen och kör den tjänstlokala proxyn.
 ```
@@ -124,10 +123,10 @@ Förutsatt att proxyn på enhetssidan körs följer du stegen nedan för att kö
 ### <a name="ssh-to-your-device-via-device-streams"></a>SSH till din enhet via enhetsströmmar
 I Linux kör du SSH med hjälp av `ssh $USER@localhost -p 2222` på en terminal. I Windows använder du valfri SSH-klient (till exempel PuTTY).
 
-Konsolens utdata på tjänstsidan när SSH-sessionen har upprättats (den tjänstlokala proxyn lyssnar på port 2222): ![Alternativ text](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "Utdata för SSH-terminal")
+Konsolens utdata på den tjänstlokala proxyn när SSH-sessionen har upprättats (den tjänstlokala proxyn lyssnar på port 2222): ![Alternativ text](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "Utdata för SSH-terminal")
 
 
-Konsolens utdata för SSH-klientprogrammet (SSH-klienten kommunicerar med SSH-daemon genom att ansluta till port <code>22</code> där den tjänstlokala proxyn lyssnar): ![Alternativ text](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "Utdata för SSH-klient")
+Konsolens utdata för SSH-klientprogrammet (SSH-klienten kommunicerar med SSH-daemon genom att ansluta till port 22 där den tjänstlokala proxyn lyssnar): ![Alternativ text](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "Utdata för SSH-klient")
 
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>RDP till din enhet via enhetsströmmar

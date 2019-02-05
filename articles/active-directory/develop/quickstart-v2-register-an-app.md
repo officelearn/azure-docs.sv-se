@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 20e19664963f66954f9d46a1b596a34b7d744f48
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913286"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093234"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Snabbstart: Registrera en app med Azure Active Directory v2.0-slutpunkten
 
@@ -44,7 +44,7 @@ Inte alla Azure AD-scenarier och -funktioner stöds av v2.0-slutpunkten. Läs me
 ## <a name="step-2-register-an-app"></a>Steg 2: Registrera en app
 
 1. Välj **Add an app** (Lägg till en app) och ge den ett namn.
-    Portalen tilldelar din app ett globalt unikt program-ID som du använder senare i koden. Om appen innehåller en komponent på serversidan som behöver åtkomsttoken för att anropa API:er (tänk: Office, Azure eller ett eget webb-API) skapar du även en **apphemlighet** här.
+    Portalen tilldelar din app ett globalt unikt program-ID som du använder senare i koden. Om din app innehåller en komponent på serversidan som behöver åtkomsttoken för anropa API:er (tänk: Office, Azure eller din egen webb-API) ska du skapa en **Programhemlighet** även här.
 1. Lägg sedan till de **plattformar** som appen kommer att använda.
     * För webbaserade appar anger du en **omdirigerings-URI** dit inloggningsmeddelanden kan skickas.
     * För mobilappar kopierar du den standardinställda omdirigerings-URI:n som skapas automatiskt åt dig.

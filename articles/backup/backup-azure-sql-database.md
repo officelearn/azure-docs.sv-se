@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790182"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224249"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
@@ -483,7 +483,14 @@ Den här proceduren beskriver hur du återställer data till en alternativ plats
 > Du kan återställa databasen till en instans av en SQL Server i samma Azure-region. Målservern måste vara registrerad på Recovery Services-valvet.
 >
 
-På menyn **Återställ konfiguration** visar listrutan **Server** endast de SQL Server-instanser som är registrerade med Recovery Services-valvet. Om den server som du letar efter inte finns i listan kan du hitta servern med hjälp av [Identifiera SQL Server-databaser](backup-azure-sql-database.md#discover-sql-server-databases). Under identifieringsprocessen registreras nya servrar på Recovery Services-valvet.
+På menyn **Återställ konfiguration** visar listrutan **Server** endast de SQL Server-instanser som är registrerade med Recovery Services-valvet. Om den server som du letar efter inte finns i listan kan du hitta servern med hjälp av [Identifiera SQL Server-databaser](backup-azure-sql-database.md#discover-sql-server-databases). Under identifieringsprocessen registreras nya servrar på Recovery Services-valvet.<br>
+För att återställa en SQL-databas behöver du följande behörigheter:
+
+* Behörighet som **säkerhetskopieringsoperatör** för det Recovery Services-**valv** som du utför återställningen i.
+* Åtkomst som **deltagare (skrivning)** till **den virtuella SQL-källdatorn** (den virtuella datorn som säkerhetskopieras och som du försöker återställa från).
+* Åtkomst som **deltagare (skrivning)** till den virtuella SQL-måldatorn (den virtuella dator som du återställer till; vilket i fallet med OLR (Original Location Recovery), är samma virtuella dator som den virtuella källdatorn).
+
+Så här återställer du till en alternativ plats:
 
 1. På menyn **Återställ konfiguration**:
 

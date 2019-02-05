@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 37d61b89dfe6c38124894ed286b67c4724f4efcd
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47068738"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093486"
 ---
 # <a name="branding-guidelines-for-applications"></a>Varumärkesriktlinjer för program
 
@@ -59,9 +59,9 @@ I en tidigare version av de här riktlinjerna rekommenderar vi ett blått piktog
 
 Det kan finnas flera olika sätt att registrera sig och logga in i ditt program. Följande avsnitt visar hur båda scenarierna går till.
 
-**Om slutanvändare kan registrera sig för ditt program (till exempel för en kostnadsfri utvärderingsversion)**: Du kan visa en **logga in**-knapp där användare kan komma åt din app med sitt arbetskonto eller personliga konto. Azure AD visar en samtyckestext första gången de öppnar din app.
+**Om appen har stöd för registrering av slutanvändare (t.ex kostnadsfri utvärdering eller Freemium-modell)**: Du kan visa en **inloggningsknapp** som gör att användarna kan komma åt din app med deras arbetskonto eller personliga konto. Azure AD visar en samtyckestext första gången de öppnar din app.
 
-**Om appen kräver behörigheter som endast administratörer kan godkänna, eller om programmet kräver organisationslicensiering**: Separera administratörshämtning från användarinloggning. Knappen för att **hämta den här appen** omdirigerar administratörer för att logga in och ber dem sedan att ge samtycke åt användare i organisationen. Det här har den ytterligare fördelen att prompter om slutanvändargodkännande undertrycks.
+**Om appen kräver behörigheter som endast administratörer kan godkänna, eller om appen kräver företagslicensiering**: Avgränsa administratörsanskaffningen från användarinloggningen. Knappen för att **hämta den här appen** omdirigerar administratörer för att logga in och ber dem sedan att ge samtycke åt användare i organisationen. Det här har den ytterligare fördelen att prompter om slutanvändargodkännande undertrycks.
 
 ## <a name="visual-guidance-for-app-acquisition"></a>Skaffa app – visuell vägledning
 

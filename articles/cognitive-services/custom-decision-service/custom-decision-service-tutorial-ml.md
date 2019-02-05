@@ -1,27 +1,27 @@
 ---
-title: 'Självstudie: Funktionalisering och funktionsspecifikation – Custom Decision Service'
+title: 'Självstudier: Funktionalisering och funktionsspecifikation – Custom Decision Service'
 titlesuffix: Azure Cognitive Services
 description: Självstudie om funktionalisering och funktionsspecifikation för maskininlärning i Custom Decision Service.
 services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1c701cbe1a71ed48c71a9441c05a7fb4b63e3814
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869606"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226068"
 ---
-# <a name="tutorial-featurization-and-feature-specification"></a>Självstudie: Funktionalisering och funktionsspecifikation
+# <a name="tutorial-featurization-and-feature-specification"></a>Självstudier: Funktionalisering och funktionsspecifikation
 
 I den här självstudien behandlas funktioner för avancerade maskininlärning i Custom Decision Service. Kursen består av två delar: [funktionalisering](#featurization-concepts-and-implementation) och [funktionsspecifikation](#feature-specification-format-and-apis). Funktionalisering innebär att representera dina data som ”funktioner” för maskininlärning. Funktionsspecifikation omfattar JSON-format och extra API:er för att ange funktioner.
 
-Som standard är maskininlärning i Custom Decision Service transparent för kunden. Funktioner extraheras automatiskt från innehållet och en standardalgoritm för förstärkt inlärning används. Extraheringen av funktioner använder flera andra Azure Cognitive Services: [Entitetslänkning](../entitylinking/home.md), [Textanalys](../text-analytics/overview.md), [Känsloigenkänning](../emotion/home.md) och [Visuellt innehåll](../computer-vision/home.md). Du kan hoppa över den här kursen om du bara använder standardfunktionerna.
+Som standard är maskininlärning i Custom Decision Service transparent för kunden. Funktioner extraheras automatiskt från innehållet och en standardalgoritm för förstärkt inlärning används. Funktionsextrahering utnyttjar flera andra Azure Cognitive Services: [Entitetslänkning](../entitylinking/home.md), [Textanalys](../text-analytics/overview.md), [Känsloigenkänning](../emotion/home.md) och [Visuellt innehåll](../computer-vision/home.md). Du kan hoppa över den här kursen om du bara använder standardfunktionerna.
 
 ## <a name="featurization-concepts-and-implementation"></a>Funktionalisering: begrepp och implementering
 

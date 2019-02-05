@@ -1,23 +1,23 @@
 ---
-title: 'Självstudier: Skapa ensideswebbapp – API för webbsökning i Bing'
+title: 'Självstudier: Skapa en enkelsidig webbapp – API för webbsökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Den här ensidesappen visar hur API för webbsökning i Bing kan användas för att hämta, analysera och visa relevanta sökresultat i en ensidesapp.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: aahi
-ms.openlocfilehash: b94e6f70d4a28dc59ddaa62cfad55c6c8383b761
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 13040cf7f75b8bf2c0bf898dc4f3b16c99a80560
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161930"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172485"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för webbsökning i Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en enkelsidig app med hjälp av API:et för webbsökning i Bing
 
 Den här ensidesappen visar hur du hämtar, analyserar och visar sökresultat från API för webbsökning i Bing. Självstudien använder formaterad HTML och CSS och fokuserar på JavaScript-koden. HTML-, CSS- och JS-filer finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) med snabbstartsinstruktioner.
 
@@ -290,7 +290,7 @@ En stor del av koden i de båda föregående funktionerna är dedikerade för fe
 | Fas | Potentiella fel | Hanterat av |
 |-------|--------------------|------------|
 | Skapa objektbegäran | Ogiltig URL | `try` / `catch` blockera |
-| Skapa begäran | Nätverksfel, avbrutna anslutningar | `error` och `abort` händelsehanterare |
+| Skapa begäran | Nätverksfel, avbrutna anslutningar | Händelsehanterare för `error` och `abort` |
 | Genomföra sökningen | Ogiltig begäran, ogiltig JSON, hastighetsbegränsningar | tests i `load` händelsehanterare |
 
 Fel hanteras genom att anropa `renderErrorMessage()`. Om svaret klarar samtliga av dessa feltest, anropas `renderSearchResults()` för att visa sökresultaten.

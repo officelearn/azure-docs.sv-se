@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Enkelsidig webbapp med Entitetssökning i Bing'
+title: 'Självstudier: Enkelsidig webbapp med Entitetssökning i Bing'
 titlesuffix: Azure Cognitive Services
 description: Visar hur du använder API för entitetsökning i Bing i ett enkelsidigt webbprogram.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: aahi
-ms.openlocfilehash: 6bf3944017075ee04fe6ed3472a0cbe12d7f8ba0
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f8aa6733748bbdf9ffff069126f6481c8b6788c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162015"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197440"
 ---
-# <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
+# <a name="tutorial-single-page-web-app"></a>Självstudier: Enkelsidig webbapp
 
 Med API:et för entitetsökning i Bing kan du söka efter information på webben om *entiteter* och *platser*. Du kan begära endera typ av resultat eller båda i en given fråga. Definitionerna av platser och entiteter visas nedan.
 
@@ -63,7 +63,7 @@ Som andra enkelsidiga webbappar innehåller det här självstudieprogrammet tre 
 > [!div class="checklist"]
 > * HTML – definierar struktur och innehåll på sidan
 > * CSS – definierar utseendet på sidan
-> * JavaScript – definierar beteendet för sidan
+> * JavaScript – definierar beteendet för sidan.
 
 Den här kursen täcker inte det mesta av HTML eller CSS i detalj eftersom de är förhållandevis enkla.
 
@@ -383,8 +383,8 @@ En stor del av koden i de båda föregående funktionerna är dedikerade för fe
 |Fas|Potentiella fel|Hanterat av|
 |-|-|-|
 |Skapa objekt för JavaScript-begäran|Ogiltig URL|`try`/`catch` blockera|
-|Skapa begäran|Nätverksfel, avbrutna anslutningar|`error` och `abort` händelsehanterare|
-|Genomföra sökningen|Ogiltig begäran, ogiltig JSON, hastighetsbegränsningar|tests i `load` händelsehanterare|
+|Skapa begäran|Nätverksfel, avbrutna anslutningar|Händelsehanterare för `error` och `abort`|
+|Genomföra sökningen|Ogiltig begäran, ogiltig JSON, hastighetsbegränsningar|tester i händelsehanterare för `load`|
 
 Fel hanteras genom att anropa `renderErrorMessage()` med all känd information om felet. Om svaret klarar alla feltester anropar vi `renderSearchResults()` för att visa sökresultatet på sidan.
 
@@ -518,7 +518,7 @@ Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud 
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket innebär två viktiga fördelar.
 
-Först hjälper Bing-sökmotorn till med att tillämpa den senaste kontext på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”hamnar” returnera information om platser där segelbåtar kan förtöjas.
+Först hjälper Bing-sökmotorn till med att tillämpa tidigare kontexter på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”hamnar” returnera information om platser där segelbåtar kan förtöjas.
 
 Därefter väljer Bing slumpmässigt ut användare som ska prova nya funktioner innan de blir allmänt tillgängliga. Genom att tillhandahålla samma klient-ID med varje begäran säkerställs att användare som har valts för att se en funktion alltid ser den. Utan klient-ID kan användaren se en funktion som sedan försvinner, till synes slumpmässigt, i sökresultatet.
 
@@ -529,7 +529,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 
 I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
 
-Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando ett kommandofönster:
+Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 
     npm install -g cors-proxy-server
 

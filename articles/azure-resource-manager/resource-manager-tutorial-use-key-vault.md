@@ -10,27 +10,27 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b8e7f429cbe9ff8e71432ac8038c8ad15114711
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093207"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080914"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager
 
-Lär dig hur du hämtar hemliga värden från Azure Key Vault och skickar de hemliga värdena som parametrar under Resource Manager-distributionen. Värdet exponeras aldrig eftersom du bara refererar till dess nyckelvalvs-ID. Mer information finns i [Använd Azure Key Vault för att skicka säkra parametervärden under distributionen](./resource-manager-keyvault-parameter.md)
+Lär dig hur du hämtar hemligheter från Azure Key Vault och skickar hemligheterna som parametrar under Resource Manager-distributionen. Värdet exponeras aldrig eftersom du bara refererar till dess nyckelvalvs-ID. Mer information finns i [Använd Azure Key Vault för att skicka säkra parametervärden under distributionen](./resource-manager-keyvault-parameter.md)
 
-I självstudien [Ange resursdistributionsordning](./resource-manager-tutorial-create-templates-with-dependent-resources.md) skapar du en virtuell dator, ett virtuellt nätverk och några andra beroende resurser. I den här självstudien anpassar du mallen för att hämta den virtuella datorns administratörslösenord från Azure Key Vault.
+I självstudien [Ange resursdistributionsordning](./resource-manager-tutorial-create-templates-with-dependent-resources.md) skapar du en virtuell dator, ett virtuellt nätverk och några andra beroende resurser. I den här självstudien anpassar du mallen för att hämta den virtuella datorns administratörslösenord från ett nyckelvalv.
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Förbered nyckelvalvet
+> * Förbereda ett nyckelvalv
 > * Öppna en snabbstartsmall
 > * Redigera parameterfilen
 > * Distribuera mallen
@@ -49,18 +49,18 @@ För att kunna följa stegen i den här artikeln behöver du:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Kontrollera att det genererade lösenordet uppfyller den virtuella datorns krav för lösenord. Varje Azure-tjänst har specifika lösenordskrav. Lösenordskraven för den virtuella datorn finns i [Vilka är lösenordskraven när du skapar en virtuell dator?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-## <a name="prepare-the-key-vault"></a>Förbered nyckelvalvet
+## <a name="prepare-a-key-vault"></a>Förbereda ett nyckelvalv
 
 I det här avsnittet använder du en Resource Manager-mall för att skapa ett nyckelvalv och en hemlighet. Mallen gör följande:
 
 * Skapa ett nyckelvalv med egenskapen `enabledForTemplateDeployment` aktiverad. Den här egenskapen måste vara sann innan malldistributionsprocessen kan komma åt hemligheterna som definierats i det här nyckelvalvet.
-* Lägger till en hemlighet i nyckelvalvet.  Hemligheten lagrar administratörslösenord för den virtuella datorn.
+* Lägg till en hemlighet i nyckelvalvet.  Hemligheten lagrar administratörslösenord för den virtuella datorn.
 
 Om du (som användaren som distribuerar mallen för den virtuella datorn) inte är ägare av eller medarbetare i nyckelvalvet, måste ägaren eller medarbetaren för nyckelvalvet ge dig åtkomst till Microsoft.KeyVault/vaults/deploy/action för nyckelvalvet. Mer information finns i [Använd Azure Key Vault för att skicka säkra parametervärden under distributionen](./resource-manager-keyvault-parameter.md)
 
-Mallen behöver ditt användarobjekts-ID för Azure AD för att konfigurera behörigheter. Följande procedur hämtar objekt-ID:t (GUID) och genererar även administratörslösenordet. Om du vill förhindra spray-attacker med lösenord rekommenderar vi att du använder genererade lösenord.
+Mallen behöver ditt användarobjekts-ID för Azure AD för att konfigurera behörigheter. Följande procedur hämtar objekt-ID:t (GUID).
 
 1. Kör följande kommando för Azure PowerShell eller Azure CLI.  
 
@@ -68,15 +68,12 @@ Mallen behöver ditt användarobjekts-ID för Azure AD för att konfigurera beh�
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    openssl rand -base64 32
     ```
     ```azurepowershell-interactive
     $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
-    (Get-AzureADUser -ObjectId $upn).ObjectId
-    openssl rand -base64 32
+    (Get-AzADUser -UserPrincipalName $upn).Id
     ```
-2. Anteckna både objekt-ID:t och det genererade lösenordet. Du behöver dem senare.
-3. Kontrollera att det genererade lösenordet uppfyller den virtuella datorns krav för lösenord. Varje Azure-tjänst har specifika lösenordskrav. Lösenordskraven för den virtuella datorn finns i [Vilka är lösenordskraven när du skapar en virtuell dator?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+2. Anteckna objekt-ID:t. Du behöver det senare i självstudien.
 
 Så här skapar du ett nyckelvalv:
 
@@ -98,25 +95,26 @@ Så här skapar du ett nyckelvalv:
     * **Hemligt värde**: Ange din hemlighet.  Hemligheten är det lösenord som används för att logga in på den virtuella datorn. Vi rekommenderar att du använder det genererade lösenordet som du skapade i föregående procedur.
     * **Jag godkänner villkoren ovan**: Välj.
 3. Välj **Redigera parametrar** högst upp för att ta en titt på mallen.
-4. Bläddra till rad 28 i JSON-mallfilen. Det här är resursdefinitionen för Key Vault.
+4. Bläddra till rad 28 i JSON-mallfilen. Det här är resursdefinitionen för nyckelvalvet.
 5. Bläddra till rad 35:
 
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` är en Key Vault-egenskap. Den här egenskapen måste vara sann innan du kan hämta hemligheterna från detta nyckelvalv under distributionen.
+    `enabledForTemplateDeployment` är en Key Vault-egenskap. Den här egenskapen måste vara sann innan du kan hämta hemligheterna från det här nyckelvalvet under distributionen.
 6. Bläddra till rad 89. Det här är hemlighetsdefinitionen för Key Vault.
 7. Välj **Ignorera** längst ned på sidan. Du inte har gjort några ändringar.
 8. Kontrollera att du har angett alla värden som visas i föregående skärmbild och klicka sedan på **Köp** längst ned på sidan.
 9. Välj klockikonen (meddelande) högst upp på sidan för att öppna fönstret **Meddelanden**. Vänta tills resursen har distribuerats.
 10. Välj **Gå till resursgrupp** i fönstret **Meddelanden**. 
-11. Välj nyckelvalvsnamnet för att öppna det.
-12. Välj **Åtkomstprinciper** i det vänstra fönstret. Ditt namn (Active Directory) ska finnas i listan, annars har du inte behörighet att öppna nyckelvalvet.
-13. Välj **Click to show advanced access policies** (Klicka för att visa avancerade åtkomstprinciper). Kontrollera att **Enable access to Azure Resource Manager for template deployment** (Aktivera åtkomst till Azure Resource Manager för malldistribution) har valts. Det här är ett annat villkor för att Key Vault-integreringen ska fungera.
+11. Välj nyckelvalvets namn för att öppna det.
+12. Välj **Hemligheter** i den vänstra rutan. **vmAdminPassword** bör visas där.
+13. Välj **Åtkomstprinciper** i det vänstra fönstret. Ditt namn (Active Directory) ska finnas i listan, annars har du inte behörighet att öppna nyckelvalvet.
+14. Välj **Click to show advanced access policies** (Klicka för att visa avancerade åtkomstprinciper). Kontrollera att **Enable access to Azure Resource Manager for template deployment** (Aktivera åtkomst till Azure Resource Manager för malldistribution) har valts. Den här inställningen är ett annat villkor för att Key Vault-integreringen ska fungera.
 
     ![Åtkomstprinciper för Resource Manager-mall för Key Vault-integrering](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
-14. Välj **Egenskaper** i det vänstra fönstret.
-15. Skapa en kopia av **Resurs-ID**. Du behöver detta ID när du distribuerar den virtuella datorn.  Resurs-ID-formatet är:
+15. Välj **Egenskaper** i det vänstra fönstret.
+16. Skapa en kopia av **Resurs-ID**. Du behöver detta ID när du distribuerar den virtuella datorn.  Resurs-ID-formatet är:
 
     ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -166,7 +164,7 @@ Du behöver inte göra några ändringar i mallfilen.
         }
     },
     ```
-    Ersätt **ID:t** med resurs-ID:t för nyckelvalvet du skapade i föregående procedur.  
+    Ersätt **ID:t** med resurs-ID:t för nyckelvalvet som du skapade i föregående procedur.  
 
     ![integrera key vault och parameterfilen för Resource Manager-malldistribution av virtuell dator](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 3. Ge värden till:
@@ -180,17 +178,22 @@ Du behöver inte göra några ändringar i mallfilen.
 Följ instruktionerna i [Distribuera mallen](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) för att distribuera mallen. Du behöver ladda upp både **azuredeploy.json** och **azuredeploy.parameters.json** till Cloudshell och sedan använda följande PowerShell-skript för att distribuera mallen:
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name of the Key Vault"
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile azuredeploy.json `
+    -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-När du distribuerar mallen använder du samma resursgrupp som Key Vault. Det gör enklare när du rensar bland resurserna. Du behöver bara att ta bort en resursgrupp istället för två.
+När du distribuerar mallen använder du samma resursgrupp som nyckelvalvet. Det gör enklare när du rensar bland resurserna. Du behöver bara att ta bort en resursgrupp istället för två.
 
 ## <a name="valid-the-deployment"></a>Validera distributionen
 
-När du har distribuerat den virtuella datorn kan du testa inloggningen med lösenordet som lagrats i Key Vault.
+När du har distribuerat den virtuella datorn kan du testa inloggningen med lösenordet som lagrats i nyckelvalvet.
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
 2. Välj **Resource grouips**/**YourResourceGroupName>**/**simpleWinVM**

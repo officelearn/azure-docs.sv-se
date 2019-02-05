@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa din första Azure SQL-databas med SSMS | Microsoft Docs'
+title: 'Självstudier: Skapa din första enkla databas i Azure SQL Database med hjälp av SSMS | Microsoft Docs'
 description: Läs hur du skapar din första Azure SQL-databas med SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,13 +9,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956065"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459544"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Självstudie: Skapa din första Azure SQL-databas med SSMS
 
@@ -47,7 +47,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database"></a>Skapa en tom databas
 
-Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagringsresurser](sql-database-service-tiers-dtu.md). Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL Database-server](sql-database-features.md).
+Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagringsresurser](sql-database-service-tiers-dtu.md). Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och på en [Azure SQL Database-server](sql-database-features.md).
 
 Följ de här stegen om du vill skapa en tom SQL-databas.
 
@@ -96,7 +96,7 @@ Följ de här stegen om du vill skapa en tom SQL-databas.
 
 ## <a name="create-a-firewall-rule"></a>Skapa en brandväggsregel
 
-SQL Database-tjänsten skapar en brandvägg på servernivå. Brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill aktivera extern anslutning till din databas måste du först lägga till en regel för din IP-adress i brandväggen. Följ de här stegen för att skapa en [brandväggsregel på servernivå i SQL Database](sql-database-firewall-configure.md).
+SQL Database-tjänsten skapar en brandvägg på servernivå. Brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill aktivera extern anslutning till din databas måste du först lägga till en regel för din IP-adress i brandväggen. Följ de här stegen för att skapa en [brandväggsregel på SQL Database-servernivå](sql-database-firewall-configure.md).
 
 > [!NOTE]
 > SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din administratör öppnar port 1433.
@@ -113,11 +113,11 @@ SQL Database-tjänsten skapar en brandvägg på servernivå. Brandväggen förhi
 
    1. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
-   1. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
+   1. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på SQL Database-servern skapas för din aktuella IP-adress.
 
    1. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
-Din IP-adress kan nu passera genom brandväggen. Nu kan du ansluta till SQL-databasservern och dess databaser med SQL Server Management Studio eller något annat verktyg. Se till att använda serveradmin-kontot som du skapade tidigare.
+Din IP-adress kan nu passera genom brandväggen. Nu kan du ansluta till SQL-databasservern och dess databaser med hjälp av SQL Server Management Studio eller något annat verktyg. Se till att använda serveradmin-kontot som du skapade tidigare.
 
 > [!IMPORTANT]
 > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.

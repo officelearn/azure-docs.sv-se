@@ -1,6 +1,6 @@
 ---
-title: Ladda upp, koda och strömma med Azure Media Services | Microsoft Docs
-description: Följ stegen i den här självstudien för att ladda upp en fil, koda videon och strömma ditt innehåll med Azure Media Services.
+title: Ladda upp, koda och strömma med Azure Media Services v3 med .NET | Microsoft Docs
+description: Följ stegen i den här självstudien för att ladda upp en fil, koda videon och strömma ditt innehåll med Media Services v3 med .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: a8d2cf577a6b637e910c283ba8c70d9ea4eedfbb
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c3671df61eea5c826227706106cbb48dc70ad55f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334133"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157763"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Självstudie: Ladda upp, koda och strömma videor med API:er
+# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Självstudier: Ladda upp, koda och strömma videor med .NET
 
 Med Azure Media Services kan du koda dina mediefiler till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Innan du strömmar, bör du koda dina högkvalitativa digitala mediafiler. Vägledning om kodning finns i [Kodningskoncept](encoding-concept.md). Den här självstudiekursen laddar upp en lokal videofil och kodar den överförda filen. Du kan också koda innehåll som du gör tillgänglita via en HTTPS-URL. Mer information finns i [Skapa jobbindata från en HTTP(s)-URL](job-input-from-http-how-to.md).
 
@@ -28,8 +28,7 @@ Med Azure Media Services kan du koda dina mediefiler till format som kan spelas 
 I den här självstudiekursen lär du dig att:    
 
 > [!div class="checklist"]
-> * Åtkomst till Media Services API
-> * Konfigurera exempelappen
+> * Ladda ned exempelappen som beskrivs i avsnittet
 > * Granska koden som överför, kodar och strömmar
 > * Kör appen
 > * Testa strömnings-URL:en
@@ -40,15 +39,10 @@ I den här självstudiekursen lär du dig att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
+- Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.
 
-    För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
-
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
-
-    Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot
-
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-and-configure-the-sample"></a>Ladda ned och konfigurera exemplet
 
 Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till din dator med följande kommando:  
 
@@ -58,7 +52,7 @@ Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till
 
 Du hittar exemplet i mappen [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Öppna [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) i det nedladdade projektet. Ersätt värdena med autentiseringsuppgifterna som du fick från avsnittet om [åtkomst till API: er](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>Granska koden som överför, kodar och strömmar
 
@@ -66,12 +60,12 @@ Det här avsnittet går igenom funktionerna som definierats i filen [Program.cs]
 
 Exemplet utför följande åtgärder:
 
-1. Skapar en ny transformering (först kontrolleras om den angivna transformeringen finns). 
-2. Skapa en utdatatillgång som används som kodningsjobbets utdata.
-3. Skapa en indatatillgång och laddar upp den angivna lokala videofilen till den. TIllgången används som jobbets indata. 
+1. Skapar en ny **transformering** (först kontrolleras om den angivna transformeringen finns). 
+2. Skapa en **utdatatillgång** som används som **kodningsjobbets** utdata.
+3. Skapa en **indatatillgång** och ladda upp den angivna lokala videofilen till den. TIllgången används som jobbets indata. 
 4. Skickar kodningsjobbet med de indata och utdata som skapades.
 5. Kontrollerar jobbets status.
-6. Skapar en StreamingLocator.
+6. Skapa en **positionerare för direktuppspelning**.
 7. Skapar strömnings-URL:er.
 
 ### <a name="a-idstartusingdotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Börja använda Media Services-API:er med .NET SDK
@@ -82,13 +76,13 @@ Om du vill börja använda API:er för Media Services med .NET, måste du skapa 
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Skapa en indatatillgång och ladda upp en lokal fil till den 
 
-Funktionen **CreateInputAsset** skapar en ny [indatatillgång](https://docs.microsoft.com/rest/api/media/assets) och laddar upp den angivna lokala videofilen till den. Tillgången används som indata för kodningsjobbet. I Media Services v3 kan indata till ett jobb antingen vara en tillgång eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. Om du vill lära dig hur du kodar från en HTTPS-webbadress kan du läsa [denna](job-input-from-http-how-to.md) artikel.  
+Funktionen **CreateInputAsset** skapar en ny [indatatillgång](https://docs.microsoft.com/rest/api/media/assets) och laddar upp den angivna lokala videofilen till den. **Tillgången** används som indata för kodningsjobbet. I Media Services v3 kan indata till ett **jobb** antingen vara en **tillgång** eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. Om du vill lära dig hur du kodar från en HTTPS-webbadress kan du läsa [denna](job-input-from-http-how-to.md) artikel.  
 
 I Media Services v3 använder du Azure Storage-API:er till att ladda upp filer. I följande .NET-kodfragment visas hur du gör detta.
 
 Den här funktionen utför följande åtgärder:
 
-* Skapar en tillgång 
+* Skapar en **tillgång** 
 * Hämtar en skrivbar [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) till tillgångens [container i lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
 * Laddar upp filen till containern i lagringen med hjälp av SAS-URL:en
 
@@ -101,7 +95,8 @@ Den här funktionen utför följande åtgärder:
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Skapa en transformering och ett jobb som kodar den uppladdade filen
-När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video, tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
+
+När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
 
 #### <a name="transform"></a>Transformering
 
@@ -127,33 +122,33 @@ Jobbet tar en stund att slutföra och du meddelas när detta sker. Kodexemplet n
 
 Event Grid är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
 
-**Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
+**Jobbet** går vanligtvis igenom följande tillstånd: **Schemalagd**, **I kö**, **Bearbetar**, **Slutfört** (sluttillstånd). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
-### <a name="get-a-streaminglocator"></a>Hämta en StreamingLocator
+### <a name="get-a-streaming-locator"></a>Hämta en positionerare för direktuppspelning
 
-När kodningen är klar är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning av klienterna. Du kan göra detta i två steg: Först skapar du en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
+När kodningen är klar är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning av klienterna. Du kan göra detta i två steg: Först skapar du en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
 
-Processen att skapa en **StreamingLocator** kallas för publicering. Som standard kan din **StreamingLocator** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
+Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
 
 När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) måste du ange önskat **StreamingPolicyName**. I det här exemplet strömmar du rensat (eller icke-krypterat innehåll), så den fördefinierade rensningsströmningsprincipen **PredefinedStreamingPolicy.ClearStreamingOnly** används.
 
 > [!IMPORTANT]
-> Om du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. Media Service-kontot har en kvot för antalet StreamingPolicy-poster. Du bör inte skapa en ny StreamingPolicy för varje StreamingLocator.
+> Om du använder en anpassad [strömningsprincip](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. Media Service-kontot har en kvot för antalet strömningsprincipposter. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.
 
 Följande kod förutsätter att du anropar funktionen med ett unikt locatorName.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
-Även om exemplet i det här avsnittet beskriver strömning, kan du använda samma anrop för att skapa en StreamingLocator som levererar video via progressiv nedladdning.
+Även om exemplet i det här avsnittet beskriver strömning, kan du använda samma anrop för att skapa en positionerare för direktuppspelning som levererar video via progressiv nedladdning.
 
 ### <a name="get-streaming-urls"></a>Hämta strömnings-URL:er
 
-Nu när [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelnings-URL:erna, som du ser i **GetStreamingURLs**. Om du vill skapa en URL måste du sammanfoga värdnamnet [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) och sökvägen **StreamingLocator**. I det här exemplet används *standardvärdet* **StreamingEndpoint**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde* för **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
+Nu när [positioneraren för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelnings-URL:erna, som du ser i **GetStreamingURLs**. För att skapa en webbadress måste du sammanfoga [strömningsslutpunktens](https://docs.microsoft.com/rest/api/media/streamingendpoints) värdnamn och sökvägen för **positioneraren för direktuppspelning**. I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde* för **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
 
 > [!NOTE]
-> I den här metoden behöver du det locatorName som användes när du skapade **StreamingLocator** för utdatatillgången.
+> I den här metoden behöver du det locatorName som användes när du skapade **positioneraren för direktuppspelning** för utdatatillgången.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
 

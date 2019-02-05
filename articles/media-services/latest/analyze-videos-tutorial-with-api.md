@@ -1,5 +1,5 @@
 ---
-title: Analysera videor med Media Services – Azure | Microsoft Docs
+title: Analysera videor med Media Services med .NET – Azure | Microsoft Docs
 description: Följ stegen i den här självstudien för att analysera videor med Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,26 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 12/08/2018
+ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133901"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150401"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Självstudie: Analysera videor med Media Services v3 med API:er
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Självstudier: Analysera videor med Media Services v3 med .NET
 
 Den här självstudien visar hur du analyserar videor med Azure Media Services. Det finns många scenarier där du kanske vill veta mer om inspelat video- eller ljudinnehåll. Organisationer kan till exempel för att uppnå högre kundnöjdhet köra tal-till-text-bearbetning och konvertera inspelningar från kundtjänst till en sökbar katalog med index och instrumentpaneler. Det blir då lättare att få fler insikter om verksamheten, till exempel en lista med vanliga klagomål, källor till sådana klagomål och annan användbar information.
 
 I den här självstudiekursen lär du dig att:    
 
 > [!div class="checklist"]
-> * Skapa ett Media Services-konto
-> * Åtkomst till Media Services API
-> * Konfigurera exempelappen
+> * Ladda ned exempelappen som beskrivs i avsnittet
 > * Granska koden som analyserar den angivna videon
 > * Kör appen
 > * Granska utdatan
@@ -39,15 +37,10 @@ I den här självstudiekursen lär du dig att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
+- Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.
 
-    För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
-
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
-
-    Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
-
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-and-configure-the-sample"></a>Ladda ned och konfigurera exemplet
 
 Klona en GitHub-lagringsplats som innehåller .NET-exemplet till din dator med följande kommando:  
 
@@ -57,7 +50,7 @@ Klona en GitHub-lagringsplats som innehåller .NET-exemplet till din dator med f
 
 Du hittar exemplet i mappen [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Öppna [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) i det nedladdade projektet. Ersätt värdena med autentiseringsuppgifterna som du fick från avsnittet om [åtkomst till API:er](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Granska koden som analyserar den angivna videon
 
@@ -65,8 +58,8 @@ Det här avsnittet går igenom funktionerna som definierades i filen [Program.cs
 
 Exemplet utför följande åtgärder:
 
-1. Skapa en transformering och ett jobb som analyserar dina videor.
-2. Skapar en inkommande tillgång och överför videon till den. TIllgången används som jobbets indata.
+1. Skapa en **transformering** och ett **jobb** som analyserar dina videor.
+2. Skapar en inkommande **tillgång** och överför videon till den. TIllgången används som jobbets indata.
 3. Skapar en utdatatillgång som lagrar jobbets utdata. 
 4. Skickar jobbet.
 5. Kontrollerar jobbets status.

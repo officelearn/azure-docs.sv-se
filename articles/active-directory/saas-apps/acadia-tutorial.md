@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a43db3eba5bec9bef0aacc51d246414d54d222bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813452"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Självstudier: Azure Active Directory-integrering med Acadia
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med Acadia behöver du följande:
+Du behöver följande saker för att konfigurera Azure AD-integrering med Acadia:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Acadia-prenumeration med enkel inloggning aktiverat
@@ -71,10 +71,10 @@ För att konfigurera integreringen av Acadia med Azure AD måste du lägga till 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning Azure AD med [programnamn] baserat på en testanvändare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i [Programnamn] upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Acadia baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Acadia upprättas.
 
-För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] behöver du utföra följande byggstenar:
+Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för Acadia:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Acadia](#configure-acadia-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
@@ -87,7 +87,7 @@ För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] b
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra följande steg:
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Acadia:
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Acadia**-programintegrering och väljer **Enkel inloggning**.
 
@@ -103,7 +103,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    ![Information om enkel inloggning med Acadia-domäner och -URL:er](common/idp-intiated.png)
+    ![Acadia-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 
@@ -111,14 +111,14 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning med Acadia-domäner och -URL:er](common/metadata-upload-additional-signon.png)
+    ![Acadia-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [kundsupporten för Acadia Client](https://www.systemsalliance.com/contact-us/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdena för steg 4 och 5 kommer att anges i en metadatafil av Acadia-teamet. Den kan importeras genom att du klickar på **Ladda upp metadatafil** i avsnittet **Grundläggande SAML-konfiguration**. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen för att bekräfta att metadatavärdena är korrekta. Kontakta [kundsupporten för Acadia](mailto:support@systemsalliance.com) om de angivna värdena är felaktiga.
 
-6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -134,7 +134,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 ### <a name="configure-acadia-single-sign-on"></a>Konfigurera enkel inloggning för Acadia
 
-För att konfigurera enkel inloggning på **Acadia**-sidan behöver du skicka nedladdade **XML-metadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Acadia](https://www.systemsalliance.com/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Acadia**-sidan behöver du skicka nedladdad **metadata-XML**, **URL för appens federationsmetadata** samt lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Acadia](mailto:support@systemsalliance.com). De konfigurerar den här inställningen att ha SAML SSO-anslutningen korrekt inställd på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -171,7 +171,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 2. I programlistan väljer du **Acadia**.
 
-    ![Acadia-länk i programlistan](common/all-applications.png)
+    ![Länken för Acadia i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 

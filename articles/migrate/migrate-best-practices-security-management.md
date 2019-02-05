@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: f9f4d544a407a75231302b0eb53c27904585250f
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510688"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700085"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Metodtips för att skydda och hantera arbetsbelastningar migreras till Azure
 
@@ -516,7 +516,7 @@ Du kan använda redundansgrupper och aktiv geo-replikering för att ge elasticit
 - [Läs](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) Azure SQL-databaser 101 för katastrofåterställning.
 - [Få en översikt](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) i grupperna active geo-replikering och redundans.
 - [Lär dig mer om](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) utformning för katastrofåterställning.
-- [Få metodtips](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) för redundansgrupper.
+- [Få metodtips](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) för redundansgrupper.
 - [Få metodtips](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) för säkerhet när geo-återställning eller redundans.
 - [Lär dig mer om](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) zon redundans
 - [Lär dig hur du](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) utföra ett programåterställningstest för SQL-databas.

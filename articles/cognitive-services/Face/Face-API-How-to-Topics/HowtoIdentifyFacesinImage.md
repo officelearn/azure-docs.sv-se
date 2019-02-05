@@ -6,18 +6,18 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a26f7d6057f92fd3ab92405ecca6965dbd6e37ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c61852763353189321b8f98711928e0e8b3a389d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129079"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208099"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>Exempel: Identifiera ansikten i en bild
+# <a name="example-how-to-identify-faces-in-images"></a>Exempel: Så här identifierar du ansikten i bilder
 
 Den här guiden visar hur du identifiera okända ansikten med PersonGroups, som skapas från kända personer i förväg. Exemplen är skrivna i C#- med Ansikts-API-klientbiblioteket.
 
@@ -41,7 +41,7 @@ Om du vill demonstrera det här exemplet måste du förbereda ett antal bilder:
 - Några foton med personens ansikte. [Klicka här för att ladda ned exempelfoton](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) för Anna, Bill och Clare.
 - Som eventuellt får innehåller Anna, Bill eller Clares ansikten används för att testa identifieringen. Du kan också välja några bildexempel från länken ovan.
 
-## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anrop
+## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anropet
 
 Varje anrop till ett ansikts-API för visuellt innehåll kräver en prenumerationsnyckel. Nyckeln kan antingen skickas via en frågesträngparameter eller anges i begärans sidhuvud. Om du vill skicka prenumerationsnyckeln via frågesträngen ska du använda URL:en för [Ansiktsigenkänning– identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) som exempel:
 ```
@@ -49,17 +49,17 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-Alternativt kan prenumerationsnyckeln också anges i HTTP-frågehuvudet: **ocp-apim-subscription-key: &lt;Prenumerationsnyckel&gt;**  När du använder ett klientbibliotek skickas prenumerationsnyckeln via konstruktor i klassen FaceServiceClient. Exempel:
+Prenumerationsnyckeln kan även anges i HTTP-frågehuvudet: **ocp-apim-subscription-key: &lt;Prenumerationsnyckel&gt;** När du använder klientbiblioteket skickas prenumerationsnyckeln i konstruktorn för klassen FaceServiceClient. Exempel:
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
  
-Prenumerationsnyckeln kan hämtas från Marketplace-sidan på Azure-portalen. See [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/).
+Prenumerationsnyckeln kan hämtas från Marketplace-sidan på Azure-portalen. Se [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/).
 
 ## <a name="step-2-create-the-persongroup"></a>Steg 2: Skapa PersonGroup
 
-I det här steget ska vi skapat en PersonGroup med namnet ”MyFriends” som innehåller tre personer: Anna, Bill och Clare. Varje person har flera registrerade ansikten. Ansiktena måste identifieras från bilderna. När alla av de här stegen har du en PersonGroup som på följande bild:
+I det här steget skapade vi en PersonGroup med namnet ”MyFriends” som innehåller tre personer: Anna, Bill och Clare. Varje person har flera registrerade ansikten. Ansiktena måste identifieras från bilderna. När alla av de här stegen har du en PersonGroup som på följande bild:
 
 ![Identifiering1](../Images/group.image.1.jpg)
 
@@ -170,7 +170,7 @@ När du är klar med stegen kan du försöka att identifiera olika ansikten och 
 
 ![Identifiera2](../Images/identificationResult.1.jpg )
 
-## <a name="step-5-request-for-large-scale"></a>Steg 5: Begäran för storskaliga
+## <a name="step-5-request-for-large-scale"></a>Steg 5: Begäran om stor skala
 
 En PersonGroup kan som sagt innehålla upp till 10 000 personer på grund av begränsningen hos den föregående designen.
 Mer information om scenarier med upp till miljontals personer finns i [Så här använder du den storskaliga funktionen](how-to-use-large-scale.md).

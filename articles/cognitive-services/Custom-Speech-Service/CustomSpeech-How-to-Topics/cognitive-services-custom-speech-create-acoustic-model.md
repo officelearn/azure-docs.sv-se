@@ -5,18 +5,18 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344582"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216429"
 ---
-# <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudie: Skapa en anpassad akustisk modell
+# <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudier: Skapa en anpassad akustisk modell
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
@@ -48,7 +48,7 @@ Exempel:
 <a name="Preparing data to customize the acoustic model"></a>
 *   Om du är intresserad av att optimera prestanda för en enda talare, till exempel om vill transkribera alla Franklin Roosevelts Fireside Chats-tal, bör ljudfilerna bestå av många exempel på endast den talaren.
 
-En akustisk datamängd för att anpassa den akustiska modellen består av två delar: (1) en uppsättning ljudfiler som innehåller taldata och (2) en fil som innehåller transkriptioner av alla ljudfiler.
+En akustisk datauppsättning för att anpassa den akustiska modellen består av två delar: (1) en uppsättning ljudfiler som innehåller taldata och (2) en fil som innehåller transkriptioner av alla ljudfiler.
 
 ### <a name="audio-data-recommendations"></a>Rekommendationer för ljuddata
 

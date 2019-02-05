@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Hämta resultat från stavningskontrollen med hjälp av API:et för stavningskontroll i Bing'
+title: 'Självstudier: Hämta resultat från stavningskontrollen med hjälp av API:et för stavningskontroll i Bing'
 titlesuffix: Azure Cognitive Services
 description: Källkod för självstudie som visar hur du använder API:et för stavningskontroll i Bing i en enkelsidig webbapp.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 0180c6f2924f921e358ea152c887c5c2e16c34dc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8c3e520179d93632c1b69d2109d83197f76c549a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165585"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186526"
 ---
-# <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
+# <a name="tutorial-single-page-web-app"></a>Självstudier: Enkelsidig webbapp
 
 Det här är den fullständiga källkod som beskrivs i [självstudien om en enkelsidig webbapp](spellcheck.md) för API:et för stavningskontroll i Bing. Kör appen genom att kopiera källkoden till en textredigerare och spara filen som `spellcheck.html`. Öppna sedan den sparade filen i webbläsaren.
 

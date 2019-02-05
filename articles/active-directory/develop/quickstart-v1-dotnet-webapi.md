@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 239c0d0adbe89dd3d1d7bc7244a52ab079a36ad4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f44955e13cb5774119dc083f4a3220b432d9cd9e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952553"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098072"
 ---
-# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Snabbstart: Skapa ett .NET-webb-API som integreras med Azure AD för autentisering och auktorisering
+# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Snabbstart: Skapa ett .NET-baserat webb-API som integreras med Azure AD för autentisering och auktorisering
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -37,7 +37,7 @@ I ASP.NET-webbappar kan du åstadkomma detta skydd med hjälp av Microsoft-imple
 
 I den här snabbstarten skapar du en ett API för Att göra-lista och lär dig hur du:
 
-1. Registrerar en app med Azure AD.
+1. Registrera ett program med Azure AD.
 2. Konfigurerar appen att använda OWIN-autentiserings-pipelinen.
 3. Konfigurera ett klientprogram att anropa ett webb-API.
 
@@ -48,11 +48,11 @@ Kom igång genom att slutföra följande krav:
 * [Ladda ned appens stomme](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) eller [ladda ned det färdiga exemplet](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Var och en är en Visual Studio 2013-lösning.
 * Ha en Azure AD-klientorganisation där du registrerar appen. Om du inte redan har en kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-an-application-with-azure-ad"></a>Steg 1: Registrera en app med Azure AD
+## <a name="step-1-register-an-application-with-azure-ad"></a>Steg 1: Registrera ett program med Azure AD
 
 För att skydda appen måste du först skapa en app i klientorganisationen och ge Azure AD några viktiga uppgifter.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj din Azure AD-klientorganisation genom att välja ditt konto i det övre högra hörnet på sidan. Välj navigeringen **Växla katalog** och välj sedan rätt klientorganisation.
     * Hoppa över det här steget om du bara har en Azure AD-klientorganisation under ditt konto eller om du redan har valt den rätta Azure AD-klientorganisationen.
 
@@ -65,7 +65,7 @@ För att skydda appen måste du först skapa en app i klientorganisationen och g
 6. På sidan **Inställningar > Egenskaper** för appen uppdaterar du app-ID-URI. Ange en klientspecifik identifierare. Ange till exempel `https://contoso.onmicrosoft.com/TodoListService`.
 7. Spara konfigurationen. Lämna portalen öppen, eftersom du även måste registrera ditt klientprogram inom kort.
 
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Steg2: Konfigurera appen att använda OWIN-autentiserings-pipelinen
+## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Steg 2: Konfigurera appen att använda pipelinen för OWIN-autentisering
 
 För att verifiera inkommande begäranden och token måste du konfigurera appen att kommunicera med Azure AD.
 

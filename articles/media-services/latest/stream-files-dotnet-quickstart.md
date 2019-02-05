@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: fc8fc1af51332df032e864c84791791a38bc8601
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612228"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162726"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Snabbstart: Strömma videofiler – .NET
 
@@ -34,13 +34,10 @@ I slutet av snabbstarten kommer du att kunna strömma en video.
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
+- Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.
 
-    För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
-
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
-
-## <a name="download-the-sample"></a>Hämta exemplet
+## <a name="download-and-configure-the-sample"></a>Ladda ned och konfigurera exemplet
 
 Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till din dator med följande kommando:  
 
@@ -50,19 +47,19 @@ Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till
 
 Exemplet finns i mappen [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
 
+Öppna [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) i det nedladdade projektet. Ersätt värdena med autentiseringsuppgifterna som du fick från avsnittet om [åtkomst till API: er](access-api-cli-how-to.md).
+
 Exemplet utför följande åtgärder:
 
-1. Skapar en transformering (kontrollerar först om den angivna transformeringen finns). 
-2. Skapa en utdatatillgång som används som kodningsjobbets utdata.
-3. Skapar jobbets indata som baseras på en HTTPS-URL.
-4. Skickar kodningsjobbet med de indata och utdata som skapades tidigare.
+1. Skapar en **transformering** (kontrollerar först om den angivna transformeringen finns). 
+2. Skapa en **utdatatillgång** som används som **kodningsjobbets** utdata.
+3. Skapar **jobbets** indata som baseras på en HTTPS-URL.
+4. Skickar **kodningsjobbet** med de indata och utdata som skapades tidigare.
 5. Kontrollerar jobbets status.
-6. Skapar en StreamingLocator.
+6. Skapa en **positionerare för direktuppspelning**.
 7. Skapar strömnings-URL:er.
 
 Du kan få beskrivningar av varje funktion i exemplet, undersöka koden och titta på kommentarer i [den här källfilen](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
-
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 

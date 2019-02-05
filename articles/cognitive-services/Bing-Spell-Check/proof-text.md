@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345716"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149779"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Vad är API för Bing-stavningskontroll?
 
@@ -39,7 +39,7 @@ Den här stavningskontrollen klarar alla ordbehandlingsscenarier:
 Detta API har två korrigeringslägen, `Proof` och `Spell`.  Prova några exempel [här](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 ### <a name="proof---for-documents-scenario"></a>Korrektur – för dokumentscenarier
 Standardläget är `Proof`. Stavningsläget `Proof` ger de mest omfattande kontrollerna, och lägger till versaler, grundläggande interpunktion och andra funktioner när du skapar dokument. Det är bara tillgängligt för en-US (amerikansk engelska), es-ES (spanska), pt-BR (portugisiska) (Obs! endast i betaversion för spanska och portugisiska). För övriga marknader anger du lägesfrågeparametern till Stavning. 
-<br /><br/>**Ob!**  Om frågetexten är längre än 4 096 tecken kortas den av till 4 096 tecken innan den bearbetas. 
+<br /><br/>**Obs!**   Om frågetexten är längre än 4 096 tecken kortas den ner till 4 096 tecken innan den bearbetas. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Stavningskontroll – för webb-/sökningsscenarier
 `Spell` är mer aggressivt för att returnera bättre sökresultat. Läget `Spell` hittar de flesta stavfel men hittar inte en del grammatikfel som `Proof` fångar upp, som versaler/gemener och upprepade ord.
 

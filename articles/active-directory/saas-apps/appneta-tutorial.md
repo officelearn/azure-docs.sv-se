@@ -1,254 +1,241 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med AppNeta Prestandaövervakaren | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och AppNeta Prestandaövervakaren.
+title: 'Självstudier: Azure Active Directory-integrering med AppNeta Performance Monitor | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och AppNeta Performance Monitor.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 643a45fb-d6fc-4b32-b721-68899f8c7d44
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 19d79f65746b5ee03209bfd7d8405ddaa24bb825
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 3ec438132bc5e3dd035e199d0beca40dce9ff55f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194890"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453697"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Självstudier: Azure Active Directory-integrering med AppNeta Prestandaövervakaren
+# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Självstudier: Azure Active Directory-integrering med AppNeta Performance Monitor
 
-I den här självstudien får du lära dig hur du integrerar AppNeta Prestandaövervakaren med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera AppNeta Performance Monitor med Azure Active Directory (Azure AD).
+Integreringen av AppNeta Performance Monitor med Azure AD medför följande fördelar:
 
-Integrera AppNeta Prestandaövervakaren med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till AppNeta Performance Monitor.
+* Du kan göra så att dina användare automatiskt loggas in på AppNeta Performance Monitor (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till AppNeta Prestandaövervakaren.
-- Du kan aktivera användarna att automatiskt få loggat in på AppNeta Prestandaövervakaren (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Du behöver följande saker för att konfigurera Azure AD-integrering med AppNeta Performance Monitor:
 
-Om du vill konfigurera Azure AD-integrering med AppNeta Prestandaövervakaren, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En AppNeta Prestandaövervakaren enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* AppNeta Performance Monitor-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till AppNeta Prestandaövervakaren från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-appneta-performance-monitor-from-the-gallery"></a>Att lägga till AppNeta Prestandaövervakaren från galleriet
-För att konfigurera integrering av AppNeta Prestandaövervakaren i Azure AD, som du behöver lägga till AppNeta Prestandaövervakaren från galleriet i din lista över hanterade SaaS-appar.
+* AppNeta Performance Monitor stöder **SP**-initierad enkel inloggning
+* AppNeta Performance Monitor stöder **just-in-time**-användaretablering
 
-**Utför följande steg för att lägga till AppNeta Prestandaövervakaren från galleriet:**
+## <a name="adding-appneta-performance-monitor-from-the-gallery"></a>Lägga till AppNeta Performance Monitor från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integrering av AppNeta Performance Monitor med Azure AD behöver du lägga till AppNeta Performance Monitor från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till AppNeta Performance Monitor från galleriet:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Azure Active Directory-knappen](common/select-azuread.png)
+
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **AppNeta Prestandaövervakaren**väljer **AppNeta Prestandaövervakaren** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **AppNeta Performance Monitor**, väljer **AppNeta Performance Monitor** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![AppNeta Prestandaövervakaren i resultatlistan](./media/appneta-tutorial/tutorial_appneta_addfromgallery.png)
+     ![AppNeta Performance Monitor i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med AppNeta Prestandaövervakaren baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med AppNeta Performance Monitor baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i AppNeta Performance Monitor upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i AppNeta Prestandaövervakaren är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i AppNeta Prestandaövervakaren upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med AppNeta Prestandaövervakaren, måste du utföra följande byggblock:
+Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för AppNeta Performance Monitor:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare AppNeta Prestandaövervakaren](#create-an-appneta-performance-monitor-test-user)**  – du har en motsvarighet för Britta Simon i AppNeta Prestandaövervakaren som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för AppNeta Performance Monitor](#configure-appneta-performance-monitor-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa AppNeta Performance Monitor-testanvändare](#create-appneta-performance-monitor-test-user)** – för att ha en motsvarighet till Britta Simon i AppNeta Performance Monitor som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt AppNeta Performance Monitor-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med AppNeta Prestandaövervakaren:**
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för AppNeta Performance Monitor:
 
-1. I Azure-portalen på den **AppNeta Prestandaövervakaren** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **AppNeta Performance Monitor** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/appneta-tutorial/tutorial_appneta_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **AppNeta prestanda övervakaren domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![AppNeta prestanda övervakaren domän och URL: er med enkel inloggning för information](./media/appneta-tutorial/tutorial_appneta_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.pm.appneta.com`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **identifierare** textrutan angett värde: `PingConnect`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [AppNeta prestanda övervakaren klienten supportteamet](mailto:support@appneta.com) att hämta det här värdet. 
+    ![AppNeta Performance Monitor-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
 
-5. AppNeta Prestandaövervakaren programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program.
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.pm.appneta.com`
 
-    ![Konfigurera enkel inloggning](./media/appneta-tutorial/attribute.png)
+    b. I textrutan **Identifierare (entitets-ID)** anger du värdet: `PingConnect`
 
-6. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i föregående bild och utför följande steg:
-           
-    | Attributnamn | Attributvärde |
-    | ---------------| ----------------|
-    | Förnamn| user.givenname|
+    > [!NOTE]
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för AppNeta Performance Monitor](mailto:support@appneta.com) och be om det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+
+5. AppNeta Performance Monitor-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+
+    ![image](common/edit-attribute.png)
+
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
+
+    | Namn | Källattribut|
+    | --------| ----------------|
+    | firstName| user.givenname|
     | lastName| user.surname|
     | e-post| user.userprincipalname|
     | namn| user.userprincipalname|
-    | grupper   | user.assignedroles |
-    | telefon| user.telephonenumber |
-    | rubrik| User.jobtitle|
+    | grupper  | user.assignedroles |
+    | phone| user.telephonenumber |
+    | title| user.jobtitle|
+    | | |
 
     > [!NOTE]
-    > ”grupper” refererar till säkerhetsgruppen i Appneta som mappas till en roll i Azure AD. Se [detta](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) dokument som beskriver hur du skapar anpassade roller i Azure AD.
-        
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    > **grupper** refererar till den säkerhetsgrupp i Appneta som mappas till en **roll** i Azure AD. I [det här](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) dokumentet beskrivs hur du skapar anpassade roller i Azure AD.
 
-    ![Konfigurera enkel inloggning](./media/appneta-tutorial/tutorial_attribute_04.png)
-    
-    ![Konfigurera enkel inloggning](./media/appneta-tutorial/tutorial_attribute_05.png)
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    c. Lämna **Namnrymd** tom.
 
-    d. Lämna namnområde som tomt.
-    
-    e. Klicka på **OK**.  
+    d. Välj Källa som **Attribut**.
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    ![Länk för hämtning av certifikat](./media/appneta-tutorial/tutorial_appneta_certificate.png) 
+    f. Klicka på **Ok**
 
-5. Klicka på **spara** knappen.
+    g. Klicka på **Spara**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/appneta-tutorial/tutorial_general_400.png)
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-6. Att konfigurera enkel inloggning på **AppNeta Prestandaövervakaren** sida, som du behöver skicka de hämtade **XML-Metadata för** till [AppNeta Prestandaövervakaren supportteamet](mailto:support@appneta.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+8. I avsnittet **Konfigurera AppNeta Performance Monitor** kopierar du lämpliga URL:er enligt dina behov.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-   ![Skapa en Azure AD-testanvändare][100]
+    a. Inloggnings-URL
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    b. Azure AD-identifierare
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    c. Utloggnings-URL
 
-    ![Azure Active Directory-knappen](./media/appneta-tutorial/create_aaduser_01.png)
+### <a name="configure-appneta-performance-monitor-single-sign-on"></a>Konfigurera enkel inloggning för AppNeta Performance Monitor
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+För att konfigurera enkel inloggning på **AppNeta Performance Monitor**-sidan behöver du skicka nedladdade **XML-federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för AppNeta Performance Monitor](mailto:support@appneta.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/appneta-tutorial/create_aaduser_02.png)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![Knappen Lägg till](./media/appneta-tutorial/create_aaduser_03.png)
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-4. I den **användaren** dialogrutan utför följande steg:
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Dialogrutan användare](./media/appneta-tutorial/create_aaduser_04.png)
+2. Välj **Ny användare** överst på skärmen.
 
-    a. I den **namn** skriver **BrittaSimon**.
+    ![Knappen Ny användare](common/new-user.png)
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+3. Genomför följande steg i Användaregenskaper.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-an-appneta-performance-monitor-test-user"></a>Skapa en testanvändare AppNeta Prestandaövervakaren
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i AppNeta Prestandaövervakaren. AppNeta Prestandaövervakaren stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt AppNeta Prestandaövervakaren om det inte finns ännu.
->[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [AppNeta Prestandaövervakaren supportteamet](mailto:support@appneta.com).
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till AppNeta Performance Monitor.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till AppNeta Prestandaövervakaren.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **AppNeta Performance Monitor**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon AppNeta Prestandaövervakaren, utför du följande steg:**
+2. I programlistan väljer du **AppNeta Performance Monitor**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken för AppNeta Performance Monitor i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-2. I listan med program väljer **AppNeta Prestandaövervakaren**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Länken AppNeta Performance Monitor i listan med program](./media/appneta-tutorial/tutorial_appneta_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-appneta-performance-monitor-test-user"></a>Skapa AppNeta Performance Monitor-testanvändare
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet skapas en användare som heter Britta Simon i AppNeta Performance Monitor. AppNeta Performance Monitor stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i AppNeta Performance Monitor skapas en ny efter autentisering.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+> [!Note]
+> Om du behöver skapa en användare manuellt kontaktar du  [supportteamet för AppNeta Performance Monitor](mailto:support@appneta.com).
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen AppNeta Prestandaövervakaren i åtkomstpanelen du bör få automatiskt loggat in på programmets AppNeta Prestandaövervakaren.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på AppNeta Performance Monitor-panelen i åtkomstpanelen bör du automatiskt loggas in på AppNeta Performance Monitor som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/appneta-tutorial/tutorial_general_01.png
-[2]: ./media/appneta-tutorial/tutorial_general_02.png
-[3]: ./media/appneta-tutorial/tutorial_general_03.png
-[4]: ./media/appneta-tutorial/tutorial_general_04.png
-
-[100]: ./media/appneta-tutorial/tutorial_general_100.png
-
-[200]: ./media/appneta-tutorial/tutorial_general_200.png
-[201]: ./media/appneta-tutorial/tutorial_general_201.png
-[202]: ./media/appneta-tutorial/tutorial_general_202.png
-[203]: ./media/appneta-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

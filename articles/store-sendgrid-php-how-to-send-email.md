@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: ee338e2011a7b86a069bd42a028d65b23a123037
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427105"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693032"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Hur du använder den e-posttjänsten SendGrid från PHP
 
@@ -46,7 +46,7 @@ Mer information finns i [ https://sendgrid.com ] [ https://sendgrid.com].
 
 Med SendGrid i ett Azure PHP-program kräver ingen särskild konfiguration eller kodning. Eftersom SendGrid är en tjänst, kan den nås på exakt samma sätt från ett molnprogram som möjligt från ett lokalt program.
 
-## <a name="how-to-send-an-email"></a>Så här: skicka ett e-postmeddelande
+## <a name="how-to-send-an-email"></a>Anvisningar: Skicka ett e-postmeddelande
 
 Du kan skicka e-postmeddelande med SMTP- eller webb-API från SendGrid.
 
@@ -161,7 +161,7 @@ Användning av PHP'S [curl funktionen] [ curl function] att skicka e-post med Se
 
 SendGrid-webb-API är mycket lik en REST-API om det inte verkligen ett RESTful-API eftersom i de flesta anrop både hämta och INLÄGG verb är utbytbara.
 
-## <a name="how-to-add-an-attachment"></a>Så här: Lägg till en bifogad fil
+## <a name="how-to-add-an-attachment"></a>Anvisningar: Lägg till en bifogad fil
 
 ### <a name="smtp-api"></a>SMTP-API
 
@@ -296,7 +296,7 @@ Skicka en bifogad fil via webb-API är mycket lika e-post med hjälp av webb-API
  print_r($response);
 ```
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Så här: använda filter för att aktivera sidfötter, spårning och analys
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Anvisningar: Använd filter för att aktivera sidfötter, spårning och analys
 
 SendGrid ger ytterligare e-funktioner med *filter*. Det här är inställningar som kan läggas till i ett e-postmeddelande för att aktivera vissa funktioner, till exempel aktivera klickspårning, Google analytics, prenumeration, spårnings- och så vidare.
 
@@ -349,7 +349,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  // support@yourcompany.com, info@yourcompany.com
  $from = 'someone@example.com';
 
- // If you do not specify a sender list above, you can specifiy the user here. If
+ // If you do not specify a sender list above, you can specify the user here. If
  // a sender list IS specified above, this email address becomes irrelevant.
  $to = 'john@contoso.com';
 

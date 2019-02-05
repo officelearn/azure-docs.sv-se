@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826623"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694490"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso-migrering: Ange ny värd för en lokal app på en virtuell Azure-dator och SQL Database Managed Instance
 
@@ -173,7 +173,7 @@ Om du vill konfigurera en Azure SQL Database Managed Instance behöver Contoso e
 - Undernätet måste ha en användardefinierad routning (UDR) routningstabell. Den enda vägen tilldelade ska vara för nästa hopp internet 0.0.0.0/0. 
 - Valfri anpassad DNS: Om anpassad DNS har angetts i Azure-nätverk, måste Azures rekursiva matchare IP-adress (till exempel 168.63.129.16) läggas till i listan. Lär dig hur du [konfigurera anpassad DNS för en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - Undernätet får inte ha en slutpunkt (lagring eller SQL) som är associerade med den. Tjänstslutpunkter bör inaktiveras i det virtuella nätverket.
-- Undernätet måste ha minst 16 IP-adresser. Lär dig hur du [storlek Managed Instance undernätet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
+- Undernätet måste ha minst 16 IP-adresser. Lär dig hur du [storlek Managed Instance undernätet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - I Contosos hybridmiljö krävs anpassade DNS-inställningar. Contoso konfigurerar DNS-inställningarna om du vill använda en eller flera av företagets Azure DNS-servrar. Läs mer om [DNS-anpassning](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 ### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Konfigurera ett virtuellt nätverk för den hanterade instansen
@@ -207,7 +207,7 @@ Contoso-administratörer som konfigurerar det virtuella nätverket så här:
 *Behöver du mer hjälp?*
 
 - Få en översikt över [SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance).
-- Lär dig hur du [skapa ett virtuellt nätverk för en SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances).
+- Lär dig hur du [skapa ett virtuellt nätverk för en SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Lär dig hur du [konfigurerar peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 - Lär dig hur du [uppdatera inställningarna för Azure Active Directory DNS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
@@ -609,7 +609,7 @@ Contoso security-teamet granskar virtuella datorer i Azure och SQL Database Mana
 
      ![Hanterad instans-security - hotidentifiering](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-Läs mer om säkerhetsrutiner för virtuella datorer i [säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+Läs mer om säkerhetsrutiner för virtuella datorer i [säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms).
 
 ### <a name="bcdr"></a>BCDR
 

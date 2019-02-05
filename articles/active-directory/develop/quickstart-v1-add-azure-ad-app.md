@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1411d9b4a199685315587cb642842286da575c63
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911872"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098535"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Snabbstart: Registrera en app med Azure Active Directory v1.0-slutpunkten
 
@@ -51,12 +51,12 @@ För att komma igång ser du till att ha en Azure AD-klientorganisation som du k
 
 1. När sidan **Skapa** visas anger du programmets registreringsinformation: 
 
-    - **Namn:** ange ett beskrivande programnamn
+    - **Namn:** Ange ett beskrivande programnamn
     - **Programtyp:**
       - Välj **Internt** för [klientprogram](developer-glossary.md#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](developer-glossary.md#native-client).
       - Välj **Webbapp/API** för [klientprogram](developer-glossary.md#client-application) och [resurs/API-program](developer-glossary.md#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](developer-glossary.md#web-client) och offentliga [användaragentbaserade klienter](developer-glossary.md#user-agent-based-client). Samma program kan även visa både en klient och resurs/API.
-    - **Inloggnings-URL:** för ”webbapp/API”-program anger du grundläggande URL för din app. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram. 
-    - **Omdirigerings-URI** för ”interna” program anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `http://MyFirstAADApp`
+    - **Inloggnings-URL:** För ”Webbapp/API”-program anger du appens bas-URL. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram. 
+    - **Omdirigerings-URI:** För ursprungliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `http://MyFirstAADApp`
 
       ![Registrera ett nytt program – skapa](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 

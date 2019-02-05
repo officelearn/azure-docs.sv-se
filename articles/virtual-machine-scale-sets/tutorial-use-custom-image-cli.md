@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5eee55846bd6f5821be1e40b969a35f5e50bd205
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967378"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193496"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudier: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -44,7 +44,7 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 >[!NOTE]
 > Den här självstudien visar processen att skapa och använda en generaliserad VM-avbildning. Det går inte att skapa en skalningsuppsättning från en särskild VM-avbildning.
 
-Först skapar du en resursgrupp med [az group create](/cli/azure/group#az_group_create), därefter skapar du en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Den här virtuella datorn används sedan som källan för en anpassad virtuell datoravbildning. Följande exempel skapar en virtuell dator som heter *myVM* i resursgruppen med namnet *myResourceGroup*:
+Först skapar du en resursgrupp med [az group create](/cli/azure/group#az_group_create), därefter skapar du en virtuell dator med [az vm create](/cli/azure/vm). Den här virtuella datorn används sedan som källan för en anpassad virtuell datoravbildning. Följande exempel skapar en virtuell dator som heter *myVM* i resursgruppen med namnet *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -57,7 +57,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Den offentliga IP-adressen för din virtuella dator visas i utdata från kommandot [az vm create](/cli/azure/vm#az_vm_create). SSH till den virtuella datorns offentliga IP-adress enligt följande:
+Den offentliga IP-adressen för din virtuella dator visas i utdata från kommandot [az vm create](/cli/azure/vm). SSH till den virtuella datorns offentliga IP-adress enligt följande:
 
 ```azurecli-interactive
 ssh azureuser@<publicIpAddress>
@@ -96,7 +96,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 Det kan ta några minuter att frigöra och generalisera den virtuella datorn.
 
-Nu kan du skapa en avbildning av den virtuella datorn med [az image create](/cli//azure/image#az_image_create). Följande exempel skapar en avbildning med namnet *myImage* från din virtuella dator:
+Nu kan du skapa en avbildning av den virtuella datorn med [az image create](/cli//azure/image). Följande exempel skapar en avbildning med namnet *myImage* från din virtuella dator:
 
 ```azurecli-interactive
 az image create \

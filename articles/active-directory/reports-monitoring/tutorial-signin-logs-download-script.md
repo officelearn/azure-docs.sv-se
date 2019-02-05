@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ca3b25929a21e844b6350a79a3713d8e1b7ef0f8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824583"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168660"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Självstudier: Ladda ned och använda ett skript för åtkomst till inloggningsloggar
 
@@ -35,7 +35,7 @@ Du behöver
 
 * En Azure Active Directory-klientorganisation med en premiumlicens (P1/P2). Observera att om du inte har några aktivitetsdata före uppgraderingen tar det ett par dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens. 
 * En användare som har rollen **global administratör**, **säkerhetsadministratör**, **säkerhetsläsare**, eller **rapportläsare** för klienten. Dessutom kan alla användare komma åt sina egna inloggningar. 
-* Om du vill köra nedladdningsskriptet på en Windows 10-dator [konfigurerar du AzureRM-modulen och anger körningsprincipen](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
+* Om du vill köra nedladdningsskriptet på en Windows 10-dator [konfigurerar du Azure PowerShell-modulen och anger körningsprincipen](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
 ## <a name="tutorial"></a>Självstudier
 

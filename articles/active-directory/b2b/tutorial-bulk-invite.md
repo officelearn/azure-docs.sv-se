@@ -3,18 +3,18 @@ title: Självstudie om massinbjudning av B2B-samarbetsanvändare – Azure Activ
 description: I den här självstudien lär du dig hur du använder PowerShell och en CSV-fil för att skicka massinbjudningar till externa Azure AD B2B-samarbetsanvändare.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: c24a82d5765fef01eab9ae24f637c215c62e822d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: e40eb5c1727317b375d45da83cd712cf0b7f963c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986910"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099738"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudier: Massinbjuda Azure AD B2B-samarbetsanvändare
 
@@ -34,31 +34,31 @@ Se till att du installerar den senaste versionen av Azure AD PowerShell för Gra
 
 Kontrollera först vilka moduler du har installerat. Öppna Windows PowerShell som upphöjd användare (Kör som administratör) och kör följande kommando:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Gör något av följande, baserat på utdata:
 
 - Om inga resultat returneras installerar du modulen AzureADPreview genom att köra följande kommando:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Om enbart AzureAD-modulen visas i resultaten, så installera modulen AzureADPreview genom att köra följande kommandon: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Om endast AzureADPreview-modulen visas i resultatet, men du får ett meddelande som anger att det finns en senare version, så uppdatera modulen genom att köra följande kommandon: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
-Du får eventuellt en uppmaning om att installera modulen från en ej betrodd lagringsplats. Det här inträffar om du inte tidigare angett PSGallery-lagringsplatsen som betrodd lagringsplats. Installera modulen genom att trycka på **Y**.
+Du får eventuellt en uppmaning om att installera modulen från en ej betrodd lagringsplats. Det här inträffar om du inte tidigare angett PSGallery-lagringsplatsen som en betrodd lagringsplats. Installera modulen genom att trycka på **Y**.
 
 ### <a name="get-test-email-accounts"></a>Hämta test-e-postkontona
 
@@ -77,7 +77,7 @@ Spara filen som **C:\BulkInvite\Invitations.csv**.
 
 Om du inte har Excel kan du skapa en CSV-fil i en textredigerare, t.ex. Anteckningar. Avgränsa varje värde med ett kommatecken och varje rad med ny rad. 
 
-## <a name="sign-in-to-your-tenant"></a>Logga in till din klientorganisation
+## <a name="sign-in-to-your-tenant"></a>Logga in på din klientorganisation
 
 Kör följande kommando för att ansluta till klientorganisationens domän:
 
@@ -122,7 +122,7 @@ De användare som du bjudit in bör finnas listade med ett användarens huvudnam
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När testanvändarkontona inte längre behövs kan du ta bort dem från katalogen. Ta bort ett användarkonto genom att köra följande kommando:
+När den inte längre behövs kan du ta bort testanvändarkontona i katalogen. Kör följande kommando för att ta bort ett användarkonto:
 
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 89f2a4058006687fbe64ec64d98659e38f93f618
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 801da78de493b55655819ac16a9184d04a356786
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980584"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095982"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en iOS-app
 
@@ -46,12 +46,12 @@ Om du vill skapa en komplett, fungerande app måste du:
 Kom igång genom att slutföra följande krav:
 
 * [Ladda ned appens stomme](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) eller [ladda ned det färdiga exemplet](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
-* Ha en Azure AD-klientorganisationen där du kan skapa användare och registrera en app. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
+* Ha en Azure AD-klientorganisation där du kan skapa användare och registrera en app. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
 
 > [!TIP]
 > Prova [utvecklarportalen](https://identity.microsoft.com/Docs/iOS) för att komma igång med Azure AD på bara några minuter. Utvecklarportalen guidar dig genom registreringen av en app och integreringen av Azure AD i din kod. När du är klar har du en enkel app som kan autentisera användare i klientorganisationen och en serverdel som kan acceptera token och utföra validering.
 
-## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Steg 1: Fastställa vad omdirigerings-URI är för iOS
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Steg 1: Fastställa din omdirigerings-URI för iOS
 
 För att kunna starta dina appar i vissa SSO-scenarier måste du skapa en *omdirigerings-URI* i ett visst format. En omdirigerings-URI används till att se till att token returneras till rätt app som har frågat efter dem.
 
@@ -68,11 +68,11 @@ Ett exempel på den här snabbstartskoden:
 
 ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-## <a name="step-2-register-the-directorysearcher-application"></a>Steg 2: Registrera DirectorySearcher-appen
+## <a name="step-2-register-the-directorysearcher-application"></a>Steg 2: Registrera DirectorySearcher-programmet
 
 Om du vill konfigurera appen så att den hämtar apptoken måste du registrera appen i din Azure AD-klientorganisation och bevilja den behörighet för åtkomst till Azure AD Graph API.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj konto i det översta fältet. Under **kataloglistan** väljer du den Active Directory-klientorganisation där du vill registrera appen.
 3. Välj **Alla tjänster** i navigeringsfönstret längst till vänster och välj sedan **Azure Active Directory**.
 4. Välj **Appregistreringar** och sedan **Lägg till**.

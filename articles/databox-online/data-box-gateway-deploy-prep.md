@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f47606e91ec55bae624527bace81d947c5ea4f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452980"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091554"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Självstudier: Förbereda distributionen av Azure Data Box Gateway (förhandsversion)
 
@@ -42,7 +42,7 @@ Gå igenom följande självstudier i angiven ordning när du ska distribuera Dat
 | **#** | **I det här steget** | **Använd de här dokumenten** |
 | --- | --- | --- | 
 | 1. |**[Förbereda Azure-portalen för Data Box Gateway](data-box-gateway-deploy-prep.md)** |Skapa och konfigurera Data Box Gateway-resursen innan du etablerar en virtuell Data Box Gateway-enhet. |
-| 2. |**[Etablera Data Box Gateway i Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Etablera Data Box Gateway i VMware](data-box-gateway-deploy-provision-vmware.md)**|För Hyper-V etablerar du och ansluter till en virtuell Data Box Gateway-enhet i ett värdsystem som kör Hyper-V i Windows Server 2016 eller Windows Server 2012 R2. <br><br><br> För VMware etablerar du och ansluter till en virtuell Data Box Gateway-enhet i ett värdsystem som kör VMware ESXi 6.0 eller 6.5.<br></br> |
+| 2. |**[Etablera Data Box Gateway i Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Etablera Data Box Gateway i VMware](data-box-gateway-deploy-provision-vmware.md)**|För Hyper-V etablerar du och ansluter till en virtuell Data Box Gateway-enhet i ett värdsystem som kör Hyper-V i Windows Server 2016 eller Windows Server 2012 R2. <br><br><br> För VMware etablerar du och ansluter till en virtuell Data Box Gateway-enhet i ett värdsystem som kör VMware ESXi 6.0, 6.5 eller 6.7.<br></br> |
 | 3. |**[Ansluta, konfigurera och aktivera Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md)** |Anslut till det lokala webbgränssnittet, slutför installationen av enheten och aktivera enheten. Sedan kan du etablera SMB-resurser.  |
 | 4. |**[Överföra data med Data Box Gateway](data-box-gateway-deploy-add-shares.md)** |Lägg till resurser och anslut till resurser via SMB eller NFS. |
 
@@ -63,7 +63,7 @@ Innan du börjar ska du kontrollera att:
 
 Innan du distribuerar en virtuell enhet kontrollerar du att:
 
-* Du har åtkomst till ett värdsystem som kör Hyper-V i Windows Server 2012 R2 eller senare eller VMware (ESXi 6.0 eller 6.5) som kan användas för att etablera en enhet.
+* Du har åtkomst till ett värdsystem som kör Hyper-V i Windows Server 2012 R2 eller senare eller VMware (ESXi 6.0, 6.5 eller 6.7) som kan användas för att etablera en enhet.
 * Värdsystemet kan dedikera följande resurser för att etablera den virtuella Data Box-enheten:
   
   * Minst 4 kärnor.
@@ -126,7 +126,7 @@ Utför följande steg på [Azure-portalen](https://portal.azure.com/).
 4. I snabbstarten i den högra rutan klickar du på länken för den avbildning som du vill hämta. Avbildningsfilerna är cirka 4,8 GB.
    
    * [VHDX för Hyper-V i Windows Server 2012 R2 och senare](https://aka.ms/dbe-vhdx-2012).
-   * [VMDK för VMWare ESXi 6.0 eller 6.5](https://aka.ms/dbe-vmdk).
+   * [VMDK för VMWare ESXi 6.0, 6.5 eller 6.7](https://aka.ms/dbe-vmdk).
 
 5. Ladda ned och packa upp filen till en lokal enhet och skriv ned sökvägen till de uppackade filerna.
 

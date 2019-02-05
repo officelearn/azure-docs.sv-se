@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831491"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101813"
 ---
-# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric kluster i Linux till ett virtuellt Azure-nätverk
+# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric-kluster i Linux till ett virtuellt Azure-nätverk
 
 Den här självstudien ingår i en serie. Du lär dig att distribuera ett Linux Service Fabric-kluster till ett [virtuellt nätverk i Azure (VNET)](../virtual-network/virtual-networks-overview.md) med Azure CLI och en mall. När du är färdig körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
@@ -88,14 +88,14 @@ Den här mallen distribuerar ett säkert kluster med fem virtuella datorer och e
 I resursen **Microsoft.ServiceFabric/clusters** distribueras ett Linux-kluster med följande egenskaper:
 
 * en enda nodtyp
-* fem noder i den primära nodtypen (kan konfigureras i mallparametrarna)
-* OS: Ubuntu 16.04 LTS (kan konfigureras i mallparametrarna)
-* skyddat certifikat (kan konfigureras i mallparametrarna)
+* fem noder av den primära nodtypen (kan konfigureras i mallparametrarna)
+* Operativsystem: Ubuntu 16.04 LTS (kan konfigureras i mallparametrarna)
+* skyddat med certifikat (kan konfigureras i mallparametrarna)
 * [DNS-tjänst](service-fabric-dnsservice.md) är aktiverad
 * [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
 * [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
-* slutpunkt för klientanslutning: 19000 (kan konfigureras i mallparametrarna)
-* slutpunkt för HTTP-gateway: 19080 (kan konfigureras i mallparametrarna)
+* klientanslutningsslutpunkt: 19000 (kan konfigureras i mallparametrarna)
+* HTTP-gatewayslutpunkt: 19080 (kan konfigureras i mallparametrarna)
 
 ### <a name="azure-load-balancer"></a>Azure-lastbalanserare
 
@@ -111,7 +111,7 @@ I resursen **Microsoft.Network/loadBalancers** har en belastningsutjämnare konf
 Namnen på det virtuella nätverket och undernätet deklareras också i mallparametrarna.  Adressutrymmen i det virtuella nätverket och undernätet deklareras också i mallparametrarna och konfigureras i resursen **Microsoft.Network/virtualNetworks**:
 
 * det virtuella nätverkets adressutrymme: 10.0.0.0/16
-* Service Fabric-undernätsadressutrymme: 10.0.2.0/24
+* Service Fabric-undernätets adressutrymme: 10.0.2.0/24
 
 Om du behöver andra programportar måste du justera resursen Microsoft.Network/loadBalancers för att låta trafiken komma in.
 
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Skapa ett kluster med ett nytt, självsignerat certifikat
 
-Följande skript använder kommandot [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) och en mall för att distribuera ett nytt kluster i Azure. cmcommand skapar även ett nytt nyckelvalv i Azure, lägger till ett nytt självsignerat certifikat i nyckelvalvet och laddar ned certifikatfilen lokalt.
+Följande skript använder kommandot [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) och en mall för att distribuera ett nytt kluster i Azure. Kommandot skapar även ett nytt nyckelvalv i Azure, lägger till ett nytt självsignerat certifikat i nyckelvalvet och laddar ned certifikatfilen lokalt.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

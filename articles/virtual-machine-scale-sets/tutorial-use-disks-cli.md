@@ -3,7 +3,7 @@ title: Självstudie – Skapa och använd diskar för skalningsuppsättningar me
 description: Läs om hur du använder Azure CLI för att skapa och använda hanterade diskar med en VM-skalningsuppsättning, inklusive hur du lägger till, förbereder, listar och kopplar från diskarna.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35256a22265ca544975b2fead40b1a2be0d73ff1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469392"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163066"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudier: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI
 VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -132,7 +132,7 @@ Diskarna som skapas och ansluts till dina skalningsuppsättningar för virtuella
 
 Du kan använda det anpassade skripttillägget för Azure för att automatisera processen på flera virtuella datorinstanser i en skalningsuppsättning. Det här tillägget kan köra skript lokalt på varje virtuell datorinstans, till exempel för att förbereda anslutna datadiskar. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/linux/extensions-customscript.md).
 
-Följande exempel kör ett skript från ett GitHub-exempellager på varje virtuell datorinstans med [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) som förbereder alla anslutna rådatadiskar:
+Följande exempel kör ett skript från ett GitHub-exempellager på varje virtuell datorinstans med [az vmss extension set](/cli/azure/vmss/extension) som förbereder alla anslutna rådatadiskar:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -279,7 +279,7 @@ Information om diskstorleken, lagringsnivå och LUN (Logical Unit Number) visas.
 
 
 ## <a name="detach-a-disk"></a>Koppla från en disk
-När du inte längre behöver en angiven disk, kan du koppla från den från skalningsuppsättningen. Disken tas bort från alla virtuella datorinstanser i skalningsuppsättningen. Om du vill koppla bort en disk från en skalningsuppsättning, använder du [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) och anger LUN på disken. LUN visas i utdata från [az vmss show](/cli/azure/vmss#az_vmss_show) från föregående avsnitt. Följande exempel kopplar från LUN *2* från skalningsuppsättningen:
+När du inte längre behöver en angiven disk, kan du koppla från den från skalningsuppsättningen. Disken tas bort från alla virtuella datorinstanser i skalningsuppsättningen. Om du vill koppla bort en disk från en skalningsuppsättning, använder du [az vmss disk detach](/cli/azure/vmss/disk) och anger LUN på disken. LUN visas i utdata från [az vmss show](/cli/azure/vmss#az_vmss_show) från föregående avsnitt. Följande exempel kopplar från LUN *2* från skalningsuppsättningen:
 
 ```azurecli-interactive
 az vmss disk detach \

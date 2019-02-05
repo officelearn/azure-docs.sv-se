@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.subservice: blobs
+ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565742"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240088"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Överföra stora mängder slumpmässiga data parallellt till Azure Storage
 
@@ -35,7 +35,7 @@ Azure Blob Storage är en skalbar tjänst för att lagra data. För att ditt pro
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att utföra den här kursen måste du först ha slutfört den föregående Storage-självstudiekursen: [Skapa en virtuell dator och ett lagringskonto för ett skalbart program][previous-tutorial].
+För att slutföra den här självstudien måste du ha slutfört den tidigare Storage-kursen: [Skapa en virtuell dator och ett lagringskonto för ett skalbart program][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Fjärranslut till din virtuella dator
 

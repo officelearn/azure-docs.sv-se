@@ -1,21 +1,21 @@
 ---
-title: 'Självstudie: Ansikts-API C#'
+title: 'Självstudier: Ansikts-API, C#'
 titleSuffix: Azure Cognitive Services
 description: Skapa en enkel Windows-app som använder Cognitive Services Ansikts-API för att identifiera ansiktsdrag på en bild.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 00b1d3ed636bb1690e9d5026c558ca989de95375
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129530"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209442"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ansluta till Cognitive Services Ansikts-API med Connected Services i Visual Studio
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868556"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092804"
 ---
-# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Självstudier – Övervaka och uppdatera en virtuell Linux-dator i Azure
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Linux-dator i Azure
 
 För att säkerställa att dina virtuella datorer körs på rätt sätt i Azure kan du granska startdiagnostik, prestandastatistik och hantera paketuppdateringar. I den här guiden får du lära dig att:
 
@@ -153,7 +153,7 @@ I följande exempel skapas en avisering för genomsnittlig CPU-användning.
 5. Du kan också markera kryssrutan för *E-postägare, deltagare och läsare* om du vill skicka ett e-postmeddelande. Standardåtgärden är att visa en avisering i portalen.
 6. Välj knappen **OK**.
 
-## <a name="manage-package-updates"></a>Hantera paketuppdateringar
+## <a name="manage-software-updates"></a>Hantera programuppdateringar
 
 Med uppdateringshantering kan du hantera uppdateringar och korrigeringar för dina virtuella Azure Linux-datorer.
 Du kan snabbt se status för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributionsresultat för att verifiera att uppdateringarna har tillämpats på den virtuella datorn, direkt från den virtuella datorn.
@@ -175,15 +175,14 @@ En [Log Analytics](../../log-analytics/log-analytics-overview.md)-arbetsyta anv�
 Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 Om du vill utföra ytterligare åtgärder på virtuella datorer som kräver uppdateringar kan Azure Automation köra runbooks mot virtuella datorer, till exempel ladda ned och installera uppdateringar.
 
-Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Automation Hybrid Runbook Worker.
-Den här agenten används för att kommunicera med den virtuella datorn och hämta information om uppdateringsstatus.
+Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med Log Analytics-agenten och Automation Hybrid Runbook Worker. Den här agenten används för att kommunicera med den virtuella datorn och hämta information om uppdateringsstatus.
 
 Välj Log Analytics-arbetsytan och Automation-kontot och välj **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 Om några av följande krav saknades under publiceringen läggs de till automatiskt:
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md)-arbetsyta
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Automation-konto](../../automation/automation-offering-get-started.md)
 * En [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
 
 Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
@@ -291,22 +290,9 @@ Diagrammet visar ändringar som har skett över tid. När du har lagt till en ak
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning
 
-Du kan använda mer avancerad övervakning av den virtuella datorn med lösningar som uppdateringshantering, ändringsspårning och inventering som tillhandahålls av [Azure Automation](../../automation/automation-intro.md).
+Du kan utföra mer avancerad övervakning av den virtuella datorn med hjälp av en lösning som [Azure Monitor för virtuella datorer](../../azure-monitor/insights/vminsights-overview.md), som övervakar dina virtuella Azure-datorer (VM) i stor skala genom att analysera prestanda och hälsotillståndet för virtuella Windows- och Linux-datorer, inklusive deras olika processer och inbördes beroenden i förhållande till andra resurser och externa processer. Konfigurationen av dina virtuella datorer i Azure hanteras med hjälp av lösningen Ändringsspårning och inventering i [Azure Automation](../../automation/automation-intro.md), så att du enkelt kan identifiera ändringar i miljön. Uppdateringskompatibiliteten hanteras med hjälp av lösningen Hantering av uppdateringar i Azure Automation.   
 
-När du har åtkomst till Log Analytics-arbetsytan hittar du nyckeln och identifieraren för arbetsytan genom att välja **Avancerade inställningar** under **INSTÄLLNINGAR**. Ersätt \<workspace-key\> och \<workspace-id\> med värdena från din Log Analytics-arbetsyta. Sedan kan du använda **az vm extension set** för att lägga till tillägget på den virtuella datorn:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-Du bör se den nya virtuella datorn på Log Analytics-arbetsytan efter några minuter.
+Den virtuella datorn ansluts till dig via Log Analytics-arbetsytan och du kan även hämta, konsolidera och analysera insamlade data med [avancerade frågespråk](../../azure-monitor/log-query/log-query-overview.md). 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

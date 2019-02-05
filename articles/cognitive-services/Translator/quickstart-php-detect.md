@@ -1,21 +1,21 @@
 ---
-title: 'Snabbstart: Identifiera språk i text, PHP – Translator Text-API'
+title: 'Snabbstart: Identifiera språk i text, PHP – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du identifiera språket i källtexten med hjälp av Translator Text-API:et med PHP.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: e13dbe63efe950061f157b6d8dec7665c1bc5c42
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: db563a111abe069e361dfed03718bd75cdd0311e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649459"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210803"
 ---
 # <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-php"></a>Snabbstart: Identifiera språk från text med Translator Text REST API (PHP)
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449579"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077463"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -58,6 +58,9 @@ A. Data Box stöds i alla regioner inom USA, Västeuropa, Nordeuropa, Frankrike 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>F. Vem kontaktar jag om jag får problem med Data Box?
 A. Om du får problem med Data Box [kontaktar du Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
+### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>F. Jag har tappat bort min Data Box. Utgår en avgift för borttappade enheter?
+A. Ja. Det utgår en avgift för förlorade eller skadade enheter. Den här avgiften beskrivs på [prissidan](https://azure.microsoft.com/pricing/details/storage/databox/) och i [produktvillkoren](https://www.microsoft.com/licensing/product-licensing/products).
+
 
 ## <a name="order-device"></a>Beställa en enhet
 
@@ -78,10 +81,10 @@ A. Vi tillåter högst fem aktiva beställningar per prenumeration och handelsom
 A. Det innebär att Data Box-tjänsten inte är tillgänglig för den kombination av land och region som du har valt. Om du ändrar den här kombinationen får du antagligen tillgång till Data Box-tjänsten. En lista över de regioner där tjänsten är tillgänglig finns på sidan för [regionstillgänglighet för Data Box](data-box-overview.md#region-availability).
 
 ### <a name="q-i-placed-my-data-box-order-few-days-back-when-will-i-receive-my-data-box"></a>F. Jag skickade min Data Box-beställning för några dagar sedan. När får jag min Data Box?
-A. När du gör en beställning kontrollerar vi om det finns någon tillgänglig enhet för din beställning. Om det finns en tillgänglig enhet skickar vi den inom tio dagar. Ibland kan det uppstå perioder med hög efterfrågan. I så fall kan din beställning placeras i kö. Du kan spåra statusförändringen på Azure-portalen. Om din beställning inte har slutförts på 90 dagar avbryts ordern automatiskt. 
+A. När du gör en beställning kontrollerar vi om det finns någon tillgänglig enhet för din beställning. Om det finns en tillgänglig enhet skickar vi den inom tio dagar. Ibland kan det uppstå perioder med hög efterfrågan. I så fall kan din beställning placeras i kö. Du kan spåra statusförändringen på Azure-portalen. Om din beställning inte har slutförts på 90 dagar avbryts ordern automatiskt.
 
 ### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>F. Jag har fyllt min Data Box med data och behöver beställa en till. Går det att beställa dem snabbt?
-A. Du kan klona din tidigare beställning. En kloning skapar samma ordning som tidigare och du kan redigera beställningsinformationen utan att behöva ange adress, kontaktuppgifter och aviseringsadress. 
+A. Du kan klona din tidigare beställning. En kloning skapar samma ordning som tidigare och du kan redigera beställningsinformationen utan att behöva ange adress, kontaktuppgifter och aviseringsadress.
 
 ## <a name="configure-and-connect"></a>Konfigurera och ansluta
 
@@ -96,6 +99,9 @@ A.  Du kan bara avbryta en Data Box-beställning innan ordern har bearbetats. N�
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>F. Kan jag ansluta en Data Box samtidigt till flera värddatorer för att överföra data?
 A. Ja. Flera värddatorer kan ansluta till Data Box för att överföra data, och flera kopieringsjobb kan köras parallellt. Mer information finns i [Självstudie: Kopiera data till Azure Data Box](data-box-deploy-copy-data.md).
+
+### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>F. Kan jag ansluta till båda 10 GbE-gränssnitten i Data Box för att överföra data?
+A. Ja. Båda 10 GbE-gränssnitten kan anslutas i Data Box för samtidig datakopiering. Mer information om hur du kopierar data finns i [självstudien: Kopiera data till Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -202,19 +208,19 @@ A. Om enheten inte startar går du till din beställning i Azure-portalen. Ladda
 A.  När orderstatusen för **datakopieringen** visas som **Slutförd** bör du komma åt dina data direkt.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>F. Var i Azure finns mina data efter uppladdningen?
-A.  När du kopierar data till Data Box laddas data upp någon av följande sökvägar i ditt Azure Storage-konto, beroende på om de utgör en blockblob, sidblob eller Azure-filer.
+A.  När du kopierar data till Data Box laddas de upp till någon av följande sökvägar i ditt Azure Storage-konto, beroende på om det rör sig om en blockblob, sidblob eller Azure-filer.
  - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
  -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
  Du kan också gå till ditt Azure-lagringskonto i Azure-portalen och navigera därifrån.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>F. Jag har precis märkt att jag inte följde namngivningskraven för min container. Misslyckas dataöverföringen till Azure?
-A.  Versaler omvandlas automatiskt till gemener. Om namnen inte uppfyller kraven på andra sätt (specialtecken, andra språk och så vidare) misslyckas uppladdningen. Mer information om metodtips för namngivning av resurser, containrar och filer finns här: 
+A.  Om containernamnet innehåller versaler omvandlas namnet automatiskt till gemener. Om namnen inte uppfyller kraven på andra sätt (specialtecken, andra språk och så vidare) misslyckas uppladdningen. Mer information om metodtips för namngivning av resurser, containrar och filer finns här:
 - [Namnge och referera till resurser](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Konventioner för blockblobar och sidblobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>F. Hur verifierar jag de data som jag har kopierat till Data Box?
-A.  Dina data verifieras när datakopieringen är klar och du kör **Förbered för att skicka**. Data Box genererar en lista över filer och kontrollsummor för data under verifieringsprocessen. Du kan ladda ned listan över filer och verifiera den mot filer i källdata. Om du vill ha mer information går du till [Förbered för att skicka](data-box-deploy-copy-data.md#prepare-to-ship).
+A.  Dina data verifieras när datakopieringen är klar och du kör **Förbered för att skicka**. Data Box genererar en lista över filer och kontrollsummor för data under verifieringsprocessen. Du kan ladda ned fillistan och verifiera listan mot filerna i källdata. Om du vill ha mer information går du till [Förbered för att skicka](data-box-deploy-picked-up.md#prepare-to-ship).
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-data-box"></a>F. Vad händer med mina data när jag har skickat tillbaka Data Box?
 A.  När datakopieringen till Azure är klar raderas alla data på Data Box på ett säkert sätt enligt riktlinjerna i NIST SP 800-88 Revision 1. Mer information finns i avsnittet om [radering av data från Data Box](data-box-deploy-picked-up.md#erasure-of-data-from-data-box).

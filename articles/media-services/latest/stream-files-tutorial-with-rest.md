@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bd882ffd5048d0b33afc9ecf00c0ed6356b6e98
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811646"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883525"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudier: Koda en fjärrfil baserat på URL och strömma video – REST
 
@@ -101,10 +101,10 @@ I det här avsnittet skickar vi begäranden som är relevanta för att koda och 
 
 1. Hämta Azure AD-token för autentisering för tjänstens huvudnamn
 2. Skapa en utdatatillgång
-3. Skapa en transformering
-4. Skapa ett jobb 
-5. Skapa en positionerare för direktuppspelning
-6. Lista sökvägar för positioneraren för direktuppspelning
+3. Skapa en **transformering**
+4. Skapa ett **jobb**
+5. Skapa en **positionerare för direktuppspelning**
+6. Lista sökvägar för **positioneraren för direktuppspelning**
 
 > [!Note]
 >  Den här kursen förutsätter att du skapar alla resurser med unika namn.  
@@ -151,7 +151,7 @@ I det här avsnittet skickar vi begäranden som är relevanta för att koda och 
 
 ### <a name="create-a-transform"></a>Skapa en transformering
 
-När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video, tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
+När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
 
 När du skapar en ny instans för en [Transformering](https://docs.microsoft.com/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. Den obligatoriska parametern är ett **TransformOutput**-objekt. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. Det exempel som beskrivs i artikeln använder en inbyggd förinställning som kallas **AdaptiveStreaming**. Förinställningen kodar indatavideon i en automatiskt genererad bithastighetsstege (par för bithastighetsupplösning) som baseras på indatans upplösning och bithastighet, samt producerar ISO MP4-filer med H.264-video och AAC-ljud som motsvarar varje par för bithastighetsupplösningen. Information om denna förinställning finns i [Automatisk generering av bithastighetsstege](autogen-bitrate-ladder.md).
 
@@ -232,16 +232,16 @@ Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se
 
 ### <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 
-När kodningsjobbet är klart, är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning av klienter. Du kan göra detta i två steg: Först skapar du en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
+När kodningsjobbet är klart, är nästa steg att göra videon i **utdatatillgången** tillgänglig för uppspelning av klienter. Du kan göra detta i två steg: Först skapar du en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
 
-Processen att skapa en **StreamingLocator** kallas för publicering. Som standard kan din **StreamingLocator** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
+Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
 
-När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) måste du ange önskat **StreamingPolicyName**. I det här exemplet strömmar du klartext (eller icke-krypterat) innehåll så att den fördefinierade principen för klartextströmning (**PredefinedStreamingPolicy.ClearStreamingOnly**) används.
+När du skapar en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) måste du ange önskat **StreamingPolicyName**. I det här exemplet strömmar du klartext (eller icke-krypterat) innehåll så att den fördefinierade principen för klartextströmning (**PredefinedStreamingPolicy.ClearStreamingOnly**) används.
 
 > [!IMPORTANT]
 > Om du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. 
 
-Media Service-kontot har en kvot för antalet StreamingPolicy-poster. Du bör inte skapa en ny StreamingPolicy för varje StreamingLocator.
+Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du bör inte skapa en ny **strömningsprincip** för varje **positionerare för direktuppspelning**.
 
 1. I det vänstra fönstret i Postman, väljer du Strömningsprinciper.
 2. Välj därefter Skapa en positionerare.
@@ -267,7 +267,7 @@ Media Service-kontot har en kvot för antalet StreamingPolicy-poster. Du bör in
 
 #### <a name="list-paths"></a>Lista sökvägar
 
-Nu när [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats, kan du hämta strömnings-URL:erna
+Nu när [positioneraren för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna
 
 1. I det vänstra fönstret i Postman, väljer du Strömningsprinciper.
 2. Välj sedan Lista sökvägar.
@@ -338,7 +338,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från körs.
+> Kontrollera att **slutpunkten för direktuppspelning** som du vill spela upp innehåll från körs.
 
 I den här artikeln används Azure Media Player till att testa strömningen. 
 
@@ -350,7 +350,7 @@ Azure Media Player kan användas vid testning, men bör inte användas i en prod
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Rensa resurser på ditt Media Services-konto
 
-Vanligtvis bör du rensa bort allt utom objekt som du tänker återanvända (om du t.ex. återanvänder transformeringar behåller du StreamingLocators osv.). Om du vill att ditt konto ska vara rensat efter experimentet, bör du ta bort de resurser som du inte tänker återanvända.  
+Vanligtvis bör du rensa bort allt utom objekt som du tänker återanvända (om du t.ex. återanvänder **transformeringar** behåller du **positionerare för direktuppspelning** osv.). Om du vill att ditt konto ska vara rensat efter experimentet, bör du ta bort de resurser som du inte tänker återanvända.  
 
 Om du vill ta bort en resurs, väljer du åtgärden Ta bort... under den resurs som du vill ta bort.
 

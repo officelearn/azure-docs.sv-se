@@ -5,18 +5,18 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0798fb16954d2d0b5e0d614d619cd772670d30c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339104"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218095"
 ---
-# <a name="tutorial-create-a-custom-language-model"></a>Självstudie: Skapa en anpassad språkmodell
+# <a name="tutorial-create-a-custom-language-model"></a>Självstudier: Skapa en anpassad språkmodell
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
@@ -55,7 +55,7 @@ De grundläggande kraven för språkdata sammanfattas i följande tabell.
 
 | Egenskap | Värde |
 |----------|-------|
-| Textkodning | en-US: USA ACSII eller UTF-8 eller zh-CN: UTF-8|
+| Textkodning | en-US: US-ACSII eller UTF-8 eller zh-CN: UTF-8|
 | antal yttrande per rad | 1 |
 | Maximal filstorlek | 200 MB |
 | Kommentarer | undvik att upprepa tecken mer än 4 gånger, till exempel ”aaaaa”|

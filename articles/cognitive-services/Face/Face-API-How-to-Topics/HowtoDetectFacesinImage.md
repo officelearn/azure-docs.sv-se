@@ -1,23 +1,23 @@
 ---
-title: 'Exempel: Detektera ansikten i bilder – Ansikts-API'
+title: 'Exempel: Identifiera ansikten i bilder – Ansikts-API'
 titleSuffix: Azure Cognitive Services
 description: Använda Ansikts-API för att identifiera ansikten i bilder.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8c89a43910a5e98286a82de8626870d3aec55b94
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124056"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214219"
 ---
-# <a name="example-how-to-detect-faces-in-image"></a>Känna igen ansikten i en bild
+# <a name="example-how-to-detect-faces-in-image"></a>Exempel: Känna igen ansikten i en bild
 
 Den här guiden visar hur du känner igen ansikten från en bild där ansiktsattribut som kön, ålder eller attityd extraheras. Exemplen är skrivna i C#- med Ansikts-API-klientbiblioteket. 
 
@@ -40,7 +40,7 @@ I det här exemplet visar vi följande funktioner:
 
 För att köra dessa funktioner behöver du förbereda en bild med minst ett tydligt ansikt. 
 
-## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anrop
+## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anropet
 
 Varje anrop till ett ansikts-API för visuellt innehåll kräver en prenumerationsnyckel. Nyckeln måste antingen skickas via en frågesträngparameter eller anges i begärans sidhuvud. Om du vill skicka prenumerationsnyckeln via frågesträngen ska du använda URL:en för [Ansiktsigenkänning– identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) som exempel:
 
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription Key>
 ```
 
-Alternativt kan prenumerationsnyckeln också anges i HTTP-frågehuvudet: **ocp-apim-subscription-key: &lt;Prenumerationsnyckel&gt;**  När du använder ett klientbibliotek skickas prenumerationsnyckeln via konstruktor i klassen FaceServiceClient. Exempel:
+Prenumerationsnyckeln kan även anges i HTTP-frågehuvudet: **ocp-apim-subscription-key: &lt;Prenumerationsnyckel&gt;** När du använder klientbiblioteket skickas prenumerationsnyckeln i konstruktorn för klassen FaceServiceClient. Exempel:
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```

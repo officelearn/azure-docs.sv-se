@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Hämta resultat för automatiska förslag med API:et för automatiska förslag i Bing'
+title: 'Självstudier: Hämta resultat för automatiska förslag med API:et för automatiska förslag i Bing'
 titlesuffix: Azure Cognitive Services
 description: Källkod för självstudie som visar hur du använder API:et för automatiska förslag i Bing i ett webbprogram med en enda sida.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: a3eafe1c2ad6bb7a141b6c40c85f804d0f9b7395
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fdb72b92a444b889ddfafd0ceecbb4fab6570c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345631"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171260"
 ---
-# <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
+# <a name="tutorial-single-page-web-app"></a>Självstudier: Enkelsidig webbapp
 
 Det här är den fullständiga källkoden som beskrivs i [självstudien om en enkelsidig webbapp](autosuggest.md) för API:et för automatiska förslag i Bing. Kör appen genom att kopiera källkoden till en textredigerare och spara filen som `autosuggest.html`. Öppna sedan den sparade filen i webbläsaren.
 

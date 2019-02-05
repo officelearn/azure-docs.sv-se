@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1e27fb26b00502b63d6023b41b6a26b179b453be
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094050"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900774"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Skapa en funktionsapp från Azure Portal
 
@@ -35,7 +35,7 @@ När du har skapat funktionsappen kan du skapa enskilda funktioner på ett eller
 
 ## <a name="service-plans"></a>Tjänstplaner
 
-Azure Functions har två olika tjänstplaner: förbrukningsplanen och App Service-planen. Med förbrukningsplanen allokeras beräkningskraften automatiskt när koden körs. Utskalning sker när det behövs för att hantera belastningen och sedan görs en nedskalning när koden inte körs. Med App Service-planen får din funktionsapp tillgång till alla funktioner i App Service. Du måste välja tjänstplan när du skapar funktionsappen, och för närvarande kan du inte att ändra ditt val. Mer information finns i [Choose an Azure Functions hosting plan](functions-scale.md) (Välja en värdplan för Azure Functions).
+Azure Functions har två olika tjänstplaner: Förbrukningsplan och App Service-plan. Med förbrukningsplanen allokeras beräkningskraften automatiskt när koden körs. Utskalning sker när det behövs för att hantera belastningen och sedan görs en nedskalning när koden inte körs. Med App Service-planen får din funktionsapp tillgång till alla funktioner i App Service. Du måste välja tjänstplan när du skapar funktionsappen, och för närvarande kan du inte att ändra ditt val. Mer information finns i [Choose an Azure Functions hosting plan](functions-scale.md) (Välja en värdplan för Azure Functions).
 
 Om du planerar att köra JavaScript-funktioner i en App Service-plan bör du välja en plan med färre kärnor. Mer information finns i [JavaScript-referensen för Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
@@ -53,6 +53,3 @@ Mer information om lagringskontotyper finns i [introduktionen till Azure Storage
 ## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
-
-
-

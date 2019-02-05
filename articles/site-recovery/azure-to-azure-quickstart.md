@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e73b4724dbe578e6cd46753c85a4f3dce62f1e3a
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 8fea062e2c72410b13fa70cc5cad22b7e677086b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402072"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211856"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Konfigurera haveriberedskap för en sekundär Azure-region för en virtuell Azure-dator        
 
@@ -54,7 +54,7 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
 
 Den virtuella datorn i den primära regionen slutar replikera när du inaktiverar replikering för den:
 
-- Källans replikeringsinställningar rensas automatiskt. Observera att Site Recovery-tillägget som installeras som en del av replikeringen inte tas bort och måste tas bort manuellt. 
+- Källans replikeringsinställningar rensas automatiskt. Observera att Site Recovery-tillägget som installeras som en del av replikeringen inte tas bort automatiskt utan måste tas bort manuellt. 
 - Site Recovery-faktureringen för den virtuella datorn stoppas också.
 
 Stoppa replikering på följande sätt

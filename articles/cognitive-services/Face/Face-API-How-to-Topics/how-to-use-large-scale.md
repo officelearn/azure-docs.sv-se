@@ -1,23 +1,23 @@
 ---
-title: 'Exempel: använd den storskaliga funktionen – Ansikts-API'
+title: 'Exempel: Använda den storskaliga funktionen – Ansikts-API'
 titleSuffix: Azure Cognitive Services
 description: Använda den storskaliga funktionen i Ansikts-API.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123087"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222906"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>Exempel: använd den storskaliga funktionen
+# <a name="example-how-to-use-the-large-scale-feature"></a>Exempel: Känna igen storskaliga funktioner
 
 Den här guiden är en avancerad artikel om kodmigrering för att skala upp från de befintliga PersonGroup och FaceList till LargePersonGroup respektive LargeFaceList.
 Den här guiden visar migreringsprocessen med antagandet att du känner till grundläggande användning av PersonGroup och FaceList.
@@ -39,11 +39,11 @@ Nackdelen är dock att de nyligen tillagda personerna/ansiktena inte visas i res
 
 Om du inte är bekant med följande begrepp i den här guiden, finner du definitionerna i [ordlistan](../Glossary.md):
 
-- LargePersonGroup: En uppsättning personer med kapacitet på upp till 1 000 000.
-- LargeFaceList: En uppsättning ansikten med en kapacitet på upp till 1 000 000.
+- LargePersonGroup: En samling personer med kapacitet på upp till 1 000 000.
+- LargeFaceList: En samling ansikten med en kapacitet på upp till 1 000 000.
 - Träning: En förbearbetning för att säkerställa prestanda för identifiering/FindSimilar.
 - Identifiering: Identifiera en eller flera ansikten från en PersonGroup eller LargePersonGroup.
-- FindSimilar: Sök liknande ansikten från en FaceList eller LargeFaceList.
+- FindSimilar: Sök efter liknande ansikten från en FaceList eller LargeFaceList.
 
 ## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anropet
 
@@ -212,7 +212,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 Som det visas ovan är delarna datahantering och FindSimilar nästan desamma.
 Det enda undantaget är att en ny träningsåtgärd för förbearbetning måste slutföras i LargeFaceList innan FindSimilar fungerar.
 
-## <a name="step-3-train-suggestions"></a>Steg 3: träningsförslag
+## <a name="step-3-train-suggestions"></a>Steg 3: Träningsförslag
 
 Även om träningsåtgärden påskyndar [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) och [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), så blir träningstiden lidande, speciellt i stor skala.
 Den uppskattade träningstiden i olika skalor visas i följande tabell:

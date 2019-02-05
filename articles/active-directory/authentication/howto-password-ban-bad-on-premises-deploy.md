@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 105ed999fc7122fb1c99e2c380b26a8c4d8d9f62
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 824bedf782d6d227f2fa3adcf52492bb5a3eb478
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659532"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696871"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera Azure AD-lösenordsskydd
 
@@ -40,7 +40,7 @@ När funktionen har körts i granskningsläge i rimlig tid, tvingande konfigurat
 
 ## <a name="deployment-requirements"></a>Krav för distribution
 
-* Alla domänkontrollanter där Azure AD-lösenord DC Protection agent-tjänsten kommer att installeras måste köra Windows Server 2012 eller senare.
+* Alla domänkontrollanter där Azure AD lösenord DC skyddsagenttjänsten ska installeras måste köra Windows Server 2012 eller senare.
 * Alla datorer där Azure AD-lösenord Protection proxytjänsten installeras måste köra Windows Server 2012 R2 eller senare.
 * Alla datorer där Azure AD-lösenordsskydd komponenter är installerade, inklusive domänkontrollanter måste ha den universella C som är installerad.
 Detta åstadkoms helst genom att helt åtgärda datorn via Windows Update. I annat fall ett lämpligt operativsystemspecifika uppdateringspaketet vara installerat – Se [uppdatera för Universal C-körning i Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
@@ -168,17 +168,17 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenord skydd s
 
       I exemplen ovan lyckas bara om den inloggade användaren också är administratör för Active Directory-domän för rotdomänen. Om detta inte är fallet kan du ange alternativa domänautentiseringsuppgifter via parametern - ForestCredential.
 
-      > [!NOTE]
-      > Om flera proxyservrar är installerade i din miljö, spelar ingen roll vilken proxyserver som används för att registrera skogen.
+   > [!NOTE]
+   > Om flera proxyservrar är installerade i din miljö, spelar ingen roll vilken proxyserver som används för att registrera skogen.
 
-      > [!TIP]
-      > Det kan finnas en avsevärd fördröjning (antal sekunder) första gången den här cmdleten körs för en viss Azure-klient innan cmdleten är slutfört. Om inte ett fel rapporteras ska inte den här fördröjningen betraktas oroväckande.
+   > [!TIP]
+   > Det kan finnas en avsevärd fördröjning (antal sekunder) första gången den här cmdleten körs för en viss Azure-klient innan cmdleten är slutfört. Om inte ett fel rapporteras ska inte den här fördröjningen betraktas oroväckande.
 
-      > [!NOTE]
-      > Registrering av Active Directory-skogen förväntas vara ett enstaka steg i livslängden för skogen. Domain controller-agenter som körs i skogen utför automatiskt andra nödvändiga maintainenance från och med nu och senare. När den har slutförts för en viss skog ytterligare funktionsanrop i `Register-AzureADPasswordProtectionForest` fortsätta att lyckas men är onödiga.
+   > [!NOTE]
+   > Registrering av Active Directory-skogen förväntas vara ett enstaka steg i livslängden för skogen. Domain controller-agenter som körs i skogen utför automatiskt andra nödvändiga maintainenance från och med nu och senare. När den har slutförts för en viss skog ytterligare funktionsanrop i `Register-AzureADPasswordProtectionForest` fortsätta att lyckas men är onödiga.
 
-      > [!NOTE]
-      > För att `Register-AzureADPasswordProtectionForest` ska lyckas minst en Windows Server 2012 eller senare domain controller måste finnas i proxyserverns domän. Det finns dock inget krav på att DC klientprogrammet installeras på alla domänkontrollanter före det här steget.
+   > [!NOTE]
+   > För att `Register-AzureADPasswordProtectionForest` ska lyckas minst en Windows Server 2012 eller senare domain controller måste finnas i proxyserverns domän. Det finns dock inget krav på att DC klientprogrammet installeras på alla domänkontrollanter före det här steget.
 
 6. Konfigurera Azure AD-lösenord Protection Proxy-tjänsten att kommunicera via en HTTP-proxy
 

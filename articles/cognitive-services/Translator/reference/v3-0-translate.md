@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 800c6d3441e75f428f58fe76ea653f04353064bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470883"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699728"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -54,7 +54,7 @@ Parametrarna som skickades mot frågesträngen är:
   </tr>
   <tr>
     <td>category</td>
-    <td>*Valfri parameter*.<br/>En sträng som anger kategorin (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med [anpassad Translator](../customization.md). Standardvärdet är: `general`.</td>
+    <td>*Valfri parameter*.<br/>En sträng som anger kategorin (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med [anpassad Translator](../customization.md). Lägg till kategori-ID från projektet anpassade Translator för den här parametern för att använda ditt anpassade distribuerade system. Standardvärdet är: `general`.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
@@ -126,7 +126,7 @@ Brödtexten i begäran är en JSON-matris. Varje matriselement är ett JSON-obje
 
 Följande begränsningar gäller:
 
-* Matrisen kan ha högst 25 element.
+* Matrisen kan ha högst 100 element.
 * Hela texten i begäran får inte överskrida 5 000 tecken inklusive blanksteg.
 
 ## <a name="response-body"></a>Svarstext
@@ -224,6 +224,8 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
     <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår bör du rapportera det med: datum och tid för fel, begärande-ID från svarshuvud `X-RequestId`, och klient-ID från begärandehuvudet `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+Om ett fel inträffar, returneras också en JSON-felsvar i begäran. Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av ett 3-siffriga tal till ytterligare kategorisera felet. Vanliga felkoder finns på den [v3 Translator Text API-referenssida](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exempel
 

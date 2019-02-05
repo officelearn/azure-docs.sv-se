@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c0a5e8695b712ca95952ea839fa829dab2c48824
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188881"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700102"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init-stöd för virtuella datorer i Azure
 Den här artikeln förklarar stödet finns för [cloud-init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller en virtuell dator av skalningsuppsättningar (VMSS) etableringstid i Azure. Skripten cloud-init körs vid den första starten när resurserna har etablerats med Azure.  
@@ -39,8 +39,8 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
 |Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
 |CoreOS |CoreOS |Stable |senaste |ja |
-|OpenLogic |CentOS |7-CI |senaste |förhandsgranskning |
-|Redhat |RHEL |7-RAW-CI |senaste |förhandsgranskning |
+|OpenLogic |CentOS |7-CI |senaste |förhandsversion |
+|Redhat |RHEL |7-RAW-CI |senaste |förhandsversion |
 
 För närvarande stöder inte Azure Stack etableringen av RHEL 7.4 och CentOS 7.4 med cloud-init.
 
@@ -54,7 +54,7 @@ WALA konfigurationer av virtuella datorer är begränsad tid att arbeta i den st
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Distribuera en cloud-init-aktiverad virtuell dator
 Distribuera en virtuell dator för cloud-init aktiverat är lika enkelt som refererar till en cloud-init aktiverat distribution under distributionen.  Sköter underhåll själva för Linux-distribution måste du välja att aktivera och integrera cloud-init i sina grundläggande Azure publicerade avbildningar. När du har bekräftat att den avbildning du vill distribuera är cloud-init aktiverat, kan du använda Azure CLI ska distribuera avbildningen. 
 
-Det första steget i att distribuera den här avbildningen är att skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#az_group_create) kommando. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
+Det första steget i att distribuera den här avbildningen är att skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group) kommando. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
@@ -71,7 +71,7 @@ packages:
 ```
 Tryck på `ctrl-X` avsluta filen, skriva `y` att spara filen och klicka på `enter` bekräfta filnamnet vid avslut.
 
-Det sista steget är att skapa en virtuell dator med den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. 
+Det sista steget är att skapa en virtuell dator med den [az vm skapa](/cli/azure/vm) kommando. 
 
 I följande exempel skapas en virtuell dator med namnet *centos74* och SSH-nycklar skapas om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. I följande exempel skapas en virtuell dator med namnet *centos74*:
 

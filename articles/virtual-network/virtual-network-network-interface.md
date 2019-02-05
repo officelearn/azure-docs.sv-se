@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 6011defcea54a26aa25877aeace6a1a8a629fdf6
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 93534cf80a007dbb848a515ec4ec165c67e3b456
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567527"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730704"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -68,7 +68,7 @@ Portalen ger inte alternativet att tilldela nätverksgränssnittet till programs
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|CLI|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Visa inställningar för nätverksgränssnittet
@@ -93,7 +93,7 @@ Om en IPv6-adress tilldelas till ett nätverksgränssnitt, returnerar det faktum
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ network nic list](/cli/azure/network/nic#az_network_nic_list) att visa nätverksgränssnitt i prenumerationen; [az network nic show](/cli/azure/network/nic#az_network_nic_show) att visa inställningar för ett nätverksgränssnitt|
+|CLI|[AZ network nic list](/cli/azure/network/nic) att visa nätverksgränssnitt i prenumerationen; [az network nic show](/cli/azure/network/nic) att visa inställningar för ett nätverksgränssnitt|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) visa nätverksgränssnitt i prenumeration eller visa inställningarna för ett nätverksgränssnitt|
 
 ## <a name="change-dns-servers"></a>Ändra DNS-servrar
@@ -153,7 +153,7 @@ Du kan ändra undernätet, men inte det virtuella nätverket, som ett nätverksg
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Lägg till eller ta bort från programsäkerhetsgrupper

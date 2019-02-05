@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451673"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729412"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Skapa ett importjobb för tjänsten Azure Import/Export
 
@@ -61,14 +61,14 @@ Innan du skapar ett importjobb, måste du skaffa ett endash platsnamn och adress
 
  Följ stegen nedan för att hämta leveranser plats:
 
--   Identifiera namnet på platsen för ditt lagringskonto. Det här värdet finns under den **plats** på lagringskontots **instrumentpanelen** i Azure portal eller efterfrågade för med hjälp av service management API-åtgärden [hämta Storage-konto Egenskaper för](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identifiera namnet på platsen för ditt lagringskonto. Det här värdet finns under den **plats** på lagringskontots **instrumentpanelen** i Azure portal eller efterfrågade för med hjälp av service management API-åtgärden [hämta Storage-konto Egenskaper för](/rest/api/storagerp/storageaccounts).
 
 -   Hämta den plats som är tillgängliga för att bearbeta det här lagringskontot genom att anropa den `Get Location` igen.
 
 -   Om den `AlternateLocations` egenskapen för platsen innehåller själva platsen, så är det bra att använda den här platsen. Annars kan anropa den `Get Location` utföra åtgärden igen med en av de alternativa platserna. Den ursprungliga platsen kan vara tillfälligt stängd för underhåll.
 
 ## <a name="creating-the-import-job"></a>Skapa importjobbet
-Om du vill skapa importjobbet anropa den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) igen. Du måste ange följande information:
+Om du vill skapa importjobbet anropa den [placera jobbet](/rest/api/storageimportexport/jobs) igen. Du måste ange följande information:
 
 -   Ett namn för jobbet.
 

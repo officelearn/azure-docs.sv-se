@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: d7f84e188324bcdb9fb1a26d701805978f1fd625
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489401"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734444"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
@@ -29,11 +29,15 @@ Om du vill lägga till taggar i resurser, måste användaren ha skrivbehörighet
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="policies"></a>Principer
+
+Du kan använda [Azure Policy](../governance/policy/overview.md) framtvinga taggning regler och konventioner. Genom att skapa en princip kan undvika du scenariot resurser som distribueras till din prenumeration som inte är kompatibla med de förväntade taggarna för din organisation. I stället för att manuellt använda taggar eller söka efter resurser som inte är kompatibla kan skapa du en princip som använder automatiskt de nödvändiga taggarna under distributionen. Avsnittet nedan visar exempel på principer för taggar.
+
+[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
 
-Exemplen i den här artikeln kräver Azure PowerShell 6.0 eller senare. Om du inte har version 6.0 eller senare, [uppdatera din version](/powershell/azure/install-az-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Om du vill visa de befintliga taggarna för en *resursgrupp* använder du:
 
@@ -275,5 +279,4 @@ REST API-åtgärder, se [Azure Billing REST API-referens](/rest/api/billing/).
 ## <a name="next-steps"></a>Nästa steg
 
 * Inte alla resurstyper stöder taggar. För att avgöra om du kan använda en tagg för en resurstyp, se [tagga stöd för Azure-resurser](tag-support.md).
-* Du kan använda begränsningar och konventioner på din prenumeration med hjälp av anpassade principer. En princip som du definierar kan kräva att alla resurser har ett värde för en viss tagg. Mer information finns i [vad är Azure Policy?](../azure-policy/azure-policy-introduction.md)
 * En introduktion till med hjälp av portalen finns i [med Azure portal för att hantera dina Azure-resurser](resource-group-portal.md).  

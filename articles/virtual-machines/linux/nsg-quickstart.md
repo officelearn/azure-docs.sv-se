@@ -14,25 +14,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: dd254f0640e17bdc055171dde69b04103f389354
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a12952c73863d10c4fffd013ab594a83ab1b6433
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659838"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729472"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Öppna portar och slutpunkter till en Linux VM med Azure CLI
 
 Du öppnar en port eller skapa en slutpunkt för att en virtuell dator (VM) i Azure genom att skapa ett filter för nätverk på ett undernät eller Virtuella nätverksgränssnitt. Du kan placera dessa filter som styr både inkommande och utgående trafik på en Nätverkssäkerhetsgrupp som är kopplade till den resurs som tar emot trafiken. Nu ska vi använda ett vanligt exempel på Internet-trafik på port 80. Den här artikeln visar hur du öppnar en port till en virtuell dator med Azure CLI. 
 
 
-Skapa en Nätverkssäkerhetsgrupp och regler som du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Skapa en Nätverkssäkerhetsgrupp och regler som du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar *myResourceGroup*, *myNetworkSecurityGroup*, och *myVnet*.
 
 
 ## <a name="quickly-open-a-port-for-a-vm"></a>Snabbt öppna en port för en virtuell dator
-Om du behöver snabbt öppnar en port för en virtuell dator i ett scenario för utveckling och testning kan du använda den [az vm open-port](/cli/azure/vm#az_vm_open_port) kommando. Det här kommandot skapar en Nätverkssäkerhetsgrupp, lägger till en regel och tillämpar den på en virtuell dator eller undernät. I följande exempel öppnas port *80* på den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup*.
+Om du behöver snabbt öppnar en port för en virtuell dator i ett scenario för utveckling och testning kan du använda den [az vm open-port](/cli/azure/vm) kommando. Det här kommandot skapar en Nätverkssäkerhetsgrupp, lägger till en regel och tillämpar den på en virtuell dator eller undernät. I följande exempel öppnas port *80* på den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup*.
 
 ```azure-cli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
@@ -51,7 +51,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Lägga till en regel med [az network nsg-regel skapar](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) att tillåta HTTP-trafik till en webbserver (eller justera för ditt eget scenario, till exempel anslutningar för SSH-åtkomst eller databas). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRule* att tillåta TCP-trafik på port 80:
+Lägga till en regel med [az network nsg-regel skapar](/cli/azure/network/nsg/rule) att tillåta HTTP-trafik till en webbserver (eller justera för ditt eget scenario, till exempel anslutningar för SSH-åtkomst eller databas). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRule* att tillåta TCP-trafik på port 80:
 
 ```azurecli
 az network nsg rule create \
@@ -65,7 +65,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>Tillämpa Nätverkssäkerhetsgrupp kopplad till virtuell dator
-Associera Nätverkssäkerhetsgruppen med den Virtuella datorns nätverksgränssnitt (NIC) med [az network nic update](/cli/azure/network/nic#az_network_nic_update). I följande exempel kopplar ett befintligt nätverkskort med namnet *myNic* med Nätverkssäkerhetsgruppen med namnet *myNetworkSecurityGroup*:
+Associera Nätverkssäkerhetsgruppen med den Virtuella datorns nätverksgränssnitt (NIC) med [az network nic update](/cli/azure/network/nic). I följande exempel kopplar ett befintligt nätverkskort med namnet *myNic* med Nätverkssäkerhetsgruppen med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \

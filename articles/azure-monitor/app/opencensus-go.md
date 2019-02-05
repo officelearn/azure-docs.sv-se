@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 935119f2efe40ee22d2d11005fa79b12c712b7c2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104581"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694133"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Samla in distribuerade spårningar från Go (förhandsversion)
 
@@ -24,7 +24,7 @@ Application Insights nu stöder distribuerad spårning av Go-program via integre
 
 - Du behöver en Azure-prenumeration.
 - Go ska installeras, den här artikeln använder version 1.11 [går hämta](https://golang.org/dl/).
-- Följ anvisningarna för att installera den [lokala vidarebefordrare som en Windows-tjänst](./opencensus-local-forwarder.md#windows-service).
+- Följ anvisningarna för att installera den [lokala vidarebefordrare som en Windows-tjänst](./opencensus-local-forwarder.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -57,7 +57,7 @@ Du måste först skapa en Application Insights-resurs som genererar en instrumen
 
    ![Skärmbild av instrumentationsnyckeln](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. Redigera din `LocalForwarder.config` filen och Lägg till din instrumentationsnyckel. Om du har följt anvisningarna i den [installationsprogrammets](./opencensus-local-forwarder.md#windows-service) filen finns på `C:\LF-WindowsServiceHost`
+2. Redigera din `LocalForwarder.config` filen och Lägg till din instrumentationsnyckel. Om du har följt anvisningarna i den [installationsprogrammets](./opencensus-local-forwarder.md) filen finns på `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -186,7 +186,7 @@ Du måste först skapa en Application Insights-resurs som genererar en instrumen
 
 3. När enkel go-app är igång går du till `http://localhost:50030`. Varje uppdatering av webbläsaren genererar den texten ”hello world” tillsammans med motsvarande span data som hämtas av den lokala vidarebefordraren.
 
-4. Att bekräfta att den **lokala vidarebefordrare** plocka upp kontrollen spårningar den `LocalForwarder.config` filen. Om du har följt stegen i den [nödvändiga](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), det ska finnas i `C:\LF-WindowsServiceHost`.
+4. Att bekräfta att den **lokala vidarebefordrare** plocka upp kontrollen spårningar den `LocalForwarder.config` filen. Om du har följt stegen i den [nödvändiga](https://docs.microsoft.com/azure/application-insights/local-forwarder), det ska finnas i `C:\LF-WindowsServiceHost`.
 
     I nedanstående bild av loggfilen, kan du se att innan du kör skriptet andra där vi har lagt till en exportör `OpenCensus input BatchesReceived` : 0. När vi började köras det uppdaterade skriptet `BatchesReceived` ökar lika med antalet värden som vi angav:
     

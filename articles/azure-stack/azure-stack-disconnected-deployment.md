@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 5447bcb0dc37cb3c923c4e6bbff4d69d987b6df6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244376"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691175"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Integrerade Azure-frånkopplade distribution planeringsbeslut för Azure Stack-system
 När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan sedan slutföra din Azure Stack-distributionsbeslut.
@@ -47,7 +47,7 @@ Azure Stack har utformats för att fungerar bäst när du är ansluten till Azur
 |Distribution av virtuella datorer med Docker-tillägg för att köra Docker-kommandon|Skadade – Docker kontrollerar Internet för den senaste versionen och den här kontrollen misslyckas.|
 |Länkarna till dokumentation i Azure Stack Portal|Ej tillgänglig länkar, till exempel ge Feedback, hjälp, Snabbstart, etc. som använder en Internet-URL: en inte fungerar.|
 |Aviseringen reparation/lösning som refererar till en online reparation guide|Ej tillgängligt – alla reparation av aviseringar länkar som använder en Internet-URL: en inte fungerar.|
-|Marketplace – möjlighet att välja och lägga till Gallery-paket direkt från Azure Marketplace|Skadade – när du distribuerar Azure Stack i frånkopplat läge (utan någon Internetanslutning) kan du kan inte hämta marketplace-objekt med hjälp av Azure Stack-portalen. Men du kan använda den [marketplace syndikering verktyget](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) hämta marketplace-objekt till en dator som är ansluten till internet och överföra dem till Azure Stack-miljön.|
+|Marketplace – möjlighet att välja och lägga till Gallery-paket direkt från Azure Marketplace|Skadade – när du distribuerar Azure Stack i frånkopplat läge (utan någon Internetanslutning) kan du kan inte hämta marketplace-objekt med hjälp av Azure Stack-portalen. Men du kan använda den [marketplace syndikering verktyget](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) hämta marketplace-objekt till en dator som är ansluten till internet och överföra dem till Azure Stack-miljön.|
 |Använda Azure Active Directory federation-konton för att hantera en Azure Stack-distribution|Ej tillgängligt – den här funktionen kräver anslutning till Azure. AD FS med en lokal Active Directory-instans måste användas i stället.|
 |App Services|Skadade - kan WebApps kräver Internetåtkomst för uppdaterat innehåll.|
 |Kommandoradsgränssnitt (CLI)|Skadade – minskat CLI funktioner när det gäller autentisering och etablering av tjänstens huvudnamn.|

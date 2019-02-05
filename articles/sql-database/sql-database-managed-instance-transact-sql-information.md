@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance T-SQL-skillnader | Microsoft Docs
-description: Den här artikeln beskriver T-SQL-skillnader mellan Azure SQL Database Managed Instance och SQL Server
+title: Azure SQL Database managed instance T-SQL skillnader | Microsoft Docs
+description: Den här artikeln beskriver T-SQL-skillnader mellan en hanterad instans i Azure SQL Database och SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 01/31/2019
-ms.openlocfilehash: 3fa0977a8239a3d0db1aea99d39a2079945b724a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/04/2019
+ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567731"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734614"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database managed instance T-SQL skillnader från SQL Server
 
-Azure SQL Database Managed Instance tillhandahåller hög kompatibilitet med en lokal SQL Server Database Engine. De flesta SQL Server Database Engine-funktioner stöds i hanterade instanser.
+Alternativ för distribution av hanterade instansen tillhandahåller hög kompatibilitet med en lokal SQL Server Database Engine. De flesta av SQL Server database engine-funktioner stöds i en hanterad instans.
 
 ![Migrering](./media/sql-database-managed-instance/migration.png)
 
@@ -30,14 +30,14 @@ Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den h�
 - [Security](#security) inklusive skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credentials), [kryptografiproviders](#cryptographic-providers), [Inloggningar / användare](#logins--users), [nyckel och huvudnyckeln för tjänsten](#service-key-and-service-master-key),
 - [Konfigurationen](#configuration) inklusive skillnaderna i [buffra pool tillägget](#buffer-pool-extension), [sortering](#collation), [kompatibilitetsnivå](#compatibility-levels),[databas spegling](#database-mirroring), [databasalternativ](#database-options), [SQL Server Agent](#sql-server-agent), [Tabellalternativ](#tables),
 - [Lär dig om funktionerna](#functionalities) inklusive [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distribuerade transaktioner](#distributed-transactions), [ Utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [Filestream- och Filetable](#filestream-and-filetable), [semantiska fulltextsökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [Polybase](#polybase), [replikering](#replication), [ÅTERSTÄLLA](#restore-statement), [Service Broker](#service-broker), [ Lagrade procedurer, funktioner och utlösare](#stored-procedures-functions-triggers),
-- [Funktioner som har olika beteenden i Managed Instance](#Changes)
+- [Funktioner som har olika beteenden i hanterade instanser](#Changes)
 - [Temporära begränsningar och kända problem](#Issues)
 
 ## <a name="availability"></a>Tillgänglighet
 
 ### <a name="always-on-availability"></a>Alltid på
 
-[Hög tillgänglighet](sql-database-high-availability.md) är inbyggd i Managed Instance och kan inte styras av användare. Följande uttryck stöds inte:
+[Hög tillgänglighet](sql-database-high-availability.md) är inbyggd i hanterade instansen och kan inte styras av användare. Följande uttryck stöds inte:
 
 - [SKAPA SLUTPUNKT... FÖR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
 - [SKAPA TILLGÄNGLIGHETSGRUPP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -47,9 +47,9 @@ Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den h�
 
 ### <a name="backup"></a>Backup
 
-Hanterad instans har automatisk säkerhetskopiering och kan du skapa fullständiga databasen `COPY_ONLY` säkerhetskopior. Differentiell, logg och av filögonblicksbilder stöds inte.
+Hanterade instanser har automatisk säkerhetskopiering och kan användare för att skapa fullständiga databas `COPY_ONLY` säkerhetskopior. Differentiell, logg och av filögonblicksbilder stöds inte.
 
-- Hanterad instans kan säkerhetskopiera en databas bara till ett Azure Blob Storage-konto:
+- Med en hanterad instans kan du säkerhetskopiera en databasinstans endast till ett Azure Blob Storage-konto:
   - Endast `BACKUP TO URL` stöds
   - `FILE`, `TAPE`, och enheter för säkerhetskopiering stöds inte  
 - De flesta av allmänna `WITH` alternativ som stöds
@@ -60,7 +60,7 @@ Hanterad instans har automatisk säkerhetskopiering och kan du skapa fullständi
 
 Begränsningar:  
 
-- Hanterad instans kan säkerhetskopiera en databas till en säkerhetskopia med upp till 32 stripe, vilket räcker för databaser upp till 4 TB om komprimering av säkerhetskopior används.
+- Med en hanterad instans, du kan säkerhetskopiera en databasinstans till en säkerhetskopia med upp till 32 stripe, vilket räcker för databaser upp till 4 TB om komprimering av säkerhetskopior används.
 - Maxstorlek för säkerhetskopiering stripe är 195 GB (högsta blob storlek). Öka antalet stripe i backup kommandot för att minska Stripestorleken på enskilda och stannar inom den här gränsen.
 
 > [!TIP]
@@ -72,18 +72,18 @@ Information om säkerhetskopior med hjälp av T-SQL finns i [BACKUP](https://doc
 
 ### <a name="auditing"></a>Granskning
 
-De viktigaste skillnaderna mellan SQL-granskning på hanterad instans, Azure SQL Database och SQL Server lokalt är:
+De viktigaste skillnaderna mellan granskning i databaser i Azure SQL Database och databaser i SQL Server är:
 
-- I Managed Instance fungerar SQL-granskning på servernivå och lagrar `.xel` filer på Azure blob storage-konto.  
-- I Azure SQL Database fungerar SQL-granskning på databasnivå.
-- I SQL Server lokalt / virtuell dator, SQL-granskning fungerar på servernivå, men lagrar händelser på filer system/windows-händelseloggar.  
+- Med alternativet för hanterad instans-distribution i Azure SQL Database-granskning fungerar på servernivå och lagrar `.xel` loggfiler på en Azure blob storage-konto.
+- Med enkel databas och elastisk pool distributionsalternativ i Azure SQL Database-granskning fungerar på databasnivå.
+- I SQL Server lokalt per virtuell datorer, granska fungerar på servern nivå, men lagrar händelser på filer system/windows-händelseloggar.
   
-XEvent granskning i Managed Instance stöder prestandamål i Azure blob storage. Fil- och windows-loggar stöds inte.
+XEvent granskning i hanterad instans stöder prestandamål i Azure blob storage. Fil- och windows-loggar stöds inte.
 
 Nyckeln skillnader i den `CREATE AUDIT` syntaxen för granskning till Azure blob storage är:
 
 - En ny syntax `TO URL` tillhandahålls och kan du ange URL: en för Azure blob Storage-behållare där `.xel` filer ska placeras
-- Syntaxen `TO FILE` stöds inte eftersom hanterad instans inte kan komma åt Windows-filresurser.
+- Syntaxen `TO FILE` stöds inte eftersom en hanterad instans inte kan komma åt Windows-filresurser.
 
 Mer information finns i:  
 
@@ -93,7 +93,7 @@ Mer information finns i:
 
 ### <a name="certificates"></a>Certifikat
 
-Managed Instance kan inte komma åt filresurser och Windows-mappar. Följande begränsningar gäller:
+En hanterad instans kan inte komma åt delade filer och mappar i Windows, så gäller följande begränsningar:
 
 - `CREATE FROM`/`BACKUP TO` filen stöds inte för certifikat
 - `CREATE`/`BACKUP` certifikat från `FILE` / `ASSEMBLY` stöds inte. Privata nyckelfilerna kan inte användas.  
@@ -116,7 +116,7 @@ Se [skapa AUTENTISERINGSUPPGIFTER](https://docs.microsoft.com/sql/t-sql/statemen
 
 ### <a name="cryptographic-providers"></a>Kryptografiproviders
 
-Hanterad instans kan inte komma åt filer så det inte går att skapa kryptografiproviders:
+En hanterad instans kan inte komma åt filer så det inte går att skapa kryptografiproviders:
 
 - `CREATE CRYPTOGRAPHIC PROVIDER` stöds inte. Se [skapa KRYPTOGRAFIPROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER` stöds inte. Se [ALTER KRYPTOGRAFIPROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
@@ -191,7 +191,7 @@ Mer information finns i [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/s
 
 Vissa egenskaper för filer kan inte ange eller ändra:
 
-- Filsökvägen kan inte anges i `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL-instruktionen. Ta bort `FILENAME` från skriptet eftersom den hanterade instansen automatiskt placerar filerna.  
+- Filsökvägen kan inte anges i `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL-instruktionen. Ta bort `FILENAME` från skriptet eftersom automatiskt placerar filer i en hanterad instans.  
 - Filnamnet kan inte ändras med hjälp av `ALTER DATABASE` instruktionen.
 
 Följande alternativ anges som standard och kan inte ändras:
@@ -228,7 +228,7 @@ Mer information finns i [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/st
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
-- Inställningar för SQL Agent är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterad instans.  
+- Inställningar för SQL Agent är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterade instanser.  
 - Jobb
   - Steg för T-SQL-jobb stöds.
   - Följande replikeringsjobb stöds:
@@ -240,7 +240,7 @@ Mer information finns i [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/st
     - Jobbsteg för sammanslagen replikering stöds inte.  
     - Köläsare stöds inte.  
     - Kommandogränssnitt (shell) stöds inte ännu
-  - Hanterad instans kan inte komma åt externa resurser (till exempel nätverksresurser via robocopy).  
+  - Hanterade instanser kan inte komma åt externa resurser (till exempel nätverksresurser via robocopy).  
   - PowerShell stöds inte ännu.
   - Analysis Services stöds inte
 - Meddelanden stöds delvis
@@ -275,14 +275,14 @@ Information om att skapa och ändra tabeller finns i [CREATE TABLE](https://docs
 
 ### <a name="bulk-insert--openrowset"></a>Massinfogning / openrowset
 
-Hanterad instans kan inte komma åt delade filer och mappar i Windows, så att filerna måste importeras från Azure blob storage:
+En hanterad instans kan inte komma åt delade filer och mappar i Windows, så att filerna måste importeras från Azure blob storage:
 
 - `DATASOURCE` Du måste ange i `BULK INSERT` kommandot när du importerar filer från Azure blob storage. Se [MASSINFOGNING](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE` Du måste ange i `OPENROWSET` fungerar när du läser en innehållet i en fil från Azure blob storage. Se [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
-Managed Instance kan inte komma åt filresurser och Windows-mappar. Följande begränsningar gäller:
+En hanterad instans kan inte komma åt delade filer och mappar i Windows, så gäller följande begränsningar:
 
 - Endast `CREATE ASSEMBLY FROM BINARY` stöds. Se [skapa sammansättningen från binär](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` stöds inte. Se [skapa sammansättningen från filen](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
@@ -299,7 +299,7 @@ Odokumenterade DBCC-uttryck som är aktiverade i SQL Server stöds inte i hanter
 
 ### <a name="distributed-transactions"></a>Distribuerade transaktioner
 
-Varken MSDTC eller [elastiska transaktioner](sql-database-elastic-transactions-overview.md) stöds för närvarande i Managed Instance.
+Varken MSDTC eller [elastiska transaktioner](sql-database-elastic-transactions-overview.md) stöds för närvarande i hanterade instanser.
 
 ### <a name="extended-events"></a>Extended Events
 
@@ -333,7 +333,7 @@ Mer information finns i [FILESTREAM](https://docs.microsoft.com/sql/relational-d
 
 ### <a name="linked-servers"></a>Länkade servrar
 
-Länkade servrar i Managed Instance stöder ett begränsat antal mål:
+Länkade servrar i hanterade instanser stöder ett begränsat antal mål:
 
 - Stöds mål: SQLServer och SQL-databas
 - Stöds inte mål: filer, Analysis Services och andra RDBMS.
@@ -351,7 +351,7 @@ Externa tabeller som refererar till filer i HDFS- eller Azure blob storage stöd
 
 ### <a name="replication"></a>Replikering
 
-Replikering är tillgänglig i offentlig förhandsversion på hanterad instans. Information om replikering finns i [SQL Server-replikering](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replikering är tillgänglig för en förhandsversion för hanterade instanser. Information om replikering finns i [SQL Server-replikering](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### <a name="restore-statement"></a>ÅTERSTÄLLA instruktionen
 
@@ -420,11 +420,11 @@ Cross-instans service broker stöds inte:
 
 Följande variabler, uppgifter och vyer returnerar olika resultat:
 
-- `SERVERPROPERTY('EngineEdition')` Returnerar värdet 8. Den här egenskapen identifierar Managed Instance. Se [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` Returnerar NULL, eftersom begreppet instans som det finns för SQL Server inte gäller för hanterad instans. Se [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('EngineEdition')` Returnerar värdet 8. Den här egenskapen identifierar en hanterad instans. Se [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` Returnerar NULL, eftersom begreppet instans som det finns för SQL Server inte gäller för en hanterad instans. Se [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` Returnerar fullständigt DNS-läge för anslutningsbart'-namn till exempel Mina-managed-instance.wcus17662feb9ce98.database.windows.net. Se [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` -Returnerar fullständig ”läge för anslutningsbart” DNS-namn, till exempel `myinstance.domain.database.windows.net` för egenskaperna ”name” och ”data_source”. Se [SYS. SERVRAR](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` Returnerar NULL, eftersom begreppet tjänsten eftersom det finns för SQL Server inte gäller för hanterad instans. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `@@SERVICENAME` Returnerar NULL, eftersom begreppet tjänsten eftersom det finns för SQL Server inte gäller för en hanterad instans. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` stöds. Returnerar NULL om AAD-inloggning inte är i sys.syslogins. Se [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` stöds inte. Returnerar fel data (tillfälligt kända problem). Se [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
 - `GETDATE()` och andra inbyggda datum/tid-funktioner returnerar alltid tid i UTC-tidszonen. Se [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -455,7 +455,7 @@ Kontrollera att du tar bort ledande `?` från SAS-nyckeln som genereras med hjä
 
 ### <a name="tooling"></a>Verktyg
 
-SQL Server Management Studio (SSMS) och SQL Server Data Tools (SSDT) kan ha några problem vid anslutning till hanterad instans.
+SQL Server Management Studio (SSMS) och SQL Server Data Tools (SSDT) kan ha några problem vid åtkomst till en hanterad instans.
 
 - Med hjälp av Azure AD-inloggningar och användare (**förhandsversion**) med SSDT stöds inte för tillfället.
 - Skript för Azure AD-inloggningar och användare (**förhandsversion**) stöds inte i SSMS.
@@ -474,9 +474,9 @@ Felloggarna som är tillgängliga i hanterade instansen har inte sparats och der
 
 ### <a name="error-logs-are-verbose"></a>Felloggar finns utförlig
 
-Hanterad instans placerar utförlig information i felloggarna och många av dem är inte relevanta. Att kommer minska mängden information i felloggarna i framtiden.
+En hanterad instans placerar utförlig information i felloggarna och många av dem är inte relevanta. Att kommer minska mängden information i felloggarna i framtiden.
 
-**Lösning**: Använd en anpassad procedur för att läsa felloggar som filter ut vissa icke-relevanta poster. Mer information finns i [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Lösning**: Använd en anpassad procedur för att läsa felloggar som filter ut vissa icke-relevanta poster. Mer information finns i [hanterad instans – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>Transaktions-Scope på två databaser inom samma instans stöds inte
 
@@ -511,7 +511,7 @@ using (var scope = new TransactionScope())
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR-moduler och en stund länkade servrar kan inte referera till lokal IP-adress
 
-CLR-moduler som placerats i Managed Instance och länkade servrar/distribuerade frågor som refererar till aktuell instans någon gång det går inte att matcha IP-Adressen för den lokala instansen. Det här felet är ett övergående problem.
+CLR-moduler som placeras i en hanterad instans och länkade servrar/distribuerade frågor som refererar till aktuell instans någon gång det går inte att matcha IP-Adressen för den lokala instansen. Det här felet är ett övergående problem.
 
 **Lösning**: Använd om möjligt kontext anslutningar i CLR-modulen.
 
@@ -523,6 +523,6 @@ Du kan inte utföra `BACKUP DATABASE ... WITH COPY_ONLY` för en databas som är
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Managed Instance finns [vad är en hanterad instans?](sql-database-managed-instance.md)
+- Mer information om hanterade instanser finns [vad är en hanterad instans?](sql-database-managed-instance.md)
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
 - En Snabbstart som visar hur du skapar en ny hanterad instans, se [skapar en hanterad instans](sql-database-managed-instance-get-started.md).

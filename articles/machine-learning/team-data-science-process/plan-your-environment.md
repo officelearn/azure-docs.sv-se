@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0cf9ffddffe7f97008e69c9c4fb7945faeb779da
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8af2398246fac4c8cb1d097e22147bbf695e43a6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469608"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728938"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
 Vilka resurser bör du planera att inkludera när du konfigurerar en miljö för att göra avancerade analyser på en datauppsättning? Den här artikeln tyder på ett antal frågor som hjälper dig att identifiera aktiviteter och resurser som är relevanta ditt scenario. Anvisningar för förutsägande analyser beskrivs i [vad är Team Data Science Process (TDSP)?](overview.md). Var och en av de här stegen kräver specifika resurser för uppgifterna som är relevanta för din specifika scenario. Viktiga frågor för att identifiera ditt scenario avse datalogistik, egenskaper, kvaliteten på datauppsättningar, och de verktyg och språk du föredrar att göra analysen.
@@ -71,7 +71,7 @@ Dessa frågor är att planera din lagring och bearbetning av miljöer, som är l
 
 Ta till exempel Azure Machine Learning Studio-miljön:
 
-* En lista över dataformat och typer som stöds av Azure Machine Learning Studio finns i [dataformat och datatyper som stöds](../studio/import-data.md#data-formats-and-data-types-supported) avsnittet.
+* En lista över dataformat och typer som stöds av Azure Machine Learning Studio finns i [dataformat och datatyper som stöds](../studio/import-data.md#supported-data-formats-and-data-types) avsnittet.
 
 
 Information om begränsningarna i andra Azure-tjänster används i analytics-processen finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md).

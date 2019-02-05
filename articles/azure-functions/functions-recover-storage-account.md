@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000027"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732166"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Så här felsöker du ”functions-körning kan inte nås”
 
@@ -71,7 +71,7 @@ I föregående steg om du inte har en anslutningssträng för lagringskonto har 
 
 ## <a name="storage-account-credentials-invalid"></a>Autentiseringsuppgifter för lagringskonto ogiltig
 
-Ovanstående anslutningssträngar för Storage-konto måste uppdateras om du återskapar lagringsnycklar. [Läs mer om storage nyckelhantering här](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+Ovanstående anslutningssträngar för Storage-konto måste uppdateras om du återskapar lagringsnycklar. [Läs mer om storage nyckelhantering här](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## <a name="storage-account-inaccessible"></a>Storage-konto som är otillgänglig
 

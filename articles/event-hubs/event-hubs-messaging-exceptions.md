@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e5c81a172c99ea6e2591a25f53705ab9cd30fd83
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 97c7af9eb86b1c2e904e2253933b2b01c9e38cf5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660637"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729344"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs – undantag för meddelanden
 
@@ -38,8 +38,8 @@ I följande tabell visas meddelanden undantagstyper och orsaker och anteckningar
 
 | Undantagstyp | Exempel-beskrivning/orsak | Föreslagen åtgärd | Notera på automatisk/omedelbart återförsök |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |Servern svarade inte på den begärda åtgärden inom den angivna tiden som kontrolleras av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout). Servern har slutfört den begärda åtgärden. Detta undantag kan inträffa på grund av nätverks- eller andra fördröjningar i infrastrukturen. |Kontrollera systemtillstånd för att få konsekvens och försök igen om det behövs.<br /> Se [TimeoutException](#timeoutexception). | Återförsök kan hjälpa dig att i vissa fall. Lägg till logik för omprövning i kod. |
-| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |Begärd användare-åtgärden tillåts inte i servern eller -tjänsten. Se Undantagsmeddelandet mer information. Till exempel [Slutför](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) genererar det här undantaget om meddelandet har tagits emot i [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) läge. | Kontrollera koden och i dokumentationen. Kontrollera att den begärda åtgärden är giltig. | Försök inte hjälper att. |
+| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |Servern svarade inte på den begärda åtgärden inom den angivna tiden som kontrolleras av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Servern har slutfört den begärda åtgärden. Detta undantag kan inträffa på grund av nätverks- eller andra fördröjningar i infrastrukturen. |Kontrollera systemtillstånd för att få konsekvens och försök igen om det behövs.<br /> Se [TimeoutException](#timeoutexception). | Återförsök kan hjälpa dig att i vissa fall. Lägg till logik för omprövning i kod. |
+| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |Begärd användare-åtgärden tillåts inte i servern eller -tjänsten. Se Undantagsmeddelandet mer information. Till exempel [Slutför](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) genererar det här undantaget om meddelandet har tagits emot i [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) läge. | Kontrollera koden och i dokumentationen. Kontrollera att den begärda åtgärden är giltig. | Försök inte hjälper att. |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) | Det görs ett försök att anropa en åtgärd på ett objekt som har redan stängts, avbröts eller tagits bort. I sällsynta fall kan den omgivande transaktionen har redan tagits bort. | Kontrollera koden och se till att den inte anropar åtgärder på ett borttaget objekt. | Försök inte hjälper att. |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) | Den [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) objekt kunde inte hämta en token, token är ogiltig eller token innehåller inte de anspråk som krävs för att utföra åtgärden. | Kontrollera att Tokenleverantören har skapats med korrekta värden. Kontrollera konfigurationen av tjänsten Access Control. | Återförsök kan hjälpa dig att i vissa fall. Lägg till logik för omprövning i kod. |
 | [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) | Ett eller flera argument som skickades till metoden är ogiltiga. URI: N som har angetts för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [skapa](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) innehåller sökvägen rörelsegren. URI-schemat som angetts för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [skapa](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) är ogiltig. Egenskapens värde är större än 32 KB. | Kontrollera den anropande koden och se till att argumenten är korrekta. | Försök inte hjälper att. |
@@ -81,7 +81,7 @@ Det här felet kan bero på något av två skäl:
 
 1. Belastningen är inte jämnt fördelat över alla partitioner i event hub och en partition når begränsningen för enheter för lokal dataflöde.
     
-    Lösning: Se över distributionsstrategi partition eller försök [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) kan hjälpa dig att.
+    Lösning: Se över distributionsstrategi partition eller försök [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) kan hjälpa dig att.
 
 2. Event Hubs-namnområdet har inte tillräckligt med dataflödesenheter (du kan kontrollera den **mått** skärmen i Hubs namnrymdsfönstret i den [Azure-portalen](https://portal.azure.com) att bekräfta). Portalen visar aggregerade (1 minut) information, men vi mäter dataflöde i realtid – så att det är bara en uppskattning.
 

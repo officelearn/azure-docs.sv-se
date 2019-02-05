@@ -8,18 +8,18 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117426"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729531"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Enhetsanslutning och inkommande telemetri
 
 Dessa data skickas från enheterna och sensorerna utgör basen för alla IoT-lösningar. Hur representerar dessa olika resurser och hantera dem inom ramen för en plats är chief frågor i IoT-apputveckling. Azure Digital Twins förenklar arbetet med att utveckla IoT-lösningar genom att förena enheter och sensorer med ett spatial intelligence-diagram.
 
-Kom igång genom att skapa en Azure IoT Hub-resurs i roten för spatial diagrammet. IoT Hub-resurs kan alla enheter under rot-utrymme för att skicka meddelanden. När IoT-hubben har skapats kan du registrera enheter med sensorer inom Digital Twins-instansen. Enheterna som kan skicka data till en Digital Twins tjänst via den [Azure IoT-enhetens SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+Kom igång genom att skapa en Azure IoT Hub-resurs i roten för spatial diagrammet. IoT Hub-resurs kan alla enheter under rot-utrymme för att skicka meddelanden. När IoT-hubben har skapats kan du registrera enheter med sensorer inom Digital Twins-instansen. Enheterna som kan skicka data till en Digital Twins tjänst via den [Azure IoT-enhetens SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
 Stegvisa instruktioner om hur du med publicera enheter, finns det [självstudie om du vill distribuera och konfigurera digitala Twins](tutorial-facilities-setup.md). På ett ögonblick är stegen:
 
@@ -69,8 +69,8 @@ Du kan anpassa din enhets meddelandeformat och för att anpassa lösningens beho
 
 | Egenskapsnamn | Värde | Krävs | Beskrivning |
 |---|---|---|---|
-| **DigitalTwins-telemetri** | 1.0 | Ja | Ett konstantvärde som identifierar ett meddelande i systemet. |
-| **DigitalTwins SensorHardwareId** | `string(72)` | Ja | En unik identifierare för sensorn som skickar den **meddelande**. Det här värdet måste matcha ett objekts **HardwareId** -egenskapen för systemet att behandla den. Till exempel `00FF0643BE88-CO2`. |
+| **DigitalTwins-Telemetry** | 1.0 | Ja | Ett konstantvärde som identifierar ett meddelande i systemet. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | En unik identifierare för sensorn som skickar den **meddelande**. Det här värdet måste matcha ett objekts **HardwareId** -egenskapen för systemet att behandla den. Till exempel `00FF0643BE88-CO2`. |
 | **CreationTimeUtc** | `string` | Nej | En [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formaterad datumsträng som identifierar tiden samplar för nyttolasten. Till exempel `2018-09-20T07:35:00.8587882-07:00`. |
 | **Korrelations-ID** | `string` | Nej | En UUID som har använt för att spåra händelser i systemet. Till exempel `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 

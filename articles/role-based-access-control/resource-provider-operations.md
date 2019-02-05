@@ -13,18 +13,18 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fa17b2bb440f574f63349c5bb51573725aa45876
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ede3d6eb35935e3fec32e8fd4bb71d6c698486
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191550"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697120"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
 Den här artikeln visar en lista över åtgärderna som är tillgängliga för varje Azure Resource Manager-resursprovidern. Dessa åtgärder kan användas i [anpassade roller](custom-roles.md) att tillhandahålla detaljerade [rollbaserad åtkomstkontroll (RBAC)](overview.md) till resurser i Azure. Åtgärden strängar har följande format: `{Company}.{ProviderName}/{resourceType}/{action}`
 
-Åtgärder för resursprovider är alltid under utveckling. Hämta de senaste åtgärderna [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) eller [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
+Åtgärder för resursprovider är alltid under utveckling. Hämta de senaste åtgärderna [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) eller [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

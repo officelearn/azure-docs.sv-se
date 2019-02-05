@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 492e7cf466dd8019efe8617b67e9fa6b14f5b3c1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8457334e00f7c8dfbaee75a12d6bb71b760e60d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661671"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697008"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -385,7 +385,7 @@ Om din beroende agentinstallationen har genomförts, men du inte ser din server 
 **Windows**: Leta efter tjänsten med namnet ”Microsoft Dependency agent”.<br>
 **Linux**: Leta efter processen ”microsoft-beroende-agent”.
 
-* Är du på den [kostnadsfria prisnivån för Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Det kostnadsfria abonnemanget kan upp till fem unika Tjänstkarta-servrar. Övriga servrar visas inte i Tjänstkartan, även om de tidigare fem inte längre skickar data.
+* Är du på den [kostnadsfria prisnivån för Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Det kostnadsfria abonnemanget kan upp till fem unika Tjänstkarta-servrar. Övriga servrar visas inte i Tjänstkartan, även om de tidigare fem inte längre skickar data.
 
 * Är din server skicka logg- och prestandadata till Log Analytics? Gå till Loggsökning och kör följande fråga för din dator: 
 

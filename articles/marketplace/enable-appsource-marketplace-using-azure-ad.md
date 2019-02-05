@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351957"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732336"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Aktivera en AppSource och Marketplace-lista med hjälp av Azure Active Directory
 
@@ -59,7 +59,7 @@ Läs mer om SaaS tekniska krav, [SaaS-program erbjuder publiceringsguide](https:
 
 Automatiserad kundens inställningar kan öka sannolikheten för konvertering. När kunden väljer din utvärderingsversion registrering och omdirigeras till din utvärderingsmiljö kan konfigurera du kunden direkt utan att kräva ytterligare logga in-åtgärder.
 
-Under autentiseringen skickar en token till din app eller ett erbjudande i Azure AD. Användarinformation från token används för att skapa ett användarkonto i din app eller erbjudandet. Mer information finns i [exempel token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+Under autentiseringen skickar en token till din app eller ett erbjudande i Azure AD. Användarinformation från token används för att skapa ett användarkonto i din app eller erbjudandet. Mer information finns i [exempel token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 När du använder Azure AD för att aktivera ett klick i din app eller en utvärderingsversion lista du:
 

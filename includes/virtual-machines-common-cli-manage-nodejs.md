@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227421"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736021"
 ---
 Innan du kan använda Azure CLI med Resource Manager-kommandon och mallar för att distribuera Azure-resurser och arbetsbelastningar med resursgrupper, måste du ha ett konto hos Azure. Om du inte har något konto kan du skaffa ett [kostnadsfritt Azure-utvärderingskonto här](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -44,7 +44,7 @@ Den här artikeln beskriver grundläggande kommandon som du vill använda med Az
 | Ta bort en virtuell dator |`azure vm delete [options] <resource_group> <name>` |
 | Avbilda en virtuell dator |`azure vm capture [options] <resource_group> <name>` |
 | Skapa en virtuell dator av en användaravbildning |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Skapa en virtuell dator från en särskild disk |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Skapa en virtuell dator från en särskild disk |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | Lägg till en datadisk i en virtuell dator |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | Ta bort en datadisk från en virtuell dator |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | Lägg till ett allmänt tillägg i en virtuell dator |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

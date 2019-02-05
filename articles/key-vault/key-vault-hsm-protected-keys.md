@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: a53e37cf2ac99dcd755f71e9a2a236f27832fbd7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079212"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693892"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför HSM-skyddade nycklar för Azure Key Vault
 
@@ -105,98 +105,98 @@ Gå till Microsoft Download Center och [ladda ned Azure Key Vault BYOK-verktygsu
 - - -
 **USA:**
 
-KeyVault-BYOK-verktyg-Förenade States.zip
+KeyVault-BYOK-Tools-UnitedStates.zip
 
 2E8C00320400430106366A4E8C67B79015524E4EC24A2D3A6DC513CA1823B0D4
 
 - - -
 **Europa:**
 
-KeyVault-BYOK-verktyg-Europe.zip
+KeyVault-BYOK-Tools-Europe.zip
 
 9AAA63E2E7F20CF9BB62485868754203721D2F88D300910634A32DFA1FB19E4A
 
 - - -
 **Asien:**
 
-KeyVault-BYOK-verktyg-AsiaPacific.zip
+KeyVault-BYOK-Tools-AsiaPacific.zip
 
 4BC14059BF0FEC562CA927AF621DF665328F8A13616F44C977388EC7121EF6B5
 
 - - -
 **Latinamerika:**
 
-KeyVault-BYOK-verktyg-LatinAmerica.zip
+KeyVault-BYOK-Tools-LatinAmerica.zip
 
 E7DFAFF579AFE1B9732C30D6FD80C4D03756642F25A538922DD1B01A4FACB619
 
 - - -
 **Japan:**
 
-KeyVault-BYOK-verktyg-Japan.zip
+KeyVault-BYOK-Tools-Japan.zip
 
 3933C13CC6DC06651295ADC482B027AF923A76F1F6BF98B4D4B8E94632DEC7DF
 
 - - -
 **Korea:**
 
-KeyVault-BYOK-verktyg-Korea.zip
+KeyVault-BYOK-Tools-Korea.zip
 
 71AB6BCFE06950097C8C18D532A9184BEF52A74BB944B8610DDDA05344ED136F
 
 - - -
 **Australien:**
 
-KeyVault-BYOK-verktyg-Australia.zip
+KeyVault-BYOK-Tools-Australia.zip
 
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
 [**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
-KeyVault-BYOK-verktyg-USGovCloud.zip
+KeyVault-BYOK-Tools-USGovCloud.zip
 
 F8DB2FC914A7360650922391D9AA79FF030FD3048B5795EC83ADC59DB018621A
 
 - - -
 **Amerikanska myndigheter DOD:**
 
-KeyVault-BYOK-verktyg-USGovernmentDoD.zip
+KeyVault-BYOK-Tools-USGovernmentDoD.zip
 
 A79DD8C6DFFF1B00B91D1812280207A205442B3DDF861B79B8B991BB55C35263
 
 - - -
 **Kanada:**
 
-KeyVault-BYOK-verktyg-Canada.zip
+KeyVault-BYOK-Tools-Canada.zip
 
 61BE1A1F80AC79912A42DEBBCC42CF87C88C2CE249E271934630885799717C7B
 
 - - -
 **Tyskland:**
 
-KeyVault-BYOK-verktyg-Germany.zip
+KeyVault-BYOK-Tools-Germany.zip
 
 5385E615880AAFC02AFD9841F7BADD025D7EE819894AA29ED3C71C3F844C45D6
 
 - - -
 **Indien:**
 
-KeyVault-BYOK-verktyg-India.zip
+KeyVault-BYOK-Tools-India.zip
 
 49EDCEB3091CF1DF7B156D5B495A4ADE1CFBA77641134F61B0E0940121C436C8
 
 - - -
 **Frankrike:**
 
-KeyVault-BYOK-verktyg-France.zip
+KeyVault-BYOK-Tools-France.zip
 
 5C9D1F3E4125B0C09E9F60897C9AE3A8B4CB0E7D13A14F3EDBD280128F8FE7DF
 
 - - -
 **Storbritannien:**
 
-KeyVault-BYOK-verktyg-UnitedKingdom.zip
+KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 432746BD0D3176B708672CCFF19D6144FCAA9E5EB29BB056489D3782B3B80849
 
@@ -214,7 +214,7 @@ Denna verktygsuppsättning omfattar:
 * Ett säkerhetsvärldspaket som har ett namn som börjar med **BYOK-SecurityWorld - pkg-.**
 * Python-skriptet **verifykeypackage.py.**
 * En kommandorad körbara filen **KeyTransferRemote.exe** och tillhörande DLL-filer.
-* Ett Visual C++ Redistributable Package med namnet **vcredist_x64.exe.**
+* A Visual C++ Redistributable Package, named **vcredist_x64.exe.**
 
 Kopiera paketet till en USB-enhet eller annan bärbar lagringsenhet.
 
@@ -260,6 +260,9 @@ Starta en kommandotolk och kör programmet Thales ny värld.
    ```
 
 Det här programmet skapar en **Säkerhetsvärlden** i % NFAST_KMDATA%\local\world, vilket motsvarar mappen C:\ProgramData\nCipher\Key Management Data\local. Du kan använda olika värden för kvorumet men i vårt exempel uppmanas du att ange tre tomma kort och PIN-koder för vart och ett. Därefter ger två valfria kort fullständig åtkomst till säkerhetsvärlden. Dessa kort blir den **Administratörskortsuppsättningen** för den nya säkerhetsvärlden.
+
+> [!NOTE]
+> Om din HSM har stöd för nyare kod suite DLf3072s256mRijndael, du kan ersätta--chiffersvit = DLf1024s160mRijndael med--chiffersvit = DLf3072s256mRijndael
 
 Gör något av följande:
 
@@ -331,7 +334,7 @@ Verifiera det Hämta paketet:
      > Thales-programvaran innehåller python på %NFAST_HOME%\python\bin
      >
      >
-2. Kontrollera att du ser följande, som anger lyckad validering: **Resultat: LYCKADES**
+2. Kontrollera att du ser följande, som anger lyckad validering: **Resultat: SUCCESS**
 
 Det här skriptet validerar undertecknarkedjan upp till Thales rotnyckel. Hash för den här rotnyckeln är inbäddad i skriptet och dess värde bör vara **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Du kan också bekräfta det här värdet separat genom att besöka den [Thales webbplats](http://www.thalesesec.com/).
 
@@ -482,7 +485,7 @@ Använd dessa anvisningar när du kör det här kommandot:
 * Ersätt *SubscriptionID* med ID: T för Azure-prenumerationen som innehåller ditt nyckelvalv. Det här värdet som du hämtade tidigare i **steg 1.2: Hämta ditt Azure-prenumerations-ID** från den [Förbered din Internetanslutna arbetsstation](#step-1-prepare-your-internet-connected-workstation) steg.
 * Ersätt *ContosoFirstHSMKey* med en etikett som används för ditt utdata-filnamn.
 
-När detta är klar visas **resultat: LYCKADE** och det finns en ny fil i den aktuella mappen med följande namn: Keytransferpackage*ContosoFirstHSMkey*.byok
+När detta är klar visas **resultat: LYCKADE** och det finns en ny fil i den aktuella mappen med följande namn: KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Steg 4.3: Kopiera ditt nyckelöverföringspaket till den Internetanslutna arbetsstationen
 

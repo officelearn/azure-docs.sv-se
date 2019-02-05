@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ac3e01756ad66dcb44869556bb103eb20bc2658c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6ca4156c19adbeea72ae268fe62638d40919b08f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221493"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699624"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Använd Seriekonsol för SysRq och NMI anrop
 
-## <a name="system-request-sysrq"></a>Systembegäran (SysRq)
+## <a name="system-request-sysrq"></a>System Request (SysRq)
 En SysRq är en sekvens av nycklar som tolkas av Linux-åtgärden system kerneln, som kan utlösa en uppsättning fördefinierade åtgärder. Dessa kommandon används ofta vid felsökning av virtuell dator eller återställning inte kan utföras via traditionella administration (till exempel om den virtuella datorn låser sig). Med hjälp av Azure Seriekonsol funktionen SysRq efterliknar trycker på SysRq-nyckeln och tecken som anges på ett fysiskt tangentbord.
 
 När de SysRq levereras, ska kernel-konfigurationen styra hur systemet svarar. Information om aktivering och inaktivering av SysRq finns i den *SysRq Adminhandbok* [text](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
@@ -63,7 +63,7 @@ Administrationshandboken för SysRq ovan:
 |``h``  |   Visar hjälp (andra nyckel än de som anges här visas också hjälp, men ``h`` är lätt att komma ihåg :-)
 |``i``  |    Skicka en SIGKILL till alla processer, förutom init.
 |``j``  |    Forcerar ”bara tina det” - filsystem som är låsta av FIFREEZE ioctl.
-|``k``  |    Säker åtkomst till nyckeln (SAK) stoppar alla program på den aktuella virtuella konsolen. Obs: Se viktiga kommentarer nedan under SAK.
+|``k``  |    Säker åtkomst till nyckeln (SAK) stoppar alla program på den aktuella virtuella konsolen. OBS! Se viktiga kommentarer nedan under SAK.
 |``l``  |    Visar en stack backtrace för alla aktiva processorer.
 |``m``  |    Kommer dumpa aktuella minne information till konsolen.
 |``n``  |    Används för att göra RT uppgifter bra kan
@@ -111,7 +111,7 @@ Linux-system som stöder sysctl för att konfigurera kernel parametrar, kan du a
 1. Starta om eller uppdatera sysctl genom att köra <br>
     `sysctl -p`
 
-Mer information om Linux-kernel inställningar, till exempel `unknown_nmi_panic`, `panic_on_io_nmi`, och `panic_on_unrecovered_nmi`, se: [dokumentationen för/proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Distribution-specifika dokumentation på NMI och stegen för att konfigurera Linux att skapa en kraschdumpfil när den får en NMI finns i länkarna nedan:
+Mer information om Linux-kernel inställningar, till exempel `unknown_nmi_panic`, `panic_on_io_nmi`, och `panic_on_unrecovered_nmi`, se: [Dokumentation för/proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Distribution-specifika dokumentation på NMI och stegen för att konfigurera Linux att skapa en kraschdumpfil när den får en NMI finns i länkarna nedan:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Kernel-kraschdump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

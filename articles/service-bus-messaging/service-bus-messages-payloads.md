@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849370"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733934"
 ---
 # <a name="messages-payloads-and-serialization"></a>Meddelanden, nyttolaster och serialisering
 
@@ -28,7 +28,7 @@ Objektmodellen officiella Service Bus-klienter för .NET och Java återspeglar a
  
 En Service Bus-meddelande består av ett binärt nyttolast-avsnitt som Service Bus hanterar aldrig i någon form på tjänstsidan och två uppsättningar med egenskaper. Den *mäkla egenskaper* är fördefinierade i systemet. Dessa fördefinierade egenskaper som styr antingen meddelandenivå funktionerna i Service broker eller de mappas till vanliga och standardiserad metadata-objekt. Den *användaregenskaper* är en samling nyckel / värde-par som kan definieras och ange av programmet.
  
-De fördefinierade asynkrona egenskaperna visas i följande tabell. Namn som används med alla officiella klientens API: er och även i den [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON-objekt för HTTP-protokollet mappningen.
+De fördefinierade asynkrona egenskaperna visas i följande tabell. Namn som används med alla officiella klientens API: er och även i den [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) JSON-objekt för HTTP-protokollet mappningen.
  
 De motsvarande namn som används på protokollnivån AMQP visas inom parentes. 
 

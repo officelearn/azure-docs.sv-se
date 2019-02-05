@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: b09f39f45936a7c43dbc1ef109780315d62c768f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450463"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728427"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Översikt över Event Hubs .NET Standard-API
 
@@ -35,7 +35,7 @@ En [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) objekt
 var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
-Om du vill redigera programmässigt anslutningssträngen, du kan använda den [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) klassen och skicka anslutningssträngen som en parameter till [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
+Om du vill redigera programmässigt anslutningssträngen, du kan använda den [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) klassen och skicka anslutningssträngen som en parameter till [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient).
 
 ```csharp
 var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
@@ -65,7 +65,7 @@ Det rekommenderade sättet att ta emot händelser från Event Hubs använder den
 
 #### <a name="create-a-receiver"></a>Skapa en mottagare
 
-Mottagare är knutna till specifika partitioner, så för att kunna ta emot alla händelser i en händelsehubb måste du skapa flera instanser. Det är en bra idé att ha partitionsinformationen programmässigt, i stället för att hårdkoda partitions-ID: N. Du kan använda för att göra det i [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) metod.
+Mottagare är knutna till specifika partitioner, så för att kunna ta emot alla händelser i en händelsehubb måste du skapa flera instanser. Det är en bra idé att ha partitionsinformationen programmässigt, i stället för att hårdkoda partitions-ID: N. Du kan använda för att göra det i [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) metod.
 
 ```csharp
 // Create a list to keep track of the receivers

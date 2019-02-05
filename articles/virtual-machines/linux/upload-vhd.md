@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 47227b1f9ceb4ba9e35180aa0cb171d1edd5bb9a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638129"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696854"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Skapa en Linux VM från en anpassad disk med Azure CLI
 
@@ -73,7 +73,7 @@ Azure har stöd för olika Linux-distributioner (se [godkända distributioner](e
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Andra: Icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Övrigt: Icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Se även de [Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes) mer allmänna tips om hur du förbereder Linux-avbildningar för Azure.
 
@@ -82,7 +82,7 @@ Se även de [Linux installationsinformation](create-upload-generic.md#general-li
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Alternativ 1: Ladda upp en virtuell Hårddisk
+## <a name="option-1-upload-a-vhd"></a>Alternativ 1: Ladda upp en virtuell hårddisk
 
 Du kan överföra en anpassad virtuell Hårddisk som du har som körs på en lokal dator eller som du exporterade från ett annat moln. Om du vill använda en virtuell Hårddisk för att skapa en ny virtuell Azure-dator, måste du överföra den virtuella Hårddisken till ett lagringskonto och skapa en hanterad disk från den virtuella Hårddisken. Mer information finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md).
 
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Skapa ett lagringskonto för din anpassade disk och virtuella datorer med [az storage-konto skapar](/cli/azure/storage/account#az-storageaccount-create). I följande exempel skapas ett lagringskonto med namnet *mystorageaccount* i resursgruppen som skapades tidigare:
+Skapa ett lagringskonto för din anpassade disk och virtuella datorer med [az storage-konto skapar](/cli/azure/storage/account). I följande exempel skapas ett lagringskonto med namnet *mystorageaccount* i resursgruppen som skapades tidigare:
 
 ```azurecli
 az storage account create \

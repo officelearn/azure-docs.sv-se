@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: db5e833ea8ee265053b650433562690194b88771
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: 2711e2ade0e6a7d385f8a3a2adae336e96fbccf3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509073"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729854"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database-tjänsten
 
@@ -53,7 +53,7 @@ SQL Database levererar förutsägbar prestanda med flera resurstyper, tjänstniv
 
 Med SQL Database, alla databaser vara isolerade från varandra och portabla, var och en med sin egen tjänstnivå inom den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) och en garanterad beräkna storleken. SQL Database tillhandahåller olika instansstorlekarna för olika behov och gör att databaserna är poolade för att maximera användningen av resurser och spara pengar.
 
-- Med [SQL Database Managed Instance](sql-database-managed-instance.md), varje instans är isolerad från andra instanser med garanterade resurser. Mer information finns i [SQL Database Managed Instance](sql-database-managed-instance.md).
+- Med [hanterade instanser](sql-database-managed-instance.md), varje instans är isolerad från andra instanser med garanterade resurser. Mer information finns i [SQL Database-hanterad instans](sql-database-managed-instance.md).
 - Med den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md) (förhandsversion) i vCore köpa modellen, kan du skala till 100 TB med snabb säkerhetskopiering och återställa funktioner.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Justera prestanda och skalning utan avbrott
@@ -81,7 +81,7 @@ Med elastiska pooler behöver du inte fokusera på att reglera databasprestanda 
 Skript kan hjälpa dig med att övervaka och skala elastiska pooler. Mer information finns i [Använda PowerShell till att övervaka och skala en elastisk SQL-pool i Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 
 > [!IMPORTANT]
-> SQL Database Managed Instance stöder inte elastiska pooler.
+> En hanterad instans stöder inte elastiska pooler. I stället är en hanterad instans en samling av instansdatabaser som delar resurser som hanterad instans.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Blanda enskilda databaser med databaser i en pool
 
@@ -148,7 +148,7 @@ SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet oc
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
-SQL avancerade datasäkerhet är en enhetlig paketet för avancerade funktioner för SQL-säkerhet. Det innefattar funktioner för att identifiera och klassificera känsliga data, hantera säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan indikera ett hot mot databasen. Det ger en samlad plats för aktivering och hantering av dessa funktioner.
+Avancerad säkerhet är en enhetlig paketet för avancerade säkerhetsfunktioner i SQL. Det innefattar funktioner för att identifiera och klassificera känsliga data, hantera säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan indikera ett hot mot databasen. Det ger en samlad plats för aktivering och hantering av dessa funktioner.
 
 - [Dataidentifiering och klassificering](sql-database-data-discovery-and-classification.md):
 
@@ -158,15 +158,15 @@ SQL avancerade datasäkerhet är en enhetlig paketet för avancerade funktioner 
   Den här tjänsten kan upptäcka, spåra och hjälper dig att åtgärda säkerhetsrisker i databasen. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
 - [Hotidentifiering](sql-database-threat-detection.md):
 
-  Den här funktionen identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Threat Detection-aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minska risken.
+  Den här funktionen identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Hotidentifieringsaviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder att undersöka och åtgärda hot.
 
 ### <a name="auditing-for-compliance-and-security"></a>Granskning för efterlevnad och säkerhet
 
-[SQL-databasgranskning](sql-database-auditing.md) spårar databashändelser och skriver händelserna i en granskningslogg i ditt Azure Storage-konto. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
+[Granskning](sql-database-auditing.md) spårar databasen händelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
 
 ### <a name="data-encryption"></a>Datakryptering
 
-SQL Database skyddar dina data genom att tillhandahålla kryptering för data i rörelse med [Transport Layer Security](https://support.microsoft.com/kb/3135244), för vilande data med [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) och för data under användning med [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+SQL Database skyddar dina data genom att tillhandahålla kryptering för data i rörelse med [transport layer security](https://support.microsoft.com/kb/3135244), för data i vila med [transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), och för data som används med [ alltid krypterad](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering
 

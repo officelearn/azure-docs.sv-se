@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 78e3f6a5f4a55fd4bf1925672205eb490e7c6b24
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317117"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695714"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Välja en karta i Azure Maps
 
@@ -33,7 +33,7 @@ Kodblocket ovan anger prenumerationsnyckeln och skapar en Kartobjekt med formate
 
 Kodblocket ovan anger prenumerationsnyckeln och skapar en Kartobjekt utan att ange förväg format. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
 
-Andra kodblocket använder kartans [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) metoden för att ange formatmallen karta till satellit.
+Andra kodblocket använder kartans [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metoden för att ange formatmallen karta till satellit.
 
 ## <a name="add-the-style-picker"></a>Lägg till style-väljare
 
@@ -44,7 +44,7 @@ Det första kodblocket i koden ovan anger prenumerationsnyckeln och skapar en Ka
 
 Andra kodblocket konstruerar en style väljare med hjälp av atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) konstruktor.
 
-En style Väljaren kan style val för kartan. Det tredje kodblocket lägger till style-väljare på kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) metod. Style-Väljaren ligger inom kartan **händelselyssnaren** så att den läses in när kartan har lästs in helt.
+En style Väljaren kan style val för kartan. Det tredje kodblocket lägger till style-väljare på kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Style-Väljaren ligger inom kartan **händelselyssnaren** så att den läses in när kartan har lästs in helt.
 
 ## <a name="next-steps"></a>Nästa steg
 

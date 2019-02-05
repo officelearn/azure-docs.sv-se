@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 7574ac1a5937fbe963ef764d42f04d00f6c02d69
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241777"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732523"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Felsökning av problem med nätverksanslutningen mellan virtuella Azure-datorer
 
@@ -95,7 +95,7 @@ I vissa fall kan är den virtuella datorn placerad bakom en belastning saldo lö
 
 ### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Steg 6: Kontrollera om trafik blockeras av ACL: er för klassisk virtuell dator
 
-En åtkomstkontrollista (ACL) ger möjlighet att tillåta eller neka trafik för en virtuell dator-slutpunkten. Mer information finns i [hantera ACL på en slutpunkt](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+En åtkomstkontrollista (ACL) ger möjlighet att tillåta eller neka trafik för en virtuell dator-slutpunkten. Mer information finns i [hantera ACL på en slutpunkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Steg 7: Kontrollera om slutpunkten har skapats för klassisk virtuell dator
 

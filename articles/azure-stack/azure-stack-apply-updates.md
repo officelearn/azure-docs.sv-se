@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ff70b1f8eda7bd48f0fba25aa66db42c15acab54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252140"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729956"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Tillämpa uppdateringar i Azure Stack
 
@@ -37,6 +37,9 @@ När ett Microsoft- eller OEM-uppdateringspaket för Azure Stack är tillgängli
 - Motsvarande `<PackageName>.bin` filer. Dessa filer innehåller komprimering för nyttolasten som är associerad med den *PackageName*.exe-fil.
 
 - En `Metadata.xml` fil. Den här filen innehåller viktig information om uppdateringen, till exempel utgivare, namn, krav, storlek och support sökväg URL.
+
+> [!IMPORTANT]  
+> När uppdateringspaketet Azure Stack 1901 används, flyttas förpackningsformat för Azure Stack uppdatering pacakges från .exe, .bin(s), och XML-format till en .zip(s) och XML-format. Azure Stack-operatörer som har anslutit stämplar påverkas inte. Azure Stack-operatörer som inte är anslutna kommer helt enkelt importera XML och ZIP-filer genom att använda samma process som beskrivs nedan.
 
 ## <a name="import-and-install-updates"></a>Importera och installera uppdateringar
 

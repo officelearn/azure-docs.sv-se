@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 97b94cf54454a83510c5be2cf0d71281dbf5b004
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 222fc5e9083c03ff0d4e31927363c5f517cf32a9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424247"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699372"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -40,16 +40,16 @@ I koden ovan, en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-ma
 <iframe height='500' scrolling='no' title='Skapa en karta via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>skapa en karta via `CameraBoundsOptions` </a>genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan, en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) skapas `new atlas.Map()`. Egenskaper för kartans som `CameraBoundsOptions` kan definieras [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) funktion i klassen kartan. Gränser och utfyllnadsegenskaper anges med `setCamera`.
+I koden ovan, en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) skapas `new atlas.Map()`. Egenskaper för kartans som `CameraBoundsOptions` kan definieras [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) funktion i klassen kartan. Gränser och utfyllnadsegenskaper anges med `setCamera`.
 
 ### <a name="animate-map-view"></a>Animera kartvyn
 
 <iframe height='500' scrolling='no' title='Animera kartvyn' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/WayvbO/'>animera kartvyn</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan första kodblocket skapar en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) via `new atlas.Map()`. Egenskaper för kartan, till exempel centrering och zoomning nivå är en del av [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions). `CameraOptions` Du kan definiera i konstruktorn kartan eller via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) funktion i klassen kartan. Den [mappa style](https://docs.microsoft.com/azure/azure-maps/supported-map-styles) är inställd på `road`.
+I koden ovan första kodblocket skapar en [Kartobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) via `new atlas.Map()`. Egenskaper för kartan, till exempel centrering och zoomning nivå är en del av [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions). `CameraOptions` Du kan definiera i konstruktorn kartan eller via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) funktion i klassen kartan. Den [mappa style](https://docs.microsoft.com/azure/azure-maps/supported-map-styles) är inställd på `road`.
 
-Andra kodblocket skapar en funktion för animera kartan som animeras ändring i kartvyn genom att definiera [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions) via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) funktion. Funktionen utlöses av knappen animera kartan för att generera en slumpmässig zoomnivå vid varje gång du klickar.
+Andra kodblocket skapar en funktion för animera kartan som animeras ändring i kartvyn genom att definiera [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions) via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) funktion. Funktionen utlöses av knappen animera kartan för att generera en slumpmässig zoomnivå vid varje gång du klickar.
 
 ## <a name="try-out-the-code"></a>Prova att använda koden
 

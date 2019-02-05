@@ -8,25 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 402a4d59b57803b8a9c0094799ceee6a92df43f9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911361"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694626"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-korrigering för HDInsight 
 
 > [!IMPORTANT]
-> Ubuntu-avbildningar blir tillgängliga för nya HDInsight-klustret skapas inom 3 månader att publiceras. Från och med januari 2019 körs kluster är **inte** korrigeras automatiskt. Kunder måste använda skriptåtgärder eller andra mekanismer för att korrigera ett aktivt kluster.
+> Ubuntu-avbildningar blir tillgängliga för nya HDInsight-klustret skapas inom 3 månader att publiceras. Från och med januari 2019 körs kluster är **inte** korrigeras automatiskt. Kunder måste använda skriptåtgärder eller andra mekanismer för att korrigera ett aktivt kluster. Nyligen skapade kluster har alltid de senaste tillgängliga uppdateringar, inklusive de senaste säkerhetsuppdateringar.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Så här konfigurerar du den OS-korrigering schema för Linux-baserade HDInsight-kluster
-De virtuella datorerna i ett HDInsight-kluster måste startas om ibland så att viktiga säkerhetsuppdateringar kan installeras. Från och med 1 augusti 2016 kommer nya Linux-baserade HDInsight-kluster (version 3.4 och senare,) startas om med hjälp av följande schema:
-
-1. En virtuell dator i klustret kan bara starta om för korrigeringar högst en gång inom en period på 30 dagar.
-2. Omstarten sker från 12: 00 UTC.
-3. Starta om processen ut för virtuella datorer i klustret, så att klustret är fortfarande tillgängligt under omstart.
-4. Den första omstarten för ett nyskapat kluster sker inte tidigare än 30 dagar efter skapandedatum för klustret.
+De virtuella datorerna i ett HDInsight-kluster måste startas om ibland så att viktiga säkerhetsuppdateringar kan installeras. 
 
 Med skriptåtgärd som beskrivs i den här artikeln kan ändra du den OS-korrigering schemat på följande sätt:
 1. Aktivera eller inaktivera automatiska omstarter

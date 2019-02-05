@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 63182657e7c5793a2102efecabeb7d51fa1086a9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636704"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729497"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analys av tidsserier i Datautforskaren i Azure
 
@@ -77,7 +77,7 @@ När en uppsättning tidsserier skapas ADX stöder en växande lista över funkt
 
 Filtrering är ett vanligt vid signal bearbetnings- och användbar för tidsserier bearbetningsåtgärder (till exempel smooth en bort störande signal, ändra identifiering).
 - Det finns två allmänna filtrering funktioner:
-    - [`series_fir()`](/azure/kusto/query/series-firfunction): Tillämpar FILNAMNSDELEN filter. Används för enkel beräkning av glidande medelvärde och differentiering tidsserien för identifiering av ändring av.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): Använda FILNAMNSDELEN filter. Används för enkel beräkning av glidande medelvärde och differentiering tidsserien för identifiering av ändring av.
     - [`series_iir()`](/azure/kusto/query/series-iirfunction): Tillämpar IIR filter. Används för exponentiell utjämning och kumulativa summan.
 - `Extend` tidsserier genom att lägga till en ny glidande genomsnittlig serie av storlek på 5 lagerplatser (med namnet *ma_num*) till frågan:
 
@@ -103,6 +103,7 @@ Exempel på `series_fit_line()` och `series_fit_2lines()` funktioner i en time s
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
+| project x, y, series_fit_2lines_y_line_fit, series_fit_line_y_line_fit 
 | render linechart
 ```
 
@@ -181,7 +182,7 @@ demo_many_series1
 
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
-|   | TIDSSTÄMPEL | LOC | anonOp | DB | DataRead |
+|   | TIMESTAMP | LOC | anonOp | DB | DataRead |
 |   | 2016-09-11 21:00:00.0000000 | LOC 9 | 5117853934049630089 | 262 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | LOC 9 | 5117853934049630089 | 241 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | LOC 9 | -865998331941149874 | 262 | 279862 |
@@ -196,7 +197,7 @@ demo_many_series1
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | NUM | min\_t | Max\_t |
+|   | NUM | min\_t | max\_t |
 |   | 2177472 | 2016-09-08 00:00:00.0000000 | 2016-09-11 23:00:00.0000000 |
 
 Att skapa en tidsserie på 1 timme lagerplatser för skrivskyddade mått (totalt fyra dagar * 24 timmar = 96 punkter), resulterar i normala mönstret variationerna:

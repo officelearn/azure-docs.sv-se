@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: c3532ff5422ae35aa6bb079fcedf3a2a90d45349
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 77de3e554e20b5380656e33bd15c9174a1f36681
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181579"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734291"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Självstudier: Azure Active Directory-integrering med StatusPage
 
@@ -222,7 +222,7 @@ StatusPage har stöd för just-in-time-etablering. Du har redan har aktiverat de
    
     ![Skapa en Azure AD-användare för testning](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-1. Skriv den **e-postadress**, **Förnamn**, och **Sur namn** av en giltig användare som du vill etablera till relaterade textrutor. 
+1. Skriv den **e-postadress**, **Förnamn**, och **efternamn** av en giltig användare som du vill etablera till relaterade textrutor. 
    
     ![Skapa en Azure AD-användare för testning](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 

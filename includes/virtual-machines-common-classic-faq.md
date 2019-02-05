@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263945"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735566"
 ---
 Den här artikeln tar upp några vanliga frågor som användare ställer om virtuella Azure-datorer som skapats med den klassiska distributionsmodellen.
 

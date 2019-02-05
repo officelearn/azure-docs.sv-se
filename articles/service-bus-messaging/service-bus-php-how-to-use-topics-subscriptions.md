@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: aschhab
-ms.openlocfilehash: efcc5b1f05cb2065d4cc9a3fda64e78dd6d5957b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a8d9ea841aee21531ccb0379fbbc9b10ccf25303
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849320"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727321"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Hur du använder Service Bus-ämnen och prenumerationer med PHP
 
@@ -157,7 +157,7 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Skapa prenumerationer med filter
-Du kan även ställa in filter som gör att du kan ange vilka meddelanden som skickas till ett ämne som ska visas inom en viss ämnesprenumeration. Den mest flexibla typen av filter som stöds av prenumerationerna är den [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter), som implementerar en deluppsättning av SQL92. SQL-filter tillämpas på egenskaperna i de meddelanden som publiceras till ämnet. Läs mer om SqlFilters [SqlFilter.SqlExpression egenskapen][sqlfilter].
+Du kan även ställa in filter som gör att du kan ange vilka meddelanden som skickas till ett ämne som ska visas inom en viss ämnesprenumeration. Den mest flexibla typen av filter som stöds av prenumerationerna är den [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), som implementerar en deluppsättning av SQL92. SQL-filter tillämpas på egenskaperna i de meddelanden som publiceras till ämnet. Läs mer om SqlFilters [SqlFilter.SqlExpression egenskapen][sqlfilter].
 
 > [!NOTE]
 > Varje regel för en prenumeration bearbetar inkommande meddelanden oberoende av varandra, att lägga till sina resultat-meddelanden till prenumerationen. Dessutom kan varje prenumeration har en standard **regeln** objekt med ett filter som lägger till alla meddelanden från ämnet i prenumerationen. Du måste ta bort Standardregeln för att ta emot endast meddelanden som matchar filtret. Du kan ta bort Standardregeln med hjälp av den `ServiceBusRestProxy->deleteRule` metoden.
@@ -338,6 +338,6 @@ Mer information finns i [köer, ämnen och prenumerationer][Queues, topics, and 
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter
+[sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [require-once]: http://php.net/require_once
 [Service Bus quotas]: service-bus-quotas.md

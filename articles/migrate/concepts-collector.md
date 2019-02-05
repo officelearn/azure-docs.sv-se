@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 9890f68ff61d822f505c4403eb2f1f61e396fd01
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7a17bed165a5a8ff15a122a1376d1a3a5e17d45f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488721"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700935"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -103,8 +103,6 @@ Insamlaren måste klara några nödvändiga kontroller för att säkerställa at
     7. Kontrollera att certifikatet har importerats som förväntat och kontrollera att internet-anslutning kravkontrollen fungerar som förväntat.
 
 
-
-
 ### <a name="urls-for-connectivity"></a>URL: er för anslutning
 
 Anslutningskontrollen verifieras genom att ansluta till en lista över webbadresser.
@@ -150,6 +148,79 @@ Insamlaren kommunicerar som sammanfattas i följande diagram och tabell.
 Tjänsten Azure Migrate | TCP 443 | Insamlaren kommunicerar med Azure Migrate-tjänsten över SSL-port 443.
 vCenter Server | TCP 443 | Insamlaren måste kunna kommunicera med vCenter-servern.<br/><br/> Som standard ansluter den till vCenter på 443.<br/><br/> Om vCenter-servern lyssnar på en annan port ska ska den porten vara tillgänglig som utgående port på insamlaren.
 RDP | TCP 3389 |
+
+## <a name="collected-metadata"></a>Insamlade metadata
+
+Insamlingsprogrammet identifierar följande konfigurationsmetadata för varje virtuell dator. Konfigurationsinformationen för de virtuella datorerna finns en timme efter att du startar identifieringen.
+
+- Visningsnamn för virtuell dator (på vCenter-Server)
+- Virtuella datorns lager sökväg (värd/mappen på vCenter-Server)
+- IP-adress
+- MAC-adress
+- Operativsystem
+- Antal kärnor, diskar, nätverkskort
+- Minnesstorlek, diskstorlekar
+- Prestandaräknare för den virtuella datorn, disk och nätverk.
+
+### <a name="performance-counters"></a>Prestandaräknare
+
+ Insamlaren samlar in följande prestandaräknare för varje virtuell dator från ESXi-värd med ett intervall på 20 sekunder. Dessa räknare är vCenter räknare och även om termer som säger medelvärde, 20 sekunder exemplen finns räknare i realtid. Prestandadata för de virtuella datorerna börjar bli tillgänglig i portalen två timmar efter identifieringen har startats. Vi rekommenderar starkt att vänta minst en dag innan du skapar prestandabaserad utvärderingar för att få korrekt rätt storleksrekommendationer. Om du letar efter direkt, du kan skapa utvärderingar med storlekskriteriet som *som lokalt* som inte ska undersöka prestandadata för rätt storleksändring.
+
+**Räknaren** |  **Påverkan på utvärdering**
+--- | ---
+cpu.usage.average | Rekommenderad storlek och kostnad  
+mem.usage.average | Rekommenderad storlek och kostnad  
+virtualDisk.read.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.write.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.numberReadAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.numberWriteAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+net.received.average | Beräknar storlek på virtuell dator                          
+net.transmitted.average | Beräknar storlek på virtuell dator     
+
+Den fullständiga listan med VMware prestandaräknare som samlas in av Azure Migrate finns nedan:
+
+**Kategori** |  **Metadata** | **vCenter datapoint**
+--- | --- | ---
+Information om dator | ID för virtuell dator | vm.Config.InstanceUuid
+Information om dator | VM-namn | vm.Config.Name
+Information om dator | vCenter Server-ID | VMwareClient.InstanceUuid
+Information om dator |  Beskrivning av virtuell dator |  vm.Summary.Config.Annotation
+Information om dator | Licens produktnamn | vm.Client.ServiceContent.About.LicenseProductName
+Information om dator | Typ av operativsystem | vm.Summary.Config.GuestFullName
+Information om dator | Operativsystemversion | vm.Summary.Config.GuestFullName
+Information om dator | Starttyp | vm.Config.Firmware
+Information om dator | Antal kärnor | vm.Config.Hardware.NumCPU
+Information om dator | Megabyte minne | vm.Config.Hardware.MemoryMB
+Information om dator | Antal diskar | den virtuella datorn. Config.Hardware.Device.ToList(). FindAll(x => x is VirtualDisk).count
+Information om dator | Disklista storlek | den virtuella datorn. Config.Hardware.Device.ToList(). FindAll (x = > x är VirtualDisk)
+Information om dator | Listan över nätverkskort | den virtuella datorn. Config.Hardware.Device.ToList(). FindAll (x = > x är VirtualEthernetCard)
+Information om dator | Processoranvändning | cpu.usage.average
+Information om dator | Minnesanvändning | mem.usage.average
+Diskinformation (per disk) | Värdet för disk-nyckeln | disk. Nyckel
+Diskinformation (per disk) | Disk-enhetsnummer | disk.UnitNumber
+Diskinformation (per disk) | Nyckelvärdet för disk-domänkontrollant | disk.ControllerKey.Value
+Diskinformation (per disk) | Gigabyte etablerats | virtualDisk.DeviceInfo.Summary
+Diskinformation (per disk) | Disknamn | Det här värdet skapas med hjälp av disk. UnitNumber, disk. Nyckel och disk. ControllerKey.Value
+Diskinformation (per disk) | Antalet läsåtgärder per sekund | virtualDisk.numberReadAveraged.average
+Diskinformation (per disk) | Antalet skrivåtgärder per sekund | virtualDisk.numberWriteAveraged.average
+Diskinformation (per disk) | MB per sekund läsningsgenomströmning | virtualDisk.read.average
+Diskinformation (per disk) | MB per sekund genomströmning för skrivning | virtualDisk.write.average
+Information om nätverkskort (per nätverkskort) | Nätverkskortets namn | nic.Key
+Information om nätverkskort (per nätverkskort) | MAC-adress | ((VirtualEthernetCard)nic).MacAddress
+Information om nätverkskort (per nätverkskort) | IPv4-adresser | vm.Guest.Net
+Information om nätverkskort (per nätverkskort) | IPv6-adresser | vm.Guest.Net
+Information om nätverkskort (per nätverkskort) | MB per sekund läsningsgenomströmning | net.received.average
+Information om nätverkskort (per nätverkskort) | MB per sekund genomströmning för skrivning | net.transmitted.average
+Inventeringsinformation för sökvägen | Namn | container.GetType().Name
+Inventeringsinformation för sökvägen | Typ av underordnade objekt | behållaren. ChildType
+Inventeringsinformation för sökvägen | Referensinformation | container.MoRef
+Inventeringsinformation för sökvägen | Fullständig inventering sökväg | behållaren. Namnge med fullständig sökväg
+Inventeringsinformation för sökvägen | Information om överordnade | Container.Parent
+Inventeringsinformation för sökvägen | Mappdetaljer för varje virtuell dator | ((Mapp) behållare). ChildEntity.Type
+Inventeringsinformation för sökvägen | Datacenter-information för varje VM-mapp | ((Datacenter)container).VmFolder
+Inventeringsinformation för sökvägen | Datacenter-information för varje värd-mapp | ((Datacenter)container).HostFolder
+Inventeringsinformation för sökvägen | Information om kluster för varje värd | ((ClusterComputeResource)container).Host)
+Inventeringsinformation för sökvägen | Värd-information för varje virtuell dator | ((HostSystem)container).Vm
 
 
 ## <a name="securing-the-collector-appliance"></a>Skydda insamlingsprogrammet
@@ -200,34 +271,6 @@ När installationen har konfigurerats, kan du köra identifiering. Så fungerar 
 - Virtuella datorer har identifierats och deras metadata och prestanda skickas till Azure. De här åtgärderna är en del av ett jobb i samlingen.
     - Insamlaren ges ett specifikt ID för insamlaren som sparas för en viss dator mellan identifieringar.
     - Ett jobb för som körs samling ges specifika sessions-ID. ID: T ändras för varje samling jobb och kan användas för felsökning.
-
-### <a name="collected-metadata"></a>Insamlade metadata
-
-Insamlingsprogrammet identifierar följande konfigurationsmetadata för varje virtuell dator. Konfigurationsinformationen för de virtuella datorerna finns en timme efter att du startar identifieringen.
-
-- Visningsnamn för virtuell dator (på vCenter-Server)
-- Virtuella datorns lager sökväg (värd/mappen på vCenter-Server)
-- IP-adress
-- MAC-adress
-- Operativsystem
-- Antal kärnor, diskar, nätverkskort
-- Minnesstorlek, diskstorlekar
-- Prestandaräknare för den virtuella datorn, disk och nätverk.
-
-#### <a name="performance-counters"></a>Prestandaräknare
-
- Insamlaren samlar in följande prestandaräknare för varje virtuell dator från ESXi-värd med ett intervall på 20 sekunder. Dessa räknare är vCenter räknare och även om termer som säger medelvärde, 20 sekunder exemplen finns räknare i realtid. Prestandadata för de virtuella datorerna börjar bli tillgänglig i portalen två timmar efter identifieringen har startats. Vi rekommenderar starkt att vänta minst en dag innan du skapar prestandabaserad utvärderingar för att få korrekt rätt storleksrekommendationer. Om du letar efter direkt, du kan skapa utvärderingar med storlekskriteriet som *som lokalt* som inte ska undersöka prestandadata för rätt storleksändring.
-
-**Räknaren** |  **Påverkan på utvärdering**
---- | ---
-cpu.usage.average | Rekommenderad storlek och kostnad  
-mem.usage.average | Rekommenderad storlek och kostnad  
-virtualDisk.read.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-virtualDisk.write.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-virtualDisk.numberReadAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-virtualDisk.numberWriteAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-net.received.average | Beräknar storlek på virtuell dator                          
-net.transmitted.average | Beräknar storlek på virtuell dator     
 
 ## <a name="next-steps"></a>Nästa steg
 

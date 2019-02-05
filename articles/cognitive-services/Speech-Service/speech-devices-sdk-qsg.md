@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85e250f3dee3dbfc9e09524d5f3977a143ee8bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5bd631bf31ba4e6a840c3e4e818062d322da0158
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213267"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727934"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Kom igång med SDK för tal-enheter
 
@@ -47,7 +47,7 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
 
 ## <a name="set-up-the-development-kit"></a>Ställ in i development kit
 
-1. Ansluta i development kit till en dator eller driva nätverkskort med hjälp av en mini USB-kabel. När kit är ansluten, en grön power-indikator som lysa under den översta tavlan.
+1. Ansluta i development kit till en dator eller driva nätverkskort med hjälp av hög kvalitet micro USB-kabel. En grön power indikator tänds under den översta tavlan.
 
 1. Ansluta i development kit på en dator med hjälp av en andra mini USB-kabel.
 

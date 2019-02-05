@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fae92f8e09cc2ad6b63cb15599e0b1ab72588ed8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464797"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728851"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -40,7 +40,7 @@ Om du vill skapa ett HDInsight-kluster som använder Data Lake Storage Gen2 för
 
     ![Skärmbild som visar lagringskontot har skapats i Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Tilldela den hantera identitet som den **Storage Blob Data-deltagare (förhandsgranskning)** rollen på lagringskontot. Se [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC (förhandsversion)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
+1. Tilldela den hantera identitet som den **Dataägaren för Storage Blob (förhandsversion)** rollen på lagringskontot. Se [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC (förhandsversion)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
 
     1. I den [Azure-portalen](https://portal.azure.com), navigera till ditt lagringskonto.
     1. Välj ditt lagringskonto och sedan **åtkomstkontroll (IAM)** att visa inställningar för åtkomstkontroll för kontot. Välj den **rolltilldelningar** flik för att se en lista över rolltilldelningar.
@@ -48,9 +48,9 @@ Om du vill skapa ett HDInsight-kluster som använder Data Lake Storage Gen2 för
         ![Skärmbild som visar behörighetsinställningar för lagring](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. Klicka på den **Lägg till rolltilldelning** för att lägga till en ny roll.
-    1. I den **Lägg till rolltilldelning** väljer den **Storage Blob Data-deltagare (förhandsgranskning)** roll. Välj den prenumeration som har det hanterade identitets- och storage-kontot. Nu ska söka efter den användartilldelade hanterade identitet som du skapade tidigare. Välj slutligen hanterad identitet och kommer att anges under **valda medlemmar**.
+    1. I den **Lägg till rolltilldelning** väljer den **Dataägaren för Storage Blob (förhandsversion)** roll. Välj den prenumeration som har det hanterade identitets- och storage-kontot. Nu ska söka efter den användartilldelade hanterade identitet som du skapade tidigare. Välj slutligen hanterad identitet och kommer att anges under **valda medlemmar**.
     
-        ![Skärmbild som visar hur du tilldelar en RBAC-roll](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
+        ![Skärmbild som visar hur du tilldelar en RBAC-roll](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
     1. Klicka på **Spara**. Användartilldelad identitet som du har valt visas nu den **deltagare** roll.
 

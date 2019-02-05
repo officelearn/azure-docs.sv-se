@@ -11,20 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 29181b19498b6735651869b6499c4a1cda5a4c3a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488862"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691039"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Outputs-avsnittet i Azure Resource Manager-mallar
 
 I Outputs-avsnittet anger du värden som returneras från distributionen. Du kan till exempel returnera URI: N för att komma åt en distribuerad resurs.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="define-and-use-output-values"></a>Definiera och Använd utdatavärden
 
@@ -84,6 +82,7 @@ I följande exempel visar strukturen för en utdata-definition:
 | typ |Ja |Typ av utdatavärde. Utdatavärden stöder samma datatyper som mall indataparametrar. |
 | värde |Ja |Mallspråksuttrycket som utvärderas och returneras som utdatavärde. |
 
+Information om att lägga till kommentarer finns i [kommentarer i mallar](resource-group-authoring-templates.md#comments).
 
 ## <a name="example-templates"></a>Exempel på mallar
 

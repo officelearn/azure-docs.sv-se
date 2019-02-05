@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 93370b927f825752b8ce2b5e9d4ca94b3a4e0536
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664190"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697935"
 ---
 # <a name="azure-logging-and-auditing"></a>Loggning och granskning i Azure
 
@@ -196,7 +196,7 @@ Nätverket loggning och övervakning i Azure är omfattande och består av två 
 
 * [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Scenariobaserade nätverksövervakning tillhandahålls med funktionerna i Network Watcher. Den här tjänsten innefattar paketinsamling, nästa hopp, IP-flöde verifiera säkerhetsgruppvy, NSG-flödesloggar. Scenariot på övervakning ger en heltäckande vy av nätverksresurser, till skillnad från enskilda resource nätverksövervakning.
 
-* [Resursövervakning](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Nivån Resursövervakning består av fyra funktioner, diagnostikloggar, mätvärden, felsökning och resurshälsa. Alla dessa funktioner bygger på nätverksnivå för resursen.
+* [Resursövervakning](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Nivån Resursövervakning består av fyra funktioner, diagnostikloggar, mätvärden, felsökning och resurshälsa. Alla dessa funktioner bygger på nätverksnivå för resursen.
 
 ![Azures nätverksloggar](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ Förutom funktionerna som tidigare nämnts loggning har Network Watcher för til
 
 * [Virtuell nätverksgateway och anslutning felsökning](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Hjälper dig att felsöka virtuella nätverksgatewayer och anslutningar.
 
-* [Nätverks-prenumerationsbegränsningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Kan du visa nätverksresursanvändning mot gränser.
+* [Nätverks-prenumerationsbegränsningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Kan du visa nätverksresursanvändning mot gränser.
 
 ### <a name="application-insights"></a>Application Insights
 

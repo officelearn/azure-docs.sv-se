@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dc87079083b8f07ad18f5f871bff64de8d492ebd
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285654"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701190"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>Delar av schemat för enhetsmodellen
 
@@ -105,7 +105,7 @@ Den `Properties` delen av schemat definierar egenskapsvärdena enheten rapporter
 }
 ```
 
-När lösningen har startat frågar de simulerade enheterna för att skapa en lista över `Type` värden som ska användas i Användargränssnittet. Lösningen använder den `Latitiude` och `Longitude` egenskaper för att lägga till enhetens plats på kartan på instrumentpanelen.
+När lösningen har startat frågar de simulerade enheterna för att skapa en lista över `Type` värden som ska användas i Användargränssnittet. Lösningen använder den `Latitude` och `Longitude` egenskaper för att lägga till enhetens plats på kartan på instrumentpanelen.
 
 ## <a name="telemetry"></a>Telemetri
 
@@ -144,7 +144,7 @@ Du kan för närvarande kan endast använda JSON meddelandescheman. Fält som an
 * Text
 * Boolesk
 * Integer
-* Double-värde
+* Double
 * DateTime
 
 Skicka telemetrimeddelanden med olika intervall genom att lägga till flera typer av telemetri till den `Telemetry` matris. I följande exempel skickar temperatur och fuktighet data var 10 sekunder och tillståndet för ljuset varje minut:

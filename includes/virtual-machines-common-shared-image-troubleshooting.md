@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 2902fe53e7f3ffb86dc727ebcdc2200ba02ac203
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048457"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735942"
 ---
-Om du får problem när du utför några åtgärder på delade bildgallerier, bild-definitioner och avbildningsversioner, kör du kommandot misslyckas igen i felsökningsläge. Felsökningsläge aktiveras genom att skicka den **-felsöka** växla med CLI och **-felsöka** växla med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
+Om du får problem när du utför åtgärder i delade bildgallerier, eller för bilddefinitioner och bildversioner, kan du köra det misslyckade kommandot igen i felsökningsläge. Felsökningsläge aktiveras genom att skicka den **-felsöka** växla med CLI och **-felsöka** växla med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Det går inte att skapa en delad bildgalleri
@@ -67,7 +67,7 @@ Kontrollera tillståndet för etablering av hanterade Källavbildningen är **ly
 Använd tabellen nedan för att se om det finns stöd för den avsedda källregionen:
 <br>
 
-| Skapa galleriet i eller ”källregionen”   | Replikera rersion till eller ”målregion” |
+| Skapa galleriet i eller ”källregionen”   | Replikera version som ska eller ”målregion” |
 |----------------------------------------|-------------------------------------------|
 | Västra centrala USA                        | Alla regioner i Azures offentliga moln            |
 | Södra centrala USA                       |                                           |

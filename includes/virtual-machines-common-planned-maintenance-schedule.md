@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227034"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735727"
 ---
 ## <a name="multi-and-single-instance-vms"></a>Enskild instans virtuella datorer och Multi
 Många kunder som kör på Azure antal den kritiska kan schemalägga om sina virtuella datorer genomgår planerat underhåll på grund av avbrott--cirka 15 minuter--som inträffar under underhåll. Du kan använda tillgänglighetsuppsättningar för att kontrollera när etablerade virtuella datorer får planerat underhåll.

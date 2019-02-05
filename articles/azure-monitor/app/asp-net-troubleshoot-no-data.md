@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118770"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700918"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -53,7 +53,7 @@ Troliga orsaker:
 * Det finns problem med ditt Azure-konto;
 * Du behöver bara [läsbehörighet till den prenumeration eller en grupp där du försökte skapa den nya resursen](../../azure-monitor/app/resources-roles-access-control.md).
 
-Åtgärda:
+Fix:
 
 * Kontrollera att du angett inloggningsuppgifter för rätt Azure-konto. 
 * I webbläsaren, kontrollera att du har åtkomst till den [Azure-portalen](https://portal.azure.com). Öppna inställningar och se om det finns några begränsningar.
@@ -79,7 +79,7 @@ Troliga orsaker:
 * Developer Analytics tools är inaktiverade i din Visual Studio. 
 * Din Visual Studio är äldre än 2013 Update 3.
 
-Åtgärda:
+Fix:
 
 * Kontrollera din version av Visual Studio 2013 update 3 eller senare.
 * Välj **verktyg**, **tillägg och uppdateringar** och kontrollera att **Developer Analytics tools** är installerat och aktiverat. I så, fall klickar du på **uppdateringar** att se om det finns en uppdatering.
@@ -94,10 +94,10 @@ Microsoft inloggningen som du senast använde i din standardwebbläsare har inte
 
 * Du har mer än en Microsoft-konto – kanske ett arbets- och ett personligt microsoftkonto? Inloggning som du senast använde i din standardwebbläsare var för ett annat konto än det som har åtkomst till [Lägg till Application Insights i projektet](../../azure-monitor/app/asp-net.md). 
   
-  * Åtgärda: Klicka på ditt namn på överst till höger i webbläsarfönstret och logga ut. Logga sedan in med det konto som har åtkomst. Klicka på Application Insights på det vänstra navigeringsfältet och välj din app.
+  * Fix: Klicka på ditt namn på överst till höger i webbläsarfönstret och logga ut. Logga sedan in med det konto som har åtkomst. Klicka på Application Insights på det vänstra navigeringsfältet och välj din app.
 * Någon annan har lagt till Application Insights i projektet och de har glömt att ge dig [åtkomst till resursgruppen](../../azure-monitor/app/resources-roles-access-control.md) i som den skapades. 
   
-  * Åtgärda: Om de har använt ett organisationskonto, kan de lägga till dig i teamet; eller de kan bevilja enskilda åtkomst till resursgruppen.
+  * Fix: Om de har använt ett organisationskonto, kan de lägga till dig i teamet; eller de kan bevilja enskilda åtkomst till resursgruppen.
 
 ## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>'Tillgången kunde inte hittas ”med att öppna Application Insights från Visual Studio
 *Kommandot ”Öppna Application Insights” kommer jag till Azure-portalen, men jag får felmeddelandet ”Det gick inte att hitta tillgången'.*
@@ -109,7 +109,7 @@ Troliga orsaker:
 
 Instrumenteringsnyckeln i ApplicationInsights.config kontroller där telemetri som skickas. En rad i projektfilen styr vilken resurs som öppnas när du använder kommandot i Visual Studio. 
 
-Åtgärda:
+Fix:
 
 * Högerklicka på projektet i Solution Explorer och välj Application Insights, konfigurera Application Insights. I dialogrutan kan du antingen välja att skicka telemetri till en befintlig resurs eller skapa en ny. Eller:
 * Öppna resursen direkt. Logga in på [Azure-portalen](https://portal.azure.com), klickar du på Application Insights i det vänstra navigeringsfältet och välj sedan din app.
@@ -185,6 +185,52 @@ Den ort, region och land dimensioner härleds från IP-adresser och alltid är i
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Undantaget ”metoden hittades inte” vid körning i Azure Cloud Services
 Utvecklade du för .NET 4.6? 4.6 stöds inte automatiskt i Azure Cloud Services-roller. [Installera 4.6 för varje roll](../../cloud-services/cloud-services-dotnet-install-dotnet.md) innan du kör din app.
+
+## <a name="troubleshooting-logs"></a>Felsökningsloggar
+
+Följ dessa instruktioner för att avbilda felsökningsloggarna för ditt ramverk.
+
+### <a name="net-framework"></a>.Net Framework
+
+1. Installera den [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsighs`
+
+2. Ändra filen applicationinsights.config för att inkludera följande:
+
+   ```xml
+   <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+        <Severity>Verbose</Severity>
+        <LogFileName>mylog.txt</LogFileName>
+        <LogFilePath>C:\\SDKLOGS</LogFilePath>
+      </Add>
+   </TelemetryModules>
+   ```
+   Programmet måste ha skrivbehörighet till den konfigurerade platsen
+ 
+ 3. Starta om processen så att de nya inställningarna fångas upp av SDK
+ 
+ 4. När du är klar kan du återställa dessa ändringar.
+  
+### <a name="net-core"></a>.NET core
+
+1. Installera den [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsighs`
+
+2. Ändra `ConfigureServices` -metod i din `Startup.cs` klass.:
+
+    ```csharp
+    services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
+    services.ConfigureTelemetryModule<FileDiagnosticsTelemetryModule>( (module, options) => {
+        module.LogFilePath = "C:\\SDKLOGS";
+        module.LogFileName = "mylog.txt";
+        module.Severity = "Verbose";
+    } );
+    ```
+   Programmet måste ha skrivbehörighet till den konfigurerade platsen
+ 
+ 3. Starta om processen så att de nya inställningarna fångas upp av SDK
+ 
+ 4. När du är klar kan du återställa dessa ändringar.
+  
 
 ## <a name="still-not-working"></a>Fortfarande fungerar inte...
 * [Application Insights-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854124"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728320"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Hur du använder Azure Relay WCF-reläer med .NET
 Den här artikeln beskriver hur du använder Azure Relay-tjänsten. Exemplen är skrivna i C# och använder API:et Windows Communication Foundation (WCF) med tillägg som finns i Service Bus-sammansättningen. Mer information om Azure relay finns i den [översikt över Azure Relay](relay-what-is-it.md).
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-I det här exemplet skapar du två slutpunkter som ligger på samma kontraktsimplementering. En är lokal och en projiceras via Azure Relay. De viktigaste skillnaderna mellan dem är bindningarna: [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) för den lokala punkten och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) för relay-slutpunkten och adresserna. Den lokala slutpunkten har en lokal nätverksadress med en separat port. Relay-slutpunkten har en slutpunktsadress som består av strängen `sb`, ditt namnområdesnamn och sökvägen ”solver”. Detta resulterar i URI: N `sb://[serviceNamespace].servicebus.windows.net/solver`, identifierar tjänsteslutpunkten som en Service Bus (relay) TCP-slutpunkt med ett fullständigt kvalificerat externa DNS-namn. Om du placerar ut koden som ska ersätta platshållarna i `Main`-funktionen i **Tjänsteprogrammet** kommer du att få en fungerande tjänst. Om du vill att din tjänst endast ska lyssna på relay, kan du ta bort den lokala slutpunktsdeklarationen.
+I det här exemplet skapar du två slutpunkter som ligger på samma kontraktsimplementering. En är lokal och en projiceras via Azure Relay. De viktigaste skillnaderna mellan dem är bindningarna: [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) för den lokala punkten och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) för relay-slutpunkten och adresserna. Den lokala slutpunkten har en lokal nätverksadress med en separat port. Relay-slutpunkten har en slutpunktsadress som består av strängen `sb`, ditt namnområdesnamn och sökvägen ”solver”. Detta resulterar i URI: N `sb://[serviceNamespace].servicebus.windows.net/solver`, identifierar tjänsteslutpunkten som en Service Bus (relay) TCP-slutpunkt med ett fullständigt kvalificerat externa DNS-namn. Om du placerar ut koden som ska ersätta platshållarna i `Main`-funktionen i **Tjänsteprogrammet** kommer du att få en fungerande tjänst. Om du vill att din tjänst endast ska lyssna på relay, kan du ta bort den lokala slutpunktsdeklarationen.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>Konfigurera en tjänstevärd i filen App.config
 Du kan också konfigurera värden med hjälp av filen App.config. Koden för tjänstevärden i det här fallet visas i nästa exempel.
@@ -161,7 +161,7 @@ När du har gjort dessa ändringar, startar tjänsten som förut men med två li
 
 ### <a name="create-the-client"></a>Skapa klienten
 #### <a name="configure-a-client-programmatically"></a>Konfigurera en klient programmässigt
-Om du vill använda tjänsten, kan du skapa en WCF-klient som använder ett [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx)-objekt. Service Bus använder en tokenbaserad säkerhetsmodell som implementeras med hjälp av SAS. Klassen [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) representerar en leverantör av säkerhetstoken med inbyggda fabriksmetoder som returnerar ett antal välkända tokenleverantörer. I följande exempel används metoden [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) för att hantera förvärvet av lämplig SAS-token. Namnet och nyckeln är de som du fick från portalen, enligt beskrivningen i det förra avsnittet.
+Om du vill använda tjänsten, kan du skapa en WCF-klient som använder ett [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx)-objekt. Service Bus använder en tokenbaserad säkerhetsmodell som implementeras med hjälp av SAS. Klassen [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) representerar en leverantör av säkerhetstoken med inbyggda fabriksmetoder som returnerar ett antal välkända tokenleverantörer. I följande exempel används metoden [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) för att hantera förvärvet av lämplig SAS-token. Namnet och nyckeln är de som du fick från portalen, enligt beskrivningen i det förra avsnittet.
 
 Först måste du referera eller kopiera kontraktkoden `IProblemSolver` från tjänsten till ditt klientprojekt.
 

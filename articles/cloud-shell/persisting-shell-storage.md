@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4671287d78dafce9b662a167ba99a680d2fa70d2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163285"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734083"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -98,12 +98,12 @@ Den `Get-CloudDrive` cmdlet: en hämtar den Azure information om filresurs monte
 Du kan demontera en Azure-filresurs som är kopplad till Cloud Shell när som helst. Om Azure-filresursen har tagits bort, uppmanas du att skapa och montera en ny Azure-filresurs vid nästa session.
 
 Den `Dismount-CloudDrive` cmdlet demonteras en Azure-filresurs från det aktuella storage-kontot. Demontera den `clouddrive` avslutas den aktuella sessionen. Användaren uppmanas att skapa och montera en ny Azure-filresurs under nästa session.
-![Kör Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
+![Running Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 [Bash i Cloud Shell-Snabbstart](quickstart.md) <br>
 [PowerShell i Cloud Shell-Snabbstart](quickstart-powershell.md) <br>
-[Lär dig mer om Microsoft Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Lär dig mer om Microsoft Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [Lär dig mer om storage taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

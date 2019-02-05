@@ -8,19 +8,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ebe362b89eb6ffcde006ff824fbee40b1a9175d3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394586"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733407"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Mata in exempeldata i Azure Data Explorer
 
 Den här artikeln visar hur du mata in (load) exempeldata i en Azure Data Explorer-databas. Det finns [flera olika sätt att mata in data](ingest-data-overview.md); den här artikeln fokuserar på en grundläggande metod som passar för testning.
 
 > [!NOTE]
-> Du redan har dessa data om du har slutfört [Snabbstart: mata in data med hjälp av Azure Data Explorer Python-klientbiblioteket](python-ingest-data.md).
+> Du redan har dessa data om du har slutfört [Snabbstart: Mata in data med hjälp av Azure Data Explorer Python-klientbiblioteket](python-ingest-data.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -57,6 +57,11 @@ I exempeldatauppsättningen **StormEvents** finns väderrelaterade data från [N
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skriv frågor](write-queries.md)
+> [!div class="nextstepaction"]
+> [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
 
-[Azure Data Explorer-datainmatning](ingest-data-overview.md)
+> [!div class="nextstepaction"]
+> [Skriv frågor](write-queries.md)
+
+> [!div class="nextstepaction"]
+> [Azure Data Explorer-datainmatning](ingest-data-overview.md)

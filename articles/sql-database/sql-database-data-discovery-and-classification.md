@@ -1,6 +1,6 @@
 ---
-title: Azure SQL databasdata identifiering och klassificering | Microsoft Docs
-description: Azure SQL databasdata identifiering och klassificering
+title: Azure SQL Database-dataidentifiering och klassificering | Microsoft Docs
+description: Azure SQL Database-dataidentifiering och klassificering
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466600"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731860"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL databasdata identifiering och klassificering
+# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database-dataidentifiering och klassificering
 
 Dataidentifiering och klassificering (för närvarande i förhandsversion) ger avancerade funktioner i Azure SQL-databas för **identifierar**, **klassificera**, **märkning**  &  **skyddar** känslig data i dina databaser.
 Identifiera och klassificera dina mest känsliga data (business- och finansiella institutioner vård, personligt identifierbar information (PII) och så vidare.) kan spela upp en central roll i din organisations information protection datasekretesstandarder. Det kan fungera som en infrastruktur för:
@@ -28,14 +28,14 @@ Identifiera och klassificera dina mest känsliga data (business- och finansiella
 - Olika säkerhetsscenarier, till exempel övervakning (granskning) och Varna vid avvikande åtkomsten till känsliga data.
 - Kontrollera åtkomst till och Härdning av säkerheten för databaser som innehåller mycket känsliga data.
 
-Dataidentifiering och klassificering är en del av den [SQL avancerade datasäkerhet](sql-advanced-threat-protection.md) (ADS) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Dataidentifiering och klassificering kan nås och hanteras via den centrala SQL ADS-portalen.
+Dataidentifiering och klassificering är en del av den [avancerade datasäkerhet](sql-database-advanced-data-security.md) (ADS) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. dataidentifiering och klassificering kan nås och hanteras via den centrala SQL ADS-portalen.
 
 > [!NOTE]
 > Det här dokumentet avser endast Azure SQL Database. SQL Server (lokalt), se [SQL Dataidentifiering och klassificering](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="subheading-1"></a>Vad är identifiering och klassificering
+## <a id="subheading-1"></a>Vad är dataidentifiering och klassificering
 
-Dataidentifiering och klassificering introducerar en uppsättning avancerade tjänster och nya SQL-funktioner, som utgör en ny SQL Information Protection-paradigm syftar till att skydda data, inte bara databasen:
+Dataidentifiering och klassificering introducerar en uppsättning avancerade tjänster och nya funktioner i SQL, som utgör en ny SQL Information Protection-paradigm syftar till att skydda data, inte bara databasen:
 
 - **Identifiering och rekommendationer**
 
@@ -64,7 +64,7 @@ Klassificeringen innehåller två metadata-attribut:
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>Definiera och anpassa din klassificering taxonomi
 
-SQL Dataidentifiering och klassificering levereras med en inbyggd uppsättning känslighet etiketter och en inbyggd uppsättning informationstyper och identifiering av logik. Nu har du möjlighet att anpassa den här taxonomi och definiera en uppsättning och rangordning klassificering konstruktioner specifikt för din miljö.
+SQL dataidentifiering och klassificering levereras med en inbyggd uppsättning känslighet etiketter och en inbyggd uppsättning informationstyper och identifiering av logik. Nu har du möjlighet att anpassa den här taxonomi och definiera en uppsättning och rangordning klassificering konstruktioner specifikt för din miljö.
 
 Definitions- och anpassning av klassificering-taxonomi görs på en central plats för din hela Azure-klient. Att platsen är i [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), som en del av din säkerhetsprincip. Endast användare med administratörsbehörighet på klienten rot-hanteringsgrupp kan utföra den här uppgiften.
 
@@ -77,7 +77,7 @@ När du har definierat principen klienttäckande kan du fortsätta med klassific
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
 
-2. Gå till **avancerade datasäkerhet** under rubriken säkerhet i Azure SQL Database-rutan. Klicka om du vill aktivera avancerad säkerhet för Data och klicka sedan på den **dataidentifiering och klassificering (förhandsversion)** kort.
+2. Gå till **avancerade datasäkerhet** under rubriken säkerhet i Azure SQL Database-rutan. Klicka om du vill aktivera avancerad säkerhet och klicka sedan på den **dataidentifiering och klassificering (förhandsversion)** kort.
 
    ![Skanna en databas](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -147,11 +147,11 @@ Du kan också använda REST API: er för att programmässigt hantera klassificer
 
 ## <a id="subheading-5"></a>Nästa steg
 
-- Läs mer om [SQL Advanced datasäkerhet](sql-advanced-threat-protection.md).
+- Läs mer om [avancerade datasäkerhet](sql-database-advanced-data-security.md).
 - Överväg att konfigurera [Azure SQL Database Auditing](sql-database-auditing.md) för övervakning och granskning av åtkomst till dina klassificerade känsliga data.
 
 <!--Anchors-->
-[SQL Data Discovery & Classification overview]: #subheading-1
+[SQL data discovery & classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Automated/Programmatic classification]: #subheading-4

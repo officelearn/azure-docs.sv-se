@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 647f54d8252c594a280f81d661a3de6270bf692b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eb5eecaca65cc8394bcc12fc5a475cf5e762f1c9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001355"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729973"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Hur du använder verktyg som finns i SDK: erna för att förenkla utvecklingen för etablering
 IoT Hub Device Provisioning Service förenklar etableringen med zero-touch-in-time [Automatisk etablering](concepts-auto-provisioning.md) på ett säkert och skalbart sätt.  Security-attestering i form av X.509-certifikat eller Trusted Platform Module (TPM) krävs.  Microsoft även i samarbete med [andra security maskinvarupartners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) att förbättra förtroende för säkra IoT-distributionen. Förstå säkerhet maskinvarukrav kan vara ganska svårt för utvecklare. En uppsättning Azure IoT Provisioning Service-SDK: er tillhandahålls så att utvecklare kan använda ett bekvämlighet lager för skrivning klienter som kommunicerar med etableringstjänsten. SDK: erna kan du även ange exempel för vanliga scenarier som en uppsättning verktyg för att förenkla security attestering under utveckling.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Betrodda Platform Module (TPM)-simulator
-[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security#trusted-platform-module-tpm) kan referera till en standard för att på ett säkert sätt lagra nycklar för att autentisera plattformen eller den kan referera till i/o-gränssnitt som används för att interagera med moduler som implementerar standarden. TPM: er kan finnas som diskreta maskinvara, integrerad maskinvara, inbyggd programvara eller programvara.  I produktion, TPM finns på enheten, antingen som diskreta maskinvara, integrerad maskinvara eller firmware-baserade. I testfasen tillhandahåller en programvarubaserad TPM-simulator för utvecklare.  Den här simulatorn är endast tillgänglig för att utveckla på Windows-plattformen för tillfället.
+[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) kan referera till en standard för att på ett säkert sätt lagra nycklar för att autentisera plattformen eller den kan referera till i/o-gränssnitt som används för att interagera med moduler som implementerar standarden. TPM: er kan finnas som diskreta maskinvara, integrerad maskinvara, inbyggd programvara eller programvara.  I produktion, TPM finns på enheten, antingen som diskreta maskinvara, integrerad maskinvara eller firmware-baserade. I testfasen tillhandahåller en programvarubaserad TPM-simulator för utvecklare.  Den här simulatorn är endast tillgänglig för att utveckla på Windows-plattformen för tillfället.
 
 Steg för att använda TPM-simulatorn är:
-1. [Förbereda utvecklingsmiljön](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment) och klona GitHub-lagringsplatsen:
+1. [Förbereda utvecklingsmiljön](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) och klona GitHub-lagringsplatsen:
 ```
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
@@ -38,7 +38,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
         * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell- eller Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
-    * Device Identity Composition Engine (DICE)-Emulator: DICE kan användas för kryptografiska enhetsidentitet och attestering baserat på TLS-protokollet och X.509 klientcertifikat.  [Lär dig](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) mer om enhetsidentitet med DICE.
+    * Identity Composition Engine (DICE) enhetsemulatorn: DICE kan användas för kryptografiska enhetsidentitet och attestering baserat på TLS-protokollet och X.509 klientcertifikat.  [Lär dig](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) mer om enhetsidentitet med DICE.
 
 ### <a name="using-x509-certificate-generator-with-dice-emulator"></a>Med hjälp av X.509 certificate generator med DICE-emulator
 SDK: er ger ett X.509 certificate generator med DICE-emulator, som finns i den [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator).  Den här generator fungerar olika plattformar.  Det genererade certifikatet kan användas för utveckling på andra språk.
@@ -46,7 +46,7 @@ SDK: er ger ett X.509 certificate generator med DICE-emulator, som finns i den [
 När du för närvarande DICE-Emulator matar ut ett rotcertifikat, ett mellanliggande certifikat, en lövcertifikat och tillhörande privat nyckel.  Rotcertifikat- eller mellanliggande certifikat kan inte dock användas för att logga en separat lövcertifikatet.  Om du planerar att testa scenariot för registrering av grupp där ett signeringscertifikat används för att signera löv-certifikat för flera enheter, kan du använda OpenSSL för att skapa en kedja av certifikat.
 
 Så här genererar X.509-certifikat med hjälp av den här generator:
-1. [Förbereda utvecklingsmiljön](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment) och klona GitHub-lagringsplatsen:
+1. [Förbereda utvecklingsmiljön](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) och klona GitHub-lagringsplatsen:
 ```
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```

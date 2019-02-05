@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459850"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730025"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en formel för automatisk skalning för att skala beräkningsnoder i en Batch-pool
 
@@ -551,7 +551,7 @@ I Batch .NET den [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/
 * [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 * [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-I REST-API i [få information om en pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) begäran returnerar information om poolen, som innehåller den senaste automatisk skalning som kör information i den [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun) egenskapen.
+I REST-API i [få information om en pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) begäran returnerar information om poolen, som innehåller den senaste automatisk skalning som kör information i den [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) egenskapen.
 
 I följande C#-kodavsnitt använder Batch .NET-biblioteket för att skriva ut information om den senaste autoskalning som körs på poolen _myPool_:
 

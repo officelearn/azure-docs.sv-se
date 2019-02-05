@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712066"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701020"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Skapa avancerade scheman och upprepningar för jobb i Azure Scheduler
 
@@ -24,13 +24,13 @@ ms.locfileid: "51712066"
 
 Inom en [Azure Scheduler](../scheduler/scheduler-intro.md) jobb, schemat är kärnan i som bestämmer när och hur tjänsten Schemaläggaren körs jobbet. Du kan ange flera enstaka och återkommande scheman för ett jobb med Schemaläggaren. Enstaka scheman kör bara en gång vid en viss tidpunkt och är i princip återkommande scheman som bara körs en gång. Återkommande scheman körs på en angiven frekvens. Med den här flexibiliteten, kan du använda Scheduler för olika affärsscenarier, till exempel:
 
-* **Rensa data regelbundet**: skapa ett dagliga jobb som tar bort alla tweets som är äldre än tre månader.
+* **Rensa data regelbundet**: Skapa ett dagliga jobb som tar bort alla tweets som är äldre än tre månader.
 
-* **Arkivera data**: skapa ett månatligt jobb att push-meddelanden fakturera historiken till en tjänst för säkerhetskopiering.
+* **Arkivera data**: Skapa ett månatligt jobb att push-meddelanden fakturera historiken till en tjänst för säkerhetskopiering.
 
-* **Begär externa data**: skapa ett jobb som körs varje kvart och tar emot en ny väderleksrapport från amerikanska NOAA.
+* **Begär externa data**: Skapa ett jobb som körs varje kvart och tar emot en ny väderleksrapport från amerikanska NOAA.
 
-* **Behandla bilder**: skapa en veckodag jobb som körs vid låg belastning och använder molnbaserad databehandling för komprimering av bilder som laddats upp under dagen.
+* **Behandla bilder**: Skapa en veckodag jobb som körs vid låg belastning och använder molnbaserad databehandling för komprimering av bilder som laddats upp under dagen.
 
 Den här artikeln beskriver exempel-jobb som du kan skapa med hjälp av Scheduler och [Azure Scheduler REST API](/rest/api/scheduler), och innehåller definitionen JavaScript Object Notation (JSON) för varje schema. 
 
@@ -53,9 +53,9 @@ Den här artikeln beskrivs senare dessa scenarier mer utförligt.
 
 Skapa ett grundläggande schema med den [Azure Scheduler REST API](/rest/api/scheduler), Följ dessa steg:
 
-1. Registrera din Azure-prenumeration med en resursprovider genom att använda den [registrera igen – Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). Leverantörens namn för tjänsten Azure Scheduler är **Microsoft.Scheduler**. 
+1. Registrera din Azure-prenumeration med en resursprovider genom att använda den [registrera igen – Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers). Leverantörens namn för tjänsten Azure Scheduler är **Microsoft.Scheduler**. 
 
-1. Skapa en jobbsamling med hjälp av den [skapa eller uppdatera åtgärden för jobbsamlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) i Scheduler REST API. 
+1. Skapa en jobbsamling med hjälp av den [skapa eller uppdatera åtgärden för jobbsamlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections) i Scheduler REST API. 
 
 1. Skapa ett jobb med hjälp av den [skapa eller uppdatera åtgärden för jobb](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
@@ -167,7 +167,7 @@ I följande tabell beskrivs schemaelement i detalj:
 | **monthlyOccurrences** |Anger vilka dagar i månaden jobbet körs. Kan anges endast med månatlig frekvens. |En matris med **monthlyOccurrences** objekt:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dag** är den veckodag som jobbet körs. Till exempel *{söndag}* varje söndag i månaden. Krävs.<br /><br />**förekomst** är förekomsten av dag under månaden. Till exempel *{söndag, -1}* är den sista söndagen i månaden. Valfri. |
 | **monthDays** |Dag i månaden jobbet körs. Kan anges endast med månatlig frekvens. |En matris med följande värden:<br />– Ett värde <= -1 och >= -31<br />– Ett värde > = 1 och < = 31|
 
-## <a name="examples-recurrence-schedules"></a>Exempel: Upprepningsscheman
+## <a name="examples-recurrence-schedules"></a>Exempel: Återkommande scheman
 
 I följande exempel visas olika återkommande scheman. Exempel fokus på schemaobjektet och dess underelement.
 

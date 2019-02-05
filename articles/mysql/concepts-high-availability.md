@@ -5,13 +5,13 @@ author: jasonwhowell
 ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 70577f32debc526aaccbd79b62dd35e82119e3f9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: 3f541357d3d45ada694a821b3a3b1474185b6b00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548400"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691362"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Begrepp för hög tillgänglighet i Azure Database for MySQL
 Azure Database for MySQL-tjänsten ger garanterat hög tillgänglighet. Ekonomisk servicenivåavtalet (SLA) är 99,99% vid allmän tillgänglighet. Det är praktiskt taget ingen program driftstopp när du använder den här tjänsten.
@@ -32,5 +32,5 @@ Liknar modellen hög tillgänglighet när en Azure Database for MySQL skalas upp
 Under åtgärden sker ett avbrott i databasanslutningar. Klientprogrammen är frånkopplade och öppna ogenomförda transaktioner har avbrutits. När klientprogrammet försöker ansluta igen, eller gör en ny anslutning, dirigeras gatewayen anslutningen till den nya storlekar instansen. 
 
 ## <a name="next-steps"></a>Nästa steg
-- En översikt över tjänsten finns i [Azure Database for MySQL-översikt](overview.md)
-- En översikt över logik för omprövning, se [hantering av tillfälliga anslutningsfel för Azure Database for MySQL](concepts-connectivity.md)
+- Lär dig mer om [hantering av tillfälliga anslutningsfel](concepts-connectivity.md)
+- Lär dig hur du [replikera dina data med skrivskyddade repliker](howto-read-replicas-portal.md)

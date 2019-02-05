@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 694999048d2f1df92e6b8631953f124c4009d46c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151812"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Självstudier: Azure Active Directory-integrering med oändlig Campus
 
@@ -111,7 +111,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](common/editconfigure.png)
 
-5. På den **SAML grundkonfiguration** om du har **tjänstleverantör metadatafil** (gå vidare till steg **11.c**), utför följande steg:
+4. På den **SAML grundkonfiguration** om du har en **tjänstleverantör metadatafil**gör steg 4.a via 4.d och sedan gå vidare för att gå 11.c. Om du inte har en metadatafil för Service Provider kan du gå vidare till steg 5.
 
     a. Klicka på **ladda upp metadatafilen**.
 
@@ -127,10 +127,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster (domänen varierar beroende på som är värd för modellen): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    > [!NOTE]
-    > Du får den **tjänstleverantör metadatafil** på sidan oändlig Campus SSO konfiguration av ServiceProvider som beskrivs senare i självstudien. Om du börjar med en ny tjänstleverantör för SAML-konfiguration i oändlig Campus, gå vidare till **steg 11** att slutföra exporten av metadatafilen tjänstleverantör.
-
-6. Om du inte har **tjänstleverantör metadatafil**, utför följande steg (Observera att domänen varierar beroende på som är värd för modellen):
+5. Om du inte har **tjänstleverantör metadatafil**, utför följande steg (Observera att domänen varierar beroende på som är värd för modellen):
 
     a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 

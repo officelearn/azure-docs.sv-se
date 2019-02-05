@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 887134f7d790e5ed7e878a94caa9ef2fb9356ae3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1387e5c1efd85ab0b944f7cffc4fe215eb73f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102163"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734495"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och godkännande i Azure Active Directory v1.0 slutpunkten
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) använder sig av behörigheter för både OAut
 
 Azure AD definierar två typer av behörigheter:
 
-* **Delegerade behörigheter** – Används av appar som har en inloggad användare. För dessa appar godkänner antingen användaren eller administratören de behörigheter som appen begär, och appen delegeras behörighet att agera som den inloggade användaren när ett API anropas. Beroende på API: et, användaren kanske inte kan samtycka till API: et direkt och skulle i stället [kräver en administratör att tillhandahålla ”administratörsmedgivande”](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Delegerade behörigheter** – Används av appar som har en inloggad användare. För dessa appar godkänner antingen användaren eller administratören de behörigheter som appen begär, och appen delegeras behörighet att agera som den inloggade användaren när ett API anropas. Beroende på API: et, användaren kanske inte kan samtycka till API: et direkt och skulle i stället [kräver en administratör att tillhandahålla ”administratörsmedgivande”](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 * **Programbehörigheter** – Används av appar som körs utan någon inloggad användare, t.ex, appar som körs som en bakgrundstjänst eller daemon. Programbehörigheter kan bara [godkännas av en administratör](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) eftersom de vanligtvis är kraftfulla och ger åtkomst till data över användarens gränser, eller data som annars skulle vara begränsad till administratörer.
 
 Gällande behörigheter är de behörigheter som din app har vid begäranden till en API. 

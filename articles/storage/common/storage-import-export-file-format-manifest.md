@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463250"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692484"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export-tjänstens manifestfilformat
 Manifestfilen enhet beskriver mappningen mellan i Azure Blob storage-blobbar och filer på enheten som består av ett import eller export-jobb. Manifestfilen för en import-åtgärd har skapats som en del av processen för att förbereda enheten och lagras på enheten innan enheten skickas till Azure-datacentret. När du exporterar, manifestet skapas och lagras på enheten av tjänsten Azure Import/Export.  
@@ -97,7 +97,7 @@ Dataelement och attribut för manifest-XML-format för enheten har angetts i tab
 |`Drive`|Kapslade XML-element|Innehåller manifestet för varje enhet.|  
 |`DriveId`|String|Den unika Enhetsidentifieraren för enheten. Enhetsidentifieraren hittas genom att fråga enheten där dess serienummer. Serienumret för enheten skrivs vanligtvis på utsidan samt på enheten. Den `DriveID` elementet måste finnas innan någon `BlobList` element i manifestfilen.|  
 |`StorageAccountKey`|String|Krävs för import jobb om och endast om `ContainerSas` har inte angetts. Kontonyckel för Azure storage-kontot som är associerad med jobbet.<br /><br /> Det här elementet har utelämnats från manifestet för en export.|  
-|`ContainerSas`|String|Krävs för import jobb om och endast om `StorageAccountKey` har inte angetts. Behållare SAS för åtkomst till blobbarna som är associerat med jobbet. Se [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) för dess format. Det här elementet har utelämnats från manifestet för en export.|  
+|`ContainerSas`|String|Krävs för import jobb om och endast om `StorageAccountKey` har inte angetts. Behållare SAS för åtkomst till blobbarna som är associerat med jobbet. Se [placera jobbet](/rest/api/storageimportexport/jobs) för dess format. Det här elementet har utelämnats från manifestet för en export.|  
 |`ClientCreator`|String|Anger klienten som skapade XML-filen. Det här värdet tolkas inte av Import/Export-tjänsten.|  
 |`BlobList`|Kapslade XML-element|Innehåller en lista över blobar som är en del av importera eller exportera jobbet. Varje blob i en blob-lista delar samma metadata och egenskapers.|  
 |`BlobList/MetadataPath`|String|Valfri. Anger den relativa sökvägen för en fil på disken som innehåller de metadata som standard som kan ställas in för blobbar i blob-listan för en importåtgärd. Dessa metadata kan åsidosättas på basis av blob av blob.<br /><br /> Det här elementet har utelämnats från manifestet för en export.|  

@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 140391b02dab8ce6b47d5350d6d40a9673b29e11
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161774"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732591"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -120,7 +120,7 @@ Att göra den här processen enklare, [kodexempel](https://github.com/Azure/Azur
 ### <a name="getting-started"></a>Komma igång
 Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableringsbegäranden från Azure AD är att skapa och distribuera kodexemplet som visar de etablerade användarna till en fil med kommaavgränsade värden (CSV).
 
-**Skapa en exempel SCIM slutpunkt:**
+#### <a name="to-create-a-sample-scim-endpoint"></a>Skapa en exempel SCIM-slutpunkt
 
 1. Ladda ned koden exempelpaketet på [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Packa upp paketet och placera den på din Windows-dator på en plats, till exempel C:\AzureAD-BYOA-Provisioning-Samples\.
@@ -142,7 +142,7 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableri
 8. I Windows under **Windows-inställningar > nätverk och Internet-inställningar**väljer den **Windows-brandväggen > Avancerade inställningar**, och skapa en **inkommande regel** som tillåter ingående åtkomst till port 9000.
 9. Om Windows-dator bakom en router kan måste routern konfigureras för att utföra Network Access Translation mellan dess port 9000 som exponeras för internet och port 9000 på Windows-datorn. Den här konfigurationen krävs för Azure AD för att kunna komma åt den här slutpunkten i molnet.
 
-**Så här registrerar exempel SCIM slutpunkten i Azure AD:**
+#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Registrerar exempel SCIM slutpunkten i Azure AD
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Bläddra till **Azure Active Directory > företagsprogram**, och välj **nytt program > alla > icke-galleriprogram**.

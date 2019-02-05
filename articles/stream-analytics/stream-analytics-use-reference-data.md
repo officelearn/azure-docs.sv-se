@@ -8,30 +8,25 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/25/2018
-ms.openlocfilehash: 905ea05d2b3bc58428831ae815238de818912928
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/29/2019
+ms.openlocfilehash: f065a7c428f191e37449145e946b26c3133ede05
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304439"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700049"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
-Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Stream Analytics använder Azure Blob storage som lagringsskikt för referensdata och med Azure Data Factory referens data kan omvandlas eller kopieras till Azure Blob storage, för användning som referens för Data från [valfritt antal molnbaserade och lokala datalager](../data-factory/copy-activity-overview.md). Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blobnamnet. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av senaste blob i sekvensen.
+Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 
 
-Stream Analytics stöder referensdata med **maximal storlek på 300 MB**. 300 MB-gränsen för maximal storlek på referensdata är kan uppnås endast med enkla frågor. När frågan komplexitet ökar för att inkludera tillståndskänsliga bearbetning, till exempel fönsteraggregeringar, temporala kopplingar och temporala analysfunktioner förväntas att största storlek för referens data minskar som stöds. Om Azure Stream Analytics inte kan läsa in referensdata och utföra avancerade åtgärder, kommer jobbet slut på minne och misslyckas. I sådana fall kan når SU % utnyttjande mått 100%.    
+Stream Analytics stöder Azure Blob storage och Azure SQL Database som storage-skiktet för referensdata. Du kan också transformera och/eller kopiera referensdata till Blob storage från Azure Data Factory för att använda [alla många molnbaserade och lokala datalager](../data-factory/copy-activity-overview.md).
 
-|**Antal enheter för strömning**  |**CA maxstorlek som stöds (i MB)**  |
-|---------|---------|
-|1   |50   |
-|3   |150   |
-|6 och senare   |300   |
+## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-Öka antalet enheter för strömning för ett jobb utöver 6 ökar inte den maximala storleken som stöds för referensdata.
+Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blobnamnet. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av senaste blob i sekvensen.
 
-Stöd för komprimering är inte tillgängligt för referensdata. 
+### <a name="configure-blob-reference-data"></a>Konfigurera blob referensdata
 
-## <a name="configuring-reference-data"></a>Konfigurera referensdata
 Om du vill konfigurera din referensdata, måste du först skapa en som är av typen **referensdata**. Tabellen nedan beskriver varje egenskap som du måste ange när du skapar referensdata indata med dess beskrivning:
 
 |**Egenskapsnamn**  |**Beskrivning**  |
@@ -46,10 +41,12 @@ Om du vill konfigurera din referensdata, måste du först skapa en som är av ty
 |Händelseserialiseringsformat   | För att vara säker på att dina frågor fungerar som du vill, behöver Stream Analytics veta vilket serialiseringsformat du använder för inkommande dataströmmar. För referensdata är format som stöds CSV och JSON.  |
 |Kodning   | UTF-8 är det enda kodformat som stöds för närvarande.  |
 
-## <a name="static-reference-data"></a>Statiska referensdata
+### <a name="static-reference-data"></a>Statiska referensdata
+
 Om din referensdata inte förväntas ändras, sedan stöd för statisk referens för data är aktiverat genom att ange en statisk sökväg i konfigurationen av indata. Azure Stream Analytics hämtar blob från den angivna sökvägen. {date} och {time} ersättningen token inte behövs. Referensdata kan inte ändras i Stream Analytics. Därför kan rekommenderas skriva över en statisk referensdatablob inte.
 
-## <a name="generating-reference-data-on-a-schedule"></a>Generera referensdata enligt ett schema
+### <a name="generate-reference-data-on-a-schedule"></a>Generera referensdata enligt ett schema
+
 Om din referensdata är en uppsättning med långsamt föränderliga data, stöd för för att uppdatera referens för data är aktiverat genom att ange en sökvägsmönster i den inkommande konfiguration med hjälp av den {date} och {time} ersättningen token. Stream Analytics hämtar uppdaterade referensdata datadefinitionerna baserat på det här mönstret för sökvägen. Till exempel ett mönster av `sample/{date}/{time}/products.csv` med datumformatet **”åååå-MM-DD”** och ett tidsformat för **”HH-mm”** instruerar Stream Analytics för att hämta den uppdaterade blobben `sample/2015-04-16/17-30/products.csv` 17:30:00 på den 16 April , 2015 UTC-tidszonen.
 
 Azure Stream Analytics söker automatiskt efter uppdateras referensdatablobar med en minuts intervall.
@@ -62,12 +59,11 @@ Azure Stream Analytics söker automatiskt efter uppdateras referensdatablobar me
 > På samma sätt om `sample/2015-04-16/17-30/products.csv` produceras bara klockan 10:03 16 April 2015, men inga blob med ett tidigare datum finns i behållaren, jobbet ska använda den här filen startar klockan 10:03 16 April 2015 och använda tidigare referensdata fram till dess.
 > 
 > Ett undantag startas när jobbet behöver igen bearbeta data bakåt i tiden eller när jobbet. Jobbet är ute efter senaste blob skapas innan jobbet börjar tid som anges vid start. Detta görs för att kontrollera att det finns en **icke-tomma** referensdatauppsättning när jobbet börjar. Om en inte kan hittas, visar följande diagnostik: `Initializing input without a valid reference data blob for UTC time <start time>`.
-> 
-> 
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan användas för att dirigera uppgiften med att skapa de uppdaterade blobbar som krävs av Stream Analytics för att uppdatera definitioner för referens för data. Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Data Factory stöder [ansluter till ett stort antal moln baserade och lokala datalager](../data-factory/copy-activity-overview.md) och flytta data enkelt enligt ett schema som du anger. Mer information och stegvisa anvisningar för hur du ställer in en Data Factory-pipeline för att generera referensdata för Stream Analytics som uppdateras enligt ett fördefinierat schema kan du titta i den här [GitHub-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
-## <a name="tips-on-refreshing-your-reference-data"></a>Tips om hur du uppdaterar din referensdata
+### <a name="tips-on-refreshing-blob-reference-data"></a>Tips om hur du uppdaterar data i blob-referens
+
 1. Skriv inte över referensdatablobar eftersom de inte kan ändras.
 2. Det rekommenderade sättet att uppdatera referensdata är att:
     * Använd {date} / {time} i sökväg-mönster
@@ -75,6 +71,45 @@ Azure Stream Analytics söker automatiskt efter uppdateras referensdatablobar me
     * Använd ett datum/tid **större** än den som angetts av senaste blob i sekvensen.
 3. Referensdatablobar är **inte** sorteras efter blobens ”senast ändrad” tid men endast av tid och datum som anges i blob namn med hjälp av den {date} och {time} ersättning.
 3. Om du vill undvika att behöva lista stort antal blobbar, Överväg att ta bort mycket gamla blobbar som bearbetningen inte längre kommer att ske. Observera att ASA försätts har ombearbetning av en viss i vissa scenarier som en omstart.
+
+## <a name="azure-sql-database-preview"></a>Azure SQL-databas (förhandsversion)
+
+Azure SQL Database-referensdata hämtas av ditt Stream Analytics-jobb och lagras som en ögonblicksbild i minnet för bearbetning. Ögonblicksbild av din referensdata lagras också i en behållare i ett lagringskonto som du anger i konfigurationsinställningarna. Behållaren har skapats automatiskt när jobbet startas och hämtar automatiskt bort när jobbet avbryts.
+
+Om din referensdata är en uppsättning med långsamt föränderliga data, måste regelbundet uppdatera ögonblicksbilden som används i jobbet. Stream Analytics kan du ange ett intervall när du konfigurerar din Azure SQL Database inkommande anslutning. Stream Analytics-runtime frågar Azure SQL Database med det intervall som anges av uppdateringsfrekvensen. Den snabbaste uppdateringsintervall som stöds är en gång per minut. Stream Analytics lagrar en ny ögonblicksbild i storage-kontot som angetts för varje uppdatering.
+
+Stream Analytics har två alternativ för att fråga Azure SQL Database. En ögonblicksbild fråga är obligatoriskt och måste inkluderas i varje jobb. Stream Analytics kör ögonblicksbild-frågan med jämna mellanrum baserat på din uppdateringsintervall och använder resultatet av frågan (snapshot) som referensdatauppsättningen. Ögonblicksbild frågan ska rymmas i de flesta fall, men om du får prestandaproblem med stora datamängder och snabb uppdateringsintervall, du kan använda frågealternativet delta.
+
+Med frågealternativet delta kör Stream Analytics ögonblicksbild-fråga från början för att få en referensdatauppsättning för baslinjen. Efter kör Stream Analytics deltafråga med jämna mellanrum baserat på din uppdateringsintervallet för att hämta stegvisa ändringar. Dessa stegvisa ändringar tillämpas kontinuerligt referensdatauppsättning att hålla det uppdaterat. Deltafråga hjälp kan minska kostnaden för lagring och nätverks-i/o-åtgärder.
+
+### <a name="configure-sql-database-reference"></a>Konfigurera SQL Database-referens
+
+Om du vill konfigurera din referensdata för SQL-databas, måste du först skapa **referensdata** indata. Tabellen nedan beskriver varje egenskap som du måste ange när du skapar referensdata indata med en beskrivning. Mer information finns i [Använd referensdata från en SQL-databas till Azure Stream Analytics-jobb](sql-reference-data.md).
+
+|**Egenskapsnamn**|**Beskrivning**  |
+|---------|---------|
+|Inmatat alias|Ett eget namn som ska användas i jobbet frågan för att referera till denna indata.|
+|Prenumeration|Välj din prenumeration|
+|Databas|Azure SQL-databasen som innehåller din referensdata.|
+|Användarnamn|Användarnamnet som är associerade med din Azure SQL Database.|
+|Lösenord|Lösenordet som associeras med din Azure SQL Database.|
+|Uppdatera regelbundet|Det här alternativet kan du välja ett intervall. Välja ”On” kan du ange uppdateringsfrekvensen i DD:HH:MM.|
+|Ögonblicksbildsfråga|Det här är standardalternativet för frågan som hämtar referensdata från din SQL-databas.|
+|Deltafråga|Uppdateringsintervall, Välj att lägga till en deltafråga för avancerade scenarier med stora datauppsättningar och en kort.|
+
+## <a name="size-limitation"></a>Storleksgräns
+
+Stream Analytics stöder referensdata med **maximal storlek på 300 MB**. 300 MB-gränsen för maximal storlek på referensdata är kan uppnås endast med enkla frågor. När frågan komplexitet ökar för att inkludera tillståndskänsliga bearbetningskällor, exempelvis fönsteraggregeringar, temporala kopplingar och temporala analysfunktioner förväntas att största storlek för referens data minskar som stöds. Om Azure Stream Analytics inte kan läsa in referensdata och utföra avancerade åtgärder, kommer jobbet slut på minne och misslyckas. I sådana fall kan når SU % utnyttjande mått 100%.    
+
+|**Antal enheter för strömning**  |**CA maxstorlek som stöds (i MB)**  |
+|---------|---------|
+|1   |50   |
+|3   |150   |
+|6 och senare   |300   |
+
+Öka antalet enheter för strömning för ett jobb utöver 6 ökar inte den maximala storleken som stöds för referensdata.
+
+Stöd för komprimering är inte tillgängligt för referensdata. 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

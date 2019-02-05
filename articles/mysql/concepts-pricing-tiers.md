@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.openlocfilehash: 145273d48060955005f1d93f30e79014244cf4ba
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 02/01/2019
+ms.openlocfilehash: ff5890dcaf642d51c53b054e986689290be773ca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321389"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699252"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
@@ -126,5 +126,5 @@ Den senaste prisinformationen, finns i tjänsten [prissättningssidan](https://a
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [skapar en MySQL-server i portalen](howto-create-manage-server-portal.md).
-- Lär dig hur du [övervakar och skalar en Azure Database for MySQL-server med hjälp av Azure CLI](scripts/sample-scale-server.md).
-- Lär dig mer om den [tjänsten begränsningar](concepts-limits.md).
+- Lär dig mer om [tjänstbegränsningar](concepts-limits.md).
+- Lär dig hur du [skala ut med skrivskyddade repliker](howto-read-replicas-portal.md).

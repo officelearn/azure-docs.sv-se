@@ -7,14 +7,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
-ms.openlocfilehash: 903f8284327d3d5b9ef386305a436ce44a8a11b2
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cd382c0daff79b487f4ecae01ad852f6e57f3a25
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378110"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734257"
 ---
-# <a name="use-ip-filters"></a>IP-filter
+# <a name="use-ip-filters"></a>Använda IP-filter
 
 Säkerhet är en viktig aspekt av alla IoT-lösningar som baseras på Azure IoT Hub. Ibland måste du uttryckligen ange IP-adresser som innehåller de enheter som kan ansluta som en del av din säkerhetskonfiguration. Den *IP-adressfilter* funktionen kan du konfigurera regler för avvisar eller tar emot trafik från specifika IPv4-adresser.
 
@@ -42,7 +42,7 @@ Som standard den **IP-adressfilter** rutnätet i portal för en IoT-hubb är tom
 
 När du lägger till en IP-filterregeln uppmanas du att följande värden:
 
-* En **Regelnamn för IP-filter** som måste vara en unik, skiftlägesokänslig, alfanumerisk sträng på högst 128 tecken. Endast de ASCII 7 bitar alfanumeriska tecken plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` accepteras.
+* En **Regelnamn för IP-filter** som måste vara en unik, skiftlägesokänslig, alfanumerisk sträng på högst 128 tecken. Endast de ASCII 7 bitar alfanumeriska tecken plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` accepteras.
 
 * Välj en **avvisa** eller **acceptera** som den **åtgärd** för IP-filterregeln.
 
@@ -69,6 +69,84 @@ Du kan redigera en befintlig regel genom att dubbelklicka på den rad som inneh�
 Välj en eller flera regler i rutnätet och klicka på för att ta bort en IP-filterregeln **ta bort**.
 
 ![Ta bort en regel för IoT Hub IP-filter](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
+
+## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Hämta och uppdatera IP-filter med Azure CLI
+
+Din IoT-hubb IP-filter kan hämtas och uppdateras genom [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). 
+
+Om du vill hämta den aktuella IP-filter för IoT-hubben, kör du:
+
+```azurecli-interactive
+az resource show -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs
+```
+
+Detta returnerar ett JSON-objekt där din befintliga IP-filter visas under den `properties.ipFilterRules` nyckel:
+
+```json
+{
+...
+    "properties": {
+        "ipFilterRules": [
+        {
+            "action": "Reject",
+            "filterName": "MaliciousIP",
+            "ipMask": "6.6.6.6/6"
+        },
+        {
+            "action": "Allow",
+            "filterName": "GoodIP",
+            "ipMask": "131.107.160.200"
+        },
+        ...
+        ],
+    },
+...
+}
+```
+
+Om du vill lägga till ett nytt IP-filter för din IoT-hubb, kör du:
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules "{\"action\":\"Reject\",\"filterName\":\"MaliciousIP\",\"ipMask\":\"6.6.6.6/6\"}"
+```
+
+Om du vill ta bort ett befintligt IP-filter i IoT Hub, kör du:
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules <ipFilterIndexToRemove>
+```
+
+Observera att `<ipFilterIndexToRemove>` måste motsvara sorteringen av IP-filter i din IoT-hubb `properties.ipFilterRules`.
+
+
+## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>Hämta och uppdatera IP-filter med Azure PowerShell
+
+Din IoT-hubb IP-filter kan hämtas och anges via [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.2.0). 
+
+```powershell
+# Get your IoT Hub resource using its name and its resource group name
+$iothubResource = Get-AzureRmResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+
+# Access existing IP filter rules
+$iothubResource.Properties.ipFilterRules |% { Write-host $_ }
+
+# Construct a new IP filter
+$filter = @{'filterName'='MaliciousIP'; 'action'='Reject'; 'ipMask'='6.6.6.6/6'}
+
+# Add your new IP filter rule
+$iothubResource.Properties.ipFilterRules += $filter
+
+# Remove an existing IP filter rule using its name, e.g., 'GoodIP'
+$iothubResource.Properties.ipFilterRules = @($iothubResource.Properties.ipFilterRules | Where 'filterName' -ne 'GoodIP')
+
+# Update your IoT Hub resource with your updated IP filters
+$iothubResource | Set-AzureRmResource -Force
+```
+
+## <a name="update-ip-filter-rules-using-rest"></a>Uppdatera IP-filterreglerna med hjälp av REST
+
+Du kan också hämta och ändra IP-adressfilter för din IoT-hubb med hjälp av Azure resource Provider REST-slutpunkt. Se `properties.ipFilterRules` i [metoden createorupdate](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/createorupdate).
+
 
 ## <a name="ip-filter-rule-evaluation"></a>IP-filter rule utvärdering
 

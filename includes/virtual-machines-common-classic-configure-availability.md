@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227204"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735846"
 ---
 En tillgänglighetsuppsättning som hjälper dig att hålla dina virtuella datorer som är tillgängliga under avbrott, till exempel under underhåll. Placera två eller flera liknande konfiguration virtuella datorer i en tillgänglighetsuppsättning skapar stabilitet som krävs för att behålla tillgängligheten för program eller tjänster som den virtuella datorn körs. Mer information om hur det fungerar finns i [hantera tillgängligheten för virtuella datorer][Manage the availability of virtual machines].
 
@@ -18,7 +18,7 @@ Det är en bra idé att använda både tillgänglighetsuppsättningar och belast
 Du kan lägga till klassiska virtuella datorer i en tillgänglighetsuppsättning med hjälp av ett av två alternativ:
 
 * [Alternativ 1: Skapa en virtuell dator och en tillgänglighetsuppsättning på samma gång][Option 1: Create a virtual machine and an availability set at the same time]. Lägg sedan till nya virtuella datorer i uppsättningen när du skapar de virtuella datorerna.
-* [Alternativ 2: Lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning][Option 2: Add an existing virtual machine to an availability set].
+* [Alternativ 2: Lägg till en befintlig virtuell dator i en tillgänglighetsuppsättning][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
 > I den klassiska modellen, måste virtuella datorer som ska placeras i samma tillgänglighetsuppsättning tillhöra samma molntjänst.
@@ -46,7 +46,7 @@ Använda Azure portal:
 
 Om du vill använda Azure PowerShell-kommandon för att skapa en Azure virtuell dator och lägga till den i en ny eller befintlig tillgänglighetsuppsättning, se [använder Azure PowerShell för att skapa och förkonfigurera en Windows-baserade virtuella datorer](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>Alternativ 2: Lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning
+## <a id="addmachine"> </a>Alternativ 2: Lägg till en befintlig virtuell dator i en tillgänglighetsuppsättning
 Du kan lägga till befintliga klassiska virtuella datorer i en befintlig tillgänglighetsuppsättning ange eller skapa ett nytt lösenord för dem i Azure-portalen. (Kom ihåg att de virtuella datorerna i samma tillgänglighetsuppsättning måste tillhöra samma molntjänst.) Stegen är nästan desamma. Du kan använda Azure PowerShell för att lägga till den virtuella datorn till en befintlig tillgänglighetsuppsättning.
 
 1. Om du inte redan har gjort det loggar du in den [Azure-portalen](https://portal.azure.com).

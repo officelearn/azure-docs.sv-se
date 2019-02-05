@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 5bbe0709f89ca198b0571526291f700c99e9e59f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966834"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700748"
 ---
 # <a name="public-ip-address-prefix"></a>Offentliga IP-adressprefix
 
@@ -31,7 +31,7 @@ Offentliga IP-adresser tilldelas från en pool med adresser i varje Azure-region
 Du skapar en offentlig IP-adressprefix i ett Azure-region och prenumeration genom att ange ett namn och hur många adresser som du vill att prefixet som ska ingå. Till exempel om du skapar en offentlig IP-adressprefix på/28, tilldelar Azure 16 adresser från en av dess intervall för dig. Du vet inte vilka adressintervall som Azure tilldelar förrän du har skapat intervallet, men adresserna som är sammanhängande. Offentliga IP-adressprefix har en avgift. Mer information finns i [prissättning för offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 > [!IMPORTANT]
-> Offentliga IP-Prefix är i en offentlig förhandsversion i begränsade regioner. Du kan [Lär dig vad det innebär att finnas i förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Offentliga IP-prefix är för närvarande tillgängligt i: västra centrala USA, västra USA, västra USA 2, centrala USA, Nordeuropa, Västeuropa och Sydostasien. En uppdaterad lista över regioner finns [Azure-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
+> Offentliga IP-Prefix är i en offentlig förhandsversion i begränsade regioner. Du kan [Lär dig vad det innebär att finnas i förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Offentliga IP-prefix är nu tillgänglig i: USA, västra centrala, USA, västra, USA, västra 2, centrala USA, Nordeuropa, Västeuropa och Sydostasien. En uppdaterad lista över regioner finns [Azure-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Varför skapa en offentlig IP-adressprefix?
 
@@ -53,7 +53,7 @@ Du kan associera följande resurser med en statisk offentlig IP-adress från ett
 |---|---|---|
 |Virtuella datorer| Associera offentliga IP-adresser från ett prefix till dina virtuella datorer i Azure minskar hanteringskostnader när det gäller att lista över tillåtna IP-adresser i brandväggen. Du kan bara godkänna ett hela prefix med en enda brandväggsregel. När du skalar med virtuella datorer i Azure kan du associera IP-adresser från samma prefix sparar kostnader, tid och omkostnader för lagringshantering.| Associera IP-adresser från ett prefix till den virtuella datorn: 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3. [Associera IP-Adressen till den virtuella datorns nätverksgränssnitt.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Lastbalanserare | Associera offentliga IP-adresser från ett prefix till frontend-IP säkerställer konfiguration eller utgående regel för belastningsutjämning förenkling av distribution av ditt Azure offentlig IP-adressutrymme. Du kan förenkla din situation genom rensning utgående anslutningar till har sitt ursprung från en mängd sammanhängande IP-adresser som definieras av den offentliga IP-prefix. | Associera IP-adresser från ett prefix i Load balancer: 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3. När du skapar belastningsutjämnaren, Välj eller uppdatera IP-Adressen som skapades i steg 2 ovan som frontend-IP för belastningsutjämnaren. |
-| Azure Firewall | Du kan använda en offentlig IP-adress från ett prefix för utgående SNAT. Det innebär att all utgående trafik i virtuella nätverk översätts till den [Azure brandvägg](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) offentlig IP-adress. Eftersom denna IP-adress kommer från ett förutbestämt prefix, är det mycket enkelt förväg veta hur dina offentliga IP-fotavtryck i Azure ser ut. | 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3. När du [distribuera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), se till att välja den IP-Adressen du previosuly allokeras från prefixet.|
+| Azure Firewall | Du kan använda en offentlig IP-adress från ett prefix för utgående SNAT. Det innebär att all utgående trafik i virtuella nätverk översätts till den [Azure brandvägg](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) offentlig IP-adress. Eftersom denna IP-adress kommer från ett förutbestämt prefix, är det mycket enkelt förväg veta hur dina offentliga IP-fotavtryck i Azure ser ut. | 1. [Skapa ett prefix.](manage-public-ip-address-prefix.md) 2. [Skapa en IP-adress från prefixet.](manage-public-ip-address-prefix.md) 3. När du [distribuera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), se till att välja den IP-Adressen som du tidigare tilldelat från prefixet.|
 
 ## <a name="constraints"></a>Villkor
 

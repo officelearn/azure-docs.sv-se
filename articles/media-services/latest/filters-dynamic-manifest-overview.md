@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 139f6283c2b59aee53afa3f0dd52e06e2b0eff4c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912041"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695227"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filter och dynamiska manifest
 
@@ -34,7 +34,7 @@ Filtren är serversidan regler som tillåter dina kunder att till exempel:
 - Leverera endast den angivna återgivningar och/eller spårar för angivet språk som stöds av den enhet som används för att spela upp innehållet (”återgivningsfiltrering”). 
 - Justera Presentation fönstret (DVR) för att tillhandahålla en begränsad tidslängd DVR-perioden i spelaren (”justera presentationsfönster”).
 
-Det här avsnittet beskriver [begrepp](#concepts) och [visar filtrerar definitioner](#definitions). Den lämnar sedan över information om [vanliga scenarier](#common-scenarios). I slutet av artikeln hittar du länkar som visar hur du skapar filter programmässigt.  
+Det här avsnittet beskriver [begrepp](#concepts) och [visar filtrerar definitioner](#definitions). Den lämnar sedan över information om vanliga scenarier. I slutet av artikeln hittar du länkar som visar hur du skapar filter programmässigt.  
 
 ## <a name="concepts"></a>Begrepp
 

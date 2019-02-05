@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232350"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734563"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
 
@@ -134,7 +134,7 @@ NPM kan övervaka anslutningen mellan nätverk i någon del av världen, från e
 NPM kan övervaka anslutningen till tjänster i andra delar av världen, från en arbetsyta som är värd för en av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Vilka regioner har stöd för NPM-ExpressRoute-övervakning?
-NPM kan övervaka din ExpressRoute-kretsar som finns i alla Azure-regioner. Att publicera till NPM, behöver du en Log Analytics-arbetsyta som måste finnas i något av de [regioner som stöds](/azure/expressroute/how-to-npm#regions)
+NPM kan övervaka din ExpressRoute-kretsar som finns i alla Azure-regioner. Att publicera till NPM, behöver du en Log Analytics-arbetsyta som måste finnas i något av de [regioner som stöds](/azure/expressroute/how-to-npm)
 
 ## <a name="troubleshoot"></a>Felsöka
 

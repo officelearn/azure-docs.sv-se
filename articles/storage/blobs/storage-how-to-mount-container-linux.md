@@ -5,19 +5,19 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 2374875512bba55409ef43906acb20238c77158f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268469"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698015"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Hur du montera Blob storage som ett filsystem med blobfuse
 
 ## <a name="overview"></a>Översikt
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) är en virtuell filsystemsdrivrutin för Azure Blob storage. Blobfuse ger dig tillgång till dina befintliga block blob-data i ditt storage-konto via filsystemet Linux. Azure Blob storage är en tjänst för lagring av objekt och har inte ett hierarkiskt namnområde. Blobfuse innehåller det här namnområdet med virtuell katalog med snedstrecket ”/” som avgränsare.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) är en virtuell filsystemsdrivrutin för Azure-blobblagring. Blobfuse ger dig tillgång till dina befintliga block blob-data i ditt storage-konto via filsystemet Linux. Azure Blob storage är en tjänst för lagring av objekt och har inte ett hierarkiskt namnområde. Blobfuse innehåller det här namnområdet med virtuell katalog med snedstrecket ”/” som avgränsare.  
 
 Den här guiden visar hur du använder blobfuse och montera Blob storage-behållare på Linux och komma åt data. Om du vill veta mer om blobfuse kan du läsa informationen i [blobfuse databasen](https://github.com/Azure/azure-storage-fuse).
 
@@ -100,7 +100,7 @@ containerName mycontainer
 
 När du har skapat den här filen kan du se till att begränsa åtkomst så att ingen annan användare kan läsa den.
 ```bash
-chmod 700 fuse_connection.cfg
+chmod 600 fuse_connection.cfg
 ```
 
 > [!NOTE]

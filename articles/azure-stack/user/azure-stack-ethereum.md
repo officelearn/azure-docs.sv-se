@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
-ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/04/2019
+ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239238"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697489"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Distribuera ett nätverk med Ethereum blockchain på Azure Stack
 
@@ -25,7 +25,7 @@ Ethereum-lösningsmallen är utformad för att göra det enklare och snabbare at
 
 Med en handfull användarindata och en enda musklick distribution via portalen för Azure Stack-klient, kan varje medlem etablera sina nätverk fotavtryck. Varje medlem nätverk fotavtryck består av en uppsättning noder för Utjämning av nätverksbelastning transaktion med som ett program eller en användare kan interagera om du vill skicka transaktioner, en uppsättning utvinning noder till poster transaktioner och en virtuell nätverksinstallation (NVA). Ett efterföljande anslutning steg ansluter nva: erna för att skapa en fullständigt konfigurerad flera medlem blockchain-nätverk.
 
-Att ställa in du:
+Så här skapar:
 
 - Välj en distributionsarkitektur
 - Distribuera en fristående, consortium ledare eller medlem konsortienätverk
@@ -157,7 +157,7 @@ Bläddra medlemmens administrationswebbplatsen för att verifiera medlemmens dis
 
 ![Medlemmen distributionssammanfattning](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-I bilden visas medlemmens noder status är **körs inte**. Det beror på att inte upprättas anslutningen mellan medlems- och. Anslutningen mellan medlems- och är en dubbelriktad anslutning. När du distribuerar medlem skapar mallen anslutningen automatiskt från medlem till ledare. Om du vill skapa anslutningen från ledande till medlemmen, går du till nästa steg.
+I bilden visas medlemmens noder status är **körs inte**. Den här statusen beror på att inte upprättas anslutningen mellan medlems- och. Anslutningen mellan medlems- och är en dubbelriktad anslutning. När du distribuerar medlem skapar mallen anslutningen automatiskt från medlem till ledare. Om du vill skapa anslutningen från ledande till medlemmen, går du till nästa steg.
 
 ### <a name="connect-member-and-leader"></a>Ansluta medlems- och
 

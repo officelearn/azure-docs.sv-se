@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 41e422d0808cafb45b182c5f0a6bb7176a35516f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 345a7994f5a117b7aff320edf7b7c79d9b30a2f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35758628"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695261"
 ---
 # <a name="internet-of-things-security-overview"></a>Översikt över Internet of Things-säkerhet
 Azure Internet internet of things (IoT)-tjänster erbjuder ett brett utbud av funktioner. Med dessa tjänster i företagsklass kan du:
@@ -45,7 +45,7 @@ Den här artikeln beskrivs i följande avsnitt:
 
 * [Security börjar med en Hotmodell](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
 * [Säkerhet i IoT](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
-* [Threat Modeling Referensarkitektur för Azure IoT](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
+* [Threat Modeling Referensarkitektur för Azure IoT](/azure/iot-fundamentals/iot-security-architecture)
 
 ## <a name="security-from-the-ground-up"></a>Säkerhet från grunden
 I IoT utgör unika utmaningar för företag över hela världen som säkerhet, sekretess och efterlevnad. Till skillnad från traditionella cyberhot teknik där problemen kretsar kring programvara och hur det implementeras, gäller IoT vad som händer när cyberhot och de fysiska världarna Konvergera. Skydda IoT-lösningar kräver att säkerställa säker etablering av enheter, säkra anslutningar mellan dessa enheter och molnet och säkert dataskydd i molnet under bearbetning och lagring. Arbeta mot sådana funktioner, men är begränsad resurs enheter, geografisk fördelning av distributioner och många enheter i en lösning.

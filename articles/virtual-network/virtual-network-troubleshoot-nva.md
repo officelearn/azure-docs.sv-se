@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 0d5b345936f6c931f4210e6dc50f94544a52f571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678448"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700578"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Virtuell installation nätverksproblem i Azure
 
@@ -40,7 +40,7 @@ Teknisk support för tredje parts nva: er och deras integrering med Azure-plattf
 - Udr: er på undernät för virtuella nätverk som dirigerar trafik från NVA
 - Routning tabeller och regler i NVA (till exempel från NIC1 till NIC2)
 - Spårning på NVA-nätverkskort för att verifiera ta emot och skicka nätverkstrafik
-- När du använder en Standard-SKU och en offentlig IP-adress måste det finnas en NSG som skapats och en regel för explicit för att tillåta trafik ska dirigeras till NVA.
+- När du använder en Standard-SKU och offentliga IP-adresser måste det finnas en NSG som skapats och en regel för explicit för att tillåta trafik ska dirigeras till NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Grundläggande åtgärder för felsökning
 
@@ -78,7 +78,7 @@ Använd PowerShell
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
 
-**Sök efter NSG när du använder Standard Pubilc IP-adress för SKU** när med hjälp av ett Standard-SKU och en offentlig IP-adress måste vara en NSG som skapats och en regel för explicit för att tillåta trafik till NVA.
+**Sök efter NSG när du använder Standard-SKU offentlig IP** när du använder en Standard-SKU och offentliga IP-adresser måste det finnas en NSG som skapats och en regel för explicit för att tillåta trafik till NVA.
 
 **Kontrollera om trafiken kan dirigeras till en NVA**
 

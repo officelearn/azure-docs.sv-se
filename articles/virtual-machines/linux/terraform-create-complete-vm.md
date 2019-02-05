@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: cf0fad78613d063a0f1270597cf67eadd996124a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1e270ce13865684f32623fd964d4a41642d95342
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406923"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695595"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Skapa en fullständig Linux VM-infrastruktur i Azure med Terraform
 
@@ -455,7 +455,7 @@ Om allt ser korrekt ut och du är redo att bygga infrastrukturer i Azure, tillä
 terraform apply
 ```
 
-Infrastrukturen för virtuella datorer är klar när Terraform har slutförts. Hämta den offentliga IP-adressen för den virtuella datorn med [az vm show](/cli/azure/vm#az_vm_show):
+Infrastrukturen för virtuella datorer är klar när Terraform har slutförts. Hämta den offentliga IP-adressen för den virtuella datorn med [az vm show](/cli/azure/vm):
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

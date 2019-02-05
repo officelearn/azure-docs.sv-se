@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: af605f4ad7c4167936a07f2ae8ffd3d2850cda75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 643ef7f9960b2a91c88b4e13fe318748d175e036
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185233"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692748"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Fjärråtkomst till lokala program via Azure Active Directory Application Proxy 
 
@@ -28,7 +28,7 @@ Azure AD Application Proxy är:
 
 - **Skydda**. Lokala program kan använda auktoriseringskontroller och säkerhetsanalyser i Azure. Lokala program kan exempelvis använda villkorlig åtkomst och tvåstegsverifiering. Programproxy måste inte du öppna inkommande anslutningar via brandväggen.
  
-- **Kostnadseffektiv**. Lokala lösningar kräver normalt att du konfigurerar och underhåller perimeternätverk (DMVs), edge-servrar eller andra komplexa infrastrukturer. Programproxy körs i molnet, vilket gör det enkelt att använda. Om du vill använda Application Proxy, behöver du inte ändra nätverkets infrastruktur eller installera ytterligare installationer i din lokala miljö.
+- **Kostnadseffektiv**. Lokala lösningar kräver normalt att du konfigurerar och underhåller demilitariserad zoner (DMZ-miljöer), edge-servrar eller andra komplexa infrastrukturer. Programproxy körs i molnet, vilket gör det enkelt att använda. Om du vill använda Application Proxy, behöver du inte ändra nätverkets infrastruktur eller installera ytterligare installationer i din lokala miljö.
 
 ## <a name="what-is-application-proxy"></a>Vad är Application Proxy?
 Programproxyn är en funktion i Azure AD som gör att användarna kan få åtkomst till lokala webbprogram från en fjärransluten klient. Programproxy omfattar både Application Proxy-tjänsten som körs i molnet och programproxy-kopplingen som körs på en lokal server. Azure AD Application Proxy-tjänsten och Application Proxy connector fungerar tillsammans för att på ett säkert sätt överföra inloggnings-användartoken från Azure AD till webbprogrammet.

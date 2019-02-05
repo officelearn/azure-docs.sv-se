@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239931"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699150"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-säkerhet och efterlevnad skissen - Trelagers-IaaS-webbprogram för UK-OFFICIAL
 
@@ -186,7 +186,7 @@ De här virtuella nätverken hanteras fortfarande som separata resurser, men vis
 
 [Riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory-integrering**: Som ett alternativ till en dedikerad AD DS-arkitektur kan kunder kanske vill använda [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) integration eller [Active Directory i Azure som är anslutna till en lokal skog](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Active Directory-integrering**: Som ett alternativ till en dedikerad AD DS-arkitektur kan kunder kanske vill använda [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) integration eller [Active Directory i Azure som är anslutna till en lokal skog](https://docs.microsoft.com/azure/guidance/guidance-ra-identity).
 
 ### <a name="security"></a>Säkerhet
 

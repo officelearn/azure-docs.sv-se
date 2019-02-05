@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 1761dafd04a4b8d27a16af4a5e1b0034b90c51a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ec34b9c5f78b4d0ea59382f616fab88e0e1dedc9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656880"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730942"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -50,7 +50,7 @@ Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade 
 * Händelsemeddelandet har samma schema som andra Event Grid-händelser.
 * Händelsetyp-egenskapen för händelsen är `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * Dataegenskapen för händelsen innehåller en `validationCode` egenskap med en slumpmässigt genererad sträng. Till exempel ”validationCode: acb13...”.
-* Om du använder API-versionen 2018-05-01-preview händelsedata innehåller också en `validationUrl` egenskap med en URL för manuell verifiering av prenumerationen.
+* Händelsedata innehåller också en `validationUrl` egenskap med en URL för manuell verifiering av prenumerationen.
 * Matrisen innehåller endast händelsen verifiering. Andra händelser skickas i en separat begäran när du tillbaka echo verifieringskoden.
 * SDK: er för EventGrid dataplanen har klasser som motsvarar prenumerationen verifiering händelsedata och verifieringssvaret för prenumerationen.
 

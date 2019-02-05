@@ -10,19 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/31/2019
 ms.author: lagayhar
-ms.openlocfilehash: e16432022c8c8525c95fab46bc61197f67fb8f37
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7ad8b96efeef2a5bb5543ee08150376862abb27f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260065"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699337"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Tjänsten hjälper dig att [identifiera och diagnostisera prestandaproblem och undantag](../../azure-monitor/app/detect-triage-diagnose.md) samt att [skriva kod][api] för att se vad användarna gör med din app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Att [automatiskt betalningsinstrument begäran, spåra beroenden och samla in prestandaräknare](auto-collect-dependencies.md#java), [diagnostisera prestandaproblem och undantag](../../azure-monitor/app/detect-triage-diagnose.md), och [skriva kod] [ api] att se vad användarna gör med din app. 
 
 ![Skärmbild av översikt exempeldata](./media/java-get-started/overview-graphs.png)
 

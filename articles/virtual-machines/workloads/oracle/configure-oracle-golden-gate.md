@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: cb5ad6f351cdeadb999b1a62c225f23937c5b92e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 5d7e21661d7ee905ff77a4856544d358924cd9ea
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413829"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700884"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementera Oracle guld Gate på en virtuell Azure Linux-dator 
 
@@ -51,7 +51,7 @@ Här följer en sammanfattning av konfigurationen miljö:
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure 
 
-Logga in på Azure-prenumerationen med den [az-inloggning](/cli/azure/reference-index#az_login) kommando. Följ den på skärmen riktningar.
+Logga in på Azure-prenumerationen med den [az-inloggning](/cli/azure/reference-index) kommando. Följ den på skärmen riktningar.
 
 ```azurecli
 az login
@@ -81,7 +81,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create). 
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm). 
 
 I följande exempel skapas två virtuella datorer med namnet `myVM1` och `myVM2`. Skapa SSH-nycklar om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 

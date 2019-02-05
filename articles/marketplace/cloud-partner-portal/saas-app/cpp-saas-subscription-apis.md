@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a778723093b226ee0e681c2a95ce4db597a310e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199156"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695380"
 ---
 # <a name="saas-sell-through-azure---apis"></a>SaaS-sälj via Azure - API: er
 
@@ -176,21 +176,21 @@ Den aktuella API-versionen är `api-version=2017-04-15`.
 
 *Svarstext*
 
- ``` json       
-    { 
-        “id”: “”, 
-        “subscriptionName”: “”,
-        “offerId”:””, 
-         “planId”:””
-    }     
+``` json
+{
+    "id": "",
+    "subscriptionName": "",
+    "offerId": "",
+    "planId": "",
+}
 ```
 
 | **Parameternamn** | **Datatyp** | **Beskrivning**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | Sträng        | ID för SaaS-prenumerationen.          |
-| subscriptionName| Sträng| Namnet på SaaS-prenumeration som anges av användaren i Azure när du prenumererar på SaaS-tjänsten.|
-| OfferId            | Sträng        | Erbjudande-ID som du prenumererar. |
-| planId             | Sträng        | Plan-ID som du prenumererar.  |
+| id                 | String        | ID för SaaS-prenumerationen.          |
+| subscriptionName| String| Namnet på SaaS-prenumeration som anges av användaren i Azure när du prenumererar på SaaS-tjänsten.|
+| OfferId            | String        | Erbjudande-ID som du prenumererar. |
+| planId             | String        | Plan-ID som du prenumererar.  |
 |  |  |  |
 
 
@@ -246,9 +246,9 @@ Prenumerera-slutpunkten tillåter användare att starta en prenumeration på en 
 *Brödtext*
 
 ``` json
-  { 
-      “planId”:””
-   }      
+{
+    "lanId": "",
+}
 ```
 
 | **Elementnamn** | **Datatyp** | **Beskrivning**                      |
@@ -307,15 +307,13 @@ Följ upp på begäran-åtgärdens status på åtgärd-location-rubriken för en
 | Auktorisering           | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  |
 
-
 *Brödtext*
 
-``` json
-                { 
-                    “planId”:””
-                } 
+```json
+{
+    "planId": ""
+}
 ```
-
 
 |  **Elementnamn** |  **Datatyp**  | **Beskrivning**                              |
 |  ---------------- | -------------   | --------------------------------------       |
@@ -370,7 +368,6 @@ Borttagningsåtgärden på slutpunkten för prenumerera låter en användare tar
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om detta inte anges så kommer en genereras och anges i svarshuvuden. |
 | Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  |
- 
 
 *Svarskoder*
 
@@ -413,7 +410,6 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-
 *Headers*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                                                                                                                                                                                                  |
@@ -422,25 +418,24 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 | Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  | 
-  
 
 *Svarstext*
 
-``` json
-  { 
-      “id”: “”, 
-      “status”:””, 
-       “resourceLocation”:””, 
-      “created”:””, 
-      “lastModified”:”” 
-  } 
+```json
+{
+    "id": "",
+    "status": "",
+    "resourceLocation": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Parameternamn** | **Datatyp** | **Beskrivning**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | Sträng        | ID för åtgärden.                                                                      |
+| id                 | String        | ID för åtgärden.                                                                      |
 | status             | Enum          | Åtgärdsstatus något av följande: `In Progress`, `Succeeded`, eller `Failed`.          |
-| resourceLocation   | Sträng        | Länka till den prenumeration som skapades eller ändrades. Detta hjälper klienten att hämta uppdaterade tillståndet post-åtgärd. Det här värdet har inte angetts för `Unsubscribe` åtgärder. |
+| resourceLocation   | String        | Länka till den prenumeration som skapades eller ändrades. Detta hjälper klienten att hämta uppdaterade tillståndet post-åtgärd. Det här värdet har inte angetts för `Unsubscribe` åtgärder. |
 | skapad            | DateTime      | Åtgärden Skapandetid i UTC.                                                           |
 | lastModified       | DateTime      | Senaste uppdateringen på åtgärden i UTC.                                                      |
 |  |  |  |
@@ -494,23 +489,23 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 
 *Svarstext*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “” 
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Sträng        | ID för SaaS-prenumeration-resurs i Azure.    |
-| offerId                | Sträng        | Erbjudande-ID som du prenumererar.         |
-| planId                 | Sträng        | Plan-ID som du prenumererar.          |
-| saasSubscriptionName   | Sträng        | Namnet på SaaS-prenumeration.                |
+| id                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
+| offerId                | String        | Erbjudande-ID som du prenumererar.         |
+| planId                 | String        | Plan-ID som du prenumererar.          |
+| saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
 | saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`:  Azure-prenumeration har inaktiverats.  |
 | skapad                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
 | lastModified           | DateTime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
@@ -539,7 +534,6 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 | eTag               | Ja          | Länka till en resurs att hämta Åtgärdsstatus.                                                        |
 |  |  |  |
 
-
 ### <a name="get-subscriptions"></a>Hämta prenumerationer
 
 Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenumerationer för alla erbjudanden från Utvecklaren.
@@ -564,27 +558,26 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 | Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  |
 
-
 *Svarstext*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “”
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Sträng        | ID för SaaS-prenumeration-resurs i Azure.    |
-| offerId                | Sträng        | Erbjudande-ID som du prenumererar.         |
-| planId                 | Sträng        | Plan-ID som du prenumererar.          |
-| saasSubscriptionName   | Sträng        | Namnet på SaaS-prenumeration.                |
+| id                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
+| offerId                | String        | Erbjudande-ID som du prenumererar.         |
+| planId                 | String        | Plan-ID som du prenumererar.          |
+| saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
 | saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`:  Azure-prenumeration har inaktiverats.  |
 | skapad                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
 | lastModified           | DateTime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
@@ -616,7 +609,6 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 
 En SaaS-webhook används för att Avisera ändringar proaktivt SaaS tjänsten. Det här INLÄGGET API förväntas vara icke-autentiserade och kommer att anropas av tjänsten Microsoft. SaaS-tjänsten förväntas du anropar API för att validera och auktorisera innan åtgärd vidtas på webhook-meddelandet. 
 
-
 *Brödtext*
 
 ``` json
@@ -634,12 +626,12 @@ En SaaS-webhook används för att Avisera ändringar proaktivt SaaS tjänsten. D
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | Sträng       | Unikt ID för den åtgärd som utlöste.                |
-| Aktivitets-ID   | Sträng        | En unik sträng som värde för spårning av förfrågan från tjänsten. Det här används för alla avstämning.               |
-| subscriptionId                     | Sträng        | ID för SaaS-prenumeration-resurs i Azure.    |
-| offerId                | Sträng        | Erbjudande-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.        |
-| publisherId                | Sträng        | Publicerings-ID för SaaS-erbjudande         |
-| planId                 | Sträng        | Plan-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.          |
-| åtgärd                 | Sträng        | Den åtgärd som utlösa det här meddelandet. Possible values - Activate, Delete, Suspend, Reinstate, Update          |
-| timeStamp                 | Sträng        | Tidsstämpelvärde i UTC när den här aviseringen utlöstes.          |
+| id  | String       | Unikt ID för den åtgärd som utlöste.                |
+| Aktivitets-ID   | String        | En unik sträng som värde för spårning av förfrågan från tjänsten. Det här används för alla avstämning.               |
+| subscriptionId                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
+| offerId                | String        | Erbjudande-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.        |
+| publisherId                | String        | Publicerings-ID för SaaS-erbjudande         |
+| planId                 | String        | Plan-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.          |
+| åtgärd                 | String        | Den åtgärd som utlösa det här meddelandet. Possible values - Activate, Delete, Suspend, Reinstate, Update          |
+| timeStamp                 | String        | Tidsstämpelvärde i UTC när den här aviseringen utlöstes.          |
 |  |  |  |

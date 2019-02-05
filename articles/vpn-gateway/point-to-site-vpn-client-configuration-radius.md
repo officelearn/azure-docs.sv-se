@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0d915592053c256d3640d0f0de7bb94bf109f2c8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510161"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700170"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering
 
@@ -98,10 +98,10 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
 
 2. Leta upp den **mobileconfig** fil för Mac.
 
-   ![Platsen för filen mobilconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
+   ![Platsen för den mobileconfig-fil](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Valfritt steg - om du vill ange en anpassad DNS, Lägg till följande rader till den **mobileconfig** fil:
-```
+```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -262,15 +262,15 @@ Att använda olika autentiseringstyper (till exempel OTP), eller Använd en anna
 
 1. Använd den `Get-AzureRmVpnClientConfiguration` cmdlet för att generera VPN-klientkonfiguration för EapMSChapv2. Anvisningar finns i [i det här avsnittet](#ccradius) av artikeln.
 
-2. Packa upp filen VpnClientConfiguration.zip och leta efter den **GenenericDevice** mapp. Ignorera mapparna som innehåller de Windows-installationsprogram för 64-bitars och 32-bitars arkitektur.
+2. Packa upp filen VpnClientConfiguration.zip och leta efter den **GenericDevice** mapp. Ignorera mapparna som innehåller de Windows-installationsprogram för 64-bitars och 32-bitars arkitektur.
  
-3. Den **GenenericDevice** mappen innehåller en XML-fil som heter **VpnSettings**. Den här filen innehåller informationen som krävs:
+3. Den **GenericDevice** mappen innehåller en XML-fil som heter **VpnSettings**. Den här filen innehåller informationen som krävs:
 
    * **VpnServer**: FQDN för Azure VPN-gatewayen. Det här är den adress som klienten ansluter till.
    * **VpnType**: Tunneltyp som används för att ansluta.
    * **Vägar**: Vägar som du måste konfigurera i din profil så att endast trafik som är bunden till Azure-nätverk skickas via P2S-tunnel.
    
-   Den **GenenericDevice** mappen innehåller också en .cer-fil som heter **VpnServerRoot**. Den här filen innehåller rotcertifikat som krävs för att verifiera Azure VPN-gatewayen under installationen av P2S-anslutning. Installera certifikatet på alla enheter som ska ansluta till virtuella Azure-nätverket.
+   Den **GenericDevice** mappen innehåller också en .cer-fil som heter **VpnServerRoot**. Den här filen innehåller rotcertifikat som krävs för att verifiera Azure VPN-gatewayen under installationen av P2S-anslutning. Installera certifikatet på alla enheter som ska ansluta till virtuella Azure-nätverket.
 
 ## <a name="next-steps"></a>Nästa steg
 

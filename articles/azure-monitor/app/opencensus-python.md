@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885f4da5ec9b360605a3e46ee8be8d338a638ede
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102677"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696191"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Samla in distribuerade spårningar från Python (förhandsversion)
 
@@ -24,7 +24,7 @@ Application Insights nu stöder distribuerad spårning av Python-program via int
 
 - Du behöver en Azure-prenumeration.
 - Python ska installeras, den här artikeln använder [Python 3.7.0](https://www.python.org/downloads/), även om tidigare versioner kommer troligen att fungera med mindre justering.
-- Följ anvisningarna för att installera den [lokala vidarebefordrare som en Windows-tjänst](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service)
+- Följ anvisningarna för att installera den [lokala vidarebefordrare som en Windows-tjänst](./../../azure-monitor/app/opencensus-local-forwarder.md)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -57,7 +57,7 @@ Du måste först skapa en Application Insights-resurs som genererar en instrumen
 
    ![Skärmbild av instrumentationsnyckeln](./media/opencensus-python/0003-instrumentation-key.png)
 
-2. Redigera din `LocalForwarder.config` filen och Lägg till din instrumentationsnyckel. Om du har följt anvisningarna i den [installationsprogrammets](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service) filen finns på `C:\LF-WindowsServiceHost`
+2. Redigera din `LocalForwarder.config` filen och Lägg till din instrumentationsnyckel. Om du har följt anvisningarna i den [installationsprogrammets](./../../azure-monitor/app/opencensus-local-forwarder.md) filen finns på `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -158,7 +158,7 @@ Du måste först skapa en Application Insights-resurs som genererar en instrumen
 
 6. Nu när du kör Python-skriptet ovan du bör fortfarande uppmanas att ange värden, men nu endast värdet skrivs ut i gränssnittet.
 
-7. Att bekräfta att den **lokala vidarebefordrare** plocka upp kontrollen spårningar den `LocalForwarder.config` filen. Om du har följt stegen i den [nödvändiga](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), det ska finnas i `C:\LF-WindowsServiceHost`.
+7. Att bekräfta att den **lokala vidarebefordrare** plocka upp kontrollen spårningar den `LocalForwarder.config` filen. Om du har följt stegen i den [nödvändiga](https://docs.microsoft.com/azure/application-insights/local-forwarder), det ska finnas i `C:\LF-WindowsServiceHost`.
 
     I nedanstående bild av loggfilen, kan du se att innan du kör skriptet andra där vi har lagt till en exportör `OpenCensus input BatchesReceived` : 0. När vi började köras det uppdaterade skriptet `BatchesReceived` ökar lika med antalet värden som vi angav:
     
@@ -196,8 +196,8 @@ Vi bara beskrivs grunderna för att koppla upp OpenCensus för Python med lokala
 
 * [Färgprov](https://opencensus.io/api/python/trace/usage.html#samplers)
 * [Flask-integrering](https://opencensus.io/api/python/trace/usage.html#flask)
-* [Django-integrering](https://opencensus.io/api/python/trace/usage.html#django)
-* [MySQL-integrering](https://opencensus.io/api/python/trace/usage.html#service-integration)
+* [Django Integration](https://opencensus.io/api/python/trace/usage.html#django)
+* [MySQL Integration](https://opencensus.io/api/python/trace/usage.html#service-integration)
 * [PostgreSQL](https://opencensus.io/api/python/trace/usage.html#postgresql)
   
 ## <a name="next-steps"></a>Nästa steg

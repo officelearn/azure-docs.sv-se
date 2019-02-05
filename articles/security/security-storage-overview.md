@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973136"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694276"
 ---
 # <a name="azure-storage-security-overview"></a>Säkerhetsöversikt för Azure Storage
 
@@ -47,7 +47,7 @@ Läs mer:
 
 ## <a name="delegated-access-to-storage-objects"></a>Delegerad åtkomst till storage-objekt
 
-En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. SAS innebär att du kan ge en klient begränsad behörighet till objekt i ditt storage-konto för en angiven tidsperiod och med en angiven uppsättning behörigheter. Du kan bevilja dessa begränsade behörigheter utan att behöva dela åtkomstnycklarna för kontot. 
+En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. SAS innebär att du kan ge en klient begränsad behörighet till objekt i ditt storage-konto för en angiven tidsperiod och med en angiven uppsättning behörigheter. Du kan bevilja dessa begränsade behörigheter utan att behöva dela åtkomstnycklarna för kontot.
 
 Signaturen för delad åtkomst är en URI som omfattar all information som behövs för autentiserad åtkomst till en lagringsresurs i dess Frågeparametrar. Om du vill få åtkomst till lagringsresurser med SAS, behöver klienten bara ange SAS till lämplig konstruktor nebo metodu.
 
@@ -73,7 +73,7 @@ Läs mer om client side encryption:
 
 Många organisationer [datakryptering i viloläge](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) är ett obligatoriskt steg mot att sekretess, efterlevnad och datasuveränitet. Tre funktioner i Azure tillhandahåller kryptering av data som är vilande:
 
-* [Kryptering av lagringstjänst](../storage/common/storage-security-guide.md#encryption-at-rest) kan du begära att lagringstjänsten automatiskt kryptera data när du skriver den till Azure Storage.
+* [Kryptering av lagringstjänst](../storage/common/storage-security-guide.md#encryption-at-rest) är alltid aktiverat och krypterar automatiskt data för storage-tjänsten när du skriver den till Azure Storage.
 * [Client side encryption](../storage/common/storage-security-guide.md#client-side-encryption) tillhandahåller även funktionen för kryptering i vila.
 * [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) kan du kryptera OS-diskar och datadiskar som använder en IaaS-dator.
 
@@ -110,13 +110,13 @@ Läs mer:
 
 * [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
 * [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
-* [Azure Data Box-Gateway](..//databox-online/data-box-gateway-overview.md)
+* [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
 
 ## <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Azure Storage tillhandahåller Avancerat skydd för ett extra lager säkerhetsintelligens som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja ditt storage-konto. Advanced Threat Protection övervakar diagnostikloggar för Azure Storage för misstänkt Läs, skriva eller ta bort begäranden till bloblagring. 
+Azure Storage tillhandahåller Avancerat skydd för ett extra lager säkerhetsintelligens som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja ditt storage-konto. Advanced Threat Protection övervakar diagnostikloggar för Azure Storage för misstänkt Läs, skriva eller ta bort begäranden till bloblagring.
 
-Avancerade Threat Protection-aviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center innehåller information för varje misstänkt aktivitet har identifierats och rekommenderar åtgärder för att undersöka och åtgärda eventuella hot. 
+Avancerade Threat Protection-aviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center innehåller information för varje misstänkt aktivitet har identifierats och rekommenderar åtgärder för att undersöka och åtgärda eventuella hot.
 
 Läs mer:
 

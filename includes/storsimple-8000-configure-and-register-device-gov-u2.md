@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165269"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736025"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
@@ -63,7 +63,7 @@ ms.locfileid: "50165269"
 11. Av säkerhetsskäl upphör enhetens administratörslösenord att gälla efter den första sessionen. Du måste ändra lösenordet nu. Ange ett administratörslösenord för enheten när du ombes göra det. Ett giltigt enhetsadministratörslösenord för enheten måste vara mellan 8 och 15 tecken. Lösenordet måste innehålla tre av följande: gemener, versaler, siffror och specialtecken.
     
     <br/>![StorSimple registrera enhet 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. I det sista steget i installationsguiden registreras din enhet med StorSimple Device Manager-tjänsten. För detta behöver du Registreringsnyckeln för tjänsten som du fick i [steg 2: hämta tjänstregistreringsnyckeln](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Efter att du angett registreringsnyckeln kan du behöva vänta 2-3 minuter innan enheten är registrerad.
+12. I det sista steget i installationsguiden registreras din enhet med StorSimple Device Manager-tjänsten. För detta behöver du Registreringsnyckeln för tjänsten som du fick i [steg 2: Hämta tjänstregistreringsnyckeln](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Efter att du angett registreringsnyckeln kan du behöva vänta 2-3 minuter innan enheten är registrerad.
     
     > [!NOTE]
     > Du kan trycka på Ctrl + C när som helst för att avsluta installationsguiden. Om du har angett alla nätverksinställningar (IP-adress för Data 0, nätmask och Gateway), kommer informationen att sparas.
@@ -81,7 +81,7 @@ ms.locfileid: "50165269"
 15. Gå tillbaka till Azure Government-portalen och utför följande steg:
     
     1. Gå till StorSimple Device Manager-tjänsten.
-    2. Klicka på **Enheter**. Identifiera den enhet som du är ddeploying listan med enheter. Kontrollera att enheten har anslutits till tjänsten genom att leta upp dess status. Enhetens status ska vara **Online**.
+    2. Klicka på **Enheter**. Identifiera den enhet som du distribuerar från listan över enheter. Kontrollera att enheten har anslutits till tjänsten genom att leta upp dess status. Enhetens status ska vara **Online**.
             
         Om enhetens status är **Offline**, väntar du några minuter på att enheten ska ansluta.
        

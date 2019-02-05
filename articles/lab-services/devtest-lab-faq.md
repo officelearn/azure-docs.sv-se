@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 23066339ffcb0b8b3c7885ad24c6c3d136629ab2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262037"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700063"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -58,14 +58,14 @@ DevTest Labs är en kostnadsfri tjänst. Skapa labb och konfigurera principer, m
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Vilka är de olika säkerhetsnivåerna i DevTest Labs?
 Säkerhetsåtkomst bestäms av [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/built-in-roles.md). Om du vill veta hur åtkomst fungerar den här artikeln innehåller information skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
 
-* **Behörighet**: behörigheter är en definierad åtkomst till en viss åtgärd. En behörighet kan exempelvis vara läsbehörighet till alla virtuella datorer.
-* **Rollen**: en roll är en uppsättning behörigheter som kan grupperas och tilldelas till en användare. Exempelvis kan har en användare med en prenumeration ägarrollen åtkomst till alla resurser inom en prenumeration.
-* **Omfång**: ett scope är en nivå i hierarkin för en Azure-resurs. Ett omfång kan exempelvis vara en resursgrupp, ett enda labb eller hela prenumerationen.
+* **Behörighet**: En behörighet är en definierad åtkomst till en viss åtgärd. En behörighet kan exempelvis vara läsbehörighet till alla virtuella datorer.
+* **Roll**: En roll är en uppsättning behörigheter som kan grupperas och tilldelas till en användare. Exempelvis kan har en användare med en prenumeration ägarrollen åtkomst till alla resurser inom en prenumeration.
+* **Omfång**: Ett scope är en nivå i hierarkin för en Azure-resurs. Ett omfång kan exempelvis vara en resursgrupp, ett enda labb eller hela prenumerationen.
 
 Det finns två typer av roller som definierar användarbehörigheter inom omfånget för DevTest Labs:
 
-* **Labbägare**: labbägare har åtkomst till alla resurser i laboratoriet. Labbägare kan ändra principer, läsa och skriva till alla virtuella datorer, ändra det virtuella nätverket och så vidare.
-* **Lab-användare**: lab-användare kan visa alla labbresurser, till exempel virtuella datorer, principer och virtuella nätverk. Men en lab-användare kan inte ändra principer eller alla virtuella datorer som har skapats av andra användare. 
+* **Labbägare**: Labbägare har åtkomst till alla resurser i laboratoriet. Labbägare kan ändra principer, läsa och skriva till alla virtuella datorer, ändra det virtuella nätverket och så vidare.
+* **Lab-användare**: En lab-användare kan visa alla labbresurser, till exempel virtuella datorer, principer och virtuella nätverk. Men en lab-användare kan inte ändra principer eller alla virtuella datorer som har skapats av andra användare. 
 
 Du kan också skapa anpassade roller i DevTest Labs. Läs hur du skapar anpassade roller i DevTest Labs i [bevilja användarbehörighet att specifika labbprinciper](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -227,7 +227,7 @@ Ett sätt är att din virtuella nätverksnamnet innehåller punkter. I så fall,
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Varför får jag en ”överordnad resursen hittades inte”-fel när jag etablerar en virtuell dator från PowerShell?
 När en resurs är en överordnad till en annan resurs, måste den överordnade resursen finnas innan du skapar den underordnade resursen. Om den överordnade resursen inte finns, visas en **ParentResourceNotFound** meddelande. Om du inte anger ett beroende på den överordnade resursen, kan den underordnade resursen distribueras innan överordnat.
 
-Virtuella datorer är underordnade resurser under ett labb i en resursgrupp. När du använder Resource Manager-mallar för att distribuera virtuella datorer med hjälp av PowerShell, vara resursgruppens namn anges i PowerShell-skriptet resursgruppens namn labbet. Mer information finns i [felsöka vanliga Azure-distributionsfel](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Virtuella datorer är underordnade resurser under ett labb i en resursgrupp. När du använder Resource Manager-mallar för att distribuera virtuella datorer med hjälp av PowerShell, vara resursgruppens namn anges i PowerShell-skriptet resursgruppens namn labbet. Mer information finns i [felsöka vanliga Azure-distributionsfel](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Var hittar jag mer information om fel om en VM-distributionen misslyckas?
 Distributionsfel för virtuell dator som avbildas i aktivitetsloggarna. Du kan hitta lab VM aktivitetsloggar under **granskningsloggar** eller **VM diagnostics** på resurs-menyn på bladet för den lab VM (bladet visas när du har valt den virtuella datorn från den **min virtuella datorer** listan).

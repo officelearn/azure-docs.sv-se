@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
-ms.openlocfilehash: a2e42b165596d26672ee22813e53d02ca0e3a7e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4c17128f07475b6aeaef9ae15a13bc4863d7e663
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195672"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699898"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med Azure CLI
 
@@ -82,7 +82,7 @@ Om du vill aktivera systemtilldelade hanterad identitet på en virtuell dator, d
    az login
    ```
 
-2. Använd [az identitet för virtuell dator tilldelar](/cli/azure/vm/identity/#az-vm-identity-assign) med den `identity assign` kommandot aktivera systemtilldelad identitet till en befintlig virtuell dator:
+2. Använd [az identitet för virtuell dator tilldelar](/cli/azure/vm/identity/) med den `identity assign` kommandot aktivera systemtilldelad identitet till en befintlig virtuell dator:
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -107,7 +107,7 @@ Om du har en virtuell dator som inte längre behöver systemtilldelade identitet
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Ta bort den hanterade identitet för Azure-resurser VM-tillägg (planerad för utfasning i januari 2019), användaren `-n ManagedIdentityExtensionForWindows` eller `-n ManagedIdentityExtensionForLinux` växla (beroende på vilken typ av virtuell dator) med [az vm-tillägget delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+Ta bort den hanterade identitet för Azure-resurser VM-tillägg (planerad för utfasning i januari 2019), användaren `-n ManagedIdentityExtensionForWindows` eller `-n ManagedIdentityExtensionForLinux` växla (beroende på vilken typ av virtuell dator) med [az vm-tillägget delete](https://docs.microsoft.com/cli/azure/vm/):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -186,7 +186,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
    }
    ```
 
-2. Tilldela Användartilldelad identitet till den virtuella datorn med [az vm identitet tilldela](/cli/azure/vm#az-vm-identity-assign). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY NAME>` är användartilldelade hanterade identitetens resurs `name` egenskapen, som du skapade i föregående steg:
+2. Tilldela Användartilldelad identitet till den virtuella datorn med [az vm identitet tilldela](/cli/azure/vm). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY NAME>` är användartilldelade hanterade identitetens resurs `name` egenskapen, som du skapade i föregående steg:
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

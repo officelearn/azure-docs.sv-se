@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554545"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692938"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Översikt över affärskontinuitet med Azure Database for MySQL
 
@@ -50,6 +50,6 @@ Ett annat alternativ är att använda Azure Database för MySQL: s geo-återstä
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om automatiska säkerhetskopior finns [säkerhetskopior i Azure Database for MySQL](concepts-backup.md).
-- Om du vill återställa till en tidpunkt med hjälp av Azure-portalen, se [återställa databasen till en tidpunkt med hjälp av Azure-portalen](howto-restore-server-portal.md).
-- Om du vill återställa till en tidpunkt med hjälp av Azure CLI, se [återställa databasen till en tidpunkt med hjälp av CLI](howto-restore-server-cli.md).
+- Läs mer om den [automatiska säkerhetskopior i Azure Database för MySQL](concepts-backup.md).
+- Lär dig att återställa med hjälp av [Azure-portalen](howto-restore-server-portal.md) eller [Azure CLI](howto-restore-server-cli.md).
+- Lär dig mer om [Läs repliker i Azure Database för MySQL](concepts-read-replicas.md).

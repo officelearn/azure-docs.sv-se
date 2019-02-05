@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 52e1a7bf3e8f8770e4ba4f931c4d7427a7362f2f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226728"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736241"
 ---
 Diagnostisera problem med en Microsoft Azure-molntjänst kräver att samla in tjänstens loggfiler på virtuella datorer när problemen inträffar. Du kan använda den AzureLogCollector tillägg på begäran för att utföra enstaka loggsamlingar från en eller flera moln virtuella datorer (från både web-roller och worker-roller) och överföra de insamlade filerna till ett Azure storage-konto – allt utan att logga in via en fjärranslutning till någon för de virtuella datorerna.
 
@@ -31,9 +31,9 @@ Det finns två lägen för samlingen beroende på vilka typer av filer ska samla
 
 I båda lägena samling kan ytterligare data insamlingsmappar anges med hjälp av en samling med följande struktur:
 
-* **Namn på**: namnet på samlingen som används som namnet på undermapp i zip-filen med insamlade filer.
-* **Plats**: sökvägen till mappen på den virtuella datorn där filerna ska samlas in finns.
-* **SearchPattern**: mönstret för namnen på filer ska samlas in. Standardvärdet är ”\*”
+* **Namn**: Namnet på samlingen som används som namnet på undermapp i zip-filen med insamlade filer.
+* **Plats**: Sökvägen till mappen på den virtuella datorn där filerna ska samlas in finns.
+* **SearchPattern**: Mönstret för namnen på filer ska samlas in. Standardvärdet är ”\*”
 * **Rekursiva**: om filerna ska samlas in är placerad rekursivt under den angivna platsen.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -174,14 +174,14 @@ param (
 )
 ```
 
-* **ServiceName**: namnet på din tjänst i molnet.
-* **Roller**: en lista över roller, till exempel ”WebRole1” eller ”WorkerRole1”.
-* **Instanser**: en lista över namnen på rollinstanser som är avgränsade med kommatecken, använder du jokerteckensträng (”*”) för alla rollinstanser.
-* **Fack**: namnet på distributionsplatsen. ”Produktion” eller ”mellanlagring”.
-* **Läget**: samlingsläget. ”Full” eller ”allmänt tillgänglig”.
-* **StorageAccountName**: namn för Azure storage-konto för att lagra insamlade data.
-* **StorageAccountKey**: namn för Azure storage-kontonyckel.
-* **AdditionalDataLocationList**: en lista med följande struktur:
+* **ServiceName**: Din molntjänstens namn.
+* **roller**: En lista över roller, till exempel ”WebRole1” eller ”WorkerRole1”.
+* **Instanser**: En lista över namnen på rollinstanser som är avgränsade med kommatecken, använder du jokerteckensträng (”*”) för alla rollinstanser.
+* **Fack**: Namnet på distributionsplatsen. ”Produktion” eller ”mellanlagring”.
+* **Läget**: Samlingsläget. ”Full” eller ”allmänt tillgänglig”.
+* **StorageAccountName**: Namnet på Azure storage-konto för att lagra insamlade data.
+* **StorageAccountKey**: Namnet på Azure storage-kontonyckel.
+* **AdditionalDataLocationList**: En lista med följande struktur:
 
   ```powershell
   {
@@ -256,12 +256,12 @@ param (
 )
 ```
 
-* **ServiceName**: namnet på din tjänst i molnet.
-* **VMName**: namnet på den virtuella datorn.
-* **Läget**: samlingsläget. ”Full” eller ”allmänt tillgänglig”.
-* **StorageAccountName**: namn för Azure storage-konto för att lagra insamlade data.
-* **StorageAccountKey**: namn för Azure storage-kontonyckel.
-* **AdditionalDataLocationList**: en lista med följande struktur:
+* **ServiceName**: Din molntjänstens namn.
+* **VMName**: Namnet på den virtuella datorn.
+* **Läget**: Samlingsläget. ”Full” eller ”allmänt tillgänglig”.
+* **StorageAccountName**: Namnet på Azure storage-konto för att lagra insamlade data.
+* **StorageAccountKey**: Namnet på Azure storage-kontonyckel.
+* **AdditionalDataLocationList**: En lista med följande struktur:
 
   ```
   {
@@ -374,7 +374,7 @@ else
 }
 
 #
-#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if needed.
 #
 $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
 $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
@@ -449,7 +449,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

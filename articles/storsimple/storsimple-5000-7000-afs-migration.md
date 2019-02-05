@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: aad5b2d2e451f33a3f4f365fa0702eef5d698e4e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729171"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730177"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrera data från StorSimple 5000-7000-serien till Azure File Sync
 
@@ -56,8 +56,8 @@ Här hittar du migreringen krav för äldre 5000 eller 7000 serien enheten till 
 - StorSimple-volymer är monterade på värden och innehålla filresurser.
 - Värden har tillräckligt med lokal lagring för dina lokala cachelagrade data.
 - Ägare åtkomst på Azure-prenumerationen som du använder för att distribuera Azure File Sync. Det kan uppstå problem när du skapar en molnslutpunkt för din synkroniseringsgruppen om du inte har ägare eller administratör serverbehörigheter.
-- Åtkomst till en [gpv2-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview) med en Azure-filresurs som du vill synkronisera. Mer information finns i [skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
- - Så här [skapar en Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
+- Åtkomst till en [gpv2-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview) med en Azure-filresurs som du vill synkronisera. Mer information finns i [Skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+ - Så här [skapar en Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Migreringsprocessen
 
@@ -87,7 +87,7 @@ Utför följande steg för att migrera Windows-filresurs som konfigurerats på S
     Hoppa över det här steget och gå till nästa steg om du använder en annan Windows Server-värd. Om du använder samma Windows-filserver för AFS får nu ett par minuter stillestånd. 
     - **Avbrottstiden startar** -ta bort serverslutpunkt som du skapade i *steg 1F*. 
     - Skapa en ny serverslutpunkt med sökvägen där du vill att data ska finnas går framåt.
-    - När Serverslutpunkten visas som Felfri (Detta kan ta några minuter), visas data i den här nya platsen. Du kan nu konfigurera Windows Server-värd för att hantera filer från den här nya platsen.\ -  **Nedtid ends**.
+    - När Serverslutpunkten visas som Felfri (Detta kan ta några minuter), visas data i den här nya platsen. Du kan nu konfigurera Windows Server-värd för att hantera filer från den här nya platsen. -  **Nedtid ends**.
 5.  Om du använder en annan Windows-filserver för Azure File Sync, kommer du inte får någon avbrottstid. 
     - Lägg till en annan serverslutpunkt med sökvägen till den lokala lagringen som du är beredd att använda som en cache i stället för StorSimple-enheten. 
     - Du kommer att kunna se filerna i den nya servern om några minuter. Du kan med övergången från StorSimple-enheten till den nya platsen på värden när som helst.

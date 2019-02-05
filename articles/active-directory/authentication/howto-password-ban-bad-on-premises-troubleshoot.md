@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: a1d06919ae0a76647fafeb9c8499476e533bfebf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7474027368949d5ad2202881ac68096fac2b8bd2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656404"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693912"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Förhandsversion: Felsökning av Azure AD-lösenordsskydd
 
@@ -26,8 +26,6 @@ ms.locfileid: "55656404"
 
 Efter distributionen av Azure AD-lösenordsskydd, kan felsökning krävas. Den här artikeln innehåller information för att förstå vanliga felsökningssteg.
 
-## 
-
 ## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Svaga lösenord komma inte avvisas som förväntat
 
 Detta kan ha flera möjliga orsaker:
@@ -35,12 +33,16 @@ Detta kan ha flera möjliga orsaker:
 1. DC-agenter har ännu inte hämta en princip. Symtom på detta är 30001 händelser i händelseloggen för DC agent-administratör.
 
     Möjliga orsaker till det här problemet är:
+
     1. Skog har ännu inte registrerats
     2. Proxy har ännu inte registrerats
     3. Problem med nätverksanslutningen förhindrar Proxy-tjänsten från att kommunicera med Azure (kontrollera HTTP-Proxy krav)
 
-2. Lösenord för tvinga principläge är fortfarande inställd på granska. Om så är fallet bara konfigurera om den att tvinga med hjälp av Azure AD-lösenordsskydd-portalen.
-3. Verifieringsalgoritm lösenord kanske fungerar som förväntat.  Se [hur utvärderas lösenord](concept-password-ban-bad.md#how-are-passwords-evaluated).
+2. Lösenord för tvinga principläge är fortfarande inställd på granska. Om så är fallet kan du konfigurera den att tvinga med hjälp av Azure AD-lösenordsskydd portal. Se [aktivera lösenordsskydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+3. Lösenordsprincipen har inaktiverats. Om så är fallet kan du konfigurera om den aktiverat med hjälp av Azure AD-lösenordsskydd-portalen. Se [aktivera lösenordsskydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+4. Verifieringsalgoritm lösenord kanske fungerar som förväntat. Se [hur utvärderas lösenord](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Reparationsläge för katalogtjänster
 
@@ -50,7 +52,7 @@ Om domänkontrollanten startas i reparationsläge för katalogtjänster, DC-agen
 
 Om en situation där DC-agenttjänsten orsakar problem visas kan DC agent-tjänsten vara stängs omedelbart. DLL-filen DC agenten lösenord filtret fortfarande försöker anropa tjänsten inte körs och loggar händelser (10012, 10013), men alla inkommande lösenord godkänns under den tiden. DC-Agenttjänsten kan sedan också konfigureras via Windows Service Control Manager med en starttyp ”inaktiverad” efter behov.
 
-Ett annat mått för reparation är att ange aktivera läge på Nej i Azure AD-lösenordsskydd-portalen. När den uppdaterade policyn har hämtats, varje DC agenter tjänst hamnar i ett overksamt läge där alla lösenord godkänns som – är. Mer information finns i [läget tvinga](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+Ett annat mått för reparation är att ange aktivera läge på Nej i Azure AD-lösenordsskydd-portalen. När den uppdaterade policyn har hämtats, DC-agenttjänsten hamnar i ett overksamt läge där alla lösenord godkänns som – är. Mer information finns i [läget tvinga](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
 
 ## <a name="domain-controller-demotion"></a>Degraderingen av domänkontrollanten
 

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468401"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694120"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -87,7 +87,8 @@ När anslutningen är begränsad av en brandvägg eller proxy kravet nätverkss�
 Alla inställningar för nätverkssäkerhetsgrupper som tillämpas måste fortfarande tillåta slutpunkten så att den uppfyller dokumenterade nätverkskonfigurationen [krav](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) för diskkryptering.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault bakom en brandvägg
-När kryptering aktiveras med [autentiseringsuppgifter för Azure AD](azure-security-disk-encryption-prerequisites-aad.md), den Virtuella måldatorn måste beviljas åtkomst till slutpunkter för Azure AD-autentisering samt Key Vault-slutpunkter.  Mer information om den här processen finns i vägledning för att få åtkomst till nyckelvalv bakom en brandvägg som den [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) teamet bibehåller. 
+
+När kryptering aktiveras med [autentiseringsuppgifter för Azure AD](azure-security-disk-encryption-prerequisites-aad.md), den Virtuella måldatorn måste tillåta anslutning till både Azure Active Directory-slutpunkter och Key Vault-slutpunkter. Aktuella autentiseringsslutpunkter för Azure Active Directory underhålls i avsnitt 56 och 59 i den [Office 365-URL: er och IP-adressintervall](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) dokumentation. Key Vault-anvisningar finns i dokumentationen om hur du [åtkomst till Azure Key Vault bakom en brandvägg](../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 Den virtuella datorn måste kunna komma åt den [tjänsten Azure Instance Metadata](../virtual-machines/windows/instance-metadata-service.md) slutpunkt som använder en välkänd icke-dirigerbara IP-adress (`169.254.169.254`) som kan nås från den virtuella datorn.

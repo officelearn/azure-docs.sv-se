@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32cd3b9eb60a6d12c71be047740fa96ffdd56310
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094164"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731945"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell Hårddisk
 
@@ -43,7 +43,7 @@ Du behöver följande innan du skapar en avbildning:
 För en förenklad version av den här artikeln och för att testa, utvärderar eller lära dig om virtuella datorer i Azure finns [skapa en anpassad avbildning av en Azure-dator med hjälp av CLI](tutorial-custom-images.md).
 
 
-## <a name="step-1-deprovision-the-vm"></a>Steg 1: Ta bort etableringen av den virtuella datorn
+## <a name="step-1-deprovision-the-vm"></a>Steg 1: Avetablera den virtuella datorn
 Först ska du avetablera den virtuella datorn med hjälp av Azure VM-agenten att ta bort datorspecifik filer och data. Använd den `waagent` med den `-deprovision+user` parametern på källan Linux VM. Mer information finns i [Användarguide för Azure Linux Agent](../extensions/agent-linux.md).
 
 1. Ansluta till din Linux-VM med en SSH-klient.
@@ -61,7 +61,7 @@ Först ska du avetablera den virtuella datorn med hjälp av Azure VM-agenten att
 ## <a name="step-2-create-vm-image"></a>Steg 2: Skapa VM-avbildning
 Använda Azure CLI för att markera den virtuella datorn som generaliserad och spara avbildningen. I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
 
-1. Frigör den virtuella datorn som du tagit bort etableringen med [az vm deallocate](/cli/azure/vm#deallocate). I följande exempel bort den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup*.
+1. Frigör den virtuella datorn som du tagit bort etableringen med [az vm deallocate](/cli/azure/vm). I följande exempel bort den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup*.
    
     ```azurecli
     az vm deallocate \
@@ -69,7 +69,7 @@ Använda Azure CLI för att markera den virtuella datorn som generaliserad och s
       --name myVM
     ```
 
-2. Markera den virtuella datorn som generaliserad med [az vm generalize](/cli/azure/vm#generalize). I följande exempel markeras den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup* som generaliserad.
+2. Markera den virtuella datorn som generaliserad med [az vm generalize](/cli/azure/vm). I följande exempel markeras den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup* som generaliserad.
    
     ```azurecli
     az vm generalize \
@@ -91,7 +91,7 @@ Använda Azure CLI för att markera den virtuella datorn som generaliserad och s
    > Om du vill lagra avbildningen i zonen flexibel lagring måste du skapa den i en region som har stöd för [tillgänglighetszoner](../../availability-zones/az-overview.md) och inkludera den `--zone-resilient true` parametern.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Steg 3: Skapa en virtuell dator från avbildningen
-Skapa en virtuell dator med hjälp av avbildningen som du skapade med [az vm skapa](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMDeployed* från avbildningen med namnet *myImage*.
+Skapa en virtuell dator med hjälp av avbildningen som du skapade med [az vm skapa](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVMDeployed* från avbildningen med namnet *myImage*.
 
 ```azurecli
 az vm create \
@@ -124,7 +124,7 @@ az vm create \
 ```
 
 
-## <a name="step-4-verify-the-deployment"></a>Steg 4: Kontrollera distributionen
+## <a name="step-4-verify-the-deployment"></a>Steg 4: Verifiera distributionen
 
 SSH till den virtuella datorn som du skapade för att verifiera distributionen och börja använda den nya virtuella datorn. För att ansluta via SSH, hitta IP-adress eller FQDN för den virtuella datorn med [az vm show](/cli/azure/vm#az-vm-show).
 

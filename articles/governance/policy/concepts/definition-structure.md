@@ -4,17 +4,17 @@ description: Beskriver hur resource principdefinitionen används av Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296672"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698300"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -46,7 +46,8 @@ Följande JSON visar exempelvis en princip som begränsar där resurser har dist
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -87,8 +88,7 @@ Parametrar underlätta hanteringen av principer genom att minska antalet princip
 Parametrar fungerar på samma sätt som när du skapar principer. Du kan återanvända principen för olika scenarier med hjälp av olika värden genom att lägga till parametrar i en principdefinition.
 
 > [!NOTE]
-> Parametrarna-definition för en princip eller initiativdefinition kan endast konfigureras under inledande genereringen av principen eller initiativ. Definitionen för parametrar kan inte ändras senare.
-> Detta förhindrar att befintliga tilldelningar för principen eller initiativ indirekt görs ogiltig.
+> Parametrar kan läggas till en befintlig och tilldelade definition. Den nya parametern måste innehålla den **defaultValue** egenskapen. Detta förhindrar att befintliga tilldelningar för principen eller initiativ indirekt görs ogiltig.
 
 Exempelvis kan definiera du en princip för att begränsa de platser där resurser kan distribueras.
 Du kan deklarera följande parametrar när du skapar en princip:
@@ -101,7 +101,8 @@ Du kan deklarera följande parametrar när du skapar en princip:
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```
@@ -221,7 +222,7 @@ Följande fält stöds:
 - `location`
   - Använd **globala** för resurser som är oberoende av platsen. Ett exempel finns i [-exempel – tillåtna platser](../samples/allowed-locations.md).
 - `identity.type`
-  - Returnerar typen för [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) aktiverad på resursen.
+  - Returnerar typen för [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) aktiverad på resursen.
 - `tags`
 - `tags.<tagName>`
   - Där **\<tagName\>** är namnet på taggen för att verifiera villkoret för.

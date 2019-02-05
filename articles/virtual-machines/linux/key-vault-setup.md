@@ -15,28 +15,28 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: 04f47c0a4f6647ff0d45cc5dac40a677cc45563e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c38d901be627d9ad2f18ebe708c7a1fcaa63cc15
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970268"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55726998"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Hur du ställer in Key Vault för virtuella datorer med Azure CLI
 
 I Azure Resource Manager-stacken modelleras hemligheter/certifikat som resurser som tillhandahålls av Key Vault. Läs mer om Azure Key Vault i [vad är Azure Key Vault?](../../key-vault/key-vault-whatis.md) För Key Vault som ska användas med virtuella Azure Resource Manager-datorer i *EnabledForDeployment* egenskapen Key Vault måste anges till true. Den här artikeln visar hur du ställer in Key Vault för användning med Azure-datorer (VM) med hjälp av Azure CLI. 
 
-Om du vill utföra dessa steg du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Om du vill utföra dessa steg du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
 
 ## <a name="create-a-key-vault"></a>Skapa en Key Vault-lösning
-Skapa ett nyckelvalv och tilldela princip för programdistribution med [az keyvault skapa](/cli/azure/keyvault#az_keyvault_create). I följande exempel skapas ett nyckelvalv med namnet `myKeyVault` i den `myResourceGroup` resursgrupp:
+Skapa ett nyckelvalv och tilldela princip för programdistribution med [az keyvault skapa](/cli/azure/keyvault). I följande exempel skapas ett nyckelvalv med namnet `myKeyVault` i den `myResourceGroup` resursgrupp:
 
 ```azurecli
 az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>Uppdatera ett Nyckelvalv för användning med virtuella datorer
-Ange princip för programdistribution på en befintlig nyckel nyckelvalv med [az keyvault update](/cli/azure/keyvault#az_keyvault_update). Följande uppdateringar i key vault med namnet `myKeyVault` i den `myResourceGroup` resursgrupp:
+Ange princip för programdistribution på en befintlig nyckel nyckelvalv med [az keyvault update](/cli/azure/keyvault). Följande uppdateringar i key vault med namnet `myKeyVault` i den `myResourceGroup` resursgrupp:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true

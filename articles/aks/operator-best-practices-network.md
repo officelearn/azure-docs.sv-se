@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ad6ab27a51cf082be71262b887a459f6c7cc906
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101980"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699133"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för nätverksanslutning och säkerhet i Azure Kubernetes Service (AKS)
 
@@ -21,44 +21,44 @@ När du skapar och hantera kluster i Azure Kubernetes Service (AKS) kan du ange 
 Den här bästa praxis-artikeln fokuserar på nätverksanslutning och säkerhet för klusteroperatörer. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Jämför de grundläggande och avancerade nätverk lägena i AKS
+> * Jämför kubenet och Azure CNI nätverk lägen i AKS
 > * Planera för obligatoriska IP-adresser och anslutning
 > * Distribuera trafik med belastningsutjämnare, ingående domänkontrollanter eller en brandväggar för webbprogram (WAF)
 > * Anslut säkert till klusternoderna
 
 ## <a name="choose-the-appropriate-network-model"></a>Välj lämpliga nätverks-modell
 
-**Bästa praxis riktlinjer** – för integrering med befintliga virtuella nätverk eller lokala nätverk, Använd avancerade nätverksfunktionerna i AKS. Den här modellen för nätverk kan också större uppdelning av resurser och kontroller i en företagsmiljö.
+**Bästa praxis riktlinjer** – för integrering med befintliga virtuella nätverk eller lokala nätverk använder CNI för Azure-nätverk i AKS. Den här modellen för nätverk kan också större uppdelning av resurser och kontroller i en företagsmiljö.
 
 Virtuella nätverk tillhandahåller grundläggande anslutning för AKS-noder och kunder att få åtkomst till dina program. Det finns två olika sätt att distribuera AKS-kluster i virtuella nätverk:
 
-* **Grundläggande nätverk** -resurser för virtuella nätverk hanteras av Azure när klustret har distribuerats och använder den [kubenet] [ kubenet] Kubernetes-plugin-programmet.
-* **Avancerat nätverk** – distribuerar till ett befintligt virtuellt nätverk och använder den [Azure behållare nätverk gränssnitt (CNI)] [ cni-networking] Kubernetes-plugin-programmet. Poddar får enskilda IP-adresser som kan dirigera till andra nätverkstjänster eller lokala resurser.
+* **Kubenet nätverk** -resurser för virtuella nätverk hanteras av Azure när klustret har distribuerats och använder den [kubenet] [ kubenet] Kubernetes-plugin-programmet.
+* **Azure CNI nätverk** – distribuerar till ett befintligt virtuellt nätverk och använder den [Azure behållare nätverk gränssnitt (CNI)] [ cni-networking] Kubernetes-plugin-programmet. Poddar får enskilda IP-adresser som kan dirigera till andra nätverkstjänster eller lokala resurser.
 
 Behållare nätverk gränssnitt (CNI) är en oberoende protokoll som gör att container runtimes göra begäranden till en nätverksleverantör av. Azure-CNI tilldelar IP-adresser till poddar och noder och tillhandahåller IP-adress adresshantering (IPAM) funktioner när du ansluter till befintliga Azure-nätverk. Varje nod och pod resurs tar emot en IP-adress i Azure-nätverk och ingen ytterligare routning krävs för att kommunicera med andra resurser och tjänster.
 
 ![Diagram över två noder med bryggor ansluta dem till ett enda Azure virtuellt nätverk](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-För de flesta distributioner av produktion, ska du använda avancerade nätverk. Den här modellen för nätverk möjliggör uppdelning av kontroll och hanteringen av resurser. Från ett säkerhetsperspektiv vill du ofta olika team att hantera och skydda dessa resurser. Avancerade nätverk kan du ansluta till befintliga Azure-resurser, lokala resurser eller andra tjänster direkt via IP-adresser som tilldelats varje pod.
+För de flesta distributioner av produktion bör du använda Azure CNI nätverk. Den här modellen för nätverk möjliggör uppdelning av kontroll och hanteringen av resurser. Från ett säkerhetsperspektiv vill du ofta olika team att hantera och skydda dessa resurser. Azure CNI nätverk kan du ansluta till befintliga Azure-resurser, lokala resurser eller andra tjänster direkt via IP-adresser som tilldelats varje pod.
 
-När du använder avancerade nätverk är den virtuella nätverksresursen i en separat resursgrupp till AKS-klustret. Delegera behörigheter för AKS-tjänstens huvudnamn komma åt och hantera dessa resurser. Tjänstens huvudnamn som används av AKS-klustret måste ha minst [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor) behörigheter på undernätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) istället för att använda den inbyggda rollen som Nätverksdeltagare, krävs följande behörigheter:
+När du använder Azure CNI nätverk är den virtuella nätverksresursen i en separat resursgrupp till AKS-klustret. Delegera behörigheter för AKS-tjänstens huvudnamn komma åt och hantera dessa resurser. Tjänstens huvudnamn som används av AKS-klustret måste ha minst [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor) behörigheter på undernätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) istället för att använda den inbyggda rollen som Nätverksdeltagare, krävs följande behörigheter:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 Läs mer om AKS-tjänsten huvudnamn delegering [delegera åtkomst till andra Azure-resurser][sp-delegation].
 
-Som varje nod och pod få sin egen IP-adress kan du planera adressintervallen för AKS-undernät. Undernätet måste vara tillräckligt stor för att ange IP-adresser för varje nod, poddar och nätverksresurser som du distribuerar. Varje AKS-kluster måste placeras i ett eget undernät. Om du vill tillåta anslutning till lokala eller peer-kopplade nätverk i Azure, Använd inte IP-adressintervall som överlappar med befintliga nätverksresurser. Det finns standardbegränsningar att antalet poddar som varje nod som körs med både grundläggande och avancerade nätverk. Om du vill hantera att skala upp händelser eller klusteruppgradering, måste du också ytterligare IP-adresser som är tillgängliga för användning i det tilldelade undernätet.
+Som varje nod och pod få sin egen IP-adress kan du planera adressintervallen för AKS-undernät. Undernätet måste vara tillräckligt stor för att ange IP-adresser för varje nod, poddar och nätverksresurser som du distribuerar. Varje AKS-kluster måste placeras i ett eget undernät. Om du vill tillåta anslutning till lokala eller peer-kopplade nätverk i Azure, Använd inte IP-adressintervall som överlappar med befintliga nätverksresurser. Det finns standardbegränsningar att antalet poddar som varje nod som körs med både kubenet och CNI för Azure-nätverk. Om du vill hantera att skala upp händelser eller klusteruppgradering, måste du också ytterligare IP-adresser som är tillgängliga för användning i det tilldelade undernätet.
 
-Att beräkna IP-adress krävs, se [konfigurera avancerade nätverksfunktionerna i AKS][advanced-networking].
+Att beräkna IP-adress krävs, se [CNI konfigurera Azure-nätverk i AKS][advanced-networking].
 
-### <a name="basic-networking-with-kubenet"></a>Grundläggande nätverk med Kubenet
+### <a name="kubenet-networking"></a>Kubenet nätverk
 
-Grundläggande nätverk du behöver inte konfigurera de virtuella nätverken innan klustret har distribuerats, finns men det nackdelar:
+Kubenet behöver du inte konfigurera de virtuella nätverken innan klustret har distribuerats, finns men det nackdelar:
 
-* Noder och poddar placeras på olika IP-undernät. Användardefinierad routning (UDR) och IP-vidarebefordring används för att vidarebefordra trafik mellan poddar och noder. Den här ytterligare routning minskar nätverkets prestanda.
-* Anslutningar till befintliga lokala nätverk eller peer-kopplingen till andra Azure-nätverk är komplex.
+* Noder och poddar placeras på olika IP-undernät. Användardefinierad routning (UDR) och IP-vidarebefordring används för att vidarebefordra trafik mellan poddar och noder. Den här ytterligare routning kan minska nätverkets prestanda.
+* Anslutningar till befintliga lokala nätverk eller peer-kopplingen till andra Azure-nätverk kan vara komplexa.
 
-Grundläggande nätverk är lämplig för små arbetsbelastningar för utveckling eller testning, eftersom du inte behöver skapa virtuellt nätverk och undernät separat från AKS-klustret. Enkel webbplatser med låg trafik, eller för att lyfta och flytta arbetsbelastningar i behållare, kan också dra nytta av enkelheten med AKS-kluster som distribueras med grundläggande nätverk. För de flesta Produktionsdistribution måste du planera för och använder avancerade nätverk.
+Kubenet är lämplig för små arbetsbelastningar för utveckling eller testning, eftersom du inte behöver skapa virtuellt nätverk och undernät separat från AKS-klustret. Enkel webbplatser med låg trafik, eller för att lyfta och flytta arbetsbelastningar i behållare, kan också dra nytta av enkelheten med AKS-kluster som distribueras med kubenet nätverk. För de flesta distributioner av produktion bör du planera för och använder Azure CNI nätverk. Du kan också [konfigurera dina egna IP-adressintervall och virtuella nätverk med kubenet][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Distribuera inkommande trafik
 
@@ -138,7 +138,7 @@ Den här artikeln fokuserar på nätverksanslutning och säkerhet. Läs mer om g
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [app-gateway-ingress]: https://github.com/Azure/application-gateway-kubernetes-ingress
-[Nginx]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
+[nginx]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
 [contour]: https://github.com/heptio/contour
 [haproxy]: https://www.haproxy.org
 [traefik]: https://github.com/containous/traefik
@@ -155,4 +155,5 @@ Den här artikeln fokuserar på nätverksanslutning och säkerhet. Läs mer om g
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
-[advanced-networking]: configure-advanced-networking.md
+[advanced-networking]: configure-azure-cni.md
+[aks-configure-kubenet-networking]: configure-kubenet.md

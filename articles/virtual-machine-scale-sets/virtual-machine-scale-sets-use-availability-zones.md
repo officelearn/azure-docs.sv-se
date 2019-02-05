@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b80ee059459d4c1f4d90d14ee62dcead57596571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886245"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697161"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalningsuppsättning för virtuella datorer som använder Tillgänglighetszoner
 
@@ -81,7 +81,7 @@ Skalningsuppsättningen och kompletterande resurser, till exempel Azure load bal
 
 Processen för att skapa en skalningsuppsättning som använder en Tillgänglighetszon är samma som beskrivs i den [komma igång artikel](quick-create-cli.md). Om du vill använda Tillgänglighetszoner, måste du skapa din skalningsuppsättning i en Azure-region.
 
-Lägg till den `--zones` parameter ska den [az vmss skapa](/cli/azure/vmss#az_vmss_create) kommandot och ange vilken zon som ska användas (till exempel zon *1*, *2*, eller *3*). I följande exempel skapas en zon skalningsuppsättning med namnet *myScaleSet* i zonen *1*:
+Lägg till den `--zones` parameter ska den [az vmss skapa](/cli/azure/vmss) kommandot och ange vilken zon som ska användas (till exempel zon *1*, *2*, eller *3*). I följande exempel skapas en zon skalningsuppsättning med namnet *myScaleSet* i zonen *1*:
 
 ```azurecli
 az vmss create \

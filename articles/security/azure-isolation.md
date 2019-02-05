@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4d9a6b8bf2b6a9a50ee315d5150c15a18f37462d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974717"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696065"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -167,7 +167,7 @@ I Azure, rotens virtuella dator är speciell: den kör en förstärkt operativsy
 
 Insamling av Azure-hypervisorn rot OS/FA eller kundens virtuella datorer/GAs består av en beräkningsnod. FAs hanteras av en infrastrukturkontrollanten (FC), som finns utanför beräknings- och noder (beräknings- och kluster hanteras av separata FCs). Om en kund uppdaterar sina programkonfigurationsfilen medan den körs, i FC som kommunicerar med FA, som sedan kontaktar GAs, som meddelar tillämpningen av konfigurationsändringen. I händelse av ett maskinvarufel i FC automatiskt hitta tillgänglig maskinvara och starta om den virtuella datorn det.
 
-![Azure-Infrastrukturkontrollanten](./media/azure-isolation/azure-isolation-fig6.jpg)
+![Azure Fabric Controller](./media/azure-isolation/azure-isolation-fig6.jpg)
 
 Kommunikation från en Infrastrukturkontrollanten till en agent är enkelriktade. Agenten implementerar en SSL-skyddad-tjänst som bara svarar på förfrågningar från styrenheten. Det kan inte initiera anslutningar till kontrollanten eller andra Privilegierade interna noder. FC behandlar alla svar som om de vore inte är betrodd.
 
@@ -344,7 +344,7 @@ Azure-distribution har flera lager av isolering av nätverk. Följande diagram v
 
 **Trafikisolering:** En [virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) är gränsen för isolering av trafik på Azure-plattformen. Virtuella datorer (VM) i ett virtuellt nätverk kan inte kommunicera direkt till virtuella datorer i ett annat virtuellt nätverk, även om båda virtuella nätverken har skapats av samma kund. Isolering är en viktig egenskap som ser till kundens virtuella datorer och kommunikation förblir privata inom ett virtuellt nätverk.
 
-[Undernät](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) erbjuder ett extra lager av isolering med i virtuella nätverk som baseras på IP-intervall. IP-adresser i det virtuella nätverket, du kan dela upp ett virtuellt nätverk i flera undernät av organisations- och säkerhetsskäl. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverkssäkerhetsgrupp (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) att tillåta eller neka nätverkstrafik till en VM-instans som är baserat på regler som konfigurerats i åtkomstkontrollistan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
+[Undernät](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) erbjuder ett extra lager av isolering med i virtuella nätverk som baseras på IP-intervall. IP-adresser i det virtuella nätverket, du kan dela upp ett virtuellt nätverk i flera undernät av organisations- och säkerhetsskäl. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverkssäkerhetsgrupp (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) att tillåta eller neka nätverkstrafik till en VM-instans som är baserat på regler som konfigurerats i åtkomstkontrollistan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
 
 ## <a name="next-steps"></a>Nästa steg
 

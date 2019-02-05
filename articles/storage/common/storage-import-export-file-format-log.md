@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454852"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697840"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export-tjänsten loggfilsformat
 När Microsoft Azure Import/Export-tjänsten utför en åtgärd på en enhet som en del av ett importjobb eller ett exportjobb, skrivs loggarna till blockblobbar i lagringskontot som associerats med jobbet.  
@@ -22,7 +22,7 @@ Det finns två loggar som kan skrivas av Import/Export-tjänsten:
   
 -   Felloggen skapas alltid i händelse av ett fel.  
   
--   Utförlig loggning är inte aktiverat som standard, men kan aktiveras genom att ange den `EnableVerboseLog` egenskapen på en [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) eller [uppdatering jobbegenskaper](/rest/api/storageimportexport/jobs#Jobs_Update) igen.  
+-   Utförlig loggning är inte aktiverat som standard, men kan aktiveras genom att ange den `EnableVerboseLog` egenskapen på en [placera jobbet](/rest/api/storageimportexport/jobs) eller [uppdatering jobbegenskaper](/rest/api/storageimportexport/jobs) igen.  
   
 ## <a name="log-file-location"></a>Plats för loggfil  
 Loggarna skrivs till blockblobbar i behållare eller virtuella katalogen som anges av den `ImportExportStatesPath` som du kan ange en `Put Job` igen. Den plats där loggarna skrivs beror på hur autentisering har angetts för jobbet, tillsammans med det angivna värdet för `ImportExportStatesPath`. Autentisering för jobbet kan anges via en lagringskontonyckel eller en behållare SAS (signatur för delad åtkomst).  
@@ -38,7 +38,7 @@ Tabellen nedan visar möjliga alternativ:
 |Behållaren SAS|Standardvärde|En virtuell katalog med namnet `waimportexport`, vilket är standardnamnet, under den behållare som angavs i SAS.<br /><br /> Till exempel om SAS som angetts för jobbet är `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, och sedan loggens plats blir `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |Behållaren SAS|Användardefinierade värde|En virtuell katalog med namnet av användaren under den behållare som angavs i SAS.<br /><br /> Till exempel om SAS som angetts för jobbet är `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, och den angivna virtuella katalogen heter `mylogblobs`, loggens plats skulle vara `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Du kan hämta URL: en för fel och utförliga loggar genom att anropa den [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) igen. Loggarna är tillgängliga när bearbetningen av enheten har slutförts.  
+Du kan hämta URL: en för fel och utförliga loggar genom att anropa den [Get Job](/rest/api/storageimportexport/jobs) igen. Loggarna är tillgängliga när bearbetningen av enheten har slutförts.  
   
 ## <a name="log-file-format"></a>Loggfilsformat  
 Formatet för båda loggar är detsamma: en blob som innehåller XML-beskrivningar av de händelser som inträffade vid kopiering av BLOB-objekt mellan hårddisken och på kundens konto.  

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 37150f67e29dae0357c978cfaea9abeebeef428c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902669"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691413"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Hur du skapar och hanterar läsa repliker i Azure portal
 
@@ -141,7 +141,7 @@ Alternativt kan du radera den från fönstret replikering.
 
 ## <a name="monitor-a-replica"></a>Övervaka en replik
 ### <a name="max-lag-across-replicas"></a>Max Lag Across Replicas
-Den **Maximal fördröjning mellan repliker** måttet visar fördröjning mellan huvudservern och mest släpar repliken. 
+Den **Maximal fördröjning mellan repliker** måttet visar förskjutningen i byte mellan huvudservern och mest släpar repliken. 
 
 1.  I Azure-portalen väljer du den **master** Azure Database for PostgreSQL-server.
 

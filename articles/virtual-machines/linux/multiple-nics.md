@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 02b70909e701dbeffaec0aa6bdc39e449bdfad08
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660365"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732846"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en Linux-dator i Azure med flera nätverkskort
 
@@ -27,7 +27,7 @@ ms.locfileid: "55660365"
 Den här artikeln beskriver hur du skapar en virtuell dator med flera nätverkskort med Azure CLI.
 
 ## <a name="create-supporting-resources"></a>Skapa resurser
-Installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index).
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår *myResourceGroup*, *mystorageaccount*, och *myVM*.
 
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 10.0.1.0/24
 ```
 
-Skapa ett undernät för backend-trafik med [az network vnet-undernät skapa](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). I följande exempel skapas ett undernät med namnet *mySubnetBackEnd*:
+Skapa ett undernät för backend-trafik med [az network vnet-undernät skapa](/cli/azure/network/vnet/subnet). I följande exempel skapas ett undernät med namnet *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -116,14 +116,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Om du vill lägga till ett nätverkskort i en befintlig virtuell dator, först frigöra den virtuella datorn med [az vm deallocate](/cli/azure/vm#az_vm_deallocate). I följande exempel bort den virtuella datorn med namnet *myVM*:
+Om du vill lägga till ett nätverkskort i en befintlig virtuell dator, först frigöra den virtuella datorn med [az vm deallocate](/cli/azure/vm). I följande exempel bort den virtuella datorn med namnet *myVM*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Lägga till nätverkskort med [az vm nic lägga till](/cli/azure/vm/nic#az_vm_nic_add). I följande exempel läggs *myNic3* till *myVM*:
+Lägga till nätverkskort med [az vm nic lägga till](/cli/azure/vm/nic). I följande exempel läggs *myNic3* till *myVM*:
 
 ```azurecli
 az vm nic add \
@@ -141,13 +141,13 @@ az vm start --resource-group myResourceGroup --name myVM
 Lägg till routningstabeller i gästoperativsystemet genom att följa stegen i [konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Ta bort ett nätverkskort från en virtuell dator
-Om du vill ta bort ett nätverkskort från en befintlig virtuell dator, först frigöra den virtuella datorn med [az vm deallocate](/cli/azure/vm#az_vm_deallocate). I följande exempel bort den virtuella datorn med namnet *myVM*:
+Om du vill ta bort ett nätverkskort från en befintlig virtuell dator, först frigöra den virtuella datorn med [az vm deallocate](/cli/azure/vm). I följande exempel bort den virtuella datorn med namnet *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Ta bort nätverkskort med [az vm nic ta bort](/cli/azure/vm/nic#az_vm_nic_remove). I följande exempel tar bort *myNic3* från *myVM*:
+Ta bort nätverkskort med [az vm nic ta bort](/cli/azure/vm/nic). I följande exempel tar bort *myNic3* från *myVM*:
 
 ```azurecli
 az vm nic remove \

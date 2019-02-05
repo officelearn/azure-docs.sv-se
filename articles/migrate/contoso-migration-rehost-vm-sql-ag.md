@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 84a2ef60c9f6aa4270c3fc4f83327070b298b8b2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267393"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697195"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso-migrering: Ange ny värd för en lokal app på Azure virtuella datorer och SQL Server AlwaysOn-tillgänglighetsgrupp
 
@@ -698,7 +698,7 @@ Contoso security-teamet granskar Azure virtuella datorer WEBVM, SQLAOG1 och SQLA
 - Teamet överväger att skydda data på disken med hjälp av Azure Disk Encryption och KeyVault.
 - Teamet ska utvärdera transparent datakryptering (TDE) och sedan aktivera det i SmartHotel360-databas som körs på den nya SQL AOG. [Läs mer](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 
-[Läs mer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) om säkerhetsrutiner för virtuella datorer.
+[Läs mer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) om säkerhetsrutiner för virtuella datorer.
 
 
 ## <a name="bcdr"></a>BCDR

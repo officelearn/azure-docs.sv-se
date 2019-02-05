@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 2ebba9a66e55cf82f42773276e36a952264eeee2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656319"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700204"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurera och öppna serverloggar med hjälp av Azure CLI
 Du kan hämta felloggar för PostgreSQL-server med hjälp av kommandoradsgränssnittet (Azure CLI). Dock stöds åtkomst till transaktionsloggar inte. 
@@ -31,7 +31,7 @@ Du kan konfigurera servern för att komma åt frågeloggar och felloggar. Fellog
 Mer information finns i [anpassa konfigurationsparametrar för server](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Lista loggar för Azure Database for PostgreSQL-server
-Om du vill visa tillgängliga loggfilerna för din server kör den [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) kommando.
+Om du vill visa tillgängliga loggfilerna för din server kör den [az postgres server-logs list](/cli/azure/postgres/server-logs) kommando.
 
 Du kan visa loggfilerna för server **mydemoserver.postgres.database.azure.com** under resursgrupp **myresourcegroup**. Dirigera listan över loggfiler till en textfil med namnet **log\_filer\_list.txt**.
 ```azurecli-interactive

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 310963d5593dde0540c95920214a14a4195c346a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242339"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734665"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Konfigurera automatisk machine learning-experiment
 
@@ -174,7 +174,7 @@ Därefter fastställer där modellen ska tränas. En automatiserad machine learn
 
 Se den [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) till exempel bärbara datorer med lokal och fjärransluten beräkningsmål.
 
-<a name='configure-experiment'/>
+<a name='configure-experiment'></a>
 
 ## <a name="configure-your-experiment-settings"></a>Konfigurera inställningarna för experiment
 
@@ -207,36 +207,48 @@ Några exempel är:
         n_cross_validations=5)
     ```
 
-Den här tabellen anger parameterinställningar som är tillgängliga för experimentet och deras standardvärden.
+Det finns tre olika `task` parametervärden som avgörs av algoritmer för att tillämpa.  Använd den `whitelist` eller `blacklist` parametrar för att ändra ytterligare iterationer med de tillgängliga algoritmerna för att inkludera eller exkludera.
+* Klassificering
+    * LogisticRegression
+    * DESCENT
+    * MultinomialNaiveBayes
+    * BernoulliNaiveBayes
+    * SVM
+    * LinearSVM
+    * KNN
+    * DecisionTree
+    * RandomForest
+    * ExtremeRandomTrees
+    * LightGBM
+    * GradientBoosting
+    * TensorFlowDNN
+    * TensorFlowLinearClassifier
+* Regression
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * DESCENT 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
+* Prognosticering
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * DESCENT 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
 
-Egenskap  |  Beskrivning | Standardvärde
---|--|--
-`task`  |Ange vilken typ av problem med machine learning. Tillåtna värden är <li>Klassificering</li><li>Regression</li><li>Prognosticering</li>    | Ingen |
-`primary_metric` |Mått som du vill optimera i att skapa din modell. Exempel: Om du anger Precision som primary_metric automatiserad maskininlärning ser ut för att hitta en modell med största noggrannhet. Du kan bara ange en primary_metric per experiment. Tillåtna värden är <br/>**Klassificering**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score  </li> | För klassificering: Precision <br/>För Regression: spearman_correlation <br/> |
-`experiment_exit_score` |   Du kan ange ett målvärde för din primary_metric. När en modell finns som uppfyller primary_metric mål, automatiserad maskininlärning slutar att styra och försöket avslutas. Om det här värdet inte anges (standard), automatisk machine learning-experiment kommer att fortsätta att köra antal upprepningar som anges i iterationer. Tar ett double-värde. Om målet når aldrig, fortsätter automatisk maskininlärning tills den når antal upprepningar som anges i iterationer.| Ingen
-`iterations` |Maximalt antal upprepningar. Varje iteration är lika med ett utbildningsjobb som resulterar i en pipeline. Pipeline är Förbearbeta data och modell. Hämta en högkvalitativ modell med 250 eller fler    | 100
-`max_concurrent_iterations`|    Maxantal upprepningar som körs parallellt. Den här inställningen fungerar endast för fjärranslutna beräkning.|   1
-`max_cores_per_iteration`   | Anger hur många kärnor på beräkningsmål skulle användas för att träna en enkel rörledning. Om algoritmen kan utnyttja flera kärnor, ökar prestanda på en dator med flera kärnor. Du kan ange den till -1 för att använda alla tillgängliga kärnor på datorn.|  1
-`iteration_timeout_minutes` |   Begränsar mängden tid (minuter) som en viss iteration tar. Om en iteration överskrider angiven mängd, den iterationen hämtar har avbrutits. Om den inte anges kommer iterationen fortsätter att köras tills den är klar. |   Ingen
-`n_cross_validations`   |Antalet delningar i korsverifieringar| Ingen
-`validation_size`   |Storleken på verifiering som procent av alla utbildning exemplet.|  Ingen
-`preprocess` | SANT/FALSKT <br/>True aktiverar experimentera om du vill utföra Förbearbeta på indata. Följande är en delmängd av Förbearbeta<li>Data som saknas: Imputes saknas data-numeriska med Average, Text med de flesta förekomsten </li><li>Kategoriska värden: Om-datatypen är numeriska datatyper och antalet unika värden är mindre än 5 procent, konverterar till en hot-kodning </li><li>Etc. fullständig lista finns [GitHub-lagringsplatsen](https://aka.ms/aml-notebooks)</li><br/>Obs: om data som är gles du inte använda Förbearbeta = true |  False |
-`enable_cache`  | SANT/FALSKT <br/>Inställningen detta till True aktiverar Förbearbeta en gång och återanvända samma förbearbetade data för alla iterationer. | True |
-`blacklist_models`  | Automatiserad machine learning-experiment har många olika algoritmer som försök. Konfigurera för att undanta vissa algoritmer från experimentet. Användbart om du är medveten om att algoritm(er) inte fungerar bra för din datauppsättning. Exkludera algoritmer kan spara beräkningsresurser och utbildning.<br/>Tillåtna värden för klassificering<br/><li>LogisticRegression</li><li>DESCENT</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Tillåtna värden för Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tillåtna värden för prognostisering<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Ingen
-`whitelist_models`  | Automatiserad machine learning-experiment har många olika algoritmer som försök. Konfigurera om du vill inkludera vissa algoritmer för experimentet. Användbart om du är medveten om att algoritm(er) fungerar bra för din datauppsättning. <br/>Tillåtna värden för klassificering<br/><li>LogisticRegression</li><li>DESCENT</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Tillåtna värden för Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tillåtna värden för prognostisering<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Ingen
-`verbosity` |Styr loggningsnivå med information som är den mest utförliga och kritiska som minsta möjliga. Utförlighetsnivå tar samma värden som definierats i python-paketet för loggning. Tillåtna värden är:<br/><li>logging.INFO</li><li>loggning. VARNING</li><li>loggning. FEL</li><li>loggning. KRITISKA</li>  | logging.INFO</li>
-`X` | Alla funktioner för att träna med |  Ingen
-`y` |   Märk data att träna med. Klassificering, bör vara en matris av heltal.|  Ingen
-`X_valid`|_Valfritt_ alla funktioner ska verifiera med. Om inte anges X delas mellan träna och validera |   Ingen
-`y_valid`   |_Valfritt_ etikett data ska verifiera med. Om inte anges y delas mellan träna och validera    | Ingen
-`sample_weight` |   _Valfritt_ ett viktningsvärde för varje exempel. Använd när du vill tilldela olika vikter för din datapunkter |   Ingen
-`sample_weight_valid`   |   _Valfritt_ ett viktningsvärde för varje Verifieringsexempel. Om inte anges sample_weight delas mellan träna och validera   | Ingen
-`run_configuration` |   RunConfiguration-objekt.  Används för fjärråtkomst körs. |Ingen
-`data_script`  |    Sökväg till en fil som innehåller get_data-metoden.  Krävs för remote körs.   |Ingen
-`model_explainability` | _Valfritt_ SANT/FALSKT <br/>  True aktiverar experimentera för att utföra funktionen vikten för varje iteration. Du kan också använda explain_model() metod på en viss iteration för att aktivera funktionen vikten på begäran som upprepas när experimentet har slutförts. | False
-`enable_ensembling`|Flagga för att aktivera en ensembling iteration när alla andra iterationer har slutfört.| True
-`ensemble_iterations`|Antal upprepningar som vi välja en monterad pipeline vara en del av den slutliga ensemble.| 15
-`experiment_timeout_minutes`| Begränsar mängden tid (minuter) som kan vidta för hela körningen av experimentet | Ingen
+Se den [AutoMLConfig klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) för en fullständig lista över parametrar.  
 
 ## <a name="data-pre-processing-and-featurization"></a>Förbearbetning av data och funktionalisering
 

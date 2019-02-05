@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: d9800ff3fc82636c5cae12167738667ec84326ee
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec7b71c7da19ecefc14696c029e63a074b498ec8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52857042"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696761"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan-preview"></a>Skapa en funktionsapp i Linux i en Azure App Service-plan (förhandsversion)
 
@@ -50,7 +50,7 @@ Om du väljer att installera och använda CLI lokalt måste du använda Azure CL
 
 Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen är en miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#az-functionapp-create) med en Linux App Service-plan.
 
-I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Du bör också ange den `<language>` runtime för din funktionsapp från `dotnet` (C#), `node` (JavaScript), eller `python`.
+I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Du bör även ange `<language>`-körningen för din funktionsapp från `dotnet` (C#), `node` (JavaScript) eller `python`.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
@@ -84,7 +84,7 @@ Eftersom `myAppServicePlan` är en Linux-plan används den inbyggda Docker-avbil
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln visar hur du skapar en funktionsapp i Linux som ligger i Azure. Du kan nu [distribuera ett funktionsprojekt](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) till funktionsappen. Du kan använda Azure Functions Core Tools till [skapa ett funktionsprojekt](functions-run-local.md#create-a-local-functions-project) på din lokala dator och distribuera den till din nya funktionsapp i Linux.  
+Den här artikeln visar hur du skapar en funktionsapp i Linux som ligger i Azure. Du kan nu [distribuera ett funktionsprojekt](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) till funktionsappen. Du kan använda Azure Functions Core Tools till [skapa ett funktionsprojekt](functions-run-local.md) på din lokala dator och distribuera den till din nya funktionsapp i Linux.  
 
 > [!div class="nextstepaction"] 
 > [Koda och testa Azure Functions lokalt](functions-run-local.md)

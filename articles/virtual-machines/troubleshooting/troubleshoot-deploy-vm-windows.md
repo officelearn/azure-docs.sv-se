@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6362b243bff91233c3cd08f26904866dd7be9ebd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9610256ac68b6c1be12ca22220e317752c068b85
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248885"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730841"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Felsöka distribution Windows VM-problem i Azure
 
@@ -87,7 +87,7 @@ Om du vill aktivera din månatliga kredit finns i den här [artikeln](https://az
 
 ## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>Hur du lägger till Enterprise – utveckling/testning till mitt Enterprise Agreement (EA) att få åtkomst till Windows-klientavbildningar?
 
-Möjligheten att skapa abonnemang baserat på Enterprise – utveckling/testning-erbjudandet är begränsad till kontoinnehavare som har fått tillstånd att göra detta av en företagsadministratör. Kontoinnehavaren skapar prenumerationer via Azure-Kontoportalen och lägger sedan till aktiva Visual Studio-prenumeranter som medadministratörer. Så att de kan hantera och använda de resurser som krävs för utveckling och testning. Mer information finns i [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Möjligheten att skapa abonnemang baserat på Enterprise Dev/Test-erbjudandet är begränsad till kontoinnehavare som har fått tillstånd att göra detta av en företagsadministratör. Kontoinnehavaren skapar prenumerationer via Azure-Kontoportalen och lägger sedan till aktiva Visual Studio-prenumeranter som medadministratörer. Så att de kan hantera och använda de resurser som krävs för utveckling och testning. Mer information finns i [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>Drivrutinerna saknas för den virtuella datorn Windows N-serien
 
@@ -124,7 +124,7 @@ Välj en storlek som stöds på klustret i tillgänglighetsuppsättningen. Du re
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Kan jag lägga till en befintlig klassisk virtuell dator till en tillgänglighetsuppsättning?
 
-Ja. Du kan lägga till en befintlig klassisk virtuell dator till en ny eller befintlig Tillgänglighetsuppsättning. Mer information finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](../windows/classic/configure-availability-classic.md#addmachine).
+Ja. Du kan lägga till en befintlig klassisk virtuell dator till en ny eller befintlig Tillgänglighetsuppsättning. Mer information finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5e080614d4f0001a0bf1b44dd402f37db2463e03
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206132"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696905"
 ---
 # <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>Hantera åtkomst med RBAC och Azure Resource Manager-mallar
 
@@ -92,16 +92,18 @@ Nedan visas ett exempel på en läsare rolltilldelning till en användare när d
 
 ## <a name="deploy-template-using-azure-powershell"></a>Distribuera mallen med hjälp av Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 Följ dessa steg om du vill distribuera föregående mall med Azure PowerShell.
 
 1. Skapa en ny fil med namnet rbac-rg.json och kopiera den tidigare mallen.
 
 1. Logga in till [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Hämta den unika identifieraren för en användare, grupp eller program. Du kan till exempel använda den [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) kommando för att lista Azure AD-användare.
+1. Hämta den unika identifieraren för en användare, grupp eller program. Du kan till exempel använda den [Get-AzADUser](/powershell/module/az.resources/get-azaduser) kommando för att lista Azure AD-användare.
 
     ```azurepowershell
-    Get-AzureRmADUser
+    Get-AzADUser
     ```
 
 1. Använd ett GUID-verktyg för att generera en unik identifierare som används för rolltilldelningen. Identifieraren har formatet: `11111111-1111-1111-1111-111111111111`
@@ -109,21 +111,21 @@ Följ dessa steg om du vill distribuera föregående mall med Azure PowerShell.
 1. Skapa en exempel-resursgrupp.
 
     ```azurepowershell
-    New-AzureRmResourceGroup -Name ExampleGroup -Location "Central US"
+    New-AzResourceGroup -Name ExampleGroup -Location "Central US"
     ```
 
-1. Använd den [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) kommando för att starta distributionen.
+1. Använd den [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) kommando för att starta distributionen.
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     ```
 
     Du uppmanas att ange de obligatoriska parametrarna. Nedan visas ett exempel på utdata.
 
     ```Output
-    PS /home/user> New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     
-    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+    cmdlet New-AzResourceGroupDeployment at command pipeline position 1
     Supply values for the following parameters:
     (Type !? for Help.)
     principalId: 22222222-2222-2222-2222-222222222222
@@ -251,4 +253,4 @@ Följ dessa steg om du vill distribuera föregående mall med Azure CLI.
 
 - [Skapa och distribuera din första Azure Resource Manager-mall](../azure-resource-manager/resource-manager-create-first-template.md)
 - [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
-- [Azure-Snabbstartmallar](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/?term=rbac)

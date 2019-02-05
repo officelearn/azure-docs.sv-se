@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e8142e391dd02e78be42e1f16ae2626b74c41c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498401"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734478"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Hur du Azure Functions runtime versioner
 
-En funktionsapp som körs på en specifik version av Azure Functions-körningen. Det finns två huvudversioner: [1.x och 2.x](functions-versions.md). Som standard fungerar appar som skapats version 2.x av körningsmiljön. Den här artikeln förklarar hur du konfigurerar en funktionsapp i Azure för att köra på den version som du väljer. Information om hur du konfigurerar en lokal utvecklingsmiljö för en specifik version finns i [kod och testa Azure Functions lokalt](functions-run-local.md).
+En funktionsapp som körs på en specifik version av Azure Functions-körningen. Det finns två större versioner: [1.x och 2.x](functions-versions.md). Som standard fungerar appar som skapats version 2.x av körningsmiljön. Den här artikeln förklarar hur du konfigurerar en funktionsapp i Azure för att köra på den version som du väljer. Information om hur du konfigurerar en lokal utvecklingsmiljö för en specifik version finns i [kod och testa Azure Functions lokalt](functions-run-local.md).
 
 > [!NOTE]
 > Du kan inte ändra runtime-versionen för en funktionsapp som har en eller flera funktioner. Du bör använda Azure-portalen för att ändra runtime-versionen.
@@ -49,7 +49,7 @@ Du kan också visa och ange den `FUNCTIONS_EXTENSION_VERSION` från Azure CLI.
 >[!NOTE]
 >Eftersom andra inställningar kan påverkas av runtime-versionen, bör du ändra versionen i portalen. Portalen gör automatiskt de andra nödvändiga uppdateringarna, till exempel Node.js-versionen och runtime stack, när du ändrar körningsversioner.  
 
-Med hjälp av Azure CLI, visa den aktuella runtime-versionen med den [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) kommando.
+Med hjälp av Azure CLI, visa den aktuella runtime-versionen med den [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) kommando.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -83,7 +83,7 @@ Du ser den `FUNCTIONS_EXTENSION_VERSION` i följande utdata som har trunkerats f
 ]
 ```
 
-Du kan uppdatera den `FUNCTIONS_EXTENSION_VERSION` i funktionsappen med den [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) kommando.
+Du kan uppdatera den `FUNCTIONS_EXTENSION_VERSION` i funktionsappen med den [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) kommando.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 0a364724c72a7bd6dd75dd9720e2e966d07ff297
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496355"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729803"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -52,7 +52,7 @@ NPM kan övervaka anslutningen mellan nätverk och program i andra delar av vär
 * Södra Storbritannien
 * Government Virginia (USA)
 
-Regioner som listan över stöds för ExpressRoute-övervakning är tillgängligt i den [dokumentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
+Regioner som listan över stöds för ExpressRoute-övervakning är tillgängligt i den [dokumentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
 
 
 ## <a name="set-up-and-configure"></a>Installera och konfigurera

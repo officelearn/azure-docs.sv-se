@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 4d7caec3fc1b8bf74098a7b0a211ec2ada8280a3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189641"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732914"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -199,7 +199,7 @@ ms.locfileid: "43189641"
 > ![Windows][Logo_Windows] Windows
 >
 
-I September 2016 släppte Microsoft en funktion där du kan hantera flera virtuella IP-adresser med hjälp av en [Azure intern belastningsutjämnare][load-balancer-multivip-overview]. Den här funktionen finns redan i den externa belastningsutjämnaren som Azure.
+Du kan hantera flera virtuella IP-adresser med hjälp av en [Azure intern belastningsutjämnare][load-balancer-multivip-overview]. 
 
 Om du har en SAP-distribution kan använda du en intern belastningsutjämnare för att skapa en Windows-klusterkonfiguration för SAP Central Services (ASCS/SCS)-instanser.
 
@@ -213,16 +213,18 @@ Den här artikeln handlar om hur du flyttar från en enda ASCS/SCS-installation 
 >
 >Det maximala antalet SAP ASCS/SCS-instanser i ett WSFC-klustret är lika med det maximala antalet privata frontend IP-adresser för varje Azure intern belastningsutjämnare.
 >
+> Den konfiguration som introducerades i den här dokumentationen stöds inte ännu för att användas för [Tillgänglighetszoner i Azure](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> 
 
-Mer information om belastningsutjämnare begränsningar finns i avsnittet ”privat frontend-IP per belastningsutjämnare i [nätverksgränser: Azure Resource Manager][networking-limits-azure-resource-manager].
+Mer information om belastningsutjämnare begränsningar finns i avsnittet ”privat frontend-IP per belastningsutjämnare i [begränsningar för nätverk: Azure Resource Manager][networking-limits-azure-resource-manager]. Överväga att använda den [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) i stället för den grundläggande SKU för Azure load balancer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du redan har konfigurerat en WSFC-klustret ska använda för en SAP ASCS/SCS-instans med hjälp av **filresurs**, vilket visas i det här diagrammet.
 
-![Bild 1: Ett SAP ASCS/SCS-instans och SOFS som distribueras i två kluster][sap-ha-guide-figure-8007]
+![Bild 1: En SAP ASCS/SCS-instans och SOFS som distribueras i två kluster][sap-ha-guide-figure-8007]
 
-_**Bild 1:** en SAP ASCS/SCS-instans och SOFS som distribueras i två kluster_
+_**Bild 1:** En SAP ASCS/SCS-instans och SOFS som distribueras i två kluster_
 
 > [!IMPORTANT]
 > Inställningen måste uppfylla följande villkor:
@@ -347,7 +349,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_
 
 ![Bild 5: Multi-SID SOFS är samma som den globala SAP värdnamnet 2][sap-ha-guide-figure-8016]
 
-_**Bild 5:** andra Volume2 i hanteraren för redundanskluster_
+_**Bild 5:** Andra Volume2 i hanteraren för redundanskluster_
 
 Skapa en mapp med SAP globala för andra \<SID2 >, och Ställ in filsäkerhet.
 
@@ -398,7 +400,7 @@ Högerklicka på den **saoglobal2** SOFS kluster gruppen och välj sedan **Lägg
 
 ![Bild 6: Starta guiden ”Lägg till filresurs”][sap-ha-guide-figure-8017]
 
-_**Bild 6:** Start ”Lägg till filresurs” guiden_
+_**Bild 6:** Starta guiden ”Lägg till filresurs”_
 
 <br>
 ![Bild 7: ”Välj SMB-resurs – snabb”][sap-ha-guide-figure-8018]
@@ -413,12 +415,12 @@ _**Bild 8:** Välj ”sapglobalhost2” och ange sökvägen på Volume2_
 <br>
 ![Bild 9: Ange namn på filresurs till ”sapmnt”][sap-ha-guide-figure-8020]
 
-_**Bild 9:** Set filresursnamn till ”sapmnt”_
+_**Bild 9:** Ange namn på filresurs till ”sapmnt”_
 
 <br>
 ![Bild 10: Inaktivera alla inställningar][sap-ha-guide-figure-8021]
 
-_**Bild 10:** inaktivera alla inställningar_
+_**Bild 10:** Inaktivera alla inställningar_
 
 <br>
 Tilldela *fullständig behörighet* behörigheter till filer och sapmnt dela för:
@@ -427,7 +429,7 @@ Tilldela *fullständig behörighet* behörigheter till filer och sapmnt dela fö
 
 ![Bild 11: Tilldela fullständig behörighet till grupp och användarkonton][sap-ha-guide-figure-8022]
 
-_**Bild 11:** tilldela ”fullständig behörighet” till grupp och användarkonton_
+_**Bild 11:** Tilldela ”fullständig behörighet” till grupp och användarkonton_
 
 <br>
 ![Bild 12: Välj ”Skapa”][sap-ha-guide-figure-8023]
@@ -437,7 +439,7 @@ _**Bild 12:** Välj ”Skapa”_
 <br>
 ![Bild 13: Andra sapmnt bunden till sapglobal2 värd och Volume2 skapas][sap-ha-guide-figure-8024]
 
-_**Bild 13:** andra sapmnt bunden till sapglobal2 värd och Volume2 skapas_
+_**Bild 13:** Andra sapmnt bunden till sapglobal2 värd och Volume2 skapas_
 
 <br>
 ## <a name="install-sap-netweaver-multi-sid"></a>Installera SAP NetWeaver multi-SID
@@ -451,7 +453,7 @@ Installera DBMS och SAP-programservrar enligt beskrivningen ovan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Installera en ASCS/SCS-instans i ett redundanskluster utan delade diskar][sap-official-ha-file-share-document]: officiella SAP riktlinjer för en filresurs för hög tillgänglighet
+* [Installera en ASCS/SCS-instans i ett redundanskluster utan delade diskar][sap-official-ha-file-share-document]: Den officiella SAP riktlinjer för en fil med hög tillgänglighet dela
 
 * [Lagringsdirigering i Windows Server 2016][s2d-in-win-2016]
 

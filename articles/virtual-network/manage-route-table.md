@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ddf789dc6a1bf6c76643e9b5478ede75f865f4eb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 75040cb8769b1d5d1dd6af758ed03be4a39d01e1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563023"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731877"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -44,7 +44,7 @@ Det finns en gräns för hur många routningstabeller du kan skapa per Azure-pla
 
 **Kommandon**
 
-- Azure CLI: [skapa az network route-table](/cli/azure/network/route-table/route#az_network_route_table_create)
+- Azure CLI: [skapa az network route-table](/cli/azure/network/route-table/route)
 - PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>Visa routningstabeller
@@ -53,7 +53,7 @@ Ange i sökrutan överst på portalen *routningstabeller* i sökrutan. När **ro
 
 **Kommandon**
 
-- Azure CLI: [az network route-table list](/cli/azure/network/route-table/route#az_network_route_table_list)
+- Azure CLI: [az network route-table list](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>Visa information om en routningstabell
@@ -69,7 +69,7 @@ Ange i sökrutan överst på portalen *routningstabeller* i sökrutan. När **ro
 
 **Kommandon**
 
-- Azure CLI: [az network route-table show](/cli/azure/network/route-table/route#az_network_route_table_show)
+- Azure CLI: [az network route-table show](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="change-a-route-table"></a>Ändra en routningstabell
@@ -79,7 +79,7 @@ Ange i sökrutan överst på portalen *routningstabeller* i sökrutan. När **ro
 
 **Kommandon**
 
-- Azure CLI: [az network route-table update](/cli/azure/network/route-table/route#az_network_route_table_update)
+- Azure CLI: [az network route-table update](/cli/azure/network/route-table/route)
 - PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associera en routningstabell till ett undernät
@@ -124,7 +124,7 @@ Om en routingtabell är kopplad till undernät kan den inte tas bort. [Koppla bo
 
 **Kommandon**
 
-- Azure CLI: [ta bort az network route-table](/cli/azure/network/route-table/route#az_network_route_table_delete)
+- Azure CLI: [ta bort az network route-table](/cli/azure/network/route-table/route)
 - PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>Skapa en väg
@@ -143,7 +143,7 @@ Det finns en gräns för hur många vägar vägtabell kan skapa per Azure-plats 
 
 **Kommandon**
 
-- Azure CLI: [az network route-table route skapa](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
+- Azure CLI: [az network route-table route skapa](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Visa flöden
@@ -168,7 +168,7 @@ Noll eller flera vägar innehåller en routningstabell. Läs mer om vilken infor
 
 **Kommandon**
 
-- Azure CLI: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_show)
+- Azure CLI: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="change-a-route"></a>Ändra en väg
@@ -194,7 +194,7 @@ Noll eller flera vägar innehåller en routningstabell. Läs mer om vilken infor
 
 **Kommandon**
 
-- Azure CLI: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
+- Azure CLI: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## <a name="view-effective-routes"></a>Visa effektiva vägar
@@ -209,7 +209,7 @@ Gällande routningar för varje nätverksgränssnitt som är kopplat till en vir
 
 **Kommandon**
 
-- Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
+- Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Verifiera routning mellan två slutpunkter
@@ -226,7 +226,7 @@ Du kan fastställa nästa hopptyp mellan en virtuell dator och IP-adressen för 
 
 **Kommandon**
 
-- Azure CLI: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
+- Azure CLI: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
 
 ## <a name="permissions"></a>Behörigheter

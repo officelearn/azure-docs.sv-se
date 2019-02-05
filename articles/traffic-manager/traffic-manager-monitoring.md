@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 40852b9457e703334350402489feb68ac92832a0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199638"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693795"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager endpoint monitoring
 
@@ -135,7 +135,7 @@ När en slutpunkt har statusen degraderad, returneras den inte längre som svar 
 * **Viktat**. Valfri tillgänglig slutpunkt väljs slumpmässigt baserat på deras tilldelade vikt och vikten av de tillgängliga slutpunkterna.
 * **Prestanda**. Slutpunkten som är närmast användaren returneras. Om slutpunkten är tillgänglig, flyttar Traffic Manager trafik till slutpunkterna i nästa närmsta Azure-region. Du kan konfigurera alternativa redundans planer för routning av prestanda-trafik med hjälp av [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geografisk**. Den slutpunkt som mappats för att leverera den geografiska plats baserat på fråga IP-adress returneras. Om slutpunkten är tillgänglig, en annan slutpunkt markeras inte ska gå över till, eftersom en geografisk plats kan endast mappas till en slutpunkt i en profil (Mer information finns i den [vanliga frågor och svar](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Som bästa praxis när du använder geografisk routning, rekommenderar vi kunder att använda kapslade Traffic Manager-profiler med mer än en slutpunkt som slutpunkter för profilen.
-* **Flervärden är** flera slutpunkter mappas till IPv4/IPv6-adresser som returneras. När en fråga tas emot för den här profilen, felfria slutpunkter returneras baserat på den **maximalt antal poster i svaret** värde som du har angett. Standardvärdet för antal svar är två slutpunkter.
+* **Flervärden är** flera slutpunkter som mappats till IPv4/IPv6-adresser som returneras. När en fråga tas emot för den här profilen, felfria slutpunkter returneras baserat på den **maximalt antal poster i svaret** värde som du har angett. Standardvärdet för antal svar är två slutpunkter.
 * **Undernät** returneras den slutpunkt som mappats till en uppsättning IP-adressintervall. När en begäran tas emot från IP-adress, returnerade slutpunkten mappas det för IP-adress. 
 
 Mer information finns i [Traffic Manager trafikroutningsmetoder](traffic-manager-routing-methods.md).

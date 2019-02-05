@@ -5,19 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 4b58a95ed149886cb987d316b7738c4a2d778864
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: d43647b57469efa4581dc1c74a842a51e9d54ad7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540689"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699825"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Begrepp för hög tillgänglighet i Azure Database for PostgreSQL
 Tjänsten Azure Database for PostgreSQL ger garanterat hög tillgänglighet. Ekonomisk servicenivåavtalet (SLA) är 99,99% vid allmän tillgänglighet. Det är praktiskt taget ingen program driftstopp när du använder den här tjänsten.
 
 ## <a name="high-availability"></a>Hög tillgänglighet
-Modell med hög tillgänglighet (HA) baseras på inbyggda mekanismer för redundans när en nod på servernivå avbrott inträffar. Ett avbrott för noden på servernivå kan inträffa på grund av ett maskinvarufel eller som svar på en tjänstdistribution.
+Modell med hög tillgänglighet (HA) baseras på mekanismer för inbyggd växling vid fel när en nod på servernivå avbrott inträffar. Ett avbrott för noden på servernivå kan inträffa på grund av ett maskinvarufel eller som svar på en tjänstdistribution.
 
 Vid alla tidpunkter uppstå ändringar som gjorts i en Azure Database for PostgreSQL-databasservern i samband med en transaktion. Ändringar sparas synkront i Azure storage när transaktionen genomförs. Om en nod på servernivå avbrott inträffar, databasservern automatiskt skapar en ny nod och lagring av data till den nya noden. Alla aktiva anslutningar tas bort och alla aktiva transaktioner genomförs inte.
 
@@ -32,5 +32,5 @@ Liknar modellen hög tillgänglighet när en Azure Database for PostgreSQL skala
 Under åtgärden sker ett avbrott i databasanslutningar. Klientprogrammen är frånkopplade och öppna ogenomförda transaktioner har avbrutits. När klientprogrammet försöker ansluta igen, eller gör en ny anslutning, dirigeras gatewayen anslutningen till den nya storlekar instansen. 
 
 ## <a name="next-steps"></a>Nästa steg
-- En översikt över tjänsten finns i [Azure Database for PostgreSQL-översikt](overview.md)
-- En översikt över logik för omprövning, se [hantering av tillfälliga anslutningsfel för Azure Database för PostgreSQL](concepts-connectivity.md)
+- Lär dig mer om [hantering av tillfälliga anslutningsfel](concepts-connectivity.md)
+- Lär dig hur du [replikera dina data med skrivskyddade repliker](howto-read-replicas-portal.md)

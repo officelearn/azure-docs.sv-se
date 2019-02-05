@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995056"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700646"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Metodtips för tar och storlek arbetsbelastningar migreras till Azure
 
@@ -154,7 +154,7 @@ En integrerad Microsoft på lokal/Azure produktportfölj genererar konkurrenskra
 
 - [Ta en titt på](https://azure.microsoft.com/pricing/hybrid-benefit/) kalkylator för besparingar Hybrid-förmånen.
 - [Läs mer](https://azure.microsoft.com/pricing/hybrid-benefit/) om Hybrid-förmånen för Windows Server.
-- [Granska](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) priser för SQL Server Azure-datorer.
+- [Granska](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) priser för SQL Server Azure-datorer.
 
 
 ## <a name="best-practice-use-reserved-vm-instances"></a>Rekommendation: Använda reserverade VM-instanser
@@ -174,7 +174,7 @@ Med hjälp av Azure reserverade VM-instanser, du betalar i förskott för ett el
 **Lära sig mer:**
 - [Lär dig mer om](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) Azure reservationer.
 - [Läs](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq) reserverade instanser vanliga frågor och svar.
-- [Hämta priser vägledning](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) för SQL Server Azure-datorer.
+- [Hämta priser vägledning](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) för SQL Server Azure-datorer.
 
 
 ## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>Rekommendation: Sammanställd molnutgift mellan prenumerationer

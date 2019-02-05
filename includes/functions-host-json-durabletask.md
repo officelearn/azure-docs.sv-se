@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 92eb13165326f44432f09322ea97f3cee5ccec2b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a3af711503445000d9613feb2eec7967442fe538
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251251"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55735956"
 ---
 Konfigurationsinställningar för [varaktiga funktioner](../articles/azure-functions/durable-functions-overview.md).
 
@@ -43,7 +43,7 @@ Namn på aktiviteten måste börja med en bokstav och bestå av endast bokstäve
 
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Alternativa [uppgift hub](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera program för flera varaktiga funktioner från varandra, även om artikelserien med samma lagring-serverdelen.|
+|HubName|DurableFunctionsHub|Alternativa [uppgift hub](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera program för flera varaktiga funktioner från varandra, även om de använder samma lagringserverdel.|
 |ControlQueueBatchSize|32|Antal meddelanden att hämta från kön kontroll i taget.|
 |PartitionCount |4|Antalet partitioner för kön kontroll. Kan vara ett positivt heltal mellan 1 och 16.|
 |ControlQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön kontroll Kömeddelanden.|

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance granskning | Microsoft Docs
-description: Lär dig hur du kommer igång med Azure SQL Database hanterad instans-granskning med T-SQL
+title: Azure SQL Database managed instance granskning | Microsoft Docs
+description: Lär dig hur du kommer igång med Azure SQL Database managed instance granskning med T-SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,22 +13,22 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456042"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729005"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database hanterad instans-granskning
+# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database managed instance granskning
 
-[Azure SQL Database Managed Instance](sql-database-managed-instance.md) granskning spårar databasen händelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning också:
+[Hanterad instans](sql-database-managed-instance.md) granskning spårar databashändelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning också:
 
 - Hjälper dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
 - Aktiverar och underlättar infört efterlevnadsstandarder, även om det inte garanterar efterlevnad. Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
-## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Konfigurera granskning för din server till Azure Storage
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Konfigurera granskning för din server till Azure storage
 
 I följande avsnitt beskrivs konfigurationen av granskning på din hanterade instans.
 
@@ -38,7 +38,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
    1. Gå till Azure Storage där du vill lagra dina granskningsloggar.
 
       > [!IMPORTANT]
-      > Använd ett lagringskonto i samma region som hanterad instans-server om du vill undvika läsningar/skrivningar över flera regioner.
+      > Använd ett lagringskonto i samma region som den hanterade instansen om du vill undvika läsningar/skrivningar över flera regioner.
 
    1. I storage-konto går du till **översikt** och klicka på **Blobar**.
 
@@ -64,7 +64,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
         ![BLOB-behållare Kopiera URL](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-     1. Skapa ett Azure Storage **SAS-Token** att ge hanterad instans granskning åtkomstbehörigheter till lagringskontot:
+     1. Skapa ett Azure Storage **SAS-Token** att ge hanterad instans granskning åtkomsträttigheter till lagringskontot:
 
         - Gå till Azure Storage-konto där du skapade behållaren i föregående steg.
 
@@ -154,7 +154,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
 Ytterligare information:
 
-- [Granskning skillnaderna mellan hanterad instans, Azure SQL DB och SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Granskning skillnaderna mellan enskilda databaser, elastisk pool, s och hanterade instanser i Azure SQL Database och databaser i SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
 - [SKAPA SERVERGRANSKNING](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -162,7 +162,7 @@ Ytterligare information:
 
 Granskningsloggar från en hanterad instans kan skickas till och med hubbar eller Log Analytics med Azure Monitor. Det här avsnittet beskrivs hur du konfigurerar detta:
 
-1. Navigera i den [Azure-portalen](https://portal.azure.com/) till SQL-hanterad instans.
+1. Navigera i den [Azure-portalen](https://portal.azure.com/) till den hanterade instansen.
 
 2. Klicka på **diagnostikinställningar**.
 
@@ -209,9 +209,6 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
 - En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](sql-database-auditing.md).
 
-  > [!IMPORTANT]
-  > Visning av granskningsposter från Azure portal (”granskningsposter”-rutan) är inte tillgänglig för hanterad instans.
-
 ### <a name="consume-logs-stored-in-event-hub"></a>Använda loggar som lagras i Event Hub
 
 Om du vill använda granskning loggar data från Event Hub, behöver du ställer in en dataström som förbrukar händelser och skriva dem till ett mål. Mer information finns i dokumentation om Azure Event Hubs.
@@ -222,21 +219,21 @@ Om granskningsloggarna skrivs till Log Analytics, är de tillgängliga i Log Ana
 
 Log Analytics ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar. Ytterligare användbar information om Log Analytics-frågespråket och kommandon finns i [Log Analytics Sök referens](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
-## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Granskning skillnaderna mellan hanterad instans, Azure SQL Database och SQL Server
+## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Granskning skillnaderna mellan databaser i Azure SQL Database och databaser i SQL Server
 
-De viktigaste skillnaderna mellan SQL-granskning på hanterad instans, Azure SQL Database och SQL Server lokalt är:
+De viktigaste skillnaderna mellan granskning i databaser i Azure SQL Database och databaser i SQL Server är:
 
-- I Managed Instance fungerar SQL-granskning på servernivå och lagrar `.xel` loggfiler på en Azure blob storage-konto.
-- I Azure SQL Database fungerar SQL-granskning på databasnivå.
-- I SQL Server lokalt / virtuella nivå datorer, SQL-granskning fungerar på servern, men lagrar händelser på filer system/windows händelseloggar.
+- Med alternativet för hanterad instans-distribution i Azure SQL Database-granskning fungerar på servernivå och lagrar `.xel` loggfiler på en Azure blob storage-konto.
+- Med enkel databas och elastisk pool distributionsalternativ i Azure SQL Database-granskning fungerar på databasnivå.
+- I SQL Server lokalt per virtuell datorer, granska fungerar på servern nivå, men lagrar händelser på filer system/windows-händelseloggar.
 
-XEvent granskning i Managed Instance stöder prestandamål i Azure blob storage. Fil- och windows-loggar är **stöds inte**.
+XEvent granskning i hanterad instans stöder prestandamål i Azure blob storage. Fil- och windows-loggar är **stöds inte**.
 
-Nyckeln skillnader i den `CREATE AUDIT` syntaxen för granskning till Azure blob storage är:
+Nyckeln skillnader i den `CREATE AUDIT` syntax för granskning till Azure blob storage är:
 
 - En ny syntax `TO URL` tillhandahålls och kan du ange URL: en för Azure blob Storage-behållare där de `.xel` filerna är placerade.
 - En ny syntax `TO EXTERNAL MONITOR` är tillgänglig för att även Hub och Log Analytics-mål.
-- Syntaxen `TO FILE` är **stöds inte** eftersom hanterad instans inte kan komma åt Windows-filresurser.
+- Syntaxen `TO FILE` är **stöds inte** eftersom SQL-databas inte kan komma åt Windows-filresurser.
 - Stäng av alternativet är **stöds inte**.
 - `queue_delay` 0 är **stöds inte**.
 

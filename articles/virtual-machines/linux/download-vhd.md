@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 5f269f074236beef3e213c888e540bcf18238be1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6d827e1142fa17b29633c98c062fd204f7a49e36
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953709"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729745"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Hämta en Linux-VHD från Azure
 
@@ -42,7 +42,7 @@ Om du vill använda den virtuella Hårddisken som en bild för att skapa andra v
     exit 
     ```
 
-2. Logga in på ditt Azure-konto med [az-inloggning](https://docs.microsoft.com/cli/azure/reference-index#az_login).
+2. Logga in på ditt Azure-konto med [az-inloggning](https://docs.microsoft.com/cli/azure/reference-index).
 3. Stoppa och frigör den virtuella datorn.
 
     ```azurecli
@@ -57,7 +57,7 @@ Om du vill använda den virtuella Hårddisken som en bild för att skapa andra v
 
 Om du vill använda den virtuella Hårddisken som en disk för en ny instans av en befintlig virtuell dator eller en datadisk, gör du följande:
 
-1.  Logga in på [Azure-portalen](https://portal.azure.com/).
+1.  Logga in på [Azure Portal](https://portal.azure.com/).
 2.  Klicka på **Virtual Machines** på navmenyn.
 3.  Välj den virtuella datorn i listan.
 4.  Bladet för den virtuella datorn och klicka på **stoppa**.

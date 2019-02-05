@@ -9,12 +9,12 @@ ms.subservice: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ec84797486b662261fd5998bebdfa34c9dff5da
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 22993395d60df23533b67ec48d0ea7f979d73e22
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466310"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692470"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Support för Azure SQL Data Warehouse Gen2 för lägre beräkningsnivåer
 
@@ -46,6 +46,7 @@ Uppgradera [Azure SQL Data Warehouse Compute Optimized Gen1 till Gen2](https://d
 - Östra Japan
 - Centrala Indien
 - Östra Australien
+- Sydöstra Australien
 - Centrala Kanada
 - Västra Japan 
 - Centrala Kanada

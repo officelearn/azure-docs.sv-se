@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 1f2e136810194ad044255f9d129b5c03549221b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128668"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732931"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för logic app-definitioner i Azure Logic Apps
 
@@ -24,7 +24,8 @@ När du skapar enterprise lösningar för dataintegrering med automatiserade arb
 Öppna Redigeraren för kodvy när du arbetar i Azure portal eller i Visual Studio för att fungera med logikappsdefinitioner i JSON, eller kopiera definitionen till valfri redigerare som du vill. Om du är nybörjare till logic apps, granska [hur du skapar din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Vissa Azure Logic Apps-funktioner, till exempel definiera parametrar och flera utlösare i logic app-definitioner är endast tillgängliga i JSON, inte Logic Apps Designer. Så du måste arbeta i kodvyn eller någon annan redigerare för dessa aktiviteter.
+> Vissa Azure Logic Apps-funktioner, till exempel definiera parametrar och flera utlösare i logic app-definitioner är endast tillgängliga i JSON, inte Logic Apps Designer.
+> Så du måste arbeta i kodvyn eller någon annan redigerare för dessa aktiviteter.
 
 ## <a name="edit-json---azure-portal"></a>Redigera JSON - Azure-portalen
 
@@ -38,7 +39,7 @@ När du skapar enterprise lösningar för dataintegrering med automatiserade arb
 
 ## <a name="edit-json---visual-studio"></a>Redigera JSON - Visual Studio
 
-Innan du kan arbeta med sina logikapp-definitioner i Visual Studio, se till att du har [installerat nödvändiga verktyg](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Om du vill skapa en logikapp med Visual Studio, granska [Snabbstart: automatisera uppgifter och processer med Azure Logic Apps – Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Innan du kan arbeta med sina logikapp-definitioner i Visual Studio, se till att du har [installerat nödvändiga verktyg](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Om du vill skapa en logikapp med Visual Studio, granska [Snabbstart: Automatisera uppgifter och processer med Azure Logic Apps – Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 I Visual Studio kan du öppna logikappar som har skapats och distribuerats antingen direkt från Azure portal eller Azure Resource Manager-projekt från Visual Studio.
 
@@ -58,7 +59,7 @@ I Visual Studio kan du öppna logikappar som har skapats och distribuerats antin
 
 ## <a name="parameters"></a>Parametrar
 
-Parametrar kan du återanvända värden i hela din logikapp och är bra för ersättning av värden som du kan ändra ofta. Om du har en e-postadress som du vill använda på flera platser bör du till exempel definiera den e-postadressen som en parameter. 
+Parametrar kan du återanvända värden i hela din logikapp och är bra för ersättning av värden som du kan ändra ofta. Om du har en e-postadress som du vill använda på flera platser bör du till exempel definiera den e-postadressen som en parameter.
 
 Parametrar är också användbara när du vill åsidosätta parametrar i olika miljöer, Lär dig mer om [parametrar för distribution av](#deployment-parameters) och [REST API för Azure Logic Apps-dokumentation](https://docs.microsoft.com/rest/api/logic).
 
@@ -70,13 +71,13 @@ I den [första exempellogikapp](../logic-apps/quickstart-create-first-logic-app-
 1. I kodvyn hitta den `parameters : {}` objekt och lägga till en `currentFeedUrl` objekt:
 
    ``` json
-     "currentFeedUrl" : {
+   "currentFeedUrl" : {
       "type" : "string",
-            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
    }
    ```
 
-2. I den `When_a_feed-item_is_published` åtgärd, hitta den `queries` avsnitt och Ersätt värdet för frågan med `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+2. I den `When_a_feed-item_is_published` åtgärd, hitta den `queries` avsnitt och Ersätt värdet för frågan med `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
 
    **Innan du**
    ``` json
@@ -84,7 +85,7 @@ I den [första exempellogikapp](../logic-apps/quickstart-create-first-logic-app-
       "queries": {
           "feedUrl": "https://s.ch9.ms/Feeds/RSS"
        }
-   },   
+   },
    ```
 
    **När du har**
@@ -93,13 +94,13 @@ I den [första exempellogikapp](../logic-apps/quickstart-create-first-logic-app-
       "queries": {
           "feedUrl": "#@{parameters('currentFeedUrl')}"
        }
-   },   
+   },
    ```
 
    Om du vill ansluta till två eller flera strängar, du kan också använda den `concat` funktion. 
    Till exempel `"@concat('#',parameters('currentFeedUrl'))"` fungerar på samma sätt som i föregående exempel.
 
-3.  När du är klar väljer du **Spara**. 
+3.  När du är klar väljer du **Spara**.
 
 Nu kan du ändra webbplatsens RSS-flöde genom att skicka en annan URL via den `currentFeedURL` objekt.
 
@@ -107,9 +108,9 @@ Nu kan du ändra webbplatsens RSS-flöde genom att skicka en annan URL via den `
 
 ## <a name="deployment-parameters-for-different-environments"></a>Distributionsparametrarna för olika miljöer
 
-Livscykler för distribution har vanligtvis, miljöer för utveckling, mellanlagring och produktion. Du kan till exempel använda samma logikappsdefinitionen i dessa miljöer men använder olika databaser. På samma sätt kan du använda samma definition över olika regioner för hög tillgänglighet men vill varje logic app-instansen du använder den regionen database. 
+Livscykler för distribution har vanligtvis, miljöer för utveckling, mellanlagring och produktion. Du kan till exempel använda samma logikappsdefinitionen i dessa miljöer men använder olika databaser. På samma sätt kan du använda samma definition över olika regioner för hög tillgänglighet men vill varje logic app-instansen du använder den regionen database.
 
-> [!NOTE] 
+> [!NOTE]
 > Det här scenariot skiljer sig från att ta parametrar på *runtime* där du ska använda den `trigger()` i stället.
 
 Här är en grundläggande definition:
@@ -157,13 +158,13 @@ I den faktiska `PUT` begära för logic apps kan du ange parametern `uri`. I var
     },
     "location": "westus"
 }
-``` 
+```
 
 Mer information finns i den [REST API för Azure Logic Apps-dokumentation](https://docs.microsoft.com/rest/api/logic/).
 
 ## <a name="process-strings-with-functions"></a>Processen strängar med functions
 
-Logic Apps har olika funktioner för att arbeta med strängar. Anta exempelvis att du vill skicka ett företagsnamn från en order till ett annat system. Men vet du inte om korrekt hantering för teckenkodning. Du kan utföra base64-kodning på den här strängen, men för att undvika visar i URL: en kan du ersätta flera tecken i stället. Dessutom behöver du bara en understräng för företagets namn eftersom de första fem tecknen inte används. 
+Logic Apps har olika funktioner för att arbeta med strängar. Anta exempelvis att du vill skicka ett företagsnamn från en order till ett annat system. Men vet du inte om korrekt hantering för teckenkodning. Du kan utföra base64-kodning på den här strängen, men för att undvika visar i URL: en kan du ersätta flera tecken i stället. Dessutom behöver du bara en understräng för företagets namn eftersom de första fem tecknen inte används.
 
 ``` json
 {
@@ -200,7 +201,7 @@ Logic Apps har olika funktioner för att arbeta med strängar. Anta exempelvis a
 
 Dessa steg beskriver hur det här exemplet bearbetar denna sträng kan arbeta från insidan på utsidan:
 
-``` 
+```
 "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
@@ -218,7 +219,7 @@ Dessa steg beskriver hur det här exemplet bearbetar denna sträng kan arbeta fr
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Mappa listobjekt egenskapsvärden och sedan använda maps som parametrar
 
-För att få olika resultat baserat ett egenskapsvärde, du kan skapa en karta som matchar varje egenskapsvärde till ett resultat och sedan använda som mappar som en parameter. 
+För att få olika resultat baserat ett egenskapsvärde, du kan skapa en karta som matchar varje egenskapsvärde till ett resultat och sedan använda som mappar som en parameter.
 
 Exempelvis definierar det här arbetsflödet vissa kategorier som parametrar och en karta som matchar de kategorierna med en specifik URL. Först hämtar arbetsflödet en lista över artiklar. Arbetsflödet använder sedan kartan för att hitta den URL som matchar kategorin för varje artikel.
 
@@ -302,13 +303,13 @@ Att hämta data från en datakälla som inte har inbyggt stöd *utlösare*, du k
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. Från den `order` åtgärd, extrahera det `startTime`. 
+1. Från den `order` åtgärd, extrahera det `startTime`.
 2. Hämta den aktuella tiden med `utcNow()`.
 3. Ta bort en sekund:
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
 
-   Du kan använda andra tidsenheter, som `minutes` eller `hours`. 
+   Du kan använda andra tidsenheter, som `minutes` eller `hours`.
 
 3. Nu kan du jämföra dessa två värden. 
 
@@ -365,7 +366,6 @@ Om du vill formatera datum, kan du använda sträng-formaterare. Till exempel f�
   "outputs": {}
 }
 ```
-
 
 ## <a name="next-steps"></a>Nästa steg
 

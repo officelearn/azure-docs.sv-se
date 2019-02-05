@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064652"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727916"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
@@ -29,7 +29,7 @@ ms.locfileid: "54064652"
 
 I alla scenarier för produktion, åtkomst till ett Azure container registry måste anges med hjälp av [tjänsthuvudnamn](../container-registry/container-registry-auth-service-principal.md). Tjänstens huvudnamn kan du ge [rollbaserad åtkomstkontroll](../container-registry/container-registry-roles.md) till dina behållaravbildningar. Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
 
-I det här avsnittet ska du skapa ett Azure key vault och ett huvudnamn för tjänsten och lagra autentiseringsuppgifter för tjänstens huvudnamn i valvet.
+I följande avsnitt, skapa ett Azure key vault och ett huvudnamn för tjänsten och lagra autentiseringsuppgifter för tjänstens huvudnamn i valvet. 
 
 ### <a name="create-key-vault"></a>Skapa nyckelvalv
 
@@ -64,7 +64,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-Den `--role` argumentet i det föregående kommandot konfigurerar tjänstens huvudnamn med den *acrpull* vilket ger det envägsreplikering åtkomst till registret. Om du vill bevilja både skicka och hämta åtkomst, ändra den `--role` argumentet för *acrpush*.
+Argumentet `--role` i föregående kommando konfigurerar huvudnamnet för tjänsten med rollen *acrpull*, vilket endast ger den hämtningsåtkomst till registret. Om du vill bevilja både sändnings- och hämtningsåtkomst ändrar du argumentet `--role` till *acrpush*.
 
 Nu ska lagra tjänstens huvudnamn *appId* i valvet, vilket är den **användarnamn** du skickar till Azure Container Registry för autentisering.
 
@@ -134,9 +134,11 @@ Mer information för att hänvisa till Azure Key Vault-hemligheter i Resource Ma
 
 ## <a name="deploy-with-azure-portal"></a>Distribuera med Azure-portalen
 
-Om du behåller behållaravbildningar i Azure Container Registry kan du enkelt skapa en behållare i Azure Container Instances via Azure-portalen.
+Om du behåller behållaravbildningar i ett Azure container registry kan du enkelt skapa en behållare i Azure Container Instances via Azure-portalen. När du använder portalen för att distribuera en behållarinstans från ett behållarregister, måste du aktivera registrets [administratörskonto](../container-registry/container-registry-authentication.md#admin-account). Administratörskontot som har utformats för en enskild användare åtkomst till registret, främst i testsyfte. 
 
 1. Gå till ditt behållarregister i Azure-portalen.
+
+1. För att bekräfta att administratörskontot som är aktiverad, Välj **åtkomstnycklar**, och under **administratörsanvändare** Välj **aktivera**.
 
 1. Välj **databaser**, och välj sedan databasen som du vill distribuera från, högerklicka på taggen för den behållaravbildning som du vill distribuera och välj **kör instans**.
 

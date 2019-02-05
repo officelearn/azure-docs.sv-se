@@ -12,17 +12,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/23/2017
+ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97dcde4cd3597262b49000f2330e487e4fa48188
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e4fde75aeaf86219518daf92b67434fe9fd63f86
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241896"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297421"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Snabbstart: Distribuera en Java Spring Boot-app till Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Snabbstart: Distribuera ett Java Spring Boot-program till Service Fabric
 
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och containrar.
 
@@ -34,7 +34,6 @@ I den här snabbstarten lär du dig att:
 
 * Distribuera ett Spring Boot-program till Service Fabric
 * Distribuera programmet till ditt lokala kluster
-* Distribuera programmet till ett kluster i Azure
 * Skala ut programmet över flera noder
 * Utför redundans av tjänsten utan att påverka tillgängligheten
 
@@ -168,68 +167,6 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
 
 Nu kan du komma åt Spring Boot-programmet som har distribuerats till ett Service Fabric-kluster.
 
-## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
-
-### <a name="set-up-your-azure-service-fabric-cluster"></a>Konfigurera ett Azure Service Fabric-kluster
-
-Om du vill distribuera programmet till ett kluster i Azure kan du skapa ett eget kluster.
-
-Partkluster är kostnadsfria och tidsbegränsade Service Fabric-kluster som finns i Azure och som körs av Service Fabric-teamet. Du kan använda partkluster till att distribuera program och lära dig mer om plattformen. Klustret använder ett enda självsignerat certifikat för nod-till-nod- och klient-till-nod-säkerhet.
-
-Logga in och anslut till ett [Linux-kluster](https://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Klicka på **Viktigt**-länken för att hitta certifikatlösenordet och anvisningar om hur du konfigurerar olika miljöer till att använda certifikatet. Behåll både sidan **Välkommen** och sidan **Viktigt** öppna så att du kan använda några av instruktionerna i följande steg.
-
-> [!Note]
-> Det finns ett begränsat antal tillgängliga partykluster per timme. Om du får ett felmeddelande när du försöker registrera dig för ett partkluster kan du vänta en stund och försöka igen, eller följa stegen i [Skapa ett Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) för att skapa ett kluster i din prenumeration.
->
-> Spring Boot-tjänsten är konfigurerad för att lyssna efter inkommande trafik på port 8080. Se till att den porten är öppen i ditt kluster. Porten är öppen om du använder ett partykluster.
->
-
-I Service Fabric finns flera verktyg för att hantera kluster och dess program:
-
-* Service Fabric Explorer, ett webbläsarbaserat verktyg.
-* Service Fabric CLI (kommandoradsgränssnitt) som körs ovanpå Azure CLI.
-* PowerShell-kommandon.
-
-I den här snabbstarten använder du Service Fabric CLI och Service Fabric Explorer.
-
-Om du vill använda CLI:n måste du skapa en PEM-fil som baseras på PFX-filen som du hämtade. Konvertera en fil med hjälp av följande kommando. (För partkluster kan du kopiera ett specifikt kommando till PFX-filen från instruktionerna på sidan **Viktigt**.)
-
-```bash
-openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-``` 
-
-Om du vill använda Service Fabric Explorer måste du importera certifikatets PFX-fil som du hämtade från partklustrets webbplats till certifikatarkivet (Windows eller Mac) eller till själva webbläsaren (Ubuntu). Du behöver lösenordet för den privata nyckeln i PFX, som du kan hämta på sidan **Viktigt**.
-
-Använd den metod som du är mest bekväm med till att importera certifikatet på datorn. Exempel:
-
-* I Windows: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i ditt personliga arkiv `Certificates - Current User\Personal\Certificates`. Du kan också använda PowerShell-kommandot i **Viktigt**-instruktionerna.
-* I Mac: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i din nyckelring.
-* Ubuntu: Mozilla Firefox är standardwebbläsare i Ubuntu 16.04. Klicka på menyknappen i det övre högra hörnet i webbläsaren om du vill importera certifikatet till Firefox. Klicka sedan på **Alternativ**. På sidan **Inställningar** söker du efter ”certifikat” i sökrutan. Klicka på **Visa certifikat** och välj fliken **Dina certifikat**. Klicka på **Importera** och följ anvisningarna för att importera certifikatet.
-
-   ![Installera certifikat i Firefox](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png)
-
-### <a name="deploy-the-application-using-cli"></a>Distribuera programmet med CLI
-
-Nu när programmet och klustret är redo kan du distribuera programmet till klustret direkt från kommandoraden.
-
-1. Gå till mappen `gs-spring-boot/SpringServiceFabric`.
-1. Kör följande kommando för att ansluta till ett säkert Azure-kluster.
-
-    ```bash
-    sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
-    ```
-1. Kör skriptet `install.sh`.
-
-    ```bash
-    ./install.sh
-    ```
-
-1. Öppna din webbläsare och sedan programmet genom att gå till: **http://\<ConnectionIPOrUrl>:8080**.
-
-    ![Programmets lokala klientdel](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
-
-Nu har du åtkomst till Spring Boot-programmet som körs i ett Service Fabric-kluster i Azure.
-
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
 
 Tjänsterna kan enkelt skalas över ett kluster om belastningen på tjänsterna ändras. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det går att skala tjänsterna på flera sätt, till exempel med skript eller kommandon från Service Fabric CLI (sfctl). I följande steg använder du Service Fabric Explorer.
@@ -283,7 +220,6 @@ I den här snabbstarten har du lärt dig att:
 
 * Distribuera ett Spring Boot-program till Service Fabric
 * Distribuera programmet till ditt lokala kluster
-* Distribuera programmet till ett kluster i Azure
 * Skala ut programmet över flera noder
 * Utför redundans av tjänsten utan att påverka tillgängligheten
 

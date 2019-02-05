@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Textanalys med Power BI'
+title: 'Självstudier: Textanalys med Power BI'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du extraherar nyckelfraser i text som lagras i Power BI med hjälp av textanalys.
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: luisca
-ms.openlocfilehash: fe6bc384e4190cd17df00ddf285701db8c4199a6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0bda38db089218e0d5f6f8ff15c9eac888900e95
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733337"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209102"
 ---
-# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Självstudie: integera Power BI med tjänsten kognitiv textanalys
+# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Självstudier: Integrera Power BI med den kognitiva tjänsten för textanalys
 
 Microsoft Power BI Desktop är ett kostnadsfritt program som låter dig ansluta till, transformera och visualisera dina data. Tjänsten textanalystjänsten är del av Microsoft Azure Cognitive Services och ger naturlig språkbearbetning. Den kan ta rå ostrukturerad text och utvinna de viktigaste fraserna, analysera avsikter och identifiera välkända koncept, till exempel varumärken. Tillsammans kan dessa verktyg hjälpa dig att snabbt se vad kunderna talar om och vad de anser om det.
 

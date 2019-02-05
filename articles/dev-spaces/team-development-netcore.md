@@ -3,19 +3,19 @@ title: Teamutveckling med Azure Dev Spaces med hjälp av .NET Core och VS Code |
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 4357c3a2e13e0eda2eb1d8c0071a21ed21aa36ef
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: c411a227c9cb277f6bf16df5085b1e674bd37176
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705743"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463913"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamutveckling med Azure Dev Spaces
 
@@ -34,7 +34,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 1. Öppna mappen `mywebapi` i ett *separat VS Code-fönster*.
 1. Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Det här kommandot ska inte förväxlas med kommandot `azds prep` som konfigurerar projektet för distribution.
 1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Felsökningsfältet i VS Code visas när åtgärden har slutförts.
-1. Slutpunktens URL ser ut ungefär så här: http://localhost:\<portnumber\>. **Tips! Statusfältet i VS Code innehåller en klickbar URL.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
+1. Slutpunktens URL ser ut ungefär så här: http://localhost:\<portnumber\>. **Tips: Statusfältet i VS Code innehåller en klickbar URL.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
 1. När `mywebapi` är redo öppnar du webbläsaren på localhost-adressen. Lägg till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`. 
 1. Om alla steg lyckades bör du se ett svar från `mywebapi`-tjänsten.
 
@@ -74,7 +74,7 @@ I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den ink
 1. I `webfrontend`-projektet lägger du till en brytpunkt precis innan en GET-begäran skickas till `mywebapi/api/values`.
 1. Tryck på F5 i `webfrontend`-projektet.
 1. Anropa webbappen och stega igenom koden i båda tjänsterna.
-1. I webbappen visar sidan Om ett sammanslaget meddelande från de båda tjänsterna: ”Hello from webfrontend and Hello from mywebapi”.
+1. I webbappen visar sidan ”Om” ett sammanslaget meddelande från de båda tjänsterna: ”Hello from webfrontend and Hello from mywebapi” (Hej från webfrontend och hej från mywebapi).
 
 
 Bra gjort! Nu har du ett program med flera containrar där varje container kan utvecklas och distribueras separat.

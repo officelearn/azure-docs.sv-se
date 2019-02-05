@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716420"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297097"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -293,7 +293,7 @@ Spara inställningarna genom att klicka på **PUT** (Placera).
 
 Nu har apparna konfigurerats. Klientdelen är nu redo att komma åt serverdelen med en åtkomsttoken.
 
-Information om hur du konfigurerar det här för andra leverantörer finns i informationen om att [uppdatera åtkomsttoken](app-service-authentication-how-to.md#refresh-access-tokens).
+Information om hur du konfigurerar det här för andra leverantörer finns i informationen om att [uppdatera token för identitetsprovider](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="call-api-securely-from-server-code"></a>Anropa API på säkert sätt från serverkod
 
@@ -417,7 +417,7 @@ Grattis! Klientkoden har nu åtkomst till serverdelsdata å den autentiserade an
 
 ## <a name="when-access-tokens-expire"></a>När åtkomsttoken upphör att gälla
 
-Ditt åtkomsttoken upphör att gälla efter ett tag. Information om hur du uppdaterar dina åtkomsttoken utan att användarna måste autentiseras på nytt med din app finns på sidan om att [uppdatera åtkomsttoken](app-service-authentication-how-to.md#refresh-access-tokens).
+Ditt åtkomsttoken upphör att gälla efter ett tag. Information om hur du uppdaterar dina åtkomsttoken utan att användarna måste autentiseras på nytt med din app finns på sidan om att [uppdatera token för identitetsprovider](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

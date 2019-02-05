@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: ace77b8a15ace71b5b372564bc10c6f4845e1482
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: files
+ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527226"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475717"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montera en Azure-filresurs via SMB med macOS
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras med SMB-3 protokollet, som är branschstandard, av macOS El Capitan 10.11+. Den här artikeln visar två olika sätt att montera en Azure-filresurs på macOS: med hjälp av användargränssnittet Finder och med terminalen.
@@ -32,28 +32,28 @@ ms.locfileid: "39527226"
 
 * **Lagringskontonyckel**: Om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
 
-* **Kontrollera att port 445 är öppen**: SMB kommunicerar via TCP-port 445. Kontrollera att brandväggen på klientdatorn (Mac) inte blockerar TCP-port 445.
+* **Se till att port 445 är öppen**: SMB kommunicerar via TCP-port 445. Kontrollera att brandväggen på klientdatorn (Mac) inte blockerar TCP-port 445.
 
 ## <a name="mount-an-azure-file-share-via-finder"></a>Montera en Azure-filresurs via Finder
-1. **Öppna Finder**: Som standard är Finder redan öppet på macOS, men du kan kontrollera att det är det för tillfället markerade programmet genom att klicka på "ikonen med macOS-ansiktet" i Dock:  
+1. **Öppna Finder**: Som standard är Finder redan öppet på macOS, men du kan kontrollera att det är det för tillfället valda programmet genom att klicka på ”ikonen med macOS-ansiktet” i Dock:  
     ![ikonen med macOS-ansiktet](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Välj "Anslut till server" från menyn "Gå"**: Med hjälp av UNC-sökvägen från [krav](#preq) konverterar du de första dubbla omvända snedstrecken (`\\`) till `smb://` och alla andra omvända snedstreck (`\`) till snedstreck (`/`). Länken bör se ut ungefär så här: ![Dialogrutan "Anslut till server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Välj ”Anslut till Server” från menyn ”Gå”**: Med hjälp av UNC-sökvägen från [krav](#preq) konverterar du de första dubbla omvända snedstrecken (`\\`) till `smb://` och alla andra omvända snedstreck (`\`) till snedstreck (`/`). Din länk bör se ut så här: ![Dialogrutan ”Anslut till server”](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
-3. **Använd lagringskontonamnet och lagringskontonyckeln när du tillfrågas om användarnamn och lösenord**: När du klickar på "Anslut" i dialogrutan "Anslut till server" uppmanas du att ange ett användarnamn och lösenord (det kommer att vara ifyllt automatiskt med ditt macOS-användarnamn). Du har möjlighet att lägga till ditt lagringskontonamnet/lagringskontonyckel i din nyckelring för macOS.
+3. **Använd lagringskontonamnet och lagringskontonyckeln när du tillfrågas om användarnamn och lösenord**: När du klickar på ”Anslut” i dialogrutan ”Anslut till server” uppmanas du att ange ett användarnamn och lösenord (det kommer att fyllas i automatiskt med ditt macOS-användarnamn). Du har möjlighet att lägga till ditt lagringskontonamnet/lagringskontonyckel i din nyckelring för macOS.
 
-4. **Använd Azure-filresursen som du vill**: När du har ersatt resursnamnet och lagringskontonyckeln med användarnamnet och lösenordet så monteras resursen. Du kan använda det här på samma sätt som du vanligtvis använder en lokal mapp/filresurs, inklusive att dra och släppa filer till filresursen:
+4. **Använd Azure-filresursen enligt önskemål**: När du har ersatt resursnamnet och lagringskontonyckeln med användarnamnet och lösenordet monteras resursen. Du kan använda det här på samma sätt som du vanligtvis använder en lokal mapp/filresurs, inklusive att dra och släppa filer till filresursen:
 
     ![En ögonblicksbild av en monterad Azure-filresurs](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>Montera en Azure-filresurs via Terminal
-1. Ersätt `<storage-account-name>` med namnet på ditt lagringskonto. Ange lagringskontonyckeln som lösenord när du uppmanas att ange lösenord. 
+1. Ersätt `<storage-account-name>` med namnet på ditt lagringskonto. Ange lagringskontonyckeln som lösenord när du uppmanas att ange lösenord. 
 
     ```
     mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
     ```
 
-2. **Använd Azure-filresursen som du vill**: Azure-filresursen monteras på monteringspunkten som angavs av det föregående kommandot.  
+2. **Använd Azure-filresursen enligt önskemål**: Azure-filresursen monteras på den monteringspunkt som angavs av det föregående kommandot.  
 
     ![En ögonblicksbild av den monterade Azure-filresursen](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 

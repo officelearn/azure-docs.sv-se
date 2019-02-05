@@ -6,15 +6,15 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469856"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297114"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Välj mellan Azure-meddelandetjänster – Event Grid, Event Hubs och Service Bus
 
@@ -97,9 +97,10 @@ I andra fall kan du koppla ihop dem för att skapa en händelse och datapipeline
 ![Översikt över strömmad data](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Nästa steg
+Se följande artiklar: 
 
-* Mer information om Azure-meddelandetjänsterna som finns i blogginlägget [Händelser, datapunkter och meddelanden – Välja rätt Azure-meddelandetjänst för dina data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
-* En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Kom igång med Event Grid genom att läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
-* Kom igång med Event Hubs genom att läsa [Skapa ett namnområde för Event Hubs och en händelsehubb med hjälp av Azure Portal](../event-hubs/event-hubs-create.md).
-* Kom igång med Service Bus genom att läsa [Skapa ett namnområde för Service Bus med hjälp av Azure Portal](../service-bus-messaging/service-bus-create-namespace-portal.md).
+- [Händelser, datapunkter och meddelanden – välja rätt Azure-meddelandetjänsten för dina data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
+- [Storage-köer och Service Bus-köer – jämförelser och skillnader](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- Kom igång med Event Grid genom att läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+- Kom igång med Event Hubs genom att läsa [Skapa ett namnområde för Event Hubs och en händelsehubb med hjälp av Azure Portal](../event-hubs/event-hubs-create.md).
+- Kom igång med Service Bus genom att läsa [Skapa ett namnområde för Service Bus med hjälp av Azure Portal](../service-bus-messaging/service-bus-create-namespace-portal.md).

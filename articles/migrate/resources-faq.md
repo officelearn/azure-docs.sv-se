@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2c89780722e1f3038f99ab0a4c85cd2d2ecbe624
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079264"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699493"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -108,7 +108,7 @@ Agentbaserad identifiering är ett alternativ som är tillgängligt utöver inst
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Skulle det finnas en prestandaförsämring på analyserade ESXi värdmiljön?
 
-I fall med den [en metod för identifiering av tid](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), för att samla in prestandadata, statistiknivån i vCenter-servern måste vara inställd på 3. Ange värdet till den här nivån skulle samla in ett stort antal felsökning av data som lagras i vCenter Server-databas. Det kan därför orsaka vissa prestandaproblem på vCenter-servern. Det skulle vara ska påverkas minimalt på ESXi-värden.
+I fall med den [en metod för identifiering av tid](https://docs.microsoft.com/azure/migrate/concepts-collector), för att samla in prestandadata, statistiknivån i vCenter-servern måste vara inställd på 3. Ange värdet till den här nivån skulle samla in ett stort antal felsökning av data som lagras i vCenter Server-databas. Det kan därför orsaka vissa prestandaproblem på vCenter-servern. Det skulle vara ska påverkas minimalt på ESXi-värden.
 
 Vi har introducerat kontinuerlig profilering av prestandadata (som finns i förhandsversion). Med kontinuerlig profilering finns inte längre behöver ändra vCenter Server statistiknivån att göra en utvärdering för prestandabaserad. Insamlingsprogrammet kommer nu att profilera de lokala datorerna för att mäta prestandadata för de virtuella datorerna. Detta skulle ha nästan noll prestandapåverkan på ESXi-värdar och på vCenter-servern.
 

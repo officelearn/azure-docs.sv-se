@@ -6,19 +6,19 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: bcab24334c1ee4e47061ce6ea28bd60039e17b3f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 9ab0f4128e163ca887cf8f03425e33f3fbb6f01a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239037"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221988"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snabbstart: Skapa en app för att känna igen känslor i ansikten på en bild.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snabbstart: Skapa en app för att känna igen känslor i ansikten i en bild.
 
 > [!IMPORTANT]
 > Känslo-API:et blir inaktuellt den 15 februari 2019. Funktionen för känsloigenkänning är nu allmänt tillgänglig som en del av [ansikts-API:et](https://docs.microsoft.com/azure/cognitive-services/face/). 
@@ -26,7 +26,7 @@ ms.locfileid: "48239037"
 Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med hjälp av [metoden Recognize för Känslo-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med Ruby för att känna igen känslor som uttrycks av en eller flera personer i en bild.
 
 ## <a name="prerequisite"></a>Krav
-* Få din kostnadsfria prenumerationsnyckel [här](https://azure.microsoft.com/try/cognitive-services/)
+* Hämta din kostnadsfria prenumerationsnyckel [här](https://azure.microsoft.com/try/cognitive-services/)
 
 ## <a name="recognize-emotions-ruby-example-request"></a>Exempelbegäran för känsloigenkänning med Ruby
 

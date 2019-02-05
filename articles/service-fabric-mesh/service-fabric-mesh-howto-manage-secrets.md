@@ -3,18 +3,18 @@ title: Hantera Azure Service Fabric Mesh-programhemligheter | Microsoft Docs
 description: Hantera programhemligheter så att du på ett säkert sätt kan skapa och distribuera ett Service Fabric Mesh-program.
 services: service-fabric-mesh
 keywords: secrets
-author: aljo
+author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: d92726ebc2cd4c6c44afdb2d2a9f53ab5441ac32
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891969"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236759"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Hantera Service Fabric Mesh-programhemligheter
 Service Fabric Mesh stöder hemligheter som Azure-resurser. En Service Fabric Mesh-hemlighet kan vara valfri känslig textinformation, till exempel lagringsanslutningssträngar, lösenord eller andra värden som bör lagras och överföras på ett säkert sätt. Den här artikeln visar hur du använder Säker lagringstjänst i Service Fabric för att distribuera och hantera hemligheter.
@@ -183,7 +183,7 @@ Följande är ett exempel på hur du deklarerar Mesh-hemlighets-/värderesurser 
 
 ## <a name="modify-mesh-application-to-reference-mesh-secret-values"></a>Ändra Mesh-programmet så att det refererar till Mesh-hemlighetsvärden
 Service Fabric Mesh-program måste känna till följande två strängar för att kunna använda hemlighetsvärden i Säker lagringstjänst:
-1. Micrsoft.ServiceFabricMesh/Secrets.name innehåller namnet på filen och kommer att innehålla hemlighetsvärdet i klartext.
+1. Microsoft.ServiceFabricMesh/Secrets.name innehåller namnet på filen och kommer att innehålla hemlighetsvärdet i klartext.
 2. Windows- eller Linux-miljövariabeln ”Fabric_SettingPath” innehåller katalogsökvägen där filer som innehåller hemlighetsvärden i Säker lagringstjänst kommer att vara tillgängliga. Den är ”C:\Settings” för Mesh-program i Windows och ”/var/settings” i Linux.
 
 ## <a name="deploy-or-use-a-rolling-upgrade-for-mesh-application-to-consume-secret-values"></a>Distribuera eller använda en löpande uppgradering för Mesh-programmet så att det använder hemlighetsvärden

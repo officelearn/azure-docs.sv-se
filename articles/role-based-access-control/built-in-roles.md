@@ -15,17 +15,17 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 23fab567fc2fdd5c5c8f3c5d173a5201d3322f81
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512558"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699273"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
 
-De inbyggda rollerna är alltid under utveckling. Hämta de senaste rolldefinitionerna för [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) eller [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+De inbyggda rollerna är alltid under utveckling. Hämta de senaste rolldefinitionerna för [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Inbyggd rollbeskrivningar
 I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klicka på namnet på rollen för att se en lista över `Actions`, `NotActions`, `DataActions`, och `NotDataActions` för varje roll.

@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/01/2018
-ms.openlocfilehash: cab92539b5019d4807ddefb2b84279c844f53016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/25/2019
+ms.openlocfilehash: 589d3fa8c0ee8c8f374cd4f34f17401caa46d265
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721909"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462264"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en brandväggsregel på servernivå för din SQL-databas med hjälp av Azure-portalen
+# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en brandväggsregel på servernivå för din SQL-databas i Azure-portalen
 
 I den här snabbstarten går vi igenom hur du skapar en brandväggsregel på servernivå för en Azure SQL-databas så att du kan ansluta till den från en lokal resurs.
 
@@ -57,7 +57,7 @@ Följ de här stegen om du vill skapa en brandväggsregel på servernivå för d
    > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Välj **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
    >
 
-5. Välj **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
+5. Välj **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på SQL Database-servern skapas för din aktuella IP-adress.
 
 6. Stäng sidan **Brandväggsinställningar**.
 
@@ -66,7 +66,6 @@ Med hjälp av SQL Server Management Studio eller annat valfritt verktyg kan du n
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Spara de här resurserna om du vill gå till [nästa steg](#next-steps) och lära dig hur du ansluter och skickar frågor till din databas med ett antal olika metoder. Men om du vill ta bort de resurser som du skapade i den här snabbstarten utför du följande steg.
-
 
 1. På menyn till vänster i Azure-portalen klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
 2. På sidan med resursgrupper väljer du **Ta bort**, skriver **myResourceGroup** i textrutan och väljer sedan **Ta bort**.

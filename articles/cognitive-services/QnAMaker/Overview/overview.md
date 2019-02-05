@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: bd859183a13e0f8a21cdd2eabb464b718e949464
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1295d071fa3ad99aabd2649f7b7e0b7fe1f86584
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212224"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226867"
 ---
 # <a name="what-is-qna-maker"></a>Vad är QnA Maker?
 
@@ -31,9 +31,9 @@ Den lättanvända [webbportalen](https://qnamaker.ai) gör att du kan skapa, han
 
 Med en QnA Maker får du två nyckeltjänster för data:
 
-* **Extrahering**: strukturerade data med frågor och svar extraheras från strukturerade och halvstrukturerade [datakällor](../Concepts/data-sources-supported.md) som Vanliga frågor och svar samt produkthandböcker. Den här extraheringen kan göras som en del av [skapandet](https://aka.ms/qnamaker-docs-createkb) av KB eller senare som en del av redigeringsprocessen.
+* **Extrahering**: Strukturerade data med frågor och svar extraheras från strukturerade och halvstrukturerade [datakällor](../Concepts/data-sources-supported.md) som Vanliga frågor och svar samt produkthandböcker. Den här extraheringen kan göras som en del av [skapandet](https://aka.ms/qnamaker-docs-createkb) av KB eller senare som en del av redigeringsprocessen.
 
-* **Matchning**: när kunskapsbasen har [tränats och testats](https://aka.ms/qnamaker-docs-trainkb) [publicerar](https://aka.ms/qnamaker-docs-publishkb) du den. Det här aktiverar en slutpunkt i din QnA Maker-kunskapsbas som du sedan kan använda i din robot eller klientapp. Den här slutpunkten accepterar en användarfråga och svarar med det bästa svaret i kunskapsbasen samt förtroendepoäng för matchningen.
+* **Matchning**: När kunskapsbasen har [tränats och testats](https://aka.ms/qnamaker-docs-trainkb) [publicerar](https://aka.ms/qnamaker-docs-publishkb) du den. Det här aktiverar en slutpunkt i din QnA Maker-kunskapsbas som du sedan kan använda i din robot eller klientapp. Den här slutpunkten accepterar en användarfråga och svarar med det bästa svaret i kunskapsbasen samt förtroendepoäng för matchningen.
 
 ```JSON
 {
@@ -57,9 +57,9 @@ Med en QnA Maker får du två nyckeltjänster för data:
 
 QnA Maker-arkitekturen består av följande två komponenter:
 
-1. **QnA Maker-hanteringstjänster**: hanteringsfunktionerna för QnA Maker-kunskapsbasen inklusive det ursprungliga skapandet, uppdatering, träning och publicering. Des här aktiviteterna kan utföras via [portalen](https://qnamaker.ai) eller [hanterings-API:erna](https://aka.ms/qnamaker-v4-apis). 
+1. **QnA Maker-hanteringstjänster**: Hanteringsfunktionerna för QnA Maker-kunskapsbasen, vilket omfattar den ursprungliga genereringen, uppdateringen, träningen och publiceringen. Des här aktiviteterna kan utföras via [portalen](https://qnamaker.ai) eller [hanterings-API:erna](https://aka.ms/qnamaker-v4-apis). 
 
-2. **QnA Maker-data och körning**: Det här distribueras i Azure-prenumerationen i den angivna regionen. Ditt KB-innehåll lagras i [Azure Search](https://azure.microsoft.com/services/search/), och slutpunkten distribueras som en [apptjänst](https://azure.microsoft.com/services/app-service/). Du kan även välja att distribuera en [Application Insights](https://azure.microsoft.com/services/application-insights/)-resurs för analys.
+2. **Data och körning för QnA Maker**: Detta distribueras i din Azure-prenumeration i din angivna region. Ditt KB-innehåll lagras i [Azure Search](https://azure.microsoft.com/services/search/), och slutpunkten distribueras som en [apptjänst](https://azure.microsoft.com/services/app-service/). Du kan även välja att distribuera en [Application Insights](https://azure.microsoft.com/services/application-insights/)-resurs för analys.
 
 ![Arkitektur](../media/qnamaker-overview-learnabout/architecture.png)
 

@@ -10,18 +10,18 @@ ms.custom: seodec18
 ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: bb01db14cec73b8c5668915a9eaab5e7728724df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264368"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469132"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio är ett drag-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Tjänsten Machine Learning Studio publicerar modeller som webbtjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
@@ -39,10 +39,10 @@ Ingen programmering krävs. Det enda du behöver göra är att koppla samman dat
 
 > [!TIP]
 > Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
-> 
-> 
+>
+>
 
-![Diagram för Azure ML Studio: Skapa experiment, läs in data från flera källor, skriv in bedömda data, skriv modeller.][ml-studio-overview]
+![Azure Machine Learning-studiodiagram: Skapa experiment, läs in data från flera källor, skriv in bedömda data, skriv modeller.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Kom igång med Machine Learning Studio
 När du startar [Machine Learning Studio](https://studio.azureml.net) kommer du att se **startsidan**. Härifrån kan du titta på dokumentation, videor, webbseminarier och hitta andra användbara resurser.
@@ -104,7 +104,7 @@ En modul är en algoritm som du kan tillämpa på dina data. Machine Learning St
 * [Linjär regression][linear-regression] – Skapar en linjär regressionsmodell baserad på brantaste lutningsmetoden online.
 * [Bedömningsmodell][score-model] – Bedömer en tränad klassificerings- eller regressionsmodell.
 
-Medan du skapar ett experiment kan välja bland alternativ från listan över tillgängliga moduler på arbetsytans vänstra sida.  
+Medan du skapar ett experiment kan välja bland alternativ från listan över tillgängliga moduler på arbetsytans vänstra sida.
 
 En modul kan ha en uppsättning parametrar som du kan använda för att konfigurera modulens interna algoritmer. När du väljer en modul på arbetsytan modulens visas modulens parametrar i fönstret **Egenskaper** på arbetsytans högra sida. Du kan ändra parametrarna i det här fönstret för att finjustera din modell.
 
@@ -162,7 +162,7 @@ När du har en tränad modell utvärderar du modellen med hjälp av återståend
 * **prov**: En del av en datauppsättning som är avsedd att representera helheten. Prover kan väljas slumpmässigt eller baserat på specifika funktioner i datauppsättningen.
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom att gå en [självstudie med stegvisa anvisningar](create-experiment.md) och genom att [bygga vidare på prover](sample-experiments.md).  
+Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom att gå en [självstudiekurs med stegvisa anvisningar](create-experiment.md) och genom att [bygga vidare på prover](sample-experiments.md).
 
 
 <!-- Module References -->

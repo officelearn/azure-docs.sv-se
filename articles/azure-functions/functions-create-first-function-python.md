@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 140fc870500054d0652b48bc602706398371fa8e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 631fc4e613311df9386084408ead625f6d018151
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039069"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911898"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Skapa din första Python-funktion i Azure (förhandsversion)
 
@@ -30,9 +30,9 @@ Följande steg kan användas på en Mac-, Windows- eller Linux-dator.
 
 Om du vill skapa och testa lokalt måste du:
 
-+ Installera [Python 3.6](https://www.python.org/downloads/)
++ Installera [Python 3.6](https://www.python.org/downloads/).
 
-+ Installera [Azure Functions Core Tools](functions-run-local.md#v2) version 2.2.70 eller senare
++ Installera [Azure Functions Core Tools](functions-run-local.md#v2) version 2.2.70 eller senare (kräver .NET Core 2.x SDK).
 
 Om du vill publicera och köra i Azure:
 

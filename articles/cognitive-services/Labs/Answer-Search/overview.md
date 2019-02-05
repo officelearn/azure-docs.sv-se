@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465924"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220203"
 ---
 # <a name="what-is-project-answer-search"></a>Vad är Project Answer Search?
 Project Answer Search API använder Bing v7-slutpunkten för att hämta svar på interrogativa frågor. En fråga som ”What is the circumference of the earth?” (Hur stor är jordens omkrets?) returnerar ett svar med faktauppgifter.  En fråga om en person, plats eller sak returnerar information om den entitet som identifieras av frågan. Dessa scenarier kan vara användbara i tillämpningar som konversationsrobotar, meddelandeappar, läsare osv.  
@@ -25,13 +25,13 @@ Frågor returnerar svar som beror på frågescenariot: webbplatser returneras al
 ## <a name="endpoint"></a>Slutpunkt
 För att hämta svar på en fråga eller information om en person skickar du en begäran till Answer Search API-slutpunkten. Använd sidhuvudena och URL-parametrarna för olika specifikationer.  Inkludera sidhuvudet *Ocp-Apim-Subscription-Key* med en giltig token.  Marknadsparametern krävs. För närvarande stöds endast marknaden `en-us`.
 
-Följande fråga hämtar svar på frågan: ”What is the circumference of the earth?” (Hur stor är jordens omkrets?)
+Följande fråga hämtar svar på frågan: ”Vad är jordens omkrets”?
 
 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 URL-parametern `q=` krävs för att ange objektet för sökningen.
 
@@ -39,7 +39,7 @@ URL-parametern `q=` krävs för att ange objektet för sökningen.
 
 Svaret innehåller HTTP-sidhuvuden, webbplatser, fakta och/eller entiteter.
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -236,7 +236,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## <a name="terms-of-use"></a>Användningsvillkor
 Project Answer Search och Project Video Trends är föremål för [kraven för användning och visning för Bing-sökning](use-display-requirements.md).

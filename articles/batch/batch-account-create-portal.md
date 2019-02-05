@@ -3,7 +3,7 @@ title: Skapa ett Batch-konto på Azure Portal | Microsoft Docs
 description: Lär dig hur du skapar ett Azure Batch-konto på Azure Portal för att köra storskaliga parallella arbetsbelastningar i molnet
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/18/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 89e41dc8e27cf39d9d0e6168dc7352267c321623
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724102"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460530"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -44,11 +44,11 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 
     a. **Kontonamn**: Det namn du väljer måste vara unikt i den Azure-region där kontot skapas (se **Plats** nedan). Kontonamnet får bara innehålla gemener eller siffror och måste vara mellan 3 och 24 tecken långt.
 
-    b. **Prenumeration**: Prenumerationen som Batch-kontot skapas i. Om du bara har en prenumeration väljs den som standard.
+    b. **Prenumeration**: Den prenumeration som Batch-kontot skapas i. Om du bara har en prenumeration väljs den som standard.
 
-    c. **Resursgrupp**: Välj en befintlig resursgrupp för ditt nya Batch-konto. Du kan också skapa en ny resursgrupp.
+    c. **Resursgrupp**: Välj en befintlig resursgrupp för ditt nya Batch-konto. Du kan även skapa en ny resursgrupp.
 
-    d. **Plats**: Azure-regionen som Batch-kontot skapas i. Endast de regioner som stöds av din prenumeration och resursgrupp visas som alternativ.
+    d. **Plats**: Den Azure-region som Batch-kontot skapas i. Endast de regioner som stöds av din prenumeration och resursgrupp visas som alternativ.
 
     e. **Lagringskonto** (valfritt): Ett Azure Storage-konto som du associerar med ditt Batch-konto. Detta rekommenderas för de flesta Batch-konton. För olika alternativ för lagringskonton, se [Översikt över Batch-funktionen](batch-api-basics.md#azure-storage-account). Välj ett befintligt lagringskonto på portalen eller skapa ett nytt om du vill.
 
@@ -65,7 +65,7 @@ När kontot har skapats kan du välja kontot för att komma åt dess inställnin
 
 ![Sidan för Batch-kontot på Azure Portal][account_blade]
 
-* **Batch-kontonamn, URL och nycklar**: När du utvecklar ett program med [Batch-API:erna](batch-apis-tools.md#azure-accounts-for-batch-development) behöver du en konto-URL och nyckel för att komma åt Batch-resurserna. (Batch har även stöd för Azure Active Directory-autentisering.)
+* **Batch-kontonamn, URL och nycklar**: När du utvecklar ett program med [Batch-API:er](batch-apis-tools.md#azure-accounts-for-batch-development) behöver du en konto-URL och en nyckel för att få åtkomst till dina Batch-resurser. (Batch har även stöd för Azure Active Directory-autentisering.)
 
     Om du vill visa åtkomstinformationen för Batch-kontot väljer du **Nycklar**.
 

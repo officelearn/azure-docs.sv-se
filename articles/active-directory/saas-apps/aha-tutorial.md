@@ -1,258 +1,228 @@
 ---
 title: 'Självstudier: Azure Active Directory-integrering med Aha! | Microsoft Docs'
-description: Lär dig mer om att konfigurera enkel inloggning mellan Azure Active Directory och Aha!.
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Aha!.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ad955d3d-896a-41bb-800d-68e8cb5ff48d
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/10/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 669932df7504d71da9b8c109672772a6371c5490
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 81cdde409841ad3f5952147a7d3ab2b1adbcbd59
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171209"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>Självstudier: Azure Active Directory-integrering med Aha!
 
-I den här självstudien får du lära dig hur du integrerar Aha! med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Aha! med Azure Active Directory (Azure AD).
+Integrering av Aha! med Azure AD medför följande fördelar:
 
-Integrera Aha! med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Aha!.
+* Du kan göra så att dina användare automatiskt loggas in på Aha! (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Aha!
-- Du kan aktivera användarna att automatiskt få loggat in på Aha! (Enkel inloggning) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Du behöver följande saker för att konfigurera Azure AD-integrering med Aha!:
 
-Konfigurera Azure AD-integrering med Aha!, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- An Aha! enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Aha!-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Lägger till Aha! från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-aha-from-the-gallery"></a>Lägger till Aha! från galleriet
-Konfigurera integreringen av Aha! i Azure AD som du behöver lägga till Aha! från galleriet i din lista över hanterade SaaS-appar.
+* Aha! stöder **SP**-initierad enkel inloggning
+* Aha! stöder **just-in-time**-användaretablering
 
-**Att lägga till Aha! Utför följande steg från galleriet:**
+## <a name="adding-aha-from-the-gallery"></a>Lägga till Aha! från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integrering av Aha! med Azure AD behöver du lägga till Aha! från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Utför följande steg för att lägga till Aha! från galleriet:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Appar][2]
-    
+    ![Azure Active Directory-knappen](common/select-azuread.png)
+
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Appar][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Aha!**.
+4. I sökrutan skriver du **Aha!**, väljer **Aha!** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Skapa en Azure AD-användare för testning](./media/aha-tutorial/tutorial_aha_search.png)
+     ![Aha! i resultatlistan](common/search-new-app.png)
 
-5. I resultatpanelen väljer **Aha!**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-    ![Skapa en Azure AD-användare för testning](./media/aha-tutorial/tutorial_aha_addfromgallery.png)
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Aha! baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Aha! upprättas.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Aha! baserat på en testanvändare som kallas ”Britta Simon”.
+Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för Aha!:
 
-För enkel inloggning att fungera, behöver Azure AD du veta vilka motsvarande användaren i Aha! är att en användare i Azure AD. Med andra ord en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Aha! måste upprättas.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Aha! ](#configure-aha-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Aha!-testanvändare](#create-aha-test-user)** – för att ha en motsvarighet för Britta Simon i Aha! som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-I Aha!, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD enkel inloggning med Aha!, måste du utföra följande byggblock:
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en Aha! Testa användare](#creating-an-aha-test-user)**  – du har en motsvarighet för Britta Simon i Aha! som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Aha!:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Aha!**-programintegrering och väljer **Enkel inloggning**.
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din Aha! programmet.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-**Konfigurera Azure AD enkel inloggning med Aha!, utför följande steg:**
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. I Azure-portalen på den **Aha!** program-integrering-sidan klickar du på **enkel inloggning**.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning][4]
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/aha-tutorial/tutorial_aha_samlbase.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-3. På den **Aha! Domän och URL: er** avsnittet, utför följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/aha-tutorial/tutorial_aha_url.png)
+    ![Aha!-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<companyname>.aha.io/session/new`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.aha.io/session/new`
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<companyname>.aha.io`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.aha.io`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Aha! Klienten supportteamet](https://www.aha.io/company/contact) att hämta dessa värden. 
- 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för Aha! ](https://www.aha.io/company/contact) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning](./media/aha-tutorial/tutorial_aha_certificate.png) 
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-5. Klicka på knappen **Spara**.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Konfigurera enkel inloggning](./media/aha-tutorial/tutorial_general_400.png)
+6. I avsnittet **Konfigurera Aha!** kopierar du lämpliga URL:er enligt dina behov.
 
-6. Logga in på din Aha i ett annat webbläsarfönster! företagets webbplats som administratör.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-7. Klicka på menyn längst upp **inställningar**.
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-aha-single-sign-on"></a>Konfigurera enkel inloggning för Aha!
+
+1. I ett nytt webbläsarfönster loggar du in på din Aha!-företagsplats som administratör.
+
+2. På menyn längst upp klickar du på **Inställningar**.
 
     ![Inställningar](./media/aha-tutorial/IC798950.png "Inställningar")
 
-8. Klicka på **konto**.
-   
-    ![Profilen](./media/aha-tutorial/IC798951.png "profil")
+3. Klicka på **Konto**.
+  
+    ![Profil](./media/aha-tutorial/IC798951.png "Profil")
 
-9. Klicka på **säkerhet och enkel inloggning**.
-   
-    ![Säkerhet och enkel inloggning](./media/aha-tutorial/IC798952.png "säkerhet och enkel inloggning")
+4. Klicka på **Säkerhet och enkel inloggning**.
 
-10. I **enkel inloggning** avsnittet som **identitetsprovidern**väljer **SAML2.0**.
-   
-    ![Säkerhet och enkel inloggning](./media/aha-tutorial/IC798953.png "säkerhet och enkel inloggning")
+    ![Säkerhet och enkel inloggning](./media/aha-tutorial/IC798952.png "Säkerhet och enkel inloggning")
 
-11. På den **enkel inloggning** configuration utför följande steg:
-    
+5. I avsnittet **Enkel inloggning** anger du **Identitetsprovider** till **SAML2.0**.
+
+    ![Säkerhet och enkel inloggning](./media/aha-tutorial/IC798953.png "Säkerhet och enkel inloggning")
+
+6. På sidan för konfiguration av **Enkel inloggning** utför du följande steg:
+
     ![Enkel inloggning](./media/aha-tutorial/IC798954.png "Enkel inloggning")
-    
-       a. I den **namn** textrutan anger du ett namn för din konfiguration.
 
-       b. För **konfigurera med hjälp av**väljer **metadatafil**.
-   
-       c. Om du vill ladda upp din hämtade metadatafilen, klickar du på **Bläddra**.
-   
-       d. Klicka på **Uppdatera**.
+    a. I textrutan **Namn** skriver du ett namn för konfigurationen.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    b. För **Configure using** (Konfigurera med hjälp av) väljer du **Metadata File** (Metadatafil).
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    c. För att ladda upp den nedladdade metadatafilen klickar du på **Bläddra**.
+
+    d. Klicka på **Uppdatera**.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/aha-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/aha-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/aha-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/aha-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-an-aha-test-user"></a>Skapa en Aha! testanvändare
 
-Aktivera Azure AD-användare att logga in på Aha!, de måste etableras i Aha!.  
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-När det gäller Aha!, etablering är en automatisk uppgift. Det finns inga uppgift åt dig.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Aha!.
 
-Användare skapas automatiskt om det behövs under det första enkla inloggning för försöket.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Aha!**.
 
->[!NOTE]
->Du kan använda andra Aha! Verktyg för att skapa användaren-konto eller API: er som tillhandahålls av Aha! att tillhandahålla AAD-användarkonton.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+2. I programlistan väljer du **Aha!**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Aha!.
+    ![Länken för Aha! i programlistan](common/all-applications.png)
 
-![Tilldela användare][200] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-**Att tilldela Aha Britta Simon!, utför följande steg:**
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Tilldela användare][201] 
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-2. I listan med program väljer **Aha!**.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Konfigurera enkel inloggning](./media/aha-tutorial/tutorial_aha_app.png) 
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Tilldela användare][202] 
+### <a name="create-aha-test-user"></a>Skapa testanvändare för Aha!
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+I det här avsnittet skapas en användare som heter Britta Simon i Aha!. Aha! stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Aha! skapas en ny efter autentisering.
 
-    ![Tilldela användare][203]
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-Öppna panelen om du vill testa dina inställningar för enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen för Aha! i åtkomstpanelen bör du automatiskt loggas in på Aha! som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/aha-tutorial/tutorial_general_01.png
-[2]: ./media/aha-tutorial/tutorial_general_02.png
-[3]: ./media/aha-tutorial/tutorial_general_03.png
-[4]: ./media/aha-tutorial/tutorial_general_04.png
-
-[100]: ./media/aha-tutorial/tutorial_general_100.png
-
-[200]: ./media/aha-tutorial/tutorial_general_200.png
-[201]: ./media/aha-tutorial/tutorial_general_201.png
-[202]: ./media/aha-tutorial/tutorial_general_202.png
-[203]: ./media/aha-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -6,18 +6,18 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c748f58028d747b2d963d6ac28ea2661e41ec68c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830761"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184520"
 ---
-# <a name="quickstart-making-your-first-autosuggest-query"></a>Snabbstart: Skapa din första fråga för automatiska förslag
+# <a name="quickstart-making-your-first-autosuggest-query"></a>Snabbstart: Köra din första fråga för automatiska förslag
 
 Innan du kan göra ditt första anrop måste du skaffa en prenumerationsnyckel för Cognitive Services. Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 

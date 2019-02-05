@@ -3,19 +3,19 @@ title: Azure AD SSPR från Windows 10-inloggningsskärmen
 description: I den här självstudien aktiverar du lösenordsåterställning på inloggningsskärmen för Windows 10 för att minska antalet samtal till supportavdelningen.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430680"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474878"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -28,11 +28,11 @@ I den här självstudien gör du så att användare kan återställa sina lösen
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* April 2018-uppdateringen för Windows 10 eller en senare klient som är:
-   * [Azure AD-ansluten dator](../device-management-azure-portal.md) eller
-   * [Hybrid Azure AD-ansluten dator](../device-management-hybrid-azuread-joined-devices-setup.md) med en nätverksanslutning till en domänkontrollant.
-* Återställning av lösenord för självbetjäning i Azure AD måste vara aktiverat.
-* Om dina Windows 10-datorer finns bakom en proxyserver eller brandvägg ska HTTPS-trafik (443) till `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com` tillåtas.
+* Du måste köra minst Windows 10, versionen med uppdatering från april 2018, och enheterna måste vara antingen:
+   * [Azure AD-anslutna](../device-management-azure-portal.md) eller
+   * [Hybrid Azure AD-anslutna](../device-management-hybrid-azuread-joined-devices-setup.md) med en nätverksanslutning till en domänkontrollant.
+* Du måste aktivera självbetjäning av lösenordsåterställning med Azure AD.
+* Om dina Windows 10-enheter är bakom en proxyserver eller en brandvägg måste du lägga till URL:erna `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com` i din lista över URL:er med tillåten HTTPS-trafik (port 443).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Konfigurera länken Återställ lösenord med Intune
 

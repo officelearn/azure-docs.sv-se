@@ -3,20 +3,20 @@ title: Snabbstart för att lägga till en gästanvändare med PowerShell för Az
 description: I den här snabbstarten får du lära dig hur du använder PowerShell för att skicka en inbjudan till en extern Azure AD B2B-samarbetsanvändare.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: f0dc63d84ec7583e721b116b450c890d46524622
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 28a2177089fb3c93670d61da62815ff67bfd544d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986570"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094809"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Snabbstart: Lägg till en gästanvändare med PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Snabbstart: Lägga till en gästanvändare med PowerShell
 
 Det finns många sätt att bjuda in externa partners till dina appar och tjänster med Azure Active Directory B2B-samarbete. I den förra snabbstarten såg du hur du lägger till gästanvändare direkt i Azure Active Directory-administratörsportalen. Du kan också använda PowerShell för att lägga till gästanvändare antingen ett i taget eller i grupp. I den här snabbstarten får du använda kommandot New-AzureADMSInvitation för att lägga till en gästanvändare till din Azure-klientorganisation.
 
@@ -29,29 +29,29 @@ Se till att du installerar den senaste versionen av Azure AD PowerShell för Gra
 
 Kontrollera först vilka moduler du har installerat. Öppna Windows PowerShell som upphöjd användare (Kör som administratör) och kör följande kommando:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Om modulen AzureADPreview visas utan meddelande som anger att det finns en senare version så är du klar. Annars gör du något av följande, baserat på utdata:
 
 - Om inga resultat returneras kör du följande kommando för att installera AzureADPreview-modulen:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Om enbart AzureAD-modulen visas i resultaten så kör du följande kommandon för att installera AzureADPreview-modulen: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Om endast AzureADPreview-modulen visas i resultaten, men du får ett meddelande som anger att det finns en senare version så uppdaterar du modulen genom att köra följande kommandon: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Du får eventuellt en uppmaning om att installera modulen från en icke betrodd lagringsplats. Det här inträffar om du inte tidigare angett PSGallery-lagringsplatsen som en betrodd lagringsplats. Installera modulen genom att trycka på **Y**.
 
@@ -106,4 +106,4 @@ Exempel: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmicros
 I den här snabbstarten har du bjudit in och lagt till en enda gästanvändare till din katalog med PowerShell. Nu får du lära dig hur du bjuder in gästanvändare gruppvis med PowerShell.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Bjud in Azure AD B2B-samarbetsanvändare i grupp](tutorial-bulk-invite.md)
+> [Självstudier: Massinbjuda Azure AD B2B-samarbetsanvändare](tutorial-bulk-invite.md)

@@ -6,18 +6,18 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb5d03e2cb3c11daf7a94966fda46345ee910ded
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f443eb13650483bc3ee63dad59cc40b8042bc35b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125110"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222822"
 ---
-# <a name="example-how-to-add-faces"></a>Exempel: så här lägger du till ansikten
+# <a name="example-how-to-add-faces"></a>Exempel: Så här lägger du till ansikten
 
 Den här guiden visar den bästa metoden för att lägga till stora antal personer och ansikten i en PersonGroup.
 Samma strategi gäller även för FaceList och LargePersonGroup.
@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step-2-authorize-the-api-call"></a>Steg 2: Auktorisera API-anrop
+## <a name="step-2-authorize-the-api-call"></a>Steg 2: Auktorisera API-anropet
 
 När du använder klientbiblioteket skickas prenumerationsnyckeln i konstruktorn för klassen FaceServiceClient. Exempel:
 
@@ -68,7 +68,7 @@ När du använder klientbiblioteket skickas prenumerationsnyckeln i konstruktorn
 FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
-Prenumerationsnyckeln kan hämtas från Marketplace-sidan på Azure-portalen. Se [prenumerationer](https://www.microsoft.com/cognitive-services/en-us/sign-up).
+Prenumerationsnyckeln kan hämtas från Marketplace-sidan på Azure-portalen. Se [Prenumerationer](https://www.microsoft.com/cognitive-services/en-us/sign-up).
 
 ## <a name="step-3-create-the-persongroup"></a>Steg 3: Skapa PersonGroup
 

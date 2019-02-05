@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 63a6daa7c409aeb77b07e98cc0108b727f263d4c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453281"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457215"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 
@@ -26,6 +26,7 @@ Du kan definiera måldatabas eller grupper med Azure SQL-databaser där jobbet s
 Ett jobb hanterar uppgiften att logga in på måldatabasen. Du definierar, underhåller och bevarar även Transact-SQL-skript som ska köras över en grupp Azure SQL-databaser.
 
 Det finns flera scenarier när du kan använda jobbautomatisering:
+
 - Automatisera hanteringsuppgifter och schemalägga dem sedan att köras varje veckodag, efter kontorstid osv.
   - Distribuera schemaändringar, hantering av autentiseringsuppgifter, insamling av prestandadata eller insamling av telemetri för klientorganisation (kund).
   - Uppdatera referensdata (information som är gemensam över alla databaser), läsa in data från Azure Blob-lagring.
@@ -39,14 +40,15 @@ Det finns flera scenarier när du kan använda jobbautomatisering:
  - Skapa jobb som läser in data från eller till databaser med hjälp av SQL Server Integration Services (SSIS).
 
 Följande tekniker för jobbschemaläggning är tillgängliga i Azure SQL Database:
-- **SQL Agent-jobb** är en klassisk och beprövad komponent för SQL Server-jobbschemaläggning som är tillgänglig i hanterad instans. SQL Agent-jobb är inte tillgängliga i singleton-databaser.
+
+- **SQL Agent-jobb** är en klassisk och beprövad komponent för SQL Server-jobbschemaläggning som är tillgänglig i hanterad instans. SQL Agent-jobb är inte tillgängliga i enkla databaser.
 - **Elastic Database-jobb** är en tjänst för jobbschemaläggning som kör anpassade jobb på en eller flera Azure SQL-databaser.
 
-Det finns vissa skillnader mellan SQL Agent (tillgängligt lokalt och som en del av SQL Database Managed Instance) och Database Elastic-jobbagenten (tillgänglig för SQL-singleton-databas och SQL Data Warehouse).
+Det finns vissa skillnader mellan SQL Agent (tillgängligt lokalt och som en del av SQL Database Managed Instance) och Database Elastic-jobbagenten (tillgänglig för enkla databaser i Azure SQL-databaser och databaser i SQL Data Warehouse).
 
 |  |Elastiska jobb  |SQL Agent |
 |---------|---------|---------|
-|Omfång     |  Vilket antal som helst av Azure SQL-databaser och/eller informationslagerdatabaser i samma Azure-moln som jobbagenten. Målen kan finnas i olika logiska servrar, prenumerationer och/eller regioner. <br><br>Målgrupper kan bestå av enskilda databaser eller informationslagerdatabaser, eller alla databaser i en server, pool eller shardkarta (dynamiskt uppräknade vid jobbkörningen). | Valfri enskild databas i samma SQL Server-instans som SQL-agenten. |
+|Omfång     |  Vilket antal som helst av Azure SQL-databaser och/eller informationslagerdatabaser i samma Azure-moln som jobbagenten. Målen kan finnas på olika SQL Database-servrar, prenumerationer och/eller regioner. <br><br>Målgrupper kan bestå av enskilda databaser eller informationslagerdatabaser, eller alla databaser i en server, pool eller shardkarta (dynamiskt uppräknade vid jobbkörningen). | Valfri enskild databas i samma SQL Server-instans som SQL-agenten. |
 |API:er och verktyg som stöds     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 ## <a name="sql-agent-jobs"></a>SQL Agent-jobb
@@ -54,6 +56,7 @@ Det finns vissa skillnader mellan SQL Agent (tillgängligt lokalt och som en del
 SQL Agent-jobb är angivna serier med T-SQL-skript mot din databas. Använd jobb för att definiera en administrativ uppgift som kan köras en eller flera gånger och övervakas lyckad eller misslyckad status.
 Ett jobb kan köras på en lokal server eller på flera fjärrservrar. SQL Agent-jobb är en intern databasmotorkomponent som körs i tjänsten för hanterad instans.
 Det finns flera viktiga begrepp vad gäller SQL Agent-jobb:
+
 - **Jobbsteg** är en uppsättning med ett eller flera steg som ska köras i jobbet. För varje jobbsteg kan du definiera strategi för återförsök och vilken åtgärd som ska vidtas om jobbsteget lyckas eller misslyckas.
 - **Scheman** definierar när jobbet ska köras.
 - **Meddelanden** gör att du kan definiera regler som används för att meddela operatörer via e-post när jobbet är klart.
@@ -64,11 +67,13 @@ SQL Agent-jobbsteg är sekvenser med åtgärder som SQL Agent ska köra. Varje s
 Med SQL Agent kan du skapa olika typer av jobbsteg, till exempel Transact-SQL-jobbsteg som kör en enda Transact-SQL-batch mot databasen, eller OS-kommando-/PowerShell-steg som kan köra anpassade OS-skript, SSIS-jobbsteg som du kan använda till att läsas in data med hjälp av SSIS-körningen eller [replikeringssteg](sql-database-managed-instance-transactional-replication.md) som kan publicera ändringar från din databas till andra databaser.
 
 [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) är en databasmotorfunktion som gör att du kan publicera ändringar som görs i en eller flera tabeller i en databas och publicera/distribuera dem till en uppsättning prenumerantdatabaser. Publicering av ändringarna implementeras med hjälp av följande typer av SQL Agent-jobbsteg:
+
 - Transaktionsloggläsare.
 - Ögonblicksbild.
 - Distributör.
 
 Andra typer av jobbsteg stöds för närvarande inte, däribland:
+
 - Jobbsteg för sammanslagen replikering stöds inte.
 - Köläsare stöds inte.
 - Analysis Services stöds inte
@@ -77,6 +82,7 @@ Andra typer av jobbsteg stöds för närvarande inte, däribland:
 
 Ett schema anger när ett jobb körs. Fler än ett jobb kan köras på samma schema, och fler än ett schema kan tillämpas på samma jobb.
 Ett schema kan definiera följande villkor för den tid då ett jobb körs:
+
 - När instansen startas om (eller när SQL Server Agent startas). Jobbet aktiveras efter varje redundans.
 - En gång vid ett specifikt datum och en specifik tid, vilket är användbart för fördröjd körning av ett jobb.
 - Enligt ett återkommande schema.
@@ -215,7 +221,7 @@ När en jobbagent skapas så skapas ett schema, tabeller och en roll som heter *
 
 En *målgrupp* definierar den uppsättning databaser som ett jobbsteg ska köras mot. En målgrupp kan innehålla vilket antal och vilken kombination som helst av följande:
 
-- **Azure SQL server** – om en server anges utgör alla databaser som finns i servern vid tidpunkten för jobbkörningen en del av gruppen. Huvuddatabasens autentiseringsuppgifter måste anges så att gruppen kan räknas upp och uppdateras före jobbkörning.
+- **SQL Database-server** – om en server anges utgör alla databaser som finns i servern vid tidpunkten för jobbkörningen en del av gruppen. Huvuddatabasens autentiseringsuppgifter måste anges så att gruppen kan räknas upp och uppdateras före jobbkörning.
 - **Elastisk pool** – om en elastisk pool anges utgör alla databaser som finns i den elastiska poolen vid tidpunkten för jobbkörningen en del av gruppen. Vad gäller en server måste huvuddatabasens autentiseringsuppgifter anges så att gruppen kan uppdateras före jobbkörningen.
 - **Enskild databas** – ange en eller flera enskilda databaser som ska utgöra en del av gruppen.
 - **Shardkarta** – databaser för en shardkarta.
@@ -258,6 +264,7 @@ Resultatet av stegen i ett jobb på varje måldatabas registreras i detalj, och 
 #### <a name="job-history"></a>Jobbhistorik
 
 Jobbkörningshistorik sparas i *jobbdatabasen*. Ett systemrensningsjobb rensar körningshistorik som är äldre än 45 dagar. Om du vill ta bort historik som är äldre än 45 dagar anropar du den lagrade proceduren **sp_purge_history** i *jobbdatabasen*.
+
 ### <a name="agent-performance-capacity-and-limitations"></a>Agentprestanda, kapacitet och begränsningar
 
 Elastiska jobb använder minimalt med beräkningsresurser medan de väntar på att jobb med lång körningstid blir klara.

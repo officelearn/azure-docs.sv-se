@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/15/2017
+ms.date: 01/30/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 1580171c0e363da9407c2f5f5bf4da7736119a39
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 4ec9a891777cc8d33b1256a8eb68ea814563b8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074997"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471104"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Jämför B2B-samarbete och B2C i Azure Active Directory
 
@@ -32,7 +32,7 @@ B2B-samarbetsfunktioner |     Azure AD B2C-fristående erbjudande
 -------- | --------
 Avsett för: Organisationer som vill kunna autentisera användare från en partnerorganisation oavsett identitetsprovider. | Avsett för: Att bjuda in kunder för dina mobila och webbappar oavsett om det rör sig om individuella, institutionella eller organisationella kunder till din Azure AD.
 Identiteter som stöds: Anställda med arbets- eller skolkonton, partner med arbets- eller skolkonton eller valfri e-postadress. Stödjer snart direkt federation.  | Identiteter som stöds: Konsumentanvändare med lokala programkonton (e-postadresser eller användarnamn) eller någon social identitet med direkt federation som stöds.
-Vilken katalog som partneranvändare finns i: Partneranvändare från den externa organisationen hanteras i samma katalog som anställda, men kommenteras särskilt. De kan hanteras på samma sätt som anställda, kan läggas till i samma grupper och så vidare  | Vilken katalog som kundens användarentiteter finns i: I programkatalogen. Hanteras separat från organisationens anställda och partnerkatalogen (i förekommande fall.
+Externa användare hanteras i samma katalog som anställda, men kommenteras särskilt. De kan hanteras på samma sätt som anställda, kan läggas till i samma grupper och så vidare  | Externa användare hanteras i programkatalogen. De hanteras separat från organisationens anställda och partnerkatalogen (i förekommande fall).
 Enkel inloggning (SSO) för alla Azure AD-anslutna appar stöds. Du kan till exempel ge åtkomst till Office 365 eller lokala appar och till andra SaaS-appar som Salesforce eller Workday.  |  Stöd för enkel inloggning till kundägda appar i Azure AD B2C-klientorganisationer. Enkel inloggning till Office 365 eller andra Microsoft- och icke-Microsoft-SaaS-appar stöds inte.
 Livscykel för partner: Hanteras av värden/den inbjudande organisationen.  | Livscykel för kunden: Självbetjäning eller hanteras av programmet.
 Säkerhetsprincip och efterlevnad: Hanteras av värden/den inbjudande organisationen (till exempel med [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Säkerhetsprincip och efterlevnad: Hanteras av programmet.

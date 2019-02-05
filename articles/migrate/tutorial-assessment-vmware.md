@@ -4,15 +4,15 @@ description: Beskriver hur du identifierar och utvärderar lokala virtuella VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/11/2019
+ms.date: 01/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e922e9e7741eb3338503e02cd0ca78387e32b1f6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824107"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298729"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server som kör version 5.5, 6.0 eller 6.5. Du måste dessutom ha en ESXi-värd som kör version 5.0 eller senare för att kunna distribuera den virtuella insamlardatorn.
+- **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server som kör version 5.5, 6.0 eller 6.5. Du måste dessutom ha en ESXi-värd som kör version 5.5 eller senare för att kunna distribuera den virtuella insamlardatorn.
 - **vCenter Server-konto**: Du behöver ett skrivskyddat konto för att få åtkomst till vCenter Server. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
 - **Behörigheter**: På vCenter Server måste du ha behörighet för att kunna skapa en virtuell dator genom att importera en fil i .OVA-format.
 
@@ -102,6 +102,14 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 3. Den genererade hashen måste matcha nedanstående inställningar.
 
 #### <a name="continuous-discovery"></a>Kontinuerlig identifiering
+
+  För OVA version 1.0.10.11
+
+  **Algoritm** | **Hash-värde**
+    --- | ---
+    MD5 | 5f6b199d8272428ccfa23543b0b5f600
+    SHA1 | daa530de6e8674a66a728885a7feb3b0a2e8ccb0
+    SHA256 | 85da50a21a7a6ca684418a87ccc1dd4f8aab30152c438a17b216ec401ebb3a21
 
   För OVA-version 1.0.10.9
 

@@ -1,225 +1,199 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med ASC kontrakt | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ASC-kontrakt.
+title: 'Självstudier: Azure Active Directory-integrering med ASC Contracts | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ASC Contracts.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f7f54202-1581-4e55-a97e-02633ff9382d
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/21/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b8634e633cb643463c8c1768df2961bb646d343
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: d3478e647114749647c18b75d624e0d73482b82a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179063"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460139"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Självstudier: Azure Active Directory-integrering med ASC kontrakt
+# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Självstudier: Azure Active Directory-integrering med ASC Contracts
 
-I den här självstudien får du lära dig hur du integrerar ASC kontrakt med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera ASC Contracts med Azure Active Directory (Azure AD).
+Integreringen av ASC Contracts med Azure AD medför följande fördelar:
 
-Integrera ASC kontrakt med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till ASC Contracts.
+* Du kan göra så att dina användare automatiskt loggas in på ASC Contracts (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till ASC kontrakt
-- Du kan aktivera användarna att automatiskt få loggat in på ASC kontrakt (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Du behöver följande saker för att konfigurera Azure AD-integrering med ASC Contracts:
 
-Om du vill konfigurera Azure AD-integrering med ASC kontrakt, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En ASC kontrakt enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* ASC Contracts-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till ASC kontrakt från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-asc-contracts-from-the-gallery"></a>Att lägga till ASC kontrakt från galleriet
-För att konfigurera integrering av ASC kontrakt i Azure AD, som du behöver lägga till ASC kontrakt från galleriet i din lista över hanterade SaaS-appar.
+* ASC Contracts stöder **IDP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till ASC kontrakt från galleriet:**
+## <a name="adding-asc-contracts-from-the-gallery"></a>Lägga till ASC Contracts från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integrering av ASC Contracts med Azure AD behöver du lägga till ASC Contracts från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Utför följande steg för att lägga till ASC Contracts från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Appar][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **ASC kontrakt**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/asccontracts-tutorial/tutorial_asccontracts_search.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I resultatpanelen väljer **ASC kontrakt**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/asccontracts-tutorial/tutorial_asccontracts_addfromgallery.png)
+4. I sökrutan skriver du **ASC Contracts**, väljer **ASC Contracts** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ASC kontrakt som bygger på en testanvändare som kallas ”Britta Simon”.
+     ![ASC Contracts i resultatlistan](common/search-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i ASC kontrakt är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i ASC kontrakt upprättas.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i ASC-kontrakt.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med ASC Contracts baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i ASC Contracts upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med ASC kontrakt, måste du utföra följande byggblock:
+Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för ASC Contracts:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare i ASC kontrakt](#creating-an-asc-contracts-test-user)**  – du har en motsvarighet för Britta Simon i ASC-avtal som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för ASC Contracts](#configure-asc-contracts-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa ASC Contracts-testanvändare](#create-asc-contracts-test-user)** – för att ha en motsvarighet till Britta Simon i ASC Contracts som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt kontrakt ASC-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med ASC kontrakt:**
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för ASC Contracts:
 
-1. I Azure-portalen på den **ASC kontrakt** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **ASC Contracts** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/asccontracts-tutorial/tutorial_asccontracts_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **ASC kontrakt domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/asccontracts-tutorial/tutorial_asccontracts_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.asccontracts.com/shibboleth`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
+
+    ![ASC Contracts-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.asccontracts.com/shibboleth`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.asccontracts.com/shibboleth.sso/login`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Contact ASC Networks Inc. (ASC)-teamet på **613.599.6178** att hämta dessa värden.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta ASC Networks Inc. (ASC)-teamet på **613.599.6178** och be om dessa värden.
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Konfigurera enkel inloggning](./media/asccontracts-tutorial/tutorial_asccontracts_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. Klicka på knappen **Spara**.
+6. I avsnittet **Konfigurera ASC Contracts** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Konfigurera enkel inloggning](./media/asccontracts-tutorial/tutorial_general_400.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. Att konfigurera enkel inloggning på **ASC kontrakt** sida, anropa ASC nätverk Inc. (ASC) support **613.599.6178** och ge dem med de hämtade **XML-Metadata för**. De har konfigurerat det här programmet har SAML SSO-anslutningen korrekt inställda på båda sidorna.
+    a. Inloggnings-URL
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    b. Azure AD-identifierare
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    c. Utloggnings-URL
+
+### <a name="configure-asc-contracts-single-sign-on"></a>Konfigurera enkel inloggning för ASC Contracts
+
+Konfigurera enkel inloggning på **ASC kontrakt**-sida genom att ringa supporten för ASC Networks Inc. (ASC) på **613.599.6178** och ge dem det nedladdande **XML för federationsmetadata**. De konfigurerar det här programmet att ha SAML SSO-anslutningen korrekt inställd på båda sidorna.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/asccontracts-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/asccontracts-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/asccontracts-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/asccontracts-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-an-asc-contracts-test-user"></a>Skapa en testanvändare i ASC kontrakt
 
-Arbeta med ASC nätverk Inc. (ASC) support-teamet på **613.599.6178** att hämta de användare som har lagts till i ASC kontrakt-plattformen.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till ASC Contracts.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till ASC-kontrakt.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **ASC Contracts**.
 
-![Tilldela användare][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon ASC kontrakt, utför du följande steg:**
+2. I programlistan väljer du **ASC Contracts**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken för ASC Contracts i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **ASC kontrakt**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Konfigurera enkel inloggning](./media/asccontracts-tutorial/tutorial_asccontracts_app.png) 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Tilldela användare][202] 
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-asc-contracts-test-user"></a>Skapa ASC Contracts-testanvändare
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+Ta hjälp från supportteamet för ASC Networks Inc. (ASC) på **613.599.6178** och hämta de användare som lagts till på ASC Contracts-plattformen.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen ASC kontrakt i åtkomstpanelen du bör få automatiskt loggat in på ditt kontrakt ASC-program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på ASC Contracts-panelen i åtkomstpanelen bör du automatiskt loggas in på ASC Contracts som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/asccontracts-tutorial/tutorial_general_01.png
-[2]: ./media/asccontracts-tutorial/tutorial_general_02.png
-[3]: ./media/asccontracts-tutorial/tutorial_general_03.png
-[4]: ./media/asccontracts-tutorial/tutorial_general_04.png
-
-[100]: ./media/asccontracts-tutorial/tutorial_general_100.png
-
-[200]: ./media/asccontracts-tutorial/tutorial_general_200.png
-[201]: ./media/asccontracts-tutorial/tutorial_general_201.png
-[202]: ./media/asccontracts-tutorial/tutorial_general_202.png
-[203]: ./media/asccontracts-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

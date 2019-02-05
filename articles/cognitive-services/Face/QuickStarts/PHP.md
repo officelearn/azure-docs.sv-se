@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och PHP'
+title: 'Snabbstart: Identifiera ansikten i en bild med REST API och PHP'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten identifierar du ansikten med hjälp av Ansikts-API:et med PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: be322cafc381dbc6e8b7cf03cd65e1dd5f9c9ad4
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 63484f4dcb47aeecbb33c84b7924b2a7e471d3cd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954910"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223425"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och PHP
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med REST API och PHP
 
 I den här snabbstarten identifierar du människoansikten i en bild med Ansikts-API.
 
@@ -29,9 +29,9 @@ Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nyckl
 
 Använd metoden [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Ansiktsigenkänning) för att identifiera ansikten i en bild och returnera ansiktsattribut som:
 
-* Ansikts-ID: unikt ID som används i flera Ansikts-API-scenarier.
-* Ansiktsrektangel: vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
-* Landmärke: en matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
+* Ansikts-ID: Unikt ID som används i flera Ansikts-API-scenarier.
+* Ansiktsrektangel: Vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
+* Landmärken: En matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
 * Ansiktsattribut som ålder, kön, leendeintensitet, huvudställning och ansiktsbehåring.
 
 För att köra exemplet följer du dessa steg:

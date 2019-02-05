@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849982"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098654"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -104,7 +104,7 @@ I det här exemplet används rapporten **Actual Cost Over Time** (Faktisk kostna
 5. Välj fliken **Tröskel** och sedan **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). 
    1. I tröskelrutan **Röd avisering** anger du 10000. 
    2. I tröskelrutan **Gul avisering** anger du 9000. 
-   3. I rutan **Antal på varandra följande aviseringar** anger du det antal på varandra följande aviseringar som ska tas emot. När du har fått det totala antal aviseringar som du angav skickas inga fler aviseringar. 
+   3. I rutan **Antal på varandra följande aviseringar** anger du det antal på varandra följande aviseringar som ska tas emot. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. 
 6. Välj **Spara**.
 
 ![Exemplet visar röda och gula aviseringar baserat på tröskelvärden för utgifter](./media/tutorial-review-usage/schedule-alert01.png)

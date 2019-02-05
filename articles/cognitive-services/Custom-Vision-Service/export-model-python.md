@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Köra en TensorFlow-modell i Python – Custom Vision Service'
+title: 'Självstudier: Köra en TensorFlow-modell i Python – Custom Vision Service'
 titlesuffix: Azure Cognitive Services
 description: Kör en TensorFlow-modell i Python.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8b86214513d12655958038037abf486a6a1a4d88
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247320"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209612"
 ---
-# <a name="tutorial-run-tensorflow-model-in-python"></a>Självstudie: Köra en TensorFlow-modell i Python
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Självstudier: Köra TensorFlow-modellen i Python
 
 När du har [exporterat din TensorFlow-modell](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) från Custom Vision Service visar den här snabbstarten hur du använder den här modellen lokalt för att klassificera bilder.
 

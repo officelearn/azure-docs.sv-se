@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning service
 description: Den här självstudien visar hur du använder Azure Machine Learning-tjänsten för att träna en modell för avbildningsklassificering med scikit-learn i en Python Jupyter-anteckningsbok. Den här självstudien är del ett i en serie med två delar.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9fc0655a3666f09fed342af5b4f14e2097290ab
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6811888b5113a2cf5a06811f0e1b1bcee57d864b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828267"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298066"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten
 
-I den här självstudien ska du träna en maskininlärningsmodell, både lokalt och på fjärranslutna beräkningsresurser. Du använder arbetsflödet för träning och distribution för Azure Machine Learning-tjänsten i en Python Jupyter-anteckningsbok. Du kan sedan använda anteckningsboken som en mall för att träna din egen maskininlärningsmodell med egna data. Den här självstudien är **del ett i en självstudieserie i två delar**.  
+I den här självstudien ska du träna en maskininlärningsmodell på fjärranslutna beräkningsresurser. Du ska använda tränings- och distributionsarbetsflödet för Azure Machine Learning-tjänsten (förhandsversion) i en Python Jupyter-anteckningsbok.  Du kan sedan använda anteckningsboken som en mall för att träna din egen maskininlärningsmodell med egna data. Den här självstudien är **del ett i en självstudieserie i två delar**.  
 
 Den här självstudien tränar en enkel logistikregression med hjälp av [MNIST](http://yann.lecun.com/exdb/mnist/)-datauppsättningen och [scikit-learn](https://scikit-learn.org) med Azure Machine Learning-tjänsten. MNIST är en populär datauppsättning som består av 70 000 gråskalebilder. Varje bild är en handskriven siffra på 28 × 28 pixlar, som representerar ett tal från noll till nio. Målet är att skapa en klassificerare för flera klasser som identifierar siffran som en viss bild representerar. 
 
@@ -38,16 +38,40 @@ Du lär dig hur du väljer en modell och distribuerar den i [del två av den hä
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.2.
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.8.
 
-## <a name="get-the-notebook"></a>Hämta anteckningsboken
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Kör anteckningsboken `tutorials/img-classification-part1-training.ipynb` antingen i [Azure Notebooks](https://notebooks.azure.com/) eller på din egen Jupyter Notebook-server.
+Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server.  För att köra anteckningsboken behöver du:
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* En notebook-server för Python 3.6 med följande installerat:
+    * Azure Machine Learning-SDK för Python
+    * `matplotlib` och `scikit-learn`
+* Självstudiens anteckningsbok och filen utils.py
+* En Machine Learning-arbetsyta 
+* Konfigurationsfilen för arbetsytan i samma katalog som anteckningsboken 
+
+Hämta alla dessa förutsättningar från något av avsnitten nedan.
+ 
+* Använd [Azure Notebooks](#azure) 
+* Använd [din egen Notebook-server](#server)
+
+### <a name="azure"></a>Använd Azure Notebooks: Kostnadsfria Jupyter-anteckningsböcker i molnet
+
+Det är lätt att komma igång med Azure Notebooks! [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig i [Azure Notebooks](https://notebooks.azure.com/). Installationen och framtida uppdateringar hanteras automatiskt via Azure-tjänster.
+
+När du har slutfört stegen nedan kan du köra anteckningsboken **tutorials/img-classification-part1-training.ipynb** i ditt **Komma igång**-projekt.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
-## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
+### <a name="server"></a>Använda en egen Jupyter Notebook-server
+
+Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slutfört stegen kan du köra anteckningsboken **tutorials/img-classification-part1-training.ipynb**.
+
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+## <a name="start"></a>Konfigurera din utvecklingsmiljö
 
 All konfiguration under utvecklingsarbetet kan utföras i en Python-anteckningsbok. Konfigurationen inkluderar följande åtgärder:
 
@@ -63,11 +87,10 @@ Importera Python-paket som du behöver i den här sessionen. Visa även Azure Ma
 ```python
 %matplotlib inline
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
-import azureml
-from azureml.core import Workspace, Run
+import azureml.core
+from azureml.core import Workspace
 
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -94,11 +117,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-amlcompute"></a>Skapa eller koppla en befintlig AMlCompute
+### <a name="create-or-attach-an-existing-compute-resource"></a>Skapa eller koppla en befintlig beräkningsresurs
 
-Genom att använda Azure Machine Learning Compute (AmlCompute), en hanterad tjänst så kan datavetare träna maskininlärningsmodeller i kluster med virtuella Azure-datorer. Exempel innefattar virtuella datorer med GPU-stöd. I den här självstudien ska du skapa AmlCompute som din träningsmiljö. Den här koden skapar beräkningsklustren åt dig om de inte redan finns på din arbetsyta.
+Genom att använda Azure Machine Learning Compute, en hanterad tjänst så kan datavetare träna maskininlärningsmodeller i kluster med virtuella Azure-datorer. Exempel innefattar virtuella datorer med GPU-stöd. I den här självstudien ska du skapa Azure Machine Learning Compute som din träningsmiljö. Koden nedan skapar beräkningsklustren åt dig om de inte redan finns på din arbetsyta.
 
- **Det tar cirka fem minuter att skapa beräkningen.** Om beräkningen redan finns på arbetsytan så använder den här koden den och hoppar över skapandeprocessen:
+ **Det tar cirka fem minuter att skapa beräkningen.** Om beräkningen redan finns på arbetsytan så använder den här koden den och hoppar över skapandeprocessen.
 
 
 ```python
@@ -132,8 +155,8 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current AmlCompute status, use the 'status' property    
-    print(compute_target.status.serialize())
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 Nu har du de nödvändiga paketen och beräkningsresurserna för att träna en modell i molnet. 
@@ -155,13 +178,15 @@ Ladda ned MNIST-datauppsättningen och spara filerna i en `data`-katalog lokalt.
 import os
 import urllib.request
 
-os.makedirs('./data', exist_ok = True)
+data_path = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_path, exist_ok = True)
 
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
 ```
+Du bör se utdata som liknar följande: ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
 
 ### <a name="display-some-sample-images"></a>Visa några exempelbilder
 
@@ -210,60 +235,32 @@ MNIST-filerna överförs till en katalog med namnet `mnist` i datalagrets rot:
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_path, target_path='mnist', overwrite=True, show_progress=True)
 ```
 Nu har du allt du behöver för att börja träna en modell. 
 
-## <a name="train-a-local-model"></a>Träna en lokal modell
-
-Träna en enkel logistikregressionsmodell med scikit-learn lokalt.
-
-**Det tar en minut eller två att träna lokalt**, beroende på din datorkonfiguration:
-
-```python
-%%time
-from sklearn.linear_model import LogisticRegression
-
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
-```
-
-Därefter gör du förutsägelser med hjälp av testuppsättningen och beräknar precisionen: 
-
-```python
-y_hat = clf.predict(X_test)
-print(np.average(y_hat == y_test))
-```
-
-Den lokala modellens precision visas:
-
-`0.9202`
-
-Med bara några rader kod har du en precision på 92 procent.
 
 ## <a name="train-on-a-remote-cluster"></a>Träna i ett fjärrkluster
 
-Nu kan du utöka den här enkla modellen genom att skapa en modell med en annan regulariseringshastighet. Den här gången ska du träna modellen på en fjärransluten resurs.  
-
-I den här aktiviteten skickar du jobbet till det fjärranslutna träningsklustret som du skapade tidigare. Vidta följande steg för att skicka in ett jobb:
-* Skapa en katalog.
-* Skapa ett träningsskript.
-* Skapa ett beräkningsobjekt.
-* Skicka in jobbet.
+I den här aktiviteten skickar du jobbet till det fjärranslutna träningsklustret som du skapade tidigare.  Du skickar ett jobb genom att:
+* Skapa en katalog
+* Skapa ett träningsskript
+* Skapa ett beräkningsobjekt
+* Skicka jobbet 
 
 ### <a name="create-a-directory"></a>Skapa en katalog
 
-Skapa en katalog för att leverera den nödvändiga koden från din dator till fjärresursen:
+Skapa en katalog för att leverera den nödvändiga koden från din dator till fjärresursen.
 
 ```python
 import os
-script_folder = './sklearn-mnist'
+script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
 ### <a name="create-a-training-script"></a>Skapa ett träningsskript
 
-Innan du skickar jobbet till klustret skapar du ett träningsskript. Kör följande kod för att skapa träningsskriptet med namnet `train.py` i den katalog du nyss skapade. Den här utbildningen lägger till en regulariseringshastighet för träningsalgoritmen. Så den skapar en modell som är något annorlunda än den lokala versionen:
+Innan du skickar jobbet till klustret skapar du ett träningsskript. Kör följande kod för att skapa ett träningsskript med namnet `train.py` i katalogen som du nyss skapade.
 
 ```python
 %%writefile $script_folder/train.py
@@ -406,6 +403,8 @@ Den här stillbilden är widgeten som visas i slutet av träningen:
 
 ![Anteckningsbok-widget](./media/tutorial-train-models-with-aml/widget.png)
 
+Om du vill avbryta en körning kan du följa [instruktionerna](https://aka.ms/aml-docs-cancel-run).
+
 ### <a name="get-log-results-upon-completion"></a>Hämta loggresultat när åtgärden har slutförts
 
 Modellträningen och övervakningen sker i bakgrunden. Vänta tills modellen har slutfört träningen innan du kör mer kod. Använd `wait_for_completion` för att visa när modellträningen är klar: 
@@ -422,7 +421,7 @@ Nu har du en modell som har tränats på ett fjärrkluster. Hämta modellens pre
 ```python
 print(run.get_metrics())
 ```
-Utdatan visar att fjärrmodellen har en något högre precision än den lokala modellen på grund av regulariseringshastigheten som lades till under träningen:  
+Resultatet visar att fjärrmodellen har en riktighet på 0.9204:
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
@@ -465,8 +464,7 @@ I den här självstudien för Azure Machine Learning-tjänsten har du använt Py
 > [!div class="checklist"]
 > * Konfigurera din utvecklingsmiljö.
 > * Kom åt och utforska data.
-> * Träna en enkel logistikregression lokalt med hjälp av det populära maskininlärningsbiblioteket scikit-learn.
-> * Träna flera modeller i ett fjärrkluster.
+> * Träna flera modeller i ett fjärrkluster med det populära scikit-learn-maskininlärningsbiblioteket
 > * Granska träningsinformationen och registrera den bästa modellen.
 
 Nu är du redo att distribuera den registrerade modellen genom att följa anvisningarna i nästa del av den här självstudieserien:

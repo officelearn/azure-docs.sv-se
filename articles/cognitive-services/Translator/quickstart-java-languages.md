@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a5985adb92799726951ad37c1dbd0b72c6c9709
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 937fd58b28a3e64f7f4f9fc4bf52e8280af81136
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889012"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226986"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Snabbstart: Använd Translator Text API för att hämta en lista över språk som stöds med Java
 
@@ -48,7 +48,7 @@ Välj en **DSL** när du uppmanas till det och välj **Kotlin**.
 
 ## <a name="configure-the-build-file"></a>Konfigurera build-filen
 
-Leta reda på `build.gradle.kts` och öppna den med valfri IDE och textredigerare. Kopiera sedan i den här build-konfigurationen:
+Leta upp `build.gradle.kts` och öppna den med valfri IDE eller textredigerare. Kopiera sedan i den här build-konfigurationen:
 
 ```
 plugins {
@@ -67,11 +67,11 @@ dependencies {
 }
 ```
 
-Observera att det här exemplet har beroenden på OkHttp för HTTP-begäranden och begäranden och Gson för att hantera och parsa JSON. Mer information om build-konfigurationer finns i [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/) (Skapa nya Gradle-byggen).
+Observera att det här exemplet har beroenden på OkHttp för HTTP-begäranden och Gson för att hantera och parsa JSON. Mer information om build-konfigurationer finns i avsnittet om att [skapa nya Gradle-byggen](https://guides.gradle.org/creating-new-gradle-builds/).
 
 ## <a name="create-a-java-file"></a>Skapa en Java-fil
 
-Nu ska vi skapa en mapp för din exempelapp. Kör följande från arbetskatalogen:
+Nu skapar vi en mapp för din exempelapp. Kör följande från arbetskatalogen:
 
 ```console
 mkdir -p src/main/java
@@ -81,7 +81,7 @@ Skapa sedan en fil med namnet `GetLanguages.java` i den här mappen.
 
 ## <a name="import-required-libraries"></a>Importera obligatoriska bibliotek
 
-Öppna `GetLanguages.java` och lägg till följande importsatser:
+Öppna `GetLanguages.java` och lägg till följande importinstruktioner:
 
 ```java
 import java.io.*;
@@ -93,7 +93,7 @@ import com.squareup.okhttp.*;
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Först måste du skapa en offentlig klass för ditt projekt:
+Först behöver du skapa en offentlig klass för projektet:
 
 ```java
 public class GetLanguages {

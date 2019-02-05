@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning service
 description: I den första delen av den här självstudien lär du dig hur du förbereder data i Python för regressionsmodellering med hjälp av Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: eb4d94d93a72844cfa869bd74aef6eeb34b0f8e9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c199a403e65bd084428fd45e8dc67cca214f5f9f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817511"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251290"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
-I den här självstudien lär du dig hur du förbereder data för regressionsmodellering med Azure Machine Learning Data Prep SDK. Du kör olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxiresor i New York.  
+I den här självstudien lär du dig hur du förbereder data för regressionsmodellering med Azure Machine Learning Data Prep SDK. Du kör olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxiresor i New York.
 
 Den här självstudien är **del ett i en självstudieserie i två delar**. När du har slutfört den här självstudieserien kan du förutsäga kostnaden för en taxiresa genom att träna en modell med datafunktioner. Exempel på dessa funktioner är dag och tidpunkt för upphämtning, antalet passagerare och upphämtningsplats.
 
@@ -45,9 +45,14 @@ Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.c
 
 Du börjar med att importera SDK:n.
 
-
 ```python
 import azureml.dataprep as dprep
+```
+
+Om du följer självstudien i din egen Python-miljö använder du följande för att installera nödvändiga paket.
+
+```shell
+pip install azureml-dataprep
 ```
 
 ## <a name="load-data"></a>Läsa in data
@@ -61,13 +66,15 @@ dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 green_path = "/".join([dataset_root, "green-small/*"])
 yellow_path = "/".join([dataset_root, "yellow-small/*"])
 
-green_df = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
+green_df_raw = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
 # auto_read_file automatically identifies and parses the file type, which is useful when you don't know the file type.
-yellow_df = dprep.auto_read_file(path=yellow_path)
+yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 
-display(green_df.head(5))
-display(yellow_df.head(5))
+display(green_df_raw.head(5))
+display(yellow_df_raw.head(5))
 ```
+
+Ett `Dataflow`-objekt liknar en dataram och representerar en serie Lazy-utvärderade, oföränderliga åtgärder med data. Åtgärder kan läggas till genom anrop till de olika tillgängliga transformerings- och filtreringsmetoderna. När du lägger till en åtgärd till ett `Dataflow` resulterar det alltid i ett nytt `Dataflow`-objekt.
 
 ## <a name="cleanse-data"></a>Rensa data
 
@@ -82,11 +89,11 @@ useful_columns = [
 ]
 ```
 
-Du arbetar först med ”grön taxi”-data och gör dem till en giltig form som kan kombineras med ”gul taxi”-data. Skapa ett tillfälligt dataflöde med namnet `tmp_df`. Anropa funktionerna `replace_na()`, `drop_nulls()` och `keep_columns()` med hjälp av de genvägstransformeringsvariabler som du har skapat. Byt också namn på alla kolumner i dataramen så att de matchar namnen i variabeln `useful_columns`.
+Du arbetar först med ”grön taxi”-data och gör dem till en giltig form som kan kombineras med ”gul taxi”-data. Anropa funktionerna `replace_na()`, `drop_nulls()` och `keep_columns()` med hjälp av de genvägstransformeringsvariabler som du har skapat. Byt också namn på alla kolumner i dataramen så att de matchar namnen i variabeln `useful_columns`.
 
 
 ```python
-tmp_df = (green_df
+green_df = (green_df_raw
     .replace_na(columns=all_columns)
     .drop_nulls(*drop_if_all_null)
     .rename_columns(column_pairs={
@@ -105,7 +112,7 @@ tmp_df = (green_df
         "Trip_distance": "distance"
      })
     .keep_columns(columns=useful_columns))
-tmp_df.head(5)
+green_df.head(5)
 ```
 
 <div>
@@ -211,17 +218,10 @@ tmp_df.head(5)
 </table>
 </div>
 
-Skriv över variabeln `green_df` med transformeringarna som kördes på dataflödet `tmp_df` i föregående steg.
+Utför samma transformeringssteg för ”gul taxi”-data. Dessa funktioner säkerställer att null-data tas bort från datauppsättningen, vilket förbättrar maskininlärningsmodellens precision.
 
 ```python
-green_df = tmp_df
-```
-
-Utför samma transformeringssteg för ”gul taxi”-data.
-
-
-```python
-tmp_df = (yellow_df
+yellow_df = (yellow_df_raw
     .replace_na(columns=all_columns)
     .drop_nulls(*drop_if_all_null)
     .rename_columns(column_pairs={
@@ -246,20 +246,18 @@ tmp_df = (yellow_df
         "trip_distance": "distance"
     })
     .keep_columns(columns=useful_columns))
-tmp_df.head(5)
+yellow_df.head(5)
 ```
 
-Skriv även här över dataflödet `yellow_df` med dataflödet `tmp_df`. Anropa sedan funktionen `append_rows()` för ”grön taxi”-data för att lägga till ”gul taxi”-data. En ny kombinerad dataram skapas.
-
+Anropa funktionen `append_rows()` för ”grön taxi”-data för att lägga till ”gul taxi”-data. En ny kombinerad dataram skapas.
 
 ```python
-yellow_df = tmp_df
 combined_df = green_df.append_rows([yellow_df])
 ```
 
-### <a name="convert-types-and-filter"></a>Konvertera typer och filter 
+### <a name="convert-types-and-filter"></a>Konvertera typer och filter
 
-Undersök sammanfattande statistik för koordinaterna för upphämtning och avlämning för att se hur data är fördelade. Definiera först ett `TypeConverter`-objekt för att ändra fälten för latitud och longitud till decimaltyp. Anropa sedan funktionen `keep_columns()` för att begränsa utdata till endast fälten för latitud och longitud, och anropa sedan funktionen `get_profile()`.
+Undersök sammanfattande statistik för koordinaterna för upphämtning och avlämning för att se hur data är fördelade. Definiera först ett `TypeConverter`-objekt för att ändra fälten för latitud och longitud till decimaltyp. Anropa sedan funktionen `keep_columns()` för att begränsa utdata till endast fälten för latitud och longitud, och anropa sedan funktionen `get_profile()`. Dessa funktionsanrop skapar en komprimerad vy av dataflödet så att endast fälten för latitud och longitud visas, vilket gör det lättare att utvärdera koordinater som saknas eller som ligger utanför området i fråga.
 
 
 ```python
@@ -271,7 +269,7 @@ combined_df = combined_df.set_column_types(type_conversions={
     "dropoff_latitude": decimal_type
 })
 combined_df.keep_columns(columns=[
-    "pickup_longitude", "pickup_latitude", 
+    "pickup_longitude", "pickup_latitude",
     "dropoff_longitude", "dropoff_latitude"
 ]).get_profile()
 ```
@@ -403,15 +401,15 @@ combined_df.keep_columns(columns=[
 
 
 
-Från den sammanfattande statistiken ser du att det finns koordinater som saknas och koordinater som inte finns i New York City. Filtrera bort koordinater för platser som ligger utanför stadsgränsen. Kedja ihop kommandona för kolumnfilter i `filter()`-funktionen och definiera de lägsta och högsta gränserna för varje fält. Anropa sedan funktionen `get_profile()` igen för att verifiera transformeringen.
+I statistiksammanfattningen ser du att det finns koordinater som saknas och koordinater som inte ligger i New York City (detta fastställs från en subjektiv analys). Filtrera bort koordinater för platser som ligger utanför stadsgränsen. Kedja ihop kommandona för kolumnfilter i `filter()`-funktionen och definiera de lägsta och högsta gränserna för varje fält. Anropa sedan funktionen `get_profile()` igen för att verifiera transformeringen.
 
 
 ```python
-tmp_df = (combined_df
+latlong_filtered_df = (combined_df
     .drop_nulls(
         columns=["pickup_longitude", "pickup_latitude", "dropoff_longitude", "dropoff_latitude"],
         column_relationship=dprep.ColumnRelationship(dprep.ColumnRelationship.ANY)
-    ) 
+    )
     .filter(dprep.f_and(
         dprep.col("pickup_longitude") <= -73.72,
         dprep.col("pickup_longitude") >= -74.09,
@@ -422,8 +420,8 @@ tmp_df = (combined_df
         dprep.col("dropoff_latitude") <= 40.88,
         dprep.col("dropoff_latitude") >= 40.53
     )))
-tmp_df.keep_columns(columns=[
-    "pickup_longitude", "pickup_latitude", 
+latlong_filtered_df.keep_columns(columns=[
+    "pickup_longitude", "pickup_latitude",
     "dropoff_longitude", "dropoff_latitude"
 ]).get_profile()
 ```
@@ -553,22 +551,13 @@ tmp_df.keep_columns(columns=[
   </tbody>
 </table>
 
-
-
-Skriv över dataflödet `combined_df` med de transformeringar som du gjorde i `tmp_df`-dataflödet.
-
-
-```python
-combined_df = tmp_df
-```
-
 ### <a name="split-and-rename-columns"></a>Dela upp och byta namn på kolumner
 
-Titta på dataprofilen för kolumnen `store_forward`.
+Titta på dataprofilen för kolumnen `store_forward`. Det här fältet är en boolesk flagga som är `Y` om taxin inte har en anslutning till servern efter resan, och därför måste lagra resedata i minnet och skicka dem till servern när den är ansluten igen.
 
 
 ```python
-combined_df.keep_columns(columns='store_forward').get_profile()
+latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
 ```
 
 
@@ -633,25 +622,25 @@ Observera att dataprofilens utdata i kolumnen `store_forward` visar att data är
 
 
 ```python
-combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
+replaced_stfor_vals_df = latlong_filtered_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-Kör funktionen `replace` på fältet `distance`. Funktionen formaterar om avståndsvärden som är felaktigt märkta som `.00`, och fyller eventuella null-värden med nollor. Konvertera fältet `distance` till numeriskt format.
+Kör funktionen `replace` på fältet `distance`. Funktionen formaterar om avståndsvärden som är felaktigt märkta som `.00`, och fyller eventuella null-värden med nollor. Konvertera fältet `distance` till numeriskt format. Dessa felaktiga datapunkter är sannolikt avvikelser i taxibilarnas datainsamlingssystem.
 
 
 ```python
-combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
-combined_df = combined_df.to_number(["distance"])
+replaced_distance_vals_df = replaced_stfor_vals_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
+replaced_distance_vals_df = replaced_distance_vals_df.to_number(["distance"])
 ```
 
 Dela upp datum/tid-värdena för upphämtning eller lämning i deras respektive datum- och tidskolumner. Använd funktionen `split_column_by_example()` för att göra uppdelningen. I det här fallet utelämnas den valfria parametern `example` för `split_column_by_example()`-funktionen. Därför avgör funktionen automatiskt var delningen ska ske utifrån data.
 
 
 ```python
-tmp_df = (combined_df
+time_split_df = (replaced_distance_vals_df
     .split_column_by_example(source_column="pickup_datetime")
     .split_column_by_example(source_column="dropoff_datetime"))
-tmp_df.head(5)
+time_split_df.head(5)
 ```
 
 <div>
@@ -781,27 +770,23 @@ tmp_df.head(5)
 </table>
 </div>
 
-
 Byt namn på kolumnerna som genererats av funktionen `split_column_by_example()` till meningsfulla namn.
 
-
 ```python
-tmp_df_renamed = (tmp_df
+renamed_col_df = (time_split_df
     .rename_columns(column_pairs={
         "pickup_datetime_1": "pickup_date",
         "pickup_datetime_2": "pickup_time",
         "dropoff_datetime_1": "dropoff_date",
         "dropoff_datetime_2": "dropoff_time"
     }))
-tmp_df_renamed.head(5)
+renamed_col_df.head(5)
 ```
 
-Skriv över dataflödet `combined_df` med de transformeringar som körts. Anropa sedan funktionen `get_profile()` för att visa den fullständiga sammanfattande statistiken efter alla transformeringar.
-
+Anropa funktionen `get_profile()` för att visa den fullständiga statistiksammanfattningen efter alla rensningssteg.
 
 ```python
-combined_df = tmp_df_renamed
-combined_df.get_profile()
+renamed_col_df.get_profile()
 ```
 
 ## <a name="transform-data"></a>Omvandla data
@@ -810,12 +795,14 @@ Dela upp hämtnings- och lämningsdatumet ytterligare i värdena för dag i veck
 
 När du har genererat de nya funktionerna använder du funktionen `drop_columns()` för att ta bort de ursprungliga fälten eftersom de nygenererade funktionerna föredras. Byt namn på resten av fälten till meningsfulla namn.
 
+Genom att transformera data på det här sättet för att skapa nya tidsbaserade funktioner kan maskininlärningsmodellens precision förbättras. Om en ny funktion för veckodagar exempelvis genereras skapar det en relation mellan dagen i veckan och taxiavgiften, som ofta är dyrare vissa dagar i veckan på grund av hög efterfrågan.
+
 
 ```python
-tmp_df = (combined_df
+transformed_features_df = (renamed_col_df
     .derive_column_by_example(
-        source_columns="pickup_date", 
-        new_column_name="pickup_weekday", 
+        source_columns="pickup_date",
+        new_column_name="pickup_weekday",
         example_data=[("2009-01-04", "Sunday"), ("2013-08-22", "Thursday")]
     )
     .derive_column_by_example(
@@ -823,17 +810,17 @@ tmp_df = (combined_df
         new_column_name="dropoff_weekday",
         example_data=[("2013-08-22", "Thursday"), ("2013-11-03", "Sunday")]
     )
-          
+
     .split_column_by_example(source_column="pickup_time")
     .split_column_by_example(source_column="dropoff_time")
     # The following two calls to split_column_by_example reference the column names generated from the previous two calls.
     .split_column_by_example(source_column="pickup_time_1")
     .split_column_by_example(source_column="dropoff_time_1")
     .drop_columns(columns=[
-        "pickup_date", "pickup_time", "dropoff_date", "dropoff_time", 
+        "pickup_date", "pickup_time", "dropoff_date", "dropoff_time",
         "pickup_date_1", "dropoff_date_1", "pickup_time_1", "dropoff_time_1"
     ])
-          
+
     .rename_columns(column_pairs={
         "pickup_date_2": "pickup_month",
         "pickup_date_3": "pickup_monthday",
@@ -847,7 +834,7 @@ tmp_df = (combined_df
         "dropoff_time_2": "dropoff_second"
     }))
 
-tmp_df.head(5)
+transformed_features_df.head(5)
 ```
 
 <div>
@@ -1001,21 +988,23 @@ tmp_df.head(5)
 </table>
 </div>
 
-Observera att data visar att tidskomponenterna för upphämtning och lämning som genererats från de härledda transformeringarna är korrekta. Ta bort kolumnerna `pickup_datetime` och `dropoff_datetime` eftersom de inte längre behövs.
+Observera att data visar att tidskomponenterna för upphämtning och lämning som genererats från de härledda transformeringarna är korrekta. Ta bort kolumnerna `pickup_datetime` och `dropoff_datetime` eftersom de inte längre behövs (detaljerade tidsfunktioner som timme, minut och sekund är mer användbara för modellträning).
 
 
 ```python
-tmp_df = tmp_df.drop_columns(columns=["pickup_datetime", "dropoff_datetime"])
+processed_df = transformed_features_df.drop_columns(columns=["pickup_datetime", "dropoff_datetime"])
 ```
 
 Använd typinferensfunktionen för att automatiskt kontrollera datatypen för varje fält och visa inferensresultatet.
 
 
 ```python
-type_infer = tmp_df.builders.set_column_types()
+type_infer = processed_df.builders.set_column_types()
 type_infer.learn()
 type_infer
 ```
+
+Resultatet av `type_infer` är som följer.
 
     Column types conversion candidates:
     'pickup_weekday': [FieldType.STRING],
@@ -1040,25 +1029,24 @@ Inferensresultatet ser ur att stämma baserat på data. Nu tillämpar du typkonv
 
 
 ```python
-tmp_df = type_infer.to_dataflow()
-tmp_df.get_profile()
+type_converted_df = type_infer.to_dataflow()
+type_converted_df.get_profile()
 ```
 
-Innan du paketerar dataflödet ska du köra två sista filter på datauppsättningen. För att minimera felaktiga datapunkter måste du filtrera dataflödet på poster där både `cost`- och `distance`-variabelvärdena är större än noll.
+Innan du paketerar dataflödet ska du köra två sista filter på datauppsättningen. För att minimera felaktigt registrerade datapunkter måste du filtrera dataflödet på poster där både `cost`- och `distance`-variabelvärdena är större än noll. Det här steget förbättrar avsevärt maskininlärningsmodellens precision eftersom datapunkter vars kostnader eller avstånd är noll representerar avvikande värden som snedvrider förutsägelsernas precision.
 
 ```python
-tmp_df = tmp_df.filter(dprep.col("distance") > 0)
-tmp_df = tmp_df.filter(dprep.col("cost") > 0)
+final_df = type_converted_df.filter(dprep.col("distance") > 0)
+final_df = final_df.filter(dprep.col("cost") > 0)
 ```
 
-Nu har du ett fullständigt transformerat och förberett dataflödesobjekt som ska användas i en maskininlärningsmodell. SDK innehåller funktioner för objektserialisering, som används som du ser i följande kodavsnitt.
+Nu har du ett fullständigt transformerat och förberett dataflödesobjekt som ska användas i en maskininlärningsmodell. SDK innehåller funktioner för objektserialisering, som används som du ser i följande kod.
 
 ```python
 import os
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-dflow_prepared = tmp_df
-package = dprep.Package([dflow_prepared])
+package = dprep.Package([final_df])
 package.save(file_path)
 ```
 

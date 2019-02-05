@@ -4,223 +4,196 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d26034b8-f0d5-4f65-aa56-0fc168ceec8c
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/05/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 366d1948f7ff7f935168da6300733995f09130b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 4c2d07ba33e26b1b85225f0577754cd375e887db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192289"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Självstudier: Azure Active Directory-integrering med Alcumus Info Exchange
 
-I den här självstudien får du lära dig hur du integrerar Alcumus Info Exchange med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Alcumus Info Exchange med Azure Active Directory (Azure AD).
+Integreringen av Alcumus Info Exchange med Azure AD medför följande fördelar:
 
-Integrera Alcumus Info Exchange med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Alcumus Info Exchange.
+* Du kan göra så att dina användare automatiskt loggas in på Alcumus Info Exchange (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Alcumus Info Exchange
-- Du kan aktivera användarna att automatiskt få loggat in på Alcumus information Exchange (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Du behöver följande saker för att konfigurera Azure AD-integrering med Alcumus Info Exchange:
 
-Om du vill konfigurera Azure AD-integrering med Alcumus Info Exchange, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Alcumus Info Exchange enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Alcumus Info Exchange-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Alcumus Info Exchange från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-alcumus-info-exchange-from-the-gallery"></a>Att lägga till Alcumus Info Exchange från galleriet
-För att konfigurera integrering av Alcumus Info Exchange i Azure AD, som du behöver lägga till Alcumus Info Exchange från galleriet i din lista över hanterade SaaS-appar.
+* Alcumus Info Exchange stöder **IDP**-initierad enkel inloggning
+
+## <a name="adding-alcumus-info-exchange-from-the-gallery"></a>Lägga till Alcumus Info Exchange från galleriet
+
+För att konfigurera integrering av Alcumus Info Exchange med Azure AD behöver du lägga till Alcumus Info Exchange från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Alcumus Info Exchange från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Appar][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Alcumus Info Exchange**.
+4. I sökrutan skriver du **Alcumus Info Exchange**, väljer **Alcumus Info Exchange** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Skapa en Azure AD-användare för testning](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_search.png)
+     ![Alcumus Info Exchange i resultatlistan](common/search-new-app.png)
 
-5. I resultatpanelen väljer **Alcumus Info Exchange**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-    ![Skapa en Azure AD-användare för testning](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_addfromgallery.png)
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Alcumus Info Exchange baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Alcumus Info Exchange upprättas.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Alcumus Info Exchange baserat på en testanvändare som kallas ”Britta Simon”.
+Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för Alcumus Info Exchange:
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Alcumus Info Exchange är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Alcumus Info Exchange upprättas.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Alcumus Info Exchange](#configure-alcumus-info-exchange-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Alcumus Info Exchange-testanvändare](#create-alcumus-info-exchange-test-user)** – för att ha en motsvarighet till Britta Simon i Alcumus Info Exchange som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-I Alcumus Info Exchange, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Alcumus Info Exchange, måste du utföra följande byggblock:
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Alcumus Info Exchange](#creating-an-alcumus-info-exchange-test-user)**  – du har en motsvarighet för Britta Simon i Alcumus Info Exchange som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Alcumus Info Exchange:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Alcumus Info Exchange** och väljer **Enkel inloggning**.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Alcumus information Exchange-program.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Alcumus Info Exchange:**
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. I Azure-portalen på den **Alcumus Info Exchange** program integration-sidan klickar du på **enkel inloggning**.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning][4]
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_samlbase.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-3. På den **Alcumus information Exchange-domän och URL: er** avsnittet, utför följande steg:
+4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_url.png)
+    ![Alcumus Info Exchange-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.info-exchange.com`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.info-exchange.com`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.info-exchange.com/Auth/`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Alcumus information Exchange-supportteamet](mailto:helpdesk@alcumusgroup.com) att hämta dessa värden.
- 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [kundsupporten för Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_certificate.png) 
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-5. Klicka på knappen **Spara**.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Konfigurera enkel inloggning](./media/alcumus-info-tutorial/tutorial_general_400.png)
+6. I avsnittet **Konfigurera Alcumus Info Exchange** kopierar du lämpliga URL:er enligt dina behov.
 
-6. Att konfigurera enkel inloggning på **Alcumus Info Exchange** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Alcumus information Exchange-supportteamet](mailto:helpdesk@alcumusgroup.com).
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Inloggnings-URL
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-alcumus-info-exchange-single-sign-on"></a>Konfigurera enkel inloggning för Alcumus Info Exchange
+
+För att konfigurera enkel inloggning på **Alcumus Info Exchange**-sidan behöver du skicka nedladdade **XML-federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/alcumus-info-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/alcumus-info-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/alcumus-info-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/alcumus-info-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-an-alcumus-info-exchange-test-user"></a>Skapa en testanvändare Alcumus Info Exchange
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Alcumus Info Exchange.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Om du vill skapa en användare som kallas Britta Simon i Alcumus Info Exchange, kontakta den [Alcumus information Exchange-supportteamet](mailto:helpdesk@alcumusgroup.com).
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Alcumus Info Exchange.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Alcumus Info Exchange**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Alcumus Info Exchange.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-![Tilldela användare][200] 
+2. I programlistan väljer du **Alcumus Info Exchange**.
 
-**Om du vill tilldela Britta Simon Alcumus Info Exchange, utför du följande steg:**
+    ![Länken för Alcumus Info Exchange i programlistan](common/all-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Tilldela användare][201] 
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **Alcumus Info Exchange**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Konfigurera enkel inloggning](./media/alcumus-info-tutorial/tutorial_alcumusinfoexchange_app.png) 
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][202] 
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Tilldela användare][203]
+### <a name="create-alcumus-info-exchange-test-user"></a>Skapa Alcumus Info Exchange-testanvändare
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Alcumus Info Exchange. Ta hjälp från [supportteamet för Alcumus Info Exchange](mailto:helpdesk@alcumusgroup.com) och lägg till användarna på Alcumus Info Exchange-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.  
-När du klickar på panelen Alcumus Info Exchange i åtkomstpanelen du bör få automatiskt loggat in på ditt Alcumus information Exchange-program.
+När du klickar på Alcumus Info Exchange-panelen i åtkomstpanelen bör du automatiskt loggas in på Alcumus Info Exchange som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/alcumus-info-tutorial/tutorial_general_01.png
-[2]: ./media/alcumus-info-tutorial/tutorial_general_02.png
-[3]: ./media/alcumus-info-tutorial/tutorial_general_03.png
-[4]: ./media/alcumus-info-tutorial/tutorial_general_04.png
-
-[100]: ./media/alcumus-info-tutorial/tutorial_general_100.png
-
-[200]: ./media/alcumus-info-tutorial/tutorial_general_200.png
-[201]: ./media/alcumus-info-tutorial/tutorial_general_201.png
-[202]: ./media/alcumus-info-tutorial/tutorial_general_202.png
-[203]: ./media/alcumus-info-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

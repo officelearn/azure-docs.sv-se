@@ -1,6 +1,6 @@
 ---
 title: Skapa en Azure SQL-databas med hjälp av portalen | Microsoft Docs
-description: Skapa en logisk server och databas för Azure SQL Database på Azure-portalen och ställ frågor till den.
+description: Skapa en Azure SQL Database-server och en databas i Azure-portalen och kör frågor mot den.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,105 +11,98 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 1/9/2019
-ms.openlocfilehash: b11eb08a960e81ab938a9b15a1153c44706231c5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 1/25/2019
+ms.openlocfilehash: 0148ef1b54bc3f74631ad44e9b8ded96caef7bbb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198295"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452217"
 ---
-# <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>Snabbstart: Skapa en Azure SQL-databas på Azure-portalen
+# <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>Snabbstart: Skapa en Azure SQL-databas på Azure Portal
 
-Azure SQL Database är en *databas som erbjuds som en tjänst*. Tjänsten innebär att du kan köra och skala SQL Server-databaser med hög tillgänglighet i molnet. Snabbstarten visar hur du kommer igång genom att skapa och sedan köra frågor mot en Azure SQL-databas med Azure-portalen. 
+Azure SQL Database är en *databas som erbjuds som en tjänst*. Tjänsten innebär att du kan köra och skala SQL Server-databaser med hög tillgänglighet i molnet. Snabbstarten visar hur du kommer igång genom att skapa och sedan köra frågor mot en Azure SQL-databas med Azure Portal. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-Logga in på [Azure-portalen](https://portal.azure.com/) för alla steg i den här snabbstarten.
+Logga in på [Azure Portal](https://portal.azure.com/) för alla steg i den här snabbstarten.
 
 ## <a name="create-a-sql-database"></a>Skapa en SQL-databas
 
-Azure SQL-databasen har en definierad uppsättning [beräknings-och lagringsresurser](sql-database-service-tiers-dtu.md). Du skapar databasen i en [logisk Azure SQL Database-server](sql-database-features.md) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md).
+Azure SQL-databasen har en definierad uppsättning [beräknings-och lagringsresurser](sql-database-service-tiers-dtu.md). Du skapar databasen på en [SQL Database-server](sql-database-features.md) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md).
 
 Så här skapar du en SQL-databas som innehåller AdventureWorksLT-exempeldata:
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-   
-1. Välj **Databaser** och välj sedan **SQL Database**.
-   
-1. I formuläret **Skapa SQL-databas** skriver eller väljer du följande värden: 
-   
+2. Välj **Databaser** och välj sedan **SQL Database**.
+3. I formuläret **Skapa SQL-databas** skriver eller väljer du följande värden: 
+
    - **Databasnamn**: Ange *mySampleDatabase*.
    - **Prenumeration**: Välj rätt prenumeration i den nedrullningsbara listrutan om den inte visas.
    - **Resursgrupp**: Välj **Skapa ny**, skriv *myResourceGroup* och välj **OK**. 
    - **Välj källa**: Välj **Sample (AdventureWorksLT)** i den nedrullningsbara listrutan.
-    
+
     >[!IMPORTANT]
     >Se till att välja data för **Sample (AdventureWorksLT)** så att du kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
   
-   ![Skapa en Azure SQL.databas](./media/sql-database-get-started-portal/create-database-1.png)
-   
-1. Under **Server** väljer du **Skapa ny**. 
-   
-1. I formuläret **Ny server** anger eller väljer du följande värden: 
-   
+   ![Skapa en Azure SQL Database](./media/sql-database-get-started-portal/create-database-1.png)
+
+4. Under **Server** väljer du **Skapa ny**. 
+5. I formuläret **Ny server** anger eller väljer du följande värden: 
+
    - **Servernamn**: Ange *mysqlserver*.
    - **Inloggning för serveradministratör**: Skriv *azureuser*. 
    - **Lösenord**: Ange *Azure1234567*. 
    - **Bekräfta lösenord**: Skriv lösenordet igen.
    - **Plats**: Välj valfri giltig plats i den nedrullningsbara listrutan.  
-   
+
    >[!IMPORTANT]
    >Skriv ned serveradministratörens inloggning och lösenord så att du kan logga in på servern och databaserna till denna och andra snabbstarter. Om du glömmer din inloggning eller ditt lösenord kan du hämta inloggningsnamnet eller återställa lösenordet på **SQLServer**-sidan. För att öppna **SQLServer**-sidan väljer du servernamnet i databasens **översiktssida** när databasen har skapats.
-   
+
     ![Skapa server](./media/sql-database-get-started-portal/create-database-server.png)
 
-1. Välj **Välj**.
-   
-1. I formuläret **SQL Database** väljer du **Prisnivå**. Undersök mängden DTU:er och lagring som är tillgänglig på varje tjänstnivå.
-   
+6. Välj **Välj**.
+7. I formuläret **SQL Database** väljer du **Prisnivå**. Undersök mängden DTU:er och lagring som är tillgänglig på varje tjänstnivå.
+
    >[!NOTE]
    >I den här snabbstarten används den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) är också tillgänglig.
-   
-   >[!NOTE]
+   >[!IMPORTANT]
    >Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Storbritannien, norra; USA, västra centrala; Storbritannien, södra 2; Kina, östra; US DoD, centrala; Tyskland, centrala; US DoD, östra; US Gov, sydvästra; US Gov, södra centrala; Tyskland, nordöstra; Kina, norra och US Gov, östra. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB. Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   
-1. För den här snabbstarten väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **10 DTU:er (S0)** och **1** GB lagring.
-   
-1. Välj **Använd**.  
-   
+
+8. För den här snabbstarten väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **10 DTU:er (S0)** och **1** GB lagring.
+9. Välj **Använd**.  
+
    ![Välj prisnivå](./media/sql-database-get-started-portal/create-database-s1.png)
-   
-1. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen. 
-   
+
+10. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen. 
+
    Distributionen tar några minuter. Du kan välja **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
    ![Avisering](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-sql-database"></a>Söka i SQL-databasen
 
-Nu när du har skapat en Azure SQL-databas ska du använda det inbyggda frågeverktyget på Azure-portalen för att ansluta till databasen och fråga efter data.
+Nu när du har skapat en Azure SQL-databas ska du använda det inbyggda frågeverktyget på Azure Portal för att ansluta till databasen och fråga efter data.
 
 1. På **SQL Database**-sidan för databasen väljer du **Frågeredigeraren (förhandsversion)** i den vänstra menyn. 
-   
+
    ![Logga in på Frågeredigeraren](./media/sql-database-get-started-portal/query-editor-login.png)
-   
-1. Ange din inloggningsinformation och välj **OK**.
-   
-1. Skriv följande fråga i fönstret **Frågeredigeraren**.
-   
+
+2. Ange din inloggningsinformation och välj **OK**.
+3. Skriv följande fråga i fönstret **Frågeredigeraren**.
+
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;
    ```
-   
-1. Välj **Kör** och granska sedan frågeresultaten i fönstret **Resultat**.
+
+4. Välj **Kör** och granska sedan frågeresultaten i fönstret **Resultat**.
 
    ![Resultat från Frågeredigeraren](./media/sql-database-get-started-portal/query-editor-results.png)
-   
-1. Stäng sidan med **Frågeredigeraren** och klicka på **OK** för att ta bort de ändringar som inte har sparats.
+
+5. Stäng sidan med **Frågeredigeraren** och klicka på **OK** för att ta bort de ändringar som inte har sparats.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -117,9 +110,9 @@ Behåll den här resursgruppen, SQL-servern och SQL-databasen om du vill gå til
 
 När du är klar med dessa resurser kan du ta bort dem på följande sätt:
 
-1. På menyn till vänster i Azure-portalen klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
-1. Välj **Ta bort resursgrupp** på din resursgruppssida. 
-1. Ange *myResourceGroup* i fältet och välj sedan **Ta bort**.
+1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
+2. Välj **Ta bort resursgrupp** på din resursgruppssida. 
+3. Ange *myResourceGroup* i fältet och välj sedan **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

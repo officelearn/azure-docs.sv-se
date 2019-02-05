@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 8b47c845e8523e1c35dee8a5732cb15fed09e030
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 6320e05172673abf809ac7fdbfea544ed74b0019
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955462"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221087"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Ruby
 
@@ -29,9 +29,9 @@ Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nyckl
 
 Använd metoden [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Ansiktsigenkänning) för att identifiera ansikten i en bild och returnera ansiktsattribut som:
 
-* Ansikts-ID: unikt ID som används i flera Ansikts-API-scenarier.
-* Ansiktsrektangel: vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
-* Landmärke: en matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
+* Ansikts-ID: Unikt ID som används i flera scenarier med Ansikts-API.
+* Ansiktsrektangel: Vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
+* Landmärken: En matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
 * Ansiktsattribut som ålder, kön, leendeintensitet, huvudställning och ansiktsbehåring.
 
 För att köra exemplet följer du dessa steg:

@@ -1,21 +1,21 @@
 ---
-title: 'Snabbstart: Förhandsgranskning av projekt-URL, JavaScript'
+title: 'Snabbstart: Förhandsversion av projekt-URL, JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Skriptexempel för att snabbt komma igång med API för URL-förhandsgranskning i Bing med JavaScript.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: f36609448819ed197cb92c0bc4d9cc0237fe6df8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 941cdd25eb6f16b580900fed6e41aa4bf8df15f7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466944"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224889"
 ---
 # <a name="quickstart-url-preview-in-javascript"></a>Snabbstart: URL-förhandsgranskning i JavaScript 
 
@@ -34,7 +34,7 @@ Om svaret returneras tilldelar hanteraren JSON-texten för svaret till `demo`-st
 
 **Råsvar från JSON**
 
-````
+```
 {
   "_type": "WebPage",
   "name": "SwiftKey - Smart prediction technology for easier mobile typing",
@@ -46,7 +46,7 @@ Om svaret returneras tilldelar hanteraren JSON-texten för svaret till `demo`-st
   }
 }
 
-````
+```
 
 **Demo som körs**
 

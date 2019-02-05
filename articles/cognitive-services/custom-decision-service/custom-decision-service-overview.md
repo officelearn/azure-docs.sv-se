@@ -6,16 +6,16 @@ services: cognitive-services
 author: alekh
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1792e279283608c81c0d4a08b77f9822816ed76d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364219"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221359"
 ---
 # <a name="what-is-custom-decision-service"></a>Vad är Custom Decision Service?
 
@@ -44,9 +44,9 @@ Custom Decision Service kan användas på både webbsidor och i mobilappar. API:
 
 Flera termer förekommer ofta i den här dokumentationen:
 
-* **Åtgärdsuppsättning**: Den uppsättning av innehållsposter som Custom Decision Service ska rangordna. Den här uppsättningen kan anges som en *RSS*- eller *Atom*-slutpunkt.
+* **Åtgärdsuppsättning**: Den uppsättning innehållsposter som Custom Decision Service ska rangordna. Den här uppsättningen kan anges som en *RSS*- eller *Atom*-slutpunkt.
 * **Rangordning**: Varje begäran till Custom Decision Service anger en eller flera åtgärdsuppsättningar. Systemet svarar genom att välja alla innehållsalternativ från dessa uppsättningar och returnera dem i rangordning.
-* **Återanropsfunktion**: Den här funktionen, som du anger, återger innehållet i ditt användargränssnitt. Innehållet är sorteras efter rangordningen som returneras av Custom Decision Service.
+* **Återanropsfunktion**: Den här funktionen, som du anger, återger innehållet i användargränssnittet. Innehållet är sorteras efter rangordningen som returneras av Custom Decision Service.
 * **Utmärkelse**: Ett mått på hur användaren svarat på det återgivna innehållet. Custom Decision Service mäter användarens svar med hjälp av klick. Klickningarna rapporteras till systemet med hjälp av anpassad kod som infogats i ditt program.
 
 ## <a name="next-steps"></a>Nästa steg

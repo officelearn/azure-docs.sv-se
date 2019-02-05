@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 630b033428ab6e21afeddf9d4162be015582dae9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 34630b2d2852da37bdcb3e5f097b2d3f6ebc6f1a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977811"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217415"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Få svar på en fråga med hjälp av en kunskapsbas med Java
 
@@ -74,7 +74,7 @@ Värdet för `Authorization`-huvudet innehåller strängen `EndpointKey `.
 
 ## <a name="build-and-run-the-program"></a>Skapa och köra programmet
 
-Skapa och kör programmet från kommandoraden. Det skickar automatiskt begäran till API för QnA Maker och skriver sedan ut svaret till konsolfönstret.
+Skapa och kör programmet från kommandoraden. Det skickar automatiskt begäran till API:et för QnA Maker, och sedan skrivs svaret ut till konsolfönstret.
 
 1. Skapa filen:
 

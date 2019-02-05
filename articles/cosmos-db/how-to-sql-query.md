@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452963"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459034"
 ---
-# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>SQL-frågeexempel för att köra frågor mot data rån Azure Cosmos DB
+# <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-exempelfrågor för Azure Cosmos DB
 
 Azure Cosmos DB stöder frågekörning mot objekt med hjälp av SQL (Structured Query Language) som JSON-frågespråk på SQL API-konton. Vid utformningen av frågespråket för Azure Cosmos DB beaktas följande två mål:
 

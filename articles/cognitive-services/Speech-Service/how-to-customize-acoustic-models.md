@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Skapa en akustisk modell med Speech Service'
+title: 'Självstudier: Skapa en akustisk modell med Speech Service'
 titlesuffix: Azure Cognitive Services
 description: Lär dig hur du skapar en akustisk modell med Speech-tjänsten i Azure Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215250"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217636"
 ---
-# <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudie: Skapa en anpassad akustisk modell
+# <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudier: Skapa en anpassad akustisk modell
 
 Att skapa en anpassad akustisk modell är användbart om ditt program är avsett för användning i en viss miljö, till exempel en bil, med specifika inspelningsenheter eller villkor, eller av en viss användargrupp. Exempel innefattar tal med brytning, vissa bakgrundsljud eller användning av en särskild mikrofon för inspelning.
 
@@ -46,7 +46,7 @@ Exempel:
 * Om du vill känna igen tal bättre i en fabriksmiljö med mycket oljud bör ljudfilen bestå av personer som talar i en högljudd fabrik.
 * Om du är intresserad av att optimera prestanda för en enda talare – till exempel om vill transkribera alla Franklin Roosevelts Fireside Chats-tal – bör ljudfilerna bestå av många exempel på endast den talaren.
 
-En akustisk datamängd för att anpassa den akustiska modellen består av två delar: (1) en uppsättning ljudfiler som innehåller taldata och (2) en fil som innehåller transkriptioner av alla ljudfiler.
+En akustisk datauppsättning för att anpassa den akustiska modellen består av två delar: (1) en uppsättning ljudfiler som innehåller taldata och (2) en fil som innehåller transkriptioner av alla ljudfiler.
 
 ### <a name="audio-data-recommendations"></a>Rekommendationer för ljuddata
 
@@ -112,7 +112,7 @@ I rutorna **Namn** och **Beskrivning** anger du nödvändig informationen. Minne
 
 I rutorna **Transcriptions file (.txt)** och **Audio files (.zip)** väljer du **Bläddra** och väljer sedan filen med transkription i klartext respektive zip-filen med WAV-filer. När förberedelsen är klar väljer du **Import** (Importera) för att ladda upp data. Dina data laddas upp. För större datamängder kan importprocessen ta flera minuter.
 
-När uppladdningen är klar går du tillbaka tabellen **Acoustic Datasets** (Akustiska datamängder). En post visas som motsvarar din akustiska datamängd. Observera att den har tilldelats ett unikt ID (GUID). Data visar sin aktuella status: *NotStarted* (Inte påbörjad) när de har placerats i kö för bearbetning, *Running* (Körs) medan de verifieras och *Complete* (Klar) när de är redo att användas.
+När uppladdningen är klar går du tillbaka tabellen **Acoustic Datasets** (Akustiska datamängder). En post visas som motsvarar din akustiska datamängd. Observera att den har tilldelats ett unikt ID (GUID). Data visar aktuell status: *NotStarted* (Inte påbörjat) när de har placerats i kö för bearbetning, *Running* (Körs) medan de verifieras och *Complete* (Slutfört) när de är redo att användas.
 
 Dataverifieringen innehåller en rad kontroller av ljudfilerna för att verifiera filformat, längd och samplingsfrekvens samt kontroller av transkriptionsfilerna för att verifiera filformatet och utföra viss textnormalisering.
 
@@ -147,7 +147,7 @@ Välj slutligen den akustiska datamängd som du vill använda för att utvärder
 
 När du är redo att börja köra anpassningsprocessen väljer du **Create** (Skapa).
 
-Tabellen med akustiska modeller visar en ny post som motsvarar den här nya modellen. Tabellen visar även status för processen: *Waiting* (Väntar), *Processing* (Bearbetar) eller *Complete* (Klar).
+Tabellen med akustiska modeller visar en ny post som motsvarar den här nya modellen. Tabellen visar även status för processen: *Waiting* (Väntar), *Processing* (Bearbetar) eller *Complete* (Slutfört).
 
 ![Sidan Akustiska modeller](media/stt/speech-acoustic-models-creating.png)
 

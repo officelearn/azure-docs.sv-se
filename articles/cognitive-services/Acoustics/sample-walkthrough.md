@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901166"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174269"
 ---
 # <a name="unity-sample-walkthrough"></a>Genomgång av Unity-exempel
 Det här är en genomgång av exemplet Project Acoustics. Mer information om vad Project Acoustics är finns i [Introduktion till Project Acoustics](what-is-acoustics.md). Om du vill ha hjälp med att lägga till paketet Project Acoustics till ett befintligt Unity-projekt använder du [guiden Komma igång](getting-started.md).
@@ -36,7 +36,7 @@ Exemplet innehåller en demo-scen, **Assets/AcousticsDemo/ProjectAcousticsDemo.u
 
 Scenen har redan bakats och har en ACE-fil som är kopplad till den förbyggda **MicrosoftAcoustics** i **hierarkin**. 
 
-Lyssna på hur scenen låter genom att klicka på uppspelningsknappen i Unity-redigeraren. På skrivbordet använder du W, A, S, D och musen för att flytta runt. Om du vill jämföra hur scenen låter med och utan akustik trycker du på knappen **R** tills överläggstexten blir röd och säger ”Acoustics: Disabled.” (”Akustik: inaktiverad”.) Om du vill se tangentbordsgenvägar för fler kontroller trycker du på **F1**. Du kan också använda kontrollerna genom att högerklicka för att välja den åtgärd som ska utföras sedan vänsterklicka för att utföra den.
+Lyssna på hur scenen låter genom att klicka på uppspelningsknappen i Unity-redigeraren. På skrivbordet använder du W, A, S, D och musen för att flytta runt. Om du vill jämföra hur scenen låter med och utan akustik trycker du på knappen **R** tills överläggstexten blir röd och spelar upp ”Acoustics: Disabled.” (”Akustik: inaktiverad”.) Om du vill se tangentbordsgenvägar för fler kontroller trycker du på **F1**. Du kan också använda kontrollerna genom att högerklicka för att välja den åtgärd som ska utföras sedan vänsterklicka för att utföra den.
 
 ## <a name="targeting-other-platforms"></a>Anpassa för andra plattformar
 I exemplet finns inställningar för körning på Windows-skrivbordet, Desktop, UWP, Windows Mixed Reality, Android och Oculus Go. Som standard konfigureras projekten för Windows-skrivbordet. Om du vill anpassa en VR-plattform går du till spelarinställningarna (**Redigera > Projektinställningar > Spelare**), leta rätt på **XR-inställningarna** och markera kryssrutan **Virtual Reality Supported** (VR stöds).

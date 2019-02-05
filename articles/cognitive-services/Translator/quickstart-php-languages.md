@@ -1,21 +1,21 @@
 ---
-title: 'Snabbstart: Hämta språk som stöds, PHP – Translator Text API'
+title: 'Snabbstart: Hämta språk som stöds, PHP – Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t med PHP.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: e208e66c906531bb084438539c76e0a07c3caa9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8bb3860f1ed81799640d81414f8e00b35585e168
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647263"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206841"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Snabbstart: Hämta språk som stöds med Translator Text REST API (PHP)
 

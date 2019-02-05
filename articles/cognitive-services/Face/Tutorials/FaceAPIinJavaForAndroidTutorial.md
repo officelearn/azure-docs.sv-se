@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Identifiera och rama in ansikten i en bild med hjälp av Android SDK'
+title: 'Självstudier: Identifiera och rama in ansikten i en bild med hjälp av Android SDK'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en enkel Android-app som använder Ansiktsigenkänning till att identifiera och rama in ansikten i en bild.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c28aa58e64253d5a25dbdfc8f1473e0e462af57
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852902"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220016"
 ---
-# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Självstudie: Skapa en Android-app för att upptäcka och rama in ansikten i en bild
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Självstudier: Skapa en Android-app för att upptäcka och rama in ansikten i en bild
 
 I den här självstudien får du skapa en enkel Android-app som använder Azure ansikts-API, via Java SDK, för att identifiera ansikten i en bild. Appen visar en utvald bild och ritar en ram runt varje identifierat ansikte.
 

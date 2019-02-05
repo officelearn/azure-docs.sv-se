@@ -3,7 +3,7 @@ title: CLI-exempel – Skapa en Azure SQL-databas | Microsoft Docs
 description: Använd det här Azure CLI-exempelskriptet för att skapa en SQL-databas.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,13 +11,13 @@ author: CarlRabeler
 manager: craigg
 ms.author: carlrab
 ms.reviewer: ''
-ms.date: 09/20/2018
-ms.openlocfilehash: d239236e9e6f7133aa57eb617c3cc9e8626fc178
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: 24f45ea22a50e471a2947b926b817f06aefa9aa8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055483"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451792"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Använd CLI för att skapa en enda Azure SQL-databas och konfigurera en brandväggsregel
 
@@ -48,9 +48,9 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Skapar en logisk server som är värd för SQL-databasen. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Skapar en brandväggsregel för att tillåta åtkomst till alla SQL-databaser på servern från det angivna IP-adressintervallet. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Skapar SQL-databasen på den logiska servern. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Skapa en SQL Database-server som är värd för en enskild databas eller en elastisk pool. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Skapar en brandväggsregel för att tillåta åtkomst till alla enkla databaser och elastiska pooler på SQL Database-servern från det angivna IP-adressintervallet. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Skapar en enkel databas eller en elastisk pool. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

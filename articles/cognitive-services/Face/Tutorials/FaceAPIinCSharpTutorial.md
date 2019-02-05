@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Identifiera och visa ansiktsinformation i en bild med .NET SDK'
+title: 'Självstudier: Identifiera och visa ansiktsinformation i en bild med .NET SDK'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en Windows-app som använder Ansiktsigenkänning till att identifiera och rama in ansikten i en bild.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 79b467e55ec381d851d064d5f78cbdb91c9cf837
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852681"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221189"
 ---
-# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Självstudie: Skapa en WPF-app för att visa ansiktsinformation i en bild
+# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Självstudier: Skapa en WPF-app för att visa ansiktsinformation i en bild
 
 I den här självstudien lär du dig hur du använder API:et för ansiktsigenkänning i Azure, via .NET-klient-SDK, för att identifiera ansikten i en bild och sedan visa dessa data i användargränssnittet. Du skapar en enkel WPF-app (Windows Presentation Framework) som identifierar ansikten, ritar en ram runt varje ansikte och visar en beskrivning av ansiktet i statusfältet. 
 

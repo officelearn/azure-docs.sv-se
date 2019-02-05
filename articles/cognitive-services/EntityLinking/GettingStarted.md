@@ -1,23 +1,23 @@
 ---
-title: 'Självstudier: Skapa en entitetslänkande app – C#'
+title: 'Självstudier: Skapa en Entity Linking-app – C#'
 titlesuffix: Azure Cognitive Services
 description: Analysera text och länka namngivna entiteter till relevanta poster i en kunskapsbas med hjälp av API för Entity Linking.
 services: cognitive-services
 author: DavidLiCIG
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
+ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 883d566fd3a6089eb9e72498089f995697a318f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365646"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216820"
 ---
-# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Självstudier: Skapa en entitetslänkande app med C#
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Självstudier: Skapa en Entity Linking-app med C#
 
 Microsofts Entity Linking är ett verktyg för bearbetning av naturligt språk som används för att analysera text och länka namngivna entiteter till relevanta poster i en kunskapsdatabas. 
 
@@ -30,7 +30,7 @@ Den här guiden utforskar entitetslänkning med hjälp av Entity Linking-klientb
 - Hämta klientbiblioteket och exempel
 - Microsoft Entity Linking NuGet-paket
 
-Du kan ladda ned Entity Linking Intelligence Service API Client Library via [SDK](https://www.github.com/microsoft/cognitive-entitylinking-windows). Den hämtade zip-filen måste extraheras till en mapp som du väljer. Många användare väljer mappen för Visual Studio 2015.
+Du kan ladda ned Entity Linking Intelligence Service API Client Library via [SDK](https://www.github.com/microsoft/cognitive-entitylinking-windows). Den nedladdade zip-filen måste extraheras till en mapp som du väljer. Många användare väljer mappen för Visual Studio 2015.
 
 ### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">Steg 1: Prenumerera på Entity Linking Intelligence Service och få din nyckel</a>
 Innan du börjar använda Entity Linking Intelligence Service måste du registrera dig för en API-nyckel. Se [prenumerationer](https://www.microsoft.com/cognitive-services/en-us/sign-up). Både den primära och sekundära nyckeln kan användas i den här självstudien.
@@ -41,7 +41,7 @@ Låt oss börja med att skapa ett nytt projekt i Visual Studio. Starta först Vi
 
  ![Skapa en universell app](./Images/CreateUWP.png)
 
-### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">Steg 3: Lägg till Entity Linking NuGet-paketet till ditt projekt</a>
+### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">Steg 3: Lägg till NuGet-paketet för Entity Linking till ditt projekt</a>
 
 Entity Linking för Cognitive Services släpps som ett NuGet.org-paket och måste installeras innan du kan använda det.
 Om du vill lägga till det i projektet går du till fliken **Solution Explorer**, högerklickar på projektet och väljer **Hantera Nuget-paket**.

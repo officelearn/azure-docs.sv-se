@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: eb34385087118614f8d7057c2229bc3c9e8d1ae4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 550201e692bb79197d50c2f44017c43ab9ea2016
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039494"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477345"
 ---
-# <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Etablera dataflöde för en Azure Cosmos DB-container
+# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Etablera dataflöde i en Azure Cosmos-container
 
 I den här artikeln beskrivs hur du etablerar dataflödet för en container (samling, graf, tabell) i Azure Cosmos DB. Du kan etablera dataflöden för en enda container eller [etablera för en databas](how-to-provision-database-throughput.md) och dela det mellan containrarna i dataflödet. Du kan etablera dataflöde för en container med hjälp av Azure-portalen, Azure CLI eller CosmosDB-SDK:er.
 

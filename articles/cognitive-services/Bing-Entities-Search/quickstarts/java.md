@@ -1,21 +1,21 @@
 ---
-title: 'Snabbstart: API för entitetssökning i Bing, Java'
+title: 'Snabbstart: API för entitetsökning i Bing, Java'
 titlesuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för entitetssökning i Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: aahi
-ms.openlocfilehash: 20a9e9b9c52d45c0f1c933f82e81d2d9a6f73edd
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 000ae54d578ab7223293fc7c089d91a593931533
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313885"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169475"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-java"></a>Snabbstart för API för entitetssökning i Bing med Java 
 

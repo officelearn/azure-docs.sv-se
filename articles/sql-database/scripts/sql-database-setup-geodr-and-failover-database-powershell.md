@@ -1,6 +1,6 @@
 ---
-title: PowerShell-exempel på aktiv geo-replikering för enkel grupp med Azure SQL Database | Microsoft Docs
-description: Azure PowerShell-exempelskript som konfigurerar aktiv geo-replikering för en enskild Azure SQL-databas och sedan redundansväxlar den.
+title: PowerShell-exempel på aktiv geo-replikering för fristående grupp med Azure SQL Database | Microsoft Docs
+description: Azure PowerShell-exempelskript som konfigurerar aktiv geo-replikering för en enkel databas i Azure SQL Database och sedan redundansväxlar den.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: fd699c622c44cec3a0077314e5d2b43016c13d87
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 0fa689c91ed6844c2314b3b9d3bea2619540bc50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389723"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463794"
 ---
-# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>Använd PowerShell för att konfigurera aktiv geo-replikering för en enda Azure SQL-databas
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Använd PowerShell för att konfigurera aktiv geo-replikering för en enkel databas i Azure SQL Database
 
-Det här PowerShell-skriptexemplet konfigurerar aktiv geo-replikering för en enda Azure SQL-databas och redundansväxlar den till en sekundär replik av Azure SQL-databasen.
+Det här PowerShell-skriptexemplet konfigurerar aktiv geo-replikering för en enda databas och redundansväxlar den till en sekundär replik av databasen.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
@@ -48,8 +48,8 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | Kommando | Anteckningar |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Skapar en logisk server som är värd för en databas eller elastisk pool. |
-| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Skapar en elastisk pool i en logisk server. |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
+| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Skapar en elastisk pool. |
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Uppdaterar databasegenskaper eller flyttar en databas till, från eller mellan elastiska pooler. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Skapar en sekundär databas för en befintlig databas och startar datareplikeringen. |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| Hämtar en eller flera databaser. |

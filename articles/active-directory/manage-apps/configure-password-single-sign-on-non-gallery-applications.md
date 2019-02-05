@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f0f4d160b9e9d5e556813115aa39c60ea8f4edb2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184384"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733339"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för en icke-galleriprogram
 
@@ -23,7 +23,7 @@ Förutom de alternativ som finns i Azure AD-Programgalleriet har du också möjl
 
 När du lägger till en icke-galleriprogram, du kan sedan konfigurera enkel inloggning för metoden det här programmet används genom att välja den **enkel inloggning** navigering objekt i ett Enterprise-program i den [Azure-portalen](https://portal.azure.com/).
 
-En av enkel inloggning metoder tillgängliga för dig är det [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) alternativet. Med den **lägga till en icke-galleriprogram** upplevelse, kan du integrera alla program som återger ett HTML-baserad användarnamn och lösenord anger fältet, även om den inte ingår i vår uppsättning redan integrerade program.
+En av enkel inloggning metoder tillgängliga för dig är det [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) alternativet. Med den **lägga till en icke-galleriprogram** upplevelse, kan du integrera alla program som återger ett HTML-baserad användarnamn och lösenord anger fältet, även om den inte ingår i vår uppsättning redan integrerade program.
 
 Hur detta fungerar är av en sida som skrapning teknik som ingår i åtkomstpanelen-tillägg som ger oss möjlighet att automatiskt identifiera inmatningsfält för användarnamn och lösenord, lagra dem på ett säkert sätt för din specifika programinstans. På ett säkert sätt spela upp användarnamn och lösenord till dessa fält när en användare navigerar till programmet på programåtkomstpanelen.
 
@@ -47,7 +47,7 @@ Detta är ett bra sätt att komma igång med att integrera alla typer av program
 
 -   Tillåt en **administratör** ange delade användarnamnet eller lösenordet som används av en grupp människor med hjälp av uppdatera autentiseringsuppgifterna funktionen när [tilldela en grupp till ett program](#assign-an-application-to-a-group-directly)
 
-I följande avsnitt beskrivs hur du kan aktivera [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) för program som du lägger till med hjälp av den **lägga till en icke-galleriprogram** upplevelse.
+I följande avsnitt beskrivs hur du kan aktivera [lösenordsbaserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) för program som du lägger till med hjälp av den **lägga till en icke-galleriprogram** upplevelse.
 
 ## <a name="overview-of-steps-required"></a>Översikt över steg som krävs
 

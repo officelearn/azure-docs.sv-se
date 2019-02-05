@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 904cd593022006bc16908664fb7d7d0e3f6f24b0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c869d129d901a5c8dee7ed09b907805980e5c573
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455226"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727202"
 documentType: LandingData
 title: Azure SQL Database – avancerad säkerhet
 metadata:
@@ -69,7 +69,7 @@ sections:
       - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
       - href: 
       - href: /azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
-    - title: Konfigurera Hotidentifiering på hanterad instans
+    - title: Konfigurera identifiering av hot på en hanterad instans
       values:
       - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
       - href: 
@@ -91,9 +91,9 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Enhetsskydd i <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">instanser som hanteras av</a> och <a href="/azure/sql-database/sql-database-threat-detection">databaser</a> identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser.
-    - html: Granskning för <a href="/azure/sql-database/sql-database-managed-instance-auditing">instanser som hanteras av</a> och <a href="/azure/sql-database/sql-database-auditing">databaser</a> spårar databasen händelser och skriver dem till en granskningslogg i ditt Azure storage-konto, OMS-arbetsyta eller Event Hubs.
+    - html: Enhetsskydd i <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">hanterade instanser</a> och <a href="/azure/sql-database/sql-database-threat-detection">databaser</a> identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser.
+    - html: Granskning för <a href="/azure/sql-database/sql-database-managed-instance-auditing">hanterade instanser</a> och <a href="/azure/sql-database/sql-database-auditing">databaser</a> spårar databasen händelser och skriver dem till en granskningslogg i ditt Azure storage-konto, OMS-arbetsyta eller Event Hubs.
     - html: <a href="/azure/sql-database/sql-database-firewall-configure">Databasen serverbrandväggsregler</a> i Aktivera enskilda databaser du kan styra vilka IP-adresser kan komma åt databasen.
-    - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet-integrering</a> i Managed Instance kan du placera databaserna i din egen privata adressutrymmet.
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet-integrering</a> i hanterad instans kan du placera databaserna i din egen privata adressutrymmet.
     - html: <a href="/azure/sql-database/sql-database-always-encrypted">Alltid krypterad</a> skyddar känsliga data i vila på-servern under flytt mellan klienten och servern och medan data används, säkerställer att känsliga data aldrig visas som oformaterad text i databassystemet.
     - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">Dynamisk datamaskning</a> hjälper till att förhindra obehörig åtkomst till känsliga data genom att låta kunder ange hur mycket av känsliga data som avslöja med minimal påverkan på programnivån.

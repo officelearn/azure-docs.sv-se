@@ -8,62 +8,59 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 01/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 963e34ae9327b7b124d47f4223de8d6ab2082fbf
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0b4e2d3e7c75e6d25c7d519d4179a635a7833b6b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437018"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695329"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ansluta Excel till Apache Hadoop i Azure HDInsight med Microsoft Hive ODBC-drivrutin
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Microsofts Big Data-lösning integrerar Microsoft Business Intelligence (BI)-komponenter med Apache Hadoop-kluster som har distribuerats med Azure HDInsight. Ett exempel på den här integreringen är möjligheten att ansluta Excel till Hive-datalagret i ett Hadoop-kluster i HDInsight med Microsoft Hive ODBC Open Database Connectivity ()-drivrutinen.
+Microsofts Big Data-lösning integrerar Microsoft Business Intelligence (BI)-komponenter med Apache Hadoop-kluster som har distribuerats i Azure HDInsight. Ett exempel på den här integreringen är möjligheten att ansluta Excel till Hive-datalagret i ett Hadoop-kluster i HDInsight med Microsoft Hive ODBC Open Database Connectivity ()-drivrutinen.
 
 Det är också möjligt att ansluta de data som hör till ett HDInsight-kluster och andra datakällor, inklusive andra Hadoop-kluster med (icke-HDInsight), från Excel med hjälp av Microsoft Power Query-tillägget för Excel. Information om att installera och använda Power Query finns i [Anslut Excel till HDInsight med Power Query][hdinsight-power-query].
 
 
-
-**Krav för**:
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här artikeln måste du ha följande objekt:
 
-* **Ett HDInsight-kluster**. Om du vill skapa en [Kom igång med Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
-* **En arbetsstation** med Office 2013 Professional Plus, Office 365 Pro Plus, fristående Excel 2013 eller Office Professional Plus 2010.
+* Ett HDInsight Hadoop-kluster. Om du vill skapa en [Kom igång med Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* En arbetsstation med Office Professional Plus 2010 eller senare, eller Excel 2010 eller senare.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installera Microsoft Hive ODBC-drivrutin
-Ladda ned och installera Microsoft Hive ODBC-drivrutin från den [Download Center][hive-odbc-driver-download].
-
-Den här drivrutinen kan installeras på 32-bitars eller 64-bitars versioner av Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 och Windows Server 2012. Drivrutinen tillåter anslutning till Azure HDInsight. Du bör installera den version som matchar versionen av programmet där du använder ODBC-drivrutinen. Den här självstudien används drivrutinen från Office Excel.
+Ladda ned och installera den [Microsoft Hive ODBC-drivrutin] [ hive-odbc-driver-download] version som matchar versionen av programmet som du kommer att använda ODBC-drivrutinen.  Den här självstudien används drivrutinen för Office Excel.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Skapa Apache Hive ODBC-datakälla
 Följande steg visar hur du skapar en Hive ODBC-datakälla.
 
-1. Från Windows 8 eller Windows 10, trycker du på Windows-tangenten för att öppna startskärmen och skriv sedan **datakällor**.
-2. Klicka på **konfigurera ODBC-datakällor (32-bitars)** eller **konfigurera ODBC-datakällor (64-bitars)** beroende på dina Office-version. Om du använder Windows 7, väljer **ODBC-datakällor (32-bitars)** eller **ODBC-datakällor (64-bitars)** från **Administrationsverktyg**. Du bör se den **ODBC Data Source Administrator** dialogrutan.
+1. Från Windows, navigerar du till Start > Windows Administrationsverktyg > ODBC-datakällor (32-bit)/(64-bit).  Då öppnas det **ODBC Data Source Administrator** fönster.
    
     ![Datakälla för OBDC](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "konfigurera en DNS med hjälp av ODBC-datakälla")
 
-3. Användaren DNS, klickar du på **Lägg till** att öppna den **Skapa ny datakälla** guiden.
-4. Välj **Microsoft Hive ODBC-drivrutin**, och klicka sedan på **Slutför**. Du bör se den **Microsoft Hive ODBC-drivrutinen DNS-inställningar** dialogrutan.
-5. Ange eller välj följande värden:
+2. Från den **användar-DSN** fliken **Lägg till** att öppna den **Skapa ny datakälla** fönster.
+
+3. Välj **Microsoft Hive ODBC-drivrutin**, och välj sedan **Slutför** att öppna den **Microsoft Hive ODBC-drivrutinen DSN för** fönster.
+
+4. Ange eller välj följande värden:
    
    | Egenskap  | Beskrivning |
    | --- | --- |
    |  Namn på datakälla |Namnge din datakälla |
-   |  Värd |Ange &lt;HDInsightClusterName>.azurehdinsight.net. Till exempel myHDICluster.azurehdinsight.net |
+   |  Värdar |Ange &lt;HDInsightClusterName&gt;. azurehdinsight.net. Till exempel myHDICluster.azurehdinsight.net |
    |  Port |Använd <strong>443</strong>. (Den här porten har ändrats från 563 till 443.) |
-   |  Databas |Använd <strong>Standard</strong>. |
+   |  Databas |Använd <strong>standard</strong>. |
    |  Mekanism |Välj <strong>Azure HDInsight-tjänst</strong> |
    |  Användarnamn |Ange HDInsight-kluster HTTP användarens användarnamn. Standardanvändarnamnet är <strong>admin</strong>. |
    |  Lösenord |Ange användarlösenord för HDInsight-kluster. |
+
    
-    </table>
-   
-    Det finns några viktiga parametrar känna till när du klickar på **avancerade alternativ**:
+5. Valfritt: Välj **avancerade alternativ...**  
    
    | Parameter | Beskrivning |
    | --- | --- |
@@ -73,23 +70,30 @@ Följande steg visar hur du skapar en Hive ODBC-datakälla.
 
     ![Avancerade alternativ](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "avancerade DSN konfigurationsalternativ")
 
-1. Klicka på **testa** att testa datakällan. När datakällan är korrekt konfigurerad, visas *TESTERNA har SLUTFÖRTS!*.
-2. Klicka på **OK** att stänga dialogrutan Test. Den nya datakällan skall anges i den **ODBC Data Source Administrator**.
-3. Klicka på **OK** vill avsluta guiden.
+5. Välj **testa** att testa datakällan. När datakällan är korrekt konfigurerad, visar testresultatet **lyckades!**.  
+
+6. Välj **OK** att stänga testfönstret.  
+
+7. Välj **OK** att Stäng den **Microsoft Hive ODBC-drivrutinen DSN för** fönster.  
+
+8. Välj **OK** att Stäng den **ODBC Data Source Administrator** fönster.  
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>Importera data till Excel från HDInsight
 Följande steg beskriver hur du importerar data från en Hive-tabell till en Excel-arbetsbok med hjälp av ODBC-datakälla som du skapade i föregående avsnitt.
 
 1. Öppna en ny eller befintlig arbetsbok i Excel.
-2. Från den **Data** fliken **hämta Data**, klickar du på **från andra källor**, och klicka sedan på **från ODBC** att starta den **Data Guiden Dataanslutning**.
+
+2. Från den **Data** fliken, navigera till **hämta Data** > **från andra källor** > **från ODBC** att starta den **Från ODBC** fönster.
    
     ![Öppna dataanslutningsguiden](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "öppna dataanslutningsguiden")
-4. Välj namnet på datakällan som du skapade i det sista avsnittet och klicka sedan på **OK**.
-5. Ange Hadoop-användarnamn (standardnamnet är admin) och lösenordet och klicka sedan på **Connect**.
-6. I Navigatören expanderar **HIVE**, expandera **standard**, klickar du på **hivesampletable**, och klicka sedan på **belastningen**. Det tar några sekunder innan data har importerats till Excel.
+
+3. Välj namnet på datakällan som du skapade i det sista avsnittet från den nedrullningsbara listan och välj sedan **OK**.
+
+4. Ange det Hadoop-användarnamn (standardnamnet är admin) och lösenordet och välj sedan **Connect** att öppna den **Navigator** fönster.
+
+5. Från **Navigator**, gå till **HIVE** > **standard** > **hivesampletable**, och välj sedan  **Läs in**. Det tar en liten stund innan data har importerats till Excel.
 
     ![HDInsight Hive ODBC navigator](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight.hive.odbc.navigator.png "öppna dataanslutningsguiden")
-
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln beskrivs hur du använder Microsoft Hive ODBC-drivrutinen för att hämta data från HDInsight Service till Excel. På samma sätt kan du hämta data från HDInsight Service till SQL Database. Det är också möjligt att överföra data till ett HDInsight Service. Du kan läsa mer här:

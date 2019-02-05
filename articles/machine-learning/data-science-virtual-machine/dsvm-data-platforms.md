@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 744c8d6488b9b0688126d305426f90647a89d4be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478091"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733441"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Dataplattformar som stöds på den virtuella datorn för datavetenskap
 
@@ -105,5 +105,5 @@ Du kan stoppa Hadoop relaterade tjänster när du inte behöver dem genom att k�
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
-Bibliotek för åtkomst till data från Azure Blob eller Azure Data Lake-lagring (ADLS) och använder maskininlärning för MMLSpark-bibliotek för Microsofts är förinstallerade i $SPARK_HOME/JAR-filer. De här JAR-filer läses in automatiskt när Spark startas. Som standard använder Spark data på den lokala disken. Du behöver skapa/konfigurera för Spark-instansen på DSVM att komma åt data som lagras på Azure blob eller ADLS den `core-site.xml` fil baserat på mallen finns i $SPARK_HOME/conf/core-site.xml.template (där det finns platshållare för Blob- och ADLS konfigurationer) med rätt autentiseringsuppgifter till Azure blob- och Azure Data Lake Storage. Du hittar mer detaljerade anvisningar om hur du skapar autentiseringsuppgifter för ADLS-tjänstens [här](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). När autentiseringsuppgifter för Azure blob eller ADLS har angetts i filen core-site.xml, du kan referera till de data som lagras i de källorna med URI-prefixet för wasb: / / eller adl: / /. 
+Bibliotek för åtkomst till data från Azure Blob eller Azure Data Lake-lagring (ADLS) och använder maskininlärning för MMLSpark-bibliotek för Microsofts är förinstallerade i $SPARK_HOME/JAR-filer. De här JAR-filer läses in automatiskt när Spark startas. Som standard använder Spark data på den lokala disken. Du behöver skapa/konfigurera för Spark-instansen på DSVM att komma åt data som lagras på Azure blob eller ADLS den `core-site.xml` fil baserat på mallen finns i $SPARK_HOME/conf/core-site.xml.template (där det finns platshållare för Blob- och ADLS konfigurationer) med rätt autentiseringsuppgifter till Azure blob- och Azure Data Lake Storage. Du hittar mer detaljerade anvisningar om hur du skapar autentiseringsuppgifter för ADLS-tjänstens [här](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). När autentiseringsuppgifter för Azure blob eller ADLS har angetts i filen core-site.xml, du kan referera till de data som lagras i de källorna med URI-prefixet för wasb: / / eller adl: / /. 
 

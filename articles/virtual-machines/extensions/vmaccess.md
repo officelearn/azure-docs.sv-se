@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413846"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731316"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI
 ## <a name="overview"></a>Översikt
@@ -66,7 +66,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **OBS:** Den `az vm user update` kommando lägger du till den nya offentliga nyckel texten ska den `~/.ssh/authorized_keys` fil för administratören på den virtuella datorn. Detta inte ersätter eller ta bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som anges vid tidpunkten för distribution eller efterföljande uppdateringar via VMAccess-tillägget.
+> **Obs!** Den `az vm user update` kommando lägger du till den nya offentliga nyckel texten ska den `~/.ssh/authorized_keys` fil för administratören på den virtuella datorn. Detta inte ersätter eller ta bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som anges vid tidpunkten för distribution eller efterföljande uppdateringar via VMAccess-tillägget.
 
 ## <a name="reset-password"></a>Återställa lösenord
 I följande exempel återställer lösenordet för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
@@ -110,7 +110,7 @@ az vm user delete \
 ```
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>Använda JSON-filer och VMAccess-tillägget
-I följande exempel används raw JSON-filer. Använd [az vm-tilläggsuppsättningen](/cli/azure/vm/extension#az_vm_extension_set) att anropa JSON-filer. De här JSON-filer kan också anropas från Azure-mallar. 
+I följande exempel används raw JSON-filer. Använd [az vm-tilläggsuppsättningen](/cli/azure/vm/extension) att anropa JSON-filer. De här JSON-filer kan också anropas från Azure-mallar. 
 
 ### <a name="reset-user-access"></a>Återställ användaråtkomst
 Om du har förlorat åtkomsten till rot på Linux-VM, kan du starta en VMAccess-skript för att uppdatera en användares SSH-nyckel eller lösenord.

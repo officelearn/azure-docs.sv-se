@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 875240b779f05c1b13f71bf2133b9abfaa209239
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223365"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733475"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Hämta Cognitive Services tal enheter SDK
 
@@ -46,7 +46,7 @@ Subject: You're invited to the Microsoft organization
 
 Utför följande steg för att ansluta till Azure AD med den e-postadress som du angav under registreringen. Den här processen ger dig åtkomst till tal Devices SDK [hämtningswebbplats](https://shares.datatransfer.microsoft.com/).
 
-1. I e-postmeddelandet du fick, väljer **börjar**. Om din organisation är redan en Office 365-kund kan du uppmanas att logga in och du kan gå vidare till steg 8.
+1. I e-postmeddelandet du fick, väljer **börjar**. Om din organisation är redan en Office 365-kund kan du uppmanas att logga in och du kan gå vidare till steg 7.
 
 2. I webbläsarfönstret som öppnas väljer du **nästa**.
 

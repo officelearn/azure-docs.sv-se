@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2a0fc7cc4e76c4a93f6ff71767d3074ea8ac6564
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168217"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729276"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel för användning i Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Du aktiverar körning av skript genom att lägga till den **ScriptExecution** el
 
 Följ dessa riktlinjer när du anpassar gränssnittet för ditt program med hjälp av JavaScript:
 
-- Inte binder en click-händelse i `<a>` HTML-element. 
+- Inte binder en click-händelse i `<a>` HTML-element.
 - Om du bara får du ett beroende på Azure AD B2C-kod eller kommentarer.
 - Inte ändra ordningen eller hierarki med Azure AD B2C HTML-element. Använda en Azure AD B2C-princip för att styra ordningen för UI-element.
 - Du kan anropa valfri RESTful-tjänst med detta:
@@ -113,9 +113,9 @@ function setupPwdTogglers(){
 setupPwdTogglers();
 ```
 
-### <a name="add-terms-of-use"></a>Lägga till användningsvillkor 
+### <a name="add-terms-of-use"></a>Lägga till användningsvillkor
 
-Inkludera följande kod i din sida där du vill inkludera en **användningsvillkor** kryssrutan. Den här kryssrutan krävs normalt i lokalt konto registrering och sociala konto registrering sidorna.  
+Inkludera följande kod i din sida där du vill inkludera en **användningsvillkor** kryssrutan. Den här kryssrutan krävs normalt i lokalt konto registrering och sociala konto registrering sidorna.
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -124,18 +124,18 @@ function addTermsOfUseLink() {
     if (!termsOfUseLabel) {
         return;
     }
-      
+
     // get the label text
     var termsLabelText = termsOfUseLabel.innerHTML;
-      
-    // create a new <a> element with the same inner text 
+
+    // create a new <a> element with the same inner text
     var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');
     termsOfUseLink.appendChild(document.createTextNode(termsLabelText));
 
-    // replace the label text with the new element 
+    // replace the label text with the new element
     termsOfUseLabel.replaceChild(termsOfUseLink, termsOfUseLabel.firstChild);
 }
 ```
@@ -145,4 +145,3 @@ I koden, Ersätt `terms-of-use-url` med länken till din villkor för användnin
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du kan anpassa användargränssnittet i dina program i [anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
-

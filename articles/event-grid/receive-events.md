@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: bb22a2545466c72f7dac68f80668b8b530832c21
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094726"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728630"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 
@@ -51,8 +51,6 @@ Klicka på länken ”Visa filer” i din Azure-funktion (de flesta till höger 
 ## <a name="endpoint-validation"></a>Slutpunktsvalideringen
 
 Det första som du vill göra är att hantera `Microsoft.EventGrid.SubscriptionValidationEvent` händelser. Varje gång någon prenumererar på en händelse Event Grid skickar en verifiering-händelse till slutpunkten med en `validationCode` i datanyttolasten för. Slutpunkten som krävs för att echo tillbaka detta i svarstexten till [bevisa slutpunkten är giltig och ägs av dig](security-authentication.md#webhook-event-delivery). Om du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) i stället för att en WebHook-funktion som utlöses, slutpunktsvalideringen hanteras åt dig. Om du använder en API-tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt echo verifieringskoden. För dessa tjänster kan du manuellt verifiera prenumerationen med hjälp av en URL för verifiering som skickas i händelsen prenumeration verifiering. Kopiera URL: en i den `validationUrl` egenskapen och skicka en GET-begäran antingen via en REST-klient eller webbläsaren.
-
-Manuell verifiering är i förhandsversion. Om du vill använda den måste du installera [Event Grid-tillägget](/cli/azure/azure-cli-extensions-list) för [Azure CLI](/cli/azure/install-azure-cli). Du kan installera det med `az extension add --name eventgrid`. Om du använder REST API, kontrollera att du använder `api-version=2018-05-01-preview`.
 
 I C#, den `DeserializeEventGridEvents()` funktionen deserializes Event Grid-händelser. Den deserializes händelsedata till rätt typ, till exempel StorageBlobCreatedEventData. Använd den `Microsoft.Azure.EventGrid.EventTypes` klassen för att få stöds händelsetyper och namn.
 

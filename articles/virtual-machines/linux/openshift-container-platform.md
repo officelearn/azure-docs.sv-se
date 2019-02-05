@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 21eebb6c27a83b939f321d38026da7d4c39b7071
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 82dd448bb408e7c4bb3576feee17aef66ee6d01d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085894"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730721"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuera OpenShift Container Platform i Azure
 
@@ -264,15 +264,15 @@ Det enklaste sättet att distribuera OpenShift Container Platform på Azure är 
 
 Detta är det enklaste alternativet, men det kan också har begränsade funktioner för anpassning. Marketplace-erbjudandet innehåller följande konfigurationsalternativ:
 
-- **Master noder**: tre (3) Master-noder med konfigurerbara instanstyp.
-- **Infra noder**: tre (3) Infra noder med konfigurerbara Instanstypen.
-- **Noder**: antalet noder kan konfigureras (mellan 2 och 9) samt vilken instanstyp.
-- **Disktyp**: hanterade diskar används.
-- **Nätverk**: stöd för nya eller befintliga nätverk samt anpassade CIDR-intervall.
+- **Master noder**: Tre (3) Master-noder med konfigurerbara instans skriver.
+- **Infra noder**: Tre (3) Infra noder med konfigurerbara instans skriver.
+- **Noder**: Antalet noder kan konfigureras (mellan 2 och 9) samt vilken instanstyp.
+- **Disktyp**: Hanterade diskar används.
+- **Nätverk**: Stöd för nya eller befintliga nätverk samt anpassade CIDR-intervall.
 - **CNS**: CNS kan aktiveras.
-- **Mått**: mått kan aktiveras.
-- **Loggning**: loggning aktiveras.
-- **Azure Molnleverantör**: kan aktiveras.
+- **Mått**: Mått kan aktiveras.
+- **Loggning**: Du kan aktivera loggning.
+- **Azure Cloud Provider**: Du kan aktivera.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Anslut till klustret för OpenShift
 
@@ -284,7 +284,7 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Använd den [az group delete](/cli/azure/group#az_group_delete) att ta bort resursgruppen, OpenShift klustret och alla relaterade resurser när de inte längre behövs.
+Använd den [az group delete](/cli/azure/group) att ta bort resursgruppen, OpenShift klustret och alla relaterade resurser när de inte längre behövs.
 
 ```azurecli 
 az group delete --name openshiftrg

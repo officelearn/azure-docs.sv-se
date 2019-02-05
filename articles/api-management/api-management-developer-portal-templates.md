@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446967"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733067"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Hur du anpassar utvecklarportalen Azure API Management med hjälp av mallar
 
@@ -45,15 +45,15 @@ Lista över mallar visas flera kategorier av mallar som täcker de olika sidorna
 
 ![Utvecklarportalsmallar][api-management-templates-menu]
 
-Klicka på en mall går du till developer-Portalsida som kan anpassas av mallen. I det här exemplet på **produktlista** mallen visas. Den **produktlista** mallen styr område på skärmen som anges med röd rektangel. 
+Klicka på en mall går du till developer-Portalsida som kan anpassas av mallen. I det här exemplet på **produktlista** mallen visas. Den **produktlista** mallen styr område på skärmen som anges med röd rektangel.
 
 ![Produkter listmall][api-management-developer-portal-templates-overview]
 
-Vissa mallar, som den **användarprofil** mallar och anpassa olika delar av samma sida. 
+Vissa mallar, som den **användarprofil** mallar och anpassa olika delar av samma sida.
 
 ![Användaren profilmallar][api-management-user-profile-templates]
 
-Redigeraren för varje mall för utvecklare har två avsnitt visas längst ned på sidan. Till vänster visar redigeringsfönstret för mallen och till höger visar datamodellen för mallen. 
+Redigeraren för varje mall för utvecklare har två avsnitt visas längst ned på sidan. Till vänster visar redigeringsfönstret för mallen och till höger visar datamodellen för mallen.
 
 Redigera fönstret mallen innehåller koden som styr utseendet och beteendet för den motsvarande sidan i utvecklarportalen. Koden i mallen använder den [DotLiquid](http://dotliquidmarkup.org/) syntax. En populär Redigeraren för DotLiquid är [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Ändringar som görs i mallen när du redigerar visas i realtid i webbläsaren, men är inte synlig för kunderna förrän du [spara](#to-save-a-template) och [publicera](#to-publish-a-template) mallen.
 
@@ -118,7 +118,7 @@ Markeringen i den **produktlista** mall bearbetar data för att tillhandahålla 
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -209,10 +209,3 @@ Referensinformation för utvecklarportalsmallar, strängresurser, ikoner och kon
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

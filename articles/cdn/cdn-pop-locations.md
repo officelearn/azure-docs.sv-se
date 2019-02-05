@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 02/01/2019
 ms.author: magattus
-ms.openlocfilehash: 9f68d08ae1deac5b03d8fd7e6596bb4c98813ac2
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2f9bb6eee35a303697179ff02ed18203cd1652f6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058500"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692604"
 ---
-# <a name="azure-cdn-pop-locations-by-region"></a>Azure CDN POP-platser efter region
+# <a name="azure-cdn-coverage-by-metro"></a>Azure CDN-täckning av appar i Metro 
 > [!div class="op_single_selector"]
 > * [POP-platser efter region](cdn-pop-locations.md)
 > * [POP-platser efter förkortning](cdn-pop-abbreviations.md)
 > 
 
 
-Den här artikeln visar en lista över aktuella platserna för point of presence (POP), sorterade efter region för Azure Content Delivery Network (CDN) produkter.
+Den här artikeln visar en lista över aktuella Metros som innehåller point of presence (POP)-platser, sorterade efter region för Azure Content Delivery Network (CDN) produkter. Varje Metro kan innehålla fler än en POP. Azure CDN från Microsoft har till exempel 129 POP i vår 61 Metros. 
 
 > [!IMPORTANT]
 > POP stad platser för **Azure CDN från Akamai** individuellt inte uppges.  
@@ -38,13 +38,13 @@ Den här artikeln visar en lista över aktuella platserna för point of presence
 
 | Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| Nordamerika | Toronto, Kanada<br />Querétaro, Mexico<br />San Juan, Puerto Rico<br />Ashburn, VA, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, USA, USA<br />Denver, CO, USA<br />Houston, USA, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, USA, USA<br />Phoenix, AZ, USA<br />Quincy, WA, USA<br />SAN Antonio, USA, USA<br />Santa Clara, CA, USA<br />Seattle, WA, USA | Mexiko City<br />Puebla, Mexiko<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, USA, USA<br />Denver, CO, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, USA, USA<br />Philadelphia, PA, USA<br />SAN Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA | Kanada<br />Mexiko<br />USA |
-| Sydamerika | Campinas, Brasilien<br />Rio de Janeiro, Brasilien<br />Santiago, Chile | Buenos Aires, Argentina<br />Rio de Janeiro, Brasilien<br />São Paulo, Brasilien<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Rights reserved<br />Lima, Peru | Brasilien<br />Peru |
-| Europa | Wien, Österrike<br />Bryssel, Belgien<br />Prag, Tjeckien<br />Köpenhamn, Danmark<br /> Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Budapest, Ungern<br />Dublin, Irland<br />Milano, Italien<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Barcelona, Spanien<br />Madrid, Spanien<br />Stockholm, Sverige<br />Zürich, Schweiz<br />Durham, Storbritannien<br />London, Storbritannien<br />Manchester, Storbritannien | Wien, Österrike<br />Köpenhamn, Danmark<br />Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spanien<br />Stockholm, Sverige<br />London, Storbritannien | Österrike<br />Danmark<br />Frankrike<br />Tyskland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
-| Afrika | Kapstaden, Sydafrika<br />Johannesburg, Sydafrika | Johannesburg, Sydafrika | |
-| Mellanöstern | | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar |
-| Indien | Chennai, Indien<br />Mumbai i Indien<br />New Delhi i Indien | Bangaluru (Bangalore), India<br />Chennai, Indien<br />Delhi, Indien<br />Mumbai i Indien<br />New Delhi i Indien<br /> | Indien |
-| Asien | Hongkong SAR<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippinerna<br />Singapore<br />Busan, Sydkorea<br />Seoul, Sydkorea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Busan, Sydkorea<br />Seoul, Sydkorea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesien<br />Japan<br />Malaysia<br />Filippinerna<br />Singapore<br />Taiwan SAR<br />Thailand<br />Vietnam |
+| Nordamerika | Toronto, Kanada<br />Querétaro, Mexico<br />San Juan, Puerto Rico<br />Ashburn, VA, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, USA, USA<br />Phoenix, AZ, USA<br />Quincy, WA, USA<br />San Antonio, TX, USA<br />Santa Clara, CA, USA<br />Seattle, WA, USA | Guadalajara, Mexico<br />Mexico City, Mexico<br />Puebla, Mexiko<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, USA, USA<br />Philadelphia, PA, USA<br />SAN Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA | Kanada<br />Mexiko<br />USA |
+| Sydamerika | Campinas, Brazil<br />Rio de Janeiro, Brasilien<br />Santiago, Chile | Buenos Aires, Argentina<br />Rio de Janeiro, Brasilien<br />São Paulo, Brasilien<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brasilien<br />Chile<br />Columbia<br />Ecuador<br />Peru<br />Uruguay |
+| Europa | Wien, Österrike<br />Bryssel, Belgien<br />Prag, Tjeckien<br />Köpenhamn, Danmark<br /> Helsingfors, Finland<br />Marseille, France<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Budapest, Ungern<br />Dublin, Irland<br />Milano, Italien<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Barcelona, Spanien<br />Madrid, Spain<br />Stockholm, Sverige<br />Zürich, Schweiz<br />Durham, UK<br />London, Storbritannien<br />Manchester, UK | Wien, Österrike<br />Köpenhamn, Danmark<br />Helsingfors, Finland<br />Marseille, France<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spain<br />Stockholm, Sverige<br />London, Storbritannien | Österrike<br />Bulgarien<br />Danmark<br />Finland<br />Frankrike<br />Tyskland<br />Grekland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Ryssland<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
+| Afrika | Kapstaden, Sydafrika<br />Johannesburg, Sydafrika | Johannesburg, Sydafrika | Sydafrika |
+| Mellanöstern | | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar<br />Förenade Arabemiraten |
+| Indien | Chennai, Indien<br />Mumbai, India<br />New Delhi i Indien | Bangaluru (Bangalore), India<br />Chennai, Indien<br />Mumbai, India<br />New Delhi i Indien<br /> | Indien |
+| Asien | Hongkong SAR<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippinerna<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesien<br />Israel<br />Japan<br />Macao<br />Malaysia<br />Filippinerna<br />Singapore<br />Sydkorea<br />Taiwan<br />Thailand<br />Turkiet<br />Vietnam |
 | Australien och Nya Zeeland | Melbourne, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Melbourne, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Australien<br />Nya Zeeland |
 
 

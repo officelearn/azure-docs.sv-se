@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c6b4ed787fa9e8881990801bdee77550a1a0bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473637"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699184"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -241,7 +241,7 @@ Varje lagringskonto har stöd för upp till 100 IP-nätverk (MPR), som kan kombi
 
 Om du vill bevilja åtkomst från ditt lokala nätverk till ditt lagringskonto med en regel för IP-nätverk, måste du identifiera den internetuppkopplade IP-adresser som används av nätverket. Kontakta nätverksadministratören om du behöver hjälp.
 
-Du kan använda [ExpressRoute](/azure/expressroute/expressroute-introduction) att ansluta ditt nätverk till Azure-nätverket. Varje krets konfigureras här, med två offentliga IP-adresser. De finns i Microsoft Edge och använda [Azure offentlig Peering](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) att ansluta till Microsoft Services som Azure Storage. Skapa IP-Nätverksregler för offentliga IP-adresserna för dina kretsar för att tillåta kommunikation med Azure Storage. Du hittar din ExpressRoute-krets offentliga IP-adresser, [öppnar ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
+Du kan använda [ExpressRoute](/azure/expressroute/expressroute-introduction) att ansluta ditt nätverk till Azure-nätverket. Varje krets konfigureras här, med två offentliga IP-adresser. De finns i Microsoft Edge och använda [Azure offentlig Peering](/azure/expressroute/expressroute-circuit-peerings) att ansluta till Microsoft Services som Azure Storage. Skapa IP-Nätverksregler för offentliga IP-adresserna för dina kretsar för att tillåta kommunikation med Azure Storage. Du hittar din ExpressRoute-krets offentliga IP-adresser, [öppnar ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
 
 ### <a name="managing-ip-network-rules"></a>Hantera regler för IP-nätverk
 
@@ -355,7 +355,7 @@ Om du aktiverar den **Tillåt att betrodda Microsoft-tjänster...**  undantag, f
 |Azure Event Grid|Microsoft.EventGrid|Aktivera publicering av Blob Storage-händelser och låt Event Grid att publicera till storage-köer. Lär dig mer om [blob storage-händelser](/azure/event-grid/event-sources) och [publicering till köer](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Arkivera data med Event Hubs Capture. [Läs mer](/azure/event-hubs/event-hubs-capture-overview).|
 |Azure-nätverk|Microsoft.Networking|Store och analysera loggar med webbtrafik. [Läs mer](/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights|Tillåter skrivning av övervakning av data till en säker lagringskonto [mer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights|Tillåter skrivning av övervakning av data till en säker lagringskonto [mer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Gör att importera och exportera scenarier med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Dataåtkomst för Storage analytics

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f6e5dab5059086efc1e00c78b85296ff2b7a48c
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 490ac613adac968cc323c2d8351b59aece181b68
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139163"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734393"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Skapa en Oracle-databas i en Azure virtuell dator
 
@@ -34,7 +34,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Du kan skapa en virtuell dator (VM) med den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. 
+Du kan skapa en virtuell dator (VM) med den [az vm skapa](/cli/azure/vm) kommando. 
 
 Följande exempel skapar en virtuell dator med namnet `myVM`. Det skapar också SSH-nycklar om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
@@ -271,7 +271,7 @@ Oracle-databasen som standard startas inte automatiskt när du startar om den vi
 
 Det sista steget är att konfigurera vissa externa slutpunkter. Avsluta SSH-sessionen på den virtuella datorn (bör ha varit går utanför SSH när omstart i föregående steg) om du vill konfigurera Azure Network Security Group, som skyddar den virtuella datorn. 
 
-1.  Öppna den slutpunkt som du använder för att få fjärråtkomst till Oracle-databasen genom att skapa en regel för Nätverkssäkerhetsgrupp [az network nsg-regel skapar](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) på följande sätt: 
+1.  Öppna den slutpunkt som du använder för att få fjärråtkomst till Oracle-databasen genom att skapa en regel för Nätverkssäkerhetsgrupp [az network nsg-regel skapar](/cli/azure/network/nsg/rule) på följande sätt: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -283,7 +283,7 @@ Det sista steget är att konfigurera vissa externa slutpunkter. Avsluta SSH-sess
         --destination-port-range 1521
     ```
 
-2.  Öppna den slutpunkt som du använder för att komma åt Oracle EM Express via fjärranslutning genom att skapa en regel för Nätverkssäkerhetsgrupp [az network nsg-regel skapar](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) på följande sätt:
+2.  Öppna den slutpunkt som du använder för att komma åt Oracle EM Express via fjärranslutning genom att skapa en regel för Nätverkssäkerhetsgrupp [az network nsg-regel skapar](/cli/azure/network/nsg/rule) på följande sätt:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -295,7 +295,7 @@ Det sista steget är att konfigurera vissa externa slutpunkter. Avsluta SSH-sess
         --destination-port-range 5502
     ```
 
-3. Om det behövs hämtar den offentliga IP-adressen för den virtuella datorn igen med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) på följande sätt:
+3. Om det behövs hämtar den offentliga IP-adressen för den virtuella datorn igen med [az network public-ip show](/cli/azure/network/public-ip) på följande sätt:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -317,7 +317,7 @@ Du kan logga in med hjälp av den **SYS** konto och kontrollera den **som sysdba
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med att utforska din första Oracle-databas på Azure och den virtuella datorn inte längre behövs kan du använda den [az group delete](/cli/azure/group#az_group_delete) att ta bort resursgruppen, den virtuella datorn, och alla relaterade resurser.
+När du är klar med att utforska din första Oracle-databas på Azure och den virtuella datorn inte längre behövs kan du använda den [az group delete](/cli/azure/group) att ta bort resursgruppen, den virtuella datorn, och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

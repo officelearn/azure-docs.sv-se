@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559050"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698269"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Översikt över affärskontinuitet med Azure Database for PostgreSQL
 
@@ -49,6 +49,6 @@ Ett annat alternativ är att använda Azure Database för Postgresql's geo-åter
 > GEO-återställning är bara möjligt om du har etablerat på servern med geo-redundant lagring av säkerhetskopior. Om du vill växla från lokalt redundant till geo-redundanta säkerhetskopieringar för en befintlig server måste du ta en dump med pg_dump av din befintliga server och återställa till en nyskapad som konfigurerats med geo-redundanta säkerhetskopieringar.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om automatiska säkerhetskopior finns [säkerhetskopior i Azure Database for PostgreSQL](concepts-backup.md). 
-- Om du vill återställa till en tidpunkt med hjälp av Azure-portalen, se [återställa databasen till en tidpunkt med hjälp av Azure-portalen](howto-restore-server-portal.md).
-- Om du vill återställa till en tidpunkt med hjälp av Azure CLI, se [återställa databasen till en tidpunkt med hjälp av CLI](howto-restore-server-cli.md).
+- Läs mer om den [automatiska säkerhetskopior i Azure Database för PostgreSQL](concepts-backup.md). 
+- Lär dig att återställa med hjälp av [Azure-portalen](howto-restore-server-portal.md) eller [Azure CLI](howto-restore-server-cli.md).
+- Lär dig mer om [läsa repliker i Azure Database för PostgreSQL](concepts-read-replicas.md).

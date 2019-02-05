@@ -6,20 +6,23 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2efc0b76c8556894119ed3f6dd216234414cf313
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312042"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732370"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurera en anslutning från en Azure Search-indexerare till SQL Server på en Azure VM
 Enligt vad som anges i [ansluter Azure SQL Database till Azure Search med indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), skapa indexerare mot **SQL Server på Azure Virtual Machines** (eller **SQL Azure virtuella datorer** för kort) stöds med Azure Search, men det finns några säkerhetsrelaterade förutsättningar för att ta hand om först. 
 
-**Uppgiftens varaktighet:** Cirka 30 minuter, installerat förutsatt att du redan ett certifikat på den virtuella datorn.
+Anslutningar från Azure Search till SQL Server på en virtuell dator är en offentlig Internetanslutning. Alla de säkerhetsåtgärder som följer du normalt för dessa anslutningar använder här samt:
+
++ Skaffa ett certifikat från en [certifikatutfärdare providern](https://en.wikipedia.org/wiki/Certificate_authority#Providers) för fullständigt kvalificerade domännamnet för den virtuella Azure-datorn.
++ Installera certifikatet på den virtuella datorn och aktivera och konfigurera krypterade anslutningar på den virtuella datorn med hjälp av anvisningarna i den här artikeln.
 
 ## <a name="enable-encrypted-connections"></a>Aktivera krypterade anslutningar
 Azure Search kräver en krypterad kanal för alla indexerare förfrågningar via en offentlig Internetanslutning. Det här avsnittet innehåller steg för att göra detta arbete.

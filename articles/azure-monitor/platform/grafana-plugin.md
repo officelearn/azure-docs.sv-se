@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466993"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730908"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
 Du kan nu övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [Azure Monitor-plugin-programmet för datakällans](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in program-prestandadata som samlats in från Azure Monitor, inklusive olika loggar och mått. Du kan sedan visa dessa data på din Grafana-instrumentpanel.
@@ -66,7 +66,7 @@ När du har loggat in kan bör du se att plugin-programmet Azure Monitor data k�
 
 3. Skapa ett huvudnamn för tjänsten - Grafana använder ett huvudnamn för tjänsten Azure Active Directory för att ansluta till API: er för Azure-övervaka och samla in data. Du måste skapa eller använda ett befintligt huvudnamn för tjänsten för att hantera åtkomst till dina Azure-resurser.
     * Se [instruktionerna](../../azure-resource-manager/resource-group-create-service-principal-portal.md) att skapa ett huvudnamn för tjänsten. Kopiera och spara din klient-ID (katalog-ID), klient-ID (program-ID) och klienthemlighet (programmet nyckelvärde).
-    * Se [tilldela program till roll](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) om du vill tilldela rollen läsare i Azure Active Directory-programmet för prenumerationen, resursgruppen eller resursen du vill övervaka. 
+    * Se [tilldela program till roll](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) om du vill tilldela rollen läsare i Azure Active Directory-programmet för prenumerationen, resursgruppen eller resursen du vill övervaka. 
     Log Analytics-API kräver den [Log Analytics Reader rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), som innehåller behörigheter som rollen Läsare och lägger till den.
 
 4. Ange anslutningsinformationen till API: er som du vill använda. Du kan ansluta till alla eller vissa av dem. 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 443020bd6ca024cb5a04b2a8be5b7cbe7122efac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169701"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734147"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hitta Linux VM-avbildningar på Azure Marketplace med Azure CLI
 
@@ -35,7 +35,7 @@ Se till att du installerat senast [Azure CLI](/cli/azure/install-azure-cli) och 
 
 ## <a name="list-popular-images"></a>Lista över populära bilder
 
-Kör den [az vm bildlista](/cli/azure/vm/image#az_vm_image_list) kommandot, utan de `--all` alternativet om du vill se en lista över populära VM-avbildningar på Azure Marketplace. Till exempel köra följande kommando för att visa en cachelagrad lista över populära bilder i tabellformat:
+Kör den [az vm bildlista](/cli/azure/vm/image) kommandot, utan de `--all` alternativet om du vill se en lista över populära VM-avbildningar på Azure Marketplace. Till exempel köra följande kommando för att visa en cachelagrad lista över populära bilder i tabellformat:
 
 ```azurecli
 az vm image list --output table
@@ -152,7 +152,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 
 ## <a name="navigate-the-images"></a>Navigera bland avbildningarna
  
-Ett annat sätt att hitta en bild på en plats är att köra den [az vm list-avbildningsutgivare](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm list-avbildningserbjudanden](/cli/azure/vm/image), och [az vm-avbildning lista-SKU: er](/cli/azure/vm/image#az_vm_image_list_skus) kommandon i sekvens. Med följande kommandon kan du bestämma dessa värden.
+Ett annat sätt att hitta en bild på en plats är att köra den [az vm list-avbildningsutgivare](/cli/azure/vm/image), [az vm list-avbildningserbjudanden](/cli/azure/vm/image), och [az vm-avbildning lista-SKU: er](/cli/azure/vm/image) kommandon i sekvens. Med följande kommandon kan du bestämma dessa värden.
 
 1. Visa en lista över avbildningsutgivare.
 2. Visa en lista över erbjudanden från en viss utgivare.
@@ -278,7 +278,7 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-Du kan nu välja exakt den avbildning som du vill använda genom att anteckna URN-värdet. Skicka det här värdet med den `--image` parameter när du skapar en virtuell dator med den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. Kom ihåg att du kan ersätta versionsnumret i URN med ”senaste”. Den här versionen är alltid den senaste versionen av avbildningen. 
+Du kan nu välja exakt den avbildning som du vill använda genom att anteckna URN-värdet. Skicka det här värdet med den `--image` parameter när du skapar en virtuell dator med den [az vm skapa](/cli/azure/vm) kommando. Kom ihåg att du kan ersätta versionsnumret i URN med ”senaste”. Den här versionen är alltid den senaste versionen av avbildningen. 
 
 Om du distribuerar en virtuell dator med Resource Manager-mall kan du ange parametrarna bild individuellt i den `imageReference` egenskaper. Se [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -337,7 +337,7 @@ Utdata:
 
 ### <a name="accept-the-terms"></a>Godkänn villkoren
 
-Om du vill visa och godkänna licensvillkoren genom att använda den [az vm-avbildning acceptera-terms](/cli/azure/vm/image?#az_vm_image_accept_terms) kommando. När du har accepterat villkoren kan du aktivera programdistribution i din prenumeration. Du behöver bara godkänna villkoren en gång per prenumeration för avbildningen. Exempel:
+Om du vill visa och godkänna licensvillkoren genom att använda den [az vm-avbildning acceptera-terms](/cli/azure/vm/image?) kommando. När du har accepterat villkoren kan du aktivera programdistribution i din prenumeration. Du behöver bara godkänna villkoren en gång per prenumeration för avbildningen. Exempel:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 956a374a66c765168f0c872999611318e1b7bdac
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cbccab219e7b610c9ff51013a2d79764c2243e26
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164509"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736270"
 ---
 <!--author=SharS last changed: 9/17/15-->
 
@@ -22,7 +22,7 @@ ms.locfileid: "50164509"
    1. Ange ett unikt **resursnamn** för tjänsten. Det här är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 2 och 50 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.
    2. Välj en **prenumeration** från listrutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet syns inte om du bara har en prenumeration.
    3. Välj **Använd befintlig grupp** eller **Skapa ny grupp** för **Resursgrupp**. Mer information finns i avsnittet om [Azure-resursgrupper](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
-   4. Ange en **plats** för din tjänst. Platsen avser den geografiska region där du vill distribuera enheten. Välj **USGov Iowa** eller **USGov Virgina**.
+   4. Ange en **plats** för din tjänst. Platsen avser den geografiska region där du vill distribuera enheten. Välj **USGov Iowa** eller **USGov Virginia**.
    5. Välj **Skapa ett nytt lagringskonto**, för att automatiskt skapa ett lagringskonto med tjänsten. Ange ett namn för lagringskontot. Avmarkera kryssrutan om du behöver ha din data på en annan plats.
    6. Markera **Fäst på instrumentpanelen** om du vill skapa en snabblänk till tjänsten på instrumentpanelen.
    7. Skapa StorSimple Device Manager genom att klicka på **Skapa**. Det tar några minuter att skapa tjänsten. När tjänsten har skapats visas ett meddelande och bladet för den nya tjänsten öppnas.

@@ -10,18 +10,21 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 923ce9b5840ec8d99234b9a3b869005ff59848e3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494626"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697508"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Batch-tjänsten för Azure Machine Learning Studio-jobb
 
 Machine Learning Batch-Pool bearbetning ger kundhanterad scale för Azure Machine Learning Batch Execution Service. Klassiska batch behandling i samband med maskininlärning äger rum i en miljö med flera innehavare, vilket begränsar antalet samtidiga jobb som du kan skicka och jobb ställs i kö för först in först ut. Den här osäkerheten innebär att det går inte att korrekt förutse när jobbet ska köras.
 
 Batchbearbetning för IP-Pool kan du skapa pooler där du kan skicka batch-jobb. Du kontrollerar storleken på poolen och jobbet skickas till vilken pool. BES jobbet körs i sin egen bearbetning utrymme att tillhandahålla förutsägbar bearbetning och möjligheten att skapa resurspooler som motsvarar den belastning som du skickar.
+
+> [!NOTE]
+> Du måste ha en ny Resource Manager baserat Machine Learning-webbtjänsten för att skapa en pool. När du skapat kan du köra alla BES webbtjänst, både nya Resource Manager baserade och klassiska, på poolen.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Hur du använder Batch-Pool bearbetning
 
@@ -36,7 +39,7 @@ När ditt konto har skapats kan använda du nyckeln Pool tjänstens URL och aukt
 
 ![Batch-pool service-arkitektur.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-Du kan skapa pooler för genom att anropa åtgärden Skapa poolen på poolen tjänstens URL CSS fått. När du skapar en pool kan du ange hur många virtuella datorer och URL: en för swagger.json av en ny Resource Manager baserat Machine Learning-webbtjänst. Den här webbtjänsten tillhandahålls för att upprätta fakturering kopplingen. Batch-Pool-tjänsten använder swagger.json för att associera poolen med en lämplig faktureringsplan. Du kan köra alla BES webbtjänst, både nya Resource Manager-baserade och klassiska, väljer du på poolen.
+Du kan skapa pooler för genom att anropa åtgärden Skapa poolen på poolen tjänstens URL CSS fått. När du skapar en pool kan du ange hur många virtuella datorer och URL: en för swagger.json av en ny Resource Manager baserat Machine Learning-webbtjänst. Den här webbtjänsten tillhandahålls för att upprätta fakturering kopplingen. Batch-Pool-tjänsten använder swagger.json för att associera poolen med en lämplig faktureringsplan. Du kan köra alla BES webbtjänst, både nya Resource Manager baserade och klassiska, på poolen.
 
 Du kan använda någon ny Resource Manager-baserade webbtjänst, men tänk på att faktureringen för jobb debiteras mot den faktureringsplan som är associerade med den tjänsten. Du kanske vill skapa en webbtjänst och nya faktureringsplan specifikt för att köra jobb i Batch-Pool.
 

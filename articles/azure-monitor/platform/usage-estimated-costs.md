@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: c326c255636bac7e698a64044e9ab65c8c05d01c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6207c44fbac63163d125a109cbdc1c6f08e9860
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460728"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734512"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Övervaka användning och uppskattade kostnader
 
@@ -73,7 +73,7 @@ Det finns en annan ändring som matas in i Log Analytics eller Application Insig
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Ny prisnivå modell och Operations Management Suite-prenumerationens rättigheter
 
-Kunder som har köpt Microsoft Operations Management Suite E1 och E2 är berättigade till per nod datainmatning rättigheter för [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) och [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Att ta emot dessa rättigheter för Log Analytics-arbetsytor och Application Insights-resurser i en viss prenumeration: 
+Kunder som har köpt Microsoft Operations Management Suite E1 och E2 är berättigade till per nod datainmatning rättigheter för [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) och [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Att ta emot dessa rättigheter för Log Analytics-arbetsytor och Application Insights-resurser i en viss prenumeration: 
 
 - Prenumerationens prismodellen måste vara i pre-April 2018-modellen.
 - Log Analytics-arbetsytor bör använda den ”Per nod (OMS)” prisnivå.

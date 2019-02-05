@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: a4e5440a9b8b6ce36d8472463b35201f39d3ac5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d2d1ca3e41de36d423de24fdbade8c17507642b5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192795"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734308"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Prisändringar för Azure Network Performance Monitor
 
@@ -27,8 +27,8 @@ Vi har lyssnat på er feedback och nyligen introducerade en [ny prisnivå upplev
 
 Övervakare av nätverksprestanda består av tre komponenter:
 * [Övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Övervakning av tjänstens slutpunkt](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor)
-* [ExpressRoute-övervakning](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [Service Endpoint Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
+* [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
 I följande avsnitt beskrivs prisändringar för NPM-komponenter.
 
@@ -101,7 +101,7 @@ Mängden övervakningsdata som genereras beror på flera faktorer, till exempel:
 
 Till en högre percentiler (i tabellen ovan) vanligtvis övervaka sina kretsar från flera vantage punkter i sina lokala nätverk. Flera agenter placeras också djupare i nätverket, längre bort från service provider edge-routern. Agenterna placeras ofta på flera platser för användaren, filialer, rack i datacenter.
 
-## <a name="service-endpoint-monitor"></a>Övervakning av tjänstens slutpunkt
+## <a name="service-endpoint-monitor"></a>Service Endpoint Monitor
 
 **Vad är avgifter för användning av övervakning av tjänstens slutpunkt?**
 

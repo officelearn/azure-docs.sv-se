@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: fb9123d792c3b522debb3b1c8d539cbd6cd24f59
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c88518749129abed1cf43a70b9165035626a780f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54843643"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731571"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Anpassa konfigurationsparametrar för server med Azure CLI
 Du kan lista, visa och uppdatera konfigurationsparametrar för en Azure PostgreSQL-server med hjälp av kommandoradsgränssnittet (Azure CLI). En delmängd av motorkonfigurationer är exponerad på servernivå och kan ändras. 
@@ -23,7 +23,7 @@ För att gå igenom den här guiden, måste du:
 - Installera [Azure CLI](/cli/azure/install-azure-cli) kommandoradsgränssnitt på din dator eller använder den [Azure Cloud Shell](../cloud-shell/overview.md) i Azure portal med din webbläsare.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Lista konfigurationsparametrar för server för Azure Database för PostgreSQL-server
-Om du vill visa alla ändringsbar parametrar i en server och deras värden, kör den [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) kommando.
+Om du vill visa alla ändringsbar parametrar i en server och deras värden, kör den [az postgres server configuration list](/cli/azure/postgres/server/configuration) kommando.
 
 Du kan visa konfigurationsparametrar för server för servern **mydemoserver.postgres.database.azure.com** under resursgruppen **myresourcegroup**.
 ```azurecli-interactive
@@ -37,7 +37,7 @@ Det här exemplet visar information om den **log\_min\_meddelanden** server konf
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-server-configuration-parameter-value"></a>Ändra parametervärdet för server-konfiguration
-Du kan också ändra värdet för en viss server konfigurationsparameter, som uppdaterar underliggande Konfigurationsvärdet för PostgreSQL-server-motorn. Uppdatera konfigurationen med den [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) kommando. 
+Du kan också ändra värdet för en viss server konfigurationsparameter, som uppdaterar underliggande Konfigurationsvärdet för PostgreSQL-server-motorn. Uppdatera konfigurationen med den [az postgres server configuration set](/cli/azure/postgres/server/configuration) kommando. 
 
 Att uppdatera den **log\_min\_meddelanden** Serverparametern configuration Server **mydemoserver.postgres.database.azure.com** under resursgruppen  **myresourcegroup.**
 ```azurecli-interactive

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: c451377d6274c50f22e3b1d4cd32fb0f3edd9d9e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2d3f36c9b4ee0557f9e060bec762877a94ea637
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220408"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734189"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Flytta en Linux-VM till en annan prenumeration eller resursgrupp grupp
 Den här artikeln vägleder dig genom hur du flyttar en Linux-dator (VM) mellan resursgrupper eller prenumerationer. Flytta en virtuell dator mellan prenumerationer kan vara praktiskt om du har skapat en virtuell dator i en personlig prenumeration och nu vill flytta det till ditt företags prenumeration.
@@ -35,7 +35,7 @@ Den här artikeln vägleder dig genom hur du flyttar en Linux-dator (VM) mellan 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Använda Azure CLI för att flytta en virtuell dator
 
 
-Innan du kan flytta den virtuella datorn med hjälp av Azure CLI, måste du kontrollera att käll- och målprenumerationer finns inom samma klientorganisation. Kontrollera att båda prenumerationerna har samma klient-ID genom att använda [az konto show](/cli/azure/account#az_account_show).
+Innan du kan flytta den virtuella datorn med hjälp av Azure CLI, måste du kontrollera att käll- och målprenumerationer finns inom samma klientorganisation. Kontrollera att båda prenumerationerna har samma klient-ID genom att använda [az konto show](/cli/azure/account).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -43,13 +43,13 @@ az account show --subscription myDestinationSubscription --query tenantId
 ```
 Om klient-ID: N för käll- och målprenumerationer inte är samma, måste du kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) flytta resurserna till en ny klient.
 
-Om du vill flytta en virtuell dator, måste du flytta den virtuella datorn och alla dess resurser. Använd den [az resurslistan](/cli/azure/resource#az_resource_list) kommando för att lista alla resurser i en resursgrupp och deras ID: N. Det hjälper dig att skicka vidare kommandots utdata till en fil så att du kan kopiera och klistra in ID: N i senare kommandon.
+Om du vill flytta en virtuell dator, måste du flytta den virtuella datorn och alla dess resurser. Använd den [az resurslistan](/cli/azure/resource) kommando för att lista alla resurser i en resursgrupp och deras ID: N. Det hjälper dig att skicka vidare kommandots utdata till en fil så att du kan kopiera och klistra in ID: N i senare kommandon.
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-Om du vill flytta en virtuell dator och dess resurser till en annan resursgrupp, använda [az resursflytt](/cli/azure/resource#az_resource_move). I följande exempel visas hur du flyttar en virtuell dator och de vanligaste resurser som krävs. Använd den **-ID: n** parametern och pass i en kommaavgränsad lista (utan blanksteg) med ID: N för resurserna att flytta.
+Om du vill flytta en virtuell dator och dess resurser till en annan resursgrupp, använda [az resursflytt](/cli/azure/resource). I följande exempel visas hur du flyttar en virtuell dator och de vanligaste resurser som krävs. Använd den **-ID: n** parametern och pass i en kommaavgränsad lista (utan blanksteg) med ID: N för resurserna att flytta.
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM

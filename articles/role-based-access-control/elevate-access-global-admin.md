@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437478"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695588"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Utöka behörighet för att hantera alla Azure-prenumerationer och hanteringsgrupper
 
@@ -83,12 +83,14 @@ Följ stegen nedan för att utöka behörighet för Global administratör med hj
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ### <a name="list-role-assignment-at-the-root-scope-"></a>Lista rolltilldelning vid rotscopet (/)
 
-Visa en lista över administratör för användaråtkomst rolltilldelning för en användare vid rotscopet (`/`), använder den [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) kommando.
+Visa en lista över administratör för användaråtkomst rolltilldelning för en användare vid rotscopet (`/`), använder den [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) kommando.
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
   -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
@@ -111,10 +113,10 @@ Ta bort en administratör för användaråtkomst rolltilldelning för en använd
 1. Logga in som en användare som kan ta bort utökad åtkomst. Detta kan vara samma användare som används för att utöka åtkomst eller en annan Global administratör med utökad åtkomst vid rotscopet.
 
 
-1. Använd den [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) kommando för att ta bort rolltilldelningen administratör för användaråtkomst.
+1. Använd den [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) kommando för att ta bort rolltilldelningen administratör för användaråtkomst.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+    Remove-AzRoleAssignment -SignInName <username@example.com> `
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 

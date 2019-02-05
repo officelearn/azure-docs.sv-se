@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 494826701431ee397b468c6ddfcef664c015861d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661488"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697143"
 ---
 # <a name="custom-roles-in-azure"></a>Anpassade roller i Azure
 
@@ -48,15 +48,9 @@ Nedan visas hur en anpassad roll ser ut som visas i JSON-format. Den här anpass
     "Microsoft.Insights/diagnosticSettings/*",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-
-  ],
-  "DataActions": [
-
-  ],
-  "NotDataActions": [
-
-  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
   "AssignableScopes": [
     "/subscriptions/{subscriptionId1}",
     "/subscriptions/{subscriptionId2}",
@@ -73,12 +67,12 @@ När du skapar en anpassad roll, visas den i Azure-portalen med en orange resurs
 
 1. Avgör vilka behörigheter som du behöver
 
-    När du skapar en anpassad roll som du behöver veta provideråtgärder som är tillgängliga för att definiera dina behörigheter för resursen. Om du vill visa listan över åtgärder du kan använda den [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) eller [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) kommandon.
+    När du skapar en anpassad roll som du behöver veta provideråtgärder som är tillgängliga för att definiera dina behörigheter för resursen. Om du vill visa listan över åtgärder du kan använda den [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) eller [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) kommandon.
     Om du vill ange behörigheter för din anpassade roll du lägga till åtgärder till den `Actions` eller `NotActions` egenskaperna för den [rolldefinition](role-definitions.md). Om du har dataåtgärder kan du lägga till dem till den `DataActions` eller `NotDataActions` egenskaper.
 
 2. Skapa anpassad roll
 
-    Du kan använda Azure PowerShell eller Azure CLI för att skapa den anpassade rollen. Normalt börja med en befintlig inbyggd roll och modifiera den efter dina behov. Kan du använda den [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) eller [skapa az rolldefinitionen](/cli/azure/role/definition#az-role-definition-create) kommandon för att skapa den anpassade rollen. Om du vill skapa en anpassad roll måste du ha den `Microsoft.Authorization/roleDefinitions/write` behörighet på alla `AssignableScopes`, till exempel [ägare](built-in-roles.md#owner) eller [administratör för användaråtkomst](built-in-roles.md#user-access-administrator).
+    Du kan använda Azure PowerShell eller Azure CLI för att skapa den anpassade rollen. Normalt börja med en befintlig inbyggd roll och modifiera den efter dina behov. Kan du använda den [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) eller [skapa az rolldefinitionen](/cli/azure/role/definition#az-role-definition-create) kommandon för att skapa den anpassade rollen. Om du vill skapa en anpassad roll måste du ha den `Microsoft.Authorization/roleDefinitions/write` behörighet på alla `AssignableScopes`, till exempel [ägare](built-in-roles.md#owner) eller [administratör för användaråtkomst](built-in-roles.md#user-access-administrator).
 
 3. Testa den anpassade rollen
 

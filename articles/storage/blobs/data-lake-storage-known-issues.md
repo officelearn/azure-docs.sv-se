@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: cbd58c0873a4a46d175c6d7cbdf2d004da304c06
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247246"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731555"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller kända problem och temporära begränsningar med A
 
 API: erna för Blob Storage och Azure Data Lake Gen2 API: er är inte kompatibla med varandra.
 
-Om du vill använda samma verktyg för att arbeta med allt det innehåll som du överför till ditt konto kan inte aktivera hierarkisk namnområden på Blob storage-kontot förrän dessa API: er bli kompatibla med varandra. Med hjälp av ett lagringskonto utan hierarkiskt namnområde åtkomstkontrollistor innebär att du kan sedan inte har åtkomst till Data Lake Storage Gen2 specifika funktioner, till exempel katalogen och filsystem.
+Om du har anpassade verktyg, program eller skript som använder Blob-API: er och du vill använda dem för att arbeta med allt det innehåll som du överför till ditt konto, inte aktivera hierarkisk namnområden på Blob storage-kontot förrän Blob API: er blir samverkande med Azure Data Lake Gen2 API: er. Med hjälp av ett lagringskonto utan hierarkiskt namnområde åtkomstkontrollistor innebär att du kan sedan inte har åtkomst till Data Lake Storage Gen2 specifika funktioner, till exempel katalogen och filsystem.
 
 ## <a name="blob-storage-apis"></a>API: er för BLOB storage
 
@@ -79,16 +79,14 @@ Alla versionshantering funktioner inklusive [ögonblicksbilder](https://docs.mic
 
 ## <a name="object-level-storage-tiers"></a>Objektet på lagringsnivåer
 
-Objektet på lagringsnivåer (frekvent, lågfrekvent och Arkiv) är ännu inte tillgängliga för Azure Data Lake Storage Gen 2-konton, men de blir tillgängliga för Storage-konton som inte har hierarkisk blanksteg aktiverat.
+Objektet på lagringsnivåer (frekvent, lågfrekvent och Arkiv) är ännu inte tillgängliga för Azure Data Lake Storage Gen 2-konton, men de blir tillgängliga för Storage-konton som inte har hierarkisk aktiverade namnområden.
 
 ## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Azure Blob Storage livscykeln för hantering (förhandsversion)-principer
 
 Azure Blob Storage livscykeln för hantering (förhandsversion)-principer är ännu inte tillgängliga för Azure Data Lake Storage Gen2 konton.
 
-Dessa principer är tillgängliga för Storage-konton som inte har hierarkisk blanksteg aktiverat.
+Dessa principer är tillgängliga för Storage-konton som inte har hierarkisk aktiverade namnområden.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
 Diagnostikloggar är inte tillgängliga för Azure Data Lake Storage Gen2 konton.
-
-Kontakta Azure-supporten om du vill begära diagnostikloggar. Ange dem med ditt kontonamn och tidsperioden som du behöver loggar.

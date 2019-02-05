@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 06b917c956507de3eb3b1536356285d7a954fb8b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184057"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730084"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordna enheten anslutningshändelser från Azure IoT Hub med Azure Cosmos DB
 
@@ -250,11 +250,11 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
    * **Händelsetyp**: Avmarkera prenumerera till alla händelsetyper och välj **enheten ansluten** och **enheten frånkopplad** på menyn.
 
-   * **Information om slutpunkten**: Välj typ av slutpunkt som **Webhook** och klicka på Välj slutpunkt och klistra in den URL som du kopierade från din logikapp och bekräfta valet.
+   * **Information om slutpunkten**: Välj slutpunktstypen **Webhook** och klicka på den valda slutpunkten. Klistra in den webbadress som du kopierade från logikappen och bekräfta valet.
 
        ![webbadress till vald slutpunkt](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **Information om händelse-prenumeration**: Ange ett beskrivande namn och välj **Grid Händelseschema**.
+   * **Information om händelseprenumeration**: Ange ett beskrivande namn och välj **Grid Händelseschema**.
    Formuläret ser ut ungefär så här: 
 
        ![Exempelformulär för händelseprenumeration](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
@@ -341,7 +341,7 @@ Varje prenumeration kan ha en kostnadsfri IoT-hubb. Om du har skapat en kostnads
 
 3. Välj **Ta bort**. 
 
-Om du vill ta bort ett Azure Cosmos DB-konto från Azure-portalen, högerklickar du på namnet på kontot och klicka på **ta bort konto**. Se detaljerade anvisningar för hur [tar bort ett Azure Cosmos DB-konto](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete).
+Om du vill ta bort ett Azure Cosmos DB-konto från Azure-portalen, högerklickar du på namnet på kontot och klicka på **ta bort konto**. Se detaljerade anvisningar för hur [tar bort ett Azure Cosmos DB-konto](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462026"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728410"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -40,14 +40,14 @@ IP-brandväggsregler bevilja åtkomst till databaser baserat på den ursprunglig
 [Virtuella Nätverksregler](sql-database-vnet-service-endpoint-rule-overview.md) aktivera Azure SQL Database att endast acceptera kommunikation som skickas från valda undernät i ett virtuellt nätverk.
 
 > [!NOTE]
-> Kontrollera åtkomst med brandväggsregler har *inte* avser **Azure SQL Database Managed Instance**. Mer information om nätverkskonfigurationen behövs finns [ansluter till en hanterad instans](sql-database-managed-instance-connect-app.md)
+> Kontrollera åtkomst med brandväggsregler har *inte* avser **en hanterad instans**. Mer information om nätverkskonfigurationen behövs finns [ansluter till en hanterad instans](sql-database-managed-instance-connect-app.md)
 
 ## <a name="access-management"></a>Åtkomsthantering
 
 > [!IMPORTANT]
 > Hantera databaser och databasservrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 Autentisering är processen för att bevisa att användaren är som de påstår sig vara. Azure SQL Database stöder två typer av autentisering:
 
@@ -55,7 +55,7 @@ Autentisering är processen för att bevisa att användaren är som de påstår 
 
     SQL-Databasautentisering refererar till autentisering av en användare när du ansluter till [Azure SQL Database](sql-database-technical-overview.md) med användarnamn och lösenord. En ”serveradministratörsinloggning” med ett användarnamn och lösenord måste anges när databasen server skapas för databasen. Med dessa autentiseringsuppgifter kan ”serveradministratör” autentisera till valfri databas på den databasservern som databasens ägare. Efter det kan ytterligare SQL-inloggningar och användare skapas av serveradministratören, som gör det möjligt för användarna att ansluta med användarnamn och lösenord.
 
-- **Azure Active Directory Authentication**:
+- **Azure Active Directory-autentisering**:
 
     Azure Active Directory-autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (AD Azure). Azure AD-autentisering kan administratörer centralt hantera identiteter och behörigheterna för databasanvändare tillsammans med andra Microsoft-tjänster på en central plats. Detta omfattar lagring av lösenord syftar till att minimera och möjliggör centraliserad lösenordsprinciper för rotation.
 
@@ -64,7 +64,7 @@ Autentisering är processen för att bevisa att användaren är som de påstår 
     Ytterligare Azure AD authentication alternativen är [Active Directory Universal-autentisering för SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) anslutningar inklusive [Multifaktorautentisering](../active-directory/authentication/concept-mfa-howitworks.md) och [ Villkorlig åtkomst](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> Hantera databaser och servrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md). Kontrollera åtkomst med brandväggsregler har *inte* avser **Azure SQL Database Managed Instance**. Finns i följande artikel om [ansluter till en hanterad instans](sql-database-managed-instance-connect-app.md) för mer information om nätverkskonfiguration som krävs.
+> Hantera databaser och servrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md). Kontrollera åtkomst med brandväggsregler har *inte* avser **en hanterad instans**. Finns i följande artikel om [ansluter till en hanterad instans](sql-database-managed-instance-connect-app.md) för mer information om nätverkskonfiguration som krävs.
 
 Auktorisering hänvisar till de behörigheter som tilldelas till en användare i en Azure SQL Database och avgör vad användaren har tillåtelse att göra. Behörigheter kontrolleras genom att lägga till användarkonton till [databasroller](/sql/relational-databases/security/authentication-access/database-level-roles) som definierar databasbehörigheter och bevilja användaren vissa [objektnivå behörigheter](/sql/relational-databases/security/permissions-database-engine). Mer information finns i [inloggningar och användare](sql-database-manage-logins.md)
 
@@ -86,11 +86,11 @@ SQL Database skyddar kundernas data genom att tillhandahålla granskning och fun
 
 ### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>SQL-granskning i Log Analytics och Event Hubs
 
-SQL Database Auditing spårar databasaktiviteter och hjälper dig upprätthålla överensstämmelse med säkerhetsstandarder genom att registrera databashändelser till en granskningslogg i en kundägda Azure Storage-konto. Granskning kan du övervaka pågående databasaktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhetsöverträdelser. Mer information finns i Kom igång med [SQL Database Auditing](sql-database-auditing.md).  
+SQL Database-granskning spårar databasaktiviteter och hjälper dig upprätthålla överensstämmelse med säkerhetsstandarder genom att registrera databashändelser till en granskningslogg i ett kundägda Azure storage-konto. Granskning kan du övervaka pågående databasaktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhetsöverträdelser. Mer information finns i Kom igång med [SQL Database Auditing](sql-database-auditing.md).  
 
-### <a name="sql-threat-detection"></a>SQL-Hotidentifiering
+### <a name="threat-detection"></a>Hotidentifiering
 
-Threat Detection förbättrar granskning genom att analysera granskningsloggarna för ovanlig funktion och potentiellt skadliga försöker komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter eller avvikande åtkomstmönster som SQL-inmatningsattacker, potentiella data intrång och lösenord för råstyrkeattacker. Hotidentifieringsaviseringar som öppnas från den [Azure Security Center](https://azure.microsoft.com/services/security-center/), där finns information om misstänkta aktiviteter och rekommendationer för ytterligare undersökningar anges tillsammans med åtgärder för att minska risken. Hotidentifiering kostar $15/server/månad. Det är kostnadsfritt de första 60 dagarna. Mer information finns i [Kom igång med SQL Database Threat Detection](sql-database-threat-detection.md).
+Threat detection förbättrar granskning genom att analysera granskningsloggarna för ovanlig funktion och potentiellt skadliga försöker komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter eller avvikande åtkomstmönster som SQL-inmatningsattacker, potentiella data intrång och lösenord för råstyrkeattacker. Hotidentifieringsaviseringar som öppnas från den [Azure Security Center](https://azure.microsoft.com/services/security-center/), där finns information om misstänkta aktiviteter och rekommendationer för ytterligare undersökningar anges tillsammans med åtgärder för att minska risken. Hotidentifiering kostar $15/server/månad. Det är kostnadsfritt de första 60 dagarna. Mer information finns i [Kom igång med SQL Database Threat detection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -137,11 +137,11 @@ SQL Database dynamisk datamaskning begränsar exponering av känsliga data genom
 
 ## <a name="security-management"></a>Säkerhetshantering
 
-### <a name="sql-vulnerability-assessment"></a>Sårbarhetsbedömning för SQL
+### <a name="vulnerability-assessment"></a>Sårbarhetsbedömning
 
-[Sårbarhetsbedömning för SQL](sql-vulnerability-assessment.md) är ett enkelt sätt att konfigurera tjänsten som kan upptäcka, spåra och att åtgärda säkerhetsrisker i databasen med målet att proaktivt förbättra övergripande databassäkerhet. Vulnerability Assessment (VA) är en del av erbjudandet SQL avancerade Data Security (AD), vilket är en enhetlig paketet för avancerade funktioner för SQL-säkerhet. Utvärdering av säkerhetsrisker kan nås och hanteras via den centrala SQL ADS-portalen.
+[Sårbarhetsbedömning](sql-vulnerability-assessment.md) är ett enkelt sätt att konfigurera tjänsten som kan upptäcka, spåra och att åtgärda säkerhetsrisker i databasen med målet att proaktivt förbättra övergripande databassäkerhet. Sårbarhetsbedömning (VA) är en del av avancerade data security (ADS) erbjudandet som en enhetlig paket för avancerade säkerhetsfunktioner i SQL. Utvärdering av säkerhetsrisker kan nås och hanteras via den centrala SQL ADS-portalen.
 
-### <a name="data-discovery--classification"></a>Dataidentifiering och klassificering
+### <a name="data-discovery--classification"></a>Dataidentifiering och -klassificering
 
 Dataidentifiering och klassificering (för närvarande i förhandsversion) ger avancerade funktioner i Azure SQL Database för identifiering, klassificering, märkning och skydda känsliga data i dina databaser. Identifiera och klassificera största känsliga data (företag för finansiella, hälsovård, personliga data, osv.) kan spela upp en central roll i din organisations Information protection datasekretesstandarder. Det kan fungera som en infrastruktur för:
 
@@ -149,7 +149,7 @@ Dataidentifiering och klassificering (för närvarande i förhandsversion) ger a
 - Kontrollera åtkomst till och Härdning av säkerheten i,-databaser som innehåller mycket känsliga data.
 - Hjälper uppfylla data sekretesstandarder och efterlevnadskrav.
 
-Mer information finns i [Kom igång med SQL DB-Dataidentifiering och klassificering](sql-database-data-discovery-and-classification.md).
+Mer information finns i [Kom igång med dataidentifiering och klassificering](sql-database-data-discovery-and-classification.md).
 
 ### <a name="compliance"></a>Efterlevnad
 

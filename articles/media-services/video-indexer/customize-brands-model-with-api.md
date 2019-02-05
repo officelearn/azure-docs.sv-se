@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
-ms.openlocfilehash: f970f535f83bc3b3c2a850ec126a7afff2af739f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6c6f2890cf9bd3c8cb412b3fa2f28d8ea3b6f72
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827592"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734325"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en varumärken modell med Video Indexer API
 
@@ -26,17 +26,17 @@ Du kan använda API: er för Video Indexer för att skapa, använda och redigera
 
 ## <a name="create-a-brand"></a>Skapa ett varumärke
 
-Detta skapar en ny anpassad varumärke och lägger till den anpassade varumärken modellen för det angivna kontot. 
+Detta skapar en ny anpassad varumärke och lägger till den anpassade varumärken modellen för det angivna kontot.
 
 ### <a name="request-url"></a>URL för begäran
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
 
-### <a name="request-parameters"></a>Begäranparametrar 
+### <a name="request-parameters"></a>Begäranparametrar
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
@@ -95,7 +95,7 @@ Tar bort ett varumärke från varumärken anpassade modellen för det angivna ko
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
 
 ### <a name="request-parameters"></a>Begäranparametrar
@@ -117,17 +117,17 @@ Det finns inget returnerade innehåll när varumärket har tagits bort.
 
 ## <a name="get-a-specific-brand"></a>Hämta ett visst Kaffemärke
 
-På så sätt kan du söka efter information om ett varumärke i anpassade varumärken modellen för det angivna kontot med hjälp av märkes-id. 
+På så sätt kan du söka efter information om ett varumärke i anpassade varumärken modellen för det angivna kontot med hjälp av märkes-id.
 
 ### <a name="request-url"></a>URL för begäran
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
 
-### <a name="request-parameters"></a>Begäranparametrar 
+### <a name="request-parameters"></a>Begäranparametrar
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
@@ -167,14 +167,14 @@ Svaret innehåller information om varumärket du sökte (med märkes-ID) följa 
 
 ## <a name="update-a-specific-brand"></a>Uppdatera ett visst kaffemärke
 
-På så sätt kan du söka efter information om ett varumärke i anpassade varumärken modellen för det angivna kontot med varumärke-ID. 
+På så sätt kan du söka efter information om ett varumärke i anpassade varumärken modellen för det angivna kontot med varumärke-ID.
 
 ### <a name="request-url"></a>URL för begäran
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
 ### <a name="request-parameters"></a>Begäranparametrar
@@ -237,7 +237,7 @@ Det här returnerar alla de varumärken i anpassade varumärken modellen för de
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
 
 ### <a name="request-parameters"></a>Begäranparametrar
@@ -270,7 +270,7 @@ Svaret innehåller en lista över alla varumärken i ditt konto och var och en a
         "description": "This is an example",
         "tags": ["Tag1", "Tag2"]
     },
-        {
+    {
         "ReferenceUrl": null,
         "id": 97975,
         "name": "Example2",
@@ -297,7 +297,7 @@ Det här returnerar modellinställningarna varumärken i det angivna kontot. Var
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
 
 ### <a name="request-parameters"></a>Begäranparametrar
@@ -330,14 +330,14 @@ Svaret visar om Bing varumärken är aktiverade följa formatet för exemplet ne
 
 Detta uppdaterar modellinställningarna varumärken i det angivna kontot. Varumärken modellinställningarna representerar om identifiering från Bing varumärken databasen har aktiverats eller inte. Om Bing varumärken inte är aktiverad, identifierar Video Indexer endast varumärken från varumärken anpassade modellen för det angivna kontot.
 
-### <a name="request-url"></a>URL för begäran: 
+### <a name="request-url"></a>URL för begäran:
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
- 
+
 [Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
 
-### <a name="request-parameters"></a>Begäranparametrar 
+### <a name="request-parameters"></a>Begäranparametrar
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|

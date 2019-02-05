@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: bd74aca180d291042e597ba6893009c38aa22555
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 01ce4bb7b48e2f1331ebb57dc503c79b31bcc8b0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510127"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700068"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med RADIUS-autentisering: PowerShell
 
@@ -148,7 +148,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
  
 * -RadiusServer kan anges efter namn eller IP-adress. Om du anger namnet och servern finns på plats, sedan att VPN-gatewayen inte kunna matcha namnet. Om så är fallet är det bättre att ange IP-adressen för servern. 
 * -RadiusSecret måste matcha vad är konfigurerad på RADIUS-servern.
-* -VpnCientAddressPool är intervallet som ansluter VPN-klienterna får en IP-adress. Använd ett intervall för privata IP-adresser som inte överlappar med den lokala platsen som du ansluter från, eller med det virtuella nätverk som du vill ansluta till. Kontrollera att du har en tillräckligt stor-adresspool.  
+* -VpnClientAddressPool är intervallet som ansluter VPN-klienterna får en IP-adress. Använd ett intervall för privata IP-adresser som inte överlappar med den lokala platsen som du ansluter från, eller med det virtuella nätverk som du vill ansluta till. Kontrollera att du har en tillräckligt stor-adresspool.  
 
 1. Skapa en säker sträng för RADIEN hemliga.
 
@@ -243,4 +243,4 @@ Den här vanliga Frågorna gäller för P2S med hjälp av RADIUS-autentisering
 
 ## <a name="next-steps"></a>Nästa steg
 
-När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
+När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).

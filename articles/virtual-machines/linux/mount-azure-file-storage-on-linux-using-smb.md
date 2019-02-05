@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: 77b7e6aef4d0d38fa3ea9f9b9a740ffc25aff7f9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0aa291c3334af35ec90648cfbcbb7de7015deb99
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660025"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731452"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File storage på virtuella Linux-datorer med SMB
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Skapa ett nytt lagringskonto i resursgruppen som du skapade med [az storage-konto skapar](/cli/azure/storage/account#create). Det här exemplet skapar ett lagringskonto med namnet *mySTORAGEACCT<random number>*  och placerar namnet på det lagringskontot i variabeln **STORAGEACCT**. Lagringskontonamn måste vara unikt, med hjälp av `$RANDOM` bifogas en siffra till slutet för att göra det unikt.
+Skapa ett nytt lagringskonto i resursgruppen som du skapade med [az storage-konto skapar](/cli/azure/storage/account). Det här exemplet skapar ett lagringskonto med namnet *mySTORAGEACCT<random number>*  och placerar namnet på det lagringskontot i variabeln **STORAGEACCT**. Lagringskontonamn måste vara unikt, med hjälp av `$RANDOM` bifogas en siffra till slutet för att göra det unikt.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -69,7 +69,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>Skapa en filresurs
 
-Skapa filen storage resurs med [az-lagringsresursen skapa](/cli/azure/storage/share#create). 
+Skapa filen storage resurs med [az-lagringsresursen skapa](/cli/azure/storage/share). 
 
 Resursnamn måste vara alla gemena bokstäver, siffror och enskilda bindestreck, men får inte inledas med ett bindestreck. Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 

@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: 4a8db246f02d68a7924b9a09a1b2fc1f5bcf2edc
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f51a97e1493803998cfbdd81523e4e479b50346d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467233"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697115"
 ---
-# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempelkonfiguration: Cisco ASA enhet (IKEv2/no BGP)
+# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempel på konfiguration: Cisco ASA-enhet (IKEv2/inget BGP)
 Den här artikeln innehåller exempel konfigurationer för enheter som ansluter Cisco anpassningsbar Security installation (ASA) till Azure VPN-gatewayer. I exemplet avser Cisco ASA-enheter som kör IKEv2 utan Border Gateway Protocol (BGP). 
 
 ## <a name="device-at-a-glance"></a>Enheten på ett ögonblick
@@ -59,10 +59,10 @@ Det här avsnittet visas parametrarna för exemplet.
 | Azure VPN gateway-IP         | Azure_Gateway_Public_IP      |
 | Lokala adressprefix | 10.51.0.0/16<br>10.52.0.0/16 |
 | Den lokala VPN-enhetens IP    | OnPrem_Device_Public_IP     |
-| * Virtuella nätverket BGP ASN                | 65010                        |
-| * Azure BGP-peer-IP           | 10.12.255.30                 |
-| * Lokal BGP ASN         | 65050                        |
-| * Lokala BGP-peer-IP     | 10.52.255.254                |
+| * Virtual network BGP ASN                | 65010                        |
+| * Azure BGP peer IP           | 10.12.255.30                 |
+| * On-premises BGP ASN         | 65050                        |
+| * On-premises BGP peer IP     | 10.52.255.254                |
 |                              |                              |
 
 \* Valfri parameter för BGP endast.
@@ -76,7 +76,7 @@ I följande tabell visas IPsec/IKE-algoritmer och parametrar som används i exem
 | IKEv2 Integrity  | SHA384                               |
 | DH-grupp         | DHGroup24                            |
 | * IPsec-kryptering | AES256                               |
-| * IPsec-integritet  | SHA1                                 |
+| * IPsec Integrity  | SHA1                                 |
 | PFS-grupp        | PFS24                                |
 | QM SA-livstid   | 7 200 sekunder                         |
 | Trafikväljare | UsePolicyBasedTrafficSelectors $True |
@@ -248,7 +248,7 @@ crypto ipsec ikev2 ipsec-proposal AES-256
  protocol esp integrity  sha-1
 exit
 !
-!     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
+!     > Set access list & traffic selectors, PFS, IPsec proposal, SA lifetime
 !       - This sample uses "Azure-<VNetName>-map" as the crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
 !         an existing crypto map assigned to your outside interface, you must use

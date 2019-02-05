@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ab268a27d8ce2f91c52dd5b5df0c22a564831e56
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 4c5742f8133b5915b7c838888f9887482ac5627e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663697"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695363"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen hybrid Azure Active Directory join
 
@@ -145,7 +145,7 @@ Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för 
 - [Konfigurera Azure Active Directory Join-hybrid för hanterade domäner](hybrid-azuread-join-managed-domains.md)
 
 
- Om du installerar den nödvändiga versionen av Azure AD Connect inte är ett alternativ för dig, se [hur du manuellt konfigurera enhetsregistrering](../device-management-hybrid-azuread-joined-devices-setup.md). 
+ Om du installerar den nödvändiga versionen av Azure AD Connect inte är ett alternativ för dig, se [hur du manuellt konfigurera enhetsregistrering](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Stöd för alternativa inloggnings-ID i Hybrid Azure AD-anslutning

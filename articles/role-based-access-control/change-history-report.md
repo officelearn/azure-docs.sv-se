@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541565"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692778"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visa aktivitetsloggar för RBAC ändringar
 
@@ -53,24 +53,26 @@ Läs mer om aktivitetsloggar [visa händelser i aktivitetsloggen](/azure/azure-r
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Du kan visa aktivitetsloggar med Azure PowerShell på [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) kommando.
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
+Du kan visa aktivitetsloggar med Azure PowerShell på [Get-AzLog](/powershell/module/az.insights/get-azlog) kommando.
 
 Det här kommandot visar alla tilldelningsändringarna för rollen i en prenumeration under de senaste sju dagarna:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
 ```
 
 Det här kommandot visar alla rollen definitionsändringar i en resursgrupp för de senaste sju dagarna:
 
 ```azurepowershell
-Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 Det här kommandot visar en lista över alla rolltilldelning och rollen definitionsändringar i en prenumeration under de senaste sju dagarna och visar resultatet i en lista:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
 ```Example

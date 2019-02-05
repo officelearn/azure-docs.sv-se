@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kaanan
-ms.openlocfilehash: 36de5ec6f7384663106bfb88ee9f236cced6930a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0662b66d44533a888d491810ba45efac9a397aa1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997955"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700850"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Arbeta med en virtuell nätverks-TAP som använder Azure CLI
 
@@ -79,7 +79,7 @@ Läs [krav](virtual-network-tap-overview.md#prerequisites) innan du skapar ett v
    - Hämta frontend IP-konfigurationen av Azures interna belastningsutjämnare i en variabel som används i ett senare steg. ID: T är den slutpunkt som ska aggregera trycker du på trafiken. I följande exempel hämtar ID för den *frontendipconfig1* frontend IP-konfiguration för en belastningsutjämnare med namnet *myInternalLoadBalancer*, i en resursgrupp med namnet  *myResourceGroup*:
 
       ```azurecli-interactive
-      FrondendIpConfigId=$(az network lb fronend-ip show \
+      FrontendIpConfigId=$(az network lb frontend-ip show \
       --name frontendipconfig1 \
       --lb-name myInternalLoadBalancer \
       --resource-group myResourceGroup \

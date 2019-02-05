@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 61cfc458ed965fd4f1446ff8cfb5e9a6e244f246
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332395"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731724"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Säkerhetsöverväganden för SQL Server på Azure Virtual Machines
 
@@ -54,7 +54,7 @@ De valda alternativen i portalen använder inkommande säkerhetsregler på Virtu
 
 Förutom att NSG-regler för att begränsa nätverkstrafik, kan du också använda Windows-brandväggen på den virtuella datorn.
 
-Om du använder slutpunkter med den klassiska distributionsmodellen kan du ta bort några slutpunkter på den virtuella datorn om du inte använder dem. Anvisningar om hur du använder ACL: er med slutpunkter finns i [hantera ACL på en slutpunkt](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint). Detta är inte nödvändigt för virtuella datorer som använder Resource Manager.
+Om du använder slutpunkter med den klassiska distributionsmodellen kan du ta bort några slutpunkter på den virtuella datorn om du inte använder dem. Anvisningar om hur du använder ACL: er med slutpunkter finns i [hantera ACL på en slutpunkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Detta är inte nödvändigt för virtuella datorer som använder Resource Manager.
 
 Slutligen bör du aktivera krypterade anslutningar för instansen av SQL Server Database Engine i din Azure-dator. Konfigurera SQL server-instans med ett signerat certifikat. Mer information finns i [aktivera krypterade anslutningar till databasmotorn](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) och [anslutningssträngar](https://msdn.microsoft.com/library/ms254500.aspx).
 

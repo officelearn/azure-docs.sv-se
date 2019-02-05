@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: 4c74833933642ec67bdd2a77d073b083d54a3038
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e8ab6a130bb99c3b0b1b811f52559273ac3c483
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678620"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691582"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av PowerShell
 
@@ -36,7 +36,7 @@ Stegen nedan beskriver hur du skapar ett exempel VM med flera IP-adresser, som b
 
 1. Öppna en PowerShell-kommandotolk och slutför de återstående stegen i det här avsnittet i en enda PowerShell-session. Om du inte redan har PowerShell installerad och konfigurerad kan du slutföra stegen i den [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) artikeln.
 2. Logga in på ditt konto med den `Connect-AzureRmAccount` kommando.
-3. Ersätt *myResourceGroup* och *westus* med ett namn och plats. Skapa en resursgrupp. En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
+3. Ersätt *myResourceGroup* och *westus* med ett namn och plats. Skapa en resursgrupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
     ```powershell
     $RgName   = "MyResourceGroup"
@@ -106,7 +106,7 @@ Stegen nedan beskriver hur du skapar ett exempel VM med flera IP-adresser, som b
     -DomainNameLabel <replace-with-your-unique-name> `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
+    #Create an IP configuration with a static private IP address and assign the public IP address to it
     $IpConfigName1 = "IPConfig-1"
     $IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName1 `
@@ -132,7 +132,7 @@ Stegen nedan beskriver hur du skapar ett exempel VM med flera IP-adresser, som b
     -Location $Location `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
+    #Create an IP configuration with a static private IP address and assign the public IP address to it
     $IpConfigName2 = "IPConfig-2"
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName2 `
@@ -166,7 +166,7 @@ Stegen nedan beskriver hur du skapar ett exempel VM med flera IP-adresser, som b
 
     ```powershell
     
-    # Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
+    # Define a credential object. When you run these commands, you're prompted to enter a username and password for the VM you're creating.
     $cred = Get-Credential
     
     # Create a virtual machine configuration
@@ -219,7 +219,7 @@ Du kan lägga till privata och offentliga IP-adresser till Azure-nätverksgräns
 4. I följande kommandon och ändra *MyVNet* och *MySubnet* motsvarar namnen på VNet och undernät som nätverkskortet är anslutet till. Ange kommandon för att hämta objekt VNet och undernät som nätverkskortet är anslutet till:
 
     ```powershell
-    $MyVNet = Get-AzureRMVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
+    $MyVNet = Get-AzureRMVirtualNetwork -Name MyVNet -ResourceGroupName $RgName
     $Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
     ```
     Om du inte vet namnet på VNet eller undernätet som nätverkskortet är anslutet till, anger du följande kommando:

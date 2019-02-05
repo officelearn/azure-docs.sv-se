@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422923"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699694"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Hur du ringa ett telefonsamtal med Twilio i en webbroll på Azure
 Den här guiden visar hur du kan använda Twilio för att göra ett anrop från en webbsida i Azure. Exempelprogrammet uppmanar användaren att göra ett anrop med angivet tal och meddelandet, enligt följande skärmbild.
@@ -34,7 +34,7 @@ Du måste göra följande för att använda koden i det här avsnittet:
 
 Du bör känna till hur du skapar en grundläggande [på Azure-Webbroll][azure_webroles_get_started].
 
-## <a name="howtocreateform"></a>Så här: skapa ett webbformulär för att göra ett anrop
+## <a name="howtocreateform"></a>Hur: Skapa ett webbformulär för att göra ett anrop
 <a id="use_nuget"></a>Lägga till Twilio-bibliotek i webbprojektet för rollen:
 
 1. Öppna din lösning i Visual Studio.
@@ -70,7 +70,7 @@ Följande kod visar hur du skapar ett webbformulär om du vill hämta användard
 </asp:Content>
 ```
 
-## <a id="howtocreatecode"></a>Så här: skapa koden för att göra anrop
+## <a id="howtocreatecode"></a>Hur: Skapa koden för att göra anrop
 Följande kod, som anropas när användaren slutför formuläret, skapar anrop meddelandet och genererar anropet. I det här exemplet körs koden i händelsehanteraren onclick för knappen i formuläret. (Använd ditt Twilio-konto och autentisering token istället för platshållarvärdena för `accountSID` och `authToken` i koden nedan.)
 
 ```csharp
@@ -96,7 +96,7 @@ namespace WebRole1
 
         protected void callpage_Click(object sender, EventArgs e)
         {
-            // Call porcessing happens here.
+            // Call processing happens here.
 
             // Use your account SID and authentication token instead of
             // the placeholders shown here.

@@ -4,21 +4,19 @@ description: Beskriver parameters-avsnittet av Azure Resource Manager-mallar med
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc817302ab39d12ccd1d1a20d4dd72f94352c796
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722150"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695685"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Parameteravsnittet av Azure Resource Manager-mallar
 I avsnittet parametrar i mallen kan du ange vilka värden som du kan ange när du distribuerar resurser. Dessa parametervärden kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö (till exempel utveckling, testning och produktion). Du behöver inte ange parametrar i mallen, men utan parametrar mallen distribuerar alltid samma resurser med samma namn, platser och egenskaper.
@@ -93,7 +91,7 @@ I föregående exempel visade endast vissa av egenskaperna som du kan använda i
 | maxValue |Nej |Det maximala värdet för parametrar av typen int det här värdet är inkluderande. |
 | minLength |Nej |Den minsta längden för string, säker sträng och matris typparametrar det här värdet är inkluderande. |
 | maxLength |Nej |Den maximala längden för string, säker sträng och matris typparametrar det här värdet är inkluderande. |
-| beskrivning |Nej |Beskrivning av den parameter som visas för användarna via portalen. |
+| beskrivning |Nej |Beskrivning av den parameter som visas för användarna via portalen. Mer information finns i [kommentarer i mallar](resource-group-authoring-templates.md#comments). |
 
 ## <a name="template-functions-with-parameters"></a>Mallfunktioner med parametrar
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: df82c66f344b733ef61df35920aa5a702465b245
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a103b2901e7296360601e8113e3a422aa763625
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464120"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733225"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>Skapa en Azure Cache för Redis
 
@@ -40,7 +40,7 @@ Det här skriptet använder följande kommandon för att skapa en resursgrupp oc
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [Skapa AZ redis](https://docs.microsoft.com/cli/azure/redis) | Skapa Azure Cache för Redis-instans. |
 
 

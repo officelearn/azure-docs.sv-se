@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bb8ab22db18bbe170a20d253e601eb78855aafa7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102744"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697708"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
 
@@ -126,6 +126,8 @@ Azure AD-anslutning:
 - Gäller endast Windows 10-enheter. 
 
 - Gäller inte för tidigare versioner av Windows eller andra operativsystem. Om du har Windows 7/8.1-enheter, måste du uppgradera till Windows 10 för att distribuera Azure AD-anslutning.
+
+- Stöds inte på enheter med TPM i FIPS-läge.
  
 **Rekommendation:** Använd alltid den senaste versionen av Windows 10 för att dra nytta av uppdaterade funktioner.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6b74c81f44ee747cdd80a1106b669d89c8c7fbc3
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297148"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733645"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -22,7 +22,7 @@ Azure Migrate har en gräns på 1500 datorer per projekt, den här artikeln besk
 - **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server version 5.5, 6.0, 6.5 eller 6.7. Du måste även en ESXi-värd som kör version 5.5 eller senare för att distribuera den Virtuella insamlardatorn.
 - **vCenter-kontot**: Du behöver ett skrivskyddat konto för att få åtkomst till vCenter-servern. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
 - **Behörigheter**: I vCenter-servern behöver du behörighet att skapa en virtuell dator genom att importera en fil i OVA-formatet.
-- **Inställningar för statistik**: Det här kravet gäller endast för den [enstaka identifiering modellen](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) som är nu föråldrat. För identifiering av enstaka modellen ska statistikinställningarna för vCenter-servern vara inställd på nivå 3 innan du påbörjar distributionen. Statistik är att vara satt till 3 för varje dag, vecka och månad datainsamlingen. Om kompatibilitetsnivå är lägre än 3 för någon av de tre datainsamlingen, fungerar utvärderingen, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationer som baseras på prestandadata för CPU och minne och konfigurationsdata för disk och nätverkskort.
+- **Inställningar för statistik**: Det här kravet gäller endast för den [enstaka identifiering modellen](https://docs.microsoft.com/azure/migrate/concepts-collector) som är nu föråldrat. För identifiering av enstaka modellen ska statistikinställningarna för vCenter-servern vara inställd på nivå 3 innan du påbörjar distributionen. Statistik är att vara satt till 3 för varje dag, vecka och månad datainsamlingen. Om kompatibilitetsnivå är lägre än 3 för någon av de tre datainsamlingen, fungerar utvärderingen, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationer som baseras på prestandadata för CPU och minne och konfigurationsdata för disk och nätverkskort.
 
 > [!NOTE]
 > Installationen för engångsidentifiering är nu inaktuell eftersom den här metoden förlitade sig på vCenter Servers statistikinställningarna för tillgänglighet av prestandadatapunkt och samlade in räknare för genomsnittlig prestanda, vilket resulterade i för små VM-storlekar för migrering till Azure.

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5e893d597c2193676cb350fc80d7baa694ad6fd1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466099"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734130"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Skapa virtuella nätverkskort och använda internt DNS för VM-namnmatchning i Azure
 
@@ -32,12 +32,12 @@ Kraven är:
 * [offentliga och privata SSH-nyckelfiler](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Snabbkommandon
-Om du vill åstadkomma snabbt finns i följande avsnitt kommandon som krävs. Mer detaljerad information och kontext för varje steg finns i resten av dokumentet, [börjar visningen här](#detailed-walkthrough). Om du vill utföra dessa steg du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Om du vill åstadkomma snabbt finns i följande avsnitt kommandon som krävs. Mer detaljerad information och kontext för varje steg finns i resten av dokumentet, [börjar visningen här](#detailed-walkthrough). Om du vill utföra dessa steg du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
 
 Krav: Resursgrupp, virtuellt nätverk och undernät, Nätverkssäkerhetsgruppen med SSH inkommande.
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Skapa ett virtuellt nätverkskort med en statisk interna DNS-namn
-Skapa det virtuella nätverkskortet med [az network nic skapa](/cli/azure/network/nic#az_network_nic_create). Den `--internal-dns-name` CLI-flaggan är för att ställa in DNS-etikett som tillhandahåller statiska DNS-namnet för det virtuella nätverkskortet (vNic). I följande exempel skapas ett virtuellt nätverkskort med namnet `myNic`, ansluter den till den `myVnet` virtuellt nätverk, och skapar en intern DNS-namnpost kallas `jenkins`:
+Skapa det virtuella nätverkskortet med [az network nic skapa](/cli/azure/network/nic). Den `--internal-dns-name` CLI-flaggan är för att ställa in DNS-etikett som tillhandahåller statiska DNS-namnet för det virtuella nätverkskortet (vNic). I följande exempel skapas ett virtuellt nätverkskort med namnet `myNic`, ansluter den till den `myVnet` virtuellt nätverk, och skapar en intern DNS-namnpost kallas `jenkins`:
 
 ```azurecli
 az network nic create \
@@ -70,7 +70,7 @@ Interna DNS-namn är bara matchas i Azure-nätverk. Eftersom DNS-namn som är in
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar `myResourceGroup`, `myNic`, och `myVM`.
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
-Börja med att skapa resursgruppen med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`:
+Börja med att skapa resursgruppen med [az gruppen skapa](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -94,7 +94,7 @@ az network vnet create \
 ## <a name="create-the-network-security-group"></a>Skapa Nätverkssäkerhetsgruppen
 Azure Nätverkssäkerhetsgrupper är likvärdiga med en brandvägg på nätverksnivå. Mer information om Nätverkssäkerhetsgrupper finns i [hur du skapar NSG: er i Azure CLI](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Skapa nätverkssäkerhetsgrupp med [az network nsg skapa](/cli/azure/network/nsg#az_network_nsg_create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet `myNetworkSecurityGroup`:
+Skapa nätverkssäkerhetsgrupp med [az network nsg skapa](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create \
@@ -121,7 +121,7 @@ az network nsg rule create \
 ```
 
 ## <a name="associate-the-subnet-with-the-network-security-group"></a>Koppla undernätet till Nätverkssäkerhetsgruppen
-För att koppla undernätet till Nätverkssäkerhetsgruppen, använda [az network vnet-undernät uppdatering](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). I följande exempel kopplar undernätsnamnet `mySubnet` med Nätverkssäkerhetsgruppen med namnet `myNetworkSecurityGroup`:
+För att koppla undernätet till Nätverkssäkerhetsgruppen, använda [az network vnet-undernät uppdatering](/cli/azure/network/vnet/subnet). I följande exempel kopplar undernätsnamnet `mySubnet` med Nätverkssäkerhetsgruppen med namnet `myNetworkSecurityGroup`:
 
 ```azurecli
 az network vnet subnet update \
@@ -135,7 +135,7 @@ az network vnet subnet update \
 ## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>Skapa de virtuella nätverkskort och en statisk DNS-namn
 Azure är mycket flexibelt, men för att använda DNS-namn för VM-namnmatchning, måste du skapa virtuella nätverkskort (Vnic) som innehåller en DNS-etikett. virtuella nätverkskort är viktiga eftersom du kan återanvända dem genom att ansluta dem till olika virtuella datorer under hela livscykeln för infrastruktur. Den här metoden ser till att det virtuella nätverkskortet som en statisk resurs medan de virtuella datorerna kan vara tillfälligt. Med hjälp av DNS-etiketter på det virtuella nätverkskortet kommer du att aktivera enkel namnmatchning från andra virtuella datorer i det virtuella nätverket. Med hjälp av matchas namn kan andra virtuella datorer att ansluta till automatiseringsservern genom att DNS-namnet `Jenkins` eller Git-server som `gitrepo`.  
 
-Skapa det virtuella nätverkskortet med [az network nic skapa](/cli/azure/network/nic#az_network_nic_create). I följande exempel skapas ett virtuellt nätverkskort med namnet `myNic`, ansluter den till den `myVnet` virtuellt nätverk med namnet `myVnet`, och skapar en intern DNS-namnpost kallas `jenkins`:
+Skapa det virtuella nätverkskortet med [az network nic skapa](/cli/azure/network/nic). I följande exempel skapas ett virtuellt nätverkskort med namnet `myNic`, ansluter den till den `myVnet` virtuellt nätverk med namnet `myVnet`, och skapar en intern DNS-namnpost kallas `jenkins`:
 
 ```azurecli
 az network nic create \

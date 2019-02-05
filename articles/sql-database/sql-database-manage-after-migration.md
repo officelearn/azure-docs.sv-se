@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: a7b091fa02c7ab6eb56826ebc7487d7ca0691610
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: 79a7aad8cd747c3fdadcd0f7eec12d861f31fcc0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510892"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730517"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -134,7 +134,7 @@ Du kan stänga på granskning för att spåra databashändelser med SQL-databas.
 
 #### <a name="threat-detection"></a>Hotidentifiering
 
-Med [hotidentifiering](sql-database-threat-detection.md), får du möjlighet att agera på säkerhets- eller princip överträdelser som identifierats av granskning väldigt enkelt. Du behöver inte vara säkerhetsexpert att bemöta potentiella hot eller säkerhetsöverträdelser i systemet. Hotidentifiering har också vissa inbyggda funktioner som SQL Injection identifiering. SQL-inmatning är ett försök att ändra eller skada data och ett vanligt sätt för att angripa ett databasprogram i allmänhet. SQL Database Threat Detection körs flera uppsättningar av algoritmer för att identifierar potentiella säkerhetsrisker och SQL-inmatningsattacker samt avvikande mönster i databasåtkomst (t.ex åtkomst från en ovanlig plats eller av ett bekant huvudnamn). Security införlivande eller andra avsedda administratörer får du ett e-postmeddelande om ett hot har identifierats på databasen. Varje avisering innehåller information om misstänkt aktivitet och rekommendationer om hur du ytterligare undersöka och åtgärda hot. Information om hur du aktiverar identifiering av hot finns: [Aktivera SQL Database Threat Detection](sql-database-security-tutorial.md#enable-security-features).
+Med [hotidentifiering](sql-database-threat-detection.md), får du möjlighet att agera på säkerhets- eller princip överträdelser som identifierats av granskning väldigt enkelt. Du behöver inte vara säkerhetsexpert att bemöta potentiella hot eller säkerhetsöverträdelser i systemet. Hotidentifiering har också vissa inbyggda funktioner som SQL Injection identifiering. SQL-inmatning är ett försök att ändra eller skada data och ett vanligt sätt för att angripa ett databasprogram i allmänhet. Hotidentifiering körs flera uppsättningar av algoritmer för att identifierar potentiella säkerhetsrisker och SQL-inmatningsattacker samt avvikande mönster i databasåtkomst (t.ex åtkomst från en ovanlig plats eller av ett bekant huvudnamn). Security införlivande eller andra avsedda administratörer får du ett e-postmeddelande om ett hot har identifierats på databasen. Varje avisering innehåller information om misstänkt aktivitet och rekommendationer om hur du ytterligare undersöka och åtgärda hot. Information om hur du aktiverar identifiering av hot finns: [Aktivera hotidentifiering](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Hur kan jag skydda Mina data i allmänhet på SQL Database
 
@@ -220,7 +220,7 @@ Med frågan Prestandainsikter får du skräddarsydda rekommendationer för din d
 
 ### <a name="security-optimization"></a>Optimering av säkerhet
 
-SQL Database ger handlingsbara rekommendationer för att skydda dina data och Hotidentifiering för att identifiera och undersöka misstänkta databasaktiviteter som kan utgöra en potentiell tråd till databasen. [Sårbarhetsbedömning för SQL](sql-vulnerability-assessment.md) är en databas genomsökning och tjänsten där du kan övervaka säkerhetstillståndet för dina databaser i stor skala och identifiera säkerhetsrisker och avviker från en säkerhetsbaslinje som du definierar. Efter varje skanning tillhandahålls en anpassad lista med lämpliga åtgärder och skript samt en rapport som kan användas för att uppfylla efterlevnadskrav.
+SQL Database ger handlingsbara rekommendationer för att skydda dina data och hotidentifiering för att identifiera och undersöka misstänkta databasaktiviteter som kan utgöra en potentiell tråd till databasen. [Sårbarhetsbedömning](sql-vulnerability-assessment.md) är en databas genomsökning och tjänsten där du kan övervaka säkerhetstillståndet för dina databaser i stor skala och identifiera säkerhetsrisker och avviker från en säkerhetsbaslinje som du definierar. Efter varje skanning tillhandahålls en anpassad lista med lämpliga åtgärder och skript samt en rapport som kan användas för att uppfylla efterlevnadskrav.
 
 Med Azure Security Center kan du identifiera säkerhetsrekommendationerna på tavlan och koppla dem med ett enda klick.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 8a9b14423566e631ddb41b42048104c8ee085486
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: cc786b97c38c115fb288a5b9a0f73f566777e7df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886704"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734427"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Hur du installerar och konfigurerar MongoDB på en Linux VM
 
@@ -39,7 +39,7 @@ Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempe
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVM* med en användare med namnet *azureuser* med SSH-autentisering för offentlig nyckel
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM* med en användare med namnet *azureuser* med SSH-autentisering för offentlig nyckel
 
 ```azurecli
 az vm create \
@@ -127,7 +127,7 @@ Om du vill skapa den här miljön, du behöver senast [Azure CLI](/cli/azure/ins
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera mallen med MongoDB [az group deployment skapa](/cli/azure/group/deployment#az_group_deployment_create). När du uppmanas, anger du ditt eget unika värden för *newStorageAccountName*, *dnsNameForPublicIP*, och administratörens användarnamn och lösenord:
+Distribuera mallen med MongoDB [az group deployment skapa](/cli/azure/group/deployment). När du uppmanas, anger du ditt eget unika värden för *newStorageAccountName*, *dnsNameForPublicIP*, och administratörens användarnamn och lösenord:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -178,7 +178,7 @@ Om du vill skapa den här miljön, du behöver senast [Azure CLI](/cli/azure/ins
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera mallen med MongoDB [az group deployment skapa](/cli/azure/group/deployment#az_group_deployment_create). Definiera din egen resurs namn och storlekar där det behövs, till exempel som för *mongoAdminUsername*, *sizeOfDataDiskInGB*, och *configNodeVmSize*:
+Distribuera mallen med MongoDB [az group deployment skapa](/cli/azure/group/deployment). Definiera din egen resurs namn och storlekar där det behövs, till exempel som för *mongoAdminUsername*, *sizeOfDataDiskInGB*, och *configNodeVmSize*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -200,7 +200,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Den här distributionen kan ta över en timme att distribuera och konfigurera alla VM-instanser. Den `--no-wait` används i slutet av det föregående kommandot för att komma tillbaka till Kommandotolken när malldistributionen har godkänts av Azure-plattformen. Du kan sedan se Distributionsstatus med [az group deployment show](/cli/azure/group/deployment#az_group_deployment_show). Följande exempel visar statusen för den *myMongoDBCluster* distribution i den *myResourceGroup* resursgrupp:
+Den här distributionen kan ta över en timme att distribuera och konfigurera alla VM-instanser. Den `--no-wait` används i slutet av det föregående kommandot för att komma tillbaka till Kommandotolken när malldistributionen har godkänts av Azure-plattformen. Du kan sedan se Distributionsstatus med [az group deployment show](/cli/azure/group/deployment). Följande exempel visar statusen för den *myMongoDBCluster* distribution i den *myResourceGroup* resursgrupp:
 
 ```azurecli
 az group deployment show \

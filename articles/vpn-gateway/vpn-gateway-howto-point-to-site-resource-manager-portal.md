@@ -1,5 +1,5 @@
 ---
-title: 'Ansluta en dator till ett virtuellt Azure-nätverk med punkt-till-plats och intern Azure-certifikatautentisering: Azure Portal | Microsoft Docs'
+title: 'Ansluta en dator till en Azure-nätverk med punkt-till-plats och intern Azure-certifikatautentisering: Azure-portalen | Microsoft Docs'
 description: Ansluta Windows, Mac OS X och Linux-klienter på ett säkert sätt till en Azure-nätverk med P2S och självsignerade Certifikatutfärdare som utfärdade certifikat. Den här artikeln använder Azure Portal.
 services: vpn-gateway
 author: cherylmc
@@ -8,14 +8,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3254f0c26e21bc7ba71fc23362f263cb126ea3b0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4e8a28634e554ee75eea79e69c0b73e8adec3447
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026372"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700544"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: Azure-portalen
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: Azure Portal
 
 Den här artikeln hjälper dig att på ett säkert sätt ansluta enskilda klienter som kör Windows, Linux eller Mac OS X till ett Azure VNet. Punkt-till-plats-VPN-anslutningar är användbara när du vill fjärransluta till ditt VNet, exempelvis när du distansarbetar från hemmet eller en konferens. Du kan också använda P2S i stället för en plats-till-plats-VPN-anslutning när du bara har ett fåtal klienter som behöver ansluta till ett VNet. Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. P2S skapar VPN-anslutningen via SSTP (Secure Socket Tunneling Protocol) eller IKEv2. Mer information om punkt-till-plats-VPN finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
 
@@ -38,15 +38,15 @@ Du kan använda följande värden till att skapa en testmiljö eller hänvisa ti
 * **Namn på virtuellt nätverk:** VNet1
 * **Adressutrymme:** 192.168.0.0/16<br>I det här exemplet använder vi bara ett adressutrymme. Du kan ha fler än ett adressutrymme för ditt virtuella nätverk.
 * **Namn på undernät:** FrontEnd
-* **Adressintervall för undernät:** 192.168.1.0/24
-* **Prenumeration:** Kontrollera att du använder rätt prenumeration om du har mer än en.
+* **Adressintervall för undernätet:** 192.168.1.0/24
+* **Prenumeration:** Om du har mer än en prenumeration kan du kontrollera att du använder rätt.
 * **Resursgrupp:** TestRG
 * **Plats:** Östra USA
 * **GatewaySubnet:** 192.168.200.0/24<br>
 * **DNS-server: IP-adress** (valfri) för den DNS-server som du vill använda för namnmatchning.
-* **Namn på virtuell nätverksgateway:** VNet1GW
-* **Typ av gateway:** VPN
-* **Typ av VPN:** Routningsbaserad
+* **Det virtuella nätverkets gateway name:** VNet1GW
+* **Gateway-typ:** VPN
+* **VPN-typ:** Routningsbaserad
 * **Namn på offentlig IP-adress:** VNet1GWpip
 * **Anslutningstyp:** Punkt-till-plats
 * **Klientadresspool:** 172.16.201.0/24<br>VPN-klienter som ansluter till det virtuella nätverket med den här punkt-till-plats-anslutningen får en IP-adress från klientadresspoolen.
@@ -239,6 +239,6 @@ Du kan återkalla ett klientcertifikat genom att lägga till tumavtrycket i list
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
+När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
 
 Information om P2S-felsökning finns i [Felsöka punkt-till-plats-anslutningar i Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

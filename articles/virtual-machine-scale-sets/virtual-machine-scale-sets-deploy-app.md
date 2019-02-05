@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2448d941db7f27a87fbb5e2267847165f84ede3d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881706"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733152"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera ditt program i VM-skalningsuppsättningar
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. Den här artikeln beskrivs olika sätt att skapa en anpassad virtuell datoravbildning för instanser i en skalningsuppsättning eller automatiskt köra installationsskripten på befintliga VM-instanser. Du också lära dig hur du hanterar program eller uppdateringar av Operativsystemet i en skalningsuppsättning.
@@ -97,7 +97,7 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
 
 Mer information, inklusive ett exempel *cloud-init.txt* fil, se [använda cloud-init för att anpassa virtuella Azure-datorer](../virtual-machines/linux/using-cloud-init.md).
 
-Om du vill skapa en skalningsuppsättning och använder en cloud-init-fil, lägger du till den `--custom-data` parametern till den [az vmss skapa](/cli/azure/vmss#az_vmss_create) kommandot och ange namnet på en cloud-init-fil. I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* i *myResourceGroup* och konfigurerar VM-instanser med en fil med namnet *cloud-init.txt*. Ange egna namn enligt följande:
+Om du vill skapa en skalningsuppsättning och använder en cloud-init-fil, lägger du till den `--custom-data` parametern till den [az vmss skapa](/cli/azure/vmss) kommandot och ange namnet på en cloud-init-fil. I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* i *myResourceGroup* och konfigurerar VM-instanser med en fil med namnet *cloud-init.txt*. Ange egna namn enligt följande:
 
 ```azurecli
 az vmss create \

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7d1a4e6b1093344d1217e8577a56f34cd3c1f52c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289703"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734342"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Skapa Azure Recovery Services-valv med hjälp av REST API
 
@@ -29,7 +29,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Skapa en förfrågan
 
-Att skapa den *PLACERA* begäran, den `{subscription-id}` parametern är obligatorisk. Om du har flera prenumerationer, se [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Du definierar en `{resourceGroupName}` och `{vaultName}` för dina resurser, tillsammans med den `api-version` parametern. Den här artikeln använder `api-version=2016-06-01`.
+Att skapa den *PLACERA* begäran, den `{subscription-id}` parametern är obligatorisk. Om du har flera prenumerationer, se [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Du definierar en `{resourceGroupName}` och `{vaultName}` för dina resurser, tillsammans med den `api-version` parametern. Den här artikeln använder `api-version=2016-06-01`.
 
 Följande huvuden krävs:
 
@@ -46,8 +46,8 @@ Följande vanliga definitioner används för att skapa en brödtext i begäran:
 
 |Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
-|eTag     |         |   Sträng      |  Valfritt eTag       |
-|location     |  true       |Sträng         |   Resursplats      |
+|eTag     |         |   String      |  Valfritt eTag       |
+|location     |  true       |String         |   Resursplats      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifierar unika system-identifieraren för varje Azure-resurs     |
 |tags     |         | Objekt        |     Resurstaggar    |

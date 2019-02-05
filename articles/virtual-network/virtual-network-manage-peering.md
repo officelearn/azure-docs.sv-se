@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 7592203b13f22f5c396b8e8bd2942c230a6fd4bc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9c03e0ced565daef01304e288b71c46aa0035384
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492019"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730101"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverkspeering
 
@@ -70,7 +70,7 @@ Stegvisa instruktioner för att implementera peering mellan virtuella nätverk i
 
 ### <a name="commands"></a>Kommandon
 
-- **Azure CLI**: [skapa az network vnet-peering](/cli/azure/network/vnet/peering#create)
+- **Azure CLI**: [skapa az network vnet-peering](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>Visa eller ändra peering-inställningar
@@ -87,7 +87,7 @@ Innan du ändrar en peer-koppling, kan du bekanta dig med den [krav och begräns
 
 **Kommandon**
 
-- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) att lista peerings för ett virtuellt nätverk, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) att visa inställningarna för en specifik peering och [az nätverket vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) att ändra peering-inställningar. |
+- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) att lista peerings för ett virtuellt nätverk, [az network vnet peering show](/cli/azure/network/vnet/peering) att visa inställningarna för en specifik peering och [az nätverket vnet peering update](/cli/azure/network/vnet/peering) att ändra peering-inställningar. |
 - **PowerShell**: [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) att hämta peering visningsinställningarna och [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) att ändra inställningarna.
 
 ## <a name="delete-a-peering"></a>Ta bort en peer-koppling
@@ -96,7 +96,7 @@ Innan du tar bort en peer-koppling, se till att ditt konto har de [behörighet](
 
 När en peering tas bort, flödar inte längre trafik från ett virtuellt nätverk till det peer-kopplade virtuella nätverket. När virtuella nätverk som distribuerats via Resource Manager har peerkopplats kan har varje virtuellt nätverk den en peer-koppling till det virtuella nätverket. Om du tar bort peer-kopplingen från ett virtuellt nätverk inaktiveras kommunikation mellan virtuella nätverk, tas inte bort peer-kopplingen från det virtuella nätverket. Peering-statusen för peering som finns i det virtuella nätverket är **frånkopplad**. Du kan inte återskapa peeringen tills du återskapa peer-kopplingen i det första virtuella nätverket och peering-statusen för båda virtuella nätverken ändringar *ansluten*. 
 
-Om du vill att virtuella nätverk kan kommunicera ibland, men inte alltid, i stället för att ta bort en peer-koppling, du kan ange den **Tillåt åtkomst till virtuellt nätverk** att ställa in **inaktiverad** i stället. Att lära dig hur du läser steg 6 i den [skapar en peering](#create-peering) i den här artikeln. Du kanske inaktivera och aktivera nätverksåtkomst som är enklare än att ta bort och återskapa peer-kopplingar.
+Om du vill att virtuella nätverk kan kommunicera ibland, men inte alltid, i stället för att ta bort en peer-koppling, du kan ange den **Tillåt åtkomst till virtuellt nätverk** att ställa in **inaktiverad** i stället. Att lära dig hur du läser steg 6 i den [skapar en peering](#create-a-peering) i den här artikeln. Du kanske inaktivera och aktivera nätverksåtkomst som är enklare än att ta bort och återskapa peer-kopplingar.
 
 1. Ange i sökrutan överst på portalen *virtuella nätverk* i sökrutan. När **virtuella nätverk** visas i sökresultaten, markerar du den. Markera inte **virtuella nätverk (klassiska)** om den visas i listan som du inte kan skapa en peer-kopplingen från ett virtuellt nätverk som distribueras via den klassiska distributionsmodellen.
 2. Välj det virtuella nätverket i listan som du vill ta bort en peerkoppling för.
@@ -116,7 +116,7 @@ Om du vill att virtuella nätverk kan kommunicera ibland, men inte alltid, i st�
 - När du skapar en global peering, kan peer-kopplade virtuella nätverk finnas i alla regioner för offentliga Azure-molnet eller Kina molnregioner, men inte i Government cloud regioner. Du kan endast peer virtuellt nätverk i samma region i Azure Government-molnregioner.
 - Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en Azure intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Belastningsutjämnaren och de resurser som kommunicerar med det måste finnas i ett virtuellt nätverk i samma region. Om de peerkopplade virtuella nätverken är i samma region men kan kan resurser i de virtuella nätverken kommunicera med frontend IP-adressen för en Azure intern belastningsutjämnare i de virtuella nätverken i peer-kopplingen.
 - Du kan inte Använd fjärrgateway eller Tillåt gatewayöverföring i globalt peer-kopplade virtuella nätverk. Du kan Använd fjärrgateway eller Tillåt gatewayöverföring genom måste peer-kopplade virtuella nätverk vara i samma region.
-- De virtuella nätverken kan finnas i samma eller olika prenumerationer. När du peerkoppla virtuella nätverk i olika prenumerationer, kommer båda prenumerationerna kan vara kopplade till samma eller en annan Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du snabbt [skapar ett](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Stöd för peering mellan virtuella nätverk från prenumerationer som är kopplad till olika Azure Active Directory-klienter är inte tillgängligt i portalen. Du kan använda CLI, PowerShell eller mallar.
+- De virtuella nätverken kan finnas i samma eller olika prenumerationer. När du peerkoppla virtuella nätverk i olika prenumerationer, kommer båda prenumerationerna kan vara kopplade till samma eller en annan Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du snabbt [skapar ett](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Stöd för peering mellan virtuella nätverk från prenumerationer som är kopplad till olika Azure Active Directory-klienter är inte tillgängligt i portalen. Du kan använda CLI, PowerShell eller mallar.
 - Virtuella nätverk som peer-du måste ha icke-överlappande IP-adressutrymmen.
 - Du kan inte lägga till adressintervall till eller ta bort-adressintervall från adressutrymmet för ett virtuellt nätverk när ett virtuellt nätverk är peerkopplat med ett annat virtuellt nätverk. Om du vill lägga till eller ta bort adressintervall, ta bort peer-kopplingen, lägga till eller ta bort adressintervallen, sedan återskapa peeringen. Om du vill lägga till adressintervall till eller ta bort-adressintervall från virtuella nätverk, se [hantera virtuella nätverk](manage-virtual-network.md).
 - Peerkoppling kan upprättas mellan två virtuella nätverk som distribueras via Resource Manager eller ett virtuellt nätverk som distribuerats via Resource Manager med ett virtuellt nätverk som distribueras via den klassiska distributionsmodellen. Du kan inte peerkoppla två virtuella nätverk som skapats via den klassiska distributionsmodellen. Om du inte är bekant med Azures distributionsmodeller läsa den [distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln. Du kan använda [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) för att ansluta två virtuella nätverk som har skapats via den klassiska distributionsmodellen.

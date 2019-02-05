@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 45e15fa5b17f75dcc6cfdc7305861d38804f1266
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 56df020b7948ff41ee7710fca19d05924e118c81
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748144"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729718"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Felsöka distribution Linux VM-problem i Azure
 
@@ -93,7 +93,7 @@ Du hittar listan på Linux på [Azure-godkända distributioner](../linux/endorse
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Kan jag lägga till en befintlig klassisk virtuell dator till en tillgänglighetsuppsättning?
 
-Ja. Du kan lägga till en befintlig klassisk virtuell dator till en ny eller befintlig Tillgänglighetsuppsättning. Mer information finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](../windows/classic/configure-availability-classic.md#addmachine).
+Ja. Du kan lägga till en befintlig klassisk virtuell dator till en ny eller befintlig Tillgänglighetsuppsättning. Mer information finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## <a name="next-steps"></a>Nästa steg

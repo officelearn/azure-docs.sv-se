@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cc0521f1f27ddfc1fc44b9f24212393d11177d70
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c923023cec03e36b1795619bc9da09aee8def629
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660977"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700401"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -221,6 +221,12 @@ Hybrid Azure AD-anslutning har företräde framför Azure AD-registrerad tillst�
 **F: Varför Mina användare har problem på Windows 10 hybrid Azure AD-anslutna enheter när du har ändrat deras UPN?**
 
 **A:** För närvarande UPN ändringar stöds fullständigt inte med hybrid Azure AD-anslutna enheter. Användare kan logga in på enheten och komma åt sina lokala program, misslyckas autentiseringen med Azure AD när ett UPN ändra. Därför kan användare använda enkel inloggning och villkorlig åtkomst utfärdar på sina enheter. För närvarande måste du frånkoppling från enheten från Azure AD (kör ”dsregcmd /leave” med utökade privilegier) och ansluta på nytt (sker automatiskt) att lösa problemet. Vi arbetar med att lösa problemet. Användare som loggar in med Windows Hello för företag dock inte stöter på problemet. 
+
+---
+
+**F: Kräver Windows 10 hybrid Azure AD-anslutna enheter åtkomst till domänkontrollanten för att få åtkomst till resurser i molnet?**
+
+**A:** Nej. Enare Windows 10 hybrid Azure AD join är klar och användaren har loggat in minst en gång, enheten kräver inte åtkomst till domänkontrollanten för att komma åt resurser i molnet. Windows 10 kan få enkel inloggning till Azure AD-program från var som helst med en Internetanslutning, utom när ett lösenord ändras. Om ett lösenord har ändrats utanför företagets nätverk (till exempel med hjälp av Azure AD SSPR), måste användaren har åtkomst till domänkontrollanten innan de kan logga in på enheten med sitt nya lösenord. I annat fall kan de bara logga in med sina gamla lösenord, som betraktas som inaktuella av Azure AD och förhindrar att enkel inloggning på. Det här problemet inträffar men inte när du använder Windows Hello för företag. Användare som loggar in med Windows Hello för företag fortfarande få enkel inloggning till Azure AD-program när en lösenordsändring även om de inte har åtkomst till sina domänkontrollant. 
 
 ---
 

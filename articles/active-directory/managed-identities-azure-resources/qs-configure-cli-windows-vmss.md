@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
-ms.openlocfilehash: 03e22ae9aaa3ab967b55443ccbd933c265510227
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 42b0ab15f43d301629b9fbb3208ba24eae8c227e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180117"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694609"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med Azure CLI
 
@@ -113,7 +113,7 @@ Om du har en virtuell dator som inte längre behöver systemtilldelade hanterad 
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Ta bort hanterade identiteter för VM-tillägg för Azure-resurser (planerad för utfasning i januari 2019) med [az vmss-identitet ta bort](/cli/azure/vmss/identity/#az-vmss-remove-identity) till att ta bort den systemtilldelade hanterad identitet från en Skalningsuppsättningen:
+Ta bort hanterade identiteter för VM-tillägg för Azure-resurser (planerad för utfasning i januari 2019) med [az vmss-identitet ta bort](/cli/azure/vmss/identity/) till att ta bort den systemtilldelade hanterad identitet från en Skalningsuppsättningen:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -190,7 +190,7 @@ Svaret innehåller information om det användartilldelade hanterad identitet ska
    }
    ```
 
-2. Tilldela Användartilldelad hanterad identitet till VMSS med [az vmss-identitet tilldela](/cli/azure/vmss/identity#az-vm-assign-identity). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY>` är identiteten för användartilldelade resurs `name` egenskapen, som du skapade i föregående steg:
+2. Tilldela Användartilldelad hanterad identitet till VMSS med [az vmss-identitet tilldela](/cli/azure/vmss/identity). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY>` är identiteten för användartilldelade resurs `name` egenskapen, som du skapade i föregående steg:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>

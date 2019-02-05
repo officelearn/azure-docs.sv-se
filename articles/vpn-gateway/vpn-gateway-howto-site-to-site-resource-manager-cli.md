@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8fcf409db471a458fb3e2e743a19661c9f601328
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 18834357651e5fb72dd849a8d8e2e7687f0a8141
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663527"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730364"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI
 
@@ -101,7 +101,7 @@ az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefi
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
-Använd kommandot [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) för att skapa ett gateway-undernätet.
+Använd kommandot [az network vnet subnet create](/cli/azure/network/vnet/subnet) för att skapa ett gateway-undernätet.
 
 ```azurecli-interactive
 az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
@@ -128,7 +128,7 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 
 En VPN-gateway måste ha en offentlig IP-adress. Först begär du IP-adressresursen och sedan hänvisar du till den när du skapar din virtuella nätverksgateway. IP-adressen tilldelas dynamiskt till resursen när en VPN-gateway har skapats. VPN Gateway stöder för närvarande endast *dynamisk* offentlig IP-adressallokering. Du kan inte begära en statisk offentlig IP-adresstilldelning. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
 
-Använd kommandot [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) för att begära en dynamisk offentlig IP-adress.
+Använd kommandot [az network public-ip create](/cli/azure/network/public-ip) för att begära en dynamisk offentlig IP-adress.
 
 ```azurecli-interactive
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
@@ -144,7 +144,7 @@ Ange följande värden:
 * *--vpn-type* kan vara *RouteBased* (kallas en dynamisk gateway i viss dokumentation) eller *PolicyBased* (kallas en statisk gateway i viss dokumentation). Inställningen gäller krav på den enhet som du ansluter till. Mer information om VPN Gateway-typer finns i [Om konfigurationsinställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Markera den gateway SKU som du vill använda. Det finns konfigurationsbegränsningar för vissa SKU:er. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
 
-Skapa en VPN-gateway med kommandot [az network vnet-gateway create](/cli/azure/network/vnet-gateway#az_network_vnet_gateway_create). Om du kör det här kommandot med parametern ”--no-wait” ser du ingen feedback eller utdata. Den här parametern gör att gatewayen kan skapas i bakgrunden. Det tar cirka 45 minuter att skapa en gateway.
+Skapa en VPN-gateway med kommandot [az network vnet-gateway create](/cli/azure/network/vnet-gateway). Om du kör det här kommandot med parametern ”--no-wait” ser du ingen feedback eller utdata. Den här parametern gör att gatewayen kan skapas i bakgrunden. Det tar cirka 45 minuter att skapa en gateway.
 
 ```azurecli-interactive
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
@@ -169,10 +169,10 @@ Plats-till-plats-anslutningar till ett lokalt nätverk kräver en VPN-enhet. I d
 
 Skapa VPN-anslutningen för plats-till-plats mellan din virtuella nätverksgateway och din lokala VPN-enhet. Var extra uppmärksam till värdet för den delade nyckeln, som måste matcha det konfigurerade värde för delad nyckel för din VPN-enhet.
 
-Skapa anslutningen med kommandot [az network vpn-connection create](/cli/azure/network/vpn-connection#az_network_vpn_connection_create).
+Skapa anslutningen med kommandot [az network vpn-connection create](/cli/azure/network/vpn-connection).
 
 ```azurecli-interactive
-az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
 Efter en kort stund har anslutningen upprättats.
@@ -195,7 +195,7 @@ Det här avsnittet tar upp vanliga kommandon som är användbara när du arbetar
 
 ## <a name="next-steps"></a>Nästa steg
 
-* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/).
 * Information om BGP finns i [BGP-översikt](vpn-gateway-bgp-overview.md) och [Så här konfigurerar du BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Information om tvingad tunneltrafik finns i [Om forcerade tunnlar](vpn-gateway-forced-tunneling-rm.md).
 * Mer information om aktiv-aktiv-anslutningar med hög tillgänglighet finns i [Anslutning med hög tillgänglighet på flera platser och VNet-till-VNet-anslutning](vpn-gateway-highlyavailable.md).

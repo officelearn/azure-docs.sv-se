@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaeebb200197ba6ef15fbcfe02f262a3840197b5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856136"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733322"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus-köer för obeställbara meddelanden
 
@@ -60,13 +60,13 @@ Det här beteendet kan inte inaktiveras, men du kan ange [MaxDeliveryCount](/dot
 
 ## <a name="exceeding-timetolive"></a>Överstiger TimeToLive
 
-När den [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) eller [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) är inställd på **SANT** (standardvärdet är **FALSKT**), alla utgående meddelanden flyttas till DLQ, ange den `TTLExpiredException` orsakskod.
+När den [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) eller [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) är inställd på **SANT** (standardvärdet är **FALSKT**), alla utgående meddelanden flyttas till DLQ, ange den `TTLExpiredException` orsakskod.
 
 Observera att utgångna meddelanden endast rensas och flyttas till DLQ när det finns minst en aktiv mottagare hämta från den huvudsakliga kö eller prenumeration; att beteendet är avsiktligt.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Fel vid bearbetning av prenumerationsregler
 
-När den [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) egenskapen är aktiverad för en prenumeration, eventuella fel som uppstår när en prenumeration SQL-filterregeln körs samlas i DLQ längs med felaktiga meddelandet.
+När den [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) egenskapen är aktiverad för en prenumeration, eventuella fel som uppstår när en prenumeration SQL-filterregeln körs samlas i DLQ längs med felaktiga meddelandet.
 
 ## <a name="application-level-dead-lettering"></a>Programnivå dead-lettering
 
@@ -84,7 +84,7 @@ Om du vill hämta dessa lettered förlorade meddelanden kan du skapa en mottagar
 
 ## <a name="example"></a>Exempel
 
-Följande kodfragment skapar en mottagare för meddelandet. I receive-loop för huvudkön koden hämtar meddelandet med [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), som begär den asynkrona meddelandekön att returnera alla meddelanden som är tillgängliga direkt, eller att returnera med inget resultat. Om koden tar emot ett meddelande, den omedelbart lämnar den, vilket ökar den `DeliveryCount`. När systemet flyttar meddelandet till DLQ, inte tomt och slingan avslutas som [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) returnerar **null**.
+Följande kodfragment skapar en mottagare för meddelandet. I receive-loop för huvudkön koden hämtar meddelandet med [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), som begär den asynkrona meddelandekön att returnera alla meddelanden som är tillgängliga direkt, eller att returnera med inget resultat. Om koden tar emot ett meddelande, den omedelbart lämnar den, vilket ökar den `DeliveryCount`. När systemet flyttar meddelandet till DLQ, inte tomt och slingan avslutas som [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) returnerar **null**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

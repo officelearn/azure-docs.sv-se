@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992116"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693997"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure replikering
 
@@ -29,11 +29,11 @@ Lär dig hur Site Recovery erbjuder haveriberedskap för [det här scenariot](az
 
 Följande diagram visar en normal Azure miljö för program som körs på Azure Virtual Machines:
 
-![kund-miljö](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Om du använder Azure ExpressRoute eller VPN-anslutning från ditt lokala nätverk till Azure, är miljön enligt följande:
 
-![kund-miljö](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
+![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
 Nätverk är normalt skyddas med brandväggar och nätverkssäkerhetsgrupper (NSG). Brandväggar använda URL eller IP-baserad listan över tillåtna program för att styra nätverksanslutningar. NSG: er tillhandahåller regler som använder IP-adressintervall för att styra nätverksanslutning.
 
@@ -99,7 +99,8 @@ Site Recovery-IP-adressintervall är följande:
    Sydkorea, södra | 52.231.298.185 | 52.231.200.144
    Frankrike, centrala | 52.143.138.106 | 52.143.136.55
    Frankrike, södra | 52.136.139.227 |52.136.136.62
-
+   Australien, centrala| 20.36.34.70 | 20.36.46.142
+   Australien, centrala 2| 20.36.69.62 | 20.36.74.130
 
 ## <a name="example-nsg-configuration"></a>Exempel NSG-konfiguration
 
@@ -112,11 +113,11 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
 1. Skapa en utgående Säkerhetsregel för HTTPS (443) för ”Storage.EastUS” på NSG: N som visas i skärmbilden nedan.
 
-      ![Storage-tagg](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Skapa en utgående Säkerhetsregel för HTTPS (443) för ”AzureActiveDirectory” på NSG: N som visas i skärmbilden nedan.
 
-      ![aad-tagg](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. Skapa regler för utgående HTTPS (443) för Site Recovery IP-adresserna som motsvarar målplatsen:
 

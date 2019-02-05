@@ -16,12 +16,12 @@ ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: d766465f8319b83cd614bfcf24018ef901923429
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b8994d4c1eabf4381bf8364c76f7328d225f7e1a
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329706"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732064"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Anslut en virtuell SQL Server-dator på Azure (Klassisk distribution)
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "54329706"
 Det här avsnittet beskriver hur du ansluter till SQL Server-instansen som körs på virtuella Azure-datorer. Det omfattar tips [allmänna anslutningsproblem scenarier](#connection-scenarios) och ger [beskrivs stegen för att konfigurera SQL Server-anslutningen i en Azure VM](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du använder Resource Manager-VM, se [Anslut till en SQL Server-dator på Azure med hjälp av Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du använder Resource Manager-VM, se [Anslut till en SQL Server-dator på Azure med hjälp av Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>-Scenarier
 Det sätt som en klient ansluter till SQL Server som körs på en virtuell dator skiljer sig beroende på platsen för klienten och datorn/nätverkskonfigurationen. Några vanliga scenarier:
@@ -49,7 +49,7 @@ Det sätt som en klient ansluter till SQL Server som körs på en virtuell dator
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Anslut till SQL Server i samma molntjänst
-Flera virtuella datorer kan skapas i samma molntjänst. Information om det här scenariot för virtuella datorer finns i [hur du ansluter virtuella datorer till virtuella nätverk eller molntjänster](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Det här scenariot är när en klient på en virtuell dator försöker ansluta till SQL Server som körs på en annan virtuell dator i samma molntjänst.
+Flera virtuella datorer kan skapas i samma molntjänst. Information om det här scenariot för virtuella datorer finns i [hur du ansluter virtuella datorer till virtuella nätverk eller molntjänster](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). Det här scenariot är när en klient på en virtuell dator försöker ansluta till SQL Server som körs på en annan virtuell dator i samma molntjänst.
 
 I det här scenariot kan du ansluta med hjälp av den virtuella datorn **namn** (visas också som **datornamn** eller **värdnamn** i portalen). Det här är det namn du angav för den virtuella datorn när du skapar. Exempel: Om du har gett din SQL-VM **mysqlvm**, en klient virtuell dator i samma molntjänst kan använda följande anslutningssträng för att ansluta:
 
@@ -64,7 +64,7 @@ Anta exempelvis att en klassisk virtuell dator med namnet **mysqlvm** med DNS-na
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Detta möjliggör anslutningar för klienter via internet innebär detta inte att vem som helst kan ansluta till SQL-servern. Utanför måste klienter rätt användarnamn och lösenord. För ytterligare säkerhet, inte använda den välkända porten 1433 för offentliga VM-slutpunkten. Och om det är möjligt, Överväg att lägga till en ACL på slutpunkten för att begränsa trafik till klienterna du tillåta. Anvisningar om hur du använder ACL: er med slutpunkter finns i [hantera ACL på en slutpunkt](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Detta möjliggör anslutningar för klienter via internet innebär detta inte att vem som helst kan ansluta till SQL-servern. Utanför måste klienter rätt användarnamn och lösenord. För ytterligare säkerhet, inte använda den välkända porten 1433 för offentliga VM-slutpunkten. Och om det är möjligt, Överväg att lägga till en ACL på slutpunkten för att begränsa trafik till klienterna du tillåta. Anvisningar om hur du använder ACL: er med slutpunkter finns i [hantera ACL på en slutpunkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
 > Det är viktigt att Observera att när du använder den här tekniken för att kommunicera med SQL Server, alla utgående data från Azure-datacentret lyder under normal [prissättning på utgående dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).

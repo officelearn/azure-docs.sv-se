@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: b7208943a27bcd184100ae426721a2fe8f6e1c72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970492"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730755"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Använda Azure hanterad tjänstidentitet i Azure API Management
 
@@ -38,7 +38,7 @@ Om du vill konfigurera en hanterad tjänstidentitet i portalen, ska du först sk
 
 ### <a name="using-the-azure-resource-manager-template"></a>Med hjälp av Azure Resource Manager-mall
 
-Du kan skapa en API Management-instans med en identitet genom att inkludera följande egenskap i resursdefinitionen: 
+Du kan skapa en API Management-instans med en identitet genom att inkludera följande egenskap i resursdefinitionen:
 
 ```json
 "identity" : {
@@ -46,7 +46,7 @@ Du kan skapa en API Management-instans med en identitet genom att inkludera föl
 }
 ```
 
-Detta informerar du Azure att skapa och hantera identitet för din API Management-instans. 
+Detta informerar du Azure att skapa och hantera identitet för din API Management-instans.
 
 En fullständig Azure Resource Manager-mall kan se ut så här:
 
@@ -70,8 +70,8 @@ En fullständig Azure Resource Manager-mall kan se ut så här:
                 "publisherEmail": "admin@contoso.com",
                 "publisherName": "Contoso"
             },
-            "identity": { 
-                "type": "systemAssigned" 
+            "identity": {
+                "type": "systemAssigned"
             }
         }
     ]
@@ -81,14 +81,14 @@ En fullständig Azure Resource Manager-mall kan se ut så här:
 
 > [!NOTE]
 > Hanterad tjänstidentitet kan för närvarande kan användas för att hämta certifikat från Azure Key Vault för anpassade domännamn för API Management. Fler scenarier kommer snart att stödjas.
-> 
+>
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Skaffa ett certifikat från Azure Key Vault
 
 #### <a name="prerequisites"></a>Förutsättningar
-1. Key Vault som innehåller pfx-certifikatet måste finnas i samma Azure-prenumeration och samma resursgrupp som API Management-tjänsten. Det här är ett krav för Azure Resource Manager-mallen. 
+1. Key Vault som innehåller pfx-certifikatet måste finnas i samma Azure-prenumeration och samma resursgrupp som API Management-tjänsten. Det här är ett krav för Azure Resource Manager-mallen.
 2. Innehållstypen för hemligheten måste vara *application/x-pkcs12*. Du kan använda följande skript för att ladda upp certifikatet:
 
 ```powershell
@@ -106,7 +106,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 ```
 
 > [!Important]
-> Om versionen för certifikatet inte anges, hämta API Management automatiskt den nya versionen av certifikatet när det överförs till Key Vault. 
+> Om versionen för certifikatet inte anges, hämta API Management automatiskt den nya versionen av certifikatet när det överförs till Key Vault.
 
 I följande exempel visas en Azure Resource Manager-mall som innehåller följande steg:
 
@@ -180,7 +180,6 @@ I följande exempel visas en Azure Resource Manager-mall som innehåller följan
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
         "tags": {
-            
         },
         "sku": {
             "name": "[parameters('sku')]",
@@ -197,10 +196,10 @@ I följande exempel visas en Azure Resource Manager-mall som innehåller följan
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2015-06-01",        
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
+        "apiVersion": "2015-06-01",
+        "dependsOn": [
+            "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+        ],
         "properties": {
             "accessPolicies": [{
                 "tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
@@ -211,28 +210,28 @@ I följande exempel visas en Azure Resource Manager-mall som innehåller följan
             }]
         }
     },
-    { 
-      "apiVersion": "2017-05-10", 
-      "name": "apimWithKeyVault", 
-      "type": "Microsoft.Resources/deployments",
-      "dependsOn": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "apimWithKeyVault",
+        "type": "Microsoft.Resources/deployments",
+        "dependsOn": [
         "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
-      "properties": { 
-        "mode": "incremental", 
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-          "contentVersion": "1.0.0.0"
-        }, 
-        "parameters": {
-            "publisherEmail": { "value": "[parameters('publisherEmail')]"},
-            "publisherName": { "value": "[parameters('publisherName')]"},
-            "sku": { "value": "[parameters('sku')]"},
-            "skuCount": { "value": "[parameters('skuCount')]"},
-            "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-            "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+        ],
+        "properties": {
+            "mode": "incremental",
+            "templateLink": {
+                "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "publisherEmail": { "value": "[parameters('publisherEmail')]"},
+                "publisherName": { "value": "[parameters('publisherName')]"},
+                "sku": { "value": "[parameters('sku')]"},
+                "skuCount": { "value": "[parameters('skuCount')]"},
+                "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
+                "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+            }
         }
-      } 
     }]
 }
 ```
@@ -243,4 +242,3 @@ Läs mer om Azure Managed Service Identity:
 
 * [Hanterad tjänstidentitet för Azure-resurser](../active-directory/msi-overview.md)
 * [Azure Resource Manager-mallar](https://github.com/Azure/azure-quickstart-templates)
-

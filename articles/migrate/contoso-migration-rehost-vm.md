@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823359"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694507"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso-migrering: Byt värd för en lokal app till virtuella Azure-datorer
 
@@ -460,7 +460,7 @@ Contoso security-teamet granskar den virtuella Azure-datorer för att fastställ
 - För att styra åtkomsten granskar till teamet Nätverkssäkerhetsgrupper (NSG) för de virtuella datorerna. NSG: er för att säkerställa att endast trafik som tillåts i appen kan nå.
 - Teamet Överväg också att skydda data på disken med hjälp av Azure Disk Encryption och KeyVault.
 
-[Läs mer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) om säkerhetsrutiner för virtuella datorer.
+[Läs mer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) om säkerhetsrutiner för virtuella datorer.
 
 ## <a name="bcdr"></a>BCDR
 

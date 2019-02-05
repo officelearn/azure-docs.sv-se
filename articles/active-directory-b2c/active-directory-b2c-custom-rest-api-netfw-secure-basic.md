@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 061987105eac976e40a003a8108921ed0008630d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71a5ca62dc5d21e30a4944f8be57a77040f4f204
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169169"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733696"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda RESTful-tjänster med hjälp av grundläggande HTTP-autentisering
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I en [relaterade Azure AD B2C-artikeln](active-directory-b2c-custom-rest-api-netfw.md), skapar du en RESTful tjänst (webb-API) som kan integreras med Azure Active Directory B2C (Azure AD B2C) användaren resor utan autentisering. 
+I en [relaterade Azure AD B2C-artikeln](active-directory-b2c-custom-rest-api-netfw.md), skapar du en RESTful tjänst (webb-API) som kan integreras med Azure Active Directory B2C (Azure AD B2C) användaren resor utan autentisering.
 
-I den här artikeln får du lägga till grundläggande HTTP-autentisering till RESTful-tjänsten så att endast kontrollerade användare, inklusive B2C, kan komma åt ditt API. Med grundläggande HTTP-autentisering anger du autentiseringsuppgifter (app-ID och apphemlighet) i en egen princip. 
+I den här artikeln får du lägga till grundläggande HTTP-autentisering till RESTful-tjänsten så att endast kontrollerade användare, inklusive B2C, kan komma åt ditt API. Med grundläggande HTTP-autentisering anger du autentiseringsuppgifter (app-ID och apphemlighet) i en egen princip.
 
 Mer information finns i [grundläggande autentisering i ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
@@ -33,7 +33,7 @@ Utför stegen i den [integrera REST API-anspråk Utbytena i din Azure AD B2C-anv
 ## <a name="step-1-add-authentication-support"></a>Steg 1: Lägg till stöd för autentisering
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Steg 1.1: Lägg till tillämpningsinställningar till ditt projekts web.config-filen
-1. Öppna Visual Studio-projektet som du skapade tidigare. 
+1. Öppna Visual Studio-projektet som du skapade tidigare.
 
 2. Lägg till följande programinställningar i web.config-filen under den `appSettings` element:
 
@@ -205,7 +205,7 @@ Lägg till en OWIN-startklass med namnet `Startup.cs` -API: et. Gör så här:
         {
             public void Configuration(IAppBuilder app)
             {
-                    app.Use<ClientAuthMiddleware>();
+                app.Use<ClientAuthMiddleware>();
             }
         }
     }
@@ -220,7 +220,7 @@ Lägg till en OWIN-startklass med namnet `Startup.cs` -API: et. Gör så här:
 Om du vill publicera ditt projekt i Solution Explorer högerklickar du på den **Contoso.AADB2C.API** projektet och välj sedan **publicera**.
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Steg 3: Lägga till RESTful-tjänster app-ID och app hemlighet till Azure AD B2C
-När ditt RESTful-tjänst är skyddade med klient-ID (användarnamn) och hemlighet, måste du lagra autentiseringsuppgifter i din Azure AD B2C-klient. Den anpassade principen innehåller autentiseringsuppgifterna som när den anropar RESTful-tjänster. 
+När ditt RESTful-tjänst är skyddade med klient-ID (användarnamn) och hemlighet, måste du lagra autentiseringsuppgifter i din Azure AD B2C-klient. Den anpassade principen innehåller autentiseringsuppgifterna som när den anropar RESTful-tjänster.
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>Steg 3.1: Lägg till ett RESTful-tjänster klient-ID
 1. I din Azure AD B2C-klient väljer **B2C inställningar** > **Identitetsramverk**.
@@ -275,7 +275,7 @@ När ditt RESTful-tjänst är skyddade med klient-ID (användarnamn) och hemligh
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. Direkt efter avslutande `<Metadata>` element, Lägg till följande XML-fragment: 
+5. Direkt efter avslutande `<Metadata>` element, Lägg till följande XML-fragment:
 
     ```xml
     <CryptographicKeys>

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/05/2018
+ms.date: 10/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 98ea4d78a473123708be6e371587252acad6ffcd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874004"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205122"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Vad är skillnaden mellan en virtuell nätverksgateway i Azure (VPN Gateway) och en Azure Virtual WAN-vpngateway?
 
@@ -57,7 +57,7 @@ Ja. När trafikflödet påbörjas sker det från den lokala enheten till närmas
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Kan ekernätverk som är anslutna till en virtuell hubb kommunicera med varandra?
 
-Ja. Du kan utföra VNet-peering direkt mellan ekrar som är ansluta till en virtuell hubb. Mer information finns i [Virtual Network-peering](../articles/virtual-network/virtual-network-peering-overview.md).
+Ja. Ekernätverk kan kommunicera direkt via peering för virtuellt nätverk. Vi stöder dock inte virtuella nätverk som transitivt kommunicerar via hubben. Mer information finns i [Virtual Network-peering](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>Kan jag distribuera och använda virtuell installation av mitt favoritnätverk (i ett virtuellt NVA-nätverk) med Azure Virtual WAN?
 

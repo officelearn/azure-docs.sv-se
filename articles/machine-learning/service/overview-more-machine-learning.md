@@ -1,7 +1,6 @@
 ---
-title: Jämför produktalternativ för maskininlärning
-titleSuffix: Microsoft
-description: Jämför olika produkter från Microsoft för att bygga, distribuera och hantera dina maskininlärningsmodeller. Bestäm vilka produkter du ska välja för din lösning.
+title: Välja en maskininlärningsteknik hos Microsoft
+description: Jämför alternativ för att skapa, distribuera och hantera dina maskininlärningsmodeller. Bestäm vilka produkter du vill välja för din lösning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 1/17/2019
-ms.openlocfilehash: d7c7c383f51d8bcc2b1691724e8f22b43782c5e8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.date: 1/30/2019
+ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242077"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451877"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Vilka maskininlärningsprodukter har Microsoft?
 

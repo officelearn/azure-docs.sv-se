@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Hämta resultat för automatiska förslag med API:t Automatiska förslag i Bing'
+title: 'Självstudier: Hämta resultat för automatiska förslag med API:et för automatiska förslag i Bing'
 titlesuffix: Azure Cognitive Services
 description: Visar hur du använder Automatiska förslag i Bing.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: b93ab8ebb4bb50723ec6ebae617fe9d95c6c7a47
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a9a0dab47a13c349f11181f25b086b70031e08af
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831454"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190147"
 ---
-# <a name="tutorial-build-a-web-page-autosuggest-client"></a>Självstudie: Skapa en klient för automatiska förslag för en webbsida
+# <a name="tutorial-build-a-web-page-autosuggest-client"></a>Självstudier: Skapa en klient för automatiska förslag för en webbsida
 
 I den här självstudien skapar vi en webbsida där användarna kan fråga API:et Automatiska förslag i Bing.
 
@@ -266,7 +266,7 @@ Skapa ett HTML-formulär med ett textfält. Hantera händelsen **onsubmit**, anr
 </form>
 ```
 
-Lägg till HTML-**div**-taggen som vi använder för att visa resultatet. Det JavaScript som vi definierade tidigare refererar till den här **div**-taggen.
+Lägg till HTML-**div**-taggen som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div**-taggen.
 
 ```html
 <h2>Results</h2>
@@ -352,4 +352,4 @@ Spara filen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Krav för användning och visning](../UseAndDisplayRequirements.md)
+> [Användnings- och visningskrav](../UseAndDisplayRequirements.md)

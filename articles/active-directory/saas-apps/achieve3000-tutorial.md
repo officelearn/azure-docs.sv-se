@@ -4,245 +4,226 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/19/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c2a80c2accee391457a94efa2522f960bfbcf91e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 16b4512e7a53ba000dd6e0bdcb618886ad214765
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174932"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Självstudier: Azure Active Directory-integrering med Achieve3000
 
-I den här självstudien får du lära dig hur du integrerar Achieve3000 med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Achieve3000 med Azure Active Directory (Azure AD).
+Genom att integrera Achieve3000 med Azure AD får du följande fördelar:
 
-Integrera Achieve3000 med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till Achieve3000 från Azure AD.
+* Du kan göra så att dina användare automatiskt loggas in på Achieve3000 (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Achieve3000.
-- Du kan aktivera användarna att automatiskt få loggat in på Achieve3000 (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Achieve3000 behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Achieve3000, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Achieve3000 enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Achieve3000-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Achieve3000 från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-achieve3000-from-the-gallery"></a>Att lägga till Achieve3000 från galleriet
-För att konfigurera integrering av Achieve3000 i Azure AD, som du behöver lägga till Achieve3000 från galleriet i din lista över hanterade SaaS-appar.
+* Achieve3000 stöder **IDP**-initierad enkel inloggning
+
+## <a name="adding-achieve3000-from-the-gallery"></a>Lägga till Achieve3000 från galleriet
+
+För att konfigurera integrering av Achieve3000 i Azure AD behöver du lägga till Achieve3000 från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Achieve3000 från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Achieve3000**väljer **Achieve3000** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Achieve3000**, väljer **Achieve3000** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Achieve3000 i resultatlistan](./media/achieve3000-tutorial/tutorial_achieve3000_addfromgallery.png)
+     ![Achieve3000 i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Achieve3000 baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Achieve3000 baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Achieve3000 upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Achieve3000 är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Achieve3000 upprättas.
-
-I Achieve3000, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med Achieve3000, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med Achieve3000, måste du utföra följande:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare Achieve3000](#create-an-achieve3000-test-user)**  – du har en motsvarighet för Britta Simon i Achieve3000 som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för Achieve3000](#configure-achieve3000-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa Achieve3000-testanvändare](#create-achieve3000-test-user)** – för att ha en motsvarighet för Britta Simon i Achieve3000 som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Achieve3000 program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Achieve3000:**
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med Achieve3000:
 
-1. I Azure-portalen på den **Achieve3000** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/), på sidan för **Achieve3000**-programintegrering, väljer du **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/achieve3000-tutorial/tutorial_achieve3000_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **Achieve3000 domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Achieve3000 domän och URL: er med enkel inloggning för information](./media/achieve3000-tutorial/tutorial_achieve3000_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande: mönster: `https://saml.achieve3000.com/district/<District Identifier>`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **identifierare** textrutan angett värde: `achieve3000-saml`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Achieve3000 klienten supportteamet](https://www.achieve3000.com/contact-us/) att hämta värdet. 
+    ![Information om domäner och URL:er för enkel inloggning med Achieve3000](common/sp-identifier.png)
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://saml.achieve3000.com/district/<District Identifier>`
 
-    ![Länk för nedladdning av certifikatet](./media/achieve3000-tutorial/tutorial_achieve3000_certificate.png) 
+    b. I textrutan **Identifierare (entitets-ID)** anger du värdet: `achieve3000-saml`
 
-5. Achieve3000 program som förväntar få det unika **studentID** värdet i namnidentifierare anspråket. Kunden kan mappa rätt värde för namnidentifierare anspråket. I det här fallet har vi mappat den **user.mail** för demo ändamål. Men enligt dina unika identifierare, ska du mappa det korrekta värdet för den.   
+    > [!NOTE]
+    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [supportteamet för Achieve3000-klienten](https://www.achieve3000.com/contact-us/) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning attb](./media/achieve3000-tutorial/tutorial_achieve3000_attribute.png)
+5. Achieve3000-programmet förväntar sig att SAML-försäkran har ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-6. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
-    
-    | Attributnamn | Attributvärde |
-    | ------------------- | -------------------- |    
-    | studentID               | user.mail |
+    ![image](common/edit-attribute.png)
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    ![Konfigurera enkel inloggning för Lägg till](./media/achieve3000-tutorial/tutorial_officespace_04.png)
+    | Namn |  Källattribut|
+    | ---------------| --------- |
+    | studentID     | user.mail |
+    | | |
 
-    ![Konfigurera enkel inloggning Addattb](./media/achieve3000-tutorial/tutorial_attribute_05.png)
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
-    
-    d. Klicka på **OK**.
+    c. Lämna **Namnrymd** tom.
 
-7. Klicka på knappen **Spara**.
+    d. Välj Källa som **Attribut**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/achieve3000-tutorial/tutorial_general_400.png)
-    
-8. Att konfigurera enkel inloggning på **Achieve3000** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Achieve3000 supportteamet](https://www.achieve3000.com/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    f. Klicka på **Ok**
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+    g. Klicka på **Spara**.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-   ![Skapa en Azure AD-testanvändare][100]
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+8. I avsnittet **Konfigurera Achieve3000** kopierar du lämpliga URL:er enligt dina behov.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    ![Azure Active Directory-knappen](./media/achieve3000-tutorial/create_aaduser_01.png)
+    a. Inloggnings-URL
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    b. Azure AD-identifierare
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/achieve3000-tutorial/create_aaduser_02.png)
+    c. Utloggnings-URL
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+### <a name="configure-achieve3000-single-sign-on"></a>Konfigurera enkel inloggning med Achieve3000
 
-    ![Knappen Lägg till](./media/achieve3000-tutorial/create_aaduser_03.png)
+För att konfigurera enkel inloggning på **Achieve3000**-sidan behöver du skicka nedladdade **XML-federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Achieve3000](https://www.achieve3000.com/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-4. I den **användaren** dialogrutan utför följande steg:
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-    ![Dialogrutan användare](./media/achieve3000-tutorial/create_aaduser_04.png)
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    a. I den **namn** skriver **BrittaSimon**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+2. Välj **Ny användare** överst på skärmen.
+
+    ![Knappen Ny användare](common/new-user.png)
+
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-an-achieve3000-test-user"></a>Skapa en Achieve3000 testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Achieve3000. Arbeta med [Achieve3000 supportteamet](https://www.achieve3000.com/contact-us/) att lägga till användare i Achieve3000-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Achieve3000.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Achieve3000.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Achieve3000**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon Achieve3000, utför du följande steg:**
+2. I listan med program väljer du **Achieve3000**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Achieve3000-länken i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-2. I listan med program väljer **Achieve3000**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Länken Achieve3000 i listan med program](./media/achieve3000-tutorial/tutorial_achieve3000_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-achieve3000-test-user"></a>Skapa Achieve3000-testanvändare
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Achieve3000. Ta hjälp av  [Achieve3000-supportteamet](https://www.achieve3000.com/contact-us/) för att lägga till användare på Achieve3000-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Achieve3000 i åtkomstpanelen du bör få automatiskt loggat in på ditt Achieve3000 program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Achieve3000-panelen på åtkomstpanelen bör du automatiskt loggas in i Achieve3000-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/achieve3000-tutorial/tutorial_general_01.png
-[2]: ./media/achieve3000-tutorial/tutorial_general_02.png
-[3]: ./media/achieve3000-tutorial/tutorial_general_03.png
-[4]: ./media/achieve3000-tutorial/tutorial_general_04.png
-
-[100]: ./media/achieve3000-tutorial/tutorial_general_100.png
-
-[200]: ./media/achieve3000-tutorial/tutorial_general_200.png
-[201]: ./media/achieve3000-tutorial/tutorial_general_201.png
-[202]: ./media/achieve3000-tutorial/tutorial_general_202.png
-[203]: ./media/achieve3000-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,6 +1,6 @@
 ---
-title: Skydda en enkel databas i Azure SQL Database | Microsoft Docs
-description: Lär dig olika tekniker och funktioner för att skydda en enkel databas i Azure SQL Database.
+title: Skydda en fristående databas eller en pooldatabas i Azure SQL Database | Microsoft Docs
+description: Lär dig olika tekniker och funktioner för att skydda en fristående databas eller en pooldatabas i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/18/2018
-ms.openlocfilehash: e0311174303fc91767d3f99e6db05927b25aea05
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/30/2019
+ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051670"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461210"
 ---
-# <a name="tutorial-secure-a-single-database"></a>Självstudier: Skydda en enkel databas
+# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Självstudier: Skydda en fristående databas eller en databas som ingår i en pool
 
-Azure SQL Database skyddar data i en enkel SQL-databas genom att låta dig:
+Azure SQL Database skyddar data i en fristående databas eller en pooldatabas genom att låta dig:
 
 - Begränsa åtkomst med hjälp av brandväggsregler
 - Använd autentiseringsmekanismer som kräver identitet
@@ -35,7 +35,7 @@ Du kan förbättra din databassäkerhet med bara några få enkla steg. I den h�
 > - Skapa brandväggsregler på servernivå och databasnivå
 > - Konfigurera en administratör för Azure Active Directory (AD Azure)
 > - Hantera användaråtkomst med SQL-autentisering, Azure AD-autentisering och säkra anslutningssträngar
-> - Aktivera säkerhetsfunktioner som hotskydd, granskning, datamaskering och kryptering
+> - Aktivera säkerhetsfunktioner som avancerad datasäkerhet, granskning, datamaskering och kryptering
 
 Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database](/azure/sql-database/sql-database-security-index) och [Funktioner](sql-database-security-overview.md).
 
@@ -45,7 +45,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - En Azure SQL-server och -databas
-    - Skapa dem med [Azure-portalen](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), eller [PowerShell](sql-database-powershell-samples.md)
+  - Skapa dem med [Azure-portalen](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), eller [PowerShell](sql-database-powershell-samples.md)
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -62,9 +62,9 @@ Ställ in **Tillåt åtkomst till Azure-tjänster** på **AV** för den säkrast
 > [!NOTE]
 > SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till Azure SQL Database-servern om inte din administratör öppnar port 1433.
 
-### <a name="set-up-server-level-firewall-rules"></a>Konfigurera brandväggsregler på servernivå
+### <a name="set-up-sql-database-server-firewall-rules"></a>Konfigurera brandväggsregler för SQL Database-server
 
-Brandväggsregler på servernivå gäller för alla databaser på samma logiska server.
+Brandväggsregler på servernivå gäller för alla databaser på samma SQL Database-server.
 
 Konfigurera en brandväggsregel på servernivå:
 
@@ -88,7 +88,7 @@ Nu kan du ansluta till valfri databas på servern med IP-adressen eller IP-adres
 > [!IMPORTANT]
 > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster under **Tillåt åtkomst till Azure-tjänster**. Välj **AV** om du vill inaktivera åtkomsten för alla Azure-tjänster.
 
-### <a name="setup-database-level-firewall-rules"></a>Konfigurera brandväggsregler på databasnivå
+### <a name="setup-database-firewall-rules"></a>Konfigurera brandväggsregler för databaser
 
 Brandväggsregler på databasnivå gäller endast för enskilda databaser. Dessa regler är portabla och följer databasen under en serverredundans. Brandväggsregler på databasnivå kan bara konfigureras med instruktioner för Transact-SQL (T-SQL), och bara efter att du har konfigurerat en brandväggsregel på servernivå.
 
@@ -231,30 +231,30 @@ Så här kopierar du en säker anslutningssträng:
 
 ## <a name="enable-security-features"></a>Aktivera säkerhetsfunktioner
 
-Azure SQL Database innehåller säkerhetsfunktioner som nås med hjälp av Azure portal. Dessa funktioner är tillgängliga för både databasen och servern, förutom datamaskning, som endast är tillgängligt för databasen. Mer information finns i [Avancerad hotidentifiering](sql-advanced-threat-protection.md), [Granskning](sql-database-auditing.md), [Dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md) och [Transparent datakryptering](transparent-data-encryption-azure-sql.md).
+Azure SQL Database innehåller säkerhetsfunktioner som nås med hjälp av Azure portal. Dessa funktioner är tillgängliga för både databasen och servern, förutom datamaskning, som endast är tillgängligt för databasen. Mer information finns i [Avancerad datasäkerhet](sql-advanced-threat-protection.md), [Granskning](sql-database-auditing.md), [Dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md) och [Transparent datakryptering](transparent-data-encryption-azure-sql.md).
 
-### <a name="advanced-threat-protection"></a>Advanced Threat Protection
+### <a name="advanced-data-security"></a>Avancerad datasäkerhet
 
-Funktionen för avancerat skydd identifierar potentiella hot när de inträffar och innehåller säkerhetsaviseringar om avvikande aktiviteter. Användare kan utforska misstänkta händelser med granskningsfunktionen och avgöra om händelsen orsakades av ett försök att komma åt, tränga in i eller utnyttja data i databasen. Användare kan också få en översikt över säkerhet som innehåller en sårbarhetsbedömning och verktyget för dataidentifiering och klassificering.
+Funktionen för avancerad datasäkerhet identifierar potentiella hot när de inträffar och innehåller säkerhetsaviseringar om avvikande aktiviteter. Användare kan utforska misstänkta händelser med granskningsfunktionen och avgöra om händelsen orsakades av ett försök att komma åt, tränga in i eller utnyttja data i databasen. Användare kan också få en översikt över säkerhet som innehåller en sårbarhetsbedömning och verktyget för dataidentifiering och klassificering.
 
 > [!NOTE]
 > Ett exempel på hot är SQL-inmatning, en process där angripare matar in skadliga SQL i indataprogrammet. Ett program kan sedan omedvetet köra skadlig SQL och ge angripare åtkomst till att tränga in i eller ändra data i databasen.
 
-Så här aktiverar du hotskydd:
+Så här aktiverar du avancerad datasäkerhet:
 
 1. I Azure-portalen väljer du **SQL-databaser** på den vänstra menyn och klickar på databasen på sidan **SQL-databaser**.
 
 1. På **översiktssidan** väljer du **Servernamn**. Databasserversidan öppnas.
 
-1. På sidan **SQL-server** letar du upp avsnittet **Säkerhet** och väljer **Advanced Threat Protection**.
+1. På sidan **SQL-server** letar du upp avsnittet **Säkerhet** och väljer **Avancerad datasäkerhet**.
 
-    1. Välj **PÅ** under **Advanced Threat Protection** för att aktivera funktionen. Välj sedan **Spara**.
+    1. Välj **PÅ** under **Avancerad datasäkerhet** för att aktivera funktionen. Välj ett lagringskonto för att spara resultat av sårbarhetsbedömning. Välj sedan **Spara**.
 
     ![Navigeringsfönster](./media/sql-database-security-tutorial/threat-settings.png)
 
     Du kan också konfigurera e-postmeddelanden för att få säkerhetsaviseringar, lagringsinformation och typer för identifiering av hot.
 
-1. Gå tillbaka till sidan **SQL-databaser** i din databas och välj **Advanced Threat Protection** i avsnittet **Säkerhet**. Här hittar du olika säkerhetsindikatorer som är tillgängliga för databasen.
+1. Gå tillbaka till sidan **SQL-databaser** i din databas och välj **Avancerad datasäkerhet** i avsnittet **Säkerhet**. Här hittar du olika säkerhetsindikatorer som är tillgängliga för databasen.
 
     ![Hotstatus](./media/sql-database-security-tutorial/threat-status.png)
 
@@ -344,7 +344,7 @@ I den här självstudien har du lärt dig att förbättra säkerheten för din d
 > - Skapa brandväggsregler på servernivå och databasnivå
 > - Konfigurera en administratör för Azure Active Directory (AD Azure)
 > - Hantera användaråtkomst med SQL-autentisering, Azure AD-autentisering och säkra anslutningssträngar
-> - Aktivera säkerhetsfunktioner som hotskydd, granskning, datamaskering och kryptering
+> - Aktivera säkerhetsfunktioner som avancerad datasäkerhet, granskning, datamaskering och kryptering
 
 I nästa självstudie får du lära dig hur du implementerar en geo-distribution.
 

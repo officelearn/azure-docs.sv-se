@@ -1,248 +1,227 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med amplitud | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och amplitud.
+title: 'Självstudier: Azure Active Directory-integrering med Amplitude | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Amplitude.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 496c9ffa-c833-41fa-8d17-2dc3044954d1
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a83dc0b7d40291cd38c276b4e6c0437e38a0e15
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 7a716df2445ed652313e0853ac3378409951b597
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192323"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476561"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Självstudier: Azure Active Directory-integrering med amplitud
+# <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Självstudier: Azure Active Directory-katalogintegrering med Amplitude
 
-I den här självstudien får du lära dig hur du integrerar amplitud med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Amplitude med Azure Active Directory (Azure AD).
+Genom att integrera Amplitude med Azure AD får du följande fördelar:
 
-Integrera amplitud med Azure AD ger dig följande fördelar:
+* Du kan styra i vem som har åtkomst till Amplitude från Azure AD.
+* Du kan konfigurera inställningar så att dina användare automatiskt loggas in i Amplitude (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till amplitud.
-- Du kan aktivera användarna att automatiskt få loggat in på amplitud (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Amplitude behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med amplitud, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En amplitud enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Amplitude-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till amplitud från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-amplitude-from-the-gallery"></a>Att lägga till amplitud från galleriet
-För att konfigurera integrering av amplitud i Azure AD, som du behöver lägga till amplitud från galleriet i din lista över hanterade SaaS-appar.
+* Amplitude har stöd för **SP- och IDP**-initierad enkel inloggning
+* Amplitude stöder **just-in-time**-användaretablering
 
-**Utför följande steg för att lägga till amplitud från galleriet:**
+## <a name="adding-amplitude-from-the-gallery"></a>Lägga till Amplitude från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integrering av Amplitude i Azure AD, behöver du lägga till Amplitude från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till Amplitude från galleriet:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Azure Active Directory-knappen](common/select-azuread.png)
+
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **amplitud**väljer **amplitud** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Amplitude**, väljer **Amplitude** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Amplitud i resultatlistan](./media/amplitude-tutorial/tutorial_amplitude_addfromgallery.png)
+    ![Amplitude i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med amplitud baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Amplitude baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera så måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Amplitude upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i amplitud är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i amplitud upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med amplitud, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD för Amplitude, måste du utföra följande uppgifter:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare amplitud](#create-an-amplitude-test-user)**  – du har en motsvarighet för Britta Simon i amplitud som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för Amplitude](#configure-amplitude-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa Amplitude-testanvändare](#create-amplitude-test-user)** – för att ha en motsvarighet för Britta Simon i Amplitude som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt amplitud program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med amplitud:**
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Amplitude:
 
-1. I Azure-portalen på den **amplitud** program integration-sidan klickar du på **enkel inloggning**.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Amplitude** på [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/amplitude-tutorial/tutorial_amplitude_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **amplitud domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Amplitud domän och URL: er med enkel inloggning för information](./media/amplitude-tutorial/tutorial_amplitude_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **identifierare** textrutan anger du URL: `https://amplitude.com/saml/sso/metadata`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
+4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+
+    ![Information om enkel inloggning med Amplitude-domäner och -URL:er](common/idp-intiated.png)
+
+    a. I textrutan **Identifierare** skriver du URL:en: `https://amplitude.com/saml/sso/metadata`
+
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
 
     > [!NOTE]
     > Värdet för svars-URL:en är inte verkligt. Senare i den här självstudien får du svars-URL-värdet.
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Amplitud domän och URL: er med enkel inloggning för information](./media/amplitude-tutorial/tutorial_amplitude_url1.png)
+    ![Information om enkel inloggning med Amplitude-domäner och -URL:er](common/metadata-upload-additional-signon.png)
 
-    I den **inloggnings-URL** textrutan anger du URL: `https://analytics.amplitude.com/sso`
+    I rutan **Inloggnings-URL** anger du följande URL: `https://analytics.amplitude.com/sso`
 
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](./media/amplitude-tutorial/tutorial_amplitude_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Klicka på **spara** knappen.
+7. I avsnittet **Konfigurera Amplitude** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/amplitude-tutorial/tutorial_general_400.png)
-    
-7. Inloggning till webbplatsen amplitud företagets som administratör.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-8. Klicka på den **planera Admin** från det vänstra navigeringsfältet.
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-amplitude-single-sign-on"></a>Konfigurera enkel inloggning med Amplitude
+
+1. Logga in på Amplitudes företagswebbplats som administratör.
+
+2. Klicka på **Plan Admin** (avtalsadministratör) från det vänstra navigeringsfältet.
 
     ![Konfigurera enkel inloggning](./media/amplitude-tutorial/configure1.png)
 
-9. Välj **Microsoft Azure Active Directory Metadata** från den **SSO Integration**.
+3. Välj **Microsoft Azure Active Directory-metadata** från **SSO-integreringen**.
 
     ![Konfigurera enkel inloggning](./media/amplitude-tutorial/configure2.png)
 
-10. På den **ange in enkel inloggning** avsnittet, utför följande steg:
+4. I avsnittet **Konfigurera enkel inloggning** utför du följande steg:
 
     ![Konfigurera enkel inloggning](./media/amplitude-tutorial/configure3.png)
 
-    a. Öppna den hämtade **Xml-Metadata för** från Azure-portalen i anteckningar, klistra in innehållet i den **Microsoft Azure Active Directory Metadata** textrutan.
+    a. Öppna hämtade **Xml-metadata** från Azure-portalen i anteckningar och klistra in innehållet i textrutan för **Microsoft Azure Active Directory-metadata**.
 
-    b. Kopiera den **svars-URL (ACS)** värde och klistra in den i den **svars-URL** textrutan av amplitud domän och URL: er avsnitt i Azure-portalen.
+    b. Kopiera värdet i **svars-URL:en (ACS)** och klistra in det i textrutan för **svars-URL** under **Grundläggande SAML-konfiguration** på Azure-portalen.
 
     c. Klicka på **Spara**
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/amplitude-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/amplitude-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/amplitude-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/amplitude-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-an-amplitude-test-user"></a>Skapa en amplitud testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i amplitud. Amplitud stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt amplitud om det inte finns ännu.
->[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [amplitud supportteamet](https://amplitude.zendesk.com).
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Amplitude.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till amplitud.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Amplitude**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela amplitud Britta Simon utför du följande steg:**
+2. I listan med program väljer du **Amplitude**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Amplitude-länken i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-2. I listan med program väljer **amplitud**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Länken amplitud i listan med program](./media/amplitude-tutorial/tutorial_amplitude_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-amplitude-test-user"></a>Skapa Amplitude-testanvändare
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet skapas en användare som heter Britta Simon i Amplitude. Amplitude stöder just-in-time-etablering av användare, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Amplitude skapas en ny efter autentisering.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+> [!Note]
+> Om du vill skapa en användare manuellt kan du kontakta [supportteamet för Amplitude](https://amplitude.zendesk.com).
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen amplitud i åtkomstpanelen du bör få automatiskt loggat in på ditt amplitud-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Amplitude-panelen i åtkomstpanelen så borde du automatiskt loggas in på den Amplitude som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/amplitude-tutorial/tutorial_general_01.png
-[2]: ./media/amplitude-tutorial/tutorial_general_02.png
-[3]: ./media/amplitude-tutorial/tutorial_general_03.png
-[4]: ./media/amplitude-tutorial/tutorial_general_04.png
-
-[100]: ./media/amplitude-tutorial/tutorial_general_100.png
-
-[200]: ./media/amplitude-tutorial/tutorial_general_200.png
-[201]: ./media/amplitude-tutorial/tutorial_general_201.png
-[202]: ./media/amplitude-tutorial/tutorial_general_202.png
-[203]: ./media/amplitude-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

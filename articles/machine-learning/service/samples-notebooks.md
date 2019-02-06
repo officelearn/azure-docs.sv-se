@@ -4,93 +4,56 @@ titleSuffix: Azure Machine Learning service
 description: Hitta och använd exempel på Jupyter-anteckningsböcker för att utforska Azure Machine Learning-tjänsten i Python.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 5ba555ad31545e1ae1aa822ec58b0bd22ef486ac
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811102"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295159"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Använd Jupyter-anteckningsböcker för att utforska Azure Machine Learning-tjänsten
-
 
 Vi har tagit fram en serie med Jupyter Python-anteckningsböcker som du kan använda för att utforska Azure Machine Learning-tjänsten. 
 
 Lär dig hur du använder tjänsten med dokumentationen på den här webbplatsen och anpassar de här anteckningsböckerna efter din situation. 
 
-## <a name="prerequisite"></a>Krav
+Använd någon av sökvägarna nedan för att köra en notebook-server med de här exemplen på notebook-filer.  När servern körs kan du hitta notebook-filer med självstudier i mappen **självstudier**, men du kan också utforska de olika funktionerna i mappen **how-to-use-azureml**.
 
-Slutför [Azure Machine Learning Python-snabbstarten](quickstart-get-started.md) för att skapa en arbetsyta och starta Azure Notebooks.
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Prova Azure Notebooks: Kostnadsfria Jupyter-anteckningsböcker i molnet
 
 Det är lätt att komma igång med Azure Notebooks! [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig i [Azure Notebooks](https://notebooks.azure.com/). Installationen och framtida uppdateringar hanteras automatiskt via Azure-tjänster.
   
-+ Så här kör du de **centrala anteckningsböckerna i självstudien**:
-  1. Gå till [Azure Notebooks](https://notebooks.azure.com/).
-    
-  1. Hitta mappen **självstudier** i biblioteket **Komma igång** som du skapade under den nödvändiga snabbstarten.
-    
-  1. Öppna anteckningsboken som du vill köra.
-    
-+ Så här kör du **andra anteckningsböcker**:
-
-  1. [Importera exempelanteckningsböckerna](https://aka.ms/aml-clone-azure-notebooks) till Azure Notebooks.
-
-  1. Lägg till en konfigurationsfil för arbetsytan i biblioteket med någon av följande metoder:
-     + Kopiera filen **config.json** från biblioteket **Komma igång** till det nya klonade biblioteket.
-
-     + Skapa en ny arbetsyta med hjälp av kod i [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-    
-  1. Öppna anteckningsboken som du vill köra.     
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
 ## <a name="use-a-data-science-virtual-machine-dsvm"></a>Använda en Data Science Virtual Machine (DSVM)
 
-[Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) och notebook-servern har redan installerats och konfigurerats för dig på en DSVM. Kör anteckningsböckerna enligt nedan.
+[Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) och notebook-servern har redan installerats och konfigurerats för dig på en DSVM. 
 
-1. [Skapa en DSVM](how-to-configure-environment.md#dsvm).
+När du har [skapat en DSVM](how-to-configure-environment.md#dsvm) använder du följande steg på din DSVM för att köra notebook-filerna.
 
-1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-1. Lägg till en konfigurationsfil för arbetsytan i biblioteket med någon av följande metoder:
-    * Kopiera filen **aml_config\config.json** som du skapade med hjälp av den nödvändiga snabbstarten till den klonade katalogen.
-
-    * Skapa en ny arbetsyta med hjälp av kod i [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-
-1. Starta notebook-servern från den klonade katalogen.
 
 ## <a name="use-your-own-jupyter-notebook-server"></a>Använda en egen Jupyter Notebook-server
 
 Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.
 
-1. Se till att du har slutfört den nödvändiga snabbstarten där du installerade SDK:erna för Azure Machine Learning.
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).
+<a name="automated-ml-setup"></a>
 
-1. Lägg till en konfigurationsfil för arbetsytan i biblioteket med någon av följande metoder:
-    * Kopiera filen **aml_config\config.json** som du skapade med hjälp av den nödvändiga snabbstarten till den klonade katalogen.
-    
-    * Skapa en ny arbetsyta med hjälp av kod i [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
+## <a name="automated-machine-learning-setup"></a>Konfigurera automatiserad maskininlärning 
 
-1. Starta notebook-servern från den klonade katalogen.
-
-1. Gå till mappen som innehåller anteckningsboken.
-
-1. Öppna anteckningsboken.
-
-<a name="auto"></a>
-
-## <a name="automated-ml-setup"></a>Konfiguration av automatiserad ML 
-
-**De här anvisningarna gäller endast anteckningsböckerna i mappen `automated-machine-learning`.**
+_De här stegen gäller endast för notebook-filerna i mappen **how-to-use-azureml/automated-machine-learning**._
 
 Du kan använda något av ovanstående alternativ, men du kan också installera miljön och skapa en arbetsyta på samma gång med följande instruktioner. 
 
@@ -106,7 +69,7 @@ Du kan använda något av ovanstående alternativ, men du kan också installera 
    
    1. Navigera till de filer du extraherade till den lokala datorn.
    
-   1. Öppna mappen `automated-machine-learning`.
+   1. Öppna mappen **automated-machine-learning**.
    
    1. Kör `automl_setup.cmd` i conda-prompten för Windows eller `.sh`-filen för ditt operativsystem. Det kan ta cirka 10 minuter att köra det.
 
@@ -123,7 +86,7 @@ Du kan använda något av ovanstående alternativ, men du kan också installera 
 
 1. Navigera till sökvägen där du sparade anteckningsböckerna. 
 
-1. Öppna mappen automated-machine-learning och öppna sedan anteckningsboken `configuration.ipynb`. 
+1. Öppna mappen automated-machine-learning och öppna sedan notebook-filen **configuration.ipynb**. 
 
 1. Kör cellerna i anteckningsboken för att registrera Machine Learning Services-resursprovider och skapa en arbetsyta.
 

@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e7cc11fd35049bf55c848293fa5aaafbdd7b7370
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 704f854d7be9930923cb6e1955c3670f296035ed
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452776"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299834"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Vad är enhetshantering i Azure Active Directory?
 
@@ -45,7 +45,7 @@ Om du vill att en enhet ska kontrolleras av Azure AD har du två alternativ:
 
 När du **registrerar** en enhet till Azure AD kan du hantera en enhets identitet. När en enhet registreras ger Azure AD-enhetsregistrering den en identitet som används för att autentisera enheten när användaren loggar in på Azure AD. Du kan använda identiteten för att aktivera eller inaktivera en enhet.
 
-När de kombineras med en MDM-lösning för hantering av mobila enheter, t.ex. Microsoft Intune, uppdateras enhetsattributen i Azure AD med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina säkerhets- och efterlevnadskrav. Mer information om hur du registrerar enheter i Microsoft Intune finns i [Registrera enheter för hantering i Intune](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms).
+När de kombineras med en MDM-lösning för hantering av mobila enheter, t.ex. Microsoft Intune, uppdateras enhetsattributen i Azure AD med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina säkerhets- och efterlevnadskrav. Mer information om hur du registrerar enheter i Microsoft Intune finns i [Vad är enhetsregistrering?](https://docs.microsoft.com/intune/device-enrollment)
 
 Att **ansluta** en enhet är en utökning av att registrera tjänsten. Det innebär att du får alla fördelar med att registrera en enhet, och dessutom ändras enhetens lokala tillstånd. När du ändrar det lokala tillståndet kan användarna logga in på en enhet med en organisations arbets- eller skolkonto istället för ett personligt konto.
 

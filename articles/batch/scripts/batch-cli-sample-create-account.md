@@ -3,7 +3,7 @@ title: Exempel på Azure CLI-skript – Skapa Batch-konto – Batch-tjänsten | 
 description: Exempel på Azure CLI-skript – Skapa Batch-konto i Batch-tjänstläge
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
-ms.openlocfilehash: d1c3d892e79138e75d93ae024460c3d8394029f8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: lahugh
+ms.openlocfilehash: 67504d9597eb68faceb67a3e5a1d4d7abc7079c1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980221"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476527"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI-exempel: Skapa ett Batch-konto i Batch-tjänstläge
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469409"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210955"
 ---
 # <a name="quickstart-query-for-facts"></a>Snabbstart: Fråga efter fakta
 
@@ -26,14 +26,14 @@ Frågor som alla+hjärtans+dag+2016 eller när+är+ramadan är exempel på datum
 Följande exempel är ett datumrelaterat `facts`-svar. 
 
 **Fråga:**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
 **Svar:** Fältet `subjectName` innehåller en visningsversion av användarens fråga som du kan använda som en etikett när du visar fakta. Om frågesträngen är alla+hjärtans+dag+2016 kan Bing ändra det till Alla hjärtans dag 2016. Beskrivningsfältet innehåller faktainformationen.
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -57,20 +57,20 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
     }   
 }   
 
-````
+```
 
 Frågan ”Varför är himlen blå?” returnerar ett exempel på ett kunskapsrelaterat svar.
 
 **Fråga:**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
 **Svar:** Fältet `value/description` innehåller kunskapen eller informationen som efterfrågas i frågan.
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -112,17 +112,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
     ]
   },
 
-````
+```
 
 ## <a name="tabular-data"></a>Tabelldata
 Ibland kan fakta returneras som `_type: StructuredValue/TabularData`. Följande fråga hämtar tabelldata med kontrasterande information om kaffe och te.
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 `facts`-resultatet innehåller följande rader och celler:
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -196,7 +196,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt
     ]
   },
 
-````
+```
 
 ## <a name="next-steps"></a>Nästa steg
 - [Snabbstart för C#](c-sharp-quickstart.md)

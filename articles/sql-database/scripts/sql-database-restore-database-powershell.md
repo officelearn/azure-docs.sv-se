@@ -1,6 +1,6 @@
 ---
 title: PowerShell, exempel – återställ och säkerhetskopiera Azure SQL-databas | Microsoft Docs
-description: Azure PowerShell-exempelskript för att återställa en Azure SQL-databas från geo-redundanta säkerhetskopieringar
+description: Azure PowerShell-exempelskript för att återställa en enkel Azure SQL-databas från geo-redundanta säkerhetskopieringar
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,15 +11,15 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: dc1697d24b936a22bacced96bb29cc590ccec88c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 5bf7d8717fd6b10fab454c6f11d459c6a620b42c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390591"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458745"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>Använd PowerShell och återställ en Azure SQL-databas från säkerhetskopior
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>Använd PowerShell och återställ en enkel Azure SQL-databas från säkerhetskopior
 
 Det här PowerShell-skriptexemplet återställer en Azure SQL-databas från en geo-redundant säkerhetskopia, återställer en borttagen Azure SQL-databas till den senaste säkerhetskopian och återställer en Azure SQL-databas till en viss tidpunkt.  
 
@@ -46,12 +46,12 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Skapar en logisk server som är värd för en databas eller elastisk pool. |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Skapar en databas på en logisk server i form av en fristående databas eller en databas som tillhör en pool. |
-[Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | Hämtar en geo-redundant säkerhetskopia av en databas. |
-| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | Återställer en SQL-databas. |
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase) | Tar bort en Azure SQL-databas. |
-| [Get-AzureRmSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Hämtar en borttagen databas som du kan återställa. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Skapar en SQL Database-server som är värd för en enkel databas eller en elastisk pool. |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Skapar en databas på en SQL Database-server i form av en fristående databas eller en databas som ingår i en pool. |
+[Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | Hämtar en geo-redundant säkerhetskopia av en fristående databas eller en databas som ingår i en pool. |
+| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | Återställer en fristående SQL-databas eller en SQL-databas som ingår i en pool. |
+|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase) | Tar bort en fristående Azure SQL-databas eller en Azure SQL-databas som ingår i en pool. |
+| [Get-AzureRmSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Hämtar en borttagen databas (fristående eller som ingår i en pool) som du kan återställa. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

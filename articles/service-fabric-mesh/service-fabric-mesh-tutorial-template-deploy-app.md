@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246372"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158850"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudier: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
 
@@ -109,7 +109,7 @@ När registret har skapats ser utdata ut ungefär så här:
 
 ## <a name="push-the-images-to-azure-container-registry"></a>Push-överför avbildningar till Azure Container Registry
 
-Den här självstudien använder exempelprogrammet att göra-lista som ett exempel.  Containeravbildningar för tjänsterna [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) och [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) finns på Docker Hub. Se [Skapa en webbapp för Servic Fabric nät](service-fabric-mesh-tutorial-create-dotnetcore.md) för information om hur du skapar program i Visual Studio. Service Fabric-nät kan köra Windows- eller Linux Docker-containrar.  Om du arbetar med Linux-containrar väljer du **Växla till Linux-containrar** i Docker.  Om du arbetar med Windows-containrar väljer du **Växla till Windows-containrar** i Docker.
+Den här självstudien använder exempelprogrammet att göra-lista som ett exempel.  Containeravbildningar för tjänsterna [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) och [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) finns på Docker Hub. Se [Skapa en webbapp för Service Fabric-nät](service-fabric-mesh-tutorial-create-dotnetcore.md) för information om hur du skapar programmet i Visual Studio. Service Fabric-nät kan köra Windows- eller Linux Docker-containrar.  Om du arbetar med Linux-containrar väljer du **Växla till Linux-containrar** i Docker.  Om du arbetar med Windows-containrar väljer du **Växla till Windows-containrar** i Docker.
 
 Innan du kan push-överföra en avbildning till en Azure Container Registry-instans måste du ha en containeravbildning. Om du ännu inte har några lokala containeravbildningar använder du kommandot [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) för att hämta avbildningarna [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) och [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) från Docker Hub.
 

@@ -4,264 +4,246 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2017
+ms.topic: tutorial
+ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: a7280111856f9cb2a20ebb7b52be04818c4b43c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: f4c7efdb0a43c352450056a9f6f79e3e189c820c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195281"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458320"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Självstudier: Azure Active Directory-integrering med Clarizen
+# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Självstudier: Azure Active Directory-katalogintegrering med Clarizen
 
-I de här självstudierna lär du dig hur du integrerar Azure Active Directory (Azure AD) med Clarizen. Den här integreringen ger följande fördelar:
+I den här självstudien lär du dig att integrera Clarizen med Azure Active Directory (Azure AD).
+Genom att integrera Clarizen med Azure AD får du följande fördelar:
 
-- Du kan styra, i Azure AD som har åtkomst till Clarizen.
-- Du kan aktivera användarna att logga in automatiskt till Clarizen (enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats, Azure-portalen.
+* Du kan styra vem som har åtkomst till Clarizen från Azure AD.
+* Du kan konfigurera inställningar så att dina användare loggas in automatiskt i Clarizen (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Scenariot i den här kursen består av två huvudsakliga uppgifter:
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-1. Lägg till Clarizen från galleriet.
-1. Konfigurera och testa Azure AD enkel inloggning.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill ha mer information om programvara som en tjänst (SaaS) app-integrering med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Om du vill konfigurera Azure AD-integrering med Clarizen, behöver du följande:
 
-## <a name="prerequisites"></a>Förutsättningar
-Om du vill konfigurera Azure AD-integrering med Clarizen, behöver du följande objekt:
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Clarizen-prenumeration med enkel inloggning aktiverat
 
-- En Azure AD-prenumeration
-- En Clarizen-prenumeration som är aktiverad för enkel inloggning
+## <a name="scenario-description"></a>Scenariobeskrivning
 
-Följ dessa rekommendationer för att testa stegen i den här självstudien:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-- Testa Azure AD enkel inloggning i en testmiljö. Använd inte din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en testmiljö för Azure AD, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* Clarizen stöder **IDP**-initierad enkel inloggning
 
-## <a name="add-clarizen-from-the-gallery"></a>Lägg till Clarizen från galleriet
-Lägg till Clarizen från galleriet i din lista över hanterade SaaS-appar för att konfigurera integrering av Clarizen i Azure AD.
+## <a name="adding-clarizen-from-the-gallery"></a>Lägga till Clarizen från galleriet
 
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan klickar du på den **Azure Active Directory** ikon.
+För att konfigurera integrering av Clarizen i Azure AD behöver du lägga till Clarizen från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-ikon][1]
+**Utför följande steg för att lägga till Clarizen från galleriet:**
 
-1. Klicka på **företagsprogram**. Klicka sedan på **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Klicka på ”program” och ”alla program”][2]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Klicka på den **Lägg till** längst upp i dialogrutan.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Knappen ”Lägg till”][3]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. I sökrutan skriver **Clarizen**.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Att skriva ”Clarizen” i sökrutan](./media/clarizen-tutorial/tutorial_clarizen_000.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
-1. I resultatfönstret väljer **Clarizen**, och klicka sedan på **Lägg till** att lägga till programmet.
+4. I sökrutan skriver du **Clarizen**, väljer **Clarizen** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Att välja Clarizen i resultatfönstret](./media/clarizen-tutorial/tutorial_clarizen_0001.png)
+     ![Clarizen i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
-I följande avsnitt, konfigurera och testa Azure AD enkel inloggning med Clarizen baserat på testanvändare Britta Simon.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Clarizen är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Clarizen upprättas. Du skapar den här länken relation genom att tilldela värdet för **användarnamn** i Azure AD som värde för **användarnamn** i Clarizen.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Clarizen baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Clarizen upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Clarizen, utför du följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD för Clarizen, behöver du utföra följande uppgifter:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  vill tillåta att användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Clarizen](#create-a-clarizen-test-user)**  har en motsvarighet för Britta Simon i Clarizen som är länkad till en Azure AD-representation av henne.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Clarizen](#configure-clarizen-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Clarizen-testanvändare](#create-clarizen-test-user)** – för att ha en motsvarighet för Britta Simon i Clarizen som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Clarizen program.
 
-1. I Azure-portalen på den **Clarizen** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Klicka på ”enkel inloggning”][4]
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Clarizen:
 
-1. I den **enkel inloggning** dialogrutan för **läge**väljer **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Clarizen** på [Azure-portalen](https://portal.azure.com/).
 
-    ![Att välja ”SAML-baserad inloggning”](./media/clarizen-tutorial/tutorial_clarizen_01.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. I den **Clarizen domän och URL: er** avsnittet, utför följande steg:
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Rutorna för identifierare och svars-URL](./media/clarizen-tutorial/tutorial_clarizen_02.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    a. I den **identifierare** skriver värdet som: **Clarizen**
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    b. I den **svars-URL** skriver en URL med hjälp av följande mönster: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
+
+    ![Information om enkel inloggning med Clarizen-domäner och -URL:er](common/idp-intiated.png)
+
+    a. I textrutan **Identifierare** skriver du in ett värde: `Clarizen`
+
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
 
     > [!NOTE]
-    > Detta är inte de verkliga värden. Du måste använda det faktiska ID: t och svars-URL. Här rekommenderar vi att du använder det unika värdet av en sträng som identifierare. För att få de faktiska värdena kan kontakta den [Clarizen supportteamet](https://success.clarizen.com/hc/en-us/requests/new).
+    > Det här är inte de verkliga värdena. Du måste använda den faktiska identifieraren och svars-URL:en. Här föreslår vi att du använder det unika värdet för en sträng som identifierare. För att få de faktiska värdena kan du kontakta [supportteamet för Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
 
-1. På den **SAML-signeringscertifikat** klickar du på **Skapa nytt certifikat**.
+4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Klicka på ”Skapa nytt certifikat”](./media/clarizen-tutorial/tutorial_clarizen_03.png)    
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. I den **Skapa nytt certifikat** dialogrutan rutan klickar du på kalenderikonen och väljer ett förfallodatum. Klicka sedan på **Spara**.
+6. I avsnittet **Konfigurera Clarizen** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Att välja och spara ett förfallodatum](./media/clarizen-tutorial/tutorial_general_300.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. I den **SAML-signeringscertifikat** väljer **gör nytt certifikat aktivt**, och klicka sedan på **spara**.
+    a. Inloggnings-URL
 
-    ![Markera kryssrutan för att göra det nya certifikatet active](./media/clarizen-tutorial/tutorial_clarizen_04.png)
+    b. Azure AD-identifierare
 
-1. I den **förnyelsecertifikatet** dialogrutan klickar du på **OK**.
+    c. Utloggnings-URL
 
-    ![Klicka på ”OK” för att bekräfta att du vill aktivera certifikatet](./media/clarizen-tutorial/tutorial_general_400.png)
+### <a name="configure-clarizen-single-sign-on"></a>Konfigurera enkel inloggning med Clarizen
 
-1. I den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+1. Öppna ett nytt webbläsarfönster och logga in på din Clarizen-företagswebbplats som administratör.
 
-    ![Klicka på ”certifikat (Base64)” att starta nedladdningen](./media/clarizen-tutorial/tutorial_clarizen_05.png)
+1. Klicka på ditt användarnamn och klicka sedan på **Inställningar**.
 
-1. I den **Clarizen Configuration** klickar du på **konfigurera Clarizen** att öppna den **konfigurera inloggning** fönster.
+    ![Klicka på ”Inställningar” under ditt användarnamn](./media/clarizen-tutorial/tutorial_clarizen_001.png "Inställningar")
 
-    ![Klicka på ”Konfigurera Clarizen”](./media/clarizen-tutorial/tutorial_clarizen_06.png)
+1. Klicka på fliken **Globala inställningar**. Bredvid **Sammansluten autentisering** klickar du sedan på **Redigera**.
 
-    ![”Konfigurera inloggning” fönster, inklusive filer och URL: er](./media/clarizen-tutorial/tutorial_clarizen_07.png)
+    ![Fliken ”Globala inställningar”](./media/clarizen-tutorial/tutorial_clarizen_002.png "Globala inställningar")
 
-1. I ett annat webbläsarfönster, loggar du in din Clarizen företagets webbplats som administratör.
+1. I dialogrutan **Sammansluten autentisering** utför du följande steg:
 
-1. Klicka på ditt användarnamn och klicka sedan på **inställningar**.
+    ![Dialogrutan ”Sammansluten autentisering”](./media/clarizen-tutorial/tutorial_clarizen_003.png "Sammansluten autentisering")
 
-    ![Klicka på ”inställningar” under ditt användarnamn](./media/clarizen-tutorial/tutorial_clarizen_001.png "inställningar")
+    a. Välj **Aktivera sammansluten autentisering**.
 
-1. Klicka på den **globala inställningar** fliken. Sedan bredvid **federerad**, klickar du på **redigera**.
+    b. Klicka på **Ladda upp** för att ladda upp det nedladdade certifikatet.
 
-    !["Global Settings" tab](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings")
+    c. I rutan **Inloggnings-URL** anger du värdet för **inloggnings-URL** från konfigurationsfönstret för Azure AD-programmet.
 
-1. I den **federerad** dialogrutan utför följande steg:
+    d. I rutan **Utloggnings-URL** anger du värdet för **utloggnings-URL** från konfigurationsfönstret för Azure AD-programmet.
 
-    ![”Federerad autentisering” dialogrutan](./media/clarizen-tutorial/tutorial_clarizen_003.png "federerad autentisering")
-
-    a. Välj **aktivera federerad autentisering**.
-
-    b. Klicka på **överför** att ladda upp din hämtade certifikatet.
-
-    c. I den **inloggning URL** anger värdet för **SAML enkel inloggning för tjänst-URL** från konfigurationsfönstret för Azure AD-program.
-
-    d. I den **URL: en för utloggning** anger värdet för **URL: en för utloggning** från konfigurationsfönstret för Azure AD-program.
-
-    e. Välj **använder POST**.
+    e. Välj **Använd POST**.
 
     f. Klicka på **Spara**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-Skapa en testanvändare som kallas Britta Simon i Azure-portalen.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-![Namn och e-postadress för den Azure AD-testanvändaren][100]
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** ikon.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![Azure Active Directory-ikon](./media/clarizen-tutorial/create_aaduser_01.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. Klicka på **användare och grupper**, och klicka sedan på **alla användare** att visa en lista över användare.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Klicka på ”användare och grupper” och ”alla användare”](./media/clarizen-tutorial/create_aaduser_02.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Knappen ”Lägg till”](./media/clarizen-tutorial/create_aaduser_03.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. I den **användaren** dialogrutan utför följande steg:
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![”Användare”-dialogruta med namn, e-postadress och lösenord som fyllts](./media/clarizen-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver du e-postadressen för Britta Simon-kontot.
-
-    c. Välj **visa lösenord** och anteckna värdet för **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="create-a-clarizen-test-user"></a>Skapa en Clarizen testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Clarizen.
+
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Clarizen**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer du **Clarizen**.
+
+    ![Clarizen-länken i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-clarizen-test-user"></a>Skapa Clarizen-testanvändare
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Clarizen.
 
 **Om du behöver skapa användare manuellt så gör du följande:**
 
-Om du vill aktivera Azure AD-användare att logga in på Clarizen, måste du etablera användarkonton. När det gäller Clarizen är etablering en manuell aktivitet.
+Om du vill göra det möjligt för Azure AD-användare att logga in på Clarizen måste du först etablera användarkonton. När det gäller Clarizen är etablering en manuell uppgift.
 
-1. Logga in på webbplatsen Clarizen företag som administratör.
+1. Logga in på din Clarizen-företagsplats som administratör.
 
 2. Klicka på **Personer**.
 
-    ![Klicka på ”personer”](./media/clarizen-tutorial/create_aaduser_001.png "personer")
+    ![Klicka på ”Personer”](./media/clarizen-tutorial/create_aaduser_001.png "Personer")
 
 3. Klicka på **Bjud in användare**.
 
-    ![Knappen ”Bjud in användare”](./media/clarizen-tutorial/create_aaduser_002.png "bjuda in användare")
+    ![Knappen ”Bjud in användare”](./media/clarizen-tutorial/create_aaduser_002.png "Bjud in användare")
 
-1. I den **bjuda in människor** dialogrutan utför följande steg:
+1. I dialogrutan **Bjud in personer** utför du följande steg:
 
-    ![”” Dialogrutan](./media/clarizen-tutorial/create_aaduser_003.png "bjuda in människor")
+    ![Dialogrutan ”Bjud in personer”](./media/clarizen-tutorial/create_aaduser_003.png "Bjud in personer")
 
-    a. I den **e-post** skriver du e-postadressen för Britta Simon-kontot.
+    a. I rutan **E-post** anger du e-postadressen för Britta Simon-kontot.
 
-    b. Klicka på **bjuda in**.
+    b. Klicka på **Bjud in**.
 
     > [!NOTE]
     > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-Aktivera Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst Clarizen.
 
-![Tilldelade användare][200]
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-1. I Azure portal, öppna program visa, bläddra till vyn directory klickar du på **företagsprogram**, och klicka sedan på **alla program**.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-    ![Klicka på ”program” och ”alla program”][201]
-
-1. I listan med program väljer **Clarizen**.
-
-    ![Välj Clarizen på listan](./media/clarizen-tutorial/tutorial_clarizen_50.png)
-
-1. I den vänstra rutan klickar du på **användare och grupper**.
-
-    ![Klicka på ”användare och grupper”][202]
-
-1. Klicka på knappen **Lägg till**. I den **Lägg till tilldelning** dialogrutan **användare och grupper**.
-
-    ![Knappen ”Lägg till” och dialogrutan ”Lägg till tilldelning”][203]
-
-1. I den **användare och grupper** dialogrutan **Britta Simon** i listan över användare.
-
-1. I den **användare och grupper** dialogrutan klickar du på den **Välj** knappen.
-
-1. I den **Lägg till tilldelning** dialogrutan klickar du på den **tilldela** knappen.
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-Testa Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Clarizen i åtkomstpanelen, bör det vara loggas in automatiskt till Clarizen programmet.
+När du klickar på Clarizen-panelen i åtkomstpanelen så borde du automatiskt loggas in på Clarizen som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/clarizen-tutorial/tutorial_general_01.png
-[2]: ./media/clarizen-tutorial/tutorial_general_02.png
-[3]: ./media/clarizen-tutorial/tutorial_general_03.png
-[4]: ./media/clarizen-tutorial/tutorial_general_04.png
-
-[100]: ./media/clarizen-tutorial/tutorial_general_100.png
-
-[200]: ./media/clarizen-tutorial/tutorial_general_200.png
-[201]: ./media/clarizen-tutorial/tutorial_general_201.png
-[202]: ./media/clarizen-tutorial/tutorial_general_202.png
-[203]: ./media/clarizen-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

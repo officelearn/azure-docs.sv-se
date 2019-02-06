@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 2c89780722e1f3038f99ab0a4c85cd2d2ecbe624
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699493"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746327"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -55,7 +55,7 @@ Azure Migrate stöder för närvarande Europa, USA och Azure Government som proj
 Azure Government | Virginia (USA-förvaltad region)
 Asien | Sydostasien
 Europa | Europa, norra eller Europa, västra
-USA | Östra USA för USA, västra centrala
+USA | USA, östra eller USA, västra centrala
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hur ansluter en lokal plats till Azure Migrate?
 

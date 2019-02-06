@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66daa71ffbe97e9f5374eedd7f51e5afe02f0b94
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179845"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755534"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  
@@ -78,7 +78,7 @@ För att kontrollera att du inte är inloggad på ett konto för personliga webb
     | Faktureringsmodell | Nästa steg |  
     |:--- |:--- |  
     | Kostnadsfri | Gå till partnerportalen i molnet.<ul> <li>Om du vill publicera på Azure Marketplace finns på sidan finns på partnerportalen i molnet [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
-    | Kommersiella (transact) | Uppdatera din kontoinformation.<ul> <li>Mer information om att lägga till kontoinformation, finns det [så Lägg till bank-och skatteinformation](#how-to-add-bank-and-tax-information) avsnittet.</li> </ul> |  
+    | Kommersiella (transact) | Uppdatera din kontoinformation.<ul> <li>Mer information om att lägga till kontoinformation, finns det [så Lägg till bank-och skatteinformation](#add-bank-information) avsnittet.</li> </ul> |  
 
     *   Ett exempel på ett erbjudande med kommersiella är ett erbjudande för virtuell dator med ett timpris för fakturering modellen.  
 
@@ -146,7 +146,7 @@ Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact 
 > Utgivare som publicerar i Transact listtyp: Virtuella Azure-appar: lösningsmallar och hanterade appar.  
 
 *   **Varför är Dev Center-konto som krävs?**
-> Dev Center-konto är en nödvändig för att Microsoft ska fakturera kunden på utgivarens räkning för Transact listtyp. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation för ditt företag. Att lära dig mer genom att klicka [här.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
+> Dev Center-konto är en nödvändig för att Microsoft ska fakturera kunden på utgivarens räkning för Transact listtyp. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation för ditt företag. Att lära dig mer genom att klicka [här.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
 *   **Hur kommer jag igång med Dev Center registrering?**
 > Kontrollera att ditt företag inte redan har ett Dev Center-konto som har registrerats för att förhindra dubbletter. Du måste vara inloggad med Microsoft-konto som du vill associera med ditt utvecklarkonto. Om du inte redan har ett Microsoft-konto, kan du skapa ett nytt konto [här.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exempel: contoso_marketplace@live.com) för att logga in och registrera, gå till https://dev.windows.com/en-us/registration?accountProgram=Azure
@@ -184,7 +184,7 @@ Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact 
 > Tilldela ett tillfälligt företagsnamn, kontakta supporten på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) och uppger din affärsdokument för registrering.
 
 *   **Hur lägger jag till min skatte- och payout information?**
-> Du kommer inte att kunna publicera transact erbjudanden utan att slutföra skatte- och bank informationen i Dev Center-konto.  Mer information om att lägga till kontoinformation finns [så Lägg till bank-och skatt.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> Du kommer inte att kunna publicera transact erbjudanden utan att slutföra skatte- och bank informationen i Dev Center-konto.  Mer information om att lägga till kontoinformation finns [så Lägg till bank-och skatt.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
 
 *   **Kan jag ändra inloggningskonto Dev Center Microsoft?**
 > Nej. När du har skapat ett Dev Center kan inte Ägarkontot ändras. Du skulle behöva börja om med en helt ny Dev Center-konto med önskat Microsoft-konto.

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 2c981d33c8108386e0287d4c2a800f065c9dc431
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452863"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754608"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Konfigurera en gemensam identitet på den virtuella datorn för datavetenskap
 
@@ -31,7 +31,7 @@ Active Directory är en populär identitetsprovider och stöds på Azure som en 
 
 Om du redan har Active Directory för att hantera identiteter kan använda du den som vanliga identitetsprovider. Om du inte har Active Directory, kan du köra en hanterad Active Directory-instans på Azure via en tjänst som kallas [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS). 
 
-I dokumentationen för [Azure AD](https://docs.microsoft.com/azure/active-directory/) ger detaljerad [management instruktioner](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity), inklusive ansluter Azure AD till din lokala katalog om du har en. 
+I dokumentationen för [Azure AD](https://docs.microsoft.com/azure/active-directory/) ger detaljerad [management instruktioner](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), inklusive ansluter Azure AD till din lokala katalog om du har en. 
 
 Den här artikeln beskriver stegen för att konfigurera en helt hanterad tjänst på Azure gäller Active Directory-domän med hjälp av Azure AD DS. Du kan sedan ansluta till din Dsvm till hanterade Active Directory-domänen för att ge användare åtkomst till en pool med Dsvm (och andra Azure-resurser) med hjälp av ett vanligt användarkonto och autentiseringsuppgifter. 
 

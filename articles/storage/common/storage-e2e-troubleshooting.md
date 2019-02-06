@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 73073d5240f29906ade5f9b92cf81fec2f99a3d4
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661980"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746320"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,7 +98,7 @@ För att konfigurera loggning och mått för ditt storage-konto med hjälp av de
 
 Kom igång med PowerShell för Azure, se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-1. Använd den [Lägg till AzAccount](/powershell/module/az.account/add-azaccount) cmdlet för att lägga till ditt Azure-konto till PowerShell-fönstret:
+1. Använd den [Lägg till AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet för att lägga till ditt Azure-konto till PowerShell-fönstret:
    
     ```powershell
     Add-AzAccount

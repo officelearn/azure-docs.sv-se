@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75caad2c183ba2d3c5442a3620705c6af8070755
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659600"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756537"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
@@ -38,18 +38,14 @@ I den här artikeln får du lära dig hur du använder olika beräkningsmål fö
 Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
 
 
-|Beräkningsmål för träning| GPU-acceleration | Automatiserad<br/> finjustering av hyperparametrar | Automatiserad</br> maskininlärning | Pipeline-vänlig|
+|Beräkningsmål för träning| GPU-acceleration | Automatiserad<br/> finjustering av hyperparametrar | Automatiserad</br> maskininlärning | Azure Machine Learning Pipelines |
 |----|:----:|:----:|:----:|:----:|
 |[Lokal dator](#local)| Kanske | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning-beräkning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Fjärransluten virtuell dator](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-<a id="pipeline-only"></a>__*__ Azure Databricks och Azure Data Lake Analytics kan __endast__ användas i en pipeline. 
-
->Du skapar beräkningsmål för machine learning pipelines som visas i den här artikeln, men du kan använda dessa beräkningar i pipeline-stegen i stället för de metoder som beskrivs här.  Endast några steg för pipeline använder dessutom kör konfigurationen som beskrivs i den här artikeln.  Läs mer om hur du använder beräkningsmål i en pipeline [skapa och köra en maskininlärningspipeline](how-to-create-your-first-pipeline.md).
 
 ## <a name="whats-a-run-configuration"></a>Vad är en körningskonfiguration?
 

@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 79a7aad8cd747c3fdadcd0f7eec12d861f31fcc0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730517"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751947"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -108,7 +108,7 @@ Det finns flera metoder till ditt förfogande som du kan använda för att uppn�
 
 En brandvägg förhindrar åtkomst till din server från en extern entitet genom att tillåta endast specifika entiteter åtkomst till din SQL Database-server. Som standard alla anslutningar och databaser i SQL Database-servern är inte tillåtna, förutom anslutningar kommer från andra Azure-tjänster. Du kan använda en brandväggsregel för att öppna åtkomst till din server endast för enheter (till exempel en utvecklare-dator) som du godkänner, genom att tillåta att datorns IP-adress via brandväggen. Du kan också ange ett intervall av IP-adresser som du vill tillåta åtkomst till SQL Database-servern. Developer datorns IP-adresser i din organisation kan till exempel läggas på en gång genom att ange ett intervall i sidan med brandväggsinställningar.
 
-Du kan skapa brandväggsregler på servernivå eller på databasnivå. Nivån brandväggsregler för servern kan antingen skapas med hjälp av Azure portal eller med SSMS. Mer information om hur du anger en server och databas på brandväggsregel finns: [Skapa brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
+Du kan skapa brandväggsregler på servernivå eller på databasnivå. Server på IP-brandväggsregler kan antingen skapas med hjälp av Azure portal eller med SSMS. Mer information om hur du ställer in en brandväggsregel på servernivå och databasnivå konfigureras finns: [Skapa IP-brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Tjänstslutpunkter
 

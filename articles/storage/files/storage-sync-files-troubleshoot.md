@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c1ac1a0fccc2ac9a428a04a1b15030c489968a3f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563702"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752100"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -538,7 +538,7 @@ Det här felet beror på att det finns ändringar på Azure-filresursen direkt o
 | **Felsträng** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Reparation krävs** | Ja |
 
-I fall där det finns många per fil synkroniseringsfel, synkroniseringssessioner får börja misslyckas. Om du vill felsöka det här tillståndet kan se [felsökning per synkroniseringsfel för filen eller katalogen](#troubleshooting-per-file-directory-sync-errors).
+I fall där det finns många per fil synkroniseringsfel, synkroniseringssessioner får börja misslyckas. Om du vill felsöka det här tillståndet kan se [felsökning per synkroniseringsfel för filen eller katalogen]().
 
 > [!NOTE]
 > Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser.

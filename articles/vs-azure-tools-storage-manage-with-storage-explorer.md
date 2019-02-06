@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: cdfb1e11a2eb468e390546d69617ff4cadd17a7e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658884"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756826"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -87,8 +87,8 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 * [Ansluta till en Azure-prenumeration](#connect-to-an-azure-subscription): Hantera lagringsresurser som hör till din Azure-prenumeration.
 * [Arbeta med lokal utvecklingslagring](#work-with-local-development-storage): Hantera lokal lagring med hjälp av Azure Storage-emulatorn.
 * [Ansluta till extern lagring](#attach-or-detach-an-external-storage-account): Hantera lagringsresurser som hör till en annan Azure-prenumeration eller som är nationella Azure-moln med hjälp av lagringskontots namn, nyckel och slutpunkter.
-* [Ansluta ett lagringskonto med hjälp av en SAS](): Hantera lagringsresurser som hör till en annan Azure-prenumeration med hjälp av en signatur för delad åtkomst (SAS).
-* [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas): Hantera en specifik lagringstjänst (blobbehållare, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
+* [Ansluta ett lagringskonto med hjälp av en SAS](#attach-a-storage-account-by-using-a-shared-access-signature-sas): Hantera lagringsresurser som hör till en annan Azure-prenumeration med hjälp av en signatur för delad åtkomst (SAS).
+* [Ansluta en tjänst med hjälp av SAS](#attach-a-service-by-using-a-shared-access-signature-sas): Hantera en specifik lagringstjänst (blobbehållare, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
 * [Ansluta till ett Azure Cosmos DB-konto med hjälp av en anslutningssträng](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Hantera Cosmos DB-konto med hjälp av en anslutningssträng.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
@@ -295,7 +295,7 @@ Förutom hantera Azure Cosmos DB-konton via Azure-prenumeration, ett alternativt
 
     ![ansluta till Azure Cosmos DB med anslutningssträngen][21]
 
-2. Välj Azure Cosmos DB API, klistra in din **Connection String**, och klicka sedan på **OK** att ansluta Azure Cosmos DB-konto. Information om hur du hämtar anslutningssträngen finns i [Hämta anslutningssträngen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Välj Azure Cosmos DB API, klistra in din **Connection String**, och klicka sedan på **OK** att ansluta Azure Cosmos DB-konto. Information om hur du hämtar anslutningssträngen finns i [Hämta anslutningssträngen](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![connection-string][22]
 

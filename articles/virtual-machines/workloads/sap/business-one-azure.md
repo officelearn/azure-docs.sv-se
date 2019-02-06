@@ -3,7 +3,7 @@ title: SAP Business en på Azure-datorer | Microsoft Docs
 description: SAP Business en på Azure.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2018
-ms.author: msjuergent
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8bd5ddab4553807f59b7afdf32fbfc1703e3d75
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bb3c2a9cfc1bccf4656be83c6babbe9c7ec139fb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949544"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745358"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business en på Azure-datorer
 Det här dokumentet innehåller riktlinjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen är inte en ersättning för dokumentationen för installation av ett företag för SAP. Dokumentationen bör omfatta grundläggande riktlinjer för planering och distribution för Azure-infrastrukturen att köra Business One program på.
@@ -132,10 +132,10 @@ Ungefärlig storleksberäkningar för DBMS-sida för SQL Server är:
 
 | Antal användare | vCPU:er | Minne | Exempel VM-typer |
 | --- | --- | --- | --- |
-| upp till 20 | 4 | 16 GB | D4s_v3 E4s_v3 |
-| upp till 40 | 8 | 32 GB | D8s_v3 E8s_v3 |
-| upp till 80 | 16 | 64 GB | D16s_v3 E16s_v3 |
-| upp till 150 | 32 | 128 GB | D32s_v3 E32s_v3 |
+| upp till 20 | 4 | 16 GB | D4s_v3, E4s_v3 |
+| upp till 40 | 8 | 32 GB | D8s_v3, E8s_v3 |
+| upp till 80 | 16 | 64 GB | D16s_v3, E16s_v3 |
+| upp till 150 | 32 | 128 GB | D32s_v3, E32s_v3 |
 
 Den storlek som anges ovan bör ge en uppfattning om att börja med. Det kan vara att du behöver mer eller mindre resurser, vilket innebär en anpassning på azure är enkelt. En ändring mellan VM-typer är möjligt med bara en omstart av den virtuella datorn.
 

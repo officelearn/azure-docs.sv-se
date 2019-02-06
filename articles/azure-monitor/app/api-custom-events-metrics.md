@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: bbe29f112d752be432c0f922b1cd07b8afe2d45e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: d0e549f0da5eb30dd11992518789d76c0892bca3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232489"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747483"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -1002,7 +1002,7 @@ Du kan skriva kod för att bearbeta din telemetri innan den skickas från SDK. B
 
 [Lägg till egenskaper](../../azure-monitor/app/api-filtering-sampling.md#add-properties) till telemetri genom att implementera `ITelemetryInitializer`. Du kan till exempel lägga till versionsnummer eller värden som beräknats från övriga egenskaper.
 
-[Filtrering](../../azure-monitor/app/api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan det skickas från SDK genom att implementera `ITelemetryProcesor`. Du kan styra vad skickas eller tas bort, men du behöver för effekten på dina mått. Beroende på hur du ta bort objekt, kan du förlora möjligheten att navigera mellan relaterade objekt.
+[Filtrering](../../azure-monitor/app/api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan det skickas från SDK genom att implementera `ITelemetryProcessor`. Du kan styra vad skickas eller tas bort, men du behöver för effekten på dina mått. Beroende på hur du ta bort objekt, kan du förlora möjligheten att navigera mellan relaterade objekt.
 
 [Sampling](../../azure-monitor/app/api-filtering-sampling.md) är en lösning som är paketerade för att minska mängden data som skickas från din app på portalen. Detta sker utan att påverka mätvärdena som visas. Och detta sker utan att påverka din möjlighet att diagnostisera problem genom att navigera mellan relaterade objekt, till exempel undantag, begäranden och sidvyer.
 
@@ -1101,7 +1101,7 @@ appInsights.config.instrumentationKey = myKey;
 
 På webbsidor, kanske du vill ställa in den från webbserverns tillstånd, i stället kodning bokstavligen till skriptet. Till exempel i en webbsida som genererats i en ASP.NET-app:
 
-*JavaScript i Razor*
+*JavaScript in Razor*
 
 ```cshtml
 <script type="text/javascript">

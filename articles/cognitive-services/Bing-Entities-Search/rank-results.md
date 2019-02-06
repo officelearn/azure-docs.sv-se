@@ -1,36 +1,38 @@
 ---
 title: Med hjälp av rangordning för att visa svar - Entitetssökning i Bing
 titlesuffix: Azure Cognitive Services
-description: Visar hur du använder rangordning för att visa de svar som returnerar de Entitetssökning i Bing.
+description: Lär dig hur du använder rangordning för att visa de svar som returnerar de Entitetssökning i Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: f0cae32acf2db62a5d3c060ea944b1131252beda
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 56215bfa17343576b6bebec3a5dc5076ac56073c
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195927"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754140"
 ---
-# <a name="using-ranking-to-display-results"></a>Med hjälp av rangordning för att visa resultat  
+# <a name="using-ranking-to-display-entity-search-results"></a>Med hjälp av rangordning för att visa resultat från  
 
-Varje entitet search svaret innehåller en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) besvara, ungefär som i ett svar för webbsökning i Bing, som anger hur du måste visa sökresultatet. Rangordning svaret grupperar resultaten till pol, likriktade, och sidopanelen innehåll. Pol resultatet är mest viktigt eller framträdande resultatet och ska visas först. Om du inte vill visa de återstående resulterar i en traditionell likriktade och sidopanelen format, måste du ange likriktade innehåll högre synlighet än sidopanelen innehållet. 
+Varje entitet search svaret innehåller en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) svar som anger hur du måste visa sökresultat som returneras av den Entitetssökning i Bing. Rangordning svaret grupperar resultaten till pol, likriktade, och sidopanelen innehåll. Pol resultatet är mest viktigt eller framträdande resultatet och ska visas först. Om du inte vill visa de återstående resulterar i en traditionell likriktade och sidopanelen format, måste du ange likriktade innehåll högre synlighet än sidopanelen innehållet. 
   
 Inom varje grupp i [objekt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matris identifierar den ordning som innehållet måste finnas i. Varje objekt innehåller två metoder för att identifiera resultatet i ett svar.  
+ 
+
+|Fält | Beskrivning  |
+|---------|---------|
+|`answerType` och `resultIndex` | `answerType` identifierar svar (entitet eller plats) och `resultIndex` identifierar ett resultat i svaret (till exempel en entitet). Index som börjar vid 0.|
+|`value`    | `value` Innehåller ett ID som matchar ID: T för ett svar eller ett resultat i svaret. Svaret eller resultatet innehålla ID men inte båda. |
   
--   `answerType` och `resultIndex` – den `answerType` fältet identifierar svar (entitet eller plats) och `resultIndex` identifierar ett resultat i svaret (till exempel en entitet). Indexet är nollbaserat.  
-  
--   `value` – Det `value` fält innehåller ett ID som matchar ID: T för ett svar eller ett resultat i svaret. Svaret eller resultatet innehålla ID men inte båda.  
-  
+Med hjälp av den `answerType` och `resultIndex` är en tvåstegsprocess. Använd först `answerType` att identifiera det svar som innehåller resultatet ska visas. Använd sedan `resultIndex` till index till den svar resultat att få resultat att visa. (Den `answerType` värdet är namnet på fältet i den [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) objekt.) Om du ska visa resultat som svaret finns tillsammans rangordning svaret objekt inte innehåller den `resultIndex` fält.
+
 Med hjälp av ID måste du matcha rangordning ID med ID: T för ett svar eller ett av resultaten. Om ett svar-objekt innehåller en `id` fältet, visa resultat som svaret finns tillsammans. Till exempel om den `Entities` objektet innehåller de `id` fältet, visa alla entiteter artiklar tillsammans. Om den `Entities` objekt omfattar inte den `id` fältet och sedan varje entitet innehåller en `id` fältet och svaret rangordning blandas entiteterna med platser resultaten.  
   
-Med hjälp av den `answerType` och `resultIndex` är en tvåstegsprocess. Först måste du använda `answerType` att identifiera det svar som innehåller resultatet ska visas. Kan du använda `resultIndex` till index till den svar resultat att få resultat att visa. (Den `answerType` värdet är namnet på fältet i den [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) objekt.) Om du ska visa resultat som svaret finns tillsammans rangordning svaret objekt inte innehåller den `resultIndex` fält.
-
 ## <a name="ranking-response-example"></a>Rangordning svar-exempel
 
 Följande visar ett exempel [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse).
@@ -70,4 +72,4 @@ Baserat på den här rangordning svar, visas sidopanelen två-enhetsresultat som
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie för Entitetssökning i Bing](tutorial-bing-entities-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](tutorial-bing-entities-search-single-page-app.md)

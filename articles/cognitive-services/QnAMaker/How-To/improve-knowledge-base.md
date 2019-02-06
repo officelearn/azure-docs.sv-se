@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463743"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755772"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
@@ -58,7 +58,7 @@ Algoritm och fastställa närhet är inte en enkel beräkning. Intervall i före
 
 Aktiv inlärning är inaktiverat som standard. Aktiverat den föreslagna frågor. 
 
-1. Om du vill aktivera active learning på, gå till din **tjänstinställningar** i QnA Maker-portalen i det övre högra hörnet.  
+1. Om du vill aktivera active learning på, klicka på din **namn**går du till [ **tjänstinställningar** ](https://www.qnamaker.ai/UserSettings) i QnA Maker-portalen i det övre högra hörnet.  
 
     ![På sidan för inställningar av tjänsten växla på aktiv inlärning](../media/improve-knowledge-base/Endpoint-Keys.png)
 

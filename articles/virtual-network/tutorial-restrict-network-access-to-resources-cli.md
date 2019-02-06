@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 87fcfd98065bcf1f0fea3a06029853f69d67842d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663816"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751505"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Begränsa nätverksåtkomst till PaaS-resurser med virtuella nätverksslutpunkter med Azure CLI
 
@@ -51,7 +51,7 @@ az group create \
   --location eastus
 ```
 
-Skapa ett virtuellt nätverk med ett undernät med [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create).
+Skapa ett virtuellt nätverk med ett undernät med [az network vnet skapa](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Aktivera en tjänstslutpunkt 
 
-Du kan aktivera Tjänsteslutpunkter bara för tjänster som stöder Tjänsteslutpunkter. Visa tjänstens slutpunkt-aktiverade tjänster som är tillgängliga i en Azure-plats med [az network vnet list-endpoint-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). I följande exempel returneras en lista över service-slutpunkt-aktiverade tjänster som är tillgängliga i den *eastus* region. I listan över tjänster som returneras kommer att växa med tiden när flera Azure-tjänster blir tjänstslutpunkt aktiverad.
+Du kan aktivera Tjänsteslutpunkter bara för tjänster som stöder Tjänsteslutpunkter. Visa tjänstens slutpunkt-aktiverade tjänster som är tillgängliga i en Azure-plats med [az network vnet list-endpoint-services](/cli/azure/network/vnet). I följande exempel returneras en lista över service-slutpunkt-aktiverade tjänster som är tillgängliga i den *eastus* region. I listan över tjänster som returneras kommer att växa med tiden när flera Azure-tjänster blir tjänstslutpunkt aktiverad.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Skapa säkerhetsregler med [az network nsg-regel skapar](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Regel som tillåter utgående åtkomst till de offentliga IP-adresser tilldelade till Azure Storage-tjänsten: 
+Skapa säkerhetsregler med [az network nsg-regel skapar](/cli/azure/network/nsg/rule). Regel som tillåter utgående åtkomst till de offentliga IP-adresser tilldelade till Azure Storage-tjänsten: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-När lagringskontot har skapats kan du hämta anslutningssträngen för lagringskontot i en variabel med [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). Strängen som används för att skapa en filresurs i ett senare steg.
+När lagringskontot har skapats kan du hämta anslutningssträngen för lagringskontot i en variabel med [az storage account show-connection-string](/cli/azure/storage/account). Strängen som används för att skapa en filresurs i ett senare steg.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -223,7 +223,7 @@ Om du vill testa nätverksåtkomsten till ett lagringskonto distribuerar du en v
 
 ### <a name="create-the-first-virtual-machine"></a>Skapa din första virtuella dator
 
-Skapa en virtuell dator i den *offentliga* undernätet med [az vm skapa](/cli/azure/vm#az_vm_create). Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Skapa en virtuell dator i den *offentliga* undernätet med [az vm skapa](/cli/azure/vm). Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \

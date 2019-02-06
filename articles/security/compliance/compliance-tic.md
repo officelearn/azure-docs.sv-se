@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017107"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751930"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Vägledning för betrodda Internet-anslutningar
 
@@ -40,8 +40,8 @@ Initiativet innehåller också säkerhetsprinciper, riktlinjer och ramverk som f
 
 Det finns tre huvudsakliga alternativ för att ansluta till Azure-tjänster:
 
-- Direkt internet-anslutning: ansluta till Azure-tjänster direkt via en öppen Internetanslutning. Mediet och anslutningen är offentliga. Program- och transport filnivåkryptering åberopas för att bevara sekretessen. Bandbredd begränsas av en plats-anslutning till internet. Använda flera aktiva provider för att säkerställa återhämtning.
-- Virtuellt privat nätverk (VPN): ansluta till din Azure-nätverk privat med hjälp av en VPN-gateway.
+- Direkt internet-anslutning: Anslut till Azure-tjänster direkt via en öppen Internetanslutning. Mediet och anslutningen är offentliga. Program- och transport filnivåkryptering åberopas för att bevara sekretessen. Bandbredd begränsas av en plats-anslutning till internet. Använda flera aktiva provider för att säkerställa återhämtning.
+- Virtuellt privat nätverk (VPN): Ansluta till din Azure-nätverk privat med hjälp av en VPN-gateway.
 Mediet är offentlig eftersom den inom en plats standard internet-anslutning, men anslutningen krypteras i en tunnel för att bevara sekretessen. Bandbredd är begränsad beroende på VPN-enheter och den konfiguration som valts. Azure punkt-till-plats-anslutningar är vanligtvis begränsad till 100 Mbit/s och plats-till-plats-anslutningar är begränsade till 1,25 Gbit/s.
 - Azure ExpressRoute: ExpressRoute är en direkt anslutning till Microsoft-tjänster. Eftersom anslutningen är via en isolerad fiber channel, kan anslutningen vara offentligt eller privat beroende på den konfiguration som används. Bandbredden som är vanligtvis begränsad till högst 10 Gbit/s.
 
@@ -49,7 +49,7 @@ Det finns flera sätt att uppfylla kraven RANKNINGSLISTA bilaga H (Molnöverväg
 
 Aktivera anslutningen från den **avdelning eller regeringsorgan (D/A)** till Azure eller Office 365, utan att dirigera trafiken via D/A-ärende D/A måste använda en krypterad tunnel eller en dedikerad anslutning till molntjänstleverantör (CSP). CSP-tjänster kan kontrollera anslutningen till D/A molntillgångar inte erbjuds till det offentliga internet för direkta agency personal åtkomst.
 
-Office 365 är kompatibla med RANKNINGSLISTA 2.0 bilaga H genom att använda antingen ExpressRoute med [Microsoft-Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) aktiverad eller internet-anslutning som krypterar all trafik med hjälp av TLS 1.2. D/A slutanvändare i D/A-nätverket kan ansluta via sina agency nätverks- och RANKNINGSLISTA infrastruktur via internet. Alla fjärranslutna internet-åtkomst till Office 365 blockeras och dirigerar genom. D/A kan också ansluta till Office 365 via en ExpressRoute-anslutning med Microsoft-Peering (en typ av offentlig peering) aktiverat.  
+Office 365 är kompatibla med RANKNINGSLISTA 2.0 bilaga H genom att använda antingen ExpressRoute med [Microsoft-Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) aktiverad eller internet-anslutning som krypterar all trafik med hjälp av TLS 1.2. D/A slutanvändare i D/A-nätverket kan ansluta via sina agency nätverks- och RANKNINGSLISTA infrastruktur via internet. Alla fjärranslutna internet-åtkomst till Office 365 blockeras och dirigerar genom. D/A kan också ansluta till Office 365 via en ExpressRoute-anslutning med Microsoft-Peering (en typ av offentlig peering) aktiverat.  
 
 För Azure, kan andra alternativet (VPN) och tredje alternativet (ExpressRoute) uppfylla dessa krav när de används tillsammans med tjänster som begränsar åtkomsten till internet.
 
@@ -63,10 +63,10 @@ Viktigaste kravet för att garantera efterlevnad med referensarkitektur ärende 
 
 Efterlevnad i Azure IaaS-ärende är uppdelad i två viktiga steg:
 
-- Steg 1: konfiguration.
-- Steg 2: granskning.
+- Steg 1: Konfiguration.
+- Steg 2: Granskning.
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Efterlevnad i Azure IaaS-ärende: konfiguration
+### <a name="azure-iaas-tic-compliance-configuration"></a>Azure IaaS-ärende efterlevnad: Konfiguration
 
 Om du vill konfigurera en arkitektur för ärende-kompatibla med Azure måste du först förhindra direkt Internetåtkomst till det virtuella nätverket och sedan tvingar Internettrafik via det lokala nätverket.
 
@@ -85,7 +85,7 @@ Azure skapar automatiskt systemvägar och tilldelar vägarna till varje undernä
 
 ![RANKNINGSLISTA Tvingad tunneltrafik](media/tic-diagram-c.png)
 
-All trafik som lämnar det virtuella nätverket måste dirigera via den lokala anslutningen, så att all trafik passerar D/A ärende. Du kan skapa anpassade vägar genom att skapa användardefinierade vägar eller genom att utbyta vägar för Border Gateway Protocol (BGP) mellan din lokala nätverksgateway och en Azure VPN-gateway. Mer information om användardefinierade vägar finns i [trafikdirigering i virtuella nätverk: användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Mer information om BGP finns i [trafikdirigering i virtuella nätverk: Border Gateway Protocol](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
+All trafik som lämnar det virtuella nätverket måste dirigera via den lokala anslutningen, så att all trafik passerar D/A ärende. Du kan skapa anpassade vägar genom att skapa användardefinierade vägar eller genom att utbyta vägar för Border Gateway Protocol (BGP) mellan din lokala nätverksgateway och en Azure VPN-gateway. Mer information om användardefinierade vägar finns i [trafikdirigering i virtuella nätverk: Användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Mer information om BGP finns i [trafikdirigering i virtuella nätverk: Border Gateway Protocol](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
 
 #### <a name="add-user-defined-routes"></a>Lägg till användardefinierade vägar
 
@@ -97,7 +97,7 @@ Om du använder en routningsbaserad virtuell nätverksgateway kan tvinga du tunn
 
 Om du använder ExpressRoute eller en BGP-aktiverad virtuell nätverksgateway är BGP den rekommenderade metoden för att annonsera vägar. För en BGP annonserade väg med 0.0.0.0/0 Kontrollera ExpressRoute- och BGP-anpassade virtuella nätverksgatewayer standardvägen gäller för alla undernät i ditt virtuella nätverk.
 
-### <a name="azure-iaas-tic-compliance-auditing"></a>Efterlevnad i Azure IaaS-ärende: granskning
+### <a name="azure-iaas-tic-compliance-auditing"></a>Azure IaaS-ärende efterlevnad: Granskning
 
 Azure erbjuder flera olika sätt att granska ärende efterlevnad.
 
@@ -124,8 +124,8 @@ Azure PaaS-tjänster, till exempel Azure Storage, är tillgängliga via en URL s
 
 När Azure PaaS-tjänster är integrerade med ett virtuellt nätverk, är tjänsten privat kan nås från det virtuella nätverket. Du kan tillämpa anpassad routning för 0.0.0.0/0 via användardefinierade vägar eller BGP. Anpassad routning säkerställer att alla internet-bunden trafik dirigerar lokalt för att bläddra i ärende. Integrera Azure-tjänster i virtuella nätverk med hjälp av följande mönster:
 
-- **Distribuera en dedikerad instans av en tjänst**: ett ökande antal PaaS-tjänster kan distribueras som dedikerade instanser med virtuell nätverksansluten slutpunkter. Du kan distribuera en App Service Environment för PowerApps i ”isolerad” läge för att tillåta nätverksslutpunkten att vara begränsad till ett virtuellt nätverk. App Service Environment kan sedan vara värd för många Azure PaaS-tjänster, till exempel Azure Web Apps, Azure API Management och Azure Functions.
-- **Använda virtuella nätverksslutpunkter**: ett ökande antal PaaS-tjänster tillåta att flytta sina slutpunkt till virtuellt privat IP-adress i stället för en offentlig adress.
+- **Distribuera en dedikerad instans av en tjänst**: Ett ökande antal PaaS-tjänster kan distribueras som dedikerade instanser med virtuell nätverksansluten slutpunkter. Du kan distribuera en App Service Environment för PowerApps i ”isolerad” läge för att tillåta nätverksslutpunkten att vara begränsad till ett virtuellt nätverk. App Service Environment kan sedan vara värd för många Azure PaaS-tjänster, till exempel Azure Web Apps, Azure API Management och Azure Functions.
+- **Använda virtuella nätverksslutpunkter**: Ett ökande antal PaaS-tjänster tillåta att flytta sina slutpunkt till virtuellt privat IP-adress i stället för en offentlig adress.
 
 Tjänster som stöder distribution av dedikerade instanser till ett virtuellt nätverk eller användning av Tjänsteslutpunkter, från och med maj 2018, visas i följande tabeller.
 
@@ -142,7 +142,7 @@ Tjänster som stöder distribution av dedikerade instanser till ett virtuellt n�
 |Azure Data Lake                | Privat förhandsgranskning  |
 |Azure Database for PostgreSQL  | Privat förhandsgranskning  |
 |Azure Database for MySQL       | Privat förhandsgranskning  |
-|Azure SQL Data Warehouse       | Offentlig granskning   |
+|Azure SQL Data Warehouse       | Offentlig förhandsversion   |
 |Azure SQL Database             | Allmän tillgänglighet (GA) |
 |Azure Storage                  | Allmän tillgänglighet (GA)               |
 
@@ -150,8 +150,8 @@ Tjänster som stöder distribution av dedikerade instanser till ett virtuellt n�
 
 |Tjänst                               |Tillgänglighet      |
 |--------------------------------------|------------------|
-|Hanterad Azure SQL Database-instans   | Offentlig granskning   |
-|Azure Kubernetes Service (AKS)        | Offentlig granskning   |
+|Hanterad Azure SQL Database-instans   | Offentlig förhandsversion   |
+|Azure Kubernetes Service (AKS)        | Offentlig förhandsversion   |
 |Azure Service Fabric                  | Allmän tillgänglighet (GA)               |
 |Azure API Management                  | Allmän tillgänglighet (GA)               |
 |Azure Active Directory                | Allmän tillgänglighet (GA)               |
@@ -165,7 +165,7 @@ Tjänster som stöder distribution av dedikerade instanser till ett virtuellt n�
 
 ### <a name="virtual-network-integration-details"></a>Information om integrering av virtuellt nätverk
 
-Följande diagram visar den allmänna nätverksflödet för åtkomst till PaaS-tjänster. Åtkomst visas från virtuellt nätverk-inmatning och vnet-tjänstetunnlar. Läs mer om network service-gatewayer, virtuella nätverk och tjänsttaggar [nätverk och programsäkerhetsgrupper: Tjänsttaggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Följande diagram visar den allmänna nätverksflödet för åtkomst till PaaS-tjänster. Åtkomst visas från virtuellt nätverk-inmatning och vnet-tjänstetunnlar. Läs mer om network service-gatewayer, virtuella nätverk och tjänsttaggar [nätverk och säkerhetsgrupper för program: Tjänsttaggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ![PaaS-anslutningsalternativ för ärende](media/tic-diagram-e.png)
 
@@ -178,13 +178,13 @@ Följande diagram visar den allmänna nätverksflödet för åtkomst till PaaS-t
    - Distribuera direkt till det virtuella nätverket.
    - Selektivt tillåts, baserat på vägledningen från respektive Azure-tjänsten.
 
-#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Alternativ A: distribuera en dedikerad instans av en tjänst (virtuellt nätverk-inmatning)
+#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Alternativ A: Distribuera en dedikerad instans av en tjänst (virtuellt nätverk-inmatning)
 
 Inmatning av virtuellt nätverk gör att kunderna kan distribuera selektivt dedikerade instanser av en viss Azure-tjänst, till exempel HDInsight, till sina egna virtuella nätverk. Instanser av tjänsten distribueras i ett dedikerat undernät i kundens virtuella nätverk. Inmatning av virtuellt nätverk ger åtkomst till tjänstresurser via icke-internet-dirigerbara adresser. Lokala instanser använder ExpressRoute eller VPN för plats-till-plats för direkt åtkomst till instanser av tjänsten via virtuella nätverkets adressutrymme, i stället för att öppna en brandvägg offentliga internet-adressutrymme. Du kan använda men samma strategier för efterlevnad för IaaS-ärende när en dedikerad instans är ansluten till en slutpunkt. Standardroutning säkerställer internet-bunden trafik dirigeras till en virtuell nätverksgateway som är bunden till en lokal. Du kan ytterligare styra inkommande och utgående åtkomst via NSG: er för det angivna undernätet.
 
 ![Översikt över Virtual network-inmatning](media/tic-diagram-f.png)
 
-#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Alternativ B: Använd virtuella nätverksslutpunkter (service-tunnel)
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Alternativ B: Använda tjänstslutpunkter i virtuella nätverk (service-tunnel)
 
 Ett ökande antal Azure-tjänster som multitenant erbjuder ”Tjänsteslutpunkter”. Tjänstslutpunkter är en alternativ metod för att integrera till Azure-nätverk. Tjänstslutpunkter i virtuella nätverk kan du utöka din virtuella IP-adressutrymme och identiteten för ditt virtuella nätverk till tjänsten via en direktanslutning. Trafik från det virtuella nätverket till Azure-tjänsten förblir alltid inom Azure-stamnätverket. 
 
@@ -245,7 +245,7 @@ Nätverk i regioner som övervakas av Network Watcher kan utföra tester för n�
 
 Du kan enkelt konfigurera åtkomst för Microsoft Azure, Office 365 och Dynamics 365 att bidra till att efterleva RANKNINGSLISTA 2.0 bilaga H vägledning som skriftligt och definierade maj 2018. Microsoft kan identifiera att ärende riktlinjerna kan komma att ändras. Microsoft lycka att hjälpa kunder att uppfylla riktlinjerna i god tid när nya råd är tillgängliga.
 
-## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Bilaga: Betrodda Internetanslutningar mönster för vanliga arbetsbelastningar
+## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Tillägg: Betrodda Internetanslutningar mönster för vanliga arbetsbelastningar
 
 | Kategori | Arbetsbelastning | IaaS | Dedikerad PaaS / inmatning i virtuella nätverk  | Tjänstslutpunkter  |
 |---------|---------|---------|---------|--------|

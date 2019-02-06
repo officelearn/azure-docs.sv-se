@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165653"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750332"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din infrastruktur för Identitetshantering
 
@@ -38,7 +38,7 @@ Rekommendationerna i det här dokumentet ligger i linje med de [identitet skydda
 
 ![Säker identitets-poäng](media/azure-ad/azure-ad-sec-steps0.png)
 
-## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Innan du börjar: skydda Privilegierade konton med MFA
+## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Innan du börjar: Skydda Privilegierade konton med MFA
 
 Innan du börjar den här checklistan måste du kontrollera att du inte blir kompromissade medan du läser den här checklistan. Först måste du skydda din Privilegierade konton.
 
@@ -99,7 +99,7 @@ Appar som använder sina egna äldre metoder för att autentisera med Azure AD o
 
 1. Blockera [äldre autentisering om du använder AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Installationsprogrammet [SharePoint Online och Exchange Online till använder modern autentisering](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Använd [principer för villkorlig åtkomst blockera äldre](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication).
+3. Använd [principer för villkorlig åtkomst blockera äldre](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blockera ogiltig autentisering startpunkter
 

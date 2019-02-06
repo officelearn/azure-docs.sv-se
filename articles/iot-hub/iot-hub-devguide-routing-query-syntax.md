@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: da95bd3832ee647c371c7beabb55b974dcb97740
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496575"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744853"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub meddelanderoutning frågesyntax
 
@@ -55,7 +55,7 @@ Systemegenskaper att identifiera innehåll och källan för meddelanden.
 | -------- | ---- | ----------- |
 | contentType | sträng | Användaren anger innehållstypen för meddelandet. För att fråga på meddelandets brödtext ska sättas det här värdet application/JSON. |
 | contentEncoding | sträng | Användaren anger kodningstyp för meddelandet. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType har angetts till application/JSON. |
-| connectionDeviceId | sträng | Det här värdet anges av IoT Hub och identifierar källan för meddelanden. Det kan enheten telemetrimeddelanden, device twin ändringsmeddelanden eller Livscykelhändelser för enhet. Detta kan inte frågas. |
+| iothub-connection-device-id | sträng | Det här värdet anges av IoT Hub och identifierar ID för enheten. Om du vill fråga, Använd `$connectionDeviceId`. |
 | iothub-enqueuedtime | sträng | Det här värdet anges av IoT Hub och visar faktiska enqueuing meddelandet i UTC-tid. Om du vill fråga, Använd `enqueuedTime`. |
 
 Mer information finns i den [meddelanden från IoT Hub](iot-hub-devguide-messages-construct.md), det finns ytterligare Systemegenskaper i ett meddelande. Förutom **contentType**, **contentEncoding**, och **enqueuedTime**, **connectionDeviceId** och  **connectionModuleId** kan också efterfrågas.

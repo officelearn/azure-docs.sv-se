@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 7d79e81f8670492d025727ed76d7d529dbd4719d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 177a9cbf9235bb3d2deb0d5f8e4e31a0e1472b48
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188328"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756486"
 ---
 # <a name="get-trending-images-from-the-web"></a>Visa populära bilder från webben
 
@@ -90,7 +90,7 @@ Svaret innehåller en [TrendingImages](https://docs.microsoft.com/rest/api/cogni
 
 Varje panel innehåller en bild och alternativ för att hämta relaterade bilder. För att få de relaterade bilderna kan du använda frågan `text` att anropa den [Image Search API](./search-the-web.md) och visa de relaterade bilderna själv. Du kan också använda URL: en i `webSearchUrl` ska användaren att Bings avbildningar sökresultatsidan som innehåller relaterade bilder.
 
-Om du anropar Image Sök-API för att hämta relaterade bilder, anger du den [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) frågeparameter med ID i den `id` fält. Anger ID säkerställer att svaret innehåller avbildningen (det är den första bilden i svaret) och dess relaterade bilder. Ange dessutom den [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) frågeparameter i texten i den `query` objektets `text` fält.
+Om du anropar Image Sök-API för att hämta relaterade bilder, anger du den [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) frågeparameter med ID i den `id` fält. Anger ID säkerställer att svaret innehåller avbildningen (det är den första bilden i svaret) och dess relaterade bilder. Ange dessutom den [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) frågeparameter i texten i den `query` objektets `text` fält.
 
 I följande exempel visar hur du använder avbildnings-ID för att hämta relaterade bilder av John Smith i föregående populära bilder API-svaret.
 

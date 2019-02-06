@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7d79e7aca0e8aa506abba174668c60fcd2fd4bc2
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: d274642c8e35374dee2d584e6285165a15cd3128
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065451"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747041"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
@@ -36,19 +36,20 @@ När du aktiverar lösningar stöds endast i vissa regioner för att länka en L
 
 I följande tabell visas mappningarna som stöds:
 
-|**Log Analytics arbetsytans Region**|**Azure Automation-Region**|
+|**Log Analytics arbetsytans Region**|**Azure Automation Region**|
 |---|---|
 |Sydöstra Australien|Sydöstra Australien|
-|Kanadacentrala|Kanadacentrala|
+|CanadaCentral|CanadaCentral|
 |Indiencentrala|Indiencentrala|
-|EastUS|Usaöstra2|
-|Sydostasien|Sydostasien|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|Västra centrala USA|Västra centrala USA|
+|WestCentralUS|WestCentralUS|
 |Västeuropa|Västeuropa|
 |Södrastorbritannien|Södrastorbritannien|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
+|Västra USA 2|Västra USA 2|
 
 Lösningen Ändringsspårning och inventering ger dig möjlighet att [spåra ändringar](automation-vm-change-tracking.md) och [inventering](automation-vm-inventory.md) på dina virtuella datorer. I det här steget aktiverar du lösningen för en virtuell dator.
 
@@ -66,9 +67,9 @@ Varje lösning använder en Omfattningskonfigurationen i arbetsytan för att fok
 
 Om den valda arbetsytan inte ännu har lösningarna för uppdateringshantering eller ändringsspårning, skapas följande omfång konfigurationer:
 
-* **MicrosoftDefaultScopeConfig ChangeTracking**
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
 
-* **MicrosoftDefaultScopeConfig-uppdateringar**
+* **MicrosoftDefaultScopeConfig-Updates**
 
 Om den valda arbetsytan har redan lösningen kan lösningen inte igen distribuerade och konfigurationen har lagts till inte i den.
 

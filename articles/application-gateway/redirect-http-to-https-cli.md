@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 52a93fdd3105b091f688c297fe1e78e55ce0c96e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a5479cb54e15c0e740d800c8ee248a67e5ec5fc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730314"
+ms.locfileid: "55746769"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering med Azure CLI
 
@@ -86,7 +86,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Du kan använda [az network application-gateway create](/cli/azure/network/application-gatewaywork_application_gateway_create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. 
+Du kan använda [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. 
 
 Programgatewayen tilldelas till *myAGSubnet* och *myAGPublicIPAddress* som du skapade tidigare. I det här exemplet associerar du certifikatet du skapade och dess lösenord när du skapar programgatewayen. 
 
@@ -121,7 +121,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>Lägg till HTTP-porten
 
-Du kan använda [az network application-gateway frontend-port skapar](/cli/azure/network/application-gateway/frontend-portwork_application_gateway_frontend_port_create) att lägga till HTTP-porten till application gateway.
+Du kan använda [az network application-gateway frontend-port skapar](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) att lägga till HTTP-porten till application gateway.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -133,7 +133,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>Lägg till HTTP-lyssnare
 
-Du kan använda [az network application-gateway http-listener skapa](/cli/azure/network/application-gateway/http-listenerwork_application_gateway_http_listener_create) att lägga till lyssnaren med namnet *myListener* till application gateway.
+Du kan använda [az network application-gateway http-listener skapa](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) att lägga till lyssnaren med namnet *myListener* till application gateway.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
 
-Lägg till HTTP till HTTPS-omdirigeringskonfiguration i application gateway med hjälp av [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
+Lägg till HTTP till HTTPS-omdirigeringskonfiguration i application gateway med hjälp av [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -161,7 +161,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Lägg till regel för vidarebefordran
 
-Lägg till en routningsregel med namnet *2* med konfigurationen för omdirigering i application gateway med hjälp av [az network application-gateway rule skapa](/cli/azure/network/application-gateway/rulework_application_gateway_rule_create).
+Lägg till en routningsregel med namnet *2* med konfigurationen för omdirigering i application gateway med hjälp av [az network application-gateway rule skapa](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

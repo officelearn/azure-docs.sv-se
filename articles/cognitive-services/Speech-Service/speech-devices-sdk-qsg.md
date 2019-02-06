@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5bd631bf31ba4e6a840c3e4e818062d322da0158
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a9a1446db66e528cfac98222d4bd258efc660c84
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727934"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750383"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Kom igång med SDK för tal-enheter
 
@@ -46,12 +46,14 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
     Du kan [skapa en enkel LUIS-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller Använd exemplet LUIS-modell, LUIS-example.json. Exemplet LUIS-modellen är tillgänglig från den [tal Devices SDK hämtningsplats](https://shares.datatransfer.microsoft.com/). Ladda upp din modell JSON-filen till den [LUIS portal](https://www.luis.ai/home)väljer **importera ny app**, och välj sedan JSON-filen.
 
 ## <a name="set-up-the-development-kit"></a>Ställ in i development kit
-
-1. Ansluta i development kit till en dator eller driva nätverkskort med hjälp av hög kvalitet micro USB-kabel. En grön power indikator tänds under den översta tavlan.
-
-1. Ansluta i development kit på en dator med hjälp av en andra mini USB-kabel.
+    
+1. I development kit har två micro USB-anslutningar. Den vänstra anslutningen är att köra i development kit och markeras som kraften i bilden nedan. Höger en är ta kontroll över den och markeras felsöka i avbildningen.
 
     ![ansluta dev-paket](media/speech-devices-sdk/qsg-1.png)
+       
+1. Power i development kit med micro USB-kabel för att ansluta power-port till en dator eller driva nätverkskort. En grön power indikator tänds under den översta tavlan.
+
+1. Om du vill styra hur ansluter kit debug-port till en dator med hjälp av en andra micro USB-kabel. Det är viktigt att använda en högkvalitativ kabel för att säkerställa tillförlitlig kommunikation.
 
 1. Förstå din Utvecklingskit för antingen cirkulär eller linjär konfigurationen.
 
@@ -75,6 +77,8 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
 
     > [!NOTE]
     > De här kommandona använder Android Debug-bryggan, `adb.exe`, vilket är en del av Android Studio-installationen. Det här verktyget finns i C:\Users\[användarnamn] \AppData\Local\Android\Sdk\platform-verktyg. Du kan lägga till den här katalogen till sökvägen att göra det mer praktiskt att anropa `adb`. Annars måste du ange den fullständiga sökvägen för din installation av adb.exe i alla kommandon som anropar `adb`.
+    >
+    > Om du ser ett fel `no devices/emulators found` sedan kontrollera USB-kabel är ansluten och är en högkvalitativ kabel. Du kan använda `adb devices` att kontrollera att datorn kan kommunicera med i development kit som returneras en lista över enheter.
 
     > [!TIP]
     > Stäng av datorns mikrofon och högtalare för att säkerställa att du arbetar med i development kit mikrofoner. På så sätt kan du inte av misstag utlösa enheten med ljud från datorn.

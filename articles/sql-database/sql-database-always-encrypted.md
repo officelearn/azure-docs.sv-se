@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviwer: ''
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: de8bb0adf45a7cdaf9cc0d9a451af203e01e87da
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564890"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754887"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Windows-certifikatarkiv
 
@@ -47,7 +47,7 @@ Den här självstudien behöver du:
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **skapa en resurs** > **Data + lagring** > **SQL Database**.
-3. Skapa en **tom** databas med namnet **Clinic** på en ny eller befintlig server. Detaljerade anvisningar om hur du skapar en databas i Azure-portalen finns i [din första Azure SQL database](sql-database-get-started-portal.md).
+3. Skapa en **tom** databas med namnet **Clinic** på en ny eller befintlig server. Detaljerade anvisningar om hur du skapar en databas i Azure-portalen finns i [din första Azure SQL database](sql-database-single-database-get-started.md).
    
     ![Skapa en tom databas](./media/sql-database-always-encrypted/create-database.png)
 

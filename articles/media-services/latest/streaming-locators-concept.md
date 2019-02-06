@@ -9,102 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742753"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743488"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
-Du måste ange dina klienter med en URL som de kan använda för att spela upp kodade video- eller ljudinnehåll filer, måste du skapa en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators) och skapa strömmande URL: er. Mer information finns i [Stream en fil](stream-files-dotnet-quickstart.md).
+Att göra videor i utdata tillgången som är tillgängliga för klienter för uppspelning, måste du skapa en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators) och sedan skapa strömmande URL: er. .NET-exempel finns i [få en Strömningspositionerare](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
-## <a name="streaminglocator-definition"></a>StreamingLocator definition
+Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
 
-I följande tabell visar de StreamingLocator egenskaper och ger definitionerna.
+När du skapar en **Strömningspositionerare**, måste du ange den [tillgången](https://docs.microsoft.com/rest/api/media/assets) namn och [Streaming princip](https://docs.microsoft.com/rest/api/media/streamingpolicies) namn. Du kan antingen använda en av principerna för direktuppspelning fördefinierade eller skapat en anpassad princip. De fördefinierade principerna som är tillgänglig för tillfället är: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'. När du använder en anpassad bör strömning principen du utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ och protokoll krävs. 
 
-|Namn|Beskrivning|
-|---|---|
-|id |Fullständigt kvalificerade resurs-ID för resursen.|
-|namn|Namnet på resursen.|
-|properties.alternativeMediaId|Alternativa Media-ID för den här positionerare för direktuppspelning.|
-|properties.assetName|Tillgångsnamn|
-|properties.contentKeys|ContentKeys som används av den här Strömningspositionerare.|
-|Properties.Created|Tiden för skapandet av den Strömningspositionerare.|
-|properties.defaultContentKeyPolicyName|Namnet på ContentKeyPolicy som används av den här Strömningspositionerare.|
-|properties.endTime|Sluttid för den Strömningspositionerare.|
-|properties.startTime|Starttiden för den Strömningspositionerare.|
-|properties.streamingLocatorId|StreamingLocatorId av positionerare för direktuppspelning.|
-|properties.streamingPolicyName |Namnet på principen för direktuppspelning används av den här Strömningspositionerare. Ange namnet på Streaming principen som du skapade eller Använd någon av de fördefinierade principer för direktuppspelning. Den fördefinierade Streaming principer som är tillgängliga är: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' och 'Predefined_MultiDrmStreaming'|
-|typ|Typ av resursen.|
+Om du vill ange alternativ för kryptering på din stream skapar den [innehåll nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) som konfigurerar hur innehållsnyckeln levereras om du vill avsluta klienter via komponenten nyckel leverans av Media Services. Associera din Strömningspositionerare med den **innehåll nyckel princip** och innehållsnyckeln. Du kan låta Media Services för att skapa nyckeln. I följande .NET-exempel visas hur du konfigurerar AES-kryptering med en token begränsning i Media Services v3: [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). **Innehålls-principer för nycklar** är uppdateringsbar, kanske du vill uppdatera principen om du behöver göra en rotation av. Det kan ta upp till 15 minuter för leverans av nyckel-cacheminne för att uppdatera och hämta den uppdaterade policyn. Det rekommenderas att inte skapa en ny princip för Content-nyckel för varje Strömningspositionerare. Du bör försöka återanvända de befintliga principerna när samma alternativ behövs.
 
-Läs den fullständiga definitionen [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators).
+> [!IMPORTANT]
+> * Egenskaper för **positionerare för direktuppspelning** som är av typen är alltid i UTC-format för datum/tid.
+> * Du bör utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ behövs. 
 
 ## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
 
-Media Services har stöd för följande OData-frågealternativ för positionerare för direktuppspelning: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Operatorn beskrivning:
-
-* EQ = lika med
-* Ne = inte lika med
-* Ge = större än eller lika med
-* Le = mindre än eller lika med
-* Gt = större än
-* Lt = mindre än
-
-### <a name="filteringordering"></a>Filtrering/ordning
-
-I följande tabell visar hur dessa alternativ kan användas på StreamingLocator egenskaper: 
-
-|Namn|Filter|Beställa|
-|---|---|---|
-|id |||
-|namn|Eq, ne, ge, le, gt, lt|Stigande och fallande|
-|properties.alternativeMediaId  |||
-|properties.assetName   |||
-|properties.contentKeys |||
-|Properties.Created |Eq, ne, ge, le, gt, lt|Stigande och fallande|
-|properties.defaultContentKeyPolicyName |||
-|properties.endTime |Eq, ne, ge, le, gt, lt|Stigande och fallande|
-|properties.startTime   |||
-|properties.streamingLocatorId  |||
-|properties.streamingPolicyName |||
-|typ   |||
-
-### <a name="pagination"></a>Sidbrytning
-
-Sidbrytning stöds för var och en av fyra aktiverade sorteringsordningar. För närvarande är sidstorleken 10.
-
-> [!TIP]
-> Du bör alltid använda nästa länk för att räkna upp samlingen och inte är beroende av en viss storlek.
-
-Om ett frågesvar innehåller många objekt, tjänsten returnerar en ”\@odata.nextLink” egenskapen för att hämta nästa sida i resultatet. Detta kan användas för att bläddra igenom hela resultatmängden. Du kan inte konfigurera sidstorleken. 
-
-Om StreamingLocators skapas eller tas bort vid bläddring genom samlingen, syns ändringarna i de returnerade resultaten (om dessa ändringar finns i en del av den samling som inte har hämtats.) 
-
-I följande C#-exempel visar hur du räknar upp via alla StreamingLocators i kontot.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-REST-exempel finns i [Streaming positionerare - lista](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+Se [filtrering, sortering, växling av Media Services entiteter](entities-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Strömma en fil](stream-files-dotnet-quickstart.md)
+* [Självstudier: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)
+* [Använda DRM dynamisk kryptering och licens video-on-demand](protect-with-drm.md)

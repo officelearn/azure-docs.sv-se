@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ada579af44d1d0b4ea08a8ae9eadbec386e44f08
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20616adf649924a13e80411aa5135889a175f442
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823018"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750196"
 ---
 # <a name="get-information-from-a-coordinate"></a>Hämta information från en koordinat
 
@@ -33,7 +33,7 @@ Raden i det andra kodblocket skapar en instans av en klienttjänst.
 
 Det tredje kodblocket uppdaterar formatet för pekaren till en pekare och [popup-fönstret](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) objekt. Du kan se [lägga till ett popup-fönster på kartan](./map-add-popup.md) anvisningar.
 
-Fjärde blockeringen av kod lägger till en [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) för mus klickar. Vid en musklickning skapas en sökfråga med koordinaterna punktens klickade på. Därefter använder kartans [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchaddressreverse) slutpunkt för att fråga om adressen för koordinaterna.
+Fjärde blockeringen av kod lägger till en [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) för mus klickar. Vid en musklickning skapas en sökfråga med koordinaterna punktens klickade på. Därefter använder kartans [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest) slutpunkt för att fråga om adressen för koordinaterna.
 
 Den samlar in adressen till ställe för ett lyckat svar och definierar popup-fönstret innehåll och position via [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) funktion i klassen popup-fönstret.
 

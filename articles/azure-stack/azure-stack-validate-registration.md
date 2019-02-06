@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 0281186be4fae71c56b65327e0c67da3f252a33c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 614f8a3e3738e1c99f5a089410814765d278d3fe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239527"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743855"
 ---
 # <a name="validate-azure-registration"></a>Verifiera Azure-registrering
  
@@ -67,6 +67,8 @@ Följande krav måste vara uppfyllda:
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
+> [!NOTE]
+  > Som en Kryptografiprovider, när du använder en prenumeration för delade tjänster eller IUR, behöver du ange autentiseringsuppgifter för en användare från att respektive AAD. Det här är vanligtvis liknar `subscriptionowner@iurcontoso.onmicrosoft.com`. Användaren måste ha rätt autentiseringsuppgifter, enligt beskrivningen ovan.
 
 3. Från PowerShell-Kommandotolken kör du följande för att ange `$subscriptionID` som Azure-prenumeration du ska använda. Ersätt `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` med ditt eget prenumerations-ID:
    ```powershell

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: orspod
-ms.openlocfilehash: f492878ffcb888560d2aed269608950927cebd43
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8f2a7a953ce2964645c281d9454a73b0cf1a8ff6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55570044"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747196"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till och från Azure Data Explorer med Azure Data Factory
 
@@ -50,7 +50,7 @@ Följande egenskaper har stöd för Azure Data Explorer länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen måste anges till **AzureDataExplorer** | Ja |
-| slutpunkt | Slutpunkts-URL för Azure Data Explorer-klustret med formatet som `https://<clusterName>.kusto.windows.net`. | Ja |
+| slutpunkt | Slutpunkts-URL för Azure Data Explorer-klustret med formatet som `https://<clusterName>.<regionName>.kusto.windows.net `. | Ja |
 | databas | Namnet på databasen. | Ja |
 | klient | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det genom att hovra med musen i det övre högra hörnet i Azure Portal. | Ja |
 | servicePrincipalId | Ange programmets klient-ID. | Ja |
@@ -64,7 +64,7 @@ Följande egenskaper har stöd för Azure Data Explorer länkade tjänsten:
     "properties": {
         "type": "AzureDataExplorer",
         "typeProperties": {
-            "endpoint": "https://<clusterName>.kusto.windows.net",
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
             "tenant": "<tenant name/id e.g. microsoft.onmicrosoft.com>",
             "servicePrincipalId": "<service principal id>",
@@ -119,8 +119,8 @@ Om du vill kopiera data från Azure Data Explorer, ange den **typ** -egenskapen 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till: **AzureDataExplorerSource** | Ja |
-| DocumentDB | Använd anpassade KQL fråga för att läsa data. | Ja |
-| queryTimeout | Ange Väntetid innan frågebegäran når sin tidsgräns. Standardvärdet är 10: e minut (00: 10:00); tillåtna maxvärdet är 1 timme (01: 00:00). | Nej |
+| DocumentDB | En skrivskyddad begäran som anges i en [KQL format](/azure/kusto/query/). Använd anpassade KQL fråga som referens. | Ja |
+| queryTimeout | Väntetid innan frågebegäran når sin tidsgräns. Standardvärdet är 10: e minut (00: 10:00); tillåtna maxvärdet är 1 timme (01: 00:00). | Nej |
 
 **Exempel:**
 
@@ -162,7 +162,7 @@ För att kopiera data till Azure Data Explorer, ange egenskapen type i Kopiera a
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen kopiera aktivitet komprimeringstyp måste anges som: **AzureDataExplorerSink** | Ja |
-| ingestionMappingName | Namnet på [csv mappning](/azure/kusto/management/mappings#csv-mapping) i tabellen. Om du vill mappa kolumner från källa för att utforska Azure-Data, kan du också använda aktiviteten kopiera [kolumnmappning](copy-activity-schema-and-type-mapping.md). | Nej |
+| ingestionMappingName | Namnet på en förskapad [csv mappning](/azure/kusto/management/mappings#csv-mapping) på en Kusto-tabell. Om du vill mappa kolumner från källa för att utforska Azure-Data, kan du också använda aktiviteten kopiera [kolumnmappning](copy-activity-schema-and-type-mapping.md). | Nej |
 
 **Exempel:**
 

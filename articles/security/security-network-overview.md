@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 66243574a259f15f58f3b215e716d24dc6fa6e6d
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065689"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746701"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure network security
 
@@ -35,7 +35,7 @@ Den här artikeln beskriver några av de alternativ som Azure erbjuder i område
 * Namnmatchning
 * Nätverksarkitektur i perimeternätverk (DMZ)
 * Azure DDoS Protection
-* Azure ytterdörren
+* Azure Front Door
 * Traffic Manager
 * Övervakning och hotidentifiering
 
@@ -84,7 +84,7 @@ Läs mer:
 
 Läs mer:
 
-* [Azure Security Center Just-in-T](../security-center/security-center-just-in-time.md)
+* [Azure Security Center Just-in-Time-åtkomst](../security-center/security-center-just-in-time.md)
 
 #### <a name="service-endpoints"></a>Tjänstslutpunkter
 
@@ -333,7 +333,7 @@ Läs mer:
 
 * [DDOS protection-översikt](../virtual-network/ddos-protection-overview.md)
 
-## <a name="azure-front-door"></a>Azure ytterdörren
+## <a name="azure-front-door"></a>Azure Front Door
 
 Azure ytterdörren-tjänsten kan du definiera, hantera och övervaka globala routning av Internet-trafik. Detta optimerar routning av din nätverkstrafik för bästa prestanda och hög tillgänglighet. Med Azure Front Door kan du skapa anpassade regler för brandväggen för webbaserade program (WAF) vid åtkomstkontroll, för att skydda din HTTP/HTTPS-arbetsbelastning från utnyttjande som baseras på klienternas IP-adresser, landskod och HTTP-parametrar. Dessutom ytterdörren också kan du skapa begränsar regler för att beprövad skadlig robottrafik frekvensbegränsningen, den innehåller SSL-avlastning och per-HTTP/HTTPS-begäran, programnivå-bearbetning.
 
@@ -343,7 +343,7 @@ Läs mer:
 
 * Mer information om hela uppsättningen med Azure främre luckan är funktioner som du kan granska den [ytterdörren för Azure-översikt](../frontdoor/front-door-overview.md)
 
-## <a name="azure-traffic-manager"></a>Med Azure Traffic manager
+## <a name="azure-traffic-manager"></a>Azure Traffic manager
 
 Azure Traffic Manager är en belastningsutjämnare för DNS-baserad trafik som hjälper dig att distribuera trafiken optimalt till tjänster i globala Azure-regioner, med hög tillgänglighet och korta svarstider. Traffic Manager använder DNS för att dirigera klientbegäranden till den lämpligaste tjänstslutpunkten baserat på en trafikdirigeringsmetod och slutpunkternas hälsostatus. En slutpunkt är en Internetansluten tjänst i eller utanför Azure. Traffic manager övervakar slutpunkter och dirigera inte trafik till alla slutpunkter som inte är tillgängliga.
 

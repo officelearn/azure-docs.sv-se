@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e568f2adb3ff9310ed92ed19c9543f249cca7658
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098705"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745725"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
 Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
@@ -74,8 +74,10 @@ Sedan skulle aviseringen köra frågan var femte minut, med 30 minuters data –
 
 ### <a name="metric-measurement-alert-rules"></a>Varningsregler för metriska måttenheter
 
-- **Metrisk måttenhet** Varningsregler skapar en avisering för varje objekt i en fråga med ett värde som överskrider ett angivet tröskelvärde.  De har följande tydliga skillnader från **antal resultat** aviseringsregler.
+**Metrisk måttenhet** Varningsregler skapar en avisering för varje objekt i en fråga med ett värde som överskrider ett angivet tröskelvärde.  De har följande tydliga skillnader från **antal resultat** aviseringsregler.
+
 - **Mängdfunktion**: Anger beräkningen som utförs och eventuellt ett numeriskt fält ska aggregeras.  Till exempel **antal()** returnerar antalet poster i frågan, **avg(CounterValue)** Returnerar medelvärdet för fältet CounterValue under period. Mängdfunktion i fråga måste vara med namnet/kallas: AggregatedValue och ange ett numeriskt värde. 
+
 - **Gruppera fältet**: En post med ett aggregerat värde skapas för varje instans av det här fältet och en avisering genereras för varje.  Till exempel om du vill generera en avisering för varje dator använder du **per dator**. Om det finns flera gruppfältet som anges i aviseringen fråga kan användaren kan ange vilka fält som används för att sortera sökresultat med den **sammanställda på** (metricColumn)-parameter
 
     > [!NOTE]

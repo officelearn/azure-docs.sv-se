@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: f0f4d160b9e9d5e556813115aa39c60ea8f4edb2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f549c748c87405b47868c75cc01af81efd202af2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733339"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755364"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för en icke-galleriprogram
 
-Förutom de alternativ som finns i Azure AD-Programgalleriet har du också möjlighet att lägga till en **icke-galleriprogram** när du vill att programmet inte finns. Den här funktionen kan du kan lägga till alla program som redan finns i din organisation eller något från tredje part-program som du kan använda från en leverantör som inte är redan en del av den [Azure AD-Programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+Förutom de alternativ som finns i Azure AD-Programgalleriet har du också möjlighet att lägga till en **icke-galleriprogram** när du vill att programmet inte finns. Den här funktionen kan du kan lägga till alla program som redan finns i din organisation eller något från tredje part-program som du kan använda från en leverantör som inte är redan en del av den [Azure AD-Programgalleriet](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 När du lägger till en icke-galleriprogram, du kan sedan konfigurera enkel inloggning för metoden det här programmet används genom att välja den **enkel inloggning** navigering objekt i ett Enterprise-program i den [Azure-portalen](https://portal.azure.com/).
 

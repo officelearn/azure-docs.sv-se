@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c8aadcf7b37e28035e936a9f722ee832127e928d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8e0b0572f0d728474c17b41a0f92948451f4ef3f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038593"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746956"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Skapa en Azure Cache för Redis med hjälp av en mall
 I det här avsnittet får du lära dig hur du skapar en Azure Resource Manager-mall som distribuerar en Azure Cache för Redis. Cacheminnet kan användas med ett befintligt lagringskonto för att hålla diagnostikdata. Du också lära dig hur du definierar vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
@@ -33,7 +33,7 @@ Läs den fullständiga mallen, [Azure Cache för Redis-mallen](https://github.co
 > [!NOTE]
 > Resource Manager-mallar för den nya [premiumnivån](cache-premium-tier-intro.md) är tillgängliga. 
 > 
-> * [Skapa en Premium Azure Cache för Redis med klustring](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [Skapa en Premium Azure Cache för Redis med klustring](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Skapa Premium Azure Cache för Redis med datapersistens](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
 > * [Skapa Premium Azure Cache för Redis med virtuellt nätverk och valfritt kluster](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 

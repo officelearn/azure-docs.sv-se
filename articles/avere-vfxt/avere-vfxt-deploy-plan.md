@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: c0304e290d18e6569e3fcc2efbab8af15727b80c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508170"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744664"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planera för ditt Avere vFXT-system
 
@@ -37,6 +37,9 @@ Följ dessa riktlinjer när du planerar Avere vFXT systemets nätverksinfrastruk
 * Hitta din beräkning klientsystem nära vFXT klustret. Backend-lagringen kan vara lägre.  
 
 * Leta upp vFXT klustret och kontrollanten kluster virtuell dator i samma virtuella nätverk (vnet) och i samma resursgrupp för enkelhetens skull. De bör också använda samma lagringskonto. (Kontrollanten kluster skapar klustret och kan också användas för kommandoraden klusterhantering.)  
+
+  > [!NOTE] 
+  > Klustret skapas mallen kan skapa en ny resursgrupp och ett nytt lagringskonto för klustret. Du kan ange en befintlig resursgrupp, men den måste vara tom.
 
 * Klustret måste finnas i ett eget undernät att undvika IP-adresskonflikter med klienter eller beräkningsresurser. 
 

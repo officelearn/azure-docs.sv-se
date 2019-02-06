@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7473f89b711e804dbe96d299bc6f47adaceb6859
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b842fb65778d760951affb06eab35f54118557d2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465222"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754412"
 ---
 # <a name="sql-database-application-development-overview"></a>Översikt över SQL Database-programutveckling
 
 Den här artikeln beskriver grundläggande överväganden som utvecklare bör tänka på då de skriver kod för att ansluta till Azure SQL Database.
 
 > [!TIP]
-> En självstudiekurs som visar hur du skapar en server, skapar en serverbaserad brandvägg, visa egenskaperna för servern, ansluta med hjälp av SQL Server Management Studio, frågar huvuddatabasen, skapa en exempeldatabas och en tom databas, frågar om Databasegenskaper, ansluter med SQL Server Management Studio och fråga exempeldatabasen, se [komma igång-Självstudier](sql-database-get-started-portal.md).
+> En självstudiekurs som visar hur du skapar en server, skapar en serverbaserad brandvägg, visa egenskaperna för servern, ansluta med hjälp av SQL Server Management Studio, frågar huvuddatabasen, skapa en exempeldatabas och en tom databas, frågar om Databasegenskaper, ansluter med SQL Server Management Studio och fråga exempeldatabasen, se [komma igång-Självstudier](sql-database-single-database-get-started.md).
 >
 
 ## <a name="language-and-platform"></a>Språk och plattform
@@ -51,7 +51,7 @@ Azure SQL Database innehåller resurser för att begränsa åtkomst, skydda data
 
 * Mer information: [Säkra din SQL Database](sql-database-security-overview.md).
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 - Azure SQL Database stöder både användare och inloggningar för SQL Server-autentisering samt användare och inloggningar för [Azure Active Directory-autentisering](sql-database-aad-authentication.md).
 - Du måste ange en viss databas i stället för *huvud*databasen som standard.

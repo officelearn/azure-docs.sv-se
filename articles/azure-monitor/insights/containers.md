@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fd614a632945dbcc89c530df54b8416809029d1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9cf64f98e0a06fc063340f39326fdc1c12645db8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194036"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756452"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i Log Analytics
 
@@ -105,8 +105,8 @@ Använd följande information för att installera och konfigurera lösningen.
   - För dirigering av Docker flera värden:
     - Om du har en Red Hat OpenShift-miljö kan du granska [konfigurera en Log Analytics-agenten för Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
     - Om du har ett Kubernetes-kluster med hjälp av Azure Container Service:
-       - Granska [konfiguration en Log Analytics Linux-agenten för Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
-       - Granska [konfigurera en Log Analytics-Windows-agent för Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Granska [konfiguration en Log Analytics Linux-agenten för Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
+       - Granska [konfigurera en Log Analytics-Windows-agent för Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Granska [Använd Helm för att distribuera Log Analytics-agenten på Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Om du har ett Azure Container Service DC/OS-kluster kan du läsa mer på [övervaka ett Azure Container Service DC/OS-kluster med Log Analytics](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Om du har en miljö på Docker Swarm-läge, Läs mer på [konfigurera Log Analytics-agenten för Docker Swarm](#configure-an-oms-agent-for-docker-swarm).

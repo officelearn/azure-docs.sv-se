@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/18/2019
 ms.author: yashar
-ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4f70a34febcf0b39d051053a6ddd9abe5c9a6726
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582199"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745987"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Betala i förskott för SUSE programvaruplaner från Azure-reservationer
 
@@ -27,7 +27,7 @@ Betala i förskott för din SUSE-användning och spara pengar jämfört din beta
 Du kan köpa planer för SUSE-programvara i Azure-portalen. Att köpa en plan:
 
 - Du måste vara i en ägarrollen för minst en Enterprise eller användningsbaserad betalning.
-- Köp av reservation måste aktiveras för Enterprise-prenumerationer för i den [EA-portalen](https://ea.azure.com).
+- För Enterprise-prenumerationer, **lägga till reserverade instanser** måste aktiveras i den [EA-portalen](https://ea.azure.com). Eller, om den här inställningen har inaktiverats kan du måste vara en EA-administratör för prenumerationen.
 - Efter programmet Cloud Solution Provider (CSP), kan administratören agenter eller försäljning agenter köpa SUSE-planer.
 
 ## <a name="buy-a-suse-software-plan"></a>Köp en plan för SUSE-programvara
@@ -39,8 +39,8 @@ Du kan köpa planer för SUSE-programvara i Azure-portalen. Att köpa en plan:
     | Fält      | Beskrivning|
     |:------------|:--------------|
     |Namn        |Namnet på det här köpet.|
-    |Prenumeration|Den prenumeration som används för att betala för den här planen. Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett företagsavtal (erbjudandets nummer: MS-AZR-0017P) eller Betala per användning (erbjudandets nummer: MS-AZR-0003P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|
-    |Scope       |Omfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - plan rabatt tillämpas på SUSE Linux-användning i den här prenumerationen. </li><li>Delad – tillämpas plan rabatt på SUSE Linux-användning i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer (utom prenumerationer för utveckling och testning) i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
+    |Prenumeration|Den prenumeration som används för att betala för den här planen. Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller betala per användning (erbjuder siffror: MS-AZR-0003P eller MS-AZR - 0023 P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|
+    |Scope       |Omfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - plan rabatt tillämpas på SUSE Linux-användning i den här prenumerationen. </li><li>Delad – tillämpas plan rabatt på SUSE Linux-användning i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
     |Programprenumeration     |Välj SUSE Linux-plan. Om du vill ha hjälp med att bestämma vad du ska köpa kan du läsa mer om [SUSE Linux Enterprise-programvara och hur reservationsrabatt tillämpas](../../billing/billing-understand-suse-reservation-charges.md).|
     |Storlek på virtuell dator     |SUSE Linux priserna beror på antalet virtuella processorer på den virtuella datorn. Välj det alternativ som representerar antalet virtuella processorer på din SUSE Linux-datorer.|
     |Period        |Ett eller tre år.|

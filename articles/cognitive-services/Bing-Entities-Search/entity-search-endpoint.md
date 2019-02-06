@@ -1,43 +1,40 @@
 ---
-title: Entitetssökning i Bing-slutpunkter
+title: Entitetssökning i Bing-slutpunkt
 titlesuffix: Azure Cognitive Services
-description: Sammanfattning av API för Entitetssökning i slutpunkten.
+description: Läs om API för Entitetssökning i Bing-slutpunkten och skicka begäranden till den.
 services: cognitive-services
-author: aahill
+author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.author: aahi
-ms.openlocfilehash: 561c64db2b97ed8792acab6cc87de861ecc30fe9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/01/2019
+ms.author: v-gedod
+ms.openlocfilehash: cae65c8fb7deb9f68a297de2058a86249b60136b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183993"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753988"
 ---
-# <a name="entity-search-endpoints"></a>Entiteten Sök slutpunkter
-Den **Entitetssökning** innehåller en slutpunkt.
+# <a name="bing-entity-search-api-endpoint"></a>Entitetssökning i Bing-slutpunkt
 
-## <a name="endpoint"></a>Slutpunkt
-Om du vill begära resultat från att skicka en begäran till följande slutpunkt. Använda rubriker och URL-parametrar för att definiera ytterligare specifikationer.
 
-Slutpunkten `GET`: 
-``` 
-https://api.cognitive.microsoft.com/bing/v7.0/entities
+Bing-Entitetssökning har en slutpunkt som returnerar entiteter från webben baserat på en fråga. Dessa sökresultaten returneras i JSON.
+
+## <a name="get-entity-results-from-the-endpoint"></a>Hämta enhetsresultat från slutpunkten
+
+Att hämta entiteten resultat med hjälp av den **API för Bing**, skicka en `GET` begäran till följande slutpunkt. Använd [rubriker](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers) och [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters) att anpassa din begäran. Sök efter ansökningar kan skickas med hjälp av den `?q=` parametern.
+
+```cURL
+ GET https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
-
-Följande URL-parametrar krävs:
-- mkt. Marknaden som resultatet kommer från. 
-- q. Sökfråga för entiteten.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstarter för Entitetssökning i Bing](quickstarts/csharp.md)
+> [Vad är den Entitetssökning i Bing?](overview.md)
 
 ## <a name="see-also"></a>Se också 
 
-[Entitetssökning i Bing översikt](search-the-web.md )
-[API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+Läs mer om huvuden parametrar, marknaden koder, svarsobjekt, fel och den [Entitetssökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) referensartikeln.

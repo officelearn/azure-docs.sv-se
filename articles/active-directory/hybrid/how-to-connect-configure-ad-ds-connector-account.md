@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d58751bc9379d6d9a5a492bee35e349c36087c7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5ad77b0c88c71860db939feecac5a1aecfc4ca40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497901"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756296"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurera behörigheterna för AD DS-koppling 
 
 PowerShell-modulen med namnet [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) introducerades i version 1.1.880.0 (släpptes i augusti 2018) som innehåller en uppsättning cmdletar för att hjälpa dig att konfigurera Active Directory-behörighet för din Azure AD Anslut distribution. 
 
 ## <a name="overview"></a>Översikt 
-Följande PowerShell-cmdletar kan användas för att konfigurera Active Directory-behörigheter för AD DS-anslutningskontot för varje funktion som du låtsas att aktivera i Azure AD Connect. För att förhindra problem bör du förbereda Active Directory-behörigheter i förväg när du vill installera Azure AD Connect med ett konto för anpassad domän för att ansluta till din skog. Den här modulen ADSyncConfig kan också användas för att konfigurera behörigheter när Azure AD Connect har distribuerats.
+Följande PowerShell-cmdletar kan användas för att konfigurera Active Directory-behörigheter för AD DS-anslutningskontot för varje funktion som du väljer för att aktivera i Azure AD Connect. För att förhindra problem bör du förbereda Active Directory-behörigheter i förväg när du vill installera Azure AD Connect med ett konto för anpassad domän för att ansluta till din skog. Den här modulen ADSyncConfig kan också användas för att konfigurera behörigheter när Azure AD Connect har distribuerats.
 
 ![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 

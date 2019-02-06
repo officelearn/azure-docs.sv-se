@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: ffc724c52fdab01bfbf2846ff06a35f38a57c8eb
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 8d421adfae335a976485ed463a69484a74be5b44
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060243"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753937"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Vanliga frågor och svar om virtuella Linux-datorer
 Den här artikeln tar upp några vanliga frågor om Linux-datorer som skapats i Azure med hjälp av Resource Manager-distributionsmodellen. Windows-version av det här avsnittet finns [vanliga frågor och svar om Windows virtuella datorer](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -31,7 +31,7 @@ Alla prenumeranter kan köra serverprogramvara på en virtuell Azure-dator. Mer 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hur mycket lagringsutrymme kan jag använda med en virtuell dator?
 Varje datadisk kan vara upp till 4 TB (4095 GB). Antalet datadiskar som du kan använda beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure Managed Disks är de rekommenderade disklagringsalternativet för användning med Azure Virtual Machines för beständig datalagring. Du kan använda flera Managed Disks till varje virtuell dator. Managed Disks tillhandahåller två lagringsalternativ: Premium och Standard. Information om priser finns i [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
+Azure Managed Disks är de rekommenderade disklagringsalternativet för användning med Azure Virtual Machines för beständig datalagring. Du kan använda flera Managed Disks till varje virtuell dator. Hanterade diskar två typer av erbjudanden lagringsalternativ: Premium och Standard Managed Disks. Information om priser finns i [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Azure storage-konton kan också ge lagringsutrymme för operativsystemsdisken och eventuella datadiskar. Varje disk är en VHD-fil som lagras som en sidblob. Information om priser finns i [Information om lagringspriser](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -53,10 +53,10 @@ Två nya regioner för centrala Kanada och Östra Kanada registreras inte automa
 Ja, det är nu möjligt. Den virtuella datorn måste först stoppas frigörs. Du kan sedan lägga till eller ta bort ett nätverkskort (såvida den inte det senaste nätverkskortet på den virtuella datorn). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Finns det några krav på dator namn?
-Ja. Namnet på datorn kan vara högst 64 tecken långt. Se [Naming conventions regler och begränsningar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för mer information om namngivning av dina resurser.
+Ja. Namnet på datorn kan vara högst 64 tecken långt. Se [Naming conventions regler och begränsningar](/azure/architecture/best-practices/naming-conventions) för mer information om namngivning av dina resurser.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Finns det någon resurs uppfylla kraven för gruppen?
-Ja. Resursgruppens namn kan vara högst 90 tecken. Se [Naming conventions regler och begränsningar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för mer information om resursgrupper.
+Ja. Resursgruppens namn kan vara högst 90 tecken. Se [Naming conventions regler och begränsningar](/azure/architecture/best-practices/naming-conventions) för mer information om resursgrupper.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Vilka är kraven för användarnamn när du skapar en virtuell dator?
 
@@ -66,7 +66,7 @@ Följande användarnamn tillåts inte:
 
 <table>
     <tr>
-        <td style="text-align:center">administratör </td><td style="text-align:center"> Admin </td><td style="text-align:center"> Användare </td><td style="text-align:center"> User1</td>
+        <td style="text-align:center">administratör </td><td style="text-align:center"> admin </td><td style="text-align:center"> Användare </td><td style="text-align:center"> User1</td>
     </tr>
     <tr>
         <td style="text-align:center">test </td><td style="text-align:center"> Användare2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> USER3</td>
@@ -75,19 +75,19 @@ Följande användarnamn tillåts inte:
         <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
+        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
     </tr>
     <tr>
         <td style="text-align:center">säkerhetskopiering </td><td style="text-align:center"> konsol </td><td style="text-align:center"> David </td><td style="text-align:center"> Gäst</td>
     </tr>
     <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> ägare </td><td style="text-align:center"> rot </td><td style="text-align:center"> server</td>
+        <td style="text-align:center">john </td><td style="text-align:center"> ägare </td><td style="text-align:center"> rot </td><td style="text-align:center"> server</td>
     </tr>
     <tr>
         <td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> Användare4 lade </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> Användare4 lade </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 

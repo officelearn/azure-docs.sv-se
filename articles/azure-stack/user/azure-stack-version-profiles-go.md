@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9b66a7a176862fce687b7cc0b1ff3c14bda118d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243897"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745409"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Använd API-versionsprofiler med Go i Azure Stack
 
@@ -68,7 +68,7 @@ Följ dessa steg om du vill köra ett exempel på Go-koden på Azure Stack:
 
    > [!NOTE]  
    > Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/`  
-   > Den **ResourceManagerUrl** integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+   > Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/`  
    > Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
    JSON-exempelfilen:
@@ -126,7 +126,7 @@ Följ dessa steg om du vill köra ett exempel på Go-koden på Azure Stack:
 
 Ett komplett exempel för att skapa ett virtuellt nätverk för Azure Stack med hjälp av Go SDK-profil, finns det [exempel](#example).
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 Att hämta den **Authorizer** egenskap från Azure Active Directory med Go-SDK installerar den **Go-AutoRest** moduler. Dessa moduler bör har redan installerats med ”Go SDK”-installation. Om inte, installerar den [autentiseringspaket från GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 

@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/8/2019
+ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3e5f84a6f05e451b1eafa98c373f9d838421016e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a497784a665c62d23a017b71acf709120e34c369
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229331"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746973"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Uppdateringar av tjänsten i Azure Site Recovery
 Som en organisation måste du ta reda på hur du ska skydda data och appar/arbetsbelastningar som körs när planerade och oplanerade avbrott inträffar. Azure Site Recovery bidrar till din BCDR-strategi genom att hålla appar som körs på virtuella datorer och fysiska servrar tillgängliga om en plats kraschar. Site Recovery replikerar arbetsbelastningar som körs på virtuella datorer och fysiska servrar så att de fortfarande är tillgängliga på en sekundär plats om den primära platsen inte är tillgänglig. Den återställer arbetsbelastningar till den primära platsen när den är igång och körs igen.
@@ -97,10 +97,13 @@ Om du har valt att hantera uppdateringar manuellt gör du följande:
 
 ## <a name="between-an-on-premises-vmware-or-physical-site-to-azure"></a>Mellan en lokal VMware eller fysiska plats till Azure
 
-1. Installera uppdateringen först på den lokala hanteringsservern. Det här är den server där konfigurationsservern och Process server-roller. 
-2. Om du har skala ut processervrar kan du uppdatera dem sedan.
-3. Gå till Azure-portalen och gå sedan till den **skyddade objekt** > **replikerade objekt** sidan.
-Välj en virtuell dator på den här sidan. Välj den **Update-agenten** som visas längst ned på sidan för varje virtuell dator. Detta uppdaterar Mobilitetstjänstagenten för alla skyddade virtuella datorerna.
+Innan du fortsätter med uppdateringar som avser [Site Recovery-supportmeddelande](#support-statement-for-azure-site-recovery) att förstå uppgraderingsvägen.
+
+1. Baserat på din aktuella version och stöd för instruktionen som anges ovan, installera uppdateringen först på den lokala management-servern genom att följa riktlinjerna [här](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). Det här är den server där konfigurationsservern och Process server-roller.
+2. Om du har skalbara bearbeta servrar, uppdatera dem sedan genom att följa riktlinjerna [här](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+3. Sedan för att uppdatera mobilitetsagenten på varje skyddat objekt, gå till Azure portal och gå sedan till den **skyddade objekt** > **replikerade objekt** sidan. Välj en virtuell dator på den här sidan. Välj den **Update-agenten** som visas längst ned på sidan för varje virtuell dator. Detta uppdaterar Mobilitetstjänstagenten för alla skyddade virtuella datorerna.
+
+### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>Omstart av källdatorn när mobilitetsagenten har uppgraderat
 
 En omstart rekommenderas efter varje uppgradering av mobilitetsagenten för att se till att alla senaste ändringarna har lästs in på källdatorn. Det är dock **inte obligatoriska**. Om skillnaden mellan agentversion under senaste omstart och aktuella versionen är större än 4, är det obligatoriskt med en omstart. Se följande tabell detaljerad förklaring.
 
@@ -111,14 +114,12 @@ En omstart rekommenderas efter varje uppgradering av mobilitetsagenten för att 
 | 9.16 | 9.20 | Ej obligatoriskt
  | 9.16 | 9.21 | Ja, först uppgradera till 9.20 och sedan starta om innan du uppgraderar till 9.21 som skillnaden mellan versionerna (9.16 där den senaste omstarten har utförts och målversionen 9.21) är > 4
 
-
-
 ## <a name="links-to-currently-supported-update-rollups"></a>Länkar till stöds för närvarande samlade uppdateringar
 
-
-|Samlad uppdatering  |Provider  |Enhetlig installation| OVF  |MARS|
+|Samlad uppdatering  |Leverantör  |Enhetlig installation| OVF  |MARS|
 |---------|---------|---------|---------|--------|
-|[Samlad uppdatering 32](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
+|[Samlad uppdatering 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
+|[Samlad uppdatering 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Samlad uppdatering 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Samlad uppdatering 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[Samlad uppdatering 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0

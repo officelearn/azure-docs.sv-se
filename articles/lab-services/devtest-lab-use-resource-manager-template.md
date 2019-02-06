@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686389"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746922"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Skapa virtuella datorer med en Azure Resource Manager-mall 
 
@@ -47,7 +47,7 @@ Resten av den här artikeln beskriver Resource Manager-mallar som använder Micr
 [Bästa praxis för att skapa Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) erbjuder många riktlinjer och förslag för att skapa Azure Resource Manager-mallar som är tillförlitliga och enkelt att använda.
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Visa och spara en virtuell dators Resource Manager-mall
-1. Följ stegen i [skapa din första virtuella dator i ett labb](devtest-lab-create-first-vm.md) att börja skapa en virtuell dator.
+1. Följ stegen i [skapa din första virtuella dator i ett labb](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) att börja skapa en virtuell dator.
 1. Ange informationen som krävs för den virtuella datorn och Lägg till alla artefakter som du vill använda för den här virtuella datorn.
 1. Längst ned i fönstret Konfigurera inställningar väljer **visa ARM-mallen**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 441821ae422fb4cbddbca5b4c30d68484ce6bc1f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55632acf516198b5ad0b6430480836dcc62fd5a5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186985"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755397"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Ett oväntat program i listan över program
 
@@ -63,15 +63,15 @@ När filtrerat till **alla program**, **alla program** **lista** visar alla obje
 
 4.  När du lägger till en ny programregistrering genom att skapa ett egenutvecklat program som använder den [programregistret](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
-5.  När du lägger till en ny programregistrering genom att skapa ett egenutvecklat program som använder den [V2.0 programregistreringsportalen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
+5.  När du lägger till en ny programregistrering genom att skapa ett egenutvecklat program som använder den [V2.0 programregistreringsportalen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 
 6.  När du lägger till ett program du håller på att utveckla med Visual Studio [ASP.net autentiseringsmetoder](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) eller [Connected Services](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
 7.  När du skapar ett objekt med den [Azure AD PowerShell-modulen](/powershell/azure/install-adv2?view=azureadps-2.0)
 
-8.  När du [samtycka till ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) som administratör för att använda data i din klient
+8.  När du [samtycka till ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) som administratör för att använda data i din klient
 
-9.  När en [användare godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) att använda data i din klient
+9.  När en [användare godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) att använda data i din klient
 
 10. När du aktiverar vissa tjänster som lagrar data i din klient. Ett exempel är återställning av lösenord, som modellerats som princip för återställning av tjänstens huvudnamn för att lagra lösenordet på ett säkert sätt.
 
@@ -107,7 +107,7 @@ Att **ta bort ett program**, Följ dessa steg:
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Jag vill inaktivera alla framtida medgivande användaråtgärder för program
 
-Inaktiverar användarens medgivande för hela katalogen förhindra slutanvändare från principer för alla program. Administratörer kan fortfarande ge samtycke på användarens behalves. Mer information om programtillåtelser och varför du kanske eller kanske inte vill ge samtycke, läsa [Förstå användar- och administratörens godkännande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Inaktiverar användarens medgivande för hela katalogen förhindra slutanvändare från principer för alla program. Administratörer kan fortfarande ge samtycke på användarens behalves. Mer information om programtillåtelser och varför du kanske eller kanske inte vill ge samtycke, läsa [Förstå användar- och administratörens godkännande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 Att **inaktivera alla framtida medgivande användaråtgärder i hela katalogen**, Följ dessa steg:
 

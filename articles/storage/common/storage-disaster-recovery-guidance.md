@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc79379d1b893beffc085e79b7643fcb6e1dc26f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657322"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753596"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery och storage-konto redundans (förhandsversion) i Azure Storage
 
@@ -158,15 +158,11 @@ Ohanterade diskar lagras som sidblobar i Azure Storage. När en virtuell dator k
 
 Tänk på att alla data som lagras i en tillfällig disk förloras när Virtuellt datorn stängs av.
 
-#### <a name="azure-file-sync"></a>Azure File Sync
-
-Azure File Sync stöder konto redundans. Men måste du konfigurera om alla Azure File Sync-inställningar när redundansen är klar.
-
 ### <a name="unsupported-features-or-services"></a>Funktioner som inte stöds eller tjänster
-
 Följande funktioner eller tjänster stöds inte för kontot redundans i förhandsversionen:
 
-- Azure Data Lake Storage Gen2 hierarkiska filresurser redundansväxlas inte.
+- Azure File Sync har inte stöd för växling vid fel för storage-konto. Storage-konton som innehåller Azure-filresurser som används som molnslutpunkter i Azure File Sync bör inte att redundansväxla. Synkronisering av orsaken till slutar fungera och kan också gör oväntade data går förlorade vid nyligen nivåindelade filer.  
+- Lagringskonton med hjälp av Azure Data Lake Storage Gen2 hierarkiskt namnområde redundansväxlas inte.
 - Ett lagringskonto som innehåller arkiverade blobbar redundansväxlas inte. Underhålla arkiverade blobar i ett separat lagringskonto som du inte planerar att redundansväxla.
 - Ett lagringskonto som innehåller premium blockblob-objekt kan inte växlas. Storage-konton som har stöd för premium blockblobar stöder för närvarande inte geo-redundans.
 

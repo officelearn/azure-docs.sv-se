@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 6c3d3c831be52f56a1e0d3749ea2aa93fee0a955
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 7b8516566709c024043c413098c948965e255e13
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401749"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746667"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Så här återställer du nätverksgränssnitt för virtuella Azure Windows-datorer 
 
@@ -54,7 +54,7 @@ Den här artikeln visar hur du återställer nätverksgränssnitt för virtuella
 
     ```powershell
     #Set the variables 
-    $SubscriptionID = "<Suscription ID>"
+    $SubscriptionID = "<Subscription ID>"
     $VM = "<VM Name>"
     $ResourceGroup = "<Resource Group>"
     $VNET = "<Virtual Network>"
@@ -95,7 +95,7 @@ Följ dessa steg om du vill återställa nätverksgränssnitt:
 
     ```powershell
     #Set the variables 
-    $SubscriptionID = "<Suscription ID>"
+    $SubscriptionID = "<Subscription ID>"
     $VM = "<VM Name>"
     $CloudService = "<Cloud Service>"
     $VNET = "<Virtual Network>"

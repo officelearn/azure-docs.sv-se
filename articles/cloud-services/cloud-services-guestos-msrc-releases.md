@@ -11,36 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/22/2019
+ms.date: 2/5/2019
 ms.author: raiye
-ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4c1b1b376493c77ae0f197d800ee0d00434b19c6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828459"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752117"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
-
->[!NOTE]
->Gäst-OS januari distribueras för närvarande till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i Gästoperativsystemet i januari. Den här listan kan ändras.
 
 ## <a name="january-2019-guest-os"></a>Januari 2019 gäst-OS
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480116] | Windows 10 Security | 6.3 | Den 8 januari 2019 |
 | Rel 19-01 | [4480961] | Windows 10 Security | 5.27 | Den 8 januari 2019 |
 | Rel 19-01 | [4480964] | Windows-säkerhet | 4.62 | Den 8 januari 2019 |
 | Rel 19-01 | [4480972] | Windows-säkerhet | 3.69 | Den 8 januari 2019 |
 | Rel 19-01 | [4480960] | Windows-säkerhet | 2.82 | Den 8 januari 2019 |
+| Rel 19-01 | [4480056] | Säkerheten i .net | 6.3 | Den 8 januari 2019 |
 | Rel 19-01 | [4480074] | Säkerheten i .net 4.x | 4.62 | Den 8 januari 2019 |
 | Rel 19-01 | [4480075] | Säkerheten i .net 4.x | 3.69 | Den 8 januari 2019 |
 | Rel 19-01 | [4480076] | Säkerheten i .net 4.x | 2.82 | Den 8 januari 2019 |
 | Rel 19-01 | [4480086] | .Net 3.x Security | 4.62 | Den 8 januari 2019 |
 | Rel 19-01 | [4480083] | .Net 3.x Security | 3.69 | Den 8 januari 2019 |
 | Rel 19-01 | [4480085] | .Net 3.x Security | 2.82 | Den 8 januari 2019 |
-| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27 | Den 8 januari 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | Den 8 januari 2019 |
 | Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | Den 8 januari 2019 |
 | Gäller inte | [4471318] | Insamling av december icke-säkerhet | 2.82 | 11 december 2018 |
 | Gäller inte | [4470641] | Insamling av icke-säkerhet december .NET 3.x | 2.82 | 11 december 2018 |
@@ -52,10 +51,12 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4470630] | Insamling av icke-säkerhet december .NET 3.x | 4.62 | 11 december 2018 |
 | Gäller inte | [4470622] | Insamling av icke-säkerhet december .NET 4.x | 4.62 | 11 december 2018 |
 
+[4480116]: http://support.microsoft.com/kb/4480116
 [4480961]: http://support.microsoft.com/kb/4480961
 [4480964]: http://support.microsoft.com/kb/4480964
 [4480972]: http://support.microsoft.com/kb/4480972
 [4480960]: http://support.microsoft.com/kb/4480960
+[4480056]: http://support.microsoft.com/kb/4480056
 [4480074]: http://support.microsoft.com/kb/4480074
 [4480075]: http://support.microsoft.com/kb/4480075
 [4480076]: http://support.microsoft.com/kb/4480076

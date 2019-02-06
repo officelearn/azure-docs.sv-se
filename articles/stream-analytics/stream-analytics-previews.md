@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 70cc6210a0c047867980de67ac24701df29ce8bf
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/05/2019
+ms.openlocfilehash: 29997b2ff7d3834a91389790256cd0d075ce1ece
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485185"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744916"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics-förhandsversionsfunktioner
 
@@ -23,13 +23,21 @@ Den här artikeln beskriver alla funktioner för närvarande i förhandsversion 
 
 Följande funktioner finns i offentlig förhandsversion. Du kan dra nytta av funktionerna i dag, men använda inte dem i din produktionsmiljö.
 
+### <a name="sql-database-reference-data"></a>Referensdata för SQL-databas
+
+Azure Stream Analytics har stöd för Azure SQL Database som en källa av indata för referensdata. Du kan använda SQL-databas som referensdata för ditt Stream Analytics-jobb i Azure-portalen och i Visual Studio med Stream Analytics-verktyg. Mer information, besök, [Använd referensdata från en SQL-databas till Azure Stream Analytics-jobb](sql-reference-data.md).
+
 ### <a name="integration-with-azure-machine-learning"></a>Integrering med Azure Machine Learning
 
 Du kan skala Stream Analytics-jobb med Machine Learning (ML)-funktioner. Läs mer om hur du kan använda ML-funktioner i ditt Stream Analytics-jobb [skala ditt Stream Analytics-jobb med Azure Machine Learning-funktioner](stream-analytics-scale-with-machine-learning-functions.md). Kolla in ett verkligt scenario med [utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>BLOB-utdata partitionering av anpassad tid
 
-Azure Stream Analytics kan skickas till Blob-lagring baserat på anpassad tidsattribut. För mer information, besök [anpassad DateTime sökvägsmönster för Azure Stream Analytics blob storage-utdata](stream-analytics-custom-path-patterns-blob-storage-output.md).
+Azure Stream Analytics kan skickas till blob-lagring baserat på anpassad tidsattribut. För mer information, besök [Azure Stream Analytics anpassade blob-utdata partitionering](stream-analytics-custom-path-patterns-blob-storage-output.md).
+
+### <a name="blob-output-partitioning-by-field-or-attribute"></a>BLOB-utdata partitionerade efter fält eller attribut
+
+Azure Stream Analytics kan skickas till blob-lagring baserat på anpassade fält eller attribut. För mer information, besök [Azure Stream Analytics anpassade blob-utdata partitionering](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### <a name="javascript-user-defined-aggregate"></a>JavaScript användardefinierad samling
 
@@ -55,13 +63,13 @@ Azure Stream Analytics introducerar nya machine learning-modeller med stöd för
 
 Utvecklare kan nu användas för att implementera anpassade deserializers i C# för att deserialisera händelser som tagits emot av Azure Stream Analytics. Exempel på format som kan deserialiseras är Parquet, Protobuf, XML eller alla binära dataformat.
 
-### <a name="blob-output-partitioning-by-custom-attribute"></a>BLOB-utdata partitionering av anpassade attribut
-
-Nu är det möjligt att partitionera dina Azure Stream Analytics-utdata till Blob-lagring baserat på alla kolumner i frågan.
-
 ### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Hanterade identiteter för Azure-resurs autentisering till Azure Data Lake Storage
 
 Du kan nu utföra åtgärder i realtid pipelines med hanterade identiteter för Azure-resurser baserat autentisering vid skrivning till Azure Data Lake Storage Gen1 så att du kan skapa jobb programmässigt. För ytterligare information, besök [Använd hanterade identiteter för Azure-resurser kan autentisera Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata](stream-analytics-managed-identities-adls.md).
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code för Azure Stream Analytics
+
+Azure Stream Analytics-jobb kan skapas i Visual Studio Code.
 
 ## <a name="next-steps"></a>Nästa steg
 

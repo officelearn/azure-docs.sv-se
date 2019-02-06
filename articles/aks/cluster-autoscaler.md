@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 6b2302e69c9412170b55df4bfd8c1df5a9f75ef3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479294"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754653"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster för att uppfylla krav på program på Azure Kubernetes Service (AKS)
 
@@ -63,6 +63,9 @@ Två autoscalers kan fungera tillsammans och ofta båda distribueras i ett klust
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Skapa ett AKS-kluster och aktivera autoskalningen kluster
 
 Om du vill skapa ett AKS-kluster kan du använda den [az aks skapa] [ az-aks-create] kommando. Ange en *--kubernetes-version* som uppfyller eller överskrider det lägsta versionsnumret som krävs enligt beskrivningen i det föregående [innan du börjar](#before-you-begin) avsnittet. Om du vill aktivera och konfigurera autoskalningen kluster måste använda den *--enable-kluster-autoskalningen* parametern och ange en nod *– minsta antal* och *--maximalt antal*.
+
+> [!IMPORTANT]
+> Autoskalningen kluster är en Kubernetes-komponent. Även om AKS-klustret använder en VM-skalningsuppsättning för noderna kan inte manuellt aktivera eller redigera inställningarna för scale set automatisk skalning i Azure portal eller med hjälp av Azure CLI. Låt Kubernetes-kluster autoskalningen hantera de obligatoriska inställningarna. Mer information finns i [kan jag ändra AKS-resurser i resursgruppen MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
 
 I följande exempel skapar ett AKS-kluster med virtual machine scale Sets och klustret autoskalningen aktiverad och kräver minst *1* och högst *3* noder:
 

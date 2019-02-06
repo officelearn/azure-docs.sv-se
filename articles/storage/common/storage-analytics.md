@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 9cd4845bcf107941f969255eb223567d4341ea41
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 1b27bbaa3d8e570c8431708934edee564e994487
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508512"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745664"
 ---
 # <a name="storage-analytics"></a>Lagringsanalys
 
@@ -43,7 +43,7 @@ Följande typer av autentiserade begäranden loggas:
 * Begäranden med hjälp av en signatur för delad åtkomst (SAS), inklusive misslyckade och lyckade förfrågningar.
 * Begäranden till analytics-data.
 
-Begäranden som görs av Storage Analytics, till exempel log skapas eller tas bort, loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format.md) ämnen.
+Begäranden som görs av Storage Analytics, till exempel log skapas eller tas bort, loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format) ämnen.
 
 ### <a name="logging-anonymous-requests"></a>Logga anonyma förfrågningar
 Följande typer av anonyma förfrågningar loggas:
@@ -53,7 +53,7 @@ Följande typer av anonyma förfrågningar loggas:
 * Timeout-fel för både klienten och servern.
 * Misslyckade GET-begäranden med felkoden 304 (har inte ändrats).
 
-Alla övriga misslyckade anonyma förfrågningar loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format.md) ämnen.
+Alla övriga misslyckade anonyma förfrågningar loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format) ämnen.
 
 ### <a name="how-logs-are-stored"></a>Hur loggar lagras
 Alla loggar lagras i blockblob-objekt i en behållare med namnet $logs som skapas automatiskt när Lagringsanalys har aktiverats för ett lagringskonto. Behållaren $logs finns i blob-namnområdet för storage-konto, till exempel: `http://<accountname>.blob.core.windows.net/$logs`. Den här behållaren kan inte tas bort när Storage Analytics har aktiverats, även om dess innehåll kan tas bort.
@@ -139,7 +139,7 @@ Registreras kapacitetsdata varje dag för ett lagringskontos Blob service och tv
 * **ContainerCount**: Antal blob-behållare i lagringskontots Blob service.
 * **ObjectCount**: Antal allokerade och ogenomförda block- eller sidtyp blobar i lagringskontots Blob service.
 
-Läs mer om kapacitetsmåtten [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).
+Läs mer om kapacitetsmåtten [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).
 
 ### <a name="how-metrics-are-stored"></a>Hur mått lagras
 Alla mätvärden för var och en av lagringstjänsterna lagras i tre tabeller som är reserverade för tjänsten: en tabell för transaktionsinformation, en tabell för minut transaktionsinformation och en annan tabell för kapacitetsinformation. Transaktionen och minut transaktionsinformation består av data för begäran och svar och kapacitetsinformation består av användningsdata för lagring. Timmått, minutmått och kapacitet för ett lagringskontos Blob service kan nås i tabeller som namnges enligt beskrivningen i följande tabell.
@@ -171,7 +171,7 @@ Om du har konfigurerat en databevarandeprincip, debiteras du inte för ta bortta
 ### <a name="understanding-billable-requests"></a>Förstå debiterbara begäranden
 Varje begäran som görs till ett konto lagringstjänst är fakturerbara eller icke-fakturerbara. Lagringsanalys loggar varje enskild begäran till en tjänst, inklusive ett statusmeddelande som anger hur begäran behandlades. På samma sätt lagrar Storage Analytics mätvärden för både en tjänst och API-åtgärder för tjänsten, inklusive procenttal och antalet vissa statusmeddelanden. Tillsammans de här funktionerna kan hjälpa dig att analysera din debiterbara begäranden, gör förbättringar för ditt program och diagnostisera problem med förfrågningar till dina tjänster. Läs mer om fakturering, [förstå Azure Storage-fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-När du granskar data i Storage Analytics kan du använda tabellerna i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) avsnittet för att avgöra vilka begäranden som fakturerbara. Du kan sedan jämföra dina loggar och mätdata till statusmeddelanden för att se om du debiterades för en viss begäran. Du kan också använda tabellerna i det föregående avsnittet för att undersöka tillgänglighet för en lagringstjänst eller för enskilda API-åtgärden.
+När du granskar data i Storage Analytics kan du använda tabellerna i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) avsnittet för att avgöra vilka begäranden som fakturerbara. Du kan sedan jämföra dina loggar och mätdata till statusmeddelanden för att se om du debiterades för en viss begäran. Du kan också använda tabellerna i det föregående avsnittet för att undersöka tillgänglighet för en lagringstjänst eller för enskilda API-åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervaka ett lagringskonto i Azure Portal](storage-monitor-storage-account.md)

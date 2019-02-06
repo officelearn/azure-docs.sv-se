@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f83c05f4d1dcb93bd424a733866f85edf04bbd05
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062952"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745274"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och inventering lösningar på flera virtuella datorer
 
@@ -63,19 +63,20 @@ När du aktiverar lösningar stöds endast i vissa regioner för att länka en L
 
 I följande tabell visas mappningarna som stöds:
 
-|**Log Analytics arbetsytans Region**|**Azure Automation-Region**|
+|**Log Analytics arbetsytans Region**|**Azure Automation Region**|
 |---|---|
 |Sydöstra Australien|Sydöstra Australien|
-|Kanadacentrala|Kanadacentrala|
+|CanadaCentral|CanadaCentral|
 |Indiencentrala|Indiencentrala|
-|EastUS|Usaöstra2|
-|Sydostasien|Sydostasien|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|Västra centrala USA|Västra centrala USA|
+|WestCentralUS|WestCentralUS|
 |Västeuropa|Västeuropa|
 |Södrastorbritannien|Södrastorbritannien|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
+|Västra USA 2|Västra USA 2|
 
 Avmarkera kryssrutan bredvid en virtuell dator som du inte vill aktivera. Virtuella datorer som inte kan aktiveras är redan avmarkerat.
 

@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c398e615e943caad40040ff1b87713304fd9f015
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246542"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746718"
 ---
 # <a name="azure-stack-1811-update"></a>Uppdatering av Azure Stack 1811
 
@@ -153,6 +153,9 @@ Den här uppdateringen innehåller följande nya funktioner och förbättringar 
 
 <!-- 3190553 - IS ASDK -->
 - Ett problem som genererade bort störande aviseringar som tyder på att en infrastruktur-Rollinstans inte var tillgänglig eller skala enhet noden var offline har åtgärdats.
+
+<!-- 2724961 - IS ASDK -->
+- Fiexed ett problem där VM-översiktssidan korrekt inte kan visa måttdiagram VM. 
 
 ## <a name="changes"></a>Ändringar
 
@@ -297,11 +300,6 @@ Här följer efter installation kända problem för den här build-versionen.
 
 <!-- 1662991 IS ASDK --> 
 - Linux VM-diagnostik stöds inte i Azure Stack. Distributionen misslyckas när du distribuerar en Linux VM med VM-diagnostik aktiverat. Distributionen misslyckas också om du aktiverar den grundläggande Linux VM-mätvärden via diagnostikinställningar.  
-
-<!-- 2724961- IS ASDK --> 
-- När du registrerar den **Microsoft.Insight** resursprovidern i prenumerationsinställningarna för och skapa en virtuell Windows-dator med Guest OS diagnostiska aktiverat, CPU-procent diagrammet på översiktssidan för virtuell dator har inte visa mått-data.
-
-   Du hittar mätvärden, till exempel CPU-procent diagrammet för den virtuella datorn genom att gå till den **mått** fönster och visa alla Windows-VM som stöds gästen mått.
 
 <!-- 3507629 - IS, ASDK --> 
 - Hanterade diskar skapar två nya [compute kvottyper](azure-stack-quota-types.md#compute-quota-types) att begränsa den maximala kapaciteten på hanterade diskar som kan etableras. Som standard tilldelas 2 048 GiB för varje typ av kvot för hanterade diskar. Men du kan stöta på följande problem:

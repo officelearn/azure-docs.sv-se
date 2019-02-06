@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: f1a580b5c51ec589ef9a52b07d62e091ae712964
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: a2500988b174e49870f4da7087b3fa4c81f3c77a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513528"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754990"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Vad är en enskild databas i Azure SQL Database
 
-En databas är en fristående databas i Azure SQL Database med en egen uppsättning resurser och hanteras via SQL-databasserver. Med en enkel databas, alla databaser vara isolerade från varandra och portabla, var och en med sin egen tjänstnivå inom den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) och en garanterad beräkna storleken.
+Alternativ för distribution av enskild databas skapar en fristående databas i Azure SQL Database med en egen uppsättning resurser och hanteras via en SQL Database-server. Med en enkel databas, alla databaser vara isolerade från varandra och portabla, var och en med sin egen tjänstnivå inom den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) och en garanterad beräkna storleken.
 
 > [!IMPORTANT]
 > Enkel databas är en av tre distributionsalternativen för Azure SQL Database. De andra två är [elastiska pooler](sql-database-elastic-pool.md) och [hanterad instans](sql-database-managed-instance.md).
@@ -57,6 +57,6 @@ SQL Database erbjuder en uppsättning [inbyggd säkerhet och efterlevnad](sql-da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att snabbt komma igång med en enkel databas, börja med den [enkel database Snabbstart guide.md](sql-database-quickstart-guide.md).
+- För att snabbt komma igång med en enkel databas, börja med den [enkel database Snabbstart guide.md](sql-database-single-database-quickstart-guide.md).
 - Läs om hur du migrerar en SQL Server-databas till Azure i [migrera till Azure SQL Database](sql-database-cloud-migrate.md).
 - Information om vilka funktioner som stöds finns i avsnittet [Funktioner](sql-database-features.md).

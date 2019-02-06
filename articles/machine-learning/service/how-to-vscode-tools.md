@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6f49eb0359db6184b5ecd146d7328a64611a9f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e6da35eeb98d4017baae6aa2c8e19fa3f9d5ac1b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245575"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752576"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Kom igång med Azure Machine Learning för Visual Studio Code
 
@@ -23,7 +23,7 @@ I den här artikeln får du lära dig hur du installerar den **Azure Machine Lea
 
 Använd Azure Machine Learning-tillägg i Visual Studio code för att använda Azure Machine Learning-tjänsten att Förbered dina data, träna och testa machine learning-modeller på lokala och fjärranslutna beräkningsmål, distribuerar modellerna och spåra anpassade mått och experiment.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 
 + Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
@@ -60,19 +60,17 @@ Vi måste omvandla VS Code till en Python IDE för att fungera med Azure Machine
 > [!Tip] 
 > Kolla in den [IntelliCode-tillägg för VS Code (förhandsversion)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode innehåller en uppsättning av AI-assisted funktioner för IntelliSense i Python, till exempel härledning av mest relevanta automatisk-slutförande baserat på den aktuella kontexten i kod.
 
-## <a name="install-the-sdk"></a>Installera SDK:n
+## <a name="azure-ml-sdk-installation"></a>Azure ML SDK Installation
 
 1. Se till att Python 3.5 eller högre är installerad och identifieras av VS Code. Om du installerar den nu starta om VS Code och välj en Python-tolk med hjälp av anvisningarna i https://code.visualstudio.com/docs/python/python-tutorial.
-
-1. I VS Code, öppna Kommandopaletten **Ctrl + Skift + P**.
-
-1. Typen ”installera Azure ML SDK” att hitta pip installationskommando för SDK. En lokal privat Python-miljö skapas med Visual Studio Code förutsättningarna för att arbeta med Azure Machine Learning.
-
-   ![installera Azure Machine Learning SDK för Python](./media/vscode-tools-for-ai/install-sdk.png)
 
 1. I fönstret för den integrera terminalen, ange Python-tolk att använda eller du kan träffa **RETUR** du använder din standard Python-tolk.
 
    ![Välj vilken tolk](./media/vscode-tools-for-ai/python.png)
+
+1. I det nedre högra hörnet i fönstret visas ett meddelande som anger att SDK: N för Azure ML är installeras automatiskt.    En lokal privat Python-miljö skapas med Visual Studio Code förutsättningarna för att arbeta med Azure Machine Learning.
+
+   ![installera Azure Machine Learning SDK för Python](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Kom igång med Azure Machine Learning
 

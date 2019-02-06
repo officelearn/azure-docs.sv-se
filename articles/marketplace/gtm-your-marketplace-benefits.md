@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: bf73c3226af5b2480d52d5010058f24d912bdab5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355833"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747534"
 ---
 # <a name="your-marketplace-benefits"></a>Dina Marketplace-förmåner
 
@@ -61,7 +61,7 @@ GTM-support omfattar mallar, webbinnehåll, utbildning och verktyg för att mark
 Om du vill få åtkomst till dessa förmåner, måste du:
 
 1. Publicera ett erbjudande i Azure Marketplace eller AppSource.
-2. Se till att du har angett en marknadsföring kontakt i den **kontaktinformation** del av ditt erbjudande. Det bör vara en dedikerad marknadsföring resurs, till skillnad från ett övergripande alias. (dvs, Undvik att använda ”stöder @” ”, info @” ”, marknadsföring @” osv.)
+2. Se till att du har angett en marknadsföring kontakt i den **kontaktinformation** del av ditt erbjudande. Det bör vara en dedikerad marknadsföring resurs, till skillnad från ett övergripande alias. (dvs, Undvik att använda ”stöder\@” ”, info\@” ”, marknadsföring\@” osv.)
 
 Baserat på lösningsstatus för din, får du ett e-postmeddelande med självhjälpsresurserna eller en inbjudan till ett samråd anrop med en särskild Engagement Manager. Du behöver inte göra något för att initiera ett samtal – Marketplace Onboarding-teamet kommer att kontakta dig baserat på den information du anger i den [Cloud Partner Portal](https://cloudpartner.azure.com/).
 

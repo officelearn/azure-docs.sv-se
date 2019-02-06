@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 32b532cab7e970d01c3963729658c32ac4a020b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7d1f11abbe88bff5a7e16984aacd4953ad4f9e12
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465052"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751199"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Skapa och hantera SQL Database-servrar och enskilda databaser i Azure SQL Database
 
@@ -53,7 +53,7 @@ För att hantera en befintlig databas, gå till den **SQL-databaser** och klicka
 > [!IMPORTANT]
 > För att konfigurera egenskaper för prestanda för en databas, se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> Läs en Azure-portalen Snabbstart, [skapa en Azure SQL database i Azure-portalen](sql-database-get-started-portal.md).
+> Läs en Azure-portalen Snabbstart, [skapa en Azure SQL database i Azure-portalen](sql-database-single-database-get-started.md).
 
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: Hantera SQL Database-servrar och enskilda databaser
 

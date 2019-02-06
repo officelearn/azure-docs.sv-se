@@ -11,16 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e4ea964600c03ce3f3b5b276ed02d12f573814bf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353047"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756503"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Ansluta datorer utan Internetåtkomst med Log Analytics-gateway
+
+>[!NOTE]
+>Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor betecknas OMS-gatewayen som Log Analytics-gateway. 
+>
+
 Det här dokumentet beskriver hur du konfigurerar kommunikationen med Azure Automation och Log Analytics med Log Analytics-gateway när det är direkt ansluten eller Operations Manager övervakade datorer har inte Internetåtkomst.  Log Analytics-gateway, som är en vanlig HTTP-proxy som har stöd för HTTP-tunnel med hjälp av kommandot HTTP ansluta, kan samla in data och skicka den till Azure Automation och Log Analytics för deras räkning.  
 
 Log Analytics-gateway har stöd för:
@@ -146,7 +151,7 @@ Information om krav och anvisningar om hur du installerar Log Analytics-agenten 
 
 Du kan konfigurera den för att rapportera till arbetsytan eller arbetsytor agenter pratar till gateway när du har installerat agenten på gateway-servern. Om Log Analytics-Windows-agenten inte installeras på gatewayen, händelse 300 skrivs till den **OMS Gatewayloggen** händelselogg som visar agenten måste installeras. Om agenten är installerad men inte konfigureras att rapportera till samma arbetsyta som agenterna kommunicerar via den, skrivs händelse 105 i samma händelseloggen som talar om agenten på en gateway måste konfigureras att rapportera till samma arbetsyta som pratar med t-agenter han gateway.
 
-När du har slutfört konfigurationen kan du behöva starta om den **OMS-gatewayen** tjänsten för att ändringarna ska börja gälla. I annat fall gatewayen avvisar agenter försöker kommunicera med Log Analytics och rapporten händelse-id 105 i den **OMS Gatewayloggen** händelseloggen. Detta gäller även när du lägger till eller ta bort en arbetsyta från agent-konfigurationen på gateway-servern.   
+När du har slutfört konfigurationen kan du behöva starta om den **OMS-gatewayen** tjänsten för att ändringarna ska börja gälla. I annat fall gatewayen avvisar agenter försöker kommunicera med Log Analytics och rapporten händelse-ID 105 i den **OMS Gatewayloggen** händelseloggen. Detta gäller även när du lägger till eller ta bort en arbetsyta från agent-konfigurationen på gateway-servern.   
 
 Information som rör Automation Hybrid Runbook Worker finns i [distribuera Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d7caec3fc1b8bf74098a7b0a211ec2ada8280a3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732914"
+ms.locfileid: "55745026"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -216,7 +216,7 @@ Den här artikeln handlar om hur du flyttar från en enda ASCS/SCS-installation 
 > Den konfiguration som introducerades i den här dokumentationen stöds inte ännu för att användas för [Tillgänglighetszoner i Azure](https://docs.microsoft.com/azure/availability-zones/az-overview)
 > 
 
-Mer information om belastningsutjämnare begränsningar finns i avsnittet ”privat frontend-IP per belastningsutjämnare i [begränsningar för nätverk: Azure Resource Manager][networking-limits-azure-resource-manager]. Överväga att använda den [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) i stället för den grundläggande SKU för Azure load balancer.
+Mer information om belastningsutjämnare begränsningar finns i avsnittet ”privat frontend-IP per belastningsutjämnare i [begränsningar för nätverk: Azure Resource Manager][networking-limits-azure-resource-manager]. Överväga att använda den [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) i stället för en grundläggande SKU för Azure-belastningsutjämnare.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

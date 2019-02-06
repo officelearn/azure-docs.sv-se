@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 1454eb5dbf8c80dcf7024c150dbff6a2082dbd02
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d84881d4c86fd91fce430956705791097e200937
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100282"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753426"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsök SSH-anslutningar till en virtuell Linux-dator som misslyckas, fel, eller nekas
 Den här artikeln hjälper dig att hitta och åtgärda de problem som uppstår på grund av Secure Shell (SSH)-fel, SSH-anslutningsfel, eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Du kan använda Azure-portalen, Azure CLI eller VM Access-tillägg för Linux för att felsöka och lösa problem med anslutning.
@@ -78,20 +78,20 @@ Använd [IP-flödesverifieringen](../../network-watcher/network-watcher-check-ip
 Använda Network Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte förhindrar trafik dirigeras till eller från en virtuell dator. Du kan också gå igenom effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [använda effektiva vägar för felsökning av VM infrastrukturtrafiken rör](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
-Om du inte redan gjort installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Om du inte redan gjort installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
 
 Om du har skapat och laddat upp en anpassad avbildning för Linux-disk, se till att den [Microsoft Azure Linux Agent](../extensions/agent-windows.md) version 2.0.5 eller senare är installerat. För virtuella datorer som skapas med hjälp av avbildningar i galleriet, access-tillägg redan installerat och konfigurerat åt dig.
 
 ### <a name="reset-ssh-configuration"></a>Återställ SSH-konfiguration
 Du kan först försöka återställa SSH-konfigurationen till standardvärden och SSH-servern på den virtuella datorn startas om. Detta ändras inte användarens kontonamn, lösenord och SSH-nycklar.
-I följande exempel används [az vm användaren att återställa-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) att återställa SSH-konfigurationen på den virtuella datorn med namnet `myVM` i `myResourceGroup`. Använd dina egna värden enligt följande:
+I följande exempel används [az vm användaren att återställa-ssh](/cli/azure/vm/user) att återställa SSH-konfigurationen på den virtuella datorn med namnet `myVM` i `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Återställ SSH-autentiseringsuppgifter för en användare
-I följande exempel används [az vm user update](/cli/azure/vm/user#az_vm_user_update) att återställa autentiseringsuppgifterna för `myUsername` att värdet som anges i `myPassword`, på den virtuella datorn med namnet `myVM` i `myResourceGroup`. Använd dina egna värden enligt följande:
+I följande exempel används [az vm user update](/cli/azure/vm/user) att återställa autentiseringsuppgifterna för `myUsername` att värdet som anges i `myPassword`, på den virtuella datorn med namnet `myVM` i `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -117,7 +117,7 @@ Skapa en fil med namnet `settings.json` med följande innehåll:
 }
 ```
 
-Med Azure CLI kan du sedan anropa den `VMAccessForLinux` utökning av Återställ SSHD anslutningen genom att ange en json-fil. I följande exempel används [az vm-tilläggsuppsättningen](/cli/azure/vm/extension#az_vm_extension_set) återställa SSHD på den virtuella datorn med namnet `myVM` i `myResourceGroup`. Använd dina egna värden enligt följande:
+Med Azure CLI kan du sedan anropa den `VMAccessForLinux` utökning av Återställ SSHD anslutningen genom att ange en json-fil. I följande exempel används [az vm-tilläggsuppsättningen](/cli/azure/vm/extension) återställa SSHD på den virtuella datorn med namnet `myVM` i `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -191,7 +191,7 @@ Om du vill starta om en virtuell dator med Azure portal, Välj den virtuella dat
 ![Starta om en virtuell dator i Azure portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-I följande exempel används [az vm restart](/cli/azure/vm#az_vm_restart) att starta om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
+I följande exempel används [az vm restart](/cli/azure/vm) att starta om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -218,7 +218,7 @@ Om du vill distribuera om en virtuell dator med Azure portal, Välj den virtuell
 ![Distribuera om en virtuell dator i Azure portal](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-Följande exempel används [az vm omdistribution](/cli/azure/vm#az_vm_redeploy) att distribuera om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
+Följande exempel används [az vm omdistribution](/cli/azure/vm) att distribuera om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

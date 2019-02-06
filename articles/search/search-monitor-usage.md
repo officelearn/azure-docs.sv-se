@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ed084520e092802ffa2a42e8a0c664ec09c4cbb7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093248"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745970"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resource förbrukning och fråga i Azure Search
 
@@ -65,7 +65,7 @@ I följande tabell jämförs alternativen för att lagra loggar och lägger till
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Loggade händelser och fråga mått baserade på något scheman nedan. Händelser loggas på en blobbehållare och lagras i JSON-filer. Använda en JSON-redigerare för att visa innehållet i filen.|
 | [Händelsehubb](https://docs.microsoft.com/azure/event-hubs/) | Loggade händelser och mått i frågan, baserat på de scheman som beskrivs i den här artikeln. Välj det som ett alternativt samling tjänst för mycket stora loggar. |
 
-Log Analytics- och Blob storage är tillgängliga som en kostnadsfri, delad tjänst så att du kan prova utan kostnad för livslängden för dina Azure-prenumeration. Application Insights är kostnadsfritt att registrera och använda så länge application data ligger under vissa gränser (se den [sidan med priser](https://azure.microsoft.com/ricing/details/monitor/) information).
+Log Analytics- och Blob storage är tillgängliga som en kostnadsfri, delad tjänst så att du kan prova utan kostnad för livslängden för dina Azure-prenumeration. Application Insights är kostnadsfritt att registrera och använda så länge application data ligger under vissa gränser (se den [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) information).
 
 Nästa avsnitt vägleder dig genom stegen för att aktivera och använda Azure Blob storage för att samla in och komma åt loggdata som skapats av Azure Search-åtgärder.
 

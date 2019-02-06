@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 82f7d69120cf3d6f44c981f985ae29f467ee0655
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7afa64ebedb38b4514bbd155bf8f29268d420d18
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199269"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745766"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Skapa en själv testa klient om du vill kontrollera en Azure VM-avbildning
 
@@ -54,7 +54,7 @@ Följande diagram visar hur auktorisering fungerar för tjänst till tjänst-anr
 Själv testa API: et innehåller en enda slutpunkt som stöder endast POST-metoden.  Det har följande struktur.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -215,7 +215,7 @@ Följ dessa steg för att anropa API: et med cURL:
 ```
 CURL POST -H "Content-Type:application/json" 
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest 
+https://isvapp.azurewebsites.net/selftest-vm 
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 
 ```
@@ -260,7 +260,7 @@ Använd följande steg för att registrera klientappen.
 
    - **Namn på** – ange ett eget namn för appen. Till exempel ”SelfTestClient”.
    - **Programtyp** – Välj **Web App/API**
-   - **Inloggnings-URL** – typen ”https://isvapp.azurewebsites.net/selftest”
+   - **Inloggnings-URL** – typen ”https://isvapp.azurewebsites.net/selftest-vm”
 
 4. Välj **Skapa**.
 5. Under **appregistreringar** eller **registrerad app**, kopiera den **program-ID**.
@@ -410,7 +410,7 @@ $token.AccessToken
 Skicka token själv testa API: et med följande kod i auktoriseringshuvudet:
 
 ```
-$redirectUri = ‘https://isvapp.azurewebsites.net/selftest’
+$redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"

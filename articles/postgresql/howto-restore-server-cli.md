@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 4bee57abe6de8e80ddf6f788fb17bb8b7d82849d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 357b22e4d4a6bf42ba165e49fc3cc01762268297
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913112"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756520"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database for PostgreSQL med Azure CLI
 
@@ -57,7 +57,7 @@ Kvarhållningsperioden för säkerhetskopior styr hur långt tillbaka i tiden so
 ## <a name="server-point-in-time-restore"></a>Server point-in-time-återställning
 Du kan återställa servern till en tidigare tidpunkt. Återställda data har kopierats till en ny server och den befintliga servern lämnas skick. Till exempel kan en tabell ignoreras av misstag kl. tolv idag, du återställa tiden innan middagstid. Du kan sedan hämta saknas tabellen och data från den återställda kopian av servern. 
 
-Använd Azure CLI för att återställa servern [az postgres server restore](/cli/azure/postgres/server#az_postgres_server_restore) kommando.
+Använd Azure CLI för att återställa servern [az postgres server restore](/cli/azure/postgres/server) kommando.
 
 ### <a name="run-the-restore-command"></a>Kör kommandot restore
 

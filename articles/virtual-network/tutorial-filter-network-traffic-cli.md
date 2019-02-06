@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 6a79c75f96c351a470a7ab4f788f79b0e1b6a8a6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 630eddc8494b32d93035913bcb2b55f00153b1be
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656300"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755517"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med hjälp av Azure CLI
 
@@ -46,7 +46,7 @@ En nätverkssäkerhetsgrupp innehåller säkerhetsregler. Säkerhetsregler anger
 
 ### <a name="create-application-security-groups"></a>Skapa programsäkerhetsgrupper
 
-Skapa först en resursgrupp för alla resurser som skapats i den här artikeln med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp på platsen *eastus*: 
+Skapa först en resursgrupp för alla resurser som skapats i den här artikeln med [az gruppen skapa](/cli/azure/group). I följande exempel skapas en resursgrupp på platsen *eastus*: 
 
 ```azurecli-interactive
 az group create \
@@ -54,7 +54,7 @@ az group create \
   --location eastus
 ```
 
-Skapa en programsäkerhetsgrupp med [az nätverket asg skapa](/cli/azure/network/asg#az_network_asg_create). En programsäkerhetsgrupp gör att du kan gruppera servrar med liknande portfiltreringskrav. I följande exempel skapas två programsäkerhetsgrupper.
+Skapa en programsäkerhetsgrupp med [az nätverket asg skapa](/cli/azure/network/asg). En programsäkerhetsgrupp gör att du kan gruppera servrar med liknande portfiltreringskrav. I följande exempel skapas två programsäkerhetsgrupper.
 
 ```azurecli-interactive
 az network asg create \
@@ -81,7 +81,7 @@ az network nsg create \
 
 ### <a name="create-security-rules"></a>Skapa säkerhetsregler
 
-Skapa en säkerhetsregel med [az network nsg-regel skapar](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). I följande exempel skapas en regel som tillåter inkommande trafik från Internet till programsäkerhetsgruppen *myWebServers* via port 80 och 443:
+Skapa en säkerhetsregel med [az network nsg-regel skapar](/cli/azure/network/nsg/rule). I följande exempel skapas en regel som tillåter inkommande trafik från Internet till programsäkerhetsgruppen *myWebServers* via port 80 och 443:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -119,7 +119,7 @@ I den här artikeln SSH (port 22) exponeras mot internet för den *myAsgMgmtServ
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVirtualNetwork*:
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet). I följande exempel skapas ett virtuellt nätverk med namnet *myVirtualNetwork*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -143,7 +143,7 @@ az network vnet subnet create \
 
 Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera trafikfiltrering i ett senare steg. 
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator som fungerar som en webbserver. Den `--asgs myAsgWebServers` alternativet gör att Azure för att göra det nätverksgränssnitt som skapas för den virtuella datorn tillhör den *myAsgWebServers* programsäkerhetsgrupp.
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator som fungerar som en webbserver. Den `--asgs myAsgWebServers` alternativet gör att Azure för att göra det nätverksgränssnitt som skapas för den virtuella datorn tillhör den *myAsgWebServers* programsäkerhetsgrupp.
 
 Den `--nsg ""` alternativ anges för att förhindra att Azure skapar en standard för nätverkssäkerhetsgruppen för nätverksgränssnittet som Azure skapar när den virtuella datorn skapas. För att förenkla den här artikeln används ett lösenord. Nycklar används vanligtvis för produktionsdistributioner. Om du använder nycklar måste du också konfigurera SSH-agentvidarebefordran för de återstående stegen. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösenord som du väljer.
 
@@ -234,7 +234,7 @@ Logga ut från den *myVmMgmt* VM. Bekräfta att du kan komma åt den *myVmWeb* w
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du använda [az group delete](/cli/azure/group#az_group_delete) att ta bort resursgruppen och alla resurser den innehåller.
+När den inte längre behövs kan du använda [az group delete](/cli/azure/group) att ta bort resursgruppen och alla resurser den innehåller.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

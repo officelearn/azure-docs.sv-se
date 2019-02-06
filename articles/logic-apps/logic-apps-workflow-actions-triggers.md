@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 2b60d4aed1b16db433439e69f9d6813f36f2faac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 4fc30deb68039130850f87cb70dbb606be463600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732557"
+ms.locfileid: "55747398"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Utlösare och åtgärd typer-referens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -147,7 +147,7 @@ Den här utlösaren kontrollerar eller *polls* en slutpunkt med hjälp av [Micro
 | <*query-parameters*> | JSON-objekt | Alla frågeparametrar ska inkluderas med API-anrop. Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` till anropet. |
 | <*max-runs*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Integer | När logikappen körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). |
-| <*splitOn-expression*> | String | För utlösare som returnerar matriser, refererar det här uttrycket till matrisen att använda så att du kan skapa och köra en arbetsflödesinstans av för varje objekt i matrisen i stället använda en ”för var och en”-loop. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens brödtext: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | För utlösare som returnerar matriser, refererar det här uttrycket till matrisen att använda så att du kan skapa och köra en arbetsflödesinstans av för varje objekt i matrisen i stället använda en ”Foreach”-loop. När du använder den `SplitOn` egenskapen, du får samtidiga instanser med upp till gränsen som utlösare och tjänsten kan returnera. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens brödtext: `@triggerbody()?['value']` |
 | <*åtgärden-alternativet*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). |
 ||||
 
@@ -237,7 +237,7 @@ Den här utlösaren skickar begäran om en prenumeration till en slutpunkt med h
 | <*query-parameters*> | JSON-objekt | Alla frågeparametrar ska inkluderas med API-anrop <p>Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` till anropet. |
 | <*max-runs*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Integer | När logikappen körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). |
-| <*splitOn-expression*> | String | För utlösare som returnerar matriser, refererar det här uttrycket till matrisen att använda så att du kan skapa och köra en arbetsflödesinstans av för varje objekt i matrisen i stället använda en ”för var och en”-loop. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens brödtext: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | För utlösare som returnerar matriser, refererar det här uttrycket till matrisen att använda så att du kan skapa och köra en arbetsflödesinstans av för varje objekt i matrisen i stället använda en ”Foreach”-loop. När du använder den `SplitOn` egenskapen, du får samtidiga instanser med upp till gränsen som utlösare och tjänsten kan returnera. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens brödtext: `@triggerbody()?['value']` |
 | <*åtgärden-alternativet*> | String | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). |
 ||||
 
@@ -682,8 +682,9 @@ Som standard en utlösaren aktiveras endast när en ”200 OK” svar. När ett 
 
 ## <a name="trigger-multiple-runs"></a>Utlösa flera körningar
 
-Om utlösaren returnerar en matris för din logikapp att bearbeta, ta ibland ”för var och en” loop för lång tid att bearbeta varje objekt i matrisen. Använd i stället de **SplitOn** -egenskapen i utlösaren till *debatch* matrisen. Debatching delar upp matrisobjekt och startar en ny logikappinstans som körs för varje objekt i matrisen. Den här metoden är användbar, till exempel när du vill fråga en slutpunkt som kan returnera flera nya objekt mellan frågeintervallen.
-För det maximala antalet matris objekt som **SplitOn** kan bearbeta i en enda logic app-körning, se [gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Om utlösaren returnerar en matris för din logikapp att bearbeta, ta ibland ”för var och en” loop för lång tid att bearbeta varje objekt i matrisen. Använd i stället de **SplitOn** -egenskapen i utlösaren till *debatch* matrisen. Debatching delar upp matrisobjekt och startar en ny logikappinstans som körs för varje objekt i matrisen. Den här metoden är användbar, till exempel när du vill fråga en slutpunkt som kan returnera flera nya objekt mellan frågeintervallen. 
+
+När du använder den `SplitOn` egenskapen, du får samtidiga instanser med upp till gränsen som utlösare och tjänsten kan returnera. För det maximala antalet matris objekt som **SplitOn** kan bearbeta i en enda logic app-körning, se [gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
 > Du kan inte använda **SplitOn** med ett mönster för synkron svar. Alla arbetsflöden som använder **SplitOn** och innehåller ett svar åtgärd körs asynkront och omedelbart skickar en `202 ACCEPTED` svar.
@@ -1425,9 +1426,9 @@ Till skillnad från andra åtgärder i **svar** åtgärd har särskilda begräns
 
   Men om ditt arbetsflöde anrop till en annan logikapp som ett kapslat arbetsflöde kan väntar det överordnade arbetsflödet du tills det inkapslade arbetsflödet har slutförts, oavsett hur lång tid tar innan det inkapslade arbetsflödet har slutförts.
 
-* När arbetsflödet använder den **svar** åtgärden och ett mönster för synkron svar arbetsflödet också kan inte använda den **splitOn** kommandot i utlösardefinitionen eftersom kommandot skapar flera körningar. Kontrollera för det här fallet när PUT-metoden används och om värdet är true och returnerar ett ”felaktig begäran”-svar.
+* När arbetsflödet använder den **svar** åtgärden och ett mönster för synkron svar arbetsflödet också kan inte använda den **SplitOn** -egenskapen i utlösardefinitionen eftersom kommandot skapar flera körningar. Kontrollera för det här fallet när PUT-metoden används och om värdet är true och returnerar ett ”felaktig begäran”-svar.
 
-  Om arbetsflödet använder den **splitOn** kommandot och en **svar** åtgärd, arbetsflödet körs asynkront och returnerar omedelbart ett svar med ”202-ACCEPTERAD”.
+  Om arbetsflödet använder den **SplitOn** egenskap och ett **svar** åtgärd, arbetsflödet körs asynkront och returnerar omedelbart ett svar med ”202-ACCEPTERAD”.
 
 * När din arbetsflödeskörning når den **svar** åtgärd, men den inkommande begäranden redan har tagit emot ett svar på **svar** åtgärd har markerats som ”misslyckades” på grund av konflikten. Och därmed logikappen körs också att markeras med statusen ”misslyckades”.
 

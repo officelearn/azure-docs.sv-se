@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0869786b2aa6c604ee59deb0f5a5fbc27b9ce3bf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104243"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751573"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -64,7 +64,7 @@ Häv spärren för resursgruppen för den virtuella datorn för att lösa proble
 **Felkod**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Felmeddelande**: Säkerhetskopiering har inte tillräckliga behörigheter till nyckelvalvet för säkerhetskopiering för krypterade virtuella datorer. <br>
 
-För säkerhetskopieringen ska lyckas på krypterade virtuella datorer, måste den ha behörighet att komma åt nyckelvalvet. Detta kan göras med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) eller via den [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+För säkerhetskopieringen ska lyckas på krypterade virtuella datorer, måste den ha behörighet att komma åt nyckelvalvet. Detta kan göras med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) eller via den [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - ögonblicksbildsåtgärden misslyckades på grund av den virtuella datorn saknar nätverksanslutning
 
@@ -121,7 +121,7 @@ Azure Backup stöder för närvarande Standard SSD-diskar endast för valv som h
 
 Senaste säkerhetskopieringsjobbet misslyckades eftersom det finns en befintlig säkerhetskopiering pågår. Du kan inte starta ett nytt säkerhetskopieringsjobb tills det aktuella jobbet har slutförts. Se till att säkerhetskopieringen för närvarande pågår har slutförts innan du utlöser eller schemalägga en annan säkerhetskopieringsåtgärder. Du kan kontrollera status för säkerhetskopieringsjobb utföra i stegen nedan:
 
-1. Logga in på Azure-portalen, klickar du på **alla tjänster**. Ange Recovery Services och klicka på **Recovery Services-valv**. Listan över Recovery Services-valv visas.
+1. Logga in på Azure-portalen och klicka på **Alla tjänster**. Skriv Recovery Services och klicka på **Recovery Services-valv**. Listan över Recovery Services-valv visas.
 2. Listan över recovery services-valv, Välj ett valv där säkerhetskopian har konfigurerats.
 3. Klicka på valvets instrumentpanel **säkerhetskopieringsjobb** visas alla säkerhetskopieringsjobb.
 

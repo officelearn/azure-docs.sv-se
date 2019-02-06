@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967937"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746735"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Hur du auktorisera konton med hjälp av OAuth 2.0 i Azure API Management
 
@@ -51,9 +51,9 @@ Den här guiden visar hur du konfigurerar din API Management-tjänstinstans för
 
     ![Ny OAuth 2.0-server](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. Nästa avsnitt i formuläret innehåller den **auktoriseringskod beviljandetyper**, **URL för Auktoriseringsslutpunkt**, och **metod för begäran om auktorisering** inställningar.
+4. Nästa avsnitt i formuläret innehåller den **typer av auktoriseringsbeviljanden**, **URL för Auktoriseringsslutpunkt**, och **metod för begäran om auktorisering** inställningar.
 
-    Ange den **auktoriseringskod beviljandetyper** genom att markera de önskade typerna. **Auktoriseringskod** har angetts som standard.
+    Ange den **typer av auktoriseringsbeviljanden** genom att markera de önskade typerna. **Auktoriseringskod** har angetts som standard.
 
     Ange den **URL för Auktoriseringsslutpunkt**. Den här URL: en för Azure Active Directory, ska vara detsamma som följande URL, där `<client_id>` ersätts med klient-id som identifierar ditt program till OAuth 2.0-servern.
 
@@ -75,7 +75,7 @@ Den här guiden visar hur du konfigurerar din API Management-tjänstinstans för
 
     ![Ny OAuth 2.0-server](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Om **auktoriseringskod beviljandetyper** är inställd på **resursägarens lösenord**, **lösenordsinformation för resurs-ägare** används för att ange autentiseringsuppgifterna; Du kan lämna den annars tom.
+    Om **typer av auktoriseringsbeviljanden** är inställd på **resursägarens lösenord**, **lösenordsinformation för resurs-ägare** avsnittet är används för att ange autentiseringsuppgifterna, annars Du kan lämna det tomt.
 
     När formuläret är klar klickar du på **skapa** att spara serverkonfiguration för API Management OAuth 2.0-auktorisering. När serverkonfigurationen har sparats kan konfigurera du API: er för att använda den här konfigurationen som du ser i nästa avsnitt.
 

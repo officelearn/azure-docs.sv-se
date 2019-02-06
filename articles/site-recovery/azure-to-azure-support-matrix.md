@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 3b41f975b484083dab79f16984e84018b2e830a1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 752be8270f3eb0bcc018cfcb7f87f30f5afbc60a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497306"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753103"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -58,9 +58,9 @@ Kina | Kina, östra, Kina, norra, North2 för Kina, östra 2 Kina
 >[!NOTE]
 >
 > - För **södra Brasilien** region, som du kan replikera och redundansväxla till något av följande: Södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och USA, norra centrala regioner. Det bör noteras att Site Recovery har bara aktiverat södra Brasilien som ska användas som en källregionen från där virtuella datorer kan skyddas. Den **kan inte användas som en DR för mål-region** för alla Azure-regioner som södra centrala USA. Anledningen svarstid som observerats på grund av geografiska avståndet rekommenderar vi att du väljer alla andra America region än södra Brasilien.
-> 
+>
 > - Om du är **kunde inte finns i en region** där du vill att **att skapa ett valv** Kontrollera din prenumeration har behörighet att skapa resurser i den regionen. Exempel: Om du inte kan skapa valv i Frankrike, södra sedan har din prenumeration inte åtkomst till Frankrike, södra region. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”godkända prenumerationen för XXX Azure-region”
-> 
+>
 > - Om du är **kunde inte finns i en region** inom ett geografiskt kluster **under replikering** Kontrollera din prenumeration har behörighet att skapa virtuella datorer i den regionen. Exempel: Om du försöker skydda virtuella datorer mellan Frankrike, centrala och Frankrike, södra och inte ser Frankrike, södra under regionen nedrullningsbara din prenumeration har åtkomst till distribuera virtuell dator i den regionen. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”godkända prenumerationen för XXX Azure-region”
 > - Du kan inte välja regioner över geografiska kluster som nämns ovan.
 
@@ -123,7 +123,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
-Debian 7 | 9.18,9.19,9.20,9.21 | 3.2.0-4-amd64 till 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.19,9.20,9.21,9.22 | 3.2.0-4-amd64 till 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | 9.20, 9.21 | 3.16.0-4-amd64 till 3.16.0-7-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.8-amd64 |
 Debian 8 | 9.19 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.7-amd64 |
@@ -133,10 +133,10 @@ Debian 8 | 9.18 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 till 4.
 
 **Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default till 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default till 4.4.138-94.39-default |
 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replikerade datorer - Linux system/gäst fillagring

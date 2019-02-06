@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 494665e530104cd4711e8112f3a999e68c3485b8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912790"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746395"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -85,13 +85,13 @@ Här följer begränsningarna för en enkel logikapp-körningen:
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Utlösaren samtidighet | 50 genom att begränsa samtidighet | När du aktiverar samtidighetskontroll för en utlösare, är Standardgränsen 25. Den här gränsen beskriver det maximala antalet logic app-instanser som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra utlösaren samtidighetsgräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [utlösa instanser sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Den maximala väntetiden körningar | 100 genom att begränsa samtidighet | När du aktiverar samtidighetskontroll för en utlösare, är Standardgränsen 10. Den här gränsen beskriver det maximala antalet logic app-instanser som kan vänta med att köra när logikappen körs redan det högsta antalet samtidiga instanser. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 0 och 100 portintervallet [ändring väntar körningar begränsa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Foreach-matrisobjekt | 100 000 | Den här gränsen beskriver det maximala antalet matrisobjekt som en ”för var och en”-loop kan bearbeta. <p><p>Du kan använda för att filtrera större matriser, den [frågeåtgärd](../connectors/connectors-native-query.md). | 
-| Foreach-samtidighet | 50 genom att begränsa samtidighet | När du aktiverar samtidighetskontroll för den här loopen är Standardgränsen 20. Den här gränsen beskriver det maximala antalet ”för var och en” loop iterationer som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra ”för var och en” samtidighet gränsen](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [kör ”för var och en” loopar sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| SplitOn-objekt | 100 000 | | 
-| Until-iterationer | 5 000 | | 
-|||| 
+| Utlösaren samtidighet | * Obegränsade när samtidighetskontrollen är avstängd <p><p>* 25 är Standardgränsen när samtidighetskontrollen aktiveras, vilket går inte att ångra när du har aktiverat kontrollen. Du kan ändra standardvärdet till ett värde mellan 1 och 50 portintervallet. | Den här gränsen beskriver det högsta antalet för logic app-instanser som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra utlösaren samtidighetsgräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [utlösa instanser sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Den maximala väntetiden körningar | När samtidighetskontrollen är påslagen, är det minsta antalet körningar för att vänta 10 plus antalet samtidiga körningar (utlösare samtidighet). Du kan ändra det maximala antalet upp till 100 portintervallet. | Den här gränsen beskriver det högsta antalet för logic app-instanser som kan vänta med att köra när logikappen körs redan det högsta antalet samtidiga instanser. <p><p>Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach-matrisobjekt | 100 000 | Den här gränsen beskriver det högsta antalet matrisobjekt som en ”för var och en”-loop kan bearbeta. <p><p>Du kan använda för att filtrera större matriser, den [frågeåtgärd](../connectors/connectors-native-query.md). | 
+| Foreach-samtidighet | 20 är Standardgränsen när samtidighetskontrollen är avstängd. Du kan ändra standardvärdet till ett värde mellan 1 och 50 portintervallet. | Den här gränsen är högsta antalet för ”för var och en” loop iterationer som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra ”för var och en” samtidighet gränsen](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [kör ”för var och en” loopar sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| SplitOn-objekt | 100 000 | Du kan ange ett uttryck som använder en ”SplitOn-egenskapen för utlösare som returnerar en matris, som [delar eller debatches matrisobjekt i flera arbetsflödesinstanser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) för bearbetning i stället använda en” Foreach ”loop. Det här uttrycket refererar till matrisen ska användas för att skapa och köra en arbetsflödesinstans för varje objekt i matrisen. |
+| Until-iterationer | 5 000 | |
+||||
 
 <a name="throughput-limits"></a>
 

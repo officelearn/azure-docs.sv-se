@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8cf977f9c5bbf10c6a4d862a29fda98d3ce71844
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203597"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755704"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurera Oracle ASM på en virtuell Linux-dator för Azure  
 
@@ -42,7 +42,7 @@ Om du väljer att installera och använda CLI lokalt kräver de här självstudi
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Du skapar en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure resurser distribueras och hanteras. I det här exemplet, en resursgrupp med namnet *myResourceGroup* i den *eastus* region.
+Du skapar en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk behållare där Azure resurser distribueras och hanteras. I det här exemplet, en resursgrupp med namnet *myResourceGroup* i den *eastus* region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

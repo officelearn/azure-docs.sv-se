@@ -1,28 +1,76 @@
 ---
-title: DateTime sökvägsmönster för Azure Stream Analytics blob-utdata (förhandsversion)
-description: Den här artikeln beskriver anpassade DateTime sökväg mönster funktionen för blob storage-utdata från Azure Stream Analytics-jobb.
+title: Azure Stream Analytics anpassade blob utdata partitionering (förhandsversion)
+description: Den här artikeln beskriver de anpassade DateTime-sökvägsmönster och anpassade fält eller attribut funktioner för blob storage-utdata från Azure Stream Analytics-jobb.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 23f632ea2ca66f973192fdc01cd84c4d0be3a668
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090799"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746531"
 ---
-# <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Anpassat datum/tid-sökvägsmönster för Azure Stream Analytics blob storage-utdata (förhandsversion)
+# <a name="azure-stream-analytics-custom-blob-output-partitioning-preview"></a>Azure Stream Analytics anpassade blob utdata partitionering (förhandsversion)
 
-Azure Stream Analytics stöder anpassade datum och tid-format specificerare i sökvägen till filen för blob storage-utdata. Anpassade DateTime-sökvägsmönster kan du ange utdataformat som överensstämmer med Hive-direktuppspelning konventioner, vilket gör Azure Stream Analytics kan skicka data till Azure HDInsight och Azure Databricks för nedströms bearbetning. Anpassat datum/tid-sökvägsmönster är enkelt implementeras med hjälp av den `datetime` nyckelord i fältet Sökvägsprefix för din blob-utdata, tillsammans med en formatangivelse. Till exempel `{datetime:yyyy}`.
+Azure Stream Analytics stöder anpassade blob-utdata partitionering med anpassade fält eller attribut och anpassade DateTime sökvägsmönster. 
+
+## <a name="custom-field-or-attributes"></a>Anpassat fält eller attribut
+
+Anpassat fält eller indataattribut förbättra nedströms databearbetning och rapportering arbetsflöden genom att tillåta mer kontroll över utdata.
+
+### <a name="partition-key-options"></a>Alternativen för partition
+
+Partitionsnyckel eller kolumnnamn som används för att partitionera indata får innehålla alfanumeriska tecken med bindestreck, understreck och blanksteg. Det går inte att använda kapslade fält som en partitionsnyckel såvida används tillsammans med alias.
+
+### <a name="example"></a>Exempel
+
+Anta att ett jobb tar indata från live användarsessioner som är anslutna till en extern videospel-tjänst där insamlade data innehåller en kolumn **client_id** att identifiera sessioner. Att partitionera data genom att **client_id**, ange fältet Blob Sökvägsmönster att inkludera en partition token **{client_id}** i Egenskaper för blob-utdata när du skapar ett jobb. Som data med olika **client_id** värden flödar genom ett Stream Analytics-jobb, utdata sparas i separata mappar baserat på en enda **client_id** värde per mapp.
+
+![Sökvägsmönster med klient-id](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
+
+På samma sätt, om jobbet indata har sensordata från miljontals sensorer där varje sensor hade en **sensor_id**, mönstret sökvägen skulle vara **{sensor_id}** att partitionera varje sensordata till olika mappar.  
+
+
+Med hjälp av REST-API, utdataavsnittet i en JSON kan-fil som används för denna förfrågan se ut så här:  
+
+![REST API-utdata](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
+
+När jobbet börjar köras, det *klienter* behållare kan se ut så här:  
+
+![Behållare för klienter](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
+
+Varje mapp kan innehålla flera blobar där varje blob innehåller en eller flera poster. I exemplet ovan finns en enda blob i en mapp med namnet ”06000000” med följande innehåll:
+
+![Blobbinnehåll](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
+
+Observera att varje post i blob har en **client_id** matchar mappen kolumnnamnet eftersom kolumnen används för att partitionera utdata på Utdatasökvägen **client_id**.
+
+### <a name="limitations"></a>Begränsningar
+
+1. Endast en anpassad partitionsnyckel tillåts i egenskapen Sökvägsmönster blob-utdata. Alla följande Sökvägsmönster är giltiga:
+
+   * cluster1/{date}/{aFieldInMyData}  
+   * cluster1/{time}/{aFieldInMyData}  
+   * cluster1/{aFieldInMyData}  
+   * cluster1/{date}/{time}/{aFieldInMyData}  
+
+2. Partitionsnycklar är skiftlägeskänsligt, så partitionsnycklar som ”John” och ”john” är likvärdiga. Uttryck kan inte användas som partitionsnycklar. Till exempel **{columnA + columnB}** fungerar inte.  
+
+3. När en indataström som består av poster med en partition viktiga kardinalitet under 8000, poster läggs till befintliga blobar och bara skapa nya blobbar när det behövs. Om Kardinaliteten är över 8000 som det finns ingen garanti för befintliga blobbar ska skrivas till och nya blobbar skapas inte för ett valfritt antal poster med samma partitionsnyckel.  
+
+## <a name="custom-datetime-path-patterns"></a>Anpassat datum/tid-sökvägsmönster
+
+Anpassade DateTime-sökvägsmönster kan du ange utdataformat som överensstämmer med Hive-direktuppspelning konventioner, vilket gör Azure Stream Analytics kan skicka data till Azure HDInsight och Azure Databricks för nedströms bearbetning. Anpassat datum/tid-sökvägsmönster är enkelt implementeras med hjälp av den `datetime` nyckelord i fältet Sökvägsprefix för din blob-utdata, tillsammans med en formatangivelse. Till exempel `{datetime:yyyy}`.
 
 Använd den här länken för [Azure-portalen](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) att växla flaggan funktionen som gör att de anpassade DateTime sökvägsmönster för förhandsversionen för blob storage-utdata. Den här funktionen kommer att aktiveras snart i main-portalen.
 
-## <a name="supported-tokens"></a>Token som stöds
+### <a name="supported-tokens"></a>Token som stöds
 
 Följande format specificerare token kan användas fristående eller i kombination för att uppnå anpassade DateTime-format:
 
@@ -42,7 +90,7 @@ Om du inte vill använda anpassade DateTime mönster du kan lägga till {date} o
 
 ![Stream Analytics gamla DateTime-format](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 
-## <a name="extensibility-and-restrictions"></a>Utökningsbarhet och begränsningar
+### <a name="extensibility-and-restrictions"></a>Utökningsbarhet och begränsningar
 
 Du kan använda så många token `{datetime:<specifier>}`, som du precis som i mönstret sökväg tills du når gränsen Sökvägsprefix tecken. Formatet specificerare kan inte kombineras i en enskild token utöver kombinationer som redan visas genom att listrutorna för datum och tid. 
 
@@ -54,7 +102,7 @@ För en sökväg partition av `logs/MM/dd`:
 
 Du kan använda samma formatspecifierare flera gånger i den sökväg som Prefix. Token ska upprepas varje gång.
 
-## <a name="hive-streaming-conventions"></a>Konventioner för hive-direktuppspelning
+### <a name="hive-streaming-conventions"></a>Konventioner för hive-direktuppspelning
 
 Anpassad sökvägsmönster för blob storage kan användas med konventionen Hive-direktuppspelning, som förväntar sig mappar ska förses med `column=` i mappnamnet.
 

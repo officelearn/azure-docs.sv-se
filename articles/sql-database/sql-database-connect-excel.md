@@ -12,18 +12,18 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 318dce78059a169ede2f19f6aadaab9d61e07086
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 552293b402c697073587e887522d2daa3e33cdb6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474963"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754590"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Ansluta Excel till en Azure SQL-databas och skapa en rapport
 
 Ansluta Excel till en SQL-databas i molnet och importera data och skapa tabeller och diagram baserat på värdena i databasen. I de här självstudierna kommer du att ställa in anslutningen mellan Excel och en databastabell, spara filen som lagrar data och anslutningsinformationen för Excel och sedan skapa ett pivotdiagram från databasvärdena.
 
-Du behöver en SQL-databas i Azure innan du börjar. Om du inte har någon, kan du se [Skapa din första SQL-databas](sql-database-get-started-portal.md) för att starta en databas med exempeldata på några minuter. I den här artikeln ska du importera exempeldata till Excel från den här artikeln, men du kan följa liknande steg med dina egna data.
+Du behöver en SQL-databas i Azure innan du börjar. Om du inte har någon, kan du se [Skapa din första SQL-databas](sql-database-single-database-get-started.md) för att starta en databas med exempeldata på några minuter. I den här artikeln ska du importera exempeldata till Excel från den här artikeln, men du kan följa liknande steg med dina egna data.
 
 Du kommer också behöva en kopia av Excel. Den här artikeln använder [Microsoft Excel 2016](https://products.office.com/).
 

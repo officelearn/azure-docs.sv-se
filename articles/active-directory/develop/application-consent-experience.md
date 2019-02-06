@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: f5ec31cf0f88b9bfdff2e4fa877d56a2689054ae
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 233b77de4a034b5e87aeea2152a3fb6a71aeb8e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097953"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755398"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå Azure AD-programtillåtelser inträffar
 
@@ -83,5 +83,5 @@ Här följer medgivande-upplevelser som en användare kan se i de vanliga scenar
     1. Icke-administratörer ser samma skärm som 2. ii ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-- Få en stegvisa översikt över [hur Azure AD-ramverket för medgivande implementerar medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
+- Få en stegvisa översikt över [hur Azure AD-ramverket för medgivande implementerar medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Mer information lär du dig [hur ett program med flera innehavare kan använda ramverket för medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) implementerar ”användare” och ”admin” medgivande stöder mer avancerade mönster för flera nivåer.

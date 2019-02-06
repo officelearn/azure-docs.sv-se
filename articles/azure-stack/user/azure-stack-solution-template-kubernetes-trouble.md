@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663422"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752304"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Felsöka ditt Kubernetes-distribution till Azure Stack
 
@@ -53,7 +53,7 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
 
 2. Skapa VM-distribution och tillägget för anpassat skript.
     -  Skapa distribution Linux VM med hjälp av Linux-avbildning marketplace **Ubuntu Server 16.04-LTS**.
-    -  Hämtar och kör kundskriptstillägget från marketplace. Skriptet är **anpassat skript för Linux 2.0**.
+    -  Hämta och kör det anpassade skripttillägget från marketplace. Skriptet är **anpassat skript för Linux 2.0**.
     -  Kör DVM anpassade skript. Skriptet utför följande uppgifter:
         1. Hämtar slutpunkt för galleri från Azure Resource Manager metadataslutpunkt.
         2. Hämtar active directory-resurs-ID från Azure Resource Manager metadataslutpunkt.
@@ -61,7 +61,7 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
         4. Distribuerar ACS-Engine till Kubernetes-klustret och sparar profilen för Azure Stack-molnet till `/etc/kubernetes/azurestackcloud.json`.
 3. Skapa överordnade virtuella datorer.
 
-4. Hämta och kör kunden skripttillägg.
+4. Hämta och kör anpassade skripttillägg.
 
 5. Kör skriptet master.
 
@@ -75,7 +75,7 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
         3. Startar tjänsten Schemaläggaren.
 6. Skapa virtuella datorer för agenten.
 
-7. Hämtar och kör kundskriptstillägget.
+7. Hämta och kör det anpassade skripttillägget.
 
 7. Kör skriptet agent. Det anpassade skriptet för agenten har följande uppgifter:
     - Installerar etcd

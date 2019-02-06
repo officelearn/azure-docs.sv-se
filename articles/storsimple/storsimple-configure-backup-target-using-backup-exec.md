@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 0f9f300f589a4818afb0c0de5ede94e5c4fab15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248736"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747602"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple som ett säkerhetskopieringsmål med Backup Exec
 
@@ -79,7 +79,7 @@ StorSimple erbjuder följande fördelar:
 
 StorSimple presenterar två huvudsakliga distributionsscenarier (primära mål för säkerhetskopian och sekundära säkerhetskopieringsmål) grunden, är det en vanlig, blocklagringsenhet. StorSimple har alla komprimering och deduplicering. Sömlöst skickar och hämtar data mellan molnet och program och filsystemet.
 
-Läs mer om StorSimple, [StorSimple 8000-serien: hybridmolnlagringslösning](storsimple-overview.md). Du kan också granska den [tekniska specifikationer för StorSimple 8000-serien](storsimple-technical-specifications-and-compliance.md).
+Läs mer om StorSimple, [StorSimple 8000-serien: Hybridmolnlagringslösning](storsimple-overview.md). Du kan också granska den [tekniska specifikationer för StorSimple 8000-serien](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Med hjälp av en StorSimple-enheten som ett säkerhetskopieringsmål stöds endast för StorSimple 8000 uppdatering 3 och senare versioner.
@@ -167,7 +167,7 @@ För lösningen ska fungera optimalt, rekommenderar vi att du följer dessa nät
 -   Den länk som ansluter StorSimple lagringsnivåer till Azure måste uppfylla dina krav på bandbredd. För att uppnå detta gäller den nödvändiga nivån för tjänstkvalitet (QoS) för infrastrukturen växlar som motsvarar dina RPO och återställning tid mål för Återställningstid serviceavtal.
 -   Maximal Azure Blob storage-åtkomstfördröjning ska vara cirka 80 ms.
 
-### <a name="deploy-storsimple"></a>Distribuera StorSimple
+### <a name="deploy-storsimple"></a>Deploy StorSimple
 
 Läs en stegvisa distributionsvägledning StorSimple [distribuera din lokala StorSimple-enhet](storsimple-deployment-walkthrough-u2.md).
 
@@ -183,7 +183,7 @@ I det här avsnittet visar vi några Konfigurationsexempel. Följande exempel oc
 
 | StorSimple distributionsuppgifter  | Ytterligare kommentarer |
 |---|---|
-| Distribuera din lokala StorSimple-enhet. | Versioner som stöds: uppdatera 3 och senare versioner. |
+| Distribuera din lokala StorSimple-enhet. | Versioner som stöds: Uppdatering 3 och senare versioner. |
 | Aktivera målet för säkerhetskopian. | Använd dessa kommandon för att aktivera eller inaktivera säkerhetskopieringsmål läge och för att hämta status. Mer information finns i [Anslut via en fjärranslutning till en StorSimple-enhet](storsimple-remote-connect.md).</br> Aktivera säkerhetskopieringsläge: `Set-HCSBackupApplianceMode -enable`. </br> Inaktivera säkerhetskopieringsläge: `Set-HCSBackupApplianceMode -disable`. </br> Att hämta det aktuella tillståndet för inställningar för säkerhetskopiering: `Get-HCSBackupApplianceMode`. |
 | Skapa en gemensam volymbehållare för volymen som lagrar säkerhetskopierade data. Alla data i en volymbehållare är deduplicerad. | StorSimple volymbehållare definierar deduplicering domäner.  |
 | Skapa StorSimple-volymer. | Skapa volymer med storlekar som nära den förväntade användningen som möjligt, eftersom volymstorleken påverkar varaktighetstiden av ögonblicksbild av molndata. Information om hur du kan ändra storlek på en volym, Läs om [bevarandeprinciper](#retention-policies).</br> </br> Använd StorSimple nivåindelade volymer och välj den **Använd volymen för arkivdata mindre ofta** markerar du kryssrutan. </br> Med hjälp av endast lokalt fixerade volymer stöds inte. |
@@ -430,7 +430,7 @@ I följande avsnitt beskrivs hur du skapar ett kort skript för att starta och t
 ### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>Starta och ta bort ögonblicksbilder av molnet med hjälp av ett skript
 
 > [!NOTE]
-> Utvärdera noggrant efterlevnad och konsekvenser för kvarhållning av data innan du tar bort en StorSimple-ögonblicksbild. Mer information om hur du kör en skriptkörning efter säkerhetskopiering finns i den [dokumentation om Backup Exec](https://www.veritas.com/support/en_US/15047.html).
+> Utvärdera noggrant efterlevnad och konsekvenser för kvarhållning av data innan du tar bort en StorSimple-ögonblicksbild. Mer information om hur du kör en skriptkörning efter säkerhetskopiering finns i den [dokumentation om Backup Exec](https://www.veritas.com/support/en_US/article.100032497.html).
 
 ### <a name="backup-lifecycle"></a>Livscykel för säkerhetskopiering
 
@@ -480,7 +480,7 @@ En katastrof kan ha orsakats av olika faktorer. I följande tabell visas vanliga
 Följande dokument har referenser till den här artikeln:
 
 - [StorSimple multipath i/o-installationen](storsimple-configure-mpio-windows-server.md)
-- [Lagringsscenarier: tunn allokering](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Storage-scenarier: Tunn allokering](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Använda GPT-enheter](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Konfigurera skuggkopior för delade mappar](https://technet.microsoft.com/library/cc771893.aspx)
 

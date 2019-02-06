@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database och Data Warehouse-brandväggsregler | Microsoft Docs
-description: Lär dig hur du konfigurerar SQL-databas och SQL Data Warehouse-brandvägg med brandväggsregler på servernivå att hantera åtkomst och konfigurera brandväggsregler för SQL-databas på databasnivå.
+title: Azure SQL Database och Data Warehouse IP-brandväggsregler | Microsoft Docs
+description: Lär dig hur du konfigurerar en SQL-databas eller SQL Data Warehouse-brandvägg med IP-brandväggsregler på servernivå runt att hantera åtkomst och konfigurera en enskild eller grupperade databas med IP-brandväggsregler på databasnivå.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 0579746bc4dc554fd7e082f6258f2c13ce22f69b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: e4b217ada2aae159680b113b6ddcb41c9d121f24
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477683"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753069"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse brandväggsregler
+# <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse IP-brandväggsregler
 
 Microsoft Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tillhandahåller en relationsdatabastjänst för Azure och andra Internetbaserade program. För att skydda dina data förhindrar brandväggar all åtkomst till din databasserver tills du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
 
@@ -34,80 +34,80 @@ Förutom IP-regler i brandväggen hanterar också *virtuella Nätverksregler*. V
 
 ## <a name="overview"></a>Översikt
 
-Till en början blockeras all Transact-SQL-åtkomst till din Azure SQL-server av brandväggen. Om du vill börja använda Azure SQL-servern, måste du ange en eller flera-brandväggsregler på servernivå som ger åtkomst till Azure SQL-servern. Använd brandväggsreglerna för att ange vilka IP-adressintervall från Internet som tillåts samt för att ange om Azure-program kan försöka ansluta till din Azure SQL Database-server eller inte.
+Till en början blockeras all åtkomst till Azure SQL-servern av SQL Database-brandväggen. För att komma åt en databasserver, måste du ange en eller flera på servernivå IP-brandväggsregler som ger åtkomst till Azure SQL-servern. Använd IP-brandväggsregler för att ange vilka IP-adressintervall från Internet tillåts och om Azure-program kan försöka att ansluta till Azure SQL-servern.
 
-Om du bara vill bevilja åtkomst till en av databaserna på din Azure SQL-server måste du skapa en regel på databasnivå för databasen. Ange ett IP-adressintervall för brandväggsregeln för databasen som ligger utanför det IP-adressintervall som angetts i brandväggsregeln på servernivå och kontrollera att klientens IP-adress ligger inom intervallet som angetts i regeln på databasnivå.
+Om du bara vill bevilja åtkomst till en av databaserna på din Azure SQL-server måste du skapa en regel på databasnivå för databasen. Ange ett IP-adressintervall för brandväggsregeln för databasen IP ligger utanför det IP-adressintervall som angetts i brandväggsregeln på servernivå IP och se till att IP-adressen för klienten ligger inom intervallet som angetts i regeln på databasnivå.
 
 > [!IMPORTANT]
-> SQL Data Warehouse bara stöder brandväggsregler på servernivå och stöder inte brandväggsregler på databasnivå.
+> SQL Data Warehouse kan du endast har stöd för IP-brandväggsregler på servernivå och stöder inte IP-brandväggsregler på databasnivå.
 
 Anslutningsförsök från Internet och Azure måste först passera brandväggen innan de kan nå din Azure SQL-server eller SQL Database, som du ser i följande diagram:
 
    ![Diagram över brandväggskonfigurationen.][1]
 
-- **Brandväggsregler på servernivå:**
+- **På servernivå IP-brandväggsregler:**
 
-  Dessa regler gör att klienterna kan komma åt hela Azure SQL-servern, det vill säga alla databaser i samma SQL-databasserver. Dessa regler lagras i **huvuddatabasen**. Brandväggsregler på servernivå kan konfigureras via portalen eller med hjälp av Transact-SQL-instruktioner. Du måste vara prenumerationsägare eller prenumerationsdeltagare för att skapa brandväggsregler på servernivå med Azure Portal eller PowerShell. För att skapa en brandväggsregel på servernivå med hjälp av Transact-SQL, måste du ansluta till SQL Database-instansen med huvudsaklig inloggning på servernivå eller som Azure Active Directory-administratör (vilket innebär att en brandväggsregel på servernivå först måste ha skapats av en användare med Azure-behörighet).
+  Dessa regler gör att klienterna kan komma åt hela Azure SQL-servern, det vill säga alla databaser i samma SQL-databasserver. Dessa regler lagras i **huvuddatabasen**. IP-brandväggsregler på servernivå kan konfigureras med hjälp av portalen eller med hjälp av Transact-SQL-uttryck. Du måste vara prenumerationsägare eller prenumerationsdeltagare för att skapa brandväggsregler på servernivå IP med hjälp av Azure portal eller PowerShell. Om du vill skapa en på servernivå IP-brandväggsregel med hjälp av Transact-SQL, måste du ansluta till SQL Database-instans som den primära inloggningen på servernivå eller Azure Active Directory-administratör (vilket innebär att en IP-brandväggsregel på servernivå först måste ha skapats av en användare med Azure-behörighet).
 
-- **Brandväggsregler på databasnivå:**
+- **Databasnivå IP-brandväggsregler:**
 
-  Dessa regler gör att klienterna kan komma åt vissa (säkra) databaser på samma SQL-databasserver. Du kan skapa dessa regler för varje databas (inklusive den **master** databas) och de lagras i de enskilda databaserna. Brandväggsregler på databasnivå för huvud- och användardatabaser kan bara skapas och hanteras med hjälp av Transact-SQL-instruktioner och bara när du har konfigurerat den första brandväggen på servernivå. Om du anger ett IP-adressintervall i brandväggsregeln på databasnivå som ligger utanför det intervall som angetts i brandväggsregeln på servernivå kan endast klienter som har IP-adresser som ligger i intervallet som angetts för databasnivån komma åt databasen. Du kan skapa upp till 128 brandväggsregler på databasnivå för en databas. Mer information om hur du konfigurerar brandväggsregler på databasnivå finns i exemplet senare i den här artikeln och se [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
+  Dessa regler gör att klienterna kan komma åt vissa (säkra) databaser på samma SQL-databasserver. Du kan skapa dessa regler för varje databas (inklusive den **master** databas) och de lagras i de enskilda databaserna. IP-brandväggsregler för på databasnivå för huvud- och användardatabaser kan bara skapas och hanteras med hjälp av Transact-SQL-instruktioner och bara när du har konfigurerat den första brandväggen på servernivå. Om du anger ett IP-adressintervall i brandväggsregeln för på databasnivå IP ligger utanför det intervall som anges i brandväggsregeln på servernivå IP endast klienter som har IP-adresser i intervallet på databasnivå kan komma åt databasen. Du kan ha högst 128 på databasnivå IP-brandväggsregler för en databas. Mer information om hur du konfigurerar IP-brandväggsregler på databasnivå finns i exemplet senare i den här artikeln och se [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ### <a name="recommendation"></a>Rekommendation
 
-Microsoft rekommenderar att du använder databasen brandväggsregler på databasnivå när det är möjligt att förbättra säkerheten och göra databasen mer portabel. Använd brandväggsregler på servernivå för administratörer och om du har många databaser med samma åtkomstkrav och du inte vill lägga tid på att konfigurera varje databas individuellt.
+Microsoft rekommenderar att du använder på databasnivå IP-brandväggsregler när det är möjligt att förbättra säkerheten och göra databasen mer portabel. Använd IP-brandväggsregler på servernivå för administratörer och när du har många databaser med samma åtkomstkrav och du inte vill lägga tid på att konfigurera varje databas individuellt.
 
 > [!IMPORTANT]
-> Windows Azure SQL Database stöder maximalt 128 brandväggsregler.
+> Windows Azure SQL Database stöder maximalt 128 IP-brandväggsregler.
 > [!NOTE]
 > Information om portabla databaser i kontexten för företagskontinuitet finns i [Autentiseringskrav för haveriberedskap](sql-database-geo-replication-security-config.md).
 
 ### <a name="connecting-from-the-internet"></a>Ansluta från Internet
 
-När en dator försöker ansluta till databasservern från Internet kontrollerar brandväggen den ursprungliga IP-adressen för begäran mot brandväggsreglerna på databasnivå för den databas anslutningen begär:
+När en dator försöker ansluta till databasservern från Internet kontrollerar brandväggen först vilken IP-adress för begäran mot för den databas anslutningen begär brandväggsregler på databasnivå IP:
 
-- Om IP-adressen för begäran ligger inom ett intervall som anges i brandväggsreglerna på databasnivå godkänns anslutningen till din SQL Database som innehåller regeln.
-- Om IP-adressen för begäran inte ligger inom något av intervallen som anges i brandväggsregeln på databasnivå kontrollerar brandväggen brandväggsreglerna på servernivå. Om IP-adressen för begäran ligger inom ett intervall som anges i brandväggsreglerna på servernivå godkänns anslutningen. Brandväggsregler på servernivå gäller för alla SQL-databaser på Azure SQL-servern.  
-- Om IP-adressen för begäran inte ligger inom intervallen som angetts i brandväggsreglerna på databasnivå eller servernivå misslyckas anslutningsbegäran.
+- Om IP-adressen för begäran är inom ett intervall som anges i brandväggsreglerna på databasnivå IP, godkänns anslutningen till SQL-databasen som innehåller regeln.
+- Om IP-adressen för begäran inte ligger inom något av intervallen som anges i brandväggsregeln på databasnivå IP kontrolleras IP-brandväggsregler på servernivå. Om IP-adressen för begäran är inom ett intervall som anges i IP-brandväggsregler på servernivå, godkänns anslutningen. IP-brandväggsregler på servernivå gäller för alla SQL-databaser på Azure SQL-servern.  
+- Om IP-adressen för begäran inte ligger inom intervallen som angetts i databasnivå- eller servernivå IP-brandväggsregler, anslutningsbegäran misslyckas.
 
 > [!NOTE]
 > För att kunna komma åt Azure SQL Database från din lokala dator måste du kontrollera att brandväggen i nätverket och på den lokala datorn tillåter utgående kommunikation på TCP-port 1433.
 
 ### <a name="connecting-from-azure"></a>Ansluta från Azure
 
-Om du vill tillåta att program från Azure ansluter till din Azure SQL-server måste Azure-anslutningar vara aktiverade. När ett program från Azure försöker ansluta till databasservern kontrollerar brandväggen att Azure-anslutningar tillåts. En brandväggsinställning med start- och slutadresser som är 0.0.0.0 anger att dessa anslutningar tillåts. Om anslutningsförsöket inte tillåts kommer begäran inte att nå Azure SQL Database-servern.
+Om du vill tillåta att program från Azure ansluter till din Azure SQL-server måste Azure-anslutningar vara aktiverade. När ett program från Azure försöker ansluta till databasservern kontrollerar brandväggen att Azure-anslutningar tillåts. En brandväggsinställning med start- och slutadresser som är 0.0.0.0 anger Azure-anslutningar tillåts. Om anslutningsförsöket inte tillåts kommer begäran inte att nå Azure SQL Database-servern.
 
 > [!IMPORTANT]
 > Det här alternativet konfigurerar brandväggen så att alla anslutningar från Azure tillåts, inklusive anslutningar från prenumerationer för andra kunder. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
 
-## <a name="creating-and-managing-firewall-rules"></a>Skapa och hantera brandväggsregler
+## <a name="creating-and-managing-ip-firewall-rules"></a>Skapa och hantera IP-brandväggsregler
 
-Första brandväggsinställningen på servernivå kan skapas med den [Azure-portalen](https://portal.azure.com/) eller programmässigt med [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Efterföljande brandväggsregler på servernivå kan skapas och hanteras med hjälp av dessa metoder samt via Transact-SQL.
+Första brandväggsinställningen på servernivå kan skapas med den [Azure-portalen](https://portal.azure.com/) eller programmässigt med [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Efterföljande IP-brandväggsregler för på servernivå kan skapas och hanteras med hjälp av dessa metoder samt via Transact-SQL.
 
 > [!IMPORTANT]
-> Brandväggsregler på databasnivå kan bara skapas och hanteras med hjälp av Transact-SQL.
+> IP-brandväggsregler på databasnivå kan bara skapas och hanteras med hjälp av Transact-SQL.
 
-För att förbättra prestanda cachelagras brandväggsregler på servernivå tillfälligt på databasnivå. Information om hur du uppdaterar cacheminnet finns i [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+För att förbättra prestanda cachelagras IP-brandväggsregler på servernivå tillfälligt på databasnivå. Information om hur du uppdaterar cacheminnet finns i [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 > [!TIP]
 > Du kan använda [SQL Database Auditing](sql-database-auditing.md) att granska ändringar av brandvägg på servernivå och databasnivå.
 
-## <a name="manage-firewall-rules-using-the-azure-portal"></a>Hantera brandväggsregler med hjälp av Azure-portalen
+## <a name="manage-ip-firewall-rules-using-the-azure-portal"></a>Hantera IP-brandväggsregler med hjälp av Azure portal
 
-Om du vill ställa in en brandväggsregel på servernivå på Azure-portalen, går antingen du till sidan Översikt för Azure SQL database eller översiktssidan för din SQL Database-server.
+Om du vill ange en IP-brandväggsregel på servernivå på Azure-portalen, går antingen du till sidan Översikt för Azure SQL database eller översiktssidan för din SQL Database-server.
 
 > [!TIP]
-> En självstudiekurs finns i [skapa en databas med Azure portal](sql-database-get-started-portal.md).
+> En självstudiekurs finns i [skapa en databas med Azure portal](sql-database-single-database-get-started.md).
 
 ### <a name="from-database-overview-page"></a>Från översiktssidan för databasen
 
-1. Om du vill ställa in en brandväggsregel på servernivå från översiktssidan för databasen, klickar du på **konfigurera serverbrandvägg** i verktygsfältet, som visas i följande bild: Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
+1. Om du vill ange en IP-brandväggsregel på servernivå från översiktssidan för databasen, klickar du på **konfigurera serverbrandvägg** i verktygsfältet, som visas i följande bild: Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
 
-      ![brandväggsregler för server](./media/sql-database-get-started-portal/server-firewall-rule.png)
+      ![IP-brandväggsregel](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
-2. Klicka på **klientens IP-adress** i verktygsfältet för att lägga till IP-adressen för datorn du använder för närvarande och klicka sedan på **spara**. En brandväggsregel på servernivå skapas för din aktuella IP-adress.
+2. Klicka på **klientens IP-adress** i verktygsfältet för att lägga till IP-adressen för datorn du använder för närvarande och klicka sedan på **spara**. En IP-brandväggsregel på servernivå skapas för din aktuella IP-adress.
 
-      ![ange brandväggsregel för server](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
+      ![Ange IP-brandväggsregel på servernivå](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
 
 ### <a name="from-server-overview-page"></a>Från server-översiktssidan
 
@@ -115,48 +115,48 @@ Om du vill ställa in en brandväggsregel på servernivå på Azure-portalen, g�
 
 1. Om du vill ange en regel för på servernivå från server översiktssidan, klickar du på **brandväggen** på den vänstra menyn under inställningar:
 
-2. Klicka på **klientens IP-adress** i verktygsfältet för att lägga till IP-adressen för datorn du använder för närvarande och klicka sedan på **spara**. En brandväggsregel på servernivå skapas för din aktuella IP-adress.
+2. Klicka på **klientens IP-adress** i verktygsfältet för att lägga till IP-adressen för datorn du använder för närvarande och klicka sedan på **spara**. En IP-brandväggsregel på servernivå skapas för din aktuella IP-adress.
 
-## <a name="manage-firewall-rules-using-transact-sql"></a>Hantera brandväggsregler med hjälp av Transact-SQL
+## <a name="manage-ip-firewall-rules-using-transact-sql"></a>Hantera IP-brandväggsregler med hjälp av Transact-SQL
 
 | Katalogvy eller lagrad procedur | Nivå | Beskrivning |
 | --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Visar de aktuella brandväggsreglerna på servernivå |
-| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Skapar eller uppdaterar brandväggsregler på servernivå |
-| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Server |Tar bort brandväggsregler på servernivå |
-| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Databas |Visar de aktuella brandväggsreglerna på databasnivå |
-| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Databas |Skapar eller uppdaterar brandväggsreglerna på databasnivå |
-| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Databaser |Tar bort brandväggsregler på databasnivå |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Visar de aktuella brandväggsreglerna för servernivå IP |
+| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Skapar eller uppdaterar IP-brandväggsregler på servernivå |
+| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Server |Tar bort IP-brandväggsregler på servernivå |
+| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Databas |Visar de aktuella brandväggsreglerna för på databasnivå IP |
+| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Databas |Skapar eller uppdaterar IP-brandväggsregler på databasnivå |
+| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Databaser |Tar bort på databasnivå IP-brandväggsregler |
 
-Granska befintliga regler i följande exempel, aktivera ett intervall med IP-adresser på Contoso-servern och tar bort en brandväggsregel:
+Granska befintliga regler i följande exempel, aktivera ett intervall med IP-adresser på Contoso-servern och tar bort en brandväggsregel för IP:
 
 ```sql
 SELECT * FROM sys.firewall_rules ORDER BY name;
 ```
 
-Lägg sedan till en brandväggsregel.
+Lägg sedan till en IP-brandväggsregel på servernivå.
 
 ```sql
 EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-Kör den lagrade proceduren sp_delete_firewall_rule om du vill ta bort en brandväggsregel på servernivå. I följande exempel tas regeln med namnet ContosoFirewallRule:
+Om du vill ta bort en IP-brandväggsregel på servernivå, kör du proceduren sp_delete_firewall_rule lagras. I följande exempel tas regeln med namnet ContosoFirewallRule:
 
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```
 
-## <a name="manage-firewall-rules-using-azure-powershell"></a>Hantera brandväggsregler med hjälp av Azure PowerShell
+## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>Hantera brandväggsregler på servernivå IP med Azure PowerShell
 
 | Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Returnerar de aktuella brandväggsreglerna på servernivå |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Server |Skapar en ny brandväggsregel på servernivå |
-| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Server |Uppdaterar egenskaperna för en befintlig brandväggsregel på servernivå |
-| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Server |Tar bort brandväggsregler på servernivå |
+| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Returnerar de aktuella brandväggsreglerna för servernivå IP |
+| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Server |Skapar en ny på servernivå IP-brandväggsregel |
+| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Server |Uppdaterar egenskaperna för en befintlig på servernivå IP-brandväggsregel |
+| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Server |Tar bort IP-brandväggsregler på servernivå |
 
-I följande exempel anger en regel för brandvägg på servernivå med hjälp av PowerShell:
+I följande exempel anger en servernivå IP-brandväggsregel med hjälp av PowerShell:
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
@@ -165,19 +165,19 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> PowerShell-exempel i kontexten för en Snabbstart finns [skapa DB – PowerShell](sql-database-powershell-samples.md) och [skapar en enkel databas och konfigurerar en brandväggsregel för SQL Database med hjälp av PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
+> PowerShell-exempel i kontexten för en Snabbstart finns [skapa DB – PowerShell](sql-database-powershell-samples.md) och [skapar en enkel databas och konfigurerar en SQL Database-servernivå IP-brandväggsregel med hjälp av PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
 
-## <a name="manage-firewall-rules-using-azure-cli"></a>Hantera brandväggsregler med hjälp av Azure CLI
+## <a name="manage-server-level-ip-firewall-rules-using-azure-cli"></a>Hantera brandväggsregler på servernivå IP med Azure CLI
 
 | Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
-|[Skapa AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Skapar en brandväggsregel|
-|[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Visar en lista över brandväggsreglerna på en server|
-|[AZ sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Server|Visar information om en brandväggsregel|
-|[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Server|Uppdaterar en brandväggsregel|
-|[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Server|Tar bort en brandväggsregel|
+|[Skapa AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Skapar en brandväggsregel för IP|
+|[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Visar en lista över IP-brandväggsregler på en server|
+|[AZ sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Server|Visar information om en IP-brandväggsregel|
+|[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Server|Uppdaterar en IP-brandväggsregel|
+|[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Server|Tar bort en IP-brandväggsregel|
 
-I följande exempel anger en regel för brandvägg på servernivå med hjälp av Azure-CLI:
+I följande exempel anger en servernivå IP-brandväggsregel med hjälp av Azure-CLI:
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
@@ -185,36 +185,36 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ```
 
 > [!TIP]
-> Azure CLI exempelvis i kontexten för en Snabbstart Se [skapa DB – Azure CLI](sql-database-cli-samples.md) och [skapar en enkel databas och konfigurerar en brandväggsregel för SQL Database med hjälp av Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+> Azure CLI exempelvis i kontexten för en Snabbstart Se [skapa DB – Azure CLI](sql-database-cli-samples.md) och [skapar en enkel databas och konfigurerar en brandväggsregel för IP-SQL-databas med hjälp av Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
 
-## <a name="manage-firewall-rules-using-rest-api"></a>Hantera brandväggsregler med hjälp av REST API
+## <a name="manage-server-level-ip-firewall-rules-using-rest-api"></a>Hantera brandväggsregler på servernivå IP med REST API
 
 | API | Nivå | Beskrivning |
 | --- | --- | --- |
-| [Visa en lista med brandväggsregler](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Visar de aktuella brandväggsreglerna på servernivå |
-| [Skapa eller uppdatera en brandväggsregel](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Skapar eller uppdaterar brandväggsregler på servernivå |
-| [Ta bort brandväggsregel](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Tar bort brandväggsregler på servernivå |
-| [Hämta brandväggsregler](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Hämtar brandväggsregler på servernivå |
+| [Visa en lista med brandväggsregler](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Visar de aktuella brandväggsreglerna för servernivå IP |
+| [Skapa eller uppdatera en brandväggsregel](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Skapar eller uppdaterar IP-brandväggsregler på servernivå |
+| [Ta bort brandväggsregel](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Tar bort IP-brandväggsregler på servernivå |
+| [Hämta brandväggsregler](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Hämtar IP-brandväggsregler på servernivå |
 
-## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Brandväggsregel på servernivå jämfört med en brandväggsregel på databasnivå
+## <a name="server-level-ip-firewall-rule-versus-a-database-level-ip-firewall-rule"></a>IP-brandväggsregel på servernivå runt jämfört med en IP-brandväggsregel på databasnivå
 
 F. Bör användare av en databas är helt isolerade från en annan databas?
-Om Ja, kan du bevilja åtkomst med hjälp av brandväggsregler på databasnivå. Detta förhindrar med brandväggen på servernivå regler som tillåter åtkomst genom brandväggen till alla databaser, dina försvar djup.
+Om Ja, kan du bevilja åtkomst med hjälp av IP-brandväggsregler på databasnivå. Detta förhindrar med servernivå IP-brandväggsregler, som tillåter åtkomst genom brandväggen till alla databaser, dina försvar djup.
 
 F. Användare på IP-adressen måste ha åtkomst till alla databaser?
-Använd brandväggsregler på servernivå för att minska antalet gånger som du måste konfigurera brandväggens regler.
+Använd IP-brandväggsregler på servernivå för att minska antalet gånger som du måste konfigurera IP-brandväggsregler.
 
-F. Har du åtkomst via Azure portal, PowerShell eller REST-API genom att den person eller grupp att konfigurera brandväggsregler endast?
-Du måste använda brandväggsregler på servernivå. Brandväggsregler på databasnivå kan bara konfigureras med hjälp av Transact-SQL.  
+F. Har du åtkomst via Azure portal, PowerShell eller REST-API genom att den person eller grupp att konfigurera de IP-brandväggsreglerna?
+Du måste använda IP-brandväggsregler på servernivå. IP-brandväggsregler på databasnivå kan bara konfigureras med hjälp av Transact-SQL.  
 
-F. Är den person eller grupp att konfigurera brandväggsregler som är förbjudna att ha på hög nivå behörighet på databasnivå?
-Använd brandväggsregler på servernivå. Konfigurera brandväggsregler på databasnivå med hjälp av Transact-SQL, måste minst `CONTROL DATABASE` behörighet på databasnivå.  
+F. Den person eller grupp konfigurerar IP-brandväggsregler som är förbjudna att ha på hög nivå behörighet på databasnivå?
+Använd IP-brandväggsregler på servernivå. Konfigurera på databasnivå med IP-brandväggsregler med hjälp av Transact-SQL, måste minst `CONTROL DATABASE` behörighet på databasnivå.  
 
-F. Är den person eller grupp konfigurering eller granskning brandväggsregler, centralt hantera brandväggsregler för många (kanske 100-tal) databaser?
-Det här valet beror på dina behov och miljö. Brandväggsregler på servernivå kan vara enklare att konfigurera, men skript kan konfigurera regler på databasnivå. Och även om du använder brandväggsregler på servernivå kan du behöva granska database-brandväggsregler, att se om användare med `CONTROL` -behörighet på databasen har skapat brandväggsregler på databasnivå.
+F. Är den person eller grupp konfigurering eller granskning IP-brandväggsregler centralt hantera IP-brandväggsregler för många (kanske 100-tal) databaser?
+Det här valet beror på dina behov och miljö. IP-brandväggsregler på servernivå kan vara enklare att konfigurera, men skript kan konfigurera regler på databasnivå. Och även om du använder IP-brandväggsregler på servernivå kan du behöva granska om brandväggsregler på databasnivå IP-användare med `CONTROL` -behörighet på databasen har skapat IP-brandväggsregler på databasnivå.
 
-F. Kan jag använda en blandning av båda brandväggsregler på servernivå och databasnivå?
-Ja. Vissa användare, till exempel Administratörer behöva brandväggsregler på servernivå. Andra användare, t.ex användare av ett databasprogram, behöva brandväggsregler på databasnivå.
+F. Kan jag använda en blandning av både på servernivå och databasnivå IP-brandväggsregler?
+Ja. Vissa användare, till exempel Administratörer behöva IP-brandväggsregler på servernivå. Andra användare, t.ex användare av ett databasprogram, kanske behöver på databasnivå IP-brandväggsregler.
 
 ## <a name="troubleshooting-the-database-firewall"></a>Felsöka databasbrandväggen
 
@@ -240,12 +240,12 @@ Tänk på följande om åtkomsten till Microsoft Azure SQL Database-tjänsten in
 
   Om du har en Internetanslutning med dynamisk IP-adressering och du har problem med att passera brandväggen kan prova du någon av följande lösningar:
   
-  - Fråga din Internetleverantör efter IP-adressintervallet som tilldelats klientdatorer som ansluter till Azure SQL Database-servern och lägg sedan till IP-adressintervallet som en brandväggsregel.
-  - Använd statisk IP-adressering i stället för dina klientdatorer och lägg sedan till IP-adresserna som brandväggsregler.
+  - Be din Internet Service Provider (ISP) för IP-adressintervall som tilldelats klientdatorer som har åtkomst till Azure SQL Database-servern och lägger sedan till IP-adressintervallet som en IP-brandväggsregel.
+  - Få statisk IP-adressering i stället för dina klientdatorer och Lägg sedan till IP-adresser som IP-brandväggsregler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En Snabbstart om hur du skapar en databas och en brandväggsregel på servernivå finns [skapa en Azure SQL database](sql-database-get-started-portal.md).
+- En Snabbstart om hur du skapar en IP-brandväggsregel på servernivå finns [skapa en Azure SQL database](sql-database-single-database-get-started.md).
 - Hjälp med att ansluta till en Azure SQL-databas från öppen källkod eller program från tredje part finns i [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snabbstart med kodexempel för att ansluta klienter till SQL Database).
 - Information om ytterligare portar som du kan behöva öppna finns i den **SQL-databas: Utanför eller inuti** delen av [portar utöver 1433 för ADO.NET 4.5 och SQL-databas](sql-database-develop-direct-route-ports-adonet-v12.md)
 - En översikt över Azure SQL Database-säkerhet finns i [skydda databasen](sql-database-security-overview.md)

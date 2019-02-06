@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7cb2e4214e868bdf9f585d6b0f4468a6c8375191
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459248"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754027"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Kontrollera och att bevilja åtkomst till databasen till SQL Database och SQL Data Warehouse
 
@@ -49,13 +49,13 @@ Kontona **Serveradministratör** och **Azure AD-administratör** har följande e
 - Dessa konton går in i användardatabaser som användaren `dbo` och de har alla behörigheter i användardatabaserna. (Ägaren till en användardatabas går också in i databasen som användaren `dbo`.) 
 - Ange inte den `master` databas som den `dbo` användaren, och har begränsad behörighet i huvuddatabasen. 
 - Är **inte** medlemmar i standard-SQL-Server `sysadmin` fasta serverrollen som inte är tillgänglig i SQL-databas.  
-- Skapa, ändra och ta bort databaser, inloggningar, användare i huvuddatabasen och servernivå brandväggsregler.
+- Skapa, ändra och ta bort databaser, inloggningar, användare i huvuddatabasen och servernivå IP-brandväggsregler.
 - Lägga till och ta bort medlemmar till den `dbmanager` och `loginmanager` roller.
 - Kan visa den `sys.sql_logins` systemtabellen.
 
 ### <a name="configuring-the-firewall"></a>Konfigurering av brandväggen
 
-När brandväggen på servernivå är konfigurerad för en enskild IP-adress eller ett intervall kan **SQL-serveradministratören** och **Azure Active Directory-administratören** ansluta till huvuddatabasen och alla användardatabaser. Den första brandväggen på servernivå kan konfigureras via [Azure-portalen](sql-database-get-started-portal.md)med hjälp av [PowerShell](sql-database-powershell-samples.md) eller med [REST API:t](https://msdn.microsoft.com/library/azure/dn505712.aspx). När en anslutning upprättats, kan även ytterligare brandväggsregler på servernivå konfigureras med hjälp av [Transact-SQL](sql-database-configure-firewall-settings.md).
+När brandväggen på servernivå är konfigurerad för en enskild IP-adress eller ett intervall kan **SQL-serveradministratören** och **Azure Active Directory-administratören** ansluta till huvuddatabasen och alla användardatabaser. Den första brandväggen på servernivå kan konfigureras via [Azure-portalen](sql-database-single-database-get-started.md)med hjälp av [PowerShell](sql-database-powershell-samples.md) eller med [REST API:t](https://msdn.microsoft.com/library/azure/dn505712.aspx). När en anslutning har upprättats kan också ytterligare IP-brandväggsregler för på servernivå konfigureras med hjälp av [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Åtkomstväg för administratör
 
@@ -67,7 +67,7 @@ Vid användning av en öppen port i brandväggen på servernivå kan administrat
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Ansluta till en databas med hjälp av SQL Server Management Studio
 
-Om du behöver en genomgång av hur man skapar en databas, brandväggsregler på servernivå och hur man använder SQL Server Management Studio för att fråga en databas, finns det i [Kom igång med Azure SQL Database-servrar, databaser och brandväggsregler med hjälp av Azure-portalen och SQL Server Management Studio](sql-database-get-started-portal.md).
+En genomgång av hur du skapar en server, en databas, IP-brandväggsregler på servernivå och använder SQL Server Management Studio för att fråga en databas, se [Kom igång med Azure SQL Database-servrar, databaser och brandväggsregler med hjälp av Azure portal och SQL Server Management Studio](sql-database-single-database-get-started.md).
 
 > [!IMPORTANT]
 > Det rekommenderas att du alltid använder den senaste versionen av Management Studio för att förbli synkroniserad med uppdateringar av Microsoft Azure och SQL Database. [Uppdatera SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).

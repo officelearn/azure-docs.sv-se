@@ -1,5 +1,5 @@
 ---
-title: Självstudie – skapa användarflöden i Azure Active Directory B2C | Microsoft Docs
+title: Självstudie – skapa användarflöden - Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du skapar användarflöden för dina program i Azure Active Directory B2C med Azure portal.
 services: active-directory-b2c
 author: davidmu1
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845613"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750298"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Självstudier: Skapa användarflöden i Azure Active Directory B2C
 
@@ -39,29 +39,30 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Registrera dig och logga in användarflödet hanterar registrering och inloggning upplevelser med en enda konfiguration. Användare av ditt program leds av rätt väg beroende på kontext.
 
-1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 
     ![Växla till prenumerationskatalogen](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
-3. I den vänstra menyn väljer du **användarflöden**, och välj sedan **nytt användarflöde**.
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+4. I den vänstra menyn väljer du **användarflöden**, och välj sedan **nytt användarflöde**.
 
     ![Välj nytt användarflöde](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. Välj den **registrering och inloggning** användarflödet på fliken rekommenderas.
+5. Välj den **registrering och inloggning** användarflödet på fliken rekommenderas.
 
     ![Välj användarflödet som registrera dig och logga in](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. Ange ett **Namn** för användarflödet. Till exempel *signupsignin1*.
-6. För **identitetsprovidrar**väljer **e-postregistrering**.
+6. Ange ett **Namn** för användarflödet. Till exempel *signupsignin1*.
+7. För **identitetsprovidrar**väljer **e-postregistrering**.
 
     ![Ange egenskaper för flow](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. För **användarattribut och anspråk**, Välj anspråk och attribut som du vill samla in och skicka från användaren under registreringen. Välj exempelvis **visa fler**, och välj sedan **Land/Region**, **visningsnamn**, och **postnummer**. Klicka på **OK**.
+8. För **användarattribut och anspråk**, Välj anspråk och attribut som du vill samla in och skicka från användaren under registreringen. Välj exempelvis **visa fler**, och välj sedan **Land/Region**, **visningsnamn**, och **postnummer**. Klicka på **OK**.
 
     ![Välj de attribut och anspråk](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. Klicka på **skapa** att lägga till användarflödet. Prefixet *B2C_1* automatiskt läggas till i namnet.
+9. Klicka på **skapa** att lägga till användarflödet. Prefixet *B2C_1* automatiskt läggas till i namnet.
 
 ### <a name="test-the-user-flow"></a>Testa användarflödet
 
@@ -123,4 +124,4 @@ I den här artikeln har du lärt dig hur du:
 > * Skapa ett användarflöde för återställning av lösenord
 
 > [!div class="nextstepaction"]
-> [Anpassa användargränssnittet för dina program i Azure Active Directory B2C](tutorial-customize-ui.md)
+> [Lägg till Identitetsproviders i dina program i Azure Active Directory B2C](tutorial-add-identity-providers.md)

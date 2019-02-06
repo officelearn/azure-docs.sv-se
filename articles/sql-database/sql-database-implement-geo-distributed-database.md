@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/10/2019
-ms.openlocfilehash: 086e1957c68c5864997c9df9213a0c82cbf4c852
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560761"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750349"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Självstudier: Implementera en geo-distribuerad databas
 
@@ -36,7 +36,7 @@ Kontrollera att du har installerat följande objekt för att slutföra den här 
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - En Azure SQL-databas. Skapa en med
-  - [Portal](sql-database-get-started-portal.md)
+  - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -48,7 +48,7 @@ Kontrollera att du har installerat följande objekt för att slutföra den här 
 > [!IMPORTANT]
 > Glöm inte att konfigurera brandväggsregler för att använda offentliga IP-adressen för den dator där du utför stegen i den här självstudien. Databasnivå brandväggen regler replikeras automatiskt till den sekundära servern.
 >
-> Mer information finns i [skapa en brandväggsregel på databasnivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa den IP-adress som används för brandväggsregeln på servernivå för din dator i [skapa en brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md).  
+> Mer information finns i [skapa en brandväggsregel på databasnivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa den IP-adress som används för brandväggsregeln på servernivå för din dator i [skapa en brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md).  
 
 ## <a name="create-a-failover-group"></a>Skapa en redundansgrupp
 

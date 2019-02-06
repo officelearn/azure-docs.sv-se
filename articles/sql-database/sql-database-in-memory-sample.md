@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9a394c0dff74ec5f926356a3d700c5bbba4c0e4f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b36db929d1ed6487f0da72bea5415d6ca4223b92
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478295"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756057"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 
@@ -46,7 +46,7 @@ En mer förenklad, men mer visuellt tilltalande prestanda demo för In-Memory OL
 
 #### <a name="installation-steps"></a>Installationssteg
 
-1. I den [Azure-portalen](https://portal.azure.com/), skapa en Premium- eller affärskritisk databas på en server. Ange den **källa** till AdventureWorksLT-exempeldatabasen. Detaljerade anvisningar finns i [skapa din första Azure SQL-databas](sql-database-get-started-portal.md).
+1. I den [Azure-portalen](https://portal.azure.com/), skapa en Premium- eller affärskritisk databas på en server. Ange den **källa** till AdventureWorksLT-exempeldatabasen. Detaljerade anvisningar finns i [skapa din första Azure SQL-databas](sql-database-single-database-get-started.md).
 
 2. Ansluta till databasen med SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 

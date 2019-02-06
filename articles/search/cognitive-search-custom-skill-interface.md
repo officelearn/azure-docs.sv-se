@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: fe575a79fe2f47729e7c7fe039989b2c08af1282
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e4fe511228f6e80a17af8325ee74ae0927a760bd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657832"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754735"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Lägga till en anpassad kunskap till en pipeline för kognitiv sökning
 
-En [kognitiv sökning indexering av pipeline](cognitive-search-concept-intro.md) i Azure Search kan monteras från [fördefinierade kunskaper](cognitive-search-predefined-skills.md) samt anpassade färdigheter som du personligt skapar och lägger till pipelinen. I den här artikeln lär du dig hur du skapar en anpassad kunskap som exponerar ett gränssnitt som gör det möjligt att ingå i en pipeline för kognitiv sökning. 
+En [kognitiv sökning indexering av pipeline](cognitive-search-concept-intro.md) i Azure Search kan monteras från [fördefinierade kunskaper](cognitive-search-predefined-skills.md) samt [anpassade funktioner](cognitive-search-custom-skill-web-api.md) som du skapar personligt och lägga till den pipeline. I den här artikeln lär du dig hur du skapar en anpassad kunskap som exponerar ett gränssnitt som gör det möjligt att ingå i en pipeline för kognitiv sökning. 
 
 Att skapa en anpassad färdighet ger dig ett sätt att infoga transformationer som är unika för ditt innehåll. En anpassad färdighet körs oberoende av varandra, oavsett berikande steg som du behöver. Du kan till exempel definiera fält-specifik anpassade entiteter, skapa modeller för anpassad klassificering för att skilja företag och finansiella kontrakt och dokument eller Lägg till ett tal för kompetens att nå djupare i ljudfiler för relevant innehåll. Steg för steg-exempel finns i [exempel: skapa en anpassad färdighet](cognitive-search-create-custom-skill-example.md).
 

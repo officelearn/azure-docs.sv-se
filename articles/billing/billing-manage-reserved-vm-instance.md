@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 257e9f72f21d523dfa2390814b786d1963dd671c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904012"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743641"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -36,11 +36,11 @@ Så här uppdaterar en reservationens omfång:
 2. Välj **alla tjänster** > **reservationer**.
 3. Välj reservationen.
 4. Välj **Inställningar** > **Konfiguration**.
-5. Ändra omfattningen. 
+5. Ändra omfattningen.
 
 Om du ändrar från delade till ett enda scope, kan du bara välja prenumerationer där du är ägare. Endast prenumerationer i samma fakturering kontext som reservationen, kan väljas.
 
-Området gäller endast för betala per användning-erbjudandet MS-AZR - 0003P, MS-AZR - 0017P erbjudande för Enterprise eller typer av CSP-prenumerationer. Utveckling/testning-prenumerationer är inte berättigade att hämta rabatten för enterprise-avtal.
+Området gäller endast för betala per användning-erbjudandet MS-AZR - 0003P eller MS-AZR - 0023P, Enterprise erbjuder MS-AZR - 0017P eller MS-AZR - 0148P eller typer av CSP-prenumerationer.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Lägga till eller ändra användare som kan hantera en reservation
 

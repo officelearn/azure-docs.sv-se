@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/31/2019
+ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: d680634231b90e5d1cc036f43b96e05d66899e34
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487055"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743658"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)
 
@@ -34,7 +34,7 @@ Application Gateway och Web Application Firewall (WAF) finns nu i offentlig för
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Automatisk skalning SKU är tillgänglig i följande regioner: usaöstra2, västra USA 2, europavästra, southeastasia, centralus, francecentral, eastus, Sydostasien, europanorra, usasödracentrala, västrastorbritannien, usanorracentrala, usavästra, eastus, centralus, japanöstra.
+Autoskalning SKU är tillgänglig i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, Nordeuropa, Västeuropa, Sydostasien, Frankrike, centrala, Storbritannien, västra, östra Japan, västra Japan.
 
 ## <a name="pricing"></a>Prissättning
 

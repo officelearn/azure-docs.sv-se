@@ -1,23 +1,26 @@
 ---
-title: Så här skapar du en blob i Azure Storage med Node.js SDK-v2
+title: Så här skapar du en blob i Azure Storage med hjälp av klientbiblioteket för Node.js v2
 description: Skapa ett lagringskonto och en container i objektlagring (Blob). Sedan använda Azure Storage-klientbiblioteket för Node.js v2 och ladda upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: tamram
-ms.openlocfilehash: 6af1a7c1cf140ba8ff4710c0cc90559e3df55135
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734172"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750082"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Hur du laddar upp, ladda ned och lista blobar med Node.js SDK v2
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Hur du laddar upp, ladda ned och lista blobar med hjälp av klientbiblioteket för Node.js v2
 
-I den här guiden att lära dig hur du använder Node.js för att ladda upp, ladda ned och lista blobar och hantera behållare med Azure Blob storage.
+I den här guiden att lära dig hur du använder klientbiblioteket för Node.js från v2 till ladda upp, ladda ned och lista blobar med Azure Blob storage.
+
+> [!TIP]
+> Den senaste versionen av Azure Storage-klientbiblioteket för Node.js är v10. Microsoft rekommenderar att du använder den senaste versionen av klientbiblioteket när det är möjligt. Kom igång med v10, se [snabbstarten: Ladda upp, hämta, lista och ta bort blobar med Azure Storage-klientbibliotek för JavaScript v10 (förhandsversion)](storage-quickstart-blobs-nodejs-v10.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -96,7 +99,7 @@ Syftet med modulerna är följande:
 
 Fil med namnet *.env* i den aktuella körningskontexten
 - *path* krävs för att kunna fastställa den absoluta sökvägen för den fil som ska laddas upp till blobblagringen
-- *azure-storage* är modulen [Azure Storage SDK](https://docs.microsoft.com/javascript/api/azure-storage) för Node.js
+- *Azure-storage* är den [Azure Storage-klientbiblioteket](https://docs.microsoft.com/javascript/api/azure-storage) -modulen för Node.js
 
 Därefter initieras variabeln **blobService** som en ny instans av Azure Blob-tjänsten.
 
@@ -358,4 +361,4 @@ Se dessa ytterligare resurser för Node.js-utveckling med blobblagring:
 Den här artikeln visar hur du överför en fil mellan en lokal disk och Azure Blob storage med Node.js. Om du vill lära dig mer om hur du arbetar med Blob Storage fortsätter du till GitHub-lagringsplatsen.
 
 > [!div class="nextstepaction"]
-> [Lagringsplats för Azure Storage SDK för JavaScript](https://github.com/Azure/azure-storage-node)
+> [Microsoft Azure Storage SDK för Node.js och JavaScript för webbläsare](https://github.com/Azure/azure-storage-node)

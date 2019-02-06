@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8f87cb68aeea8b953b9883e92fd5080569c6cdd0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bf840dc00f36ee19f2e76ead6e61ae2377b97167
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203699"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749126"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Fördefinierade kunskaper för innehåll berikande (Azure Search)
 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig om kognitiva kunskaper som medföljer Azur
 
 ## <a name="predefined-skills"></a>Fördefinierade kunskaper
 
-Flera kunskaper är flexibla i vad de använda eller skapa. I allmänhet baseras de flesta kunskaper på förtränade modeller, vilket innebär att du kan träna modellen med hjälp av dina egna träningsdata. Anvisningar om hur du skapar en anpassad färdighet finns i [hur du definierar ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md) och [exempel: skapa en anpassad färdighet](cognitive-search-create-custom-skill-example.md). I följande tabell räknar upp och beskriver de färdigheter som tillhandahålls av Microsoft. 
+Flera kunskaper är flexibla i vad de använda eller skapa. I allmänhet baseras de flesta kunskaper på förtränade modeller, vilket innebär att du kan träna modellen med hjälp av dina egna träningsdata. I följande tabell räknar upp och beskriver de färdigheter som tillhandahålls av Microsoft. 
 
 | Färdighet | Beskrivning |
 |-------|-------------|
@@ -41,6 +41,10 @@ Flera kunskaper är flexibla i vad de använda eller skapa. I allmänhet baseras
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Kompetensen använder en algoritm för avbildning för att identifiera innehållet i en bild och generera en textbeskrivning. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optisk teckenläsning. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Maps-utdata till en komplex typ (en flerdelad datatyp, som kan användas för ett fullständigt namn, en flerradig-adress eller en kombination av efternamn och ett personligt ID.) |
+| [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Tillåter utökningsbarhet för kognitiv sökning pipelinen genom att göra ett HTTP-anrop till ett anpassat webb-API |
+
+
+Anvisningar om hur du skapar en [anpassade färdighet](cognitive-search-custom-skill-web-api.md), se [hur du definierar ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md) och [exempel: skapa en anpassad färdighet](cognitive-search-create-custom-skill-example.md).
 
 ## <a name="see-also"></a>Se också
 

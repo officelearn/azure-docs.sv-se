@@ -1,23 +1,26 @@
 ---
-title: Så här skapar du en blob i Azure Storage med Java Storage SDK v7 | Microsoft Docs
+title: Så här skapar du en blob i Azure Storage med hjälp av klientbiblioteket för Java v7 | Microsoft Docs
 description: Skapa ett lagringskonto och en container i objektlagring (Blob). Sedan använda Azure Storage-klientbibliotek för Java v7 och ladda upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 18ba3d70951cd59f59b566c8bfff2403a32e4874
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730467"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753222"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Hur du ladda upp, ladda ned och lista blobar med Java SDK v7
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Hur du laddar upp, ladda ned och lista blobar med hjälp av klientbiblioteket för Java v7
 
-I den här guiden att lära dig hur du använder Java för att ladda upp, ladda ned och lista blockblobar i en behållare i Azure Blob storage.
+I den här guiden att lära dig hur du använder klientbiblioteket för Java v7 att ladda upp, ladda ned och lista blockblobar i en behållare i Azure Blob storage.
+
+> [!TIP]
+> Den senaste versionen av Azure Storage-klientbibliotek för Java är v10. Microsoft rekommenderar att du använder den senaste versionen av klientbiblioteket när det är möjligt. Kom igång med v10, se [snabbstarten: Ladda upp, ladda ned och lista blobar med hjälp av Java Storage SDK V10](storage-quickstart-blobs-java-v10.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -206,8 +209,6 @@ sourceFile.deleteOnExit();
 I den här artikeln beskrivs hur du överför filer mellan en lokal disk och Azure Blob storage med Java. För att få mer information om hur du arbetar med Java fortsätter du till vår lagringsplats för GitHub-källkod.
 
 > [!div class="nextstepaction"]
-> [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java) 
-> [API-referens](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-> [Kodexempel för Java](../common/storage-samples-java.md)
-
-* Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> [Microsoft Azure Storage SDK v10 för Java](https://github.com/azure/azure-storage-java) 
+> [Java API-referens](https://docs.microsoft.com/java/azure/)
+> [kodexempel för Java](../common/storage-samples-java.md)

@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aa272c126e06b758dc3903a8ec71b7043491057
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f57175598d3d63afcc7fd050fe5aaedd62e778fe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017658"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746412"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Flytta data från en SFTP-server med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-sftp-connector.md)
 > * [Version 2 (aktuell version)](../connector-sftp.md)
 
@@ -32,7 +32,7 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 Data factory stöder för närvarande endast flyttar data från en SFTP-server till datalager, men inte för att flytta data från andra datalager till en SFTP-server. Den stöder både lokala och molnbaserade SFTP-servrar.
 
 > [!NOTE]
-> Kopieringsaktivitet tar inte bort källfilen efter att den har kopierats till målet. Om du vill ta bort källfilen efter en lyckad kopiering kan du skapa en anpassad aktivitet för att ta bort filen och använda aktiviteten i pipelinen. 
+> Kopieringsaktivitet tar inte bort källfilen efter att den har kopierats till målet. Om du vill ta bort källfilen efter en lyckad kopiering kan du skapa en anpassad aktivitet för att ta bort filen och använda aktiviteten i pipelinen.
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Scenarier som stöds och typer av autentisering
 Du kan använda den här SFTP-anslutningen för att kopiera data från **både i molnet SFTP- och lokala SFTP servrar**. **Grundläggande** och **SshPublicKey** autentiseringstyper som stöds när du ansluter till SFTP-servern.
@@ -54,7 +54,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | typ | Type-egenskapen måste anges till `Sftp`. |Ja |
 | värd | Namn eller IP-adressen för SFTP-servern. |Ja |
 | port |Porten som SFTP-servern lyssnar. Standardvärdet är: 21 |Nej |
-| authenticationType |Ange autentiseringstyp. Tillåtna värden: **Grundläggande**, **SshPublicKey**. <br><br> Referera till [använder grundläggande autentisering](#using-basic-authentication) och [med hjälp av SSH autentisering med offentlig nyckel](#using-ssh-public-key-authentication) respektive avsnitt på fler egenskaper och JSON-exempel. |Ja |
+| authenticationType |Ange autentiseringstyp. Tillåtna värden: **Basic**, **SshPublicKey**. <br><br> Referera till [använder grundläggande autentisering](#using-basic-authentication) och [med hjälp av SSH autentisering med offentlig nyckel](#using-ssh-public-key-authentication) respektive avsnitt på fler egenskaper och JSON-exempel. |Ja |
 | skipHostKeyValidation | Ange om du vill hoppa över nyckelvalidering för värden. | Nej. Standard: FALSKT |
 | ska hostKeyFingerprint | Ange fingeravtryck av serverns värdnyckel. | Ja om den `skipHostKeyValidation` är inställd på false.  |
 | gatewayName |Namnet på Data Management Gateway att ansluta till en lokal SFTP-server. | Ja om du kopierar data från en lokal SFTP-server. |
@@ -205,7 +205,7 @@ I det här exemplet {sektorn} ersätts med det angivna värdet av Data Factory s
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },

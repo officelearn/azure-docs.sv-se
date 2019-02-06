@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9a96edbc70eeda8acee792a71d84b4a2c6c4fef8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828187"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745392"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysera video-och ljudfiler
 
@@ -33,7 +33,7 @@ Media Services stöder för närvarande följande inbyggda analyzer förinställ
 
 |**Förinställda namnet**|**Scenario**|**Detaljer**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår. Du kan ange språk för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner”. Språk som stöds är engelska (en-US ”och” en-GB ”), spanska (” es-ES ”och” es-MX ”), franska (” fr-FR ”), italienska (” it-IT ”), japanska ('ja-JP”), portugisiska ('pt-BR ”), kinesiska ('zh-CN”), tyska (”de-DE”), arabiska ('ar-t.ex ”.), ryska ('ru-RU”), Hindi (”Hej-IN” ), och koreanska ('ko-KR ”).<br/><br/> Om språket inte angetts eller är inställt på null-värden, automatisk språkidentifiering ska användas. Funktionen för identifiering av automatisk språk stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Funktionen för automatisk identifiering fungerar bäst med ljudinspelningar med tydligt går tal. Om det inte går att hitta språket automatisk språkidentifiering, tillbaka utskrift till engelska.|
+|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår som innehåller tal i en enda språk. Du kan ange språk för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner”. Språk som stöds är engelska (en-US ”och” en-GB ”), spanska (” es-ES ”och” es-MX ”), franska (” fr-FR ”), italienska (” it-IT ”), japanska ('ja-JP”), portugisiska ('pt-BR ”), kinesiska ('zh-CN”), tyska (”de-DE”), arabiska ('ar-t.ex ”.), ryska ('ru-RU”), Hindi (”Hej-IN” ), och koreanska ('ko-KR ”).<br/><br/> Om språket inte angetts eller är inställt på null-värden, automatisk språkidentifiering väljer du det första språk som har identifierats och bearbeta med det valda språket för hela filen. Funktionen för identifiering av automatisk språk stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Det stöder för närvarande inte dynamiskt växla mellan olika språk om det första språket som har identifierats. Funktionen för automatisk identifiering fungerar bäst med ljudinspelningar med märks tydligt tal. Om det inte går att hitta språket automatisk språkidentifiering, tillbaka utskrift till engelska.|
 |**VideoAnalyzerPreset**|Analysera ljud och video|Extraherar insikter (omfattande metadata) från både ljud och video och matar ut en fil i JSON-format. Du kan ange om du bara vill lyfta ut kunskaper ljud vid bearbetning av en videofil. Mer information finns i [analysera video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
@@ -152,7 +152,7 @@ Exempel:
 |knownPersonId|Om det är en känd person, dess interna ID.|
 |referenceId|Om det är en Bing kändisar, dess Bing-ID.|
 |referenceType|För närvarande bara Bing.|
-|rubrik|Om det är en kändisar, dess rubrik (till exempel ”Microsofts VD”).|
+|title|Om det är en kändisar, dess rubrik (till exempel ”Microsofts VD”).|
 |imageUrl|Om det är en kändisar, dess bild-url.|
 |instanser|Dessa är instanser av där ansiktet visas i det angivna tidsintervallet. Varje instans har också en thumbnailsId. |
 

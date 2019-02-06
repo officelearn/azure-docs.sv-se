@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8850ef68c665efcf9e66315af20b7d1e8492fc5f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493770"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745579"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager-mallar
 
@@ -34,9 +34,9 @@ Resource Manager tillhandahåller flera funktioner för att göra jämförelser 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="and"></a>och
-`and(arg1, arg2)`
+`and(arg1, arg2, ...)`
 
-Kontrollerar om båda parametervärden är sant.
+Kontrollerar om alla parametervärden är sant.
 
 ### <a name="parameters"></a>Parametrar
 
@@ -44,10 +44,11 @@ Kontrollerar om båda parametervärden är sant.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |boolesk |Det första värdet för att kontrollera om är sant. |
 | arg2 |Ja |boolesk |Det andra värdet att kontrollera om är sant. |
+| ytterligare argument |Nej |boolesk |Ytterligare argument för att kontrollera om utvärderas som true. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **SANT** om båda värdena är true, i annat fall **FALSKT**.
+Returnerar **SANT** om alla värden är true, i annat fall **FALSKT**.
 
 ### <a name="examples"></a>Exempel
 
@@ -366,9 +367,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="or"></a>eller
-`or(arg1, arg2)`
+`or(arg1, arg2, ...)`
 
-Kontrollerar om antingen parametervärdet är sant.
+Kontrollerar om ett parametervärde är sant.
 
 ### <a name="parameters"></a>Parametrar
 
@@ -376,10 +377,11 @@ Kontrollerar om antingen parametervärdet är sant.
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |boolesk |Det första värdet för att kontrollera om är sant. |
 | arg2 |Ja |boolesk |Det andra värdet att kontrollera om är sant. |
+| ytterligare argument |Nej |boolesk |Ytterligare argument för att kontrollera om utvärderas som true. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **SANT** om antingen värdet är true, i annat fall **FALSKT**.
+Returnerar **SANT** om något värde är sant, i annat fall **FALSKT**.
 
 ### <a name="examples"></a>Exempel
 

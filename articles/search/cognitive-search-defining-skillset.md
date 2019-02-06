@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320803"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751981"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Så här skapar du en kompetens i en pipeline för berikande
 
@@ -38,9 +38,9 @@ En rekommenderade första steget är att bestämma vilka data som ska extraheras
 
 Anta att du är intresserad av att bearbetning av en uppsättning kommentarer av analytiker som finansiella. För varje fil som du vill extrahera företagsnamn och allmän känslan i kommentarerna. Du kanske också vill skriva en anpassad enricher som använder Entitetssökning i Bing-tjänsten för att hitta mer information om företag, till exempel vilken typ av företaget bedriver verksamhet. I princip du vill extrahera information så här indexeras för varje dokument:
 
-| post-text | Företag | sentiment | företagets beskrivningar |
+| record-text | Företag | sentiment | företagets beskrivningar |
 |--------|-----|-----|-----|
-|exempel-record| [”Microsoft”, ”LinkedIn”] | 0,99 | [”Microsoft Corporation är en American multinationella teknikföretag...”, ”LinkedIn är en och anställning-affärsorienterade sociala nätverk...”]
+|sample-record| ["Microsoft", "LinkedIn"] | 0,99 | [”Microsoft Corporation är en American multinationella teknikföretag...”, ”LinkedIn är en och anställning-affärsorienterade sociala nätverk...”]
 
 Följande diagram illustrerar en hypotetisk berikande pipeline:
 
@@ -142,11 +142,11 @@ Nästa del i gruppens kunskaper avgör är en matris av kunskaper. Du kan tänka
 
 ## <a name="add-predefined-skills"></a>Lägg till fördefinierade kunskaper
 
-Låt oss titta på den första färdighet, vilket är den fördefinierade [med namnet entitet erkännande färdighet](cognitive-search-skill-named-entity-recognition.md):
+Låt oss titta på den första färdighet, vilket är den fördefinierade [entitet erkännande färdighet](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -155,7 +155,8 @@ Låt oss titta på den första färdighet, vilket är den fördefinierade [med n
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -228,7 +229,7 @@ Andra kunskap för extrahering av sentiment följer samma mönster som den förs
     }
 ```
 
-Den här definitionen är en anpassad kunskap som anropar ett webb-API som en del av processen berikande. För varje organisation som identifieras av igenkänning av namngivna entiteter anropar kompetensen ett webb-API för att hitta beskrivningen av organisationen. Dirigering av när att anropa webb-API och hur flödar den information som tas emot hanteras internt av berikande-motorn. Dock måste initieringen behövs för att anropa den här anpassade API: T anges i JSON (till exempel uri, httpHeaders och indata förväntades). Vägledning i att skapa ett anpassat webb-API för berikande pipelinen finns i [hur du definierar ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md).
+Den här definitionen är en [anpassade färdighet](cognitive-search-custom-skill-web-api.md) som anropar ett webb-API som en del av processen berikande. För varje organisation som identifieras av igenkänning av namngivna entiteter anropar kompetensen ett webb-API för att hitta beskrivningen av organisationen. Dirigering av när att anropa webb-API och hur flödar den information som tas emot hanteras internt av berikande-motorn. Dock måste initieringen behövs för att anropa den här anpassade API: T anges i JSON (till exempel uri, httpHeaders och indata förväntades). Vägledning i att skapa ett anpassat webb-API för berikande pipelinen finns i [hur du definierar ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md).
 
 Lägg märke till att fältet ”kontexten” anges till ```"/document/organizations/*"``` med en asterisk, vilket innebär att det berikande steget kallas *för var och en* organisation under ```"/document/organizations"```. 
 
@@ -236,7 +237,7 @@ Utdata genereras i det här fallet en företagsbeskrivningen för varje organisa
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Enrichments skapar strukturen utanför ostrukturerad information
 
-Gruppens kunskaper avgör genererar strukturerad information från Ostrukturerade data. Överväg följande exempel:
+Gruppens kunskaper avgör genererar strukturerad information från Ostrukturerade data. Ta följande som exempel:
 
 *”I det fjärde kvartalet, Microsoft loggas 1.1 miljarder USD i intäkter från LinkedIn, sociala nätverk företaget den köpte förra året. Förvärvet hjälper Microsoft att kombinera LinkedIn-funktioner med dess CRM- och Office-funktioner. Aktieägares är glada över med förloppet hittills ”.*
 

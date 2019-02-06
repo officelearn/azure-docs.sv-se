@@ -16,27 +16,27 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b8802c91ceb59d391dc27a71da905de9c15a1dc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8bd8136c61a277e730c07c8789afd1bf3214bd7c
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993239"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754157"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Ändra storlek på en Linux-dator med Azure CLI 
 
 När du etablerar en virtuell dator (VM) kan du kan skala den virtuella datorn upp eller ned genom att ändra den [VM-storlek][vm-sizes]. I vissa fall måste du frigöra den virtuella datorn först. Du måste frigöra den virtuella datorn om önskad storlek inte är tillgänglig på klustret maskinvara som är värd för den virtuella datorn. Den här artikeln beskriver hur du ändrar storlek på en Linux VM med Azure CLI. 
 
 ## <a name="resize-a-vm"></a>Ändra storlek på en virtuell dator
-Om du vill ändra storlek på en virtuell dator, du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Om du vill ändra storlek på en virtuell dator, du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
 
-1. Visa en lista över tillgängliga VM-storlekar på maskinvara klustret där den virtuella datorn finns med [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options). I följande exempel visar en lista över VM-storlekar för den virtuella datorn med namnet `myVM` i resursgruppen `myResourceGroup` region:
+1. Visa en lista över tillgängliga VM-storlekar på maskinvara klustret där den virtuella datorn finns med [az vm list-vm-resize-options](/cli/azure/vm). I följande exempel visar en lista över VM-storlekar för den virtuella datorn med namnet `myVM` i resursgruppen `myResourceGroup` region:
    
     ```azurecli
     az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
     ```
 
-2. Om önskad storlek för virtuell dator visas, ändra storlek på den virtuella datorn med [az vm ändra storlek på](/cli/azure/vm#az_vm_resize). I följande exempel ändrar storlek på den virtuella datorn med namnet `myVM` till den `Standard_DS3_v2` storlek:
+2. Om önskad storlek för virtuell dator visas, ändra storlek på den virtuella datorn med [az vm ändra storlek på](/cli/azure/vm). I följande exempel ändrar storlek på den virtuella datorn med namnet `myVM` till den `Standard_DS3_v2` storlek:
    
     ```azurecli
     az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
@@ -44,7 +44,7 @@ Om du vill ändra storlek på en virtuell dator, du behöver senast [Azure CLI](
    
     Den virtuella datorn startas om under den här processen. Efter omstarten mappas ditt befintliga operativsystem och datadiskar. Allt på den temporära disken tas bort.
 
-3. Om önskad storlek för virtuell dator inte visas, måste du först frigöra den virtuella datorn med [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Den här processen kan den virtuella datorn ändras till valfri storlek som är tillgängliga att regionen stöder och sedan startats. Följande steg frigöra, ändra storlek på och sedan starta den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`:
+3. Om önskad storlek för virtuell dator inte visas, måste du först frigöra den virtuella datorn med [az vm deallocate](/cli/azure/vm). Den här processen kan den virtuella datorn ändras till valfri storlek som är tillgängliga att regionen stöder och sedan startats. Följande steg frigöra, ändra storlek på och sedan starta den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`:
    
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM

@@ -9,101 +9,40 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f12632b20d516c81e21a50cfdda7e40d4163afc1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d9e86c45d535862e0c3d02b3f331bc40ebb7f6c7
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742226"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745129"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
 
-Du kan använda Azure Media Services för att skydda dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Med medietjänster kan leverera du live och på begäran innehållet krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter.
+Med medietjänster kan leverera du live och på begäran innehållet krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter.
 
-I Azure Media Services v3, en [innehåll nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) kan du ange hur innehållsnyckeln levereras om du vill avsluta klienter via komponenten leverans av Media Services-nyckel. Mer information finns i [Content protection översikt](content-protection-overview.md).
+Om du vill ange alternativ för kryptering på din stream, måste du skapa den [innehåll nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) och associera det med dina **Strömningspositionerare**. Den **innehåll nyckel princip** konfigurerar hur innehållsnyckeln levereras om du vill avsluta klienter via komponenten nyckel leverans av Media Services. Du kan låta Media Services för att skapa innehållsnyckeln. Du skulle normalt en standardlagringen av långlivade nyckel och kontrollera om principer med Get. Om du vill hämta nyckel, måste du anropa en separat åtgärd-metod för att hämta hemligheter eller autentiseringsuppgifter, finns i följande exempel.
 
-Vi rekommenderar att du återanvända samma ContentKeyPolicy för alla dina tillgångar. ContentKeyPolicies kan uppdateras, så om du vill göra en nyckelrotation sedan du antingen lägga till en ny ContentKeyPolicyOption befintliga ContentKeyPolicy med en tokenbegränsningar med nya nycklar. Eller så kan du uppdatera den primära Verifieringsnyckeln och listan över alternativa verifieringsnycklar i den befintliga principen och alternativ. Det kan ta upp till 15 minuter för leverans av nyckel-cacheminne för att uppdatera och hämta den uppdaterade policyn.
+**Innehålls-principer för nycklar** kan uppdateras. Du kanske exempelvis vill uppdatera principen om du behöver göra en rotation av. Du kan uppdatera den primära Verifieringsnyckeln och listan över alternativa verifieringsnycklar i den befintliga principen. Det kan ta upp till 15 minuter för leverans av nyckel-cacheminne för att uppdatera och hämta den uppdaterade policyn. 
 
-## <a name="contentkeypolicy-definition"></a>ContentKeyPolicy definition
+> [!IMPORTANT]
+> * Egenskaper för **Innehållsprinciper nyckel** som är av typen är alltid i UTC-format för datum/tid.
+> * Du bör utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ behövs. 
 
-I följande tabell visar de ContentKeyPolicy egenskaper och ger definitionerna.
+## <a name="example"></a>Exempel
 
-|Namn|Beskrivning|
-|---|---|
-|id|Fullständigt kvalificerade resurs-ID för resursen.|
-|namn|Namnet på resursen.|
-|Properties.Created |Skapandedatum för principen|
-|properties.description |En beskrivning för principen.|
-|properties.lastModified|Senaste ändringsdatum för principen|
-|Properties.Options |Nyckeln principalternativen.|
-|properties.policyId|Äldre princip-ID.|
-|typ|Typ av resursen.|
+Gå till nyckeln genom att använda **GetPolicyPropertiesWithSecretsAsync**, vilket visas i exemplet nedan.
 
-Läs den fullständiga definitionen [Innehållsprinciper nyckeln](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
 ## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
 
-Media Services har stöd för följande OData-frågealternativ för ContentKeyPolicies: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Operatorn beskrivning:
-
-* EQ = lika med
-* Ne = inte lika med
-* Ge = större än eller lika med
-* Le = mindre än eller lika med
-* Gt = större än
-* Lt = mindre än
-
-### <a name="filteringordering"></a>Filtrering/ordning
-
-I följande tabell visar hur dessa alternativ kan användas på ContentKeyPolicies egenskaper: 
-
-|Namn|Filter|Beställa|
-|---|---|---|
-|id|||
-|namn|Eq, ne, ge, le, gt, lt|Stigande och fallande|
-|Properties.Created |Eq, ne, ge, le, gt, lt|Stigande och fallande|
-|properties.description |Eq, ne, ge, le, gt, lt||
-|properties.lastModified|Eq, ne, ge, le, gt, lt|Stigande och fallande|
-|Properties.Options |||
-|properties.policyId|Eq, ne||
-|typ|||
-
-### <a name="pagination"></a>Sidbrytning
-
-Sidbrytning stöds för var och en av fyra aktiverade sorteringsordningar. För närvarande är sidstorleken 10.
-
-> [!TIP]
-> Du bör alltid använda nästa länk för att räkna upp samlingen och inte är beroende av en viss storlek.
-
-Om ett frågesvar innehåller många objekt, tjänsten returnerar en ”\@odata.nextLink” egenskapen för att hämta nästa sida i resultatet. Detta kan användas för att bläddra igenom hela resultatmängden. Du kan inte konfigurera sidstorleken. 
-
-Om ContentKeyPolicies skapas eller tas bort vid bläddring genom samlingen, syns ändringarna i de returnerade resultaten (om dessa ändringar finns i en del av den samling som inte har hämtats.) 
-
-I följande C#-exempel visar hur du räknar upp via alla ContentKeyPolicies i kontot.
-
-```csharp
-var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-REST-exempel finns i [nyckel Innehållsprinciper - lista](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+Se [filtrering, sortering, växling av Media Services entiteter](entities-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst](protect-with-aes128.md)
-
-[Använda DRM dynamisk kryptering och licens video-on-demand](protect-with-drm.md)
+* [Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst](protect-with-aes128.md)
+* [Använda DRM dynamisk kryptering och licens video-on-demand](protect-with-drm.md)
+* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)

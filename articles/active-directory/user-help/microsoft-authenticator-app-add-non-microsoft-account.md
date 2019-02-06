@@ -1,6 +1,6 @@
 ---
-title: Lägg till din personliga icke-Microsoft-konton i Microsoft Authenticator-appen – Azure Active Directory | Microsoft Docs
-description: Hur du lägger till dina personliga icke-Microsoft-konton, till exempel för Google, Facebook eller GitHub till Microsoft Authenticator-appen för verifiering av två faktorer.
+title: Lägg till icke-Microsoft-konton i Microsoft Authenticator-appen – Azure Active Directory | Microsoft Docs
+description: Hur du lägger till dina icke-Microsoft-konton, till exempel för Google, Facebook eller GitHub till Microsoft Authenticator-appen för verifiering av två faktorer.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: db59d3d2795b8cfa3fc7682f4486d968f39ab6ab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0103aa7fb9142f38e0f34cd70fbdb198137bc2a0
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459153"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753834"
 ---
-# <a name="add-your-personal-non-microsoft-accounts"></a>Lägga till din personliga icke-Microsoft-konton
-Lägga till dina personliga icke-Microsoft-konton, till exempel för Google, Facebook och GitHub till Microsoft Authenticator-appen för verifiering av två faktorer.
+# <a name="add-your-non-microsoft-accounts"></a>Lägg till icke-Microsoft-konton
+Lägga till dina icke-Microsoft-konton, till exempel för Google, Facebook och GitHub till Microsoft Authenticator-appen för verifiering av två faktorer. Microsoft Authenticator-appen fungerar med alla appar som använder två faktorer verifiering och ett konto som har stöd för tidsbaserade engångslösenord (TOTP)-standarder.
 
 >[!Important]
 >Innan du kan lägga till ditt konto, måste du hämta och installera Microsoft Authenticator-appen. Om du inte har gjort det ännu, följer du stegen i den [ladda ned och installera appen](microsoft-authenticator-app-how-to.md) artikeln.
@@ -29,7 +29,7 @@ För alla dina personliga konton måste du i allmänhet:
 
 1. Logga in på ditt konto och sedan aktivera tvåfaktorsautentisering verifieringen med din enhet eller din dator.
 
-2. Lägga till kontot i Microsoft Authenticator-appen.
+2. Lägga till kontot i Microsoft Authenticator-appen. Du kan bli ombedd att skanna en QR-kod som en del av den här processen.
 
 Vi ger den här processen för dina Facebook, Google, GitHub och Amazon-konton, men den här processen är densamma för alla andra appar, till exempel Instagram, Netflix eller Adobe.
 

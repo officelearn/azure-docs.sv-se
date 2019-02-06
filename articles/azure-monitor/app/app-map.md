@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063122"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755905"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
 
@@ -118,7 +118,7 @@ namespace CustomInitializer.Telemetry
 
 **Läsa in din initieraren**
 
-I ApplicationInsights.config:
+In ApplicationInsights.config:
 
 ```xml
     <ApplicationInsights>
@@ -191,7 +191,7 @@ Mer information om hur du åsidosätter egenskapen cloud_RoleName med telemetri-
 
 Om du har problem med att få Programkartan som fungerar som förväntat, kan du prova de här stegen:
 
-1. Kontrollera att du använder en SDK som officiellt stöds. SDK: er som inte stöds/gruppen kanske inte stöder korrelation.
+1. Kontrollera att du använder en SDK som stöds officiellt. SDK:er som inte stöds eller community-SDK:er har kanske inte stöd för korrelation.
 
     Referera till denna [artikeln](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) en lista över stödda SDK: erna.
 
@@ -199,9 +199,9 @@ Om du har problem med att få Programkartan som fungerar som förväntat, kan du
 
 3. Om du använder Azure Functions med C#, uppgradera till [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Bekräfta [cloud_RoleName](app-map.md#Set-cloud-RoleName) är korrekt konfigurerad.
+4. Bekräfta [cloud_RoleName](app-map.md#set-cloudrolename) är korrekt konfigurerad.
 
-5. Om du saknar ett beroende, kontrollera att det finns i listan över [automatiskt insamlade beroendena](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Om inte, du kan fortfarande spåra den manuellt med en [spåra beroendeanropet](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. Om du saknar ett beroende kontrollerar du att det finns i listan över [automatiskt insamlade beroenden](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Om inte så kan du ändå spåra det manuellt med ett [beroendespårningsanrop](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="portal-feedback"></a>Portalen feedback
 Använd alternativet feedback om du vill ge feedback.

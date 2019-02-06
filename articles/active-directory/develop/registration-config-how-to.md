@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: fb5449ec33467a78de0eef7a345b687901063fe1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 85f119b2a0aaa49fa02ad579a89ce2a0b6e72007
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102302"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756299"
 ---
 # <a name="how-to-configure-endpoints"></a>Så här konfigurerar du slutpunkter
 
@@ -36,4 +36,4 @@ Du kan hitta autentiseringsslutpunkterna för ditt program i den [Azure-portalen
 -   Använd slutpunkten som är specifika för autentiseringsprotokollet som du använder, tillsammans med program-ID och behövde skapa autentiseringen begära specifika för ditt program.
 
 ## <a name="next-steps"></a>Nästa steg
-[Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
+[Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)

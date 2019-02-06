@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159357"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744797"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box-Disk-gränser
 
@@ -66,8 +66,8 @@ Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla f
 
 | Azure objekttyp | Standardgräns                                             |
 |-------------------|-----------------------------------------------------------|
-| Blockblob        | ~ 8 TB                                                 |
-| Sidblob         | 1 TB <br> (Alla filer som överförts i sidans Blob-format måste vara justerad 512 byte (en integrerad flera), annars överföringen misslyckas. <br> VHD- och VHDX är 512 byte justerad.) |
+| Blockblob        | ~ 4,75 TiB                                                 |
+| Sidblob         | 8 TiB <br> (Alla filer som överförts i sidans Blob-format måste vara justerad 512 byte (en integrerad flera), annars överföringen misslyckas. <br> VHD- och VHDX är 512 byte justerad.) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Azure blockblob och page blob namngivningskonventioner

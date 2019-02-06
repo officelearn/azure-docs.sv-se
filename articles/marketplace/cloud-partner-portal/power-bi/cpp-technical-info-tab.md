@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 71f226d2ba471a2ccbba3123015697da43d2cf80
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d96ef2fd318d6164e1b7dfc5c4b72d6957af0f3e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667068"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744442"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Power BI-appar teknisk informationsfliken
 
@@ -36,7 +36,7 @@ I den **teknisk information** fliken måste du ange följande fält.  En tillagd
 |    ---------------    |  ----------------------------------------------------------------------------|
 | **Installationsprogrammet URL**     | Adressen som genererats av Power BI när du publicerar appen och skicka det till produktion.  Mer information om hur du skapar URL: en finns i [publicera service-appar i Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
 |  **Anvisningar för verifiering**  |  Valfri text som instruktioner (max 3000 tecken) för Microsoft-verifieringsteamet Aktivitetsanteckningar konfigurerar, ansluter och testa din app, inklusive: vanliga konfigurationsinställningar, testkonton eller parametrar som kan användas för att testa alternativet ”Anslut Data” osv. Den här informationen kommer endast att visas för verifieringsteamet och används endast för verifiering.  |
-| **Den här appen har skapats som ett innehållspaket för Power BI?** | Det här är för närvarande ett fält som används internt. Lämna värdet satt till dess standardvärde, `No`, i annat fall ändrar det här fältet till `No` kan inverka negativt på publicering.  |  
+| **Den här appen har skapats som ett innehållspaket för Power BI?** | Det här är för närvarande ett fält som används internt. Lämna värdet satt till dess standardvärde, `No`, i annat fall ändrar det här fältet till `Yes` kan inverka negativt på publicering.  |  
 |  |  |
 
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8a78abd7f3eea1493ef3f6e8cf3053720ba47478
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cb4b063d17555084f4065d7d7df931b96b95d9a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695448"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751488"
 ---
-# <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
+# <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor
 
 ## <a name="overview"></a>Översikt
 Den här artikeln visar hur du ställer in aviseringar med hjälp av gränssnittet aviseringar i Azure-portalen. Definitionen för en varningsregel är i tre delar:
@@ -33,43 +33,45 @@ Termen **Loggaviseringar** att beskriva aviseringar där signalen är anpassad f
 Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure portal-gränssnittet.
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Skapa en loggvarningsregel med Azure portal
-1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.  
+1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.
+
     ![Övervakning](media/alerts-log/AlertsPreviewMenu.png)
 
 1. Välj den **ny Aviseringsregel** för att skapa en ny avisering i Azure.
+
     ![Lägg till avisering](media/alerts-log/AlertsPreviewOption.png)
 
 1. Avsnittet skapa aviseringar visas med tre delar som består av: *Definiera aviseringsvillkoret*, *definiera Aviseringsinformationen*, och *definiera åtgärdsgruppen*.
 
     ![Skapa regel](media/alerts-log/AlertsPreviewAdd.png)
 
-1.  Definiera aviseringsvillkoren genom att använda den **Välj Resource** länk och specificera genom att välja en resurs. Filtret genom att välja den _prenumeration_, _resurstyp_, och nödvändiga _Resource_. 
+1. Definiera aviseringsvillkoren genom att använda den **Välj Resource** länk och specificera genom att välja en resurs. Filtret genom att välja den _prenumeration_, _resurstyp_, och nödvändiga _Resource_.
 
     >[!NOTE]
 
     > För att skapa en logg varning - Kontrollera den **log** signal är tillgänglig för den valda resursen innan du fortsätter.
     ![Välj resurs](media/alerts-log/Alert-SelectResourceLog.png)
 
- 
 1. *Loggaviseringar*: Se till att **resurstyp** är en analytics-källa som *Log Analytics* eller *Programinsikter* och skicka en signal typ som **Log**, och sedan en gång lämplig **resource** är valt, klickar du på *klar*. Sedan använda den **lägga till villkor** knappen för att visa en lista över signalen alternativ som är tillgängliga för resursen och från listan över signal **anpassade loggsökning** alternativ för den valda logga övervakningstjänst som *Log Analytics* eller *Programinsikter*.
 
    ![Välj en resurs - anpassade loggsökning](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../../azure-monitor/log-query/log-query-overview.md) eller [delade fråga i application insights Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../../azure-monitor/log-query/log-query-overview.md) eller [delade fråga i application insights Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
-1.  *Loggaviseringar*: När du valt, fråga aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönster från senaste sex timmar att förra veckan.
+1. *Loggaviseringar*: När du valt, fråga aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönster från senaste sex timmar att förra veckan.
 
     ![Konfigurera varningsregeln](media/alerts-log/AlertsPreviewAlertLog.png)
 
     > [!NOTE]
     
     > Historiska datavisualisering kan endast visas om resultatet av frågan har information om tid. Om din fråga resulterar i sammanfattade data eller specifika kolumnvärdena - visas samma som ett enda diagram.
-    >  För måttet mätning typ av loggvarningar med Application Insights eller [växlas till nya API: et](alerts-log-api-switch.md), du kan ange vilka specifika variabeln för att gruppera data med hjälp av den **sammanställda på** alternativet; enligt beskrivningen i nedan:    
-    ![Aggregera på alternativ](media/alerts-log/aggregate-on.png)
+    > För måttet mätning typ av loggvarningar med Application Insights eller [växlas till nya API: et](alerts-log-api-switch.md), du kan ange vilka specifika variabeln för att gruppera data med hjälp av den **sammanställda på** alternativet; enligt beskrivningen i nedan:
+    >
+    > ![Aggregera på alternativ](media/alerts-log/aggregate-on.png)
 
-1.  *Loggaviseringar*: Med visualiseringen på plats, **Alert Logic** kan väljas från visas alternativen för villkor, sammanställning och slutligen tröskelvärdet. Ange sedan i logik, tiden för att utvärdera för det angivna villkoret med **Period** alternativet. Tillsammans med hur ofta avisering ska köras genom att välja **frekvens**. **Loggaviseringar** kan baseras på:
+1. *Loggaviseringar*: Med visualiseringen på plats, **Alert Logic** kan väljas från visas alternativen för villkor, sammanställning och slutligen tröskelvärdet. Ange sedan i logik, tiden för att utvärdera för det angivna villkoret med **Period** alternativet. Tillsammans med hur ofta avisering ska köras genom att välja **frekvens**. **Loggaviseringar** kan baseras på:
     - [Antalet poster](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): En avisering skapas om antalet poster som returneras av frågan är större än eller mindre än det angivna värdet.
     - [Metrisk måttenhet](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): En avisering skapas om varje *aggregera värdet* överskrider tröskelvärdet som angetts i resultatet och det är *grupperade efter* valt värde. Antalet överträdelser för en avisering är antalet gånger som tröskelvärdet överstigs under den valda tidsperioden. Du kan ange Totalt antal överträdelser för valfri kombination av intrång i resultatuppsättningen eller efterföljande överträdelser att kräva att överträdelserna måste ske i efterföljande prover.
 
@@ -111,12 +113,11 @@ Användarna kan också underkänts analytics-fråga i [loggar analyssidan i Azur
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Visa och hantera aviseringar i Azure-portalen
 
-1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.  
+1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.
 
 1. Den **aviseringar instrumentpanelen** visas - där alla Azure-aviseringar (inklusive loggaviseringar) visas i en enda panel, inklusive varje instans av när loggen varningsregel har utlösts. Mer information finns i [aviseringshantering](https://aka.ms/managealertinstances).
     > [!NOTE]
-    > Loggvarningsregler som består av anpassad frågebaserade logik som tillhandahålls av användare och därför utan en löst. På grund av som varje gång de villkor som anges i loggvarningsregel uppfylls, den utlöses. 
-
+    > Loggvarningsregler som består av anpassad frågebaserade logik som tillhandahålls av användare och därför utan en löst. På grund av som varje gång de villkor som anges i loggvarningsregel uppfylls, den utlöses.
 
 1. Välj den **hantera regler** knappen i det översta fältet att navigera till regeln hantering – där alla aviseringsregler skapade räknas, inklusive aviseringar som har inaktiverats.
     ![ Hantera Varningsregler](media/alerts-log/manage-alert-rules.png)
@@ -136,77 +137,76 @@ Följer strukturen för [skapa en schemalagd Frågeregler](https://docs.microsof
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0", 
-    "parameters": {      
-    },   
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
     "variables": {
-    "alertLocation": "southcentralus",
-    "alertName": "samplelogalert",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDescription": "Sample log search alert",
-    "alertStatus": "true",
-    "alertSource":{
-        "Query":"requests",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-        "Type":"ResultCount"
-         },
-     "alertSchedule":{
-         "Frequency": 15,
-         "Time": 60
-         },
-     "alertActions":{
-         "SeverityLevel": "4"
-         },
-      "alertTrigger":{
-        "Operator":"GreaterThan",
-        "Threshold":"1"
-         },
-       "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
-        "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
-         }
-  },
-  "resources":[ {
-    "name":"[variables('alertName')]",
-    "type":"Microsoft.Insights/scheduledQueryRules",
-    "apiVersion": "2018-04-16",
-    "location": "[variables('alertLocation')]",
-    "tags":{"[variables('alertTag')]": "Resource"},
-    "properties":{
-       "description": "[variables('alertDescription')]",
-       "enabled": "[variables('alertStatus')]",
-       "source": {
-           "query": "[variables('alertSource').Query]",
-           "dataSourceId": "[variables('alertSource').SourceId]",
-           "queryType":"[variables('alertSource').Type]"
-       },
-      "schedule":{
-           "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
-       },
-      "action":{
-           "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-           "severity":"[variables('alertActions').SeverityLevel]",
-           "aznsAction":{
-               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
-               "emailSubject":"[variables('actionGrp').Subject]",
-               "customWebhookPayload":"[variables('actionGrp').Webhook]"
-           },
-       "trigger":{
-               "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]"
-           }
-       }
-     }
-   }
- ]
+        "alertLocation": "southcentralus",
+        "alertName": "samplelogalert",
+        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "alertDescription": "Sample log search alert",
+        "alertStatus": "true",
+        "alertSource":{
+            "Query":"requests",
+            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+            "Type":"ResultCount"
+        },
+        "alertSchedule":{
+            "Frequency": 15,
+            "Time": 60
+        },
+        "alertActions":{
+            "SeverityLevel": "4"
+        },
+        "alertTrigger":{
+            "Operator":"GreaterThan",
+            "Threshold":"1"
+        },
+        "actionGrp":{
+            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+            "Subject": "Customized Email Header",
+            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
+    },
+    "resources":[ {
+        "name":"[variables('alertName')]",
+        "type":"Microsoft.Insights/scheduledQueryRules",
+        "apiVersion": "2018-04-16",
+        "location": "[variables('alertLocation')]",
+        "tags":{"[variables('alertTag')]": "Resource"},
+        "properties":{
+            "description": "[variables('alertDescription')]",
+            "enabled": "[variables('alertStatus')]",
+            "source": {
+                "query": "[variables('alertSource').Query]",
+                "dataSourceId": "[variables('alertSource').SourceId]",
+                "queryType":"[variables('alertSource').Type]"
+            },
+            "schedule":{
+                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
+            },
+            "action":{
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "severity":"[variables('alertActions').SeverityLevel]",
+                "aznsAction":{
+                    "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+                    "emailSubject":"[variables('actionGrp').Subject]",
+                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
+                },
+                "trigger":{
+                    "thresholdOperator":"[variables('alertTrigger').Operator]",
+                    "threshold":"[variables('alertTrigger').Threshold]"
+                }
+            }
+        }
+    } ]
 }
 
 ```
 
 > [!IMPORTANT]
-> Taggfältet med dolda-länk till målresursen är obligatoriskt i användning av [schemalagda Frågeregler ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API-anrop eller resurs-mallen. 
+> Taggfältet med dolda-länk till målresursen är obligatoriskt i användning av [schemalagda Frågeregler ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API-anrop eller resurs-mallen.
 
 Exempel-json ovan kan sparas som (exempelvis) sampleScheduledQueryRule.json i den här genomgången och kan distribueras med hjälp av [Azure Resource Manager i Azure-portalen](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -219,88 +219,87 @@ Följer strukturen för [skapa en schemalagd Frågeregler](https://docs.microsof
 
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0", 
-    "parameters": {      
-    },   
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
     "variables": {
-    "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
-    "alertName": "sample log alert",
-    "alertDescr": "Sample log search alert",
-    "alertStatus": "true",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
-    "alertSource":{
-        "Query":"union workspace("servicews").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
-        "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews", 
-        "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
-        "Type":"ResultCount"
-         },
-     "alertSchedule":{
-         "Frequency": 15,
-         "Time": 60
-         },
-     "alertActions":{
-         "SeverityLevel": "4",
-         "SuppressTimeinMin": 20
-         },
-      "alertTrigger":{
-        "Operator":"GreaterThan",
-        "Threshold":"1"
-         },
-      "metricMeasurement": {
-          "thresholdOperator": "Equal",
-          "threshold": "1",
-          "metricTriggerType": "Consecutive",
-          "metricColumn": "Classification"
-      },
-       "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
-        "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
+        "alertName": "sample log alert",
+        "alertDescr": "Sample log search alert",
+        "alertStatus": "true",
+        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
+        "alertSource":{
+            "Query":"union workspace(\"servicews\").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
+            "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
+            "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
+            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
+            "Type":"ResultCount"
+        },
+        "alertSchedule":{
+            "Frequency": 15,
+            "Time": 60
+        },
+        "alertActions":{
+            "SeverityLevel": "4",
+            "SuppressTimeinMin": 20
+        },
+        "alertTrigger":{
+            "Operator":"GreaterThan",
+            "Threshold":"1"
+        },
+        "metricMeasurement": {
+            "thresholdOperator": "Equal",
+            "threshold": "1",
+            "metricTriggerType": "Consecutive",
+            "metricColumn": "Classification"
+        },
+        "actionGrp":{
+            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
+            "Subject": "Customized Email Header",
+            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
         }
-  },
-  "resources":[ {
-    "name":"[variables('alertName')]",
-    "type":"Microsoft.Insights/scheduledQueryRules",
-    "apiVersion": "2018-04-16",
-    "location": "[variables('alertLocation')]",
-    "tags":{"[variables('alertTag')]": "Resource"},
-    "properties":{
-       "description": "[variables('alertDescr')]",
-       "enabled": "[variables('alertStatus')]",
-       "source": {
-           "query": "[variables('alertSource').Query]",
-           "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
-           "dataSourceId": "[variables('alertSource').SourceId]",
-           "queryType":"[variables('alertSource').Type]"
-       },
-      "schedule":{
-           "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"
-       },
-      "action":{
-           "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-           "severity":"[variables('alertActions').SeverityLevel]",
-           "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
-           "aznsAction":{
-               "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
-               "emailSubject":"[variables('actionGrp').Subject]",
-               "customWebhookPayload":"[variables('actionGrp').Webhook]"
-           },
-       "trigger":{
-               "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]",
-               "metricTrigger":{
-                   "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
-                   "threshold": "[variables('metricMeasurement').threshold]",
-                   "metricColumn": "[variables('metricMeasurement').metricColumn]",
-                   "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
-               }
-           }
-       }
-     }
-   }
- ]
+    },
+    "resources":[ {
+        "name":"[variables('alertName')]",
+        "type":"Microsoft.Insights/scheduledQueryRules",
+        "apiVersion": "2018-04-16",
+        "location": "[variables('alertLocation')]",
+        "tags":{"[variables('alertTag')]": "Resource"},
+        "properties":{
+            "description": "[variables('alertDescr')]",
+            "enabled": "[variables('alertStatus')]",
+            "source": {
+                "query": "[variables('alertSource').Query]",
+                "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
+                "dataSourceId": "[variables('alertSource').SourceId]",
+                "queryType":"[variables('alertSource').Type]"
+            },
+            "schedule":{
+                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
+            },
+            "action":{
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "severity":"[variables('alertActions').SeverityLevel]",
+                "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
+                "aznsAction":{
+                    "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
+                    "emailSubject":"[variables('actionGrp').Subject]",
+                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
+                },
+                "trigger":{
+                    "thresholdOperator":"[variables('alertTrigger').Operator]",
+                    "threshold":"[variables('alertTrigger').Threshold]",
+                    "metricTrigger":{
+                        "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
+                        "threshold": "[variables('metricMeasurement').threshold]",
+                        "metricColumn": "[variables('metricMeasurement').metricColumn]",
+                        "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
+                    }
+                }
+            }
+        }
+    } ]
 }
 
 ```
@@ -330,12 +329,10 @@ az group deployment create --resource-group contosoRG --template-file sampleSche
 ```
 
 Lyckade åtgärder 201 återgår till tillståndet skapandet av ny regel för varning eller 200 returneras om en befintlig varningsregel ändrades.
-  
+
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [Loggaviseringar i Azure-aviseringar](../../azure-monitor/platform/alerts-unified-log.md)
 * Förstå [Webhook-åtgärder för loggaviseringar](../../azure-monitor/platform/alerts-log-webhook.md)
 * Läs mer om [Application Insights](../../azure-monitor/app/analytics.md)
-* Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
-
-
+* Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

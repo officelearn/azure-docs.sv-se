@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2019
+ms.date: 02/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1afdb5773ff4d7ec6b6b492971fb396641c087a
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 0b7515a5c22b98fb14499e07057ff52311fc6e67
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732710"
+ms.locfileid: "55744832"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Använda Azure vid som är värd för och köra SAP-arbetsbelastningsscenarier
 
@@ -35,6 +35,8 @@ Unikhet av Azure för SAP HANA är ett erbjudande som skiljer Azure från konkur
 Som är värd för SAP-arbetsbelastningsscenarier i Azure kan också skapa krav för identitetsintegrering och enkel inloggning med hjälp av Azure Activity Directory olika SAP-komponenter och SAP SaaS eller erbjuder PaaS. En lista över sådant integrering och Single-Sign-On-scenarier med Azure Active Directory (AAD) och SAP-entiteter som beskrivs och beskrivs i avsnittet ”AAD SAP-Identitetsintegrering och enkel inloggning”.
 
 ## <a name="latest-changes"></a>Senaste ändringarna
+
+Versionen av [konfigurationer för SAP-arbetsbelastning med Tillgänglighetszoner i Azure](sap-ha-availability-zones.md)
 
 Versionen av [SAP arbetsbelastning planerings- och Checklista](sap-deployment-checklist.md)
 

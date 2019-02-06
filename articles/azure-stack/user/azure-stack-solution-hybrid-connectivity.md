@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 84e952514b88620af565cf7e9775c055476fb530
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247569"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752670"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Självstudie: Konfigurera molnet hybridanslutning med Azure och Azure Stack
 
@@ -61,7 +61,7 @@ Den här självstudien förutsätter att du har några grundläggande kunskaper 
 ### <a name="azure"></a>Azure
 
  - Om du inte har en Azure-prenumeration skapar du ett  [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)  innan du börjar.
- - Skapa en [Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) i Azure. Anteckna Webbappens URL, eftersom du behöver i självstudien.
+ - Skapa en [Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) i Azure. Anteckna Webbappens URL, eftersom du behöver i självstudien.
 
 ### <a name="azure-stack"></a>Azure Stack
 
@@ -97,7 +97,7 @@ Specifikationer för anslutning:
 
 Nätverk och undernät IP-adresser:
 
-| Azure/Azure Stack-anslutning | Name | Undernät | IP-adress |
+| Azure/Azure Stack-anslutning | Namn | Undernät | IP-adress |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |

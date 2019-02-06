@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188783"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747466"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute-övervakning
 
@@ -118,23 +118,12 @@ Du kan se Meddelandekoderna och ställa in aviseringar på dem via **LogAnalytic
 
 | Meddelandekod (loggar) | Beskrivning |
 | --- | --- |
-| 5101 | Microsoft Edge undergränssnitt visar hög fördröjning |
-| 5102 | Microsoft Edge undergränssnitt släpper paketet | 
-| 5103 | ExpressRoute-gateway är i feltillstånd | 
-| 5201 | Tjänstleverantörens länk visar lång tidsfördröjning |
-| 5202 | Paket flödar inte från avsedd ExpressRoute-krets |
-| 5301 | Kundens edge-router visar hög fördröjning | 
-| 5302 | Fördröjningen orsakas av enhet/länk i kundens miljö. Problemet verkar inte förekomma i ExpressRoute-krets | 
 | 5501 | Det går inte att passera genom den sekundära anslutningen av ExpressRoute-krets |
 | 5502 | Det går inte att passera genom den primära anslutningen av ExpressRoute-krets |
 | 5503 | Ingen krets hittades för den prenumeration som är länkat till arbetsytan | 
-| 5506 | Användningen når sin maximala kapacitet | 
-| 5507 | Förbrukningen är låg |
 | 5508 | Det går inte att fastställa om trafiken passerar genom några kretsar för sökvägen |
 | 5510 | Trafiken passerar inte genom den avsedda kretsen | 
 | 5511 | Trafiken passerar inte genom det avsedda virtuella nätverket | 
-| 5512 | Det går inte att fastställa om trafiken passerar genom den avsedda kretsen |
-
 
 **Kretsen har stoppats.** Övervakare av nätverksprestanda meddelar dig så snart anslutningen mellan dina lokala resurser och Azure-nätverk går förlorad. Det här meddelandet kan du vidta proaktiva åtgärder innan du får användaren kundproblem och minskade tider för driftstopp.
 

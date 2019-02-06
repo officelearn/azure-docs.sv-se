@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f5f441dd63f8d6a7f5bd1cfdf0452d025816e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b0cb72b8a9c1710b2b22d987c2818a490a2ea553
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017692"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753367"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory-tjänstidentitet
 
@@ -192,4 +192,4 @@ Finns i följande avsnitt som introducerar när och hur du använder tjänstiden
 - [Store-autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md)
 - [Kopieringsdata från/till Azure Data Lake Store med hjälp av hanterade identiteter för autentisering av Azure-resurser](connector-azure-data-lake-store.md)
 
-Se [hanterade identiteter för översikt över Azure-resurser](~/articles/active-directory/msi-overview.md) Mer bakgrundsinformation om hanterade identiteter för Azure-resurser som tjänstidentitet för datafabrik baseras på. 
+Se [hanterade identiteter för översikt över Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview) Mer bakgrundsinformation om hanterade identiteter för Azure-resurser som tjänstidentitet för datafabrik baseras på. 

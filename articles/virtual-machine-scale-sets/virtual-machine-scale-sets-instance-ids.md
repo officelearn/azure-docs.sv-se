@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: 5d92aa78b132b661af3cdc53b47c0340a0758dd8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8f85ded20470ecc5a7868c094e88a149c88b7f39
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855320"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749575"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Förstå VM-skaluppsättning instans-ID: N för Azure VM-skalningsuppsättning
 Den här artikeln beskriver instans-ID: N för skalningsuppsättningar och de olika sätt som de Surface-enheter.
@@ -33,7 +33,7 @@ REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/reso
 
 PowerShell: `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (Mer information finns i den [Powershell-dokumentationen](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm))
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (Mer information finns i den [CLI-dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage)).
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (Mer information finns i den [CLI-dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
 
 Du kan hämta listan över instans-ID: N genom att lista alla instanser i en skalningsuppsättning:
 

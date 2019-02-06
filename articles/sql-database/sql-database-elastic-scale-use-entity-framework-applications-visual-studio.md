@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
-ms.openlocfilehash: 3f0d0b5be2f0c8fc64e02165ff3e2ecacb7e0c04
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566996"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755942"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database-klientbibliotek med Entity Framework
 
@@ -87,36 +87,38 @@ Integrera **DbContexts** med databeroende routning för skala ut:
 
 I följande kodexempel visas den här metoden. (Den här koden är också i det tillhörande Visual Studio-projektet)
 
-    public class ElasticScaleContext<T> : DbContext
+```csharp
+public class ElasticScaleContext<T> : DbContext
+{
+public DbSet<Blog> Blogs { get; set; }
+...
+
+    // C'tor for data-dependent routing. This call opens a validated connection 
+    // routed to the proper shard by the shard map manager. 
+    // Note that the base class c'tor call fails for an open connection
+    // if migrations need to be done and SQL credentials are used. This is the reason for the 
+    // separation of c'tors into the data-dependent routing case (this c'tor) and the internal c'tor for new shards.
+    public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
+        : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), 
+        true /* contextOwnsConnection */)
     {
-    public DbSet<Blog> Blogs { get; set; }
-    …
+    }
 
-        // C'tor for data-dependent routing. This call opens a validated connection 
-        // routed to the proper shard by the shard map manager. 
-        // Note that the base class c'tor call fails for an open connection
-        // if migrations need to be done and SQL credentials are used. This is the reason for the 
-        // separation of c'tors into the data-dependent routing case (this c'tor) and the internal c'tor for new shards.
-        public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
-            : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), 
-            true /* contextOwnsConnection */)
-        {
-        }
+    // Only static methods are allowed in calls into base class c'tors.
+    private static DbConnection CreateDDRConnection(
+    ShardMap shardMap, 
+    T shardingKey, 
+    string connectionStr)
+    {
+        // No initialization
+        Database.SetInitializer<ElasticScaleContext<T>>(null);
 
-        // Only static methods are allowed in calls into base class c'tors.
-        private static DbConnection CreateDDRConnection(
-        ShardMap shardMap, 
-        T shardingKey, 
-        string connectionStr)
-        {
-            // No initialization
-            Database.SetInitializer<ElasticScaleContext<T>>(null);
-
-            // Ask shard map to broker a validated connection for the given key
-            SqlConnection conn = shardMap.OpenConnectionForKey<T>
-                                (shardingKey, connectionStr, ConnectionOptions.Validate);
-            return conn;
-        }    
+        // Ask shard map to broker a validated connection for the given key
+        SqlConnection conn = shardMap.OpenConnectionForKey<T>
+                            (shardingKey, connectionStr, ConnectionOptions.Validate);
+        return conn;
+    }
+```
 
 ## <a name="main-points"></a>Huvudändamålen
 
@@ -134,26 +136,28 @@ I följande kodexempel visas den här metoden. (Den här koden är också i det 
 
 Använd nya konstruktorn för din DbContext-underklass i stället för Standardkonstruktorn i din kod. Här är ett exempel: 
 
-    // Create and save a new blog.
+```csharp
+// Create and save a new blog.
 
-    Console.Write("Enter a name for a new blog: "); 
-    var name = Console.ReadLine(); 
+Console.Write("Enter a name for a new blog: "); 
+var name = Console.ReadLine(); 
 
-    using (var db = new ElasticScaleContext<int>( 
-                            sharding.ShardMap,  
-                            tenantId1,  
-                            connStrBldr.ConnectionString)) 
-    { 
-        var blog = new Blog { Name = name }; 
-        db.Blogs.Add(blog); 
-        db.SaveChanges(); 
+using (var db = new ElasticScaleContext<int>( 
+                        sharding.ShardMap,  
+                        tenantId1,  
+                        connStrBldr.ConnectionString)) 
+{ 
+    var blog = new Blog { Name = name }; 
+    db.Blogs.Add(blog); 
+    db.SaveChanges(); 
 
-        // Display all Blogs for tenant 1 
-        var query = from b in db.Blogs 
-                    orderby b.Name 
-                    select b; 
-     … 
-    }
+    // Display all Blogs for tenant 1 
+    var query = from b in db.Blogs 
+                orderby b.Name 
+                select b; 
+    … 
+}
+```
 
 Nya konstruktorn öppnar anslutningen till den shard som innehåller data för shardlet som identifieras av värdet för **tenantid1**. Koden i den **med** block förblir oförändrat för att komma åt den **DbSet** för bloggar med EF på fragment för **tenantid1**. Detta ändrar semantik för koden i med blockera, till exempel alla databasåtgärder har nu begränsats till en shard där **tenantid1** sparas. Exempelvis kan en LINQ-fråga över bloggarna **DbSet** bara returnera bloggar som lagras på den aktuella sharden, men inte de som finns på andra shards.  
 
@@ -163,19 +167,21 @@ Microsoft Patterns & Practices-teamet publicerade den [The hantering av Programb
 
 Följande kodexempel visar hur du kan använda en SQL-återförsöksprincip runt den nya **DbContext** underklasskonstruktorer: 
 
-    SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
-    { 
-        using (var db = new ElasticScaleContext<int>( 
-                                sharding.ShardMap,  
-                                tenantId1,  
-                                connStrBldr.ConnectionString)) 
-            { 
-                    var blog = new Blog { Name = name }; 
-                    db.Blogs.Add(blog); 
-                    db.SaveChanges(); 
-            … 
-            } 
-        }); 
+```csharp
+SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
+{ 
+    using (var db = new ElasticScaleContext<int>( 
+                            sharding.ShardMap,  
+                            tenantId1,  
+                            connStrBldr.ConnectionString)) 
+        { 
+                var blog = new Blog { Name = name }; 
+                db.Blogs.Add(blog); 
+                db.SaveChanges(); 
+        … 
+        } 
+    }); 
+```
 
 **SqlDatabaseUtils.SqlRetryPolicy** i koden ovan definieras som en **SqlDatabaseTransientErrorDetectionStrategy** med ett återförsöksvärde på 10 och 5 sekunder väntetid mellan återförsök. Den här metoden liknar vägledning för EF och användarinitierad transaktioner (se [begränsningar i Körningsstrategier (EF6 och senare)](https://msdn.microsoft.com/data/dn307226). Båda situationer kräver att programmet styr omfattningen som tillfälligt undantag returnerar: antingen öppna transaktionen eller återskapa kontext från rätt konstruktorn (som du såg) som använder klientbiblioteket för elastiska databaser.
 
@@ -209,51 +215,54 @@ Detta leder till en metod där schemadistributionen via EF-migrering är direkt 
 
 Dessa krav är uppfyllda, kan du skapa en vanlig icke öppnade **SqlConnection** inledningsanförande EF-migrering för distribution av schemat. Följande kodexempel illustrerar den här metoden. 
 
-        // Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
-        // and kick off EF intialization of the database to deploy schema 
+```csharp
+// Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
+// and kick off EF initialization of the database to deploy schema 
 
-        public void RegisterNewShard(string server, string database, string connStr, int key) 
-        { 
+public void RegisterNewShard(string server, string database, string connStr, int key) 
+{ 
 
-            Shard shard = this.ShardMap.CreateShard(new ShardLocation(server, database)); 
+    Shard shard = this.ShardMap.CreateShard(new ShardLocation(server, database)); 
 
-            SqlConnectionStringBuilder connStrBldr = new SqlConnectionStringBuilder(connStr); 
-            connStrBldr.DataSource = server; 
-            connStrBldr.InitialCatalog = database; 
+    SqlConnectionStringBuilder connStrBldr = new SqlConnectionStringBuilder(connStr); 
+    connStrBldr.DataSource = server; 
+    connStrBldr.InitialCatalog = database; 
 
-            // Go into a DbContext to trigger migrations and schema deployment for the new shard. 
-            // This requires an un-opened connection. 
-            using (var db = new ElasticScaleContext<int>(connStrBldr.ConnectionString)) 
-            { 
-                // Run a query to engage EF migrations 
-                (from b in db.Blogs 
-                    select b).Count(); 
-            } 
+    // Go into a DbContext to trigger migrations and schema deployment for the new shard. 
+    // This requires an un-opened connection. 
+    using (var db = new ElasticScaleContext<int>(connStrBldr.ConnectionString)) 
+    { 
+        // Run a query to engage EF migrations 
+        (from b in db.Blogs 
+            select b).Count(); 
+    } 
 
-            // Register the mapping of the tenant to the shard in the shard map. 
-            // After this step, data-dependent routing on the shard map can be used 
+    // Register the mapping of the tenant to the shard in the shard map. 
+    // After this step, data-dependent routing on the shard map can be used 
 
-            this.ShardMap.CreatePointMapping(key, shard); 
-        } 
-
+    this.ShardMap.CreatePointMapping(key, shard); 
+} 
+```
 
 Det här exemplet visar metoden **RegisterNewShard** som registrerar fragmentet i fragmentkartan, distribuerar schemat via EF-migrering och lagrar en mappning av en shardingnyckel till fragment. Den förlitar sig på en konstruktor med den **DbContext** underklass (**ElasticScaleContext** i det här exemplet) som tar en SQL-anslutningssträng som indata. Koden för den här konstruktorn är enkel och tydlig, som i följande exempel visas: 
 
-        // C'tor to deploy schema and migrations to a new shard 
-        protected internal ElasticScaleContext(string connectionString) 
-            : base(SetInitializerForConnection(connectionString)) 
-        { 
-        } 
+```csharp
+// C'tor to deploy schema and migrations to a new shard 
+protected internal ElasticScaleContext(string connectionString) 
+    : base(SetInitializerForConnection(connectionString)) 
+{ 
+} 
 
-        // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connectionString) 
-        { 
-            // You want existence checks so that the schema can get deployed 
-            Database.SetInitializer<ElasticScaleContext<T>>( 
-        new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
+// Only static methods are allowed in calls into base class c'tors 
+private static string SetInitializerForConnection(string connectionString) 
+{ 
+    // You want existence checks so that the schema can get deployed 
+    Database.SetInitializer<ElasticScaleContext<T>>( 
+new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
-            return connectionString; 
-        } 
+    return connectionString; 
+} 
+```
 
 En kan ha använt versionen av konstruktorn ärvd från basklassen. Men koden måste se till att standard-initieraren för EF används när du ansluter. Kortsiktiga detour därför i den statiska metoden innan du anropar i Basklasskonstruktorn med anslutningssträngen. Observera att registreringen av fragment ska köras i en annan programdomän eller process för att se till att inställningarna för EF initieraren inte står i konflikt. 
 

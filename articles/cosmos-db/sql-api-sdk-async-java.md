@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 1/15/2019
+ms.date: 2/4/2019
 ms.author: moderakh
-ms.openlocfilehash: 760a54a09dd612cef93de0de1e8ac2fd59b04b26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 15bab6af4054085d00ec5c2edb7afb993a620b55
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329386"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756265"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -50,6 +50,13 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
+* Stöd har lagts till för direkt.
+* Ändra API: er som tar emot java.util.Collection där ordningen är viktig att acceptera java.util.List i stället.
+  Nu acceptera ConnectionPolicy#getPreferredLocations() och JsonSerialization PartitionKey(.) lista.
+* En bugg session för dokumentet frågan i gateway-läge.
+* Uppgraderas beroenden (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79), RxJava 1.3.8).
 
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * Korrigeringar hantera mycket stora frågesvar.
@@ -130,6 +137,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.4.0-beta-1](#2.4.0-beta-1) |4 februari 2019|--- |
 | [2.3.1](#2.3.1) |15 jan 2019|--- |
 | [2.3.0](#2.3.0) |Den 29 november 2018|--- |
 | [2.2.2](#2.2.2) |8 november 2018|--- |

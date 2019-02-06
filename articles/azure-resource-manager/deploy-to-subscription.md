@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 064cef04ac609b0e6db5f55d9973e3974af8e0cc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494892"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744406"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resursgrupper och resurser på prenumerationsnivån
 
 Normalt distribuerar du Azure-resurser till en resursgrupp i Azure-prenumerationen. Men kan du också skapa Azure-resursgrupper och skapa Azure-resurser på prenumerationsnivån. För att distribuera mallar på prenumerationsnivå måste använda du Azure CLI och Azure PowerShell. Azure-portalen stöder inte distribution på prenumerationsnivå.
 
-Om du vill skapa en resursgrupp i en Azure Resource Manager-mall definierar en [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions.md) resurs med ett namn och plats för resursgruppen. Du kan skapa en resursgrupp och distribuera resurser till resursgruppen i samma mall. De resurser som du kan distribuera på prenumerationsnivå är: [Principer](../azure-policy/azure-policy-introduction.md), och [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
+Om du vill skapa en resursgrupp i en Azure Resource Manager-mall definierar en [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions) resurs med ett namn och plats för resursgruppen. Du kan skapa en resursgrupp och distribuera resurser till resursgruppen i samma mall. De resurser som du kan distribuera på prenumerationsnivå är: [Principer](../azure-policy/azure-policy-introduction.md), och [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -101,7 +101,7 @@ Följande mall skapar en tom resursgrupp.
 }
 ```
 
-Mallsschemat finns på [här](/azure/templates/microsoft.resources/allversions.md). Liknande mallar finns på [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
+Mallsschemat finns på [här](/azure/templates/microsoft.resources/allversions). Liknande mallar finns på [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
 ## <a name="create-multiple-resource-groups"></a>Skapa flera resursgrupper
 

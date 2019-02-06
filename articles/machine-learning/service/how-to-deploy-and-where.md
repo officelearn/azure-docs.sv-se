@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8b318626947c1d1147e43ca6c183ae724080a59
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a32cb694a18f8fff937f647804659efb71be415e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251613"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745732"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -511,3 +511,5 @@ Mer information finns i referensdokumentationen för [WebService.delete()](https
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Använda Azure Machine Learning-tjänsten med Azure-nätverk](how-to-enable-virtual-network.md)
+* [Metodtips för att bygga rekommendationssystem](https://github.com/Microsoft/Recommenders)
+* [Skapa en i realtid rekommendation API på Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

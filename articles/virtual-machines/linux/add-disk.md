@@ -16,16 +16,15 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: fcd8f4f8408c7c51265802fde057146e6cdbb090
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657628"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754310"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
-Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på. 
-
+Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på.
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Koppla en ny disk till en virtuell dator
 
@@ -40,7 +39,7 @@ az vm disk attach \
    --size-gb 50
 ```
 
-## <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk 
+## <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk
 
 Om du vill koppla en befintlig disk, disk-ID: t och skicka ID som den [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) kommando. Följande Exempelfrågor för en disk med namnet *myDataDisk* i *myResourceGroup*, kopplar den till den virtuella datorn med namnet *myVM*:
 
@@ -50,9 +49,9 @@ diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
-
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ansluta till Linux VM att montera den nya disken
-Att partitionera, formatera och montera den nya disken så att din Linux-VM kan använda den, SSH till den virtuella datorn. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). I följande exempel ansluter till en virtuell dator med offentliga DNS-posten för *mypublicdns.westus.cloudapp.azure.com* med användarnamnet *azureuser*: 
+
+Att partitionera, formatera och montera den nya disken så att din Linux-VM kan använda den, SSH till den virtuella datorn. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). I följande exempel ansluter till en virtuell dator med offentliga DNS-posten för *mypublicdns.westus.cloudapp.azure.com* med användarnamnet *azureuser*:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -74,10 +73,10 @@ Utdata ser ut ungefär så här:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Här kan *sdc* är den disk som vi vill. Partitionera disken med `fdisk`, gör det primär disk på partition 1 och Godkänn andra standardinställningar. Följande exempel startar den `fdisk` på */dev/sdc*:
+Här kan *sdc* är den disk som vi vill. Partitionera disken med `parted`om disken är 2 tebibyte (TiB) eller större måste du använda GPT partitionering, om det är under 2TiB, kan du använda antingen MBR eller GPT partitionering. Gör det primär disk på partition 1 och Godkänn andra standardinställningar. Följande exempel startar den `parted` på */dev/sdc*:
 
 ```bash
-sudo fdisk /dev/sdc
+sudo parted /dev/sdc
 ```
 
 Använd den `n` att lägga till en ny partition. I det här exemplet vi också välja `p` för en primär partition av och accepterar du resten av standardinställningarna. Utdata ska vara detsamma som i följande exempel:
@@ -228,9 +227,10 @@ Det finns två sätt att aktivera TRIMNING stöd i din Linux-VM. Som vanligt fin
     ```
 
 ## <a name="troubleshooting"></a>Felsökning
+
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
 * För att säkerställa att din Linux-VM är korrekt konfigurerad, granska de [optimera din prestanda för Linux-datorer](optimization.md) rekommendationer.
 * Utöka lagringskapaciteten genom att lägga till ytterligare diskar och [konfigurera RAID](configure-raid.md) för ytterligare prestanda.
-

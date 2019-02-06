@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: routlaw
-ms.openlocfilehash: bbbaa4c44a7c0d6da189f0c49d73adfa6142cdee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6e4bd5977eb1761a065d5583675e6fd405b4610a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095799"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750366"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Hämta Resource Health med hjälp av REST-API 
 
@@ -44,7 +44,7 @@ Följande huvuden krävs:
 
 | Namn | Beskrivning |
 | :--- | :---------- |
-| subscriptionId | Prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer, se [arbeta med flera prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | Prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer, se [arbeta med flera prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | API-versionen | API-version för begäran.<br /><br /> Det här dokumentet beskriver api-versionen `2015-04-01`och ingår i URL: en ovan.  |
 | $filter | Filtrera alternativet för att minska antal returnerade resultat. De tillåtna mönster för den här parametern är tillgängliga [i referensen för aktivitetsloggar åtgärden](/rest/api/monitor/activitylogs/list#uri-parameters). I exemplet samlar in alla händelser i ett tidsintervall mellan 2018-05-16 och 2018-06-20 |
 | &nbsp; | &nbsp; |

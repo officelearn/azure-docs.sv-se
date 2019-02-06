@@ -10,18 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336908"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753478"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Uppgiftshubbar i varaktiga funktioner (Azure Functions)
 
 En *uppgift hub* i [varaktiga funktioner](durable-functions-overview.md) är en logisk behållare för Azure Storage-resurser som används för orkestreringar. Orchestrator och aktivitet kan bara interagera med varandra när de tillhör samma uppgift hubb.
 
-Varje funktionsapp har en separat åtgärd-hubb. Om flera funktionsappar delar ett storage-konto, innehåller flera uppgiftshubbar i lagringskontot. Följande diagram illustrerar en uppgift hubb per funktionsappen i delade och dedikerade storage-konton.
+Om flera funktionsappar delar ett storage-konto varje funktionsapp *måste* konfigureras med en separat åtgärd-hubbnamn. Ett lagringskonto kan innehålla flera uppgiftshubbar. Följande diagram illustrerar en uppgift hubb per funktionsappen i delade och dedikerade storage-konton.
 
 ![Diagram som visar delade och dedikerade storage-konton.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -46,7 +46,7 @@ Uppgiftshubbar identifieras med ett namn som är deklarerad i den *host.json* fi
 ```json
 {
   "durableTask": {
-    "HubName": "MyTaskHub"
+    "hubName": "MyTaskHub"
   }
 }
 ```
@@ -58,7 +58,7 @@ Uppgiftshubbar identifieras med ett namn som är deklarerad i den *host.json* fi
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "MyTaskHub"
+      "hubName": "MyTaskHub"
     }
   }
 }
@@ -71,7 +71,7 @@ Uppgiftshubbar kan också konfigureras med hjälp av appinställningarna, enligt
 ```json
 {
   "durableTask": {
-    "HubName": "%MyTaskHub%"
+    "hubName": "%MyTaskHub%"
   }
 }
 ```
@@ -83,7 +83,7 @@ Uppgiftshubbar kan också konfigureras med hjälp av appinställningarna, enligt
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "%MyTaskHub%"
+      "hubName": "%MyTaskHub%"
     }
   }
 }
@@ -134,7 +134,7 @@ Nedan är konfigurationen som krävs för JavaScript. Egenskapen uppgift hub i d
 Namn på aktiviteten måste börja med en bokstav och bestå av endast bokstäver och siffror. Om inte anges standardnamnet är **DurableFunctionsHub**.
 
 > [!NOTE]
-> Namnet är vad skiljer hub för en aktivitet från en annan när det finns flera uppgiftshubbar i en delad lagring-konto. Om du har flera funktionsappar som delar en delad lagring-konto kan du behöva konfigurera olika namn för varje uppgift hubben i den *host.json* filer.
+> Namnet är vad skiljer hub för en aktivitet från en annan när det finns flera uppgiftshubbar i en delad lagring-konto. Om du har flera funktionsappar som delar en delad lagring-konto, måste du uttryckligen konfigurera olika namn för varje uppgift hubben i den *host.json* filer. Annars konkurrerar flera funktionsappar med varandra om meddelanden, vilket kan resultera i odefinierat beteende.
 
 ## <a name="next-steps"></a>Nästa steg
 

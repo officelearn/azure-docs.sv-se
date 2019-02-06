@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 38f0d9cc6f507aa7d521aba0ff737f7bbaf2b211
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2a719fcbe2180e366060fba11bf64ad9770aa672
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468129"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756129"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
 
@@ -39,7 +39,7 @@ Härifrån kan du valfri kombination av följande ändringar och spara dem alla 
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Hantera elastiska pooler och databaser i en pool
 
-Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database elastiska pooler och databaser i en pool med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du vill skapa och hantera SQL Database-servrar för en elastisk pool, se [skapa och hantera SQL Database-servrar](sql-database-servers.md). För att skapa och hantera brandväggsregler, se [skapa och hantera brandväggsregler med hjälp av PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database elastiska pooler och databaser i en pool med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du vill skapa och hantera SQL Database-servrar för en elastisk pool, se [skapa och hantera SQL Database-servrar](sql-database-servers.md). För att skapa och hantera brandväggsregler, se [skapa och hantera brandväggsregler med hjälp av PowerShell](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Exempelskript för PowerShell, se [skapa elastiska pooler och flytta databaser mellan pooler och från en pool med PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) och [använda PowerShell för att övervaka och skala en elastisk SQL-pool i Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -79,7 +79,7 @@ Skapa och hantera elastiska pooler i SQL Database med de [Azure CLI](/cli/azure)
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Hantera databaser i en pool
 
-Skapa och flytta databaser i befintliga elastiska pooler, eller för att returnera information om en elastisk pool med SQL-databas med Transact-SQL, Använd följande T-SQL-kommandon. Du kan skicka dessa kommandon med hjälp av Azure-portalen [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), eller andra program som kan ansluta till en Azure SQL Database-server och skicka Transact-SQL -kommandon. Om du vill skapa och hantera brandväggsregler med hjälp av T-SQL, se [hantera brandväggsregler med hjälp av Transact-SQL](sql-database-firewall-configure.md#manage-firewall-rules-using-transact-sql).
+Skapa och flytta databaser i befintliga elastiska pooler, eller för att returnera information om en elastisk pool med SQL-databas med Transact-SQL, Använd följande T-SQL-kommandon. Du kan skicka dessa kommandon med hjälp av Azure-portalen [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), eller andra program som kan ansluta till en Azure SQL Database-server och skicka Transact-SQL -kommandon. Om du vill skapa och hantera brandväggsregler med hjälp av T-SQL, se [hantera brandväggsregler med hjälp av Transact-SQL](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-transact-sql).
 
 > [!IMPORTANT]
 > Du kan inte skapa, uppdatera eller ta bort en Azure SQL Database elastisk pool med hjälp av Transact-SQL. Du kan lägga till eller ta bort databaser från en elastisk pool, och du kan använda DMV: er för att returnera information om befintliga elastiska pooler.

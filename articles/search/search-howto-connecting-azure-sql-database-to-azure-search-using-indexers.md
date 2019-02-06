@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633035"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752900"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ansluta till och indexera Azure SQL Database-innehåll med hjälp av Azure Search-indexerare
 
@@ -210,6 +210,9 @@ Om du vill använda den här principen, skapa eller uppdatera din datakälla Så
 
 Använda SQL-integrerad ändringsspårning princip, ange inte en separat princip för identifiering av borttagning – den här principen har inbyggt stöd för att identifiera när borttagna rader. Men för borttagningar ska identifierade ”automagically” måste dokumentnyckeln i dina search-index vara samma som den primära nyckeln i SQL-tabell. 
 
+> [!NOTE]  
+> När du använder [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) om du vill ta bort ett stort antal rader från en SQL-tabell, indexeraren måste vara [återställa](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) att återställa ändringsspårning tillstånd att hämta rad borttagningar.
+
 <a name="HighWaterMarkPolicy"></a>
 
 ### <a name="high-water-mark-change-detection-policy"></a>Princip för identifiering av ändring av vattenmärke
@@ -285,13 +288,13 @@ Den **softDeleteMarkerValue** måste vara en sträng – Använd den sträng som
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mappning mellan SQL och Azure Search-datatyper
 | SQL-datatypen | Tillåtna målindex fälttyper | Anteckningar |
 | --- | --- | --- |
-| bitars |Edm.Boolean Edm.String | |
+| bitars |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| bigint |Edm.Int64 Edm.String | |
-| verkliga, flyttal |Edm.Double Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
+| verkliga, flyttal |Edm.Double, Edm.String | |
 | smallmoney, pengar decimal numeriskt |Edm.String |Azure Search har inte stöd för konvertering decimal typer i Edm.Double eftersom detta skulle förlora precision |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |En SQL-strängen kan användas för att fylla i ett fält för Collection(Edm.String) om strängen representerar en JSON-matris med strängar: `["red", "white", "blue"]` |
-| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset Edm.String | |
+| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geografisk plats |Edm.GeographyPoint |Stöds endast geografi instanser av typen punkt med SRID 4326 (som är standard) |
 | ROWVERSION |Gäller inte |Rad-version kolumner kan inte lagras i sökindexet, men de kan användas för ändringsspårning |

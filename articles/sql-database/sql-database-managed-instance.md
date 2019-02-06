@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: c070858354bb8bf5628a17e24e6830f133414d32
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734410"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751556"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Använda avancerad datasäkerhet med virtuella nätverk och nästan 100% kompatibilitet SQL-databas
 
@@ -74,8 +74,8 @@ Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) för h
 
 Du kan välja mellan av maskinvara i vCore-modellen.
 
-- **Gen 4** logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, SSD, enheter anslutna fysiska kärnor, 7 GB RAM-minne per kärna och storlekar på mellan 8 och 24 virtuella kärnor.
-- **5: e generationen** logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3-GHz-processorer, snabb NVMe SSD, hyper-threaded logiska kärna, och beräkna storlekar mellan 8 och 80 kärnor.
+- **Gen4** logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, SSD, enheter anslutna fysiska kärnor, 7 GB RAM-minne per kärna och storlekar på mellan 8 och 24 virtuella kärnor.
+- **Gen5** logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3-GHz-processorer, snabb NVMe SSD, hyper-threaded logiska kärna, och beräkna storlekar mellan 8 och 80 kärnor.
 
 Mer information om skillnaden mellan maskinvarugenerationer i [hanterad instans resursbegränsningar](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 

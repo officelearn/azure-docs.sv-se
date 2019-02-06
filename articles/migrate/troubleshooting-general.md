@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 12c71086509b0c7017b8326c46ed4a31270ef261
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657390"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751913"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -172,7 +172,7 @@ Det här problemet kan inträffa på grund av ett problem med VMware PowerCLI-in
 
 Det går inte att ansluta till vCenter-servern ”Servername.com:9443” på grund av felet: Det fanns inte någon slutpunkt som lyssnade på https://Servername.com:9443/sdk som kunde acceptera meddelandet.
 
-Kontrollera om du kör den senaste versionen av insamlingsprogrammet, om inte, uppgradera installationen till den [senaste versionen](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+Kontrollera om du kör den senaste versionen av insamlingsprogrammet, om inte, uppgradera installationen till den [senaste versionen](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 Om problemet inträffar fortfarande i den senaste versionen kan bero det insamlardatorn är inte matcha namnet på vCenter-servern har angetts eller porten som anges är fel. Om porten inte anges försöker insamlaren som standard att ansluta till portnumret 443.
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 038c6afe94ccfea707eea3b4032a2e45f69e5102
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187082"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745681"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Kända problem med Azure Monitor för virtuella datorer (förhandsversion)
 
@@ -27,6 +27,7 @@ Den här artikeln beskriver kända problem med Azure Monitor för virtuella dato
 ## <a name="health"></a>Hälsa 
 Följande är kända problem med den aktuella versionen av funktionen hälsotillstånd:
 
+- Panelen VM-egenskapen visar 2019 för Windows Server-operativsystem som Windows Server 2016. Detta kommer att åtgärdas i en kommande version.
 - Om en Azure-dator har tagits bort eller tagits bort, visas den i VM-listvyn under en viss tid. Även om du klickar på tillståndet för en virtuell dator har tagits bort eller borttagna öppnas den **hälsotillstånd diagnostik** visa och sedan startar en inläsning av slinga. Väljer namnet på den borttagna virtuella datorn öppnas ett fönster med ett meddelande om att den virtuella datorn har tagits bort.
 - Konfigurationsändringar, till exempel att uppdatera ett tröskelvärde ta upp till 30 minuter, även om portalen eller arbetsbelastning övervakaren API kan uppdatera dem omedelbart. 
 - Diagnostik för hälsa får uppdateringar snabbare än andra vyer. Informationen kan fördröjas när du växlar mellan dem. 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 6ebef74cee6f919fe6b8cf666db06e0ab22cec73
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566932"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755160"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ansluta till SQL-databas med C och C++
 
@@ -40,7 +40,7 @@ Azure har för närvarande två alternativ för att hantera SQL server-arbetsbel
 Ansluta till Azure SQL DB fungerar på samma sätt och det finns för närvarande två sätt att ansluta till databaser: ODBC (Open Database connectivity) och OLE DB (Object Linking och bädda in-database). På senare år har Microsoft justerad med [ODBC för inbyggd relationsdatabas dataåtkomst](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC är relativt enkla och även mycket snabbare än OLE DB. Den enda teamindela här är att ODBC använder en gammal C-stil-API.
 
 ## <a id="Create"></a>Steg 1:  Skapa din Azure SQL-databas
-Se den [komma igång med](sql-database-get-started-portal.md) att lära dig hur du skapar en exempeldatabas.  Alternativt kan du följa den här [kort tvåminutersvideon](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) att skapa en Azure SQL-databas med Azure portal.
+Se den [komma igång med](sql-database-single-database-get-started.md) att lära dig hur du skapar en exempeldatabas.  Alternativt kan du följa den här [kort tvåminutersvideon](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) att skapa en Azure SQL-databas med Azure portal.
 
 ## <a id="ConnectionString"></a>Steg 2:  Hämta anslutningssträngen
 När Azure SQL-databasen har etablerats, måste du utföra följande steg för att fastställa anslutningsinformationen och Lägg till klient-IP för brandväggsåtkomst.

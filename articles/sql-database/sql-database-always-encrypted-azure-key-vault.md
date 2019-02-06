@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e988a3c86302b875f8393264279e4a65c45ba1eb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: fa37a83799ec50c7a8a87a0ac8a3232035a49234
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041245"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755670"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Azure Key Vault
 
@@ -81,7 +81,7 @@ Du kan snabbt skapa ett nyckelvalv genom att köra följande skript. En detaljer
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till **skapa en resurs** > **databaser** > **SQL Database**.
-3. Skapa en **tom** databas med namnet **Clinic** på en ny eller befintlig server. För detaljerade instruktioner om hur du skapar en databas i Azure-portalen finns i [din första Azure SQL database](sql-database-get-started-portal.md).
+3. Skapa en **tom** databas med namnet **Clinic** på en ny eller befintlig server. För detaljerade instruktioner om hur du skapar en databas i Azure-portalen finns i [din första Azure SQL database](sql-database-single-database-get-started.md).
    
     ![Skapa en tom databas](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 

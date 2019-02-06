@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2efc0b76c8556894119ed3f6dd216234414cf313
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732370"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751386"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurera en anslutning från en Azure Search-indexerare till SQL Server på en Azure VM
 Enligt vad som anges i [ansluter Azure SQL Database till Azure Search med indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), skapa indexerare mot **SQL Server på Azure Virtual Machines** (eller **SQL Azure virtuella datorer** för kort) stöds med Azure Search, men det finns några säkerhetsrelaterade förutsättningar för att ta hand om först. 
 
 Anslutningar från Azure Search till SQL Server på en virtuell dator är en offentlig Internetanslutning. Alla de säkerhetsåtgärder som följer du normalt för dessa anslutningar använder här samt:
 
-+ Skaffa ett certifikat från en [certifikatutfärdare providern](https://en.wikipedia.org/wiki/Certificate_authority#Providers) för fullständigt kvalificerade domännamnet för den virtuella Azure-datorn.
++ Skaffa ett certifikat från en [certifikatutfärdare providern](https://en.wikipedia.org/wiki/Certificate_authority#Providers) för fullständigt kvalificerade domännamnet för SQL Server-instansen på den virtuella Azure-datorn.
 + Installera certifikatet på den virtuella datorn och aktivera och konfigurera krypterade anslutningar på den virtuella datorn med hjälp av anvisningarna i den här artikeln.
 
 ## <a name="enable-encrypted-connections"></a>Aktivera krypterade anslutningar
@@ -29,8 +29,9 @@ Azure Search kräver en krypterad kanal för alla indexerare förfrågningar via
 
 1. Kontrollera egenskaperna för certifikat för att verifiera namnet på certifikatmottagaren är det fullständigt kvalificerade domännamnet (FQDN) för den virtuella Azure-datorn. Du kan använda ett verktyg som CertUtils eller snapin-modulen certifikat för att visa egenskaperna. Du kan hämta det fullständiga Domännamnet från VM-tjänsten bladet Essentials-avsnittet i den **offentliga IP-adress/DNS-namnetikett** fältet i den [Azure-portalen](https://portal.azure.com/).
    
-   * För virtuella datorer som skapas med hjälp av den nyare **Resource Manager** mall, FQDN är formaterade som `<your-VM-name>.<region>.cloudapp.azure.com`. 
-   * För äldre virtuella datorer som skapas som en **klassiska** VM, FQDN är formaterade som `<your-cloud-service-name.cloudapp.net>`. 
+   * För virtuella datorer som skapas med hjälp av den nyare **Resource Manager** mall, FQDN formateras som `<your-VM-name>.<region>.cloudapp.azure.com`
+   * För äldre virtuella datorer som skapas som en **klassiska** VM, FQDN är formaterade som `<your-cloud-service-name.cloudapp.net>`.
+
 2. Konfigurera SQL Server att använda certifikat med hjälp av Registereditorn (regedit). 
    
     Även om SQL Server Configuration Manager används ofta för den här uppgiften, kan du inte använda den för det här scenariot. Det inte att hitta det importerade certifikatet eftersom det fullständiga Domännamnet för den virtuella datorn på Azure inte matchar det fullständiga Domännamnet som bestäms av den virtuella datorn (den identifierar domänen som den lokala datorn eller nätverksdomän som den är ansluten). När namnen inte matchar, kan du använda regedit för att ange certifikatet.
@@ -41,9 +42,11 @@ Azure Search kräver en krypterad kanal för alla indexerare förfrågningar via
    * Ange värdet för den **certifikat** avgörande för att den **tumavtryck** för SSL-certifikat som du har importerat till den virtuella datorn.
      
      Det finns flera sätt att hämta certifikatets tumavtryck lite bättre än andra. Om du kopierar det från den **certifikat** snapin-modulen i MMC, hämtar du förmodligen upp ett osynligt ledande tecken [enligt beskrivningen i den här supportartikeln](https://support.microsoft.com/kb/2023869/), vilket resulterar i ett fel när du försöker utföra en anslutning . Det finns flera sätt för att korrigera problemet. Den enklaste är att BACKSTEG över och sedan skriva om det första tecknet i tumavtryck för att ta bort det första tecknen i fältet nyckelvärdet i regedit. Du kan också använda ett annat verktyg för att kopiera tumavtrycket.
+
 3. Bevilja behörigheter till kontot. 
    
     Kontrollera att SQL Server-tjänstkontot har beviljats behörighet för den privata nyckeln för SSL-certifikat. Om du missar det här steget startar inte SQL Server. Du kan använda den **certifikat** snapin-modulen eller **CertUtils** för den här uppgiften.
+    
 4. Starta om SQL Server-tjänsten.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Konfigurera SQL Server-anslutningen i den virtuella datorn

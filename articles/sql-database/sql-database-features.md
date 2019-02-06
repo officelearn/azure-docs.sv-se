@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b39f3351ae838d9c6fd086cafb9a21b8fc07fbd2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 7445496154d9fc2ca59e19059a87a794a1361b14
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509430"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747415"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQLServer
 
@@ -52,7 +52,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Sammanställning av ändringsdata](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nej | Ja |
 | [Spårning av ändringar](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Ja |Ja |
 | [Sortering - databas](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Ja | Ja |
-| [Sortering - server/instans](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Nej | [Ja (förhandsversion)](/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| [Sortering - server/instans](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Nej | [Ja (förhandsversion)](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja – [Premium-nivån, Standard-nivån – S3 och senare, nivån generell användning och affärskritisk nivåer](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
 | [CLR (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nej | Ja – Se [CLR-skillnader](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Ja |

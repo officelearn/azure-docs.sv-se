@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 2252dc9d1cb4a8b5666e3f8078528206ac0fddf7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9b8340221c61bedbe010b9ef280ada62cfee7a21
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228261"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754886"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Vanliga och frågor svar om text till tal
 
 Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan du kolla [andra supportalternativ](support.md).
 
-## <a name="general"></a>Generell
+## <a name="general"></a>Allmänt
 
 **F: Vad är skillnaden mellan en standard voice-modell och en anpassad voice-modell?**
 
@@ -29,7 +29,7 @@ Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan 
 
 **F: Hur börjar jag om jag vill använda en standard voice-modell?**
 
-**A**: Mer än 80 standard röst modeller i över 45 språk är tillgängliga via HTTP-begäranden. Hämta först en [prenumerationsnyckel](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). REST-anrop till predeployed voice-modeller finns det [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**A**: Mer än 80 standard röst modeller i över 45 språk är tillgängliga via HTTP-begäranden. Hämta först en [prenumerationsnyckel](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). REST-anrop till predeployed voice-modeller finns det [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 **F: Om jag vill använda en röstmeddelanden modell är API: et samma som det som används för att få en standard?**
 

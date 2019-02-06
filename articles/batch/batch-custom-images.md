@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: lahugh
-ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840375"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752134"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Använda en anpassad avbildning för att skapa en pool med virtuella datorer 
 
@@ -69,7 +69,7 @@ En ögonblicksbild är en fullständig, skrivskyddad kopia av en virtuell Hårdd
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>Skapa en avbildning från en eller flera ögonblicksbilder
 
-Skapa en hanterad avbildning från en ögonblicksbild genom att använda Azures kommandoradsverktyg som den [az bild skapa](/cli/azure/image#az_image_create) kommando. Du kan skapa en avbildning genom att ange en OS-diskens ögonblicksbild och alternativt en eller flera ögonblicksbilder för data.
+Skapa en hanterad avbildning från en ögonblicksbild genom att använda Azures kommandoradsverktyg som den [az bild skapa](/cli/azure/image) kommando. Du kan skapa en avbildning genom att ange en OS-diskens ögonblicksbild och alternativt en eller flera ögonblicksbilder för data.
 
 ## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Skapa en pool från en anpassad avbildning i portalen
 

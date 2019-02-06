@@ -3,7 +3,7 @@ title: Konfigurationer för SAP-arbetsbelastning med Azure Availability Zones | 
 description: Arkitektur för hög tillgänglighet och scenarier för SAP NetWeaver med hjälp av Azure tillgänglighetszoner
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2019
-ms.author: msjuergent
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56c1ffd314a9a8e9440832b9fd92a51cdaf9f228
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 409a304296d3fdff897a203177e2c150162755c6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735657"
+ms.locfileid: "55746225"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfigurationer för SAP-arbetsbelastning med Tillgänglighetszoner i Azure
 
@@ -74,7 +74,7 @@ För att kunna bestämma i hur du kan utnyttja tillgänglighetszoner, måste du 
 ### <a name="network-latency-between-zones-and-within-zone"></a>Nätverksfördröjningen mellan zoner och inom zonen
 Om du vill ta reda på vad som är fördröjningen mellan olika zoner, måste du:
 
-- Distribuera VM-SKU du vill använda för din DBMS-instans i alla tre zoner. Se till att som [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) aktiveras när du utför denna mätning
+- Distribuera VM-SKU du vill använda för din DBMS-instans i alla tre zoner. Se till att [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) aktiveras när du utför denna mätning
 - När du har hittat två zoner med den lägsta Nätverksfördröjningen kan du distribuera ytterligare tre virtuella datorer av VM-SKU som du vill använda som programnivån VM i tre tillgänglighetszoner. Mäta svarstiden i nätverk mot de två 'DBMS virtuella datorerna ”i två olika” DBMS' zoner valfri. 
 - Som ett verktyg för att mäta, använda **niping**. Ett verktyg från SAP, vilket fungerar enligt beskrivningen i SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) och [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Fokusera på att kommandona SAP som beskrivs i replikeringssvarstiderna. Med hjälp av **ping** är inte ett rekommenderat verktyg sedan **ping** fungerar inte via Azure accelererat nätverk kodsökvägar.
 

@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473433"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755177"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -107,7 +107,7 @@ Följande avsnitt innehåller en översikt över stegen för att återställa me
 
 Oavsett vilken funktion för affärskontinuitet du använder, måste du:
 
-- Identifiera och förbered målservern, inklusive brandväggsregler på servernivå, inloggningar och behörigheter på huvuddatabasnivå.
+- Identifiera och Förbered målservern, inklusive IP-brandväggsregler på servernivå, inloggningar och på huvuddatabasnivå.
 - Bestämma hur du ska omdirigera klienter och klientprogram till den nya servern.
 - Dokumentera andra beroenden, till exempel granskningsinställningar och aviseringar.
 
@@ -132,7 +132,7 @@ Om du använder automatiska säkerhetskopieringar med geo-redundant lagring (akt
 Efter återställningen från endera återställningsmetod måste du utföra följande ytterligare uppgifter innan dina användare och program kan komma igång igen:
 
 - Omdirigera klienter och klientprogram till den nya servern och återställda databasen
-- Kontrollera att lämpliga brandväggsregler på servernivå är på plats så att användarna kan ansluta (eller använd [brandväggsregler på databasnivå](sql-database-firewall-configure.md#creating-and-managing-firewall-rules))
+- Kontrollera att rätt IP-brandväggsregler för på servernivå är uppfyllda för användare att ansluta eller använda [databasnivå](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) att aktivera lämpliga regler.
 - Se till att rätt inloggningar och behörigheter på huvuddatabasnivå är på plats (eller använd [inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Konfigurera granskning efter behov
 - Konfigurera aviseringar efter behov

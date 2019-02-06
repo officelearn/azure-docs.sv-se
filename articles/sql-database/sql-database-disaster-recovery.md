@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 61957b89bd5ec9a42d6fd03c7009187d71e448f4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474793"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749044"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL Database eller redundans till en sekundär
 
@@ -38,7 +38,7 @@ Läs mer om affärskontinuitet företagsscenarier och de funktioner som stöder 
 För att lyckas med återställning till en annan dataregion med redundansgrupper eller geo-redundanta säkerhetskopieringar, måste du förbereda en server i ett annat Datacenter avbrott ska bli den nya primära servern bör behovet uppstår samt har väldefinierade stegen och testats för att säkerställa en smidig återställning. Dessa förberedelsesteg är:
 
 - Identifiera SQL Database-server i en annan region ska bli den nya primära servern. För geo-återställning, det är vanligtvis en server i den [parad region](../best-practices-availability-paired-regions.md) för regionen där databasen är placerad. Detta eliminerar kostnaden för ytterligare trafik under återställning av geo-åtgärder.
-- Identifiera och du kan också definiera regler för brandväggen på servernivå som behövs på användare får åtkomst till den nya primära databasen.
+- Identifiera och du kan också definiera på servernivå IP-brandväggsregler krävs på användare får åtkomst till den nya primära databasen.
 - Avgör hur du kommer att omdirigera användare till den nya primära servern, till exempel genom att ändra anslutningssträngar eller genom att ändra DNS-poster.
 - Identifiera och du kan också skapa inloggningar som måste finnas i master-databasen på den nya primära servern och se till att dessa inloggningar har rätt behörighet i master-databasen, om sådana. Mer information finns i [SQL Database-säkerhet efter återställning](sql-database-geo-replication-security-config.md)
 - Identifiera Varningsregler som måste uppdateras för att mappa till den nya primära databasen.

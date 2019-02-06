@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 246b7ae21ceca80c2d1af74330691e527c73cf51
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452744"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751420"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -251,7 +251,10 @@ Azure File Sync är tillgänglig i följande regioner:
 Azure File Sync stöder synkronisering endast med en Azure-filresurs som finns i samma region som Storage Sync-tjänsten.
 
 ### <a name="azure-disaster-recovery"></a>Azure-haveriberedskap
-För att skydda mot förlust av en Azure-region, Azure File Sync kan integreras med den [geo-redundant lagringsredundans](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS)-alternativet. GRS-lagringen fungerar med hjälp av asynkrona Blockreplikering mellan lagring i den primära regionen, som du normalt interagerar, och lagring i den parade sekundära regionen. Vid katastrofåterställning vilket gör att en Azure-region till offlineläge tillfälligt eller permanent misslyckas Microsoft över lagring till den parade regionen. 
+För att skydda mot förlust av en Azure-region, Azure File Sync kan integreras med den [geo-redundant lagringsredundans](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS)-alternativet. GRS-lagringen fungerar med hjälp av asynkrona Blockreplikering mellan lagring i den primära regionen, som du normalt interagerar, och lagring i den parade sekundära regionen. Microsoft kommer redundanslagring till den parade regionen vid katastrofåterställning vilket gör att en Azure-region till offlineläge tillfälligt eller permanent. 
+
+> [!Warning]  
+> Du bör inte initiera redundans för storage-konto om du använder din Azure-filresurs som en slutpunkt i molnet på ett GRS-lagringskonto. Synkronisering av orsaken till slutar fungera och kan också gör oväntade data går förlorade vid nyligen nivåindelade filer. När det gäller förlust av en Azure-region utlöser Microsoft redundans för storage-konto på ett sätt som är kompatibel med Azure File Sync.
 
 Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Sync kan är alla regioner för Azure File Sync kopplad till en sekundär region som matchar den sekundära regionen som används av storage. Dessa par är följande:
 

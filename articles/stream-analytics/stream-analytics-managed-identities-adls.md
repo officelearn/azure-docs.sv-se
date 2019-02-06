@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87c605feeab742ae589cf8d5d9a98c8e53ccf662
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 194f43a0005f17a22b3a60d6decd049444e56c20
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410463"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745784"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter (förhandsversion)
 
@@ -21,7 +21,7 @@ Azure Stream Analytics stöder hanterad identitetsautentisering med Azure Data L
 
 Gå till den [åtta nya funktioner i Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blogginlägg för att registrera dig för den här förhandsversionen och Läs mer om nya funktioner.
 
-Den här artikeln beskrivs två sätt att aktivera hanterad identitet för Azure Stream Analytics-jobb som producerar till en Azure Data Lake Storage Gen1 via Azure-portalen, Azure Resource Manager för malldistribution och Azure Stream Analytics-verktyg för Visual Studio.
+Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Stream Analytics-jobb som producerar till en Azure Data Lake Storage Gen1 via Azure-portalen, Azure Resource Manager för malldistribution och Azure Stream Analytics-verktyg för Visual Studio.
 
 ## <a name="azure-portal"></a>Azure Portal
 

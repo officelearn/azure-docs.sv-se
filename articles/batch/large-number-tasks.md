@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: b2daba1e20431edae5aacc8295fdc542d1e73d33
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3e20aeb0e21eca5e4ac25206d638036f94a58202
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460513"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749703"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Skicka ett stort antal aktiviteter till ett Batch-jobb
 
@@ -37,8 +37,8 @@ Den maximala storleken för den uppgift-samling som du kan lägga till i ett end
 * Följande Batch API: er begränsa mängden **100 uppgifter**. Gränsen kan vara mindre beroende på storleken på uppgifter – till exempel om aktiviteterna har ett stort antal resursfiler eller miljövariabler.
 
     * [REST-API](/rest/api/batchservice/task/addcollection)
-    * [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
-    * [Node.js API](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
+    * [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
+    * [Node.js API](/javascript/api/azure-batch/task?view=azure-node-latest)
 
   När du använder dessa API: er kan behöva du tillhandahåller logik för att dela upp antalet uppgifter att uppfylla samlingsgränsen och för att hantera fel och återförsök om det inte går att lägga till uppgifter. Om en uppgift samling är för stor för att lägga till, begäran genererar ett fel och bör försökas igen med färre steg.
 
@@ -55,7 +55,7 @@ Det kan ta lite tid att lägga till ett stort antal uppgifter i ett jobb – til
 
 * **Uppgift storlek** – att lägga till stora uppgifter tar längre tid än att lägga till små. För att minska storleken på varje aktivitet i en samling kan du förenkla aktivitetens kommandorad, minska antalet miljövariabler eller hantera för körning av aktiviteten mer effektivt. Till exempel istället för att använda ett stort antal resursfiler installera aktivitetsberoenden med hjälp av en [startaktivitet](batch-api-basics.md#start-task) på poolen eller använder en [programpaket](batch-application-packages.md) eller [dockerbehållare](batch-docker-container-workloads.md).
 
-* **Antalet parallella åtgärder** – beroende på Batch-API, öka dataflödet genom att öka det maximala antalet samtidiga aktiviteter med Batch-klient. Konfigurera den här inställningen med hjälp av den [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) -egenskapen i .NET-API eller `threads` parametern av metoder som [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection)i Batch Python SDK-tillägget. (Den här egenskapen är inte tillgänglig i den interna Batch Python SDK.) Som standard är den här egenskapen inställd på 1, men högre för att förbättra dataflödet för åtgärder. Du balansera ökat genomflöde av konsumerande nätverksbandbredd och vissa CPU-prestanda. Uppgiften dataflödet ökar med upp till 100 gånger den `MaxDegreeOfParallelism` eller `threads`. I praktiken, bör du ange hur många samtidiga åtgärder under 100. 
+* **Antalet parallella åtgärder** – beroende på Batch-API, öka dataflödet genom att öka det maximala antalet samtidiga aktiviteter med Batch-klient. Konfigurera den här inställningen med hjälp av den [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) -egenskapen i .NET-API eller `threads` parametern av metoder som [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)i Batch Python SDK-tillägget. (Den här egenskapen är inte tillgänglig i den interna Batch Python SDK.) Som standard är den här egenskapen inställd på 1, men högre för att förbättra dataflödet för åtgärder. Du balansera ökat genomflöde av konsumerande nätverksbandbredd och vissa CPU-prestanda. Uppgiften dataflödet ökar med upp till 100 gånger den `MaxDegreeOfParallelism` eller `threads`. I praktiken, bör du ange hur många samtidiga åtgärder under 100. 
  
   Azure Batch CLI-tillägget med Batch-mallar ökar antalet samtidiga åtgärder automatiskt baserat på antalet tillgängliga kärnor, men den här egenskapen kan inte konfigureras i CLI. 
 
@@ -155,7 +155,7 @@ tasks=list()
 
 ```
 
-Lägg till den samling med hjälp av [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection). Ange den `threads` parameter för att öka antalet samtidiga åtgärder:
+Lägg till den samling med hjälp av [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Ange den `threads` parameter för att öka antalet samtidiga åtgärder:
 
 ```python
 try:

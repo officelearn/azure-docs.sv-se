@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: kgremban
-ms.openlocfilehash: dbe2ba6ce4e001f6e49fbbee9189fa5b4d99ec33
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 36514fe321fa352c2526db5a18ac8618d7af713e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514391"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756775"
 ---
 # <a name="get-started-with-device-management-python"></a>Kom igång med enhetshantering (Python)
 
@@ -44,7 +44,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -68,7 +68,7 @@ I det här avsnittet kommer du att:
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. Lägg till variabler, inklusive en **anslutningssträng** variabeln och klient-start.  Ersätt anslutningssträngen med enhetens anslutningssträng.  
+1. Lägg till variabler, inklusive en **anslutningssträng** variabeln och klient-initieringen.  Ersätt anslutningssträngen med enhetens anslutningssträng.  
    
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"

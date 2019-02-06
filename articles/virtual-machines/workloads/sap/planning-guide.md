@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 587303e8be4155b1b01228ad4606829ad8921560
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f336f6fdb5cde638fe62d1410a9f993492be21ed
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436594"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747568"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -184,7 +184,6 @@ ms.locfileid: "54436594"
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77
 [planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 [planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a
 [planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358
@@ -339,41 +338,37 @@ Vi använder följande termer för hela dokumentet:
 * IaaS: Infrastruktur som en tjänst
 * PaaS: Plattform som en tjänst
 * SaaS: Programvara som en tjänst
-* SAP-komponent: ett enskilt SAP program, till exempel ECC, BW, lösningen Manager eller EP.  SAP-komponenter kan baseras på traditionella ABAP eller Java-tekniker eller ett icke-NetWeaver-baserade program, till exempel företag objekt.
+* SAP-komponent: ett enskilt SAP program, till exempel ECC, BW, lösningen Manager eller S/4HANA.  SAP-komponenter kan baseras på traditionella ABAP eller Java-tekniker eller ett icke-NetWeaver-baserade program, till exempel företag objekt.
 * SAP-miljön: en eller flera SAP-komponenter logiskt grupperade för att utföra en företagsfunktion, till exempel utveckling, QAS, utbildning, DR eller produktion.
 * SAP-landskap: Den här termen avser hela SAP-tillgångar i en kunds IT-miljön. SAP-landskap innehåller alla produktions- och icke-produktionsmiljöer.
 * SAP System: Kombinationen av DBMS-lagret och programnivån av, till exempel en utvecklingssystem för SAP ERP, SAP BW testsystem, SAP CRM produktionssystemet osv. I Azure-distributioner, är det inte stöd för att dela upp de här två lager mellan lokala och Azure. Innebär att ett SAP-system är antingen distribuerat lokalt eller det distribueras i Azure. Du kan dock distribuera olika system i ett SAP-landskap i Azure eller lokalt. Du kan till exempel distribuera SAP CRM-utveckling och testa system i Azure men SAP CRM produktionsprogrammen system på plats.
-* Endast molnbaserad distribution: En distribution där Azure-prenumerationen inte är ansluten via en plats-till-plats eller ExpressRoute-anslutning i den lokala nätverksinfrastruktur. I vanliga Azure-dokumentation, dessa typer av distributioner beskrivs också som ”molnbaserade” distributioner. Virtuella datorer som distribueras med den här metoden kan nås via internet och en offentlig IP-adress och/eller en offentlig DNS-namn som tilldelats de virtuella datorerna i Azure. För Microsoft Windows, lokalt Active Directory (AD) och DNS inte har utökats till Azure i dessa typer av distributioner. De virtuella datorerna är därför inte en del av den lokala Active Directory. Detsamma gäller för Linux-implementeringar med hjälp av till exempel OpenLDAP + Kerberos.
+* Flera platser eller hybrid: Beskriver ett scenario där virtuella datorer distribueras till en Azure-prenumeration med plats-till-plats, flera platser eller ExpressRoute-anslutning mellan lokala datacenter och Azure. I vanliga Azure-dokumentation, dessa typer av distributioner är också beskrivs som flera platser eller hybrid scenarier. Orsaken till att anslutningen är att utöka lokala domäner, en lokal Active Directory/OpenLDAP och den lokala DNS i Azure. Lokala liggande utökas till Azure-tillgångar för prenumerationen. Med det här tillägget, kan de virtuella datorerna vara en del av den lokala domänen. Domänanvändare på den lokala domänen har åtkomst till servrarna och kan köra services på de virtuella datorerna (till exempel DBMS tjänster). Kommunikation och namnmatchning mellan virtuella datorer som distribueras på en plats och distribuerade virtuella Azure-datorer är möjligt. Detta gäller de vanligaste och nästan exklusivt distribuera SAP-tillgångar i Azure. Mer information finns i [detta] [ vpn-gateway-cross-premises-options] artikeln och [detta][vpn-gateway-site-to-site-create].
 
 > [!NOTE]
-> Endast molnbaserad distribution i det här dokumentet är definierade som fullständig SAP-landskap körs endast i Azure utan utökning av Active Directory / OpenLDAP eller namnmatchning från en lokal plats till offentliga molnet. Endast molnbaserad konfigurationer stöds inte för produktion SAP-system eller konfigurationer där SAP STM eller andra lokala resurser behöver användas mellan SAP-system i Azure och resurser som finns på plats.
+> Flera platser eller hybrid distribution av SAP-system om Azure virtuella datorer som kör SAP-system är medlemmar i en lokal domän stöds för SAP-system i drift. Flera platser eller hybrid konfigurationer som stöds för att distribuera delar eller slutföra SAP-landskap i Azure. Även köra fullständig SAP-landskap i Azure kräver att dessa virtuella datorer är en del av den lokala domänen och ANNONSER/OpenLDAP. 
 >
 >
 
-* Mellan olika platser: Beskriver ett scenario där virtuella datorer distribueras till en Azure-prenumeration med plats-till-plats, flera platser eller ExpressRoute-anslutning mellan lokala datacenter och Azure. I vanliga Azure-dokumentation, dessa typer av distributioner beskrivs också som mellan lokala scenarier. Orsaken till att anslutningen är att utöka lokala domäner, en lokal Active Directory/OpenLDAP och den lokala DNS i Azure. Lokala liggande utökas till Azure-tillgångar för prenumerationen. Med det här tillägget, kan de virtuella datorerna vara en del av den lokala domänen. Domänanvändare på den lokala domänen har åtkomst till servrarna och kan köra services på de virtuella datorerna (till exempel DBMS tjänster). Kommunikation och namnmatchning mellan virtuella datorer som distribueras på en plats och distribuerade virtuella Azure-datorer är möjligt. Detta gäller de vanligaste och nästan exklusivt distribuera SAP-tillgångar i Azure. Mer information finns i [detta] [ vpn-gateway-cross-premises-options] artikeln och [detta][vpn-gateway-site-to-site-create].
 
-> [!NOTE]
-> Mellan lokala distributioner av SAP-system om Azure virtuella datorer som kör SAP-system är medlemmar i en lokal domän har stöd för SAP-system för produktion. Mellan lokala konfigurationer som stöds för att distribuera delar eller slutföra SAP-landskap i Azure. Även köra fullständig SAP-landskap i Azure kräver att dessa virtuella datorer är en del av den lokala domänen och ANNONSER/OpenLDAP. I tidigare versioner av dokumentationen vi talade om Hybrid-IT-scenarier där termen *Hybrid* grundas på typsystemet i det faktum att det finns en anslutning mellan olika platser mellan lokala och Azure. Dessutom är det faktum att de virtuella datorerna i Azure är en del av den lokala Active Directory / OpenLDAP.
->
->
-
-Vissa Microsoft-dokumentationen beskriver mellan lokala scenarier lite annorlunda särskilt för DBMS HA konfigurationer. När det gäller SAP-relaterade-dokument handlar mellan lokala scenariot bara att ha plats-till-plats eller privat (ExpressRoute)-anslutning och det faktum att SAP-landskap fördelas mellan lokala och Azure.  
 
 ### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Resurser
-Följande ytterligare guider finns tillgängliga för avsnittet om SAP-distributioner på Azure:
+Startpunkten för SAP-arbetsbelastningar på Azure-dokumentationen finns [här](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Från och med den här registreringspunkten hitta du många artiklar om att delar av:
 
-* [Azure virtuella datorer, planering och implementering av SAP NetWeaver (det här dokumentet)][planning-guide]
-* [Azure Virtual Machines-distribution för SAP NetWeaver][deployment-guide]
-* [Azure Virtual Machines DBMS-distribution för SAP NetWeaver][dbms-guide]
+- SAP NetWeaver och företag en på Azure
+- SAP DBMS-guider för olika DBMS system i Azure
+- Hög tillgänglighet och katastrofåterställning recovery för SAP-arbetsbelastningar på Azure
+- Specifika anvisningar för att köra SAP HANA på Azure
+- Vägledning som är specifika för Azure HANA stora instanser för SAP HANA DBMS 
+
 
 > [!IMPORTANT]
-> Var möjligt en länk till den refererande SAP-installationsguiden används (referens InstGuide-01, se <http://service.sap.com/instguides>). När det gäller krav och installationsprocessen, bör SAP NetWeaver-Installationsguiderna alltid att läsa noggrant, eftersom det här dokumentet beskriver endast specifika uppgifter för SAP NetWeaver-system som är installerad på en Microsoft Azure-dator.
+> Var möjligt en länk till refererar SAP-Installationsguiderna eller andra SAP-dokumentationen används (referens InstGuide-01, se <http://service.sap.com/instguides>). När det gäller krav, installationen och information om specifika SAP-funktioner som SAP-dokumentationen och guider bör alltid att läsa noggrant, som Microsoft dokument täcker endast specifika uppgifter för SAP-program installeras och drivs i en Microsoft Azure-dator.
 >
 >
 
 Följande SAP-information är relaterade till ämnet med SAP på Azure:
 
-| Nummer | Titel |
+| Nummer | Rubrik |
 | --- | --- |
 | [1928533] |SAP-program i Azure: Produkter som stöds och storlek |
 | [2015553] |SAP på Microsoft Azure: Supportkrav |
@@ -431,22 +426,7 @@ Sista steget är att utvärdera kraven på tillgänglighet. Det kan inträffa at
 
 För att kunna distribuera ett SAP-system till Azure, lokala SAP-system operativsystem, databas, och SAP-program måste visas på stödmatris SAP Azure passar med resurserna i Azure-infrastruktur kan ge och som fungerar med tillgänglighet serviceavtal i Microsoft Azure-erbjudanden. Eftersom dessa system identifieras måste du välja något av följande två scenarier.
 
-### <a name="1625df66-4cc6-4d60-9202-de8a0b77f803"></a>Molnbaserad - distributioner av virtuella datorer till Azure utan beroenden på den lokala kundens nätverk
-![Enstaka virtuell dator med SAP-demo eller utbildning scenario distribueras i Azure][planning-guide-figure-100]
 
-Det här scenariot är vanligt för utbildningar eller demo-system, där alla komponenter i SAP och icke-SAP-program är installerade i en enda virtuell dator. SAP produktionssystem stöds inte i det här distributionsscenariot. I allmänhet är uppfyller det här scenariot följande krav:
-
-* De virtuella datorerna själva är tillgängliga via det offentliga nätverket. Direkt nätverksanslutning för programmen som körs inifrån de virtuella datorerna till det lokala nätverket antingen företagets ägande demonstrationer eller utbildningar innehållet eller kunden är inte nödvändigt.
-* När det gäller flera virtuella datorer som representerar utbildningar eller demo-scenario, måste nätverket kommunikation och namnmatchning fungerar mellan de virtuella datorerna. Men kommunikation mellan uppsättningen av virtuella datorer behöver vara isolerade så att flera uppsättningar av virtuella datorer kan distribueras sida vid sida utan störningar.  
-* Internetanslutning krävs för att slutanvändaren kan fjärrinloggning till till de virtuella datorerna i Azure. Beroende på gästen används OS, Terminal Services/RDS eller VNC/ssh för att få åtkomst till den virtuella datorn att utföra uppgifter för utbildning eller utföra demonstrationerna. Om SAP-portarna som 3200, 3300 och 3600 kan också exponeras programinstansen SAP kan nås från valfri Internet-anslutna desktop.
-* SAP system (och VM(s)) representerar ett fristående scenario i Azure, som endast kräver en offentlig Internetanslutning för slutanvändarnas åtkomst och inte kräver en anslutning till andra virtuella datorer i Azure.
-* SAPGUI och en webbläsare är installerat och körs direkt på den virtuella datorn.
-* Det krävs en snabb återställning av en virtuell dator till det ursprungliga tillståndet och ny distribution av det ursprungliga tillståndet igen.
-* När det gäller Demonstrations- och utbildning scenarier som realiseras i flera virtuella datorer, en Active Directory / OpenLDAP och/eller DNS-tjänsten krävs för varje uppsättning virtuella datorer.
-
-![Grupp med Virtuella datorer som representerar en demo eller utbildning scenariot i en Azure-molntjänst][planning-guide-figure-200]
-
-Det är viktigt att tänka på att virtuella datorer i varje typ måste distribueras parallellt, där de Virtuella datorerna i varje uppsättningen är desamma.
 
 ### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Flera platser – distribution av en eller flera SAP-datorer till Azure, utan krav på att integreras helt i det lokala nätverket
 ![VPN-anslutningar med plats-till-plats-anslutning (mellan lokala)][planning-guide-figure-300]
@@ -648,9 +628,9 @@ Microsoft Azure tillhandahåller en nätverksinfrastruktur, vilket gör att mapp
 
 Mer information finns här: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
-Det finns många olika möjligheter att konfigurera namn och IP-lösning i Azure. I detta dokument, endast molnbaserad scenarier som förlitar sig på i stället för att använda Azure DNS (till skillnad från att definiera en egen DNS-tjänst). Det finns också en ny Azure DNS-tjänst, som kan användas i stället för att konfigurera DNS-servern. Mer information finns i [i den här artikeln] [ virtual-networks-manage-dns-in-vnet] på [den här sidan](https://azure.microsoft.com/services/dns/).
+Det finns många olika möjligheter att konfigurera namn och IP-lösning i Azure. Det finns också en Azure DNS-tjänst, som kan användas i stället för att konfigurera DNS-servern. Mer information finns i [i den här artikeln] [ virtual-networks-manage-dns-in-vnet] på [den här sidan](https://azure.microsoft.com/services/dns/).
 
-Scenarier med flera platser vi lita på faktumet som lokalt AD/OpenLDAP/DNS har utökats via VPN eller privat anslutning till Azure. För vissa scenarier som beskrivs här, det kan vara nödvändigt att ha en replik av en AD/OpenLDAP installeras i Azure.
+För flera platser eller hybrid scenarier, vi lita på faktumet som lokalt AD/OpenLDAP/DNS har utökats via VPN eller privat anslutning till Azure. För vissa scenarier som beskrivs här, det kan vara nödvändigt att ha en replik av en AD/OpenLDAP installeras i Azure.
 
 Eftersom nätverk och namnmatchning är en viktig del av databasen distributionen för en SAP-system, detta begrepp beskrivs mer ingående i den [DBMS Distributionsguide][dbms-guide].
 
@@ -892,8 +872,6 @@ Kraven när du förbereder din egen Azure VM-disken är:
 * Det måste vara i formatet fast virtuell Hårddisk. Dynamiska virtuella hårddiskar eller virtuella hårddiskar i VHDx-format stöds inte ännu i Azure. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
 * VHD: er, som är monterade till den virtuella datorn och ska monteras igen i Azure VM behovet av att ha en fast VHD-format samt. Läs [i den här artikeln (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) och [i den här artikeln (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) för storleksbegränsningar för datadiskar. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
 * Lägg till en annan lokalt konto med administratörsbehörighet som kan användas av Microsoft-supporten eller som kan tilldelas som kontext för tjänster och program att köras tills den virtuella datorn har distribuerats och lämpligare användare kan användas.
-* För att använda en molnbaserad distributionsscenariot (finns i kapitlet [molnbaserad - distributioner av virtuella datorer till Azure utan beroenden på den lokala kundnätverk] [ planning-guide-2.1] i det här dokumentet) i tillsammans med den här distributionsmetoden domänkonton kanske inte fungerar när Azure-Disk har distribuerats i Azure. Detta gäller särskilt för konton som används för att köra tjänster som DBMS eller SAP-program. Därför måste du ersätta sådana domänkonton med lokala konton för virtuell dator och ta bort den lokala domänkonton i den virtuella datorn. Gör att den lokala domänanvändare i avbildningen är inte ett problem när den virtuella datorn har distribuerats i mellan lokala scenariot som beskrivs i kapitlet [mellan lokala - distribution av en eller flera SAP-datorer till Azure, utan krav på att helt integrerat i det lokala nätverket] [ planning-guide-2.2] i det här dokumentet.
-* Om domänkonton användes som DBMS inloggningar eller användare som kör system lokala platser och dessa virtuella datorer är avsedda för att distribueras i scenarier med endast molnbaserad, måste domänanvändare som ska tas bort. Du måste se till att den lokala administratören plus en annan virtuell dator lokal användare har lagts till som en inloggning/användare till DBMS som administratörer.
 * Lägga till andra lokala konton som de som kan behövas för det specifika distributionsscenariot.
 
 - - -
@@ -920,9 +898,6 @@ Kraven när du förbereder din egen Azure VM-avbildning är:
 * Den virtuella Hårddisken som innehåller operativsystemet kan ursprungligen ha endast en maximal storlek på 127GB. Den här begränsningen har eliminerats i slutet av mars 2015. Den virtuella Hårddisken som innehåller operativsystemet kan nu vara upp till 1TB i storlek som VHD finns också i Azure Storage.
 * Det måste vara i formatet fast virtuell Hårddisk. Dynamiska virtuella hårddiskar eller virtuella hårddiskar i VHDx-format stöds inte ännu i Azure. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
 * VHD: er, som är monterade till den virtuella datorn och ska monteras igen i Azure VM behovet av att ha en fast VHD-format samt. Läs [i den här artikeln (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) och [i den här artikeln (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) för storleksbegränsningar för datadiskar. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
-* Eftersom alla domänanvändare registreras som användare i den virtuella datorn inte kommer att finnas i ett scenario med molnbaserad (finns i kapitlet [molnbaserad - distributioner av virtuella datorer till Azure utan beroenden på den lokala kundnätverk] [ planning-guide-2.1] i det här dokumentet), med hjälp av den angivna domänen konton inte kanske fungerar när avbildningen har distribuerats i Azure-tjänster. Detta gäller särskilt för konton som används för att köra tjänster som DBMS eller SAP-program. Därför måste du ersätta sådana domänkonton med lokala konton för virtuell dator och ta bort den lokala domänkonton i den virtuella datorn. Gör att den lokala domänanvändare i VM-avbildning kanske inte är ett problem när den virtuella datorn har distribuerats i mellan lokala scenariot som beskrivs i kapitlet [mellan lokala - distribution av en eller flera SAP-datorer till Azure, utan krav på att fullständigt integrerat i det lokala nätverket] [ planning-guide-2.2] i det här dokumentet.
-* Lägg till en annan lokalt konto med administratörsbehörighet som kan användas av Microsoft-supporten i problem undersökningar eller som kan tilldelas som kontext för tjänster och program att köras tills den virtuella datorn har distribuerats och lämpligare användare kan användas.
-* I molnbaserade distributioner och där domänkonton användes som DBMS inloggningar eller användare när du kör system lokala platser, bör användarna tas bort. Du måste se till att den lokala administratören plus en annan virtuell dator lokal användare har lagts till som en inloggning/användare av DBMS som administratörer.
 * Lägga till andra lokala konton som de som kan behövas för det specifika distributionsscenariot.
 * Om bilden innehåller en installation av SAP NetWeaver och namnbyte av värdnamnet från det ursprungliga namnet distributionspunkten Azure troligtvis, rekommenderar vi att du kopiera de senaste versionerna av SAP Software etablering Manager DVD till mallen. Detta kan du enkelt använda SAP tillhandahålls rename-funktionen för att anpassa ändrade värdnamnet och/eller ändra SID för SAP-system i distribuerade avbildningen så fort en ny kopia har startats.
 
@@ -1336,7 +1311,7 @@ Sista distributionen och specifika stegen, särskilt för distribution av SAP ut
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Åtkomst till SAP-system som körs i virtuella Azure-datorer
 
-Scenarier med endast molnbaserad kanske du vill ansluta till dessa SAP-system via det offentliga internet använda SAP-Gränssnittet. De här fallen måste följande procedurer som ska användas.
+Följande procedurer måste tillämpas för scenarier där du vill ansluta till dessa SAP-system via det offentliga internet använda SAP-Gränssnittet.
 
 Senare i dokumentet diskuteras de andra viktiga scenariot, ansluter till SAP-system i mellan lokala distributioner som har en plats-till-plats-anslutning (VPN-tunnel) eller Azure ExpressRoute-anslutning mellan lokala system och Azure-system.
 
@@ -1349,7 +1324,7 @@ Med Azure Resource Manager, det finns inga standardslutpunkterna längre som i d
 
 Se arkitektur skillnaden mellan klassiska modellen och ARM enligt beskrivningen i [i den här artikeln][virtual-machines-azure-resource-manager-architecture].
 
-#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>Konfigurationen av SAP-System och SAP GUI-anslutning för endast molnbaserad scenario
+#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Konfigurationen av SAP-System och SAP GUI-anslutning via internet
 
 Den här artikeln som beskriver information till det här avsnittet finns på: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
@@ -1392,13 +1367,12 @@ SAP-Gränssnittet kan inte anslutas direkt till någon av SAP-instanser (port 32
 
 enligt beskrivningen i [säkerhetsinställningar för SAP Message Server ](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
 
-## <a name="96a77628-a05e-475d-9df3-fb82217e8f14"></a>Begreppet molnbaserad distribution av SAP-instanser
 
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Enstaka virtuell dator med SAP NetWeaver demo/utbildning scenario
 
 ![Kör enskild VM SAP demo-system med samma namn på virtuella datorer, separat i Azure Cloud Services][planning-guide-figure-1700]
 
-I det här scenariot (finns i kapitlet [molnbaserad] [ planning-guide-2.1] i det här dokumentet) vi implementerar en typisk utbildning/demo system scenario där fullständig utbildning/demo-scenariot finns i en enda virtuell dator. Vi förutsätter att distributionen görs via mallar för VM-avbildning. Vi förutsätter också att flera av dessa demo/utbildningar virtuella datorer behöver distribueras med de virtuella datorerna har samma namn.
+I det här scenariot implementerar vi en typisk utbildning/demo system scenario där fullständig utbildning/demo-scenariot finns i en enda virtuell dator. Vi förutsätter att distributionen görs via mallar för VM-avbildning. Vi förutsätter också att flera av dessa demo/utbildningar virtuella datorer behöver distribueras med de virtuella datorerna har samma namn. Hela utbildning system har inte någon anslutning till dina lokala tillgångar och är en motsatsen till en hybriddistribution.
 
 Antas att du skapat en VM-avbildning som beskrivs i vissa avsnitt i kapitel [förbereda virtuella datorer med SAP för Azure] [ planning-guide-5.2] i det här dokumentet.
 
@@ -1445,7 +1419,7 @@ $pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName
 $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* Skapa en virtuell dator. För scenariot molnbaserad har varje virtuell dator samma namn. SAP-SID för SAP NetWeaver-instanser i dessa virtuella datorer är samma även. Namnet på den virtuella datorn måste vara unikt inom Azure-resursgrupp, men i olika Azure-resursgrupper kan du köra virtuella datorer med samma namn. ”Administratör”-standardkontot för Windows eller 'root' för Linux är inte giltiga. Ett nytt användarnamn för administratör måste anges tillsammans med ett lösenord. Storleken på den virtuella datorn måste också definieras.
+* Skapa en virtuell dator. Det här scenariot kommer alla virtuella datorer som har samma namn. SAP-SID för SAP NetWeaver-instanser i dessa virtuella datorer är samma även. Namnet på den virtuella datorn måste vara unikt inom Azure-resursgrupp, men i olika Azure-resursgrupper kan du köra virtuella datorer med samma namn. ”Administratör”-standardkontot för Windows eller 'root' för Linux är inte giltiga. Ett nytt användarnamn för administratör måste anges tillsammans med ett lösenord. Storleken på den virtuella datorn måste också definieras.
 
 ```powershell
 #####
@@ -1560,7 +1534,7 @@ az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --loca
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* Skapa en virtuell dator. För scenariot molnbaserad har varje virtuell dator samma namn. SAP-SID för SAP NetWeaver-instanser i dessa virtuella datorer är samma även. Namnet på den virtuella datorn måste vara unikt inom Azure-resursgrupp, men i olika Azure-resursgrupper kan du köra virtuella datorer med samma namn. ”Administratör”-standardkontot för Windows eller 'root' för Linux är inte giltiga. Ett nytt användarnamn för administratör måste anges tillsammans med ett lösenord. Storleken på den virtuella datorn måste också definieras.
+* Skapa en virtuell dator. Det här scenariot kommer alla virtuella datorer som har samma namn. SAP-SID för SAP NetWeaver-instanser i dessa virtuella datorer är samma även. Namnet på den virtuella datorn måste vara unikt inom Azure-resursgrupp, men i olika Azure-resursgrupper kan du köra virtuella datorer med samma namn. ”Administratör”-standardkontot för Windows eller 'root' för Linux är inte giltiga. Ett nytt användarnamn för administratör måste anges tillsammans med ett lösenord. Storleken på den virtuella datorn måste också definieras.
 
 ```
 #####
@@ -1614,7 +1588,7 @@ Du kan använda exempelmallarna på azure-snabbstartsmallar-arkivet på github.
 
 ### <a name="implement-a-set-of-vms-that-communicate-within-azure"></a>Implementera en uppsättning virtuella datorer som kommunicerar i Azure
 
-Det här scenariot med endast molnbaserad är ett vanligt scenario för utbildning och demonstration syfte var programvaran som representerar demo/utbildning scenariot är utspridd på flera virtuella datorer. De olika komponenterna som är installerade på de olika virtuella datorerna måste kommunicera med varandra. Igen, i det här scenariot utan lokal nätverkskommunikation eller scenario med flera platser krävs.
+Den här hybridscenario är ett vanligt scenario för utbildning och demonstration syfte var programvaran som representerar demo/utbildning scenariot är utspridd på flera virtuella datorer. De olika komponenterna som är installerade på de olika virtuella datorerna måste kommunicera med varandra. Igen, i det här scenariot utan lokal nätverkskommunikation eller scenario med flera platser krävs.
 
 Det här scenariot är en utökning av installationen som beskrivs i kapitlet [enskild virtuell dator med SAP NetWeaver demo/utbildning scenariot] [ planning-guide-7.1] i det här dokumentet. I det här fallet läggs fler virtuella datorer till en befintlig resursgrupp. I följande exempel består utbildning liggande av en SAP ASCS/SCS virtuell dator, en virtuell dator som kör en DBMS och en SAP-programservern instans VM.
 
@@ -1643,11 +1617,11 @@ Mer information om virtuella Azure-nätverk och hur du definierar dem finns i [i
 
 Du kan köra ett SAP-landskap och vill dela upp distributionen mellan utan operativsystem för avancerad DBMS-servrar, lokala virtualiserade miljöer för programskikt och mindre på nivå 2 konfigurerat SAP-system och Azure IaaS. Grundläggande antas att SAP-system i en SAP-landskap måste kommunicera med varandra och med många andra programkomponenter som distribueras i företaget, oberoende av deras distribution form. Det bör även finnas några skillnader som introducerades av formuläret distribution för slutanvändaren att ansluta med SAP-Gränssnittet eller andra gränssnitt. Dessa villkor kan bara vara uppfyllda när vi har en lokal Active Directory/OpenLDAP och DNS-tjänster som utökats till Azure-system via plats-till-plats/flera plats-anslutning eller privat Azure ExpressRoute-anslutningar.
 
-För att visa mer bakgrundsinformation om implementeringsdetaljer för SAP på Azure kan vi uppmuntrar dig att läsa kapitel [begrepp Cloud-Only distribution av SAP instanser] [ planning-guide-7] i det här dokumentet som beskriver några Grunderna konstruktioner för Azure och hur dessa ska användas med SAP-program i Azure.
+
 
 ### <a name="scenario-of-an-sap-landscape"></a>Scenario där ett SAP-landskap
 
-Scenario för flera platser kan beskrivas ungefär som i bilderna nedan:
+Flera platser eller hybrid scenario kan beskrivas ungefär som i bilderna nedan:
 
 ![Plats-till-plats-anslutning mellan lokala och Azure-tillgångar][planning-guide-figure-2100]
 
@@ -1851,7 +1825,7 @@ Installationen av en SAP-Portal i en Azure-dator skiljer sig inte från en på p
 
 ![Exponerade SAP-portalen][planning-guide-figure-2700]
 
-En särskild distributionsscenariot av vissa kunder är direkt exponering av SAP Enterprise Portal till Internet när den virtuella värden är ansluten till företagets nätverk via plats-till-plats VPN-tunnel eller ExpressRoute. Du måste se till att specifika portar är öppna och inte blockeras av brandvägg eller nätverket säkerhetsgrupp för sådana situationer. Samma mechanics måste tillämpas när du vill ansluta till en SAP-Java-instans från en lokal plats i ett scenario med molnbaserad.
+En särskild distributionsscenariot av vissa kunder är direkt exponering av SAP Enterprise Portal till Internet när den virtuella värden är ansluten till företagets nätverk via plats-till-plats VPN-tunnel eller ExpressRoute. Du måste se till att specifika portar är öppna och inte blockeras av brandvägg eller nätverket säkerhetsgrupp för sådana situationer. 
 
 Den inledande URI är http (s):`<Portalserver`>: 5XX00/irj där porten som bildas av 50000 plus (Systemnumber rubrikrad? 100). Standard portal URI SAP systemet 00 är `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Mer information, har du en titt på <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 

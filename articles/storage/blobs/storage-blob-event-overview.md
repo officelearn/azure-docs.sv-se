@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247756"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751403"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
 
@@ -90,7 +90,7 @@ Här är ett exempel på en händelse som BlobCreated:
 Mer information finns i [schema för Blob storage-händelser](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtrera händelser
-BLOB-händelseprenumerationer kan filtreras baserat på vilken typ av händelse och av namn på behållare och blobnamnet på det objekt som har skapats eller tagits bort.  Filter kan tillämpas på händelseprenumerationer antingen under den [skapa](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) av händelseprenumerationen eller [vid ett senare tillfälle](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update). Ämne filter i Event Grid arbete baserat på ”börjar med” och ”slutar med” matchningar, så att händelser med ett matchande ämne levereras till prenumeranten. 
+BLOB-händelseprenumerationer kan filtreras baserat på vilken typ av händelse och av namn på behållare och blobnamnet på det objekt som har skapats eller tagits bort.  Filter kan tillämpas på händelseprenumerationer antingen under den [skapa](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) av händelseprenumerationen eller [vid ett senare tillfälle](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Ämne filter i Event Grid arbete baserat på ”börjar med” och ”slutar med” matchningar, så att händelser med ett matchande ämne levereras till prenumeranten. 
 
 Ämnet för Blob storage-händelser använder formatet:
 

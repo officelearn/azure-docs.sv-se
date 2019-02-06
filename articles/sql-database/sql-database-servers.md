@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 04c89742ac09d1581b978e3612539acb7eab2195
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511062"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756656"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL Database-servrar och deras hantering
 
@@ -78,7 +78,7 @@ För att hantera en befintlig databas, gå till den **SQL-databaser** och klicka
 > [!IMPORTANT]
 > För att konfigurera egenskaper för prestanda för en databas, se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> Läs en Azure-portalen Snabbstart, [skapa en Azure SQL database i Azure-portalen](sql-database-get-started-portal.md).
+> Läs en Azure-portalen Snabbstart, [skapa en Azure SQL database i Azure-portalen](sql-database-single-database-get-started.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Hantera Azure SQL-servrar, databaser och brandväggar med hjälp av PowerShell
 
@@ -102,7 +102,7 @@ Använd följande PowerShell-cmdletar för att skapa och hantera Azure SQL serve
 | New-AzureRmSqlServerVirtualNetworkRule | Skapar en [ *virtuell nätverksregel*](sql-database-vnet-service-endpoint-rule-overview.md), baserat på ett undernät som är en tjänstslutpunkt för virtuellt nätverk. |
 
 > [!TIP]
-> En PowerShell-Snabbstart Se [skapa en enskild Azure SQL-databas med PowerShell](sql-database-get-started-portal.md). Exempelskript för PowerShell, se [Använd PowerShell för att skapa en enskild Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-powershell.md) och [övervaka och skala en Azure SQL-databas med PowerShell med enkel](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> En PowerShell-Snabbstart Se [skapa en enskild Azure SQL-databas med PowerShell](sql-database-single-database-get-started.md). Exempelskript för PowerShell, se [Använd PowerShell för att skapa en enskild Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-powershell.md) och [övervaka och skala en Azure SQL-databas med PowerShell med enkel](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Hantera Azure SQL-servrar, databaser och brandväggar med Azure CLI

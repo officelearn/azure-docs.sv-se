@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462349"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747500"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Användningsdata warehouse ögonblicksbilder till recovery eller kopiera ditt informationslager till en tidigare återställningspunkt i den primära regionen. Användningsdata warehouse geo-redundanta säkerhetskopieringar att återställa till en annan geografisk region. 
@@ -62,7 +62,7 @@ När du släpper ett data warehouse, SQL Data Warehouse skapar en slutlig ögonb
 > Om du tar bort en logisk SQL server-instans, raderas också alla databaser som tillhör instansen och kan inte återställas. Du kan inte återställa en borttagen server.
 >
 
-## <a name="geo-backups"></a>GEO-säkerhetskopiering
+## <a name="geo-backups-and-disaster-recovery"></a>GEO-säkerhetskopiering och disaster recovery
 SQL Data Warehouse utför en geo-säkerhetskopia en gång per dag för att en [kopplat Datacenter](../best-practices-availability-paired-regions.md). Återställningspunktmålet för en geo-återställning är 24 timmar. Du kan återställa geo-säkerhetskopiering till en server i alla andra regioner där det finns stöd för SQL Data Warehouse. En geo-säkerhetskopia säkerställer att du kan återställa datalagret om du inte åtkomst till återställningspunkter i den primära regionen.
 
 GEO-säkerhetskopiering är aktiverat som standard. Om ditt informationslager är Gen1, kan du [avanmäla dig](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo-säkerhetskopiering för Gen2 eftersom dataskydd är en inbyggd garanteras.

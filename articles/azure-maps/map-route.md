@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 8c337ba1770b9b618567e7a3ee5fdbadba63181b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 183194d172b9ac11d4f1c5cb1324f7a09f4a157b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231860"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756316"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visa anvisningar från A till B
 
@@ -41,7 +41,7 @@ Det sjätte kodblocket skapar start- och [punkter](https://docs.microsoft.com/ja
 
 Det sjunde kodblocket anger gränser på kartan med hjälp av kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) egenskapen.
 
-Senaste kodblocket frågar routningstjänsten Azure Maps, som är en del av den [tjänstemodulen](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) metod för att få en väg mellan start- och slutpunkter. Svaret parsas sedan till GeoJSON-format med den [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) metod. Det renderas sedan svaret som en väg på kartan. Läs mer om att lägga till en rad på kartan [lägger till en rad på kartan](./map-add-shape.md#addALine).
+Senaste kodblocket frågar routningstjänsten Azure Maps, som är en del av den [tjänstemodulen](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) metod för att få en väg mellan start- och slutpunkter. Svaret parsas sedan till GeoJSON-format med den [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) metod. Det renderas sedan svaret som en väg på kartan. Läs mer om att lägga till en rad på kartan [lägger till en rad på kartan](./map-add-shape.md#addALine).
 
 Väg frågan, datakällan, symbol och rad lager och kamera gränser skapas och ställa in i kartan [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) att säkerställa att resultaten visas när kartan har lästs in helt.
 
@@ -54,7 +54,7 @@ Det första kodblocket skapar en Kartobjekt. Du kan se [skapa en karta](./map-cr
 
 Andra blockeringen av kod som skapar och lägger till en [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) objekt på kartan.
 
-Tredje kodblocket skapar återställningspunkter för start- och mål för flödet och lägger till dem till datakällan. Du kan se [lägga till en PIN-kod på kartan](map-add-pin.md) anvisningar om hur du använder [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
+Tredje kodblocket skapar återställningspunkter för start- och mål för flödet och lägger till dem till datakällan. Du kan se [lägga till en PIN-kod på kartan](map-add-pin.md) anvisningar om hur du använder [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
  En [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renderingar rad objekt och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som rader på kartan. Det fjärde kodblocket skapar och lägger till en linjeskikt på kartan. Se egenskaperna för en linjeskikt på [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 

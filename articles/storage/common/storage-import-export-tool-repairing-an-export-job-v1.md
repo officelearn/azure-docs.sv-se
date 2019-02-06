@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454767"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756758"
 ---
 # <a name="repairing-an-export-job"></a>Reparera ett exportjobb
 När en export-jobbet har slutförts kan köra du de Microsoft Azure Import/Export-verktyget lokalt till:  
@@ -81,7 +81,7 @@ Kopiera loggfilen anger att ett fel inträffade när Windows Azure Import/Export
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Med hjälp av RepairExport för att verifiera enheten innehållet  
 Du kan också använda Azure Import/Export med den **RepairExport** alternativet om du vill validera innehållet på enheten är korrekta. Manifestfilen på varje enhet för export innehåller MD5s för innehållet på enheten.  
   
-Azure Import/Export-tjänsten kan också spara manifest-filer till ett lagringskonto under exporten. Manifest-filer finns tillgängliga via den [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) igen när jobbet har slutförts. Se [Import/Export service Manifest filformat](storage-import-export-file-format-metadata-and-properties.md) för mer information om formatet för en enhet manifestfil.  
+Azure Import/Export-tjänsten kan också spara manifest-filer till ett lagringskonto under exporten. Manifest-filer finns tillgängliga via den [Get Job](/rest/api/storageimportexport/jobs) igen när jobbet har slutförts. Se [Import/Export service Manifest filformat](storage-import-export-file-format-metadata-and-properties.md) för mer information om formatet för en enhet manifestfil.  
   
 I följande exempel visas hur du kör verktyget Azure Import/Export med den **/ManifestFile** och **/CopyLogFile** parametrar:  
   

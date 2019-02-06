@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553534"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757509"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Design för hög prestanda
 
@@ -122,8 +122,8 @@ Prestandaräknarna är tillgängliga för processor, minne, och varje logisk dis
 | **Diskläsningar och skrivningar** |% Läsningar- och skrivåtgärder utföras på disken. |Läs Disktid i procent <br> Skriv Disktid i procent |r/s <br> w/s |
 | **Dataflöde** |Mängden data som läses från eller skrivs till disken per sekund. |Disk – lästa byte/sek <br> Disk – skrivna byte/sek |kB_read/s <br> kB_wrtn/s |
 | **Svarstid** |Total tid för att slutföra en disk-i/o-begäran. |Medel s/diskläsning <br> Medel s/diskskrivning |await <br> svctm |
-| **I/o-storlek** |Storleken på i/o-begäranden att diskar med lagringsutrymme. |Genomsnittlig byte/diskläsning <br> Genomsnittlig Disk byte/skrivning |avgrq sz |
-| **Ködjup** |Antalet utestående i/o-begäranden att vänta på att läsa från eller skrivs till Lagringsdisken. |Aktuell diskkölängd |avgqu sz |
+| **I/o-storlek** |Storleken på i/o-begäranden att diskar med lagringsutrymme. |Genomsnittlig byte/diskläsning <br> Genomsnittlig Disk byte/skrivning |avgrq-sz |
+| **Ködjup** |Antalet utestående i/o-begäranden att vänta på att läsa från eller skrivs till Lagringsdisken. |Aktuell diskkölängd |avgqu-sz |
 | **Max. Minne** |Mängden minne som krävs för att köra programmet smidigt |% Allokerade byte som används |Använda vmstat |
 | **Max. CPU** |Mycket CPU som krävs för att köra programmet smidigt |Tid i procent för processor |% util |
 
@@ -198,8 +198,8 @@ Hög skala virtuella datorer finns i olika storlekar med olika antal CPU-kärnor
 
 | Storlek på virtuell dator | Processorkärnor | Minne | VM-diskstorlekar | Max. Datadiskar | Cachestorlek | IOPS | Cache-i/o-gränser för bandbredd |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS = 1 023 GB <br> Lokal SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB per sekund |4 000 IOPS och 33 MB per sekund |
-| Standard_GS5 |32 |448 GB |OS = 1 023 GB <br> Lokal SSD = 896 GB |64 |4224 GB |80 000 IOPS <br> 2 000 MB per sekund |5 000 IOPS och 50 MB per sekund |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokal SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB per sekund |4 000 IOPS och 33 MB per sekund |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2 000 MB per sekund |5 000 IOPS och 50 MB per sekund |
 
 Om du vill visa en fullständig lista över alla tillgängliga Azure VM-storlekar som avser [Windows VM-storlekar](../articles/virtual-machines/windows/sizes.md) eller [Linux VM-storlekar](../articles/virtual-machines/linux/sizes.md). Välj en VM-storlek som kan uppfylla och skala till dina prestandakrav för önskat program. Utöver detta, beakta följande viktiga överväganden när du väljer VM-storlekar.
 
@@ -237,7 +237,7 @@ Azure Premium Storage erbjuder åtta GA-diskstorlekar och tre diskstorlekar som 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 | Diskstorlek           | 32 GiB | 64 GiB | 128 GiB| 256 GB| 512 GB            | 1 024 GiB (1 TiB)    | 2 048 GiB (2 TiB)    | 4 095 GiB (4 TiB)    | 8 192 GiB (8 TiB)    | 16 384 giB (16 TiB)    | 32 767 giB (32 GiB)    |
 | IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20,000              |
-| Dataflöde per disk | 25 MiB per sekund  | 50 MiB per sekund  | 100 MiB per sekund |125 MiB per sekund | 150 MiB per sekund | 200 MiB per sekund | 250 MiB per sekund | 250 MiB per sekund | 480 MiB per sekund | 750 MiB per sekund | 750 MiB per sekund |
+| Dataflöde per disk | 25 MiB per sekund  | 50 MiB per sekund  | 100 MiB per sekund |125 MiB per sekund | 150 MiB per sekund | 200 MiB per sekund | 250 MiB per sekund | 250 MiB per sekund | 480 MiB per sekund | 750 MiB per second | 750 MiB per second |
 
 Hur många diskar som du väljer beror på disken storlek väljs. Du kan använda en enda P50-disk eller flera P10-diskar för att uppfylla dina behov. Väg in överväganden för användarkonton som anges nedan när du gör valet.
 
@@ -256,7 +256,7 @@ Bestämma antalet diskar som du behöver genom att uppskatta programkrav. Varje 
 
 Kom ihåg att Premium Storage-diskar har högre prestanda jämfört med Standard Storage-diskar. Därför, om du migrerar dina program från Azure IaaS-VM med standardlagring till Premium Storage, sannolikt måste färre premium disks för att uppnå samma eller högre prestanda för ditt program.
 
-## <a name="disk-caching"></a>Diskcachelagring
+## <a name="disk-caching"></a>Disk Caching
 
 Hög skala datorer som använder Azure Premium Storage har en cachelagringsteknik för flera nivåer som kallas BlobCache. BlobCache använder en kombination av den virtuella datorn RAM-minne och lokal SSD-lagring för cachelagring. Det här cacheminnet är tillgängligt för Premium Storage beständiga diskar och de lokala VM-diskarna. Den här cache-inställningen är som standard att läsa/skriva för OS-diskar och skrivskyddad för datadiskar som finns på Premium Storage. Hög skala virtuella datorer kan uppnå extremt höga prestanda som överstiger den underliggande diskprestandan med diskcachelagring aktiverad på Premium Storage-diskar.
 
@@ -281,7 +281,7 @@ Följande är rekommenderade disk cacheinställningarna för datadiskar
 | Skrivskyddad |Konfigurera värd-cache som skrivskyddad för skrivskyddade och läs-och diskar. |
 | Läs/skriv |Konfigurera värd-cache som ReadWrite endast om ditt program hanterar korrekt skriva cachelagrade data till beständiga diskar vid behov. |
 
-*Skrivskyddad*  
+*ReadOnly*  
 Genom att konfigurera skrivskyddad cachelagring i Premium Storage-data diskar kan du uppnå Läs svarstider och få mycket hög Läs IOPS och dataflöden för ditt program. Detta är på grund av två skäl
 
 1. Läsningar utföras från cachen som finns på VM-minne och lokal SSD, är mycket snabbare än läsningar från datadisk som finns på Azure blob storage.  
@@ -342,7 +342,7 @@ Normalt av hyllan program tillåter dig inte att ändra ködjup, eftersom om ang
 
 Vissa program ange inställningar för att påverka det ködjup. Till exempel beskrivs MAXDOP-inställningen för (högsta grad av parallellitet) i SQL Server i föregående avsnitt. MAXDOP är ett sätt att påverka ködjup och flertrådsteknik, även om den inte direkt ändras värdet ködjup för SQL Server.
 
-*Hög ködjup*  
+*High Queue Depth*  
 En hög ködjup linjer upp fler åtgärder för disken. Disken vet nästa förfrågan i meddelandekön förbereds i förväg. Följaktligen disken schemalägga åtgärder förbereds i förväg och bearbeta dem i en optimal sekvens. Eftersom programmet skickar fler begäranden till disken, kan disken bearbeta flera parallella IOs. Slutligen kommer programmet att kunna uppnå högre IOPS. Eftersom bearbetning av fler begäranden, ökar även den totala genomströmningen i programmet.
 
 Vanligtvis ett program kan uppnå maximalt dataflöde med 8-16 + utestående I/o per ansluten disk. Om ett ködjup finns en tillräckligt med IOs att systemet gör inte att program och mindre mängd bearbetas inom en viss period. Med andra ord mindre dataflöde.
@@ -395,16 +395,16 @@ Använd mindre begärandestorlek på för att demonstrera högsta IOPs. Använd 
 
 | Åtkomst-specifikation | Begärandestorlek | Slumpmässig % | Läs % |
 | --- | --- | --- | --- |
-| RandomWrites\_8 kB |8 KB |100 |0 |
-| RandomReads\_8 kB |8 KB |100 |100 |
+| RandomWrites\_8K |8 KB |100 |0 |
+| RandomReads\_8K |8 KB |100 |100 |
 
 *Maximalt dataflöde Test specifikationer*  
 Använd större begärandestorlek för att demonstrera maximalt dataflöde. Använd 64 kB begärandestorlek och skapa specifikationerna för slumpmässiga skrivningar och läsningar.
 
 | Åtkomst-specifikation | Begärandestorlek | Slumpmässig % | Läs % |
 | --- | --- | --- | --- |
-| RandomWrites\_64 kB |64 KB |100 |0 |
-| RandomReads\_64 kB |64 KB |100 |100 |
+| RandomWrites\_64K |64 KB |100 |0 |
+| RandomReads\_64K |64 KB |100 |100 |
 
 *Iometer testet körs*  
 Utför nedanstående steg värmt upp cache
@@ -430,14 +430,14 @@ När cachedisk värmas upp, kan du fortsätta med test-scenarier som anges nedan
 
 | Testscenario | Målvolymen | Namn | Resultat |
 | --- | --- | --- | --- |
-| Max. Lästa IOPS |CacheReads |RandomWrites\_8 kB |50 000 IOPS |
-| Max. Skriva IOPS |NoCacheWrites |RandomReads\_8 kB |64 000 IOPS |
-| Max. Kombinerade IOPS |CacheReads |RandomWrites\_8 kB |100 000 IOPS |
-| NoCacheWrites |RandomReads\_8 kB | &nbsp; | &nbsp; |
-| Max. Lästa MB/s |CacheReads |RandomWrites\_64 kB |524 MB/sek |
-| Max. Skriva MB/sek |NoCacheWrites |RandomReads\_64 kB |524 MB/sek |
-| Kombinerade MB/sek |CacheReads |RandomWrites\_64 kB |1 000 MB per sekund |
-| NoCacheWrites |RandomReads\_64 kB | &nbsp; | &nbsp; |
+| Max. Lästa IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS |
+| Max. Skriva IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
+| Max. Kombinerade IOPS |CacheReads |RandomWrites\_8K |100,000 IOPS |
+| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
+| Max. Lästa MB/s |CacheReads |RandomWrites\_64K |524 MB/sek |
+| Max. Skriva MB/sek |NoCacheWrites |RandomReads\_64K |524 MB/sek |
+| Kombinerade MB/sek |CacheReads |RandomWrites\_64K |1 000 MB per sekund |
+| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
 
 Nedan visas skärmdumpar av Iometer testresultat för kombinerade scenarier för IOPS och dataflöden.
 
@@ -464,7 +464,7 @@ Vi använder fyra trådar för att driva skrivåtgärder och fyra arbetstrådar 
 *Maximal skrivåtgärder (IOPS)*  
 Skapa jobb-fil med följande specifikationer att få maximal skriva IOPS. Ge den namnet ”fiowrite.ini”.
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -504,7 +504,7 @@ När testet körs kan kommer du att kunna se antalet skriva IOPS den virtuella d
 *Lästa IOPS på högsta*  
 Skapa jobb-fil med följande specifikationer att få högsta Läs IOPS. Ge den namnet ”fioread.ini”.
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -544,7 +544,7 @@ När testet körs, kommer du att kunna se antalet lästa IOPS den virtuella dato
 *Maximalt läsa och skriva IOPS*  
 Skapa jobbfilen med följande specifikationer att få maximal kombineras läsa och skriva IOPS. Ge den namnet ”fioreadwrite.ini”.
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -605,7 +605,7 @@ För att få maximalt kombinerade läsa och skriva dataflöde, använda en stör
 
 Läs mer om Azure Premium Storage:
 
-* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på Azure virtuella datorer](../articles/virtual-machines/windows/premium-storage.md)  
+* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](../articles/virtual-machines/windows/premium-storage.md)  
 
 SQL Server-användare finns i artiklarna på Prestandametodtips för SQL Server:
 

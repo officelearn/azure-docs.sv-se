@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/12/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 34a695daa077e882e911d3fb59f8a30e39c3a9d2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432973"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756639"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Vidarebefordra jobbstatus och jobbströmmar från Automation till Log Analytics
 
@@ -64,11 +64,12 @@ Om du behöver att hitta den *namn* ditt Automation-konto i Azure-portalen välj
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-När du har kört det här skriptet, ser du poster i Log Analytics inom 10 minuter efter nya JobLogs eller JobStreams skrivs.
+Det kan ta en timme innan du börjar Se poster i Log Analytics i nya JobLogs eller JobStreams skrivs när du har kört det här skriptet.
 
 Kör följande fråga i Log Analytics-loggsökning för att visa loggarna: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verifiera konfigurationen
+
 För att bekräfta att ditt Automation-konto skickar loggar till Log Analytics-arbetsytan, kontrollerar du att diagnostik är korrekt konfigurerade på Automation-konto med hjälp av följande PowerShell:
 
 ```powershell-interactive
@@ -76,14 +77,16 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 Se till att i utdata:
-+ Under *loggar*, värdet för *aktiverad* är *SANT*.
-+ Värdet för *WorkspaceId* är inställd på resurs-ID för Log Analytics-arbetsytan.
+
+* Under *loggar*, värdet för *aktiverad* är *SANT*.
+* Värdet för *WorkspaceId* är inställd på resurs-ID för Log Analytics-arbetsytan.
 
 ## <a name="log-analytics-records"></a>Log Analytics-poster
 
 Diagnostik från Azure Automation skapar två typer av poster i Log Analytics och är märkta som **AzureDiagnostics**. Följande frågor använder det uppgraderade frågespråket till Log Analytics. Information om vanliga frågor mellan äldre frågespråket och det nya Azure Log Analytics-frågespråket på [äldre till nya Azure Log Analytics-frågespråket facit](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### <a name="job-logs"></a>Jobbloggar
+
 | Egenskap  | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
@@ -128,6 +131,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics oc
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Visa Automation loggar i Log Analytics
+
 Nu när du är igång med att skicka dina loggar för Automation-jobb till Log Analytics nu ska vi se vad du kan göra med de här loggarna i Log Analytics.
 
 Kör följande fråga för att visa loggarna: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
@@ -141,7 +145,7 @@ Om du vill skapa en aviseringsregel, börja med att skapa en loggsökning för p
 2. Skapa en sökfråga i loggen för aviseringen genom att skriva följande sökningen i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  Du kan också gruppera efter RunbookName med hjälp av: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Du kan gruppera aviseringarna av prenumeration och Automation-konto om du ställer in loggar från mer än en Automation-konto eller prenumeration till din arbetsyta. Automation-kontonamn finns i fältet Resource i sökningen av JobLogs.
-1. Öppna den **skapa regeln** klickar du på **+ ny Aviseringsregel** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [Loggaviseringar i Azure](../azure-monitor/platform/alerts-unified-log.md).
+3. Öppna den **skapa regeln** klickar du på **+ ny Aviseringsregel** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [Loggaviseringar i Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Hitta alla jobb som har slutförts med fel
 Förutom att Varna vid fel, hittar när en runbook-jobbet har en icke-avslutande fel. I dessa fall PowerShell genererar ett fel uppstod när strömmen, men de icke-avslutande fel orsakar inte jobbet att inaktivera eller misslyckas.    

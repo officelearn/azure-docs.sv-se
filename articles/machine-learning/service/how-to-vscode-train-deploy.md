@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 409d1bb30dc956bb19e9a37212d93990d1401e7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6d190e4c5d283b9f803cf7287445d7591b5465db
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240122"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753120"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Använd Visual Studio Code för att träna och distribuera machine learning-modeller
 
@@ -108,9 +108,9 @@ Om du vill använda en fjärransluten beräkningsmål vid utbildning, måste du 
 
 #### <a name="the-conda-dependencies-file"></a>Filen conda-beroenden
 
-Som standard en ny conda-miljö skapas åt dig och din av installationsberoenden hanteras. Du måste dock ange dina beroenden i den `aml_config/conda_dependencies.yml` filen.
+Som standard en ny conda-miljö skapas åt dig och din av installationsberoenden hanteras. Dock måste du ange dina beroenden och deras versioner i den `aml_config/conda_dependencies.yml` filen. 
 
-Det här är ett kodfragment från standard aml_config/conda_dependencies.yml.
+Det här är ett kodfragment från standard aml_config/conda_dependencies.yml. Du kan till exempel ange ”tensorflow = 1.12.0' enligt nedan. Om du inte anger versionen av beroendet används den senaste versionen.  
 Du kan lägga till ytterligare beroenden i konfigurationsfilen.
 
 ```yaml
@@ -123,7 +123,7 @@ dependencies:
   # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
-- tensorflow
+- tensorflow=1.12.0
 
 - pip:
     # Required packages for Azure Machine Learning service execution, history, and data preparation.

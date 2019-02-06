@@ -1,7 +1,7 @@
 # [Dokumentation om Azure Marketplace och AppSource](index.md)
+## [Översikt över Azure Marketplace och AppSource](./marketplace-roadmap.md)
 
 ## [Översikt och fördelar med Azure Marketplace och AppSource](./marketplace-publishers-guide.md)  
-
 ### [Publicera på marknadsplatsen](./become-publisher.md)  
 #### [Skapa ett Microsoft-konto](./guidelines.md)
 #### [Registrera i Dev Center](./register-dev-center.md) 

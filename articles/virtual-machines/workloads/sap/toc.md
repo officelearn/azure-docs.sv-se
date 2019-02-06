@@ -74,6 +74,7 @@
 ### Arkitektur med hög tillgänglighet
 #### [Arkitektur med hög tillgänglighet och scenarier](sap-high-availability-architecture-scenarios.md)
 #### [Arkitektur med högre tillgänglighet och scenarier](sap-higher-availability-architecture-scenarios.md)
+#### [SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner](sap-ha-availability-zones.md)
 #### [Hög tillgänglighet på Windows med delad disk för (A)SCS-instans](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Hög tillgänglighet på Windows med SOFS-filresurs för (A)SCS-instans](sap-high-availability-guide-wsfc-file-share.md)
 #### [Hög tillgänglighet på SUSE Linux för (A)SCS-instans](high-availability-guide-suse.md)

@@ -19,16 +19,16 @@ ms.locfileid: "52683435"
 
 I den här självstudien använder du lösningsacceleratorn för fjärrövervakning för att hantera konfigurationen av dina anslutna enheter i grupp.
 
-Som operatör på Contoso behöver du konfigurera en grupp med enheter med en ny 	version av inbyggd programvara. Du vill inte bli tvungen att uppdatera den inbyggda programvaran enskilt på varje enhet. Om du vill uppdatera den inbyggda programvaran på en grupp med enheter kan du använda enhetsgrupper och automatisk enhetshantering i lösningsacceleratorn för fjärrövervakning. Alla enheter som du lägger till i enhetsgruppen får den senaste inbyggda programvaran så snart enheten är online.
+Som operatör på Contoso behöver du konfigurera en grupp med enheter med en ny version av inbyggd programvara. Du vill inte bli tvungen att uppdatera den inbyggda programvaran enskilt på varje enhet. Om du vill uppdatera den inbyggda programvaran på en grupp med enheter kan du använda enhetsgrupper och automatisk enhetshantering i lösningsacceleratorn för fjärrövervakning. Alla enheter som du lägger till i enhetsgruppen får den senaste inbyggda programvaran så snart enheten är online.
 
 I den här kursen för du göra följande:
 
 >[!div class="checklist"]
-> * Skapa en enhetsgrupp
-> * Förbereda och hantera den inbyggda programvaran
-> * Skapa en enhetskonfiguration på Azure-portalen
-> * Importera en enhetskonfiguration till fjärrövervakningslösningen
-> * Distribuera konfigurationen till enheterna i enhetsgruppen
+> * Skapa en enhetsgrupp.
+> * Förbereda och hantera den inbyggda programvaran.
+> * Skapa en enhetskonfiguration på Azure-portalen.
+> * Importera en enhetskonfiguration till fjärrövervakningslösningen.
+> * Distribuera konfigurationen till enheterna i enhetsgruppen.
 > * Övervaka distributionen
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -67,7 +67,7 @@ Om du vill visa fjärrövervakningslösningens instrumentpanel i webbläsaren g�
 
 Klicka sedan på **Starta** på panelen för den lösningsaccelerator för fjärrövervakning som du distribuerade i [Snabbstarten](quickstart-remote-monitoring-deploy.md).
 
-## <a name="create-a-device-group"></a>Skapa en enhetsgrupp
+## <a name="create-a-device-group"></a>Skapa en enhetsgrupp.
 
 För att den inbyggda programvaran ska uppdateras automatiskt på en grupp med enheter måste enheterna vara medlemmar i en enhetsgrupp i fjärrövervakningslösningen:
 
@@ -81,7 +81,7 @@ För att den inbyggda programvaran ska uppdateras automatiskt på en grupp med e
 
 Senare i den här självstudien använder du den här enhetsgruppen för att tillämpa en enhetskonfiguration som uppdaterar den inbyggda programvaran för alla medlemmar.
 
-## <a name="prepare-and-host-the-firmware"></a>Förbereda och hantera den inbyggda programvaran
+## <a name="prepare-and-host-the-firmware"></a>Förbereda och hantera den inbyggda programvaran.
 
 [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench)-tillägget för VS Code innehåller exempelenhetskoden för uppdateringen av inbyggd programvara.
 

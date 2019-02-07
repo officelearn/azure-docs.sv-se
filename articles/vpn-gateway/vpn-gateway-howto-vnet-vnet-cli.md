@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e26ae189b6b0bdcbfdcf225772cb3fd0361abca2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846324"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698998"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
@@ -140,7 +140,7 @@ Vi använder följande värden i exemplen:
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Skapa ytterligare ett adressutrymme för ett backend-undernät. Observera att i det här steget ska vi ange såväl adressutrymmet som vi skapade tidigare som ytterligare adressutrymme ett som vi vill lägga till. Detta beror på att kommandot [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) skriver över de tidigare inställningarna. Se till att ange alla adressprefixen när du använder det här kommandot.
+3. Skapa ytterligare ett adressutrymme för ett backend-undernät. Observera att i det här steget ska vi ange såväl adressutrymmet som vi skapade tidigare som ytterligare adressutrymme ett som vi vill lägga till. Detta beror på att kommandot [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) skriver över de tidigare inställningarna. Se till att ange alla adressprefixen när du använder det här kommandot.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -384,5 +384,5 @@ Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Dokumentationen för virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Dokumentationen för virtuella datorer](https://docs.microsoft.com/azure/).
 * Information om BGP finns i [BGP-översikt](vpn-gateway-bgp-overview.md) och [Så här konfigurerar du BGP](vpn-gateway-bgp-resource-manager-ps.md).

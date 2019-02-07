@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474006"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749243"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Azure CLI
 
@@ -46,7 +46,7 @@ Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. De flesta filer
 Skapa först en fil som ska överföras till en blob.
 Om du använder Azure Cloud Shell använder du följande för att skapa en fil: `vi helloworld` när filen öppnas: tryck på **Insert**, skriv "Hello world" och tryck på **Esc** och skriv `:x` och tryck sedan på **Retur**.
 
-I det här exemplet laddar vi upp en blob till den container som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
+I det här exemplet laddar vi upp en blob till den container som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -66,11 +66,11 @@ az storage blob upload \
 
 Den här åtgärden skapar bloben om den inte redan finns, och skriver över den om den finns. Ladda upp så många filer som du vill innan du fortsätter.
 
-Om du vill ladda upp flera filer samtidigt kan du använda kommandot [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch).
+Om du vill ladda upp flera filer samtidigt kan du använda kommandot [az storage blob upload-batch](/cli/azure/storage/blob).
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Lista blobarna i containern med kommandot [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
+Lista blobarna i containern med kommandot [az storage blob list](/cli/azure/storage/blob).
 
 ```azurecli-interactive
 az storage blob list \
@@ -80,7 +80,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
-Använd kommandot [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) för att ladda ned den blob som du laddade upp tidigare.
+Använd kommandot [az storage blob download](/cli/azure/storage/blob) för att ladda ned den blob som du laddade upp tidigare.
 
 ```azurecli-interactive
 az storage blob download \
@@ -105,7 +105,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive lagringskontot som du skapade i den här snabbstarten, kan du ta bort resursgruppen med kommandot [az group delete](/cli/azure/group#az_group_delete).
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive lagringskontot som du skapade i den här snabbstarten, kan du ta bort resursgruppen med kommandot [az group delete](/cli/azure/group).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

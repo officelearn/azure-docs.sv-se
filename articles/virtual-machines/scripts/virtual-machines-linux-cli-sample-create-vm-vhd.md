@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 6963a7d8541897940316d0fdfbea06f265884249
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 18bfdaaf75230cf91ea8f786188b9de9f7a6a5be
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478322"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696754"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Skapa en virtuell dator med virtuell hårddisk
 
@@ -53,16 +53,16 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Visar en lista med lagringskonton |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Kontrollerar att namnet på ett lagringskonto är giltigt och att det inte redan finns |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account) | Visar en lista med lagringskonton |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account) | Kontrollerar att namnet på ett lagringskonto är giltigt och att det inte redan finns |
 | [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | Visar en lista över lagringskontonas nycklar |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Kontrollerar om blobben finns |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Skapar en container i ett lagringskonto. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Skapar en blobb i containern genom att ladda upp den virtuella hårddisken. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Används med `--query` för att kontrollera om namnet på den virtuella datorn är i bruk. | 
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob) | Kontrollerar om blobben finns |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container) | Skapar en container i ett lagringskonto. |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob) | Skapar en blobb i containern genom att ladda upp den virtuella hårddisken. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Används med `--query` för att kontrollera om namnet på den virtuella datorn är i bruk. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Skapar de virtuella datorerna. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Hämtar IP-adressen till den virtuella dator som har skapats. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm-ip-addresses) | Hämtar IP-adressen till den virtuella dator som har skapats. |
 
 ## <a name="next-steps"></a>Nästa steg
 

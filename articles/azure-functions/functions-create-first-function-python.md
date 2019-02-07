@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 631fc4e613311df9386084408ead625f6d018151
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2c14cdf963d1d6c792e6101d8a2179a560dcf096
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911898"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731265"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Skapa din första Python-funktion i Azure (förhandsversion)
 
@@ -179,7 +179,7 @@ Nu är du redo att skapa en funktionsapp och andra resurser som krävs för publ
 
 ## <a name="create-a-linux-function-app-in-azure"></a>Skapa en Linux-funktionsapp i Azure
 
-Funktionsappen är en miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en **Python-funktionsapp som körs på Linux** med hjälp av kommandot [az functionapp create](/cli/azure/functionapp#az_functionapp_create).
+Funktionsappen är en miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en **Python-funktionsapp som körs på Linux** med hjälp av kommandot [az functionapp create](/cli/azure/functionapp).
 
 Kör följande kommando med ett unikt funktionsappnamn i stället för platshållaren `<app_name>` och lagringskontonamnet i stället för `<storage_name>`. `<app_name>` är även DNS-standarddomänen för funktionsappen. Det här namnet måste vara unikt inom alla appar i Azure.
 

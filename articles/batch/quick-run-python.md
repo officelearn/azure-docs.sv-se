@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 3a2e48697efbe0f4969a8fae20c050a38645ed6f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9ede1b48d1b69c738e335676f10233af72e8564e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462087"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754429"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snabbstart: Kör ditt första Batch-jobb med Python-API
 
@@ -153,7 +153,7 @@ För att skapa en Batch-pool använder appen klassen [PoolAddParameter](/python/
 
 Antalet noder (`_POOL_NODE_COUNT`) och VM-storlek (`_POOL_VM_SIZE`) är definierade konstanter. Exemplet skapar som standard en pool med 2 noder i storleken *Standard_A1_v2*. Storleken som föreslås erbjuder en bra balans mellan prestanda och kostnad för det här snabba exemplet.
 
-Metoden [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) skickar poolen till Batch-tjänsten.
+Metoden [pool.add](/python/api/azure.batch.operations.pooloperations) skickar poolen till Batch-tjänsten.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -187,7 +187,7 @@ batch_service_client.job.add(job)
 
 Appen skapar en lista med aktivitetsobjekt med hjälp av klassen [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Varje aktivitet bearbetar ett indata `resource_files`-objekt med en `command_line`-parameter. I det här exemplet kör kommandoraden Bash-gränssnittskommandot `cat` för att visa textfilen. Detta kommando är ett enkelt exempel i demonstrationssyfte. När du använder Batch är det på kommandoraden som du anger din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder.
 
-Sedan lägger appen till aktiviteter i jobbet med metoden [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) som köar dem för att köras på beräkningsnoderna. 
+Sedan lägger appen till aktiviteter i jobbet med metoden [task.add_collection](/python/api/azure.batch.operations.taskoperations) som köar dem för att köras på beräkningsnoderna. 
 
 ```python
 tasks = list()

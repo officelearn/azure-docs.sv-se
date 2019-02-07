@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: db0aa1781c3e35b68a59082cf7a1760f7e9a34b4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 33f21786b1af4d169d184487a030b7e4ea321327
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239578"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694541"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Skapa en virtuell dator från en ögonblicksbild med CLI
 
@@ -49,9 +49,9 @@ I det här skriptet används följande kommandon för att skapa en hanterad disk
 
 | Kommando | Anteckningar |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Hämtar en ögonblicksbild med namnet på ögonblicksbilden och resursgruppens namn. ID-egenskapen för det returnerade objektet används för att skapa en hanterad disk.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Skapar hanterade diskar från en ögonblicksbild med hjälp av ögonblicksbild-ID, namn på disk, lagringstyp och storlek  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar en virtuell dator med hjälp av en hanterad operativsystemsdisk |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Hämtar en ögonblicksbild med namnet på ögonblicksbilden och resursgruppens namn. ID-egenskapen för det returnerade objektet används för att skapa en hanterad disk.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Skapar hanterade diskar från en ögonblicksbild med hjälp av ögonblicksbild-ID, namn på disk, lagringstyp och storlek  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar en virtuell dator med hjälp av en hanterad operativsystemsdisk |
 
 ## <a name="next-steps"></a>Nästa steg
 

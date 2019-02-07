@@ -191,6 +191,8 @@ items:
       href: sql-database-automated-backups.md
     - name: Långsiktig kvarhållning av säkerhetskopior
       href: sql-database-long-term-retention.md
+    - name: Planerade underhållshändelser
+      href: sql-database-planned-maintenance.md
     - name: Redundansgrupper och geo-replikering
       items:
       - name: Aktiv geo-replikering
@@ -295,8 +297,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Elastiska transaktioner
       href: sql-database-elastic-transactions-overview.md
-  - name: Jämförelse av SQL-funktioner
-    href: sql-database-features.md
   - name: Övervakning och justering
     items:
     - name: Översikt över övervakning och justering
@@ -321,24 +321,28 @@ items:
         href: sql-database-performance.md
       - name: Prestandarekommendationer för Database Advisor
         href: sql-database-advisor.md
-  - name: Läs in och flytta data
-    items:
-    - name: SQL Data Sync
-      href: sql-database-sync-data.md
-    - name: Transaktionsreplikering
-      href: sql-database-managed-instance-transactional-replication.md
   - name: Databasfunktioner
     items:
-    - name: Databasfunktioner
-      href: sql-database-develop-overview.md
+    - name: Jämförelse av SQL-funktioner
+      href: sql-database-features.md
     - name: Funktioner för flera modeller
       href: sql-database-multi-model-features.md
     - name: Minnesintern
       href: sql-database-in-memory.md
+    - name: Transaktionsreplikering
+      href: sql-database-managed-instance-transactional-replication.md
+    - name: SQL Data Sync
+      href: sql-database-sync-data.md
     - name: Temporala tabeller
       href: sql-database-temporal-tables.md
     - name: Jobbautomation
       href: sql-database-job-automation-overview.md
+    - name: Maskininlärning
+      items:
+      - name: Översikt över maskininlärning
+        href: sql-database-machine-learning-services-overview.md
+      - name: Viktiga skillnader
+        href: sql-database-machine-learning-services-differences.md
 - name: Instruktionsguider
   items:
   - name: Översikt
@@ -523,8 +527,8 @@ items:
       href: sql-database-manage-automation.md
   - name: Utveckla appar
     items:
-    - name: Anslutning
-      href: sql-database-libraries.md
+    - name: Översikt
+      href: sql-database-develop-overview.md
     - name: Arbeta med JSON-data
       href: sql-database-json-features.md
     - name: Använda Spark-anslutningsappen
@@ -712,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Avinstallera elastiskt jobb (inaktuellt)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1b32688e6e9ed6b826dd9191c8d58e85b1b2b128
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756741"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813691"

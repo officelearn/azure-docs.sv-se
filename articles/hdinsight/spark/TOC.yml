@@ -17,7 +17,7 @@ items:
     href: apache-spark-jupyter-spark-sql-use-portal.md
   - name: Skapa ett Apache Spark-kluster – PowerShell
     href: apache-spark-jupyter-spark-sql-use-powershell.md
-  - name: Skapa ett Apache Spark-kluster – Mall
+  - name: Skapa ett Apache Spark-kluster – Resource Manager-mall
     href: apache-spark-jupyter-spark-sql.md
 - name: Självstudier
   items:
@@ -99,6 +99,8 @@ items:
       href: apache-spark-connect-to-sql-database.md
     - name: Implementera en lambda-arkitektur med Apache Spark och Cosmos DB
       href: ../../cosmos-db/lambda-architecture.md
+    - name: Köra Azure ML-arbetsbelastningar med AutoML
+      href: apache-spark-run-machine-learning-automl.md
       maintainContext: true
   - name: Apache Spark-direktuppspelning
     items:
@@ -458,9 +460,9 @@ items:
   - name: Windows-verktyg för HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1e847037a0a5360679e846d1a5cc409af463772e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: d901700ee00d3abb6b9e20e0d1dcd02bd849077b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318873"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820087"

@@ -1,0 +1,54 @@
+items:
+- name: Azure API för FHIR
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Om Azure API för FHIR
+    href: overview.md
+  - name: Om FHIR Server för Azure
+    href: overview-open-source-server.md
+- name: Snabbstarter
+  items:
+  - name: Distribuera Azure API för FHIR – portalen
+    href: fhir-paas-portal-quickstart.md
+  - name: Distribuera Azure API för FHIR – PowerShell
+    href: fhir-paas-powershell-quickstart.md
+  - name: Distribuera Azure API för FHIR – CLI
+    href: fhir-paas-cli-quickstart.md
+  - name: Distribuera FHIR Server för Azure – portalen
+    href: fhir-oss-portal-quickstart.md
+  - name: Distribuera FHIR Server för Azure – PowerShell
+    href: fhir-oss-powershell-quickstart.md
+  - name: Distribuera FHIR Server för Azure – CLI
+    href: fhir-oss-cli-quickstart.md
+  expanded: true
+- name: Självstudier
+  items:
+  - name: Få åtkomst till FHIR-API med Postman
+    href: access-fhir-postman-tutorial.md
+  expanded: false
+- name: Instruktionsguider
+  items:
+  - name: Registrera ett resursprogram
+    href: register-resource-azure-ad-client-app.md
+  - name: Registrera ett konfidentiellt klientprogram
+    href: register-confidential-azure-ad-client-app.md
+  - name: Registrera ett offentligt klientprogram
+    href: register-public-azure-ad-client-app.md
+  - name: Registrera ett tjänstklientprogram
+    href: register-service-azure-ad-client-app.md
+  - name: Hitta ID:n för identitetsobjekt
+    href: find-identity-object-ids.md
+  expanded: false
+- name: Resurser
+  items:
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: fhir-faq.md
+  - name: Funktioner som stöds
+    href: fhir-features-supported.md
+ms.openlocfilehash: 0996c3429b2bc5f6245bd6c512f8fd098344fe96
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55824389"

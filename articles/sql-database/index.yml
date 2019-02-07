@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 437ab5fe8eec2a7c097805f3328df4dd9a2398c6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752253"
+ms.locfileid: "55769960"
 documentType: LandingData
 title: Dokumentation om Azure SQL Database
 metadata:
@@ -68,7 +68,7 @@ sections:
       html: <p>Använd Hanterad instans och migrera enkelt dina lokala databaser till den fullständigt hanterade Azure PaaS-databastjänsten med minimala eller inga kodändringar i databasen.</p>
       image:
         src: media/index/i_mi.svg
-      title: Managed Instance
+      title: Hanterad instans
     - href: /azure/sql-database/sql-database-paas
       html: <p>Inbyggd hög tillgänglighet, automatiska säkerhetskopieringar och geo-replikering förhindrar att underhållsåtgärder, infrastruktur eller maskinvarufel stoppar upp verksamheten.</p>
       image:
@@ -110,18 +110,18 @@ sections:
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
-    - title: Skapa en hanterad instans
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Skapa en elastisk pool
       values:
       - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
+    - title: Skapa en hanterad instans
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -129,11 +129,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Kom igång med <a href="/azure/sql-database/sql-database-quickstart-guide">Singleton -databasen</a> och <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">Hanterad instans</a> med hjälp av våra snabbstartsguider.
+    - html: Kom igång med <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">en enkel databas</a> och en <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">hanterad instans</a> med hjälp av våra snabbstartsguider.
     - html: Skapa och utforma schemat för en ny enkel databas med <a href="/azure/sql-database/sql-database-design-first-database">SQL Server Management Studio</a> eller <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
-    - html: Migrera en befintlig databas till Azure med hjälp av <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> eller <a href="/azure/sql-database/sql-database-import">BACPAC-import</a>
+    - html: Migrera en befintlig databas till Azure med hjälp av <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">en ursprunglig SQL Server-säkerhetskopia</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> eller <a href="/azure/sql-database/sql-database-import">genom att importera en BACPAC-fil</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Skydda din SQL-databas</a>
-    - html: Distribuera dina data globalt med en <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">geo-distribuerad databas</a>
+    - html: Distribuera dina data globalt med hjälp av <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">en geo-distribuerad databas</a>
 - title: Utveckla dina färdigheter med Microsoft Learn
   items:
   - type: list

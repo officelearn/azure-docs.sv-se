@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13e00acaf287a9e153aaa8e5ce7d630f8d198f02
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a7789f9a3f3da46305a9d8cd7cda24019658f2ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330423"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811495"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Database med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -199,7 +199,7 @@ Exemplet kopierar time series-data (varje timme, varje dag, osv) från en tabell
   }
 }
 ```
-Se den [länkad Azure SQL-tjänst](#linked-service) avsnittet finns en lista över egenskaper som stöds av den här länkade tjänsten.
+Se avsnittet länkad Azure SQL-tjänst för listan över egenskaper som stöds av den här länkade tjänsten.
 
 **Azure Blob storage-länkade tjänst:**
 
@@ -248,7 +248,7 @@ Ange ”external”: ”true” meddelar Azure Data Factory-tjänsten att dataup
 }
 ```
 
-Se den [Typegenskaper för Azure SQL-datauppsättning](#dataset) avsnittet finns en lista över egenskaper som stöds av den här datauppsättningstypen.
+I avsnittet Azure SQL datauppsättning typ egenskaper för en lista över egenskaper som stöds av den här datauppsättningstypen.
 
 **Utdatauppsättning för Azure Blob:**
 
@@ -391,7 +391,7 @@ Exempel-kopior time series-data (varje timme, varje dag, osv) från Azure-blobb 
   }
 }
 ```
-Se den [länkad Azure SQL-tjänst](#linked-service) avsnittet finns en lista över egenskaper som stöds av den här länkade tjänsten.
+Se avsnittet länkad Azure SQL-tjänst för listan över egenskaper som stöds av den här länkade tjänsten.
 
 **Azure Blob storage-länkade tjänst:**
 
@@ -499,7 +499,7 @@ Exemplet kopierar data till en tabell med namnet ”MyTable” i Azure SQL. Skap
   }
 }
 ```
-Se den [Typegenskaper för Azure SQL-datauppsättning](#dataset) avsnittet finns en lista över egenskaper som stöds av den här datauppsättningstypen.
+I avsnittet Azure SQL datauppsättning typ egenskaper för en lista över egenskaper som stöds av den här datauppsättningstypen.
 
 **En Kopieringsaktivitet i en pipeline med Blob-källan och SQL-mottagare:**
 

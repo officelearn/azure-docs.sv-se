@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 8e63b9854d9491ed2cbb2107c93237526a7f1ba8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745409"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766949"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Använd API-versionsprofiler med Go i Azure Stack
 
@@ -86,7 +86,7 @@ Följ dessa steg om du vill köra ett exempel på Go-koden på Azure Stack:
 
 3. Om det inte finns skapar du en prenumeration och spara prenumerations-ID som ska användas senare. Information om hur du skapar en prenumeration finns i [skapa prenumerationer för erbjudanden i Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-4. Skapa ett tjänstobjekt med **prenumeration** omfång och **ägare** roll. Spara ID för tjänstens huvudnamn och hemlighet. Information om hur du skapar ett huvudnamn för tjänsten för Azure Stack finns i [skapa tjänstens huvudnamn](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad). Azure Stack-miljön har konfigurerats.
+4. Skapa ett tjänstobjekt med **prenumeration** omfång och **ägare** roll. Spara ID för tjänstens huvudnamn och hemlighet. Information om hur du skapar ett huvudnamn för tjänsten för Azure Stack finns i [skapa tjänstens huvudnamn](azure-stack-create-service-principals.md). Azure Stack-miljön har konfigurerats.
 
 5. Importera en service-modul från Go SDK-profil i din kod. Den aktuella versionen av Azure Stack-profil är **2017-03-09**. Till exempel för att importera modulen Utjämning från **2017-03-09** Profiltyp, Använd följande kod:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745065"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820427"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Köra MapReduce-exemplen i Windows-baserade HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -54,7 +54,7 @@ Många väljer Nuförtiden, Apache Hive och Apache Pig över MapReduce.  Mer inf
 ## <a name="hdinsight-sample-wordcount"></a>Ordräkning – Java
 Om du vill skicka ett MapReduce-projekt skapa du först en definition för MapReduce-jobb. I jobbdefinitionen, anger du MapReduce programmet jar-filen och platsen för jar-filen, vilket är **wasb:///example/jars/hadoop-mapreduce-examples.jar**, klassnamnet på och argumenten.  MapReduce-program wordcount tar två argument: källfilen som används för att räkna ord och platsen för utdata.
 
-Källkoden finns i den [bilaga A](#apendix-a---the-word-count-MapReduce-program-in-java).
+Källkoden finns i bilaga A.
 
 För proceduren med att utveckla en Java-MapReduce-program, se - [utveckla Java MapReduce-program för Apache Hadoop i HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -135,7 +135,7 @@ Under tiden kan reducer samlar in radorienterad utdata från den [stdout] [ stdi
 
 **Att skicka en strömmande C#-word antal jobb**
 
-* Följ proceduren i [ordräkning - Java](#word-count-java), och Ersätt jobbdefinitionen för med följande rad:
+* Följ proceduren i ordräkning - Java, och Ersätt jobbdefinitionen för med följande rad:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -157,7 +157,7 @@ Det skript som finns för det här exemplet skickar ett jobb för Hadoop-jar och
 
 **Att skicka ett jobb för pi kostnadsuppskattning**
 
-* Följ proceduren i [ordräkning - Java](#word-count-java), och Ersätt jobbdefinitionen för med följande rad:
+* Följ proceduren i ordräkning - Java, och Ersätt jobbdefinitionen för med följande rad:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -185,7 +185,7 @@ Tre aktiviteter som krävs av varje motsvarar ett MapReduce-program som beskrivs
 
 **Att skicka jobb**
 
-* Följ proceduren i [ordräkning - Java](#word-count-java), och Använd följande jobbdefinitioner:
+* Följ proceduren i ordräkning - Java, och Använd följande jobbdefinitioner:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

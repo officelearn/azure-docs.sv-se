@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: e4ea964600c03ce3f3b5b276ed02d12f573814bf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756503"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822620"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Ansluta datorer utan Internetåtkomst med Log Analytics-gateway
 
@@ -34,7 +34,7 @@ Log Analytics-gateway har stöd för:
 * Azure Automation Hybrid Runbook Worker  
 * Windows-datorer med Microsoft Monitoring Agent som är direkt anslutna till en Log Analytics-arbetsyta
 * Linux-datorer med Log Analytics-agenten för Linux som är direkt anslutna till en Log Analytics-arbetsyta  
-* System Center Operations Manager 2012 SP1 med UR7 och Operations Manager 2012 R2 UR3, Operations Manager 2016 och hanteringsgruppen för Operations Manager version 1801 integrerat med Log Analytics.  
+* System Center Operations Manager 2012 SP1 med UR7 och Operations Manager 2012 R2 UR3, Operations Manager 2016 eller senare hanteringsgrupp integrerat med Log Analytics.  
 
 Om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket för att ansluta till Internet, till exempel försäljning (POS) enheter eller servrar som stöder IT-tjänster, men du behöver att ansluta till Azure Automation och Log Analytics för att hantera och övervaka dem , de kan konfigureras för att kommunicera direkt med Log Analytics-gatewayen tar emot konfiguration och vidarebefordra data å deras vägnar.  Om dessa datorer är konfigurerade med Log Analytics-agenten för att ansluta direkt till en Log Analytics-arbetsyta, alla datorer i stället att kommunicera med Log Analytics-gateway.  Gatewayen överför data från agenter till tjänsten direkt, analysera data under överföring inte.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c92b71a8f2b9fbeae9afc5f06b6d5412f6421a6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e71d92b2cf7888fd9e3c560beb6e0e7f18e7add0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020136"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822654"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du stöd för Virtual Network för Premium Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner, inklusive funktioner på Premiumnivå som klustring, persistence och stöd för virtuella nätverk. Ett virtuellt nätverk är ett privat nätverk i molnet. När en Azure-Cache för Redis-instans är konfigurerad med ett virtuellt nätverk, är inte offentligt adresserbar och kan bara kommas åt från virtuella datorer och program i det virtuella nätverket. Den här artikeln beskriver hur du konfigurerar virtual network-stöd för premium Azure Cache för Redis-instans.
@@ -83,11 +83,11 @@ Ange värdnamnet för ditt cacheminne i anslutningssträngen för att ansluta ti
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Azure Cache för Redis VNet vanliga frågor och svar
 I följande lista innehåller svar på vanliga frågor om Azure Cache för att skala Redis.
 
-* [Vilka är några vanliga problem med konfigurationsfel för Azure Cache för Redis och virtuella nätverk?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* Vilka är några vanliga problem med konfigurationsfel för Azure Cache för Redis och virtuella nätverk?
 * [Hur kan jag kontrollera att mitt cacheminne fungerar i ett virtuellt nätverk?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [När du försöker ansluta till mitt Azure Cache för Redis i ett virtuellt nätverk, varför får jag ett felmeddelande om Fjärrcertifikatet är ogiltigt?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [Kan jag använda virtuella nätverk med en standard eller basic-cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
-* [Varför skapa en Azure Cache för Redis misslyckas i vissa undernät, men inte för andra?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* Varför skapa en Azure Cache för Redis misslyckas i vissa undernät, men inte för andra?
 * [Vad är utrymmeskraven för undernät?](#what-are-the-subnet-address-space-requirements)
 * [Fungerar alla cache-funktioner när du har en cache i ett virtuellt nätverk?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
@@ -128,12 +128,12 @@ Det finns åtta inkommande port intervallet krav. Inkommande begäranden i dessa
 
 | Portar | Riktning | Transport-protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inkommande |TCP |Klientkommunikation till Redis, Azure belastningsutjämning | (Redis undernät) | (Redis undernät), virtuellt nätverk, Azure Load Balancer |
+| 6379, 6380 |Inkommande |TCP |Klientkommunikation till Redis, Azure belastningsutjämning | (Redis undernät) | (Redis subnet), Virtual Network, Azure Load Balancer |
 | 8443 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 | 8500 |Inkommande |TCP/UDP |Azure för belastningsutjämning | (Redis undernät) |Azure Load Balancer |
 | 10221-10231 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät), Azure Load Balancer |
-| 13000-13999 |Inkommande |TCP |Klientkommunikation till Redis-kluster, Azure belastningsutjämning | (Redis undernät) |Virtuellt nätverk, Azure-belastningsutjämnare |
-| 15000-15999 |Inkommande |TCP |Klientkommunikation till Redis-kluster, Azure läsa in belastningsutjämning | (Redis undernät) |Virtuellt nätverk, Azure-belastningsutjämnare |
+| 13000-13999 |Inkommande |TCP |Klientkommunikation till Redis-kluster, Azure belastningsutjämning | (Redis undernät) |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Inkommande |TCP |Klientkommunikation till Redis-kluster, Azure läsa in belastningsutjämning | (Redis undernät) |Virtual Network, Azure Load Balancer |
 | 16001 |Inkommande |TCP/UDP |Azure för belastningsutjämning | (Redis undernät) |Azure Load Balancer |
 | 20226 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 

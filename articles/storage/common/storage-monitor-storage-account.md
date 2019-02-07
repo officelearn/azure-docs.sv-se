@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452651"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817283"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure portal
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452651"
 
 1. När du är klar med konfigurationen av övervakningen väljer **spara**.
 
-En standarduppsättning av mått visas i diagrammen på bladet för storage-konto, samt enskilda tjänstens blad (blob, kö, tabell och fil). När du har aktiverat mått för en tjänst, kan det ta upp till en timme innan data visas i dess diagram. Du kan välja **redigera** på alla måttdiagram till [konfigurera vilka mått](#how-to-customize-metrics-charts) visas i diagrammet.
+En standarduppsättning av mått visas i diagrammen på bladet för storage-konto, samt enskilda tjänstens blad (blob, kö, tabell och fil). När du har aktiverat mått för en tjänst, kan det ta upp till en timme innan data visas i dess diagram. Du kan välja **redigera** på mått diagrammet om du vill konfigurera vilka mått visas i diagrammet.
 
 Du kan inaktivera insamling av mätvärden och loggning genom att ange **Status** till **av**.
 
@@ -116,7 +116,7 @@ Du kan lägga till Azure Storage-måttdiagram för någon av dina lagringskonton
    ![Panelgalleriet i Azure-portalen](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Välj **anpassningen är klar** överst på instrumentpanelen när du är klar att lägga till diagram.
 
-När du har lagt till diagram på instrumentpanelen, kan du anpassa dem enligt beskrivningen i [anpassa måttdiagram](#how-to-customize-metrics-charts).
+När du har lagt till diagram på instrumentpanelen, kan du anpassa dem ytterligare enligt beskrivningen i Anpassa måttdiagram.
 
 ## <a name="configure-logging"></a>Konfigurera loggning
 

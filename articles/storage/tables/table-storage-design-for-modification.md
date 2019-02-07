@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470543"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809532"
 ---
 # <a name="design-for-data-modification"></a>Utforma för dataändring
-Den här artikeln fokuserar på designöverväganden för att optimera infogningar, uppdateringar och borttagningar. I vissa fall behöver du utvärdera det är säkerhetsaspekten Designer som optimerar för frågor mot Designer som optimerar för dataändringar precis som i utformning för relationsdatabaser (även om teknikerna för att hantera design avvägningarna är skiljer sig i en relationsdatabas). Avsnittet [tabell designmönster](#table-design-patterns) beskriver vissa detaljerad designmönster för Table service och visar några dessa kompromisser. I praktiken märker du att många Designer som optimerats för att fråga entiteter också fungerar bra för att ändra entiteter.  
+Den här artikeln fokuserar på designöverväganden för att optimera infogningar, uppdateringar och borttagningar. I vissa fall behöver du utvärdera det är säkerhetsaspekten Designer som optimerar för frågor mot Designer som optimerar för dataändringar precis som i utformning för relationsdatabaser (även om teknikerna för att hantera design avvägningarna är skiljer sig i en relationsdatabas). Designmönster för avsnittet tabell beskriver vissa detaljerad designmönster för Table service och visar några dessa kompromisser. I praktiken märker du att många Designer som optimerats för att fråga entiteter också fungerar bra för att ändra entiteter.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Optimera prestandan för insert-, update- och delete-åtgärder
 Om du vill uppdatera eller ta bort en entitet, måste du att kunna identifiera den med hjälp av den **PartitionKey** och **RowKey** värden. I detta avseende ditt val av **PartitionKey** och **RowKey** ändra entiteter bör följa liknande kriterier för att stödja punktfrågor eftersom du vill identifiera enheter som effektivt som möjligt. Du inte vill använda en ineffektiv skanning för partitionen eller tabell för att hitta en entitet för att identifiera den **PartitionKey** och **RowKey** värden som du behöver uppdatera eller ta bort den.  
 
-Följande mönster i avsnittet [tabell designmönster](#table-design-patterns) åtgärda optimera prestanda eller din infoga, uppdatera och ta bort:  
+Följande mönster i avsnittet tabell design mönster adress optimera prestanda eller din insert-, uppdatera och ta bort:  
 
 * [Hög volym ta bort mönstret](table-storage-design-patterns.md#high-volume-delete-pattern) -aktivera borttagningen av ett stort antal entiteter genom att lagra alla entiteter för samtidiga borttagning i sina egna separata tabeller; du ta bort entiteter genom att ta bort tabellen.  
 * [Serien datamönster](table-storage-design-patterns.md#data-series-pattern) -Store fullständig dataserier i en enda entitet att minimera antalet begäranden som du gör.  

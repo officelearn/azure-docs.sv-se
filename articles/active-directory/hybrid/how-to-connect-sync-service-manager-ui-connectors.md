@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1c6d5754af7455a4e4cf864062a1c29dd32c88b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 40e519495b8a245f72e51167f5807f9c585cb344
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492862"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817554"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Med hjälp av kopplingar med Azure AD Connect Sync Service Manager
 
@@ -42,7 +42,7 @@ Fliken för anslutningar används för att hantera alla system som Synkroniserin
 | Importera Connector |Använd inte. |
 | Uppdatera anslutningsprogrammet |Använd inte. |
 | Uppdatera schema |Uppdaterar cachelagrade schemat. Det rekommenderas att använda alternativet i installationsguiden i stället sedan som också uppdateringar synkroniseras regler. |
-| [Search Connector Space](#search-connector-space) |Används för att hitta objekt och [följer ett objekt och dess data genom systemet](#follow-an-object-and-its-data-through-the-system). |
+| [Search Connector Space](#search-connector-space) |För att hitta objekt och följa ett objekt och dess data genom systemet. |
 
 ### <a name="delete"></a>Ta bort
 Borttagningsåtgärden används för två olika saker.  

@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f3129c27d123aa448f8293f7e1827dc3ebc5c82e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239085"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817299"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Uppdatera MySQL-resursprovider 
 
@@ -30,7 +30,7 @@ En ny MySQL-resursprovideradaptern kan släppas när Azure Stack bygger uppdater
 
 Från och med MySQL resource provider version 1.1.33.0, uppdateringar är kumulativa och behöver inte installeras i den ordning som de släpptes; Så länge som startar från version 1.1.24.0 eller senare. Till exempel om du kör version 1.1.24.0 av MySQL-resursprovider, kan du uppgradera till version 1.1.33.0 eller senare utan att behöva installera version 1.1.30.0. Om du vill granska tillgängliga resursgrupper providerversioner och versionen av Azure Stack som de kan användas för att referera till listan över versioner i [distribuera resource provider krav](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Uppdatering av resursprovidern som du använder den **UpdateMySQLProvider.ps1** skript. Processen påminner om en process som används för att installera en resursleverantör, enligt beskrivningen i den [distribuerar resursprovidern](#deploy-the-resource-provider) i den här artikeln. Skriptet ingår hämtning av resursprovidern. 
+Uppdatering av resursprovidern som du använder den **UpdateMySQLProvider.ps1** skript. Processen påminner om en process som används för att installera en resursleverantör, enligt beskrivningen i avsnittet distribuera resource provider i den här artikeln. Skriptet ingår hämtning av resursprovidern. 
 
  > [!IMPORTANT]
  > Innan du uppgraderar resursprovidern Läs den viktiga informationen för att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.

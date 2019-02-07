@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
-ms.openlocfilehash: 84b3808e56ad318165eeec973a622c2e8747c633
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: b617ccee1826dfcc05ca7131d1eb04fd98b6b627
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488353"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811162"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Säkerhetskopiera en SharePoint-servergrupp på Azure Stack
 Du säkerhetskopiera en SharePoint-grupp i Azure Stack till Microsoft Azure med hjälp av Microsoft Azure Backup Server (MABS) på samma sätt som du säkerhetskopiera andra datakällor. Azure Backup erbjuder flexibilitet i schemat för säkerhetskopiering så att dagligen, varje vecka, månad eller årlig säkerhetskopiering pekar och ger dig alternativ för kvarhållning för olika säkerhetskopieringspunkter. Den omfattar också möjligheten att lagra kopior av lokal disk för snabb återställning-återställningstiden (RTO) och för att lagra kopior till Azure för mer ekonomiskt, långsiktig kvarhållning.
@@ -219,7 +219,7 @@ I följande exempel visas den *återställa SharePoint-objektet* har tagits bort
 4. Klicka på SharePoint-objekt som visas i MABS **Recovery** fliken för att få innehållsdatabasen strukturen. Högerklicka på objektet och klicka sedan på **återställa**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. Nu följer den [recovery stegen tidigare i den här artikeln](#restore-a-sharepoint-item-from-disk-using-dpm) att återställa en SharePoint-innehållsdatabas från disken.
+5. Nu Följ återställningsstegen tidigare i den här artikeln för att återställa en SharePoint-innehållsdatabas från disken.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 F: Kan jag återställa ett SharePoint-objekt till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn (med skydd på disk)?<br>

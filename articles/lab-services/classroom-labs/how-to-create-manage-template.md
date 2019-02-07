@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2f34b6c71c448f7273ba7477f18f5abb8f89cdec
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391186"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815259"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Skapa och hantera en klassrum-mall i Azure Lab Services
 En mall i ett labb är en basavbildning av en virtuell dator som alla användares virtuella datorer skapas från. Konfigurera mallen för virtuella datorer så att den är konfigurerad med exakt det som du vill förse labbanvändarna med. Du kan ange ett namn och en beskrivning av mallen som visas för labbanvändarna. Sedan kan publicera du mallen för att tillgängliggöra instanser av VM-mallen för dina labbanvändare. När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Antalet virtuella datorer som skapas i den här processen är samma som det högsta antalet användare som tillåts i labbet. Du kan definiera antalet i användningsprincipen för labbet. Alla virtuella datorer har samma konfiguration som mallen.
@@ -72,7 +72,7 @@ Först, kan du konfigurera och publicera en mall när du skapar ett klassrumslab
 
         > [!WARNING]
         > När du väl har publicerat kan du inte ångra publiceringen. 
-    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera mallen för den virtuella datorn när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden slutförts, se mer information om hur du konfigurerar och publicerar när guiden slutförts finns i [publicerar du mallen](#publish-the-template) i avsnittet den [hantera klassrum labs ](how-to-manage-classroom-labs.md) artikeln.
+    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera mallen för den virtuella datorn när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden slutförts, finns mer information om hur du konfigurerar och publicerar när guiden slutförts, finns i mallen i avsnittet Publicera den [hantera klassrum labs](how-to-manage-classroom-labs.md) artikeln.
 
         ![Publicera mall](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Du ser **förloppet för publiceringen**  av mallen. Den här processen kan ta upp till en timma. 

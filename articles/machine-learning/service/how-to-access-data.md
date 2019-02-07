@@ -1,7 +1,7 @@
 ---
-title: Åtkomst till data i datalager för träning
+title: Komma åt data i datalager / BLOB-objekt för träning
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder datalager att komma åt data lagringsutrymme vid träning med Azure Machine Learning-tjänsten
+description: Lär dig hur du använder datalager för att komma åt blobblagring för data under utbildning med Azure Machine Learning-tjänsten
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 74ee7c4bf041edff559c6026f92418a496959556
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485865"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769903"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Åtkomst till data under utbildning från ditt datalager
 Använd ett datalager för att komma åt och interagera med dina data i Azure Machine Learning-arbetsflöden.

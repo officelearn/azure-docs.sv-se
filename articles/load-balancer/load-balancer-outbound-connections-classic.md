@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190007"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821515"
 ---
 # <a name="outbound-connections-classic"></a>Utgående anslutningar (klassiska)
 
@@ -54,7 +54,7 @@ Olika distributioner i den klassiska har olika funktioner:
 
 [Begränsningsstrategier](#snatexhaust) också ha samma skillnaderna.
 
-Den [algoritmen som används för Förallokering av tillfälliga portar](#ephemeralports) för PAT för klassiska distributioner är desamma som för Azure Resource Manager resource-distributioner.
+Den algoritm som används för Förallokering av tillfälliga portar för PAT för klassiska distributioner är desamma som för Azure Resource Manager resource-distributioner.
 
 ### <a name="ilpip"></a>Scenario 1: Virtuell dator med en offentlig IP på instansnivå-adress
 
@@ -74,13 +74,13 @@ Tillfälliga belastningsutjämnarens offentliga IP-adress frontend-portar använ
 
 SNAT portar är förallokerade enligt beskrivningen i den [förstå SNAT och PAT](#snat) avsnittet. Det är en begränsad resurs som kan vara förbrukat. Det är viktigt att förstå hur de är [förbrukas](#pat). Om du vill lära dig mer om att utforma för den här förbrukning och minimera efter behov, granska [hantera SNAT överbelastning](#snatexhaust).
 
-När [flera offentliga slutpunkter för Utjämning av nätverksbelastning](load-balancer-multivip.md) finns, något av de här offentliga IP-adresser är en [kandidat för utgående flöden](#multivipsnat), och en väljs slumpmässigt.  
+När [flera offentliga slutpunkter för Utjämning av nätverksbelastning](load-balancer-multivip.md) finns något av de här offentliga IP-adresser är en kandidat för utgående flöden och en väljs slumpmässigt.  
 
 ### <a name="defaultsnat"></a>Scenario 3: Ingen offentlig IP-adress som är associerade
 
 I det här scenariot är den virtuella datorn eller Web Worker-rollen inte en del av en offentlig slutpunkt för Utjämning av nätverksbelastning.  Och när det gäller virtuella datorn har inte tilldelats en ILPIP-adress. När den virtuella datorn skapar en flöde för utgående, omvandlar Azure privata IP-källadressen för utgående flödet till en offentlig IP-källadressen. Offentliga IP-adress som används för det här utgående flödet kan inte konfigureras och räknas inte mot prenumerationens gräns för offentlig IP.  Azure tilldelar automatiskt den här adressen.
 
-Azure använder SNAT med port låtsas ([känna dig NÖJD](#pat)) att utföra den här funktionen. Det här scenariot liknar [scenario 2](#lb), förutom att det finns ingen kontroll över IP-adress som används. Detta är en återställningsplats scenariot för när scenarier 1 och 2 finns inte. Vi rekommenderar inte det här scenariot om du vill ha kontroll över den utgående adressen. Om utgående anslutningar är en viktig del av ditt program, bör du välja ett annat scenario.
+Azure använder SNAT med port låtsas ([känna dig NÖJD](#pat)) att utföra den här funktionen. Det här scenariot liknar scenario 2, men det finns ingen kontroll över IP-adress som används. Detta är en återställningsplats scenariot för när scenarier 1 och 2 finns inte. Vi rekommenderar inte det här scenariot om du vill ha kontroll över den utgående adressen. Om utgående anslutningar är en viktig del av ditt program, bör du välja ett annat scenario.
 
 SNAT portar är förallokerade enligt beskrivningen i den [förstå SNAT och PAT](#snat) avsnittet.  Antalet virtuella datorer eller Webbarbetsroller delning offentliga IP-adress anger antalet förallokerade tillfälliga portar.   Det är viktigt att förstå hur de är [förbrukas](#pat). Om du vill lära dig mer om att utforma för den här förbrukning och minimera efter behov, granska [hantera SNAT överbelastning](#snatexhaust).
 
@@ -104,14 +104,14 @@ Mönster att minimera villkor som ofta leder till att använda SNAT portöverbel
 
 Azure använder en algoritm och fastställa antalet förallokerade SNAT portar som är tillgängliga baserat på storleken på backend-poolen när du använder port maskering SNAT ([känna dig NÖJD](#pat)). Det finns tillfälliga portar som är tillgängliga för en viss offentliga IP-källadress SNAT portar.
 
-Azure preallocates SNAT portar när en instans har distribuerats utifrån hur många instanser av virtuell dator eller Web Worker-roll har en viss offentlig IP-adress.  När utgående flöden har skapats, [känna dig NÖJD](#pat) dynamiskt förbrukar (högst förallokerade) och släpper dessa portar när flödet stängs eller [inaktiv tidsgränser](#ideltimeout) inträffa.
+Azure preallocates SNAT portar när en instans har distribuerats utifrån hur många instanser av virtuell dator eller Web Worker-roll har en viss offentlig IP-adress.  När utgående flöden har skapats, [känna dig NÖJD](#pat) dynamiskt förbrukar (högst förallokerade) och släpper dessa portar när flödet stängs eller inaktiv timeout-fel inträffa.
 
 I följande tabell visas SNAT port preallocations för nivåerna för backend-poolstorlekar:
 
 | Instanser | Den förallokerade SNAT portar per instans |
 | --- | --- |
 | 1-50 | 1,024 |
-| 51 – 100 | 512 |
+| 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
 

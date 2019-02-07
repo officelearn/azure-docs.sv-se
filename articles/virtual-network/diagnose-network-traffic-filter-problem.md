@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424650"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821872"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostisera problem med virtuella nätverk trafik filter
 
@@ -181,7 +181,7 @@ När du har skapat regeln port 80 tillåts inkommande från internet, eftersom r
 
 När Azure bearbetar inkommande trafik, den bearbetar regler i NSG: N som är associerade till undernät (om det inte finns någon associerad NSG) och sedan den bearbetar regler i NSG: N som är kopplad till nätverksgränssnittet. Om det finns en NSG som är kopplad till nätverksgränssnittet och undernätet, måste porten vara öppna i båda NSG: er, för trafik till den virtuella datorn. För att underlätta administration och kommunikation problem rekommenderar vi att du kopplar en NSG till ett undernät i stället för enskilda nätverksgränssnitt. Om virtuella datorer i ett undernät behöver olika säkerhetsregler kan du göra nätverket gränssnitt medlemmar i en programsäkerhetsgrupp (ASG) och ange en ASG som källa och mål för en säkerhetsregel. Läs mer om [programsäkerhetsgrupper](security-overview.md#application-security-groups).
 
-Om du fortfarande har problem, se [överväganden](#considerations) och [ytterligare diagnos](#additional-dignosis).
+Om du fortfarande har problem, se [överväganden](#considerations) och ytterligare diagnos.
 
 ## <a name="considerations"></a>Överväganden
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: c44eb4bbf4945973e075ff88bccde19053b812be
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2458dadb8a97deee67a6df9b00ca5390fccb2902
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133494"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812284"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute-krav och checklista
 Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kontrollera att följande krav som anges i följande avsnitt är uppfyllda.
@@ -22,7 +22,7 @@ Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kont
 
 ## <a name="azure-account"></a>Azure-konto
 * Ett giltigt och aktivt Microsoft Azure-konto. Detta konto är nödvändigt för att kunna konfigurera ExpressRoute-kretsen. ExpressRoute-kretsar är resurser i Azure-prenumerationer. Du måste ha en Azure-prenumeration, även om anslutningen är begränsad till Microsoft-molntjänster som inte finns i Azure, som till exempel Office 365-tjänster och Dynamics 365.
-* En aktiv prenumeration på Office 365 (om du använder Office 365-tjänster). Mer information finns i [Särskilda krav för Office 365](#office-365-specific-requirements) i den här artikeln.
+* En aktiv prenumeration på Office 365 (om du använder Office 365-tjänster). Mer information finns i Office 365-specifika krav i den här artikeln.
 
 ## <a name="connectivity-provider"></a>Anslutningsleverantör
 
@@ -33,7 +33,7 @@ Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kont
 * **Redundant anslutning**: Det krävs inte någon redundans på den fysiska anslutningen mellan dig och din leverantör. Microsoft kräver dock att redundanta BGP-sessioner konfigureras mellan Microsofts routrar och peeringroutrar, även om du bara har [en fysisk anslutning till ett molnutbyte](expressroute-faqs.md#onep2plink).
 * **Routning**: Beroende på hur du ansluter till Microsoft Cloud måste du eller din leverantör konfigurera och hantera BGP-sessioner för [routningsdomäner](expressroute-circuit-peerings.md). Vissa Ethernet-anslutningsleverantörer eller molnutbytesleverantörer kan erbjuda BGP-hantering som en mervärdestjänst.
 * **NAT**: Microsoft godkänner bara offentliga IP-adresser via Microsoft-peering. Om du använder privata IP-adresser i det lokala nätverket måste du eller din leverantör översätta dem till offentliga IP-adresser [med hjälp av NAT](expressroute-nat.md).
-* **QoS**: Skype för företag har olika tjänster (till exempel: röst, video, text) som kräver särskild QoS-behandling. Du och din leverantör bör följa [QoS-kraven](expressroute-qos.md).
+* **QoS**: Skype för företag har olika tjänster (till exempel röst, video, text) som kräver särskild QoS-behandling. Du och din leverantör bör följa [QoS-kraven](expressroute-qos.md).
 * **Nätverkssäkerhet**: Fundera över [nätverkssäkerheten](../best-practices-network-security.md) när du ansluter till Microsoft Cloud via ExpressRoute.
 
 ## <a name="office-365"></a>Office 365

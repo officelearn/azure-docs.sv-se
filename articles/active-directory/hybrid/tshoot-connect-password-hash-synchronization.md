@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c87b6791ea2d90ed302d796f17727a0338104beb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5339b0c77a69a915e58118888f8b82d095a43e38
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175001"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817798"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Felsöka lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Det här avsnittet innehåller anvisningar att felsöka problem med synkronisering av lösenordshash. Om lösenord inte synkroniseras som förväntat, kan det vara antingen för en delmängd användare eller för alla användare.
@@ -237,7 +237,7 @@ Följ dessa steg för att avgöra varför inga lösenord synkroniseras:
 
 5. Om du ser inga pulsslag eller om inget annat arbetat köra [Utlös en fullständig synkronisering av alla lösenord](#trigger-a-full-sync-of-all-passwords). Kör skriptet bara en gång.
 
-6. Se den [Felsök ett objekt som inte synkroniseras lösenord](#one-object-is-not-synchronizing-passwords) avsnittet.
+6. Se Felsök ett objekt som inte synkroniseras lösenord avsnittet.
 
 ### <a name="connectivity-problems"></a>Problem med nätverksanslutningen
 
@@ -303,7 +303,7 @@ Du kan enkelt felsöka lösenord hash-synkroniseringsproblem genom att granska s
 
     ![Log Objektinformation](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    Om objektet loggen är tom, Azure AD Connect kunde inte läsa lösenords-hash från Active Directory. Fortsätta felsökningen med [anslutningsfel](#connectivity-errors). Om du ser ett annat värde än **lyckades**, finns i tabellen i [lösenord synkroniseringsloggen](#password-sync-log).
+    Om objektet loggen är tom, Azure AD Connect kunde inte läsa lösenords-hash från Active Directory. Fortsätta felsökningen med anslutningsfel. Om du ser ett annat värde än **lyckades**, finns i tabellen i [lösenord synkroniseringsloggen](#password-sync-log).
 
     h. Välj den **härkomst** fliken och kontrollera att finns minst en synkroniseringsregel i den **PasswordSync** kolumnen är **SANT**. I standardkonfigurationen, namnet på synkroniseringsregel är **i från AD - användare AccountEnabled**.  
 
@@ -335,7 +335,7 @@ I statuskolumnen kan ha följande värden:
 | TargetNotExportedToDirectory |Objektet i Azure AD-anslutarplatsen har inte ännu exporterats. |
 | MigratedCheckDetailsForMoreInfo |Loggpost skapades före version 1.0.9125.0 och visas i det tidigare tillståndet. |
 | Fel |Tjänsten returnerade ett okänt fel. |
-| Okänt |Ett fel uppstod vid försök att bearbeta en batch med lösenords-hash.  |
+| Inte tillgängligt |Ett fel uppstod vid försök att bearbeta en batch med lösenords-hash.  |
 | MissingAttribute |Specifika attribut (till exempel Kerberos-hash) som krävs av Azure AD Domain Services är inte tillgängliga. |
 | RetryRequestedByTarget |Specifika attribut (till exempel Kerberos-hash) som krävs av Azure AD Domain Services var inte tillgängliga tidigare. Det görs ett försök att omsynkronisera användarens lösenords-hash. |
 
@@ -417,5 +417,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>Nästa steg
 * [Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](how-to-connect-password-hash-synchronization.md)
-* [Azure AD Connect Sync: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

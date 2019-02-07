@@ -9,14 +9,14 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435523"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821226"
 ---
-# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera principer för Apache Hive i HDInsight med Enterprise Security Package
+# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -45,7 +45,7 @@ I det här avsnittet skapar du två Ranger-principer för att komma åt hivesamp
 
 **Skapa Ranger-principer**
 
-1. Öppna Ranger Admin-gränssnittet. Se [Anslut till Apache Ranger Admin-gränssnittet](#connect-to-apache-ranager-admin-ui).
+1. Öppna Ranger Admin-gränssnittet. Se ansluta till Apache Ranger Admin-Gränssnittet.
 2. Klicka på **&lt;Klusternamn>_hive** under **Hive**. Du bör se två förkonfigurerade principer.
 3. Klicka på **Lägg till ny princip** och ange sedan följande värden:
 

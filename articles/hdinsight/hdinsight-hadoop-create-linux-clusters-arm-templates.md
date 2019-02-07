@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1b145b1162dcba5653c962f0af1969c1aa017f57
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054647"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819815"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -38,11 +38,12 @@ I mallen definierar du de resurser som behövs för programmet. Du kan även ang
 
 Du kan hitta HDInsight-mallexempel på [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=hdinsight). Använd plattformsoberoende [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) med den [Resource Manager-tillägget](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) eller en textredigerare för att spara mallen till en fil på din arbetsstation. 
 
-Mer information om Resource Manager-mallar finns i följande artiklar:
+Mer information om Resource Manager-mallar finns i följande artiklar och exempel:
 
 * [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Distribuera ett program med Azure Resource Manager-mallar](../azure-resource-manager/resource-group-template-deploy.md)
-* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) mallreferensen
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) mallreferensen
+* [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>Skapa mallar
 
@@ -51,7 +52,6 @@ Resource Manager kan du exportera en Resource Manager-mall från befintliga resu
 - Azure-portalen: Se [exportera en Azure Resource Manager-mall från befintliga resurser](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: Se [exportera Azure Resource Manager-mallar med PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
 - Klassiska Azure CLI: Se [exportera Azure Resource Manager-mallar med klassiska Azure-CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
-
 
 ## <a name="deploy-using-the-portal"></a>Distribuera med hjälp av portalen
 

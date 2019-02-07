@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 5637d409233abc68983bd7cf1e55f406f15e3b59
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ff3492a0f523e32be8f6ffdabf9d15e4faa70cb4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432996"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812641"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Förstå Windows-agenten kontrollera resultaten i hantering av uppdateringar
 
@@ -39,7 +39,7 @@ På den **felsöka Update-agenten** väljer **kör kontroller för** vill starta
 
 ![Felsöka Update Agent-sidan](../media/update-agent-issues/troubleshoot-page.png)
 
-Resultaten visas på sidan när den är klar. Den [kontrollerar avsnitt](#prerequisiste-checks) visar vad som ingår i varje kontroll.
+Resultaten visas på sidan när den är klar. Avsnitten kontroller visar vad som ingår i varje kontroll.
 
 ![Felsöka Update-agenten kontroller](../media/update-agent-issues/update-agent-checks.png)
 

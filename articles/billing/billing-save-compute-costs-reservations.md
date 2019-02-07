@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 02/06/2019
 ms.author: banders
-ms.openlocfilehash: 14b6125bd1467efcd6120bc367a7042ad29552bb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a93bfd8f71c515bdd5112170f27336a0df62c6e5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744508"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818863"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
-Azure reservationer hjälper dig att spara pengar genom att förväg betala för ett eller tre års av virtuell dator, beräkningskapacitet för SQL-databas, dataflöde för Azure Cosmos DB eller andra Azure-resurser. Betala förväg kan du få rabatt på de resurser du använder. Reservationer kan avsevärt minska den virtuella datorn, SQL database beräkning, Azure Cosmos DB, eller annan resurs kostar upp till 72% jämfört med användningsbaserad betalning. Reservationer ger en rabatt på fakturering och påverka inte körtiden för dina resurser.
+Azure reservationer hjälpa dig att spara pengar genom att förväg betala för ett år eller tre års virtuella datorer, SQL-databas för beräkning kapacitet, dataflöde för Azure Cosmos DB eller andra Azure-resurser. Betala förväg kan du få rabatt på de resurser du använder. Reservationer kan avsevärt minska den virtuella datorn, SQL database beräkning, Azure Cosmos DB, eller annan resurs kostar upp till 72% jämfört med användningsbaserad betalning. Reservationer ger en rabatt på fakturering och påverka inte körtiden för dina resurser.
 
 Du kan köpa en reservation den [Azure-portalen](https://aka.ms/reservations). Mer information finns i följande avsnitt:
 
@@ -38,24 +38,23 @@ Om du har virtuella datorer, Azure Cosmos DB eller SQL-databaser som körs under
 
 - Reserverade VM-instans: En reservation täcker endast beräkningskostnader för virtuell dator. Det täcker inte ytterligare kostnader för programvara, nätverk och lagring.
 - SQL Database reserverade vCore: Endast beräkningskostnaderna ingår i en reservation. Licensen faktureras separat.
-- Azure Cosmos DB reserverad kapacitet: En reservation omfattar dataflödet som etableras för dina resurser, de täcker inte avgifter för lagring och nätverk.
+- Azure Cosmos DB reserverad kapacitet: En reservation omfattar dataflödet som etableras för dina resurser, den täcker inte kostnader för lagring och nätverk.
 
 För Windows-datorer och SQL-databas, kan du täcker licensieringskostnaderna med [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Vem är kvalificerad att köpa en reservation?
 
-Azure-kunder med dessa typer av prenumerationer kan köpa en reservation:
+Azure-kunder med följande typer av prenumerationer kan köpa en reservation:
 
 - Enterprise agreement-prenumeration erbjudandetyp (MS-AZR - 0017P eller MS-AZR - 0148P).
 - Betala per användning typ av prenumerationserbjudande (MS-AZR - 003P eller MS-AZR - 0023P).
-- Cloud Solution Provider (CSP)-partner kan använda Azure-portalen eller [Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations) att köpa reservationer för Azure.
+- Cloud Solution Provider (CSP) partner kan använda Azure-portalen eller [Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations) att köpa reservationer för Azure.
 
 En reservationsrabatten gäller bara för resurser som är associerade med Enterprise, betala per användning eller CSP-prenumeration-typer.
 
  Att köpa en plan:
 
 - Du måste vara i en ägarrollen för minst en Enterprise eller användningsbaserad betalning.
-- För Enterprise-prenumerationer, **lägga till reserverade instanser** måste aktiveras i den [EA-portalen](https://ea.azure.com). Eller, om den här inställningen har inaktiverats kan du måste vara en EA-administratör för prenumerationen.
 
 ## <a name="how-is-a-reservation-billed"></a>Hur faktureras en reservation?
 
@@ -69,7 +68,7 @@ En reservationsrabatten gäller bara för resurser som är associerade med Enter
 
 För att bättre förstå hur reservationer påverkar din fakturering, finns i följande avsnitt:
 
--  [Förstå Azure Reserved VM Instances rabatt](billing-understand-vm-reservation-charges.md)
+- [Förstå Azure Reserved VM Instances rabatt](billing-understand-vm-reservation-charges.md)
 - [Förstå Azure reservationsrabatten](billing-understand-vm-reservation-charges.md)
 - [Förstå Azure Cosmos DB-reservationsrabatten](billing-understand-cosmosdb-reservation-charges.md)
 - [Förstå Azure reservationsrabatten och användning för SUSE](billing-understand-suse-reservation-charges.md)
@@ -87,18 +86,16 @@ När du köper en reservation gälla rabatten andra instanser med attribut som t
 - SQL Database reserverad kapacitet: Rabatt täckning beror på den prestandanivå som du väljer. Mer information finns i [förstå hur ett Azure reservationsrabatten tillämpas](billing-understand-reservation-charges.md).
 - Azure Cosmos DB reserverad kapacitet: Rabatt-täckning är beroende av det etablerade dataflödet. Mer information finns i [förstå hur ett Azure Cosmos DB-reservationsrabatten tillämpas](billing-understand-cosmosdb-reservation-charges.md).
 
-## <a name="next-steps"></a>Nästa steg
-
-Starta sparas på dina virtuella datorer genom att köpa en [reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md), [SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md), eller [Azure Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md).
-
-Om du vill veta mer om Azure reservationer, finns i följande artiklar:
-
-- [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
-- [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
-- [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
-- [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)
-- [Azure reservationer i programmet för Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
-
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
 Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## <a name="next-steps"></a>Nästa steg
+
+- Starta sparas på dina virtuella datorer genom att köpa en [reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md), [SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md), eller [Azure Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md).
+- Läs mer om Azure reservationer i följande artiklar:
+    - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
+    - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
+    - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+    - [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)
+    - [Azure reservationer i programmet för Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188499"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818880"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ Om du vill skapa en offentlig behållare i Blob storage, gör du följande:
 5. Klicka på **$root** att öppna den nya behållaren.
 6. Klicka på **Överför**.
 7. Klicka på mappikonen bredvid **Välj en fil**.
-8. Gå till **anpassa ui.html**, som du skapade tidigare i den [Page UI anpassning](#the-page-ui-customization-feature) avsnittet.
+8. Gå till **anpassa ui.html**, som du skapade tidigare i avsnittet Page UI-anpassning.
 9. Klicka på **Överför**.
 10. Välj den blob som anpassa ui.html som du överförde.
 11. Bredvid **URL**, klickar du på **kopiera**.
@@ -175,7 +175,7 @@ Sample_templates/wingtip-mappen innehåller följande HTML-filer:
 | *unified.html* | Använd den här filen som en mall för en enhetlig sida för registrering eller inloggning. |
 | *updateprofile.html* | Använd den här filen som en mall för en uppdatering profilsida. |
 
-I den [ändra anpassad princip för registrering eller inloggning-avsnittet](#modify-your-sign-up-or-sign-in-custom-policy), du har konfigurerat innehållsdefinition för `api.idpselections`. Den fullständiga uppsättningen innehåll Definitions-ID som identifieras av Azure AD B2C-identitetsramverk och deras beskrivningar finns i följande tabell:
+I Ändra anpassad princip för registrering eller inloggning-avsnittet du konfigurerat innehållsdefinition för `api.idpselections`. Den fullständiga uppsättningen innehåll Definitions-ID som identifieras av Azure AD B2C-identitetsramverk och deras beskrivningar finns i följande tabell:
 
 | Innehållsdefinition-ID | Beskrivning | 
 |-----------------------|-------------|

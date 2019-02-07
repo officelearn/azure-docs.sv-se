@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884970"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770796"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub Device dataströmmar (förhandsversion)
 
@@ -82,8 +82,22 @@ Både enheten och tjänsten sidor av en dataström med enheten måste kunna uppr
 Du kan också slutpunkter information kan använda hämtas med hjälp av Azure CLI under hubbens properties-avsnittet, mer specifikt `property.hostname` och `property.deviceStreams` nycklar.
 
 ```azurecli-interactive
-az iot hub show --name <YourIoTHubName>
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+Utdata är en JSON-objekt för alla slutpunkter som din hubb enheten och tjänsten kan behöva ansluta till för att upprätta en dataström med enheten.
+
+```json
+{
+  "streamingEndpoints": [
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
+  ]
+}
+```
+
+> [!NOTE]
+> Se till att du har installerat Azure CLI version 2.0.57 eller senare. Du kan hämta den senaste versionen [här](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Lista över tillåtna enheter-slutpunkter för direktuppspelning
 
@@ -92,9 +106,14 @@ Som vi redan nämnt [tidigare](#Overview), enheten skapar en utgående anslutnin
 Värdnamnet för slutpunkten för direktuppspelning av enheten finns på Azure IoT Hub-portalen under fliken Översikt. ![Alternativ text](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "enheten stream slutpunkter")
 
 Du kan också hitta den här informationen med hjälp av Azure CLI:
-```cmd/sh
-az iot hub show --name <YourIoTHubName>
+
+```azurecli-interactive
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+> [!NOTE]
+> Se till att du har installerat Azure CLI version 2.0.57 eller senare. Du kan hämta den senaste versionen [här](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Felsök via enheten strömmar aktivitetsloggar
 
@@ -184,7 +203,7 @@ Använd länkarna nedan för instruktioner om hur du kör lokal proxy-program i 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd länkarna nedan för mer information om enheten strömmar:
+Använd länkarna nedan om du vill läsa mer om enhetsströmmar:
 
 > [!div class="nextstepaction"]
 > [Enheten strömmar på IoT visa (Channel 9)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fchannel9.msdn.com%2FShows%2FInternet-of-Things-Show%2FAzure-IoT-Hub-Device-Streams&data=02%7C01%7Crezas%40microsoft.com%7Cc3486254a89a43edea7c08d67a88bcea%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636831125031268909&sdata=S6u9qiehBN4tmgII637uJeVubUll0IZ4p2ddtG5pDBc%3D&reserved=0)

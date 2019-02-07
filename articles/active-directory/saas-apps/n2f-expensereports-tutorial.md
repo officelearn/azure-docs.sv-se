@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 27fb299bc3bbbbf75bdf40ae02eac627763ce6d4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d8d3d9c14ee1eaa5e5d6dc3245c0d4071306f12a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006650"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Självstudier: Azure Active Directory-integrering med N2F - utgiftsrapporter
 
@@ -29,7 +29,7 @@ Integrerande N2F - utgiftsrapporter med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till N2F - utgiftsrapporter.
 - Du kan aktivera användarna att automatiskt få loggat in på N2F - utgiftsrapporter (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -43,9 +43,9 @@ Om du vill konfigurera Azure AD-integrering med N2F - utgiftsrapporter, behöver
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -61,7 +61,7 @@ Om du vill konfigurera integreringen av N2F - utgiftsrapporter i Azure AD kan du
 
 **Utför följande steg för att lägga till N2F - utgiftsrapporter från galleriet:**
 
-1. I den ** [Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -69,7 +69,7 @@ Om du vill konfigurera integreringen av N2F - utgiftsrapporter i Azure AD kan du
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -77,7 +77,7 @@ Om du vill konfigurera integreringen av N2F - utgiftsrapporter i Azure AD kan du
 
     ![N2F - utgiftsrapporter i resultatlistan](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med N2F - utgiftsrapporter baserat på en testanvändare kallas ”Britta Simon”.
 
@@ -85,13 +85,13 @@ Azure AD behöver du veta vilka motsvarande användaren i N2F - utgiftsrapporter
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med N2F - utgiftsrapporter, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) ** – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) ** – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en N2F - utgiftsrapporter testanvändare](#create-a-n2f---expense-reports-test-use) ** - du har en motsvarighet för Britta Simon i N2F - utgiftsrapporter som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) ** – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on) ** – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+3. **Skapa en N2F - utgiftsrapporter testanvändare** - du har en motsvarighet för Britta Simon i N2F - utgiftsrapporter som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din N2F - utgiftsrapporter program.
 
@@ -99,7 +99,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 1. I Azure-portalen på den **N2F - utgiftsrapporter** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
@@ -117,11 +117,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
-    ![Länk för hämtning av certifikat](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_certificate.png)
+    ![Länk för nedladdning av certifikatet](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_certificate.png)
 
 6. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/n2f-expensereports-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/n2f-expensereports-tutorial/tutorial_general_400.png)
 
 7. På den **N2F - konfiguration för utgiftsrapporter** klickar du på **konfigurera N2F - utgiftsrapporter** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet.**
 
@@ -211,7 +211,7 @@ Om du vill aktivera Azure AD-användare att logga in på N2F - utgiftsrapporter,
 
     ![N2F - utgiftsrapporter konfiguration](./media/n2f-expensereports-tutorial/user3.png)
 
-    a. I den **e-postadress** textrutan anger du e-postadressen för användaren som ** brittasimon@contoso.com **.
+    a. I den **e-postadress** textrutan anger du e-postadressen för användaren som **brittasimon@contoso.com**.
 
     b. I den **Förnamn** textrutan Ange först namnet på användaren som **Britta**.
 

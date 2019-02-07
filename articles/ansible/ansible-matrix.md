@@ -1,27 +1,27 @@
 ---
-title: Ansible-modulen och version matris för Azure
-description: Ansible-modulen och version matris för Azure
+title: Ansible-moduler och versioner för Azure
+description: Ansible-moduler och versioner för Azure
 ms.service: ansible
-keywords: ansible, roller, matris, version, azure, devops
+keywords: ansible, roles, matrix, version, azure, devops
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: 5265b6f6ebf779c83792ab2569c1b613d11070da
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 149f37d0231ecc0547e8dc7937d22a9cc38b7df3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051534"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810226"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible-modulen och version matris
 
 ## <a name="ansible-modules-for-azure"></a>Ansible-moduler för Azure
-Ansible levereras med ett antal moduler som kan utföras direkt på fjärrvärdar eller via spelböcker.
+Ansible levereras med ett antal moduler som kan köras direkt på fjärrvärdar eller via spelböcker.
 Den här artikeln innehåller Ansible-moduler för Azure som kan utnyttja Azure-molnresurser, till exempel virtuella datorer, nätverk och behållartjänster. Du kan hämta dessa moduler från den officiella versionen av Ansible eller från följande spelboksroller som publicerats av Microsoft.
 
-| Ansible-modulen för Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | [Ansible-roll](#introduction-to-azurepreviewmodule) | 
+| Ansible-modulen för Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible-roll | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|-------------------------------------| 
 | **Compute**                    |           |                          |                          |                            |                                | 
 | azure_rm_availabilityset                    | Ja          | Ja                         | Ja          | Ja          | Ja                                 | 
@@ -123,7 +123,7 @@ Den här artikeln innehåller Ansible-moduler för Azure som kan utnyttja Azure-
 | azure_rm_trafficmanagerendpoint_facts            | -            | -                         | -          | Ja          | Ja                                 | 
 | azure_rm_trafficmanagerprofile                   | -            | -                         | -          | Ja          | Ja                                 | 
 | azure_rm_trafficmanagerprofile_facts             | -            | -                         | -          | Ja          | Ja                                 | 
-| **Automatisk skalning**                    |           |                          |                          |                             |                               | 
+| **AutoScale**                    |           |                          |                          |                             |                               | 
 | azure_rm_autoscale                  | -            | -                         | -          | Ja          | Ja                                 | 
 | azure_rm_autoscale_facts            | -            | -                         | -          | Ja          | Ja                                 | 
 

@@ -11,29 +11,29 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816194"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av storage-resurs
 
 I vissa fall, kan du stöta på något av följande fel inträffar när du försöker ta bort ett Azure storage-konto, behållare eller blob i en Azure Resource Manager-distribution:
 
->**Det gick inte att ta bort lagringskontot 'StorageAccountName'. Fel: Lagringskontot kan inte tas bort eftersom dess artefakter används.**
+>**Det gick inte att ta bort lagringskontot 'StorageAccountName'. Fel: Storage-konto kan inte tas bort eftersom dess artefakter används.**
 
->**Det gick inte att ta bort # utanför # behållare:<br>virtuella hårddiskar: det finns för närvarande ett lån för behållaren och inga lån-ID har angetts i begäran.**
+>**Det gick inte att ta bort # utanför # behållare:<br>virtuella hårddiskar: Det finns för närvarande ett lån för behållaren och inga lån-ID har angetts i begäran.**
 
->**Det gick inte att ta bort # utanför # blobar:<br>BlobName.vhd: det finns för närvarande ett lån på blobben och inga lån-ID har angetts i begäran.**
+>**Det gick inte att ta bort # utanför # blobar:<br>BlobName.vhd: Det finns för närvarande ett lån på blobben och inga lån-ID har angetts i begäran.**
 
 De virtuella hårddiskarna i virtuella datorer i Azure är .vhd-filer som lagras som sidblobar i en standard- eller premium storage-konto i Azure. Läs mer om Azure-diskar, [om ohanterade och hanterade disklagring för Microsoft Azure Linux-datorer](../linux/about-disks-and-vhds.md). 
 
 Azure förhindrar borttagning av en disk som är kopplad till en virtuell dator för att förhindra skador. Det förhindrar även att borttagningen av behållare och storage-konton som har en sidblobb som är kopplad till en virtuell dator. 
 
 Processen för att ta bort ett lagringskonto, behållare eller blob när du tar emot en av de här felen är: 
-1. [Identifiera blobbar som är ansluten till en virtuell dator](#step-1-identify-blobs-attached-to-a-vm)
+1. Identifiera blobbar som är ansluten till en virtuell dator
 2. [Ta bort virtuella datorer med anslutna **OS-disk**](#step-2-delete-vm-to-detach-os-disk)
 3. [Koppla från alla **datadiskarna** från återstående virtuella datorer](#step-3-detach-data-disk-from-the-vm)
 
@@ -53,7 +53,7 @@ Tar bort lagringskontot, behållaren eller den blob när dessa steg har slutför
 
      ![Skärmbild av portalen med fönstret storage ”Blobbmetadata” öppna](./media/troubleshoot-vhds/utd-blob-metadata-sm.png)
 
-6. Om disktypen blob är **OSDisk** följer [steg 2: ta bort virtuell dator för att koppla från OS-disken](#step-2-delete-vm-to-detach-os-disk). Om disktypen blob är **DataDisk** följer du stegen i [steg3: Koppla från datadisk från den virtuella datorn](#step-3-detach-data-disk-from-the-vm). 
+6. Om disktypen blob är **OSDisk** följer [steg 2: Ta bort virtuell dator för att koppla från OS-disken](#step-2-delete-vm-to-detach-os-disk). Om disktypen blob är **DataDisk** följer du stegen i [steg3: Koppla från datadisk från den virtuella datorn](#step-3-detach-data-disk-from-the-vm). 
 
 > [!IMPORTANT]
 > Om **MicrosoftAzureCompute_VMName** och **MicrosoftAzureCompute_DiskType** visas inte i blobmetadata, betyder det att blobben hyrs uttryckligen och är inte kopplat till en virtuell dator. Kan inte tas bort utlånat blobar utan avbryter lånet första. Att avbryta lånet, högerklicka på blobben och välja **lease Break**. Utlånat blobar som inte är kopplade till en virtuell dator att borttagningen av bloben, men förhindra inte borttagning av behållaren eller lagringskontot.
@@ -61,13 +61,13 @@ Tar bort lagringskontot, behållaren eller den blob när dessa steg har slutför
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Scenario 2: Ta bort en behållare – identifiera alla blobbarna i behållaren som är kopplade till virtuella datorer
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. På navmenyn väljer **alla resurser**. Gå till storage-konto under **Blobtjänsten** Välj **behållare**, och hitta behållaren som ska tas bort.
-3. Klicka för att öppna behållaren och kommer att visas i listan över blobar i den. Identifiera alla blobbar med Blobbtypen = **sidblob** och Lånestillstånd = **utlånad** i den här listan. Följ [Scenario 1](#step-1-identify-blobs-attached-to-a-vm) att identifiera den virtuella datorn som är associerade med var och en av dessa blobar.
+3. Klicka för att öppna behållaren och kommer att visas i listan över blobar i den. Identifiera alla blobbar med Blobbtypen = **sidblob** och Lånestillstånd = **utlånad** i den här listan. Följ Scenario 1 för att identifiera den virtuella datorn som är associerade med var och en av dessa blobar.
 
     ![Skärmbild av portalen med lagringskontoblobbar och den ”Lånestillstånd” med ”utlånad” markerat](./media/troubleshoot-vhds/utd-disks-sm.png)
 
 4. Följ [steg 2](#step-2-delete-vm-to-detach-os-disk) och [steg3](#step-3-detach-data-disk-from-the-vm) att ta bort virtuella datorer med **OSDisk** och koppla från **DataDisk**. 
 
-### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Scenario 3: Ta bort storage account – identifiera alla blobbarna i storage-konto som är kopplade till virtuella datorer
+### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Scenario 3: Tar bort storage account – identifiera alla blobbarna i storage-konto som är kopplade till virtuella datorer
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. På navmenyn väljer **alla resurser**. Gå till storage-konto under **Blobtjänsten** Välj **Blobar**.
 3. I **behållare** fönstret identifiera alla behållare där **Lånestillstånd** är **utlånad** och följ [Scenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) för varje  **Lånade** behållare.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189875"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751131"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Självstudier: Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
 
@@ -69,7 +69,7 @@ runcmd:
   - service jenkins restart
 ```
 
-Innan du kan skapa en virtuell dator skapar du en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupJenkins* på platsen *eastus*:
+Innan du kan skapa en virtuell dator skapar du en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroupJenkins* på platsen *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
@@ -88,7 +88,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Det tar några minuter att skapa och konfigurera den virtuella datorn.
 
-För att webbtrafik ska kunna nå din virtuella dator använder du [az vm open-port](/cli/azure/vm#az_vm_open_port) för att öppna port *8080* för Jenkins-trafik och port *1337* för Node.js-appen som används för att köra en exempelapp:
+För att webbtrafik ska kunna nå din virtuella dator använder du [az vm open-port](/cli/azure/vm) för att öppna port *8080* för Jenkins-trafik och port *1337* för Node.js-appen som används för att köra en exempelapp:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -160,7 +160,7 @@ Om du vill testa GitHub-integreringen med Jenkins gör du en ändring i förgren
 
 När du är tillbaka i GitHub-webbgränssnittet väljer du din förgrenade lagringsplats och sedan filen **index.js**. Välj pennikonen för att redigera filen så att det står följande på rad 6:
 
-```nodejs
+```javascript
 response.end("Hello World!");
 ```
 

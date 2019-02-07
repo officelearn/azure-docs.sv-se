@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972047"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818132"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindningar för Azure Functions 2.x
 
-> [!div class="op_single_selector" title1="Välj den version av Azure Functions körning du använder: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
@@ -57,7 +57,7 @@ Se exempel språkspecifika:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[Hoppa över utlösare-exempel](#trigger---attributes)
+Hoppa över utlösare-exempel
 
 ### <a name="trigger---c-example"></a>Utlösare – C#-exempel
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Hoppa över utlösare-exempel](#trigger---attributes)
+Hoppa över utlösare-exempel
 
 ### <a name="trigger---c-script-example"></a>Utlösare – exempel på C#-skript
 
@@ -131,7 +131,7 @@ Här är C#-skriptkoden:
     }
 ```
 
-[Hoppa över utlösare-exempel](#trigger---attributes)
+Hoppa över utlösare-exempel
 
 ### <a name="trigger---javascript-example"></a>Utlösare – JavaScript-exempel
 
@@ -199,7 +199,7 @@ Här är den Java-kod:
 I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@CosmosDBTrigger` anteckning om parametrar vars värde skulle hämtas från Cosmos DB.  Den här anteckningen kan användas med interna Java-typer, Pojo eller kan ha värdet null-värden med hjälp av valfritt<T>.
 
 
-[Hoppa över utlösare-exempel](#trigger---attributes)
+Hoppa över utlösare-exempel
 
 ### <a name="trigger---python-example"></a>Utlösare – Python-exempel
 
@@ -276,7 +276,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**leaseRenewInterval**| **leaseRenewInterval**| (Valfritt) När värdet definierar den, i millisekunder, förnyelseintervallet för alla lån för partitioner som för tillfället hålls av en instans. Standardvärdet är 17000 (17 sekunder).
 |**checkpointFrequency**| **checkpointFrequency**| (Valfritt) När värdet definierar den, i millisekunder, hur många lån kontrollpunkter. Standardvärdet är alltid efter varje funktionsanrop.
 |**maxItemsPerInvocation**| **maxItemsPerInvocation**| (Valfritt) När värdet anpassar det den maximala mängden objekt tas emot per funktionsanrop.
-|**startFromBeginning**| **StartFromBeginning**| (Valfritt) När värdet meddelar utlösaren ska börja läsa ändringarna från början av historiken för samlingen i stället för den aktuella tiden. Detta fungerar bara första gången utlösaren startar, som i efterföljande körningar, kontrollpunkterna lagras redan. Du anger detta till `true` när det finns redan skapat lån har ingen effekt.
+|**startFromBeginning**| **startFromBeginning**| (Valfritt) När värdet meddelar utlösaren ska börja läsa ändringarna från början av historiken för samlingen i stället för den aktuella tiden. Detta fungerar bara första gången utlösaren startar, som i efterföljande körningar, kontrollpunkterna lagras redan. Du anger detta till `true` när det finns redan skapat lån har ingen effekt.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1727,7 +1727,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 I C# och F# funktion, när funktionen avslutas, ändringar som görs till dokumentet via namngivna indata parametrar sparas automatiskt.
 
-I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Se den [JavaScript exempel](#input---javascript-example).
+I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Se exemplet JavaScript.
 
 ## <a name="output"></a>Resultat
 

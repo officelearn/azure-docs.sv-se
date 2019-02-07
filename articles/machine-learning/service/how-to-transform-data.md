@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f02d511c5afa6d515f29b9fc557be3b49223c501
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4291f6083cfe07d689ef9377df57c3e9a41772fc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243291"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812216"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformera data med Azure Machine Learning Data Prep SDK
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig olika metoder för att läsa in data med h
 
 Det finns för närvarande funktioner för följande uppgifter:
 
-- [Lägg till kolumnen med ett uttryck](#column)
+- Lägg till kolumnen med ett uttryck
 - [Sedan imputera värden som saknas](#impute-missing-values)
 - [Härled kolumner med exempel](#derive-column-by-example)
 - [Filtrering](#filtering)

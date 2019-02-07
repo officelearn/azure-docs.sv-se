@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 02c25490ba19521715b48dc7ec92861078332a48
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731792"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815412"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för ett Azure AD-galleriprogram
 
@@ -50,7 +50,7 @@ Konfigurera ett program från Azure AD-galleriet som du behöver:
 
 -   [Konfigurera program för lösenord för enkel inloggning](#configure-the-application-for-password-single-sign-on)
 
--   [Tilldela programmet till en användare eller grupp](#assign-the-application-to-a-user-or-a-group)
+-   Tilldela programmet till en användare eller grupp
 
     -   [Tilldela en användare till ett program direkt](#assign-a-user-to-an-application-directly)
 

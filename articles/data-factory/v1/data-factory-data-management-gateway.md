@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 101385b23d8ea683dc5762d491e6a4bef91bbed4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022316"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813780"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -246,7 +246,7 @@ Om du använder en brandvägg från tredje part, kan du öppna port 8050 manuell
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Om du inte väljer att öppna port 8050 på gateway-datorn, använda metoder än med hjälp av den **ange autentiseringsuppgifter** program för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda [New AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell-cmdlet. Se [ange autentiseringsuppgifter och säkerhet](#set-credentials-and-securityy) avsnittet om hur data lagra autentiseringsuppgifter kan ställas in.
+Om du inte väljer att öppna port 8050 på gateway-datorn, använda metoder än med hjälp av den **ange autentiseringsuppgifter** program för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda [New AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell-cmdlet. Se avsnittet Ange autentiseringsuppgifter och säkerhet på hur data lagrar autentiseringsuppgifter kan ställas in.
 
 ## <a name="update"></a>Uppdatering
 Som standard uppdateras data management gateway automatiskt när en nyare version av gatewayen är tillgänglig. Gatewayen uppdateras inte förrän alla schemalagda uppgifter är klar. Inga ytterligare aktiviteter bearbetas av gatewayen tills uppdateringen har slutförts. Om uppdateringen misslyckas återställs gateway till den gamla versionen.
@@ -388,7 +388,7 @@ Följande tabell innehåller olika statusar av en **logisk gateway**. Status fö
 
 Status | Kommentarer
 :----- | :-------
-Måste registreras | Någon nod är ännu registrerad på den här logiska gatewayen
+Needs Registration | Någon nod är ännu registrerad på den här logiska gatewayen
 Online | Gateway-noderna är online
 Offline | Någon nod i onlinestatus.
 Begränsad | Inte alla noder i den här gatewayen är i felfritt tillstånd. Denna status är en varning om att en eller flera noder kanske inte är tillgänglig! <br/><br/>Kan bero på credential synkroniseringsproblem på dispatcher-/ arbetsnoden. 

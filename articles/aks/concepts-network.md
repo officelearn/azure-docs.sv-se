@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 624e49cb0b211139a70d0262fbb8500deef8bf5b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744866"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820138"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverkskoncept för program i Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller grundläggande begrepp som tillhandahåller nätve
 - [Tjänster](#services)
 - [Azure-nätverk](#azure-virtual-networks)
 - [Ingress-styrenheter](#ingress-controllers)
-- [Nätverksprinciper](#network-policies)
+- Nätverksprinciper
 
 ## <a name="kubernetes-basics"></a>Grundläggande om Kubernetes
 

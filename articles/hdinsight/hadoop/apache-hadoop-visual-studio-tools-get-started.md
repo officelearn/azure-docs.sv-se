@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a23a2f536f765c62919960f3c582d04543b1f49a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629687"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820837"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Använd Data Lake Tools för Visual Studio för att ansluta till Azure HDInsight och kör Apache Hive-frågor
 
@@ -250,11 +250,11 @@ Vyn för uppgiftskörning för Hive-jobb på Tez kan användas för att hämta s
 ![Skärmbild av Data Lake Tools för Visual Studio, vy för uppgiftskörning](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "Vy för uppgiftskörning")
 
 ## <a name="run-hive-batch-jobs"></a>Köra Hive-batchjobb
-Det kan ta tid att testa Hive-skript mot ett HDInsight-kluster (med undantag för klustret för interaktiv fråga). Processen kan ta flera minuter eller längre. Data Lake Tools för Visual Studio kan verifiera Hive-skript lokalt utan att ansluta till ett aktivt kluster. Mer information om att köra interaktiva frågor finns i [Köra interaktiva Hive-frågor](#run-interactive-hive-queries).
+Det kan ta tid att testa Hive-skript mot ett HDInsight-kluster (med undantag för klustret för interaktiv fråga). Processen kan ta flera minuter eller längre. Data Lake Tools för Visual Studio kan verifiera Hive-skript lokalt utan att ansluta till ett aktivt kluster. Mer information om att köra interaktiva frågor finns i köra interaktiva Hive-frågor.
 
 Du kan använda Data Lake Tools för Visual Studio för att se vad som finns i Hive-jobb genom att samla in och visa Yarn-loggarna för specifika Hive-jobb.
 
-Om du vill veta mer om hur du kör Hive-batchjobb kan du läsa avsnittet [Köra interaktiva Hive-frågor](#run-interactive-hive-queries). Informationen i avsnittet gäller vid körning av Hive-batchjobb med längre tider.
+Mer information om hur du kör Hive-batchjobb finns köra interaktiva Hive-frågor. Informationen i avsnittet gäller vid körning av Hive-batchjobb med längre tider.
 
 ## <a name="run-apache-pig-scripts"></a>Kör Apache Pig-skript
 Data Lake Tools för Visual Studio har stöd för att skapa och skicka Pig-skript till HDInsight-kluster. Skapa först ett Pig-projekt från en mall. Skicka sedan skriptet till HDInsight-kluster.

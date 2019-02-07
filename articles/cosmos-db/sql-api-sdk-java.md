@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: cf011558ab984ecaf8181a4dc4ffcb80851f24fb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352962"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811043"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -32,20 +32,14 @@ ms.locfileid: "54352962"
 
 SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron support den [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
-<table>
-
-<tr><td>**Hämta SDK**</td><td>[Maven 3.](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
-
-<tr><td>**API-dokumentation**</td><td>[Java API-referensdokumentation](/java/api/com.microsoft.azure.documentdb)</td></tr>
-
-<tr><td>**Bidra till SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-
-<tr><td>**Kom igång**</td><td>[Kom igång med Java SDK](sql-api-java-get-started.md)</td></tr>
-
-<tr><td>**Självstudier om webbappen**</td><td>[Utveckling av webbappar med Azure Cosmos DB](sql-api-java-application.md)</td></tr>
-
-<tr><td>**Lägsta stödda körningar**</td><td>[Java Development Kit (JDK 7 +)](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Hämta SDK**|[Maven 3.](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
+|**API-dokumentation**|[Java API-referensdokumentation](/java/api/com.microsoft.azure.documentdb)|
+|**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
+|**Kom igång**|[Kom igång med Java SDK](sql-api-java-get-started.md)|
+|**Självstudier om webbappen**|[Utveckling av webbappar med Azure Cosmos DB](sql-api-java-application.md)|
+|**Lägsta stödda körningar**|[Java Development Kit (JDK 7 +)](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Viktig information
 
@@ -218,7 +212,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
-| [2.1.1](#2.1.1) |Den 21 november 2018 |--- |
+| 2.1.1 |Den 21 november 2018 |--- |
 | [2.0.0](#2.0.0) |Den 21 september 2018 |--- |
 | [1.16.4](#1.16.4) |Den 10 september 2018 |--- |
 | [1.16.3](#1.16.3) |09 september 2018 |--- |
@@ -249,7 +243,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | [1.3.0](#1.3.0) |05 oktober 2015 |--- |
 | [1.2.0](#1.2.0) |05 augusti 2015 |--- |
 | [1.1.0](#1.1.0) |09 juli 2015 |--- |
-| [1.0.1](#1.0.1) |Den 12 maj 2015 |--- |
+| 1.0.1 |Den 12 maj 2015 |--- |
 | [1.0.0](#1.0.0) |07 april 2015 |--- |
 | 0.9.5-prelease |09 mars 2015 |Den 29 februari 2016 |
 | 0.9.4-prelease |17 februari 2015 |Den 29 februari 2016 |

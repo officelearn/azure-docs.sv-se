@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542840"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813916"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Kör aktiviteter på användarkonton i Batch
 
@@ -66,7 +66,7 @@ Användarens höjning nivån anger om en aktivitet körs med utökad åtkomst. B
 
 Som standard kör uppgifter i Batch under en automatisk-användarkonto som en vanlig användare utan utökad åtkomst och med aktiviteten omfång. När automatisk användare-specifikationen har konfigurerats för uppgiften omfång, skapar Batch-tjänsten ett automatiskt-användarkonto för aktiviteten endast.
 
-Alternativ till uppgiften omfånget är poolen omfång. När automatisk användare-specifikationen för en aktivitet har konfigurerats för poolen omfång, körs aktiviteten under en automatisk-användarkonto som är tillgängliga för alla aktiviteter i poolen. Mer information om poolen scope finns i avsnittet [kör en uppgift som automatiskt-användare med pool omfattning](#run-a-task-as-the-autouser-with-pool-scope).   
+Alternativ till uppgiften omfånget är poolen omfång. När automatisk användare-specifikationen för en aktivitet har konfigurerats för poolen omfång, körs aktiviteten under en automatisk-användarkonto som är tillgängliga för alla aktiviteter i poolen. Mer information om poolen scope finns i avsnittet kör en uppgift som automatiskt-användare med pool omfattning.   
 
 Standardvärde skiljer sig på Windows och Linux-noder:
 

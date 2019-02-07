@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245277"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809256"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Ge programåtkomst till Azure Stack
 
@@ -38,10 +38,10 @@ Tjänstens huvudnamn är bättre att köra appen enligt dina autentiseringsuppgi
 
 Beroende på hur du har distribuerat Azure Stack kan börja du genom att skapa ett tjänstens huvudnamn. Det här dokumentet beskrivs hur du skapar en tjänst huvudnamn för:
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD är en flera innehavare, molnbaserad katalog och identity management-tjänsten. Du kan använda Azure AD med en ansluten Azure Stack.
-- [Active Directory Federation Services (AD FS)](#create-service-principal-for-ad-fs). AD FS tillhandahåller förenklad, säkrad identitetsfederering och funktioner för webb-enkel inloggning (SSO). Du kan använda AD FS med både ansluten och frånkopplade Azure Stack-instanser.
+- Azure Active Directory (Azure AD). Azure AD är en flera innehavare, molnbaserad katalog och identity management-tjänsten. Du kan använda Azure AD med en ansluten Azure Stack.
+- Active Directory Federation Services (AD FS). AD FS tillhandahåller förenklad, säkrad identitetsfederering och funktioner för webb-enkel inloggning (SSO). Du kan använda AD FS med både ansluten och frånkopplade Azure Stack-instanser.
 
-När du har skapat tjänstens huvudnamn, en uppsättning steg som är gemensamma för både AD FS och Azure Active Directory är vana vid [delegera behörigheter](#assign-role-to-service-principal) till rollen.
+När du har skapat tjänstens huvudnamn, en uppsättning steg som är gemensamma för både AD FS och Azure Active Directory används för att delegera behörigheter till rollen.
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Hantera tjänstens huvudnamn för Azure AD
 
@@ -63,7 +63,7 @@ När du loggar in, använder ID: T för ditt program och för en webbapp / API, 
 
 1. Från **appregistreringar** i Active Directory, Välj ditt program.
 
-2. Kopiera **Program-ID:t** och lagra det i din programkod. Program i den [programexempel](#sample-applications) avsnittet avser det här värdet som klient-ID.
+2. Kopiera **Program-ID:t** och lagra det i din programkod. Program i Exempelavsnitt för program som refererar till det här värdet som klient-ID.
 
      ![Klient-ID](./media/azure-stack-create-service-principal/image12.png)
 3. Generera en autentiseringsnyckel för en webbapp / API, Välj **inställningar** > **nycklar**. 
@@ -74,7 +74,7 @@ När du har sparat nyckeln visas nyckelns värde. Kopiera det här värdet i ant
 
 ![sparad nyckel](./media/azure-stack-create-service-principal/image15.png)
 
-När du är klar kan du [tilldela en roll för ditt program](#assign-role-to-service-principal).
+När du är klar kan du tilldela ditt program en roll.
 
 ## <a name="manage-service-principal-for-ad-fs"></a>Hantera tjänstens huvudnamn för AD FS
 
@@ -116,7 +116,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
-|Name|Namnet på kontot SPN|MyAPP|
+|Namn|Namnet på kontot SPN|MyAPP|
 |ClientCertificates|Matris med objekt för certifikat|X509 certifikat|
 |ClientRedirectUris<br>(Valfritt)|Programmet omdirigerings-URI|-|
 
@@ -203,7 +203,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
-|Name|Namnet på kontot SPN|MyAPP|
+|Namn|Namnet på kontot SPN|MyAPP|
 |ApplicationIdentifier|Unik identifierare|S-1-5-21-1634563105-1224503876-2692824315-2119|
 |ClientCertificate|Matris med objekt för certifikat|X509 certifikat|
 
@@ -247,7 +247,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 | Parameter | Beskrivning | Exempel |
 |----------------------|--------------------------|---------|
-| Name | Namnet på kontot SPN | MyAPP |
+| Namn | Namnet på kontot SPN | MyAPP |
 | GenerateClientSecret | Skapa hemliga |  |
 
 #### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>Använd ERCS PrivilegedEndpoint för att skapa tjänstens huvudnamn

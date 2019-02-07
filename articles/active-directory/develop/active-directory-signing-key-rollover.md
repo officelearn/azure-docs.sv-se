@@ -16,12 +16,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6174dd210cf85bfa6a3daf38965d1da65801321c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d137f2217575bfddec5a2bc2ead4e210b8cf1865
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076340"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815347"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Signeringsnyckel i Azure Active Directory
 Den här artikeln beskriver vad du behöver veta om de offentliga nycklarna som används i Azure Active Directory (Azure AD) för att logga säkerhetstoken. Det är viktigt att Observera att dessa nycklar förnya regelbundet och, i nödfall, kan distribueras omedelbart. Alla program som använder Azure AD ska kunna programmässigt hantera nyckelförnyelse processen eller upprätta en process som regelbundet manuell förnyelse. Läs vidare för att förstå hur nycklarna fungerar, hur du kan utvärdera effekten av förnyelse för ditt program och hur du uppdaterar ditt program eller upprätta en regelbunden manuell förnyelse process för att hantera nyckelförnyelse om det behövs.
@@ -44,7 +44,7 @@ Hur programmet hanterar nyckelförnyelse beror på olika faktorer, till exempel 
 * [Webbprogram / API: er som skyddar resurser med hjälp av Node.js passport-azure-ad-modulen](#passport)
 * [Webbprogram / API: er skyddar resurser och skapas med Visual Studio 2015 eller Visual Studio 2017](#vs2015)
 * [Webbprogram skyddar resurser och skapas med Visual Studio 2013](#vs2013)
-* [Webb-API: er skyddar resurser och skapas med Visual Studio 2013](#vs2013_webapi)
+* Webb-API: er skyddar resurser och skapas med Visual Studio 2013
 * [Webbprogram skyddar resurser och skapas med Visual Studio 2012](#vs2012)
 * [Webbprogram skyddar resurser och skapas med Visual Studio 2010, 2008-o med hjälp av Windows Identity Foundation](#vs2010)
 * [Webbprogram / API: er som skyddar resurser med hjälp av andra bibliotek eller manuellt implementera någon av protokoll som stöds](#other)

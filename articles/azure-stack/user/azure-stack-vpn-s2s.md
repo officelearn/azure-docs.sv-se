@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9a14c819acbc46d8a281f73fd4f3185caa8a1e02
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478159"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815684"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurera IPsec/IKE-princip för plats-till-plats VPN-anslutningar
 
 Den här artikeln beskriver hur du konfigurerar en IPsec/IKE-princip för plats-till-plats (S2S) VPN-anslutningar i Azure Stack.
+
+>[!NOTE]
+> Du måste köra Azure Stack-version **1809** eller senare för att kunna använda den här funktionen.  Om du använder en version före 1809, uppdatera din Azure Stack-system till den senaste versionen innan du försöker använda den här funktionen eller följer du stegen i den här artikeln.
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>IPsec och IKE principparametrar för VPN-gatewayer
 

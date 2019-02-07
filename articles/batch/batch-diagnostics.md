@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 02129fbddae2e3a82299eb3b03d6e73030b44c4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477887"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811468"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -37,7 +37,7 @@ Mått är:
 
 * Aktiverat som standard i varje Batch-konto utan ytterligare konfiguration
 * Genereras varje minut
-* Beständiga inte automatiskt, men har en rullande 30-dagars historik. Du kan även spara aktivitetsmått som en del av [diagnostikloggning](#work-with-diagnostic-logs).
+* Beständiga inte automatiskt, men har en rullande 30-dagars historik. Du kan även spara aktivitetsmått som en del av Diagnostisk loggning.
 
 ### <a name="view-metrics"></a>Visa mått
 

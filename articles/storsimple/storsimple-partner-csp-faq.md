@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259946"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814290"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple för Provider-Program för molnet lösningar: vanliga frågor och svar
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple för molnet lösningar Provider-Program: Vanliga frågor och svar
 
 
 ## <a name="overview"></a>Översikt
@@ -31,7 +31,7 @@ Frågor och svar är ordnade i följande kategorier:
 
  - [Modell för StorSimple och molnet Molnlösningsleverantör Program (CSP)](#storsimple-and-csp-model)
  - [Distribuera och hantera virtuella matrisen som partner](#deploy-and-manage-storsimple-as-a-partner)
- - [Support för partner för StorSimple för CSP](#support-for-storsimple-partners)
+ - Support för partner för StorSimple för CSP
 
 ## <a name="storsimple-and-csp-model"></a>StorSimple och CSP-modellen
 

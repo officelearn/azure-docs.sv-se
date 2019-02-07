@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 49e9a057e52d46fd18e13c43d0f6024201499685
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493396"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821688"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
@@ -92,7 +92,7 @@ Varje Azure Storage-tjänsterna har skalbarhetsmål för kapacitet (GB), transak
 * [Kömeddelanden per sekund](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Bandbredd Skalbarhetsmålen för alla tjänster
-Vid tidpunkten som skrivs är bandbredd mål i USA för ett konto med geo-redundant lagring (GRS) 10 Gigabit per sekund (Gbps) för ingress (data som skickas till storage-kontot) och 20 Gbit/s för utgående trafik (data som skickas från storage-konto). För ett konto med lokalt redundant lagring (LRS) gränserna är högre – 20 Gbit/s för ingångshändelser och 30 Gbit/s för utgående trafik.  Internationella bandbreddsgränser kan vara lägre och finns på vår [skalbarhet mål sidan](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Mer information om redundansalternativ för lagring finns i länkarna i [användbara resurser](#sub1useful) nedan.  
+Vid tidpunkten som skrivs är bandbredd mål i USA för ett konto med geo-redundant lagring (GRS) 10 Gigabit per sekund (Gbps) för ingress (data som skickas till storage-kontot) och 20 Gbit/s för utgående trafik (data som skickas från storage-konto). För ett konto med lokalt redundant lagring (LRS) gränserna är högre – 20 Gbit/s för ingångshändelser och 30 Gbit/s för utgående trafik.  Internationella bandbreddsgränser kan vara lägre och finns på vår [skalbarhet mål sidan](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Mer information om redundansalternativ för lagring finns i länkarna i användbara resurser nedan.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>Vad gör närmar sig ett mål för skalbarhet
 Om gränsen på storage-konton som du kan ha i en viss prenumeration/region kombination närmar, utvärdera dina program och användningen av storage-konton och avgör om något av dessa villkor gäller.

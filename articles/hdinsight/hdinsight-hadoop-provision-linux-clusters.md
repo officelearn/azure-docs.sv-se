@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 0878fc4b069f7c1ca34f8954320af6e69ceea717
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299886"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817941"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -50,7 +50,7 @@ Följ instruktionerna på skärmen för att göra en grundläggande konfiguratio
 
 * [Resursgruppens namn](#resource-group-name)
 * [Klustertyper och konfiguration](#cluster-types) 
-* [Klusterinloggning och SSH-användarnamn](#cluster-login-and-ssh-username)
+* Klusterinloggning och SSH-användarnamn
 * [Plats](#location)
 
 > [!IMPORTANT]  

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 0e1a0919975253e24318bb8029249958cbc50d62
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473171"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811536"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schema för Azure Diagnostics 1.0-konfiguration
 > [!NOTE]
@@ -101,7 +101,7 @@ Det översta elementet i konfigurationsfilen för diagnostik.
 
 Attribut:
 
-|Attribut  |Typ   |Krävs| Standard | Beskrivning|  
+|Attribut  |Type   |Krävs| Standard | Beskrivning|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|varaktighet|Valfri | PT1M| Anger intervall för diagnostikövervakare ska avsöka för diagnostiska konfigurationsändringar.|  
 |**overallQuotaInMB**|unsignedInt|Valfri| 4000 MB. Om du anger ett värde får inte överskrida den mängden |Den totala mängden lagringsutrymme för filsystem tilldelat för alla buffertar för loggning.|  
@@ -109,11 +109,11 @@ Attribut:
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs Element  
 Definierar konfigurationen av buffert för loggarna som genereras av den underliggande infrastrukturen för diagnostik.
 
-Överordnade Element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).  
+Överordnade Element: DiagnosticMonitorConfiguration Element.  
 
 Attribut:
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
@@ -122,11 +122,11 @@ Attribut:
 ## <a name="logs-element"></a>Loggar Element  
  Definierar konfigurationen buffert för grundläggande Azure loggar.
 
- Överordnade element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).  
+ Överordnade element: DiagnosticMonitorConfiguration Element.  
 
 Attribut:  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
@@ -135,12 +135,12 @@ Attribut:
 ## <a name="directories-element"></a>Directories Element  
 Definierar konfigurationen av buffert för filbaserade loggar som du kan definiera.
 
-Överordnade element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).  
+Överordnade element: DiagnosticMonitorConfiguration Element.  
 
 
 Attribut:  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
@@ -148,11 +148,11 @@ Attribut:
 ## <a name="crashdumps-element"></a>CrashDumps Element  
  Definierar kraschen Dumpar katalogen.
 
- Överordnade Element: [Kataloger elementet](#Directories).  
+ Överordnade Element: Directories Element.  
 
 Attribut:  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**container**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
@@ -160,11 +160,11 @@ Attribut:
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs Element  
  Definierar loggkatalogen misslyckade begäranden.
 
- Överordnade Element [kataloger elementet](#Directories).  
+ Överordnade Element kataloger Element.  
 
 Attribut:  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**container**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
@@ -172,11 +172,11 @@ Attribut:
 ##  <a name="iislogs-element"></a>IISLogs Element  
  Definierar IIS log-katalogen.
 
- Överordnade Element [kataloger elementet](#Directories).  
+ Överordnade Element kataloger Element.  
 
 Attribut:  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**container**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
@@ -184,16 +184,16 @@ Attribut:
 ## <a name="datasources-element"></a>DataSources Element  
  Definierar noll eller flera ytterligare log-kataloger.
 
- Överordnade Element: [Kataloger elementet](#Directories).
+ Överordnade Element: Directories Element.
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
  Definierar katalogen för loggfiler som ska övervaka.
 
- Överordnade Element: [DataSources Element](#DataSources).
+ Överordnade Element: DataSources Element.
 
 Attribut:
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**container**|sträng|Namnet på behållaren där innehållet i katalogen ska överföras.|  
 |**directoryQuotaInMB**|unsignedInt|Valfri. Anger den maximala storleken för katalogen i megabyte.<br /><br /> Standardvärdet är 0.|  
@@ -201,23 +201,23 @@ Attribut:
 ## <a name="absolute-element"></a>Absolute Element  
  Definierar en absolut sökväg på katalogen som ska övervakas med valfri miljö expansion.
 
- Överordnade Element: [DirectoryConfiguration elementet](#DirectoryConfiguration).  
+ Överordnade Element: DirectoryConfiguration Element.  
 
 Attribut:  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Sökväg**|sträng|Krävs. Den absoluta sökvägen till katalogen som ska övervakas.|  
+|**path**|sträng|Krävs. Den absoluta sökvägen till katalogen som ska övervakas.|  
 |**expandEnvironment**|boolesk|Krävs. Om inställd **SANT**, miljövariabler i sökvägen expanderas.|  
 
 ## <a name="localresource-element"></a>LocalResource Element  
  Definierar en sökväg i förhållande till en lokal resurs som definierats i tjänstdefinitionen för.
 
- Överordnade Element: [DirectoryConfiguration elementet](#DirectoryConfiguration).  
+ Överordnade Element: DirectoryConfiguration Element.  
 
 Attribut:  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**Namn**|sträng|Krävs. Namnet på den lokala resursen som innehåller katalogen som ska övervakas.|  
 |**relativePath**|sträng|Krävs. Sökväg i förhållande till den lokala resursen du övervakar.|  
@@ -225,12 +225,12 @@ Attribut:
 ## <a name="performancecounters-element"></a>PerformanceCounters Element  
  Definierar sökvägen till prestandaräknaren för att samla in.
 
- Överordnade Element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).
+ Överordnade Element: DiagnosticMonitorConfiguration Element.
 
 
  Attribut:  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferPeriod**|varaktighet|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
@@ -238,11 +238,11 @@ Attribut:
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration Element  
  Definierar prestandaräknaren för att samla in.
 
- Överordnade Element: [PerformanceCounters Element](#PerformanceCounters).  
+ Överordnade Element: PerformanceCounters Element.  
 
  Attribut:  
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|sträng|Krävs. Sökvägen till prestandaräknaren för att samla in.|  
 |**sampleRate**|varaktighet|Krävs. Den hastighet med vilken prestandaräknaren ska samlas in.|  
@@ -250,11 +250,11 @@ Attribut:
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  Definierar händelseloggar för att övervaka.
 
- Överordnade Element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).
+ Överordnade Element: DiagnosticMonitorConfiguration Element.
 
   Attribut:
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|sträng|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**. Andra möjliga värden är **utförlig**, **Information**, **varning**, **fel**, och **kritisk**.|  
@@ -263,11 +263,11 @@ Attribut:
 ## <a name="datasource-element"></a>DataSource Element  
  Definierar händelseloggen för att övervaka.
 
- Överordnade Element: [WindowsEventLog Element](#windowsEventLog).  
+ Överordnade Element: WindowsEventLog Element.  
 
  Attribut:
 
-|Attribut|Typ|Beskrivning|  
+|Attribut|Type|Beskrivning|  
 |---------------|----------|-----------------|  
 |**Namn**|sträng|Krävs. Ett XPath-uttryck som anger att samla in loggen.|  
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953882"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811111"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Lågprioriterade virtuella datorer på skalningsuppsättningar (förhandsversion)
 
@@ -43,13 +43,13 @@ Om du vill ha dina virtuella datorer i skalningsuppsättningen med låg priorite
 
 Om du vill distribuera lågprioriterade virtuella datorer på skalningsuppsättningar, och du kan ange den nya *prioritet* flaggan till *låg*. Alla virtuella datorer i din skalningsuppsättning ska anges till med låg prioritet. Använd någon av följande metoder för att skapa en skalningsuppsättning med virtuella datorer med låg prioritet:
 - [Azure Portal](#use-the-azure-portal)
-- [Azure CLI](#use-the-azure-cli-20)
+- Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-mallar](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-Processen för att skapa en skalningsuppsättning som använder lågprioriterade virtuella datorer är samma som beskrivs i den [komma igång artikel](quick-create-portal.md). När du distribuerar en skalningsuppsättning, kan du ställa in flaggan med låg prioritet och avlägsningsprincipen: ![skapa en skalningsuppsättning med virtuella datorer med låg prioritet](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+Processen för att skapa en skalningsuppsättning som använder lågprioriterade virtuella datorer är samma som beskrivs i den [komma igång artikel](quick-create-portal.md). När du distribuerar en skalningsuppsättning, kan du ställa in flaggan med låg prioritet och avlägsningsprincipen: ![Skapa en skalningsuppsättning med virtuella datorer med låg prioritet](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 

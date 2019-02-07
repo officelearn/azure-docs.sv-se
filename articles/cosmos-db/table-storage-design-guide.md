@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913605"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820971"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide för utformning av Azure Storage-tabell: Utforma skalbara och högpresterande tabeller
 
@@ -205,9 +205,9 @@ I följande exempel förutsätter tabelltjänsten lagrar medarbetare entiteter m
 | **Förnamn** |Sträng |
 | **Efternamn** |Sträng |
 | **Ålder** |Integer |
-| **E-postadress** |Sträng |
+| **E-postadress** |String |
 
-Det tidigare avsnittet [översikt över Azure Table service](#overview) beskriver några av de viktigaste funktionerna i Azure Table service som har en direkt inverkan på utformning av frågan. Dessa resultera i följande allmänna riktlinjer för att utforma Table service-frågor. Syntaxen för filtret som används i exemplen nedan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Den tidigare avsnittet Azure Table service-översikten beskrivs några av de viktigaste funktionerna i Azure Table service som har en direkt inverkan designa för frågan. Dessa resultera i följande allmänna riktlinjer för att utforma Table service-frågor. Syntaxen för filtret som används i exemplen nedan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * En ***punkt fråga*** är den mest effektiva sökningen att använda och rekommenderas som ska användas för stora volymer sökningar eller sökningar som kräver lägsta svarstid. Sådan fråga kan använda index för att hitta en enskild entitet effektivt genom att ange både den **PartitionKey** och **RowKey** värden. Till exempel: $filter = (PartitionKey eq ”försäljning”) och (RowKey eq ”2”)  
 * Andra bäst är en ***intervallet fråga*** som använder den **PartitionKey** och filter på flera olika **RowKey** värden att returnera mer än en entitet. Den **PartitionKey** värdet identifierar en specifik partition och **RowKey** identifierar en delmängd av entiteter i partitionen. Till exempel: $filter = PartitionKey-eq ”försäljning och RowKey ge” och RowKey lt 'T'  
@@ -1294,7 +1294,7 @@ Varje entitet måste dock ha **PartitionKey**, **RowKey**, och **tidsstämpel** 
 
 Det första alternativet, prepending entiteten skriver till den **RowKey**, är användbart om det finns en risk att två entiteter med olika typer kan ha samma nyckelvärde. Den också grupperar entiteter av samma typ tillsammans i partitionen.  
 
-De metoder som beskrivs i det här avsnittet är särskilt relevanta till diskussionen [arvsrelationer](#inheritance-relationships) tidigare i den här guiden i avsnittet [modellering relationer](#modelling-relationships).  
+De metoder som beskrivs i det här avsnittet är särskilt relevanta till diskussionen [arvsrelationer](#inheritance-relationships) tidigare i den här guiden i avsnittet modellering av relationer.  
 
 > [!NOTE]
 > Du bör inkludera ett versionsnummer i entiteten TYPVÄRDE och låt klientprogram att utvecklas POCO-objekt och arbeta med olika versioner.  

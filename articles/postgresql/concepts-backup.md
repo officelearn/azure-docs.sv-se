@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: cf8cef9c715d9bbe82a0bae5c59f329f350021f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 49277fc260743d0179c40374241edeece0a0e1e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538369"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814341"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Säkerhetskopiering och återställning i Azure Database för PostgreSQL
 
@@ -50,7 +50,7 @@ Det finns två typer av återställning:
 Beräknad tid för återställning är beroende av flera faktorer, inklusive databasernas storlek, transaktionsloggarnas storlek, nätverkets bandbredd och det totala antalet databaser som återställs i samma region på samma gång. Tiden för återställning är vanligtvis mindre än 12 timmar.
 
 > [!IMPORTANT]
-> Ta bort servrar **kan** återställas. Om du tar bort servern tas även bort alla databaser som hör till servern och kan inte återställas.
+> Ta bort servrar **kan** återställas. Om du tar bort servern tas även bort alla databaser som hör till servern och kan inte återställas. Om du vill skydda serverresurser efter distributionen, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanteringslås](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 

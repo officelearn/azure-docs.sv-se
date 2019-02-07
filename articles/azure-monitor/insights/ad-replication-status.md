@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8d597a3491f80bc09c3e0676d17971f2509ba47a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184126"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818744"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Övervaka status för Active Directory-replikering med Log Analytics
 
@@ -49,7 +49,7 @@ Om du inte vill att ansluta alla dina domänkontrollanter direkt till Log Analyt
 2. [Anslut Windows-datorn till Log Analytics](../../azure-monitor/platform/om-agents.md) eller [ansluta den med hjälp av din befintliga Operations Manager-miljö till Log Analytics](../../azure-monitor/platform/om-agents.md), om den inte redan är ansluten.
 3. På datorn, anger du följande registernyckel:
 
-   * Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management grupper\<ManagementGroupName > \Solutions\ADReplication**
+   * Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
    * Värde: **IsTarget**
    * Värdedata: **SANT**
 
@@ -127,7 +127,7 @@ S: Inte just nu.
 S: Nej, endast en enda domänkontrollant måste läggas till. Om du har flera domänkontrollanter i Log Analytics-arbetsytan skickas data från alla till Log Analytics.
 
 **F: Jag vill inte att lägga till alla domänkontrollanter i Min arbetsyta för Log Analytics. Kan jag fortfarande använda AD-replikeringsstatus-lösningen?**
-S: Ja. Du kan ange värdet för en registernyckel för att aktivera den. Se [att aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+S: Ja. Du kan ange värdet för en registernyckel för att aktivera den. Se till att aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics.
 
 **F: Vad är namnet på processen som gör datainsamlingen?**
 S: AdvisorAssessment.exe
@@ -149,7 +149,7 @@ För att samla in data, kräver AD-replikeringsstatus-lösningspaket minst en do
 
 Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa dokumentationen på [ansluta Windows-datorer till Log Analytics](../../azure-monitor/platform/om-agents.md). Om domänkontrollanten är redan ansluten till en befintlig System Center Operations Manager-miljö kan du också visa dokumentationen på [ansluta System Center Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
 
-Om du inte vill att någon av dina domänkontrollanter ansluta direkt till Log Analytics eller till System Center Operations Manager, se [att aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Om du inte vill att någon av dina domänkontrollanter ansluta direkt till Log Analytics eller till System Center Operations Manager finns i Aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd [Loggsökningar i Log Analytics](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad status för data för Active Directory-replikering.

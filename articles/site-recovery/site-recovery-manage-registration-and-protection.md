@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 7a9c0ec081b676631f950270f9234284a102d7fa
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212196"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810328"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
@@ -154,7 +154,7 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Inaktivera skyddet för en Hyper-V virtuell dator (Hyper-V till Azure)
 
 > [!NOTE]
-> Använd den här proceduren om du replikerar virtuella Hyper-V-datorer till Azure utan en VMM-servern. Om du replikerar dina virtuella datorer med den **System Center VMM till Azure** scenario, följ instruktionerna [inaktivera skyddet för en Hyper-V virtuell dator som replikeras med hjälp av System Center VMM till Azure-scenario](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)
+> Använd den här proceduren om du replikerar virtuella Hyper-V-datorer till Azure utan en VMM-servern. Om du replikerar dina virtuella datorer med den **System Center VMM till Azure** scenario kan du följa instruktionerna inaktivera skydd för Hyper-V virtuell dator replikeras med hjälp av System Center VMM till Azure-scenariot
 
 1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
 2. I **inaktivera replikering**, du kan välja följande alternativ:

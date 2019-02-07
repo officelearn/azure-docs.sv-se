@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: c6a47448fc99c2f58b315898c1b6af65f894da8d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0e17fa877bc2e1e4f72891315d940546a11e674d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436695"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812505"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Djupdykning – avancerad analys
 
@@ -50,16 +50,16 @@ Tillsammans med valt bäst passningsåtgärderna algoritm(er), måste du överv�
 | Klustring | Att dela upp en uppsättning exempel i enhetliga grupper | Oövervakade | K-means klustring |
 | Mönster för identifiering | Identifiera frekventa associationer i data | Oövervakade | Association regler |
 | Regression | Förutsäga numeriskt resultat | Övervakat | Linjär regression, neurala nätverk |
-| Förstärkt | Fastställa optimal beteende för robotar | Förstärkt | Monte Carlo-simuleringar, DeepMind |
+| Förstärkt | Fastställa optimal beteende för robotar | Förstärkt | Monte Carlo Simulations, DeepMind |
 
 ## <a name="machine-learning-on-hdinsight"></a>Maskininlärning på HDInsight
 
 HDInsight har flera alternativ för ett arbetsflöde för avancerad analys för maskininlärning:
 
-* [Machine Learning och Apache Spark](#machine-learning-and-spark)
-* [R och ML-tjänster](#r-and-r-server)
-* [Azure Machine Learning och Apache Hive](#azure-machine-learning-and-hive)
-* [Apache Spark och djupinlärning](#spark-and-deep-learning)
+* Machine Learning och Apache Spark
+* R och ML-tjänster
+* Azure Machine Learning och Apache Hive
+* Apache Spark och djupinlärning
 
 ### <a name="machine-learning-and-apache-spark"></a>Machine Learning och Apache Spark
 

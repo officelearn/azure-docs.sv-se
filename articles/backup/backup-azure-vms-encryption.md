@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: geetha
-ms.openlocfilehash: a5b0e6d700ce64a25c20b23738508d2796fc6caa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487565"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810005"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup
 Den här artikeln handlar om stegen för att säkerhetskopiera och återställa virtuella datorer (VM) med hjälp av Azure Backup. Den innehåller också information om scenarier som stöds, nödvändiga komponenter och felsökningssteg för fel.
@@ -36,7 +36,7 @@ Den här artikeln handlar om stegen för att säkerhetskopiera och återställa 
 
 * Recovery Services-valvet har skapats och storage-replikering har angetts genom att följa stegen i [förbereda miljön för säkerhetskopiering](backup-azure-arm-vms-prepare.md).
 
-* Säkerhetskopiering har angetts [behörighet att komma åt ett nyckelvalv](#provide-permissions-to-backup) som innehåller nycklar och hemligheter för krypterade virtuella datorer.
+* Säkerhetskopiering har gett behörighet att komma åt ett nyckelvalv som innehåller nycklar och hemligheter för krypterade virtuella datorer.
 
 ## <a name="backup-encrypted-vm"></a>Backup-krypterad virtuell dator
 Använd följande steg för att ange ett säkerhetskopieringsmål, definiera en princip, konfigurera och utlösa en säkerhetskopia.
@@ -76,7 +76,7 @@ Om du är en **medlemsanvändare**, aktivera säkerhetskopieringsprocessen komme
 
    ![Meddelande för krypterade virtuella datorer](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   För en **gästanvändare**, måste du ange behörigheter till säkerhetskopieringstjänsten för att få åtkomst till nyckelvalvet för säkerhetskopior att fungera. Du kan ange dessa behörigheter genom att följa de [åtgärderna som nämns i följande avsnitt](#provide-permissions-to-backup)
+   För en **gästanvändare**, måste du ange behörigheter till säkerhetskopieringstjänsten för att få åtkomst till nyckelvalvet för säkerhetskopior att fungera. Du kan ange dessa behörigheter genom att följa stegen som beskrivs i följande avsnitt
 
    ![Meddelande för krypterade virtuella datorer](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
 

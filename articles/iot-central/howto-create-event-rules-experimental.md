@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 05ec5d1915c1b831e5c42a7a9ff0c0e79ad2f037
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 8655265f5f793741c2d563d1e79d4565700e0128
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735706"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768536"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för händelsen och ställa in meddelanden i Azure IoT Central programmet
 
@@ -89,7 +89,7 @@ Det här avsnittet visar hur du ställer in åtgärder att vidta när regeln utl
 1. Välj den **e-post** åtgärd, ange en giltig e-postadress i den **till** fältet och ange en kommentar ska visas i brödtexten i e-postmeddelandet när regeln utlöses.
 
     > [!NOTE]
-    > E-postmeddelanden skickas endast till de användare som har lagts till programmet och har loggat in minst en gång. Läs mer om [Användarhantering](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) i Azure IoT Central.
+    > E-postmeddelanden skickas endast till de användare som har lagts till programmet och har loggat in minst en gång. Läs mer om [Användarhantering](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) i Azure IoT Central.
 
    ![Konfigurera åtgärd](media/howto-create-event-rules-experimental/Configure_Action.png)
 
@@ -97,8 +97,8 @@ Det här avsnittet visar hur du ställer in åtgärder att vidta när regeln utl
 
 Du kan lägga till andra åtgärder för regeln, till exempel Microsoft Flow och webhooks. Du kan lägga till upp till 5 åtgärder per regel.
 
-- [Microsoft Flow-åtgärden](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) sätta igång ett arbetsflöde i Microsoft Flow när en regel utlöses 
-- [Webhook-åtgärd](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) att meddela andra tjänster när en regel utlöses
+- [Microsoft Flow-åtgärden](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) sätta igång ett arbetsflöde i Microsoft Flow när en regel utlöses 
+- [Webhook-åtgärd](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) att meddela andra tjänster när en regel utlöses
 
 ## <a name="parameterize-the-rule"></a>Parameterisera regeln
 
@@ -120,6 +120,6 @@ Gå till enheten och välj den regel du vill aktivera eller inaktivera. Visa/Dö
 
 Nu när du har lärt dig hur du skapar regler i Azure IoT Central programmet, är här några nästa steg:
 
-- [Lägg till Microsoft Flow-åtgärd i regler](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Lägg till Webhook-åtgärd i regler](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Så här hanterar du dina enheter](howto-manage-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Lägg till Microsoft Flow-åtgärd i regler](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Lägg till Webhook-åtgärd i regler](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Så här hanterar du dina enheter](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

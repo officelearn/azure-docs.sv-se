@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e795c275b832fcd59799a4d4d1107b76f6e489b6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: eb1aa90cf7a1fafaa066e5a1109d1031b53034e2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856850"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756435"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudier: Uppdatera ett program i Azure Kubernetes Service (AKS)
 
@@ -73,7 +73,7 @@ De uppdaterade värdena som anges i filen *config_file.cfg* visas i appen som k�
 
 ## <a name="tag-and-push-the-image"></a>Tagga och överföra avbildningen
 
-För att använda den uppdaterade avbildningen på rätt sätt taggar du avbildningen *azure-vote-front* med inloggningsservernamnet för ACR-registret. Hämta inloggningsservernamnet med kommandot [az acr list](/cli/azure/acr#az_acr_list):
+För att använda den uppdaterade avbildningen på rätt sätt taggar du avbildningen *azure-vote-front* med inloggningsservernamnet för ACR-registret. Hämta inloggningsservernamnet med kommandot [az acr list](/cli/azure/acr):
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

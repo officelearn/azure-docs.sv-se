@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8a54ab9e45838a81a2ea4e2e425114e19a65ba76
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f640ea2e8af8c8ae2bc8a6a1224adca17e897b81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563855"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811332"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en Linux-dator i Azure med Azure Active Directory-autentisering (förhandsversion)
 
@@ -171,7 +171,7 @@ Några vanliga fel när du försöker SSH med autentiseringsuppgifter för Azure
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>Åtkomst nekad: RBAC-roll som inte har tilldelats
 
-Om du ser följande fel i din SSH-Kommandotolken, kontrollera att du har [konfigurerat RBAC-principer](#configure-rbac-policy-for-the-virtual-machine) för den virtuella datorn som ger användaren antingen den *administratörsinloggning för virtuell dator* eller *virtuella Datorn användarinloggning* roll:
+Om du ser följande fel i din SSH-Kommandotolken, kontrollera att du har konfigurerat RBAC-principer för den virtuella datorn som ger användaren antingen den *administratörsinloggning för virtuell dator* eller *användarinloggning för virtuell dator*roll:
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

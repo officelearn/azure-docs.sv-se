@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1fb6eeb30b8ba348ce90916955bd8ffbb2cbb7c5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d0e9545a6bc8ec56bc5ae9c9532d80822bfe3505
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459183"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753137"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Snabbstart: Translator Speech API med Java 
 <a name="HOLTop"></a>
@@ -39,7 +39,7 @@ Du behöver följande filer.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här WAV-filen bör vara en 16-bitars 16 kHz-fil i PCM-standardformat. Du kan hämta en sådan WAV-fil från [Text till tal-API:et](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här WAV-filen bör vara en 16-bitars 16 kHz-fil i PCM-standardformat. Du kan hämta en sådan WAV-fil från [Text till tal-API:et](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver prenumerationsnyckeln för en betalprenumeration från din [Azure-instrumentpanel](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

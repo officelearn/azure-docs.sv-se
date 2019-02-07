@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8ac8f2fe62898cdeb386fd3a8275fec1712c1728
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5e8d45a9bf9fdffc824994238add2b8541a878a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491560"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812727"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synkronisering: Förstå deklarativ etablering
 Det här avsnittet beskriver Konfigurationsmodell i Azure AD Connect. Modellen kallas deklarativ etablering och det kan du se en konfigurationsändring enkelt. Många saker som beskrivs i det här avsnittet avancerade och krävs inte för de flesta kundscenarier med.
@@ -37,7 +37,7 @@ Pipelinen har flera olika moduler. Var och en ansvarar för ett begrepp i synkro
 * Källa, källobjektet
 * [Omfång](#scope), söker efter alla Synkroniseringsregler som är inom omfånget
 * [Ansluta till](#join), anger förhållandet mellan connector space och metaverse
-* [Omvandla](#transform), beräknar hur attribut ska omvandlas och flow
+* Transformering, beräknar hur attribut ska omvandlas och flow
 * [Prioritet](#precedence), matchas som i konflikt attributet bidrag
 * Mål, målobjektet
 

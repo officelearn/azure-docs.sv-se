@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1b303fb66e71ffb1834c5b5fb4796867a0944
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097052"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819424"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Logga in alla Azure Active Directory-användare med programmönstret för flera innehavare
 
@@ -38,7 +38,7 @@ Det finns fyra enkla steg för att konvertera ditt program i en app för flera i
 1. [Uppdatera din programregistrering om du vill att flera innehavare](#update-registration-to-be-multi-tenant)
 2. [Uppdatera koden för att skicka begäranden till den/Common slutpunkt](#update-your-code-to-send-requests-to-common)
 3. [Uppdatera koden för att hantera flera utfärdarvärden](#update-your-code-to-handle-multiple-issuer-values)
-4. [Förstå användare och administratör medgivande och göra lämplig kodändringar](#understanding-user-and-admin-consent)
+4. Förstå användare och administratör medgivande och göra lämplig kodändringar
 
 Låt oss titta på varje steg i detalj. Du kan även gå direkt till [den här listan med flera innehavare exempel][AAD-Samples-MT].
 

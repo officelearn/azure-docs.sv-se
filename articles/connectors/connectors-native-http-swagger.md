@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123180"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817759"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Anropa REST-slutpunkter med HTTP + Swagger anslutning i Azure Logic Apps
 
@@ -40,7 +40,7 @@ Här är ett exempel på hur till Använd HTTP + Swagger-åtgärden eftersom en 
 4. Ange en Swagger-dokument:
    
    * Om du vill arbeta från Logic App Designer, URL: en måste vara en HTTPS-slutpunkt och har CORS aktiverat.
-   * Om Swagger-dokument inte uppfyller detta krav kan du använda [Azure Storage med CORS aktiverat](#hosting-swagger-from-storage) dokumentet ska lagras.
+   * Om Swagger-dokument inte uppfyller detta krav kan använda du Azure Storage med CORS aktiverat dokumentet ska lagras.
 5. Klicka på **nästa** att läsa och rendera från Swagger-dokument.
 6. Lägg till i alla parametrar som krävs för HTTP-anrop.
    
@@ -96,18 +96,18 @@ En asterisk (*) innebär ett obligatoriskt fält.
 | --- | --- | --- |
 | Metoden * |metod |HTTP-verb som använder. |
 | URI: N * |URI |URI för HTTP-begäran. |
-| Sidhuvuden |rubriker |En JSON-objekt för HTTP-huvuden att inkludera. |
+| Rubriker |Rubriker |En JSON-objekt för HTTP-huvuden att inkludera. |
 | Innehåll |brödtext |HTTP-begärandetexten. |
-| Autentisering |autentisering |Autentisering som ska användas för begäran. Mer information finns i den [HTTP-anslutningsappen](connectors-native-http.md#authentication). |
+| Authentication |autentisering |Autentisering som ska användas för begäran. Mer information finns i den [HTTP-anslutningsappen](connectors-native-http.md#authentication). |
 
 **Utdatainformation**
 
 HTTP-svar
 
-| Egenskapsnamn | Datatyp | Beskrivning |
+| Namn på egenskap | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Sidhuvuden |objekt |Svarshuvud |
-| Innehåll |objekt |-Svarsobjekt |
+| Rubriker |objekt |Svarshuvud |
+| Innehåll |objekt |Svarsobjekt |
 | Statuskod |int |HTTP-statuskod |
 
 ### <a name="http-responses"></a>HTTP-svar

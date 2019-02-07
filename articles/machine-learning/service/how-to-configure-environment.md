@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b322ca0c3a19f0a832fe50b6cfbaaad287205d5e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247416"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812913"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -27,7 +27,7 @@ De enda kraven för din utvecklingsmiljö är Python 3, Conda (för isolerade mi
 
 Den här artikeln fokuserar på följande miljöer och verktyg:
 
-* [Azure Notebooks](#aznotebooks): En Jupyter notebook-tjänst som finns i Azure-molnet. Det är det enklaste sättet att komma igång, eftersom SDK: N för Azure Machine Learning har installerats.
+* Azure-datorer: En Jupyter notebook-tjänst som finns i Azure-molnet. Det är det enklaste sättet att komma igång, eftersom SDK: N för Azure Machine Learning har installerats.
 
 * [Den virtuella datorn för datavetenskap (DSVM)](#dsvm): En förinställd utvecklings- eller experimentering miljö i Azure-molnet som är avsedd för data science fungerar och kan distribueras till CPU endast VM-instanser eller GPU-baserade instanser. Python 3, Conda, Jupyter-anteckningsböcker och SDK: N för Azure Machine Learning har redan installerats. Den virtuella datorn levereras med populära machine learning och deep learning ramverk, verktyg och redigerare för att utveckla maskininlärningslösningar. Det är förmodligen mest omfattande utvecklingsmiljö för machine learning på Azure-plattformen.
 
@@ -248,7 +248,7 @@ Förbereda din Databricks-klustret och får exempelanteckningsböcker:
 
 1. Skapa en [Databricks-klustret](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) med följande inställningar:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     |----|---|
     | Klusternamn | yourclustername |
     | Databricks Runtime | Alla icke ML-körning (icke ML 4.x, 5.x) |
@@ -257,7 +257,7 @@ Förbereda din Databricks-klustret och får exempelanteckningsböcker:
 
     Använd de här inställningarna endast om du kommer att använda automatiska maskininlärning på Databricks:
     
-    |   Inställning | Value |
+    |   Inställning | Värde |
     |----|---|
     | VM-typer för Worker-nod | Minnesoptimerade virtuella datorer rekommenderas |
     | Aktivera automatisk skalning | Avmarkera |
@@ -271,13 +271,13 @@ Förbereda din Databricks-klustret och får exempelanteckningsböcker:
     * [Skapa ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) med någon av de här inställningarna (_Välj endast en av dessa alternativ_):
     
         * Installera Azure Machine Learning SDK _utan_ automatiserad machine learning-funktionen:
-            | Inställning | Value |
+            | Inställning | Värde |
             |----|---|
             |Källa | Ladda upp Python ägg eller PyPI
             |Namn på PyPi | azureml-sdk[databricks]
     
         * Installera Azure Machine Learning SDK _med_ automatiserad maskininlärning:
-            | Inställning | Value |
+            | Inställning | Värde |
             |----|---|
             |Källa | Ladda upp Python ägg eller PyPI
             |Namn på PyPi | azureml-sdk[automl_databricks]

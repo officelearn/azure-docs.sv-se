@@ -16,12 +16,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36699acab7a10a11ae60c62bab8e5130362ddfc7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247399"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817265"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -142,7 +142,7 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Starta PowerShell ISE som administratör och navigera till den **registrering** mapp i den **AzureStack-Tools-master** directory skapade när du [ned Azure Stack-verktyg](#bkmk_tools). Importera den **RegisterWithAzure.psm1** modulen med hjälp av PowerShell:
+5. Starta PowerShell ISE som administratör och navigera till den **registrering** mapp i den **AzureStack-Tools-master** katalog som skapades när du har laddat ned Azure Stack-verktyg. Importera den **RegisterWithAzure.psm1** modulen med hjälp av PowerShell:
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -206,7 +206,7 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Starta PowerShell ISE som administratör och navigera till den **registrering** mapp i den **AzureStack-Tools-master** directory skapade när du [ned Azure Stack-verktyg](#bkmk_tools). Importera den **RegisterWithAzure.psm1** modulen med hjälp av PowerShell:
+5. Starta PowerShell ISE som administratör och navigera till den **registrering** mapp i den **AzureStack-Tools-master** katalog som skapades när du har laddat ned Azure Stack-verktyg. Importera den **RegisterWithAzure.psm1** modulen med hjälp av PowerShell:
 
   ```PowerShell  
   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -225,11 +225,11 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Registrera frånkopplade med kapacitet fakturering
 
-Om du registrerar Azure Stack i en frånkopplad miljö (som saknar Internetanslutning), måste du skaffa en registrering token från Azure Stack-miljön och sedan använda denna token på en dator som kan ansluta till Azure och har [PowerShell för Azure Stack installerat](#bkmk_powershell).  
+Om du registrerar Azure Stack i en frånkopplad miljö (som saknar Internetanslutning), måste du skaffa en registrering token från Azure Stack-miljön och sedan använda denna token på en dator som kan ansluta till Azure med PowerShell för Azure Stack installerad.  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Hämta en registrering åtkomsttoken från Azure Stack-miljön
 
-1. Starta PowerShell ISE som administratör och navigera till den **registrering** mapp i den **AzureStack-Tools-master** directory skapade när du [ned Azure Stack-verktyg](#bkmk_tools). Importera den **RegisterWithAzure.psm1** modulen:  
+1. Starta PowerShell ISE som administratör och navigera till den **registrering** mapp i den **AzureStack-Tools-master** katalog som skapades när du har laddat ned Azure Stack-verktyg. Importera den **RegisterWithAzure.psm1** modulen:  
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -448,15 +448,15 @@ Om du vill köra cmdleten, behöver du:
 | Parameter | Type | Beskrivning |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | Autentiseringsuppgifterna som används för [åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Användarnamnet är i formatet **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Sträng | En förkonfigurerad PowerShell fjärrkonsolen ger tillgång till funktioner som loggar in och andra post distributionsuppgifter. Mer information finns i [med hjälp av privilegierad slutpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikeln. |
+| PrivilegedEndpoint | String | En förkonfigurerad PowerShell fjärrkonsolen ger tillgång till funktioner som loggar in och andra post distributionsuppgifter. Mer information finns i [med hjälp av privilegierad slutpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikeln. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Sträng |  |
-| ResourceGroupLocation | Sträng |  |
-| BillingModel | Sträng | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: Kapacitet, PayAsYouUse och utveckling. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: Kapacitet, PayAsYouUse och utveckling. |
 | MarketplaceSyndicationEnabled | SANT/FALSKT | Anger huruvida hanteringsfunktionen marketplace är tillgängligt i portalen. Ange som SANT om registrering med Internetanslutning. Inställt på falskt om registrering i frånkopplade miljöer. För frånkopplade registreringar den [offline syndikering verktyget](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) kan användas för att ladda ned marketplace-objekt. |
 | UsageReportingEnabled | SANT/FALSKT | Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering. Tillåtna värden för den här parametern är: True, False. |
-| AgreementNumber | Sträng |  |
-| RegistrationName | Sträng | Ange ett unikt namn för registrering om du kör skriptet registrering på fler än en instans av Azure Stack med hjälp av den samma Azure prenumerations-ID. Parametern har ett standardvärde på **AzureStackRegistration**. Men om du använder samma namn på fler än en instans av Azure Stack kan misslyckas skriptet. |
+| AgreementNumber | String |  |
+| RegistrationName | String | Ange ett unikt namn för registrering om du kör skriptet registrering på fler än en instans av Azure Stack med hjälp av den samma Azure prenumerations-ID. Parametern har ett standardvärde på **AzureStackRegistration**. Men om du använder samma namn på fler än en instans av Azure Stack kan misslyckas skriptet. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -470,14 +470,14 @@ Get-AzsRegistrationToken genererar en registreringstoken från indataparametrarn
 | Parameter | Type | Beskrivning |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Autentiseringsuppgifterna som används för [åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Användarnamnet är i formatet **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Sträng |  En förkonfigurerad PowerShell fjärrkonsolen ger tillgång till funktioner som loggar in och andra post distributionsuppgifter. Mer information finns i [med hjälp av privilegierad slutpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikeln. |
+| PrivilegedEndpoint | String |  En förkonfigurerad PowerShell fjärrkonsolen ger tillgång till funktioner som loggar in och andra post distributionsuppgifter. Mer information finns i [med hjälp av privilegierad slutpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikeln. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Sträng |  |
-| ResourceGroupLocation | Sträng |  |
-| BillingModel | Sträng | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: Kapacitet, PayAsYouUse och utveckling. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: Kapacitet, PayAsYouUse och utveckling. |
 | MarketplaceSyndicationEnabled | SANT/FALSKT |  |
 | UsageReportingEnabled | SANT/FALSKT | Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering. Tillåtna värden för den här parametern är: True, False. |
-| AgreementNumber | Sträng |  |
+| AgreementNumber | String |  |
 
 
 ## <a name="next-steps"></a>Nästa steg

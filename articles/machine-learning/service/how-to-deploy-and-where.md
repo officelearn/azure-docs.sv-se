@@ -11,16 +11,16 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a32cb694a18f8fff937f647804659efb71be415e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745732"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766630"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
-Azure Machine Learning-tjänsten finns flera sätt du kan distribuera tränade modellen med hjälp av SDK. I det här dokumentet lär du dig hur du distribuerar din modell som en webbtjänst i Azure-molnet, eller IoT edge-enheter.
+Azure Machine Learning-tjänsten finns flera sätt du kan distribuera tränade modellen med hjälp av SDK. I det här dokumentet lär du dig hur du distribuerar din modell som en webbtjänst i Azure-molnet, eller IoT Edge-enheter.
 
 > [!IMPORTANT]
 > Cross-origin resource sharing (CORS) stöds inte för närvarande när du distribuerar en modell som en webbtjänst.
@@ -119,7 +119,7 @@ Körning av skriptet tar emot data som skickas till en distribuerade avbildninge
 
 #### <a name="working-with-json-data"></a>Arbeta med JSON-data
 
-Följande är ett exempelskript som godkänner och returnerar JSON-data. Den `run` funktionen omvandlar data från JSON till ett format att modellen förväntar sig och sedan omvandlar JSON svaret innan det returneras:
+Följande exempelskript godkänner och returnerar JSON-data. Den `run` funktionen omvandlar data från JSON till ett format att modellen förväntar sig och sedan omvandlar JSON svaret innan det returneras:
 
 ```python
 # import things required by this script
@@ -149,7 +149,7 @@ def run(raw_data):
 
 #### <a name="working-with-binary-data"></a>Arbeta med binära data
 
-Om din modell accepterar __binärdata__, använda `AMLRequest`, `AMLResponse`, och `rawhttp`. Följande är ett exempel på ett skript som tar emot binära data och Returnerar inverterad byte för POST-förfrågningar. För GET-begäranden returnerar den fullständiga URL i svarstexten:
+Om din modell accepterar __binärdata__, använda `AMLRequest`, `AMLResponse`, och `rawhttp`. Följande exempelskript accepterar binära data och Returnerar inverterad byte för POST-förfrågningar. För GET-begäranden returnerar den fullständiga URL i svarstexten:
 
 ```python
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -244,9 +244,6 @@ Om du vill distribuera till Azure Container Instances, använder du följande st
 
     **Uppskattad tidsåtgång**: Ca 3 minuter.
 
-    > [!TIP]
-    > Om det uppstår fel under distributionen kan du använda `service.get_logs()` att visa tjänstloggar. Loggade informationen kan tyda på orsaken till felet.
-
 Mer information finns i referensdokumentationen för den [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klasser.
 
 ### <a id="aks"></a> Distribuera till Azure Kubernetes Service
@@ -334,9 +331,6 @@ print(service.state)
 
 **Uppskattad tidsåtgång**: Ca 3 minuter.
 
-> [!TIP]
-> Om det uppstår fel under distributionen kan du använda `service.get_logs()` att visa tjänstloggar. Loggade informationen kan tyda på orsaken till felet.
-
 Mer information finns i referensdokumentationen för den [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klasser.
 
 ### <a id="fpga"></a> Distribuera till fältet-programmable gate matriser (FPGA)
@@ -371,7 +365,7 @@ sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup
 
 Spara den resulterande anslutningssträngen efter ”cs”: ”{kopiera den här strängen}”.
 
-Initiera din enhet genom att ladda ned [det här skriptet](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) i en UbuntuX64 IoT edge-nod eller DSVM att köra följande kommandon:
+Initiera din enhet genom att ladda ned [det här skriptet](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) i en UbuntuX64 IoT Edge-nod eller DSVM att köra följande kommandon:
 
 ```bash
 ssh <yourusername>@<yourdeviceip>
@@ -382,7 +376,7 @@ sudo ./installIoTEdge
 
 IoT Edge-nod är redo att ta emot anslutningssträngen för IoT-hubben. Leta efter raden ```device_connection_string:``` och klistra in anslutningssträngen ovan mellan citattecknen.
 
-Du kan också lära dig hur du registrerar din enhet och installera IoT runtime steg för steg genom att följa den [Snabbstart: Distribuera din första IoT Edge-modul till en enhet med Linux x64](../../iot-edge/quickstart-linux.md) dokumentet.
+Du kan också lära dig hur du registrerar din enhet och installera IoT-runtime genom att följa den [Snabbstart: Distribuera din första IoT Edge-modul till en enhet med Linux x64](../../iot-edge/quickstart-linux.md) dokumentet.
 
 
 #### <a name="get-the-container-registry-credentials"></a>Hämta autentiseringsuppgifter för registret
@@ -469,7 +463,7 @@ Webbtjänsten är ett REST-API så du kan skapa klientprogram på flera olika pr
 
 ## <a id="update"></a> Uppdatera webbtjänsten
 
-Om du vill uppdatera webbtjänsten använder den `update` metoden. Följande kod visar hur du uppdaterar webbtjänsten för att använda en ny avbildning:
+När du skapar en ny avbildning måste du måste manuellt uppdatera varje tjänst som du vill använda den nya avbildningen. Om du vill uppdatera webbtjänsten använder den `update` metoden. Följande kod visar hur du uppdaterar webbtjänsten för att använda en ny avbildning:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -487,9 +481,6 @@ service.update(image = new_image)
 print(service.state)
 ```
 
-> [!NOTE]
-> När du uppdaterar en bild, uppdateras inte webbtjänsten automatiskt. Du måste manuellt uppdatera varje tjänst som du vill använda den nya avbildningen.
-
 Mer information finns i referensdokumentationen för den [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klass.
 
 ## <a name="clean-up"></a>Rensa
@@ -501,6 +492,19 @@ Om du vill ta bort en avbildning, använder `image.delete()`.
 Ta bort registrerade modellen genom att använda `model.delete()`.
 
 Mer information finns i referensdokumentationen för [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), och [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
+## <a name="troubleshooting"></a>Felsökning
+
+* __Om det uppstår fel under distributionen av__, använda `service.get_logs()` att visa tjänstloggar. Loggade informationen kan tyda på orsaken till felet.
+
+* Loggarna kan innehålla ett fel där du uppmanas att __ange loggningsnivån till DEBUG__. Om du vill ange loggningsnivån, lägger du till följande rader till din bedömningsskriptet skapa avbildningen och sedan skapa en tjänst med avbildningen:
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    Den här ändringen kan ytterligare loggning, och kan returnera mer information om varför felet inträffar.
 
 ## <a name="next-steps"></a>Nästa steg
 

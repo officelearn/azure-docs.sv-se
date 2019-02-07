@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: 9576854fbad88724f3d229d239b9d3e263fb7492
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912409"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820002"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klassrum labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och tar bort ett klassrumslabb. Den också visar hur du visar alla klassrum-labb i ett labbkonto. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i den här rollen. Labbägare kan lägga till andra användare till rollen Labbskaparen med hjälp av stegen i följande artikel: [Lägga till en användare till rollen Labbskaparen](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i den här rollen. Labbägaren kan lägga till andra användare till rollen Lab Creator genom att använda stegen i följande artikel: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) (Lägga till en användare till rollen Lab Creator).
 
 ## <a name="create-a-classroom-lab"></a>Skapa ett klassrumslabb
 
@@ -72,7 +72,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 
         > [!WARNING]
         > När du väl har publicerat kan du inte ångra publiceringen. 
-    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera mallen för den virtuella datorn när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden slutförts, se mer information om hur du konfigurerar och publicerar när guiden slutförts finns i [publicerar du mallen](#publish-the-template) i avsnittet den [hantera klassrum labs ](how-to-manage-classroom-labs.md) artikeln.
+    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera mallen för den virtuella datorn när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden slutförts, finns mer information om hur du konfigurerar och publicerar när guiden slutförts, finns i mallen i avsnittet Publicera den [hantera klassrum labs](how-to-manage-classroom-labs.md) artikeln.
 
         ![Publicera mall](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Du ser **förloppet för publiceringen**  av mallen. Den här processen kan ta upp till en timma. 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ede0b7cbeee9227a7023e5c0550a951897cc43e4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472991"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821192"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET
 
@@ -112,7 +112,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 Den `kind` -parametern för den [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[ SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) metoden kategoriserar bevarade filer. Det finns fyra fördefinierade [TaskOutputKind] [ net_taskoutputkind] typer: `TaskOutput`, `TaskPreview`, `TaskLog`, och `TaskIntermediate.` du kan också definiera anpassade kategorier av utdata.
 
-Dessa typer av utdata kan du ange vilken typ av utdata till när du senare frågor mot Batch för beständiga utdata för en viss uppgift. Med andra ord kan du filtrera listan på en av utdatatyper som när du listar utdata för en aktivitet. Till exempel ”ge mig den *förhandsversion* utdata för aktiviteten *109*”. Mer information om lista och hämta utdata visas i [hämta utdata](#retrieve-output) senare i artikeln.
+Dessa typer av utdata kan du ange vilken typ av utdata till när du senare frågor mot Batch för beständiga utdata för en viss uppgift. Med andra ord kan du filtrera listan på en av utdatatyper som när du listar utdata för en aktivitet. Till exempel ”ge mig den *förhandsversion* utdata för aktiviteten *109*”. Mer information om lista och hämta utdata visas i hämta utdata senare i artikeln.
 
 > [!TIP]
 > Vilken typ av utdata anger också var i Azure-portalen en viss fil visas: *TaskOutput*-kategoriserade filer visas under **uppgift utdatafiler**, och *TaskLog* filer visas under **uppgift loggar**.
@@ -197,7 +197,7 @@ Azure-portalen visar utdata aktivitetsfiler och loggar som har sparats till en l
 
 Om du vill aktivera visning av din utdatafilerna i portalen, måste du uppfylla följande krav:
 
-1. [Länka ett Azure Storage-konto](#requirement-linked-storage-account) till Batch-kontot.
+1. Länka ett Azure Storage-konto till Batch-kontot.
 1. Följa de fördefinierade regler för namngivning av behållare och filer när spara utdata. Du kan hitta definitionen av dessa konventioner i File Conventions-bibliotek [README][github_file_conventions_readme]. Om du använder den [Azure Batch File Conventions] [ nuget_package] -biblioteket för att spara din utdata, dina filer sparas enligt File Conventions-standarden.
 
 Om du vill visa loggar och uppgiften utdatafilerna i Azure-portalen, navigera till aktivitet vars utdata du är intresserad av, klickar sedan på antingen **sparade utdatafiler** eller **sparade loggar**. Den här bilden visar den **sparade utdatafiler** för uppgiften med ID ”007”:

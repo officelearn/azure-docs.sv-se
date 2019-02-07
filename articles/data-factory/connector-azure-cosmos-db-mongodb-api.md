@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d45e4cc8781f4c235c641c4c99f1720871d57fb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 82418c03039219adedf45828d769d278a14499ff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359008"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816177"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Kopiera data till eller från Azure Cosmos DB API för MongoDB med hjälp av Azure Data Factory
 
@@ -34,7 +34,7 @@ Du kan använda Azure Cosmos DB: s API för MongoDB-anslutningsprogrammet kan:
 
 - Kopiera data från och till den [Azure Cosmos DB-API för MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction).
 - Skriva till Azure Cosmos DB som **infoga** eller **upsert**.
-- Importera och exportera JSON-dokument som – är, eller kopiera data från eller till en datauppsättning i tabellformat. Exempel: en SQL-databas och en CSV-fil. Dokument som att kopiera-är till eller från JSON-filer eller till eller från en annan Azure Cosmos DB-samling finns i [Import eller export JSON-dokument](#importexport-json-documents).
+- Importera och exportera JSON-dokument som – är, eller kopiera data från eller till en datauppsättning i tabellformat. Exempel: en SQL-databas och en CSV-fil. Dokument som att kopiera-är eller från JSON-filer eller till eller från en annan Azure Cosmos DB-samling, finns i Importera eller exportera JSON-dokument.
 
 ## <a name="get-started"></a>Kom igång
 

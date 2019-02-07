@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 47227b1f9ceb4ba9e35180aa0cb171d1edd5bb9a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edebd2efda7d8217c9b554f2d1f54135203502cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696854"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821566"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Skapa en Linux VM från en anpassad disk med Azure CLI
 
@@ -31,8 +31,8 @@ Den här artikeln visar hur du överför en anpassad virtuell hårddisk (VHD) oc
 Om du vill skapa flera virtuella datorer från den anpassade disken, skapa en avbildning från din virtuella dator eller VHD. Mer information finns i [skapa en anpassad avbildning av en Azure-dator med hjälp av CLI](tutorial-custom-images.md).
 
 Du har två alternativ för att skapa en anpassad disk:
-* [Överföra en virtuell hårddisk](#option-1-upload-a-specialized-vhd)
-* [Kopiera en befintlig Azure VM](#option-2-copy-an-existing-azure-vm)
+* Ladda upp en virtuell hårddisk
+* Kopiera en befintlig Azure VM
 
 ## <a name="quick-commands"></a>Snabbkommandon
 

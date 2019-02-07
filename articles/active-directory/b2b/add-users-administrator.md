@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 2/6/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 43cceeb9b65bcee97855f96c781c5d157b32346a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 001eb1946ff0fdc073baaa6da76f4bfa63fc3652
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080931"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810635"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal
 
@@ -45,7 +45,7 @@ Följ dessa steg om du vill lägga till användare i B2B-samarbetet i katalogen:
    ![Visar där ny gästanvändare är i Användargränssnittet](./media/add-users-administrator/InviteGuest.png) 
 
     > [!NOTE]
-    > Vissa e-postleverantörer Tillåt användare att lägga till ett plustecken symbolen (+) och ytterligare text till sina e-postadresser som hjälper med sådant som inkorg filtrering. Dock Azure AD stöder för närvarande inte plustecken i e-postadresser. Om du vill undvika problem med leverans, utelämnar du på plustecknet och eventuella tecknen efter det upp till den @-tecknet.
+    > Grupp e-postadresser stöds inte; Ange den e-postadressen för en person. Dessutom vissa e-postleverantörer Tillåt användare att lägga till ett plustecken symbolen (+) och ytterligare text till sina e-postadresser som hjälper med sådant som inkorg filtrering. Dock Azure AD stöder för närvarande inte plustecken i e-postadresser. Om du vill undvika problem med leverans, utelämnar du på plustecknet och eventuella tecknen efter det upp till den @-tecknet.
 
 6. Välj **Bjud in** för att skicka inbjudan till gästanvändaren automatiskt. 
  

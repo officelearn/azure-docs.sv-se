@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 0103225803ca98cb9d8e27eb57f150e0660cd7ab
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 8a6a679aaf43e4a92eb380368f3d68704853d3a3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299145"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816823"
 ---
 # <a name="management-solutions-in-azure-monitor"></a>Lösningar för hantering i Azure Monitor
 Lösningar för hantering av utnyttja tjänster i Azure för att ge ytterligare insikter i driften av ett visst program eller tjänst. Den här artikeln innehåller en kort översikt över lösningar för hantering i Azure och information om hur du använder och installeras.
@@ -101,7 +101,7 @@ Du kan kontrollera länken mellan en Log Analytics-arbetsyta och ett Automation-
 1. Om den **arbetsytan** inställningen är aktiverad och sedan det här kontot är länkat till en Log Analytics-arbetsyta. Du kan klicka på **arbetsytan** att visa information om arbetsytan.
 
 ## <a name="remove-a-management-solution"></a>Ta bort en lösning för hantering
-Om du vill ta bort en installerad lösning, hitta det i den [listan över installerade lösningar](#list-installed-monitoring-solutions). Klicka på namnet på lösningen att öppna dess sammanfattningssidan och klicka sedan på **ta bort**.
+Ta bort en installerad lösning genom att leta upp den i listan över installerade lösningar. Klicka på namnet på lösningen att öppna dess sammanfattningssidan och klicka sedan på **ta bort**.
 
 
 

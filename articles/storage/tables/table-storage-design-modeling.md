@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 7f629ceb9fe5bd19c0558d1fde45d0bddcee744e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458881"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813015"
 ---
 # <a name="modeling-relationships"></a>Modellera relationer
 Den här artikeln beskrivs modelleringsprocessen för att hjälpa dig att utforma dina lösningar för Azure Table storage.
@@ -101,7 +101,7 @@ Domänmodeller kan innehålla 1: 1-relationer mellan entiteter. Om du behöver i
 Det finns också tänka på vid implementering som kan leda dig att implementera motsvarighet i Table service:  
 
 * Hantering av stora entiteter (Mer information finns i [stora entiteter mönstret](table-storage-design-patterns.md#large-entities-pattern)).  
-* Implementera åtkomstkontroller (Mer information finns i [Kontrollera åtkomst med signaturer för delad åtkomst](#controlling-access-with-shared-access-signatures)).  
+* Implementera åtkomstkontroller (Mer information finns i Kontrollera åtkomst med signaturer för delad åtkomst).  
 
 ## <a name="join-in-the-client"></a>Gå med i klienten
 Även om det finns olika sätt att modeller av relationer i Table service, bör du inte glömma att två huvudsakliga skäl till att använda tabelltjänsten finns skalbarhet och prestanda. Om du hittar du modellering många relationer som kan påverka prestanda och skalbarhet för din lösning, bör du be dig själv om det är nödvändigt att skapa alla datarelationer i tabelldesign. Du kan förenkla utformningen och förbättra skalbarhet och prestanda för din lösning om du låter ditt klientprogram som utför alla nödvändiga kopplingar.  
@@ -117,7 +117,7 @@ Du kan även spara instanser av de två konkreta klasserna i Table service med h
 
 ![Person-tabell](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Mer information om hur du arbetar med flera typer av enheter i samma tabell i klientkod finns i avsnittet [erfarenhet av heterogena entitetstyper](#working-with-heterogeneous-entity-types) senare i den här guiden. Detta ger exempel på hur du känner igen entitetstypen i klientkod.  
+Mer information om hur du arbetar med flera typer av enheter i samma tabell i klientkod finns i avsnittet Arbeta med heterogena entitetstyper senare i den här guiden. Detta ger exempel på hur du känner igen entitetstypen i klientkod.  
 
 
 ## <a name="next-steps"></a>Nästa steg

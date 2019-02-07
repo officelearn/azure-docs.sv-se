@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b32fd36c5fd546f7d2138cb2b48ee2854667f948
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044271"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510960"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -56,34 +56,34 @@ För att använda Azure Storage eller Azure Cosmos DB behöver du Azure Storage 
 ### <a name="import-the-package"></a>Importera paketet
 Lägg till följande kod överst i filen **server.js** i ditt program:
 
-```nodejs
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="add-an-azure-storage-connection"></a>Lägga till en Azure Storage-anslutning
 Azure-modulen läser miljövariablerna AZURE_STORAGE_ACCOUNT och AZURE_STORAGE_ACCESS_KEY eller AZURE_STORAGE_CONNECTION_STRING och letar efter information som behövs för att ansluta till ditt Azure Storage-konto. Om dessa miljövariabler inte har definierats måste du ange kontoinformationen när du anropar **TableService**. Exempelvis skapas ett **TableService**-objekt i följande kod:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
 Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar** > **Anslutningssträng** på Azure Portal för ditt Cosmos-DB-konto. Exempel:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## <a name="create-a-table"></a>Skapa en tabell
 I följande kod skapas ett **TableService**-objekt som sedan används för att skapa en ny tabell. 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService();
 ```
 
 Anropet till **createTableIfNotExists** skapar en ny tabell med det angivna namnet om tabellen inte redan finns. I följande exempel skapas en ny tabell med namnet ”mytable” om den inte redan finns:
 
-```nodejs
+```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
   if(!error){
     // Table exists or created
@@ -96,13 +96,13 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 ### <a name="filters"></a>Filter
 Om du vill kan du tillämpa filtrering på åtgärder som utförs med **TableService**. Exempel på filtreringsåtgärder är loggning, automatiska omförsök osv. Filter är objekt som implementerar en metod med signaturen:
 
-```nodejs
+```javascript
 function handle (requestOptions, next)
 ```
 
 Efter den förberedande bearbetningen av alternativen för begäran måste metoden anropa **next** och skicka ett återanrop med följande signatur:
 
-```nodejs
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -110,7 +110,7 @@ I det här återanropet, och efter bearbetningen av **returnObject** (svaret fr�
 
 Azure SDK för Node.js innehåller två filter som implementerar logik för omförsök: **ExponentialRetryPolicyFilter** och **LinearRetryPolicyFilter**. I följande kod skapas ett **TableService**-objekt som använder **ExponentialRetryPolicyFilter**:
 
-```nodejs
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
@@ -125,7 +125,7 @@ Både **PartitionKey** och **RowKey** måste vara strängvärden. Mer informatio
 
 Följande är ett exempel på hur du definierar en entitet. Observera att **dueDate** definieras som en typ av **Edm.DateTime**. Typen är inte obligatorisk, och typer härleds om de inte anges.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -141,7 +141,7 @@ var task = {
 
 Du kan också använda **entityGenerator** för att skapa entiteter. I följande exempel skapas samma uppgiftsentitet med hjälp av **entityGenerator**.
 
-```nodejs
+```javascript
 var entGen = azure.TableUtilities.entityGenerator;
 var task = {
   PartitionKey: entGen.String('hometasks'),
@@ -153,7 +153,7 @@ var task = {
 
 Om du vill lägga till en entitet i en tabell anger du entitetsobjektet i metoden **insertEntity**.
 
-```nodejs
+```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
   if(!error){
     // Entity inserted
@@ -165,7 +165,7 @@ Om åtgärden lyckas innehåller `result` den infogade postens [ETag](https://en
 
 Exempelsvar:
 
-```nodejs
+```javascript
 { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
 
@@ -186,7 +186,7 @@ Du kan uppdatera en befintlig entitet med hjälp av olika metoder:
 
 Exemplet nedan visar hur en entitet uppdateras med hjälp av **replaceEntity**:
 
-```nodejs
+```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
   if(!error) {
     // Entity updated
@@ -214,7 +214,7 @@ Ibland är det praktiskt att skicka flera åtgärder tillsammans i en batch för
 
  Exemplet nedan beskriver hur du skickar två entiteter i en batch:
 
-```nodejs
+```javascript
 var task1 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -254,7 +254,7 @@ Du kan inspektera åtgärder som lagts till i en batch genom att visa egenskapen
 ## <a name="retrieve-an-entity-by-key"></a>Hämta en entitet baserat på nyckel
 Om du vill returnera en specifik entitet baserat på **PartitionKey** och **RowKey** använder du metoden **retrieveEntity**.
 
-```nodejs
+```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
   if(!error){
     // result contains the entity
@@ -276,7 +276,7 @@ Om du vill hämta data från en tabell använder du objektet **TableQuery** för
 
 I följande exempel skapas en fråga som returnerar de fem översta posterna med partitionsnyckeln (PartitionKey) ”hometasks”.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .top(5)
   .where('PartitionKey eq ?', 'hometasks');
@@ -284,7 +284,7 @@ var query = new azure.TableQuery()
 
 Eftersom **select** inte används returneras alla fält. Om du vill köra frågan mot en tabell använder du **queryEntities**. I följande exempel används den här frågan för att returnera entiteter från ”mytable”.
 
-```nodejs
+```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
   if(!error) {
     // query was successful
@@ -298,7 +298,7 @@ Om åtgärden lyckas innehåller `result.entries` en matris med entiteter som ma
 En fråga till en tabell kan bara hämta några fält från en entitet.
 Detta minskar bandbredden och kan förbättra frågeprestanda, särskilt för stora entiteter. Använd **select**-satsen och ange namnen på fälten som ska returneras. Följande fråga returnerar till exempel bara **description**- och **dueDate**-fälten.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .select(['description', 'dueDate'])
   .top(5)
@@ -308,7 +308,7 @@ var query = new azure.TableQuery()
 ## <a name="delete-an-entity"></a>Ta bort en entitet
 Du kan ta bort en entitet med hjälp av dess partitions- och radnycklar. I det här exemplet innehåller **task1**-objektet **RowKey**- och **PartitionKey**-värdena för entiteten som ska tas bort. Objektet skickas sedan till metoden **deleteEntity**.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'}
@@ -329,7 +329,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ## <a name="delete-a-table"></a>Ta bort en tabell
 Följande kod tar bort en tabell från ett lagringskonto.
 
-```nodejs
+```javascript
 tableSvc.deleteTable('mytable', function(error, response){
     if(!error){
         // Table deleted
@@ -346,7 +346,7 @@ Leta efter en fortsättningstoken när du frågar tabeller efter stora mängder 
 
 När du frågar kan du lägga till en `continuationToken`-parameter mellan instansen av frågeobjektet och återanropsfunktionen:
 
-```nodejs
+```javascript
 var nextContinuationToken = null;
 dc.table.queryEntities(tableName,
     query,
@@ -372,7 +372,7 @@ Ett betrott program, till exempel en molnbaserad tjänst, genererar en SAS med h
 
 I följande exempel genereras en ny SAS-princip som ger innehavaren av signaturen för delad åtkomst tillåtelse att fråga (”r”) tabellen. Den här principen upphör att gälla 100 minuter efter den tidpunkt då den skapas.
 
-```nodejs
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -394,7 +394,7 @@ Observera att du också måste ange värdinformationen eftersom den krävs när 
 
 Klientprogrammet använder sedan signaturen för delad åtkomst med **TableServiceWithSAS** för att köra åtgärder mot tabellen. Koden i följande exempel ansluter till tabellen och kör en fråga. Se artikeln [Använda signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris) för formatet i tableSAS. 
 
-```nodejs
+```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -415,7 +415,7 @@ Du kan också använda en åtkomstkontrollista (ACL) för att definiera åtkomst
 
 En åtkomstkontrollista implementeras med hjälp av en matris med åtkomstprinciper, med ett ID som associeras med varje princip. I följande exempel definieras två principer, en för ”user1” och en för ”user2”:
 
-```nodejs
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -432,7 +432,7 @@ var sharedAccessPolicy = {
 
 Koden i följande exempel hämtar den aktuella åtkomstkontrollistan för tabellen **hometasks** och lägger sedan till de nya principerna med hjälp av **setTableAcl**. Med den här metoden kan du göra följande:
 
-```nodejs
+```javascript
 var extend = require('extend');
 tableSvc.getTableAcl('hometasks', function(error, result, response) {
 if(!error){
@@ -448,7 +448,7 @@ if(!error){
 
 När åtkomstkontrollistan har skapats kan du skapa en signatur för delad åtkomst baserat på ID:t för en princip. I följande exempel skapas en ny signatur för delad åtkomst för ”user2”:
 
-```nodejs
+```javascript
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 

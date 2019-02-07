@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: f36ee3ce6a8d678cdd846474576fc049df0b4f88
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472311"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815769"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrera din SQL-kod till SQL Data Warehouse
 Den här artikeln förklarar ändringar i koden behöver du förmodligen göra när du migrerar din kod från en annan databas till SQL Data Warehouse. Vissa SQL Data Warehouse-funktioner kan avsevärt förbättra prestanda eftersom de har utformats för att arbeta i en distribuerad sätt. Men för att upprätthålla prestanda och skalning, är vissa funktioner också inte tillgängliga.
@@ -32,7 +32,7 @@ I följande lista sammanfattas de vanligaste funktioner som inte har stöd för 
 * Output-sats
 * infogade användardefinierade funktioner
 * flera instruktioner funktioner
-* [vanliga tabelluttryck](#Common-table-expressions)
+* vanliga tabelluttryck
 * [rekursiva cte (CTE)] (#Recursive-common-table-expressions-(CTE)
 * CLR-funktioner och procedurer
 * $partition funktion

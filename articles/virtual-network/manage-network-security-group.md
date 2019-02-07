@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 28b73a70ef9ffd4e73117d599448434823747eca
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567408"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822450"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en grupp
 
@@ -92,7 +92,7 @@ Om du vill associera en nätverkssäkerhetsgrupp till eller koppla bort en grupp
 
 ### <a name="delete-a-network-security-group"></a>Ta bort en grupp
 
-Om en nätverkssäkerhetsgrupp är associerad till alla undernät eller ett nätverksgränssnitt, kan inte tas bort. [Koppla bort](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) en nätverkssäkerhetsgrupp från alla undernät och nätverksgränssnitt innan du försöker ta bort den.
+Om en nätverkssäkerhetsgrupp är associerad till alla undernät eller ett nätverksgränssnitt, kan inte tas bort. Koppla bort en grupp från alla undernät och nätverksgränssnitt innan du försöker ta bort den.
 
 1. Ange i sökrutan överst på portalen *nätverkssäkerhetsgrupper* i sökrutan. När **nätverkssäkerhetsgrupper** visas i sökresultaten, markerar du den.
 2. Välj den grupp du vill ta bort från listan.

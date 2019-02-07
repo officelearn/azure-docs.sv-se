@@ -10,12 +10,12 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219778"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816221"
 ---
 # <a name="basic-concepts"></a>Grundläggande begrepp
 
@@ -92,7 +92,7 @@ Microsoft speech igenkänning av tjänsten ger dig två sätt för utvecklare at
 Det finns tre lägen för taligenkänning: `interactive`, `conversation`, och `dictation`. Igenkänning av läge justerar taligenkänning baserat på hur användarna är sannolikt att tala. Välj lämplig erkännande läge för ditt program.
 
 > [!NOTE]
-> Igenkänning av lägen kan ha olika beteenden i den [REST-protokoll](#rest-speech-recognition-api) än i den [WebSocket-protokoll](#webSocket-speech-recognition-api). REST API stöder till exempel inte kontinuerlig erkännande, även i konversationen eller diktering läge.
+> Igenkänning av lägen kan ha olika beteenden i REST-protokoll än i WebSocket-protokoll. REST API stöder till exempel inte kontinuerlig erkännande, även i konversationen eller diktering läge.
 > [!NOTE]
 > Dessa lägen gäller när du använder REST- eller WebSocket-protokollet direkt. Den [klientbibliotek](GetStarted/GetStartedClientLibraries.md) använda olika parametrar för att ange erkännande läge. Mer information finns i klientbiblioteket för ditt val.
 
@@ -161,7 +161,7 @@ Svaren avskrift returnera den konvertera texten från ljud till klienter. En avs
 
 | Status | Beskrivning |
 | ------------- | ---------------- |
-| Klart | Erkännande lyckades och fältet text finns |
+| Lyckades | Erkännande lyckades och fältet text finns |
 | NoMatch | Tal påträffades i ljudströmmen, men inga ord från målspråket som kunde matchas. Se [NoMatch erkännande Status(#nomatch-recognition-status) för mer information  |
 | InitialSilenceTimeout | Början av ljudströmmen ingår endast tystnad och tjänsten tidsgränsen för tal |
 | BabbleTimeout | Början av ljudströmmen ingår endast bruset och tjänsten tidsgränsen för tal |

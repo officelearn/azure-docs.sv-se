@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 93534cf80a007dbb848a515ec4ec165c67e3b456
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: deca97b0749ceab9f2dfaf3c3940ac6b02b9c104
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730704"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822195"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -52,7 +52,7 @@ När du skapar en virtuell dator med Azure-portalen, skapar portalen ett nätver
     |Privata IP-adresstilldelning|Ja| I den här inställningen väljer du tilldelningsmetod för IPv4-adress. Välj av följande tilldelningsmetoder: **Dynamiska:** När du väljer det här alternativet, tilldelar Azure automatiskt nästa tillgängliga adress från adressutrymmet för det undernät som du har valt. **Statisk:** När du väljer det här alternativet måste du manuellt tilldela en tillgänglig IP-adress inom adressutrymmet för det undernät som du har valt. Statiska och dynamiska adresser ändras inte tills du ändrar dem eller nätverksgränssnittet har tagits bort. Du kan ändra tilldelningsmetoden när nätverkskortet har skapats. Azure DHCP-server tilldelar den här adressen till nätverksgränssnittet i operativsystemet för den virtuella datorn.|
     |Nätverkssäkerhetsgrupp|Nej| Lämna inställd **ingen**, Välj en befintlig [nätverkssäkerhetsgrupp](security-overview.md), eller [skapa en nätverkssäkerhetsgrupp](tutorial-filter-network-traffic.md). Nätverkssäkerhetsgrupper kan du filtrera nätverkstrafik och från ett nätverksgränssnitt. Du kan använda noll eller en nätverkssäkerhetsgrupp för ett nätverksgränssnitt. Noll eller en säkerhetsgrupp i nätverket kan även tillämpas på det undernät som nätverksgränssnittet har tilldelats. När en nätverkssäkerhetsgrupp används för ett nätverksgränssnitt och undernät som nätverksgränssnittet har tilldelats, inträffa ibland oväntade resultat. Om du vill felsöka nätverkssäkerhetsgrupper för nätverksgränssnitt och undernät, se [felsöka nätverkssäkerhetsgrupper](diagnose-network-traffic-filter-problem.md).|
     |Prenumeration|Ja|Välj en av dina Azure [prenumerationer](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Den virtuella datorn som du kan koppla ett nätverksgränssnitt för och det virtuella nätverket som du ansluter den till måste finnas i samma prenumeration.|
-    |Privat IP-adress (IPv6)|Nej| Om du väljer den här kryssrutan måste tilldelas en IPv6-adress till nätverksgränssnittet, förutom IPv4-adress för nätverksgränssnittet. Se den [IPv6](#IPv6) i den här artikeln för viktig information om användning av IPv6 med nätverksgränssnitt. Du kan inte välja en tilldelningsmetod för IPv6-adress. Om du vill tilldela en IPv6-adress tilldelas den med metoden dynamisk.
+    |Privat IP-adress (IPv6)|Nej| Om du väljer den här kryssrutan måste tilldelas en IPv6-adress till nätverksgränssnittet, förutom IPv4-adress för nätverksgränssnittet. IPv6-avsnittet i den här artikeln för viktig information om användning av IPv6 med nätverksgränssnitt. Du kan inte välja en tilldelningsmetod för IPv6-adress. Om du vill tilldela en IPv6-adress tilldelas den med metoden dynamisk.
     |IPv6-namn (visas bara när den **privat IP-adress (IPv6)** är markerad) |Ja, om den **privat IP-adress (IPv6)** är markerad.| Det här namnet är tilldelad till en sekundär IP-konfiguration för nätverksgränssnittet. Läs mer om IP-konfigurationer i [Visa inställningar för nätverksgränssnittet](#view-network-interface-settings).|
     |Resursgrupp|Ja|Välj en befintlig [resursgrupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) eller skapa ett. Ett nätverksgränssnitt kan finnas i samma eller olika resursgruppen, den virtuella datorn som du ansluter den till, eller det virtuella nätverket som du ansluter den till.|
     |Plats|Ja|Den virtuella datorn du har kopplat ett nätverksgränssnitt för och det virtuella nätverket som du ansluter den till måste finnas i samma [plats](https://azure.microsoft.com/regions), vilket även kallas en region.|

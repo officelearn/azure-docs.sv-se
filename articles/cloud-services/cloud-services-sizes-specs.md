@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 78a073ec7ee8432ba7804daef150afcbbca23ef6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095577"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818710"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlekar för Cloud Services
 Det här avsnittet beskrivs tillgängliga storlekar och alternativ för molntjänstrollinstanser (webb- och arbetsroller). Det ger också distributionsöverväganden ska tänka på när du planerar att använda de här resurserna. Varje storlek har ett ID som du lägger till i din [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef). Priserna för varje storlek är tillgänglig på den [priser för Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) sidan.
@@ -63,11 +63,11 @@ Vi har skapat konceptet för den Azure Compute-beräkningsenhet (ACU) att tillha
 | [Små Extrastora](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [En v2](#av2-series) |100 |
+| [A v2](#av2-series) |100 |
 | [D](#d-series) |160 |
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
-| [E-v3](#ev3-series) |160 - 190* |
+| [E v3](#ev3-series) |160 - 190* |
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -98,7 +98,7 @@ Information och överväganden om hur du använder dessa storlekar finns i [hög
 
 | Storlek            | Processorkärnor | Minne: GiB  | Temporär lagring: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| A8 *             |8          | 56           | 1817                 | 2 / hög |
+| A8*             |8          | 56           | 1817                 | 2 / hög |
 | A9*             |16         | 112          | 1817                 | 4 / mycket hög |
 | A10             |8          | 56           | 1817                 | 2 / hög |
 | A11             |16         | 112          | 1817                 | 4 / mycket hög |
@@ -195,7 +195,7 @@ Förutom den imponerande processorkraften erbjuder H-serien olika alternativ fö
 ## <a name="configure-sizes-for-cloud-services"></a>Så här konfigurerar du storlekar för Cloud Services
 Du kan ange storleken på virtuella datorn för en rollinstans som en del av den modell som beskrivs av den [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef). Storleken på rollen avgör antalet CPU-kärnor, minneskapaciteten och lokala system filstorleken som allokerats till en instans som körs. Välj den rollstorlek baserat på ditt programs resurskrav.
 
-Här är ett exempel för att ställa in rollstorleken som ska vara [Standard_D2](#general-purpose-d) för en Webbroll-instans:
+Här är ett exempel för att ställa in rollstorleken vara Standard_D2 för en Webbroll-instans:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">

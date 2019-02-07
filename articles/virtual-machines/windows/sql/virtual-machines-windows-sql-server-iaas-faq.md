@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358991"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767347"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -86,7 +86,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag ändra en virtuell dator om du vill använda min egen SQL Server-licens om den har skapats från en användningsbaserad galleriavbildningar?**
 
-   Ja. Du kan flytta enkelt flytta mellan två licensieringsmodeller finns, oavsett den avbildning som ursprungligen har distribuerats. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md).
+   Ja. Du kan flytta enkelt flytta mellan två licensieringsmodellerna, om du ursprungligen började med en användningsbaserad galleriavbildning. Men kan du inte byta din licens till PAYG om du ursprungligen började med en BYOL-avbildning. Mer information finns i [ändra så att licensieringsmodellen för en SQL Server VM](virtual-machines-windows-sql-ahb.md).
 
 1. **Bör jag använda BYOL-avbildningar eller SQL VM RP för att skapa den nya SQL VM?**
 
@@ -94,11 +94,11 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Byta licensieringsmodellerna kräver inget driftstopp för SQL Server?**
 
-   Nej. [Ändra så att licensieringsmodellen](virtual-machines-windows-sql-ahb.md) kräver inte någon avbrottstid för SQL Server när ändringen är omedelbart verksam och inte kräver en omstart av den virtuella datorn. 
+   Nej. [Ändra så att licensieringsmodellen](virtual-machines-windows-sql-ahb.md) kräver inte någon avbrottstid för SQL Server när ändringen är omedelbart verksam och inte kräver en omstart av den virtuella datorn. Men, för att registrera din SQL Server-dator med SQL VM-resursprovidern det [SQL IaaS-tillägget](virtual-machines-windows-sql-server-agent-extension.md) är ett krav och installera SQL IaaS-tillägget startar om SQL Server-tjänsten. Därför SQL IaaS-tillägget måste vara installerad, sedan den bör du göra under en underhållsperiod. 
 
 1. **CSP-prenumerationer kan aktivera Azure Hybrid-förmånen?**
 
-   Ja. [Ändra så att licensieringsmodellen](virtual-machines-windows-sql-ahb.md) är tillgänglig för CSP-prenumerationer. 
+   Ja, Azure Hybrid-förmånen är tillgänglig för CSP-prenumerationer. CSP-kunder bör först distribuera en betala per användning-avbildning, och sedan [ändra så att licensieringsmodellen](virtual-machines-windows-sql-ahb.md) till bring-your-own-license.  
 
 1. **Medför ytterligare kostnader när du registrerar den virtuella datorn med den nya providern för SQL VM-resurs?**
 

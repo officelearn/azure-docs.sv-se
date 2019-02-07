@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 01f6fe3ef309f19896befe61512d524a8543745f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9a240e15049d1acd7344f3ecf7dbf41ff2c3850d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041466"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818795"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -30,20 +30,14 @@ ms.locfileid: "54041466"
 > * [BulkExecutor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor – Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Hämta SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
-
-<tr><td>**API-dokumentation**</td><td>[Python API-referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
-
-<tr><td>**Installationsinstruktioner för SDK**</td><td>[Instruktioner för installation av Python SDK](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**Bidra till SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**Kom igång**</td><td>[Kom igång med Python SDK](sql-api-python-application.md)</td></tr>
-
-<tr><td>**Aktuella plattformar som stöds**</td><td>[Python 2.7](https://www.python.org/downloads/) och [Python 3.5](https://www.python.org/downloads/)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Hämta SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
+|**API-dokumentation**|[Python API-referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**Installationsinstruktioner för SDK**|[Instruktioner för installation av Python SDK](https://github.com/Azure/azure-cosmos-python)|
+|**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**Kom igång**|[Kom igång med Python SDK](sql-api-python-application.md)|
+|**Aktuella plattformar som stöds**|[Python 2.7](https://www.python.org/downloads/) och [Python 3.5](https://www.python.org/downloads/)|
 
 ## <a name="release-notes"></a>Viktig information
 
@@ -141,7 +135,7 @@ ms.locfileid: "54041466"
 * Stöd för proxyanslutning.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA-SDK.
+* GA SDK.
 
 ## <a name="release--retirement-dates"></a>Fri & Släpp dras tillbaka datum
 Microsoft meddelar minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.
@@ -177,7 +171,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | [1.6.0](#1.6.0) |Den 29 mars 2016 |--- |
 | [1.5.0](#1.5.0) |03 januari 2016 |--- |
 | [1.4.2](#1.4.2) |06 oktober 2015 |--- |
-| [1.4.1](#1.4.1) |06 oktober 2015 |--- |
+| 1.4.1 |06 oktober 2015 |--- |
 | [1.2.0](#1.2.0) |06 augusti 2015 |--- |
 | [1.1.0](#1.1.0) |09 juli 2015 |--- |
 | [1.0.1](#1.0.1) |Den 25 maj 2015 |--- |

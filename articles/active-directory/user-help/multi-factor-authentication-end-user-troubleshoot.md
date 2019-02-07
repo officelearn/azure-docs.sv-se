@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177415"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768191"
 ---
 # <a name="get-help-with-two-step-verification"></a>Få hjälp med tvåstegsverifiering
 
@@ -36,7 +36,7 @@ Det finns flera orsaker till varför du kan behöva använda en annan verifierin
 
 - **Du förlorat din telefon eller har fått ett nytt telefonnummer.** Om du har förlorat din telefon eller tagit emot en ny kod, du kan logga in med en annan metod eller be administratören att rensa dina inställningar. Vi rekommenderar starkt att låta din administratör veta om telefonen har tappats bort eller blir stulen, så att de lämpliga uppdateringarna kan göras till ditt konto. När dina inställningar är avmarkerad försvinner uppmanas du att [registrera för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md) nästa gång du loggar in.
 
-- **Få inte autentisering text eller telefonsamtal.** Det finns flera orsaker till varför du inte kanske att hämta text eller telefonsamtal. Om du har lyckats få skickar ett SMS eller telefonsamtal tidigare, men detta är troligen ett problem med provider för telefon, inte ditt konto. Om du har ofta fördröjningar på grund av en felaktig signal kan vi rekommenderar att du använder den [Microsoft Authenticator-appen](microsoft-authenticator-app-how-to.md) på din mobila enhet. Den här appen kan generera slumpmässiga säkerhetskoder för att logga in, utan att kräva något cell-signal eller Internet-anslutning.<br><br>Om du försöker få ett textmeddelande be en vän till text du som ett test för att kontrollera att du kan skaffa ett och om du har tagit emot flera meddelanden, se till att du använder koden från den mest aktuella.
+- **Få inte autentisering text eller telefonsamtal.** Det finns flera orsaker till varför du inte kanske att hämta text eller telefonsamtal. Om du har lyckats få skickar ett SMS eller telefonsamtal tidigare, men detta är troligen ett problem med provider för telefon, inte ditt konto. Om du har ofta fördröjningar på grund av en felaktig signal kan vi rekommenderar att du använder den [Microsoft Authenticator-appen](user-help-auth-app-download-install.md) på din mobila enhet. Den här appen kan generera slumpmässiga säkerhetskoder för att logga in, utan att kräva något cell-signal eller Internet-anslutning.<br><br>Om du försöker få ett textmeddelande be en vän till text du som ett test för att kontrollera att du kan skaffa ett och om du har tagit emot flera meddelanden, se till att du använder koden från den mest aktuella.
 
 - **Dina applösenord fungerar inte.** Lösenord ersätter dina normala lösenordet för äldre program som inte stöder tvåstegsverifiering. Kontrollera först att du har angett lösenordet korrekt. Om detta inte löser den, försök logga in på [skapa ett nytt applösenord](multi-factor-authentication-end-user-app-passwords.md) eller kontakta administratören om du vill [ta bort dina befintliga applösenord](../authentication/howto-mfa-userdevicesettings.md) så att du kan skapa en ny.
 
@@ -61,4 +61,4 @@ Om du har gjort de här stegen, men är fortfarande körs i problem, kan du kont
 
 * [Hantera dina inställningar för tvåstegsverifiering](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Microsoft Authenticator-program vanliga frågor och svar](microsoft-authenticator-app-faq.md)
+* [Microsoft Authenticator-program vanliga frågor och svar](user-help-auth-app-faq.md)

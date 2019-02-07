@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1491068248d20a917e28db5a75dee3d4b3753f5c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1c58574a96c07dcb4008682efdf96fba111d7b61
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731450"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810345"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Funktionen för säkerhetskopiering och återställning i [Azure App Service](overview.md) kan du lätt skapa säkerhetskopior av appar manuellt eller enligt ett schema. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app. 
@@ -52,7 +52,7 @@ Följande databaslösningar stöds med säkerhetskopieringsfunktionen:
 ## <a name="requirements-and-restrictions"></a>Krav och begränsningar
 * Funktionen för säkerhetskopiering och återställning kräver App Service-plan i den **Standard** nivå eller **Premium** nivå. Läs mer om att skala din App Service-plan för att använda en högre nivå, [skala upp en app i Azure](web-sites-scale.md).  
   **Premium** nivån kan ett större antal dagliga säkerhetskopior än **Standard** nivå.
-* Du behöver ett Azure storage-konto och en behållare i samma prenumeration som den app som du vill säkerhetskopiera. Mer information om Azure storage-konton finns i den [länkar](#moreaboutstorage) i slutet av den här artikeln.
+* Du behöver ett Azure storage-konto och en behållare i samma prenumeration som den app som du vill säkerhetskopiera. Mer information om Azure storage-konton finns i länkarna i slutet av den här artikeln.
 * Säkerhetskopieringar kan vara upp till 10 GB av app- och innehåll. Om säkerhetskopians storlek överskrider den här gränsen kan få du ett felmeddelande.
 * Säkerhetskopior av SSL aktiverat Azure Database för MySQL inte stöds. Om en säkerhetskopiering konfigureras, får du säkerhetskopieringar.
 * Säkerhetskopior av SSL aktiverat Azure Database för PostgreSQL inte stöds. Om en säkerhetskopiering konfigureras, får du säkerhetskopieringar.

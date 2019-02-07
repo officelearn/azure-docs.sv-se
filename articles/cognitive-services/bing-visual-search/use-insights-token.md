@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6017fc957d511aa21f8e28cf011378e8012123cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b3e948c2eafb43f804b330287b114ef9307b0aac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151727"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813372"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Använda en insights-token för att få insikter om en bild
 
 API:n för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Information om alternativen finns i [vad är Bing Visual Search API?](overview.md). Den här artikeln visar hur du använder en token för insights. Exempel som visar hur du laddar upp en bild för att få insikter, finns Snabbstart ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
 
-Om du skickar visuell sökning till en bildtoken eller webbadress visar följande de formulärdata som visas nedan i brödtexten i POST. Formulärdata måste innehålla rubriken Content-Disposition och dess `name` parametern måste anges till ”knowledgeRequest”. Mer information om `imageInfo`-objektet finns i [begäran](#the-request).
+Om du skickar visuell sökning till en bildtoken eller webbadress visar följande de formulärdata som visas nedan i brödtexten i POST. Formulärdata måste innehålla rubriken Content-Disposition och dess `name` parametern måste anges till ”knowledgeRequest”. Mer information om den `imageInfo` objekt, finns i begäran.
 
 ```json
 {

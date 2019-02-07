@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185978"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765695"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Samla in loggdata med Azure Log Analytics-agenten
 
-Azure Log Analytics (OMS)-agent, tidigare kallade Microsoft Monitoring Agent (MMA) eller OMS Linux-agenten har utvecklats specifikt för omfattande hantering mellan lokala datorer, datorer som övervakas av [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), och virtuella datorer i ett moln. Windows och Linux-agenter som är koppla till en Log Analytics-arbetsyta för att samla in data från olika källor, samt alla unika loggar eller mätvärden som definierats i en lösning för övervakning. 
+Azure Log Analytics-agenten, tidigare kallade Microsoft Monitoring Agent (MMA) eller OMS Linux-agenten har utvecklats specifikt för omfattande hantering mellan lokala datorer, datorer som övervakas av [System Center Operations Manager ](https://docs.microsoft.com/system-center/scom/), och virtuella datorer i ett moln. Windows och Linux-agenter som är koppla till en Log Analytics-arbetsyta för att samla in data från olika källor, samt alla unika loggar eller mätvärden som definierats i en lösning för övervakning. 
 
 Den här artikeln innehåller en detaljerad översikt över agenten, system och nätverkskrav och olika distributionsmetoder.   
 
@@ -41,7 +41,7 @@ Agenten för Linux och Windows är inte bara för att ansluta till Log Analytics
 ## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
 Följande versioner av Windows-operativsystemet stöds officiellt för Windows-agenten:
 
-* Windows Server 2008 Service Pack 1 (SP1) eller senare
+* Windows Server 2008 R2 eller senare
 * Windows 7 SP1 och senare.
 
 ## <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds

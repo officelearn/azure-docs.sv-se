@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 191afec8733258519370d11942c0f6d18da6b603
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6ee75b0ee465e330d78b166b0da12232b7915ae7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180406"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766069"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Konfigurera säkerhetsinformation för att använda en autentiseringsapp (förhandsversion)
 
@@ -28,7 +28,7 @@ Konfigurera din säkerhetsinformation måste du logga in på ditt arbets- eller 
 
 Beroende på organisationens inställningar kan uppmanas du att konfigurera Microsoft Authenticator-appen när du loggar in. I annat fall för att börja konfigurera Microsoft Authenticator-appen säkerhetsinformation, följer du stegen i [hantera din säkerhetsinformation](security-info-manage-settings.md).
 
-Om du vill hämta och Läs mer om Microsoft Authenticator-appen, se [Kom igång med Microsoft Authenticator-appen](microsoft-authenticator-app-how-to.md).
+Om du vill hämta och Läs mer om Microsoft Authenticator-appen, se [Kom igång med Microsoft Authenticator-appen](user-help-auth-app-download-install.md).
 
 >[!Note]
 >Om du inte vill använda Microsoft Authenticator-appen, kan du välja en annan app under Konfigurera. Den här artikeln använder Microsoft Authenticator-appen. Om du inte ser authenticator-appalternativet, är det möjligt att din organisation tillåter inte att du använder en authentication-appen för att bekräfta. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.

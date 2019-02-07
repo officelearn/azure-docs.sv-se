@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437800"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814912"
 ---
 # <a name="test-your-app-in-azure"></a>Testa appen i Azure 
 Den här artikeln innehåller steg för att testa ditt program i Azure med DevTest Labs. Först måste du ställa in en filresurs i ett laboratorium och montera den som en enhet på utvecklingsdatorn lokal och en virtuell dator i ett labb. Sedan använder du Visual Studio 2017 för att distribuera appen till filresursen så att du kan köra appen på den virtuella datorn i laboratoriet.  
@@ -57,7 +57,7 @@ Den här artikeln innehåller steg för att testa ditt program i Azure med DevTe
     ![Välj lab VM](media/test-app-in-azure/select-lab-vm.png)
 2. Välj **Connect** i verktygsfältet för att ansluta till den virtuella datorn. 
 3. [Installera Azure PowerShell](https://azure.microsoft.com/downloads/) med hjälp av den **Windows installerar** länken i den **kommandoradsverktyg** avsnittet. Andra sätt att installera Azure PowerShell, se [i den här artikeln](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
-4. Följ instruktionerna i den [montera filresursen](#mount-the-file-share) avsnittet. 
+4. Följ instruktionerna i monterings avsnittet dela filen. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publicera en app från Visual Studio
 I det här avsnittet kan du publicera din app från Visual Studio för att testa virtuell dator i molnet.

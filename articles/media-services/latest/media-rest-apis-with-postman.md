@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604107"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813899"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera Postman för Media Services REST API-anrop
 
@@ -30,7 +30,7 @@ Den här artikeln visar hur du konfigurerar **Postman** så att den kan använda
 - Få information som behövs för att [åtkomst API: er](access-api-cli-how-to.md)
 - Installera [Postman](https://www.getpostman.com/) REST-klienten för att köra REST API:er som visas i några AMS REST-självstudierna. 
 
-    Vi använder **Postman** men ett REST-verktyg skulle vara lämpligt. Andra alternativ är: **Visual Studio Code** med REST-plugin-programmet eller **Telerik Fiddler**. 
+    Vi använder **Postman** men ett REST-verktyg skulle vara lämpligt. Andra alternativ är: **Visual Studio Code** med plugin-programmet för REST eller **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Hämta Postman-filer
 
@@ -57,7 +57,7 @@ Det här avsnittet konfigurerar Postman.
     > [!Note]
     > Uppdatera åtkomstvariablerna med värden som du fick från avsnittet **Åtkomst till Media Services API** ovan.
 
-7. Dubbelklicka på den valda filen och ange värden som du har fått genom att följa stegen i [åtkomst till API](#access-the-media-services-api).
+7. Dubbelklicka på den valda filen och ange värden som du har fått genom att följa åtkomst till API: et.
 8. Stäng dialogrutan.
 9. Välj miljön **Azure Media Service v3-miljö** från listmenyn.
 
@@ -75,7 +75,7 @@ Det här avsnittet konfigurerar Postman.
 
 Innan du börjar att manipulera AMS v3 resurser behöver du hämta och ange Azure AD-Token för autentisering av tjänstens huvudnamn.
 
-1. I det vänstra fönstret i Postman, Välj ”steg 1: Hämta AAD-autentisering token ”.
+1. I det vänstra fönstret i Postman, väljer du ”Steg 1: Hämta AAD-autentiseringstoken”.
 2. Välj sedan Hämta Azure AD-token för autentisering för tjänstens huvudnamn.
 3. Tryck på **Skicka**.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b48382c8f429576a3d15c624c9c9028cffec3872
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508410"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813032"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Så här konfigurerar du BGP på Azure VPN gateway med PowerShell
 Den här artikeln vägleder dig igenom stegen för att aktivera BGP på en plats-till-plats (S2S) VPN-anslutning för flera platser och en VNet-till-VNet-anslutning med hjälp av Resource Manager-distributionsmodellen och PowerShell.
@@ -35,7 +35,7 @@ Se [översikt över BGP med Azure VPN gateway](vpn-gateway-bgp-overview.md) mer 
 Den här artikeln vägleder dig igenom stegen för att utföra följande uppgifter:
 
 * [Del 1 – Aktivera BGP på din Azure VPN-gateway](#enablebgp)
-* [Del 2 – upprätta en anslutning mellan lokala BGP](#crossprembgp)
+* Del 2 – upprätta en anslutning mellan lokala BGP
 * [Del 3 – upprätta en VNet-till-VNet-anslutning med BGP](#v2vbgp)
 
 Varje del av instruktionerna utgör ett grundläggande byggblock för att aktivera BGP i nätverksanslutningen. Om du har slutfört alla tre delar kan skapa du topologin som du ser i följande diagram:

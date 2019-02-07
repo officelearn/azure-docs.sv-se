@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015839"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822433"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -62,7 +62,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure Data Facto
     ![Lägg till på startsidan](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **Datafabriksnamnet ”ADFTutorialOnPremDF” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameADFTutorialOnPremDF) och försöker skapa igen. Använd det här namnet i stället för ADFTutorialOnPremDF när du utför stegen i den här självstudien.
+   > Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande fel: **Datafabriksnamnet ”ADFTutorialOnPremDF” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameADFTutorialOnPremDF) och försöker skapa igen. Använd det här namnet i stället för ADFTutorialOnPremDF när du utför stegen i den här självstudien.
    >
    > Namnet på datafabriken kan registreras som en **DNS** namn i framtiden och blir då synligt offentligt.
    >
@@ -172,7 +172,7 @@ I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService
       4. I den **ange autentiseringsuppgifter** dialogrutan Ange autentiseringstyp, användarnamn och lösenord och klicka på **OK**. Om anslutningen lyckas krypterade autentiseringsuppgifter lagras i JSON och dialogrutan stängs.
       5. Stäng tom webbläsarfliken som startas i dialogrutan om den inte automatiskt är stängd och gå tillbaka till fliken med Azure-portalen.
 
-         Gateway-datorn är dessa autentiseringsuppgifter **krypterade** genom att använda ett certifikat som äger Data Factory-tjänsten. Om du vill använda det certifikat som är associerad med Data Management Gateway i stället kan du läsa [ange autentiseringsuppgifter på ett säkert sätt](#set-credentials-and-security).    
+         Gateway-datorn är dessa autentiseringsuppgifter **krypterade** genom att använda ett certifikat som äger Data Factory-tjänsten. Om du vill använda det certifikat som är associerad med Data Management Gateway i stället läser du ange autentiseringsuppgifter på ett säkert sätt.    
    3. Klicka på **distribuera** i kommandofältet för att distribuera SQL Server-länkade tjänst. Du bör se den länkade tjänsten i trädvyn.
 
       ![SQL Server-länkade tjänsten i trädvyn](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
@@ -280,7 +280,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
    * **folderPath** är inställd på **adftutorial/outfromonpremdf** där outfromonpremdf är mappen i behållaren adftutorial. Skapa den **adftutorial** behållaren om den inte redan finns.
    * **Tillgängligheten** anges till **varje timme** (**frekvens** inställd på **timme** och **intervall** inställd på **1**).  Data Factory-tjänsten genererar en utdatasektor varje timme i den **emp** tabell i Azure SQL-databasen.
 
-   Om du inte anger en **fileName** för en **utdatatabellen**, genereras filerna i den **folderPath** namnges i följande format: Data. <Guid>.txt (exempel:: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt.).
+   Om du inte anger en **fileName** för en **utdatatabellen**, genereras filerna i den **folderPath** namnges i följande format: Data. <Guid>.txt (exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Ange **folderPath** och **fileName** dynamiskt utifrån den **SliceStart** tid, Använd egenskapen partitionedBy. I följande exempel använder folderPath Year, Month och Day från SliceStart (starttiden för den sektor som bearbetas) och fileName använder Hour från SliceStart. Om exempelvis en sektor produceras 2014-10-20T08:00:00, anges folderName till wikidatagateway/wikisampledataout/2014/10/20 och fileName anges till 08.csv.
 
@@ -389,11 +389,11 @@ I det här steget ska du använda Azure-portalen för att övervaka vad som hän
 
 1. I diagrammet, dubbelklickar du på **EmpOnPremSQLTable**.  
 
-    ![EmpOnPremSQLTable sektorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
+    ![EmpOnPremSQLTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 2. Lägg märke till att alla data skär upp **redo** tillstånd eftersom pipeline-varaktighet (starttiden för sluttid) är i förflutna. Det är också eftersom du har infogat data i SQL Server-databasen och det är det hela tiden. Kontrollera att inga sektorer visas i den **problemsektorer** avsnittet längst ned. Om du vill visa alla segment, klickar du på **se mer** längst ned i listan över sektorer.
 3. Nu, i den **datauppsättningar** klickar du på **OutputBlobTable**.
 
-    ![OputputBlobTable sektorer](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
+    ![OputputBlobTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
 4. Klicka på någon av datasektorerna i listan och du bör se den **Datasektor** sidan. Du ser aktivitetskörningar för sektorn. Du ser bara en aktivitet som kör vanligtvis.  
 
     ![Datasektorblad](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: e470d27ccfea68f628b793f9afd695bb363e295a
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5ebd543000c8927f714e5345dfd8eb6033c6301a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630843"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820376"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake Tools för Visual Studio Code
 
@@ -24,12 +24,12 @@ I den här artikeln lär du dig hur du kan använda Azure Data Lake Tools för V
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Azure Data Lake Tools för VS Code har stöd för Windows, Linux och macOS. U-SQL lokal körning och lokal felsökning fungerar bara i Windows.
+Azure Data Lake Tools för VS Code har stöd för Windows, Linux och macOS. U-SQL lokal körning och lokal felsökning fungerar bara i Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
 För MacOS och Linux:
-- [.NET core SDK 2.0](https://www.microsoft.com/net/download/core)
+- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core)
 - [Mono 5.2.x](http://www.mono-project.com/download/)
 
 ## <a name="install-azure-data-lake-tools"></a>Installera Azure Data Lake-verktyg
@@ -59,7 +59,7 @@ Om du vill arbeta med U-SQL, måste du öppna en U-SQL-fil eller en mapp.
 
 **Öppna exempelskriptet**
 
-Öppna kommandopaletten (Ctrl + Skift + P) och ange **ADL: öppna exempelskriptet**. En annan instans av det här exemplet öppnas. Du kan också redigera, konfigurera och skicka ett skript på den här instansen.
+Öppna kommandopaletten (Ctrl + Skift + P) och ange **ADL: Öppna exempelskriptet**. En annan instans av det här exemplet öppnas. Du kan också redigera, konfigurera och skicka ett skript på den här instansen.
 
 **Öppna en mapp för ditt U-SQL-projekt**
 
@@ -68,18 +68,18 @@ Om du vill arbeta med U-SQL, måste du öppna en U-SQL-fil eller en mapp.
 3. Välj den **filen** menyn och välj sedan **New**. En namnlös-1-fil har lagts till i projektet.
 4. Ange följande kod i filen Namnlös-1:
 
-        @departments  = 
-            SELECT * FROM 
-                (VALUES
-                    (31,    "Sales"),
-                    (33,    "Engineering"), 
-                    (34,    "Clerical"),
-                    (35,    "Marketing")
-                ) AS 
-                      D( DepID, DepName );
-         
+        @departments  = 
+            SELECT * FROM 
+                (VALUES
+                    (31,    "Sales"),
+                    (33,    "Engineering"), 
+                    (34,    "Clerical"),
+                    (35,    "Marketing")
+                ) AS 
+                      D( DepID, DepName );
+         
         OUTPUT @departments
-            TO "/Output/departments.csv"
+            TO "/Output/departments.csv"
         USING Outputters.Csv();
 
     Skriptet skapar en departments.csv-fil med vissa data som ingår i mappen/Output.
@@ -89,12 +89,12 @@ Om du vill arbeta med U-SQL, måste du öppna en U-SQL-fil eller en mapp.
 **Att kompilera ett U-SQL-skript**
 
 1. Välj Ctrl + Skift + P för att öppna kommandopaletten. 
-2. Ange **ADL: kompilera skriptet**. Kompilera resultatet visas i den **utdata** fönster. Du kan också högerklicka på en skriptfil och sedan välja **ADL: kompilera skriptet** att kompilera ett U-SQL-jobb. Kompileringsresultatet visas i den **utdata** fönstret.
+2. Ange **ADL: Kompilera skriptet**. Kompilera resultatet visas i den **utdata** fönster. Du kan också högerklicka på en skriptfil och sedan välja **ADL: Kompilera skriptet** att kompilera ett U-SQL-jobb. Kompileringsresultatet visas i den **utdata** fönstret.
  
 **Att skicka ett U-SQL-skript**
 
 1. Välj Ctrl + Skift + P för att öppna kommandopaletten. 
-2. Ange **ADL: skicka jobb**. Du kan också högerklicka på en skriptfil och sedan välja **ADL: skicka jobb**. 
+2. Ange **ADL: Skicka jobb**. Du kan också högerklicka på en skriptfil och sedan välja **ADL: Skicka jobb**. 
 
 När du skickar in ett U-SQL-jobb, skicka loggarna visas i den **utdata** fönster i VS Code. Jobbvyn visas i den högra rutan. Om överföringen lyckas visas för jobb-URL. Du kan öppna jobb-URL i en webbläsare för att spåra i realtid för jobbets status. 
 
@@ -109,7 +109,7 @@ I jobbvyn **sammanfattning** fliken visas Jobbinformationen. Huvudfunktioner omf
 Du kan ange standardkontexten ska gälla alla skriptfiler den här inställningen om du inte har angett parametrarna för filer individuellt.
 
 1. Välj Ctrl + Skift + P för att öppna kommandopaletten. 
-2. Ange **ADL: Ange standardkontexten**. Eller högerklicka på Skriptredigeraren och välj **ADL: Set Default Context**.
+2. Ange **ADL: Ange standardkontexten**. Eller högerklicka på Skriptredigeraren och välj **ADL: Ange standardkontexten**.
 3. Välj det konto, databas och schema som du vill. Inställningen sparas till konfigurationsfilen xxx_settings.json.
 
    ![Konto, databas och schema som standardkontexten](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-sequence.png)
@@ -120,12 +120,12 @@ Du kan ange standardkontexten ska gälla alla skriptfiler den här inställninge
 2. Ange **ADL: Ange Skriptparametrar**.
 3. Xxx_settings.json-filen har öppnats med följande egenskaper:
 
-   - **kontot**: An Azure Data Lake Analytics-konto under din Azure-prenumeration som behövs för att kompilera och köra U-SQL-jobb. Du måste konfigurera kontot innan du kompilera och köra U-SQL-jobb.
-   - **databasen**: en databas med ditt konto. Standardvärdet är **master**.
-   - **schemat**: ett schema under din databas. Standardvärdet är **dbo**.
+   - **Kontot**: Ett Azure Data Lake Analytics-konto under din Azure-prenumeration som behövs för att kompilera och köra U-SQL-jobb. Du måste konfigurera kontot innan du kompilera och köra U-SQL-jobb.
+   - **Databasen**: En databas med ditt konto. Standardvärdet är **master**.
+   - **schema**: Ett schema under din databas. Standardvärdet är **dbo**.
    - **optionalSettings**:
-        - **prioritet**: prioritet-intervallet är från 1 till 1 000, där 1 är den högsta prioriteten. Standardvärdet är **1000**.
-        - **degreeOfParallelism**: parallellitet-intervallet är från 1 till 150. Standardvärdet är den maximala parallellitet som tillåts i Azure Data Lake Analytics-kontot. 
+        - **Prioritet**: Prioritet-intervallet är från 1 till 1 000, där 1 är den högsta prioriteten. Standardvärdet är **1000**.
+        - **degreeOfParallelism**: Parallellitet-intervallet är från 1 till 150. Standardvärdet är den maximala parallellitet som tillåts i Azure Data Lake Analytics-kontot. 
 
    ![Innehållet i JSON-fil](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-setting.png)
       
@@ -155,22 +155,22 @@ Du kan använda Data Lake-verktyg för att registrera sammansättningar av anpas
 
 **Att registrera en sammansättning**
 
-Du kan registrera sammansättningen med hjälp av den **ADL: registrera sammansättningen** eller **ADL: registrera sammansättningen (Avancerat)** kommando.
+Du kan registrera sammansättningen med hjälp av den **ADL: Registrera sammansättningen** eller **ADL: Registrera sammansättningen (Avancerat)** kommando.
 
-**Att registrera via ADL: registrera sammansättningen kommando**
+**Så här registrerar via ADL: Registrera sammansättningen kommando**
 1.  Välj Ctrl + Skift + P för att öppna kommandopaletten.
-2.  Ange **ADL: registrera sammansättningen**. 
+2.  Ange **ADL: Registrera sammansättningen**. 
 3.  Ange sökväg för lokala sammansättning. 
 4.  Välj ett Data Lake Analytics-konto.
 5.  Välj en databas.
 
 Portalen öppnas i en webbläsare och visar sammansättningen registreringsprocessen.  
 
-Det enklaste sättet att utlösa den **ADL: registrera sammansättningen** kommandot är Högerklicka på .dll-filen i Utforskaren. 
+Det enklaste sättet att utlösa den **ADL: Registrera sammansättningen** kommandot är Högerklicka på .dll-filen i Utforskaren. 
 
-**Att registrera via ADL: registrera sammansättningen (Avancerat) kommando**
+**Så här registrerar via ADL: Registrera kommandot sammansättningen (Avancerat)**
 1.  Välj Ctrl + Skift + P för att öppna kommandopaletten.
-2.  Ange **ADL: registrera sammansättningen (Avancerat)**. 
+2.  Ange **ADL: Registrera sammansättningen (Avancerat)**. 
 3.  Ange sökväg för lokala sammansättning. 
 4.  JSON-filen visas. Granska och redigera paketberoenden och Resursparametrar, om det behövs. Instruktioner visas i den **utdata** fönster. Om du vill gå vidare till den för registreringen, spara (Ctrl + S) JSON-filen.
 
@@ -180,7 +180,7 @@ Det enklaste sättet att utlösa den **ADL: registrera sammansättningen** komma
 >- Azure Data Lake Tools autodetects om DLL-filen har några beroenden som sammansättningen. Beroenden som visas i JSON-filen när de har upptäckts. 
 >- Du kan ladda upp dina DLL-resurser (till exempel .txt, .png och CSV) som en del av den för registreringen. 
 
-Ett annat sätt att utlösa den **ADL: registrera sammansättningen (Avancerat)** kommandot är Högerklicka på .dll-filen i Utforskaren. 
+Ett annat sätt att utlösa den **ADL: Registrera sammansättningen (Avancerat)** kommandot är Högerklicka på .dll-filen i Utforskaren. 
 
 Följande U-SQL-kod visar hur du anropar en sammansättning. I det här exemplet sammansättningsnamnet är *testa*.
 
@@ -233,7 +233,7 @@ Innan du kan kompilera och köra U-SQL-skript i Data Lake Analytics, måste du a
 <b id="sign-in-by-command">Att ansluta till Azure med hjälp av ett kommando</b>
 
 1.  Välj Ctrl + Skift + P för att öppna kommandopaletten. 
-2.  Ange **ADL: inloggning**. Inloggningsinformationen visas längst ned till höger.
+2.  Ange **ADL: Logga in**. Inloggningsinformationen visas längst ned till höger.
 
     ![Att ange kommandot för inloggning](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
 
@@ -243,7 +243,7 @@ Innan du kan kompilera och köra U-SQL-skript i Data Lake Analytics, måste du a
 
     ![Logga in webbsidan](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png)  
      
-4.  Följ anvisningarna för att logga in från webbsidan. När du är ansluten, visas namnet på ditt Azure i statusfältet i det nedre vänstra hörnet i VS Code-fönstret. 
+4.  Följ anvisningarna för att logga in från webbsidan. När du är ansluten, visas namnet på ditt Azure i statusfältet i det nedre vänstra hörnet i VS Code-fönstret. 
 
 > [!NOTE] 
 >- Data Lake-verktyg loggar du in automatiskt nästa gång om du inte loggar.
@@ -262,11 +262,11 @@ Du kan inte logga från Utforskaren. Om du vill logga ut, se [att ansluta till A
 
 
 ## <a name="create-an-extraction-script"></a>Skapa ett skript för extrahering 
-Du kan skapa ett skript för extrahering för CSV- och TSV .txt-filer med hjälp av kommandot **ADL: skapa EXTRAHERA skript** eller från Azure Data Lake explorer.
+Du kan skapa ett skript för extrahering för CSV- och TSV .txt-filer med hjälp av kommandot **ADL: Skapa EXTRAHERA skript** eller från Azure Data Lake explorer.
 
 **Skapa ett skript för extrahering med hjälp av ett kommando**
 
-1. Välj Ctrl + Skift + P för att öppna kommandopaletten och ange **ADL: skapa EXTRAHERA skriptet**.
+1. Välj Ctrl + Skift + P för att öppna kommandopaletten och ange **ADL: Skapa skript för extrahering**.
 2. Ange den fullständiga sökvägen för en Azure Storage-fil och välj RETUR-tangenten.
 3. Välj ett konto.
 4. Välj en avgränsare att extrahera filen för en txt-fil. 
@@ -290,11 +290,11 @@ Du kan komma åt Azure Data Lake Analytics-resurser för att lista över konton,
 **Visa en lista över Azure Data Lake Analytics-konton i din Azure-prenumeration**
 
 1. Välj Ctrl + Skift + P för att öppna kommandopaletten.
-2. Ange **ADL: lista över konton**. Kontona visas i den **utdata** fönstret.
+2. Ange **ADL: Lista över konton**. Kontona visas i den **utdata** fönstret.
 
 **Åtkomst till Azure Data Lake Analytics-metadata**
 
-1.  Välj Ctrl + Skift + P och sedan ange **ADL: lista tabeller**.
+1.  Välj Ctrl + Skift + P och sedan ange **ADL: Listar tabeller**.
 2.  Välj en av Data Lake Analytics-konton.
 3.  Välj en av Data Lake Analytics-databaser.
 4.  Välj en av scheman. Du kan se listan över tabeller.
@@ -312,14 +312,14 @@ Du kan komma åt Azure Data Lake Analytics-resurser för att lista över konton,
 Du kan använda Azure Data Lake Store-relaterade kommandon för att:
  - [Bläddra igenom Azure Data Lake Store-resurser](#list-the-storage-path) 
  - [Förhandsgranska Azure Data Lake Store-filen](#preview-the-storage-file) 
- - [Ladda upp filen direkt till Azure Data Lake Store i VS Code](#upload-file-or-folder)
- - [Ladda ned filen direkt från Azure Data Lake Store i VS Code](#download-file)
+ - Ladda upp filen direkt till Azure Data Lake Store i VS Code
+ - Ladda ned filen direkt från Azure Data Lake Store i VS Code
 
 ### <a name="list-the-storage-path"></a>Sökvägen för lagring 
 
 **Visa en lista över lagringssökväg via kommandopaletten**
 
-1. Högerklicka på Skriptredigeraren och välj **ADL: lista sökvägen**.
+1. Högerklicka på Skriptredigeraren och välj **ADL: Lista över sökvägen**.
 2. Välj mappen i listan eller välj **ange en sökväg** eller **Bläddra från rotsökvägen**. (Vi använder **ange en sökväg** kan t.ex.) 
 3. Välj ditt Data Lake Analytics-konto.
 4. Bläddra till eller ange mappsökvägen storage (till exempel/output /).  
@@ -339,7 +339,7 @@ Högerklicka på sökvägssträngen och välj **lista sökvägen**.
 
 ### <a name="preview-the-storage-file"></a>Förhandsgranska filen storage
 
-1. Högerklicka på Skriptredigeraren och välj **ADL: förhandsgranskningsfil**.
+1. Högerklicka på Skriptredigeraren och välj **ADL: Förhandsgranska filen**.
 2. Välj ditt Data Lake Analytics-konto. 
 3. Ange en filsökväg för Azure Storage (till exempel /output/SearchLog.txt). 
 
@@ -366,9 +366,9 @@ Du kan [övervaka Överföringsstatusen](#check-storage-tasks-status).
 
 
 ### <a name="download-a-file"></a>Hämta en fil 
-Du kan hämta en fil med hjälp av kommandot **ADL: ladda ned filen** eller **ADL: ladda ned fil (Avancerat)**.
+Du kan hämta en fil med hjälp av kommandot **ADL: Ladda ned filen** eller **ADL: Ladda ned filen (Avancerat)**.
 
-**Att hämta en fil med ADL: kommandot hämtar filen (Avancerat)**
+**Att hämta en fil med ADL: Hämta fil (Avancerat) (kommando)**
 1. Högerklicka på Skriptredigeraren och välj sedan **ladda ned fil (Avancerat)**.
 2. VS Code visar en JSON-fil. Du kan ange sökvägar och hämta flera filer samtidigt. Instruktioner visas i den **utdata** fönster. Spara (Ctrl + S) JSON-filen om du vill fortsätta att ladda ned filen eller filerna.
 
@@ -380,7 +380,7 @@ Den **utdata** hämta filstatus visas i fönstret.
 
 Du kan [övervaka hämtningsstatus](#check-storage-tasks-status).
 
-**Att hämta en fil med ADL: ladda ned fil (kommando)**
+**Att hämta en fil med ADL: Hämta fil (kommando)**
 
 1. Högerklicka på Skriptredigeraren, Välj **ladda ned filen**, och Välj målmapp från den **Välj mapp** dialogrutan.
 2. Välj mappen i listan eller välj **ange en sökväg** eller **Bläddra från rotsökvägen**. (Vi använder **ange en sökväg** kan t.ex.) 
@@ -411,7 +411,7 @@ Expandera din Azure-prenumeration. Under den **U-SQL-databaser** nod, du kan bl�
 
 ### <a name="data-lake-analytics-metadata-entity-management"></a>Hantering av data Lake Analytics metadata för entitet
 
-Expandera **U-SQL-databaser**. Du kan skapa en databas, schemat, tabell, tabelltyp, index eller statistik genom att högerklicka på den motsvarande noden och sedan välja **skript för att skapa** på snabbmenyn. Redigera skriptet efter dina behov på sidan öppnade skriptet. Skicka jobbet genom att högerklicka på den och välja **ADL: skicka jobb**. 
+Expandera **U-SQL-databaser**. Du kan skapa en databas, schemat, tabell, tabelltyp, index eller statistik genom att högerklicka på den motsvarande noden och sedan välja **skript för att skapa** på snabbmenyn. Redigera skriptet efter dina behov på sidan öppnade skriptet. Skicka jobbet genom att högerklicka på den och välja **ADL: Skicka jobb**. 
 
 När du har skapat objektet, högerklicka på noden och välj sedan **uppdatera** att visa objektet. Du kan också ta bort objektet genom att högerklicka på den och sedan välja **ta bort**.
 
@@ -464,7 +464,7 @@ Data Lake-verktyg öppnas Azure Storage-sökvägen i Azure-portalen. Du kan hitt
 
 Data Lake Tools för VS Code har stöd för följande funktioner:
 
--   **IntelliSense automatisk komplettering**: förslag visas i popup-fönster runt exempelvis nyckelord, metoder och variabler. Olika ikoner representerar olika typer av objekt:
+-   **IntelliSense automatisk komplettering**: Förslag visas i popup-fönster runt exempelvis nyckelord, metoder och variabler. Olika ikoner representerar olika typer av objekt:
 
     - Datatypen för Scala
     - Komplex datatyp
@@ -477,12 +477,12 @@ Data Lake Tools för VS Code har stöd för följande funktioner:
  
     ![IntelliSense objekttyper](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
  
--   **IntelliSense funktionen Komplettera automatiskt i Data Lake Analytics metadata**: Data Lake-verktyg som hämtar Data Lake Analytics metadatainformation lokalt. Funktionen IntelliSense fyller automatiskt objekt från Data Lake Analytics-metadata. Dessa objekt innefattar database, schema, tabell, vy, tabellvärdesfunktion, procedurer och C#-sammansättningar.
+-   **IntelliSense funktionen Komplettera automatiskt i Data Lake Analytics metadata**: Data Lake-verktyg hämtar Data Lake Analytics metadatainformation lokalt. Funktionen IntelliSense fyller automatiskt objekt från Data Lake Analytics-metadata. Dessa objekt innefattar database, schema, tabell, vy, tabellvärdesfunktion, procedurer och C#-sammansättningar.
  
     ![IntelliSense metadata](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
 
--   **IntelliSense fel markör**: Data Lake Tools understryker redigering fel för U-SQL och C#. 
--   **Syntax höjdpunkter**: färger används i Data Lake-verktyg för att skilja objekt som variabler, nyckelord, datatyper och funktioner. 
+-   **IntelliSense fel markör**: Data Lake-verktyg understryker redigering fel för U-SQL och C#. 
+-   **Syntax höjdpunkter**: Data Lake-verktyg använder färger för att skilja objekt som variabler, nyckelord, datatyper och funktioner. 
 
     ![Syntax med olika färger](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 

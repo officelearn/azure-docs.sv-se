@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857711"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810770"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Bästa metoder för Azure Container Registry
 
@@ -46,15 +46,15 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Dedikerad resursgrupp
 
-Eftersom containerregister är resurser som används i flera containervärdar bör ett register finnas i en egen resursgrupp.
+Eftersom behållarregister är resurser som används i flera behållarvärdar, bör ett register finnas i en egen resursgrupp.
 
 Även om du kan experimentera med en särskild värdtyp, t.ex. Azure Container Instances, vill du troligtvis ta bort behållarinstansen när du är klar. Du kan dock även vilja behålla avbildningssamlingen som du överförde till Azure Container Registry. Genom att placera registret i en egen resursgrupp minimerar du risken för att oavsiktligen ta bort avbildningssamlingen i registret när du tar bort containerinstansens resursgrupp.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 Vid autentisering med ett Azure-containerregister finns det två huvudsakliga scenarier: individuell autentisering och tjänstautentisering (eller "fjärradministrering"). Följande tabell innehåller en kort översikt över dessa scenarier och den rekommenderade metoden för autentisering av dem.
 
-| Typ | Exempel på ett scenario | Rekommenderad metod |
+| Type | Exempel på ett scenario | Rekommenderad metod |
 |---|---|---|
 | Individuell identitet | En utvecklare hämtar avbildningar till eller skickar bilder från sin egen utvecklingsdator. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Fjärradministrerad/tjänstidentitet | Bygg- och distributionsledningar där användaren inte är direkt inblandad. | [Tjänstens huvud](container-registry-authentication.md#service-principal) |
@@ -63,7 +63,7 @@ Mer djupgående information om autentisering i Azure Container Registry finns i 
 
 ## <a name="manage-registry-size"></a>Hantera registerstorlek
 
-Lagringsbegränsningarna för varje [SKU för Container Registry][container-registry-skus] är avsedda för olika scenarier: **Basic** för att komma igång, **Standard** för de flesta produktionsappar och **Premium** för storskaliga prestanda och [geo-replikering][container-registry-geo-replication]. Du bör hantera registrets storlek genom att regelbundet ta bort innehåll som inte används under hela registrets livslängd.
+Lagringsbegränsningarna för varje [SKU för container registry] [ container-registry-skus] är avsedda för olika scenarier: **Grundläggande** för att komma igång, **Standard** för flesta produktionsappar och **Premium** för storskaliga prestanda och [geo-replikering][container-registry-geo-replication]. Du bör hantera registrets storlek genom att regelbundet ta bort innehåll som inte används under hela registrets livslängd.
 
 Använda Azure CLI-kommando [az acr show-usage] [ az-acr-show-usage] att visa den aktuella storleken på ditt register:
 

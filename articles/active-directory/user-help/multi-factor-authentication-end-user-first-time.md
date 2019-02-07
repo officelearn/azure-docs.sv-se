@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: 6a5a2fee11d785c7513b6c1d1e66bd8b80d80292
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9fd7a3c03c72a63f4163f85ac41248e200397206
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749720"
+ms.locfileid: "55770728"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
 Tvåstegsverifiering är ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in. Om du läser den här artikeln fick du förmodligen ett e-postmeddelande från din arbets- eller skolkonto administratör om Multi-Factor Authentication. Eller kanske du försökte logga in och fick ett meddelande som ber dig att ställa in ytterligare säkerhetsverifiering. Om så är fallet, **du inte logga in förrän du har slutfört den automatiska registreringen**.
@@ -106,4 +106,4 @@ Följ dessa steg om du vill lägga till ett konto i mobilappen manuellt, iställ
 ## <a name="next-steps"></a>Nästa steg
 * Ändra din önskade alternativ och [hantera dina inställningar för tvåstegsverifiering](multi-factor-authentication-end-user-manage-settings.md)
 * Konfigurera [applösenord](multi-factor-authentication-end-user-app-passwords.md) för ursprunglig enhetsappar som inte stöder tvåstegsverifiering.
-* Kolla in den [Microsoft Authenticator-appen](microsoft-authenticator-app-how-to.md) för snabb, säker autentisering även om du inte har cell-tjänsten.
+* Kolla in den [Microsoft Authenticator-appen](user-help-auth-app-download-install.md) för snabb, säker autentisering även om du inte har cell-tjänsten.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: cd27a4d43333674ec1928fbd873e873afe84d26d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262888"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813134"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg som använder IT Service Management Connector
 
@@ -44,7 +44,7 @@ Med ITSMC kan du
 Du kan börja använda ITSM-anslutningsprogrammet med följande steg:
 
 1.  [Lägg till lösning för ITSM-anslutningen](#adding-the-it-service-management-connector-solution)
-2.  [Skapa en ITSM-anslutning](#creating-an-itsm-connection)
+2.  Skapa en ITSM-anslutning
 3.  [Använd anslutning](#using-the-solution)
 
 
@@ -193,7 +193,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Källa
 - Tilldelat till
 - Kategori
-- Titel
+- Rubrik
 - Beskrivning
 - Skapad
 - Stängningsdatum
@@ -213,8 +213,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Stängts av
 - Källa
 - Tilldelat till
-- Titel
-- Typ
+- Rubrik
+- Type
 - Kategori
 - Status
 - Eskalering
@@ -266,7 +266,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Stängts av |
 | AssignedTo_s | Tilldelat till  |
 | Title_s|  Kort beskrivning |
-| Type_s|  Typ |
+| Type_s|  Type |
 | Category_s|  Kategori |
 | CRState_s|  Status|
 | Urgency_s|  Angelägenhetsgrad |

@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190793"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820325"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitetsrapporter i Azure portal
 
@@ -49,8 +49,6 @@ Granskningsloggar konsoliderar följande rapporter:
 
 Du kan använda avancerade filter i granskningsrapporten för att få åtkomst till en särskild kategori av granskningsdata, genom att ange den i den **aktivitetskategori** filter. Om du vill visa alla aktiviteter som rör lösenordsåterställning via självbetjäning, väljer du exempelvis den **egen lösenordshantering** kategori. 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 Aktivitetskategorier är:
 
 - Kärnkatalog
@@ -62,8 +60,6 @@ Aktivitetskategorier är:
 ## <a name="sign-ins-report"></a>Rapport över inloggningar 
 
 Den **inloggningar** vyn innehåller alla användarinloggningar, samt de **programanvändning** rapporten. Du kan också visa information om användningen av program i den **hantera** delen av den **företagsprogram** Översikt.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 Öppna rapporten inloggningar:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: d5ff6b05df74cd73fb374bbd7cf27b8fc7d69493
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ef752d2f9d57ee8674d91fd14b56b804ccf50d22
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697993"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814212"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Välja vilken typ av program när du lägger till ett program i Azure Active Directory
 Läs mer om de fyra typerna av program som du kan lägga till Azure Active Directory (AD Azure). När du lägger till ett program i Azure Active Directory, uppmanas du att välja en av fyra programtypen. 
@@ -95,7 +95,7 @@ Följande är de stöds **enkel inloggning** lägen för Azure AD-program.
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Enkel inloggning-lägen för egenutvecklade program
 
-Program som du har anpassat utvecklat genom den [egenutvecklat program](#_Custom-Developed_Applications) upplevelse har också stöd för ytterligare enkel inloggning för lägena inte tidigare, bland annat:
+Program som du har anpassade utvecklat genom egenutvecklat program får också stöd för ytterligare enkel inloggning för lägena inte tidigare, bland annat:
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) baserad inloggning
 

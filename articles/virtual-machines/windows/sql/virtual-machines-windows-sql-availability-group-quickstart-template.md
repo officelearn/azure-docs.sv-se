@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9be8717bc9b1d15a59486edf206dd0657a711c06
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360331"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814545"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Skapa WSFC, lyssnaren och och konfigurera ILB för en Always On-tillgänglighetsgrupp på en SQL Server-dator med Azure-Snabbstartsmall
 Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis automatisera distributionen av en Always On tillgänglighetsgruppens konfiguration för SQL Server-datorer i Azure. Det finns två Azure-Snabbstartsmallar som används i den här processen. 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis 
    | Mall | Beskrivning |
    | --- | --- |
    | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Skapar Windows-redundanskluster och ansluter till SQL Server-datorer till den. |
-   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Skapar tillgänglighetsgruppens lyssnare och konfigurerar den interna belastningsutjämnaren. |
+   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Skapar tillgänglighetsgruppens lyssnare och konfigurerar den interna belastningsutjämnaren. Den här mallen kan bara användas om Windows-redundanskluster har skapats med den **101-sql-vm-ag-setup** mall. |
    | &nbsp; | &nbsp; |
 
 Andra delar av tillgänglighetsgruppens konfiguration måste göras manuellt, till exempel skapa tillgänglighetsgruppen och skapa den interna belastningsutjämnaren. Den här artikeln innehåller automatisk och manuell frågornas ordningsföljd.
@@ -37,25 +37,12 @@ Andra delar av tillgänglighetsgruppens konfiguration måste göras manuellt, ti
 ## <a name="prerequisites"></a>Förutsättningar 
 För att automatisera installationen av en Always On-tillgänglighetsgrupp med quickstart-mallar, måste du redan har följande krav: 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
-- En resursgrupp med en [domänkontrollant](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-forest). 
-- En eller flera domänanslutna [virtuella datorer i Azure som kör SQLServer 2016 (eller högre) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) i samma uppsättning eller tillgänglighet tillgänglighetszon som har [registrerad hos resursprovidern SQL VM](#register-existing-sql-vm-with-new-resource-provider).  
+- En resursgrupp med en domänkontrollant. 
+- En eller flera domänanslutna [virtuella datorer i Azure som kör SQLServer 2016 (eller högre) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) i samma uppsättning eller tillgänglighet tillgänglighetszon som har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
 
-## <a name="register-existing-sql-vm-with-new-resource-provider"></a>Registrera den befintliga SQL VM med ny resursprovider
-Eftersom dessa tillgänglighetsgruppen som Azure-Snabbstartsmallar förlitar sig på resursprovidern SQL VM (Microsoft.SqlVirtualMachine), måste befintliga SQL Server-datorer registreras hos SQL VM-resursprovidern. Hoppa över det här steget om du har skapat din SQL Server-VM efter December 2018, som alla SQL Server-datorer som skapas efter det här datumet registreras automatiskt. Det här avsnittet innehåller steg för att registrera med providern med hjälp av Azure portal, men du kan också använda [PowerShell](virtual-machines-windows-sql-ahb.md#powershell). 
-
-  >[!IMPORTANT]
-  > Om du släpper din SQL Server-VM-resurs ska du gå tillbaka till inställningen hårdkodad licens för avbildningen. 
-
-1. Öppna Azure portal och gå till **alla tjänster**. 
-1. Gå till **prenumerationer** och välj prenumerationen av intresse.  
-1. I den **prenumerationer** bladet går du till **Resursprovidern**. 
-1. Typ `sql` i filtret för att få fram de SQL-relaterade resursprovidrar. 
-1. Välj antingen *registrera*, *Omregistrera*, eller *avregistrera* för den **Microsoft.SqlVirtualMachine** providern beroende på din önskad åtgärd. 
-
-  ![Ändra providern](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>Steg 1 – Skapa WSFC och ansluta till SQL Server-datorer till klustret med snabbstartsmall 
-När SQL Server-datorer har registrerats med den nya resurs-providern för SQL VM, du kan ansluta till SQL Server-datorer i *SqlVirtualMachineGroup*. Den här resursen definierar metadata för Windows-redundanskluster, inklusive versionen, utgåva, fullständigt kvalificerat domännamn, AD-konton att hantera klustret och Storage-konto som Molnvittnet. Att lägga till SQL Server-VM till den *SqlVirtualMachineGroup* startar den Windows-tjänsten för redundanskluster och ansluter till SQL Server-datorer i klustret. Det här steget är automatiserade med den **101-sql-vm-ag-setup** snabbstartsmall och kan implementeras med följande steg:
+När SQL Server-datorer har registrerats med den nya resurs-providern för SQL VM, du kan ansluta till SQL Server-datorer i *SqlVirtualMachineGroups*. Den här resursen definierar metadata för Windows-redundanskluster, inklusive versionen, utgåva, fullständigt kvalificerat domännamn, AD-konton att hantera både klustret och SQL-tjänsten och Storage-konto som molnet vittne. Att lägga till SQL Server-datorer till den *SqlVirtualMachineGroups* resursgruppen startar den Windows-tjänsten för redundanskluster om du vill skapa klustret och ansluter sedan till de SQL Server-datorer till klustret. Det här steget är automatiserade med den **101-sql-vm-ag-setup** snabbstartsmall och kan implementeras med följande steg:
 
 1. Navigera till den [ **101-sql-vm-ag-setup** ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) snabbstartsmall och välj **distribuera till Azure** att starta snabbstartsmall i Azure-portalen.
 1. Fyll i de obligatoriska fälten för att konfigurera Windows-redundanskluster metadata. Valfria fält kan vara tomt.
@@ -70,17 +57,24 @@ När SQL Server-datorer har registrerats med den nya resurs-providern för SQL V
    | **Befintlig Vm-lista** | Den SQL Server-datorer du vill delta i tillgänglighetsgruppen och därför inte ingå i den här nya klustret. Separera värdena med ett kommatecken och ett blanksteg (t.ex.: SQLVM1, SQLVM2). |
    | **SQL Server Version** | Välj den SQL Server-versionen av SQL Server-datorer i listrutan. För närvarande bara SQL 2016 och SQL 2017-avbildningar stöds. |
    | **Befintligt fullständigt kvalificerade domännamn** | Befintliga FQDN för domänen där din SQL Server-datorer finns. |
-   | **Befintligt domänkonto** | Ett befintligt domänkonto som har sysadmin-åtkomst till SQL Server. | 
-   | **Lösenordet för domänkontot** | Lösenordet för det tidigare nämnda domänkontot. | 
-   | **Befintliga Sql-tjänstkontot** | Domänanvändarkonto som används för att kontrollera SQL Server-tjänsten. Den här informationen kan hittas med hjälp av den [ **SQL Server Configuration Manager**](https://docs.microsoft.com/sql/relational-databases/sql-server-configuration-manager?view=sql-server-2017). |
+   | **Befintligt domänkonto** | Ett befintligt domänanvändarkonto som har behörighet att ”skapa datorobjekt” i domänen som den [CNO](/windows-server/failover-clustering/prestage-cluster-adds) skapas när mallen distribueras. Till exempel ett domänadministratörskonto vanligtvis har tillräcklig behörighet (t.ex.: account@domain.com). *Detta konto bör också vara en del av den lokala administratörsgruppen på varje virtuell dator för att skapa klustret.*| 
+   | **Lösenordet för domänkontot** | Lösenordet för det tidigare nämnda domänanvändarkontot. | 
+   | **Befintliga Sql-tjänstkontot** | Domänanvändarkonto som styr den [SQL Server-tjänsten](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) under distribueringen av tillgänglighet (ex: account@domain.com). |
    | **Lösenord för SQL-tjänsten** | Lösenordet som används av domänanvändarkonto som styr SQL Server-tjänsten. |
+   | **Namn på moln vittne** | Det här är ett nytt Azure storage-konto som skapas och används för molnvittnet. Det här namnet kan ändras. |
+   | **\_artefakter plats** | Det här fältet är som standard och bör inte ändras. |
+   | **\_artefakter plats Sas-Token** | Det här fältet är tomt avsiktligt. |
    | &nbsp; | &nbsp; |
 
 1. Om du samtycker till villkoren markerar du kryssrutan bredvid **jag godkänner villkoren som anges ovan** och välj **köp** att slutföra malldistributionen Snabbstart. 
 1. För att övervaka din distribution, väljer du antingen distributionen från den **meddelanden** klockikonen i övre navigeringsfältet-banderollen eller navigera till din **resursgrupp** i Azure-portalen väljer du  **Distributioner** i den **inställningar** och välj ”Microsoft.Template”-distributionen. 
 
+  >[!NOTE]
+  > Autentiseringsuppgifter som angavs under malldistributionen lagras endast för längden på distributionen. När distributionen är klar, lösenord tas bort och du blir ombedd att ange dem igen bör du lägga till ytterligare SQL Server-datorer i klustret. 
+
+
 ## <a name="step-2---manually-create-the-availability-group"></a>Steg 2 – Skapa tillgänglighetsgruppen manuellt 
-Skapa tillgänglighetsgruppen manuellt som vanligt, med hjälp av antingen [PowerShell](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), [SQL Server Management Studio](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) eller [Transact-SQL](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+Skapa tillgänglighetsgruppen manuellt som vanligt, med hjälp av antingen [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) eller [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
 
   >[!IMPORTANT]
   > Gör **inte** skapa en lyssnare just nu eftersom det sker automatiskt av den **101-sql-vm-aglistener-setup** snabbstartsmall i steg 4. 
@@ -98,10 +92,10 @@ Always On (AG) tillgänglighetsgruppslyssnaren kräver en intern Azure Load Bala
    | --- | --- |
    | **Namn** |Ett namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
    | **Typ** |**Interna**: De flesta implementeringar av använda en intern belastningsutjämnare, vilket gör att program i samma virtuella nätverk att ansluta till tillgänglighetsgruppen.  </br> **Externa**: Gör att program kan ansluta till tillgänglighetsgrupp via en offentlig Internetanslutning. |
-   | **Virtuellt nätverk** |Välj det virtuella nätverket som SQL Server-instanserna. |
-   | **Undernät** |Välj det undernät som SQL Server-instanser är i. |
+   | **Virtuellt nätverk** | Välj det virtuella nätverket som SQL Server-instanserna. |
+   | **Undernät** | Välj det undernät som SQL Server-instanser är i. |
    | **IP-adresstilldelning** |**Statisk** |
-   | **Privat IP-adress** |Ange en tillgänglig IP-adress från undernätet. Använd den här IP-adressen när du skapar en lyssnare på klustret.|
+   | **Privat IP-adress** | Ange en tillgänglig IP-adress från undernätet. |
    | **Prenumeration** |Om du har flera prenumerationer, visas det här fältet. Välj den prenumeration som du vill associera med den här resursen. Det är vanligtvis samma prenumeration som alla resurser för tillgänglighetsgruppen. |
    | **Resursgrupp** |Välj den resursgrupp som SQL Server-instanserna. |
    | **Plats** |Välj den Azure-plats som SQL Server-instanserna. |
@@ -115,12 +109,17 @@ Always On (AG) tillgänglighetsgruppslyssnaren kräver en intern Azure Load Bala
 
 ## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>Steg 4 – skapa AG-lyssnare och konfigurera den interna Belastningsutjämnaren med snabbstartsmallen
 
-Skapa tillgänglighetsgruppens lyssnare och konfigurera den interna belastningsutjämnaren (ILB) automatiskt med den **101-sql-vm-aglistener-setup** snabbstartsmall som det etablerar Microsoft.SqlVirtualMachine/Sql virtuella Datorresurs grupper/tillgänglighetsgruppens lyssnare. Den **101-sql-vm-aglistener-setup** snabbstartsmall via SQL VM-resursprovidern har följande åtgärder:
+Skapa tillgänglighetsgruppens lyssnare och konfigurera den interna belastningsutjämnaren (ILB) automatiskt med den **101-sql-vm-aglistener-setup** snabbstartsmall som det etablerar Microsoft.SqlVirtualMachine/ SqlVirtualMachineGroups/AvailabilityGroupListener resursen. Den **101-sql-vm-aglistener-setup** snabbstartsmall via SQL VM-resursprovidern har följande åtgärder:
 
+ - Skapar en ny frontend IP-resurs (baserat på IP-adressvärdet som angavs under distribution) för lyssnaren. 
  - Konfigurerar nätverksinställningar för klustret och ILB. 
  - Konfigurerar ILB-serverdelspoolen, hälsoavsökning och belastningsutjämning regler.
  - Skapar AG-lyssnare med den angivna IP-adressen och namnet.
-
+ 
+   >[!NOTE]
+   > Den **101-sql-vm-aglistener-setup** kan bara användas om Windows-redundanskluster har skapats med den **101-sql-vm-ag-setup** mall.
+   
+   
 Om du vill konfigurera den interna Belastningsutjämnaren och skapa AG-lyssnare, gör du följande:
 1. Navigera till den [ **101-sql-vm-aglistener-setup** ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) snabbstartsmall och välj **distribuera till Azure** att starta snabbstartsmall i Azure-portalen.
 1. Fyll i fälten som krävs för att konfigurera den interna Belastningsutjämnaren och skapa tillgänglighetsgruppens lyssnare. Valfria fält kan vara tomt. 
@@ -133,10 +132,9 @@ Om du vill konfigurera den interna Belastningsutjämnaren och skapa AG-lyssnare,
    |**Befintligt redundanskluster namn** | Namnet på klustret som SQL Server-datorer är anslutna till. |
    | **Befintliga Sql-tillgänglighetsgrupp**| Namnet på tillgänglighetsgruppen som SQL Server-datorer är en del av. |
    | **Befintlig Vm-lista** | Namn på SQL Server-datorer som ingår i de tidigare nämnda tillgänglighetsgruppen. Namnen ska avgränsas med kommatecken eller ett blanksteg (t.ex.: SQLVM1, SQLVM2). |
-   | **Befintligt fullständigt kvalificerade domännamn** | Befintliga FQDN för domänen där din SQL Server-datorer finns. |
-   | **Lyssnare** | DNS-namnet som du vill tilldela till lyssnaren. Den här mallen innehåller namnet aglistener som standard, men kan ändras. |
+   | **Lyssnare** | DNS-namnet som du vill tilldela till lyssnaren. Den här mallen innehåller namnet aglistener som standard, men kan ändras. Namnet får innehålla högst 15 tecken. |
    | **Lyssningsport** | Den port som du vill att du använder. Normalt den här porten ska vara standardporten 1433, och därför måste det här är det portnummer som anges av den här mallen. Men om din standardporten har ändrats bör sedan lyssningsport använda värdet i stället. | 
-   | **Befintligt virtuellt nätverk** | Namnet på det virtuella nätverket där din SQL Server-datorer och ILB finns. |
+   | **Lyssnaren IP** | IP-Adressen som du vill att du använder.  Den här IP-adressen kommer att skapas under mallvalideringen, så ange en IP-adress som inte redan används.  |
    | **Befintligt undernät** | Den *namn* på det interna undernätet för SQL Server-datorer (ex: standard). Det här värdet kan fastställas genom att gå till din **resursgrupp**, välja din **vNet**, välja **undernät** under den **inställningar**fönstret och kopiera värdet under **namn**. |
    | **Befintlig intern belastningsutjämnare** | Namnet på den interna Belastningsutjämnaren som du skapade i steg3. |
    | **Avsökningsport** | Avsökningsporten som du vill att den interna Belastningsutjämnaren för att använda. Mallen använder 59999 som standard men du kan ändra det här värdet. |
@@ -159,7 +157,7 @@ Följande kodavsnitt tar bort SQL tillgänglighetsgruppens lyssnare från både 
 Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
 ```
  
-## <a name="known-issues-and-errors"></a>Kända problem och fel
+## <a name="common-errors"></a>Vanliga fel
 Det här avsnittet beskrivs några kända problem och deras möjlig lösning. 
 
 ### <a name="availability-group-listener-for-availability-group-ag-name-already-exists"></a>Tillgänglighetsgruppslyssnaren för tillgänglighetsgruppen '\<AG-namn >' finns redan
@@ -172,6 +170,24 @@ Lös problemet genom att ta bort lyssnaren med [PowerShell](#remove-availability
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest - endast SQL VM-lista kan uppdateras
 Det här felet kan uppstå när du distribuerar den **101-sql-vm-aglistener-setup** mall om lyssnaren togs bort via SQL Server Management Studio (SSMS), men har inte tagits bort från SQL VM-resursprovidern. Tar bort lyssnaren via SSMS tar inte bort metadata för lyssnaren från resursprovidern SQL VM; lyssnaren måste tas bort från resursprovidern med hjälp av [PowerShell](#remove-availability-group-listener). 
+
+### <a name="domain-account-does-not-exist"></a>Domänkonto finns inte
+Det här felet kan bero på något av två skäl. Antingen angivna domänkontot verkligen finns inte eller så är saknas den [UPN User Principal Name ()](/windows/desktop/ad/naming-properties#userprincipalname) data. Den **101-sql-vm-ag-setup** mall förväntar sig ett domänkonto i UPN-formatet (d.v.s. user@domain.com), men vissa domänkonton kan saknas på den. Detta kan inträffa när en lokal användare har migrerats till vara det första administratörskontot för domänen när servern har befordras till en domänkontrollant, eller när en användare har skapats via PowerShell normalt. 
+
+ Kontrollera att kontot finns. I annat fall kan du köra i andra fall. Lös detta genom att göra följande:
+
+ 1. Öppna på domänkontrollanten, den **Active Directory-användare och datorer** fönstret från den **verktyg** alternativet i **Serverhanteraren**. 
+ 2. Gå till kontot genom att välja **användare** i det vänstra fönstret.
+ 3. Högerklicka på önskat konto och välj **egenskaper**.
+ 4. Välj den **konto** fliken och verifiera om den **användarens inloggningsnamn** är tomt. Om det är är det här orsaken till felet. 
+
+     ![Tom användarkonto anger saknas UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+
+ 5. Fyll i den **användarens inloggningsnamn** för att matcha namnet på användaren och väljer rätt domän i listrutan ned. 
+ 6. Välj **tillämpa** att spara ändringarna och Stäng dialogrutan genom att välja **OK**. 
+
+ När dessa ändringar görs försök att distribuera Azure-Snabbstartsmall en gång till. 
+
 
 
 ## <a name="next-steps"></a>Nästa steg

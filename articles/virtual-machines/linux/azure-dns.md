@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 93614d4889c9c884f25c5e05cd620e8303226323
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357774"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819152"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
 Azure tillhandahåller DNS-namnmatchning som standard för alla virtuella datorer som finns i ett enda virtuellt nätverk. Du kan implementera en egen DNS-namnet lösning lösning genom att konfigurera dina egna DNS-tjänster på dina virtuella datorer som är värd för Azure. Följande scenarier bör hjälpa dig att välja det alternativ som passar din situation.
@@ -33,7 +33,7 @@ I följande tabell visar scenarier och motsvarande name resolution lösningar:
 
 | **Scenario** | **Lösning** | **Suffix** |
 | --- | --- | --- |
-| Namnmatchningen mellan rollinstanser och virtuella datorer i samma virtuella nätverk |[Namnmatchning som Azure tillhandahåller](#azure-provided-name-resolution) |värdnamn eller fullständigt kvalificerade domännamnet (FQDN) |
+| Namnmatchningen mellan rollinstanser och virtuella datorer i samma virtuella nätverk |Namnmatchning som Azure tillhandahåller |värdnamn eller fullständigt kvalificerade domännamnet (FQDN) |
 | Namnmatchning mellan rollinstanser eller virtuella datorer i olika virtuella nätverk |Kundhanterad DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för matchning av Azure (DNS-proxy). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-using-your-own-dns-server). |Endast FQDN |
 | Matcha namn från rollinstanser eller virtuella datorer i Azure och lokala datorer |Kundhanterad DNS-servrar (till exempel en lokal domänkontrollant, lokala skrivskyddade domänkontrollanten eller en sekundär DNS har synkroniserats med hjälp av zonöverföringar). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-using-your-own-dns-server). |Endast FQDN |
 | Lösning av Azure värdnamn från lokala datorer |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i motsvarande virtuella nätverk. Proxyservern vidarebefordrar frågor till Azure för matchning. Se [namnmatchning med hjälp av DNS-servern](#name-resolution-using-your-own-dns-server). |Endast FQDN |
@@ -57,7 +57,7 @@ Azure tillhandahåller intern namnmatchning för virtuella datorer och rollinsta
 * Du kan inte registrera dina egna poster manuellt.
 * WINS- och NetBIOS stöds inte.
 * Värdnamn måste vara DNS-kompatibla.
-    Namn måste använda bara 0-9, a – z och '-', och de får inte börja eller sluta med en '-'. I avsnittet RFC 3696 2.
+    Namn måste använda bara 0-9, a – z och '-', och de får inte börja eller sluta med en '-'. See RFC 3696 Section 2.
 * DNS-frågorna är begränsad för varje virtuell dator. Begränsning bör inte påverka de flesta program.  Se till att cachelagring på klientsidan är aktiverad om begärandebegränsning observeras.  Mer information finns i [Stackautomatisering namnmatchning som Azure tillhandahåller](#getting-the-most-from-name-resolution-that-azure-provides).
 
 ### <a name="getting-the-most-from-name-resolution-that-azure-provides"></a>Få ut maximalt av namnmatchning som Azure tillhandahåller
@@ -87,7 +87,7 @@ Flera olika DNS-cachen paket, som till exempel dnsmasq, är tillgängliga. Här 
 5. Starta om nätverkstjänsten (”tjänsten network omstart”) för att ställa in cachen som den lokala DNS-matchning
 
 > [!NOTE]
-> : 'Dnsmasq' paketet är bara en av de många DNS-cacheminnen som är tillgängliga för Linux. Innan du använder den, kontrollera dess lämplighet för dina behov och som ingen annan cachelagring är installerad.
+> : Paketet 'dnsmasq' är bara en av de många DNS-cacheminnen som är tillgängliga för Linux. Innan du använder den, kontrollera dess lämplighet för dina behov och som ingen annan cachelagring är installerad.
 >
 >
 
@@ -108,7 +108,7 @@ Filen resolv.conf genereras automatiskt och bör inte redigeras. Vilka specifika
 1. Lägg till rad alternativ till ' / etc/resolveconf/resolv.conf.d/head ”.
 2. Kör resolvconf -u att uppdatera.
 
-**SUSE** (använder netconf)
+**SUSE** (uses netconf)
 1. Lägg till 'timeout:1 försök: 5' till NETCONFIG_DNS_RESOLVER_OPTIONS = ”” parametern i ”/ etc/sysconfig/nätverk/config”.
 2. Kör netconfig-uppdateringen att uppdatera.
 

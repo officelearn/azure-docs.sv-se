@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119993"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812479"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: Beroendespårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som kallas via HTTP, eller en databas eller ett filsystem. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mäter hur länge ditt program väntar beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
@@ -52,7 +52,7 @@ Partiell beroendeinformation som samlas in automatiskt av den [Application Insig
 * [Programavbildning](#application-map) hjälper dig att visualisera beroenden mellan din app och Närliggande komponenter.
 * [Prestanda, webbläsare och fel bladen](#performance-and-blades) visa beroende serverdata.
 * [Bladet webbläsare](#ajax-calls) visar AJAX-anrop från användarnas webbläsare.
-* [Klicka dig igenom från långsamt eller misslyckade begäranden](#diagnose-slow-requests) att kontrollera sambandet anropar.
+* Klicka dig igenom från långsamma eller misslyckade begäranden om att kontrollera deras beroendeanrop.
 * [Analytics](#analytics) kan användas för att köra frågor mot beroendedata.
 
 ## <a name="application-map"></a>Programkarta

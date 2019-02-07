@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: a09037f2e33d87446696dd11477c4e8b45af4187
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11d41f9839456020ab65f11661c21f1e679cd76f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474181"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770660"
 ---
 # <a name="migrate-your-data"></a>Migrera dina Data
 Data kan flyttas från olika källor i SQL Data Warehouse med en mängd verktyg.  ADF kopia och SSIS bcp kan alla användas för att uppnå det här målet. Som mängden data ökar bör du dock tänka bryta ned data migreringsprocessen i steg. Detta får du möjlighet att optimera varje steg både för prestanda och flexibilitet i fokus att säkerställa en smidig datamigrering.
@@ -29,11 +29,7 @@ Om dina data börjar i flata filer så behöver du först överföra den till Az
 
 PolyBase erbjuder även en högpresterande alternativ för inläsning av data. Som betyder dock med två verktyg i stället för en. Om du behöver för bästa prestanda och Använd sedan PolyBase. Om du vill att en enda verktyget upplevelse (och data är inte enorma) är ADF ditt svar.
 
-
-> 
-> 
-
-Gå till följande artikel för vissa bra [ADF exempel] [ADF exempel].
+Följ [den här självstudien]( /articles/data-factory/load-azure-sql-data-warehouse.md) att lära dig hur du använder ADF för att läsa in data i ditt informationslager.
 
 ## <a name="integration-services"></a>Integrationstjänster
 Integration Services (SSIS) är ett kraftfullt och flexibelt extrahera transformera och inläsning (ETL) som stöder komplexa arbetsflöden, Dataomvandling och flera alternativ för inläsning av data. Använda SSIS för att helt enkelt överföra data till Azure eller som en del av en bredare migrering.
@@ -182,7 +178,7 @@ Fler utvecklingstips, se [utvecklingsöversikt][development overview].
 
 <!--Article references-->
 [AZCopy]: ../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/copy-activity-overview.md 
+[ADF Copy]: ../data-factory/load-azure-sql-data-warehouse.md 
 [ADF Copy examples]: ../data-factory/quickstart-create-data-factory-dot-net.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Migrera ditt schema]: sql-data-warehouse-migrate-schema.md

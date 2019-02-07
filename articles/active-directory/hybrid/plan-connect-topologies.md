@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 15ecd594dea9251b64cdfcba3bf620bc101504ec
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 988e72a20fdd80e41ce8fc1ef568d90d4283a848
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486103"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813508"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokala och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller konfigurationer för både stöds och som inte stöds.
@@ -63,7 +63,7 @@ När du har flera skogar, alla skogar måste kunna nås av en enda Azure AD Conn
 
 Installationsguiden för Azure AD Connect erbjuder flera alternativ för att konsolidera användare som representeras i flera skogar. Målet är att en användare representeras endast en gång i Azure AD. Det finns vissa vanliga topologier som du kan konfigurera i den anpassade installationssökvägen i installationsguiden. På den **identifierar användarna** markerar du motsvarande alternativ som representerar din topologi. Konsolideringen har konfigurerats endast för användare. Duplicerade grupper konsolideras inte med standardkonfigurationen.
 
-Vanliga topologier beskrivs i avsnitten om [avgränsa topologier](#multiple-forests-separate-topologies), [fullständig nät](#multiple-forests-full-mesh-with-optional-galsync), och [resursen för lagringskonton topologin](#multiple-forests-account-resource-forest).
+Vanliga topologier beskrivs i avsnitten om olika topologier [fullständig nät](#multiple-forests-full-mesh-with-optional-galsync), och [resursen för lagringskonton topologin](#multiple-forests-account-resource-forest).
 
 Med standardkonfigurationen i Azure AD Connect-synkronisering förutsätter:
 

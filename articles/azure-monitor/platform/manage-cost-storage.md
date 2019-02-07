@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 290f0426befa322b20882682bf4555f80af016d1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660399"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821481"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Hantera användning och kostnader för Log Analytics
 
@@ -128,7 +128,7 @@ När datainsamlingen slutar OperationStatus är en varning. När datainsamlingen
 |Stoppar orsak samling| Lösning| 
 |-----------------------|---------|
 |Dagliga gränsen på äldre kostnadsfria prisnivån har nåtts |Vänta tills nästa dag för samlingen att starta om automatiskt eller ändra till en betald prisnivå.|
-|Dagligt tak för din arbetsyta har uppnåtts|Vänta tills samling att starta om automatiskt eller öka den dagliga datavolymen som beskrivs i [hantera den maximala dagliga datavolymen](#manage-the-maximum-daily-volume). Dagligt tak återställningstiden är visas på den **Datavolymhantering** sidan. |
+|Dagligt tak för din arbetsyta har uppnåtts|Vänta tills samling att starta om automatiskt, eller öka den dagliga datavolymen som beskrivs i hantera den maximala dagliga datavolymen. Dagligt tak återställningstiden är visas på den **Datavolymhantering** sidan. |
 |Azure-prenumerationen är i ett pausat tillstånd på grund av:<br> Kostnadsfri utvärderingsversion avslutades<br> Azure-pass har upphört att gälla<br> Varje månad utgiftsgränsen har nåtts (till exempel på en MSDN eller Visual Studio-prenumeration)|Konvertera till en betald prenumeration<br> Ta bort gränsen, eller vänta tills begränsningen återställs|
 
 Om du vill meddelas när datainsamlingen slutar, använder du stegen som beskrivs i *skapa dagliga data gräns* avisering du vill meddelas när datainsamlingen slutar och följ stegen använder stegen som beskrivs i Lägg till åtgärder för att Avisera regler konfigurera ett e-postmeddelande webhook eller runbook-åtgärden för regeln. 

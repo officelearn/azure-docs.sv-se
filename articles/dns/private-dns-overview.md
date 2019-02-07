@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826487"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816330"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Använda Azure DNS för privata domäner
 
@@ -32,7 +32,7 @@ Azure DNS ger följande fördelar:
 
 * **Eliminerar behovet av anpassade DNS-lösningar**. Många kunder skapade tidigare, anpassade DNS-lösningar för att hantera DNS-zoner i sina virtuella nätverk. Du kan nu utföra hantering av DNS-zon med hjälp av interna Azure-infrastrukturen, vilket tar bort bördan med att skapa och hantera anpassade DNS-lösningar.
 
-* **Använd alla vanliga DNS-posttyper**. Azure DNS supports A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT records.
+* **Använd alla vanliga DNS-posttyper**. Azure DNS supports A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT records.
 
 * **Automatisk värdnamn Posthantering**. Tillsammans med som är värd för din anpassade DNS-poster, bibehålla Azure automatiskt värddatorposter för de virtuella datorerna i de angivna virtuella nätverken. I det här scenariot kan du optimera de domännamn som du använder utan att skapa anpassade DNS-lösningar eller ändra de program.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6ab3e918feda3dcf898928f159ebf8e317a95527
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7156249e720416161cd56af7589ed85827c6034b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331851"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812558"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Flytta data till och från Azure-tabell med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,7 +137,7 @@ I följande exempel visas:
 1. En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (används för både tabell- och blob).
 2. Indata [datauppsättning](data-factory-create-datasets.md) av typen [AzureTable](#dataset-properties).
 3. Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. Den [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [AzureTableSource](#activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+4. Den [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder AzureTableSource och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 Exemplet kopierar data som hör till standardpartition i en Azure-tabell till en blob varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
 
@@ -479,10 +479,10 @@ När du flyttar data till och från Azure Table, följande [mappningar som defin
 | Edm.Boolean |Bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |A 64-bit value expressed as Coordinated Universal Time (UTC). Det tillåtna intervallet för DateTime börjar från midnatt, 1 januari, 1601 e. kr. (C.E.), UTC. Intervallet som slutar på den 31 December 9999. |
 | Edm.Double |double |Ett 64-bitars flytande punktvärde. |
-| Edm.Guid |GUID |En globalt unik identifierare för 128-bitars. |
+| Edm.Guid |Guid |En globalt unik identifierare för 128-bitars. |
 | Edm.Int32 |Int32 |En 32-bitars heltal. |
 | Edm.Int64 |Int64 |En 64-bitars heltal. |
-| Edm.String |Sträng |Ett UTF-16-kodade värde. Strängvärden kan vara upp till 64 KB. |
+| Edm.String |String |Ett UTF-16-kodade värde. Strängvärden kan vara upp till 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Konvertering-datatyp, exempel
 I följande exempel är för att kopiera data från en Azure-Blob till Azure Table med typkonverteringar.
@@ -533,7 +533,7 @@ Få typmappningen från Azure Table OData-typ till .NET-typ, definierar du tabel
 
 **Azure Table-schema:**
 
-| Kolumnnamn | Typ |
+| Kolumnnamn | Type |
 | --- | --- |
 | användar-ID |Edm.Int64 |
 | namn |Edm.String |

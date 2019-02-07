@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477613"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812859"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera lösningar för Batch-tjänsten med Active Directory
 
@@ -91,7 +91,7 @@ Klient-ID identifierar Azure AD-klienten som tillhandahåller autentiseringstjä
 
 Du måste ge ditt program behörighet att ansluta till API: et för Batch-tjänsten för att autentisera med integrerad autentisering. Det här steget gör att programmet att autentisera anrop till API: et för Batch-tjänsten med Azure AD.
 
-När du har [registrerat ditt program](#register-your-application-with-an-azure-ad-tenant), följa stegen i Azure portal för att ge det åtkomst till Batch-tjänsten:
+När du har registrerat ditt program, följer du stegen i Azure portal för att ge det åtkomst till Batch-tjänsten:
 
 1. I det vänstra navigeringsfönstret i Azure-portalen, väljer **alla tjänster**. Klicka på **Appregistreringar**.
 2. Sök efter namnet på ditt program i listan över app-registreringar:

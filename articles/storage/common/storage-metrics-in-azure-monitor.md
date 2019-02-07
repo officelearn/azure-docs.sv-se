@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 4b71c5818ee6eade526134ab1b2508ed55f0c400
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699949"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811777"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -39,7 +39,7 @@ Du kan filtrera mått med önskad dimension-värde för mått som stöder dimens
 
 ### <a name="access-metrics-with-the-rest-api"></a>Mått för åtkomst med REST API
 
-Azure Monitor innehåller [REST API: er](/rest/api/monitor/) att läsa måttdefinition och värden. Det här avsnittet visas hur du läser storage-mått. Resurs-ID används i alla REST API: er. Mer information hittar du [förstå resurs-ID för tjänster i Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor innehåller [REST API: er](/rest/api/monitor/) att läsa måttdefinition och värden. Det här avsnittet visas hur du läser storage-mått. Resurs-ID används i alla REST API: er. Mer information finns i Förstå resurs-ID för tjänster i lagring.
 
 I följande exempel visas hur du använder [ArmClient](https://github.com/projectkudu/ARMClient) på kommandoraden för att förenkla testa med REST API.
 
@@ -136,7 +136,7 @@ Följande svar innehåller måttvärden i JSON-format:
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Åtkomst till mått med .net SDK
 
-Azure Monitor innehåller [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) att läsa måttdefinition och värden. Den [exempelkoden](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) visar hur du använder SDK: N med olika parametrar. Du måste använda `0.18.0-preview` eller senare för storage-mått. Resurs-ID används i .net SDK. Mer information hittar du [förstå resurs-ID för tjänster i Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor innehåller [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) att läsa måttdefinition och värden. Den [exempelkoden](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) visar hur du använder SDK: N med olika parametrar. Du måste använda `0.18.0-preview` eller senare för storage-mått. Resurs-ID används i .net SDK. Mer information finns i Förstå resurs-ID för tjänster i lagring.
 
 I följande exempel visar hur du läser mätvärden i storage med Azure Monitor .net SDK.
 

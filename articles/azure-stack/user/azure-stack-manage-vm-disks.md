@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 022dd937ae0557ca848a329039703f3b94ad0885
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b5254b45fcd71901876d9e77d1f29c0a0d40ce3f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245362"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813882"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Skapa disklagring för virtuella datorer i Azure Stack
 
@@ -50,7 +50,7 @@ I följande tabell sammanfattas hur du lägger till diskar med hjälp av portale
 
 | Metod | Alternativ
 |-|-|
-|[Användarportalen](#use-the-portal-to-add-additional-disks-to-a-vm)|-Lägga till nya datadiskar till en befintlig virtuell dator. Nya diskar skapas med Azure Stack. </br> </br>-Lägga till en befintlig (.vhd)-diskfil till en tidigare skapad virtuell dator. Om du vill göra detta måste du förbereda VHD-filen och sedan överföra filen till Azure Stack. |
+|Användarportal|-Lägga till nya datadiskar till en befintlig virtuell dator. Nya diskar skapas med Azure Stack. </br> </br>-Lägga till en befintlig (.vhd)-diskfil till en tidigare skapad virtuell dator. Om du vill göra detta måste du förbereda VHD-filen och sedan överföra filen till Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | – Skapa en ny virtuell dator med en OS-disk och lägga till en eller flera datadiskar i den virtuella datorn på samma gång. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Använda portalen för att lägga till diskar till en virtuell dator

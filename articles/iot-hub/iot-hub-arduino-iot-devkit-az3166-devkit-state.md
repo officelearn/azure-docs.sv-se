@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343167"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811060"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -55,13 +55,13 @@ Du kan använda det här exemplet att övervaka MXChip IoT DevKit WiFi informati
 
 6. Resultatet ungefär *funktionsapp: funktionsappens namn: xxx*, visas. Skriv ned namnet på funktionen; den används i ett senare steg.
 
-7. Vänta tills Azure Resource Manager malldistributionen är klar, vilket är anges när meddelandet *Resource Manager för malldistribution: klar* visas.
+7. Vänta tills Azure Resource Manager malldistributionen är klar, vilket är anges när meddelandet *Resource Manager för malldistribution: Klar* visas.
 
 ## <a name="deploy-function-app"></a>Distribuera Funktionsappen
 
 1. Klicka på den **uppgifter** nedrullningsbara menyn i Visual Studio Code och välj **kör uppgift...**   -  **molnet – distribuera**.
 
-2. Vänta tills funktionskod laddar upp processen avslutas. meddelandet *funktionsapp distribuerar: klar* visas.
+2. Vänta tills funktionskod laddar upp processen avslutas. meddelandet *funktionsapp distribuerar: Klar* visas.
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Konfigurera anslutningssträngen för IoT Hub-enhet i DevKit
 
@@ -83,7 +83,7 @@ Ansluten till datorn med MXChip IoT DevKit:
 
 ## <a name="monitor-devkit-state-in-browser"></a>Tillstånd för Övervakare för DevKit i webbläsare
 
-1. I en webbläsare, öppna den `DevKitState\web\index.html` filen som skapades under den [vad du behöver](#whatyouneed) steg.
+1. I en webbläsare, öppna den `DevKitState\web\index.html` filen som skapades under Vad behöver du steg.
 
 2. På följande webbsida visas:![Ange namnet på funktionen.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 
@@ -106,7 +106,7 @@ Ansluten till datorn med MXChip IoT DevKit:
 ![Testa exempelprocedur](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Du kan se rådata för enhetstvilling i Azure portal: IoT Hub -\> IoT-enheter –\> *\<enheten\>*  - \> Enhetstvillingen.
+> Du kan se rådata för enhetstvilling i Azure-portalen: IoT Hub -\> IoT-enheter –\> *\<enheten\>*  - \> Enhetstvillingen.
 
 ## <a name="next-steps"></a>Nästa steg
 

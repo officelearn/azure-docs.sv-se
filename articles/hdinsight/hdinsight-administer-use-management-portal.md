@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dd94330835c52b27c61c484d44991152d092fbe7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632033"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811706"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -115,7 +115,7 @@ Installationen av anpassad programvara i klustret med hjälp av anslutning till 
 
    * **Hostname**: Klustrets namn.
    * **Klustrets URL**.
-   * **Status för**: Inkludera avbröts, godkända ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, kör, fel, tar bort, tas bort, nådde sin tidsgräns, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued ClusterCustomization
+   * **Status**: Inkludera avbröts, godkända ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, kör, fel, tar bort, tas bort, nådde sin tidsgräns, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued ClusterCustomization
    * **Region**: Azure-plats. En lista över platser som stöds Azure finns i den **Region** nedrullningsbara listrutan på [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Data som har skapats**.
    * **Operativsystem**: Antingen **Windows** eller **Linux**.
@@ -164,7 +164,7 @@ Effekten av att ändra antalet datanoder som för varje typ av kluster som stöd
 
     Ombalansering kan utföras på två sätt:
 
-  * Apache Storm-Webbgränssnittet
+  * Apache Storm web UI
   * Verktyget kommandoradsgränssnittet (CLI)
 
     Finns det [Apache Storm-dokumentationen](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
@@ -203,7 +203,7 @@ Det finns många sätt som du kan programmera processen:
 Prisinformationen, se [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/). Om du vill ta bort ett kluster från portalen, se [ta bort kluster](#delete-clusters)
 
 ## <a name="change-cluster-username"></a>Ändra klusternamn
-Ett HDInsight-kluster kan ha två användarkonton. Användarkonto för HDInsight-klustret har skapats under skapandeprocessen. Du kan också skapa ett användarkonto för RDP för åtkomst till klustret via RDP. Se [aktivera Fjärrskrivbord](#connect-to-hdinsight-clusters-by-using-rdp).
+Ett HDInsight-kluster kan ha två användarkonton. Användarkonto för HDInsight-klustret har skapats under skapandeprocessen. Du kan också skapa ett användarkonto för RDP för åtkomst till klustret via RDP. Se aktivera Fjärrskrivbord.
 
 **Ändra HDInsight-kluster-användarnamn och lösenord**
 
@@ -331,7 +331,7 @@ Om du vill ansluta till klustret med hjälp av fjärrskrivbord och använder Had
 1. Ansluta till klustret med hjälp av fjärrskrivbord.
 2. Från skrivbordet, dubbelklickar du på **Hadoop-kommandoraden**.
 
-    ![HDI. HadoopCommandLine][image-hadoopcommandline]
+    ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
     Mer information om Hadoop-kommandon finns i [Apache Hadoop-kommandon referens](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 

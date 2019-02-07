@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5ba12e48092c02f9628e15166c84e871310d7556
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052776"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816381"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Använda Data Lake Storage med Azure HDInsight-kluster
 
@@ -69,7 +69,7 @@ Om du vill kunna använda Data Lake Storage som standardlagring måste du ge tj�
 - Mappen för alla klustermappar.  Till exempel: adl://mydatalakestore/clusters.
 - Mappen för klustret.  Till exempel: adl://mydatalakestore/clusters/cluster1storage.
 
-Läs mer om för att skapa tjänstens huvudnamn och bevilja åtkomst [konfigurerar Data Lake Storage åtkomst](#configure-data-lake-store-access).
+Mer information för att skapa tjänstens huvudnamn och bevilja åtkomst finns i Konfigurera Data Lake Storage åtkomst.
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>Extrahera ett certifikat från Azure Keyvault för användning i klustret har skapats
 
@@ -117,12 +117,12 @@ Om du vill kunna använda ett Data Lake Storage som ytterligare lagringsutrymme 
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-Läs mer om för att skapa tjänstens huvudnamn och bevilja åtkomst [konfigurerar Data Lake Storage åtkomst](#configure-data-lake-store-access).
+Mer information för att skapa tjänstens huvudnamn och bevilja åtkomst finns i Konfigurera Data Lake Storage åtkomst.
 
 
 ## <a name="use-more-than-one-data-lake-storage-accounts"></a>Använda fler än ett Data Lake Storage-konton
 
-Lägger till ett Data Lake Storage-konto som ytterligare och lägga till fler än en Data Lake Storage-konto genom att ge behörighet för HDInsight-kluster på data i ett eller flera Data Lake Storage-konton. Se [konfigurerar Data Lake Storage åtkomst](#configure-data-lake-store-access).
+Lägger till ett Data Lake Storage-konto som ytterligare och lägga till fler än en Data Lake Storage-konto genom att ge behörighet för HDInsight-kluster på data i ett eller flera Data Lake Storage-konton. Se Konfigurera Data Lake Storage åtkomst.
 
 ## <a name="configure-data-lake-storage-access"></a>Konfigurera åtkomst till Data Lake Storage
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: anzaman
-ms.openlocfilehash: 7df709adbd8e45712c112b52fc76920f8b67fe91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 59a865cf6e822ecd1918d0c04b98f0edc0355223
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284831"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815480"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Anpassa en varumärken modell i Video Indexer
 
@@ -30,7 +30,7 @@ I den [Microsoft Build 2017 dag 2](https://www.videoindexer.ai/media/ed6ede78ad/
 
 Tala om windows i samband med konstruktion identifierar inte ordet ”Windows” som ett varumärke och samma för Box, Apple, Fox, osv., baserat på avancerade maskininlärningsalgoritmer som vet hur man disambiguate från kontexten. Varumärke hotidentifieringen i vår språk som stöds. Klicka här för [fullständig Microsoft Build 2017 Day 2 grundtanke video och index](http://www.videoindexer.ai/media/ed6ede78ad/).
 
-Om du vill ta med dina egna varumärken, Kolla in [nästa steg](#next-stpes).
+Kolla in nästa steg för att göra dina egna varumärken.
 
 ## <a name="next-steps"></a>Nästa steg
 

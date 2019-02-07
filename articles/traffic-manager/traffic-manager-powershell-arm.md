@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055140"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816228"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Använda PowerShell för att hantera Traffic Manager
 
@@ -61,12 +61,12 @@ I följande tabell beskrivs parametrarna:
 | ResourceGroupName |Namnet på resursgruppen som innehåller profilen resursen. |
 | TrafficRoutingMethod |Anger den metod för routning av nätverkstrafik som används för att avgöra vilken slutpunkt returneras svar en DNS-fråga. Möjliga värden är ”Performance”, ”viktat” eller ”prioritet”. |
 | RelativeDnsName |Anger värdnamnet delen av DNS-namn som tillhandahålls av den här Traffic Manager-profilen. Det här värdet kombineras med DNS-domännamnet som används av Azure Traffic Manager för att skapa det fullständigt kvalificerade domännamnet (FQDN) för profilen. Till exempel blir ställa in värdet för ”contoso” contoso.trafficmanager.net. |
-| TTL-VÄRDE |Anger DNS-Time-to-Live (TTL), i sekunder. Den här TTL informerar den lokala DNS-matchare och DNS-klienter som är hur lång tid att cache DNS-svar för den här Traffic Manager-profilen. |
+| TTL |Anger DNS-Time-to-Live (TTL), i sekunder. Den här TTL informerar den lokala DNS-matchare och DNS-klienter som är hur lång tid att cache DNS-svar för den här Traffic Manager-profilen. |
 | MonitorProtocol |Anger vilket protokoll du använder för att övervaka hälsan för slutpunkten. Möjliga värden är ”HTTP” och ”HTTPS”. |
 | MonitorPort |Anger TCP-port som används för att övervaka hälsan för slutpunkten. |
 | MonitorPath |Anger sökväg i förhållande till domännamnet på slutpunkten används för att söka efter slutpunktshälsa. |
 
-Cmdleten skapar en Traffic Manager-profil i Azure och returnerar ett motsvarande objekt i profilen till PowerShell. Nu kan innehåller profilen inte några slutpunkter. Läs mer om att lägga till slutpunkter till en Traffic Manager-profil, [att lägga till Traffic Manager-slutpunkter](#adding-traffic-manager-endpoints).
+Cmdleten skapar en Traffic Manager-profil i Azure och returnerar ett motsvarande objekt i profilen till PowerShell. Nu kan innehåller profilen inte några slutpunkter. Mer information om att lägga till slutpunkter till en Traffic Manager-profil finns i att lägga till Traffic Manager-slutpunkter.
 
 ## <a name="get-a-traffic-manager-profile"></a>Hämta en Traffic Manager-profil
 

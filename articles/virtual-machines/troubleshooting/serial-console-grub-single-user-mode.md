@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103317"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814479"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
 GRUB är GRand Unified startprogrammet, vilket förmodligen är det första som visas när du startar en virtuell dator. Eftersom den visar innan operativsystemet har startat är den inte tillgänglig via SSH. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat.
@@ -44,7 +44,7 @@ Starta om den virtuella datorn kan också göras med en SysRq `'b'` kommandot om
 ![Linux Seriell konsol omstart](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Allmän enanvändarläge åtkomst
-Manuell åtkomst till enanvändarläge kan behövas i situationer där du inte har konfigurerat ett konto med autentisering med lösenord. Du behöver ändra GRUB-konfigurationen för att manuellt ange enanvändarläge. När du har gjort det, se [Använd läget för enskild användare kan återställa eller lägger till ett lösenord](#-Use-Single-User-Mode-to-reset-or-add-a-password) för ytterligare instruktioner.
+Manuell åtkomst till enanvändarläge kan behövas i situationer där du inte har konfigurerat ett konto med autentisering med lösenord. Du behöver ändra GRUB-konfigurationen för att manuellt ange enanvändarläge. När du har gjort det, finns i använda läget för enskild användare kan återställa eller lägger till ett lösenord för ytterligare instruktioner.
 
 I fall där den virtuella datorn är det går inte att starta kommer distributioner ofta automatiskt släpper du i enanvändarläge eller nödläge. Andra, men kräver ytterligare konfiguration innan de kan släpper du i enanvändarläge eller nödläge läge automatiskt (till exempel ställa in ett rotlösenord).
 

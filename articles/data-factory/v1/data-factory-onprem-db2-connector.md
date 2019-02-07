@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015142"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816738"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med hjälp av Azure Data Factory Kopieringsaktivitet
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-db2-connector.md)
 > * [Version 2 (aktuell version)](../connector-db2.md)
 
@@ -72,7 +72,7 @@ Om du använder verktyg eller API: er kan utföra du följande steg för att ska
 2. Skapa datauppsättningar som representerar inkommande och utgående data för kopieringen. 
 3. Skapa en pipeline med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
 
-När du använder guiden Kopiera, JSON-definitioner för Data Factory-länkade skapas tjänster, datauppsättningar och pipeline entiteter automatiskt åt dig. När du använder verktyg eller API: er (med undantag för .NET-API) kan definiera du Data Factory-entiteter med hjälp av JSON-format. Den [JSON-exempel: Kopiera data från DB2 till Azure Blob storage](#json-example-copy-data-from-db2-to-azure-blob) visar JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för den lokala DB2.
+När du använder guiden Kopiera, JSON-definitioner för Data Factory-länkade skapas tjänster, datauppsättningar och pipeline entiteter automatiskt åt dig. När du använder verktyg eller API: er (med undantag för .NET-API) kan definiera du Data Factory-entiteter med hjälp av JSON-format. JSON-exempel: Kopieringsdata från DB2 till Azure Blob storage visar JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för den lokala DB2.
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för en DB2-datalagret.
 
@@ -82,9 +82,9 @@ I följande tabell visas de JSON-egenskaper som är specifika för en DB2-länka
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
-| **Server** |Namnet på DB2-servern. |Ja |
-| **databasen** |Namnet på DB2-databas. |Ja |
-| **schemat** |Namnet på schemat i DB2-databas. Den här egenskapen är skiftlägeskänsligt. |Nej |
+| **server** |Namnet på DB2-servern. |Ja |
+| **database** |Namnet på DB2-databas. |Ja |
+| **schema** |Namnet på schemat i DB2-databas. Den här egenskapen är skiftlägeskänsligt. |Nej |
 | **authenticationType** |Typ av autentisering som används för att ansluta till DB2-databas. Möjliga värden är: Anonym, Basic och Windows. |Ja |
 | **användarnamn** |Namnet på användarkontot om du använder grundläggande eller Windows-autentisering. |Nej |
 | **Lösenord** |Lösenordet för användarkontot. |Nej |
@@ -97,7 +97,7 @@ Den **typeProperties** avsnittet är olika för varje typ av datauppsättning oc
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| **Tabellnamn** |Namnet på tabellen i DB2-databasinstansen som den länkade tjänsten refererar till. Den här egenskapen är skiftlägeskänsligt. |Nej (om den **fråga** egenskapen för en Kopieringsaktivitet av typen **RelationalSource** har angetts) |
+| **tableName** |Namnet på tabellen i DB2-databasinstansen som den länkade tjänsten refererar till. Den här egenskapen är skiftlägeskänsligt. |Nej (om den **fråga** egenskapen för en Kopieringsaktivitet av typen **RelationalSource** har angetts) |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En lista över avsnitt och egenskaper som är tillgängliga för att definiera kopieringsaktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Kopiera egenskaper för aktivitet, till exempel **namn**, **beskrivning**, **indata** tabellen **matar ut** tabellen, och **princip**, är tillgängliga för alla typer av aktiviteter. De egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens variera för varje aktivitetstyp av. Egenskaperna varierar beroende på vilka typer av datakällor och mottagare för Kopieringsaktiviteten.
@@ -311,43 +311,43 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
-| Real |Enkel |
-| Double-värde |Double-värde |
-| Flyttal |Double-värde |
+| Real |Single |
+| Double |Double |
+| Flyttal |Double |
 | decimaltal |Decimal |
 | DecimalFloat |Decimal |
 | Numerisk |Decimal |
 | Date |DateTime |
-| Tid |Tidsintervall |
+| Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| Xml |Byte] |
-| Char |Sträng |
-| VarChar |Sträng |
-| LongVarChar |Sträng |
-| DB2DynArray |Sträng |
-| Binär |Byte] |
-| VarBinary |Byte] |
-| LongVarBinary |Byte] |
-| Bild |Sträng |
-| VarGraphic |Sträng |
-| LongVarGraphic |Sträng |
-| CLOB |Sträng |
-| Blob |Byte] |
-| DbClob |Sträng |
+| Xml |Byte[] |
+| Char |String |
+| VarChar |String |
+| LongVarChar |String |
+| DB2DynArray |String |
+| Binär |Byte[] |
+| VarBinary |Byte[] |
+| LongVarBinary |Byte[] |
+| Bild |String |
+| VarGraphic |String |
+| LongVarGraphic |String |
+| Clob |String |
+| Blob |Byte[] |
+| DbClob |String |
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
-| Real |Enkel |
-| Double-värde |Double-värde |
-| Flyttal |Double-värde |
+| Real |Single |
+| Double |Double |
+| Flyttal |Double |
 | decimaltal |Decimal |
 | DecimalFloat |Decimal |
 | Numerisk |Decimal |
 | Date |DateTime |
-| Tid |Tidsintervall |
+| Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| Xml |Byte] |
-| Char |Sträng |
+| Xml |Byte[] |
+| Char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
 Om du vill lära dig mer om att mappa kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).

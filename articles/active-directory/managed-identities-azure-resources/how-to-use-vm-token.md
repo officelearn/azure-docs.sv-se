@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
-ms.openlocfilehash: b7ccdcf1cb1e75ab9a8113adc05b02196a0a2023
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: eebc19f5bd14e835b8174695b2d0d87fe8ddc4bc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166585"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822059"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för att hämta en åtkomsttoken 
 
@@ -55,7 +55,7 @@ Ett klientprogram kan begära hanterade identiteter för Azure-resurser [appspec
 | [Hämta en token med hjälp av Go](#get-a-token-using-go) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en Go-klient |
 | [Hämta en token med Azure PowerShell](#get-a-token-using-azure-powershell) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en PowerShell-klient |
 | [Hämta en token med CURL](#get-a-token-using-curl) | Exempel på hur du använder hanterade identiteter för Azure-resurser REST-slutpunkt från en Bash/CURL-klient |
-| [Hantering av tokencachelagring](#handling-token-caching) | Vägledning för hantering av åtkomsttoken har upphört att gälla |
+| Hantering av tokencachelagring | Vägledning för hantering av åtkomsttoken har upphört att gälla |
 | [Felhantering](#error-handling) | Vägledning för att hantera HTTP-fel som returnerades från hanterade identiteter för Azure-resurser tokenslutpunkt |
 | [Resurs-ID: N för Azure-tjänster](#resource-ids-for-azure-services) | Hämta resurs-ID för Azure-tjänster som stöds |
 
@@ -373,14 +373,14 @@ Det här avsnittet beskrivs möjliga felsvar. En ”200 OK” status är ett lyc
 | Statuskod | Fel | Felbeskrivning | Lösning |
 | ----------- | ----- | ----------------- | -------- |
 | 400 Felaktig förfrågan | invalid_resource | AADSTS50001: Programmet heter *\<URI\>* hittades inte i klientorganisationen med namnet  *\<TENANT-ID\>*. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänts av någon användare i klienten. Du kanske har skickat din begäran om autentisering till fel klient. \ | (Endast Linux) |
-| 400 Felaktig förfrågan | bad_request_102 | Metadata som krävs-huvud har inte angetts | Antingen den `Metadata` begäran rubrik fält saknas i din begäran eller är felaktigt formaterad. Värdet måste anges som `true`, i gemener. Se ”Sample-begäran” i den [föregående REST avsnittet](#rest) ett exempel.|
-| 401 Ej behörig | unknown_source | Okänd källa  *\<URI\>* | Kontrollera att din HTTP GET-begäran URI har formaterats korrekt. Den `scheme:host/resource-path` del måste anges som `http://localhost:50342/oauth2/token`. Se ”Sample-begäran” i den [föregående REST avsnittet](#rest) ett exempel.|
+| 400 Felaktig förfrågan | bad_request_102 | Metadata som krävs-huvud har inte angetts | Antingen den `Metadata` begäran rubrik fält saknas i din begäran eller är felaktigt formaterad. Värdet måste anges som `true`, i gemener. Se ”Sample-begäran” i det föregående avsnittet REST ett exempel.|
+| 401 Ej behörig | unknown_source | Okänd källa  *\<URI\>* | Kontrollera att din HTTP GET-begäran URI har formaterats korrekt. Den `scheme:host/resource-path` del måste anges som `http://localhost:50342/oauth2/token`. Se ”Sample-begäran” i det föregående avsnittet REST ett exempel.|
 |           | invalid_request | Begäran saknar en obligatorisk parameter, innehåller ett ogiltigt parametervärde, innehåller en parameter mer än en gång eller annars har fel format. |  |
 |           | unauthorized_client | Klienten har inte behörighet att begära ett åtkomsttoken med hjälp av den här metoden. | På en begäran som inte använder lokal loopback för att anropa tillägget, eller på en virtuell dator som inte har hanterade identiteter för Azure-resurser konfigurerats korrekt. Se [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration. |
 |           | access_denied | Resursägaren eller auktoriseringsservern nekade begäran. |  |
 |           | unsupported_response_type | Auktoriseringsservern har inte stöd för att hämta en åtkomsttoken med hjälp av den här metoden. |  |
 |           | invalid_scope | Det begärda omfånget är ogiltig, okänt eller felaktigt. |  |
-| 500 Internt serverfel | okänt | Det gick inte att hämta token från Active directory. Mer information finns i loggarna i  *\<filsökväg\>* | Kontrollera att hanterade identiteter för Azure-resurser har aktiverats på den virtuella datorn. Se [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration.<br><br>Kontrollera också att din HTTP GET-begäran URI har formaterats korrekt, särskilt den resurs som URI angavs i frågesträngen. Se ”Sample-begäran” i den [föregående REST avsnittet](#rest) exempelvis eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) en lista över tjänster och deras respektive resurs-ID.
+| 500 Internt serverfel | okänt | Det gick inte att hämta token från Active directory. Mer information finns i loggarna i  *\<filsökväg\>* | Kontrollera att hanterade identiteter för Azure-resurser har aktiverats på den virtuella datorn. Se [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration.<br><br>Kontrollera också att din HTTP GET-begäran URI har formaterats korrekt, särskilt den resurs som URI angavs i frågesträngen. Se ”Sample-begäran” i det föregående avsnittet REST exempelvis eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) en lista över tjänster och deras respektive resurs-ID.
 
 ## <a name="retry-guidance"></a>Riktlinjer för återförsök 
 

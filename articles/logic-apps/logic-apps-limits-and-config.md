@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 494665e530104cd4711e8112f3a999e68c3485b8
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746395"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769876"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -195,53 +195,58 @@ Använd den kostnadsfria nivån enbart för undersökande scenarier, inte produk
 
 | Artefakt | Gräns | Anteckningar | 
 |----------|-------|-------| 
-| EDI-affärspartner | 25 | | 
-| Handel EDI-avtal | 10 | | 
-| Kartor | 25 | | 
-| Scheman | 25 | 
 | Sammansättningar | 10 | | 
 | Batchkonfigurationer | 5 | 
 | Certifikat | 25 | | 
+| Handel EDI-avtal | 10 | | 
+| EDI-affärspartner | 25 | | 
+| Kartor | 25 | | 
+| Scheman | 25 | 
 |||| 
 
 *Basic-nivån*
 
 | Artefakt | Gräns | Anteckningar | 
 |----------|-------|-------| 
-| EDI-affärspartner | 2 | | 
-| Handel EDI-avtal | 1 | | 
-| Kartor | 500 | | 
-| Scheman | 500 | 
 | Sammansättningar | 25 | | 
 | Batchkonfigurationer | 1 | | 
 | Certifikat | 2 | | 
+| Handel EDI-avtal | 1 | | 
+| EDI-affärspartner | 2 | | 
+| Kartor | 500 | | 
+| Scheman | 500 | 
 |||| 
 
 *Standardnivå*
 
 | Artefakt | Gräns | Anteckningar | 
 |----------|-------|-------| 
-| EDI-affärspartner | 500 | | 
-| Handel EDI-avtal | 500 | | 
-| Kartor | 500 | | 
-| Scheman | 500 | 
 | Sammansättningar | 50 | | 
 | Batchkonfigurationer | 5 |  
 | Certifikat | 50 | | 
+| Handel EDI-avtal | 500 | | 
+| EDI-affärspartner | 500 | | 
+| Kartor | 500 | | 
+| Scheman | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>Artefakten kapacitetsbegränsningar
 
-| Namn | Gräns | Anteckningar | 
-| ---- | ----- | ----- | 
-| Schema | 8 MB | Om du vill ladda upp filer som är större än 2 MB, använda den [blob-URI: N](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
-| Karta (XSLT-fil) | 2 MB | | 
-| Runtime-slutpunkt: Läs anrop per 5 minuter | 60,000 | Du kan distribuera arbetsbelastningen över fler än ett konto som behövs. | 
-| Runtime-slutpunkt: Anropa anrop per 5 minuter | 45,000 | Du kan distribuera arbetsbelastningen över fler än ett konto som behövs. | 
-| Runtime-slutpunkt: Spåra anrop per 5 minuter | 45,000 | Du kan distribuera arbetsbelastningen över fler än ett konto som behövs. | 
-| Runtime-slutpunkt: Blockerande samtidiga anrop | ~1,000 | Du kan minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
+| Artefakt | Gräns | Anteckningar | 
+| -------- | ----- | ----- | 
+| Sammansättning | 8 MB | Om du vill ladda upp filer som är större än 2 MB, använda en [Azure storage-konto och blob-behållare](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Karta (XSLT-fil) | 8 MB | Om du vill ladda upp filer som är större än 2 MB, använda den [Azure Logic Apps REST API - mappar](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). | 
+| Schema | 8 MB | Om du vill ladda upp filer som är större än 2 MB, använda en [Azure storage-konto och blob-behållare](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+||||
+
+| Runtime-slutpunkt | Gräns | Anteckningar |
+|------------------|-------|-------|
+| Läs anrop per 5 minuter | 60,000 | Du kan distribuera arbetsbelastningen över fler än ett konto som behövs. | 
+| Anropa anrop per 5 minuter | 45,000 | Du kan distribuera arbetsbelastningen över fler än ett konto som behövs. | 
+| Spåra anrop per 5 minuter | 45,000 | Du kan distribuera arbetsbelastningen över fler än ett konto som behövs. | 
+| Blockerande samtidiga anrop | ~1,000 | Du kan minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

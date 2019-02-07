@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 328471292ea6cbe07e96cc18af7f9c524407de3d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317210"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809478"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
@@ -100,7 +100,7 @@ Du kan konfigurera *en* offentlig Standard Load Balancer-resurs för backend-res
 
 - Hög tillgänglighet portar funktionen är inte tillgänglig för IPv6.
 
-- Flow symmetri (främst för scenarier för NVA) stöds med backend-instans och en enda nätverkskort (och enda IP-konfiguration) endast när den används, enligt den [diagram](#diagram) ovan och använda HA Ports regler för belastningsutjämning. Den finns inte i något annat. Det innebär att två eller flera belastningsutjämnare resurser och deras respektive regler oberoende fatta och samordnas aldrig. Se beskrivningen och diagram för [virtuella nätverksinstallationer](#nva). När du använder flera nätverkskort eller sandwiching NVA mellan en offentliga och interna belastningsutjämnare, är flow symmetri inte tillgänglig.  Du kanske kan lösa detta genom källa NAT'ing ingående flöda till den IP-Adressen för en enhet så att svar tas emot på samma NVA.  Vi rekommenderar emellertid använder ett enda nätverkskort och referensarkitekturen visas i den [diagram](#diagram) ovan.
+- Flow symmetri (främst för scenarier för NVA) stöds med backend-instans och en enda nätverkskort (och enda IP-konfiguration) endast när det används som visas i diagrammet ovan och använda HA Ports belastningsutjämningsregler. Den finns inte i något annat. Det innebär att två eller flera belastningsutjämnare resurser och deras respektive regler oberoende fatta och samordnas aldrig. Se beskrivningen och diagram för [virtuella nätverksinstallationer](#nva). När du använder flera nätverkskort eller sandwiching NVA mellan en offentliga och interna belastningsutjämnare, är flow symmetri inte tillgänglig.  Du kanske kan lösa detta genom källa NAT'ing ingående flöda till den IP-Adressen för en enhet så att svar tas emot på samma NVA.  Vi rekommenderar dock starkt använder ett enda nätverkskort och referensarkitekturen visas i diagrammet ovan.
 
 
 ## <a name="next-steps"></a>Nästa steg

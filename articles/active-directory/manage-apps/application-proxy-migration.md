@@ -15,12 +15,12 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d0a28dc1eee1536a0cabe454cd899d9111edff88
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d38fa458ae87ce29110b2423e832ff5c6262a01
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197746"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817588"
 ---
 # <a name="compare-remote-access-solutions"></a>Jämför fjärråtkomstlösningar
 
@@ -56,7 +56,7 @@ Azure AD-programproxyn erbjuder unika fördelar jämfört med liknande produkter
 - Utöka Azure AD till lokala resurser
    - Skalbar säkerhet och skydd
    - Funktioner som villkorlig åtkomst och Multi-Factor Authentication är enkelt att aktivera
-- Inga Component i demilitariserad zon
+- Inga komponenter i demilitariserad zon
 - Inga inkommande anslutningar som krävs
 - En åtkomstpanelen att användarna kan gå till för alla program, inklusive O365, Azure AD-integrerade SaaS-appar och din lokala webbappar. 
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 29fef9177e40bd89dd0f179b028d2f044af8addb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913104"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821378"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Använd HDInsight Spark-kluster för att analysera data i Data Lake Storage
 
@@ -30,7 +30,7 @@ I den här självstudien använder du [Jupyter Notebook](https://jupyter.org/) t
 ## <a name="prepare-the-data"></a>Förbereda data
 
 > [!NOTE]  
-> Du behöver inte utföra det här steget om du har skapat HDInsight-kluster med Data Lake Storage som standardlagringsutrymme. Klustret skapas lägger till lite exempeldata i Data Lake Storage-kontot som du anger när du skapade klustret. Hoppa till avsnittet [använda HDInsight Spark-kluster med Data Lake Storage](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> Du behöver inte utföra det här steget om du har skapat HDInsight-kluster med Data Lake Storage som standardlagringsutrymme. Klustret skapas lägger till lite exempeldata i Data Lake Storage-kontot som du anger när du skapade klustret. Gå vidare till avsnittet använda HDInsight Spark-kluster med Data Lake Storage.
 
 Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lagringsutrymme och Azure Storage Blob som standardlagringsutrymme, bör du först kopiera över exempeldata till Data Lake Storage-kontot. Du kan använda exemplet data från Azure Storage Blob som är associerade med HDInsight-klustret. Du kan använda den [ADLCopy verktyget](https://aka.ms/downloadadlcopy) att göra detta. Hämta och installera verktyget från länken.
 

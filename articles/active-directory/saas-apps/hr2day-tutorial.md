@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bb03506bac22c8c82e856f403710a4908af6f9de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7d77d72264580e4cde83f6cbb9f83bf7030d941e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149263"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Självstudier: Azure Active Directory-integrering med HR2day av Merces
 
@@ -88,11 +88,11 @@ I HR2day av Merces, tilldela den **användarnamn** i Azure AD för att **använd
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med HR2day av Merces, måste du utföra följande byggblock:
 
-1. [Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on): Ge användarna använda den här funktionen.
-1. [Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user): Testa Azure AD enkel inloggning med Britta Simon.
-1. [Skapa en HR2day av Merces testanvändare](#creating-an-hr2day-by-merces-test-user): Skapa en motsvarighet för Britta Simon i HR2day av Merces som är länkad till en Azure AD-representation av användaren.
-1. [Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user): Aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. [Testa enkel inloggning](#testing-single-sign-on): Kontrollera om konfigurationen fungerar.
+1. Konfigurera Azure AD enkel inloggning: Ge användarna använda den här funktionen.
+1. Skapa en testanvändare i Azure AD: Testa Azure AD enkel inloggning med Britta Simon.
+1. Skapa en HR2day av Merces testanvändare: Skapa en motsvarighet för Britta Simon i HR2day av Merces som är länkad till en Azure AD-representation av användaren.
+1. Tilldela testanvändare Azure AD: Aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. Testa enkel inloggning: Kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 

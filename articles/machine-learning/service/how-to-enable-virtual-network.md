@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: fb67821d883317901617bda101ae91a9a92018c2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2e7f6c066ea254fff90ba2f9ff1f559fdb680ddf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246406"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766698"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Kör säkert experiment och inferensjobb i Azure Virtual Network
 
@@ -231,4 +231,5 @@ När processen är klar kan du göra inferensjobb på ett AKS-kluster bakom ett 
 
 * [Konfigurera miljöer för utbildning](how-to-set-up-training-targets.md)
 * [Var du vill distribuera modeller](how-to-deploy-and-where.md)
-* [Skydda distribuerade modeller med SSL](how-to-secure-web-service.md)
+* [På ett säkert sätt distribuera modeller med SSL](how-to-secure-web-service.md)
+

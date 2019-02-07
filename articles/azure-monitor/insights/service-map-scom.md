@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: 19e842fc3674536972327c3bc6d31641560e38db
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659192"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818761"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta-integrering med System Center Operations Manager
 
@@ -51,7 +51,7 @@ Om du vill konfigurera Service Map integration, gör du följande:
 
     ![Översiktsfönstret för Service Map](media/service-map-scom/scom-configuration.png)
 
-2. I den **anslutningskonfigurationen** , ange klientorganisationens namn eller ID, program-ID (även kallat användarnamn eller clientID) och lösenordet för tjänstens huvudnamn och klicka sedan på **nästa**. Mer information går du till [skapa ett huvudnamn för tjänsten](#creating-a-service-principal).
+2. I den **anslutningskonfigurationen** , ange klientorganisationens namn eller ID, program-ID (även kallat användarnamn eller clientID) och lösenordet för tjänstens huvudnamn och klicka sedan på **nästa**. Mer information går du till att skapa ett huvudnamn för tjänsten.
 
     ![Fönstret anslutningskonfiguration](media/service-map-scom/scom-config-spn.png)
 

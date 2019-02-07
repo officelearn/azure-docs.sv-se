@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: be068904d7aa935d722c59b08c36a1cf4904e933
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 37e2da00ecbecdddcc8757e64c57b03774092e14
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664143"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814997"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Distribuera Azure Monitor för virtuella datorer (förhandsversion)
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer. Tjänsten övervakar operativsystemet hälsotillståndet för dina Azure-datorer (VM) och VM-skalningsuppsättningar och de virtuella datorerna i din miljö. Den här övervakning innefattar identifierings- och mappningen av programberoenden som kan finnas på dem. 
@@ -62,7 +62,7 @@ För att aktivera lösningen för scenariot i skala, konfigurera följande i din
 * Installera ServiceMap och InfrastructureInsights lösningar. Du kan slutföra den här installationen med en Azure Resource Manager-mall som har angetts i den här artikeln.
 * Konfigurera Log Analytics-arbetsytan för att samla in prestandaräknare.
 
-För att konfigurera din arbetsyta för scenariot i skala, se [ställa in Log Analytics-arbetsyta för distribution av i skala](#setup-log-analytics-workspace).
+Om du vill konfigurera din arbetsyta för scenariot i skala, finns i Konfigurera Log Analytics-arbetsyta för distribution av i skala.
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 

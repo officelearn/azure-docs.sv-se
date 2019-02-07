@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429642"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819798"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostisera problem med nätverksroutning virtuell dator
 
@@ -116,7 +116,7 @@ Lösa routningsproblem vanligtvis består av:
 - Se till att routningstabellen som innehåller alla anpassade vägar som du har definierat är kopplad till det undernät som nätverksgränssnittet finns i. Lär dig hur du [associera en routningstabell till ett undernät](manage-route-table.md#associate-a-route-table-to-a-subnet).
 - Se till att enheter, till exempel Azure VPN gateway eller nätverket virtuella enheter du har distribuerat är operativt. Använd den [VPN-diagnostik](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) kapaciteten i Network Watcher för att fastställa eventuella problem med en Azure VPN-gateway.
 
-Om du fortfarande har problem, se [överväganden](#considerations) och [ytterligare diagnos](#additional-dignosis).
+Om du fortfarande har problem, se [överväganden](#considerations) och ytterligare diagnos.
 
 ## <a name="considerations"></a>Överväganden
 

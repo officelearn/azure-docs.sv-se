@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b32369000e7f300beaed98d7f832a5d11659f3f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f4a9b4aba54f3968584187e108e87177c44bbc8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487082"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815804"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Duplicerad Attributåterhämtning är en funktion i Azure Active Directory åtgärdar problem som orsakas av **UserPrincipalName** och **ProxyAddress** står i konflikt när du kör något av Microsofts synkroniseringsverktyg för.
@@ -81,7 +81,7 @@ Sedan använder du följande cmdlet: ar och operatörer för att visa fel på ol
 2. [Genom att egenskapstyp](#by-property-type)
 3. [Med motstridiga värde](#by-conflicting-value)
 4. [Med hjälp av en sträng-sökning](#using-a-string-search)
-5. [Sorterade](#sorted)
+5. Sorterade
 6. [I ett begränsat antal eller alla](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Se alla

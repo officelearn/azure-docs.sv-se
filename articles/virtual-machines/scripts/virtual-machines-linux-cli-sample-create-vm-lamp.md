@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ceda12b71a58153995a23eabace37b4373b57ef2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ff4c41ff6428ba6ef88473508830ec8545be8778
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155178"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731112"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer
 
@@ -53,14 +53,14 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Skapar en skalningsuppsättning med virtuella datorer |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Lägg till en belastningsutjämnad slutpunkt |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Skapa det tillägg som kör det anpassade skriptet på distributionen av en virtuell dator |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Kör det anpassade skriptet på de VM-instanser som distribuerades innan tillägget tillämpades på skalningsuppsättningen. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Skala upp skalningsuppsättningen genom att lägga till flera VM-instanser. Det anpassade skriptet körs på dem när de distribueras. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Skapar en skalningsuppsättning med virtuella datorer |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Lägg till en belastningsutjämnad slutpunkt |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | Skapa det tillägg som kör det anpassade skriptet på distributionen av en virtuell dator |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | Kör det anpassade skriptet på de VM-instanser som distribuerades innan tillägget tillämpades på skalningsuppsättningen. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | Skala upp skalningsuppsättningen genom att lägga till flera VM-instanser. Det anpassade skriptet körs på dem när de distribueras. |
 | [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Hämta IP-adresserna för de virtuella datorer som skapats av exemplet. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Hämta klient- och serverdelsportarna som används av lastbalanseraren. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | Hämta klient- och serverdelsportarna som används av lastbalanseraren. |
 
 ## <a name="next-steps"></a>Nästa steg
 

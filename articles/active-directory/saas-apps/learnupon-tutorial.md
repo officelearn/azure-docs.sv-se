@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: a548f11b1f423fb738108d9314f2fc887ef02c52
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66953eaa4c42b419a5146ccc396fddda15a31c35
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176853"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Självstudier: Azure Active Directory-integrering med LearnUpon
 
@@ -208,7 +208,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i LearnUpon. LearnUpon stöder just-in-time-etablering, vilket är som standard aktiverat.
 
-Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt LearnUpon om det inte finns ännu. [Konfigurera Azure AD enkel inloggning på](#configuring-azure-ad-single-single-sign-on).
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt LearnUpon om det inte finns ännu. Konfigurera Azure AD enkel inloggning.
 
 >[!NOTE]
 >Om du vill skapa en användare manuellt kan du behöva kontakta [LearnUpon supportteamet](https://www.learnupon.com/features/support/). 

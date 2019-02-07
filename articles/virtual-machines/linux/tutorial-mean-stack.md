@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 223b32d3947ca0f663565a90b15e9c24e5ddeb96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883219"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754225"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Skapa en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure
 
@@ -42,7 +42,7 @@ Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.
 
 ## <a name="create-a-linux-vm"></a>Skapa en virtuell Linux-dator
 
-Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) och skapa en virtuell Linux-dator med kommandot [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group) och skapa en virtuell Linux-dator med kommandot [az vm create](https://docs.microsoft.com/cli/azure/vm). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 I följande exempel används Azure CLI för att skapa en resursgrupp med namnet *myResourceGroupMEAN* på platsen *eastus*. En virtuell dator som heter *myVM*, skapas med SSH-nycklar om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet --ssh-key-value.
 

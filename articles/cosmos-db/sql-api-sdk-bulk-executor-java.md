@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 956f2f723703e0263739ad57ebcb8215db634269
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 790aba3f523cadce97caa4c5c044276c349e6045
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040684"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769312"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Bibliotek för Java bulk executor: Hämtningsinformation
 
@@ -31,18 +31,12 @@ ms.locfileid: "54040684"
 > * [massinläsning executor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [massinläsning executor – Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Beskrivning**</td><td>Massinläsning executor biblioteket kan klientprogram att utföra massåtgärder i Azure Cosmos DB-konton. massinläsning executor biblioteket innehåller BulkImport, och BulkUpdate namnområden. BulkImport modulen kan masstilldela mata in dokument på ett optimerat sätt så att dataflödet som tillhandahållits för en samling används den största utsträckning. BulkUpdate modulen kan masstilldela uppdatera befintliga data i Azure Cosmos DB-behållare som korrigeringar.</td></tr>
-
-<tr><td>**Hämta SDK**</td><td>[Maven 3.](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)</td></tr>
-
-<tr><td>**BulkExecutor biblioteket i GitHub**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)</td></tr>
-
-<tr><td>**API-dokumentation**</td><td>[.NET API-referensdokumentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)</td></tr>
-
-<tr><td>**Kom igång**</td><td>[Komma igång med bulk executor biblioteket Java SDK](bulk-executor-java.md)</td></tr>
-
-<tr><td>**Lägsta stödda körningar**</td><td>[Java Development Kit (JDK 7 +)](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Beskrivning**|Massinläsning executor biblioteket kan klientprogram att utföra massåtgärder i Azure Cosmos DB-konton. massinläsning executor biblioteket innehåller BulkImport, och BulkUpdate namnområden. BulkImport modulen kan masstilldela mata in dokument på ett optimerat sätt så att dataflödet som tillhandahållits för en samling används den största utsträckning. BulkUpdate modulen kan masstilldela uppdatera befintliga data i Azure Cosmos DB-behållare som korrigeringar.|
+|**Hämta SDK**|[Maven 3.](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
+|**BulkExecutor biblioteket i GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
+| **API-dokumentation**| [.NET API-referensdokumentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+|**Kom igång**|Komma igång med bulk executor biblioteket Java SDK] (bulk-executor-java.md)|
+|**Lägsta stödda körningar**|[Java Development Kit (JDK 7 +)](https://aka.ms/azure-jdks)|
 

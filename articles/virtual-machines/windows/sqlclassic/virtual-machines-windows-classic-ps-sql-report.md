@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233090"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820121"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Använd PowerShell för att skapa en virtuell Azure-dator med en rapportserver i enhetligt läge
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Det här avsnittet beskriver och vägleder dig genom distributionen och konfigurationen av en rapportserver för SQL Server Reporting Services enhetligt läge i en Azure virtuell dator. Stegen i det här dokumentet använder en kombination av manuella steg för att skapa den virtuella datorn och ett Windows PowerShell-skript för att konfigurera Reporting Services på den virtuella datorn. Av konfigurationsskriptet innehåller att öppna en brandväggsport för HTTP eller HTTPs.
 
@@ -38,7 +38,7 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
   
   * Klicka på inställningar i den vänstra rutan och sedan klicka på användning på den översta menyn för att verifiera kärngräns för din prenumeration i Azure-portalen.
   * Om du vill öka kärnkvoten Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/). VM-Storleksinformation finns i [storlekar för virtuella datorer för Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* **Windows PowerShell-skript**: ämnet förutsätter att du har grundläggande kunskaper om Windows PowerShell. Mer information om hur du använder Windows PowerShell finns i följande:
+* **Windows PowerShell-skript**: Avsnittet förutsätter att du har grundläggande kunskaper om Windows PowerShell. Mer information om hur du använder Windows PowerShell finns i följande:
   
   * [Starta Windows PowerShell på Windows Server](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Komma igång med Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
@@ -62,26 +62,26 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
 6. På den **konfiguration av virtuell dator** , redigera följande fält:
    
    * Om det finns fler än en **VERSION LANSERINGSDATUM**, Välj den senaste versionen.
-   * **Namn på virtuell dator**: namnet på datorn används också på konfigurationssidan nästa som standard Cloud Service DNS-namn. DNS-namnet måste vara unikt i Azure-tjänsten. Överväg att konfigurera den virtuella datorn med ett datornamn som beskriver vad den virtuella datorn används för. Till exempel ssrsnativecloud.
+   * **Namn på virtuell dator**: Namnet på datorn används också på konfigurationssidan nästa som standard Cloud Service DNS-namn. DNS-namnet måste vara unikt i Azure-tjänsten. Överväg att konfigurera den virtuella datorn med ett datornamn som beskriver vad den virtuella datorn används för. Till exempel ssrsnativecloud.
    * **Nivån**: Standard
    * **Storlek: A3** rekommenderade VM-storleken för SQL Server-arbetsbelastningar. Om en virtuell dator används endast som en rapportserver, räcker en VM-storleken för A2, såvida inte rapportservern påträffar en stor belastning. VM information om priser, se [prissättning för Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Nytt användarnamn**: namnet som du anger skapas som en administratör på den virtuella datorn.
    * **Nytt lösenord** och **Bekräfta**. Det här lösenordet används för administratörskontot och bör du använda ett starkt lösenord.
-   * Klicka på **Nästa**. ![Nästa](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Klicka på **Nästa**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. På nästa sida redigerar du följande fält:
    
    * **Molntjänst**: Välj **skapa en ny molntjänst**.
-   * **DNS-namn i molnet**: Detta är det offentliga DNS-namnet på den molntjänst som är associerad med den virtuella datorn. Standardnamnet är namnet du angav i för VM-namnet. Om i senare steg i avsnittet om du skapar ett betrott SSL-certifikat och DNS-namnet används för värdet för den ”**utfärdat till**” för certifikatet.
-   * **Region/tillhörighet grupp/virtuella nätverk**: Välj regionen som är närmast dina slutanvändare.
-   * **Storage-konto**: använda en automatiskt genererad storage-konto.
+   * **DNS-namn i molnet**: Det här är det offentliga DNS-namnet på den molntjänst som är associerad med den virtuella datorn. Standardnamnet är namnet du angav i för VM-namnet. Om i senare steg i avsnittet om du skapar ett betrott SSL-certifikat och DNS-namnet används för värdet för den ”**utfärdat till**” för certifikatet.
+   * **Region/Tillhörighetsgrupp/virtuellt nätverk**: Välj regionen som är närmast dina slutanvändare.
+   * **Storage-konto**: Använd en automatiskt genererad lagringskonto.
    * **Tillgänglighetsuppsättning**: Ingen.
    * **SLUTPUNKTER** hålla den **fjärrskrivbord** och **PowerShell** slutpunkter och sedan lägga till en HTTP- eller HTTPS-slutpunkt, beroende på din miljö.
      
-     * **HTTP**: de offentliga och privata portarna som standard är **80**. Observera att om du använder en privat port än 80, ändra **$HTTPport = 80** i http-skriptet.
-     * **HTTPS**: de offentliga och privata portarna som standard är **443**. Det är en bra säkerhetsrutin att ändra den privata porten och konfigurera din brandvägg och rapportservern för att använda den privata porten. Läs mer på slutpunkter [så ange kommunikation med en virtuell dator](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera att om du använder en annan port än 443, ändra parametern **$HTTPsport = 443** i HTTPS-skriptet.
+     * **HTTP**: De offentliga och privata portarna som standard är **80**. Observera att om du använder en privat port än 80, ändra **$HTTPport = 80** i http-skriptet.
+     * **HTTPS**: De offentliga och privata portarna som standard är **443**. Det är en bra säkerhetsrutin att ändra den privata porten och konfigurera din brandvägg och rapportservern för att använda den privata porten. Läs mer på slutpunkter [så ange kommunikation med en virtuell dator](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera att om du använder en annan port än 443, ändra parametern **$HTTPsport = 443** i HTTPS-skriptet.
    * Klicka på Nästa. ![nästa](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. På den sista sidan i guiden, behåller du standardvärdet **installera VM-agenten** valda. Stegen i det här avsnittet använder inte VM-agenten, men om du planerar att behålla den här virtuella datorn VM-agenten och tillägg kan du förbättra han CM.  Mer information om VM-agenten finns i [VM-agenten och tillägg – del 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). En av standard tillägg installerade ad som körs är tillägget ”BGINFO” som visas på den virtuella datorns skrivbord, Systeminformation som intern IP-adress och ledigt diskutrymme.
-9. Klicka på klar. ![Okej](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Klicka på klar. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. Den **Status** för den virtuella datorn visas som **startar (etablering)** under processen för etablering och sedan visar som **kör** när den virtuella datorn är allokerade och redo för användning.
 
 ## <a name="step-2-create-a-server-certificate"></a>Steg 2: Skapa ett certifikat
@@ -125,7 +125,7 @@ Ett självsignerat certifikat skapades på den virtuella datorn när den virtuel
        Till exempel i följande bild, VM-namnet är **ssrsnativecloud** och användarnamnet är **testuser**.
       
        ![inloggningsnamn innehåller vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. Kör mmc.exe. Mer information finns i [så här: Visa certifikat med MMC-snapin-modulen](https://msdn.microsoft.com/library/ms788967.aspx).
+   2. Kör mmc.exe. Mer information finns i [Gör så här: Visa certifikat med MMC-snapin-modulen](https://msdn.microsoft.com/library/ms788967.aspx).
    3. I konsolprogrammet **filen** menyn Lägg till den **certifikat** snapin-modulen, väljer **datorkontot** när du uppmanas, och klicka sedan på **nästa**.
    4. Välj **lokala** att hantera och klicka sedan på **Slutför**.
    5. Klicka på **Ok** och expandera sedan den **certifikat - personliga** noder och klicka sedan på **certifikat**. Certifikatet är döpt efter DNS-namnet på den virtuella datorn och slutar med **cloudapp.net**. Högerklicka på certifikatets namn och klicka på **kopiera**.
@@ -133,7 +133,7 @@ Ett självsignerat certifikat skapades på den virtuella datorn när den virtuel
    7. För att verifiera, dubbelklicka på certifikatets namn under **betrodda rotcertifikatutfärdare** och kontrollera att det finns några fel och du ser ditt certifikat. Om du vill använda HTTPS-skript som ingår i det här avsnittet för att konfigurera rapportservern, värdet för certifikaten **tumavtryck** måste anges som en parameter för skriptet. **Att hämta tumavtrycksvärde**, Slutför följande. Det finns också ett PowerShell-exempel för att hämta tumavtrycket i avsnittet [använda skript för att konfigurera report server- och HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
       
       1. Dubbelklicka på namnet på certifikatet, till exempel ssrsnativecloud.cloudapp.net.
-      2. Klicka på den **information** fliken.
+      2. Klicka på fliken **Information** .
       3. Klicka på **tumavtryck**. Värdet för tumavtrycket visas i Informationsfältet, till exempel a6 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f.
       4. Kopiera tumavtrycket och spara värdet för senare eller redigera skriptet nu.
       5. (*) Ta bort blanksteg mellan par med värden innan du kör skriptet. Till exempel är nu tumavtrycket notering a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f.
@@ -469,7 +469,7 @@ Om du vill använda Windows PowerShell för att konfigurera rapportservern, utf�
      ELLER
    * Kör mmc.exe på den virtuella datorn och Lägg sedan till den **certifikat** snapin-modulen.
    * Under den **betrodda rotcertifikatutfärdare** noden dubbelklickar du på certifikatets namn. Om du använder det självsignerade certifikatet för den virtuella datorn, certifikatet är döpt efter DNS-namnet på den virtuella datorn och slutar med **cloudapp.net**.
-   * Klicka på den **information** fliken.
+   * Klicka på fliken **Information** .
    * Klicka på **tumavtryck**. Värdet för tumavtrycket visas i Informationsfältet, till exempel af 11 60 b6 4b 28 8 d 89 0a 82 12 ff 6b a9 c3 66 4f 31 90 48
    * **Innan du kör skriptet**, ta bort blanksteg mellan par med värden. Till exempel af1160b64b288d890a8212ff6ba9c3664f319048
 7. Ändra den **$httpsport** parameter: 
@@ -483,7 +483,7 @@ Om du vill använda Windows PowerShell för att konfigurera rapportservern, utf�
 9. Skriptet är konfigurerad för Reporting Services. Om du vill köra skriptet för Reporting Services kan du ändra version delen av sökvägen till namnområdet som ska ”v11” om uttrycket Get-WmiObject.
 10. Kör skriptet.
 
-**Verifiering**: Om du vill kontrollera att den grundläggande rapportfunktioner för server fungerar, se den [verifiera konfigurationen](#verify-the-connection) senare i det här avsnittet. För att verifiera certifikatet bindningen öppna en kommandotolk med administrativ behörighet och kör sedan följande kommando:
+**Verifiering**: För att kontrollera att den grundläggande rapportfunktioner för server fungerar, se Kontrollera konfigurationsavsnittet senare i det här avsnittet. För att verifiera certifikatet bindningen öppna en kommandotolk med administrativ behörighet och kör sedan följande kommando:
 
     netsh http show sslcert
 
@@ -505,7 +505,7 @@ Om du inte vill köra PowerShell-skript för att konfigurera rapportservern föl
 5. I den vänstra rutan klickar du på **Webbtjänstadress**.
 6. Som standard har RS konfigurerats för HTTP-port 80 med IP-adress ”alla tilldelade”. Lägga till HTTPS:
    
-   1. I **SSL-certifikat**: Välj det certifikat som du vill använda, till exempel [VM name]. cloudapp.net. Om inga certifikat visas, se avsnittet **steg 2: skapa ett servercertifikat** information om hur du installerar och certifikatet på den virtuella datorn.
+   1. I **SSL-certifikat**: Välj det certifikat som du vill använda, till exempel [VM name]. cloudapp.net. Om inga certifikat visas, se avsnittet **steg 2: Skapa ett servercertifikat** information om hur du installerar och certifikatet på den virtuella datorn.
    2. Under **SSL-porten**: Välj 443. Om du har konfigurerat den privata HTTPS-slutpunkten i den virtuella datorn med en annan privat port, använder du värdet här.
    3. Klicka på **tillämpa** och vänta tills åtgärden har slutförts.
 7. I den vänstra rutan klickar du på **databasen**.
@@ -573,21 +573,21 @@ När du konfigurerar och verifierar rapportservern, är en gemensam administrati
 ## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Skapa och publicera rapporter till Azure-dator
 I följande tabell sammanfattas några av de tillgängliga alternativ för att publicera befintliga rapporter från en lokal dator till rapportservern finns på Microsoft Azure-dator:
 
-* **Skriptet med RS.exe**: Använd RS.exe-skript för att kopiera rapportobjekt från och befintlig rapportserver till din Microsoft Azure-dator. Mer information finns i avsnittet ”enhetligt läge till enhetligt läge – Microsoft Azure-dator” i [exempel Reporting Services rs.exe skript för att migrera innehåll mellan rapportservrar](https://msdn.microsoft.com/library/dn531017.aspx).
-* **Report Builder**: den virtuella datorn innehåller klicka-en gång version av Microsoft SQL Server Report Builder. Starta Report builder först gången på den virtuella datorn:
+* **Skriptet med RS.exe**: Använd RS.exe skript för att kopiera rapportobjekt från och befintlig rapportserver till din Microsoft Azure-dator. Mer information finns i avsnittet ”enhetligt läge till enhetligt läge – Microsoft Azure-dator” i [exempel Reporting Services rs.exe skript för att migrera innehåll mellan rapportservrar](https://msdn.microsoft.com/library/dn531017.aspx).
+* **Report Builder**: Den virtuella datorn innehåller klicka-en gång version av Microsoft SQL Server Report Builder. Starta Report builder först gången på den virtuella datorn:
   
   1. Starta din webbläsare med administrativa privilegier.
   2. Bläddra till report manager på den virtuella datorn och klicka på **Report Builder** i menyfliksområdet.
      
      Mer information finns i [installerar och avinstallerar stöd för Report Builder](https://technet.microsoft.com/library/dd207038.aspx).
-* **SQL Server Data Tools: VM**: Om du har skapat den virtuella datorn med SQL Server 2012 sedan SQL Server Data Tools är installerat på den virtuella datorn och kan användas för att skapa **Report Server-projekt** och rapporter på den virtuella datorn. SQL Server Data Tools kan publicera rapporter till rapportservern på den virtuella datorn.
+* **SQL Server Data Tools: VM**:  Om du har skapat den virtuella datorn med SQL Server 2012 sedan SQL Server Data Tools är installerat på den virtuella datorn och kan användas för att skapa **Report Server-projekt** och rapporter på den virtuella datorn. SQL Server Data Tools kan publicera rapporter till rapportservern på den virtuella datorn.
   
     Om du har skapat den virtuella datorn med SQLServer 2014 kan du installera SQL Server Data Tools - BI för visual Studio. Mer information finns i följande:
   
   * [Microsoft SQL Server Data Tools – Business Intelligence för Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools – Business Intelligence för Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
   * [SQL Server Data Tools och SQL Server Business Intelligence (SSDT BI)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
-* **SQL Server Data Tools: Remote**: skapa ett Reporting Services-projekt i SQL Server Data Tools som innehåller Reporting Services-rapporter på din lokala dator. Konfigurera projektet för att ansluta till webbtjänstens URL.
+* **SQL Server Data Tools: Remote**:  Skapa en Reporting Services-projekt i SQL Server Data Tools som innehåller Reporting Services-rapporter på din lokala dator. Konfigurera projektet för att ansluta till webbtjänstens URL.
   
     ![SSDT Projektegenskaper för SSRS-projekt](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
 * **Använd skript för**: Använd skript för att kopiera rapportserverinnehåll. Mer information finns i [exempel Reporting Services rs.exe skript för att migrera innehåll mellan rapportservrar](https://msdn.microsoft.com/library/dn531017.aspx).

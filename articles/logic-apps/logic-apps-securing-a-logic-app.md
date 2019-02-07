@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: a7d34b76eb6184e546c8217aa6b3723819be70be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 02/05/2019
+ms.openlocfilehash: c3057934d960efd0a846ef31c5fac5abd63a21f6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189538"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768484"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Säker åtkomst i Azure Logic Apps
 
@@ -120,7 +120,7 @@ Om du vill att logikappen utlöses endast som en kapslad logikapp från den **ti
 
 #### <a name="set-ip-ranges---logic-app-deployment-template"></a>Ange IP-intervall - Distributionsmall för logic app
 
-Om du automatiserar logic app-distributionerna med hjälp av en [mall för distribution av Azure Resource Manager](logic-apps-create-deploy-template.md), du kan ange IP-adressintervall i mallen, till exempel:
+Om du automatiserar logic app-distributionerna med hjälp av en [mall för distribution av Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), du kan ange IP-adressintervall i mallen, till exempel:
 
 ``` json
 {
@@ -131,7 +131,7 @@ Om du automatiserar logic app-distributionerna med hjälp av en [mall för distr
          "triggers": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -176,13 +176,14 @@ Om du vill konfigurera den här begränsningen i Azure-portalen går du till din
 1. På din logikapp-menyn, under **inställningar**väljer **arbetsflödesinställningarna**.
 
 1. Under **åtkomstkontrollskonfiguration** > 
-**tillåtna inkommande IP-adresser**väljer **specifika IP-intervall**.
+    **tillåtna inkommande IP-adresser**väljer **specifika IP-intervall**.
 
-1. Under **IP-intervall för innehåll**, ange IP-adressintervall som kan komma åt innehåll från indata och utdata. En giltig IP-intervall använder dessa format: *x.x.x.x/x* eller *x.x.x.x-x.x.x.x* 
+1. Under **IP-intervall för innehåll**, ange IP-adressintervall som kan komma åt innehåll från indata och utdata. 
+   En giltig IP-intervall använder dessa format: *x.x.x.x/x* eller *x.x.x.x-x.x.x.x* 
 
 ### <a name="set-ip-ranges---logic-app-deployment-template"></a>Ange IP-intervall - Distributionsmall för logic app
 
-Om du automatiserar logic app-distributionerna med hjälp av en [mall för distribution av Azure Resource Manager](logic-apps-create-deploy-template.md), du kan ange IP-adressintervall i mallen, till exempel:
+Om du automatiserar logic app-distributionerna med hjälp av en [mall för distribution av Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), du kan ange IP-adressintervall i mallen, till exempel:
 
 ``` json
 {
@@ -193,7 +194,7 @@ Om du automatiserar logic app-distributionerna med hjälp av en [mall för distr
          "contents": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -210,44 +211,99 @@ Om du automatiserar logic app-distributionerna med hjälp av en [mall för distr
 
 ## <a name="secure-action-parameters-and-inputs"></a>Säkra åtgärdsparametrar och indata
 
-När du distribuerar mellan olika miljöer, kanske du vill Parameterisera specifika aspekter i din logikapp arbetsflödesdefinitionen. Du kan till exempel ange parametrar i den [mall för distribution av Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Du kan använda för att komma åt en resurs parametervärdet under körning, den `@parameters('parameterName')` uttryck, som tillhandahålls av den [Definitionsspråk för arbetsflödet](https://aka.ms/logicappsdocs). 
+När du distribuerar mellan olika miljöer, kanske du vill Parameterisera specifika element i din logikapp arbetsflödesdefinitionen. På så sätt kan du ange indata som baseras på de miljöer som du använder och skyddar känslig information. Exempel: Om du autentisera HTTP-åtgärder med [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), definiera och skyddar de parametrar som accepterar klient-ID och klienthemlighet som används för autentisering. För dessa parametrar sina logikapp-definitioner har sin egen `parameters` avsnittet.
+Om du vill öppna parametervärden vid körning, du kan använda den `@parameters('parameterName')` uttryck, som tillhandahålls av den [Definitionsspråk för arbetsflödet](https://aka.ms/logicappsdocs). 
 
-Du kan även skydda specifika parametrar som du inte vill att visas när du redigerar logikappens arbetsflöde när du använder den `securestring` parametertypen. Exempelvis kan du skydda parametrar, t.ex klient-ID och klienthemlighet som används för att autentisera en HTTP-åtgärd med [Azure Active Directory](../connectors/connectors-native-http.md#authentication).
-När du anger en parametertyp som `securestring`, parametern returneras inte med resursdefinitionen och är inte tillgänglig genom att visa resursen efter distributionen. 
+Om du vill skydda parametrar och värden som du inte vill ska visas när du redigerar logikappen eller visa kör historik, kan du definiera parametrar med den `securestring` Skriv och Använd kodning kan vid behov. Parametrar som har den här typen returneras inte med resursdefinitionen och är inte tillgänglig när du visar resursen efter distributionen.
 
 > [!NOTE]
-> När du använder en parameter i en begäran sidhuvuden och brödtext vara parametern synliga vid åtkomst till din logikapp körningshistorik och utgående HTTP-begäran. Kontrollera att du har angett dina principer för åtkomst till innehåll i enlighet med detta.
-> Auktorisering rubriker är aldrig synliga via indata eller utdata. Om en hemlighet används det inte så hemligheten hämtningsbar.
+> Om du använder en parameter i sidhuvuden eller brödtext för en begäran måste vara parametern synliga vid åtkomst till din logikapp körningshistorik och utgående HTTP-begäran. Kontrollera att du även ange principer för åtkomst till innehåll i enlighet med detta.
+> Auktorisering rubriker är aldrig synliga via indata eller utdata. Om en hemlighet används det inte så det hemlighet hämtningsbara.
 
-Det här exemplet visar en Distributionsmall i Azure Resource Manager-som använder mer än en runtime-parameter med den `securestring` typ: 
+Läs mer om hur du skyddar parametrar i logic app-definitioner [skydda parametrar i logic app-definitioner](#secure-parameters-workflow) senare på den här sidan.
+
+Om du automatisera distributioner med [Azure Resource Manager-distributionsmallar](../azure-resource-manager/resource-group-authoring-templates.md#parameters), du kan också använda säker parametrar i dessa mallar. Du kan till exempel använda parametrar för att hämta KeyVault-hemligheter när du skapar din logikapp. Malldefinitionen för din distribution har sin egen `parameters` avsnittet separat från din logikapp `parameters` avsnittet. Mer information om hur du skyddar parametrar i mallar för distribution finns i [skydda parametrar i distributionsmallar](#secure-parameters-deployment-template) senare på den här sidan.
+
+<a name="secure-parameters-workflow"></a>
+
+### <a name="secure-parameters-in-logic-app-definitions"></a>Skydda parametrar i logic app-definitioner
+
+Använd säkra parametrar för att skydda känslig information i ditt arbetsflöde för logikappsdefinitionen, så att den här informationen inte visas när du har sparat din logikapp. Anta exempelvis att du använder `Basic` autentisering i en definition för HTTP-åtgärd. Det här exemplet innehåller en `parameters` avsnitt som definierar parametrar för åtgärdsdefinition plus en `authentication` avsnittet som accepterar `username` och `password` parametervärden. Om du vill ange värden för dessa parametrar du vill kan du använda en separat parameterfilen, till exempel:
+
+```json
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+         "type": "Http",
+         "inputs": {
+            "method": "GET",
+            "uri": "http://www.microsoft.com",
+            "authentication": {
+               "type": "Basic",
+               "username": "@parameters('usernameParam')",
+               "password": "@parameters('passwordParam')"
+            }
+         },
+         "runAfter": {}
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "manual": {
+         "type": "Request",
+         "kind": "Http",
+         "inputs": {
+            "schema": {}
+         }
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+}
+```
+
+Om du använder hemligheter kan du hämta dessa hemligheter vid tidpunkten för distribution med [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+<a name="secure-parameters-deployment-template"></a>
+
+### <a name="secure-parameters-in-azure-resource-manager-deployment-templates"></a>Säker parametrar i Azure Resource Manager-distributionsmallar
+
+Det här exemplet visar en Resource Manager-Distributionsmall som använder mer än en runtime-parameter med den `securestring` typ:
 
 * `armTemplatePasswordParam`, som är indata för logikappsdefinitionen `logicAppWfParam` parameter
 
 * `logicAppWfParam`, som är indata för HTTP-åtgärd som använder grundläggande autentisering
 
-I en separat parameterfilen, kan du ange miljö-värde för den `armTemplatePasswordParam` parameter eller du kan hämta hemligheter vid tidpunkten för distribution med hjälp av [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
-Inre `parameters` avsnittet hör till din logikapp arbetsflödesdefinitionen, samtidigt som det yttre `parameters` avsnittet hör till mallen för distribution.
+Det här exemplet innehåller en inre `parameters` som hör till din logikapp arbetsflödesdefinitionen och en yttre `parameters` som hör till mallen för distribution. Du kan använda en separat parameterfilen om du vill ange miljö-värden för parametrar. 
 
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-      "logicAppName": {       
+      "logicAppName": {
          "type": "string",
          "minLength": 1,
          "maxLength": 80,
-         "metadata": {         
-            "description": "Name of the Logic App."       
-         }     
+         "metadata": {
+            "description": "Name of the Logic App."
+         }
       },
       "armTemplatePasswordParam": {
-         "type": "securestring"     
-      },     
-      "logicAppLocation": {       
+         "type": "securestring"
+      },
+      "logicAppLocation": {
          "type": "string",
          "defaultValue": "[resourceGroup().location]",
-         "allowedValues": [         
+         "allowedValues": [
             "[resourceGroup().location]",
             "eastasia",
             "southeastasia",
@@ -281,7 +337,7 @@ Inre `parameters` avsnittet hör till din logikapp arbetsflödesdefinitionen, sa
    },
    "variables": {},
    "resources": [
-      {       
+      {
          "name": "[parameters('logicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('logicAppLocation')]",
@@ -300,15 +356,18 @@ Inre `parameters` avsnittet hör till din logikapp arbetsflödesdefinitionen, sa
                         "uri": "http://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
-                           "username": "username",
-                              "password": "@parameters('logicAppWfParam')"
+                           "username": "@parameters('usernameParam')",
+                           "password": "@parameters('logicAppWfParam')"
                         }
                      },
                   "runAfter": {}
                   }
                },
-               "parameters": { 
+               "parameters": {
                   "logicAppWfParam": {
+                     "type": "securestring"
+                  },
+                  "userNameParam": {
                      "type": "securestring"
                   }
                },
@@ -332,9 +391,11 @@ Inre `parameters` avsnittet hör till din logikapp arbetsflödesdefinitionen, sa
          }
       }
    ],
-   "outputs": {} 
-}   
+   "outputs": {}
+}
 ```
+
+Om du använder hemligheter kan du hämta dessa hemligheter vid tidpunkten för distribution med [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 <a name="secure-requests"></a>
 
@@ -344,7 +405,7 @@ Här är några sätt som du kan skydda valfri slutpunkt där logikappen behöve
 
 ### <a name="add-authentication-on-outbound-requests"></a>Lägg till autentisering för utgående förfrågningar
 
-När du arbetar med en HTTP-, HTTP + Swagger (Open API) eller Webhook-åtgärd, kan du lägga till autentisering på begäran som skickas av din logikapp. Du kan till exempel använda grundläggande autentisering eller autentisering med datorcertifikat Azure Active Directory-autentisering. Mer information finns i [autentisera utlösare eller åtgärder](logic-apps-workflow-actions-triggers.md#connector-authentication) och [autentisering för HTTP-åtgärder](../connectors/connectors-native-http.md#authentication).
+När du arbetar med en HTTP-, HTTP + Swagger (Open API) eller Webhook-åtgärd, kan du lägga till autentisering på begäran som skickas av din logikapp. Du kan till exempel använda grundläggande autentisering eller autentisering med datorcertifikat Azure Active Directory-autentisering. Mer information finns i [autentisera utlösare eller åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
 ### <a name="restrict-access-to-logic-app-ip-addresses"></a>Begränsa åtkomsten till IP-adresser för logic app
 

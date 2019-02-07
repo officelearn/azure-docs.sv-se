@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 12/21/2018
-ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c60ba4f4106ddd0c3fc643288894fb55d3d27f8c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240352"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816466"
 ---
 # <a name="asdk-release-notes"></a>Viktig information om ASDK 
  
@@ -60,7 +60,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 - Ett problem som förhindrade tillämpning av RBAC-principer till en användargrupp när du använder AD FS har åtgärdats.
 
 <!--3463840 - IS, ASDK --> 
-- Problem har åtgärdats med infrastruktur säkerhetskopieringar misslyckas på grund av otillgängliga filservern från det offentliga VIP-nätverket. Den här snabbkorrigeringen flyttar infrastruktur säkerhetskopieringstjänsten tillbaka till nätverkets infrastruktur för offentliga. Om du tillämpar senast [Azure Stack snabbkorrigering för 1809](#azure-stack-hotfixes) som löser problemet, 1811 uppdateringen inte gör några ändringar. 
+- Problem har åtgärdats med infrastruktur säkerhetskopieringar misslyckas på grund av otillgängliga filservern från det offentliga VIP-nätverket. Den här snabbkorrigeringen flyttar infrastruktur säkerhetskopieringstjänsten tillbaka till nätverkets infrastruktur för offentliga. Om du har installerat den senaste Azure Stack-snabbkorrigeringen för 1809 som åtgärdar problemet gör 1811 uppdateringen inte några ändringar. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Ett problem där visas det konto som du använde för att logga in på portalen för Azure Stack-administratör eller användare som har åtgärdats **Oidentifierad användare**. Det här meddelandet visades när kontot inte har antingen en *första* eller *senaste* namnen.   

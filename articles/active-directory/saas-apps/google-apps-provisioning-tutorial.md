@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 515b21c6854620a6bd1af53af8b1778d70613622
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1dd1cf143d66fec2ab8c12ee28a61bb3b8a83ade
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203954"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821838"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudier: Konfigurera G Suite för automatisk användaretablering
 
@@ -127,7 +127,7 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
     e. Upprepa föregående steg för eventuella ytterligare domäner som du vill lägga till i Google Apps.
      
      > [!WARNING]
-     > Om du ändrar den primära domänen för din G Suite-klient, och om du redan har konfigurerats enkel inloggning med Azure AD så du behöver Upprepa steg #3 under [steg 2: Aktivera enkel inloggning](#step-two-enable-single-sign-on).
+     > Om du ändrar den primära domänen för din G Suite-klient, och om du redan har konfigurerat enkel inloggning med Azure AD, måste du upprepa steg #3 under steg 2: Aktivera enkel inloggning.
        
 1. I den [Google Apps-administratörskonsolen](https://admin.google.com/)väljer **Administratörsrollerna**.
    

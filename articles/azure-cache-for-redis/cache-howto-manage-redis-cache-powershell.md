@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ffbd785126bbc204191554e5d62d642a582a3c8d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105244"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822569"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure Cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -132,7 +132,7 @@ I följande tabell innehåller egenskaperna och beskrivningar för vanliga param
 | ShardCount |Antalet partitioner skapa när du skapar en premium-cache med klustring aktiverat. Giltiga värden är: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Anger SKU för cachen. Giltiga värden är: Basic, Standard, Premium |Standard |
 | RedisConfiguration |Anger inställningar för Redis. Information om varje inställning finns i följande [RedisConfiguration egenskaper](#redisconfiguration-properties) tabell. | |
-| enableNonSslPort |Anger om icke-SSL-porten är aktiverad. |False |
+| EnableNonSslPort |Anger om icke-SSL-porten är aktiverad. |False |
 | MaxMemoryPolicy |Den här parametern är inaktuell – Använd RedisConfiguration istället. | |
 | StaticIP |När du har ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om du inte är något valt från undernätet. | |
 | Undernät |När du har ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du kan distribuera cacheminnet. | |
@@ -142,17 +142,17 @@ I följande tabell innehåller egenskaperna och beskrivningar för vanliga param
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration egenskaper
 | Egenskap  | Beskrivning | Prisnivåer |
 | --- | --- | --- |
-| RDB-säkerhetskopiering – aktiverat |Om [Redis-datapersistens](cache-how-to-premium-persistence.md) är aktiverat |Endast Premium |
-| RDB-storage-connection-string |Anslutningssträngen till lagringskontot för [Redis-datapersistens](cache-how-to-premium-persistence.md) |Endast Premium |
+| rdb-backup-enabled |Om [Redis-datapersistens](cache-how-to-premium-persistence.md) är aktiverat |Endast Premium |
+| rdb-storage-connection-string |Anslutningssträngen till lagringskontot för [Redis-datapersistens](cache-how-to-premium-persistence.md) |Endast Premium |
 | RDB-säkerhetskopieringsfrekvens |Säkerhetskopieringsfrekvensen för [Redis-datapersistens](cache-how-to-premium-persistence.md) |Endast Premium |
-| maxmemory-reserverade |Konfigurerar den [minne reserverade](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för icke-cache-processer |Standard och Premium |
+| maxmemory-reserved |Konfigurerar den [minne reserverade](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för icke-cache-processer |Standard och Premium |
 | princip för max. minne |Konfigurerar den [avlägsningsprincipen](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för cache |Alla prisnivåer |
-| meddela-keyspace-händelser |Konfigurerar [keyspace-meddelanden](cache-configure.md#keyspace-notifications-advanced-settings) |Standard och Premium |
-| hash-max-ziplist-transaktioner |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| notify-keyspace-events |Konfigurerar [keyspace-meddelanden](cache-configure.md#keyspace-notifications-advanced-settings) |Standard och Premium |
+| hash-max-ziplist-entries |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
 | hash-max-ziplist-value |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| set-max-intset-transaktioner |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| zset-max-ziplist-transaktioner |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| zset / max-ziplist-värde |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| set-max-intset-entries |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| zset-max-ziplist-entries |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| zset-max-ziplist-value |Konfigurerar [minnesoptimering](https://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
 | databaser |Konfigurerar hur många databaser. Den här egenskapen kan endast konfigureras hos skapa cache. |Standard och Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Skapa en Azure Cache för Redis
@@ -260,7 +260,7 @@ Den `databases` inställningen konfigureras bara när cache skapas. I följande 
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Mer information om den `databases` egenskap, finns i [standard Azure Cache för Redis-serverkonfiguration](cache-configure.md#default-redis-server-configuration). Mer information om hur du skapar en cache med hjälp av den [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet, finns i den tidigare [att skapa en Azure Cache för Redis](#to-create-a-redis-cache) avsnittet.
+Mer information om den `databases` egenskap, finns i [standard Azure Cache för Redis-serverkonfiguration](cache-configure.md#default-redis-server-configuration). Mer information om hur du skapar en cache med hjälp av den [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet, se föregående för att skapa en Azure-Cache för Redis-avsnitt.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Att uppdatera en Azure Cache för Redis
 Azure Cache för Redis-instanser har uppdaterats med den [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Set-AzureRmRedisCache?view=azurermps-6.6.0) cmdlet.

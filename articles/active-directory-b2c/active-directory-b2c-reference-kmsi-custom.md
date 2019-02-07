@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9002ab7396cd9beda767b4a9f81d9983ec74923d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163423"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812317"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aktivera Håll mig inloggad (KMSI) i Azure Active Directory B2C
 
@@ -150,7 +150,7 @@ Uppdatera filen för förlitande part (RP) som initierar användarresa som du sk
 2. Öppna i ny fil och uppdatera den **PolicyId** attributet för den **TrustFrameworkPolicy** med ett unikt värde. Det här är namnet på din princip. Till exempel `SignUpOrSignInWithKmsi`.
 3. Ändra den **ReferenceId** attributet för den **DefaultUserJourney** elementet så att de matchar identifieraren för den nya användarresa som du skapade. Till exempel `SignUpOrSignInWithKmsi`.
 
-    KMSI konfigureras med hjälp av den **UserJourneyBehaviors** element. Den **KeepAliveInDays** attribut styr hur länge användaren förblir inloggad. I följande exempel KMSI sessionen automatiskt upphör att gälla efter `7` dagar oavsett hur ofta användaren utför en tyst autentisering. Ange den **KeepAliveInDays** värde att `0` inaktiverar KMSI funktioner. Det här värdet är som standard `0`. Om värdet för **SessionExpiryType** är `Rolling`, KMSI sessionen utökas med `7` dagar varje gång användaren utför tyst autentisering.  Om `Rolling` är valt, bör du behålla antalet dagar till minimum. 
+    KMSI konfigureras med hjälp av den **UserJourneyBehaviors** element med **SingleSignOn**, **SessionExpiryType**, och **SessionExpiryInSeconds** som de första underordnade element. Den **KeepAliveInDays** attribut styr hur länge användaren förblir inloggad. I följande exempel KMSI sessionen automatiskt upphör att gälla efter `7` dagar oavsett hur ofta användaren utför en tyst autentisering. Ange den **KeepAliveInDays** värde att `0` inaktiverar KMSI funktioner. Det här värdet är som standard `0`. Om värdet för **SessionExpiryType** är `Rolling`, KMSI sessionen utökas med `7` dagar varje gång användaren utför tyst autentisering.  Om `Rolling` är valt, bör du behålla antalet dagar till minimum. 
 
     Värdet för **SessionExpiryInSeconds** representerar förfallotiden för en SSO-session. Detta används internt av Azure AD B2C för att kontrollera om sessionen för KMSI har upphört att gälla eller inte. Värdet för **KeepAliveInDays** avgör förfaller/Max-Age-värdet för SSO-cookie i webbläsaren. Till skillnad från **SessionExpiryInSeconds**, **KeepAliveInDays** används för att förhindra att webbläsaren ska raderas cookien när den är stängd. En användare kan göra en obevakad logga in endast om det finns för sessions-cookie för enkel inloggning, som kontrolleras av **KeepAliveInDays**, och inte har upphört att gälla, som kontrolleras av **SessionExpiryInSeconds**. 
     

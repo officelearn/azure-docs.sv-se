@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228295"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821957"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera Azure ExpressRoute med haveriberedskap för virtuella Azure-datorer
 
@@ -106,10 +106,10 @@ Enterprise-distributioner har vanligtvis arbetsbelastningar delas upp på flera 
 
 **Riktning** | **Inställning** | **tillstånd**
 --- | --- | ---
-Spoke till hub | Tillåt virtuell nätverksadress | Aktiverad
-Spoke till hub | Tillåt vidarebefordrad trafik | Aktiverad
-Spoke till hub | Tillåt gatewayöverföring | Inaktiverat
-Spoke till hub | Använd ta bort gateways | Aktiverad
+Spoke till hub | Tillåt virtuell nätverksadress | Enabled
+Spoke till hub | Tillåt vidarebefordrad trafik | Enabled
+Spoke till hub | Tillåt gatewayöverföring | Disabled
+Spoke till hub | Använd ta bort gateways | Enabled
 
  ![Ekrar till hubben peering-konfigurationen](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,10 +117,10 @@ Spoke till hub | Använd ta bort gateways | Aktiverad
 
 **Riktning** | **Inställning** | **tillstånd**
 --- | --- | ---
-Hub till spoke | Tillåt virtuell nätverksadress | Aktiverad
-Hub till spoke | Tillåt vidarebefordrad trafik | Aktiverad
-Hub till spoke | Tillåt gatewayöverföring | Aktiverad
-Hub till spoke | Använd ta bort gateways | Inaktiverat
+Hub till spoke | Tillåt virtuell nätverksadress | Enabled
+Hub till spoke | Tillåt vidarebefordrad trafik | Enabled
+Hub till spoke | Tillåt gatewayöverföring | Enabled
+Hub till spoke | Använd ta bort gateways | Disabled
 
  ![NAV och ekrar peering-konfigurationen](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
@@ -190,7 +190,7 @@ För en enkel topologi som använder en enda ExpressRoute-krets med samma IP-adr
 ### <a name="example-steps"></a>Exempelbeskrivningar
 Automatisera återställning i det här exemplet härs vad du behöver göra:
 
-1. Följ stegen för att [Konfigurera replikering](#azure-vm-replication-steps).
+1. Följ stegen för att konfigurera replikering.
 2. [Växla över virtuella Azure-datorer](azure-to-azure-tutorial-failover-failback.md), med dessa ytterligare steg under eller efter redundans.
 
     a. Skapa Azure ExpressRoute-Gateway i mål-region hubbens virtuella nätverk. Detta är måste du ansluta target-Hubbnätverk till ExpressRoute-kretsen.

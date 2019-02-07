@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: c911a53f16e07b67a1ec22a9e0592df06c192325
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e5b23269c8c9d5aecd7ef8ba58100f17cc7973c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188192"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Självstudier: Azure Active Directory-integrering med Lessonly.com
 
@@ -90,7 +90,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Lessonly.com, må
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Lessonly.com](#creating-a-lessonly-test-user)**  – du har en motsvarighet för Britta Simon i Lessonly.com som är länkad till en Azure AD-representation av användaren.
+1. **Skapa en testanvändare Lessonly.com** – du har en motsvarighet för Britta Simon i Lessonly.com som är länkad till en Azure AD-representation av användaren.
 1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 

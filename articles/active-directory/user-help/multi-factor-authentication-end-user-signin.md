@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: aafc960c0c26a94a8be672d0d72a46dfcb559013
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157014"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810209"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Inloggning med Azure Multi-Factor Authentication
 > [!NOTE]
@@ -31,8 +31,8 @@ Din inloggning skiljer sig beroende på vad du väljer att använda som dina and
 | --- |
 | [Med ett telefonsamtal till min mobil- eller office-telefon](#signing-in-with-a-phone-call) |
 | [Med ett meddelande till min mobiltelefon](#signing-in-with-a-text-message)
-| [Med aviseringar från Microsoft Authenticator-appen](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [Med verifieringskoder från Microsoft Authenticator-appen](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| Med aviseringar från Microsoft Authenticator-appen |
+| Med verifieringskoder från Microsoft Authenticator-appen |
 | [Med en alternativ metod, eftersom jag inte kan använda mitt bästa metoden just nu](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Logga in med ett telefonsamtal
@@ -68,7 +68,7 @@ Om du använder Microsoft Authenticator-appen för att hämta verifieringskoder,
 1. Logga in på ett program eller tjänst, till exempel Office 365 med ditt användarnamn och lösenord.
 2. Microsoft uppmanar dig en Verifieringskod.
 
-  ![Ange verifieringskod](./media/multi-factor-authentication-end-user-signin/verify3.png)
+  ![Ange Verifieringskod](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Öppna Microsoft Authenticator-appen på telefonen och ange koden i rutan där du loggar in.
 
@@ -87,4 +87,4 @@ Om du har problem med att logga in med tvåstegsverifiering kan få mer informat
 
 Lär dig hur du [hantera dina inställningar för tvåstegsverifiering](multi-factor-authentication-end-user-manage-settings.md).
 
-Lär dig hur du [Kom igång med Microsoft Authenticator-appen](microsoft-authenticator-app-how-to.md) så att du kan använda meddelanden för att logga in, i stället för texter och telefonsamtal.
+Lär dig hur du [Kom igång med Microsoft Authenticator-appen](user-help-auth-app-download-install.md) så att du kan använda meddelanden för att logga in, i stället för texter och telefonsamtal.

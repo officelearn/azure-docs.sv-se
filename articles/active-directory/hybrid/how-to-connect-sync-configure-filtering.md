@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c9e3a26f1ca8a577b883baacaf672cf73c8c5656
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6198d16b25330fb02cf5642addba0093ec437cab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488698"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811502"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Med hjälp av filtrering, kan du kontrollera vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standardkonfigurationen tar alla objekt i alla domäner i de Konfigurera skogarna. I allmänhet är är det här den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, t.ex Exchange Online och Skype för företag, dra nytta av en fullständig globala adresslistan så att de kan skicka e-post och anropa alla. Med standardkonfigurationen, skulle de ha samma upplevelse som skulle uppstå med en lokal implementering av Exchange- eller Lync.
@@ -93,8 +93,8 @@ Du bör bara följa dessa steg om det inte går att köra installationsguiden av
 
 Domänbaserade filtreringen konfigurationen består av följande:
 
-1. [Markera domänerna](#select-domains-to-be-synchronized) som du vill ska ingå i synkroniseringen.
-2. För var och en har lagts till och ta bort domänen, justera den [körningsprofiler](#update-run-profiles).
+1. Välj de domäner som du vill ska ingå i synkroniseringen.
+2. Justera körningsprofilerna för varje domän som har lagts till och borttagna.
 3. [Tillämpa och verifiera ändringar av](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Markera domänerna som ska synkroniseras
@@ -110,7 +110,7 @@ Om du vill ange filter för domänen, gör du följande:
    Om du har ändrat din lokala Active Directory-infrastruktur och har lagts till eller ta bort domäner från skogen, sedan klickar du på den **uppdatera** för att få en uppdaterad lista. När du uppdaterar, blir du tillfrågad om autentiseringsuppgifter. Ange några autentiseringsuppgifter med läsbehörighet till Windows Server Active Directory. Det behöver inte vara den användare som är automatiskt i dialogrutan.  
    ![Uppdatering behövs](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. När du är klar stänger du den **egenskaper** dialogrutan genom att klicka på **OK**. Om du har tagit bort domäner från skogen ett popup-meddelande som anger att en domän har tagits bort och den konfigurationen rensas.
-7. Fortsätta att justera de [körningsprofiler](#update-run-profiles).
+7. Fortsätt att justera körningsprofilerna.
 
 ### <a name="update-the-run-profiles"></a>Uppdatera körningsprofilerna
 Om du har uppdaterat din domän-filter, måste du även uppdatera körningsprofilerna.

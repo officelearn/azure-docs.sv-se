@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: d5425cf7c2ea39770bbc3e9368f34d57d7279842
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534884"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818302"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Övervaka B2B-meddelanden med Azure Log Analytics i Azure Logic Apps
 
-När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrationskonto kan partner utbyta meddelanden med varandra. Kontrollera att den här kommunikationen fungerar på samma sätt som du förväntar dig kan du övervaka AS2, X12, och EDIFACT-meddelanden och ställer in diagnostik loggning för ditt konto för integrering med [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Den här tjänsten övervakar dina molnet och lokala miljöer, hjälper dig att bibehålla tillgänglighet och prestanda, och samlar in runtime samt händelser för bättre felsökning. Du kan också [använda dessa data med andra tjänster](#extend-diagnostic-data) , till exempel Azure Storage och Azure Event Hubs.
+När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrationskonto kan partner utbyta meddelanden med varandra. Kontrollera att den här kommunikationen fungerar på samma sätt som du förväntar dig kan du övervaka AS2, X12, och EDIFACT-meddelanden och ställer in diagnostik loggning för ditt konto för integrering med [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Den här tjänsten övervakar dina molnet och lokala miljöer, hjälper dig att bibehålla tillgänglighet och prestanda, och samlar in runtime samt händelser för bättre felsökning. Du kan också använda dessa data med andra tjänster som Azure Storage och Azure Event Hubs.
 
 > [!NOTE]
 > Den här sidan kan fortfarande ha referenser till Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), men ersätter de här stegen med Azure Log Analytics där det är möjligt. 
@@ -49,7 +49,7 @@ När du är klar väljer **Lägg till diagnostikinställning**.
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Azure-prenumerationen som är associerat med ditt integrationskonto | 
    | **Resursgrupp** | <*Azure-resource-group-name*> | Azure-resursgrupp för ditt integrationskonto | 
    | **Resurstyp** | **Integrationskonton** | Typen för den Azure-resurser där du vill aktivera loggning | 
-   | **Resurs** | <*integrering kontonamn*> | Namn för din Azure-resurs där du vill aktivera loggning | 
+   | **Resurs** | <*integration-account-name*> | Namn för din Azure-resurs där du vill aktivera loggning | 
    ||||  
 
    Exempel:
@@ -91,7 +91,7 @@ När du är klar väljer **Lägg till diagnostikinställning**.
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Azure-prenumerationen som är associerat med ditt integrationskonto | 
    | **Resursgrupp** | <*Azure-resource-group-name*> | Azure-resursgrupp för ditt integrationskonto | 
    | **Resurstyp** | **Integrationskonton** | Typen för den Azure-resurser där du vill aktivera loggning | 
-   | **Resurs** | <*integrering kontonamn*> | Namn för din Azure-resurs där du vill aktivera loggning | 
+   | **Resurs** | <*integration-account-name*> | Namn för din Azure-resurs där du vill aktivera loggning | 
    ||||  
 
    Exempel:

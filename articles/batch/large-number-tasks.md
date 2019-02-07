@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 3e20aeb0e21eca5e4ac25206d638036f94a58202
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749703"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809307"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Skicka ett stort antal aktiviteter till ett Batch-jobb
 
@@ -164,7 +164,7 @@ except Exception as e:
     raise e
 ```
 
-Tillägget Batch Python SDK stöder också parametrar för att lägga till aktiviteter till ett jobb med hjälp av en JSON-specifikation för en uppgift factory. Till exempel konfigurera jobbparametrar för en parametrisk rensning som liknar det i det föregående [Batch CLI mallen](#example-batch-cli-template) exempel:
+Tillägget Batch Python SDK stöder också parametrar för att lägga till aktiviteter till ett jobb med hjälp av en JSON-specifikation för en uppgift factory. Till exempel konfigurera jobbparametrar för en parametrisk rensning som liknar den i föregående exempel för Batch CLI-mallen:
 
 ```python
 parameter_sweep = {

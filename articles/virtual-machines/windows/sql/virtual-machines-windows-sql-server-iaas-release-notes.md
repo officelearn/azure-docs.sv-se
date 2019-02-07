@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: e3f44181ca1a5ea64815aadf52aa7ea792a21416
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7c854759e9a0ba13b698dd07dabb25100895bc85
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358583"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766885"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server på Azure-dator viktig information
 
@@ -30,9 +30,9 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 
 | **Ändra** | Information |
 | --- | --- |
-| **Ny SQL-kluster grupp-resursprovider** | Det finns en ny resursprovider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroup) som definierar metadata om Windows-redundanskluster. Ansluta till en SQL Server-VM till den *SqlVirtualMachineGroup* startar tjänsten Windows-redundanskluster och kopplar den virtuella datorn till klustret.  |
+| **Ny SQL-kluster grupp-resursprovider** | Det finns en ny resursprovider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) som definierar metadata om Windows-redundanskluster. Ansluta till en SQL Server-VM till den *SqlVirtualMachineGroups* startar tjänsten Windows-redundanskluster och kopplar den virtuella datorn till klustret.  |
 |**Automatisera konfigurationen av distribueringen av en tillgänglighet med Azure-Snabbstartsmallar** |Nu är det möjligt att skapa Windows-redundanskluster, ansluta till SQL Server-datorer till den, skapa lyssnaren och konfigurera den interna belastningsutjämnaren med två Azure-Snabbstartsmallar. Mer information finns i [skapa WSFC, lyssnaren och och konfigurera ILB för en Always On-tillgänglighetsgrupp på en SQL Server-dator med Azure-Snabbstartsmall](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
-| **Den automatiska SQL VM Resursproviderregistrering** | SQL Server-datorer distribueras efter det att den här månaden registreras automatiskt med den nya SQL Server-resursprovidern. SQL Server-datorer som distribuerats före den här månaden måste registreras manuellt. Mer information finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-new-resource-provider).|
+| **Den automatiska SQL VM Resursproviderregistrering** | SQL Server-datorer distribueras efter det att den här månaden registreras automatiskt med den nya SQL Server-resursprovidern. SQL Server-datorer som distribuerats före den här månaden måste registreras manuellt. Mer information finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).|
 | &nbsp; | &nbsp; |
 
 
@@ -40,7 +40,7 @@ Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inb
 
 | **Ändra** | Information |
 | --- | --- |
-| **Ny SQL-VM-resursprovider** |  Det finns en ny resource provider för SQL Server-datorer (Microsoft.SqlVirtualMachine) som möjliggör bättre hantering av SQL Server-dator. Mer information om hur du registrerar din virtuella dator finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-new-resource-provider). |
+| **Ny SQL-VM-resursprovider** |  Det finns en ny resource provider för SQL Server-datorer (Microsoft.SqlVirtualMachine) som möjliggör bättre hantering av SQL Server-dator. Mer information om hur du registrerar din virtuella dator finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider). |
 |**Växla licensieringsmodell** |Du kan växla mellan modellen betala per användning och bring-your-own-licens för din SQL-VM med Azure CLI eller Powershell. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). | 
 | &nbsp; | &nbsp; |
 

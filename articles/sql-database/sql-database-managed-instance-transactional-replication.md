@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469404"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814120"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionsreplikering med fristående, pooler och databaser i Azure SQL Database-instans
 
-Transaktionsreplikering är en funktion i Azure SQL Database Managed Instance och SQL Server som gör det möjligt att replikera data från en tabell i Azure SQL Database eller SQL Server till de tabeller som placeras på fjärr-databaser. Den här funktionen kan du synkronisera flera tabeller i olika databaser.
+Transaktionsreplikering är en funktion i Azure SQL Database och SQL Server som gör det möjligt att replikera data från en tabell i Azure SQL Database eller en SQL Server till de tabeller som placeras på fjärr-databaser. Den här funktionen kan du synkronisera flera tabeller i olika databaser.
 
 ## <a name="when-to-use-transactional-replication"></a>När du ska använda Transaktionsreplikering
 
@@ -38,15 +38,15 @@ De viktigaste komponenterna i Transaktionsreplikering visas i följande bild:
 ![replikering med SQL-databas](media/replication-to-sql-database/replication-to-sql-database.png)
 
 
-Den **Publisher** är en instans eller en server som publicerar ändringar som görs på några tabeller (artikel) genom att skicka uppdateringar till distributören. Publicering till en Azure SQL Database från en lokal SQL Server stöds på följande versioner av SQL Server:
+Den **Publisher** är en instans eller en server som publicerar ändringar som görs på några tabeller (artikel) genom att skicka uppdateringar till distributören. Publicera till alla Azure SQL stöds database från en lokal SQL Server av följande versioner av SQL Server:
 
-    - SQL Server 2019 (förhandsversion)
-    - SQLServer 2016 till SQL 2017
-    - SQL Server 2014 SP1 CU3 eller större (12.00.4427)
-    - SQL Server 2014 RTM CU10 (12.00.2556)
-    - SQL Server 2012 SP3 eller större (11.0.6020)
-    - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-    - För andra versioner av SQL Server som inte stöder publicering till objekt i Azure, är det möjligt att använda den [publicera data](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) metod för att flytta data till nyare versioner av SQL Server. 
+   - SQL Server 2019 (förhandsversion)
+   - SQLServer 2016 till SQL 2017
+   - SQL Server 2014 SP1 CU3 eller större (12.00.4427)
+   - SQL Server 2014 RTM CU10 (12.00.2556)
+   - SQL Server 2012 SP3 eller större (11.0.6020)
+   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
+   - För andra versioner av SQL Server som inte stöder publicering till objekt i Azure, är det möjligt att använda den [publicera data](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) metod för att flytta data till nyare versioner av SQL Server. 
 
 Den **distributören** är en instans eller en server som samlar in ändringar i artiklarna från en utgivare och distribuerar dem till prenumeranter. Distributören kan vara antingen Azure SQL Database Managed Instance eller SQL Server (alla versioner som hur lång tid det är lika med eller högre än versionen som utgivare). 
 

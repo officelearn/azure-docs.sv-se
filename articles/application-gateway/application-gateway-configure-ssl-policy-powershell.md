@@ -8,16 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5f5b389c66821282668f0b4fce9e0b67af028e9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157470"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816959"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurera SSL-princip versioner och -chifferpaket på Application Gateway
 
-Lär dig hur du konfigurerar SSL-princip versioner och -chifferpaket på Application Gateway. Du kan välja från en [lista med fördefinierade principer](#predefined-ssl-policies) som innehåller olika konfigurationer för SSL-princip versioner och aktiverat krypteringssviter. Du har också möjlighet att definiera en [anpassad SSL-princip](#configure-a-custom-ssl-policy) baserat på dina krav.
+Lär dig hur du konfigurerar SSL-princip versioner och -chifferpaket på Application Gateway. Du kan välja från en lista med fördefinierade principer som innehåller olika konfigurationer för SSL-princip versioner och aktiverat krypteringssviter. Du har också möjlighet att definiera en [anpassad SSL-princip](#configure-a-custom-ssl-policy) baserat på dina krav.
 
 ## <a name="get-available-ssl-options"></a>Hämta tillgängliga SSL-alternativ
 
@@ -106,7 +106,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Konfigurera en anpassad SSL-princip
 
-När du konfigurerar en anpassad SSL-princip kan skicka du följande parametrar: PolicyType, MinProtocolVersion, CipherSuite och ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Application Gateway. 
+När du konfigurerar en anpassad SSL-princip kan skicka du följande parametrar: PolicyType, MinProtocolVersion, CipherSuite, and ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Application Gateway. 
 
 I följande exempel anger en anpassad princip för SSL på application gateway. Det anger den minsta Protokollversionen till `TLSv1_1` och möjliggör krypteringssviter som följande:
 

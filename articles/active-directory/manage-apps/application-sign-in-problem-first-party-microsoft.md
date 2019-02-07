@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4d75ab2328cbc18142742c3111ef1f5e7d8eb8f2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f67633ec62b28f54a97cccd0f27b43bdb626ee58
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731486"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822773"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problem vid inloggning ett Microsoft-program
 
@@ -34,11 +34,11 @@ Det finns tre sätt att en användare kan få åtkomst till ett Microsoft-public
 
 -   För program som Microsoft eller 3 part publicerar fritt för allmän användning, användare kan också få åtkomst via **administratörens godkännande**. Det innebär att en administratör har fastställt programmet kan användas av alla i organisationen, så att de logga in på programmet med ett globalt administratörskonto och bevilja åtkomst till alla i organisationen.
 
-Om du vill felsöka problemet, börja med den [allmänna problemområden med programåtkomst att tänka på](#general-problem-areas-with-application-access-to-consider) och läs sedan de [genomgång: Steg för att felsöka Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access) in informationen.
+Om du vill felsöka problemet, börja med den [allmänna problemområden med programåtkomst att tänka på](#general-problem-areas-with-application-access-to-consider) och sedan läsa den här genomgången: Steg för att felsöka Microsoft Application åtkomst att hämta detaljer.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Allmänna problemområden med programåtkomst att tänka på
 
-Följande är en lista över de allmänna problemområden som innehåller detaljer om du har en uppfattning om var du ska börja, men vi rekommenderar att du läser den här genomgången att komma igång snabbt: [Genomgång: Steg för att felsöka Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Följande är en lista över de allmänna problemområden som innehåller detaljer om du har en uppfattning om var du ska börja, men vi rekommenderar att du läser den här genomgången att komma igång snabbt: Genomgång: Steg för att felsöka Microsoft Application åtkomst.
 
 -   [Problem med användarkontot](#problems-with-the-users-account)
 

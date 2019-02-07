@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186811"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817402"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Referensguide till Vydesigner paneler i Log Analytics
 Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika visualiseringar i Log Analytics-arbetsytan med hjälp av Vydesigner i Azure Log Analytics. Den här artikeln är en referensguide i inställningarna för panelerna som är tillgängliga i dina anpassade vyer.
@@ -31,12 +31,12 @@ Mer information om Vydesigner finns:
 
 Tillgängliga Vydesigner paneler beskrivs i följande tabell:  
 
-| Panel | Beskrivning |
+| Upprepa | Beskrivning |
 |:--- |:--- |
 | [Nummer](#number-tile) |Totalt antal poster från en fråga. |
 | [Två tal](#two-numbers-tile) |Antalet poster från två olika frågor. |
 | [Ringdiagram](#donut-tile) | Ett diagram som baseras på en fråga med ett summary-värde i mitten. |
-| [Linjediagram och bildtext](#line-chart-amp-callout-tile) | Ett linjediagram som baseras på en fråga och en bildtext med ett summary-värde. |
+| Linjediagram och bildtext | Ett linjediagram som baseras på en fråga och en bildtext med ett summary-värde. |
 | [Linjediagram](#line-chart-tile) |Ett linjediagram som baseras på en fråga. |
 | [Två tidslinjer](#two-timelines-tile) | Ett stapeldiagram med två serier, var och en baserat på en separat fråga. |
 

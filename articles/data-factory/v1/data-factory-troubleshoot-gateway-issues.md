@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022546"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813848"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Felsöka problem med gateway för datahantering
 Den här artikeln innehåller information om hur du felsöker problem med Gateway för datahantering.
@@ -138,7 +138,7 @@ Du kan se ett felmeddelande.
 Det här felet inträffar när din gateway är i en miljö som kräver en HTTP-proxy för åtkomst till Internet-resurser eller autentisering proxylösenordet har ändrats men den inte uppdateras i din gateway.
 
 #### <a name="resolution"></a>Lösning
-Följ instruktionerna i den [proxyserver](#proxy-server-considerations) avsnittet i det här artikeln och konfigurera proxyinställningar med Data Management Gateway Configuration Manager.
+Följ anvisningarna i avsnittet Proxy server överväganden i den här artikeln och konfigurera proxyinställningar med Data Management Gateway Configuration Manager.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>Gatewayen är online med begränsad funktionalitet
 ### <a name="1-problem"></a>1. Problem
@@ -169,8 +169,8 @@ Gatewayen kan inte ansluta till Molntjänsten via Service Bus.
 Följ dessa steg om du vill hämta gatewayen online igen:
 
 1. Tillåt IP-adress utgående regler på gatewaydatorn och företagets brandvägg. Du hittar IP-adresser från händelseloggen i Windows (ID == 401): Ett försök gjordes att komma åt en socket på ett sätt som tillåts inte av åtkomstbehörigheterna XX. XX. XX. XX:9350.
-* Konfigurera proxyinställningar på gatewayen. Se den [proxyserver](#proxy-server-considerations) information.
-* Aktivera utgående portarna 5671 och 9350-9354 på båda Windows brandväggen på gatewaydatorn och företagets brandvägg. Se den [portar och brandväggen](#ports-and-firewall) information. Det här steget är valfritt men rekommenderas för prestanda.
+* Konfigurera proxyinställningar på gatewayen. Se avsnittet Proxy server överväganden för information.
+* Aktivera utgående portarna 5671 och 9350-9354 på båda Windows brandväggen på gatewaydatorn och företagets brandvägg. I avsnittet portar och brandväggen för information. Det här steget är valfritt men rekommenderas för prestanda.
 
 ### <a name="3-problem"></a>3. Problem
 Du ser följande fel.

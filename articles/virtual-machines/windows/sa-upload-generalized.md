@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 199343fce4774ea643bc22c879efc6717aa0a510
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 658cee95d695a310291d5b7180815c89bc2f0401
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244737"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818115"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Ladda upp en generaliserad virtuell Hårddisk till Azure för att skapa en ny virtuell dator
 
@@ -97,7 +97,7 @@ Om du vill visa tillgängliga storage-konton, skriver du:
 Get-AzureRmStorageAccount
 ```
 
-Om du vill använda ett befintligt lagringskonto, fortsätter du till den [ladda upp avbildningen](#upload-the-vm-vhd-to-your-storage-account) avsnittet.
+Om du vill använda ett befintligt lagringskonto fortsätter du till överföringen på VM-avbildning.
 
 Följ dessa steg om du vill skapa ett lagringskonto:
 

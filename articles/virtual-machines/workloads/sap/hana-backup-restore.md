@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a72fade57b070ac2ac1aea28cbec92700c3797f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452555"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822739"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -34,7 +34,7 @@ Säkerhetskopiera en databas, med möjlighet att återställa den till valfri pu
 
 Två typer av säkerhetskopior måste utföras för bästa resultat:
 
-- Säkerhetskopior: fullständiga, inkrementella eller differentiella säkerhetskopieringar
+- Säkerhetskopior av databasen: Fullständiga, inkrementella eller differentiella säkerhetskopieringar
 - Säkerhetskopieringar av transaktionsloggen
 
 Förutom fullständig--databassäkerhetskopieringar som utförs på en nivå för programmet, kan du utföra säkerhetskopiering med ögonblicksbilder av lagring. Ögonblicksbilder av lagring ersätter inte säkerhetskopieringar av transaktionsloggen. Säkerhetskopieringar av transaktionsloggen är viktigt att återställa databasen till en viss punkt eller till tomt loggar från redan genomförda transaktioner. Storage-ögonblicksbilder kan dock snabbare återställning genom att snabbt tillhandahålla en sammanslagning och tydlig bild av databasen. 
@@ -120,7 +120,7 @@ Få de senaste ögonblicksbild skript och dokumentation från [GitHub](https://g
 Om du kör en [MCOD scenariot](https://launchpad.support.sap.com/#/notes/1681092) med flera SAP HANA-instanser på en enhet för stora HANA-instansen, har du separata lagringsvolymer som tillhandahållits för var och en av SAP HANA-instanser. Du kan inte initiera separat ögonblicksbilder på varje HANA-instans system-ID (SID) i den aktuella versionen av själva ögonblicksbild automation. Funktionen ger söker efter de registrerade SAP HANA-instanserna på servern i konfigurationsfilen (se nedan) och kör en samtidig ögonblicksbild av volymer med alla instanser som är registrerade på enheten.
  
 
-### <a name="step-1-install-the-sap-hana-hdb-client"></a>Steg 1: Installera klienten för SAP HANA HDB
+### <a name="step-1-install-the-sap-hana-hdb-client"></a>Steg 1: Installera SAP HANA HDB-klienten
 
 Linux-operativsystem som är installerade på SAP HANA på Azure (stora instanser) innehåller mappar och skript som krävs för att köra SAP HANA storage-ögonblicksbilder för återställning för säkerhetskopiering och haveriberedskap. Sök efter nyare versioner i [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Den senaste versionen av skripten är 3.x. Olika skript kan ha olika utgåvor av mindre inom samma huvudversion.
 
@@ -179,7 +179,7 @@ Nu kan kontakta SAP HANA på Azure Service Management och ge dem med den offentl
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Steg 4: Skapa ett användarkonto för SAP HANA
 
-Om du vill initiera skapandet av SAP HANA-ögonblicksbilder måste du skapa ett användarkonto i SAP HANA som kan använda för skript för storage-ögonblicksbilder. Skapa ett användarkonto för SAP HANA SAP HANA-Studio för detta ändamål. Användaren måste skapas under SYSTEMDB och inte under SID-databasen för MDC. Användaren är inställningen under klientdatabasen i enskild behållare-miljö. Det här kontot måste ha följande behörigheter: **säkerhetskopiering Admin** och **Catalog Läs**. I det här exemplet är användarnamnet **SCADMIN**. Användarens kontonamn som skapats i HANA Studio är skiftlägeskänsligt. Se till att välja **nr** för att kräva att användaren ändrar lösenord på deras nästa inloggning.
+Om du vill initiera skapandet av SAP HANA-ögonblicksbilder måste du skapa ett användarkonto i SAP HANA som kan använda för skript för storage-ögonblicksbilder. Skapa ett användarkonto för SAP HANA SAP HANA-Studio för detta ändamål. Användaren måste skapas under SYSTEMDB och inte under SID-databasen för MDC. Användaren är inställningen under klientdatabasen i enskild behållare-miljö. Det här kontot måste ha följande behörigheter: **Säkerhetskopiera Admin** och **Catalog Läs**. I det här exemplet är användarnamnet **SCADMIN**. Användarens kontonamn som skapats i HANA Studio är skiftlägeskänsligt. Se till att välja **nr** för att kräva att användaren ändrar lösenord på deras nästa inloggning.
 
 ![Skapa en användare i HANA-Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -218,7 +218,7 @@ hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
 hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
-### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Steg 6: Få ögonblicksbild-skript, konfigurera ögonblicksbilderna och testa konfiguration och anslutning
+### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Steg 6: Hämta ögonblicksbild-skript, konfigurera ögonblicksbilderna och testa konfiguration och anslutning
 
 Hämta den senaste versionen av skript från [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Kopiera skript som laddas ned och filen till arbetskatalogen för **hdbsql**. För den aktuella HANA installationer är den här katalogen i följande format: /hana/shared/D01/exe/linuxx86\_64/hdb. 
 ``` 
@@ -246,9 +246,9 @@ När du hanterar Perl-skript:
 
 Syftet med olika skript och filer är följande:
 
-- **Azure\_hana\_backup.pl**: det här skriptet kommer med verktyget Linux Cron schemaläggning för att köra ögonblicksbilder av lagring på HANA-data och delade volymer, / hana/logbackups volymen eller operativsystemet.
-- **Azure\_hana\_replikering\_status.pl**: det här skriptet innehåller grundläggande information kring replikeringsstatus från produktionsplatsen till katastrofåterställningsplatsen. Skript-Övervakare för att se till att replikeringen sker och det visar storleken på objekt som replikeras. Den ger även vägledning om en replikering tar för lång tid eller om länken inte fungerar.
-- **Azure\_hana\_ögonblicksbild\_details.pl**: det här skriptet visar en lista över grundläggande information om alla ögonblicksbilder, per volym, som finns i din miljö. Det här skriptet kan köras på den primära servern eller på en server-enhet på disaster recovery-plats. Skriptet innehåller följande information, fördelat på varje volym som innehåller ögonblicksbilder:
+- **azure\_hana\_backup.pl**: Det här skriptet kommer med verktyget Linux Cron schemaläggning för att köra ögonblicksbilder av lagring på HANA-data och delade volymer, /hana/logbackups volymen eller operativsystemet.
+- **azure\_hana\_replication\_status.pl**: Det här skriptet innehåller grundläggande information kring replikeringsstatus från produktionsplatsen till katastrofåterställningsplatsen. Skript-Övervakare för att se till att replikeringen sker och det visar storleken på objekt som replikeras. Den ger även vägledning om en replikering tar för lång tid eller om länken inte fungerar.
+- **azure\_hana\_snapshot\_details.pl**: Det här skriptet visar en lista över grundläggande information om alla ögonblicksbilder, per volym, som finns i din miljö. Det här skriptet kan köras på den primära servern eller på en server-enhet på disaster recovery-plats. Skriptet innehåller följande information, fördelat på varje volym som innehåller ögonblicksbilder:
    * Storleken på totalt antal ögonblicksbilder för en volym
    * Följande information i varje ögonblicksbild i volymen: 
       - Namnet på ögonblicksbilden 
@@ -256,13 +256,13 @@ Syftet med olika skript och filer är följande:
       - Storleken på ögonblicksbilden
       - Frekvensen för ögonblicksbilden
       - HANA Backup-ID som är associerade med den ögonblicksbilden, om det behövs
-- **Azure\_hana\_ögonblicksbild\_delete.pl**: det här skriptet tar bort en ögonblicksbild för lagring eller en uppsättning ögonblicksbilder. Du kan använda SAP HANA säkerhetskopie-ID som hittades i HANA Studio eller namnet på storage-ögonblicksbilder. Säkerhetskopie-ID är för närvarande endast kopplad till ögonblicksbilder som skapats för HANA data/log/klusterdelade volymer. Annars, om ett ögonblicksbild-ID anges den strävar efter alla ögonblicksbilder som matchar de angivna ögonblicksbild-ID.  
-- **testHANAConnection.pl**: det här skriptet testar anslutningen till SAP HANA-instans och krävs för att konfigurera storage-ögonblicksbilder.
-- **testStorageSnapshotConnection.pl**: det här skriptet har två syften. Först ser till att den stora HANA-instansen-enhet som kör skripten har åtkomst till den virtuella datorn för tilldelade lagring och till lagringsgränssnittet för ögonblicksbild av stora HANA-instanser. Andra syftet är att skapa en tillfällig ögonblicksbild för HANA-instansen som du vill testa. Det här skriptet ska köras för varje HANA-instans på en server för att se till att säkerhetskopiering skripten fungerar som förväntat.
-- **removeTestStorageSnapshot.pl**: det här skriptet tar bort test-ögonblicksbilden som skapades med skriptet **testStorageSnapshotConnection.pl**.
-- **Azure\_hana\_dr\_failover.pl**: det här skriptet initierar en DR-redundans i en annan region. Skriptet måste köras på den stora HANA-instansen enheten i regionen för Haveriberedskap eller på enheten du vill växla över till. Det här skriptet stoppar storage-replikering från primär sida till sekundär sida, återställer den senaste ögonblicksbilden på DR-volymer och ger monteringspunkter för DR volymer.
-- **Azure\_hana\_testa\_dr\_failover.pl**: det här skriptet utför ett redundanstest i DR-plats. Till skillnad från skriptet azure_hana_dr_failover.pl avbryter den här körningen inte storage-replikering från primär till sekundär. I stället kloner replikerad lagring volymer skapas på haveriberedskapssidan och monteringspunkter klonade volymer tillhandahålls. 
-- **HANABackupCustomerDetails.txt**: den här filen är en ändringsbar konfigurationsfil som du behöver ändra för att anpassa sig till din SAP HANA-konfiguration. Den *HANABackupCustomerDetails.txt* filen är den kontroll och konfiguration för det skript som körs storage-ögonblicksbilder. Justera filen för dina syften och inställningar. Du får den **Backup Lagringsnamnet** och **Storage IP-adress** från SAP HANA på Azure Service Management när du distribuerar dina instanser. Du kan inte ändra sekvensen, beställning eller avstånd i någon av variablerna i den här filen. Om du gör skript körs inte korrekt. Dessutom visas IP-adressen för noden skala upp eller den överordnade noden (om skalbar) från SAP HANA på Azure Service Management. Du kan också veta hur många av HANA-instans som är tillgängliga under installationen av SAP HANA. Nu kan behöva du lägga till ett namn på säkerhetskopia i konfigurationsfilen.
+- **azure\_hana\_snapshot\_delete.pl**: Det här skriptet tar bort en ögonblicksbild för lagring eller en uppsättning ögonblicksbilder. Du kan använda SAP HANA säkerhetskopie-ID som hittades i HANA Studio eller namnet på storage-ögonblicksbilder. Säkerhetskopie-ID är för närvarande endast kopplad till ögonblicksbilder som skapats för HANA data/log/klusterdelade volymer. Annars, om ett ögonblicksbild-ID anges den strävar efter alla ögonblicksbilder som matchar de angivna ögonblicksbild-ID.  
+- **testHANAConnection.pl**: Det här skriptet testar anslutningen till SAP HANA-instans och krävs för att konfigurera storage-ögonblicksbilder.
+- **testStorageSnapshotConnection.pl**: Det här skriptet har två syften. Först ser till att den stora HANA-instansen-enhet som kör skripten har åtkomst till den virtuella datorn för tilldelade lagring och till lagringsgränssnittet för ögonblicksbild av stora HANA-instanser. Andra syftet är att skapa en tillfällig ögonblicksbild för HANA-instansen som du vill testa. Det här skriptet ska köras för varje HANA-instans på en server för att se till att säkerhetskopiering skripten fungerar som förväntat.
+- **removeTestStorageSnapshot.pl**: Det här skriptet tar bort test-ögonblicksbilden som skapades med skriptet **testStorageSnapshotConnection.pl**.
+- **azure\_hana\_dr\_failover.pl**: Det här skriptet initierar en DR-redundans i en annan region. Skriptet måste köras på den stora HANA-instansen enheten i regionen för Haveriberedskap eller på enheten du vill växla över till. Det här skriptet stoppar storage-replikering från primär sida till sekundär sida, återställer den senaste ögonblicksbilden på DR-volymer och ger monteringspunkter för DR volymer.
+- **azure\_hana\_test\_dr\_failover.pl**: Det här skriptet utför ett redundanstest i DR-plats. Till skillnad från skriptet azure_hana_dr_failover.pl avbryter den här körningen inte storage-replikering från primär till sekundär. I stället kloner replikerad lagring volymer skapas på haveriberedskapssidan och monteringspunkter klonade volymer tillhandahålls. 
+- **HANABackupCustomerDetails.txt**: Den här filen är en ändringsbar konfigurationsfil som du behöver ändra för att anpassa sig till din SAP HANA-konfiguration. Den *HANABackupCustomerDetails.txt* filen är den kontroll och konfiguration för det skript som körs storage-ögonblicksbilder. Justera filen för dina syften och inställningar. Du får den **Backup Lagringsnamnet** och **Storage IP-adress** från SAP HANA på Azure Service Management när du distribuerar dina instanser. Du kan inte ändra sekvensen, beställning eller avstånd i någon av variablerna i den här filen. Om du gör skript körs inte korrekt. Dessutom visas IP-adressen för noden skala upp eller den överordnade noden (om skalbar) från SAP HANA på Azure Service Management. Du kan också veta hur många av HANA-instans som är tillgängliga under installationen av SAP HANA. Nu kan behöva du lägga till ett namn på säkerhetskopia i konfigurationsfilen.
 
 För skala upp eller skala ut distribution, konfigurationsfilen skulle se ut i följande exempel när du har fyllt i servernamnet för den stora HANA-instansen enheten och serverns IP-adress. Fyll i alla fält som behövs för varje SAP HANA-SID som du vill säkerhetskopiera eller återställa.
 
@@ -381,14 +381,14 @@ Snapshot created successfully.
 Om testet ögonblicksbilden har körts har med skript, Fortsätt med att konfigurera faktiska storage-ögonblicksbilder. Om du inte lyckas kan du undersöka problem innan du går vidare. Test-ögonblicksbild ska vara runt tills de första verkliga ögonblicksbilderna är klar.
 
 
-### <a name="step-7-perform-snapshots"></a>Steg 7: Utför ögonblicksbilder
+### <a name="step-7-perform-snapshots"></a>Steg 7: Utföra ögonblicksbilder
 
 När steg för förberedelse är klar kan du börja konfigurera faktiska ögonblicksbild lagringskonfigurationen. Skriptet som ska schemaläggas fungerar med SAP HANA skala upp och skala ut konfigurationer. Schemalägga skriptet med hjälp av verktyget cron för periodiska och regelbundna körningen av skriptet säkerhetskopieringen. 
 
 Du kan skapa tre typer av säkerhetskopior av ögonblicksbilder:
-- **HANA**: en kombinerad ögonblicksbildsäkerhetskopia där de volymer som innehåller/hana/data och/hana/delade (som innehåller /usr/sap samt) omfattas av samordnad ögonblicksbilden. En enda filåterställning går från den här ögonblicksbilden.
-- **Loggar**: en som ögonblicksbildsäkerhetskopia av/hana/logbackups volymen. Inga HANA-ögonblicksbilder utlöses för att köra den här ögonblicksbilden för lagring. Den här lagringsvolymen är avsedd att innehålla säkerhetskopieringarna av transaktionsloggen SAP HANA. Dessa utförs oftare för att begränsa log tillväxt och förhindra förlust av data. En enda filåterställning går från den här ögonblicksbilden. Inte lägre frekvensen under 3 minuter.
-- **Start**: en ögonblicksbild av volymen som innehåller start logiskt enhetsnummer (LUN) för den stora HANA-instansen. Den här säkerhetskopian kan endast med den typ I SKU: er för stora HANA-instanser. Du kan inte utföra enkla återställningar från ögonblicksbilden av den volym som innehåller startar LUN.
+- **HANA**: En kombinerad ögonblicksbildsäkerhetskopia där de volymer som innehåller/hana/data och/hana/delade (som innehåller /usr/sap samt) omfattas av samordnad ögonblicksbilden. En enda filåterställning går från den här ögonblicksbilden.
+- **Loggar**: En som ögonblicksbildsäkerhetskopia av/hana/logbackups volymen. Inga HANA-ögonblicksbilder utlöses för att köra den här ögonblicksbilden för lagring. Den här lagringsvolymen är avsedd att innehålla säkerhetskopieringarna av transaktionsloggen SAP HANA. Dessa utförs oftare för att begränsa log tillväxt och förhindra förlust av data. En enda filåterställning går från den här ögonblicksbilden. Inte lägre frekvensen under 3 minuter.
+- **Start**: En ögonblicksbild av volymen som innehåller start logiskt enhetsnummer (LUN) för den stora HANA-instansen. Den här säkerhetskopian kan endast med den typ I SKU: er för stora HANA-instanser. Du kan inte utföra enkla återställningar från ögonblicksbilden av den volym som innehåller startar LUN.
 
 
 >[!NOTE]
@@ -533,7 +533,7 @@ Du kan övervaka antalet ögonblicksbilder och lagringsanvändningen dessa ögon
 
 - `du –sh .snapshot`: Det här alternativet ger en totalsumma på alla ögonblicksbilder i katalogen ögonblicksbild.
 - `du –sh --max-depth=1`: Det här alternativet visar en lista över alla ögonblicksbilder som sparas i den **.snapshot** mapp och storleken på varje ögonblicksbild.
-- `du –hc`: Det här alternativet ger den totala storleken som används av alla ögonblicksbilder.
+- `du –hc`: Det här alternativet innehåller den totala storleken som används av alla ögonblicksbilder.
 
 Med dessa kommandon för att se till att ögonblicksbilder som tas och lagras inte förbrukar alla lagring på volymerna.
 
@@ -648,7 +648,7 @@ Följande visar hur du förbereder för begäran:
 
 1. Öppna en supportförfrågan för Azure och innehåller instruktioner för återställning av en specifik ögonblicksbild.
 
- - Under återställningen: SAP HANA på Azure Service Management kanske du ombeds att delta i ett konferenssamtal så samordning, verifiering och bekräfta att rätt storage-ögonblicksbilder har återställts. 
+ - Under återställningen: SAP HANA på Azure Service Management kan be dig att delta i ett konferenssamtal så samordning, verifiering och bekräfta att rätt storage-ögonblicksbilder har återställts. 
 
  - Efter återställningen: SAP HANA på Azure Service Management meddelar dig när lagring ögonblicksbild har återställts.
 
@@ -687,7 +687,7 @@ Följande process återställer HANA-ögonblicksbilder som ingår i storage-ögo
 >[!IMPORTANT]
 >Innan du fortsätter måste du kontrollera att du har en fullständig och sammanhängande kedja av säkerhetskopieringar av transaktionsloggen. Du kan inte återställa det aktuella tillståndet för databasen utan dessa säkerhetskopior.
 
-1. Slutför steg 1 – 6 i [Återställ till den senaste HANA-ögonblicksbilden](#recovering-to-the-most-recent-hana-snapshot).
+1. Slutför steg 1 – 6 i Återställ till den senaste HANA-ögonblicksbilden.
 
 1. Välj **återställa databasen till det senaste tillståndet**.
 
@@ -713,7 +713,7 @@ Följande process återställer HANA-ögonblicksbilder som ingår i storage-ögo
 Om du vill återställa till en tidpunkt mellan HANA-ögonblicksbilder (ingår i storage-ögonblicksbilder) och ett som är senare än HANA ögonblicksbild point-in-time-återställning, utför du följande steg:
 
 1. Kontrollera att du har alla de säkerhetskopieringar av transaktionsloggen från HANA-ögonblicksbilder för den tid som du vill återställa till.
-1. Börjar under [återställa till det senaste tillståndet](#recovering-to-the-most-recent-state).
+1. Börja förfarande under Återställ till det senaste tillståndet.
 1. I steg 2 i proceduren i det **ange återställningstyp** väljer **återställa databasen till den följande**, och ange sedan punkten i tiden. 
 1. Slutför steg 3 – 6.
 

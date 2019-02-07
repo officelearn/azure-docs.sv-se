@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 00930fd99fd4c0078623aa11f3e2cd5b1c549034
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812675"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker flera av plattformen.
@@ -54,7 +54,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Cache for Redis](#azure-redis-cache-limits)
+* Azure Cache for Redis
 * [Säkerhetskopiering](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
@@ -77,7 +77,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Log Analytics](#log-analytics-limits)
 * [Hanterad identitet](#managed-identity-limits)
 * [Media Services](#media-services-limits)
-* [Mobila tjänster](#mobile-services-limits)
+* [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Nätverk](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
@@ -92,7 +92,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Storage](#storage-limits)
-* [StorSimple-systemet](#storsimple-system-limits)
+* [StorSimple System](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Prenumeration](#subscription-limits)
 * [Traffic Manager](#traffic-manager-limits)

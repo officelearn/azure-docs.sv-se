@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 690c2769e129d5661e7d66cb3f9f968643c0dbdb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747017"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811094"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 | struktur |Schemat för datauppsättningen.<br/><br/>Mer information finns i [datauppsättningsstrukturen](#Structure). |Nej |Ej tillämpligt |
 | typeProperties | Typegenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om typerna som stöds och deras egenskaper finns [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
 | extern | Boolesk flagga för att ange om en datauppsättning uttryckligen produceras av data factory-pipeline eller inte. Om datauppsättningen för indata för en aktivitet inte skapas av den nuvarande pipelinen, ange den här flaggan till true. Ange den här flaggan till true för indatauppsättningen för den första aktiviteten i pipelinen.  |Nej |false |
-| availability | Definierar fönstret bearbetning (till exempel varje timme eller varje dag) eller slicing modellen för produktion för datauppsättningen. Varje enhet med data används och produceras av en aktivitet körs kallas för en datasektor. Om tillgängligheten för en utdatauppsättning anges för varje dag (frekvens - dag, interval - 1), produceras en sektor varje dag. <br/><br/>Mer information finns i [tillgänglighet för datauppsättningar](#Availability). <br/><br/>Mer information om datauppsättningen uppdelning modellen finns det [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikeln. |Ja |Ej tillämpligt |
+| availability | Definierar fönstret bearbetning (till exempel varje timme eller varje dag) eller slicing modellen för produktion för datauppsättningen. Varje enhet med data används och produceras av en aktivitet körs kallas för en datasektor. Om tillgängligheten för en utdatauppsättning anges för varje dag (frekvens - dag, interval - 1), produceras en sektor varje dag. <br/><br/>Mer information finns i tillgänglighet för datauppsättningar. <br/><br/>Mer information om datauppsättningen uppdelning modellen finns det [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikeln. |Ja |Ej tillämpligt |
 | policy |Definierar kriterierna eller villkor som datauppsättning segment måste vara uppfyllda. <br/><br/>Mer information finns i [datauppsättning princip](#Policy) avsnittet. |Nej |Ej tillämpligt |
 
 ## <a name="dataset-example"></a>Exempel med datauppsättningen

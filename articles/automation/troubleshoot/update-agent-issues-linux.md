@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437503"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813117"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Förstå Linux-agenten kontrollera resultaten i hantering av uppdateringar
 
@@ -28,7 +28,7 @@ I följande lista är en dator kan vara i för tre beredskapstillstånd:
 
 ## <a name="start-the-troubleshooter"></a>Starta felsökaren
 
-För datorer i Azure, klicka på den **Felsök** länka den **uppdatera Agentberedskap** kolumn i portalen startar den **felsöka Update-agenten** sidan. För icke-Azure-datorer ger länken du till den här artikeln. Se den [offline instruktioner](#offline) att felsöka en icke-Azure-dator.
+För datorer i Azure, klicka på den **Felsök** länka den **uppdatera Agentberedskap** kolumn i portalen startar den **felsöka Update-agenten** sidan. För icke-Azure-datorer ger länken du till den här artikeln. Se offline anvisningarna för att felsöka en icke-Azure-dator.
 
 ![sidan virtuell dator](../media/update-agent-issues-linux/vm-list.png)
 
@@ -39,7 +39,7 @@ På den **felsöka Update-agenten** klickar du på **kör kontrollerar**, för a
 
 ![Felsöka sidan](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-När du är klar returneras resultaten i fönstret. Den [avsnitten](#pre-requisistes-checks) innehåller information om vad varje kontroll är ute efter.
+När du är klar returneras resultaten i fönstret. Kontrollera-avsnitt innehåller information om vad varje kontroll är ute efter.
 
 ![Update-agenten kontrollerar sidan](../media/update-agent-issues-linux/update-agent-checks.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480962"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811213"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduktion till StorSimple Virtual Array
 
@@ -52,7 +52,7 @@ I följande tabell sammanfattas de viktigaste funktionerna i StorSimple Virtual 
 | Lätt att flytta data |Kan återställa till samma enhet eller objektnivå recovery (filserver) |
 | Lagringsnivåer |Lokala hypervisorn lagring och molnet |
 | Filresursens storlek |Nivåer: upp till 20 TB; lokalt fixerade: upp till 2 TB |
-| Volymens storlek |Nivåindelade: 500 GB till 5 TB; lokalt fixerade: 50 GB till 200 GB <br> Maximal lokal reservation för nivåindelade volymer är 200 GB. |
+| Volymens storlek |Nivåer: 500 GB till 5 TB; lokalt fixerade: 50 GB till 200 GB <br> Maximal lokal reservation för nivåindelade volymer är 200 GB. |
 | Ögonblicksbilder |Kraschkonsekvent |
 | Objektnivååterställning |Ja. användare kan återställa från resurser |
 
@@ -98,7 +98,7 @@ StorSimple Virtual Array är särskilt lämpligt för följande arbetsflöden:
 ### <a name="cloud-based-storage-management"></a>Molnbaserad lagringshantering
 Du kan använda StorSimple Device Manager-tjänsten som körs i Azure-portalen för att hantera data som lagras på flera enheter och på flera platser. Detta är särskilt användbart i scenarier med distribuerade gren. Observera att du måste skapa separata instanser av StorSimple Device Manager-tjänsten för att hantera virtuella matriser och fysiska StorSimple-enheter. Observera också att den virtuella matrisen nu använder den nya Azure-portalen i stället för den klassiska Azure-portalen.
 
-![molnbaserad lagringshantering](./media/storsimple-ova-overview/cloud-based-storage-management.png)
+![Molnbaserad lagringshantering](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Platsoberoende säkerhetskopiering
 Med den virtuella matrisen ger ögonblicksbilder av molnet som dig en Platsoberoende, point-in-time kopia av en volym eller resurs. Ögonblicksbilder av molnet som är aktiverade som standard och kan inte inaktiveras. Alla volymer och resurser finns säkerhetskopiera samtidigt via en enda princip för daglig säkerhetskopiering du kan vidta ytterligare ad hoc-säkerhetskopiering när det behövs.
@@ -169,7 +169,7 @@ Förutom att den virtuella matrisen och andra komponenter använder StorSimple-l
 
 * [Automatisk lagringsnivåer](#automatic-storage-tiering) 
 * [Lokalt fixerade resurserna och volymerna](#locally-pinned-shares-and-volumes)
-* [Avduplicering och komprimering för data nivåer eller har säkerhetskopierats till molnet](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* Avduplicering och komprimering för data nivåer eller har säkerhetskopierats till molnet 
 * [Schemalagda säkerhetskopieringar och på begäran säkerhetskopieringar](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>Automatisk lagringsnivåer
@@ -179,7 +179,7 @@ Data för en viss nivåindelad resurs eller en volym är säkert sin egen lokala
 
 Nivåindelade volymer skapade för iSCSI har en maximal lokal reservation 200 GB oavsett storleken på volymen.
 
-![automatisk lagringsnivåer](./media/storsimple-ova-overview/automatic-storage-tiering.png)
+![Automatisk lagringsnivåer](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
 > [!NOTE]
 > Du kan ange en lokalt Fäst volym, i vilket fall data finns kvar på den virtuella matrisen och är aldrig nivåer till molnet. Mer information går du till [lokalt fixerade resurserna och volymerna](#locally-pinned-shares-and-volumes).

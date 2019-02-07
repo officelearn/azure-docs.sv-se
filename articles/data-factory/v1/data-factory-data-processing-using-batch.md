@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021585"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822756"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021585"
 
 Den här artikeln beskrivs en arkitekturen för en exempel-lösning som flyttar och bearbeta datauppsättningar i stor skala på ett automatiskt och schemalagt sätt. Det ger också en slutpunkt till slutpunkt-genomgång för att implementera lösningen genom att använda Data Factory och Azure Batch.
 
-Den här artikeln är längre än en typisk artikeln eftersom den innehåller en genomgång av en hel exempellösningen. Om du inte har använt Batch och Data Factory, du kan lära dig om de här tjänsterna och hur de fungerar tillsammans. Om du vet något om tjänsterna och designa/utforma en lösning, kan du fokusera på den [arkitektur avsnittet](#architecture-of-sample-solution) av artikeln. Om du utvecklar en prototyp eller en lösning kan du kanske vill prova att använda de stegvisa anvisningarna i den [genomgången](#implementation-of-sample-solution). Vi bjuder in dina kommentarer om det här innehållet och hur du använder den.
+Den här artikeln är längre än en typisk artikeln eftersom den innehåller en genomgång av en hel exempellösningen. Om du inte har använt Batch och Data Factory, du kan lära dig om de här tjänsterna och hur de fungerar tillsammans. Om du vet något om tjänsterna och designa/utforma en lösning, kan du fokusera på arkitekturen i artikeln. Om du utvecklar en prototyp eller en lösning, kan du prova att använda de stegvisa anvisningarna i den här genomgången. Vi bjuder in dina kommentarer om det här innehållet och hur du använder den.
 
 Först ska vi titta på hur Data Factory och Batch-tjänster kan hjälpa dig att bearbeta stora datamängder i molnet.     
 
@@ -171,7 +171,7 @@ Metoden har några viktiga komponenter som du behöver för att förstå:
   * **linkedServices**. Den här parametern är en uppräkningsbara lista över länkade tjänster som länkar indata/utdata-källor (till exempel blobblagring) till data factory. I det här exemplet har endast en länkad tjänst av typen Azure Storage används för både inkommande och utgående.
   * **datauppsättningar**. Den här parametern är en uppräkningsbara lista över datauppsättningar. Du kan använda den här parametern för att få de platser och scheman som definieras av in- och utdatauppsättningar.
   * **aktiviteten**. Den här parametern representerar den aktuella compute-entiteten. I det här fallet är det en Batch-tjänsten.
-  * **loggaren**. Du kan använda loggaren skriva debug kommentarer som yta som ”användare”-loggen för pipelinen.
+  * **logger**. Du kan använda loggaren skriva debug kommentarer som yta som ”användare”-loggen för pipelinen.
 * Metoden returnerar en ordlista som kan användas för att länka anpassade aktiviteter tillsammans i framtiden. Den här funktionen är inte implementerats ännu, så här kommer bara returnerar en tom ordlista från metoden.
 
 #### <a name="procedure-create-the-custom-activity"></a>Proceduren: Skapa den anpassade aktiviteten
@@ -666,21 +666,21 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
 
     | **Sektorn** | **Starttid**          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T**00**: 00:00 |
-    | 2         | 2015-11-16T**01**: 00:00 |
-    | 3         | 2015-11-16T**02**: 00:00 |
-    | 4         | 2015-11-16T**03**: 00:00 |
-    | 5         | 2015-11-16T**04**: 00:00 |
+    | 1         | 2015-11-16T**00**:00:00 |
+    | 2         | 2015-11-16T**01**:00:00 |
+    | 3         | 2015-11-16T**02**:00:00 |
+    | 4         | 2015-11-16T**03**:00:00 |
+    | 5         | 2015-11-16T**04**:00:00 |
 
     Den **folderPath** beräknas med hjälp av den år, månad, dag och timme delen av Starttid för sektor (**SliceStart**). Här är hur en Indatamappen mappas till ett segment.
 
     | **Sektorn** | **Starttid**          | **Indatamappen**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00** |
-    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01** |
-    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02** |
-    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03** |
-    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04** |
+    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
+    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
+    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
+    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
 1. Välj **distribuera** i verktygsfältet för att skapa och distribuera den **InputDataset** tabell.
 
@@ -723,11 +723,11 @@ I det här steget skapar du en annan datauppsättning av typen AzureBlob att rep
 
     | **Sektorn** | **Starttid**          | **Utdatafil**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00.txt** |
-    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01.txt** |
-    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02.txt** |
-    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16 -**03. txt** |
-    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04.txt** |
+    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
     Kom ihåg att alla filer i en Indatamappen (t.ex, 2015-11-16-00) är en del av ett segment med starttid 2015-11-16-00. När den här sektor bearbetas, den anpassade aktiviteten söker igenom varje fil och skapar en rad i filen med antalet förekomster av söktermen ”Microsoft”. Om det finns tre filer i mappen 2015-11-16-00, finns det tre raderna i den utdata filen 2015-11-16-00.txt.
 

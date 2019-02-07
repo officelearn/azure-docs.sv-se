@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 82d1a83dfd96dd6d4c2b37567c745998a6f0cbdb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473518"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750978"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snabbstart: Skapa och hantera Azure-filresurser med hjälp av Azure CLI
 Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med hjälp av Azure CLI. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
@@ -34,7 +34,7 @@ az login
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp kan du skapa en ny med kommandot [az group create](/cli/azure/group#create). 
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp kan du skapa en ny med kommandot [az group create](/cli/azure/group). 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *USA, östra*:
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 Ett lagringskonto är en delad lagringspool i vilken du kan distribuera en Azure-filresurs eller andra lagringsresurser, t.ex. blobar eller köer. Ett lagringskonto kan innehålla ett obegränsat antal filresurser. En resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot.
 
-I följande exempel skapas ett lagringskonto med namnet *mystorageaccount\< med det slumpmässiga talet\>* med kommandot [az storage account create](/cli/azure/storage/account#create), varefter lagringskontots namn läggs till i variabeln `$STORAGEACCT`. Lagringskontonamn måste vara unika. Med `$RANDOM` bifogas en siffra till lagringskontonamnet för att göra det unikt. 
+I följande exempel skapas ett lagringskonto med namnet *mystorageaccount\< med det slumpmässiga talet\>* med kommandot [az storage account create](/cli/azure/storage/account), varefter lagringskontots namn läggs till i variabeln `$STORAGEACCT`. Lagringskontonamn måste vara unika. Med `$RANDOM` bifogas en siffra till lagringskontonamnet för att göra det unikt. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -57,7 +57,7 @@ STORAGEACCT=$(az storage account create \
 ```
 
 ### <a name="get-the-storage-account-key"></a>Hämta lagringskontonyckeln
-Lagringskontonycklar styr åtkomsten till resurser i ett lagringskonto. Nycklarna skapas automatiskt när du skapar ett lagringskonto. Du kan hämta lagringskontonycklarna till lagringskontot med kommandot [az storage account keys list](/cli/azure/storage/account/keys#list): 
+Lagringskontonycklar styr åtkomsten till resurser i ett lagringskonto. Nycklarna skapas automatiskt när du skapar ett lagringskonto. Du kan hämta lagringskontonycklarna till lagringskontot med kommandot [az storage account keys list](/cli/azure/storage/account/keys): 
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -67,7 +67,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
-Nu kan du skapa din första Azure-filresurs. Skapa filresurser med kommandot [az storage share create](/cli/azure/storage/share#create). I det här exemplet skapas en Azure-filresurs som heter *myshare*: 
+Nu kan du skapa din första Azure-filresurs. Skapa filresurser med kommandot [az storage share create](/cli/azure/storage/share). I det här exemplet skapas en Azure-filresurs som heter *myshare*: 
 
 ```azurecli-interactive
 az storage share create \
@@ -98,7 +98,7 @@ Vi förväntar att de flesta som använder Azure Files vill arbeta med sin Azure
 I följande exempel visas hur du använder Azure CLI till att ändra din Azure-filresurs med fil-REST-protokollet. 
 
 ### <a name="create-a-directory"></a>Skapa en katalog
-Använd kommandot [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) när du vill skapa en ny katalog med namnet *myDirectory* i vid Azure-filresursens rot:
+Använd kommandot [`az storage directory create`](/cli/azure/storage/directory) när du vill skapa en ny katalog med namnet *myDirectory* i vid Azure-filresursens rot:
 
 ```azurecli-interactive
 az storage directory create \
@@ -109,7 +109,7 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>Överför en fil
-För att visa hur du laddar upp en fil med kommandot [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload) skapar du först en fil som ska laddas upp på den tillfälliga Cloud Shell-enheten. I följande exempel ska du skapa och ladda upp filen:
+För att visa hur du laddar upp en fil med kommandot [`az storage file upload`](/cli/azure/storage/file) skapar du först en fil som ska laddas upp på den tillfälliga Cloud Shell-enheten. I följande exempel ska du skapa och ladda upp filen:
 
 ```azurecli-interactive
 date > ~/clouddrive/SampleUpload.txt
@@ -124,7 +124,7 @@ az storage file upload \
 
 Om du använder Azure CLI lokalt kan du ersätta `~/clouddrive` med en sökväg som finns på din dator.
 
-När du har överfört filen kan du använda kommandot [`az storage file list`](/cli/azure/storage/file#az_storage_file_list) för att kontrollera att filen har överförts till Azure-filresursen:
+När du har överfört filen kan du använda kommandot [`az storage file list`](/cli/azure/storage/file) för att kontrollera att filen har överförts till Azure-filresursen:
 
 ```azurecli-interactive
 az storage file list \
@@ -136,7 +136,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>Hämta en fil
-Du kan hämta en kopia av filen du laddade upp till Cloud Shell-enheten genom att använda kommandot [`az storage file download`](/cli/azure/storage/file#az_storage_file_download):
+Du kan hämta en kopia av filen du laddade upp till Cloud Shell-enheten genom att använda kommandot [`az storage file download`](/cli/azure/storage/file):
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -191,7 +191,7 @@ Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är at
 
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) ögonblicksbilder för Linux-system
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) ögonblicksbilder för macOS
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem såsom NTFS och ReFS Du kan skapa en resursögonblicksbild med hjälp av kommandot [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem såsom NTFS och ReFS Du kan skapa en resursögonblicksbild med hjälp av kommandot [`az storage share snapshot`](/cli/azure/storage/share):
 
 ```azurecli-interactive
 SNAPSHOT=$(az storage share snapshot \
@@ -250,7 +250,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Ta bort en resursögonblicksbild
-Du kan ta bort en ögonblicksbild av en resurs med hjälp av kommandot [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete). Använd variabeln som innehåller referensen `$SNAPSHOT` till parametern `--snapshot`:
+Du kan ta bort en ögonblicksbild av en resurs med hjälp av kommandot [`az storage share delete`](/cli/azure/storage/share). Använd variabeln som innehåller referensen `$SNAPSHOT` till parametern `--snapshot`:
 
 ```azurecli-interactive
 az storage share delete \
@@ -261,7 +261,7 @@ az storage share delete \
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När du är klar kan du använda kommandot [`az group delete`](/cli/azure/group#delete) för att ta bort resursgruppen och alla relaterade resurser: 
+När du är klar kan du använda kommandot [`az group delete`](/cli/azure/group) för att ta bort resursgruppen och alla relaterade resurser: 
 
 ```azurecli-interactive 
 az group delete --name "myResourceGroup"

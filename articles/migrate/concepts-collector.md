@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 7a17bed165a5a8ff15a122a1376d1a3a5e17d45f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700935"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813338"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -65,7 +65,7 @@ Insamlaren måste klara några nödvändiga kontroller för att säkerställa at
 - **Kontrollera Internetanslutningen**: Insamlaren kan ansluta till internet, direkt eller via en proxyserver.
     - Kravkontrollen verifierar anslutningen till [URL: er med obligatoriska och valfria](#urls-for-connectivity).
     - Om du har en direkt anslutning till internet kan krävs ingen specifik åtgärd, förutom att se till att insamlaren kan nå URL: er som krävs.
-    - Om du ansluter via en proxyserver, notera den [krav nedan](#connect-via-a-proxy).
+    - Om du ansluter via en proxyserver, Observera nedanstående krav.
 - **Kontrollera tidssynkronisering**: Insamlaren ska synkroniseras med internet-tidsservern så autentiseras begäranden till tjänsten.
     - Portal.azure.com URL: en ska vara kan nås från insamlaren så att tiden kan valideras.
     - Om datorn har inte synkroniserats, måste du ändra clock-tid på den insamlaren virtuella datorn så att den matchar den aktuella tiden. För att göra det här öppnar du en kommandotolk för administratör på den virtuella datorn kör **w32tm /tz** att kontrollera den aktuella tidszonen. Kör **w32tm/resync** att synkronisera tiden.
@@ -75,7 +75,7 @@ Insamlaren måste klara några nödvändiga kontroller för att säkerställa at
     - Collector-tjänsten ansluter till vCenter-servern, samlar in den virtuella datorn metadata och prestandadata och skickar dem till Azure Migrate-tjänsten.
 - **Kontrollera VMware PowerCLI 6.5 installerades**: VMware PowerCLI 6.5 PowerShell-modulen måste installeras på den virtuella datorn i insamlaren, så att den kan kommunicera med vCenter-servern.
     - Om insamlaren kan komma åt de URL: er som krävs för att installera modulen, är det installera automatiskt under distributionen av Logginsamlaren.
-    - Om insamlaren inte kan installera modulen under distributionen, måste du [installera det manuellt](#install-vwware-powercli-module-manually).
+    - Om insamlaren inte kan installera modulen under distributionen, måste du installera det manuellt.
 - **Kontrollera anslutningen till vCenter Server**: Insamlaren måste kunna vCenter-servern och fråga för virtuella datorer, metadata och prestandaräknare. [Verifiera förutsättningar](#connect-to-vcenter-server) för att ansluta.
 
 

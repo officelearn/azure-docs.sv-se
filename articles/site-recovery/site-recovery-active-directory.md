@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851033"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821396"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera haveriberedskap för Active Directory och DNS
 
@@ -31,10 +31,10 @@ Den här artikeln beskriver hur du skapar en lösning för haveriberedskap för 
 
 ## <a name="replicate-the-domain-controller"></a>Replikera domänkontrollanten
 
-- Du måste konfigurera [Site Recovery-replikering](#enable-protection-using-site-recovery), på minst en virtuell dator som är värd för en domänkontrollant eller DNS.
-- Om du har [flera domänkontrollanter](#environment-with-multiple-domain-controllers) i din miljö kan du också ställa in en [ytterligare en domänkontrollant](#protect-active-directory-with-active-directory-replication) på målplatsen. Ytterligare en domänkontrollant kan vara i Azure eller i ett sekundärt lokalt datacenter.
+- Du måste ställa in Site Recovery-replikering på minst en virtuell dator som är värd för en domänkontrollant eller DNS.
+- Om du har flera domänkontrollanter i din miljö kan ställa du också in ytterligare en domänkontrollant på målplatsen. Ytterligare en domänkontrollant kan vara i Azure eller i ett sekundärt lokalt datacenter.
 - Om du har bara ett fåtal program och en domänkontrollant, kan du redundansväxla hela platsen. I det här fallet bör du använda Site Recovery replikera domänkontrollanten till målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). Du kan använda samma replikerad domänkontrollant eller DNS-dator för [redundanstest](#test-failover-considerations).
-- - Om du har många program och mer än en domänkontrollant i din miljö eller om du planerar att växla över några program samtidigt, förutom att replikera den domain controller virtuella datorn med Site Recovery, rekommenderar vi att du ställer in en [ytterligare en domänkontrollant](#protect-active-directory-with-active-directory-replication) på målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). För [redundanstest](#test-failover-considerations), du kan använda en domänkontrollant som replikeras av Site Recovery. Du kan använda ytterligare en domänkontrollant på målplatsen för redundans.
+- - Om du har många program och mer än en domänkontrollant i din miljö eller om du planerar att växla över några program samtidigt, förutom att replikera den domain controller virtuella datorn med Site Recovery, rekommenderar vi att du ställer in en ytterligare en domänkontrollant på målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). För [redundanstest](#test-failover-considerations), du kan använda en domänkontrollant som replikeras av Site Recovery. Du kan använda ytterligare en domänkontrollant på målplatsen för redundans.
 
 ## <a name="enable-protection-with-site-recovery"></a>Aktivera skydd med Site Recovery
 
@@ -165,7 +165,7 @@ Om föregående villkor är uppfyllda är det troligt att domänkontrollanten fu
 1. Göra en auktoritativ återställning på domänkontrollanten. Tänk på följande information:
     * Även om vi inte rekommenderar [FRS replikering](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), om du använder FRS-replikering, följer du stegen för en auktoritativ återställning. Processen beskrivs i [använda registernyckeln BurFlags för att starta om tjänsten File Replication](https://support.microsoft.com/kb/290762).
 
-        Mer information om BurFlags finns i bloggposten [D2 och D4: Vad är det för?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+        Mer information om BurFlags finns i bloggposten [D2 och D4: Vad är det för? ](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
     * Om du använder DFSR replikering, följer du instruktionerna för en auktoritativ återställning. Processen beskrivs i [tvinga fram en auktoritär och icke-auktoritativ synkronisering för DFSR-replikerad SYSVOL (som ”D4/D2” för FRS)](https://support.microsoft.com/kb/2218556).
 
         Du kan också använda PowerShell-funktioner. Mer information finns i [DFSR SYSVOL auktoritativa/icke-auktoritativ återställning PowerShell funktioner](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).

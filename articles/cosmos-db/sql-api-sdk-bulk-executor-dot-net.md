@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 8675c5ff90f7be2dc0b3ac80eb593adb613ba860
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 76a40c7e9f32deea798441ce53be7c7ef262e2bd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039766"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770677"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Bibliotek för .NET bulk Executor: Hämtningsinformation 
 
@@ -31,20 +31,14 @@ ms.locfileid: "54039766"
 > * [Massinläsning Executor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Massinläsning Executor – Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Beskrivning**</td><td>Massinläsning Executor biblioteket kan klientprogram för att utföra massåtgärder på Azure Cosmos DB-konton. Massinläsning Executor biblioteket innehåller BulkImport och BulkUpdate BulkDelete namnområden. BulkImport modulen kan masstilldela mata in dokument på ett optimerat sätt så att dataflödet som tillhandahållits för en samling används den största utsträckning. BulkUpdate modulen kan masstilldela uppdatera befintliga data i Azure Cosmos DB-behållare som korrigeringar. Modulen BulkDelete kan masstilldela ta bort dokument på ett optimerat sätt så att dataflödet som tillhandahållits för en samling används den största utsträckning.</td></tr>
-
-<tr><td>**Hämta SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/)</td></tr>
-
-<tr><td>**BulkExecutor biblioteket i GitHub**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)</td></tr>
-
-<tr><td>**API-dokumentation**</td><td>[.NET API-referensdokumentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)</td></tr>
-
-<tr><td>**Kom igång**</td><td>[Kom igång med Massregistrering Executor-biblioteket för .NET SDK](bulk-executor-dot-net.md)</td></tr>
-
-<tr><td>**Aktuella framework som stöds**</td><td>Microsoft .NET Framework 4.5.2, 4.6.1 och .NET Standard 2.0 </td></tr>
-</table></br>
+| |  |
+|---|---|
+| **Beskrivning**| Massinläsning Executor biblioteket kan klientprogram för att utföra massåtgärder på Azure Cosmos DB-konton. Massinläsning Executor biblioteket innehåller BulkImport och BulkUpdate BulkDelete namnområden. BulkImport modulen kan masstilldela mata in dokument på ett optimerat sätt så att dataflödet som tillhandahållits för en samling används den största utsträckning. BulkUpdate modulen kan masstilldela uppdatera befintliga data i Azure Cosmos DB-behållare som korrigeringar. Modulen BulkDelete kan masstilldela ta bort dokument på ett optimerat sätt så att dataflödet som tillhandahållits för en samling används den största utsträckning.|
+|**Hämta SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
+| **BulkExecutor biblioteket i GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
+|**API-dokumentation**|[.NET API-referensdokumentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**Kom igång**|[Kom igång med Massregistrering Executor-biblioteket för .NET SDK](bulk-executor-dot-net.md)|
+| **Aktuella framework som stöds**| Microsoft .NET Framework 4.5.2, 4.6.1 and .NET Standard 2.0 |
 
 ## <a name="release-notes"></a>Viktig information
 

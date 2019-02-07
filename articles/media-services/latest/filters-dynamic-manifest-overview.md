@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 139f6283c2b59aee53afa3f0dd52e06e2b0eff4c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9c463740acf6ef464880a43e0e68de683b97f64f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695227"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813434"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filter och dynamiska manifest
 
@@ -34,13 +34,13 @@ Filtren är serversidan regler som tillåter dina kunder att till exempel:
 - Leverera endast den angivna återgivningar och/eller spårar för angivet språk som stöds av den enhet som används för att spela upp innehållet (”återgivningsfiltrering”). 
 - Justera Presentation fönstret (DVR) för att tillhandahålla en begränsad tidslängd DVR-perioden i spelaren (”justera presentationsfönster”).
 
-Det här avsnittet beskriver [begrepp](#concepts) och [visar filtrerar definitioner](#definitions). Den lämnar sedan över information om vanliga scenarier. I slutet av artikeln hittar du länkar som visar hur du skapar filter programmässigt.  
+Det här avsnittet beskriver [begrepp](#concepts) och visar filtrerar definitioner. Den lämnar sedan över information om vanliga scenarier. I slutet av artikeln hittar du länkar som visar hur du skapar filter programmässigt.  
 
 ## <a name="concepts"></a>Begrepp
 
 ### <a name="dynamic-manifests"></a>Dynamiska manifest
 
-Media Services erbjuder **dynamiska manifest** baserat på fördefinierade [filter](#filters). När du har definierat filter kan dina klienter använda dem för att strömma en specifik återgivning eller underordnade klipp av videon. Filter ska anges i strömnings-URL. Filter kan tillämpas på protokoll för direktuppspelning med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming. 
+Media Services erbjuder **dynamiska manifest** baserat på fördefinierade filter. När du har definierat filter kan dina klienter använda dem för att strömma en specifik återgivning eller underordnade klipp av videon. Filter ska anges i strömnings-URL. Filter kan tillämpas på protokoll för direktuppspelning med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming. 
 
 I följande tabell visas några exempel på URL: er med filter:
 

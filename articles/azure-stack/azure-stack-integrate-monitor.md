@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241652"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816110"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure Stack
 
@@ -38,6 +38,9 @@ Varje Azure Stack-lösning levereras med en maskinvara livscykel-värd. Den här
 Följande diagram visar trafikflödet mellan ett integrerat Azure Stack-system, maskinvara livscykel värden, en extern lösning för övervakning och ett system för insamling av externa biljetter/data.
 
 ![Diagrammet visar trafik mellan Azure Stack, övervakning och ärenden lösning.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+
+> [!NOTE]
+> Externa övervakning integrering direkt med fysiska servrar och nätverksenheter är inte tillåtna och blockerade aktivt av åtkomstkontrollistor (ACL). 
 
 Den här artikeln förklarar hur du integrerar Azure Stack med externa övervakningslösningar, till exempel System Center Operations Manager och Nagios. Den innehåller också hur du arbetar med aviseringar programmässigt med hjälp av PowerShell eller via REST API-anrop.
 

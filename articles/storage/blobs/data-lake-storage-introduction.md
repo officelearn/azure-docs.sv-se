@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 förhandsversion introduktion
-description: Översikt över Azure Data Lake Storage Gen2 förhandsversion
+title: Azure Data Lake Storage Gen2 Introduction
+description: Översikt över Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 17b6d0ecf56ec07d3a46949b6ae3b63a6c4b94d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 018171d4b2253c2cf7942f9f10424a9c695438b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250120"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809444"
 ---
-# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introduktion till Azure Data Lake Storage Gen2 förhandsversion
+# <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 förhandsversion är en uppsättning funktioner för analys av stordata, bygger på [Azure Blob storage](storage-blobs-introduction.md). Data Lake Storage Gen2 är resultatet av konvergerar funktionerna i våra två befintliga lagringstjänster, Azure Blob storage och Azure Data Lake Storage Gen1. Funktioner från [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), t.ex. i filsystemen, katalog, och filen säkerhet och skalning kombineras med låg kostnad, nivåindelad lagring, hög tillgänglighet/haveriberedskap från [Azure Blob storage](storage-blobs-introduction.md).
+Azure Data Lake Storage Gen2 är en uppsättning funktioner för analys av stordata, bygger på [Azure Blob storage](storage-blobs-introduction.md). Data Lake Storage Gen2 är resultatet av konvergerar funktionerna i våra två befintliga lagringstjänster, Azure Blob storage och Azure Data Lake Storage Gen1. Funktioner från [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), t.ex. i filsystemen, katalog, och filen säkerhet och skalning kombineras med låg kostnad, nivåindelad lagring, hög tillgänglighet/haveriberedskap från [Azure Blob storage](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Utformad för enterprise stordataanalyser
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 5054fdc08c7a0a1b3833ed95784f6018ac5c697e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659260"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770592"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Använda Azure Policy för att begränsa installation av tillägg på virtuella Linux-datorer
 
@@ -98,7 +98,7 @@ När du är klar trycker du på den **Esc** tangenten och skriv sedan **: wq** a
 
 ## <a name="create-the-policy"></a>Skapa principen
 
-En principdefinition är ett objekt som används för att lagra den konfiguration som du vill använda. Principdefinitionen använder filerna regler och parametrar för att definiera principen. Skapa den principdefinition med [az principdefinitionen skapa](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+En principdefinition är ett objekt som används för att lagra den konfiguration som du vill använda. Principdefinitionen använder filerna regler och parametrar för att definiera principen. Skapa den principdefinition med [az principdefinitionen skapa](/cli/azure/role/assignment?view=azure-cli-latest).
 
 I det här exemplet är filerna du skapas och lagras som JSON-filer i cloudshell av de regler och parametrar.
 
@@ -117,7 +117,7 @@ az policy definition create \
 
 Det här exemplet tilldelar principen till en resurs med [az principtilldelningens skapa](/cli/azure/policy/assignment). Alla virtuella datorer som skapats i den **myResourceGroup** resursgrupp kommer inte att kunna installera Linux VM-åtkomst eller anpassade skripttillägg för Linux. Resursgruppen måste finnas innan du kan tilldela principen.
 
-Använd [az kontolista](/cli/azure/account?view=azure-cli-latest#az_account_list) att få ditt prenumerations-ID du använder i stället för den i det här exemplet.
+Använd [az kontolista](/cli/azure/account?view=azure-cli-latest) att få ditt prenumerations-ID du använder i stället för den i det här exemplet.
 
 
 ```azurecli-interactive

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331663"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812097"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
 
@@ -176,7 +176,7 @@ Saker att Observera:
 >
 >
 
-Att använda dessa två egenskaper för bättre och förbättra din dataflyttflödet, finns i den [exempel på användningsområden](#case-study-use-parallel-copy). Du behöver inte konfigurera **parallelCopies** att dra nytta av standardbeteendet. Om du konfigurerar och **parallelCopies** är för liten flera moln DMUs inte kan användas fullt ut.
+Att använda dessa två egenskaper för bättre och förbättra dina dataflyttflödet, se exemplet användningsfall. Du behöver inte konfigurera **parallelCopies** att dra nytta av standardbeteendet. Om du konfigurerar och **parallelCopies** är för liten flera moln DMUs inte kan användas fullt ut.
 
 ### <a name="billing-impact"></a>Fakturering påverkan
 Den har **viktiga** att komma ihåg att du debiteras utifrån den totala tiden för kopieringsåtgärden. Om ett kopieringsjobb brukade ta en timme med en cloud enhet och så tar det nu 15 minuter med fyra molnenheter, förblir övergripande fakturan nästan samma. Exempelvis kan använda du fyra molnenheter för. Den första molnenheten tar 10 minuter, den andra mallen, 10: e minut, det tredje 5 minuter, och det fjärde 5 minuter, alla i en Kopieringsaktivitet körs. Du debiteras för totalt antal kopia (dataflytt)-tiden, vilket är 10 + 10 + 5 + 5 = 30 minuter. Med hjälp av **parallelCopies** påverkar inte fakturering.
@@ -297,7 +297,7 @@ Om du kopierar data från Blob storage till SQL Data Warehouse kan du överväga
 
 * **Datamönster**: Din tabellschemat påverkar kopia dataflöde. En stor Radstorleken ger dig en bättre prestanda än små Radstorleken att kopiera samma mängd data. Anledningen är att databasen mer effektivt kan hämta färre batchar med data som innehåller färre rader.
 * **Fråga eller lagrad procedur**: Optimera logiken för frågan eller lagrad procedur som du anger i Kopieringsaktiviteten källan för att hämta data mer effektivt.
-* För **lokala relationsdatabaser**, till exempel SQL Server- och Oracle, som kräver användning av **Datahanteringsgateway**, finns i den [överväganden för Data Management Gateway](#considerations-on-data-management-gateway) avsnittet.
+* För **lokala relationsdatabaser**, till exempel SQL Server- och Oracle, som kräver användning av **Data Management Gateway**, finns i överväganden för Data Management Gateway-avsnittet.
 
 ## <a name="considerations-for-the-sink"></a>Överväganden för mottagaren
 ### <a name="general"></a>Allmänt

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67cc7d0dc162f2b36e38f1068f46079f46120f1c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104683"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819849"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure Cache för Redis
 Det här avsnittet beskrivs konfigurationerna som är tillgängliga för din Azure-Cache för Redis-instanser. Det här avsnittet innehåller också Redis server standardkonfigurationen för Azure Cache för Redis-instanser.
@@ -57,7 +57,7 @@ Du kan visa och konfigurera följande inställningar med hjälp av den **Resursm
     * [Egenskaper](#properties)
     * [Lås](#locks)
     * [Automationsskript](#automation-script)
-* [Administration](#administration)
+* Administration
     * [Importera data](#importexport)
     * [Exportera data](#importexport)
     * [Starta om](#reboot)
@@ -65,7 +65,7 @@ Du kan visa och konfigurera följande inställningar med hjälp av den **Resursm
     * [Redis-mått](#redis-metrics)
     * [Varningsregler](#alert-rules)
     * [Diagnostik](#diagnostics)
-* [Support och felsökning inställningar](#support-amp-troubleshooting-settings)
+* Support och felsökning inställningar
     * [Resurshälsa](#resource-health)
     * [Ny supportförfrågan](#new-support-request)
 
@@ -464,7 +464,7 @@ Mer information om databaser finns i [vad är Redis-databaser?](cache-faq.md#wha
 > * BGREWRITEAOF
 > * BGSAVE
 > * CONFIG
-> * FELSÖKA
+> * DEBUG
 > * MIGRERA
 > * Spara
 > * STÄNG AV

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: b41f01254e081b6ac3a9b8265bd459cf00af1838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: edc3bedaa005bb52ddbf46d9f70ddc16bf8790e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198001"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Självstudier: Azure Active Directory-integrering med LMS-Learning plats
 
@@ -89,7 +89,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med LMS-Learning plat
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare LMS-Learning plats](#creating-a-learnconnect-test-user)**  – du har en motsvarighet för Britta Simon i LMS-Learning plats som är länkad till en Azure AD-representation av användaren.
+1. **Skapa en testanvändare LMS-Learning plats** – du har en motsvarighet för Britta Simon i LMS-Learning plats som är länkad till en Azure AD-representation av användaren.
 1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 

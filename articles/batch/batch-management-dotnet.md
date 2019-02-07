@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c65a71d9e64a1ea3f60abbe2e420652c12ba030e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 301a3f9a500c41cf13dfa071d3526d2128b5e131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549559"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813627"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Hantera Batch-konton och kvoter med Batch Management-klientbiblioteket för .NET
 
@@ -64,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Program som använder Batch Management .NET-biblioteket och dess BatchManagementClient klass kräver **tjänstadministratör** eller **medadministratör** åtkomst till prenumerationen som äger Batch konto som ska hanteras. Mer information finns i den [Azure Active Directory](#azure-active-directory) avsnittet och [AccountManagement] [ acct_mgmt_sample] kodexempel.
+> Program som använder Batch Management .NET-biblioteket och dess BatchManagementClient klass kräver **tjänstadministratör** eller **medadministratör** åtkomst till prenumerationen som äger Batch konto som ska hanteras. Mer information finns i avsnittet Azure Active Directory och [AccountManagement] [ acct_mgmt_sample] kodexempel.
 > 
 > 
 

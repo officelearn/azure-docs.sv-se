@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 17167271df81914c76882fc4d06717043e1befc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06c385b1ca43277b59c337646c41cae360ce48a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214304"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816568"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -23,14 +23,14 @@ ms.locfileid: "55214304"
 
 #### <a name="attributes"></a>Attribut
 
-Attribut är valfria i de [identifiering](#Detection-Face-Detection) resultat, till exempel [ålder](#Age-Attribute), [kön](#Gender-Attribute), [head attityd](#Head-Pose-Attribute), [ansiktsigenkänning hår](#Facial-Hair-Attribute), [Leende](#Smile-Attribute).
-De kan hämtas från den [identifiering](#Detection-Face-Detection) API genom att ange frågeparametrar: returnFaceAttributes. Attribut ge extra information angående valda [ansikten](#Face), förutom den [står inför ID](#Face-ID) och [rektangel](#Face-Rectangle).
+Attribut är valfria i Identifieringsresultat, till exempel [ålder](#Age-Attribute), [kön](#Gender-Attribute), [head attityd](#Head-Pose-Attribute), [ansiktsigenkänning hår](#Facial-Hair-Attribute), [Leende ](#Smile-Attribute).
+De kan hämtas från identifieringen API genom att ange frågeparametrar: returnFaceAttributes. Attribut ge extra information angående valda [ansikten](#Face), förutom den [står inför ID](#Face-ID) och [rektangel](#Face-Rectangle).
 
 Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="age-attribute"></a>Ålder (attribut)
 
-Ålder är en av de [attribut](#Attributes) som beskriver en ålder för ett visst ansikte. Ålder-attributet är valfri i den [identifiering](#Detection-Face-Detection) resultaten och kan kontrolleras med en [identifiering](#Detection-Face-Detection) begäran genom att ange parametern returnFaceAttributes.
+Ålder är en av de [attribut](#Attributes) som beskriver en ålder för ett visst ansikte. Attributet ålder på resultaten av programuppdateringsidentifieringen är valfritt och kan kontrolleras med en begäran om identifiering genom att ange parametern returnFaceAttributes.
 
 Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -64,13 +64,13 @@ Mer information finns i handboken [står inför – identifiera](https://westus.
 
 #### <a name="face"></a>Ansikte
 
-Är en enhetlig term för resultaten som härletts från Ansikts-API som är relaterade med identifierade ansikten. Slutligen ansikte representeras av en enhetlig identitet ([Face ID](#Face-ID)), en specifik region i bilder ([Ansiktsrektangeln](#Face-Rectangle)), och extra ansikte relaterade [attribut](#Face-Attributes-Facial-Attributes), till exempel [ålder](#Age-Attribute), [kön](#Gender-Attribute), [ansiktslandmärken](#Face-Landmarks-Facial-Landmarks) och [head attityd](#Head-Pose-Attribute). Dessutom ansikten kan returneras från [identifiering](#Detection-Face-Detection).
+Är en enhetlig term för resultaten som härletts från Ansikts-API som är relaterade med identifierade ansikten. Slutligen ansikte representeras av en enhetlig identitet ([Face ID](#Face-ID)), en specifik region i bilder ([Ansiktsrektangeln](#Face-Rectangle)), och extra ansiktsattribut relaterade, till exempel [ålder](#Age-Attribute), [kön](#Gender-Attribute), landmärken och [head attityd](#Head-Pose-Attribute). Dessutom kan ansikten returneras från identifiering.
 
 Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-api"></a>Ansikts-API
 
-Ansikts-API är ett molnbaserad API som ger de mest avancerade algoritmerna för ansiktsigenkänning och taligenkänning. De flesta funktioner för Ansikts-API kan delas in i två kategorier: ansikte [identifiering](#Detection-Face-Detection) med [attribut](#Face-Attributes-Facial-Attributes), och ansiktsigenkänning [erkännande](#Recognition).
+Ansikts-API är ett molnbaserad API som ger de mest avancerade algoritmerna för ansiktsigenkänning och taligenkänning. De flesta funktioner för Ansikts-API kan delas in i två kategorier: ansiktsspårning med attribut och ansikte [erkännande](#Recognition).
 
 Mer information finns i följande handböcker: [Översikt över API för ansiktsigenkänning](./Overview.md), [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Ansiktsigenkänning – Sök efter liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [står inför – gruppera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [ Ansiktsigenkänning – verifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
@@ -80,13 +80,13 @@ Se [attribut](#Attributes).
 
 #### <a name="face-id"></a>Ansikts-ID
 
-Face ID härleds från den [identifiering](#Detection-Face-Detection) resultat, där en sträng som representerar en [ansikte](#Face) i [Ansikts-API](#Face-API).
+Face ID härleds från identifiering resultatet som en sträng som representerar en [ansikte](#Face) i [Ansikts-API](#Face-API).
 
 Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-landmarksfacial-landmarks"></a>Landmärken/Videodetektion Ansiktslandmärken
 
-Landmärken är valfria i de [identifiering](#Detection-Face-Detection) resultat; semantiska ansiktsigenkänning punkter, till exempel ögon, näsa och munnen (illustreras i följande bild). Landmärken kan kontrolleras med en [identifiering](#Detection-Face-Detection) begäran från booleskt nummer returnFaceLandmarks. Om returnFaceLandmarks anges som true, har returnerade ansikten landmärken attribut.
+Landmärken är valfria i resultatet för identifiering. som är semantiska ansiktsigenkänning punkter, till exempel ögon, näsa och munnen (illustreras i följande bild). Landmärken kan kontrolleras med en begäran om identifiering av boolesk nummer returnFaceLandmarks. Om returnFaceLandmarks anges som true, har returnerade ansikten landmärken attribut.
 
 Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -94,19 +94,19 @@ Mer information finns i handboken [står inför – identifiera](https://westus.
 
 #### <a name="face-rectangle"></a>Med rektangel
 
-Ansiktsrektangeln härleds från den [identifiering](#Detection-Face-Detection) resultat, vilket är en stående rektangeln (vänster, överkant, bredd, höjd) i bilder i pixlar. Det övre vänstra hörnet av en [ansikte](#Face) (vänster, uppifrån), förutom bredd och höjd, anger du ansikte storlekar i x och y-axelns respektive.
+Ansiktsrektangeln härleds från Identifieringsresultat som, vilket är en stående rektangel (vänster, överkant, bredd, höjd) i bilder i pixlar. Det övre vänstra hörnet av en [ansikte](#Face) (vänster, uppifrån), förutom bredd och höjd, anger du ansikte storlekar i x och y-axelns respektive.
 
 Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facial-hair-attribute"></a>Ansiktsigenkänning hår (attribut)
 
-Ansiktsigenkänning hår är en av de [attribut](#Attributes) används för att beskriva ansiktsigenkänning hår längden på tillgängliga ansikten. Ansiktsigenkänning hår-attributet är valfri i den [identifiering](#Detection-Face-Detection) resultaten och kan kontrolleras med en [identifiering](#Detection-Face-Detection) begäran från returnFaceAttributes. Om returnFaceAttributes innehåller 'facialHair', har returnerade ansikten ansiktsigenkänning hår attribut.
+Ansiktsigenkänning hår är en av de [attribut](#Attributes) används för att beskriva ansiktsigenkänning hår längden på tillgängliga ansikten. Ansiktsigenkänning hår attributet på resultaten av programuppdateringsidentifieringen är valfritt och kan styras med en begäran om identifiering av returnFaceAttributes. Om returnFaceAttributes innehåller 'facialHair', har returnerade ansikten ansiktsigenkänning hår attribut.
 
 Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facelist"></a>FaceList
 
-FaceList är en samling [PersistedFace](#PersistedFace) och är Faktureringsenhet [Sök liknande](#Find-Similar). En FaceList levereras med en [FaceList ID](#FaceList-ID), samt andra attribut som [namn](#Name) och [användardata](#UserData-User-Data).
+FaceList är en samling [PersistedFace](#PersistedFace) och är Faktureringsenhet [Sök liknande](#Find-Similar). En FaceList levereras med en [FaceList ID](#FaceList-ID), samt andra attribut, till exempel namn och användardata.
 
 Mer information finns i följande handböcker: [FaceList - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
@@ -118,7 +118,7 @@ Mer information finns i följande handböcker: [FaceList - skapa](https://westus
 
 #### <a name="find-similar"></a>Hitta liknande
 
-Detta API fungerar som en sökfråga/liknande ansikten baserat på en grupp med ansikten. Fråga ansikten och ansikte samlingar representeras som [står inför ID: N](#Face-ID) eller [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID) i begäran. Returnerade resultat har sökt liknande ansikten, representeras av [står inför ID: N](#Face-ID) eller [PersistedFace-ID: N](#PersistedFace-ID).
+Detta API fungerar som en sökfråga/liknande ansikten baserat på en grupp med ansikten. Fråga ansikten och ansikte samlingar representeras som [står inför ID: N](#Face-ID) eller [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID) i begäran. Returnerade resultat har sökt liknande ansikten, representeras av [står inför ID: N](#Face-ID) eller PersistedFace ID: N.
 
 Mer information finns i följande handböcker: [Ansiktsigenkänning – Sök efter liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList – skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
 
@@ -126,7 +126,7 @@ Mer information finns i följande handböcker: [Ansiktsigenkänning – Sök eft
 
 #### <a name="gender-attribute"></a>Kön (attribut)
 
-Kön är en av de [attribut](#Attributes) används för att beskriva kön med tillgängliga ansikten. Attributet kön är valfri i den [identifiering](#Detection-Face-Detection) resultaten och kan kontrolleras med en [identifiering](#Detection-Face-Detection) begäran från returnFaceAttributes. Om returnfaceAttributes innehåller 'kön', har returnerade ansikten kön attribut.
+Kön är en av de [attribut](#Attributes) används för att beskriva kön med tillgängliga ansikten. Attributet kön på resultaten av programuppdateringsidentifieringen är valfritt och kan styras med en begäran om identifiering av returnFaceAttributes. Om returnfaceAttributes innehåller 'kön', har returnerade ansikten kön attribut.
 
 Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -146,7 +146,7 @@ Mer information finns i handboken [står inför – gruppera](https://westus.dev
 
 #### <a name="head-pose-attribute"></a>HEAD utgöra (attribut)
 
-HEAD attityd är en av de [attribut](#Attributes) att representerar står inför orientering i 3D-rymden enligt distributionen, försäljningsargument och positionen vinklar, enligt följande bild. Värdeintervall för rulla och yaw är [-180, 180] och [-90, 90] i grader. I den aktuella versionen försäljningsargument värdet som returneras från identifiering är alltid 0. Attributet head attityd är valfri i den [identifiering](#Detection-Face-Detection) resultaten och kan kontrolleras med en [identifiering](#Detection-Face-Detection) begäran av parametern returnFaceAttributes. Om returnFaceAttributes parametern innehåller ”headPose”, har de returnerade ansiktena head utgöra attribut.
+HEAD attityd är en av de [attribut](#Attributes) att representerar står inför orientering i 3D-rymden enligt distributionen, försäljningsargument och positionen vinklar, enligt följande bild. Värdeintervall för rulla och yaw är [-180, 180] och [-90, 90] i grader. I den aktuella versionen försäljningsargument värdet som returneras från identifiering är alltid 0. Attributet head attityd på resultaten av programuppdateringsidentifieringen är valfritt och kan kontrolleras med en begäran om identifiering av parametern returnFaceAttributes. Om returnFaceAttributes parametern innehåller ”headPose”, har de returnerade ansiktena head utgöra attribut.
 
 Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -182,11 +182,11 @@ Mer information finns i handboken [står inför – verifiera](https://westus.de
 
 #### <a name="landmarks"></a>Landmärken
 
-Se [står inför landmärken](#Face-Landmarks-Facial-Landmarks).
+Se ansiktslandmärken.
 
 #### <a name="largefacelist"></a>LargeFaceList
 
-LargeFaceList är en samling [PersistedFace](#PersistedFace) och är Faktureringsenhet [Sök liknande](#Find-Similar). En LargeFaceList levereras med en [LargeFaceList ID](#LargeFaceList-ID), samt andra attribut som [namn](#Name) och [användardata](#UserData-User-Data).
+LargeFaceList är en samling [PersistedFace](#PersistedFace) och är Faktureringsenhet [Sök liknande](#Find-Similar). En LargeFaceList levereras med en [LargeFaceList ID](#LargeFaceList-ID), samt andra attribut, till exempel namn och användardata.
 
 Mer information finns i följande handböcker: [LargeFaceList – skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList – Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList – lista ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
 
@@ -198,7 +198,7 @@ Mer information finns i följande handböcker: [LargeFaceList – skapa](https:/
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
-LargePersonGroup är en samling [personer](#Person) och är Faktureringsenhet [identifiering](#Identification). En LargePersonGroup levereras med en [LargePersonGroup ID](#LargePersonGroup-ID), samt andra attribut som [namn](#Name) och [användardata](#UserData-User-Data).
+LargePersonGroup är en samling [personer](#Person) och är Faktureringsenhet [identifiering](#Identification). En LargePersonGroup levereras med en [LargePersonGroup ID](#LargePersonGroup-ID), samt andra attribut, till exempel namn och användardata.
 
 Mer information finns i följande handböcker: [LargePersonGroup – skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup – Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup Person - lista](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
 
@@ -236,7 +236,7 @@ Mer information finns i följande handböcker: [LargePersonGroup – skapa](http
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace är en datastruktur i Ansikts-API. PersistedFace levereras med en [PersistedFace ID](#PersistedFace-ID), samt andra attribut som [namn](#Name), och [användardata](#UserData-User-Data).
+PersistedFace är en datastruktur i Ansikts-API. PersistedFace levereras med en PersistedFace-ID, samt andra attribut, till exempel namn och användardata.
 
 Mer information finns i följande handböcker: [LargeFaceList – Lägg till Ansikts](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup Person - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
@@ -248,7 +248,7 @@ Mer information finns i följande handböcker: [LargeFaceList – Lägg till Ans
 
 #### <a name="person"></a>Person
 
-Person är en datastruktur som hanteras i Ansikts-API. Person som levereras med en [Person-ID](#Person-ID), samt andra attribut som [namn](#Name), en samling [PersistedFace](#PersistedFace), och [användardata](#UserData-User-Data).
+Person är en datastruktur som hanteras i Ansikts-API. Person som levereras med en [Person-ID](#Person-ID), samt andra attribut, till exempel namn, en samling [PersistedFace](#PersistedFace), och användardata.
 
 Mer information finns i följande handböcker: [Skapa LargePersonGroup Person -](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - hämta](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - hämta](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
@@ -260,7 +260,7 @@ Mer information finns i följande handböcker: [Skapa LargePersonGroup Person -]
 
 #### <a name="persongroup"></a>PersonGroup
 
-PersonGroup är en samling [personer](#Person) och är Faktureringsenhet [identifiering](#Identification). En PersonGroup levereras med en [PersonGroup ID](#PersonGroup-ID), samt andra attribut som [namn](#Name) och [användardata](#UserData-User-Data).
+PersonGroup är en samling [personer](#Person) och är Faktureringsenhet [identifiering](#Identification). En PersonGroup levereras med en [PersonGroup ID](#PersonGroup-ID), samt andra attribut, till exempel namn och användardata.
 
 Mer information finns i följande handböcker: [PersonGroup - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup Person - lista](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
 
@@ -290,19 +290,25 @@ Se [ansiktsrektangeln](#Face-Rectangle).
 
 ## <a name="s"></a>S
 
-#### <a name="smile-attribute"></a>Le (attribut)
-
-Leende är en av de [attribut](#Attributes) används för att beskriva Leende-uttrycket för tillgängliga ansikten. Attributet Leende är valfri i den [identifiering](#Detection-Face-Detection) resultaten och kan kontrolleras med en [identifiering](#Detection-Face-Detection) begäran från returnFaceAttributes. Om returnFaceAttributes innehåller 'le ”, har de returnerade ansiktena Leende attribut.
-
-Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
 #### <a name="similar-face-searching"></a>Sökning efter liknande ansikte
 
 Se [Sök liknande](#Find-Similar).
 
+#### <a name="smile-attribute"></a>Le (attribut)
+
+Leende är en av de [attribut](#Attributes) används för att beskriva Leende-uttrycket för tillgängliga ansikten. Attributet Leende på resultaten av programuppdateringsidentifieringen är valfritt och kan styras med en begäran om identifiering av returnFaceAttributes. Om returnFaceAttributes innehåller 'le ”, har de returnerade ansiktena Leende attribut.
+
+Mer information finns i handboken [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+
+#### <a name="snapshot"></a>Ögonblicksbild
+
+En ögonblicksbild är en tillfällig Fjärrlagring för vissa Ansikts-datatyper. Den fungerar som en typ av Urklipp vid funktionen Kopiera data från en prenumeration till en annan. Först användaren ”hämtar” en ögonblicksbild av data i ursprungligt abonnemang, och sedan de ”gäller” det till ett nytt dataobjekt i målprenumerationen. 
+
+Mer information finns i [ansikte Migreringsguide](./face-api-how-to-topics/how-to-migrate-face-data.md) samt de [ögonblicksbild - ta](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/take) och [ögonblicksbild - gäller](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/apply) referensdokumentation (REST).
+
 #### <a name="status-train"></a>Status (Train)
 
-Statusen är en sträng som används för att beskriva hur du [utbildning LargeFaceList/LargePersonGroups/PersonGroups](#Train), inklusive notstarted, ”kör”, ”lyckades”, ”misslyckades”.
+Statusen är en sträng som används för att beskriva proceduren för utbildning LargeFaceList/LargePersonGroups/PersonGroups, inklusive notstarted, ”kör”, ”lyckades”, ”misslyckades”.
 
 Mer information finns i handboken [LargeFaceList – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup – träna](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
@@ -310,7 +316,7 @@ Mer information finns i handboken [LargeFaceList – Train](https://westus.dev.c
 
 Prenumerationsnyckel är en sträng som du vill ange som en frågesträngsparameter för att kunna anropa Ansikts-API: er. Prenumerationsnyckeln finns på sidan Mina prenumerationer när du loggar in till Microsoft Cognitive Services-portalen. Det kommer att två nycklar som är associerade med varje prenumeration: en primär nyckel och en sekundär nyckel. Båda kan användas för att anropa API identiskt. Du behöver att skydda prenumerationsnycklar och du kan återskapa prenumerationsnycklar när som helst från Mina prenumerationer sidan och.
 
-## <a name="t"></a>t
+## <a name="t"></a>T
 
 #### <a name="train-largefacelistlargepersongrouppersongroup"></a>Train (LargeFaceList/LargePersonGroup/PersonGroup)
 
@@ -330,7 +336,7 @@ Mer information finns i följande handböcker: [LargePersonGroup – skapa](http
 
 #### <a name="verification"></a>Verifiering
 
-Detta API används för att kontrollera om två ansikten är lika eller inte. Båda sidorna representeras som möter ID: N i förfrågan. Verifiera resultaten innehåller typen Boolean ([isIdentical](#Is-Identical)) som anger samma om värdet är true och ett antal fält ([förtroende](#Confidence)) som anger hur stor säkerhet.
+Detta API används för att kontrollera om två ansikten är lika eller inte. Båda sidorna representeras som möter ID: N i förfrågan. Verifiera resultaten innehåller typen Boolean (isIdentical) som anger samma om värdet är true och ett antal fält ([förtroende](#Confidence)) som anger hur stor säkerhet.
 
 Mer information finns i handboken [står inför – verifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 

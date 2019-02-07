@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d865028a2ddc7315192030b704a77a332dab14aa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810942"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822722"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid-utlösare för Azure Functions
 
@@ -79,7 +79,7 @@ namespace Company.Function
 }
 ```
 
-### <a name="c-2x"></a>C#(2.x)
+### <a name="c-2x"></a>C# (2.x)
 
 I följande exempel visas ett fungerar 2.x [C#-funktion](functions-dotnet-class-library.md) som binder till `EventGridEvent`:
 
@@ -103,7 +103,7 @@ namespace Company.Function
 }
 ```
 
-Mer information finns i [paket](#packages), [attribut](#attributes), [Configuration](#configuration), och [användning](#usage).
+Mer information finns i paket, [attribut](#attributes), [Configuration](#configuration), och [användning](#usage).
 
 ### <a name="c-script-example"></a>Exempel på C#-skript
 
@@ -155,7 +155,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-Mer information finns i [paket](#packages), [attribut](#attributes), [Configuration](#configuration), och [användning](#usage).
+Mer information finns i paket, [attribut](#attributes), [Configuration](#configuration), och [användning](#usage).
 
 ### <a name="javascript-example"></a>JavaScript-exempel
 

@@ -5,27 +5,31 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/01/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: a64a1e35811b8bcdf721425580fe66641cb8ebe2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 267919900fe68271365a73c3cbea7b1f0befc8a7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661011"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766834"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
-För de flesta användare definiera en kombination av behörigheter som beviljas i Azure-portalen och Enterprise (EA)-portalen en användares åtkomstnivå till data i Azure Cost Management. Den här artikeln beskriver hur du tilldelar åtkomst till Cost Management-data. När en kombination av behörigheter tilldelas baserat vyer användardata i Cost Management omfattningen som de har åtkomst till och omfattning att de väljer i Azure-portalen.
+För användare med Azure Enterprise-avtal kan definiera en kombination av behörigheter som beviljas i Azure-portalen och Enterprise (EA)-portalen en användares åtkomstnivå till data i Azure Cost Management. Cost Management-data är enklare för användare med andra typer av Azure-konto, en användares åtkomstnivå är att. Den här artikeln beskriver hur du tilldelar åtkomst till Cost Management-data. När en kombination av behörigheter tilldelas baserat vyer användardata i Cost Management omfattningen som de har åtkomst till och omfattning att de väljer i Azure-portalen.
 
 Omfattningen som en användare väljer används i hela kostnadshantering datakonsolidering och styra åtkomsten till kostnadsinformation. När du använder omfång kan användare inte flerval dem. I stället väljer de ett större område som underordnade omfattningar kavla upp till och sedan de filter ned för att de vill visa. Konsolidera data är viktigt att förstå eftersom vissa användare inte ska ha åtkomst till en överordnad omfattning som underordnade omfattningar slås upp till.
 
 ## <a name="cost-management-scopes"></a>Cost Management-scope
 
-Om du vill visa kostnadsdata, måste en användare ha minst skrivskyddad åtkomst till en eller flera av följande omfattningar.
+Kostnadshantering stöder en mängd olika typer av Azure-konto. Om du vill visa en fullständig lista över typer av stöds, se [förstå kostnadshantering data](understand-cost-mgt-data.md). Typ av konto avgör tillgängliga scope.
+
+### <a name="azure-ea-subscription-scopes"></a>Omfång för Azure EA-prenumeration
+
+Om du vill visa kostnadsdata för Azure EA-prenumerationer, måste en användare ha minst skrivskyddad åtkomst till en eller flera av följande omfattningar.
 
 | **Omfång** | **Definieras på** | **Behörighet att visa data** | **Nödvändig EA-inställning** | **Konsoliderar data till** |
 | --- | --- | --- | --- | --- |
@@ -47,6 +51,14 @@ Följande diagram illustrerar förhållandet mellan kostnadshantering scope med 
 När **DA visa debiteringar** är inaktiverade i EA-portalen visas ett meddelande om *kostnader inaktiverad för din organisation* när du försöker visa kostnader för avdelningar och konton.
 
 På liknande sätt när **AO visa debiteringar** är inaktiverade i EA-portalen visas ett meddelande om *kostnader inaktiverad för din organisation* när du försöker visa kostnaderna för registreringskonton, hanteringsgrupper, prenumerationer och resursgrupper.
+
+## <a name="other-azure-account-scopes"></a>Andra Azure-konto-scope
+
+Om du vill visa kostnadsdata för andra Azure-prenumerationer, måste en användare ha minst läsbehörighet åtkomst till en eller flera av följande områden:
+
+- Azure-konto
+- Hanteringsgrupp
+- Resursgrupp
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Aktivera åtkomst till kostnader i EA-portalen
 
@@ -113,7 +125,7 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 
 ## <a name="assign-management-group-scope-access"></a>Tilldela åtkomst till hanteringsgruppen omfång
 
-Åtkomst till en grupp hanteringsomfång kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter för en hanteringsgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra hanteringsgruppen. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
+Åtkomst till en grupp hanteringsomfång kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter för en hanteringsgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra hanteringsgruppen. Och för Azure EA-konton du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _hanteringsgrupper_och välj sedan **hanteringsgrupper**.
@@ -129,7 +141,7 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 
 ## <a name="assign-subscription-scope-access"></a>Tilldela omfång prenumerationsåtkomst
 
-Åtkomst till en prenumeration kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en prenumeration på Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra prenumerationen. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
+Åtkomst till en prenumeration kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en prenumeration på Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra prenumerationen. Och för Azure EA-konton du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _prenumerationer_och välj sedan **prenumerationer**.
@@ -143,7 +155,7 @@ När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsreg
 
 ## <a name="assign-resource-group-scope-access"></a>Tilldela resursåtkomst grupp omfång
 
-Åtkomst till en resursgrupp kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en resursgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra resursgruppen. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
+Åtkomst till en resursgrupp kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en resursgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra resursgruppen. Och för Azure EA-konton du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _resursgrupper_och välj sedan **resursgrupper**.

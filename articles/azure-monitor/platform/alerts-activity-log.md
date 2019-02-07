@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579336"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816585"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -73,7 +73,7 @@ Följ dessa steg:
     **Avisera logic**:
 
      - **Händelsenivå**-allvarlighetsgrad för händelsen. _Utförlig_, _endast i informationssyfte_, _varning_, _fel_, eller _kritiska_.
-     - **Status för**: Status för händelsen. _Igång_, _misslyckades_, eller _lyckades_.
+     - **Status**: Status för händelsen. _Igång_, _misslyckades_, eller _lyckades_.
      - **Händelsen initierad av**: Även känt som anroparen; E-postadress eller Azure Active Directory-ID för användaren som utförde åtgärden.
 
         Exemplet signalen diagram med aviseringslogiken tillämpas:
@@ -93,7 +93,7 @@ Följ dessa steg:
 
     Den nya aviseringsregeln för aktivitetsloggen har skapats och ett bekräftelsemeddelande visas längst upp höger i fönstret.
 
-    Du kan aktivera, inaktivera, redigera eller ta bort en regel. [Läs mer](#view-and-manage-activity-log-alert-rules-in-azure-portal) om hur du hanterar aktivitet log regler.
+    Du kan aktivera, inaktivera, redigera eller ta bort en regel. Läs mer om hur du hanterar aktivitet log regler.
 
 
 Du kan också en enkel liknelse för förstå villkor som Varningsregler kan skapas på aktivitetslogg, är att utforska eller Filtrera händelser via [aktivitetsloggen i Azure-portalen](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). I Azure Monitor - aktivitetslogg, en filtrera eller hitta nödvändiga evenemang och sedan skapa en avisering med hjälp av den **Lägg till aktivitetsloggavisering** knappen, Följ steg 4 och senare enligt informationen i självstudien ovan.
@@ -126,7 +126,7 @@ Du kan också en enkel liknelse för förstå villkor som Varningsregler kan ska
 4.  Du kan inaktivera, aktivera eller ta bort en regel. Välj lämpligt alternativ överst i fönstret när du har valt regeln som beskrivs i steg 2.
 
 
-## <a name="azure-resource-template"></a>Azure-resursmall
+## <a name="azure-resource-template"></a>Azure Resource Template
 Om du vill skapa en aktivitetsloggavisering med en Resource Manager-mall kan du skapa en resurs av typen `microsoft.insights/activityLogAlerts`. Du fylla i alla relaterade egenskaper. Här är en mall som skapar en aktivitetsloggavisering.
 
 ```json
@@ -203,14 +203,14 @@ Exempel-json ovan kan sparas som (exempelvis) sampleActivityLogAlert.json i den 
 [Azure Monitor - aktivitet Log aviseringar API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
-Bilden nedan användning via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleActivityLogAlert.json) i den [Resource mallavsnittet](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
+Bilden nedan användning via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleActivityLogAlert.json) i avsnittet resursmall:
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 Där sampleActivityLogAlert.parameters.json har de angivna värdena för de parametrar som behövs för att skapa en aviseringsregel.
 
 ## <a name="cli"></a>CLI
-Bilden nedan användning via Azure Resource Manager-kommando i Azure CLI för exemplet resursmall som visades tidigare (sampleActivityLogAlert.json) i den [Resource mallavsnittet](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
+Bilden nedan användning via Azure Resource Manager-kommando i Azure CLI för exemplet resursmall som visades tidigare (sampleActivityLogAlert.json) i avsnittet resursmall:
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json

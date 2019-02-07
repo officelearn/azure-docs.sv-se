@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 860d24bf9de02d1b2ca46f05f1e09843a826aaf9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466837"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816653"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -325,7 +325,7 @@ När time series-är stillastående och enkla att förutsäga, generera slumpmä
 ### <a name="time-dependent-split"></a>Tidsberoende dela
 Det här avsnittet beskriver Metodtips för att implementera tidsberoende dela. En tidsberoende dubbelriktad delning mellan utbildnings- och testuppsättningar beskrivs nedan.
 
-Anta att en dataström med tidsstämplad händelser, t.ex mått från olika sensorer. Definiera funktioner och etiketter för träning och testning exempel över tidsramar som innehåller flera händelser. Till exempel för binär klassificering, skapa funktioner som bygger på historiska händelser och skapa etiketter som baseras på framtida händelser i ”X” tidsenheter i framtiden (se avsnitt på [funktionstekniker](#Feature-engineering) och [modellering tekniker](#Modeling-techniques-applied-to-PdM-use-cases)). Därför kommer etikettering tidsram på ett exempel senare än tid som dess funktioner.
+Anta att en dataström med tidsstämplad händelser, t.ex mått från olika sensorer. Definiera funktioner och etiketter för träning och testning exempel över tidsramar som innehåller flera händelser. Till exempel för binär klassificering, skapa funktioner som bygger på historiska händelser och skapa etiketter som baseras på framtida händelser i ”X” tidsenheter i framtiden (se avsnitt på [funktionstekniker](#Feature-engineering) och modellering tekniker). Därför kommer etikettering tidsram på ett exempel senare än tid som dess funktioner.
 
 Tidsberoende delning, Välj en _utbildning klara tiden T<sub>c</sub>_  då att träna en modell med hyperparametrar justerade med hjälp av historiska data upp till T<sub>c</sub>. Att förhindra läckage av framtida etiketter som ligger utanför T<sub>c</sub> till utbildningsdata, väljer du senaste tiden till etiketten utbildning exempel ska X enheter innan T<sub>c</sub>. I exemplet som visas på bild 7, representerar varje ruta en post i datauppsättningen där funktioner och etiketter beräknas enligt beskrivningen ovan. Bilden visar de poster som ska gå i utbildning och testningsuppsättningar för X = 2 och W = 3:
 

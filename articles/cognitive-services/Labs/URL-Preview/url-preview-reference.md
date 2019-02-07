@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cd99f8bce8eca622412b834b5a7b75fda3ceb1f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222923"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812063"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL-förhandsgranskning v7-referens
 
@@ -59,10 +59,10 @@ Information om tillåtna användning och visning av resultat finns i [använder 
 
 > Dessutom vissa parametrar är inte för närvarande beskrivande för URL: en förhandsversion API, men kan användas i framtiden för förbättrad globalisering.
 
-## <a name="headers"></a>Sidhuvuden
+## <a name="headers"></a>Rubriker
 Följande är de rubriker som en begäran och svaret kan innehålla.
 
-|Sidhuvud|Beskrivning|
+|Huvud|Beskrivning|
 |------------|-----------------|
 |<a name="market" />BingAPIs-Market|Svarshuvud.<br /><br /> Marknaden som används av begäran. Formuläret är \<languageCode\>-\<countryCode\>. Exempel: sv-SE.|
 |<a name="traceid" />BingAPIs-TraceId|Svarshuvud.<br /><br /> ID för loggposten som innehåller information om begäran. När ett fel uppstår ska du avbilda detta ID. Om det inte går att fastställa och lösa problemet ska du ange ID:t tillsammans med annan information som du ger supportteamet.|
@@ -73,12 +73,12 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 ## <a name="query-parameters"></a>Frågeparametrar
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar. Frågan måste vara en absolut URL med en http eller https-schema; Vi stöder inte relativa URL: er eller andra scheman som ftp: / /
 
-|Name|Value|Type|Krävs|
+|Namn|Värde|Type|Krävs|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i [marknaden koder](#market-codes).<br /><br /> **Obs!** URL: en förhandsversion av API: et stöder för närvarande endast USA geografi och engelska.<br /><br />|Sträng|Ja|
-|<a name="query" />q|URL: en för att förhandsgranska|Sträng|Ja|
-|<a name="responseformat" />responseFormat|Medietyp för att använda för svaret. Här följer möjliga skiftlägeskänsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt att svaret innehåller, finns i [Svarsobjekten](#response-objects).<br /><br />Om du anger JsonLd innehåller svarstexten JSON-LD-objekt som innehåller sökresultaten. Information om JSON-LD finns [JSON-LD](http://json-ld.org/).|Sträng|Nej|
-|<a name="safesearch"/>safeSearch|Ogiltig vuxet innehåll eller oäkta innehåll har blockerats med felkoden 400, och *isFamilyFriendly* flaggan returneras inte. <p>Är det som gäller för juridiska vuxna nedan. Statuskod returnerar 200, och *isFamilyFriendly* flaggan är inställd på false.<ul><li>safeSearch = strikt: Rubrik, beskrivning, URL: en och avbildning returneras inte.</li><li>safeSearch = måttlig; Hämta rubrik, URL: en och beskrivning, men inte beskrivande avbildningen.</li><li>safeSearch =. Få svar objekt/allt – namn, URL: en, beskrivning, bild.</li></ul> |Sträng|Krävs inte. </br> Som standard safeSearch = strikt.|
+|<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i marknaden koder.<br /><br /> **Obs!** URL: en förhandsversion av API: et stöder för närvarande endast USA geografi och engelska.<br /><br />|String|Ja|
+|<a name="query" />q|URL: en för att förhandsgranska|String|Ja|
+|<a name="responseformat" />responseFormat|Medietyp för att använda för svaret. Här följer möjliga skiftlägeskänsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt att svaret innehåller, finns i [Svarsobjekten](#response-objects).<br /><br />Om du anger JsonLd innehåller svarstexten JSON-LD-objekt som innehåller sökresultaten. Information om JSON-LD finns [JSON-LD](http://json-ld.org/).|String|Nej|
+|<a name="safesearch"/>safeSearch|Ogiltig vuxet innehåll eller oäkta innehåll har blockerats med felkoden 400, och *isFamilyFriendly* flaggan returneras inte. <p>Är det som gäller för juridiska vuxna nedan. Statuskod returnerar 200, och *isFamilyFriendly* flaggan är inställd på false.<ul><li>safeSearch = strikt: Rubrik, beskrivning, URL: en och avbildning returneras inte.</li><li>safeSearch = måttlig; Hämta rubrik, URL: en och beskrivning, men inte beskrivande avbildningen.</li><li>safeSearch =. Få svar objekt/allt – namn, URL: en, beskrivning, bild.</li></ul> |String|Krävs inte. </br> Som standard safeSearch = strikt.|
 
 ## <a name="response-objects"></a>Svarsobjekt
 Svarsschemat är antingen en [webbsida] eller ErrorResponse, som i API för webbsökning. Om begäran misslyckas kan det översta objektet är den [ErrorResponse](#errorresponse) objekt.
@@ -92,36 +92,36 @@ Definierar de fel som inträffat.
 
 |Element|Beskrivning|Type|
 |-------------|-----------------|----------|
-|<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|Sträng|
-|<a name="error-message" />meddelande|En beskrivning av felet.|Sträng|
-|<a name="error-moredetails" />moreDetails|En beskrivning som ger ytterligare information om felet.|Sträng|
-|<a name="error-parameter" />parameter|Frågeparametern i begäran som orsakade felet.|Sträng|
-|<a name="error-subcode" />subCode|Felkoden som identifierar felet. Till exempel om `code` är InvalidRequest, `subCode` kanske ParameterInvalid eller ParameterInvalidValue. |Sträng|
-|<a name="error-value" />Värde|Värde för Frågeparametern som inte var giltig.|Sträng|
+|<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|String|
+|<a name="error-message" />meddelande|En beskrivning av felet.|String|
+|<a name="error-moredetails" />moreDetails|En beskrivning som ger ytterligare information om felet.|String|
+|<a name="error-parameter" />parameter|Frågeparametern i begäran som orsakade felet.|String|
+|<a name="error-subcode" />subCode|Felkoden som identifierar felet. Till exempel om `code` är InvalidRequest, `subCode` kanske ParameterInvalid eller ParameterInvalidValue. |String|
+|<a name="error-value" />Värde|Värde för Frågeparametern som inte var giltig.|String|
 
 ### <a name="errorresponse"></a>ErrorResponse
 Det översta objekt som svaret innehåller när begäran misslyckas.
 
-|Name|Value|Type|
+|Namn|Värde|Type|
 |----------|-----------|----------|
-|_typ|Typ-tipset.|Sträng|
+|_typ|Typ-tipset.|String|
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)]|
 
 ### <a name="webpage"></a>Webbsida
 Definierar informationen om en webbsida i förhandsversion.
 
-|Name|Value|Type|
+|Namn|Värde|Type|
 |----------|-----------|----------|
-|namn|En rubrik, inte nödvändigtvis HTML-rubrik|Sträng|
-|url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|Sträng|
-|beskrivning|Kort beskrivning på sidan och innehåll|Sträng|
+|namn|En rubrik, inte nödvändigtvis HTML-rubrik|String|
+|url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|String|
+|beskrivning|Kort beskrivning på sidan och innehåll|String|
 |isFamilyFriendly|Mest korrekta för objekt i web-index. i realtid hämtar gör denna identifiering som endast baseras på URL: en och inte sidinnehåll|boolesk|
-|primaryImageOfPage/contentUrl|URL: en till en representativ avbildning som ska ingå i förhandsversionen|Sträng|
+|primaryImageOfPage/contentUrl|URL: en till en representativ avbildning som ska ingå i förhandsversionen|String|
 
 ### <a name="identifiable"></a>Identifierbar
-|Name|Value|Type|
+|Namn|Värde|Type|
 |-------------|-----------------|----------|
-|ID|Resurs-ID|Sträng|
+|id|Resurs-ID|String|
 
 ## <a name="error-codes"></a>Felkoder
 
@@ -129,7 +129,7 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
 
 |Statuskod|Beskrivning|
 |-----------------|-----------------|
-|200|Klar.|
+|200|Lyckades.|
 |400|En av frågeparametrarna är saknas eller är inte giltig.|
 |400|ServerError, subCode ResourceError: Den begärda URL: en kunde inte nås|
 |400|ServerError, subCode ResourceError: Den begärda Webbadressen returnerade inte en framgångskod (inklusive om den returnerade HTTP 404)|

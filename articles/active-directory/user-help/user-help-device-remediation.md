@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164069"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770477"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Möjliga orsaker till felmeddelandet ”du kan inte ta dig dit härifrån”
 Vid åtkomst till organisationens interna webbprogram eller tjänster, kan du få ett felmeddelande som säger, **du kan inte ta dig dit härifrån**. Det här meddelandet innebär att din organisation har infört en princip som förhindrar enheten från att komma åt din organisations resurser. Medan du kan få behöva kontakta din supportavdelning för att åtgärda problemet, är här några saker som du kan försöka först.
@@ -68,4 +68,4 @@ Om enheten inte är ansluten till din organisations nätverk, kan du göra någo
 ## <a name="next-steps"></a>Nästa steg
 - [Vad är MyApps-portalen?](active-directory-saas-access-panel-introduction.md)
 
-- [Logga in med telefonen, inte med ditt lösenord](microsoft-authenticator-app-phone-signin-faq.md)
+- [Logga in med telefonen, inte med ditt lösenord](user-help-auth-app-sign-in.md)

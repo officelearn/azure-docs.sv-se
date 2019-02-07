@@ -12,16 +12,16 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: def50aecbcf9186af9d0b9c781c3141ad2dcee59
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a7f2dbdb089df8035d18db25b3968d63a3c97c0f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753681"
+ms.locfileid: "55767511"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Ansluta till Azure SQL Database med Active Directory MFA
 
-Den här artikeln innehåller en C# program som ansluter till din Microsoft Azure SQL Database. Interaktivt läge-autentisering, vilket stöder används [Azure Active Directory (AD) multifaktorautentisering (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+Den här artikeln innehåller en C# program som ansluter till din Microsoft Azure SQL Database. Interaktivt läge-autentisering, vilket stöder används [Azure Active Directory (Azure AD) multifaktorautentisering (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 Mer information om MFA-stöd för SQL-verktyg som finns i [Azure Active Directory-stöd i SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
@@ -29,15 +29,15 @@ Mer information om MFA-stöd för SQL-verktyg som finns i [Azure Active Director
 
 Från och med .NET Framework version 4.7.2, vilken uppräkningen [ `SqlAuthenticationMethod` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) har ett nytt värde - `ActiveDirectoryInteractive`. I en klient C# programmet, uppräkningsvärdet gör att systemet använder det interaktiva läget för Azure AD stöder MFA för att ansluta till en Azure SQL Database. Den användare som kör programmet får dialogrutorna följande:
 
-1. En dialogruta som visar ett Azure AD-användarnamn och frågar efter användarens lösenord.
+* En dialogruta som visar ett Azure AD-användarnamn och frågar efter användarens lösenord.
 
    Om användarens domän är federerad med Azure AD, visas inte den här dialogrutan när inga lösenord krävs.
 
    Om Azure AD-princip ålägger användaren MFA, visas två dialogrutorna.
 
-2. Första gången en användare går igenom MFA, visas en dialogruta att skicka textmeddelanden till ditt mobilnummer. Varje meddelande som innehåller den *Verifieringskod* som användaren måste ange i nästa dialogruta.
+* Första gången en användare går igenom MFA, visas en dialogruta att skicka textmeddelanden till ditt mobilnummer. Varje meddelande som innehåller den *Verifieringskod* som användaren måste ange i nästa dialogruta.
 
-3. En dialogruta som ber om en MFA-Verifieringskod som systemet har skickats till en mobiltelefon.
+* En dialogruta som ber om en MFA-Verifieringskod som systemet har skickats till en mobiltelefon.
 
 Information om hur du konfigurerar Azure AD för att kräva MFA finns i [komma igång med Azure Multi-Factor Authentication i molnet](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
@@ -59,7 +59,7 @@ Innan du börjar måste du ha en [Azure SQL Database-server](sql-database-get-st
 ### <a name="register-your-app-and-set-permissions"></a>Registrera din app och ange behörigheter
 
 
-Du använder Azure AD-autentisering, din C# programmet har registrera som en AD-program. Om du vill registrera en app, måste du vara antingen en AD-administratör eller en användare som tilldelats AD *programutvecklare* roll. Mer information om hur du tilldelar roller finns i [tilldela användare med Azure Active Directory rollerna Administratör och icke-administratör.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+Du använder Azure AD-autentisering, din C# programmet har registrera som en Azure AD-program. Om du vill registrera en app, måste du vara antingen en Azure AD-administratör eller en användare som tilldelats Azure AD *programutvecklare* roll. Mer information om hur du tilldelar roller finns i [tilldela användare med Azure Active Directory rollerna Administratör och icke-administratör.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
  Du har slutfört en appregistrering genereras och visas i en **program-ID**. Programmet måste ange följande ID för att ansluta.
 
@@ -147,7 +147,7 @@ Kör SSMS igen den här gången med **autentisering** inställd **Active Directo
 Mer information finns i [konfigurera Multi-Factor authentication för SSMS och Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
-> Om du är en gästanvändare i databasen kan du också behöva tillhandahålla AD-domännamn för databasen – **alternativ** > **AD-domän eller klient-ID**. För att hitta domännamnet i Azure portal, Välj **Azure Active Directory** > **anpassade domännamn**. I den C# exempelprogrammet, vilket ger ett domännamn inte är nödvändigt.
+> Om du är en gästanvändare i databasen kan du också behöva tillhandahålla Azure AD-domännamn för databasen – **alternativ** > **AD-domän eller klient-ID**. För att hitta domännamnet i Azure portal, Välj **Azure Active Directory** > **anpassade domännamn**. I den C# exempelprogrammet, vilket ger ett domännamn inte är nödvändigt.
 
 ## <a name="c-code-example"></a>C#-kodexempel
 
@@ -161,7 +161,7 @@ Om du vill installera det här paketet i Visual Studio, Välj **projekt** > **ha
 
 using System;
 
-// Reference to AD authentication assembly
+// Reference to Azure AD authentication assembly
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 using DA = System.Data;

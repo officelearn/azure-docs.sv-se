@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8730070e1b235324a53ad81957339f4ef17db6dc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193706"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809642"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Vidta åtgärder med en Automation-Runbook från en Log Analytics log search-resultat
 
-Från en log sökresultat i Azure Log Analytics kan du nu välja **vidta åtgärder** att köra en Automation-runbook.  Runbook kan användas för att åtgärda problemet eller vidta andra åtgärder, till exempel som samlar in information om felsökning finns skicka ett e-postmeddelande eller skapar en tjänstbegäran. 
+Från en log sökresultat i Azure Log Analytics kan du nu välja **vidta åtgärder** att köra en Automation-runbook. Runbook kan användas för att åtgärda problemet eller vidta andra åtgärder, till exempel som samlar in information om felsökning finns skicka ett e-postmeddelande eller skapar en tjänstbegäran. 
 
 ## <a name="components-and-features-used"></a>Komponenter och funktioner som används
 * [Azure Automation-konto](../../automation/automation-quickstart-create-account.md)
@@ -30,11 +30,11 @@ Från en log sökresultat i Azure Log Analytics kan du nu välja **vidta åtgär
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Att starta runbook från loggsökning
 
-Om du vill vidta åtgärder för en händelse och starta en runbook från sökresultaten log, börja med att skapa en loggsökning och från resultat som du kan anropa en runbook på begäran.  Du kan göra detta från funktionen log search i den [Azure-portalen](../../azure-monitor/log-query/log-query-overview.md).  I det här exemplet utför vi en loggsökning från Azure-portalen med en grundläggande demonstration av den här funktionen.
+Om du vill vidta åtgärder för en händelse och starta en runbook från sökresultaten log, börja med att skapa en loggsökning och från resultat som du kan anropa en runbook på begäran. Du kan göra detta från den klassiska log sökfunktionen i den [Azure-portalen](../../azure-monitor/log-query/log-query-overview.md). I det här exemplet utför vi en loggsökning från Azure-portalen med en grundläggande demonstration av den här funktionen.
 
 1. I Azure-portalen klickar du på **alla tjänster** och välj **Log Analytics**.  
 2. Välj Log Analytics-arbetsytan.
-3. På arbetsytan, Välj **Loggsökning**.  
+3. På arbetsytan, Välj **loggar (klassisk)**.  
 4. På sidan Log Search utför en loggsökning.  
 5. Från loggsökningen, klickar du på ellipsen till vänster om något av fälten och från popup-fönstret väljer **vidta åtgärder för**.<br><br> ![Välj vidta åtgärder från sökresultat](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Välj **kör en runbook** och välj en runbook ska köras.  Du kan välja valfri runbook i Automation-kontot som är länkad till Log Analytics-arbetsytan.  Observera följande:

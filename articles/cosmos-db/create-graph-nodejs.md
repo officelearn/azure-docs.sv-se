@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 11eec492501f7ead639aa928fe0ddaafb2f1d1bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 400784fbc34a877b91ad0bdc2203b1992a537555
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033680"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509974"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: Skapa en Node.js-app med Gremlin API
 
@@ -78,7 +78,7 @@ Följande kodfragment är alla hämtade från filen app.js.
 
 * Gremlin-klienten skapas.
 
-    ```nodejs
+    ```javascript
     const client = Gremlin.createClient(
         443, 
         config.endpoint, 
@@ -94,7 +94,7 @@ Följande kodfragment är alla hämtade från filen app.js.
 
 * En serie funktioner har definierats för att köra olika Gremlin-åtgärder. Detta är en av dem:
 
-    ```nodejs
+    ```javascript
     function addVertex1(callback)
     {
         console.log('Running Add Vertex1'); 
@@ -108,7 +108,7 @@ Följande kodfragment är alla hämtade från filen app.js.
 
 * Varje funktion kör en `client.execute`-metod med en frågesträngparameter för Gremlin. Följande är ett exempel på hur `g.V().count()` körs:
 
-    ```nodejs
+    ```javascript
     console.log('Running Count'); 
     client.execute("g.V().count()", { }, (err, results) => {
         if (err) return console.error(err);
@@ -119,7 +119,7 @@ Följande kodfragment är alla hämtade från filen app.js.
 
 * I slutet av filen anropas sedan alla metoder med hjälp av metoden `async.waterfall()`. På detta vis körs de efter varandra:
 
-    ```nodejs
+    ```javascript
     try{
         async.waterfall([
             dropGraph,
@@ -158,7 +158,7 @@ Följande kodfragment är alla hämtade från filen app.js.
 
 Här är ett exempel på hur din färdiga config.js-fil ska se ut:
 
-```nodejs
+```javascript
 var config = {}
 
 // Note that this must not have HTTPS or the port number

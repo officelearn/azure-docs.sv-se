@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 9a48127b6a3093c616f08171dd87f9c3e9b45cc9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 61752ad9feda7ad6b8d91f1b996b68f27f24b2c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664099"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821991"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindningar för Azure Functions
 
@@ -499,7 +499,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 Ett komplett exempel finns i [resultat – C#-exempel](#output---c-example).
 
-Du kan använda den `StorageAccount` attribut för att ange storage-konto på klass, metod eller parametern-nivå. Mer information finns i [utlösare - attribut](#trigger---attribute).
+Du kan använda den `StorageAccount` attribut för att ange storage-konto på klass, metod eller parametern-nivå. Mer information finns i utlösaren - attribut.
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 

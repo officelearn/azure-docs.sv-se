@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 66daa71ffbe97e9f5374eedd7f51e5afe02f0b94
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755534"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815252"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  
@@ -98,7 +98,7 @@ Följ stegen nedan för att skicka in ett supportärende om du har problem med r
     
     Klicka på knappen Start e-post.  
 1.  På inloggningssidan, loggar du in med alla Microsoft-ID. Om du inte har ett Microsoft-ID, skapa en.  
-    *   Mer information om hur du skapar ett Microsoft-ID finns i [riktlinjer för att skapa ett Microsoft-ID för att hantera en Azure Marketplace](#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) avsnittet.  
+    *   Mer information om hur du skapar ett Microsoft-ID finns riktlinjer för att skapa ett Microsoft-ID för att hantera en Azure Marketplace-kontoavsnittet.  
 2.  Fyll i information om problemet.  
 3.  Klicka på knappen Skicka för att du skickar biljetten. 
 

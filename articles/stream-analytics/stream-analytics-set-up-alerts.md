@@ -7,14 +7,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d32a201da5befbc8b68148f0b051e283ec289
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412402"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769509"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurera aviseringar för Azure Stream Analytics-jobb
 
@@ -46,17 +46,17 @@ I följande exempel visar hur du ställer in aviseringar för när dina jobb fö
 
    ![Ställa in en avisering för Azure Streaming Analytics-jobb](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. Den **RESOURCE**, **villkor**, och **ÅTGÄRDSGRUPPER** måste var och en post.
+7. Den **RESOURCE**, **villkor**, och **ÅTGÄRDSGRUPPER** måste var och en post. Observera att de definierade villkoren för aviseringar som utlöses, måste vara uppfyllda. Du kan till exempel mäta medelvärdet för ett mått på under de senaste 15 minuterna, var femte minut.
 
    ![Skapa aviseringsregel för Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    Lägg till en **varningsregelns namn**, **beskrivning**, och din **resursgrupp** till den **AVISERINGSINFORMATION** och klicka på **skapa avisering regeln** att skapa regel för ditt Stream Analytics-jobb.
 
    ![Skapa aviseringsregel för Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-
+   
 ## <a name="scenarios-to-monitor"></a>Scenarier för att övervaka
 
-Följande aviseringar rekommenderas för övervakning av prestanda i ditt Stream Analytics-jobb. De här måtten bör utvärderas varje minut under de senaste 5-minutersperioden. Om jobbet har prestandaproblem, kan du använda frågeparallellisering blir mer optimala och prova att öka antalet enheter för strömning.
+Följande aviseringar rekommenderas för övervakning av prestanda i ditt Stream Analytics-jobb. De här måtten bör utvärderas varje minut under de senaste 5-minutersperioden.
 
 |Mått|Tillstånd|Tidsmängd|Tröskelvärde|Korrigerande åtgärder|
 |-|-|-|-|-|

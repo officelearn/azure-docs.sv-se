@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452469"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817343"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Felsöka fjärrskrivbordsanslutningar till virtuella Azure-datorer
 Remote Desktop Protocol (RDP)-anslutning till din Windows-baserade Azure-dator (VM) kan misslyckas av olika skäl, så att du inte kan komma åt den virtuella datorn. Problemet kan vara med Remote Desktop-tjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbord-klienten på värddatorn. Den här artikeln vägleder dig igenom några av de vanligaste sätt att lösa problem med RDP-anslutningen. 
@@ -50,8 +50,8 @@ Läs vidare om du behöver mer detaljerade anvisningar och förklaringar. Kontro
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Sätt att felsöka problem med RDP
 Du kan felsöka virtuella datorer som skapas med hjälp av Resource Manager-distributionsmodellen genom att använda någon av följande metoder:
 
-* [Azure-portalen](#using-the-azure-portal) – det är bra om du behöver att snabbt återställa RDP-konfiguration eller autentiseringsuppgifter och du inte har Azure-verktygen installerats.
-* [Azure PowerShell](#using-azure-powershell) – om du är nöjd med en PowerShell-kommandotolk snabbt återställa RDP-konfigurationen eller autentiseringsuppgifter med hjälp av Azure PowerShell-cmdlets.
+* Azure portal – vilket är bra om du behöver snabbt återställa RDP-konfiguration eller autentiseringsuppgifter och du inte har Azure-verktygen installerats.
+* Azure PowerShell – återställa om du är nöjd med en PowerShell-kommandotolk snabbt RDP-konfigurationen eller autentiseringsuppgifter med hjälp av Azure PowerShell-cmdlets.
 
 Du hittar också anvisningar om hur du felsöker virtuella datorer som skapas med hjälp av den [klassiska distributionsmodellen](#troubleshoot-vms-created-using-the-classic-deployment-model).
 
@@ -236,7 +236,7 @@ Du kan stöta på ett specifikt felmeddelande när du försöker ansluta till de
 * [Fjärrsessionen kopplades från eftersom det finns inga fjärranslutna servrar för fjärrskrivbordslicenser tillgängliga för att tillhandahålla en licens](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [Fjärrskrivbordet kan inte hitta datorn ”name”](troubleshoot-specific-rdp-errors.md#rdpname).
 * [Ett autentiseringsfel inträffade. Det går inte att kontakta den lokala säkerhetskontrollen](troubleshoot-specific-rdp-errors.md#rdpauth).
-* [Windows-säkerhetsfel: dina autentiseringsuppgifter inte fungerade](troubleshoot-specific-rdp-errors.md#wincred).
+* [Windows Security-fel: Dina autentiseringsuppgifter inte fungerade](troubleshoot-specific-rdp-errors.md#wincred).
 * [Den här datorn kan inte ansluta till fjärrdatorn](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Ytterligare resurser

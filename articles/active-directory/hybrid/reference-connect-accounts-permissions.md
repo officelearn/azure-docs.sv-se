@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b05f10068cb747f19266683779352f21ec01bff9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: abfdf75c6460efe50dcc9959ffb297f77a72f8c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491696"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813219"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -67,10 +67,10 @@ Företagsadministratör för AD DS-kontot används för att konfigurera din loka
 Om du uppgraderar från DirSync används Företagsadministratörer för AD DS-autentiseringsuppgifter för att återställa lösenordet för det konto som används av DirSync. Du måste också Global administratör för Azure AD-autentiseringsuppgifter.
 
 ### <a name="azure-ad-global-admin-credentials"></a>Autentiseringsuppgifter för Azure AD Global administratör
-Dessa autentiseringsuppgifter används bara under installationen och används inte när installationen har slutförts. Används för att skapa den [Azure AD-anslutningskontot](#azure-ad-service-account) används för att synkronisera ändringar till Azure AD. Kontot kan också synkronisera som en funktion i Azure AD.
+Dessa autentiseringsuppgifter används bara under installationen och används inte när installationen har slutförts. Den används för att skapa Azure AD Connector-kontot som används för synkronisering ändringar till Azure AD. Kontot kan också synkronisera som en funktion i Azure AD.
 
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>Behörigheter som krävs för AD DS-anslutningskontot för standardinställningar
-Den [AD DS-anslutningskontot](#active-directory-account) för läsning och skrivning till Windows Server AD och har följande behörigheter när du skapade med standardinställningar:
+AD DS-anslutningskontot för läsning och skrivning till Windows Server AD och har följande behörigheter när du skapade med standardinställningar:
 
 | Behörighet | Används för |
 | --- | --- |
@@ -89,9 +89,9 @@ Följande är en sammanfattning av expressinstallationsfiler sidorna i guiden, d
 
 | Guidesidan | Autentiseringsuppgifter samlas in | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Gäller inte |Användaren som kör installationsguiden |Administratör för den lokala servern |<li>Skapar den [ADSync tjänstkonto](#azure-ad-connect-sync-service-account) konto som används för att köra synkroniseringstjänsten. |
-| Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapandet av den [Azure AD-anslutningskontot](#azure-ad-service-account) som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
-| Anslut till AD DS |Den lokala Active Directory-autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar den [AD DS-anslutningskontot](#active-directory-account) i Active Directory och ger behörighet till den. Om du skapade kontot används för att läsa och skriva kataloginformation under synkroniseringen.</li> |
+| Gäller inte |Användaren som kör installationsguiden |Administratör för den lokala servern |<li>Skapar ADSync konto tjänstkontot som används för att köra synkroniseringstjänsten. |
+| Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapa ett Azure AD Connector-konto som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
+| Anslut till AD DS |Den lokala Active Directory-autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar AD DS-anslutningskontot i Active Directory och ger behörighet till den. Om du skapade kontot används för att läsa och skriva kataloginformation under synkroniseringen.</li> |
 
 
 ## <a name="custom-installation-settings"></a>Inställningar för anpassad installation
@@ -106,10 +106,10 @@ Följande är en sammanfattning av anpassad installation sidorna i guiden, de au
 
 | Guidesidan | Autentiseringsuppgifter samlas in | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Gäller inte |Användaren som kör installationsguiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server, måste användaren vara systemadministratörskontot (SA) i SQL</li> |Som standard skapar du det lokala kontot som används som den [synkronisera motorn tjänstkonto](#azure-ad-connect-sync-service-account). Kontot skapas endast när administratören inte anger ett visst konto. |
+| Gäller inte |Användaren som kör installationsguiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server, måste användaren vara systemadministratörskontot (SA) i SQL</li> |Som standard skapar du det lokala kontot som används som synkroniseringstjänstkontot för motorn. Kontot skapas endast när administratören inte anger ett visst konto. |
 | Installera synkroniseringstjänsterna, tjänsten kontoalternativ |AD eller lokala autentiseringsuppgifter för konto |Användare, behörigheter beviljas av installationsguiden |Om administratören anger ett konto, används det här kontot som tjänstkontot för synkroniseringstjänsten. |
-| Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapandet av den [Azure AD-anslutningskontot](#azure-ad-service-account) som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
-| Anslut dina kataloger |Den lokala Active Directory-autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna som beror på vilka funktioner du aktiverar och finns i [skapa AD DS-anslutningskontot](#create-the-ad-dso-connector-account) |Det här kontot används för att läsa och skriva kataloginformation under synkroniseringen. |
+| Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapa ett Azure AD Connector-konto som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
+| Anslut dina kataloger |Den lokala Active Directory-autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna som beror på vilka funktioner du aktiverar och finns i skapa AD DS-anslutningskontot |Det här kontot används för att läsa och skriva kataloginformation under synkroniseringen. |
 | AD FS-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Domänadministratören |Installation och konfiguration av AD FS-serverrollen. |
 | Web application proxy-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Lokal administratör på måldatorn. |Installation och konfiguration av WAP-serverrollen. |
 | Autentiseringsuppgifter för proxyförtroende |Autentiseringsuppgifter för proxyförtroende Federation service (autentiseringsuppgifter proxyn använder för att registrera för ett betrott certifikat från FS |Domänkonto som är lokal administratör på AD FS-servern |Den första registreringen av FS WAP betrott certifikat. |
@@ -157,7 +157,7 @@ Om du använder standardinställningarna skapas ett konto i Active Directory som
 
 ![AD-konto](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
-Om du använder anpassade inställningar, är du ansvarig för att skapa kontot innan du påbörjar installationen.  Se [skapa AD DS-anslutningskontot](#create-the-ad-dso-connector-account).
+Om du använder anpassade inställningar, är du ansvarig för att skapa kontot innan du påbörjar installationen.  Se Skapa AD DS-anslutningskontot.
 
 ### <a name="adsync-service-account"></a>ADSync-tjänstkontot
 Synkroniseringstjänsten kan köras under olika konton. Det kan köras en **virtuellt tjänstkonto** (VSA), en **Grupphanterat tjänstkonto** (gMSA/sMSA), eller ett vanligt användarkonto. Alternativ som stöds har ändrats med 2017 April version av Connect när du gör en ny installation. Dessa ytterligare alternativ är inte tillgängliga om du uppgraderar från en tidigare version av Azure AD Connect.
@@ -198,7 +198,7 @@ Ett virtuellt tjänstkonto är en särskild typ av konto som inte har ett lösen
 
 ![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
-Attributet är avsedd att användas med scenarier där Synkroniseringsmotorn och SQL är på samma server. Om du använder fjärr-SQL så vi rekommenderar att du använder en [Grupphanterat tjänstkonto](#managed-service-account) i stället.
+Attributet är avsedd att användas med scenarier där Synkroniseringsmotorn och SQL är på samma server. Om du använder fjärr-SQL, sedan rekommenderar vi för att använda ett Grupphanterat tjänstkonto i stället.
 
 Den här funktionen kräver Windows Server 2008 R2 eller senare. Om du installerar Azure AD Connect på Windows Server 2008 och installationen återgår till att använda en [användarkonto](#user-account) i stället.
 

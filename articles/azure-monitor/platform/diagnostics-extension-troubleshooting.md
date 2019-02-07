@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473817"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822144"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Felsökning av Azure-diagnostik
 Den här artikeln beskriver felsökningsinformation som är relevant för med hjälp av Azure Diagnostics. Läs mer om Azure diagnostics [översikt över Azure Diagnostics](diagnostics-extension-overview.md).
@@ -105,7 +105,7 @@ Den vanligaste orsaken till att händelsedata inte alls är att lagringskontoinf
 
 Lösning: Korrigera konfigurationen diagnostik och installera om diagnostik.
 
-Om lagringskontot är korrekt konfigurerade, remote access in på datorn och kontrollera att DiagnosticsPlugin.exe och MonAgentCore.exe körs. Om de inte körs, följer du stegen i [startar inte Azure Diagnostics](#azure-diagnostics-is-not-starting).
+Om lagringskontot är korrekt konfigurerade, remote access in på datorn och kontrollera att DiagnosticsPlugin.exe och MonAgentCore.exe körs. Om de inte körs, följer du stegen i Azure Diagnostics inte startar.
 
 Om processerna som körs, går du till [är data som komma hämtats lokalt?](#is-data-getting-captured-locally) och i anvisningarna.
 
@@ -119,7 +119,7 @@ Diagnostikkonfigurationen innehåller instruktioner för en viss typ av data ska
 - **Prestandaräknare**: Öppna perfmon och kontrollera räknaren.
 
 - **Spårningsloggar**:  Fjärransluten åtkomst till den virtuella datorn och Lägg till en TextWriterTraceListener i appens config-filen.  Se https://msdn.microsoft.com/library/sk36c28t.aspx att ställa in text-lyssnaren.  Kontrollera att den `<trace>` elementet har `<trace autoflush="true">`.<br />
-Om du inte ser spårningsloggar som genereras, se [mer om spårningsloggar saknas](#more-about-trace-logs-missing).
+Om du inte ser spårningsloggar som genereras, Läs mer om spårningsloggar som saknas.
 
 - **ETW-spårningar**: Fjärråtkomst till den virtuella datorn och installera PerfView.  Kör i PerfView, **filen** > **användarkommando** > **lyssna etwprovder1** > **etwprovider2**och så vidare. Den **lyssna** kommandot är skiftlägeskänsligt och det får inte finnas blanksteg mellan CSV-listan för ETW-leverantörer. Om kommandot misslyckas att köra kan du välja den **Log** längst ned till höger i verktyget Perfview för att se vad försökte köra och vilka resultatet var.  Anta att indata är rätt och öppnas ett nytt fönster. I några sekunder börjar du se ETW-spårningar.
 
@@ -127,13 +127,13 @@ Om du inte ser spårningsloggar som genereras, se [mer om spårningsloggar sakna
 
 #### <a name="is-data-getting-captured-locally"></a>Data komma avbildas lokalt?
 Kontrollera därefter data komma avbildas lokalt.
-Data lagras lokalt i `*.tsf` filer i [lokal lagring för diagnostikdata](#log-artifacts-path). Olika typer av loggar hämta som samlas in i olika `.tsf` filer. Namnen liknar tabellnamn i Azure Storage.
+Data lagras lokalt i `*.tsf` filer i det lokala arkivet för diagnostikdata. Olika typer av loggar hämta som samlas in i olika `.tsf` filer. Namnen liknar tabellnamn i Azure Storage.
 
 Till exempel `Performance Counters` hämta som samlats in på `PerformanceCountersTable.tsf`. Händelseloggar hämta som samlas in i `WindowsEventLogsTable.tsf`. Följ instruktionerna i den [lokal logg extrahering](#local-log-extraction) avsnitt för att öppna filerna lokal insamling och kontrollera att du ser dem komma som samlats in på disk.
 
 Om du inte ser komma lokalt insamlade loggar och redan har kontrollerat att värden genererar data, har du förmodligen konfigurationsproblem. Granska konfigurationen noggrant.
 
-Granska även den konfiguration som genererades för MonitoringAgent [MaConfig.xml](#log-artifacts-path). Kontrollera att det finns ett avsnitt som beskriver relevant logg-källa. Kontrollera att det inte förloras mellan diagnostikkonfigurationen och agentkonfigurationen av övervakningen.
+Granska även den konfiguration som genererades för MonitoringAgent MaConfig.xml. Kontrollera att det finns ett avsnitt som beskriver relevant logg-källa. Kontrollera att det inte förloras mellan diagnostikkonfigurationen och agentkonfigurationen av övervakningen.
 
 #### <a name="is-data-getting-transferred"></a>Är data överföras?
 Om du har kontrollerat att data komma avbildas lokalt men du fortfarande inte ser den i ditt storage-konto kan du vidta följande steg:
@@ -142,10 +142,10 @@ Om du har kontrollerat att data komma avbildas lokalt men du fortfarande inte se
 
 - Kontrollera att det angivna lagringskontot är korrekt. Kontrollera att du inte har nätverksbegränsningar för som gör att komponenterna från att nå offentlig lagring slutpunkter. Ett sätt att göra det är att fjärråtkomst in på datorn och försök sedan att skriva till samma lagringskonto något själv.
 
-- Slutligen kan du titta på vilka fel rapporterats av en Övervakningsagent. Övervakningsagenten skriver loggar i `maeventtable.tsf`, som finns i [lokal lagring för diagnostikdata](#log-artifacts-path). Följ instruktionerna i den [lokal logg extrahering](#local-log-extraction) avsnittet för att öppna den här filen. Försök att fastställa om det finns `errors` som indikerar fel vid läsning av lokala filer skriva till lagring.
+- Slutligen kan du titta på vilka fel rapporterats av en Övervakningsagent. Övervakningsagenten skriver loggar i `maeventtable.tsf`, som finns i det lokala arkivet för diagnostikdata. Följ instruktionerna i den [lokal logg extrahering](#local-log-extraction) avsnittet för att öppna den här filen. Försök att fastställa om det finns `errors` som indikerar fel vid läsning av lokala filer skriva till lagring.
 
 ### <a name="capturing-and-archiving-logs"></a>Samla in och arkivera loggar
-Om du funderar på att kontakta supporten, är det första kanske du ombeds att samla in loggar från din dator. Du kan spara tid genom att göra det själv. Kör den `CollectGuestLogs.exe` utility på [loggsökväg samling verktyget](#log-artifacts-path). Den genererar en .zip-fil med alla relevanta Azure-loggarna i samma mapp.
+Om du funderar på att kontakta supporten, är det första kanske du ombeds att samla in loggar från din dator. Du kan spara tid genom att göra det själv. Kör den `CollectGuestLogs.exe` utility på loggsökväg samling-verktyget. Den genererar en .zip-fil med alla relevanta Azure-loggarna i samma mapp.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Diagnostik datatabeller hittades inte
 Tabellerna i Azure storage som innehåller ETW-händelser är namngivna med hjälp av följande kod:
@@ -213,7 +213,7 @@ Den här koden skapar fyra tabeller:
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Hur du kontrollerar konfigurationen för Diagnostiktillägg
 Det enklaste sättet att kontrollera din tilläggskonfigurationen är att gå till [Azure Resource Explorer](http://resources.azure.com), och gå sedan till den virtuella datorn eller molnet var Azure Diagnostics-tillägget (IaaSDiagnostics / PaaDiagnostics) är.
 
-Du kan också fjärrskrivbord på datorn och titta på Azure Diagnostics konfigurationsfilen som beskrivs i den [logga artefakter sökvägssektion](#log-artifacts-path).
+Du kan också fjärrskrivbord på datorn och titta på Azure Diagnostics konfigurationsfilen som beskrivs i avsnittet Log artefakter sökväg.
 
 I båda fallen söker du efter **Microsoft.Azure.Diagnostics**, och sedan för den **xmlCfg** eller **WadCfg** fält.
 

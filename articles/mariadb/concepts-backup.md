@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: e36e718d35f652c139958388491642e98469ecaf
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c9a9b6f0127bba4efda6e691a2b7126935d81c0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548858"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817707"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Säkerhetskopiering och återställning i Azure-databas för MariaDB
 
@@ -52,7 +52,7 @@ Det finns två typer av återställning:
 Beräknad tid för återställning är beroende av flera faktorer, inklusive databasernas storlek, transaktionsloggarnas storlek, nätverkets bandbredd och det totala antalet databaser som återställs i samma region på samma gång. Tiden för återställning är vanligtvis mindre än 12 timmar.
 
 > [!IMPORTANT]
-> Ta bort servrar **kan** återställas. Om du tar bort servern tas även bort alla databaser som hör till servern och kan inte återställas.
+> Ta bort servrar **kan** återställas. Om du tar bort servern tas även bort alla databaser som hör till servern och kan inte återställas. Om du vill skydda serverresurser efter distributionen, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanteringslås](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 

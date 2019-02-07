@@ -1,77 +1,64 @@
 ---
-title: Migrera kunskapsbaser förhandsversion – Qna Maker
+title: Migrera kunskapsbaser – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Kunskapsbaser som skapats med QnA Maker kostnadsfri förhandsversion måste migreras till QnA Maker GA. QnA Maker förhandsversionen kommer att inaktualiseras i januari 2019.
+description: Flytta en kunskapsbas som skapats med QnA Maker till en ny knowledge base.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/06/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08373449b2e61da503ab785eda7d6df80d6d1c16
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 73f355a6e8c9373a5c31dd7cfebd4455aa324302
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227938"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809751"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskapsbas med hjälp av export-import
-QnA Maker meddelat allmän tillgänglighet den 7 maj 2018 på den \\\build\ konferensen. QnA har Maker en ny arkitektur som bygger på Azure. Kunskapsbaser som skapats med QnA Maker kostnadsfri förhandsversion måste migreras till QnA Maker GA. QnA Maker förhandsversionen kommer att inaktualiseras i januari 2019. Mer information om ändringar i QnA Maker GA finns i QnA Maker allmänheten [blogginlägget](https://aka.ms/qnamakerga-blog).
 
-QnA Maker har nu en [prissättningsmodellen](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
+Migrera en kunskapsbas kräver exportera från en kunskapsbas och sedan importerar till en annan. 
 
-Förutsättningar
-> [!div class="checklist"]
-> * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-> * Konfigurera en ny [QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md)
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="migrate-a-knowledge-base-from-qna-maker-preview-portal"></a>Migrera en kunskapsbas från QnA Maker Preview-portalen
-1. Gå till [QnA Maker Preview-portalen](https://aka.ms/qnamaker-old-portal
-) och klicka på **Mina tjänster**.
-2. Välj kunskapsbas som du vill migrera genom att klicka på redigeringsikonen.
+* Skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Ställa in en ny [QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md)
 
-    ![Redigera kunskapsbas](../media/qnamaker-how-to-migrate-kb/preview-editkb.png)
+## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Migrera en kunskapsbas från QnA Maker
+1. Logga in på [QnA Maker portal](https://qnamaker.ai).
+1. Välj det kunskapsbas som du vill migrera.
 
-3. Klicka på **hämta kunskapsbas** att ladda ned en TSV-fil som innehåller innehållet i kunskapsbasen - frågor, svar, metadata, och datakällan namn från vilken de extraherades.
+1. På den **inställningar** väljer **exportera kunskapsbas** att ladda ned en TSV-fil som innehåller innehållet i kunskapsbasen - frågor, svar, metadata, och datakällan namn från som de var extraherade.
 
-    ![Ladda ned kunskapsbas](../media/qnamaker-how-to-migrate-kb/preview-download.png)
-
-4. Logga in på att den [QnA Maker portal](https://qnamaker.ai) med dina autentiseringsuppgifter för azure och klicka på **skapa en kunskapsbas**.
-    
-5. Om du inte redan har skapat en QnA Maker-tjänsten väljer **skapar du en tjänst för frågor och svar om**. Annars väljer du en QnA Maker-tjänsten från listrutor i steg 2. Välj QnA Maker-tjänsten som är värd för Knowledge Base.
-
-    ![Konfigurera frågor och svar om tjänsten](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
-
-6. Skapa en tom kunskapsbas 
+1. Välj **skapa en kunskapsbas** sedan skapa en tom kunskapsbas på den översta menyn. 
 
     ![Set-datakällor](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
     - Ge din tjänst en **namn.** Dubblettnamn som stöds och specialtecken stöds också.
-    - Hoppa över ladda upp filer eller URL: er som du vill använda data från förhandsversion kunskapsbasen. Nu skapar du en tom kunskapsbas.
 
-7. Välj **Skapa**.
+1. Välj **Skapa**.
 
     ![Skapa KB](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-8. I den här nya Knowledge base, öppna den **inställningar** fliken och klicka på **Import kunskapsbas**. Detta importerar de frågor, svar och metadata och behåller de namn på datakällor från vilken de extraherades.
+1. I den här nya knowledge base, öppna den **inställningar** fliken och markera **Import kunskapsbas**. Detta importerar de frågor, svar och metadata och behåller de namn på datakällor från vilken de extraherades.
 
    ![Importera kunskapsbas](../media/qnamaker-how-to-migrate-kb/Import.png)
 
-9. **Testa** nya kunskapsbasen panelen Test. Lär dig hur du [testa kunskapsbasen](../How-To/test-knowledge-base.md).
-10. **Publicera** i knowledge base. Lär dig hur du [publicera din kunskapsbas](../How-To/publish-knowledge-base.md).
-11. Använd slutpunkt nedan i program / robotar koden. Se här så [skapa QnA-roboten](../Tutorials/create-qna-bot.md).
+1. **Testa** nya kunskapsbasen panelen Test. Lär dig hur du [testa kunskapsbasen](../How-To/test-knowledge-base.md).
+1. **Publicera** i knowledge base. Lär dig hur du [publicera din kunskapsbas](../How-To/publish-knowledge-base.md).
+1. Använda slutpunkten i ditt program eller robotar kod. Se här så [skapa QnA-roboten](../Tutorials/create-qna-bot.md).
 
     ![QnA Maker-värden](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
-Nu kan alla kunskapsbas innehållet - frågor, svar och metadata, tillsammans med namnen på källfilerna och URL: er, importeras till nya kunskapsbasen. 
+    Nu kan alla kunskapsbas innehållet - frågor, svar och metadata, tillsammans med namnen på källfilerna och URL: er, importeras till nya kunskapsbasen. 
 
-## <a name="chatlogs-and-alterations"></a>Chatlogs och ändringar
-Ändringar (synonymer) importeras inte automatiskt. Använd den [V2 API: er](https://aka.ms/qnamaker-v2-apis) att exportera ändringar från förhandsversion stacken och [V4-API: er](https://aka.ms/qnamaker-v4-apis) ska ersättas i den nya stacken.
+## <a name="chat-logs-and-alterations"></a>Chattloggarna och ändringar
+Ändringar (synonymer) importeras inte automatiskt. Använd den [V2 API: er](https://aka.ms/qnamaker-v2-apis) att exportera ändringar från den gamla kunskapen och [V4-API: er](https://aka.ms/qnamaker-v4-apis) att flytta ändringar i nya knowledge base.
 
-Det går inte att migrera chatlogs, eftersom den nya stacken använder Application Insights för att lagra chatlogs. Du kan dock hämta chatlogs från den [förhandsversionsportalen](https://aka.ms/qnamaker-old-portal).
+Det går inte att migrera chattloggarna, eftersom nya kunskapsbasen använder Application Insights för att lagra chattloggarna. 
 
 ## <a name="next-steps"></a>Nästa steg
 

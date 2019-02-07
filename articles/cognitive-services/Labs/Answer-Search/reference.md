@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 6ec09627fb80925fef72c491936a1dd83106874b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5e9ae8fcd756619c83ebde12df9f8405f1a39bf6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211703"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812590"
 ---
 # <a name="project-answer-search-v7-reference"></a>Projektet svar Search v7-referens
 
@@ -59,13 +59,13 @@ Information om tillåtna användning och visning av resultat finns i [använder 
 
 > Dessutom vissa parametrar är inte för närvarande beskrivande för URL: en förhandsversion API, men kan användas i framtiden för förbättrad globalisering. 
  
-## <a name="headers"></a>Sidhuvuden  
+## <a name="headers"></a>Rubriker  
 Följande är de rubriker som en begäran och svaret kan innehålla.  
   
-|Sidhuvud|Beskrivning|  
+|Huvud|Beskrivning|  
 |------------|-----------------|  
 |Godkänn|Valfritt begärandehuvud.<br /><br /> Typ av media är application/json. Ange att svaret använda [JSON-LD](http://json-ld.org/), inställd program/ld + json Accept-huvud.|  
-|<a name="acceptlanguage" />Accept-Language|Valfritt begärandehuvud.<br /><br /> En kommaavgränsad lista över språk som ska användas för användargränssnittssträngar. Listan är i fallande prioritetsordning. Mer information, bland annat om det förväntade formatet, finns i [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Det är huvudet och [setLang](#setlang)-frågeparametern utesluter varandra&mdash;ange inte båda två.<br /><br /> Om du anger huvudet måste du även ange frågeparametern [cc](#cc). För att fastställa vilken marknad som resultat ska returneras för använder Bing det första språk som stöds på listan och kombinerar det med parametervärdet `cc`. Om listan inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran, eller så använder Bing en aggregerad eller standardmarknad för resultatet. För att avgöra vilken marknad som används i Bing kan du gå till BingAPIs-Market-huvudet.<br /><br /> Använd enbart det här huvudet och `cc`-frågeparametern om du anger flera språk. Annars kan du använda frågeparametrarna [mkt](#mkt) och [setLang](#setlang).<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|  
+|<a name="acceptlanguage" />Accept-Language|Valfritt begärandehuvud.<br /><br /> En kommaavgränsad lista över språk som ska användas för användargränssnittssträngar. Listan är i fallande prioritetsordning. Mer information, bland annat om det förväntade formatet, finns i [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Det är huvudet och [setLang](#setlang)-frågeparametern utesluter varandra&mdash;ange inte båda två.<br /><br /> Om du ställer in den här rubriken, måste du även ange Frågeparametern kopia. För att fastställa vilken marknad som resultat ska returneras för använder Bing det första språk som stöds på listan och kombinerar det med parametervärdet `cc`. Om listan inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran, eller så använder Bing en aggregerad eller standardmarknad för resultatet. För att avgöra vilken marknad som används i Bing kan du gå till BingAPIs-Market-huvudet.<br /><br /> Använd enbart det här huvudet och `cc`-frågeparametern om du anger flera språk. Annars kan du använda frågeparametrarna [mkt](#mkt) och [setLang](#setlang).<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|  
 |<a name="market" />BingAPIs-Market|Svarshuvud.<br /><br /> Marknaden som används av begäran. Formuläret är \<languageCode\>-\<countryCode\>. Exempel: sv-SE.|  
 |<a name="traceid" />BingAPIs-TraceId|Svarshuvud.<br /><br /> ID för loggposten som innehåller information om begäran. När ett fel uppstår ska du avbilda detta ID. Om det inte går att fastställa och lösa problemet ska du ange ID:t tillsammans med annan information som du ger supportteamet.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Begärandehuvud som krävs.<br /><br /> Prenumerationsnyckeln som du fick när du registrerade dig för den här tjänsten i [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
@@ -83,13 +83,13 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar.  
   
   
-|Name|Value|Type|Krävs|  
+|Namn|Värde|Type|Krävs|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i [marknaden koder](#market-codes).<br /><br /> **Obs!** URL: en förhandsversion av API: et stöder för närvarande endast en-us-marknaden och språk.<br /><br />|Sträng|Ja|  
-|<a name="query" />q|URL: en för att förhandsgranska|Sträng|Ja|  
-|<a name="responseformat" />responseFormat|Medietyp för att använda för svaret. Här följer möjliga skiftlägeskänsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt att svaret innehåller, finns i [Svarsobjekten](#response-objects).<br /><br />  Om du anger JsonLd innehåller svarstexten JSON-LD-objekt som innehåller sökresultaten. Information om JSON-LD finns [JSON-LD](http://json-ld.org/).|Sträng|Nej|  
-|<a name="safesearch" />safeSearch|Ett filter som används för att filtrera innehåll som är olämpligt för barn. Här följer de möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Inaktivera&mdash;returnera webbsidor med vuxet text, bilder eller videor.<br /><br/></li><li>Måttlig&mdash;returnera webbsidor med vuxet text, men inte vuxen bilder eller videofiler.<br /><br/></li><li>Strikt&mdash;inte returnerar webbsidor med vuxet text, bilder eller videor.</li></ul><br /> Standardinställningen är Måttlig.<br /><br /> **Obs!** Om förfrågan kommer från en marknad som Bing vuxet principen kräver att `safeSearch` har angetts till strikt Bing ignorerar den `safeSearch` värde och använder Strict.<br/><br/>**Obs!** Om du använder den `site:` fråga-operator, finns risken att svaret kan innehålla vuxet innehåll, oavsett vad de `safeSearch` Frågeparametern är inställd. Använd endast `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn. |Sträng|Nej|  
-|<a name="setlang" />setLang|Språket som ska användas för användargränssnittssträngar. Ange språk med hjälp av den tvåstaviga språkkoden ISO 639-1. Språkkoden för engelska är till exempel EN. Standardvärdet är EN (engelska).<br /><br /> Även om det är valfritt bör du alltid ange språket. Normalt anger du `setLang` på samma språk som anges av `mkt` om inte användaren vill att gränssnittets strängar ska visas på ett annat språk.<br /><br /> Den här parametern och [Accept-Language](#acceptlanguage)-huvudet utesluter varandra&mdash;ange inte båda två.<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|Sträng|Nej| 
+|<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i marknaden koder.<br /><br /> **Obs!** URL: en förhandsversion av API: et stöder för närvarande endast en-us-marknaden och språk.<br /><br />|String|Ja|  
+|<a name="query" />q|URL: en för att förhandsgranska|String|Ja|  
+|<a name="responseformat" />responseFormat|Medietyp för att använda för svaret. Här följer möjliga skiftlägeskänsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt att svaret innehåller, finns i [Svarsobjekten](#response-objects).<br /><br />  Om du anger JsonLd innehåller svarstexten JSON-LD-objekt som innehåller sökresultaten. Information om JSON-LD finns [JSON-LD](http://json-ld.org/).|String|Nej|  
+|<a name="safesearch" />safeSearch|Ett filter som används för att filtrera innehåll som är olämpligt för barn. Här följer de möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Inaktivera&mdash;returnera webbsidor med vuxet text, bilder eller videor.<br /><br/></li><li>Måttlig&mdash;returnera webbsidor med vuxet text, men inte vuxen bilder eller videofiler.<br /><br/></li><li>Strikt&mdash;inte returnerar webbsidor med vuxet text, bilder eller videor.</li></ul><br /> Standardinställningen är Måttlig.<br /><br /> **Obs!** Om förfrågan kommer från en marknad som Bing vuxet principen kräver att `safeSearch` har angetts till strikt Bing ignorerar den `safeSearch` värde och använder Strict.<br/><br/>**Obs!** Om du använder den `site:` fråga-operator, finns risken att svaret kan innehålla vuxet innehåll, oavsett vad de `safeSearch` Frågeparametern är inställd. Använd endast `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn. |String|Nej|  
+|<a name="setlang" />setLang|Språket som ska användas för användargränssnittssträngar. Ange språk med hjälp av den tvåstaviga språkkoden ISO 639-1. Språkkoden för engelska är till exempel EN. Standardvärdet är EN (engelska).<br /><br /> Även om det är valfritt bör du alltid ange språket. Normalt anger du `setLang` på samma språk som anges av `mkt` om inte användaren vill att gränssnittets strängar ska visas på ett annat språk.<br /><br /> Den här parametern och [Accept-Language](#acceptlanguage)-huvudet utesluter varandra&mdash;ange inte båda två.<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|String|Nej| 
 
 
 ## <a name="response-objects"></a>Svarsobjekt  
@@ -108,20 +108,20 @@ Definierar de fel som inträffat.
   
 |Element|Beskrivning|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|Sträng|  
-|<a name="error-message" />meddelande|En beskrivning av felet.|Sträng|  
-|<a name="error-moredetails" />moreDetails|En beskrivning som ger ytterligare information om felet.|Sträng|  
-|<a name="error-parameter" />parameter|Frågeparametern i begäran som orsakade felet.|Sträng|  
-|<a name="error-subcode" />subCode|Felkoden som identifierar felet. Till exempel om `code` är InvalidRequest, `subCode` kanske ParameterInvalid eller ParameterInvalidValue. |Sträng|  
-|<a name="error-value" />Värde|Värde för Frågeparametern som inte var giltig.|Sträng|  
+|<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|String|  
+|<a name="error-message" />meddelande|En beskrivning av felet.|String|  
+|<a name="error-moredetails" />moreDetails|En beskrivning som ger ytterligare information om felet.|String|  
+|<a name="error-parameter" />parameter|Frågeparametern i begäran som orsakade felet.|String|  
+|<a name="error-subcode" />subCode|Felkoden som identifierar felet. Till exempel om `code` är InvalidRequest, `subCode` kanske ParameterInvalid eller ParameterInvalidValue. |String|  
+|<a name="error-value" />Värde|Värde för Frågeparametern som inte var giltig.|String|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
 Det översta objekt som svaret innehåller när begäran misslyckas.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
-|_typ|Typ-tipset.|Sträng|  
+|_typ|Typ-tipset.|String|  
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)|  
 
   
@@ -129,55 +129,55 @@ Det översta objekt som svaret innehåller när begäran misslyckas.
 ### <a name="license"></a>Licens  
 Definierar den licens som text eller foto kan användas.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
-|namn|Namnet på licensen.|Sträng|  
-|url|URL till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namn och Webbadress för att skapa en hyperlänk.|Sträng|  
+|namn|Namnet på licensen.|String|  
+|url|URL till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namn och Webbadress för att skapa en hyperlänk.|String|  
   
 
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Definierar en avtalsenliga regel för licens attribution.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
-|_typ|Ett tips för typen som har angetts till LicenseAttribution.|Sträng|  
+|_typ|Ett tips för typen som har angetts till LicenseAttribution.|String|  
 |licens|Licensen som innehållet kan användas.|[Licens](#license)|  
-|licenseNotice|Licens för att visa bredvid fältet riktade. Till exempel ”Text under kopia av SA licens”.<br /><br /> Använd licensen namn och URL: en i den `license` fält som du vill skapa en hyperlänk till den webbplats som ger information om licensen. Ersätt sedan licens namn i den `licenseNotice` sträng (till exempel CC-av-SA) med länken som du nyss skapade.|Sträng|  
+|licenseNotice|Licens för att visa bredvid fältet riktade. Till exempel ”Text under kopia av SA licens”.<br /><br /> Använd licensen namn och URL: en i den `license` fält som du vill skapa en hyperlänk till den webbplats som ger information om licensen. Ersätt sedan licens namn i den `licenseNotice` sträng (till exempel CC-av-SA) med länken som du nyss skapade.|String|  
 |mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolesk|  
-|targetPropertyName|Namnet på fältet som regeln gäller för.|Sträng|  
+|targetPropertyName|Namnet på fältet som regeln gäller för.|String|  
   
 
 ### <a name="link"></a>Länk  
 Definierar komponenterna i en hyperlänk.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
-|_typ|Typ-tipset.|Sträng|  
-|text|Texten som visas.|Sträng|  
-|url|EN URL. Använd URL: en och visa text för att skapa en hyperlänk.|Sträng|  
+|_typ|Typ-tipset.|String|  
+|text|Texten som visas.|String|  
+|url|EN URL. Använd URL: en och visa text för att skapa en hyperlänk.|String|  
   
 
 ### <a name="linkattribution"></a>LinkAttribution  
 Definierar en avtalsenliga regel för länken attribution.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
-|_typ|Ett tips för typen som har angetts till LinkAttribution.|Sträng|  
+|_typ|Ett tips för typen som har angetts till LinkAttribution.|String|  
 |mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolesk|  
-|targetPropertyName|Namnet på fältet som regeln gäller för.<br /><br /> Om målet inte anges, attribution gäller för entiteten som helhet och ska visas omedelbart efter entiteten presentationen. Om det finns flera text och länk attribution-regler som inte anger ett mål, bör du sammanfoga dem och visa dem med hjälp av en ”Data från”: etikett. Till exempel ”Data från < providern name1\> &#124; < providern name2\>”.|Sträng|  
-|text|Attribution-text.|Sträng|  
-|url|URL till leverantörens webbplats. Använd `text` och URL: en för att skapa av hyperlänk.|Sträng|  
+|targetPropertyName|Namnet på fältet som regeln gäller för.<br /><br /> Om målet inte anges, attribution gäller för entiteten som helhet och ska visas omedelbart efter entiteten presentationen. Om det finns flera text och länk attribution-regler som inte anger ett mål, bör du sammanfoga dem och visa dem med hjälp av en ”Data från”: etikett. Till exempel ”Data från < providern name1\> &#124; < providern name2\>”.|String|  
+|text|Attribution-text.|String|  
+|url|URL till leverantörens webbplats. Använd `text` och URL: en för att skapa av hyperlänk.|String|  
   
   
 ### <a name="mediaattribution"></a>MediaAttribution  
 Definierar en avtalsenliga regel för media attribution.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
-|_typ|Ett tips för typen som har angetts till MediaAttribution.|Sträng|  
+|_typ|Ett tips för typen som har angetts till MediaAttribution.|String|  
 |mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolesk|  
-|targetPropertyName|Namnet på fältet som regeln gäller för.|Sträng|  
-|url|Den URL som används för att skapa hyperlänk för medieinnehållet. Till exempel om målet är en bild, skulle du använda URL: en för att skapa avbildningen klickbara.|Sträng|  
+|targetPropertyName|Namnet på fältet som regeln gäller för.|String|  
+|url|Den URL som används för att skapa hyperlänk för medieinnehållet. Till exempel om målet är en bild, skulle du använda URL: en för att skapa avbildningen klickbara.|String|  
   
   
   
@@ -186,23 +186,23 @@ Definierar en utgivare.
   
 Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
-|namn|Utgivarens namn.|Sträng|  
-|url|URL till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan innehålla en webbplats.|Sträng|  
+|namn|Utgivarens namn.|String|  
+|url|URL till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan innehålla en webbplats.|String|  
   
   
 
 ### <a name="webpage"></a>Webbsida  
 Definierar informationen om en webbsida i förhandsversion.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|
-|namn|En rubrik, inte nödvändigtvis HTML-rubrik|Sträng|
-|url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|Sträng|  
-|beskrivning|Kort beskrivning på sidan och innehåll|Sträng|  
+|namn|En rubrik, inte nödvändigtvis HTML-rubrik|String|
+|url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|String|  
+|beskrivning|Kort beskrivning på sidan och innehåll|String|  
 |isFamilyFriendly|Mest korrekta för objekt i web-index. i realtid hämtar gör denna identifiering som endast baseras på URL: en och inte sidinnehåll|boolesk|
-|primaryImageOfPage/contentUrl|URL: en till en representativ avbildning som ska ingå i förhandsversionen|Sträng| 
+|primaryImageOfPage/contentUrl|URL: en till en representativ avbildning som ska ingå i förhandsversionen|String| 
   
   
 ### <a name="querycontext"></a>QueryContext  
@@ -211,35 +211,35 @@ Definierar frågekontexten som Bing används för begäran.
 |Element|Beskrivning|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolesk|  
-|alterationOverrideQuery|Frågesträngen du använder för att tvinga Bing för att använda den ursprungliga strängen. Om frågesträngen är till exempel *saling downwind*, frågesträng åsidosättning blir *+ saling downwind*. Kom ihåg att koda frågesträngen vilket resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|Sträng|  
-|alteredQuery|Frågesträngen som används av Bing för att utföra frågan. Bing använder ändrats frågesträngen om den ursprungliga frågesträngen innehåller stavfel. Om frågesträngen är till exempel `saling downwind`, ändrats frågesträngen blir `sailing downwind`.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|Sträng|  
+|alterationOverrideQuery|Frågesträngen du använder för att tvinga Bing för att använda den ursprungliga strängen. Om frågesträngen är till exempel *saling downwind*, frågesträng åsidosättning blir *+ saling downwind*. Kom ihåg att koda frågesträngen vilket resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
+|alteredQuery|Frågesträngen som används av Bing för att utföra frågan. Bing använder ändrats frågesträngen om den ursprungliga frågesträngen innehåller stavfel. Om frågesträngen är till exempel `saling downwind`, ändrats frågesträngen blir `sailing downwind`.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
 |askUserForLocation|Ett booleskt värde som anger om Bing kräver användarens plats att tillhandahålla korrekta resultat. Om du har angett användarens plats med hjälp av den [X-MSEdge-ClientIP](#clientip) och [X sökplats](#location) rubriker, du kan ignorera det här fältet.<br /><br /> För plats medveten frågor, till exempel ”dagens väder” eller ”restauranger i närheten” som behöver användarens plats att tillhandahålla korrekta resultat, det här fältet är inställt på **SANT**.<br /><br /> För plats medveten frågor som innehåller plats (till exempel ”Seattle väder”), det här fältet är inställt på **FALSKT**. Det här fältet anges också **FALSKT** för frågor som inte är platser, till exempel ”bästa säljare”.|Boolesk|  
-|originalQuery|Frågesträngen som anges i begäran.|Sträng|  
+|originalQuery|Frågesträngen som anges i begäran.|String|  
 
 ### <a name="identifiable"></a>Identifierbar
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |-------------|-----------------|----------|
-|ID|Resurs-ID|Sträng|
+|id|Resurs-ID|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en sökresultat grupp, till exempel mainline.
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |-------------|-----------------|----------|
 |objekt|En lista över sökresultaten till att visa i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett objekt med Sök resultat att visa.
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Heltal|
-|answerType|Svaret som innehåller objekt att visa. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse fält.<br /><br /> Dock använda svarstypen endast om det här objektet innehåller värdefältet. Annars kan du ignorera det.|Sträng|
+|resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Integer|
+|answerType|Svaret som innehåller objekt att visa. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse fält.<br /><br /> Dock använda svarstypen endast om det här objektet innehåller värdefältet. Annars kan du ignorera det.|String|
 |textualIndex|Index för svaret i textualAnswers ska visas.| Heltalet|
 |värde|Det ID som identifierar ett svar ska visas eller ett objekt i ett svar ska visas. Om detta ID identifierar ett svar, visas alla objekt för svaret.|Identifierbar|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definierar där resultaten innehåll ska placeras på sökningen och i vilken ordning.  
   
-|Name|Value|  
+|Namn|Värde|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Sökresultaten ska visas i den likriktade.|  
 |<a name="ranking-pole" />pol|Sökresultat som ska ges mest synliga behandling (till exempel visas ovanför den likriktade och sidopanelen).|  
@@ -251,19 +251,19 @@ Definierar det översta objektet som svaret innehåller när begäran lyckas.
   
 Observera att om tjänsten misstänker ett DoS-angrepp, lyckas begäran (HTTP-statuskoden är 200 OK); brödtexten i svaret ska dock vara tom.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
-|_typ|Typ-tipset som har angetts till SearchResponse.|Sträng|  
+|_typ|Typ-tipset som har angetts till SearchResponse.|String|  
 |Webbsida|Ett JSON-objekt som definierar förhandsversionen|sträng|  
   
   
 ### <a name="textattribution"></a>TextAttribution  
 Definierar en avtalsenliga regel för oformaterad text attribution.  
   
-|Name|Value|Type|  
+|Namn|Värde|Type|  
 |----------|-----------|----------|  
-|_typ|Ett tips för typen som har angetts till TextAttribution.|Sträng|  
-|text|Attribution-text.<br /><br /> Text attribution gäller för entitet som helhet och ska visas omedelbart efter entiteten presentationen. Om det finns flera text eller länkar attribution-regler som inte anger ett mål, bör du sammanfoga dem och visa dem med hjälp av en ”Data från”: etikett.|Sträng| 
+|_typ|Ett tips för typen som har angetts till TextAttribution.|String|  
+|text|Attribution-text.<br /><br /> Text attribution gäller för entitet som helhet och ska visas omedelbart efter entiteten presentationen. Om det finns flera text eller länkar attribution-regler som inte anger ett mål, bör du sammanfoga dem och visa dem med hjälp av en ”Data från”: etikett.|String| 
 
 
 ## <a name="error-codes"></a>Felkoder
@@ -272,7 +272,7 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
   
 |Statuskod|Beskrivning|  
 |-----------------|-----------------|  
-|200|Klar.|  
+|200|Lyckades.|  
 |400|En av frågeparametrarna är saknas eller är inte giltig.|  
 |401|Prenumerationsnyckeln saknas eller är inte giltig.|  
 |403|Användaren har autentiserats (till exempel de använde en giltig prenumerationsnyckel), men de inte har behörighet till den begärda resursen.<br /><br /> Bing kan också returnera denna status om anroparen överskridits deras frågor per månad kvot.|  

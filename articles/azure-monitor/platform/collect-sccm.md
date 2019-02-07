@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: b13e92369168a43f529ed0b83c10bc65893da83d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 79539e05e1623b153a8fad817918cfb56a521db1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193322"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814171"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Anslut Konfigurationshanteraren till Log Analytics
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Log Analytics att synkronisera enheten samlingsdata och referera till dessa samlingar i Log Analytics och Azure Automation.  
@@ -32,8 +32,8 @@ Följande steg sammanfattar hur du konfigurerar Configuration Manager-integrerin
 
 1. Registrera Configuration Manager som en Webbapp och/eller webb-API-app i Azure-portalen och kontrollera att du har klient-ID och klientens hemliga nyckel från registrering från Azure Active Directory. Se [Använd portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md) detaljerad information om hur du utför det här steget.
 2. I Azure-portalen [ge Configuration Manager (den registrerade webbappen) med behörighet att komma åt Log Analytics](#grant-configuration-manager-with-permissions-to-log-analytics).
-3. I Configuration Manager [lägga till en anslutning med hjälp av guiden Lägg till OMS-anslutning](#add-an-oms-connection-to-configuration-manager).
-4. I Configuration Manager [uppdatera anslutningsegenskaperna](#update-oms-connection-properties) om den hemliga nyckeln som lösenord eller klienten någonsin upphör att gälla eller går förlorad.
+3. I Configuration Manager och Lägg till en anslutning med hjälp av guiden Lägg till OMS-anslutning.
+4. I Configuration Manager och uppdatera anslutningsegenskaperna om den hemliga nyckeln som lösenord eller klienten någonsin upphör att gälla eller går förlorad.
 5. [Ladda ned och installera Microsoft Monitoring Agent](#download-and-install-the-agent) på datorn som kör Configuration Manager service anslutning platssystemrollen. Agenten skickar data för Configuration Manager till Log Analytics-arbetsytan.
 6. I Log Analytics [importera samlingar från Configuration Manager](#import-collections) som datorgrupper.
 7. Visa data från Configuration Manager som i Log Analytics, [datorgrupper](../../azure-monitor/platform/computer-groups.md).

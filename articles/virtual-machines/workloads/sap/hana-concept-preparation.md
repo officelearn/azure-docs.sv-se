@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392261"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822552"
 ---
 # <a name="disaster-recovery-principles"></a>Disaster Recovery-principer
 
@@ -48,7 +48,7 @@ I fall där du använder HANA System Replication när funktioner för hög tillg
 
 
 >[!NOTE]
->Replikering för stora HANA-instansen lagringsfunktioner spegling och replikering av ögonblicksbilder av lagring. Om du inte utför ögonblicksbilder av lagring som den införts i den [säkerhetskopiering och återställning](#backup-and-restore) avsnitt av den här artikeln, det får inte finnas några replikering till platsen för katastrofåterställning. Storage ögonblicksbildskörning krävs för att storage-replikering till platsen för katastrofåterställning.
+>Replikering för stora HANA-instansen lagringsfunktioner spegling och replikering av ögonblicksbilder av lagring. Om du inte gör ögonblicksbilder av lagring som den införts i avsnittet säkerhetskopiering och återställning av den här artikeln, får inte det finnas några replikering till platsen för katastrofåterställning. Storage ögonblicksbildskörning krävs för att storage-replikering till platsen för katastrofåterställning.
 
 
 
@@ -81,7 +81,7 @@ Därefter konfigurera eller ändra storage ögonblicksbild Säkerhetskopieringss
 - För säkerhetskopiering transaktionsvolymer log (typ av ögonblicksbild **loggar**), ange att replikera var 3: e minut på vissa målenheter volym motsvarande lagring i katastrofåterställningsplatsen.
 
 För att minimera återställningspunktmålet, ställer du in följande:
-- Utföra en **hana** typ av storage-ögonblicksbilder (finns i ”steg 7: utföra ögonblicksbilder”) var 30: e minut till 1 timme.
+- Utföra en **hana** typ av storage-ögonblicksbilder (finns i ”steg 7: Utföra ögonblicksbilder ”) var 30: e minut till 1 timme.
 - Utföra säkerhetskopieringar av transaktionsloggen SAP HANA var femte minut.
 - Utföra en **loggar** skriver storage ögonblicksbild var 5 till 15 minuter. Med den här perioden intervall uppnå ett Återställningspunktmål på cirka 15-25 minuter.
 

@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 6ac5a44f941f8ebcecc3a1d7e6b5e9dccf5704de
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242220"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813168"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Ge program åtkomst till Azure Stack-resurser genom att skapa tjänstens huvudnamn
 
@@ -73,7 +73,7 @@ När du loggar in programmässigt kan du använda det ID: T för ditt program oc
 
 1. Från **appregistreringar** i Active Directory, Välj ditt program.
 
-2. Kopiera **Program-ID:t** och lagra det i din programkod. Program i den [programexempel](#sample-applications) använder **klient-id** när det gäller den **program-ID**.
+2. Kopiera **Program-ID:t** och lagra det i din programkod. Använda program i exempelprogrammen **klient-id** när det gäller den **program-ID**.
 
      ![Program-ID för programmet](./media/azure-stack-create-service-principal/image12.png)
 3. Välj **Nycklar** om du vill generera en autentiseringsnyckel.

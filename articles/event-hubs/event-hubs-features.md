@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075174"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768689"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktionerna och terminologin i Azure Event Hubs
 
@@ -169,7 +169,7 @@ Genomflödesenheter är förköpta och faktureras per timme. När de väl har k�
 
 Du kan köpa fler genomflödesenheter i block om 20, upp till 100 genomflödesenheter genom att kontakta Azure-supporten. Utöver denna gräns kan du köpa block med 100 genomflödesenheter.
 
-Vi rekommenderar att du väga genomflödesenheter och partitioner för att uppnå optimal skala. En enstaka partition har en maximal skala på en genomflödesenhet. Antalet dataflödesenheter ska vara mindre än eller lika med antalet partitioner i en händelsehubb.
+Vi rekommenderar att du väga genomflödesenheter och partitioner för att uppnå optimal skala. En enskild partition har en minsta skala på en genomflödesenhet. Antalet dataflödesenheter ska vara mindre än eller lika med antalet partitioner i en händelsehubb.
 
 Utförlig prisinformation för Event Hubs finns i [Priser för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 

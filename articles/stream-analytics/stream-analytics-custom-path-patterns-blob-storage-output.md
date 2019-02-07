@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics anpassade blob utdata partitionering (förhandsversion)
+title: Azure Stream Analytics anpassade blob-utdata partitionering
 description: Den här artikeln beskriver de anpassade DateTime-sökvägsmönster och anpassade fält eller attribut funktioner för blob storage-utdata från Azure Stream Analytics-jobb.
 services: stream-analytics
 author: mamccrea
@@ -7,16 +7,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 23f632ea2ca66f973192fdc01cd84c4d0be3a668
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746531"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765203"
 ---
-# <a name="azure-stream-analytics-custom-blob-output-partitioning-preview"></a>Azure Stream Analytics anpassade blob utdata partitionering (förhandsversion)
+# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics anpassade blob-utdata partitionering
 
 Azure Stream Analytics stöder anpassade blob-utdata partitionering med anpassade fält eller attribut och anpassade DateTime sökvägsmönster. 
 

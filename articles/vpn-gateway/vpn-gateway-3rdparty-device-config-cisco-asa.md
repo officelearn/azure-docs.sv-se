@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: f51a97e1493803998cfbdd81523e4e479b50346d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697115"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817248"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempel på konfiguration: Cisco ASA-enhet (IKEv2/inget BGP)
 Den här artikeln innehåller exempel konfigurationer för enheter som ansluter Cisco anpassningsbar Security installation (ASA) till Azure VPN-gatewayer. I exemplet avser Cisco ASA-enheter som kör IKEv2 utan Border Gateway Protocol (BGP). 
@@ -44,7 +44,7 @@ Azure VPN-gatewayer använder de standard IPsec/IKE-protokoll som för att uppr�
 > Alternativt kan du ange en exakt kombination av kryptografiska algoritmer och nyckellängder för ett särskilt projekt, enligt beskrivningen i [om kryptografikrav](vpn-gateway-about-compliance-crypto.md). Om du anger ett exakt kombination av algoritmer och nyckellängder, måste du använda motsvarande specifikationer på dina VPN-enheter.
 
 ## <a name="single-vpn-tunnel"></a>En VPN-tunnel
-Den här konfigurationen består av en S2S VPN-tunnel mellan en Azure VPN-gateway och en lokal VPN-enhet. Du kan också konfigurera den [BGP via VPN-tunnel](#bgp).
+Den här konfigurationen består av en S2S VPN-tunnel mellan en Azure VPN-gateway och en lokal VPN-enhet. Du kan också konfigurera BGP via VPN-tunnel.
 
 ![En S2S VPN-tunnel](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 

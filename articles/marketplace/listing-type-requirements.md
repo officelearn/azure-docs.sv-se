@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264690"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818540"
 ---
 # <a name="requirements-by-listing-type"></a>Krav genom att ange typ  
 Teknik- och innehåll kraven varierar i butiken, typ av erbjudande och listtyp. Granska följande specifikationer för att kontrollera efterlevnaden.  
@@ -64,17 +64,17 @@ Listan listtyp innehåller följande typer av erbjudanden på butiker i marketpl
 
 | Erbjudandetyp | Butik | Information |  
 |:---        |:---        |:---     |  
-| Konsulttjänster | AppSource | [Krav: AppSource: Lista: Konsulttjänster](#requirements-appsource-list-consulting-services) |  
-| Konsulttjänster | Azure Marketplace | [Krav: Azure Marketplace: Lista: Konsulttjänster](#requirements-azure-marketplace-list-consulting-services) |  
+| Konsulttjänster | AppSource | Krav: AppSource: Lista: Konsulttjänster |  
+| Konsulttjänster | Azure Marketplace | Krav: Azure Marketplace: Lista: Konsulttjänster |  
 | Kontakta mig | AppSource | [](#) |  
-| Kontakta mig | Azure Marketplace | [Krav: AppSource: Lista: Kontakta mig](#requirements-azure-marketplace-list-contact-me) |  
+| Kontakta mig | Azure Marketplace | Krav: AppSource: Lista: Kontakta mig |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Krav: AppSource: Lista: Konsulttjänst  
 
 | Krav | Information |  
 |:--- |:--- |  
 | Egenskaper för tjänst-erbjudande | Din konsulttjänst måste uppfylla följande kriterier.<ul> <li>Leverera en fast omfång, fast varaktighet, fast pris (eller kostnadsfri) engagement.</li> <li>Orientera främst för aktiviteter före försäljning.</li> <li>Begränsa till en enda kund.</li> <li>Genomför på platsen.</li> </ul> |  
-| Partnerkrav för konsulttjänster | Du uppfyller villkoret i området relevanta för din tjänst.<table><tr><th>Lösningsområde</th><th>Kriterie</th></tr><tr><td>Dynamics 365 för Customer Engagement</td><td>Ha Silver eller Gold Cloud Customer Relationship Management kompetens.</td></tr><tr><td>Dynamics 365 för Finance and Operations, Enterprise edition</td><td>Har Silver eller Gold Enterprise Resource Planning kompetens och intäkter från din molnanvändning i de avslutande 12 månaderna 25 000 eller fler.</td></tr><tr><td>Dynamics 365 för finans och åtgärder, Business edition</td><td>Fungera som Cloud Services Provider (CSP) eller Digital Partner of Record (DPOR) för en eller flera kunder.</td></tr><tr><td>Power BI</td><td>Uppfyll villkoren för Solution Partner.</td></tr><tr><td>PowerApps</td><td>Har en Partnerdemonstration-lösning.</td></tr></table><ul> <li>Mer information om hantering av kundrelationer besöka sidan finns i molnet Customer Relationship Management [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Mer information om resursplanering för finns i resursplanering sidan finns på [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Mer information om CSP finns Molntjänstleverantören sidan finns på [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Mer information om DPOR finns Digital Partner of Record och Partner Association sidan finns på [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Mer information om lösningen partner villkor finns Lösningsöversikt för Partner och incitament dokumentet finns på [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Mer information om partnerdemonstration finns Partnerdemonstration sidan finns på [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
+| Partnerkrav för konsulttjänster | Du uppfyller villkoret i området relevanta för din tjänst.<table><tr><th>Lösningsområde</th><th>Kriterie</th></tr><tr><td>Dynamics 365 för Customer Engagement</td><td>Ha Silver eller Gold Cloud Customer Relationship Management kompetens.</td></tr><tr><td>Dynamics 365 för Finance and Operations, Enterprise edition</td><td>Har Silver eller Gold Enterprise Resource Planning kompetens och intäkter från din molnanvändning i de avslutande 12 månaderna 25 000 eller fler.</td></tr><tr><td>Dynamics 365 för finans och åtgärder, Business edition</td><td>Fungera som Cloud Services Provider (CSP) eller Digital Partner of Record (DPOR) för en eller flera kunder.</td></tr><tr><td>Power BI</td><td>Uppfyll villkoren för Solution Partner.</td></tr><tr><td>PowerApps</td><td>Har en Partnerdemonstration-lösning.</td></tr></table><ul> <li>Mer information om hantering av kundrelationer besöka sidan finns i molnet Customer Relationship Management [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Mer information om resursplanering för finns i resursplanering sidan finns på [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Mer information om CSP finns Molntjänstleverantören sidan finns på [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Mer information om DPOR finns Digital Partner of Record och Partner Association sidan finns på [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Mer information om lösningen partner villkor finns Lösningsöversikt för Partner och incitament dokumentet finns på [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Mer information om partnerdemonstration finns Partnerdemonstration sidan finns på [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
 #### <a name="requirements-azure-marketplace-list-consulting-service"></a>Krav: Azure Marketplace: Lista: Konsulttjänst  
 
@@ -91,11 +91,11 @@ Listan listtyp innehåller följande typer av erbjudanden på butiker i marketpl
 
 | Erbjudandetyp | Butik | Information |  
 |:---        |:---        |:---     |  
-| Kostnadsfria / SaaS-utvärdering | AppSource | [Lista typ krav: Utvärderingsversion](#listing-type-requirements-trial) |  
-| Kostnadsfria / SaaS-utvärdering | Azure Marketplace | [Krav: Azure Marketplace: Utvärderingsversion: Kostnadsfri utvärderingsversion / SaaS-utvärdering](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Interaktiv demo | AppSource | [Lista typ krav: Utvärderingsversion](#listing-type-requirements-trial) |  
+| Kostnadsfria / SaaS-utvärdering | AppSource | Lista typ krav: Utvärdering |  
+| Kostnadsfria / SaaS-utvärdering | Azure Marketplace | Krav: Azure Marketplace: Utvärderingsversion: Kostnadsfri utvärderingsversion / SaaS-utvärdering |  
+| Interaktiv demo | AppSource | Lista typ krav: Utvärdering |  
 | Interaktiv demo | Azure Marketplace | [Krav: Azure Marketplace: Utvärderingsversion: Interaktiv demo](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Testkör | AppSource | [Lista typ krav: Utvärderingsversion](#listing-type-requirements-trial) |  
+| Testkör | AppSource | Lista typ krav: Utvärdering |  
 | Testkör | Azure Marketplace | [Krav: Azure Marketplace: Utvärderingsversion: Testkör](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Krav: Azure Marketplace: Utvärdering  
@@ -133,8 +133,8 @@ Listan listtyp innehåller följande typer av erbjudanden på butiker i marketpl
 
 | Erbjudandetyp | Butik | Information |   
 |:---        |:---        | :--- |  
-| Azure-appar: Hanterad app | Azure Marketplace | [Krav: Azure Marketplace: Transact: Azure-appar: Hanterad app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Azure-appar: Lösningsmall | Azure Marketplace | [Krav: Azure Marketplace: Transact: Azure-appar: Lösningsmall](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Azure-appar: Hanterad app | Azure Marketplace | Krav: Azure Marketplace: Transact: Azure-appar: Hanterad app |  
+| Azure-appar: Lösningsmall | Azure Marketplace | Krav: Azure Marketplace: Transact: Azure-appar: Lösningsmall |  
 | Containrar | Azure Marketplace | [Krav: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
 | SaaS-app  | Azure Marketplace | [Krav: Azure Marketplace: Transact: SaaS-app](#requirements-azure-marketplace-transact-saas-app) |  
 | Virtuell dator | Azure Marketplace | [Krav: Azure Marketplace: Transact: Virtuell dator](#requirements-azure-marketplace-transact-virtual-machine) |  

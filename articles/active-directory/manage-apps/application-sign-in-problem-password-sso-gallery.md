@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184979"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822535"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problem med inloggning till ett program för Azure AD-Galleriprogram som konfigurerats för lösenord för enkel inloggning
 
@@ -88,7 +88,7 @@ Följ den [Felsök Access Panel-tillägg för Internet Explorer](https://docs.mi
 
 Konfigurera ett program från Azure AD-galleriet som du behöver:
 
--   [Lägga till ett program från Azure AD-galleriet](#_Add_an_application)
+-   Lägga till ett program från Azure AD-galleriet
 
 -   [Konfigurera program för lösenord för enkel inloggning](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ Följ dessa steg om du vill konfigurera enkel inloggning för ett program:
 
 8.  Välj läget **lösenordsbaserad inloggning.**
 
-9.  [Tilldela användare till programmet](#_How_to_assign).
+9.  Tilldela användare till programmet.
 
 10. Du kan dessutom också ange autentiseringsuppgifter för användarens räkning genom att markera rader av användare och klicka på **uppdaterade autentiseringsuppgifter** och ange användarnamnet och lösenordet åt användarna. Annars kan uppmanas användare att ange autentiseringsuppgifterna sig vid start.
 

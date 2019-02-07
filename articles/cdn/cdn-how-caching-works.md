@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
-ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092406"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813049"
 ---
 # <a name="how-caching-works"></a>Så här fungerar cachelagring
 
@@ -35,10 +35,10 @@ Dynamisk resurser som ändras ofta eller är unika för en enskild användare ka
 
 Cachelagring kan inträffa på flera nivåer mellan den ursprungliga servern och användaren:
 
-- Webbserver: använder en delad cache (för flera användare).
-- Nätverk för innehållsleverans: använder en delad cache (för flera användare).
-- Internet-leverantör (ISP): Om du använder en delad cache (för flera användare).
-- Webbläsare: använder en privat cache (för en användare).
+- Webbserver: Använder en delad cache (för flera användare).
+- Nätverk för innehållsleverans: Använder en delad cache (för flera användare).
+- Internet-leverantör (ISP): Använder en delad cache (för flera användare).
+- Webbläsare: Använder en privat cache (för en användare).
 
 Varje cacheminne normalt hanterar en egen resource färskhet och utför verifieringen när en fil är inaktuell. Detta definieras i HTTP cachelagring specifikationen [RFC 7234](https://tools.ietf.org/html/rfc7234).
 
@@ -78,7 +78,7 @@ Azure CDN stöder de följande HTTP-cachelagringsdirektiv, som definierar cachel
      - **Azure CDN Standard från Akamai** stöder endast följande `Cache-Control` direktiv; alla övriga filer ignoreras:
          - `max-age`: Ett cacheminne kan lagra innehållet för hur många sekunder som angetts. Till exempel `Cache-Control: max-age=5`. Detta direktiv anger längsta tid som innehållet anses vara uppdaterad.
          - `no-cache`: Cachelagra innehållet, men kontrollera innehållet varje gång innan levereras från cachen. Motsvarar `Cache-Control: max-age=0`.
-         - `no-store`: Aldrig cache innehållet. Ta bort innehåll om det tidigare sparade.
+         - `no-store`: Aldrig cachelagra innehållet. Ta bort innehåll om det tidigare sparade.
 
 **Upphör att gälla:**
 - Äldre rubrik som introducerades i HTTP 1.0; stöds för bakåtkompatibilitet.
@@ -116,7 +116,7 @@ Inte alla resurser som kan cachelagras. I följande tabell visas vilka resurser 
 |-------------------|-----------------------------------|------------------------|------------------------------|
 | HTTP-statuskoder | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
 | HTTP-metoder      | GET, HEAD                         | HÄMTA                    | HÄMTA                          |
-| Filstorleksbegränsning  | 300 GB                            | 300 GB                 | – Allmän leveransoptimering: 1,8 GB<br />-Mediedirektuppspelning optimeringar: 1,8 GB<br />-Optimering av stora filer: 150 GB |
+| Filstorleksbegränsning  | 300 GB                            | 300 GB                 | – Allmän leveransoptimering: 1.8 GB<br />-Media strömmande optimeringar: 1.8 GB<br />-Optimering av stora filer: 150 GB |
 
 För **Azure CDN Standard från Microsoft** cachelagring för att fungera på en resurs, den ursprungliga servern måste ha stöd för alla HEAD och GET HTTP-begäranden och innehållslängden värdena måste vara samma för alla huvud- och GET HTTP-svar för tillgången. Den ursprungliga servern för en HEAD-begäran måste ha stöd för HEAD-begäran och måste svara med samma rubriker som om den fick en GET-begäran.
 
@@ -129,7 +129,7 @@ I följande tabell beskrivs Standardinställningarna för cachelagring beteende 
 | **Respektera ursprung**       | Ja    | Ja   | Nej   | Ja    | Nej   | Ja   | Ja    |
 | **CDN cachelagringens varaktighet** | 2 dagar |7 dagar | Ingen | 7 dagar | Ingen | 1 dag | 1 år |
 
-**Respektera ursprung**: Anger om att gå med i [stöds cachelagringsdirektiv](#http-cache-directive-headers) om de finns i HTTP-svaret från den ursprungliga servern.
+**Respektera ursprung**: Anger om du måste respektera stöds cachelagringsdirektiv om de finns i HTTP-svaret från den ursprungliga servern.
 
 **CDN-cachevaraktighet**: Anger hur lång tid som en resurs cachelagras på Azure CDN. Men om **respektera ursprung** är Ja och HTTP-svaret från den ursprungliga servern innehåller rubriken cache-direktiv `Expires` eller `Cache-Control: max-age`, Azure CDN använder duration-värde som anges av rubriken i stället. 
 

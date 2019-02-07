@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 529191cf867b6003b0c2eab5ed919087277c7095
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6dfc0f80285dfd7da6e78d7cbf9c993fed388a2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178043"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813542"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problem som loggar in till ett program från åtkomstpanelen
 
@@ -104,7 +104,7 @@ Alla program i Azure AD-galleriet som aktiveras med Enterprise Single Sign-On-fu
 
 Konfigurera ett program från Azure AD-galleriet som du behöver:
 
--   [Lägga till ett program från Azure AD-galleriet](#add-an-application)
+-   Lägga till ett program från Azure AD-galleriet
 
 -   [Konfigurera programmets metadatavärden i Azure AD (inloggning URL, identifierare svars-URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -114,7 +114,7 @@ Konfigurera ett program från Azure AD-galleriet som du behöver:
 
 -   [Konfigurera Azure AD-metadatavärdena i programmet (inloggning URL, utfärdare, utloggnings-URL och certifikatet)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Tilldela användare till programmet](#assign-users-to-the-application)
+-   Tilldela användare till programmet
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Lägga till ett program från Azure AD-galleriet
 
@@ -362,9 +362,9 @@ Följ stegen nedan för att ladda ned programmetadata eller certifikat från Azu
 
 Konfigurera ett program från Azure AD-galleriet som du behöver:
 
--   [Lägga till ett program från Azure AD-galleriet](#add-an-application)
+-   Lägga till ett program från Azure AD-galleriet
 
--   [Konfigurera program för lösenord för enkel inloggning](#configure-the-application)
+-   Konfigurera program för lösenord för enkel inloggning
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Lägga till ett program från Azure AD-galleriet
 

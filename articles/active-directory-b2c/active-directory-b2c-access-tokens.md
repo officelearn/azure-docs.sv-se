@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86c62c021c6668783b3f843a908f4b17845f8c72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172994"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768359"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Begär åtkomsttokens
 
@@ -78,8 +78,15 @@ När du begär ett åtkomsttoken måste klientprogrammet ange de önskade behör
 > [!NOTE]
 > Anpassade domäner stöds för närvarande inte tillsammans med åtkomsttoken. Du måste använda domänen tenantName.onmicrosoft.com i fråge-URL:et.
 
+Ersätt värdena i exemplet nedan:
+
+- `<tenant-name>` – Namnet på din Azure AD B2C-klient.
+- `<policy-name>` – Namnet på ditt anpassade principer eller användarnas flöde.
+- `<application-ID>` -Program-ID för det klientprogram som du har registrerat.
+- `<redirect-uri>` – **Omdirigerings-URI** som du angav när du registrerade klientprogrammet.
+
 ```
-https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 För att få tillgång till flera behörigheter i samma begäran, kan du lägga till flera poster i en enda **scope** parameter, genom att avgränsa med blanksteg. Exempel:

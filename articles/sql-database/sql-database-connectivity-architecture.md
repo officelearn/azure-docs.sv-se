@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469129"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809988"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -25,8 +25,7 @@ Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutnin
 
 > [!IMPORTANT]
 > **[Förändring] För service-slutpunkt-anslutningar till Azure SQL-servrar, en `Default` anslutning beteendet ändras till `Redirect`.**
->
-> Ändringen gäller för alla regioner på eller före den 2 januari 2019.
+> Kunder bör skapa nya servrar och en uppsättning befintliga kunder med anslutningstypen explicit inställd på omdirigering (bättre) eller Proxy beroende på deras anslutningsarkitektur.
 >
 > Om du vill förhindra att anslutningar via en tjänstslutpunkt bryts i befintliga miljöer på grund av den här ändringen, använder vi telemetri gör du följande:
 > - För servrar som vi identifierar som kontrollerades via tjänstslutpunkter innan ändringen får vi växlar anslutningstypen till `Proxy`.
@@ -38,7 +37,7 @@ Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutnin
 >
 > Om slutpunkten Tjänstanslutningar inte kunde upprättas till Azure SQL-server och du misstänka att du påverkas av den här ändringen, kontrollera att anslutningstypen är explicit inställd på `Redirect`. Om så är fallet, måste du öppna brandväggsregler för virtuell dator och Nätverkssäkerhetsgrupper (NSG) till alla Azure-IP-adresser i regionen som tillhör Sql [servicetagg](../virtual-network/security-overview.md#service-tags) för portar 11000 12000. Om det inte är ett alternativ för dig, växla server explicit till `Proxy`.
 > [!NOTE]
-> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> Det här avsnittet gäller för Azure SQL Database-servrar som är värd för enkla databaser och elastiska pooler och SQL Data Warehouse-databaser. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
 

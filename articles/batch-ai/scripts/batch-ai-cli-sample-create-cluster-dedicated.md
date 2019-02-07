@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 643d2a5a600d018912f09d01f2e018100767f147
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8ca2def6aa6ab463e5b2be0203791da671a41745
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410133"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697821"
 ---
 # <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-dedicated-nodes"></a>CLI-exempel: Skapa och hantera ett Azure Batch AI-kluster av dedikerade noder
 
@@ -57,8 +57,8 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) | Skapar en Azure Batch AI-arbetsyta. |
 | [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) | Skapar ett Azure Batch AI-kluster. |
-| [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) | Visar information om ett Azure Batch AI-kluster. |
-| [az batchai cluster node list](/cli/azure/batchai/cluster/node#az-batchai-cluster-show) | Visar en lista över noderna i ett Azure Batch AI-kluster. |
+| [az batchai cluster show](/cli/azure/batchai/cluster) | Visar information om ett Azure Batch AI-kluster. |
+| [az batchai cluster node list](/cli/azure/batchai/cluster/node) | Visar en lista över noderna i ett Azure Batch AI-kluster. |
 | [az batchai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) | Ändrar storlek på Azure Batch AI-klustret.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 

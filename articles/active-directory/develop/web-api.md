@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 58cff9be154e693a378f55941e8662563c366b27
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097307"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820223"
 ---
 # <a name="web-api"></a>Webb-API
 
@@ -47,7 +47,7 @@ Både program-ID och delegerad identitet användartyper diskuteras i flödet ned
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>Delegerad användaridentiteter med OpenID Connect
 
-1. En användare är inloggad i ett webbprogram med Azure AD (se den [webbläsarens webbprogram](#web-browser-to-web-application) ovan). Om användaren av webbprogrammet inte har ännu godkänt att så att det webbaserade programmet och anropa webb-API för dess räkning, måste användaren godkänna. Programmet visas de behörigheter som krävs och om någon av dessa finns på administratörsnivå normal användare i katalogen inte kommer att kunna godkänna. Förfarandet medgivande gäller endast för program för flera innehavare, inte enskild klient program, som programmet har redan behörighet. När användaren är inloggad, fick webbprogrammet ett ID-token med information om användaren, samt en auktoriseringskod.
+1. En användare är inloggad i ett webbprogram med Azure AD (se webbläsarens webbprogram ovan). Om användaren av webbprogrammet inte har ännu godkänt att så att det webbaserade programmet och anropa webb-API för dess räkning, måste användaren godkänna. Programmet visas de behörigheter som krävs och om någon av dessa finns på administratörsnivå normal användare i katalogen inte kommer att kunna godkänna. Förfarandet medgivande gäller endast för program för flera innehavare, inte enskild klient program, som programmet har redan behörighet. När användaren är inloggad, fick webbprogrammet ett ID-token med information om användaren, samt en auktoriseringskod.
 1. Med den auktoriseringskod som utfärdats av Azure AD kan skickar webbprogrammet en begäran till tokenslutpunkten för Azure AD som innehåller Auktoriseringskoden, information om klientprogrammet (program-ID och omdirigerings-URI) och önskad resurs (program-ID URI för webb-API).
 1. Auktoriseringskod och information om webbprogram och webb-API verifieras av Azure AD. Vid lyckad validering returnerar två token i Azure AD: en JWT-token för åtkomst och en uppdatering JWT-token.
 1. Över HTTPS använder webbprogrammet returnerade JWT-åtkomsttoken för att lägga till JWT-sträng med en ”ägar” beteckning i auktoriseringshuvudet för begäran till webb-API. Webb-API: verifierar JWT-token och om verifieringen lyckas, returnerar önskad resurs.

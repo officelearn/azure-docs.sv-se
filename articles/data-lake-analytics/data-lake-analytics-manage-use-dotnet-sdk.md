@@ -9,12 +9,12 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: fc732065f328f653082286508db74cc29107854e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e1e4628a1c777ecc54fdf9a26b334a10b7ab8cb3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232016"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810598"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Hantera Azure Data Lake Analytics en .NET-app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -56,7 +56,7 @@ string rg == "<value>"; // Resource  group name
 string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (this will work, but you should pick your own)
 ```
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 Du har flera alternativ för att logga in på Azure Data Lake Analytics. Följande kodavsnitt visar ett exempel på autentisering med interaktiv användarautentisering med ett popup-fönster.
 
@@ -130,7 +130,7 @@ Om du inte redan har skapat en måste du ha en Azure-resursgrupp för att skapa 
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
-Mer information finns i [Azure-resursgrupper och Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
+Mer information finns i Azure-resursgrupper och Data Lake Analytics.
 
 ### <a name="create-a-data-lake-store-account"></a>Skapa ett Data Lake Store-konto
 

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
 ms.author: danlep
-ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854107"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770609"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Med Azure Container Registry-webhookar
 
@@ -40,7 +40,7 @@ Mer information om webhook-begäranden finns [Schemareferens i Azure Container R
 | Anpassade huvuden | Rubriker som du vill skicka den tillsammans med POST-begäran. De bör vara i ”key: value” format. |
 | Utlösaråtgärder | Åtgärder som utlöser webhooken. Webhooks för närvarande kan utlösas av avbildningen push och/eller ta bort åtgärder. |
 | Status | Status för webhook när den har skapats. Det är aktiverat som standard. |
-| Omfång | Omfånget då webhooken fungerar. Som standard är omfånget för alla händelser i registret. Det kan anges för en databas eller en tagg i formatet ”-lagringsplatsen: tagg”. |
+| Scope | Omfånget då webhooken fungerar. Som standard är omfånget för alla händelser i registret. Det kan anges för en databas eller en tagg i formatet ”-lagringsplatsen: tagg”. |
 
 Exempelformulär för webhook:
 
@@ -74,7 +74,7 @@ Om du vill testa en ACR webhook med Azure CLI, använder den [az acr webhook pin
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-Du kan se resultaten genom att använda den [az acr webhook lista-händelser](/cli/azure/acr/webhook#list-events) kommando.
+Du kan se resultaten genom att använda den [az acr webhook lista-händelser](/cli/azure/acr/webhook) kommando.
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01

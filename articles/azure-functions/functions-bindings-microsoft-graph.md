@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793996"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822637"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindningar för Azure Functions
 
@@ -217,7 +217,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
-|**Resurs**|**resurs**|Krävs – en Azure AD-resurs-URL som token begärs.|
+|**Resurs**|**resource**|Krävs – en Azure AD-resurs-URL som token begärs.|
 
 <a name="token-input-code"></a>
 ### <a name="auth-token---usage"></a>Auth-token - användning
@@ -352,9 +352,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
-|**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
-|**worksheetName**|**worksheetName**|Kalkylbladet där tabellen finns.|
-|**Tabellnamn**|**Tabellnamn**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
+|**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
+|**worksheetName**|**WorksheetName**|Kalkylbladet där tabellen finns.|
+|**tableName**|**TableName**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
 
 <a name="excel-input-code"></a>
 ### <a name="excel-input---usage"></a>Excel indata - användning
@@ -365,7 +365,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 |Microsoft Graph|Läs användarfiler|
 
 Bindningen visar följande typer till .NET-funktioner:
-- String [] []
+- string[][]
 - Microsoft.Graph.WorkbookTable
 - Anpassade objektgrupper (med strukturella modellen bindning)
 
@@ -513,10 +513,10 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID** |**Användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
-|**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
-|**worksheetName**|**worksheetName**|Kalkylbladet där tabellen finns.|
-|**Tabellnamn**|**Tabellnamn**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
-|**Uppdateringstyp**|**Uppdateringstyp**|Krävs – typ av ändring som ska göras i tabellen. Kan vara något av följande värden:<ul><li><code>update</code> -Ersätter innehållet i tabellen i OneDrive.</li><li><code>append</code> -Lägger till nyttolasten i slutet av tabellen i OneDrive genom att skapa nya rader.</li></ul>|
+|**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
+|**worksheetName**|**WorksheetName**|Kalkylbladet där tabellen finns.|
+|**tableName**|**TableName**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
+|**updateType**|**Uppdateringstyp**|Krävs – typ av ändring som ska göras i tabellen. Kan vara något av följande värden:<ul><li><code>update</code> -Ersätter innehållet i tabellen i OneDrive.</li><li><code>append</code> -Lägger till nyttolasten i slutet av tabellen i OneDrive genom att skapa nya rader.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### <a name="excel-output---usage"></a>Excel utdata - användning
@@ -527,7 +527,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 |Microsoft Graph|Ha fullständig åtkomst till användarfiler|
 
 Bindningen visar följande typer till .NET-funktioner:
-- String [] []
+- string[][]
 - Newtonsoft.Json.Linq.JObject
 - Microsoft.Graph.WorkbookTable
 - Anpassade objektgrupper (med strukturella modellen bindning)
@@ -658,7 +658,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
-|**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till filen.|
+|**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till filen.|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>Filen indata - användning
@@ -805,7 +805,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Identitet**|**Identitet**|Krävs – den identitet som används för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [HTTP-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> -Använder identiteten för en tidigare inloggade användare med angivet ID. Se den <code>userId</code> egenskapen.</li><li><code>userFromToken</code> -Använder den identitet som representeras av den angivna token. Se den <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> -Använder identiteten för funktionsappen.</li></ul>|
 |**Användar-ID** |**Användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
-|**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till filen.|
+|**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till filen.|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>Filen utdata - användning
@@ -1246,14 +1246,14 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Namn**||Krävs – variabelnamnet som används i Funktionskoden för e-postmeddelande. Se [med hjälp av ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
 |**typ**||Krävs – måste vara inställd på `graphWebhookSubscription`.|
 |**riktning**||Krävs – måste vara inställd på `in`.|
-|**Filter**|**Filter**| Om inställd `userFromRequest`, och sedan bindningen kommer bara att hämta prenumerationer som ägs av den anropande användaren (gäller endast med [HTTP-utlösare]).| 
+|**filter**|**Filter**| Om inställd `userFromRequest`, och sedan bindningen kommer bara att hämta prenumerationer som ägs av den anropande användaren (gäller endast med [HTTP-utlösare]).| 
 
 ### <a name="webhook-input---usage"></a>Webhook indata - användning
 
 Bindningen visar följande typer till .NET-funktioner:
-- String]
+- string[]
 - Anpassat objekt typ matriser
-- Newtonsoft.Json.Linq.JObject]
+- Newtonsoft.Json.Linq.JObject[]
 - Microsoft.Graph.Subscription[]
 
 
@@ -1421,7 +1421,7 @@ Det här avsnittet innehåller ett exempel för var och en av följande metoder:
 Se exempel språkspecifika:
 
 * [C#-skript (.csx)](#app-identity-refresh---c-script-example)
-* [JavaScript](#app-identity-refresh---javascript-example)
+* JavaScript
 
 ### <a name="app-identity-refresh---c-script-example"></a>App-uppdatering för identity - exempel på C#-skript
 

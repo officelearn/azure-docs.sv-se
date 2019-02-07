@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435080"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814154"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Använda en Java UDF med Apache Hive i HDInsight
 
@@ -36,7 +36,7 @@ Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som 
 * En textredigerare eller IDE för Java
 
     > [!IMPORTANT]
-    > Om du skapar en Python-filer på en Windows-klient, måste du använda ett redigeringsprogram som använder LF som en raden slutar. Om du inte är säker på om din Redigerare använder LF eller CRLF se den [felsökning](#troubleshooting) avsnitt för anvisningar för att ta bort CR-tecken.
+    > Om du skapar en Python-filer på en Windows-klient, måste du använda ett redigeringsprogram som använder LF som en raden slutar. Om du inte är säker på om din Redigerare använder LF eller CRLF finns i felsökningsavsnittet anvisningar för att ta bort CR-tecken.
 
 ## <a name="create-an-example-java-udf"></a>Skapa ett exempel Java UDF 
 

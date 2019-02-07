@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: f549c748c87405b47868c75cc01af81efd202af2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755364"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812493"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för en icke-galleriprogram
 
@@ -43,7 +43,7 @@ Detta är ett bra sätt att komma igång med att integrera alla typer av program
 
 -   Tillåt en **medlem i gruppen företag** att ange användarnamn och lösenord som har tilldelats till en användare med hjälp av den [Självbetjäning för programåtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) funktion
 
--   Tillåt en **administratör** för att ange användarnamn och lösenord som har tilldelats en användare med hjälp av uppdatera autentiseringsuppgifterna funktionen när [tilldela en användare till ett program](#_How_to_configure_1)
+-   Tillåt en **administratör** att ange användarnamn och lösenord som har tilldelats en användare med hjälp av funktionen Update autentiseringsuppgifter när du tilldelar en användare till ett program
 
 -   Tillåt en **administratör** ange delade användarnamnet eller lösenordet som används av en grupp människor med hjälp av uppdatera autentiseringsuppgifterna funktionen när [tilldela en grupp till ett program](#assign-an-application-to-a-group-directly)
 
@@ -57,7 +57,7 @@ Konfigurera ett program från Azure AD-galleriet som du behöver:
 
 -   [Konfigurera program för lösenord för enkel inloggning](#configure-the-application-for-password-single-sign-on)
 
--   [Tilldela programmet till en användare eller grupp](#assign-the-application-to-a-user-or-a-group)
+-   Tilldela programmet till en användare eller grupp
 
     -   [Tilldela en användare till ett program direkt](#assign-a-user-to-an-application-directly)
 

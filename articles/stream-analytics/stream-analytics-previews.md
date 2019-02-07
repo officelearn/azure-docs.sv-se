@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 29997b2ff7d3834a91389790256cd0d075ce1ece
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744916"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768571"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics-förhandsversionsfunktioner
 
@@ -30,14 +30,6 @@ Azure Stream Analytics har stöd för Azure SQL Database som en källa av indata
 ### <a name="integration-with-azure-machine-learning"></a>Integrering med Azure Machine Learning
 
 Du kan skala Stream Analytics-jobb med Machine Learning (ML)-funktioner. Läs mer om hur du kan använda ML-funktioner i ditt Stream Analytics-jobb [skala ditt Stream Analytics-jobb med Azure Machine Learning-funktioner](stream-analytics-scale-with-machine-learning-functions.md). Kolla in ett verkligt scenario med [utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="blob-output-partitioning-by-custom-time"></a>BLOB-utdata partitionering av anpassad tid
-
-Azure Stream Analytics kan skickas till blob-lagring baserat på anpassad tidsattribut. För mer information, besök [Azure Stream Analytics anpassade blob-utdata partitionering](stream-analytics-custom-path-patterns-blob-storage-output.md).
-
-### <a name="blob-output-partitioning-by-field-or-attribute"></a>BLOB-utdata partitionerade efter fält eller attribut
-
-Azure Stream Analytics kan skickas till blob-lagring baserat på anpassade fält eller attribut. För mer information, besök [Azure Stream Analytics anpassade blob-utdata partitionering](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### <a name="javascript-user-defined-aggregate"></a>JavaScript användardefinierad samling
 

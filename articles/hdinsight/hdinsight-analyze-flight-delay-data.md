@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 311e2ee65b2c24eb1c288a2161bf371732aea452
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632899"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817673"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight
 [Apache Hive](https://hive.apache.org/) ger dig möjlighet att köra [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) via ett SQL-liknande skriptspråk som kallas *[HiveQL] [ hadoop-hiveql]*, som kan tillämpas gentemot sammanfatta, fråga och analysera stora mängder data.
@@ -30,7 +30,7 @@ En av de största fördelarna med Azure HDInsight är uppdelning av lagring och 
 
 Följande diagram illustrerar ett scenario och strukturen för den här självstudien:
 
-![HDI. FlightDelays.flow][img-hdi-flightdelays-flow]
+![HDI.FlightDelays.flow][img-hdi-flightdelays-flow]
 
 Observera att talen i diagrammet motsvarar avsnittsrubrikerna. **M** står för den huvudsakliga processen. **En** står för innehållet i tillägget.
 
@@ -232,7 +232,7 @@ Läs mer om att skapa ett HDInsight-kluster och köra Hive-jobb, [skapa Apache H
     ```
 3. Ansluter till din SQL-databas och se genomsnittlig flygförseningar efter ort i tabellen AvgDelays:
 
-    ![HDI. FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
+    ![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
 - - -
 
@@ -240,7 +240,7 @@ Läs mer om att skapa ett HDInsight-kluster och köra Hive-jobb, [skapa Apache H
 Ladda upp datafilen och [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) skriptfiler (se [bilaga B](#appendix-b)) kräver lite planering. Tanken är att lagra datafiler och HiveQL filen innan du skapar ett HDInsight-kluster och köra Hive-jobb. Du kan välja mellan två alternativ:
 
 * **Använd samma Azure Storage-konto som används av HDInsight-klustret som standardfilsystem.** Eftersom HDInsight-klustret ska ha åtkomst lagringskontonyckeln, behöver du inte göra några ytterligare ändringar.
-* **Använd ett annat Azure Storage-konto från standardfilsystemet för HDInsight-kluster.** Om så är fallet, måste du ändra skapas en del av Windows PowerShell-skript finns i [skapa HDInsight-kluster och köra Apache Hive/Sqoop jobb](#runjob) länkar lagringskontot som ett ytterligare lagringskonto. Anvisningar finns i [skapa Apache Hadoop-kluster i HDInsight][hdinsight-provision]. HDInsight-klustret vet sedan åtkomstnyckeln för lagringskontot.
+* **Använd ett annat Azure Storage-konto från standardfilsystemet för HDInsight-kluster.** Om så är fallet, måste du ändra skapas en del av Windows PowerShell-skript finns i Skapa HDInsight-kluster och kör Apache Hive/Sqoop jobb för att länka Storage-konto som ett ytterligare lagringskonto. Anvisningar finns i [skapa Apache Hadoop-kluster i HDInsight][hdinsight-provision]. HDInsight-klustret vet sedan åtkomstnyckeln för lagringskontot.
 
 > [!NOTE]  
 > Blob storage-sökvägen för datafilen är svårt kodad i skriptfilen HiveQL. Du måste uppdatera dem enlighet med detta.
@@ -364,7 +364,7 @@ Med Azure PowerShell kan du köra flera [HiveQL](https://cwiki.apache.org/conflu
 HiveQL-skript kommer att utföra följande:
 
 1. **Ta bort tabellen delays_raw**, om tabellen redan finns.
-2. **Skapa delays_raw externa Hive-tabell** som pekar på Blob-lagringsplats med filerna som rör sig fördröjning. Den här frågan anger att fälten avgränsas med ””, och att rader avslutas med ”\n”. Detta utgör ett problem när fältvärdena innehåller kommatecken eftersom Hive kan skilja mellan ett kommatecken som är en fältavgränsare och en som är en del av ett fältvärde (vilket är fallet i fältvärden för URSPRUNGET\_Stad\_namn och DEST\_ Stad\_namn). För att lösa det, skapar TEMP kolumner för att lagra data som felaktigt delas upp i kolumner i frågan.
+2. **Skapa delays_raw externa Hive-tabell** som pekar på Blob-lagringsplats med filerna som rör sig fördröjning. This query specifies that fields are delimited by "," and that lines are terminated by "\n". Detta utgör ett problem när fältvärdena innehåller kommatecken eftersom Hive kan skilja mellan ett kommatecken som är en fältavgränsare och en som är en del av ett fältvärde (vilket är fallet i fältvärden för URSPRUNGET\_Stad\_namn och DEST\_ Stad\_namn). För att lösa det, skapar TEMP kolumner för att lagra data som felaktigt delas upp i kolumner i frågan.
 3. **Ta bort tabellen fördröjningar**, om tabellen redan finns.
 4. **Skapa tabellen fördröjningar**. Är det bra att rensa data innan du vidare bearbetning. Den här frågan skapar en ny tabell *fördröjningar*, från tabellen delays_raw. Observera att TEMP-kolumner (som tidigare nämnts) inte kopieras och att den **delsträngen** funktion används för att ta bort citationstecken som hämtas från data.
 5. **Compute genomsnittligt väder fördröjning och grupper resultaten efter stad namn.** Det kommer också matar ut resultaten till Blob storage. Observera att frågan tar bort apostrofer från data och undantar rader där värdet för **weather_delay** är null. Detta är nödvändigt eftersom Sqoop, senare i den här självstudiekursen kan inte hantera dessa värden utan problem som standard.

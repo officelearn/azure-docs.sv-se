@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: acf455bff739666712917008dc8090c6a95c6dc4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388427"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815660"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box Gateway-begränsningar (förhandsgranskning)
 
@@ -26,7 +26,7 @@ ms.locfileid: "54388427"
 
 ## <a name="data-box-gateway-service-limits"></a>Tjänstbegränsningar för data Box-Gateway
 
-- I den här är tjänsten tillgänglig i vissa regioner i USA, Europa och Asien/Stillahavsområdet. Mer information finns i [regional tillgänglighet](#data-box-gateway-overview#region-availability). Lagringskontot ska vara fysiskt närmast den region där enheten distribuerats (kan skilja sig från service geo).
+- I den här är tjänsten tillgänglig i vissa regioner i USA, Europa och Asien/Stillahavsområdet. Mer information går du till regiontillgänglighet. Lagringskontot ska vara fysiskt närmast den region där enheten distribuerats (kan skilja sig från service geo).
 - Flytta en resurs för Data Box-gatewayen till en annan prenumeration eller resursgrupp grupp stöds inte. Mer information går du till [flytta resurser till ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Enhetsgränser för data Box-Gateway

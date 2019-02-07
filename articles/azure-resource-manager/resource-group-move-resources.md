@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: e47334a20072f4b9f4d1401b5dd1f848fa99df5a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497323"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810294"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -239,7 +239,7 @@ När du flyttar resurser från en resursgrupp till en annan resursgrupp i samma 
 * Endast en storage-konto (klassisk) kan flyttas åt gången.
 * Storage-konto (klassisk) kan inte flyttas på samma gång med en virtuell dator eller en tjänst i molnet.
 
-Flytta klassiska resurser till en ny resursgrupp i samma prenumeration genom att använda standard flyttåtgärder via den [portal](#use-portal), [Azure PowerShell](#use-powershell), [Azure CLI](#use-azure-cli), eller [REST-API](#use-rest-api). Du kan använda samma åtgärder som du använder för att flytta Resurshanterarens resurser.
+Flytta klassiska resurser till en ny resursgrupp i samma prenumeration genom att använda standard flyttåtgärder via den [portal](#use-portal), Azure PowerShell, Azure CLI eller REST API. Du kan använda samma åtgärder som du använder för att flytta Resurshanterarens resurser.
 
 #### <a name="new-subscription"></a>Ny prenumeration
 
@@ -310,7 +310,7 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-begränsningar
 
- Om du vill flytta ett Recovery Services-valv, måste du registrera i privat förhandsgranskning. Om du vill testa den genom att skriva till AskAzureBackupTeam@microsoft.com.
+ Om du vill flytta ett Recovery Services-valv, måste du registrera i privat förhandsgranskning. Om du vill testa den kan du skriva till AskAzureBackupTeam@microsoft.com.
 
 För närvarande kan du flytta ett Recovery Services-valv per region i taget. Du kan inte flytta valv som säkerhetskopiera Azure Files eller Azure File Sync SQL i IaaS-datorer.
 

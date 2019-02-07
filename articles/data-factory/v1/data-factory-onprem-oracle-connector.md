@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332650"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822263"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle på plats med hjälp av Azure Data Factory
 
@@ -92,7 +92,7 @@ Om du använder verktyg eller API: er, utför du följande steg för att skapa e
 3. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. I det här exemplet i föregående steg skapar du en datauppsättning för att ange tabellen i Oracle-databasen som innehåller indata. Skapar du en annan datauppsättning för att ange blob-behållaren och mappen som innehåller de data som kopieras från Oracle-databas. Egenskaper för datamängd som är specifika för Oracle, se [egenskaper för datamängd](#dataset-properties).
 4. Skapa en **pipeline** som har en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I föregående exempel använder **OracleSource** som källa och **BlobSink** som mottagare för kopieringsaktiviteten. På samma sätt, om du kopierar från Azure Blob storage till en Oracle-databas måste du använda **BlobSource** och **OracleSink** i kopieringsaktiviteten. Kopieringsaktivitet egenskaper som är specifika för en Oracle-databas, se [Kopieringsaktiviteten egenskaper](#copy-activity-properties). Mer information om hur du använder ett datalager som källa eller mottagare väljer du länken till ditt datalager i föregående avsnitt.
 
-När du använder guiden JSON-definitioner för dessa Data Factory-entiteter skapas automatiskt åt dig: länkade tjänster, datauppsättningar och pipeline. När du använder verktyg eller API: er (förutom för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format. Exempel som har JSON-definitioner för Data Factory-entiteter som används för att kopiera data till eller från en lokal Oracle-databas finns [JSON-exempel](#json-examples-for-copying-data-to-and-from-oracle-database).
+När du använder guiden JSON-definitioner för dessa Data Factory-entiteter skapas automatiskt åt dig: länkade tjänster, datauppsättningar och pipeline. När du använder verktyg eller API: er (förutom för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format. Exempel som har JSON-definitioner för Data Factory-entiteter som används för att kopiera data till eller från en lokal Oracle-databas, finns i JSON-exempel.
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter.
 
@@ -597,29 +597,29 @@ När du flyttar data från Oracle, används följande mappningar från Oracle-da
 
 | Oracle-datatypen | .NET framework-datatypen |
 | --- | --- |
-| BFILE |Byte] |
-| BLOB |Byte]<br/>(stöds bara på Oracle 10g och senare versioner när du använder en Microsoft-drivrutin) |
-| CHAR |Sträng |
-| CLOB |Sträng |
+| BFILE |Byte[] |
+| BLOB |Byte[]<br/>(stöds bara på Oracle 10g och senare versioner när du använder en Microsoft-drivrutin) |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLYTTAL |Decimal, sträng (om precision > 28) |
 | HELTAL |Decimal, sträng (om precision > 28) |
 | INTERVALL ÅRETS MÅNAD |Int32 |
-| INTERVALL DAG TILL ANDRA |Tidsintervall |
-| LONG |Sträng |
-| LÄNGE RÅDATA |Byte] |
-| NCHAR |Sträng |
-| NCLOB |Sträng |
+| INTERVALL DAG TILL ANDRA |TimeSpan |
+| LONG |String |
+| LÄNGE RÅDATA |Byte[] |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Decimal, sträng (om precision > 28) |
-| NVARCHAR2 |Sträng |
-| RÅDATA |Byte] |
-| RAD-ID |Sträng |
+| NVARCHAR2 |String |
+| RÅDATA |Byte[] |
+| RAD-ID |String |
 | TIMESTAMP |DateTime |
 | TIDSSTÄMPEL MED LOKALA TIDSZON |DateTime |
 | TIDSSTÄMPEL MED TIDSZON |DateTime |
 | HELTALET |Tal |
-| VARCHAR2 |Sträng |
-| XML |Sträng |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Datatyper **intervall år till månad** och **intervall dag till andra** stöds inte när du använder en Microsoft-drivrutin.

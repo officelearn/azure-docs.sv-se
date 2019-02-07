@@ -7,12 +7,12 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 78af43510e5fc2bed38e109a546944d4a649241c
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d0c54a00afd723b68bedc0a305cfb0f16edf4ac9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984119"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816263"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Ta bort en virtuell nätverksgateway med hjälp av portalen
 
@@ -60,5 +60,5 @@ Då raderas den virtuella nätverksgatewayen. Nästa åtgärderna kan du ta bort
 Om du inte är orolig att behålla någon av dina resurser i resursgruppen och du bara vill börja om från början, kan du ta bort en hela resursgruppen. Det här är ett snabbt sätt att ta bort allt. Följande steg gäller endast för Resource Manager-distributionsmodellen.
 
 1. I **alla resurser**, leta upp resursgruppen och klicka för att öppna bladet.
-2. Klicka på **Ta bort**. Visa berörda resurser på Delete-bladet. Se till att du vill ta bort alla dessa resurser. Om inte, Följ stegen i [ta bort en VPN-gateway](#deletegw) överst i den här artikeln.
+2. Klicka på **Ta bort**. Visa berörda resurser på Delete-bladet. Se till att du vill ta bort alla dessa resurser. Om inte, använder du stegen i ta bort en VPN-gateway överst i den här artikeln.
 3. Om du vill fortsätta, skriver du namnet på resursgruppen som du vill ta bort och klicka sedan på **ta bort**.

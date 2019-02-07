@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: b0cb72b8a9c1710b2b22d987c2818a490a2ea553
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 068929bbde8e4c1411004b45fc77f0188de43ff8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753367"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814222"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory-tjänstidentitet
 
@@ -44,7 +44,7 @@ Om du hitta din datafabrik inte har en tjänstidentitet associerade följa [häm
 
 - [Generera tjänstidentitet med hjälp av PowerShell](#generate-service-identity-using-powershell)
 - [Generera tjänstidentitet med hjälp av REST API](#generate-service-identity-using-rest-api)
-- [Generera tjänstidentitet med en Azure Resource Manager-mall](#generate-service-identity-using-azure-resource-manager-template)
+- Generera tjänstidentitet med en Azure Resource Manager-mall
 - [Generera tjänstidentitet med hjälp av SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]

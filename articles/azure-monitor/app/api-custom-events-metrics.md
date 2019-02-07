@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d0e549f0da5eb30dd11992518789d76c0892bca3
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d67085d2e90e318a8f134103f0798554b8967d6d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747483"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814426"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -774,7 +774,7 @@ Du kan koppla egenskaper och mätningar till dina händelser (och även bläddra
 
 *Egenskaper för* är strängvärden som du kan använda för att filtrera din telemetri i användningsrapporten. Till exempel om din app tillhandahåller flera spel, kan du ansluta spelet till varje händelse så ser du vilka spel som mer populära.
 
-Det finns en gräns på 8192 på strängen. (Om du vill skicka stora mängder data kan använda parametern meddelande av [TrackTrace](#track-trace).)
+Det finns en gräns på 8192 på strängen. (Om du vill skicka stora mängder data använder du parametern meddelande för TrackTrace.)
 
 *Mått* är numeriska värden som kan presenteras grafiskt. Du kanske vill se om det finns en gradvis ökning poängen som spelare uppnå. Diagrammen kan visas efter de egenskaper som skickas till händelsen, så att du kan få separat eller liggande diagram för olika spel.
 
@@ -992,7 +992,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Enskilda telemetri-anrop kan åsidosätta standardvärdena i sina ordböcker för egenskapen.
 
-*För JavaScript webbklienter*, [använda JavaScript telemetri-initierare](#js-initializer).
+*För JavaScript webbklienter*, använda JavaScript telemetri-initierare.
 
 *Att lägga till egenskaper i all telemetri*, inklusive data från standard samling moduler [implementera `ITelemetryInitializer` ](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 

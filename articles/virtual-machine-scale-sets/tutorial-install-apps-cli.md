@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38dec49083e84d105f4eed9cbc149bbc025c5e40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157269"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755721"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudier: Installera program i VM-skalningsuppsättningar med Azure CLI
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. I en föregående självstudie fick du lära dig hur du skapar och använder en anpassad virtuell datoravbildning för att distribuera dina virtuella datorinstanser. Den här anpassade avbildningen inkluderade programinstallationer och konfigurationer. Du kan också automatisera installationen av programmen till en skalningsuppsättning efter att varje virtuell datorinstans distribueras, eller uppdatera ett program som redan körs på en skalningsuppsättning. I den här självstudiekursen får du lära du dig att:
@@ -82,7 +82,7 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 
 
 ## <a name="apply-the-custom-script-extension"></a>Tillämpa det anpassade skripttillägget
-Tillämpa konfigurationen för det anpassade skripttillägget till de virtuella datorinstanserna i din skalningsuppsättning med [az vmss extension set](/cli/azure/vmss/extension#set). Följande exempel tillämpar konfigurationen *customConfig.json* till de virtuella datorinstanserna *myScaleSet* i resursgruppen med namnet *myResourceGroup*:
+Tillämpa konfigurationen för det anpassade skripttillägget till de virtuella datorinstanserna i din skalningsuppsättning med [az vmss extension set](/cli/azure/vmss/extension). Följande exempel tillämpar konfigurationen *customConfig.json* till de virtuella datorinstanserna *myScaleSet* i resursgruppen med namnet *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -112,7 +112,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Om du vill testa webbservern hämtar du den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip#show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
+Om du vill testa webbservern hämtar du den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ I ditt nuvarande gränssnitt, skapar du en fil med namnet *cusomConfigv2.json* o
 }
 ```
 
-Tillämpa konfigurationen för det anpassade skripttillägget till de virtuella datorinstanserna i din skalningsuppsättning med [az vmss extension set](/cli/azure/vmss/extension#set). *customConfigv2.json* används för att tillämpa den uppdaterade versionen av programmet:
+Tillämpa konfigurationen för det anpassade skripttillägget till de virtuella datorinstanserna i din skalningsuppsättning med [az vmss extension set](/cli/azure/vmss/extension). *customConfigv2.json* används för att tillämpa den uppdaterade versionen av programmet:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -159,7 +159,7 @@ Alla virtuella datorinstanser i skalningsuppsättningen uppdateras automatiskt m
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group#az_group_delete). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

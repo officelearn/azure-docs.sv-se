@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282211"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812386"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure Cloud Services
-Certifikat används i Azure för cloud services ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med API för hantering ([hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och [distribuera](#deploy) dem till Azure.
+Certifikat används i Azure för cloud services ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med API för hantering ([hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och distribuera dem till Azure.
 
 Certifikat som används i Azure är x.509 v3-certifikat och kan vara signerat av en annan betrott certifikat eller de kan vara självsignerade. Ett självsignerat certifikat är signerat av en egen skapare kan därför inte är betrodd som standard. De flesta webbläsare kan ignorera det här problemet. Du bör endast använda självsignerade certifikat när du utvecklar och testar dina molntjänster. 
 
@@ -64,11 +64,11 @@ Du kan använda ett verktyg som kan användas för att skapa ett självsignerat 
     > Du kan inte skaffa ett SSL-certifikat för cloudapp.net (eller för alla Azure-relaterade) domänen. certifikatets ämnesnamn måste matcha det anpassade domännamnet som används för att komma åt ditt program. Till exempel **contoso.net**, inte **contoso.cloudapp.net**.
 
 * Minst 2048-bitars kryptering.
-* **Tjänsten certifikat endast**: klientsidan certifikatet måste finnas i den *personliga* certifikatarkiv.
+* **Tjänsten certifikat endast**: Klientsidan certifikatet måste finnas i den *personliga* certifikatarkiv.
 
 Det finns två enkla sätt för att skapa ett certifikat på Windows, med den `makecert.exe` verktyg eller IIS.
 
-### <a name="makecertexe"></a>MakeCert.exe
+### <a name="makecertexe"></a>Makecert.exe
 Det här verktyget är inaktuell och är inte längre dokumenteras här. Mer information finns i [den här MSDN-artikeln](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### <a name="powershell"></a>PowerShell

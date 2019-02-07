@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992210"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822603"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrera ditt IoT Central-program
 
@@ -70,7 +70,7 @@ Använd den **ta bort** för att permanent ta bort ditt IoT Central-program. Det
 
 Varje användare måste ha ett användarkonto innan de kan logga in och komma åt ett program med Azure IoT Central. Microsoft-Accounts (MSA: er) och Azure Active Directory (Azure AD)-konton stöds i Azure IoT Central. Azure Active Directory-grupper stöds inte för närvarande i Azure IoT Central.
 
-Mer information finns i [Microsoft-konto hjälp](https://support.microsoft.com/products/microsoft-account?category=manage-account) och [Snabbstart: lägga till nya användare till Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Mer information finns i [Microsoft-konto hjälp](https://support.microsoft.com/products/microsoft-account?category=manage-account) och [snabbstarten: Lägga till nya användare i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 1. Om du vill lägga till en användare i ett IoT Central-program går du till den **användare** sidan i den **Administration** avsnittet.
 
@@ -107,7 +107,7 @@ Den användare som skapar ett program tilldelas automatiskt till den **administr
 
 Användare i den **Application Builder** roll kan göra allt i ett program förutom administrera programmet. Det innebär builders kan skapa, redigera och ta bort enheten mallar och enheter, hantera enhetsuppsättningar och köra analyser och jobb. Builders har inte åtkomst till den **Administration** avsnittet av programmet.
 
-### <a name="application-operator"></a>Program-Operator
+### <a name="application-operator"></a>Application Operator
 
 Användare i den **program operatorn** rollen kan inte göra ändringar i mallarna för enheten och kan inte administrera programmet. Det innebär att operatörer kan lägga till och ta bort enheter, hantera enhetsuppsättningar och köra analyser och jobb. Operatörer har inte åtkomst till den **Application Builder** och **Administration** sidor.
 
@@ -141,15 +141,15 @@ Följ dessa steg för att slutföra denna självbetjäningsprocess:
 
 ## <a name="export-data"></a>Exportera data
 
-Du kan aktivera **löpande dataexport** att exportera mått, enheter och enhetsdata för mallar till Azure Blob storage-kontot. Läs mer om [hur du exporterar dina data](#howto-export-data).
+Du kan aktivera **löpande dataexport** att exportera mått, enheter och enhetsdata för mallar till Azure Blob storage-kontot. Läs mer om hur du exporterar dina data.
 
 ## <a name="manage-device-connection"></a>Hantera enhetsanslutning
 
-Anslut enheter i stor skala i ditt program som använder nycklar och certifikat här. Läs mer om [ansluta enheter](#concepts-connectivity).
+Anslut enheter i stor skala i ditt program som använder nycklar och certifikat här. Lär dig mer om att ansluta enheter.
 
 ## <a name="use-access-tokens"></a>Använd åtkomsttoken
 
-Generera åtkomsttoken för att använda dem i utvecklarverktyg. Det finns för närvarande en utvecklarverktyget tillgängliga som är i IoT Central-Utforskaren för att övervaka meddelanden från enheten och ändringar i inställningarna och propreties. Läs mer om den [IoT Central explorer](#howto-use-iotc-explorer). 
+Generera åtkomsttoken för att använda dem i utvecklarverktyg. Det finns för närvarande en utvecklarverktyget tillgängliga som är i IoT Central-Utforskaren för att övervaka meddelanden från enheten och ändringar i inställningarna och propreties. Läs mer om IoT Central-explorer. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Använd Azure SDK för kontrollplanåtgärder
 

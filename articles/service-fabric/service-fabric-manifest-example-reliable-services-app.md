@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 548c05963b0b99ba3434d600b19f80cef6a09d6a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171464"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813355"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exempel på Reliable Services-program och tjänstmanifest
 Här följer några exempel på program och tjänstens manifest för ett Service Fabric-program med en ASP.NET-kärnans webbklient och en tillståndskänslig backend-server. Syftet med de här exemplen är att visa vilka inställningar är tillgängliga och hur de används. Dessa program och tjänstens manifest baseras på den [Snabbstart för Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifest.
@@ -28,8 +28,8 @@ Följande funktioner visas:
 |Manifest|Funktioner|
 |---|---|
 |[Programmanifest](#application-manifest)| [resursstyrning](service-fabric-resource-governance.md), [köra tjänster som ett lokalt administratörskonto](service-fabric-application-runas-security.md), [gäller en standardprincip för alla kodpaket för tjänsten](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [skapa användar- och säkerhetsobjekt](service-fabric-application-runas-security.md), dela ett paket av data mellan instanser av tjänsten, [åsidosätta tjänstslutpunkter](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
-|[FrontEndService tjänstmanifestet](#frontendservice-service-manifest)| [Köra ett skript när tjänsten startar](service-fabric-run-script-at-service-startup.md), [definiera en HTTPS-slutpunkt](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
-|[BackEndService tjänstmanifestet](#backendservice-service-manifest)| [Deklarera ett konfigurationspaket](service-fabric-application-and-service-manifests.md), [deklarera ett paket för data](service-fabric-application-and-service-manifests.md), [konfigurerar en slutpunkt](service-fabric-service-manifest-resources.md)| 
+|FrontEndService tjänstmanifestet| [Köra ett skript när tjänsten startar](service-fabric-run-script-at-service-startup.md), [definiera en HTTPS-slutpunkt](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
+|BackEndService tjänstmanifestet| [Deklarera ett konfigurationspaket](service-fabric-application-and-service-manifests.md), [deklarera ett paket för data](service-fabric-application-and-service-manifests.md), [konfigurerar en slutpunkt](service-fabric-service-manifest-resources.md)| 
 
 Se [manifest programelement](#application-manifest-elements), [VotingWeb manifest delar](#votingweb-service-manifest-elements), och [VotingData manifest delar](#votingdata-service-manifest-elements) för mer information om specifika XML element.
 

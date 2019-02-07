@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: 5dabab02758b4ade0f668adddf7644a654e1804b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: e2ec1b7ad6d1489836937d30b89d0f0f681a9bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756749"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819594"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry roller och behörigheter
 
 Azure Container Registry-tjänsten stöder en uppsättning Azure-roller som kan ger olika nivåer av behörigheter till ett Azure container registry. Använd Azure [rollbaserad åtkomstkontroll](../role-based-access-control/index.yml) (RBAC) för att tilldela specifika behörigheter till användare eller tjänsthuvudnamn som måste interagera med ett register.
 
-| Rollbehörighet /       | [Få åtkomst till Resource Manager](#access-resource-manage)| [Skapa/ta bort registret](#create/delete-registry) | [Push-överför avbildningen](#push-image) | [Hämta avbildning](#pull-image) | [Ändra principer](#change-polices) |   [Logga avbildningar](#sign-images)  |
+| Rollbehörighet /       | Access Resource Manager| Skapa/ta bort registret | [Push-överför avbildningen](#push-image) | [Hämta avbildning](#pull-image) | Ändra principer |   [Logga avbildningar](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- |
 | Ägare | X | X | X | X | X |  |  
 | Deltagare | X | X | X | X | X |  |  
@@ -43,7 +43,7 @@ På samma sätt noder som kör dina behållare måste den **AcrPull** roll, men 
 
 För verktyg som Visual Studio Code [Docker-tillägg](https://code.visualstudio.com/docs/azure/docker), ytterligare resource provider åtkomst krävs för att visa de tillgängliga Azure-behållarregister. I det här fallet ger användarna åtkomst till den **läsare** eller **deltagare** roll. Dessa roller Tillåt `docker pull`, `docker push`, `az acr list`, `az acr build`, och andra funktioner. 
 
-## <a name="access-resource-manager"></a>Få åtkomst till Resource Manager
+## <a name="access-resource-manager"></a>Access Resource Manager
 
 Azure Resource Manager-åtkomst krävs för Azure-portalen och [Azure CLI](/cli/azure/). Till exempel för att hämta en lista över register med hjälp av den `az acr list` kommandot, du behöver den här behörigheten ange. 
 

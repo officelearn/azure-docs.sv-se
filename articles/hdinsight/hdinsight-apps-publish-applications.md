@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653925"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814215"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program på Azure Marketplace
 Du kan installera ett Azure HDInsight-program på ett Linux-baserade HDInsight-kluster. I den här artikeln lär du dig hur du publicerar ett HDInsight-program på Azure Marketplace. Allmän information om hur du publicerar på Azure Marketplace finns i [publicera ett erbjudande på Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -56,7 +56,7 @@ När ett program har installerats på ett kluster (antingen på ett befintligt k
   > [!IMPORTANT]  
   > Namnet på installationsskriptet för programmet måste vara unikt för ett specifikt kluster. Namnet på skriptet måste ha följande format:
   > 
-  > ”name” ”: [concat ('hue-install-v0 ','-', uniquestring('applicationName')]”
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > Skriptets namn består av tre delar:
   > 
@@ -75,9 +75,9 @@ Installationsskriptet måste ha följande egenskaper:
 * Om skriptet startar tjänster på noderna, övervakas och konfigurerad för att starta automatiskt om en omstart av nod inträffar tjänster.
 
 ## <a name="package-the-application"></a>Paketera programmet
-Skapa en ZIP-fil som innehåller alla filer som krävs för att installera programmet HDInsight. Du använder ZIP-filen till [publicera programmet](#publish-application). ZIP-filen innehåller följande filer:
+Skapa en ZIP-fil som innehåller alla filer som krävs för att installera programmet HDInsight. Du kan använda .zip-filen för att publicera programmet. ZIP-filen innehåller följande filer:
 
-* [createUiDefinition.json](#define-application)
+* createUiDefinition.json
 * mainTemplate.json (ett exempel finns [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).)
 * Alla nödvändiga skript
 
@@ -94,7 +94,7 @@ Publicera ett HDInsight-program:
 5. Välj **definiera några topologier för att komma igång**. En lösningsmall är ”överordnad” till alla dess topologier. Du kan definiera flera topologier i en mall för erbjudandet eller lösningen. När ett erbjudande skickas till mellanlagringen, skickas det med alla dess topologier. 
 6. Ange ett topologinamn och välj sedan **+**.
 7. Ange en ny version och välj sedan **+**.
-8. Ladda upp ZIP-filen som du skapade när du [paketeras programmet](#package-application).  
+8. Ladda upp ZIP-filen som du skapade när du paketeras programmet.  
 9. Välj **begär certifiering**. Microsofts certifieringsteam granskar filerna och certifierar topologin.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,14 +7,14 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c9b4a27ff1b5467eb752e8cfc09f697ca1a966ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334490"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820393"
 ---
-# <a name="acr-tasks-reference-yaml"></a>ACR uppgifter referens: YAML
+# <a name="acr-tasks-reference-yaml"></a>Referera till ACR-uppgifter: YAML
 
 Flera steg aktivitetsdefinitionen i ACR uppgifter innehåller en behållare till Central beräkning primitiv hämtas som fokuserar på att bygga, testa och korrigeringar behållare. Den här artikeln beskriver kommandon, parametrar, egenskaper och syntaxen för YAML-filer som definierar dina aktiviteter med flera steg.
 
@@ -83,10 +83,10 @@ az configure --defaults acr=myregistry
 
 Aktivitetsegenskaper ofta ser överst i en `acr-task.yaml` fil och är globala egenskaper som gäller i hela fullständig körning av aktiviteten. Några av de här globala egenskaperna kan åsidosättas i ett enskilt steg.
 
-| Egenskap  | Typ | Valfri | Beskrivning | Åsidosättning som stöds | Standardvärde |
+| Egenskap  | Type | Valfri | Beskrivning | Åsidosättning som stöds | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | sträng | Nej | Versionen av den `acr-task.yaml` filen som parsas av tjänsten ACR uppgifter. Medan ACR uppgifter strävar efter att underhålla bakåtkompatibilitet, kan det här värdet ACR uppgifter att bibehålla kompatibilitet inom en definierad version. | Nej | Ingen |
-| `stepTimeout` | int (sekunder) | Ja | Det maximala antalet sekunder som ett steg kan köras. Den här egenskapen kan åsidosättas i ett steg genom att ange steget [timeout](#timeout) egenskapen. | Ja | 600 (10 minuter) |
+| `stepTimeout` | int (sekunder) | Ja | Det maximala antalet sekunder som ett steg kan köras. Den här egenskapen kan åsidosättas i ett steg genom att ange egenskapen för det steget timeout. | Ja | 600 (10 minuter) |
 | `totalTimeout` | int (sekunder) | Ja | Det maximala antalet sekunder som en aktivitet kan köras. Ett ”kör” innehåller körning och slutförande av alla steg i den här aktiviteten om lyckades eller misslyckades. Också inkluderat är utskriftsaktivitet utdata som identifierade bild beroenden och aktivitetsstatus för körning. | Nej | 3600 (1 timme) |
 
 ## <a name="task-step-types"></a>Steg aktivitetstyper
@@ -128,13 +128,13 @@ Den `build` stegtyp stöder följande egenskaper. Du hittar information om de h�
 | -------- | ---- | -------- |
 | `detach` | Bool | Valfri |
 | `entryPoint` | sträng | Valfri |
-| `env` | [sträng, sträng,...] | Valfri |
+| `env` | [string, string, ...] | Valfri |
 | `id` | sträng | Valfri |
 | `ignoreErrors` | Bool | Valfri |
 | `keep` | Bool | Valfri |
 | `startDelay` | int (sekunder) | Valfri |
 | `timeout` | int (sekunder) | Valfri |
-| `when` | [sträng, sträng,...] | Valfri |
+| `when` | [string, string, ...] | Valfri |
 | `workingDirectory` | sträng | Valfri |
 
 ### <a name="examples-build"></a>Exempel: skapa
@@ -187,12 +187,12 @@ Den `push` stegtyp stöder följande egenskaper. Du hittar information om de hä
 
 | | | |
 | -------- | ---- | -------- |
-| `env` | [sträng, sträng,...] | Valfri |
+| `env` | [string, string, ...] | Valfri |
 | `id` | sträng | Valfri |
 | `ignoreErrors` | Bool | Valfri |
 | `startDelay` | int (sekunder) | Valfri |
 | `timeout` | int (sekunder) | Valfri |
-| `when` | [sträng, sträng,...] | Valfri |
+| `when` | [string, string, ...] | Valfri |
 
 ### <a name="examples-push"></a>Exempel: push
 
@@ -232,13 +232,13 @@ Den `cmd` stegtyp stöder följande egenskaper:
 | -------- | ---- | -------- |
 | `detach` | Bool | Valfri |
 | `entryPoint` | sträng | Valfri |
-| `env` | [sträng, sträng,...] | Valfri |
+| `env` | [string, string, ...] | Valfri |
 | `id` | sträng | Valfri |
 | `ignoreErrors` | Bool | Valfri |
 | `keep` | Bool | Valfri |
 | `startDelay` | int (sekunder) | Valfri |
 | `timeout` | int (sekunder) | Valfri |
-| `when` | [sträng, sträng,...] | Valfri |
+| `when` | [string, string, ...] | Valfri |
 | `workingDirectory` | sträng | Valfri |
 
 Du hittar information om de här egenskaperna i den [steg Aktivitetsegenskaper](#task-step-properties) i den här artikeln.
@@ -315,17 +315,17 @@ Genom att använda `docker run` bild referens konventionen `cmd` kan köra avbil
 
 Varje stegtyp av har stöd för flera egenskaper som är lämpliga för typen. I följande tabell definieras alla tillgängliga stegegenskaper. Inte alla stegtyper av stöd för alla egenskaper. Om du vill se vilka egenskaper som är tillgängliga för varje stegtyp av finns i den [cmd](#cmd), [skapa](#build), och [push](#push) steg typ referensavsnitt.
 
-| Egenskap  | Typ | Valfri | Beskrivning |
+| Egenskap  | Type | Valfri | Beskrivning |
 | -------- | ---- | -------- | ----------- |
 | `detach` | Bool | Ja | Oavsett om behållaren ska att koppla från när du kör. |
 | `entryPoint` | sträng | Ja | Åsidosätter den `[ENTRYPOINT]` för behållare i ett steg. |
-| `env` | [sträng, sträng,...] | Ja | Matris med strängar i `key=value` format som definierar miljövariabler för steget. |
+| `env` | [string, string, ...] | Ja | Matris med strängar i `key=value` format som definierar miljövariabler för steget. |
 | [`id`](#example-id) | sträng | Ja | Identifierar steget i uppgiften. Andra steg i aktiviteten kan referera till ett steg `id`, t.ex. för beroende kontrollerar med `when`.<br /><br />Den `id` också är namnet på behållaren som körs. Processer som körs i andra behållare i aktiviteten kan referera till den `id` som dess DNS-värdnamn eller för att komma åt den med dockerloggar [id], till exempel. |
 | `ignoreErrors` | Bool | Ja | När värdet `true`, steget markeras som slutförda oavsett om ett fel uppstod under körningen. Standard: `false`. |
 | `keep` | Bool | Ja | Om det steget behållare bör hållas efter körningen. |
 | `startDelay` | int (sekunder) | Ja | Antal sekunder att fördröja körningen för ett steg. |
 | `timeout` | int (sekunder) | Ja | Maximalt antal sekunder som ett steg kan köras innan håller på att avslutas. |
-| [`when`](#example-when) | [sträng, sträng,...] | Ja | Konfigurerar ett steg beroende på en eller flera andra steg i aktiviteten. |
+| [`when`](#example-when) | [string, string, ...] | Ja | Konfigurerar ett steg beroende på en eller flera andra steg i aktiviteten. |
 | `workingDirectory` | sträng | Ja | Anger arbetskatalogen för ett steg. Som standard skapar ACR uppgifter en rotkatalog som arbetskatalogen. Men om din version har flera steg, kan tidigare dela artefakter med senare steg genom att ange samma arbetskatalogen. |
 
 ### <a name="examples-task-step-properties"></a>Exempel: Steg Aktivitetsegenskaper
@@ -389,7 +389,7 @@ ACR-aktiviteter innehåller en standarduppsättning variabler som är tillgängl
 * `Run.Registry`
 * `Run.Date`
 
-### <a name="run46id"></a>Kör&#46;ID
+### <a name="run46id"></a>Run&#46;ID
 
 Varje körning via `az acr run`, eller starta baserat körningen av aktiviteter som skapas med `az acr task create` har ett unikt ID. ID: T representerar körningen som körs.
 

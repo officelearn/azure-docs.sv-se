@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104622"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814953"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
 
@@ -64,7 +64,7 @@ Kontrollera den [utgående portar för Live Metrics Stream](../../azure-monitor/
 |På begäran|Data som strömmas medan du öppna Live Metrics|Informationen skickas när SDK är installerat och aktiverat|
 |Kostnadsfri|Det kostar inget Live Stream-data|Lyder [priser](../../azure-monitor/app/pricing.md)
 |Samling|Alla valda mått och räknare överförs. Fel och stackspår samplas. TelemetryProcessors tillämpas inte.|Händelser kan vara [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
-|Kontrollkanal|Filterkontroll signaler skickas till SDK: N. Vi rekommenderar att du [skydda den här kanalen](#secure-channel).|Kommunikationen är enkelriktade på portalen|
+|Kontrollkanal|Filterkontroll signaler skickas till SDK: N. Vi rekommenderar att du skyddar den här kanalen.|Kommunikationen är enkelriktade på portalen|
 
 
 ## <a name="select-and-filter-your-metrics"></a>Välja och filtrera dina mått

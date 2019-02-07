@@ -6,19 +6,19 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 5d55879a5a8487636e2252abd359accf07e60ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634365"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809171"
 ---
-# <a name="mount-the-avere-vfxt-cluster"></a>Montera Avere vFXT klustret  
+# <a name="mount-the-avere-vfxt-cluster"></a>Montera Avere vFXT-klustret  
 
 Följ dessa steg för att ansluta klientdatorer till vFXT klustret.
 
 1. Bestäm hur du belastningsutjämnar klienttrafik mellan klusternoderna. Läs [saldo klientbelastningen](#balance-client-load)nedan för information. 
-1. Identifiera den [IP-adress och knutpunkt sökväg](#identify-ip-addresses-and-paths-to-mount) att montera.
+1. Identifiera IP-adress och knutpunkt sökvägen att montera.
 1. Problem i [monteringskommando](#mount-command-arguments), med rätt argument.
 
 ## <a name="balance-client-load"></a>Belastningsutjämna klientbelastningen
@@ -28,7 +28,7 @@ För att belastningsutjämna klientbegäranden mellan noderna i klustret, ska du
 > [!TIP] 
 > Andra metoder för belastningsutjämning kan vara lämpligt för stora eller komplicerade system. [öppna ett supportärende](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) om du behöver hjälp.)
 > 
-> Om du föredrar att använda en DNS-server för belastningsutjämning för automatisk serversidan, måste du konfigurera och hantera din egen DNS-server i Azure. I så fall kan du konfigurera DNS-resursallokering för vFXT klustret enligt det här dokumentet: [Avere DNS-klusterkonfiguration](avere-vfxt-configure-dns.md).
+> Om du föredrar att använda en DNS-server för belastningsutjämning för automatisk serversidan, måste du konfigurera och hantera din egen DNS-server i Azure. I så fall kan du konfigurera DNS-resursallokering för vFXT klustret enligt det här dokumentet: [DNS-klusterkonfiguration Avere](avere-vfxt-configure-dns.md).
 
 ### <a name="sample-balanced-client-mounting-script"></a>Exemplet belastningsutjämnade klienten montera skript
 
@@ -68,7 +68,7 @@ Från klienten den ``mount`` kommandot mappar den virtuella servern (vserver) p�
 
 Det finns tre element i mount-kommandot: 
 
-* vFXT sökväg - (en kombination av IP-adress och namnområde knutpunkt sökväg beskrivs [nedan](#junction-and-ip-address))
+* vFXT sökväg - (en kombination av IP-adress och namnområde knutpunkt sökväg som beskrivs nedan)
 * lokal sökväg - sökväg på klienten 
 * Montera kommandoalternativ - (anges i [montera kommandoargumenten](#mount-command-arguments))
 

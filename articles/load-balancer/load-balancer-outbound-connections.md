@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201388"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814834"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -34,17 +34,17 @@ En distribution i Azure kan kommunicera med slutpunkter utanför Azure i det off
 Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenarier efter behov. Granska dem noggrant för att förstå de funktioner, begränsningar och mönster som de gäller för din distributionsmodell och programscenariot. Granska vägledning för [hantera dessa scenarier](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard Load Balancer introducerar nya funktioner och på olika sätt att utgående anslutning.   Till exempel [scenario 3](#defaultsnat) finns inte när en intern Standard Load Balancer och olika steg måste utföras.   Noga igenom hela dokumentet för att förstå den övergripande begrepp och skillnader mellan SKU: er.
+>Standard Load Balancer och offentlig IP innehåller nya funktioner och olika beteenden till utgående anslutning.  De är inte samma som grundläggande SKU: er.  Om du vill utgående anslutning när du arbetar med Standard-SKU: er, måste du explicit definiera den antingen med offentliga IP-adresser eller offentlig Load Balancer.  Detta innefattar att skapa utgående anslutning när du använder och interna Standard Load Balancer.  Vi rekommenderar att du alltid använda regler för utgående trafik på en offentlig Standardbelastningsutjämnare.  [Scenario 3](#defaultsnat) är inte tillgänglig med Standard-SKU.  Det innebär att när en intern Standardbelastningsutjämnare används, måste du vidta åtgärder för att skapa utgående anslutning för de virtuella datorerna i serverdelspoolen om utgående anslutningar är det önskade.  I samband med utgående anslutning, en enda fristående virtuell dator, alla Virtuella datorer i en Tillgänglighetsuppsättning, fungerar alla instanser i en VMSS som en grupp. Det innebär att om en enskild virtuell dator i en Tillgänglighetsuppsättning är associerad med en Standard-SKU, alla VM-instanser i den här Tillgänglighetsuppsättningen nu bete sig av samma som om de är associerade med Standard-SKU, även om en enskild instans inte är direkt kopplade till den.  Noga igenom hela dokumentet att förstå de övergripande begrepp, granska [Standardbelastningsutjämnare](load-balancer-standard-overview.md) efter skillnader mellan SKU: er och granska [utgående regler](load-balancer-outbound-rules-overview.md).  Med utgående regler kan du de detaljerade kontroll över alla aspekter av utgående anslutning.
 
 ## <a name="scenarios"></a>Scenarioöversikt
 
 Azure Load Balancer och relaterade resurser definieras uttryckligen när du använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure tillhandahåller för närvarande tre olika metoder för att uppnå utgående anslutning för Azure Resource Manager-resurser. 
 
-| Scenario | Metod | IP-protokoll | Beskrivning |
-| --- | --- | --- | --- |
-| [1. Virtuell dator med en offentlig IP på instansnivå-adress (med eller utan belastningsutjämnaren)](#ilpip) | SNAT, port låtsas inte används | TCP, UDP, ICMP, ESP | Azure använder offentlig IP-adress som tilldelats IP-adresskonfigurationen för nätverkskortet för den instansen. Instansen har alla tillfälliga portar som är tillgängliga. |
-| [2. Offentlig Load Balancer som är associerade med en virtuell dator (ingen offentlig IP på instansnivå adress på-instansen)](#lb) | SNAT med port låtsas (PAT) med Load Balancer-klienter | TCP, UDP |Azure delar offentliga IP-adressen för den offentliga belastningsutjämnare klienter med flera privata IP-adresser. Azure använder tillfälliga portar för klienter att TILLDELNINGEN. |
-| [3. Standalone VM (någon belastningsutjämnare, ingen offentlig IP på instansnivå adress)](#defaultsnat) | SNAT med port låtsas (PAT) | TCP, UDP | Azure automatiskt utser en offentlig IP-adress för SNAT, delar den här offentliga IP-adressen med flera privata IP-adresser för tillgänglighetsuppsättningen och använder tillfälliga portar för den här offentliga IP-adressen. Det här scenariot är en reservprincip för föregående scenarier. Det rekommenderas inte om du behöver synlighet och kontroll. |
+| SKU:er | Scenario | Metod | IP-protokoll | Beskrivning |
+| --- | --- | --- | --- | --- |
+| Standard, Basic | [1. Virtuell dator med en offentlig IP på instansnivå-adress (med eller utan belastningsutjämnaren)](#ilpip) | SNAT, port låtsas inte används | TCP, UDP, ICMP, ESP | Azure använder offentlig IP-adress som tilldelats IP-adresskonfigurationen för nätverkskortet för den instansen. Instansen har alla tillfälliga portar som är tillgängliga. När du använder Standard Load Balancer, bör du använda [utgående regler](load-balancer-outbound-rules-overview.md) att explicit definiera utgående anslutning |
+| Standard, Basic | [2. Offentlig Load Balancer som är associerade med en virtuell dator (ingen offentlig IP på instansnivå adress på-instansen)](#lb) | SNAT med port låtsas (PAT) med Load Balancer-klienter | TCP, UDP |Azure delar offentliga IP-adressen för den offentliga belastningsutjämnare klienter med flera privata IP-adresser. Azure använder tillfälliga portar för klienter att TILLDELNINGEN. |
+| Ingen eller Basic | [3. Standalone VM (någon belastningsutjämnare, ingen offentlig IP på instansnivå adress)](#defaultsnat) | SNAT med port låtsas (PAT) | TCP, UDP | Azure automatiskt utser en offentlig IP-adress för SNAT, delar den här offentliga IP-adressen med flera privata IP-adresser för tillgänglighetsuppsättningen och använder tillfälliga portar för den här offentliga IP-adressen. Det här scenariot är en reservprincip för föregående scenarier. Det rekommenderas inte om du behöver synlighet och kontroll. |
 
 Om du inte vill att en virtuell dator för att kommunicera med slutpunkter utanför Azure i offentliga IP-adressutrymme, kan du använda nätverkssäkerhetsgrupper (NSG) för att blockera åtkomst efter behov. Avsnittet [förhindrar utgående anslutning](#preventoutbound) beskriver NSG: er i mer detalj. Vägledning för designa, implementera och hantera ett virtuellt nätverk utan någon utgående åtkomst är utanför omfånget för den här artikeln.
 
@@ -68,7 +68,7 @@ Tillfälliga belastningsutjämnarens offentliga IP-adress frontend-portar använ
 
 Tilldelas före SNAT portar som beskrivs i den [förstå SNAT och PAT](#snat) avsnittet. Det är en begränsad resurs som kan vara förbrukat. Det är viktigt att förstå hur de är [förbrukas](#pat). Om du vill lära dig mer om att utforma för den här förbrukning och minimera efter behov, granska [hantera SNAT överbelastning](#snatexhaust).
 
-När [flera offentliga IP-adresser som är associerade med Load Balancer grundläggande](load-balancer-multivip-overview.md), några av de här offentliga IP-adresser är en [kandidat för utgående flöden](#multivipsnat), och en väljs slumpmässigt.  
+När [flera offentliga IP-adresser som är associerade med Load Balancer grundläggande](load-balancer-multivip-overview.md)något av de här offentliga IP-adresser är en kandidat för utgående flöden och en väljs slumpmässigt.  
 
 Du kan använda för att övervaka hälsotillståndet för utgående anslutningar med Load Balancer grundläggande [Log Analytics för Load Balancer](load-balancer-monitor-log.md) och [Avisera händelseloggar](load-balancer-monitor-log.md#alert-event-log) att övervaka SNAT port överbelastning meddelanden.
 
@@ -157,14 +157,14 @@ I följande tabell visas SNAT port preallocations för nivåerna för backend-po
 | Poolstorlek (VM-instanser) | Den förallokerade SNAT portar per IP-konfiguration|
 | --- | --- |
 | 1-50 | 1,024 |
-| 51 – 100 | 512 |
+| 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
 | 401-800 | 64 |
-| 801-1 000 | 32 |
+| 801-1,000 | 32 |
 
 >[!NOTE]
-> När du använder Standard Load Balancer med [flera klienter](load-balancer-multivip-overview.md), [varje frontend IP-adress multiplicerar antalet tillgängliga portar för SNAT](#multivipsnat) i föregående tabell. Till exempel använder en serverdelspool med 50 Virtuella datorer med 2 belastningsutjämningsregler, var och en med en separat frontend IP-adress, 2048 (2 x 1 024) SNAT portar per IP-konfiguration. Visa detaljer för [flera klienter](#multife).
+> När du använder Standard Load Balancer med [flera klienter](load-balancer-multivip-overview.md), varje frontend IP-adress multiplicerar antalet tillgängliga SNAT portar i föregående tabell. Till exempel använder en serverdelspool med 50 Virtuella datorer med 2 belastningsutjämningsregler, var och en med en separat frontend IP-adress, 2048 (2 x 1 024) SNAT portar per IP-konfiguration. Visa detaljer för [flera klienter](#multife).
 
 Kom ihåg att antalet tillgängliga portar för SNAT inte översätter direkt till antal flöden. En enskild SNAT-port kan återanvändas för flera unika mål. Portar används endast om det är nödvändigt att göra flöden som är unikt. Riktlinjer för design och problemlösning, finns i avsnittet om [hur du hanterar icke förnybara resursen](#snatexhaust) och de avsnitt som beskriver [känna dig NÖJD](#pat).
 
@@ -257,7 +257,8 @@ Om en Nätverkssäkerhetsgrupp blockerar hälsotillstånd avsökningen begärand
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [belastningsutjämnaren](load-balancer-overview.md).
 - Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
+- Läs mer om [utgående regler](load-balancer-outbound-rules-overview.md) för offentlig Load Balancer.
+- Läs mer om [belastningsutjämnaren](load-balancer-overview.md).
 - Läs mer om [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 - Lär dig mer om den andra nyckeln [nätverksfunktionerna](../networking/networking-overview.md) i Azure.

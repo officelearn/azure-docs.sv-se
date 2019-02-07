@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249103"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819526"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure Stack 
 
@@ -51,7 +51,7 @@ Eftersom storage service-resurser är för exklusiv användning av storage-tjän
 
 Resurser på volymer håller klientdata. Klientdata innehåller sidblobar, blockblobbar, lägga till blobbar, tabeller, köer, databaser och relaterade metadatalagring. Eftersom storage-objekt (BLOB-objekt, osv.) finns individuellt inom en enda resurs, får inte den maximala storleken för varje objekt överskrida storleken på en resurs. Den maximala storleken för nya objekt är beroende av den kapacitet som finns kvar i en resurs som outnyttjat utrymme när det nya objektet skapas.
 
-När en resurs har för lite ledigt utrymme och åtgärder för att [frigöra](#reclaim-capacity) utrymme är inte lyckades eller tillgänglig, operatorn Azure Stack-molnet kan [migrera](#migrate-a-container-between) blob-behållare från en resurs till en annan.
+När en resurs har för lite ledigt utrymme och åtgärder för att [frigöra](#reclaim-capacity) utrymme är inte lyckades eller tillgänglig, operatorn Azure Stack-molnet kan migrera blob-behållare från en resurs till en annan.
 
 - Mer information om behållare och blobbar finns i [Blob-lagring](azure-stack-key-features.md#blob-storage) i nyckel-funktioner och koncept i Azure Stack.
 - Information om hur klientanvändare fungerar med blob storage i Azure Stack finns i [Azure Stack-lagringstjänster](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).

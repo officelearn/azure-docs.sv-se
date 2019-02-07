@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2108de8988e973644e0622a4b76a04408949298e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635161"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821974"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Felsöka Apache Spark med Azure HDInsight
 
@@ -23,7 +23,7 @@ Lär dig mer om de viktigaste problemen och sina lösningar när du arbetar med 
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-Konfigurationsvärden för den här proceduren har tidigare angetts i HDInsight. För att fastställa vilka Spark konfigurationer måste anges och vilka värden, se [vad som orsakar ett Apache Spark-program OutofMemoryError undantag](#what-causes-a-spark-application-outofmemoryerror-exception). 
+Konfigurationsvärden för den här proceduren har tidigare angetts i HDInsight. För att avgöra vilka Spark måste anges och se vad som orsakar ett Apache Spark-program OutofMemoryError undantag till vilka värden. 
 
 1. Välj i listan över kluster, **Spark2**.
 
@@ -92,7 +92,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. För att fastställa vilka Spark konfigurationer måste anges och vilka värden, se [vad som orsakar ett Apache Spark-program OutofMemoryError undantag](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. För att avgöra vilka Spark måste anges och se vad som orsakar ett Apache Spark-program OutofMemoryError undantag till vilka värden.
 
 2. I den första cellen i Jupyter-anteckningsbok när den **%% konfigurera** direktiv, ange Spark-konfigurationer i ett giltigt JSON-format. Ändra de faktiska värdena efter behov:
 
@@ -107,7 +107,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. För att fastställa vilka Spark konfigurationer måste anges och vilka värden, se [vad som orsakar ett Apache Spark-program OutofMemoryError undantag](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. För att avgöra vilka Spark måste anges och se vad som orsakar ett Apache Spark-program OutofMemoryError undantag till vilka värden. 
 
 2. Skicka Spark-programmet till Livy med hjälp av en REST-klient som cURL. Använda ett kommando som liknar följande. Ändra de faktiska värdena efter behov:
 
@@ -124,7 +124,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. För att fastställa vilka Spark konfigurationer måste anges och vilka värden, se [vad som orsakar ett Apache Spark-program OutofMemoryError undantag](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. För att avgöra vilka Spark måste anges och se vad som orsakar ett Apache Spark-program OutofMemoryError undantag till vilka värden.
 
 2. Starta spark-shell med hjälp av ett kommando som liknar följande. Ändra det faktiska värdet av konfigurationer efter behov: 
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244771"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811672"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob storage från iOS
 
@@ -162,7 +162,7 @@ I följande exempel visas hur du skapar en behållare med **behållare** åtkoms
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Ladda upp en blob till en container
-Som vi nämnde i den [Blob service-koncept](#blob-service-concepts) avsnittet Blob Storage erbjuder tre olika typer av blobbar: blockblobbar, tilläggsblobbar och sidblobbar. Azure Storage-biblioteket för iOS har stöd för alla tre typer av blobbar. I de flesta fall är blockblob den rekommenderade typen.
+Som vi redan nämnt i begreppsavsnittet för Blob service, Blob Storage erbjuder tre olika typer av blobbar: blockblobbar, tilläggsblobbar och sidblobbar. Azure Storage-biblioteket för iOS har stöd för alla tre typer av blobbar. I de flesta fall är blockblob den rekommenderade typen.
 
 I följande exempel visas hur du överför en blockblob från en NSString. Om en blob med samma namn finns redan i den här behållaren, skrivs innehållet i den här bloben.
 

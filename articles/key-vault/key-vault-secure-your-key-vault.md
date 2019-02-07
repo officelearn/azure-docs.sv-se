@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 9877698c8c6af68c5ffd88dab37150274ce87b37
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8a0300eeda49d85ffc08db8f285550e217613dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077342"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821625"
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 
@@ -34,7 +34,7 @@ Både hanteringsplanet och dataplanet använder sig av Azure Active Directory f�
 
 Här är en kort översikt över de ämnen som täcks:
 
-[Autentisering med hjälp av Azure Active Directory](#authentication-using-azure-active-directory) – Det här avsnittet beskriver hur en anropare autentiserar sig med Azure Active Directory för att få åtkomst till ett nyckelvalv via hanteringsplanet och dataplanet. 
+Autentisering med hjälp av Azure Active Directory – det här avsnittet beskrivs hur en anropare autentiserar sig med Azure Active Directory för att komma åt ett nyckelvalv via Hanteringsplanet och dataplanet. 
 
 För autentisering använder båda planen Azure Active Directory (AD Azure). För auktorisering använder Hanteringsplanet rollbaserad åtkomstkontroll (RBAC) medan dataplanet använder åtkomstprincip för Nyckelvalvet.
 
@@ -67,7 +67,7 @@ Komma åt de Hanteringsplanet och dataplanet hanteringsgränssnitt via olika slu
 
 | Åtkomstplan | Slutpunkter för åtkomst | Åtgärder | Åtkomstkontrollmekanismer |
 | --- | --- | --- | --- |
-| Hanteringsplanet |**Globalt:**<br> management.azure.com:443<br><br> **Azure Kina 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> management.usgovcloudapi.net:443<br><br> **Azure i Tyskland:**<br> management.microsoftazure.de:443 |Skapa/läsa/Uppdatera/ta bort Nyckelvalv <br> Ställa in åtkomstprinciper för Key Vault<br>Ställ in taggar för Key Vault |RBAC i Azure Resource Manager |
+| Hanteringsplanet |**Globalt:**<br> management.azure.com:443<br><br> **Azure Kina 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> management.usgovcloudapi.net:443<br><br> **Azure i Tyskland:**<br> management.microsoftazure.de:443 |Create/Read/Update/Delete Key Vault <br> Ställa in åtkomstprinciper för Key Vault<br>Ställ in taggar för Key Vault |Azure Resource Manager RBAC |
 | Dataplanet |**Globalt:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Kina 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure för amerikanska myndigheter:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure i Tyskland:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |För nycklar: Dekryptera, kryptera, UnwrapKey, WrapKey, verifiera, logga, hämta, lista, uppdatera, skapa, importera, ta bort, säkerhetskopiera, återställa<br><br> För hemligheter: Hämta, lista, Ställ in, ta bort |Åtkomstprincip för Nyckelvalvet |
 
 Hantering av hanteringsplanets och dataplanets åtkomstkontroller fungerar oberoende av varandra. Till exempel om du vill ge ett programåtkomst för att använda nycklar i key vault behöver du bara att bevilja åtkomst till dataplanet. Du beviljar åtkomst via åtkomstprinciper för Key Vault. En användare som behöver läsa egenskaper för Key Vault och taggar, men inte åtkomst till data (nycklar, hemligheter eller certifikat) behöver däremot bara hanteringsplansåtkomst. Du beviljar åtkomst genom att tilldela läsåtkomst till användaren med RBAC.

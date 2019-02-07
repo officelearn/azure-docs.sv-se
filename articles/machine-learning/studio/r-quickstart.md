@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
-ms.openlocfilehash: d56c44e299125b6b7d8aff429aa6352b8e653a16
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508665"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822382"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Snabbstartssjälvstudier R-programmeringsspråket för Azure Machine Learning Studio
 
@@ -745,7 +745,7 @@ Den `ts.detrend()` funktionen visas nedan utför båda dessa åtgärder. Följan
 
 Det finns en bitars händer i den `ts.detrend()` funktion. De flesta av den här koden söker efter potentiella problem med argument eller hantering av undantag som fortfarande kan uppstå under de nödvändiga beräkningarna. Bara några rader i den här koden faktiskt gör de nödvändiga beräkningarna.
 
-Vi har redan beskrivs ett exempel på skydden programmering i [värde transformationer](#valuetransformations). Båda beräkning block är omslutna i `tryCatch()`. För vissa fel det vara bra att returnera den ursprungliga inkommande vektorn och i andra fall kan jag lämna tillbaka en vektor med nollor.  
+Vi har redan beskrivs ett exempel på skydden programmering i värdet transformationer. Båda beräkning block är omslutna i `tryCatch()`. För vissa fel det vara bra att returnera den ursprungliga inkommande vektorn och i andra fall kan jag lämna tillbaka en vektor med nollor.  
 
 Observera att den linjära regressionen som används för att ta bort trender är en time series-regression. Ge säkrare prognoser variabeln är ett time series-objekt.  
 

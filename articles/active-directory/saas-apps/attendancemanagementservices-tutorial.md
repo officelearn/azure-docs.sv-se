@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 331a8d07004a8915d27b28ca0fba940b1aa3ab72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bcbb3d5d25fdc3de71045cedfd4634e47b3947bf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164817"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811962"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Självstudier: Azure Active Directory-integrering med närvaro hanteringstjänster
 
@@ -86,7 +86,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med närvaro Manageme
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en testanvändare närvaro hanteringstjänster](#create-an-attendance-management-service-test-user)**  – du har en motsvarighet för Britta Simon i närvaro hanteringstjänster som är länkad till en Azure AD-representation av användaren.
+1. **Skapa en testanvändare närvaro hanteringstjänster** – du har en motsvarighet för Britta Simon i närvaro hanteringstjänster som är länkad till en Azure AD-representation av användaren.
 1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 

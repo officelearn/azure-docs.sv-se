@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 903fd465ce2a88e94b821c9a1b4c6c531083180a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105856"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819067"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du datapersistence för Premium Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner, inklusive funktioner på Premiumnivå som klustring, persistence och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar du persistence i en Azure Cache på premiumnivå för Redis-instans.
@@ -133,7 +133,7 @@ För både RDB och AOF persistence:
 * Om du har skalat till en mindre storlek, och det finns inte tillräckligt med utrymme i den mindre storleken att innehålla alla data från den senaste säkerhetskopieringen, nycklar kommer att avlägsnas under återställningsprocessen, vanligtvis med hjälp av den [allkeys lru](https://redis.io/topics/lru-cache) avlägsningsprincipen.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Kan jag ändra frekvensen för RDB-säkerhetskopiering när du har skapat cacheminnet?
-Ja, du kan ändra frekvensen för säkerhetskopiering för RDB persistence på den **Redis-datapersistens** bladet. Anvisningar finns i [konfigurera Redis persistence](#configure-redis-persistence).
+Ja, du kan ändra frekvensen för säkerhetskopiering för RDB persistence på den **Redis-datapersistens** bladet. Instruktioner finns i Konfigurera Redis persistence.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Varför är det mer än 60 minuter mellan säkerhetskopior om jag har en RDB säkerhetskopieringsfrekvens 60 minuter?
 RDB persistence säkerhetskopieringsfrekvens intervallet startar inte förrän den tidigare säkerhetskopieringen har slutförts. Om frekvensen för säkerhetskopiering är 60 minuter och det tar en säkerhetskopieringsprocess för 15 minuter för att slutföra, startar inte nästa säkerhetskopiering till 75 minuter efter starttiden för föregående säkerhetskopia.

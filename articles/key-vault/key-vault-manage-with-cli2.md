@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198906"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822501"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Nyckelvalv med hjälp av Azure CLI 
 
@@ -247,7 +247,7 @@ Aktivera Key Vault för malldistribution: Gör Resource Manager för att hämta 
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Arbeta med maskinvarusäkerhetsmoduler (HSM)
 
-För extra trygghet kan du importera eller generera nycklar från maskinvarusäkerhetsmoduler (HSM) som aldrig lämnar HSM: ens gränser. HSM-modulerna är FIPS 140-2 Level 2-verifierade. Om detta krav inte är nödvändigt för dig hoppar du över det här avsnittet och går vidare till [Ta bort nyckelvalvet och associerade nycklar och hemligheter](#delete-the-key-vault-and-associated-keys-and-secrets).
+För extra trygghet kan du importera eller generera nycklar från maskinvarusäkerhetsmoduler (HSM) som aldrig lämnar HSM: ens gränser. HSM-modulerna är FIPS 140-2 Level 2-verifierade. Om det här kravet inte gäller för dig, hoppa över det här avsnittet och går att ta bort nyckelvalvet och associerade nycklar och hemligheter.
 
 Du måste ha en valvbeskrivning som stöder HSM-skyddade nycklar för att skapa dessa HSM-skyddade nycklar.
 

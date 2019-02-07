@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9c03e0ced565daef01304e288b71c46aa0035384
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fcd1d8c4dd1f9684db85514a80fea7022f52b0fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730101"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817095"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverkspeering
 
@@ -39,7 +39,7 @@ Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nät
 
 ## <a name="create-a-peering"></a>Skapa en peerkoppling
 
-Innan du skapar en peering måste du bekanta dig med den [krav och begränsningar](#requirements-and-contstraints) och [behörighet](#permissions).
+Innan du skapar en peering måste du bekanta dig med kraven och begränsningarna och [behörighet](#permissions).
 
 1. I sökrutan högst upp på Azure-portalen anger *virtuella nätverk* i sökrutan. När **virtuella nätverk** visas i sökresultaten, markerar du den. Markera inte **virtuella nätverk (klassiska)** om den visas i listan som du inte kan skapa en peer-kopplingen från ett virtuellt nätverk som distribueras via den klassiska distributionsmodellen.
 2. Välj det virtuella nätverket i listan som du vill skapa en peerkoppling för.
@@ -75,7 +75,7 @@ Stegvisa instruktioner för att implementera peering mellan virtuella nätverk i
 
 ## <a name="view-or-change-peering-settings"></a>Visa eller ändra peering-inställningar
 
-Innan du ändrar en peer-koppling, kan du bekanta dig med den [krav och begränsningar](#requirements-and-contstraints) och [behörighet](#permissions).
+Innan du ändrar en peering bör du bekanta dig med kraven och begränsningarna och [behörighet](#permissions).
 
 1. Ange i sökrutan överst på portalen *virtuella nätverk* i sökrutan. När **virtuella nätverk** visas i sökresultaten, markerar du den. Markera inte **virtuella nätverk (klassiska)** om den visas i listan som du inte kan skapa en peer-kopplingen från ett virtuellt nätverk som distribueras via den klassiska distributionsmodellen.
 2. Välj det virtuella nätverket i listan som du vill ändra peering-inställningar för.

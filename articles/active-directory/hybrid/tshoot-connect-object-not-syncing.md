@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 4336cabd256e492981e1bbff8d1b3b9e4ef07df1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296613"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820529"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Felsök ett objekt som inte synkroniseras med Azure AD
 
@@ -143,7 +143,7 @@ Du kan granska objektet och vilken regel tillämpas för en viss attributflöde.
 Sidan Log används för att se status för synkronisering av lösenord och historik. Mer information finns i [Felsök synkronisering av lösenordshash](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Egenskaper för Metaversumobjekt
-Det är vanligtvis bättre att börja söka från Active Directory-källan [anslutarplatsen](#connector-space). Men du kan också starta söka från metaversum.
+Det är vanligtvis bättre att börja söka från källan Active Directory-anslutarplatsen. Men du kan också starta söka från metaversum.
 
 ### <a name="search-for-an-object-in-the-mv"></a>Sök efter ett objekt i MV
 I **hanteraren för synkroniseringstjänsten**, klickar du på **Metaversumsökning**. Skapa en fråga som du vet hittar användaren. Du kan söka efter vanliga attribut, till exempel accountName (SAM) eller userPrincipalName. Mer information finns i [metaversumsökning](how-to-connect-sync-service-manager-ui-mvsearch.md).
@@ -195,6 +195,5 @@ Om du saknar anslutning till Azure AD, läs sedan [MV attribut](#mv-attributes) 
 Den här fliken kan du gå till den [anslutarplatsen](#connector-space-object-properties). Välj en rad och klicka på **egenskaper**.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om den [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md) konfiguration.
-
-Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
+- [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md).
+- [Vad är hybrididentitet? ](whatis-hybrid-identity.md).

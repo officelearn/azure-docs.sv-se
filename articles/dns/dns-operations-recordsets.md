@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990186"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818829"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med Azure PowerShell
 
@@ -50,7 +50,7 @@ Om den nya posten har samma namn och typ som en befintlig post kan du behöva [l
 
 Du skapar postuppsättningar med hjälp av cmdleten `New-AzureRmDnsRecordSet`. När du skapar en postuppsättning kan du behöva ange postuppsättningens namn, zonen, tiden till live (TTL), posttypen och posterna som ska skapas.
 
-Parametrarna för att lägga till poster i en postuppsättning varierar beroende på typen av postuppsättning. Till exempel när du använder en postuppsättning av typen ”A” kan du behöva ange IP-adressen med hjälp av parametern `-IPv4Address`. Andra parametrar används för andra posttyper. Se [ytterligare posttyper](#additional-record-type-examples) mer information.
+Parametrarna för att lägga till poster i en postuppsättning varierar beroende på typen av postuppsättning. Till exempel när du använder en postuppsättning av typen ”A” kan du behöva ange IP-adressen med hjälp av parametern `-IPv4Address`. Andra parametrar används för andra posttyper. Se ytterligare posttyper mer information.
 
 I följande exempel skapas en post med det relativa namnet ”www” i DNS-zonen ”contoso.com”. Det fullständigt kvalificerade namnet på postuppsättningen är ”www.contoso.com”. Posttypen är ”A” och TTL är 3600 sekunder. Uppsättningen av poster innehåller en post med IP-adress ”1.2.3.4”.
 
@@ -236,7 +236,7 @@ Den här sekvens med åtgärder kan också vara *skickas*, vilket innebär att d
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-I exemplen ovan visar hur du lägger till en ”A” post i en befintliga postuppsättningen av typen ”A”. En liknande sekvens med åtgärder som används för att lägga till poster i postuppsättningar av andra typer, och Ersätt den `-Ipv4Address` -parametern för `Add-AzureRmDnsRecordConfig` med andra parametrar som är specifika för varje posttyp. Parametrarna för varje posttyp är desamma som för den `New-AzureRmDnsRecordConfig` cmdlet, enligt [ytterligare posttyper](#additional-record-type-examples) ovan.
+I exemplen ovan visar hur du lägger till en ”A” post i en befintliga postuppsättningen av typen ”A”. En liknande sekvens med åtgärder som används för att lägga till poster i postuppsättningar av andra typer, och Ersätt den `-Ipv4Address` -parametern för `Add-AzureRmDnsRecordConfig` med andra parametrar som är specifika för varje posttyp. Parametrarna för varje posttyp är desamma som för den `New-AzureRmDnsRecordConfig` cmdlet, enligt ytterligare posttyp exemplen ovan.
 
 Postuppsättningar av typen ”CNAME' eller 'SOA-' får inte innehålla fler än en post. Den här begränsningen uppstår från DNS-standarden. Det är inte en begränsning i Azure DNS.
 
@@ -270,7 +270,7 @@ På liknande sätt att lägga till poster i en postuppsättning kan sekvens med 
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Olika typer av poster stöds genom att skicka lämpliga parametrar för typspecifika att `Remove-AzureRmDnsRecordSet`. Parametrarna för varje posttyp är desamma som för den `New-AzureRmDnsRecordConfig` cmdlet, enligt [ytterligare posttyper](#additional-record-type-examples) ovan.
+Olika typer av poster stöds genom att skicka lämpliga parametrar för typspecifika att `Remove-AzureRmDnsRecordSet`. Parametrarna för varje posttyp är desamma som för den `New-AzureRmDnsRecordConfig` cmdlet, enligt ytterligare posttyp exemplen ovan.
 
 
 ## <a name="modify-an-existing-record-set"></a>Ändra en befintlig uppsättning av poster

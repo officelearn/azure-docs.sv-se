@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d815bae2478d8853c63cd773cbfeaf5d3e90458c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659771"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816857"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Använda Azure CLI med Azure Storage
 
@@ -98,7 +98,7 @@ Om du vill arbeta med resurserna i din Azure-prenumeration måste du logga in p�
 
 ## <a name="azure-cli-sample-script"></a>Skriptexempel för Azure CLI-exempel
 
-Nu ska arbetar vi med ett litet kommandoskript som utfärdar några grundläggande Azure CLI-kommandon för att interagera med Azure Storage-resurser. Skriptet kan du först skapar en ny behållare i ditt storage-konto och sedan överför en befintlig fil (som en blob) till behållaren. Den visar en lista över alla blobar i behållaren och slutligen laddar ned filen till ett mål på din lokala dator som du anger.
+Nu ska arbetar vi med ett litet kommandoskript som utfärdar några grundläggande Azure CLI-kommandon för att interagera med Azure Storage-resurser. Skriptet skapar först en ny container på ditt lagringskonto och överför sedan en befintlig fil (som en blob) till containern. Den visar en lista över alla blobar i behållaren och slutligen laddar ned filen till ett mål på din lokala dator som du anger.
 
 ```bash
 #!/bin/bash
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>Hantera lagringskonton
 
 ### <a name="create-a-new-storage-account"></a>Skapa ett nytt lagringskonto
-Om du vill använda Azure Storage behöver du ett lagringskonto. Du kan skapa ett nytt Azure Storage-konto när du har konfigurerat datorn för att [ansluta till din prenumeration](#connect-to-your-azure-subscription).
+Om du vill använda Azure Storage behöver du ett lagringskonto. Du kan skapa ett nytt Azure Storage-konto när du har konfigurerat datorn för att ansluta till din prenumeration.
 
 ```azurecli
 az storage account create \
@@ -277,7 +277,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Listar blobarna i en behållare med den [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) kommando.
+Listar blobarna i en behållare med den [az storage blob list](/cli/azure/storage/blob) kommando.
 
 ```azurecli
 az storage blob list \

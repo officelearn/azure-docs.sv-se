@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469200"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821377"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 Den här artikeln beskrivs vissa mönster som är lämplig för användning med lösningar för Table service. Dessutom visas hur du praktiskt taget kan lösa vissa problem och kompromisser diskuteras i andra artiklar i Table storage design. Följande diagram sammanfattar relationerna mellan de olika mönster:  
@@ -73,7 +73,7 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 
 * [Mönster för kommunikation mellan sekundära Partitionsindex](#inter-partition-secondary-index-pattern)
 * [Sammansatt nyckel mönster](#compound-key-pattern)
-* [Entitetsgrupptransaktioner](#entity-group-transactions)
+* Entitetsgrupptransaktioner
 * [Arbeta med heterogena entitetstyper](#working-with-heterogeneous-entity-types)
 
 ## <a name="inter-partition-secondary-index-pattern"></a>Mönster för kommunikation mellan sekundära Partitionsindex
@@ -128,7 +128,7 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 * [Konsekvent transaktioner mönster](#eventually-consistent-transactions-pattern)  
 * [Mönster för Intra-partition sekundärt index](#intra-partition-secondary-index-pattern)  
 * [Sammansatt nyckel mönster](#compound-key-pattern)  
-* [Entitetsgrupptransaktioner](#entity-group-transactions)  
+* Entitetsgrupptransaktioner  
 * [Arbeta med heterogena entitetstyper](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>Konsekvent transaktioner mönster
@@ -172,7 +172,7 @@ Använd det här mönstret när du vill att garantera konsekvens mellan entitete
 ### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
 Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
-* [Entitetsgrupptransaktioner](#entity-group-transactions)  
+* Entitetsgrupptransaktioner  
 * [Sammanfoga eller ersätta](#merge-or-replace)  
 
 > [!NOTE]
@@ -212,7 +212,7 @@ Den **EmployeeIDs** egenskapen innehåller en lista över anställda ID: n för 
 Följande steg beskriver hur du bör följa när du lägger till en ny medarbetare om du använder det andra alternativet. I det här exemplet lägger vi till en medarbetare med Id 000152 och efternamn Jones på försäljningsavdelningen:  
 
 1. Hämta entiteten index med en **PartitionKey** värdet ”Försäljning” och **RowKey** värdet ”Jones”. Spara ETag för den här entiteten som ska användas i steg 2.  
-2. Skapa entiteten grupp transaktion (det vill säga en batchåtgärd) som infogar entiteten medarbetare (**PartitionKey** värdet ”Försäljning” och **RowKey** värdet ”000152”), och uppdaterar indexet entiteten (**PartitionKey** värdet ”Försäljning” och **RowKey** värdet ”Jones”) genom att lägga till nya anställnings-ID i listan i fältet EmployeeIDs. Läs mer om entitetsgrupptransaktioner [Entitetsgrupptransaktioner](#entity-group-transactions).  
+2. Skapa entiteten grupp transaktion (det vill säga en batchåtgärd) som infogar entiteten medarbetare (**PartitionKey** värdet ”Försäljning” och **RowKey** värdet ”000152”), och uppdaterar indexet entiteten (**PartitionKey** värdet ”Försäljning” och **RowKey** värdet ”Jones”) genom att lägga till nya anställnings-ID i listan i fältet EmployeeIDs. Mer information om entitetsgrupptransaktioner finns i Entitetsgrupptransaktioner.  
 3. Om entitet grupp transaktionen misslyckas på grund av en Optimistisk samtidighet-fel (någon annan har bara ändrat entiteten index), måste du börja om igen i steg 1.  
 
 Du kan använda en liknande metod för att ta bort en medarbetare om du använder det andra alternativet. Ändra en anställds efternamn är lite mer komplext eftersom du behöver att köra en entitet grupp transaktion som uppdaterar tre entiteter: anställd entiteten och entiteten index för det gamla efternamnet entiteten index för det nya efternamnet. Varje entitet måste du hämta innan du gör några ändringar för att hämta de ETag-värden som du sedan kan använda för att utföra uppdateringarna med Optimistisk samtidighet.  
@@ -251,7 +251,7 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 
 * [Sammansatt nyckel mönster](#compound-key-pattern)  
 * [Konsekvent transaktioner mönster](#eventually-consistent-transactions-pattern)  
-* [Entitetsgrupptransaktioner](#entity-group-transactions)  
+* Entitetsgrupptransaktioner  
 * [Arbeta med heterogena entitetstyper](#working-with-heterogeneous-entity-types)  
 
 ## <a name="denormalization-pattern"></a>Denormalisering mönster
@@ -282,7 +282,7 @@ Använd det här mönstret när du ofta behöva leta upp relaterad information. 
 Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
 * [Sammansatt nyckel mönster](#compound-key-pattern)  
-* [Entitetsgrupptransaktioner](#entity-group-transactions)  
+* Entitetsgrupptransaktioner  
 * [Arbeta med heterogena entitetstyper](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Sammansatt nyckel mönster
@@ -325,7 +325,7 @@ Använd det här mönstret när du behöver lagra en eller flera relaterade enti
 ### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
 Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
-* [Entitetsgrupptransaktioner](#entity-group-transactions)  
+* Entitetsgrupptransaktioner  
 * [Arbeta med heterogena entitetstyper](#working-with-heterogeneous-entity-types)  
 * [Konsekvent transaktioner mönster](#eventually-consistent-transactions-pattern)  
 
@@ -394,7 +394,7 @@ Använd det här mönstret när du har ett stort antal entiteter som du måste t
 ### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
 Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
-* [Entitetsgrupptransaktioner](#entity-group-transactions)
+* Entitetsgrupptransaktioner
 * [Ändra entiteter](#modifying-entities)  
 
 ## <a name="data-series-pattern"></a>Serien datamönster
@@ -454,7 +454,7 @@ Använd det här mönstret när du behöver lagra entiteter vars storlek eller a
 ### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
 Följande mönster och riktlinjer kan också vara relevanta när du implementerar det här mönstret:  
 
-* [Entitetsgrupptransaktioner](#entity-group-transactions)
+* Entitetsgrupptransaktioner
 * [Sammanfoga eller ersätta](#merge-or-replace)
 
 ## <a name="large-entities-pattern"></a>Mönster för stora entiteter
@@ -556,7 +556,7 @@ Tänk på följande när du bestämmer hur du lagrar loggdata:
 Det här avsnittet beskrivs några saker att ha i åtanke när du implementerar de mönster som beskrivs i föregående avsnitt. De flesta av det här avsnittet använder exempel som skrivits i C# och som använder Storage-klientbibliotek (version 4.3.0 då skrivs).  
 
 ## <a name="retrieving-entities"></a>Hämtar entiteter
-Enligt beskrivningen i avsnittet [Design för att fråga](#design-for-querying), mest effektivt fråga är en punkt-fråga. I vissa situationer kan du dock behöva hämta flera entiteter. Det här avsnittet beskrivs några vanliga metoder för att hämta entiteter med hjälp av Storage-klientbiblioteket.  
+Enligt beskrivningen i avsnittet Design för att fråga, är mest effektiva frågan en punkt-fråga. I vissa situationer kan du dock behöva hämta flera entiteter. Det här avsnittet beskrivs några vanliga metoder för att hämta entiteter med hjälp av Storage-klientbiblioteket.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Kör en punkt-fråga med hjälp av Storage-klientbibliotek
 Det enklaste sättet att köra en punkt-fråga är att använda den **hämta** tabellen åtgärden som visas i C# kodfragment som hämtar en entitet med en **PartitionKey** värde ”försäljning” och en  **RowKey** värde ”212”:  

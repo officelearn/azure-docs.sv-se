@@ -10,20 +10,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8402d0228e062aed60adee1c4622ade31771584d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210955"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700289"
 ---
 # <a name="quickstart-query-for-facts"></a>Snabbstart: Fråga efter fakta
 
 Om du vill fråga efter fakta, till exempel ett datum eller identifierbar information, kan svaret innehålla `facts`-svar. Faktasvar innehåller relevanta resultat som extraheras från stycken i webbdokument.  Dessa frågor returnerar alltid webbsidor, och [fakta](fact-queries.md) och/eller [entiteter](entity-queries.md) är frågeberoende.
 
-Frågor som alla+hjärtans+dag+2016 eller när+är+ramadan är exempel på datumrelaterade frågor. Om Bing avgör att frågan är datumrelaterad innehåller svaret ett `facts`-svar. 
+Frågor som alla+hjärtans+dag+2016 eller när+är+ramadan är exempel på datumrelaterade frågor. Om Bing avgör att frågan är datumrelaterad innehåller svaret ett `facts`-svar.
 
-Följande exempel är ett datumrelaterat `facts`-svar. 
+Följande exempel är ett datumrelaterat `facts`-svar.
 
 **Fråga:**
 ```
@@ -34,28 +34,29 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 **Svar:** Fältet `subjectName` innehåller en visningsversion av användarens fråga som du kan använda som en etikett när du visar fakta. Om frågesträngen är alla+hjärtans+dag+2016 kan Bing ändra det till Alla hjärtans dag 2016. Beskrivningsfältet innehåller faktainformationen.
 
 ```
-{   
-    "_type" : "SearchResponse",   
-    "queryContext" : {   
-        "originalQuery" : "valentines 2016" 
-    },   
-    "facts" : {   
-        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",   
-        "value" : [{   
-            "description" : "Valentine's Day was on Sunday, February 14, 2016.",   
-            "subjectName" : "Valentine's Day 2016"   
-        }]   
-    },   
-    "rankingResponse" : {   
-        "mainline" : {   
-            "items" : [{   
-                "answerType" : "Facts",   
-                "value" : {   
-                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"                   }   
-            }]   
-        }   
-    }   
-}   
+{
+    "_type" : "SearchResponse",
+    "queryContext" : {
+        "originalQuery" : "valentines 2016"
+    },
+    "facts" : {
+        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",
+        "value" : [{
+            "description" : "Valentine's Day was on Sunday, February 14, 2016.",
+            "subjectName" : "Valentine's Day 2016"
+        }]
+    },
+    "rankingResponse" : {
+        "mainline" : {
+            "items" : [{
+                "answerType" : "Facts",
+                "value" : {
+                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"
+                }
+            }]
+        }
+    }
+}
 
 ```
 
@@ -118,7 +119,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 Ibland kan fakta returneras som `_type: StructuredValue/TabularData`. Följande fråga hämtar tabelldata med kontrasterande information om kaffe och te.
 
 ```
-https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
+https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us
 
 ```
 `facts`-resultatet innehåller följande rader och celler:

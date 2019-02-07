@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 7af14143e8ce4924c17a41c6bb1ff33954f4b583
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c30e679b250c2d6c6b03a1fe5d70dbd06acf052
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568734"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818370"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Paketinspektion med Azure Network Watcher
 
@@ -45,7 +45,7 @@ När en TCP-anslutning har upprättats, följer de första tre paket som skickat
 
 ### <a name="step-1"></a>Steg 1
 
-Starta WireShark
+Launch WireShark
 
 ### <a name="step-2"></a>Steg 2
 
@@ -61,7 +61,7 @@ Om du vill visa de första två paket enklare i 3-vägs-handskakning TCP, ska vi
 
 Expandera det ”Transmission Control Protocol”-segmentet i en [SYN]-paketet i din avbildning för att tillämpa filtret i WireShark och granska de flaggor som angetts i TCP-huvudet.
 
-Eftersom vi vill filtrera på alla [SYN] och [SYN, ACK] paket under flaggor cofirm att Syn-bitars har angetts till 1 och sedan högerklickar du på Syn-bitars -> Använd som Filter -> valda.
+Eftersom vi vill filtrera på alla [SYN] och [SYN, ACK] paket under flaggor bekräfta att Syn-bitars har angetts till 1 och sedan högerklickar du på Syn-bitars -> Använd som Filter -> valda.
 
 ![Bild 7][7]
 

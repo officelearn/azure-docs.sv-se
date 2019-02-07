@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b216d8a8a2c6e1ab7c7b71eedfca9cbd6dbd5cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197355"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Självstudier: Azure Active Directory-integrering med RFPIO
 
@@ -88,11 +88,11 @@ I RFPIO, tilldela värdet för **användarnamn** i Azure AD som värde för **an
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med RFPIO, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**--vill tillåta att användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**– testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare RFPIO](#creating-a-rfpio-test-user)**  – har en motsvarighet för Britta Simon i RFPIO som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**– aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  --att kontrollera om konfigurationen fungerar.
+1. **Konfigurera Azure AD enkel inloggning**--vill tillåta att användarna använda den här funktionen.
+1. **Skapa en Azure AD-testanvändare**– testa Azure AD enkel inloggning med Britta Simon.
+1. **Skapa en testanvändare RFPIO** – har en motsvarighet för Britta Simon i RFPIO som är länkad till en Azure AD-representation av användaren.
+1. **Tilldela Azure AD-testanvändare**– aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **Testa enkel inloggning** --att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 

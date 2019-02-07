@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306343"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750417"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudier: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
@@ -43,7 +43,7 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 
@@ -170,7 +170,7 @@ Antalet noder och VM-storleken anges med definierade konstanter. Batch har stöd
 
 Förutom fysiska nodegenskaper innehåller den här poolkonfigurationen ett [StartTask](/python/api/azure.batch.models.starttask)-objekt. StartTask körs på varje nod när noden ansluter till poolen och varje gång en nod startas om. I det här exemplet kör StartTask Bash shell-kommandon för att installera paketet ffmpeg och beroenden på noderna.
 
-Metoden [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) skickar poolen till Batch-tjänsten.
+Metoden [pool.add](/python/api/azure.batch.operations.pooloperations) skickar poolen till Batch-tjänsten.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -200,7 +200,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Skapa ett jobb
 
-Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställningar som en prioritet och ett schema för arbetet. I exemplet skapas ett jobb med ett anrop till `create_job`. Den här definierade funktionen använder klassen [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) skickar poolen till Batch-tjänsten. Från början har jobbet inga aktiviteter.
+Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställningar som en prioritet och ett schema för arbetet. I exemplet skapas ett jobb med ett anrop till `create_job`. Den här definierade funktionen använder klassen [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [job.add](/python/api/azure.batch.operations.joboperations) skickar poolen till Batch-tjänsten. Från början har jobbet inga aktiviteter.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -216,7 +216,7 @@ Appen skapar aktiviteter i jobbet med ett anrop till `add_tasks`. Den här defin
 
 I exemplet skapas ett [OutputFile](/python/api/azure.batch.models.outputfile)-objekt för MP3-filen när du kör kommandoraden. Varje uppgifts utdatafiler (i det här fallet en) laddas upp till en container i länkade lagringskontot med uppgiftsegenskapen `output_files`.
 
-Sedan lägger appen till aktiviteter i jobbet med metoden [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) som köar dem för att köras på beräkningsnoderna. 
+Sedan lägger appen till aktiviteter i jobbet med metoden [task.add_collection](/python/api/azure.batch.operations.taskoperations) som köar dem för att köras på beräkningsnoderna. 
 
 ```python
 tasks = list()

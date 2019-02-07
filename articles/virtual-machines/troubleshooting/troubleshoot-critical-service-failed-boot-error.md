@@ -13,24 +13,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: d8140966f3ba8674938a4e21b0990371390d3516
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071298"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813801"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar ”kritiska tjänsten misslyckades” på blå skärm när du startar en virtuell Azure-dator
 Den här artikeln beskriver felet ”kritiska tjänsten misslyckades” som kan uppstå när du startar en Windows virtuell dator (VM) i Microsoft Azure. Det ger felsökningssteg för att hjälpa dig att lösa problemen. 
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
 
 ## <a name="symptom"></a>Symtom 
 
 En virtuell Windows-dator startar inte. När du checkar Start skärmbilderna [Startdiagnostik](./boot-diagnostics.md), du ser något av följande felmeddelanden på en blå skärm:
 
-- ”Datorn råkade ut för ett problem och måste startas om. Du kan starta om. Mer information om det här problemet och möjliga korrigeringar på http://windows.com/stopcode. Om du anropar en Supportkontakt och be dem ge den här informationen: stoppkod: kritiska tjänsten misslyckades ” 
+- ”Datorn råkade ut för ett problem och måste startas om. Du kan starta om. Mer information om det här problemet och möjliga korrigeringar på http://windows.com/stopcode. Om du tar kontakt supporttekniker kan du ge dem den här informationen: Stoppa kod: DET GICK INTE ATT KRITISKA TJÄNSTEN ” 
 - ”Datorn råkade ut för ett problem och måste startas om. Vi samlar in bara viss felinformation och vi ska starta om för dig. Om du vill veta mer kan du söka online senare för det här felet: CRITICAL_SERVICE_FAILED ”
 
 ## <a name="cause"></a>Orsak
@@ -93,7 +93,7 @@ Kör följande skript för att aktivera dump loggar och Seriekonsol.
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Koppla från den OS-disken och sedan koppla OS-disken till den berörda virtuella datorn igen](troubleshoot-recovery-disks-portal-windows.md). Den virtuella datorn startas i felsäkert läge. Om felet kvarstår går du till den [valfritt steg](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [Koppla från den OS-disken och sedan koppla OS-disken till den berörda virtuella datorn igen](troubleshoot-recovery-disks-portal-windows.md). Den virtuella datorn startas i felsäkert läge. Om felet kvarstår går du till det valfria steget.
 3. Öppna den **kör** rutan och kör **verifierare** att starta verktyget verifierare drivrutinshanteraren.
 4. Välj **automatiskt välja osignerade drivrutiner**, och klicka sedan på **nästa**.
 5. Du får listan över de drivrutinsfiler som är osignerade. Kom ihåg filnamnen.
@@ -138,7 +138,7 @@ Följ dessa steg om du vill analysera loggarna dump själv:
 9. [Koppla från den OS-disken och sedan koppla OS-disken till den berörda virtuella datorn igen](troubleshoot-recovery-disks-portal-windows.md).
 10. Starta den virtuella datorn för att se om det visar kraschdumpfiler. Hitta den fil som inte kan läsas in. Du måste ersätta den här filen med en fil fungerande virtuell dator. 
 
-    Följande är exempel på kraschdumpfiler. Du kan se att den **fel** på filecrypt.sys ”: FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys”.
+    Följande är exempel på kraschdumpfiler. Du kan se att den **fel** på filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
 
     ```
     kd> !analyze -v 

@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: f0f3396852720bbbb31e46f7a9913d9d1bdc4a6c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8798ecd15c673c26c5b1be0920887ff493cc6a85
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157252"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818693"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Hämta information om bilder med den bildsökning i Bing
 
@@ -221,7 +221,7 @@ Värdena för rektangeln är i förhållande till bredden och höjden på den ur
 -   Höger: 290 / 300 = 0.9667...  
 -   Längst ned: 150 / 200 = 0.75  
 
-Du kan använda den region som Bing returnerar i efterföljande insights-anrop. Till exempel för att hämta visuellt likartade bilder av identifierade entiteten. Mer information finns i [beskärning avbildning som ska användas med visuellt likartade och entiteten igenkänning av moduler](#croppingimages). Nedan visas mappningen mellan fälten region och frågeparametrar som du skulle göra att beskära bilder.  
+Du kan använda den region som Bing returnerar i efterföljande insights-anrop. Till exempel för att hämta visuellt likartade bilder av identifierade entiteten. Mer information finns i beskära avbildning som ska användas med visuellt likartade och entiteten igenkänning av moduler. Nedan visas mappningen mellan fälten region och frågeparametrar som du skulle göra att beskära bilder.  
 
 -   Vänster mappar till [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
 -   De främsta mappar till [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 36d1b4ef9501c94fe385c37f31ee7e8c9f57106e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 80a78d12570e3da1371d2fc1cbb0270eb81fc6ce
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197236"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766851"
 ---
 # <a name="manage-your-security-info-preview"></a>Hantera din säkerhetsinformation (förhandsversion)
 
@@ -81,7 +81,7 @@ Den här artikeln hjälper dig att felsöka din säkerhetsinformation, inklusive
 |Jag min telefon eller om det var stulen|Tyvärr kan att förlora din telefon eller om den blir stulen inträffa. I så fall kan rekommenderar vi starkt att du informera din organisation så att IT-personalen kan återställa ditt lösenord och rensa alla lagrade enheter från listan med betrodda enheter. Du kan också glömmer betrodda enheter genom att följa stegen i den [hantera din säkerhetsinformation för en enhet som förlorats eller potentiellt komprometterade](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) avsnittet.|
 |Jag har fått ett nytt telefonnummer|Det finns två sätt att åtgärda problemet. Du kan logga in med en annan autentiseringsmetod som inte kräver ditt telefonnummer, t.ex e-post, eller om detta inte är ett alternativ kan du kontakta din organisation är IT-personal och be dem ta bort dina inställningar. Om du vill lägga till fler metoder till din säkerhetsinformation, kan du följa stegen i den [ändra din information](#change-your-info) avsnittet.|
 |Min standardmetoden är fel|Du kan uppdatera din standardmetod i din säkerhetsalternativ. Mer specifik information som du kan gå till den [ändra din information](#change-your-info) avsnittet.|
-|Jag kan inte ta emot en text eller anropa på min mobiltelefon|Om du har fått skickar ett SMS eller telefonsamtal till din mobila enhet tidigare, är det mest sannolika med phone-providern inte ditt konto med det här problemet. Se till att du har bra cell signal och att det går att ta emot textmeddelanden och telefonsamtal. Du kan ställa en vän samtal eller textmeddelande du som ett test.<br><br>Om du kan ta emot text och phone meddelanden, men du fortfarande inte har tagit emot meddelandet, kan du försöka med en annan metod. Du kan lägga till fler metoder till din säkerhetsinformation genom att följa stegen i den [ändra din information](#change-your-info) avsnittet. Om du inte har någon annan metod för att lägga till, kan du kontakta företagets support och be dem att rensa inställningarna så att du kan ställa in din metoder nästa gång du loggar in.<br><br>Om du ofta har problem på grund av felaktiga cell mottagningen, rekommenderar vi att du använder Microsoft Authenticator-appen på din mobila enhet. Appen kan generera slumpmässiga säkerhetskoder som används för att logga in och dessa koder kräver inte någon cell signal eller internet-anslutning. Mer information om Microsoft Authenticator-appen finns i den [Kom igång med Microsoft Authenticator-appen](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) artikeln.|
+|Jag kan inte ta emot en text eller anropa på min mobiltelefon|Om du har fått skickar ett SMS eller telefonsamtal till din mobila enhet tidigare, är det mest sannolika med phone-providern inte ditt konto med det här problemet. Se till att du har bra cell signal och att det går att ta emot textmeddelanden och telefonsamtal. Du kan ställa en vän samtal eller textmeddelande du som ett test.<br><br>Om du kan ta emot text och phone meddelanden, men du fortfarande inte har tagit emot meddelandet, kan du försöka med en annan metod. Du kan lägga till fler metoder till din säkerhetsinformation genom att följa stegen i den [ändra din information](#change-your-info) avsnittet. Om du inte har någon annan metod för att lägga till, kan du kontakta företagets support och be dem att rensa inställningarna så att du kan ställa in din metoder nästa gång du loggar in.<br><br>Om du ofta har problem på grund av felaktiga cell mottagningen, rekommenderar vi att du använder Microsoft Authenticator-appen på din mobila enhet. Appen kan generera slumpmässiga säkerhetskoder som används för att logga in och dessa koder kräver inte någon cell signal eller internet-anslutning. Mer information om Microsoft Authenticator-appen finns i den [Kom igång med Microsoft Authenticator-appen](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/user-help-auth-app-download-install) artikeln.|
 |Inget av alternativen i den här tabellen har löst problemet|Om du har gjort de här felsökningsstegen, men är fortfarande körs till problem. Kontakta företagets support, de ska kunna hjälpa dig.|
 
 ## <a name="next-steps"></a>Nästa steg

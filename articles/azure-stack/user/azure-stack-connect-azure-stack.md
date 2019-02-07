@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc4387dd56de96edd17fcd8e5672cfda96cf67b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243774"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816415"
 ---
 # <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
 För att hantera resurser, måste du ansluta till Azure Stack Development Kit. Den här artikeln beskriver steg behövs för att ansluta till i development kit. Du kan använda någon av följande anslutningsalternativ för:
 
-* [Fjärrskrivbord](#connect-with-remote-desktop): låter en enskild samtidiga användare Anslut snabbt från i development kit.
-* [Virtuella privata nätverk (VPN)](#connect-with-vpn): tillåter att flera samtidiga användare ansluta från klienter utanför Azure Stack-infrastruktur (kräver konfiguration).
+* Fjärrskrivbord: låter en enskild samtidiga användare Anslut snabbt från i development kit.
+* Virtuellt privat nätverk (VPN): kan flera samtidiga användare ansluta från klienter utanför Azure Stack-infrastruktur (kräver konfiguration).
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>Anslut till Azure Stack med fjärrskrivbord
 En enskild samtidiga användare kan arbeta med portalen för att hantera resurser med en fjärrskrivbordsanslutning.

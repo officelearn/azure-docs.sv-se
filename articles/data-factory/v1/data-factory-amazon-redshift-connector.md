@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eafc5dbd89d5727fac0040816785dbfcdf123b62
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563629"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817350"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon Redshift med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Om du använder verktyg eller API: er kan utföra du följande steg för att ska
 2. Skapa datauppsättningar som representerar inkommande och utgående data för kopieringen.
 3. Skapa en pipeline med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
 
-När du använder guiden Kopiera skapas automatiskt JSON-definitioner för dessa Data Factory-entiteter. När du använder verktyg eller API: er (med undantag för .NET-API) kan definiera du Data Factory-entiteter med hjälp av JSON-format. Den [JSON-exempel: Kopiera data från Amazon Redshift till Azure Blob storage](#json-example-copy-data-from-amazon-redshift-to-azure-blob) visar JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för Amazon Redshift.
+När du använder guiden Kopiera skapas automatiskt JSON-definitioner för dessa Data Factory-entiteter. När du använder verktyg eller API: er (med undantag för .NET-API) kan definiera du Data Factory-entiteter med hjälp av JSON-format. JSON-exempel: Kopieringsdata från Amazon Redshift till Azure Blob storage visar JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för Amazon Redshift.
 
 I följande avsnitt beskrivs de JSON-egenskaper som används för att definiera Data Factory-entiteter för Amazon Redshift.
 

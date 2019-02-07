@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: fa7deb8a1ef536ef0c2b7fbb0a184a950821aebf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477344"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816925"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrera händelser för Event Grid
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du filtrerar händelser när du skapar en Event Grid
 
 ## <a name="filter-by-event-type"></a>Filtrera efter händelsetyp
 
-När du skapar en Event Grid-prenumeration kan du ange vilka [händelsetyper](event-schema.md) att skicka till slutpunkten. Exemplen i det här avsnittet Skapa prenumerationer på händelser för en resursgrupp, men begränsar de händelser som skickas till `Microsoft.Resources.ResourceWriteFailure` och `Microsoft.Resources.ResourceWriteSuccess`. Om du behöver mer flexibilitet när du filtrerar händelser efter händelsetyper, se [filtrera efter avancerade operatorer och fält](#filter-by-advanced-operators-and-data-fields).
+När du skapar en Event Grid-prenumeration kan du ange vilka [händelsetyper](event-schema.md) att skicka till slutpunkten. Exemplen i det här avsnittet Skapa prenumerationer på händelser för en resursgrupp, men begränsar de händelser som skickas till `Microsoft.Resources.ResourceWriteFailure` och `Microsoft.Resources.ResourceWriteSuccess`. Om du behöver mer flexibilitet när du filtrerar händelser efter händelsetyper kan se filtrera efter avancerade operatorer och fält.
 
 Du använder PowerShell använder den `-IncludedEventType` parameter när du skapar prenumerationen.
 
@@ -77,7 +77,7 @@ En Resource Manager-mall, använda den `includedEventTypes` egenskapen.
 
 ## <a name="filter-by-subject"></a>Filtrera efter ämne
 
-Du kan filtrera händelserna efter ämne i informationen om händelsen. Du kan ange ett värde att matcha för början eller slutet av ämne. Om du behöver mer flexibilitet när du filtrerar händelser efter ämne, se [filtrera efter avancerade operatorer och fält](#filter-by-advanced-operators-and-data-fields).
+Du kan filtrera händelserna efter ämne i informationen om händelsen. Du kan ange ett värde att matcha för början eller slutet av ämne. Om du behöver mer flexibilitet när du filtrerar händelser efter ämne, läser du filtrera efter avancerade operatorer och fält.
 
 I följande PowerShell-exempel skapar du en händelseprenumeration som filtrerar genom att i början av ämne. Du använder den `-SubjectBeginsWith` parametern för att begränsa händelser till de som för en specifik resurs. Du skickar resurs-ID för en grupp.
 

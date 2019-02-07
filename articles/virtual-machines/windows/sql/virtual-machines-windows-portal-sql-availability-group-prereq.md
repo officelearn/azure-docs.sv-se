@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359841"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818030"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Slutför stegen för att skapa Always On-Tillgänglighetsgrupper på virtuella Azure-datorer
 
@@ -413,7 +413,7 @@ När varje virtuell dator startas om som en medlem i domänen, lägga till **COR
 
 ### <a name="setServiceAccount"></a>Ange SQL Server service-konton
 
-Ange SQL Server-tjänstkontot på varje SQL Server-dator. Använd de konton som du skapade när du [konfigurerats domänkontona](#DomainAccounts).
+Ange SQL Server-tjänstkontot på varje SQL Server-dator. Använd de konton som du skapade när du har konfigurerat domänkontona.
 
 1. Öppna **SQL Server Configuration Manager**.
 2. Högerklicka på SQL Server-tjänsten och klicka sedan på **egenskaper**.

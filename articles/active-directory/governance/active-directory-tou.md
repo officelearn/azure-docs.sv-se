@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: be8a6ba83de81c5a82797ecf3d30c7a7fcaa65fa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162777"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822518"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -337,7 +337,7 @@ Du kan konfigurera en princip för villkorlig åtkomst för Microsoft Intune-reg
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Hur ser jag om / när en användare har godkänt användningsvillkor?**<br />
-S: Om villkoren för användning bladet, klickar du på numret under **godkända**. Du kan också visa eller söka efter accept-aktiviteten i Azure AD granskningsloggar. Mer information finns i [Visa rapport över vem som har godkänts och nekats](#view-who-has-accepted-and-declined) och [öppna Azure AD-granskningsloggar](#view-azure-ad-audit-logs).
+S: Om villkoren för användning bladet, klickar du på numret under **godkända**. Du kan också visa eller söka efter accept-aktiviteten i Azure AD granskningsloggar. Mer information finns i Visa rapport över vem som har godkänts och nekats och [öppna Azure AD-granskningsloggar](#view-azure-ad-audit-logs).
 
 **F: Hur länge är information som lagras?**<br />
 S: Användaren räknar av villkoren i rapporten för användning och som accepterat/avvisade lagras för resten av användningsvillkoren. Azure AD-granskningen loggar lagras i 30 dagar.

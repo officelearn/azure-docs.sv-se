@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 261af3524b36d3742c68ef147bfa648bfe95034c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887776"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749201"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Självstudier: Skala en VM-skalningsuppsättning automatiskt med en Azure-mall
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här självstudiekursen får du lära du dig att:
@@ -144,13 +144,13 @@ Följande exempel definierar en regel som skalar in antalet virtuella datorinsta
 ## <a name="create-an-autoscaling-scale-set"></a>Skapa en skalningsuppsättning som skalar automatiskt
 Vi använder en exempelmall för att skapa en skalningsuppsättning och tillämpa regler för automatisk skalning. Du kan [granska den fullständiga mallen](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json), eller [se resourceprovider-avsnittet *Microsoft.insights/autoscalesettings*](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) för mallen.
 
-Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa nu en VM-skalningsuppsättning med [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). När du uppmanas så anger du ditt eget användarnamn som *azureuser* och det lösenord som används som autentiseringsuppgift för varje virtuell datorinstans:
+Skapa nu en VM-skalningsuppsättning med [az group deployment create](/cli/azure/group/deployment). När du uppmanas så anger du ditt eget användarnamn som *azureuser* och det lösenord som används som autentiseringsuppgift för varje virtuell datorinstans:
 
 ```azurecli-interactive
 az group deployment create \
@@ -198,7 +198,7 @@ När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 
 
 Kontrollera att **stress** genererar CPU-belastning genom att granska den aktiva systembelastningen med **top**-verktyget:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -264,7 +264,7 @@ Avsluta *watch* med `Ctrl-c`. Skalningsuppsättningen fortsätter att skala in v
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group#az_group_delete):
+Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group):
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

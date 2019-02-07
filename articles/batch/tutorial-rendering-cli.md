@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 0b9f6e440140edbec59d1bf837a0dfb16ab44d5f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 10e8a7dd256f796160b81b8ec1f566c5ed7e4cad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323430"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750213"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Självstudie: Rendera en scen med Azure Batch 
 
@@ -124,7 +124,7 @@ Skapa en Batch-pool för rendering med kommandot [az batch pool create](/cli/azu
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.3.1"
+      "version": "1.3.2"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Uppgifterna genererar utdatafiler med namnen *dragon0002.jpg* - *dragon0007.jpg* på beräkningsnoderna och laddar upp dem till containern *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download_batch). Exempel:
+Uppgifterna genererar utdatafiler med namnen *dragon0002.jpg* - *dragon0007.jpg* på beräkningsnoderna och laddar upp dem till containern *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob). Exempel:
 
 ```azurecli-interactive
 az storage blob download-batch \

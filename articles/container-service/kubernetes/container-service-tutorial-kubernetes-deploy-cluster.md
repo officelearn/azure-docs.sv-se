@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 666e2e63b4e61f5a44fdff9175ff696e72d86138
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 58fef0357a903f2ab1d238bbab7b2d9dca673eb4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856544"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662065"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(INAKTUELL) Distribuera ett Kubernetes-kluster i Azure Container Service
 
@@ -54,7 +54,7 @@ Efter några minuter slutförs distributionen och jdon-formaterad information om
 
 När du ska ansluta till Kubernetes-klustret från klientdatorn använder du [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), Kubernetes kommandoradsklient. 
 
-Om du använder Azure CloudShell är kubectl redan installerat. Om du vill installera det lokalt kan du använda kommandot [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
+Om du använder Azure CloudShell är kubectl redan installerat. Om du vill installera det lokalt kan du använda kommandot [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
 Om du kör det i Linux eller macOS kan du behöva köra med sudo. I Windows ska du se till att skalet körs som administratör.
 

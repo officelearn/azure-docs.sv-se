@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 86461ea5840ec4f2ea70facd642de9e7e5c05fa5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4d6dce952eca3d528a310685106a017dd7e3b80f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981022"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699966"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installera Elastic Stack på en virtuell dator i Azure VM
 
@@ -41,7 +41,7 @@ Om du väljer att installera och använda CLI lokalt kräver de här självstudi
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create). 
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm). 
 
 Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
@@ -81,7 +81,7 @@ När den virtuella datorn har skapats visar Azure CLI information som ser ut ung
 
 ## <a name="ssh-into-your-vm"></a>SSH till den virtuella datorn
 
-Om du inte vet den offentliga IP-adressen för den virtuella datorn kör du kommandot [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list):
+Om du inte vet den offentliga IP-adressen för den virtuella datorn kör du kommandot [az network public-ip list](/cli/azure/network/public-ip):
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress

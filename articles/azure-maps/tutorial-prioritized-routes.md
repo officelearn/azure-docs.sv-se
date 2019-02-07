@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 5458c7e74728952df89380a3649c6ed60eb6ea9a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705287"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749771"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Hitta rutter för olika färdmedel med hjälp av Azure Maps
 
@@ -248,7 +248,7 @@ Det här avsnittet visar hur du använder API:et Route Service i Azure Maps för
         datasource.add(routeLine, 0);
     });
     ```
-    Kodavsnittet ovan kör frågor mot Azure Maps-vägtjänsten via metoden [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) och parsar sedan svaret till GeoJSON-format med hjälp av metoden [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Sedan skapar det en matris med koordinater för den väg som returneras och lägger till den i datakällan, men det lägger även till ett index på 0 så att den renderas före andra linjer i datakällan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i lastbilens väglinje: en linjefärg med en fin blå nyans samt en linjebredd på 9 bildpunkter. 
+    Kodavsnittet ovan kör frågor mot Azure Maps-vägtjänsten via metoden [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) och parsar sedan svaret till GeoJSON-format med hjälp av metoden [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Sedan skapar det en matris med koordinater för den väg som returneras och lägger till den i datakällan, men det lägger även till ett index på 0 så att den renderas före andra linjer i datakällan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i lastbilens väglinje: en linjefärg med en fin blå nyans samt en linjebredd på 9 bildpunkter. 
 
 4. Lägg till följande JavaScript-kod för att begära en väg för en bil och visa resultatet:
 
@@ -267,7 +267,7 @@ Det här avsnittet visar hur du använder API:et Route Service i Azure Maps för
         datasource.add(routeLine);
     });
     ```
-    Det här kodfragmentet använder samma ruttfråga för en bil som för en lastbil. Den frågar Azure Maps-vägtjänsten via metoden [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) och parsar sedan svaret i GeoJSON-format med hjälp av metoden [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Därefter skapas en matris med koordinater för den återgivna rutten, och denna läggs till i datakällan. Två egenskaper läggs till i bilens väglinje: en linjefärg med lila nyans samt en linjebredd på 5 bildpunkter. 
+    Det här kodfragmentet använder samma ruttfråga för en bil som för en lastbil. Den frågar Azure Maps-vägtjänsten via metoden [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) och parsar sedan svaret i GeoJSON-format med hjälp av metoden [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Därefter skapas en matris med koordinater för den återgivna rutten, och denna läggs till i datakällan. Två egenskaper läggs till i bilens väglinje: en linjefärg med lila nyans samt en linjebredd på 5 bildpunkter. 
 
 5. Spara filen **MapTruckRoute.html** och uppdatera webbläsaren så att den visar resultatet. För en lyckad anslutning med den API:er i Maps bör du se en karta som liknar följande.
 

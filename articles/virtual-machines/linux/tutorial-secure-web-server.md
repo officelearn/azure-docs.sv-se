@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 85dbdc42dd55cdb262351511918d2b813212edb0
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882216"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750927"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Självstudier: Skydda en webbserver på en virtuell Linux-dator i Azure med SSL-certifikat som lagras i Key Vault
 När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Linux-datorer i Azure. I den här självstudiekursen får du lära du dig att:
@@ -44,13 +44,13 @@ Istället för att använda en anpassad VM-avbildning med inbyggda certifikat ma
 
 
 ## <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
-Innan du kan skapa ett Key Vault och certifikat skapar du en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupSecureWeb* på platsen *eastus*:
+Innan du kan skapa ett Key Vault och certifikat skapar du en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroupSecureWeb* på platsen *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Därefter skapar du ett Key Vault med [az keyvault create](/cli/azure/keyvault#az_keyvault_create) och aktiverar den för användning när du distribuerar en virtuell dator. För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt *<mykeyvault>* i följande exempel med ditt eget unika Key Vault-namn:
+Därefter skapar du ett Key Vault med [az keyvault create](/cli/azure/keyvault) och aktiverar den för användning när du distribuerar en virtuell dator. För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt *<mykeyvault>* i följande exempel med ditt eget unika Key Vault-namn:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -61,7 +61,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generera ett certifikat och lagra det i Key Vault
-För produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider med [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). För den här självstudien visar följande exempel hur du kan generera ett självsignerat certifikat med [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) som använder standardprincipen för certifikat:
+För produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider med [az keyvault certificate import](/cli/azure/keyvault/certificate). För den här självstudien visar följande exempel hur du kan generera ett självsignerat certifikat med [az keyvault certificate create](/cli/azure/keyvault/certificate) som använder standardprincipen för certifikat:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -71,7 +71,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Förbereda ett certifikat för användning med en virtuell dator
-För att använda certifikatet medan den virtuella datorn skapas ska du hämta certifikatets ID med [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). Konvertera certifikatet med [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). Följande exempel tilldelar kommandonas resultat till variabler, vilket gör dem enklare att använda i nästa steg:
+För att använda certifikatet medan den virtuella datorn skapas ska du hämta certifikatets ID med [az keyvault secret list-versions](/cli/azure/keyvault/secret). Konvertera certifikatet med [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). Följande exempel tilldelar kommandonas resultat till variabler, vilket gör dem enklare att använda i nästa steg:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -111,7 +111,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>Skapa en säker virtuell dator
-Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Certifikatdata matas in från Key Vault med parametern `--secrets`. Du skickar in cloud-init-konfigurationen med parametern `--custom-data`:
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm). Certifikatdata matas in från Key Vault med parametern `--secrets`. Du skickar in cloud-init-konfigurationen med parametern `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. Adressen används för att få åtkomst till din webbplats i en webbläsare.
 
-För att låta säker webbtrafik nå din virtuella dator ska du öppna port 443 från Internet med [az vm open-port](/cli/azure/vm#az_vm_open_port):
+För att låta säker webbtrafik nå din virtuella dator ska du öppna port 443 från Internet med [az vm open-port](/cli/azure/vm):
 
 ```azurecli-interactive 
 az vm open-port \

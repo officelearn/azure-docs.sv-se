@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 66c6a565fff81e1c0e39075502a6a7d3d8ffa7a6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1fce6292ffd7307ff0a294c6fa25412962acd1cc
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162301"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752848"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Självstudier: Belastningsutjämna virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure CLI
 
@@ -60,7 +60,7 @@ az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLoadBalancer*:
+För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLoadBalancer*:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -69,7 +69,7 @@ az network public-ip create \
 ```
 
 ### <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
-Skapa en lastbalanserare med [az network lb create](/cli/azure/network/lb#az_network_lb_create). Det här exemplet skapar en lastbalanserare med namnet *myLoadBalancer* och tilldelar *myPublicIP*-adressen till IP-konfigurationen för klienten:
+Skapa en lastbalanserare med [az network lb create](/cli/azure/network/lb). Det här exemplet skapar en lastbalanserare med namnet *myLoadBalancer* och tilldelar *myPublicIP*-adressen till IP-konfigurationen för klienten:
 
 ```azurecli-interactive 
 az network lb create \
@@ -85,7 +85,7 @@ Om du vill att lastbalanseraren ska övervaka status för din app kan du använd
 
 I följande exempel skapas en TCP-avsökning. Du kan också skapa anpassade HTTP-avsökningar om du vill ha mer detaljerade hälsokontroller. När du använder en anpassad HTTP-avsökning måste du skapa en hälsokontrollsida, till exempel *healthcheck.js*. Avsökningen måste returnera svaret **HTTP 200 OK** för att lastbalanseraren ska behålla värden i rotation.
 
-Skapa en TCP-hälsoavsökning med [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe*:
+Skapa en TCP-hälsoavsökning med [az network lb probe create](/cli/azure/network/lb/probe). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe*:
 
 ```azurecli-interactive 
 az network lb probe create \
@@ -99,7 +99,7 @@ az network lb probe create \
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
 
-Använd [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) för att skapa en regel för lastbalanseraren. I följande exempel skapas en belastningsutjämningsregel med namnet *myLoadBalancerRule* som använder hälsoavsökningen *myHealthProbe* och utjämnar trafiken på port *80*:
+Använd [az network lb rule create](/cli/azure/network/lb/rule) för att skapa en regel för lastbalanseraren. I följande exempel skapas en belastningsutjämningsregel med namnet *myLoadBalancerRule* som använder hälsoavsökningen *myHealthProbe* och utjämnar trafiken på port *80*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -119,7 +119,7 @@ az network lb rule create \
 Innan du kan distribuera virtuella datorer och testa din belastningsutjämnare skapar du virtuella nätverksresurser. Mer information om virtuella nätverk finns i självstudiekursen [Hantera virtuella Azure-nätverk](tutorial-virtual-network.md).
 
 ### <a name="create-network-resources"></a>Skapa nätverksresurser
-Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med ett undernät med namnet *mySubnet*:
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med ett undernät med namnet *mySubnet*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -128,7 +128,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-Använd kommandot [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) för att lägga till en nätverkssäkerhetsgrupp. I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
+Använd kommandot [az network nsg create](/cli/azure/network/nsg) för att lägga till en nätverkssäkerhetsgrupp. I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
 
 ```azurecli-interactive 
 az network nsg create \
@@ -136,7 +136,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Skapa en nätverkssäkerhetsgruppregel med [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). I följande exempel skapas en nätverkssäkerhetsgruppregel med namnet *myNetworkSecurityGroupRule*:
+Skapa en nätverkssäkerhetsgruppregel med [az network nsg rule create](/cli/azure/network/nsg/rule). I följande exempel skapas en nätverkssäkerhetsgruppregel med namnet *myNetworkSecurityGroupRule*:
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -218,7 +218,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 Placera dina virtuella datorer i en tillgänglighetsuppsättning för att förbättra tillgängligheten för din app. Mer information om tillgänglighetsuppsättningar finns i den tidigare självstudien [Skapa virtuella datorer med hög tillgänglighet](tutorial-availability-sets.md).
 
-Skapa en tillgänglighetsuppsättning med [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
+Skapa en tillgänglighetsuppsättning med [az vm availability-set create](/cli/azure/vm/availability-set). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -247,7 +247,7 @@ Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återg�
 
 
 ## <a name="test-load-balancer"></a>Testa lastbalanseraren
-Hämta den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
+Hämta den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -268,7 +268,7 @@ Om du vill se hur lastbalanseraren distribuerar trafik över alla tre virtuella 
 Du kan behöva utföra underhåll på de virtuella datorerna som kör appen, till exempel installera uppdateringar av operativsystemet. För att klara ökad trafik till din app kan du behöva lägga till fler virtuella datorer. I det här avsnittet visas hur du tar bort eller lägger till en virtuell dator från lastbalanseraren.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>Ta bort en virtuell dator från lastbalanseraren
-Du kan ta bort en virtuell dator från serverdelsadresspoolen med [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove). Följande exempel tar bort det virtuella nätverkskortet för **myVM2** från *myLoadBalancer*:
+Du kan ta bort en virtuell dator från serverdelsadresspoolen med [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool). Följande exempel tar bort det virtuella nätverkskortet för **myVM2** från *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool remove \
@@ -281,7 +281,7 @@ az network nic ip-config address-pool remove \
 
 Om du vill se hur lastbalanseraren distribuerar trafik över de två återstående virtuella datorerna som kör din app, kan du framtvinga uppdatering av webbläsaren. Nu kan du utföra underhåll på den virtuella datorn, till exempel installera uppdateringar av operativsystemet eller göra en omstart av den virtuella datorn.
 
-Om du vill visa en lista med virtuella nätverkskort som är anslutna till lastbalanseraren använder du [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show). Fråga och filtrera på det virtuella nätverkskortets ID på följande sätt:
+Om du vill visa en lista med virtuella nätverkskort som är anslutna till lastbalanseraren använder du [az network lb address-pool show](/cli/azure/network/lb/address-pool). Fråga och filtrera på det virtuella nätverkskortets ID på följande sätt:
 
 ```azurecli-interactive
 az network lb address-pool show \
@@ -300,7 +300,7 @@ Utdata liknar följande exempel som visar att det virtuella nätverkskortet för
 ```
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>Lägga till en virtuell dator i lastbalanseraren
-När du utfört underhåll på en virtuell dator eller om kapaciteten måste utökas kan du lägga till en virtuell dator i serverdelsadresspoolen med [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add). Följande exempel lägger till det virtuella nätverkskortet för **myVM2** i *myLoadBalancer*:
+När du utfört underhåll på en virtuell dator eller om kapaciteten måste utökas kan du lägga till en virtuell dator i serverdelsadresspoolen med [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool). Följande exempel lägger till det virtuella nätverkskortet för **myVM2** i *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool add \
@@ -311,7 +311,7 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-Verifiera att det virtuella nätverkskortet är kopplat till serverdelsadresspoolen genom att köra [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) från föregående steg igen.
+Verifiera att det virtuella nätverkskortet är kopplat till serverdelsadresspoolen genom att köra [az network lb address-pool show](/cli/azure/network/lb/address-pool) från föregående steg igen.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 00f446c545a11b859fe0ee966898fa5c6aa16a1d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 29cc340820fbf0e35b8b142f0bea91da82ff7b61
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884460"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728358"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en skalningsuppsättning för virtuella Linux-datorer med en Azure-mall
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
@@ -137,7 +137,7 @@ Du kan distribuera mallen [Python HTTP-servern på Linux](https://github.com/Azu
 
 [![Distribuera mall till Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-Du kan också använda Azure CLI för att installera Python HTTP-servern på Linux med [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) på följande sätt:
+Du kan också använda Azure CLI för att installera Python HTTP-servern på Linux med [az group deployment create](/cli/azure/group/deployment) på följande sätt:
 
 ```azurecli-interactive
 # Create a resource group
@@ -153,7 +153,7 @@ Svara på frågorna och ange namn på skalningsuppsättningen, antal instanser o
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Om du vill se din skalningsuppsättning i praktiken så gå till exempelwebbprogrammet i en webbläsare. Hämta den offentliga IP-adressen för lastbalanseraren med [az network public-ip list](/cli/azure/network/public-ip#show) på följande sätt:
+Om du vill se din skalningsuppsättning i praktiken så gå till exempelwebbprogrammet i en webbläsare. Hämta den offentliga IP-adressen för lastbalanseraren med [az network public-ip list](/cli/azure/network/public-ip) på följande sätt:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -167,7 +167,7 @@ Ange den offentliga IP-adressen för lastbalanseraren i en webbläsare i formate
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När resurserna inte behövs längre kan du använda [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, skalningsuppsättningen och alla relaterade resurser. Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+När resurserna inte behövs längre kan du använda [az group delete](/cli/azure/group) för att ta bort resursgruppen, skalningsuppsättningen och alla relaterade resurser. Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

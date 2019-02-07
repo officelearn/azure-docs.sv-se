@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 12/23/2018
 ms.author: zhshang
-ms.openlocfilehash: 45ceebef85254ff030d237f1af13f0750aaafeba
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 6b3ddf7d8069e689231b9dcb6f0f074e84052511
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812857"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663272"
 ---
 # <a name="azure-signalr-service-faq"></a>Vanliga frågor och svar Azure SignalR Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "53812857"
 Ja.
 Vårt tillkännagivande om allmän tillgänglighet finns på [Azure SignalR Service är nu allmänt tillgänglig](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/). 
 
-[ASP.NET Core SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction) stöds fullt ut.
+[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) stöds fullt ut.
 
 Stöd för ASP.NET SignalR är fortfarande i *offentlig förhandsversion*. Här är ett [kodexempel](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
 
@@ -37,7 +37,7 @@ Om du har programservrar så kan det här felmeddelandet betyda att ingen progra
 Möjliga orsaker är:
 - Ingen programserver är ansluten med SignalR Service. Kontrollera programserverloggarna för möjliga anslutningsfel. Det här fallet är sällsynt i inställningen för hög tillgänglighet med mer än en programserver.
 - Det finns anslutningsproblem med SignalR Service-instanser. Det här problemet är tillfälligt och återställs automatiskt.
-Om det finns kvar i mer än en timme, [öppna ett ärende på GitHub](https://github.com/Azure/azure-signalr/issues/new) eller [skapa en supportbegäran i Azure](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request).
+Om det finns kvar i mer än en timme, [öppna ett ärende på GitHub](https://github.com/Azure/azure-signalr/issues/new) eller [skapa en supportbegäran i Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>När det finns flera programservrar, skickas klientmeddelanden till alla servrar eller bara en av dem?
 
@@ -67,4 +67,4 @@ Nej.
 
 Azure SignalR Service tillhandahåller alla tre transporter som ASP.NET Core SignalR stöder som standard. Den kan inte konfigureras. SignalR Service hanterar anslutningar och transporter för alla klientanslutningar.
 
-Du kan konfigurera transporter på klientsidan enligt beskrivningen [här](https://docs.microsoft.com/en-us/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).
+Du kan konfigurera transporter på klientsidan enligt beskrivningen [här](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: eab5545b4d2b911051d9803560d5efd1a09dafb0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 70eb7ef93d4802f30bb1343c442c414cda48464b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158170"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732795"
 ---
 # <a name="monitor-a-vm-with-azure-monitoring"></a>Övervaka en virtuell dator med Azure Monitoring
 
@@ -49,10 +49,10 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Kör ett VM-tillägg mot en virtuell dator. I det här fallet används Log Analytics-agenttillägget för att installera Log Analytics-agenten och registrera den virtuella datorn på en Log Analytics-arbetsyta. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Kör ett VM-tillägg mot en virtuell dator. I det här fallet används Log Analytics-agenttillägget för att installera Log Analytics-agenten och registrera den virtuella datorn på en Log Analytics-arbetsyta. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

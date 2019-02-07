@@ -1,6 +1,6 @@
 ---
-title: Exempel på Azure CLI-skript – Beräkna blob-behållarens storlek | Microsoft Docs
-description: Beräkna storleken på en behållare i Azure Blob-lagring genom att addera storleken på blobarna i behållaren.
+title: Exempel på Azure CLI-skript – Beräkna blob-containerns storlek | Microsoft Docs
+description: Beräkna storleken på en container i Azure Blob-lagring genom att addera storleken på blobarna i containern.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,23 +15,23 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: c38a49e82a71a23fdf621f5ac350c4242ffc2f8f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3cb1e35617a58fcde7968ab45d437d865c91f983
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847115"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696948"
 ---
-# <a name="calculate-the-size-of-a-blob-storage-container"></a>Beräkna storleken på en behållare för Blob-lagring
+# <a name="calculate-the-size-of-a-blob-storage-container"></a>Beräkna storleken på en container för Blob-lagring
 
-Det här skriptet beräknar storleken på en behållare i Azure Blob-lagring genom att addera storleken på blobarna i behållaren.
+Det här skriptet beräknar storleken på en container i Azure Blob-lagring genom att addera storleken på blobarna i containern.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Det här CLI-skriptet ger en uppskattad storlek för behållaren och ska inte användas för faktureringsberäkningar.
+> Det här CLI-skriptet ger en uppskattad storlek för containern och ska inte användas för faktureringsberäkningar.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -39,7 +39,7 @@ Det här skriptet beräknar storleken på en behållare i Azure Blob-lagring gen
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, behållaren och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, containern och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -47,13 +47,13 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att beräkna storleken på Blob-lagringsbehållaren. Varje post i tabellen länkar till kommandospecifik dokumentation.
+Det här skriptet använder följande kommandon för att beräkna storleken på Blob-lagringscontainern. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | Överför lokala filer till en Azure Blob Storage-behållare. |
-| [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Visar en lista över blobarna i en Azure Blob Storage-behållare. |
+| [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az storage blob upload](/cli/azure/storage/account) | Överför lokala filer till en Azure Blob Storage-container. |
+| [az storage blob list](/cli/azure/storage/account/keys) | Visar en lista över blobarna i en Azure Blob Storage-container. |
 
 ## <a name="next-steps"></a>Nästa steg
 

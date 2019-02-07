@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466864"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749150"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudier: Skapa och hantera virtuella Linux-datorer med Azure CLI
 
@@ -40,7 +40,7 @@ Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
+Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group). 
 
 En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn. I det här exemplet skapas en resursgrupp med namnet *myResourceGroupVM* i regionen *eastus*. 
 
@@ -52,7 +52,7 @@ Resursgruppen som anges när du skapar eller ändrar en virtuell dator visas i h
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med kommandot [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
+Skapa en virtuell dator med kommandot [az vm create](https://docs.microsoft.com/cli/azure/vm). 
 
 När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, bestämning av diskstorlek och administrativa autentiseringsuppgifter. I följande exempel skapas en virtuell dator med namnet *myVM* som kör en Ubuntu Server. Ett användarkonto med namnet *azureuser* skapas på den virtuella datorn och om inte SSH-nycklar finns genereras de på standardplatsen för nyckeln (*~/.ssh*):
 
@@ -98,7 +98,7 @@ exit
 
 På Azures marknadsplats finns många avbildningar som kan användas för att skapa virtuella datorer. I de föregående stegen skapades en virtuell dator med en Ubuntu-avbildning. I det här steget används Azure CLI för att söka i marknadsplatsen efter en CentOS-avbildning som sedan används för att distribuera en andra virtuella dator. 
 
-Du kan lista de vanligaste avbildningarna med kommandot [az vm image list](/cli/azure/vm/image#az_vm_image_list).
+Du kan lista de vanligaste avbildningarna med kommandot [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -167,7 +167,7 @@ I följande tabell kategoriseras storlekarna i användningsfall.
 
 ### <a name="find-available-vm-sizes"></a>Hitta tillgängliga VM-storlekar
 
-Om du vill se en lista med VM-storlekar som är tillgängliga i en viss region kan du använda kommandot [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). 
+Om du vill se en lista med VM-storlekar som är tillgängliga i en viss region kan du använda kommandot [az vm list-sizes](/cli/azure/vm). 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -198,7 +198,7 @@ Delvisa utdata:
 
 ### <a name="create-vm-with-specific-size"></a>Skapa en virtuell dator med en specifik storlek
 
-I föregående exempel angavs inte en storlek vilket ger en standardstorlek på den virtuella datorn. En storlek för den virtuella datorn kan väljas när den skapas med kommandot [az vm create](/cli/azure/vm#az_vm_create) och argumentet `--size`. 
+I föregående exempel angavs inte en storlek vilket ger en standardstorlek på den virtuella datorn. En storlek för den virtuella datorn kan väljas när den skapas med kommandot [az vm create](/cli/azure/vm) och argumentet `--size`. 
 
 ```azurecli-interactive 
 az vm create \
@@ -217,12 +217,12 @@ När en virtuell dator har distribuerats kan storleken ändras för att öka ell
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Kontrollera om önskad storlek är tillgänglig i det aktuella Azure-klustret innan du ändrar storleken på en virtuell dator. Kommandot [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) returnerar en lista med storlekar. 
+Kontrollera om önskad storlek är tillgänglig i det aktuella Azure-klustret innan du ändrar storleken på en virtuell dator. Kommandot [az vm list-vm-resize-options](/cli/azure/vm) returnerar en lista med storlekar. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Om önskad storlek är tillgänglig kan storleken på den virtuella datorn ändras medan den är igång, men den startas om under åtgärden. Använd kommandot [az vm resize]( /cli/azure/vm#az_vm_resize) för att ändra storleken.
+Om önskad storlek är tillgänglig kan storleken på den virtuella datorn ändras medan den är igång, men den startas om under åtgärden. Använd kommandot [az vm resize]( /cli/azure/vm) för att ändra storleken.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
@@ -264,7 +264,7 @@ En virtuell Azure-dator kan ha en av många energinivåer. Det här tillståndet
 
 ### <a name="find-the-power-state"></a>Hitta energinivån
 
-Om du vill hämta tillståndet för en viss virtuell dator, använder du kommandot [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Du måste ange ett giltigt namn för en virtuell dator och resursgrupp. 
+Om du vill hämta tillståndet för en viss virtuell dator, använder du kommandot [az vm get instance-view](/cli/azure/vm). Du måste ange ett giltigt namn för en virtuell dator och resursgrupp. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

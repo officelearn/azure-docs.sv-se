@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188619"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747518"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -119,7 +119,7 @@ Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanl
 
 1. Välj **Skapa**. Om du vill att appen ska visas på instrumentpanelen markerar du kryssrutan  **Fäst på instrumentpanelen** .
 
-    ![Skapa App Service-plan][2]
+    ![Skapa App Service plan][2]
 
     Under **Appnamn** uppdateras domännamnet för att återspegla din ASE-domän.
 
@@ -223,8 +223,13 @@ Om du vill veta mer om hur du konfigurerar din interna belastningsutjämnare i a
 
 * Information om hur du kommer igång med ASE finns i [Introduktion till App Service-miljöer][Intro].
  
+
 <!--Image references-->
-[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png [3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png [4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png [5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
+[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
+[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
+[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
+[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md

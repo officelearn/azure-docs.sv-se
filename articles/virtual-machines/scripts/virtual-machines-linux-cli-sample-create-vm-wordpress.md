@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c543c2357dd31bb06a19c7d53284c65a7ca7299
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 3e4410a5acb852ea9cd7f5ca24e67e8335a45e30
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928132"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692672"
 ---
 # <a name="create-a-vm-with-wordpress"></a>Skapa en VM med WordPress
 
@@ -49,11 +49,11 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/vm#az_vm_open_port) | Skapar en regel för nätverkssäkerhetsgrupp som tillåter inkommande trafik. I det här exemplet öppnas port 80 för HTTP-trafik. |
-| [az vm extension set](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Lägg till tillägget för anpassat skript till den virtuella datorn, som anropar ett skript för att installera WordPress. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/vm) | Skapar en regel för nätverkssäkerhetsgrupp som tillåter inkommande trafik. I det här exemplet öppnas port 80 för HTTP-trafik. |
+| [az vm extension set](https://docs.microsoft.com/cli/azure/vm) | Lägg till tillägget för anpassat skript till den virtuella datorn, som anropar ett skript för att installera WordPress. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

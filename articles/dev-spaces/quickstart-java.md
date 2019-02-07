@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: mmontwil
-ms.openlocfilehash: c448521d7e1ce70a44ca23f58d0034ca2041cbed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 24bb5a044db813e1ee3cf2c9ff3e36a9b9ff86d7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453441"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657067"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Snabbstart: Skapa ett Kubernetes-utvecklarutrymme med Azure Dev Spaces (Java och VS Code)
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig hur du:
 - Felsök koden i ditt utvecklarutrymme från VS Code.
 
 > [!Note]
-> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan. Du kan också försöka med den mer ingående [självstudien](get-started-netcore.md).
+> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan. Du kan också försöka med den mer ingående [självstudien](get-started-java.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -137,4 +137,4 @@ Uppdatera webbappen i webbläsaren. Nu bör ditt anpassade meddelande visas i an
 Lär dig hur Azure Dev Spaces hjälper dig att utveckla mer komplexa appar över flera containrar och hur du kan förenkla utvecklingen i team genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
 
 > [!div class="nextstepaction"]
-> [Arbeta med flera containrar och utveckling i team](team-development-java.md)
+> [Arbeta med flera containrar och utveckling i team](multi-service-java.md)

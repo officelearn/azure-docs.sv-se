@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: 05e21083b060e00602f58e1a17f52f40ced7d34e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dfdc572810cfcfd275faa4502e508b9c8ccec9b6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075217"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727849"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Distribuera till Azure App Service med Jenkins och Azure CLI
 För distribution av en Java-webbapp till Azure kan du använda Azure CLI i [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). I den här självstudien skapar du en CI/CD-pipeline på en virtuell Azure-dator och lär dig att:
@@ -115,7 +115,7 @@ När webbappsdefinitionen är klar visar Azure CLI information liknande den i f�
 
 ### <a name="configure-java"></a>Konfigurera Java 
 
-Konfigurera den Java Runtime-konfiguration som appen behöver med kommandot [az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update).
+Konfigurera den Java Runtime-konfiguration som appen behöver med kommandot [az appservice web config update](/cli/azure/webapp/config).
 
 Följande kommando konfigurerar webbappen att köra på en sen Java 8 JDK och [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 

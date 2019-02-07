@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8548fe53288b2f9c486c9ccdc42afa08f40b4ae1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e90880aeaae17c80d6714f917f2ea849c953711f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181609"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755416"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Självstudier: Skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer med Azure CLI
 
@@ -60,7 +60,7 @@ I den här självstudiekursen skapas följande virtuella nätverksresurser:
 
 I den här självstudien skapas ett enda virtuellt nätverk med två undernät. Ett klientdelsundernät som är värd för ett webbprogram och ett serverdelsundernät som är värd för en databasserver.
 
-Innan du kan skapa ett virtuellt nätverk skapar du en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myRGNetwork* på platsen eastus.
+Innan du kan skapa ett virtuellt nätverk skapar du en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myRGNetwork* på platsen eastus.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -68,7 +68,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>Skapa det virtuella nätverket
 
-Använd kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) för att skapa ett virtuellt nätverk. I det här exemplet heter nätverket *mvVNet* och har adressprefixet *10.0.0.0/16*. Dessutom skapas ett undernät med namnet *myFrontendSubnet* och prefixet *10.0.1.0/24*. Senare i den här självstudien ansluts klientdelens VM till det här undernätet. 
+Använd kommandot [az network vnet create](/cli/azure/network/vnet) för att skapa ett virtuellt nätverk. I det här exemplet heter nätverket *mvVNet* och har adressprefixet *10.0.0.0/16*. Dessutom skapas ett undernät med namnet *myFrontendSubnet* och prefixet *10.0.1.0/24*. Senare i den här självstudien ansluts klientdelens VM till det här undernätet. 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -81,7 +81,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>Skapa undernät
 
-Ett nytt undernät läggs till i det virtuella nätverket med hjälp av kommandot [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). I det här exemplet heter undernätet *myBackendSubnet* och har adressprefixet *10.0.2.0/24*. Det här undernätet används med alla serverdelstjänster.
+Ett nytt undernät läggs till i det virtuella nätverket med hjälp av kommandot [az network vnet subnet create](/cli/azure/network/vnet/subnet). I det här exemplet heter undernätet *myBackendSubnet* och har adressprefixet *10.0.2.0/24*. Det här undernätet används med alla serverdelstjänster.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -103,11 +103,11 @@ Allokeringsmetoden kan anges som statisk, vilket garanterar att IP-adressen för
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-När du skapar en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create) är den offentliga IP-adressens allokeringsmetod dynamisk. När du skapar en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create) ska du inkludera argumentet `--public-ip-address-allocation static` som tilldelar en statisk offentlig IP-adress. Den här åtgärden visas inte i den här självstudien, men i nästa avsnitt ändras en dynamiskt allokerad IP-adress till en statiskt allokerad adress. 
+När du skapar en virtuell dator med kommandot [az vm create](/cli/azure/vm) är den offentliga IP-adressens allokeringsmetod dynamisk. När du skapar en virtuell dator med kommandot [az vm create](/cli/azure/vm) ska du inkludera argumentet `--public-ip-address-allocation static` som tilldelar en statisk offentlig IP-adress. Den här åtgärden visas inte i den här självstudien, men i nästa avsnitt ändras en dynamiskt allokerad IP-adress till en statiskt allokerad adress. 
 
 ### <a name="change-allocation-method"></a>Ändra allokeringsmetod
 
-Allokeringsmetoden för IP-adresser kan ändras med kommandot [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update). I det här exemplet ändras allokeringsmetoden för IP-adresser i klientdelen av den virtuella datorn till statisk.
+Allokeringsmetoden för IP-adresser kan ändras med kommandot [az network public-ip update](/cli/azure/network/public-ip). I det här exemplet ändras allokeringsmetoden för IP-adresser i klientdelen av den virtuella datorn till statisk.
 
 Frigör först den virtuella datorn.
 
@@ -115,7 +115,7 @@ Frigör först den virtuella datorn.
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Använd kommandot [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) till att uppdatera allokeringsmetoden. I det här fallet anges `--allocation-method` som *statisk*.
+Använd kommandot [az network public-ip update](/cli/azure/network/public-ip) till att uppdatera allokeringsmetoden. I det här fallet anges `--allocation-method` som *statisk*.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -133,7 +133,7 @@ Ofta behöver inte en virtuell dator vara tillgänglig via Internet. Om du vill 
 
 ## <a name="create-a-front-end-vm"></a>Skapa en virtuell dator för klientdelen
 
-Använd kommandot [az vm create](/cli/azure/vm#az_vm_create) för att skapa den virtuella datorn med namnet *myFrontendVM* med hjälp av *myPublicIPAddress*.
+Använd kommandot [az vm create](/cli/azure/vm) för att skapa den virtuella datorn med namnet *myFrontendVM* med hjälp av *myPublicIPAddress*.
 
 ```azurecli-interactive 
 az vm create \
@@ -165,7 +165,7 @@ Standardreglerna för NSG:er är:
 
 ### <a name="create-network-security-groups"></a>Skapa nätverkssäkerhetsgrupper
 
-En nätverkssäkerhetsgrupp kan skapas samtidigt som en virtuell dator med hjälp av kommandot [az vm create](/cli/azure/vm#az_vm_create). När du gör detta associeras NSG:n till nätverksgränssnittet för de virtuella datorerna och en NSG-regel skapas automatiskt för att tillåta trafik på port *22* från andra källor. Tidigare i den här självstudien har NSG:n för klientdelen skapats automatiskt med den virtuella datorns klientdel. En NSG-regel har också skapats automatiskt för port 22. 
+En nätverkssäkerhetsgrupp kan skapas samtidigt som en virtuell dator med hjälp av kommandot [az vm create](/cli/azure/vm). När du gör detta associeras NSG:n till nätverksgränssnittet för de virtuella datorerna och en NSG-regel skapas automatiskt för att tillåta trafik på port *22* från andra källor. Tidigare i den här självstudien har NSG:n för klientdelen skapats automatiskt med den virtuella datorns klientdel. En NSG-regel har också skapats automatiskt för port 22. 
 
 I vissa fall kan vara det bra att skapa en NSG i förväg, till exempel när standardreglerna för SSH inte går att skapa eller när NSG:n ska kopplas till ett undernät. 
 
@@ -191,7 +191,7 @@ az network vnet subnet update \
 
 När klientdelen i den virtuella datorn skapades, skapades en NSG-regel som tillåter inkommande trafik på port 22. Den här regeln tillåter SSH-anslutningar till den virtuella datorn. I det här exemplet tillåts trafik även på port *80*. Med den här konfigurationen kan en webbapp nås på den virtuella datorn.
 
-Använd kommandot [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) för att skapa en regel för port *80*.
+Använd kommandot [az network nsg rule create](/cli/azure/network/nsg/rule) för att skapa en regel för port *80*.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -218,7 +218,7 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG -
 
 Regler för nätverkssäkerhetsgrupper kan också användas mellan virtuella datorer. I det här exemplet behöver klientdelens VM kommunicera med serverdelens VM på port *22* och *3306*. Konfigurationen tillåter SSH-anslutningar från klientdelens VM och även att ett program på klientdelens virtuella dator kommunicerar med en MySQL-databas i serverdelen. All annan trafik blockeras mellan klientdelens och serverdelens virtuella datorer.
 
-Använd kommandot [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) för att skapa en regel för port 22. Observera att argumentet `--source-address-prefix` anger värdet *10.0.1.0/24*. Den här konfigurationen säkerställer att endast trafik från klientdelens undernät tillåts via NSG:n.
+Använd kommandot [az network nsg rule create](/cli/azure/network/nsg/rule) för att skapa en regel för port 22. Observera att argumentet `--source-address-prefix` anger värdet *10.0.1.0/24*. Den här konfigurationen säkerställer att endast trafik från klientdelens undernät tillåts via NSG:n.
 
 ```azurecli-interactive 
 az network nsg rule create \

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: af7f3b42aad41f103be6c86da84db2ff230ff226
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 5dda96786cde980fbec1b2f90bb7f755453b468a
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065230"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729667"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Linux-dator med Azure CLI
 
@@ -39,7 +39,7 @@ Om du föredrar att installera och använda detta CLI lokalt måste du köra Azu
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -47,7 +47,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create).
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm).
 
 Följande exempel skapar virtuell dator med namnet *myVM* och lägger till ett användarkonto med namnet *azureuser*. Parametern `--generate-ssh-keys` används för att automatiskt generera en SSH-nyckel och placera den på standardnyckelplatsen (*~/.ssh*). Om du i stället vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
@@ -79,7 +79,7 @@ Skriv ned din egen `publicIpAddress` i utdataresultatet från din virtuella dato
 
 ## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik
 
-Som standard öppnas SSH-anslutningar när du skapar en virtuell Linux-dator i Azure. Använd [az vm open-port](/cli/azure/vm#az_vm_open_port) för att öppna TCP port 80 för användning med NGINX-webbservern:
+Som standard öppnas SSH-anslutningar när du skapar en virtuell Linux-dator i Azure. Använd [az vm open-port](/cli/azure/vm) för att öppna TCP port 80 för användning med NGINX-webbservern:
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -112,7 +112,7 @@ Använd valfri webbläsare för att visa välkomstsidan för NGINX. Använd den 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. 
+När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

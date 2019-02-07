@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: 3b2bb76ff8fe8f9ac146dab2a721450bc0562fa6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0cd3515c9df8cc5588523c51a82e16ee8ecf5e45
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662082"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747636"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -49,7 +49,7 @@ Vi har introducerat engångskod autentisering (OTP) för B2B-gästanvändare som
 
 Mer information finns i [e-post engångskod authentication (förhandsversion)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) och bloggen [Azure AD gör delning och samarbete sömlös för alla användare med ett konto](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949).
 
-### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nya Azure AD Application Proxy cookie-inställningar
+### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nya cookieinställningar för Azure AD-programproxyn
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** App Proxy  
@@ -67,7 +67,7 @@ Mer information om nya cookies finns i [Cookie-inställningar för att komma åt
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - januari 2019
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Nya federerade appar tillgängliga i Azure AD-appgalleriet – januari 2019
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Företagsappar  
@@ -75,13 +75,13 @@ Mer information om nya cookies finns i [Cookie-inställningar för att komma åt
  
 I januari 2019 har vi lagt till stöd för dessa 35 nya appar med Federation i app-galleriet:
 
-[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial), [Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial), [personal paletten](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial), [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial), [Cisco samlingsnamnet](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial), [Zscaler Administratör för Internet](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial), [upphör att gälla påminnelse](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial), [InstaVR Viewer](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial), [CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial), [Verb](https://app.verb.net/login), [MazeMap länk](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Stäng](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial), [ GoodPractice Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial), [Cloud Service PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial), [AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial), [iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial), [Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial), [ CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO-System](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial), [CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial), [Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial), [Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial), [Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial), [ar för Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial), [K2 för Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [ iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial), [HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial), [Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial), [Korn passagerarfartyget ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial), [CaféX Portal (möten) ](https://docs.microsoft.com/azure/active-directory/saas-apps/caf%c3%a9xportal%28meetings%29-tutorial), [Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial), [Adoddle cSaas plattform](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)        
+[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial), [Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial), [personal paletten](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial), [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial), [Cisco samlingsnamnet](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial), [Zscaler Administratör för Internet](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial), [upphör att gälla påminnelse](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial), [InstaVR Viewer](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial), [CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial), [Verb](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Stäng](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial), [GoodPractice Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial), [ Cloud Service PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial), [AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial), [iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial), [Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO-System](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial), [CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial), [Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial), [Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial), [Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial), [Ar för Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial), [K2 för Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial), [HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial), [Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial), [Korn passagerarfartyget ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial), [Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial), [Adoddle cSaas plattform](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->  
 
 Mer information om apparna som finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial). Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i Azure Active Directory-programgalleriet](https://aka.ms/azureadapprequest).
 
 ---
 
-### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Nya förbättringar för Azure AD Identity Protection (förhandsversion)
+### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Nya Azure AD Identity Protection-förbättringar (förhandsversion)
 
 **Typ:** Ändrad funktion  
 **Tjänstekategori:** Identity Protection  
@@ -101,7 +101,7 @@ Mer information om förbättringarna finns [vad är Azure Active Directory Ident
 
 ---
 
-### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Ny App Lock-funktionen för Microsoft Authenticator-appen på iOS och Android-enheter
+### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Ny App Lock-funktion för Microsoft Authenticator-appen på iOS- och Android-enheter
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Microsoft Authenticator-appen  
@@ -113,7 +113,7 @@ Mer information finns i den [Microsoft Authenticator-appen vanliga frågor och s
 
 ---
 
-### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Förbättrad Azure AD Privileged Identity Management (PIM) exportera funktioner
+### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Förbättrade exportfunktioner i Azure AD Privileged Identity Management (PIM)
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Privileged Identity Management  
@@ -127,7 +127,7 @@ Mer information finns i [visa aktivitet och granska historik för Azure-resursro
 
 ## <a name="novemberdecember-2018"></a>November/December 2018
 
-### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Ta bort användare från synkronisering omfång någon längre växel till molnbaserad konton
+### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Användare som tagits bort från den här synkroniseringsomfattningen växlar inte längre till enbart moln-konton
 
 **Typ:** Korrigerat  
 **Tjänstekategori:** Användarhantering  
@@ -188,7 +188,7 @@ Mer information om schemat finns i [tolkningar Azure AD granskningsloggar schema
 
 ---
 
-### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Identity Protection förbättringar av övervakade machine learning-modellen och risken poäng motor
+### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Identity Protection-förbättringar till den övervakade maskininlärningsmodellen och riskpoängsmotorn
 
 **Typ:** Ändrad funktion  
 **Tjänstekategori:** Identity Protection  
@@ -200,7 +200,7 @@ Risk identifieringar är nu utvärdera de övervakade machine learning-modell so
 
 ---
 
-### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Administratörer kan återställa sina egna lösenord med hjälp av Microsoft Authenticator-appen (offentlig förhandsversion)
+### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Administratörer kan återställa sina egna lösenord med Microsoft Authenticator-appen (förhandsversion)
 
 **Typ:** Ändrad funktion  
 **Tjänstekategori:** Lösenordsåterställning via självbetjäning  
@@ -222,7 +222,7 @@ Läs mer om hur du använder Microsoft Authenticator-appen för att återställa
 
 ---
 
-### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Ny Molnenhetsadministratör för Azure AD-roll (offentlig förhandsversion)
+### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Ny Azure AD-molnenhetsadministratörsroll (förhandsversion)
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Hantering och registrering av enhet  
@@ -234,7 +234,7 @@ Mer information om roller och behörigheter finns i [Tilldela administratörsrol
 
 ---
 
-### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Hantera dina enheter med hjälp av den nya aktivitet tidsstämpeln i Azure AD (förhandsversion)
+### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Hantera dina enheter med den nya aktivitetstidsstämpeln i Azure AD (förhandsversion)
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Hantering och registrering av enhet  
@@ -246,7 +246,7 @@ Läs mer om hur du hämtar och använder den här tidsstämpeln [How To: Hantera
 
 ---
 
-### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Administratörer kan kräva att användarna ska acceptera användningsvillkor på varje enhet
+### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Administratörer kan kräva att användare att godkänna användningsvillkor på varje enhet
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Användningsvillkor  
@@ -258,7 +258,7 @@ Mer information finns i den [Per enhet användningsvillkor Använd avsnittet Azu
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Administratörer kan konfigurera användningsvillkor att gå ut baserat på ett återkommande schema
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Administratörer kan konfigurera användningsvillkor att förfalla enligt ett återkommande schema
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Användningsvillkor  
@@ -283,7 +283,7 @@ Mer information finns i den [lägga till användningsvillkor Använd avsnittet A
  
 ---
 
-### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Nya Azure AD Privileged Identity Management (PIM) e-postmeddelanden för Azure Active Directory-roller
+### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Nya e-postmeddelanden för Azure Active Directory-roller i Azure AD Privileged Identity Management (PIM)
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Privileged Identity Management  
@@ -317,7 +317,7 @@ Mer information om gruppbaserad licensiering finns i [nyheter gruppbaserad licen
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - November 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Nya federerade appar tillgängliga i Azure AD-appgalleriet – november 2018
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Företagsappar  

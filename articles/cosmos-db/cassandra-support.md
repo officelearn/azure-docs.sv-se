@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: a68d290bc21a8cdc36d5c85f770752ad67a4e91e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 57127f3a87d8ec3077c0e2f5f6e16f536931e97f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330768"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756860"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -161,7 +161,6 @@ Azure Cosmos DB Cassandra-API innehåller val av konsekvens för läsåtgärder.
 Azure Cosmos DB stöder rollbaserad åtkomstkontroll (RBAC) och läs- och skrivbara lösenord/nycklar som kan hämtas via [Azure-portalen](https://portal.azure.com). Azure Cosmos DB stöder ännu inte användare och roller för dataplansaktiviteter. 
 
 ## <a name="planned-support"></a>Planerad support 
-* Använda tidsstämpel TTL tillsammans  
 * Regionnamn i kommandot create keyspace ignoreras för närvarande. Distribution av data implementeras i underliggande Cosmos DB-plattform och exponeras visa portalen eller PowerShell för kontot. 
 
 

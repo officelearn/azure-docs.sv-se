@@ -4,17 +4,17 @@ description: Lär dig hur du skapar en Azure Automation-runbook
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/14/2017
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: d1563e819666a428258c34d55be8f9b6980a151a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f6dcbba8da314798b2e8de12a9fc5bf55f67a4a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436035"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750281"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Skapa en Azure Automation-runbook
 
@@ -22,9 +22,9 @@ Azure Automation-runbooks kan skapas via Azure. Den här metoden ger ett webblä
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in till Azure på https://portal.azure.com
+Logga in i Azure på https://portal.azure.com
 
 ## <a name="create-runbook"></a>Skapa runbook
 

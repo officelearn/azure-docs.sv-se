@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81ab41518fea81b577738d30970d83f6d6d6f2bc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884001"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750400"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Självstudier: Installera program i VM-skalningsuppsättningar med en Azure-mall
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. I en föregående självstudie fick du lära dig hur du skapar och använder en anpassad virtuell datoravbildning för att distribuera dina virtuella datorinstanser. Den här anpassade avbildningen inkluderade programinstallationer och konfigurationer. Du kan också automatisera installationen av programmen till en skalningsuppsättning efter att varje virtuell datorinstans distribueras, eller uppdatera ett program som redan körs på en skalningsuppsättning. I den här självstudiekursen får du lära du dig att:
@@ -77,13 +77,13 @@ En komplett exempel på en Azure-mall som distribuerar en skalningsuppsättning 
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Vi använder exempelmallen för att skapa en skalningsuppsättning och tillämpa det anpassade skripttillägget. Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Vi använder exempelmallen för att skapa en skalningsuppsättning och tillämpa det anpassade skripttillägget. Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa nu en VM-skalningsuppsättning med [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). När du uppmanas, anger du ditt eget användarnamn och lösenord som används som autentiseringsuppgifter för varje virtuell datorinstans:
+Skapa nu en VM-skalningsuppsättning med [az group deployment create](/cli/azure/group/deployment). När du uppmanas, anger du ditt eget användarnamn och lösenord som används som autentiseringsuppgifter för varje virtuell datorinstans:
 
 ```azurecli-interactive
 az group deployment create \
@@ -97,7 +97,7 @@ Varje virtuell datorinstans i skalningsuppsättningen laddar ned och kör skript
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Om du vill testa webbservern hämtar du den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip#show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
+Om du vill testa webbservern hämtar du den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Om du vill uppdatera definitionen för ditt anpassade skripttillägg, redigerar 
 }
 ```
 
-Tillämpa konfigurationen det anpassade skripttillägget till de virtuella datorinstanser i din skalningsuppsättning med [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Den här *azuredeployv2.json*-mallen används för att tillämpa den uppdaterade versionen av programmet. I praktiken, redigerar du den befintliga *azuredeploy.json*-mallen så den refererar till det uppdaterade installationsskriptet, som det visas i föregående avsnitt. När du uppmanas, anger du samma användarnamn och lösenord som används när du först skapade skalningsuppsättningen:
+Tillämpa konfigurationen det anpassade skripttillägget till de virtuella datorinstanser i din skalningsuppsättning med [az group deployment create](/cli/azure/group/deployment). Den här *azuredeployv2.json*-mallen används för att tillämpa den uppdaterade versionen av programmet. I praktiken, redigerar du den befintliga *azuredeploy.json*-mallen så den refererar till det uppdaterade installationsskriptet, som det visas i föregående avsnitt. När du uppmanas, anger du samma användarnamn och lösenord som används när du först skapade skalningsuppsättningen:
 
 ```azurecli-interactive
 az group deployment create \
@@ -155,7 +155,7 @@ Alla virtuella datorinstanser i skalningsuppsättningen uppdateras automatiskt m
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group#az_group_delete). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

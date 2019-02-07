@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d14b8c9c752c9d41a42f092662c5f3aa88840dc5
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0ba18b1ef0ba6c0a73759577c83ab80550baa6f8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157725"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754752"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI
 
-Den här snabbstarten visar hur du använder Azure CLI för att snabbt skapa en programgateway med två virtuella datorer i dess serverdelspool. Sedan testar du den och kontrollerar att den fungerar korrekt. Med Azure Application Gateway kan du dirigera programmets webbtrafik till specifika resurser genom att tilldela lyssnare till portar, skapa regler och att lägga till resurser i en serverdelspool.
+Den här snabbstarten visar hur du använder Azure CLI för att snabbt skapa en programgateway med två virtuella datorer i dess serverdelspool. Sedan testar du den och kontrollerar att den fungerar korrekt. Med Azure Application Gateway kan du dirigera programmets webbtrafik till specifika resurser genom att: tilldela lyssnare till portar, skapa regler och lägga till resurser i en serverdelspool.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -39,7 +39,7 @@ az group create --name myResourceGroupAG --location eastus
 
 När du skapar ett virtuellt nätverk kan programgatewayen kommunicera med andra resurser. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för de virtuella datorerna. Undernätet för en programgateway kan endast innehålla programgatewayer. Inga andra resurser är tillåtna.
 
-Du skapar det virtuella nätverket och undernätet med hjälp av [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Kör [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create) för att skapa den offentliga IP-adressen.
+Du skapar det virtuella nätverket och undernätet med hjälp av [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Kör [az network public-ip create](/cli/azure/network/public-ip) för att skapa den offentliga IP-adressen.
 
 ```azurecli-interactive
 az network vnet create \
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Skapa en programgateway med hjälp av [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). När du skapar en programgateway med Azure CLI anger du konfigurationsinformation såsom kapacitet, SKU och HTTP-inställningar. Azure lägger sedan till de privata IP-adresserna för nätverksgränssnitten som servrar i serverdelspoolen för programgatewayen.
+Skapa en programgateway med hjälp av [az network application-gateway create](/cli/azure/network/application-gateway). När du skapar en programgateway med Azure CLI anger du konfigurationsinformation såsom kapacitet, SKU och HTTP-inställningar. Azure lägger sedan till de privata IP-adresserna för nätverksgränssnitten som servrar i serverdelspoolen för programgatewayen.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

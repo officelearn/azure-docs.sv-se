@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9c6729abefc62aeae232fff5ea48619377630635
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1c2be140e4d7156a1e23e1064436dda959c9cd14
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197627"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750009"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Självstudier: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure CLI
 
@@ -79,7 +79,7 @@ Om du vill skapa en avbildning måste den virtuella datorn frigöras. Frigör de
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Slutligen anger du tillståndet för den virtuella datorn som generaliserad med [az vm generalize](/cli//azure/vm#generalize), så att Azure-plattformen vet att den virtuella datorn har generaliserats. Du kan bara skapa en avbildning från en generaliserad virtuell dator.
+Slutligen anger du tillståndet för den virtuella datorn som generaliserad med [az vm generalize](/cli//azure/vm), så att Azure-plattformen vet att den virtuella datorn har generaliserats. Du kan bara skapa en avbildning från en generaliserad virtuell dator.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>Skapa avbildningen
 
-Nu kan du skapa en avbildning av den virtuella datorn med hjälp av [az image create](/cli//azure/image#create). I följande exempel skapas en avbildning med namnet *myImage* från en virtuell dator med namnet *myVM*.
+Nu kan du skapa en avbildning av den virtuella datorn med hjälp av [az image create](/cli//azure/image). I följande exempel skapas en avbildning med namnet *myImage* från en virtuell dator med namnet *myVM*.
    
 ```azurecli-interactive 
 az image create \
@@ -98,7 +98,7 @@ az image create \
  
 ## <a name="create-vms-from-the-image"></a>Skapa virtuella datorer från avbildningen
 
-Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från den med hjälp av [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMfromImage* från en avbildning med namnet *myImage*.
+Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från den med hjälp av [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVMfromImage* från en avbildning med namnet *myImage*.
 
 ```azurecli-interactive 
 az vm create \

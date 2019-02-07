@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 61da59fd570b9acc58dce89907eb5a1726a28de9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 55866d5ff28c707c26141683bb90c8f2873b17c8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104505"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818914"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Snabbstart: Ta bort ett program som registrerats med Microsoft Identity Platform (förhandsversion)
 
@@ -29,8 +29,8 @@ Företagsutvecklare och SaaS-leverantörer (Software as a Service) som har regis
 
 I den här snabbstarten lär du dig att:
 
-* [Ta bort ett program som skapats av dig eller din organisation](#remove-an-application-authored-by-your-organization)
-* [Ta bort ett program som skapats av en annan organisation](#remove-an-application-authoried-by-another-organization)
+* Ta bort ett program som skapats av dig eller din organisation
+* Ta bort ett program som skapats av en annan organisation
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

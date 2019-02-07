@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: f0c342eb673902f0855ba1ceb482aed10dc01a56
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0f0434fbeb5e0ce825589950a366b09143a1bcba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034921"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691430"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: Skapa en Node.js-app med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data
 
@@ -81,37 +81,37 @@ Nu ska vi klona vi en SQL API-app från GitHub, ange anslutningssträngen och k�
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
-Observera att om du är bekant med den tidigare versionen av JavaScript SDK så är du kanske van vid att se termerna ”samling” och ”dokument”. Eftersom Azure Cosmos DB stöder [flera API-modeller](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities) använder version 2.0+ av JavaScript SDK de allmänna termerna ”container”, vilket kan vara en samling, ett diagram eller en tabell, och ”objekt” för att beskriva innehållet i containern.
+Observera att om du är bekant med den tidigare versionen av JavaScript SDK så är du kanske van vid att se termerna ”samling” och ”dokument”. Eftersom Azure Cosmos DB stöder [flera API-modeller](https://docs.microsoft.com/azure/cosmos-db/introduction) använder version 2.0+ av JavaScript SDK de allmänna termerna ”container”, vilket kan vara en samling, ett diagram eller en tabell, och ”objekt” för att beskriva innehållet i containern.
 
 Följande kodfragment är alla hämtade från filen **app.js**.
 
 * `CosmosClient` har initierats.
 
-    ```nodejs
+    ```javascript
     const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
     ```
 
 * En ny databas skapas.
 
-    ```nodejs
+    ```javascript
     const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
 * En ny container (samling) skapas på.
 
-    ```nodejs
+    ```javascript
     const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
     ```
 
 * Ett objekt (dokument) skapas.
 
-    ```nodejs
+    ```javascript
     const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
 * En SQL-fråga över JSON utförs.
 
-    ```nodejs
+    ```javascript
     const querySpec = {
         query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
         parameters: [

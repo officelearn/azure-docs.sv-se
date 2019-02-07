@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163066"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751165"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudier: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI
 VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här självstudiekursen får du lära du dig att:
@@ -95,13 +95,13 @@ I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås ge
 Du kan skapa och ansluta diskar när du skapar en skalningsuppsättning eller med en befintlig skalningsuppsättning.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anslut diskarna när skalningsuppsättningen skapas
-Skapa först en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*.
+Skapa först en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en VM-skalningsuppsättning med kommandot [az vmss create](/cli/azure/vmss#az_vmss_create). Följande exempel skapar en skalningsuppsättning med namnet *myScaleSet* och genererar SSH-nycklar om de inte redan finns. Två diskar skapas med parametern `--data-disk-sizes-gb`. Den första disken är *64* GB stor och den andra disken är *128* GB:
+Skapa en VM-skalningsuppsättning med kommandot [az vmss create](/cli/azure/vmss). Följande exempel skapar en skalningsuppsättning med namnet *myScaleSet* och genererar SSH-nycklar om de inte redan finns. Två diskar skapas med parametern `--data-disk-sizes-gb`. Den första disken är *64* GB stor och den andra disken är *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorinstanser.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Anslut en disk till en befintlig skalningsuppsättning
-Du kan även ansluta diskar till en befintlig skalningsuppsättning. Använd skalningsuppsättningen som skapades i det föregående steget för att lägga till en annan disk med [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). Följande exempel ansluter en ytterligare *128* GB disk:
+Du kan även ansluta diskar till en befintlig skalningsuppsättning. Använd skalningsuppsättningen som skapades i det föregående steget för att lägga till en annan disk med [az vmss disk attach](/cli/azure/vmss/disk). Följande exempel ansluter en ytterligare *128* GB disk:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -144,7 +144,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-För att bekräfta att diskarna har förberetts korrekt, SSH:ar du till en av de virtuella datorinstanserna. Lista anslutningsinformationen för din skalningsuppsättning med [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+För att bekräfta att diskarna har förberetts korrekt, SSH:ar du till en av de virtuella datorinstanserna. Lista anslutningsinformationen för din skalningsuppsättning med [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -225,7 +225,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>Lista de anslutna diskarna
-Du kan visa information om anslutna diskar till en skalningsuppsättning med [az vmss show](/cli/azure/vmss#az_vmss_show) och fråga på *virtualMachineProfile.storageProfile.dataDisks*:
+Du kan visa information om anslutna diskar till en skalningsuppsättning med [az vmss show](/cli/azure/vmss) och fråga på *virtualMachineProfile.storageProfile.dataDisks*:
 
 ```azurecli-interactive
 az vmss show \
@@ -279,7 +279,7 @@ Information om diskstorleken, lagringsnivå och LUN (Logical Unit Number) visas.
 
 
 ## <a name="detach-a-disk"></a>Koppla från en disk
-När du inte längre behöver en angiven disk, kan du koppla från den från skalningsuppsättningen. Disken tas bort från alla virtuella datorinstanser i skalningsuppsättningen. Om du vill koppla bort en disk från en skalningsuppsättning, använder du [az vmss disk detach](/cli/azure/vmss/disk) och anger LUN på disken. LUN visas i utdata från [az vmss show](/cli/azure/vmss#az_vmss_show) från föregående avsnitt. Följande exempel kopplar från LUN *2* från skalningsuppsättningen:
+När du inte längre behöver en angiven disk, kan du koppla från den från skalningsuppsättningen. Disken tas bort från alla virtuella datorinstanser i skalningsuppsättningen. Om du vill koppla bort en disk från en skalningsuppsättning, använder du [az vmss disk detach](/cli/azure/vmss/disk) och anger LUN på disken. LUN visas i utdata från [az vmss show](/cli/azure/vmss) från föregående avsnitt. Följande exempel kopplar från LUN *2* från skalningsuppsättningen:
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -290,7 +290,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort din skalningsuppsättning och diskar så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group#az_group_delete). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+Om du vill ta bort din skalningsuppsättning och diskar så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: bbb2b292f2793a1d157a6ea87aa245ad39b15830
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a98f65db3739cf3f4771df7a2ef864008f7dbaa9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241227"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729378"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabbstart: Skapa en Standard Load Balancer som lastbalanserar virtuella datorer med Azure CLI
 
@@ -171,7 +171,7 @@ I det här exemplet skapar du tre virtuella datorer som ska användas som server
 
 ### <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
-Skapa en tillgänglighetsuppsättning med [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Skapa en tillgänglighetsuppsättning med [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \

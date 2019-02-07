@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10f84a758bdb2e01793aee06cba59a29b5639775
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470968"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752355"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snabbstart: Kör ditt första Batch-jobb med Azure CLI
 
@@ -139,7 +139,7 @@ Kommandoutdata innehåller många detaljer, men observera `exitCode` på kommand
 
 ## <a name="view-task-output"></a>Visa aktivitetens utdata
 
-Om du vill visa en lista över filer som skapas av en aktivitet på en beräkningsnod ska du använda kommandot [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list). Följande kommando visar filer som skapas av *mytask1*: 
+Om du vill visa en lista över filer som skapas av en aktivitet på en beräkningsnod ska du använda kommandot [az batch task file list](/cli/azure/batch/task). Följande kommando visar filer som skapas av *mytask1*: 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -160,7 +160,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-Om du vill hämta en av utdatafilerna till en lokal katalog ska du använda kommandot [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download). I det här exemplet finns aktivitetens utdata i `stdout.txt`. 
+Om du vill hämta en av utdatafilerna till en lokal katalog ska du använda kommandot [az batch task file download](/cli/azure/batch/task). I det här exemplet finns aktivitetens utdata i `stdout.txt`. 
 
 ```azurecli-interactive
 az batch task file download \

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: efeae877161b2632112938d63b6f6e31cce96ac5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d5a820da94254fe0da416d9219f7582d3a4241cb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077206"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696174"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Skapa ett kluster med virtuella datorer med modulregistret
 
@@ -31,7 +31,7 @@ Mer information om Terraform finns i [Terraform-dokumentationen](https://www.ter
 ## <a name="set-up-authentication-with-azure"></a>Konfigurera autentisering med Azure
 
 > [!TIP]
-> Om du [använder Terraform-miljövariabler](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), eller kör den här självstudiekursen i [Azure Cloud Shell](/azure/cloud-shell/overview) kan du hoppa över det här steget.
+> Om du [använder Terraform-miljövariabler](/azure/virtual-machines/linux/terraform-install-configure), eller kör den här självstudiekursen i [Azure Cloud Shell](/azure/cloud-shell/overview) kan du hoppa över det här steget.
 
  Läs [Installera Terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure) för att skapa ett huvudnamn för Azure-tjänsten. Använd tjänstens huvudnamn för att fylla i följande kod i en ny fil `azureProviderAndCreds.tf` i en tom katalog:
 

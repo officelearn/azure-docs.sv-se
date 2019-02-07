@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
-ms.openlocfilehash: 7617b19fe4f59b582b878d5dfe365810963ff51e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b27553e16225a7bc0d9ca74c7ec013a231d64e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158102"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755483"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Självstudier: Använda en systemtilldelade hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage via åtkomstnyckel
 
@@ -198,4 +198,4 @@ Svar:
 I den här självstudien har du lärt dig hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage med hjälp av en åtkomstnyckel.  Läs mer om Azure Storage-åtkomstnycklar här:
 
 > [!div class="nextstepaction"]
->[Hantera dina lagringsåtkomstnycklar](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Hantera dina lagringsåtkomstnycklar](/azure/storage/common/storage-create-storage-account)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: a5837a922f14a779260ad6719b01a9c882eb5768
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 94845573461d99fda9318f303d822abb6ca3f257
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622949"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751148"
 ---
 # <a name="restart-vms"></a>Starta om virtuella datorer
 
@@ -87,12 +87,12 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Skapar de virtuella datorerna.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Används med `--query` för att säkerställa att de virtuella datorerna etableras innan de startas om, och sedan för att hämta ID:na för de virtuella datorerna för att starta om dem. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Används med `--query` att hämta ID:na för de virtuella datorerna med taggen. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Startar om de virtuella datorerna. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Skapar de virtuella datorerna.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Används med `--query` för att säkerställa att de virtuella datorerna etableras innan de startas om, och sedan för att hämta ID:na för de virtuella datorerna för att starta om dem. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Används med `--query` att hämta ID:na för de virtuella datorerna med taggen. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Startar om de virtuella datorerna. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

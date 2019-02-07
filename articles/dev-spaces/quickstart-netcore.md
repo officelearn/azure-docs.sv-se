@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 4c1715dcd431e49c869a16448220cd5fa7d31c15
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e176da3b9f015d3f1e9c8759ff45007ddbe4bdc8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474521"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656516"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Snabbstart: Skapa ett Kubernetes-utrymme med Azure Dev Spaces (.NET Core och VS Code)
 
@@ -147,4 +147,4 @@ Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade
 Lär dig hur Azure Dev Spaces hjälper dig att utveckla mer komplexa appar över flera containrar och hur du kan förenkla utvecklingen i team genom att arbeta med olika versioner eller grenar av koden i olika utrymmen. 
 
 > [!div class="nextstepaction"]
-> [Arbeta med flera containrar och utveckling i team](team-development-netcore.md)
+> [Arbeta med flera containrar och utveckling i team](multi-service-netcore.md)

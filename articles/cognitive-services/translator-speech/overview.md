@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: e2fd6f88f34ac34ea304b5298940f317b4c0d37e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1983ecbdee3d15efc73ad395fd07cbc7cd4f279c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472498"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769733"
 ---
 # <a name="what-is-translator-speech-api"></a>Vad är Translator Speech API?
 
@@ -23,7 +23,7 @@ ms.locfileid: "55472498"
 
 Translator Speech API kan användas för att lägga till talöversättning, heltäckande och i realtid, program, verktyg och lösningar som kräver talöversättning på flera språk oberoende av måloperativsystem och utvecklingsspråk. API:et kan användas för både tal till tal- och tal till text-översättning.
 
-Translator Text API är en del av Microsofts [Azure Cognitive Services-API-samling](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive). Det här är en samling algoritmer för maskininlärning och AI i molnet som är enkla att använda i utvecklingsprojekt.
+Translator Text API är en del av Microsofts [Azure Cognitive Services-API-samling](https://docs.microsoft.com/azure/). Det här är en samling algoritmer för maskininlärning och AI i molnet som är enkla att använda i utvecklingsprojekt.
 
 Med Translator Speech API kan klientprogram strömma talat ljud till tjänsten och få tillbaka en dataström med text- och ljudbaserade resultat, som inkluderar den tolkade texten på källspråket och en översättning som visas på målspråket. Textresultatet produceras genom automatisk taligenkänning (ASR) som drivs av djupa neurala nätverk för den inkommande ljudströmmen. ASR-råutdata förbättras ytterligare av en ny teknik som kallas TrueText som återspeglar användaravsikten närmare. Till exempel tar TrueText bort avbrott (hummanden och hostningar), upprepade ord och återställer till rätt användning av interpunktion och versaler. Möjligheten att maskera eller undanta svordomar ingår också. Igenkänningsmotorn och översättningsmotorn är särskilt tränade för att hantera samtal. 
 
@@ -66,6 +66,6 @@ Läs mer om [hur neural maskinöversättning fungerar](https://www.microsoft.com
 > [Börja koda](quickstarts/csharp.md)
 
 ## <a name="see-also"></a>Se även
-- [Dokumentationssida om Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Dokumentationssida om Cognitive Services](https://docs.microsoft.com/azure/)
 - [Produktsida om Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 - [Information om lösningar och prissättning](https://www.microsoft.com/en-us/translator/home.aspx) 

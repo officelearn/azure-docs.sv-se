@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 13d2c1028cc712092774a3f81d8eeaa5cb109edf
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5242be4dfe1c79b8f943b3b6d240046d0e8c5181
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199689"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658780"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
 
@@ -32,6 +32,8 @@ Som _operatör_ använder du Azure IoT Central-användargränssnittet till att h
 - konfigurera dina enheter
 - felsöka och åtgärda problem med dina enheter.
 - Etablera nya enheter.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="use-the-left-navigation-menu"></a>Använda den vänstra navigeringsmenyn
 

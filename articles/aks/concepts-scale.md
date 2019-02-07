@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e460df8c4841a23c76ef8d7b254938ce46a2b45
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381199"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819118"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalningsalternativ för program i Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Den här artikeln beskrivs grundläggande begrepp som hjälper dig att skala pro
 - [Skala manuellt](#manually-scale-pods-or-nodes)
 - [Vågrät pod autoskalningen (HPA)](#horizontal-pod-autoscaler)
 - [Klustret autoskalningen](#cluster-autoscaler)
-- [Azure Container-instans (ACI)-integrering med AKS](#burst-to-azure-container-instance)
+- Azure Container-instans (ACI)-integrering med AKS
 
 ## <a name="manually-scale-pods-or-nodes"></a>Skala poddar eller noder manuellt
 
@@ -65,7 +65,7 @@ Om en nod inte har tillräckligt med beräkningsresurser att köra en begärda p
 
 När klustret autoskalningen meddelanden poddar som inte går att schemalägga på grund av resursbegränsningar för noden pool, ökas antalet noder i poolen för noden för att ge ytterligare beräkningsresurser. När dessa ytterligare noder är har distribuerats och är tillgänglig för användning i nodpoolen, är sedan poddarna schemalagda att köras på dem.
 
-Om programmet behöver för att skala snabbt, kan vissa poddar kvar i ett tillstånd som väntar på att schemaläggas tills de ytterligare noder som distribueras av klustret autoskalningen kan acceptera schemalagda poddarna. För program som har hög burst-krav, kan du [skala med virtuella noder och Azure Container Instances](#burst-to-azure-container-instance).
+Om programmet behöver för att skala snabbt, kan vissa poddar kvar i ett tillstånd som väntar på att schemaläggas tills de ytterligare noder som distribueras av klustret autoskalningen kan acceptera schemalagda poddarna. För program som har hög burst-krav, kan du skala med virtuella noder och Azure Container Instances.
 
 ### <a name="scale-down-events"></a>Skala ned händelser
 

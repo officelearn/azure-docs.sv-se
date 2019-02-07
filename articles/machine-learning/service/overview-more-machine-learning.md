@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 1/30/2019
-ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd156a10faf396778b76687b3666887a6a60876c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451877"
+ms.locfileid: "55505707"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Vilka maskininlärningsprodukter har Microsoft?
 
@@ -27,7 +27,7 @@ Följande alternativ är tillgängliga för maskininlärning i Azure-molnet.
 
 | Molnalternativ | Vad det är | Det här kan du göra |
 |-|-|-|
-| [Azure Machine Learning-tjänst](#azure-machine-learning-services) | Hanterad molntjänst för ML  | Träna, distribuera och hantera modeller i Azure med Python och CLI |
+| [Azure Machine Learning-tjänst](#azure-machine-learning-service) | Hanterad molntjänst för ML  | Träna, distribuera och hantera modeller i Azure med Python och CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuellt dra&ndash;och&ndash;släpp-gränssnitt för ML | Skapa, experimentera och distribuera modeller med förkonfigurerade algoritmer (Python och R)|
 | [Azure Databricks](#azure-databricks) | Apache Spark-baserad analysplattform | Skapa och distribuera modeller och dataarbetsflöden |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure-tjänster med inbyggda AI- och ML-modeller | Ett enkelt sätt att lägga till smarta funktioner i dina appar |

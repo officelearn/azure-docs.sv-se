@@ -9,6 +9,8 @@ items:
   items:
   - name: Skapa ett kluster – Azure-portalen
     href: create-cluster-database-portal.md
+  - name: Skapa ett kluster – Azure CLI
+    href: create-cluster-database-cli.md
   - name: Mata in data
     items:
     - name: Strömma data – Event Hub
@@ -122,9 +124,9 @@ items:
     href: http://aka.ms/adecostestimator
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 298df030448f1410ef687405586d4e97827076e9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 161696689c6cb0e5aecc63d69d8e8c27c35552b8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727783"
+ms.locfileid: "55744219"

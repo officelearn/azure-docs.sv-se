@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 507927934c442c8b217ed8fea371f505bb517d35
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4bfe4f9f97587b6791e73c2f04055b2dcf5d0f0d
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198719"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766222"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions Proxies
 
@@ -80,15 +80,15 @@ Exempel: om en proxy har en flödesmall som `/pets/{petId}`, backend-URL: en kan
 #### <a name="additional-request-parameters"></a>Om ytterligare begäranparametrar
 Följande värden kan användas i konfigurationsvärden förutom mallparametrar väg:
 
-* **{request.method}** : HTTP-metoden som används på den ursprungliga begäran.
-* **{request.headers. \<HeaderName\>}**: En rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om sidhuvudet inte finns med på begäran, kommer värdet vara en tom sträng.
-* **{request.querystring. \<ParameterName\>}**: En frågesträngsparameter som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med på begäran, kommer värdet vara en tom sträng.
+* **{request.method}**: HTTP-metoden som används på den ursprungliga begäran.
+* **{request.headers.\<HeaderName\>}**: En rubrik som kan läsas från den ursprungliga begäran. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om sidhuvudet inte finns med på begäran, kommer värdet vara en tom sträng.
+* **{request.querystring.\<ParameterName\>}**: En frågesträngsparameter som kan läsas från den ursprungliga begäran. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill läsa. Om parametern inte finns med på begäran, kommer värdet vara en tom sträng.
 
 ### <a name="response-parameters"></a>Referens för backend-svarsparametrar
 
 Svarsparametrar kan användas som en del av ändra svaret till klienten. Följande värden kan användas i konfigurationsvärden:
 
-* **{backend.response.statusCode}** : HTTP-statuskoden som returneras av backend-svaret.
+* **{backend.response.statusCode}**: HTTP-statuskoden som returneras av backend-svaret.
 * **{backend.response.statusReason}** : HTTP-orsaksfras som returneras av backend-svaret.
 * **{backend.response.headers. \<HeaderName\>}**: En rubrik som kan läsas från backend-svaret. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill läsa. Om rubriken inte ingår i svaret, kommer värdet vara en tom sträng.
 
@@ -188,8 +188,8 @@ Proxyservrar läsa alla strängar utanför en JSON-fil, med hjälp av \ som en s
 
 Objektet requestOverrides definierar ändringar som gjorts på begäran när resursen backend-anropas. Objektet definieras av följande egenskaper:
 
-* **backend.Request.Method**: HTTP-metoden som används för att anropa backend-server.
-* **backend.Request.QueryString. \<ParameterName\>**: En frågesträngsparameter som kan ställas in för anrop till serverdelen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill använda. Om den tomma strängen anges, ingår inte parametern på backend-begäran.
+* **backend.request.method**: HTTP-metoden som används för att anropa backend-server.
+* **backend.request.querystring.\<ParameterName\>**: En frågesträngsparameter som kan ställas in för anrop till serverdelen. Ersätt *\<ParameterName\>* med namnet på den parameter som du vill använda. Om den tomma strängen anges, ingår inte parametern på backend-begäran.
 * **backend.Request.headers. \<HeaderName\>**: En rubrik som kan ställas in för anrop till serverdelen. Ersätt *\<HeaderName\>* med namnet på rubriken som du vill ange. Om du anger den tomma strängen kan ingår inte rubriken på backend-begäran.
 
 Värden kan referera till programinställningar och parametrar från den ursprungliga klientbegäran.
@@ -249,7 +249,7 @@ En exempelkonfiguration kan se ut så här:
 > I det här exemplet svarstexten anges direkt, så ingen `backendUri` egenskapen krävs. Exemplet visar hur du kan använda Azure Functions-proxyservrar för simulerade API: er.
 
 [Azure Portal]: https://portal.azure.com
-[HTTP-utlösare]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
+[HTTP-utlösare]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Definiera ett requestOverrides-objekt]: #requestOverrides

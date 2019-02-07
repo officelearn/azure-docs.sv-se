@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001472"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698281"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Skapa ett API utan server med Azure Functions
 
@@ -53,7 +53,7 @@ Som standard konfigureras din HTTP-utlösta funktion för att godkänna alla HTT
 
 1. Klicka på **Spara**.
 
-Du kan läsa mer om att anpassa HTTP-funktioner i [Azure Functions HTTP-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+Du kan läsa mer om att anpassa HTTP-funktioner i [Azure Functions HTTP-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### <a name="test-your-api"></a>Testa ditt API
 
@@ -176,7 +176,7 @@ Härnäst lägger du till ditt fingerade API. Ersätt din proxies.json-fil med f
 }
 ```
 
-Då läggs en ny proxy till, ”GetUserByName”, utan egenskapen backendUri. Istället för att anropa en annan resurs modifierar den standardsvaret från proxyservrar med en åsidosättning av svaret. Åsidosättningar av begäranden och svar kan också användas tillsammans med en serverdels-URL. Detta är särskilt användbart när proxy används med ett äldre system där du kan behöva ändra rubriker, frågeparametrar osv. Läs mer om åsidosättningar av begäranden och svar i [Ändra begäranden och svar i proxyservrar](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
+Då läggs en ny proxy till, ”GetUserByName”, utan egenskapen backendUri. Istället för att anropa en annan resurs modifierar den standardsvaret från proxyservrar med en åsidosättning av svaret. Åsidosättningar av begäranden och svar kan också användas tillsammans med en serverdels-URL. Detta är särskilt användbart när proxy används med ett äldre system där du kan behöva ändra rubriker, frågeparametrar osv. Läs mer om åsidosättningar av begäranden och svar i [Ändra begäranden och svar i proxyservrar](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Testa ditt fingerade API genom att anropa slutpunkten `<YourProxyApp>.azurewebsites.net/api/users/{username}` med en webbläsare eller den REST-klient du föredrar. Se till att ersätta _{username}_ med ett strängvärde som representerar ett användarnamn.
 

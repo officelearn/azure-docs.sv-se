@@ -19,11 +19,13 @@ items:
   items:
   - name: 1 – Skapa B2C-klient
     href: tutorial-create-tenant.md
-  - name: 2 – Registrera program
+  - name: 2 – Registrera ett program
     href: tutorial-register-applications.md
   - name: 3 – Skapa användarflöden
     href: tutorial-create-user-flows.md
-  - name: 4 – Anpassa gränssnittet
+  - name: Lägga till identitetsprovidrar
+    href: tutorial-add-identity-providers.md
+  - name: Anpassa användargränssnittet
     href: tutorial-customize-ui.md
   - name: Autentisera konton
     items:
@@ -75,7 +77,11 @@ items:
   items:
   - name: Åtkomst till granskningsloggar
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Åldershantering
+  - name: Lägga till ett program för webb-API
+    href: add-web-application.md
+  - name: Lägga till ett program för intern klient
+    href: add-native-application.md
+  - name: Konfigurera åldershantering
     href: basic-age-gating.md
   - name: Konfigurera token
     href: active-directory-b2c-token-session-sso.md
@@ -318,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: c7f7036e52c5c9d0f9d7c51a882474028ba63aef
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8aa1d5bf118330f6f04cfd35a59f2b60ce6e1ee8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240853"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751794"

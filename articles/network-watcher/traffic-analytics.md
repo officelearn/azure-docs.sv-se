@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429097"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815854"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -164,7 +164,7 @@ Välj följande alternativ som visas på bild:
 2. Välj ett befintligt lagringskonto för att lagra flödesloggar i. Om du vill lagra data alltid ange värdet till *0*. Du använder Azure Storage-avgifter för storage-konto.
 3. Ange **kvarhållning** för hur många dagar som du vill lagra data för.
 4. Välj *på* för **Traffic Analytics-Status**.
-5. Välj en befintlig Log Analytics-arbetsyta eller välj **Skapa ny arbetsyta** att skapa en ny. En Log Analytics-arbetsyta används av trafikanalys för att lagra de aggregerade och indexerade data som används för att generera analyser. Om du väljer en befintlig arbetsyta, det måste finnas i något av de [regioner som stöds](#traffic-analytics-supported-regions) och har uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbetsyta eller inte har en arbetsyta i en region som stöds, kan du skapa en ny. Läs mer om frågespråk [uppgradering av Azure Log Analytics till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Välj en befintlig Log Analytics-arbetsyta eller välj **Skapa ny arbetsyta** att skapa en ny. En Log Analytics-arbetsyta används av trafikanalys för att lagra de aggregerade och indexerade data som används för att generera analyser. Om du väljer en befintlig arbetsyta måste finnas i något av regionerna som stöds och har uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbetsyta eller inte har en arbetsyta i en region som stöds, kan du skapa en ny. Läs mer om frågespråk [uppgradering av Azure Log Analytics till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     Log analytics-arbetsyta som är värd för analyslösning trafik och NSG: erna behöver inte finnas i samma region. Du kan till exempel ha trafikanalys i en arbetsyta i regionen Europa, västra, medan du kan ha NSG: er i östra USA och västra USA. Flera NSG: er kan konfigureras på samma arbetsyta.
 6. Välj **Spara**.

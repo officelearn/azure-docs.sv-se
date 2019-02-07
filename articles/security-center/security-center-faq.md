@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2be11f97882a7c6353b214886ce6c5a3a66add89
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 81e9ad5affda7b5e246bd7eb3406a40fd7f24dbb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339118"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814035"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -176,7 +176,7 @@ Security Center aktiverar till rätt lösning i arbetsytan baserat på den valda
 Du kan manuellt ta bort Microsoft Monitoring Agent. Detta rekommenderas inte eftersom det begränsar Security Center-rekommendationer och aviseringar.
 
 > [!NOTE]
-> Om datainsamling har aktiverats Security Center kommer att installera om agenten efter att du tar bort den.  Du måste inaktivera datainsamling innan du tar bort agenten manuellt. Se [hur undviker jag att agenten för automatisk installation och arbetsytan skapas?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) anvisningar om hur du inaktiverar insamling av data.
+> Om datainsamling har aktiverats Security Center kommer att installera om agenten efter att du tar bort den.  Du måste inaktivera datainsamling innan du tar bort agenten manuellt. Se hur förhindrar jag att agenten för automatisk installation och arbetsytan skapa? Mer information om hur du inaktiverar insamling av data.
 >
 >
 

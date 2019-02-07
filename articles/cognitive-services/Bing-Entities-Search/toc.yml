@@ -4,43 +4,41 @@ items:
 - name: Översikt
   items:
   - name: Vad är entitetssökning i Bing?
-    href: search-the-web.md
+    href: overview.md
   - name: 'Jämför API: erna för Bing-sökresultat'
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
 - name: Snabbstarter för REST API
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
+  - name: REST-API
+    items:
+    - name: Använd C#
+      href: quickstarts/csharp.md
+    - name: Använda Java
+      href: quickstarts/java.md
+    - name: Använda Node.js
+      href: quickstarts/nodejs.md
+    - name: Använda PHP
+      href: quickstarts/php.md
+    - name: Använda Python
+      href: quickstarts/python.md
+    - name: Använda Ruby
+      href: quickstarts/ruby.md
+  - name: SDK
+    items:
+    - name: Använd C#
+      href: quickstarts/entity-sdk-csharp-quickstart.md
+    - name: Använda Node.js
+      href: quickstarts/entity-sdk-node-quickstart.md
+    - name: Använda Python
+      href: quickstarts/entity-sdk-python-quickstart.md
+    - name: Använda Java
+      href: quickstarts/entity-sdk-java-quickstart.md
   expanded: true
-- name: Snabbstarter för SDK
-  items:
-  - name: Översikt över SDK-exempel
-    href: sdk.md
-  - name: Snabbstart för entitetssökning i C#
-    href: entity-search-sdk-quickstart.md
-  - name: Snabbstart för entitetssökning i Node.js
-    href: entity-search-sdk-node-quickstart.md
-  - name: Snabbstart för entitetssökning i Python
-    href: entity-sdk-python-quickstart.md
-  - name: Snabbstart för entitetssökning i Java
-    href: entity-sdk-java-quickstart.md
 - name: Självstudier
   items:
-  - name: Enkelsidig webbapp
+  - name: Skapa en enkelsidig webbapp
     href: tutorial-bing-entities-search-single-page-app.md
-  - name: Enkelsidig webbapp (källkod)
-    href: tutorial-bing-entities-search-single-page-app-source.md
 - name: Exempel
   items:
   - name: Kodexempel
@@ -49,6 +47,12 @@ items:
   items:
   - name: Ändra storlek på och beskär miniatyrer
     href: resize-and-crop-thumbnails.md
+- name: Begrepp
+  items:
+  - name: Söka efter entiteter
+    href: concepts/search-for-entities.md
+  - name: Skicka sökförfrågningar
+    href: concepts/sending-requests.md
 - name: Referens
   items:
   - name: Användnings- och visningskrav för API:er för Bing-sökresultat
@@ -90,9 +94,9 @@ items:
     href: entity-search-endpoint.md
   - name: Analys för API för entitetssökning i Bing
     href: bing-entity-stats.md
-ms.openlocfilehash: 919d44bbf41397cf58c06cfe2eff56867546b61e
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 6574b06a9aced43f381bcb106e0b6426bd6f4fd7
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509940"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755806"

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 703b8a7a094d0ea6f5b5dedaf02a218b407269d3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094257"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813814"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -28,7 +28,7 @@ Azure Functions Core Tools kan du utveckla och testa dina funktioner på den lok
 
 Det finns två versioner av Azure Functions Core Tools. Vilken version du använder beror på din lokala utvecklingsmiljö [val av språk](supported-languages.md), och nivå av support som krävs:
 
-+ [Version 1.x](#v1): har stöd för version 1.x av körningen. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från en [npm-paketet](https://docs.npmjs.com/getting-started/what-is-npm). Med den här versionen kan du skapa funktioner i experimentella språk som inte stöds officiellt. Mer information finns i [språk som stöds i Azure Functions](supported-languages.md)
++ Version 1.x: har stöd för version 1.x av körningen. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från en [npm-paketet](https://docs.npmjs.com/getting-started/what-is-npm). Med den här versionen kan du skapa funktioner i experimentella språk som inte stöds officiellt. Mer information finns i [språk som stöds i Azure Functions](supported-languages.md)
 
 + [Version 2.x](#v2): har stöd för [version 2.x av runtime](functions-versions.md). Den här versionen stöder [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Använder plattformsspecifika pakethanterare eller npm för installation.
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: fb9725e18c53e9d42ae51418a1eb614aaa10fd12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157336"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816789"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Så här använder du den hanterade klienten för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ Följande avsnitt beskriver hur du söka efter och hämta poster och ändra data
 * [Leta upp en post efter Id](#lookingup)
 * [Hantera ej typbestämd frågor](#untypedqueries)
 * [Infoga data](#inserting)
-* [Uppdatera data](#updating)
+* Uppdatera data
 * [Ta bort data](#deleting)
 * [Konfliktlösning och Optimistisk samtidighet](#optimisticconcurrency)
 * [Bindning till en Windows-användargränssnittet](#binding)
@@ -902,7 +902,7 @@ private async void InitNotificationsAsync()
 Om du skickar i WNS, så måste du [hämtar ett paket för Microsoft Store SID](#package-sid).  Mer information om Windows-appar, inklusive hur du registrerar dig för mallen registreringar finns [Lägg till push-meddelanden i appen].
 
 Begär taggar från klienten stöds inte.  Taggen begäranden ignoreras tyst från registrering.
-Om du vill registrera din enhet med taggar kan du skapa ett anpassat API som använder API: et för Notification Hubs för att utföra registreringen på din räkning.  [Anropa anpassade API: et](#customapi) i stället för den `RegisterNativeAsync()` metoden.
+Om du vill registrera din enhet med taggar kan du skapa ett anpassat API som använder API: et för Notification Hubs för att utföra registreringen på din räkning.  Anropa anpassade API: et i stället för den `RegisterNativeAsync()` metoden.
 
 ### <a name="package-sid"></a>Hur: Hämta ett paket för Microsoft Store-SID
 En paket-SID krävs för att aktivera push-meddelanden i Microsoft Store-appar.  Registrera ditt program med Microsoft Store för att ta emot en paket-SID.

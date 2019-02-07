@@ -68,6 +68,8 @@ items:
       href: manage-certificates-for-federated-single-sign-on.md
     - name: Begränsningar för klientorganisation
       href: tenant-restrictions.md
+    - name: Konfigurera SAML-tokenkryptering (förhandsversion)
+      href: howto-saml-token-encryption.md
   - name: Enkel inloggning
     href: what-is-single-sign-on.md
   - name: Slutanvändarportaler
@@ -100,6 +102,8 @@ items:
       href: application-proxy-configure-custom-home-page.md
     - name: Översätt infogade länkar
       href: application-proxy-configure-hard-coded-link-translation.md
+    - name: Konfigurera cookie-inställningar
+      href: application-proxy-configure-cookie-settings.md
     - name: Publicera med jokertecken
       href: application-proxy-wildcard.md
     - name: Ta bort personliga data
@@ -284,9 +288,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: c36be070b739f75760e3c7419da2aa76335a59d1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: eaf3183f7640b874fe69d2b1b80d3d0368bde555
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157012"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751318"

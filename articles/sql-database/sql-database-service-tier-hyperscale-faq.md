@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5982fcee41dd8c99aaa781a8ff3cd55ff2489929
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/06/2019
+ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511309"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810073"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -222,7 +222,7 @@ Ja. Vissa av Azure SQL Database-funktioner stöds inte i hyperskala för allmän
 
 Ja. Du kan använda alla befintliga migrering tekniker för att migrera till hyperskala, inklusive BACPAC Transaktionsreplikering, logiska inläsning av data. Se även de [Azure Database Migration Service](../dms/dms-overview.md).
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Vad är min centralt vid migrering från en lokal eller virtuell datormiljö till hyperskala och hur kan jag minimerar den
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Vad är min stilleståndstid vid migrering från en lokal eller virtuell datormiljö till hyperskala och hur kan jag minimerar den
 
 Avbrottstid är samma som stilleståndstid när du migrerar dina databaser till en enskild databas i Azure SQL Database. Du kan använda [Transaktionsreplikering](replication-to-sql-database.md#data-migration-scenario
 ) att minimera stilleståndstid vid migrering för databaser upp till några TB i storlek. För mycket stor databas (10 + TB), kan du migrera data med ADF, Spark eller andra tekniker för flytt av data.

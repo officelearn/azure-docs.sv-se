@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0f5c60b25ad305b9e76eebcc72639a596b407801
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457555"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752253"
 documentType: LandingData
 title: Dokumentation om Azure SQL Database
 metadata:
@@ -22,7 +22,7 @@ metadata:
   ms.date: 01/25/2019
   ms.author: carlrab
 abstract:
-  description: Azure SQL Database är en relationsdatabas-som-en-tjänst (DBaaS) som bygger på den senaste stabila versionen av Microsoft SQL Server Database-motorn. SQL Database är en högpresterande, tillförlitlig och säker databas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
+  description: Azure SQL Database är en relationsdatabas-som-en-tjänst (DBaaS) för generell användning som bygger på den senaste stabila versionen av Microsoft SQL Server Database-motorn. SQL Database är en högpresterande, tillförlitlig och säker molndatabas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
   aside:
     image:
       alt: 
@@ -106,10 +106,10 @@ sections:
     rows:
     - title: Skapa en enkel databas
       values:
-      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/sql-database-single-database-get-started
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-      - href: 
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
     - title: Skapa en hanterad instans
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
@@ -118,33 +118,10 @@ sections:
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Skapa en elastisk pool
       values:
-      - href: 
+      - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: Skala en enkel databas
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-      - href: 
-    - title: Skala en elastisk pool
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-    - title: Skala en hanterad instans
-      values:
-      - href: 
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
-      - href: 
-    - title: Konfigurera Azure-nätverk för hanterad instans
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -152,6 +129,7 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: Kom igång med <a href="/azure/sql-database/sql-database-quickstart-guide">Singleton -databasen</a> och <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">Hanterad instans</a> med hjälp av våra snabbstartsguider.
     - html: Skapa och utforma schemat för en ny enkel databas med <a href="/azure/sql-database/sql-database-design-first-database">SQL Server Management Studio</a> eller <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Migrera en befintlig databas till Azure med hjälp av <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> eller <a href="/azure/sql-database/sql-database-import">BACPAC-import</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Skydda din SQL-databas</a>

@@ -29,39 +29,37 @@ items:
     href: cli-samples.md
 - name: Begrepp
   items:
-  - name: Migrera från v2 till v3
-    href: migrate-from-v2-to-v3.md
-  - name: Entiteter
-    href: entities-overview.md
+  - name: Mata in
     items:
-    - name: Konto- och tillgångsfilter
-      href: filters-dynamic-manifest-overview.md
     - name: Tillgångar
       href: assets-concept.md
-    - name: Viktiga innehållsprinciper
-      href: content-key-policy-concept.md
-    - name: Livehändelser och liveresultat
-      href: live-events-outputs-concept.md
+  - name: Koda
+    href: encoding-concept.md
+    items:
+    - name: Transformeringar och jobb
+      href: transforms-jobs-concept.md
+    - name: Media Encoder Standard-format
+      href: media-encoder-standard-formats.md
+    - name: Generera anpassningsbar bithastighetsstege automatiskt
+      href: autogen-bitrate-ladder.md
+  - name: Analysera
+    href: analyzing-video-audio-files-concept.md
+    items:
+    - name: Transformeringar och jobb
+      href: transforms-jobs-concept.md
+  - name: Strömma
+    items:
     - name: Slutpunkter för direktuppspelning
       href: streaming-endpoint-concept.md
     - name: Positionerare för direktuppspelning
       href: streaming-locators-concept.md
     - name: Principer för direktuppspelning
       href: streaming-policy-concept.md
-    - name: Transformeringar och jobb
-      href: transforms-jobs-concept.md
-  - name: Koda innehåll
-    href: encoding-concept.md
-    items:
-    - name: Media Encoder Standard-format
-      href: media-encoder-standard-formats.md
-    - name: Generera anpassningsbar bithastighetsstege automatiskt
-      href: autogen-bitrate-ladder.md
-  - name: Analysera innehåll
-    href: analyzing-video-audio-files-concept.md
-  - name: Direktuppspelning av händelser
+  - name: Strömma live
     href: live-streaming-overview.md
     items:
+    - name: Livehändelser och liveresultat
+      href: live-events-outputs-concept.md
     - name: Rekommenderade livekodare
       href: recommended-on-premises-live-encoders.md
     - name: Använda en moln-DVR
@@ -72,16 +70,26 @@ items:
       href: live-event-states-billing.md
     - name: Svarstid
       href: live-event-latency.md
-  - name: Övervakning
+  - name: Leverera
+    items:
+    - name: Filter och dynamiska manifest
+      href: filters-dynamic-manifest-overview.md
+  - name: Övervaka
     items:
     - name: Event Grid
       href: reacting-to-media-services-events.md
-  - name: Skydda innehåll
+  - name: Skydda
     href: content-protection-overview.md
     items:
+    - name: Viktiga innehållsprinciper
+      href: content-key-policy-concept.md
+    - name: Principer för direktuppspelning
+      href: streaming-policy-concept.md
+    - name: Positionerare för direktuppspelning
+      href: streaming-locators-concept.md
     - name: Multi-DRM-system med åtkomstkontroll
       href: design-multi-drm-system-with-access-control.md
-  - name: Spela upp
+  - name: Uppspelning
     href: use-azure-media-player.md
   - name: Konton
     items:
@@ -89,6 +97,10 @@ items:
       href: limits-quotas-constraints.md
     - name: Lagringskonton
       href: storage-account-concept.md
+  - name: Filtrera, ordna, sidenheter
+    href: entities-overview.md
+  - name: Migrera från v2 till v3
+    href: migrate-from-v2-to-v3.md
 - name: Instruktionsguider
   items:
   - name: Kom igång
@@ -199,15 +211,17 @@ items:
       href: https://aka.ms/ams-v3-nodejs-sdk
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
+  - name: AMSE
+    href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Viktig information
     href: release-notes.md
   - name: VANLIGA FRÅGOR OCH SVAR
     href: frequently-asked-questions.md
   - name: Azure-moln och -regioner
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0e748b32092ec9e27888c9fac039c27e6411b34a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cadf1d0b73c7d04b2748cb5fa60de7cca23beadc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693875"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744823"

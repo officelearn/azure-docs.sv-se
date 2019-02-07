@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 494acc55001bd3180d345801ef8d62800dd5e837
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174048"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817537"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - felsöka aviseringar
 Den här artikeln innehåller felsökningsguider för alla aviseringar som kan uppstå på din hanterade domän.
@@ -42,7 +42,7 @@ Välj felsökningsstegen som relaterar till ID eller meddelande i aviseringen.
 | AADDS108 | *Den prenumeration som används av Azure AD Domain Services har flyttats till en annan katalog. Azure AD Domain Services måste ha en aktiv prenumeration i samma katalog ska fungera korrekt.* | [Prenumerationen flyttas kataloger](#aadds108-subscription-moved-directories) |
 | AADDS109 | *En resurs som används för din hanterade domän har tagits bort. Den här resursen krävs för Azure AD Domain Services ska fungera korrekt.* | [En resurs har tagits bort](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Undernät som valts för distribution av Azure AD Domain Services är full och har inte utrymme för ytterligare en domänkontrollant som måste skapas.* | [Undernätet är full](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | * Ett huvudnamn för tjänsten som Azure AD Domain Services använder för att hantera din domän har inte behörighet att hantera resurser på Azure-prenumeration. Tjänstens huvudnamn måste ha behörighet att hantera din hanterade domän. * | [Tjänstens huvudnamn obehörig](#aadds111-service-principal-unauthorized) |
+| AADDS111 | * Ett huvudnamn för tjänsten som Azure AD Domain Services använder för att hantera din domän har inte behörighet att hantera resurser på Azure-prenumeration. Tjänstens huvudnamn måste ha behörighet att hantera din hanterade domän. * | Tjänstens huvudnamn obehörig |
 | AADDS112 | *Vi har identifierat att undernätet för det virtuella nätverket i den här domänen inte kanske har tillräckligt med IP-adresser. Azure AD Domain Services behöver minst två tillgängliga IP-adresser i undernätet som den är aktiverad i. Vi rekommenderar att du har minst 3-5 extra IP-adresser i undernätet. Det kan inträffa om andra virtuella datorer distribueras inom undernätet, alltså få slut antalet tillgängliga IP-adresser eller om det finns en begränsning på antalet tillgängliga IP-adresser i undernätet.* | [Det finns inte tillräckligt med IP-adresser](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *De resurser som används av Azure AD Domain Services har upptäckts i ett oväntat tillstånd och kan inte återställas.* | [Resurserna är ett oåterkalleligt](#aadds113-resources-are-unrecoverable) |
 | AADDS114 | * Det undernät som valts för distribution av Azure AD Domain Services är ogiltig och kan inte användas. * | [Undernät som är ogiltig](#aadds114-subnet-invalid) |
@@ -201,7 +201,7 @@ Vår tjänsthuvudnamn behöver åtkomst för att kunna hantera och skapa resurse
 
 **Lösning:**
 
-1. [Ta bort den Hantera domänen](#active-directory-ds-disable-aadds.md) från din klient.
+1. Ta bort den hanterade domänen från din klient.
 2. Åtgärda IP-adressintervall för undernätet
   1. Navigera till den [virtuella nätverk-sidan på Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Välj det virtuella nätverket som du planerar att använda för Azure AD Domain Services.

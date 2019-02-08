@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f863c4b115616ff709634f3c68955c3be3241707
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f1b6cec49507c5106434bf42743aadd1b3230aa
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494195"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894980"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
 Azure AD Connect kräver en SQL Server-databas för att lagra data. Du kan använda standard SQL Server 2012 Express LocalDB som installerats med Azure AD Connect, eller så kan du använda din egen fullständiga versionen av SQL. Tidigare, när du har installerat Azure AD Connect, en ny databas med namnet ADSync alltid skapades. Med Azure AD Connect version 1.1.613.0 (eller efter) har du möjlighet att installera Azure AD Connect genom att peka till en befintlig ADSync-databas.
@@ -59,6 +59,10 @@ Viktig information att ta Observera av innan du fortsätter:
 2.  När MSI-installationen är klar startar Azure AD Connect-guiden med installationsläget Express. Stäng fönstret genom att klicka på ikonen Avsluta.
 ![Välkommen](./media/how-to-connect-install-existing-database/db1.png)
 3.  Starta en ny kommandotolk eller PowerShell-session. Navigera till mappen <drive>\Program\Microsoft Azure AD Connect. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
+
+> [!NOTE]
+> Växeln **/UseExistingDatabase** endast när databasen innehåller redan data från en tidigare installation av Azure AD Connect. Till exempel återställt när du flyttar från en lokal databas till en fullständig SQL Server-databas eller när Azure AD Connect-servern har byggts om och du en SQL-säkerhetskopia av ADSync-databas från en tidigare installation av Azure AD Connect. Om du har skapat en tom databas och använda den för installation, kan du hoppa över det här steget.
+
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 4.  Du välkomnas med Välkommen till Azure AD Connect-skärmen. När du godkänt licensvillkoren och sekretesspolicyn klickar du på **Fortsätt**.
 ![Välkommen](./media/how-to-connect-install-existing-database/db3.png)

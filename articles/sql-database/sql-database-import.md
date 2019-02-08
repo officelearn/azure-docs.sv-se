@@ -12,23 +12,23 @@ ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b717e26e61a6633ea51817bcb21ebeb15a20969
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478227"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892011"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Snabbstart: Importera en BACPAC-fil till en ny Azure SQL Database
 
-Du kan migrera en SQL Server-databas till en Azure SQL database med en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) fil (en zip-fil med en `.bacpac` tillägg som har en databas metadata och data). Du kan importera en BACPAC-fil från Azure blob storage (endast standard storage) eller från lokal lagring på en lokal plats. Du kan ange en högre tjänstnivå och beräkna storleken (till exempel P6) för att maximera import hastighet. Du kan sedan skala när importen har slutförts. Den importerade databasen kompatibilitetsnivå baseras på källan databaskompatibilitetsnivå.
+Du kan migrera en SQL Server-databas till en Azure SQL database med en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) fil (en zip-fil med en `.bacpac` tillägg som har en databas metadata och data). Du kan importera en BACPAC-fil från Azure Blob storage (endast standard storage) eller från lokal lagring på en lokal plats. Du kan ange en högre tjänstnivå och beräkna storleken (till exempel P6) för att maximera import hastighet. Du kan sedan skala när importen har slutförts. Den importerade databasen kompatibilitetsnivå baseras på källan databaskompatibilitetsnivå.
 
 > [!IMPORTANT]
 > När du har importerat din databas, kan du välja att köra databasen på den aktuella kompatibilitetsnivån (nivå 100 för AdventureWorks2008R2 databasen) eller på en högre nivå. Mer information om effekterna av och alternativ för att köra en databas på en specifik kompatibilitetsnivå finns i [Ändra databasens kompatibilitetsnivå](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). I [Ändra konfiguration av databasomfång](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) finns även information om ytterligare databasnivåinställningar som rör kompatibilitetsnivåer.
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>Importera från en BACPAC-fil i Azure portal
 
-Det här avsnittet visas hur i den [Azure-portalen](https://portal.azure.com), för att skapa en Azure SQL database från en BACPAC-fil som lagras i Azure blob storage. Portalen *endast* stöder importera en BACPAC-fil från Azure blob-lagring.
+Det här avsnittet visas hur i den [Azure-portalen](https://portal.azure.com), för att skapa en Azure SQL database från en BACPAC-fil som lagras i Azure Blob storage. Portalen *endast* stöder importera en BACPAC-fil från Azure Blob storage.
 
 > [!NOTE]
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) stöder import från en BACPAC-fil med hjälp av de andra metoderna i den här artikeln, men stöder för närvarande inte migrering i Azure-portalen.
@@ -58,7 +58,7 @@ SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.
 ```
 
 > [!IMPORTANT]
-> En SQL Database-server lyssnar på port 1433. Om du vill ansluta till en SQL Database-server bakom en företagsbrandvägg, måste brandväggen ha den här porten som är öppna.
+> En SQL Database-server lyssnar på port 1433. För att anslutning ska kunna ske till en SQL Database-server inifrån en företagsbrandvägg måste brandväggen ha den här porten öppen.
 >
 
 Det här exemplet visar hur du importerar en databas med hjälp av SqlPackage med Active Directory Universal-autentisering.

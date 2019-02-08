@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50c0c781e7e1c95896a22f0cd71ed20bbad4c2b3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165703"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888608"
 ---
-<!--author=alkohli last changed: 01/20/2017-->
-
 #### <a name="to-create-a-manual-backup"></a>Så här skapar du en manuell säkerhetskopia
 
 1. Gå till StorSimple Device Manager-tjänsten och klicka sedan på **Enheter**. Välj din enhet i listan med enheter. Gå till **Inställningar > Hantera > Principer för säkerhetskopiering**.
@@ -23,7 +21,7 @@ ms.locfileid: "50165703"
 
 3. Utför följande steg på bladet **Säkerhetskopiera nu**:
 
-    1. Välj lämplig **Typ av ögonblicksbild** i listrutan: **Lokal ögonblicksbild** eller **Ögonblicksbild av molndata**. Välj lokal ögonblicksbild för snabbare säkerhetskopieringar eller återställningar, och ögonblicksbild av molndata för dataåterhämtning.
+    1. Välj lämplig **typ av ögonblicksbild** i listrutan: **Lokala** ögonblicksbild eller **molnet** ögonblicksbild. Välj lokal ögonblicksbild för snabbare säkerhetskopieringar eller återställningar, och ögonblicksbild av molndata för dataåterhämtning.
 
         ![Skapa en manuell säkerhetskopia](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 

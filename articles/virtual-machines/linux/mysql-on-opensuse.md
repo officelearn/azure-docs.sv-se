@@ -1,6 +1,6 @@
 ---
 title: Installera MySQL på en OpenSUSE-VM i Azure | Microsoft Docs
-description: Lär dig att installera MySQL på en OpenSUSE Linux VMirtual virtuell dator i Azure.
+description: Lär dig att installera MySQL på en OpenSUSE Linux virtuell dator i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: za-rhoads
-ms.openlocfilehash: 98eb331fbd82ff718b01c99afd6840e3c2252777
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06fb4b9c39b773393d7a58bba44f240265e2200f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227870"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893709"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installera MySQL på en virtuell dator som kör OpenSUSE Linux i Azure
 
@@ -130,7 +130,7 @@ Det här växlar du till MySQL-prompten där du kan skicka SQL-uttryck för att 
 
 Nu skapa en ny MySQL-användare.
 
-```   
+```sql
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
@@ -142,7 +142,7 @@ Semikolon (;) i slutet av raden är avgörande för att avsluta kommandot.
 
 Skapa en databas och ge den `mysqluser` användarbehörigheter.
 
-```   
+```sql
 CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
@@ -151,7 +151,7 @@ Databas-användarnamn och lösenord som endast används av skript som ansluter t
 
 Aktivera inloggning från en annan dator. I det här exemplet är IP-adressen för datorn att logga in från *10.112.113.114*.
 
-```   
+```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    

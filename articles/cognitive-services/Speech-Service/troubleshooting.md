@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder tal Service SDK.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217186"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859325"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Felsöka Taltjänst-SDK
 
@@ -67,6 +67,8 @@ Du kan kontrollera att du har en giltig prenumerationsnyckel genom att köra ett
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
+Om du har angett en giltig prenumerationsnyckel kommandot returnerar en autentiseringstoken, annars returneras ett fel.
+
 ### <a name="validate-an-authorization-token"></a>Validera en autentiseringstoken
 
 Om du använder en Autentiseringstoken för autentisering, kör du något av följande kommandon för att verifiera att autentiseringstoken är fortfarande giltig. Token är giltig i 10 minuter.
@@ -101,6 +103,8 @@ Om du använder en Autentiseringstoken för autentisering, kör du något av fö
     ```
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
+
+Om du har angett en giltig auktoriseringstoken returnerar kommandot avskrift ljud-filen, annars returneras ett fel.
 
 ---
 

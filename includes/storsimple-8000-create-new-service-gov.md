@@ -4,16 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cbccab219e7b610c9ff51013a2d79764c2243e26
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736270"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889293"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
-
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 1. Använd dina Microsoft-kontouppgifter för att logga in på den [Microsoft Azure Government Portal](https://portal.azure.us/).
 2. I Government-portalen klickar du på **+** och klickar sedan på marketplace, **se alla**. Sök efter _StorSimple Physical_. Markera och klicka på **StorSimple Physical Device Series** och sedan på **Skapa**. Du kan också i Government-portalen klickar du på **+** och sedan under **Storage**, klickar du på **StorSimple Physical Device Series**.

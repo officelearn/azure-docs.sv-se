@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258858"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892243"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Säkerhet på postnivå med Power BI-arbetsytesamlingar
 
@@ -48,7 +48,7 @@ RLS har skrivits i Power BI Desktop. När datauppsättningen och rapporten öppn
 Här följer några saker att Observera med schemat:
 
 * Alla åtgärder som **totalförsäljning**, lagras i den **försäljning** faktatabell.
-* Det finns fyra ytterligare relaterade dimensionstabeller: **objekt**, **tid**, **Store**, och **distrikt**.
+* Det finns fyra ytterligare relaterade dimensionstabeller: **Objektet**, **tid**, **Store**, och **distrikt**.
 * Pilar på relationsraderna visar hur filter kan flöda från en tabell till en annan. Exempel: om ett filter är placerat på **tid [Date]**, i det aktuella schemat filtrerar den bara ned värdena i den **försäljning** tabell. Inga andra tabeller kan påverkas av det här filtret eftersom alla pilar i relationsraderna pekar på försäljningstabellen och inte bort.
 * Den **distrikt** tabell visar vem som är chef för varje distrikt:
   
@@ -56,7 +56,7 @@ Här följer några saker att Observera med schemat:
 
 Baserat på det här schemat, om vi använder ett filter på den **Distriktschef** kolumnen i tabellen Distrikt och om filtret matchar användaren som visar rapporten, som filtrerar också filter ned den **Store** och  **Försäljning** tabeller att endast visa data för det specifika distrikt manager.
 
-Här är hur:
+Så här gör du:
 
 1. På fliken modellering **hantera roller**.  
    ![Hantera roller knappen i menyfliksområdet modellering](media/row-level-security/modeling-tab-5.png)
@@ -94,7 +94,7 @@ Det här täcker allt arbete som måste göras i Power BI Desktop, men det finns
 * **användarnamn** (valfritt) – används med RLS detta är en sträng som kan användas för att identifiera användaren när du använder RLS-regler. Se använder rad på radnivå med Power BI Embedded
 * **roller** – en sträng som innehåller rollerna som kan väljas när du använder säkerhet på radnivå regler. Om du skickar mer än en roll bör de skickas som strängmatris.
 
-Du skapar token med hjälp av den [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) metod. Om egenskapen username finns måste du också ange minst ett värde i roller.
+Du skapar token med hjälp av den [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) metod. Om egenskapen username finns måste du också ange minst ett värde i roller.
 
 Du kan till exempel ändra EmbedSample. DashboardController rad 55 kan uppdateras från
 

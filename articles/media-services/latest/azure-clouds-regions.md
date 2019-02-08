@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cadf4c564ab8600094bc545ae7270eb9c0642e1e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767460"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890968"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Moln och regioner där Azure Media Services v3 finns
 
@@ -40,7 +40,7 @@ Azure Media Services v3 är tillgängligt via Azure Resource Manager-manifestet 
 * [Geografiska Azure-områden](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="region-code-name"></a>Kod Regionsnamn 
+### <a name="region-code-name"></a>Kod Regionsnamn 
 
 När du behöver ange den **plats** parameter, måste du ange kodnamnet region som den **plats** värde. Hämtar namnet på koden för den region som ditt konto tillhör och att ditt samtal ska vidarebefordras till, kan du köra följande rad i [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -62,6 +62,14 @@ Till exempel för Azure-regionen USA, västra 2 (visas nedan), använder du ”v
       "subscriptionId": null
     }
 ```
+
+## <a name="endpoints"></a>Slutpunkter  
+
+| Slutpunkt|Globalt Azure | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+| --- | --- | --- | --- | --- |
+| Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
+| Tokenmålgruppen | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Nästa steg
 

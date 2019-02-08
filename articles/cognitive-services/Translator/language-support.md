@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: En lista med naturligt språk som stöds av Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 96f73d7d1324de9e5531aefcc4ee3b9a054cf941
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d0ab683ac59c17cbae1e0947cd2acd785b0365d3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228057"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55885000"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Stöd för språk och din region för Translator Text API
 
@@ -47,10 +47,10 @@ Translator Text API stöder följande språk för översättning till text. Neur
 |Kinesiska (förenklad)|    `zh-Hans`   |Neural standard |Neural|
 |Kinesiska (traditionell)|   `zh-Hant`   |Neural standard |Neural|
 |Kroatiska|  `hr`    |Neural tillgängliga|  Neural|
-|tjeckiska| `cs`    |Neural tillgängliga|  Neural|
+|Tjeckiska| `cs`    |Neural tillgängliga|  Neural|
 |Danska|    `da`    |Neural tillgängliga   |Neural|
 |Nederländska| `nl`    |Neural tillgängliga|  Neural|
-|Engelska|   `en`    |Neural tillgängliga|  Neural|
+|Svenska|   `en`    |Neural tillgängliga|  Neural|
 |Estniska|  `et`    |Neural tillgängliga|  Neural|
 |Fijianska|    `fj`    |Statistisk endast|  Statistisk|
 |Filippinska|  `fil`   |Statistisk endast|  Statistisk|
@@ -62,7 +62,7 @@ Translator Text API stöder följande språk för översättning till text. Neur
 |Hebreiska |`he`   |Neural tillgängliga   |Neural|
 |Hindi| `hi`    |Neural standard|    Neural|
 |Hmong Daw| `mww`   |Statistisk endast|  Statistisk|
-|ungerska| `hu`    |Neural tillgängliga|  Neural|
+|Ungerska| `hu`    |Neural tillgängliga|  Neural|
 |Isländska| `is`    |Endast Neural|   Neural|
 |Indonesiska|    `id`    |Statistisk endast|  Statistisk|
 |Italienska|   `it`    |Neural tillgängliga|  Neural|
@@ -70,7 +70,7 @@ Translator Text API stöder följande språk för översättning till text. Neur
 |Kiswahili| `sw`    |Statistisk endast|  Statistisk|
 |Klingon|   `tlh`   |Statistisk endast|  Statistisk|
 |Klingon (plqaD)|   `tlh-Qaak`  |Statistisk endast|  Statistisk|
-|Koreansk |`ko`   |Neural tillgängliga|  Neural|
+|Koreanska |`ko`   |Neural tillgängliga|  Neural|
 |Lettiska|   `lv`    |Neural tillgängliga|  Neural|
 |Litauiska|    `lt`    |Neural tillgängliga|  Neural|
 |Madagaskisk|  `mg`    |Statistisk endast|  Statistisk|
@@ -78,31 +78,31 @@ Translator Text API stöder följande språk för översättning till text. Neur
 |Maltesiska|   `mt`    |Statistisk endast|  Statistisk|
 |Norska| `nb`    |Neural tillgängliga|  Neural|
 |Persiska|   `fa`    |Statistisk endast|  Statistisk|
-|polska|    `pl`    |Neural tillgängliga|  Neural|
+|Polska|    `pl`    |Neural tillgängliga|  Neural|
 |Portugisiska|    `pt`    |Neural tillgängliga|  Neural|
 |Queretaro Otomi|   `otq`   |Statistisk endast|  Statistisk|
 |Rumänska|  `ro`    |Neural tillgängliga|  Neural|
-|ryska|   `ru`    |Neural tillgängliga|  Neural|
+|Ryska|   `ru`    |Neural tillgängliga|  Neural|
 |Samoa|    `sm`    |Statistisk endast|  Statistisk|
 |Serbiska (kyrillisk)|    `sr-Cyrl`   |Statistisk endast|  Statistisk|
 |Serbiska (latinsk)|   `sr-Latn`   |Statistisk endast   |Statistisk|
 |Slovakiska|    `sk`    |Neural tillgängliga|  Neural|
 |Slovenska| `sl`    |Neural tillgängliga|  Neural|
 |Spanska|   `es`    |Neural tillgängliga|  Neural|
-|svenska|   `sv`    |Neural tillgängliga   |Neural|
+|Svenska|   `sv`    |Neural tillgängliga   |Neural|
 |Tahitian|  `ty`    |Statistisk endast|  Statistisk|
-|Tamiliska| `ta`    |Statistisk endast|  Statistisk|
+|Tamilska| `ta`    |Statistisk endast|  Statistisk|
 |Telugu|    `te`    |Endast Neural|   Neural|
-|Thailändska|  `th`    |Neural tillgängliga|  Neural|
+|Thai|  `th`    |Neural tillgängliga|  Neural|
 |Tongan|    `to`    |Statistisk endast|  Statistisk|
-|turkiska|   `tr`    |Neural tillgängliga   |Neural|
+|Turkiska|   `tr`    |Neural tillgängliga   |Neural|
 |Ukrainska| `uk`    |Neural tillgängliga|  Neural|
 |Urdu|  `ur`    |Statistisk endast|  Statistisk|
 |Vietnamesiska|    `vi`    |Neural tillgängliga|  Neural|
 |Walesiska| `cy`    |Neural tillgängliga|  Neural|
 |Yucatec Maya|  `yua`   |Statistisk endast|  Statistisk|
 
-## <a name="transliteration"></a>Transkribering
+## <a name="transliteration"></a>Translitteration
 
 Metoden Transliterate stöder följande språk. I den ”till och från”, ”<>--” anger att språket kan vara Translittererad till från eller till någon av de skript som visas. Den ”-->” anger att språket kan bara vara Translittererad till från ett skript till en annan.
 
@@ -110,10 +110,10 @@ Metoden Transliterate stöder följande språk. I den ”till och från”, ”<
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabiska | `ar` | Arabiska `Arab` | <--> | Latin `Latn` |
 |Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
-| Kinesiska (förenklad) | `zh-Hans` | Kinesiska, förenklad `Hans`| <--> | Latin `Latn` |
-| Kinesiska (förenklad) | `zh-Hans` | Kinesiska, förenklad `Hans`| <--> | Kinesiska, traditionell `Hant`|
-| Kinesiska (traditionell) | `zh-Hant` | Kinesiska, traditionell `Hant`| <--> | Latin `Latn` |
-| Kinesiska (traditionell) | `zh-Hant` | Kinesiska, traditionell `Hant`| <--> | Kinesiska, förenklad `Hans` |
+| Förenklad kinesiska | `zh-Hans` | Kinesiska, förenklad `Hans`| <--> | Latin `Latn` |
+| Förenklad kinesiska | `zh-Hans` | Kinesiska, förenklad `Hans`| <--> | Kinesiska, traditionell `Hant`|
+| Traditionell kinesiska | `zh-Hant` | Kinesiska, traditionell `Hant`| <--> | Latin `Latn` |
+| Traditionell kinesiska | `zh-Hant` | Kinesiska, traditionell `Hant`| <--> | Kinesiska, förenklad `Hans` |
 | Gujarati | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
 | Hebreiska | `he` | Hebreiska `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
@@ -125,9 +125,9 @@ Metoden Transliterate stöder följande språk. I den ”till och från”, ”<
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbiska (kyrillisk) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbiska (latinsk) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
-| Tamiliska | `ta` | Tamil `Taml` | --> | Latin `Latn` |
+| Tamilska | `ta` | Tamil `Taml` | --> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
-| Thailändska | `th` | Thai `Thai` | <--> | Latin `Latn` |
+| Thai | `th` | Thai `Thai` | <--> | Latin `Latn` |
 
 ## <a name="dictionary"></a>Ordlista
 
@@ -155,14 +155,14 @@ Ordlistan stöder följande språk till eller från engelska med hjälp av Sök-
 | Hebreiska      | `he`          |
 | Hindi      | `hi`          |
 | Hmong Daw      | `mww`          |
-| ungerska      | `hu`          |
+| Ungerska      | `hu`          |
 | Isländska    | `is`  |
 | Indonesiska      | `id`          |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
 | Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
-| Koreansk      | `ko`          |
+| Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
 | Malajiska      | `ms`          |
@@ -172,7 +172,7 @@ Ordlistan stöder följande språk till eller från engelska med hjälp av Sök-
 | Polska      | `pl`          |
 | Portugisiska      | `pt`          |
 | Rumänska      | `ro`          |
-| ryska      | `ru`          |
+| Ryska      | `ru`          |
 | Serbiska (latinsk)      | `sr-Latn`          |
 | Slovakiska     | `sk`          |
 | Slovenska      | `sl`          |
@@ -186,7 +186,7 @@ Ordlistan stöder följande språk till eller från engelska med hjälp av Sök-
 | Vietnamesiska      | `vi`          |
 | Walesiska      | `cy`          |
 
-## <a name="detect"></a>Upptäcka
+## <a name="detect"></a>Detect
 
 Följande språk stöds av metoden identifiering. Identifiera maj identifiera språk som Microsoft Translator inte kan översätta.
 
@@ -200,13 +200,13 @@ Följande språk stöds av metoden identifiering. Identifiera maj identifiera sp
 | Bulgariska |
 | Katalanska |
 | Kinesiska |
-| Kinesiska (förenklad) |
-| Kinesiska (traditionell) |
+| Förenklad kinesiska |
+| Traditionell kinesiska |
 | Kroatiska |
 | Tjeckiska |
 | Danska |
 | Nederländska |
-| Engelska |
+| Svenska |
 | Esperanto |
 | Estniska |
 | Finska |
@@ -223,7 +223,7 @@ Följande språk stöds av metoden identifiering. Identifiera maj identifiera sp
 | Iriska |
 | Italienska |
 | Japanska |
-| Koreansk |
+| Koreanska |
 | Kurdiska (arabiska) |
 | Kurdiska (latinsk) |
 | Latin |
@@ -239,7 +239,7 @@ Följande språk stöds av metoden identifiering. Identifiera maj identifiera sp
 | Polska |
 | Portugisiska |
 | Rumänska |
-| ryska |
+| Ryska |
 | Serbiska (kyrillisk) |
 | Serbiska (latinsk) |
 | Slovakiska |
@@ -247,7 +247,7 @@ Följande språk stöds av metoden identifiering. Identifiera maj identifiera sp
 | Somali |
 | Spanska |
 | Swahili |
-| svenska |
+| Svenska |
 | Tagalog |
 | Telugu |
 | Thai |
@@ -289,23 +289,23 @@ Följande språk är tillgängligt för anpassning med hjälp av [anpassad Trans
 | Grekiska      | `el`          |
 | Hebreiska      | `he`          |
 | Hindi      | `hi`          |
-| ungerska      | `hu`          |
+| Ungerska      | `hu`          |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
-| Koreansk      | `ko`          |
+| Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
 | Norska      | `nb`          |
 | Polska      | `pl`          |
 | Portugisiska      | `pt`          |
 | Rumänska      | `ro`          |
-| ryska      | `ru`          |
+| Ryska      | `ru`          |
 | Serbiska (latinsk)      | `sr-Latn`          |
 | Slovakiska     | `sk`          |
 | Slovenska      | `sl`          |
 | Spanska      | `es`          |
-| svenska      | `sv`          |
-| Thailändska      | `th`          |
+| Svenska      | `sv`          |
+| Thai      | `th`          |
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |
 | Vietnamesiska      | `vi`          |

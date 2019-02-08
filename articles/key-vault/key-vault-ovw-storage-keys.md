@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c71c7423b4cde2a24c8154899eec256e5746b6d7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814851"
+ms.locfileid: "55865377"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault hanteras lagringskonto – CLI
 
@@ -56,13 +56,13 @@ I den nedan information vi tilldela Key Vault som en tjänst har operatorn behö
     ```
     Kopiera ID-fält av resultatet av kommandot ovan
     
-2. Hämta objekt-ID: T för Azure Key Vault-tjänstens huvudnamn genom att köra i kommandot nedan
+2. Hämta objekt-ID: T för Azure Key Vault-tjänsten huvudnamn genom att köra i kommandot nedan
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    Hitta objekt-ID i resultatet vid slutförande av det här kommandot
+    Hitta objekt-ID i resultatet vid slutförande av det här kommandot:
     ```console
         {
             ...
@@ -71,7 +71,7 @@ I den nedan information vi tilldela Key Vault som en tjänst har operatorn behö
         }
     ```
     
-3. Tilldela lagring nyckeln operatörsrollen till Azure Key Vault Identity
+3. Tilldela rollen operatör för Storage-nyckel till Azure Key Vault-identitet.
 
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>

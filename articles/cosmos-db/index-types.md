@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 02055ec07de2b08abdc949e17c668912431e00ce
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199076"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871259"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Index-typer i Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Här följer exempel på frågor som Hash, intervallet, och rumsindex kan använ
 | ---------- | ---------------- |
 | Hash  | Hash-över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”value”<br><br>Hash över/sammanställer / [] /? (eller / eller/sammanställer /) kan användas för att effektivt hantera följande frågor:<br><br>Välj tagg från samlingen c JOIN-tagg i c.props var taggen = 5  |
 | Intervall  | Variera över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”value”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop   |
-| Spatial     | Variera över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen c<br><br>VAR ST_DISTANCE (c.prop, {”type”: ”Plats”, ”coordinates”: [0.0, 10.0]}) < 40<br><br>Välj samling c där ST_WITHIN(c.prop, {"type": ”Polygon”,...}) --med indexering för punkter som aktiverats<br><br>Välj samling c där ST_WITHIN({"type": ”Plats”,...}, c.prop)--med indexering för polygoner aktiverat.     |
+| Spatial     | Variera över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen c<br><br>WHERE ST_DISTANCE(c.prop, {"type": ”Plats”, ”coordinates”: [0.0, 10.0]}) < 40<br><br>Välj samling c där ST_WITHIN(c.prop, {"type": ”Hanteringsplats”,...}) --med indexering för punkter som aktiverats<br><br>Välj samling c där ST_WITHIN({"type": ”Polygon”,...}, c.prop)--med indexering för polygoner aktiverat.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>Standardbeteendet för index-typer
 

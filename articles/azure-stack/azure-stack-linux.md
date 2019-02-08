@@ -15,12 +15,12 @@ ms.date: 11/16/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: be537d9598eeda902254e56a9202415f4f498d93
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bee143f7e814884eda3c5dc9017895a8431e76aa
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245141"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890560"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Lägga till Linux-avbildningar i Azure Stack
 
@@ -38,7 +38,7 @@ Observera att det finns frekventa uppdateringar till dessa bilder, så kontrolle
 
 Om möjligt hämta avbildningar via Marketplace-hantering som har förberetts och testats för Azure Stack. 
  
-Azure Linux Agent (kallas vanligtvis `WALinuxAgent` eller `walinuxagent`) krävs, och inte alla versioner av agenten fungerar i Azure Stack. Du bör använda version 2.2.18 eller senare om du skapar en egen avbildning. Observera att [cloud-init](https://cloud-init.io/) stöds inte på Azure Stack just nu.
+Azure Linux Agent (kallas vanligtvis `WALinuxAgent` eller `walinuxagent`) krävs, och inte alla versioner av agenten fungerar i Azure Stack. Du bör använda version 2.2.20 eller senare om du skapar en egen avbildning. Observera att [cloud-init](https://cloud-init.io/) stöds inte på Azure Stack just nu.
 
 Du kan förbereda din egen Linux-avbildning med följande anvisningar:
 

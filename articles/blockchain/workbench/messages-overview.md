@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 48e7de2798d9c34942df281febcc1d4ec443010d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fd723304e2219c457e982cbe54529d00afe526f4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662236"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55896017"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging integration
 
@@ -36,7 +36,7 @@ Begäran kräver följande fält:
 | **Namn**             | **Beskrivning**                                      |
 |----------------------|------------------------------------------------------|
 | requestId            | Klienten angivna GUID                                |
-| Förnamn            | Förnamn för användaren                              |
+| firstName            | Förnamn för användaren                              |
 | lastName             | Efternamn för användaren                               |
 | emailAddress         | E-postadressen för användaren                           |
 | externalId           | Azure AD-objekt-ID för användaren                      |
@@ -568,7 +568,7 @@ Innehåller information när ett kontrakt-funktionen anropas som funktionsnamnet
 | contractLedgerIdentifier    | Unik identifierare för kontraktet på redovisningen |
 | Funktionsnamn                | Namnet på funktionen |
 | parameters                  | [Parameterinformation](#parameter-information) |
-| Transaktionen                 | [Transaktionsinformation](#eventmessage-transaction-information) |
+| Transaktionen                 | Transaktionsinformation |
 | inTransactionSequenceNumber | Sekvensnumret för transaktionen i blocket |
 | ConnectionId                | Unik identifierare för anslutningen |
 | messageSchemaVersion        | Meddelanden schemaversion |

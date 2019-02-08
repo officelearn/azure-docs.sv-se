@@ -5,24 +5,24 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: ca1012e0f1b0b7a9e0d8bd88d94876c20d22dec5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473791"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895524"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Säkerhetsguiden för Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 förhandsversion, är en uppsättning funktioner som bygger på Azure Storage-konton. Därför måste är alla referenser i den här artikeln avsedda för ett Azure Storage-konto med hierarkiskt namnområde aktiverat (Data Lake Storage Gen2 funktioner).
+Azure Data Lake Storage Gen2 är en uppsättning funktioner som bygger på Azure Storage-konton. Därför måste är alla referenser i den här artikeln avsedda för ett Azure Storage-konto med hierarkiskt namnområde aktiverat (Data Lake Storage Gen2 funktioner).
 
 - Alla data som skrivs till Azure Storage krypteras automatiskt med [Storage Service Encryption (SSE)](storage-service-encryption.md). Mer information finns i [presenterar standard kryptering för Azure-Blobar, filer, tabeller och Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) och rollbaserad åtkomstkontroll (RBAC) stöds för Azure Storage för både resource management-åtgärder och åtgärder, enligt följande:
     - Du kan tilldela RBAC-roller som är begränsade till storage-konto till säkerhetsobjekt och Använd Azure AD för att auktorisera resource management-åtgärder, till exempel nyckelhantering.
-    - Azure AD-integrering stöds i förhandsversionen för åtgärder på Azure Storage. Du kan tilldela RBAC-roller som är begränsade till en prenumeration, resursgrupp, storage-konto eller en enskild filsystemet till ett säkerhetsobjekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).
+    - Azure AD-integrering stöds i åtgärder på Azure Storage för. Du kan tilldela RBAC-roller som är begränsade till en prenumeration, resursgrupp, storage-konto eller en enskild filsystemet till ett säkerhetsobjekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](storage-auth-aad.md).
 - Delegerad åtkomst till dataobjekt i Azure Storage kan tilldelas via [signaturer för delad åtkomst](../storage-dotnet-shared-access-signature-part-1.md).
 
 Den här artikeln innehåller en översikt över var och en av dessa säkerhetsfunktioner som kan användas med Azure Storage. Länkar tillhandahålls till artiklar som ger information om varje funktion så kan du lätt göra ytterligare undersökningar på varje avsnitt.
@@ -133,7 +133,7 @@ Plan för datasäkerhet refererar till de metoder som används för att skydda d
 
 Det finns tre alternativ för att auktorisera åtkomst till dataobjekt i Azure Storage, inklusive:
 
-- Använda Azure AD för att bevilja åtkomst till filsystem och köer (förhandsversion). Azure AD tillhandahåller fördelar jämfört med andra metoder för auktorisering, inklusive ta bort behovet av att lagra hemligheter i din kod. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md). 
+- Använda Azure AD för att bevilja åtkomst till filsystem och köer. Azure AD tillhandahåller fördelar jämfört med andra metoder för auktorisering, inklusive ta bort behovet av att lagra hemligheter i din kod. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](storage-auth-aad.md). 
 - Med storage-kontonycklar för att godkänna åtkomst via delad nyckel. Auktorisera via delad nyckel kräver att lagra dina lagringskontonycklar i ditt program, så Microsoft rekommenderar att du använder Azure AD i stället där det är möjligt. Program i produktion eller för att auktorisera åtkomst till Azure-tabeller och filer kan fortsätta att använda delad nyckel medan Azure AD-integrering är en förhandsversion.
 - Använda signaturer för delad åtkomst för att ge kontrollerad behörighet till specifika dataobjekt för en viss tidsperiod.
 
@@ -229,7 +229,7 @@ Mer detaljerad information om hur du använder signaturer för delad åtkomst oc
 
     Den här artikeln innehåller en förklaring av den SAS-modellen, exempel på signaturer för delad åtkomst och rekommendationer för bästa praxis använder SAS. Vi beskriver även återkallande av vilken behörighet.
 
-* Autentisering
+* Authentication
 
   * [Autentisering för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Signaturer för delad åtkomst har börjat självstudie

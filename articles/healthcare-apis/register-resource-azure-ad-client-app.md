@@ -7,12 +7,12 @@ ms.service: healthcare-apis
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: c0602d44a5b01e31cd2082e2b05d17c4289adaa1
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e8305c5a69fa3fda29f4f1292b7faa59f8ec3608
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824269"
+ms.locfileid: "55870154"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registrera ett resursprogram i Azure Active Directory
 
@@ -42,7 +42,9 @@ Resursprogram har en identifierar-URI (program-ID-URI), vilka klienter kan anvä
 
 2. Klicka på **ange** bredvid *program-ID-URI*.
 
-3. Klicka på **lägga till ett scope** och Lägg till alla omfattningar som du vill definiera du API: et. Azure AD tillåter för närvarande inte snedstreck (`/`) i scopenamn. Vi rekommenderar att du använder `$` i stället. Ett omfång som `patient/*.read` skulle vara `patient$*.read`.
+3. Ange identifierar-URI och klicka på **spara**. En bra identifier är URI: N för FHIR-server.
+
+4. Klicka på **lägga till ett scope** och Lägg till alla omfattningar som du vill definiera du API: et. Azure AD tillåter för närvarande inte snedstreck (`/`) i scopenamn. Vi rekommenderar att du använder `$` i stället. Ett omfång som `patient/*.read` skulle vara `patient$*.read`.
 
     ![Publik och omfång](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 3e1d5ed05b7acc8f7e0fcc772a4124984c6cba45
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911752"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884546"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för lagring
 
@@ -50,7 +50,7 @@ Azure Storage erbjuder [mjuk borttagning för blob-objekt](../../storage/blobs/s
 Du kan skapa [blobögonblicksbilder](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). En ögonblicksbild är en skrivskyddad version av en blob som utförs en gång i tid och den gör det möjligt att säkerhetskopiera en blob. När en ögonblicksbild har skapats, kan det läsas, kopieras, eller ta bort, men inte har ändrats.
 
 > [!Note]
-> Det måste importeras till arkivet med betrodda Java för äldre version av den lokala lokala Hadoop-distributioner som inte har certifikatet ”wasbs”.
+> För äldre versioner av lokala Hadoop-distributioner som inte har ”wasbs” certifikat behöver de för att importeras till arkivet med betrodda Java.
 
 Följande metoder kan användas för att importera certifikat i arkivet med betrodda Java:
 

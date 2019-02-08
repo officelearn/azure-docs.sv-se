@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 'Text till tal-API: et erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda standard rösttyper, behöver du bara ange voice-namn med några andra parametrar när du anropar Speech-tjänsten.'
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251562"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859342"
 ---
 # <a name="about-the-text-to-speech-api"></a>Om text till tal-API:
 

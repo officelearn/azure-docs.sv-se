@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: c62be5041792690f023361da6254157aed1beeb2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: e0455ef99016fe1029f17256a6dbf5d9bbd8aa4d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749060"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890577"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
 
@@ -56,10 +56,13 @@ Den vCore-baserade inköpsmodellen kan du välja beräknings- och lagringsresurs
 
 > [!IMPORTANT]
 > Beräknings-, IOs, data och logglagring debiteras per databas eller elastisk pool. Lagring för säkerhetskopior debiteras per varje databas. Mer information om avgifter för hanterad instans finns i [hanterade instanser](sql-database-managed-instance.md).
-> **Region begränsningar:** Den aktuella listan över regioner som stöds finns i [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i den region som inte stöds för närvarande kan du [skicka supportförfrågan via Azure-portalen](#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Region begränsningar:** Den aktuella listan över regioner som stöds finns i [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i den region som inte stöds för närvarande kan du [skicka supportförfrågan via Azure-portalen](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Om din databas eller elastisk pool förbrukar mer än 300 DTU-konvertering till vCore minska dina kostnader. Du kan konvertera med hjälp av ditt API föredrar eller med hjälp av Azure-portalen utan avbrott. Dock krävs inte konverteringen. Om den DTU-inköpsmodellen uppfyller dina krav på prestanda och företag, bör du fortsätta använda den. Om du vill konvertera från DTU-modellen till vCore-modellen kan du bör välja beräkningsstorleken med hjälp av följande tumregel: varje 100 dtu: er i Standard-nivån kräver minst 1 vCore i nivån generell användning; varje 125 DTU på premiumnivån kräver minst 1 vCore i nivån affärskritisk.
+Om din databas eller elastisk pool förbrukar mer än 300 dtu: er, kan konvertera till den vCore-baserade inköpsmodellen minska dina kostnader. Om du vill konvertera kan konvertera du med hjälp av ditt API föredrar eller med hjälp av Azure-portalen utan avbrott. Konvertering är inte obligatoriskt och görs inte automatiskt. Om den DTU-baserade inköpsmodellen uppfyller dina krav på prestanda och företag, bör du fortsätta använda den. Om du vill konvertera från den DTU-baserade inköpsmodellen till den vCore-baserade inköpsmodellen, väljer du beräkningsstorleken med hjälp av följande tumregel: 
+
+- Varje 100 dtu: er i Standard-nivån kräver minst 1 vCore i nivån generell användning
+- Varje 125 DTU på premiumnivån kräver minst 1 vCore i nivån affärskritisk
 
 ## <a name="dtu-based-purchasing-model"></a>DTU-baserade inköpsmodellen
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: f9ffbebee06ab7b9e010c7e6c84fee533611fb38
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f2cf9d1ed2cb970cf6f477df07af62d594ea930c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567663"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890917"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instruktioner: Konfigurera principer för risk i Azure Active Directory identity protection (uppdateras)
 
@@ -81,7 +81,7 @@ Men av säkerhetsskäl fungerar den här inställningen bara för användare som
 
 Om du vill kräva MFA för riskfyllda inloggningar, bör du:
 
-1. Aktivera den [registreringsprincip för multi-Factor authentication](#multi-factor-authentication-registration-policy) för de berörda användarna.
+1. Aktivera registreringsprincip för multi-Factor authentication för användare som påverkas.
 
 2. Kräv att berörda användare att logga in i en icke-riskfyllda session för att utföra en MFA-registrering.
 

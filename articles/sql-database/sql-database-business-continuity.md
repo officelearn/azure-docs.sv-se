@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 90d95d7ad1ffb3200a69e0e7980dae2d7ed97470
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755177"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894334"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -132,7 +132,7 @@ Om du använder automatiska säkerhetskopieringar med geo-redundant lagring (akt
 Efter återställningen från endera återställningsmetod måste du utföra följande ytterligare uppgifter innan dina användare och program kan komma igång igen:
 
 - Omdirigera klienter och klientprogram till den nya servern och återställda databasen
-- Kontrollera att rätt IP-brandväggsregler för på servernivå är uppfyllda för användare att ansluta eller använda [databasnivå](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) att aktivera lämpliga regler.
+- Kontrollera att rätt IP-brandväggsregler för på servernivå är uppfyllda för användare att ansluta eller använda [databasnivå](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) att aktivera lämpliga regler.
 - Se till att rätt inloggningar och behörigheter på huvuddatabasnivå är på plats (eller använd [inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Konfigurera granskning efter behov
 - Konfigurera aviseringar efter behov

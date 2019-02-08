@@ -4,21 +4,21 @@ titlesuffix: Azure Cognitive Services
 description: Se en pågående logg över nya funktioner, förbättringar, felkorrigeringar och kända problem för Azure Speech Services.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 80cf0d9970eb7052eeb19fb297176453864202cf
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a5b8cd7da465bc2dc58c2b89852903669c18bf4b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55205703"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871803"
 ---
-# <a name="release-notes"></a>Viktigt
+# <a name="release-notes"></a>Viktig information
 
 ## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: 2018-December versionen
 
@@ -152,7 +152,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 * Stöd för .NET Standard 2.0 på Windows. Kolla in den [Snabbstart för .NET Core](quickstart-csharp-dotnetcore-windows.md).
 * Experimentella: Stöder UWP på Windows (version 1709 eller senare).
   * Kolla in den [UWP snabbstarten](quickstart-csharp-uwp.md).
-  * Anmärkning: UWP-appar som skapats med SDK: N för tal ännu skickar inte Windows App Certification Kit (WACK).
+  * Obs! UWP-appar som skapats med SDK: N för tal ännu skickar inte Windows App Certification Kit (WACK).
 * Stöd för tidskrävande erkännande med automatisk återanslutning.
 
 **Funktionella ändringar**

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ff717b6cec36f7932f2e4e57dfef9ced0ea902d4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619919"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893064"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Säkerhetsspelbok i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda strategiböcker för säkerhet i Azure Security Center för att svara på säkerhetsrelaterade problem.
@@ -93,7 +93,7 @@ I det här arbetsflödet kan du se hur lång tid det tog att köra varje uppgift
 Du kan ändra en befintlig spelbok i Security Center för att lägga till åtgärder eller villkor. Om du vill göra det behöver du bara klicka på namnet på den strategibok som du vill ändra på fliken med strategiböcker, så öppnas Logic App Designer.
 
 > [!NOTE]
-> Om du vill ha mer information om hur du kan skapa en egen spelbok med hjälp av Azure Logic App kan du läsa [Skapa ditt första logikapparbetsflöde för att automatisera processer mellan molnappar och molntjänster](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger).
+> Om du vill ha mer information om hur du kan skapa en egen spelbok med hjälp av Azure Logic App kan du läsa [Skapa ditt första logikapparbetsflöde för att automatisera processer mellan molnappar och molntjänster](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app).
 
 
 ## <a name="see-also"></a>Se också

@@ -5,15 +5,15 @@ services: batch
 author: davefellows
 manager: jeconnoc
 ms.author: lahugh
-ms.date: 08/13/2018
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b8813466b9c0f74a608c0150c037dfec3db08dbc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543503"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893824"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Referensarkitekturer för Azure-återgivning
 
@@ -25,11 +25,11 @@ I följande diagram visas ett scenario med hybridanvändning som innehåller fö
 
 * **Compute** – Azure Batch-pool eller Virtual Machine Scale Sets.
 
-* **Nätverk** -lokala: Azure ExpressRoute eller VPN. Azure: Azure virtuellt nätverk.
+* **Nätverk** -lokala: Azure ExpressRoute eller VPN. Azure: Azure VNet.
 
-* **Storage** – inkommande och utgående filer: NFS- eller CFS med hjälp av Azure virtuella datorer, synkroniseras med den lokala lagringen via Azure File Sync eller RSync.
+* **Storage** – inkommande och utgående filer: NFS- eller CFS med hjälp av Azure virtuella datorer, synkroniseras med den lokala lagringen via Azure File Sync eller RSync. Du kan också: Avere vFXT som indata eller utdata från den lokala NAS-enheter med hjälp av NFS-filerna.
 
-  ![”Cloud bursting” - Hybrid med NFS eller CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![”Cloud bursting” - Hybrid med NFS eller CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Hybrid med Blobfuse
 
@@ -37,7 +37,7 @@ I följande diagram visas ett scenario med hybridanvändning som innehåller fö
 
 * **Compute** – Azure Batch-pool eller Virtual Machine Scale Sets.
 
-* **Nätverk** -lokala: Azure ExpressRoute eller VPN. Azure: Azure virtuellt nätverk.
+* **Nätverk** -lokala: Azure ExpressRoute eller VPN. Azure: Azure VNet.
 
 * **Storage** – inkommande och utgående filer: BLOB-lagring, monterad för att beräkna resurser via Azure Blobfuse.
 
@@ -49,11 +49,11 @@ Följande diagram visar ett fullständigt anslutna hybridscenario för beräknin
 
 * **Compute** – Azure Batch-pool eller Virtual Machine Scale Sets.
 
-* **Nätverk** -lokala: Azure ExpressRoute eller VPN. Azure: Azure virtuellt nätverk.
+* **Nätverk** -lokala: Azure ExpressRoute eller VPN. Azure: Azure VNet.
 
-* **Storage** – på olika platser: Avere vFXT. Valfritt arkivering av lokala filer via Azure Data Box till Blob storage.
+* **Storage** – på olika platser: Avere vFXT. Valfritt arkivering av lokala via Azure Data Box-filer till Blob-lagring eller lokalt Avere FXT för NAS acceleration.
 
-  ![”Cloud bursting” - Hybrid beräkning och lagring](./media/batch-rendering-architectures/hybrid-compute-storage.png)
+  ![”Cloud bursting” - Hybrid beräkning och lagring](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

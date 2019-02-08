@@ -6,23 +6,29 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 01/18/2019
-ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/07/2019
+ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411755"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895694"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
 Installationen av mobilitetstjänsten är ett viktigt steg vid aktivering av replikering. Det här steget beror helt på uppfyller kraven och arbeta med konfigurationer som stöds. De vanligaste felen som uppstår under mobilitetstjänsten är på grund av:
 
-* Autentiseringsuppgifter/behörighet fel
-* Misslyckad inloggning
-* Anslutningsfel
-* Operativsystem som stöds inte
-* VSS-installationsfel
+* [Autentiseringsuppgifter/behörighet fel](#credentials-check-errorid-95107--95108)
+* [Misslyckad inloggning](#login-failures-errorid-95519-95520-95521-95522)
+* [Anslutningsfel](#connectivity-failure-errorid-95117--97118)
+* [Fil- och skrivardelning fel](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [WMI-fel](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [Operativsystem som stöds inte](#unsupported-operating-systems)
+* [Konfigurationer som inte stöds start](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
+* [VSS-installationsfel](#vss-installation-failures)
+* [Enhetsnamn i GRUB konfiguration i stället för enhet UUID](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [LVM-volym](#lvm-support-from-920-version)
+* [Starta om varningar](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 När du aktiverar replikering, installera Azure Site Recovery försöker skicka mobilitetstjänstagenten på den virtuella datorn. Som en del av detta försöker konfigurationsservern ansluta med den virtuella datorn och kopiera agenten. Följ steg för steg-felsökningsinformation som anges nedan om du vill aktivera lyckad installation.
 
@@ -56,12 +62,14 @@ Om domänen förtroendet relationen upprättas mellan den primära domänen och 
 
 Om du vill ändra autentiseringsuppgifterna för valda användarkonto, följ instruktionerna [här](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="login-failure-errorid-95519"></a>Fel vid inloggning (samtalsstatus: 95519)
+## <a name="login-failures-errorid-95519-95520-95521-95522"></a>Misslyckade inloggningar (samtalsstatus: 95519, 95520, 95521, 95522)
+
+### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>Autentiseringsuppgifter för användarkontot har inaktiverats (samtalsstatus: 95519)
 
 Det användarkonto som valts vid aktivering av replikering har inaktiverats. Om du vill aktivera användarkontot finns i artikeln [här](https://aka.ms/enable_login_user) eller kör följande kommando genom att ersätta texten *användarnamn* med det verkliga användarnamnet.
 `net user 'username' /active:yes`
 
-## <a name="login-failure-errorid-95520"></a>Fel vid inloggning (samtalsstatus: 95520)
+### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>Autentiseringsuppgifter som har låsts ute på grund av flera misslyckade inloggningsförsök (samtalsstatus: 95520)
 
 Arbete med flera misslyckade försök att få åtkomst till en dator låses användarkontot. Felet kan bero på följande:
 
@@ -70,11 +78,11 @@ Arbete med flera misslyckade försök att få åtkomst till en dator låses anv�
 
 Så, ändra autentiseringsuppgifterna valt genom att följa instruktionerna [här](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) och försök igen efter en stund.
 
-## <a name="login-failure-errorid-95521"></a>Fel vid inloggning (samtalsstatus: 95521)
+### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Inloggningsservrar finns inte på källdatorn (samtalsstatus: 95521)
 
 Det här felet uppstår när inloggningsservrar inte finns på källdatorn. Otillgänglig inloggningsservrar leder till fel i inloggningsbegäran och därmed mobilitetsagenten kan inte installeras. Se till att inloggningsservrar är tillgängliga på källdatorn och starta tjänsten Logon för lyckad inloggning. Detaljerade anvisningar finns klickar du på [här](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
 
-## <a name="login-failure-errorid-95522"></a>Fel vid inloggning (samtalsstatus: 95522)
+### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Logon-tjänsten inte körs på källdatorn (samtalsstatus: 95522)
 
 Inloggnings-tjänsten körs inte på källdatorn och orsakas av fel i inloggningsbegäran. Mobilitetsagenten kan därför inte installeras. Lös genom att se till att Logon-tjänsten körs på källdatorn för lyckad inloggning. Om du vill starta tjänsten inloggning, kör kommandot ”net start inloggning” från Kommandotolken eller starta tjänsten ”NetLogon” från Aktivitetshanteraren.
 
@@ -138,15 +146,17 @@ Andra felsökning WMI-artiklar hittades i följande artiklar.
 En annan vanligaste orsaken till felet kan bero på operativsystem som inte stöds. Se till att du är på den operativsystem/Kernel-versionen som stöds för installation av mobilitetstjänsten. Undvik att användningen av privata patch.
 Om du vill visa listan över operativsystem och kernel-versioner som stöds av Azure Site Recovery, referera till vår [matris stöddokument](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Start- och systempartitionerna / volymerna inte finns på samma disk (samtalsstatus: 95309)
+## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>Boot diskkonfigurationer som inte stöds (samtalsstatus: 95309, 95310, 95311)
+
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Start- och systempartitionerna / volymerna inte finns på samma disk (samtalsstatus: 95309)
 
 Innan du 9.20 version, Start- och systempartitionerna / volymerna på olika diskar har en konfiguration som inte stöds. Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), den här konfigurationen stöds. Använd senaste versionen för det här.
 
-## <a name="boot-disk-not-found-errorid-95310"></a>Det gick inte att hitta startdisken (samtalsstatus: 95310)
+### <a name="the-boot-disk-is-not-available-errorid-95310"></a>Startdisken är inte tillgänglig (samtalsstatus: 95310)
 
 En virtuell dator utan en startdisk kan inte skyddas. Detta är att säkerställa smidig återställning av virtuell dator under redundansväxlingen. Avsaknad av startdisk resulterar i fel att starta datorn efter redundans. Se till att den virtuella datorn innehåller startdisk och försök igen. Observera också att flera startdiskar på samma dator inte stöds.
 
-## <a name="multiple-boot-disks-found-errorid-95311"></a>Flera startdisketter finns (samtalsstatus: 95311)
+### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>Flera startdisketter finns på källdatorn (samtalsstatus: 95311)
 
 En virtuell dator med flera startdiskar är inte en [stöds configuration](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
@@ -154,9 +164,45 @@ En virtuell dator med flera startdiskar är inte en [stöds configuration](vmwar
 
 Har en konfiguration som inte stöds före 9.20 version rotpartitionen eller volymen utspridd på flera diskar. Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), den här konfigurationen stöds. Använd senaste versionen för det här.
 
-## <a name="grub-uuid-failure-errorid-95320"></a>GRUB UUID-fel (samtalsstatus: 95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>Aktivera skydd kunde inte utföras eftersom enhetsnamn som nämns i GRUB-konfigurationen istället för UUID (samtalsstatus: 95320)
 
-Om källdatorns GRUB använder enhetsnamnet istället för UUID, misslyckas mobility agent-installationen. Nå till system-administratören att göra ändringarna till GRUB-fil.
+**Möjlig orsak:** </br>
+GRUB-konfigurationsfilerna (”/ boot/grub/menu.lst” ”, / boot/grub/grub.cfg” ”, / boot/grub2/grub.cfg” eller ”/ etc/standard/grub”) kan innehålla värdet för parametrarna **rot** och **återuppta** som den namn på verkliga enheter istället för UUID. Site Recovery mandat UUID-metod som namn på enheter som kan ändras över omstart av den virtuella datorn när virtuell dator inte kanske kommer upp med samma namn på redundans, vilket resulterar i problem. Exempel: </br>
+
+
+- Följande rad är GRUB-fil **/boot/grub2/grub.cfg**. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- Följande rad är GRUB-fil **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **rot = / dev/sda2** **återuppta = / dev/sda1 ** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
+
+Om du upptäcker fetstil strängen ovan, innehåller GRUB faktiska enhetsnamn för parametrar ”rot” och ”återuppta” istället för UUID.
+ 
+**Så här åtgärdar du:**<br>
+Enhetsnamn ska ersättas med motsvarande UUID.<br>
+
+
+1. Hitta UUID för enheten genom att köra kommandot ”blkid <device name>”. Exempel:<br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. Ersätt namnet på enheten med dess UUID i format som ”rot = UUID =<UUID>”. Om vi ersätta enhetsnamn med UUID för roten och återuppta parameter som nämns ovan i filerna till exempel ”/ boot/grub2/grub.cfg” ”, / boot/grub2/grub.cfg” eller ”/ etc/standard/grub: sedan raderna i filerna kan se ut. <br>
+*Kernel /boot/vmlinuz-3.0.101-63-default **rot = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **återuppta = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
+3. Starta om skyddet igen
+
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Installera Mobilitetstjänsten slutfördes med varning ska startas om (samtalsstatus: 95265 & 95266)
+
+Site Recovery-mobilitetstjänsten har flera komponenter, varav kallas filter-drivrutinen. Filterdrivrutinen hämtar läsas in i systemminnet endast vid tiden för omstart av systemet. Det innebär att filtret drivrutinen korrigeringar bara kan realiseras när ett nytt filter-drivrutinen har lästs in; vilket kan inträffa endast vid tidpunkten för omstart av systemet.
+
+**Observera** som detta är en varning och befintliga replikeringen fungerar även efter den nya agent uppdateringen. Du kan välja att starta om när du vill få fördelarna med nya filterdrivrutinen men om du inte starta om än även gamla filter-drivrutinen är fortfarande om hur du arbetar. I så fall efter en uppdatering utan omstart, förutom filterdrivrutinen, **fördelarna med andra förbättringar och korrigeringar i mobilitetstjänsten hämtar insåg**. Så det alternativ som rekommenderas, det inte är obligatoriskt att starta om efter varje uppgradering. Information om när en omstart är obligatorisk, klickar på [här](https://aka.ms/v2a_asr_reboot).
+
+> [!TIP]
+>Bästa metoder för schemaläggning uppgraderingar under underhållsperiod finns [här](https://aka.ms/v2a_asr_upgrade_practice).
 
 ## <a name="lvm-support-from-920-version"></a>LVM stöd från 9.20 version
 

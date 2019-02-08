@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 'Analysverktyg REST API innehåller en lista över analysverktyg som för närvarande stöds av API: T för Lingvistisk analys.'
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8bf13bffe763b88e95da94f885e30d271e36da42
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9338e87644554ac8b3121c5341cea6f2bc512a97
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221699"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878195"
 ---
 # <a name="analyzers-method"></a>Analyzer-metod
 
@@ -32,10 +32,10 @@ Ingen
 <br>
 
 ## <a name="response-parameters"></a>Svarsparametrar
-Name | Typ | Beskrivning
+Namn | Typ | Beskrivning
 -----|------|--------------
 Språk | lista med strängar | lista över två bokstaven ISO språkkoder som som den här analyzer kan användas.
-ID   | sträng | unikt ID för den här analyzer
+id   | sträng | unikt ID för den här analyzer
 typ | sträng | bred typ av analyzer här
 Specifikationen | sträng | namnet på den specifikation som används för den här analyzer
 Implementering | sträng | Beskrivning av modellen och/eller algoritmen bakom den här analyzer

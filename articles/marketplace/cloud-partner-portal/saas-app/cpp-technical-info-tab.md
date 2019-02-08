@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7a49e69b2e27a38b1a89fedbd6bbd70066b37dc2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451229"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895405"
 ---
 # <a name="saas-application-technical-info-tab"></a>Tekniska informationsfliken för SaaS-program
 
@@ -42,7 +42,7 @@ För att avgöra vilken typ av SaaS-app som du utvecklar, läsa [förstå storef
 Om du vill skapa den här upplevelsen måste du konfigurera följande delar:
 
 - Anslut din SaaS tjänsten webbplats med Microsofts SaaS APIs. Den [SaaS sälj via Azure – API: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) artikeln förklarar hur du skapar den här anslutningen.
-- Aktivera sälj via Azure på partnerportalen i molnet i konfigurationsformuläret för teknisk och ange nödvändig information. Läs mer om detta faktureringsmodellen och hur den har implementerats [SaaS – sälj via Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions#overview).
+- Aktivera sälj via Azure på partnerportalen i molnet i konfigurationsformuläret för teknisk och ange nödvändig information. Läs mer om detta faktureringsmodellen och hur den har implementerats [SaaS – sälj via Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions).
 
  ![Sälj via Microsoft-formulär](./media/saas-techinfo-sellthrough-ms.png)
 

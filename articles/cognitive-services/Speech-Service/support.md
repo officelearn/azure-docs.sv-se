@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Hur du få hjälp och support för frågor och problem när du skapar program som integreras med Speech-tjänsten
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 9ed4f14ee5c3f6023e5529aca7fbd824f5ca460a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88efa6b16e33fe928ad9354b7283f7c651e6710c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207045"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881308"
 ---
 # <a name="support-and-help-options"></a>Alternativ för support och hjälp
 
@@ -32,7 +32,7 @@ Har du precis börjat utforska funktionerna i Speech-tjänsten? Implementerar du
 
 Nyheter om Cognitive Services som samlas in i den [Cognitive Services-blogg](https://azure.microsoft.com/blog/topics/cognitive-services/). Den senaste informationen om Speech service spåra den [tal serviceblogg](https://azure.microsoft.com/blog/tag/speech-service/).
 
-## <a name="search"></a>Sök
+## <a name="search"></a>Search
 
 Du kan hitta svaret du behöver i dokumentation är exempel eller svar på [Stack Overflow](https://www.stackoverflow.com) frågor eller i exemplen.
 

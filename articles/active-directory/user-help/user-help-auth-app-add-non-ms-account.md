@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: afcac73af84010f37eccd018f39852712e495b84
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: f0f0e32ccbb8fdac934f81e2f90132f63a91f069
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773803"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892124"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Lägg till icke-Microsoft-konton
 Lägga till dina icke-Microsoft-konton, till exempel för Google, Facebook och GitHub till Microsoft Authenticator-appen för verifiering av två faktorer. Microsoft Authenticator-appen fungerar med alla appar som använder två faktorer verifiering och ett konto som har stöd för tidsbaserade engångslösenord (TOTP)-standarder.
@@ -55,7 +55,7 @@ Lägg till ditt Google-konto genom att aktivera tvåfaktorsautentisering verifie
 4. Använd enhetens kamera för att skanna QR-kod från den **konfigurera Authenticator** sida på din dator.
 
     >[!Note]
-    >Om din kamera inte fungerar korrekt, kan du [ange QR-koden och Webbadressen manuellt](#add-an-account-to-the-app-manually).
+    >Om din kamera inte fungerar korrekt kan ange du QR-koden och Webbadressen manuellt.
 
 5. Granska den **konton** i Microsoft Authenticator-appen på enheten, för att se till att din kontoinformation är rätt och att det finns en tillhörande sexsiffrig Verifieringskod.
 
@@ -94,7 +94,7 @@ Lägg till ditt Facebook-konto genom att aktivera tvåfaktorsautentisering verif
 3. Använd enhetens kamera för att skanna QR-kod från den **två factor-autentisering** sida på din dator.
 
     >[!Note]
-    >Om din kamera inte fungerar korrekt, kan du [ange QR-koden och Webbadressen manuellt](#add-an-account-to-the-app-manually).
+    >Om din kamera inte fungerar korrekt kan ange du QR-koden och Webbadressen manuellt.
 
 4. Granska den **konton** i Microsoft Authenticator-appen på enheten, för att se till att din kontoinformation är rätt och att det finns en tillhörande sexsiffrig Verifieringskod.
 
@@ -165,7 +165,7 @@ Lägg till Amazon-konto genom att aktivera tvåfaktorsautentisering verifiering 
 6. Använd enhetens kamera för att skanna QR-kod från den **Välj hur du kommer att få koder** sida på din dator.
 
     >[!Note]
-    >Om din kamera inte fungerar korrekt, kan du [ange QR-koden och Webbadressen manuellt](#add-an-account-to-the-app-manually).
+    >Om din kamera inte fungerar korrekt kan ange du QR-koden och Webbadressen manuellt.
 
 5. Granska den **konton** i Microsoft Authenticator-appen på enheten, för att se till att din kontoinformation är rätt och att det finns en tillhörande sexsiffrig Verifieringskod.
 

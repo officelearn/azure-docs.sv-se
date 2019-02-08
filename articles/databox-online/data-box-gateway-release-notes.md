@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0265de5b224e62d188fe6e3b9322d5c2e3f77fa1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302129"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883142"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Viktig information om Azure Data Box Gateway förhandsversion
 
@@ -52,9 +52,8 @@ Följande tabell innehåller en sammanfattning av kända problem för Data Box-G
 | **7.** |Uppdatera | Behörigheter och åtkomstkontrollistor (ACL) bevaras inte över en uppdatering.  | |
 | **8.** |Kopiera | Kopiering av data misslyckas med fel:  Den begärda åtgärden kunde inte slutföras på grund av en begränsning i filsystemet.  |Det här felet uppstår när den alternativa Data Stream (AD) som är associerade med filen överskrider 128 KB (maxgränsen för ReFS).  |
 | **9.** |Symboliska länkar |Symboliska länkar stöds inte.  |Symboliska länkar till kataloger resultera i kataloger aldrig komma markerade offline. Därför kan du inte ser grå mellan på de kataloger som anger att katalogerna som är offline och allt tillhörande innehåll helt har överförts till Azure. |
-| **10.** |Onlinehjälp |Hjälplänkar i Azure-portalen kan inte länka till dokumentationen.|Länken i fungerar i den allmänt tillgängliga versionen. |
-
-
+| **10.** |Resurser |Uppdatera en befintlig behållare med Page Blobs, till en Blockblob resurs (eller vice versa) leder till uppladdningsfel på filändring.  |Det här beteendet som visas när du följer dessa steg: <li> Skapa en Blockblob-resurs på enheten. </li><li> Koppla resursen till en befintlig cloud-behållare som har Page Blobs.</li><li>Uppdatera denna resurs. </li><li>Ändra några av de uppdatera filer som redan lagras som Sidblobar i molnet.</li> Ladda upp fel visas. |
+| **11.** |Onlinehjälp |Hjälplänkar i Azure-portalen kan inte länka till dokumentationen.|Länken i fungerar i den allmänt tillgängliga versionen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,24 +5,27 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/22/2019
+ms.date: 2/7/2019
 ms.author: victorh
-ms.openlocfilehash: 87a80703c473245660a850645ca3fef21bbd80f6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452725"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895488"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegera en underdomän i Azure DNS
 
-Du kan använda Azure-portalen för att delegera DNS-underdomänen. Till exempel om du äger domänen contoso.com, kan du delegera en underdomän som kallas *engineering* till en annan, separat zon kan administreras separat från zonen contoso.com.
+Du kan använda Azure-portalen för att delegera DNS-underdomänen. Till exempel om du äger domänen contoso.com, kan du delegera en underdomän som kallas *engineering* till en annan, separat zon som du kan administrera separat från zonen contoso.com.
+
+Om du vill kan du delegera en underdomän med hjälp av [Azure PowerShell](delegate-subdomain-ps.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill delegera en underdomän i Azure DNS måste du först Delegera din offentliga domän till Azure DNS. Se [delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) anvisningar om hur du konfigurerar dina namnservrar för delegering. När din domän har delegerats till Azure DNS-zon kan delegera du din underdomän.
 
-I exemplen i den här artikeln används domänen contoso.com. Du bör ersätta din egen domän när du använder de här procedurerna.
+> [!NOTE]
+> Contoso.com används som exempel i den här artikeln. Använd ditt eget domännamn i stället för contoso.com.
 
 ## <a name="create-a-zone-for-your-subdomain"></a>Skapa en zon för din underdomän
 
@@ -38,10 +41,13 @@ Börja med att skapa zonen för den **engineering** underdomänen.
 
 ## <a name="note-the-name-servers"></a>Observera namnservrarna
 
-Next, copy the four name servers for your subdomain.
+Därefter Observera fyra namnservrarna för underdomänen tekniker.
 
-1. På den **engineering** zon fönstret Observera fyra namnservrarna för zonen. Du använder dessa namnservrar senare.
-2. Skapa en **A** post för testning. Till exempel skapa en **www** A spela in och konfigurera den med en **10.10.10.10** IP-adress.
+På den **engineering** zon fönstret Observera fyra namnservrarna för zonen. Du använder dessa namnservrar senare.
+
+## <a name="create-a-test-record"></a>Skapa en testpost
+
+Skapa en **A** post för testning. Till exempel skapa en **www** A spela in och konfigurera den med en **10.10.10.10** IP-adress.
 
 ## <a name="create-an-ns-record"></a>Skapa en NS-post
 
@@ -59,10 +65,8 @@ Skapa sedan en namnet namnserver-post för den **engineering** zon.
 Använda nslookup för att testa delegeringen.
 
 1. Öppna ett PowerShell-fönster.
-2. Kommandotolken skriver du: `nslookup www.engineering.<your domain name>.`
+2. Kommandotolken skriver du: `nslookup www.engineering.contoso.com.`
 3. Du bör få ett icke-auktoritativa svar som visar adressen **10.10.10.10**.
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3f37b996caa60a54c18388cb1f65873bf0aa4ed9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259792"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877702"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämför Azure Data Lake Storage Gen1 och Azure Blob Storage
-  >[!NOTE] 
-    >[Azure Data Lake Storage Gen2 förhandsversion](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) lanserades nyligen. Data Lake Storage Gen2 förhandsversion är resultatet av konvergerar funktioner i våra två befintliga storage services, Azure Blob Storage och [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index). Funktioner från Azure Data Lake Storage Gen1, till exempel filsystemen, filen säkerhet på radnivå och skala kombineras med låg kostnad, nivåindelad lagring, hög tillgänglighet/haveriberedskap från [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> Vi rekommenderar starkt att du börjar använda Data Lake Storage Gen2 förhandsversion som grund för att skapa ditt företag datasjöar och få bäst av Azure Blob Storage, samt Azure Data Lake Storage Gen1.
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
 Tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake Storage Gen1 och Azure Blob Storage med viktiga aspekter av bearbetning av stordata. Azure Blob Storage är en allmän och skalbar objektlagring som är utformad för en mängd olika lagringsscenarier. Azure Data Lake Storage Gen1 är en lagringsplats i hyperskala som är optimerad för stordataanalyser.
-
-
-
-
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |

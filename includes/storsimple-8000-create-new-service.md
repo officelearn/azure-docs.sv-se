@@ -4,27 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 7139b8ef2bfc9262611e51ce620da6a4769494b4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 54a1bc9ce04cf10575b26cda7861c1dd458dc831
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165593"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889254"
 ---
-<!--author=alkohli last changed:02/10/2017-->
-
----
-title: ta med fil
-description: ta med fil
-services: storage
-author: alkohli
-ms.service: storage
-ms.topic: include
-ms.date: 08/20/2018
-ms.author: alkohli
-ms.custom: include file
----
-
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 
 1. Använd dina Microsoft-kontouppgifter för att logga in på [Azure Portal](https://portal.azure.com/).

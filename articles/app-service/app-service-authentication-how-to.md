@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: da3c90579dafebf1b5b362c7129e681663a0a7ab
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301585"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891886"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -174,7 +174,7 @@ Från din serverkod införs provider-specifik token i huvudet för begäran och 
 Skicka en HTTP från klientkoden (till exempel en mobilapp eller JavaScript i webbläsaren), `GET` begäran till `/.auth/me`. Den returnerade JSON har provider-specifik token.
 
 > [!NOTE]
-> Åtkomsttoken är för att komma åt provider-resurser, så att de finns bara om du konfigurerar din provider med en klienthemlighet. Så här hämtar du uppdateringstoken finns i [uppdatera åtkomsttoken](#refresh-access-tokens).
+> Åtkomsttoken är för att komma åt provider-resurser, så att de finns bara om du konfigurerar din provider med en klienthemlighet. Om du vill se hur du hämtar uppdaterings-tokens, se Uppdatera åtkomsttoken.
 
 ## <a name="refresh-identity-provider-tokens"></a>Uppdatera providern identitetstoken
 

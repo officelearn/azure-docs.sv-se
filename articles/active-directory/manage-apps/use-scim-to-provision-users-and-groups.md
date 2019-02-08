@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: faebf6c5e7b32ec842c19af07e36a1120156e103
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732591"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894130"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -38,9 +38,9 @@ Den här funktionen kan användas tillsammans med funktionen ”Ta med din egen 
 
 Det finns två användningsfall för att använda SCIM i Azure Active Directory:
 
-* **Etablering av användare och grupper till program som stöder SCIM** -program som stöder SCIM 2.0 och Använd OAuth ägar-token för autentisering fungerar med Azure AD utan konfiguration.
+* **Etablering av användare och grupper till program som stöder SCIM** -program som stöder SCIM 2.0 och använder OAuth ägar-token för autentisering fungerar med Azure AD utan konfiguration.
   
-* **Skapa din egen etablering lösning för program som stöder andra API-baserad tilldelning** -för icke-SCIM-program, kan du skapa en SCIM-slutpunkt för att översätta mellan Azure AD SCIM-slutpunkten och alla API: er som stöds av programmet för etableringen av användare. Som hjälper dig att utveckla en SCIM-slutpunkt, finns det vanliga språk infrastruktur (CLI) bibliotek tillsammans med kodexempel som visar hur du gör ger en SCIM-slutpunkt och översätta SCIM meddelanden.  
+* **Skapa din egen etablering lösning för program som stöder andra API-baserad tilldelning** -för icke-SCIM-program, kan du skapa en SCIM-slutpunkt för att översätta mellan Azure AD SCIM-slutpunkten och alla API: er som stöds av programmet för etableringen av användare. Som hjälper dig att utveckla en SCIM-slutpunkt, finns det vanliga språk infrastruktur (CLI) bibliotek tillsammans med kodexempel som visar hur du anger en SCIM-slutpunkt och översätta SCIM meddelanden.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Etablering av användare och grupper till program som stöder SCIM
 Azure AD kan konfigureras att automatiskt etablera tilldelade användare och grupper till program som implementerar en [System för Identitetshantering för domänerna 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) webbtjänsten och godkänna OAuth-ägar-token för autentisering. Inom SCIM 2.0-specifikationen måste program uppfylla följande krav:
@@ -74,7 +74,7 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
    *Bild 3: Konfigurera etablering i Azure portal*
     
 6. I den **klient-URL** fältet, anger du URL till slutpunkten för programmets SCIM. Exempel: https://api.contoso.com/scim/v2/
-7. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. Om fältet lämnas tomt används med Azure AD en OAuth-ägartoken som har utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som identitetsprovider kan verifiera den här Azure AD-utfärdade token.
+7. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. Om fältet lämnas tomt, innehåller en OAuth-ägartoken som har utfärdats från Azure AD med varje begäran med Azure AD. Appar som använder Azure AD som identitetsprovider kan verifiera den här Azure AD-utfärdade token.
 8. Klicka på den **Testanslutningen** så försöker ansluta till SCIM-slutpunkten för Azure Active Directory. Om försöker misslyckas, visas information om felet.  
 
     >[!NOTE]
@@ -86,7 +86,7 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
     >[!NOTE]
     >Du kan också inaktivera synkronisering av gruppobjekt genom att inaktivera ”grupper”-mappning. 
 
-11. Under **inställningar**, **omfång** fältet definierar vilka användare som är och eller grupper är synkroniserade. Att välja ”synkronisera enbart tilldelade användare och grupper” (rekommenderas) det kommer endast att synkronisera användare och grupper som tilldelats i den **användare och grupper** fliken.
+11. Under **inställningar**, **omfång** fältet definierar vilka användare och grupper synkroniseras. Att välja ”synkronisera enbart tilldelade användare och grupper” (rekommenderas) det kommer endast att synkronisera användare och grupper som tilldelats i den **användare och grupper** fliken.
 12. När konfigurationen är klar kan du ändra den **Etableringsstatus** till **på**.
 13. Klicka på **spara** att starta den Azure AD-etableringstjänsten. 
 14. Om synkronisera enbart tilldelade användare och grupper (rekommenderas), måste du markera den **användare och grupper** fliken och tilldela användare och/eller grupper som du vill synkronisera.
@@ -153,7 +153,7 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableri
    ![][2]
    *Bild 4: Konfigurera etablering i Azure portal*
     
-6. I den **klient-URL** fältet, anger du URL: en och en port för din SCIM-slutpunkt som visas på internet. Transaktionen är något som liknar http://testmachine.contoso.com:9000 eller http://<ip-address>:9000/, där < ip-adress > är internet exponerade IP-adress.  
+6. I den **klient-URL** fältet, anger du URL: en och en port för din SCIM-slutpunkt som visas på internet. Transaktionen är något som liknar http://testmachine.contoso.com:9000 eller http://\<ip-adress >: 9000 / där \<ip-adress > är internet exponerade IP adress.  
 7. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. Om fältet lämnas tomt används att Azure AD inkludera en OAuth-ägartoken som har utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som identitetsprovider kan verifiera den här Azure AD-utfärdade token.
 8. Klicka på den **Testanslutningen** så försöker ansluta till SCIM-slutpunkten för Azure Active Directory. Om försöker misslyckas, visas information om felet.  
 

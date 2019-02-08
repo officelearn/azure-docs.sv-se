@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Så här använder Collaborative Translation Framework (CTF) reporting.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 273b54961adafb58fe9faa7993003ff74d50b6f9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 69fbcad92d31744cae798b7ff376e77f655f6440
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218164"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877567"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Så här använder du CTF-rapportering (Collaborative Translation Framework)
 
@@ -36,7 +36,7 @@ Slutpunkten för CTF Reporting API: et är http://api.microsofttranslator.com/v2
 
 
 ## <a name="methods"></a>Metoder
-| Name |    Beskrivning|
+| Namn |    Beskrivning|
 |:---|:---|
 | GetUserTranslationCounts Method | Hämta antalet översättningar som har skapats av användaren. |
 | GetUserTranslations Method | Hämtar översättningar som har skapats av användaren. |
@@ -82,7 +82,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 | till | **Valfritt** en sträng som representerar språkkoden att översätta text i.|
 | minRating| **Valfritt** ett heltalsvärde som representerar minimikvalitet-klassificering för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
 | maxRating| **Valfritt** ett heltalsvärde som representerar den högsta kvalitet klassificeringen för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
-| användare | **Valfritt** en sträng som används för att filtrera resultatet baserat på avsändaren av överföringen. |
+| Användare | **Valfritt** en sträng som används för att filtrera resultatet baserat på avsändaren av överföringen. |
 | category| **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet Allmänt.|
 | minDateUtc| **Valfritt** datum när du vill hämta översättningar. Datumet måste vara i UTC-format. |
 | maxDateUtc| **Valfritt** datum till när du vill hämta översättningar. Datumet måste vara i UTC-format. |
@@ -153,7 +153,7 @@ UserTranslation[] GetUserTranslations (
 | till| **Valfritt** en sträng som representerar språkkoden att översätta text i.|
 | minRating| **Valfritt** ett heltalsvärde som representerar minimikvalitet-klassificering för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
 | maxRating| **Valfritt** ett heltalsvärde som representerar den högsta kvalitet klassificeringen för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
-| användare| **Valfritt. En sträng som används för att filtrera resultatet baserat på avsändaren av överföringen**|
+| Användare| **Valfritt. En sträng som används för att filtrera resultatet baserat på avsändaren av överföringen**|
 | category| **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet Allmänt.|
 | minDateUtc| **Valfritt** datum när du vill hämta översättningar. Datumet måste vara i UTC-format.|
 | maxDateUtc| **Valfritt** datum till när du vill hämta översättningar. Datumet måste vara i UTC-format.|

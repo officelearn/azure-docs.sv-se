@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 02/07/2018
 ms.author: normesta
-ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731555"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895541"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller kända problem och temporära begränsningar med A
 
 API: erna för Blob Storage och Azure Data Lake Gen2 API: er är inte kompatibla med varandra.
 
-Om du har anpassade verktyg, program eller skript som använder Blob-API: er och du vill använda dem för att arbeta med allt det innehåll som du överför till ditt konto, inte aktivera hierarkisk namnområden på Blob storage-kontot förrän Blob API: er blir samverkande med Azure Data Lake Gen2 API: er. Med hjälp av ett lagringskonto utan hierarkiskt namnområde åtkomstkontrollistor innebär att du kan sedan inte har åtkomst till Data Lake Storage Gen2 specifika funktioner, till exempel katalogen och filsystem.
+Om du har verktyg, program, tjänster eller skript som använder Blob-API: er och du vill använda dem för att arbeta med allt det innehåll som du överför till ditt konto, inte aktivera ett hierarkiskt namnområde på Blob storage-kontot förrän Blob API: er blir kompatibel med Azure Data Lake Gen2 API: er. Med hjälp av ett lagringskonto utan ett hierarkiskt namnområde åtkomstkontrollistor innebär att du kan sedan inte har åtkomst till Data Lake Storage Gen2 specifika funktioner, till exempel katalogen och filsystem.
 
 ## <a name="blob-storage-apis"></a>API: er för BLOB storage
 
@@ -41,15 +41,15 @@ Om du använde dessa API: er för att läsa in data innan de har inaktiverats, o
 
 * Även om du inte påverkas aktivt i produktion, berätta för oss om du behöver dessa data ska kopieras till ett annat lagringskonto av någon anledning och varför?
 
-Under dessa omständigheter kan vi återställa åtkomst till Blob-API: et under en begränsad tid så att du kan kopiera dessa data till ett lagringskonto som inte har hierarkisk aktiverade namnområden.
+Under dessa omständigheter kan vi återställa åtkomst till Blob-API: et under en begränsad tid så att du kan kopiera dessa data till ett lagringskonto som inte har funktionen för hierarkiskt namnområde aktiverad.
 
-Ohanterade diskar för virtuella datorer (VM) är beroende av den inaktiverade API: er för Blob Storage, så om du vill aktivera hierarkisk namnområden på ett lagringskonto, Överväg att placera ohanterade Virtuella datordiskar till ett lagringskonto som inte har hierarkisk aktiverade namnområden.
+Ohanterade diskar för virtuella datorer (VM) är beroende av den inaktiverade API: er för Blob Storage, så om du vill aktivera ett hierarkiskt namnområde på ett lagringskonto, Överväg att placera ohanterade Virtuella datordiskar till ett lagringskonto som inte har funktionen för hierarkiskt namnområde aktiverad.
 
 ## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
 
 Om du vill visa eller hantera Data Lake Storage Gen2 konton med hjälp av Azure Storage Explorer, du måste ha minst version `1.6.0` i verktyget som är tillgängligt som en [kostnadsfri nedladdning](https://azure.microsoft.com/features/storage-explorer/).
 
-Observera att versionen av Storage Explorer som är inbäddad i Azure Portal har för närvarande inte stöd för Visa eller hantera Data Lake Storage Gen2 konton med hierarkisk aktiverade namnområden.
+Observera att versionen av Storage Explorer som är inbäddad i Azure Portal har för närvarande inte stöd för Visa eller hantera Gen2 för Data Lake Storage-konton med funktionen för hierarkiskt namnområde aktiverad.
 
 ## <a name="blob-viewing-tool"></a>Verktyget för visning av BLOB
 
@@ -75,17 +75,17 @@ Använd i stället den senaste förhandsversionen av AzCopy ( [AzCopy v10](https
 
 Mjuk borttagning och ögonblicksbilder är inte tillgängliga för Azure Data Lake Storage Gen2 konton.
 
-Alla versionshantering funktioner inklusive [ögonblicksbilder](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) och [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) är ännu inte tillgängliga för Storage-konton som har hierarkisk aktiverade namnområden.
+Alla versionshantering funktioner inklusive [ögonblicksbilder](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) och [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) är ännu inte tillgängliga för Storage-konton som har funktionen för hierarkiskt namnområde aktiverad.
 
 ## <a name="object-level-storage-tiers"></a>Objektet på lagringsnivåer
 
-Objektet på lagringsnivåer (frekvent, lågfrekvent och Arkiv) är ännu inte tillgängliga för Azure Data Lake Storage Gen 2-konton, men de blir tillgängliga för Storage-konton som inte har hierarkisk aktiverade namnområden.
+Objektet på lagringsnivåer (frekvent, lågfrekvent och Arkiv) är ännu inte tillgängliga för Azure Data Lake Storage Gen 2-konton, men de blir tillgängliga för Storage-konton som inte har funktionen för hierarkiskt namnområde aktiverad.
 
-## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Azure Blob Storage livscykeln för hantering (förhandsversion)-principer
+## <a name="azure-blob-storage-lifecycle-management-policies"></a>Azure Blob Storage principer för hantering av livscykeln
 
-Azure Blob Storage livscykeln för hantering (förhandsversion)-principer är ännu inte tillgängliga för Azure Data Lake Storage Gen2 konton.
+Azure Blob Storage principer för hantering av livscykeln är ännu inte tillgängliga för Azure Data Lake Storage Gen2 konton.
 
-Dessa principer är tillgängliga för Storage-konton som inte har hierarkisk aktiverade namnområden.
+Dessa principer är tillgängliga för Storage-konton som inte har funktionen för hierarkiskt namnområde aktiverad.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 

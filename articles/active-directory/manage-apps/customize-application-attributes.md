@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaf6890223526b213ac4ec1180288b95fe6eaa29
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c32b24007a041b9eb2cc1a5418c221239f3267b6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149870"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893885"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attributmappningar för Användaretablering för SaaS-program i Azure Active Directory
 Microsoft Azure AD har stöd för användaretablering för SaaS-program från tredje part, till exempel Salesforce, Google Apps och andra. Om du har användaretablering för ett tredje parts SaaS-program som aktiverad, styr dess attributvärden i form av attributmappningar Azure-portalen.
@@ -102,7 +102,7 @@ Program och system som har stöd för anpassning av attributlistan är:
 * Appar som stöder [SCIM 2.0](https://tools.ietf.org/html/rfc7643), där attribut som definierats i den [grundläggande schemat](https://tools.ietf.org/html/rfc7643) måste läggas till
 
 >[!NOTE]
->Redigera listan över attribut som stöds rekommenderas endast för administratörer som har anpassat schemat för sina program och system, och som har erfarenhet kunskaper om hur deras anpassade attribut har definierats. Detta kräver ibland kunskap om de verktyg för API: er och utvecklare som tillhandahålls av ett program eller system. 
+>Redigera listan över attribut som stöds rekommenderas endast för administratörer som har anpassat schemat för sina program och system, och som har erfarenhet kunskaper om hur deras anpassade attribut har definierats. Detta kräver ibland kunskap om de API: er och utvecklare verktyg som tillhandahålls av ett program eller system. 
 
 ![Redigeringsprogram](./media/customize-application-attributes/25.png) 
 

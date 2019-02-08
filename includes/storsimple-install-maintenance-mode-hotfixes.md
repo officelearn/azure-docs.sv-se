@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 5e4921be3116754f146ed0845513010f2642c97b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2d0fd904dd704c704662192e1e92fe403f0971c5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164375"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889170"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>Installera snabbkorrigeringar i underhållsläge via Windows PowerShell för StorSimple
 > [!IMPORTANT]
 > I underhållsläge måste du aktivera snabbkorrigeringen först på en domänkontrollant och sedan på den andra styrenheten.
@@ -26,5 +24,5 @@ ms.locfileid: "50164375"
 3. När du uppmanas, anger du sökvägen till den delade nätverksmappen som innehåller filerna för snabbkorrigeringen.
 4. Du uppmanas att bekräfta. Typ **Y** att fortsätta med installationen av snabbkorrigeringen.
 5. När du har tillämpat snabbkorrigeringen på en domänkontrollant, kan du logga in på den andra styrenheten. Installera snabbkorrigeringen som du gjorde för tidigare styrenheten.
-6. Avsluta underhållsläget när snabbkorrigeringarna tillämpas. Se [steg 4: avsluta underhållsläget](../articles/storsimple/storsimple-update-device.md#step4) anvisningar.
+6. Avsluta underhållsläget när snabbkorrigeringarna tillämpas. Se [steg 4: Avsluta underhållsläget](../articles/storsimple/storsimple-update-device.md#step4) anvisningar.
 

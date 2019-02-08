@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b12b8b30cf063092ca1a0394d5a46e03622586e4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: eb6438271547348abef78dd8b35b577f2ac0ab8c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165798"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889287"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-regular-updates-via-the-azure-classic-portal"></a>Installera regelbundna uppdateringar via den klassiska Azure-portalen
 1. På den **enheter** väljer du den enhet som du vill installera uppdateringar.
 2. Gå till **enheter** > **Underhåll** och bläddra ned till **programuppdateringar**.

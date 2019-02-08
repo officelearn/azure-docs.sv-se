@@ -4,25 +4,25 @@ titleSuffix: Azure Cognitive Services
 description: Azure Speech Services stöder flera språk för tal till text och text till tal konvertering, tillsammans med talöversättning. Den här artikeln innehåller en omfattande lista över språk som stöds av tjänsten.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bc85de9d2d94cd325095f5f6555105a724865005
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213334"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878042"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Stöd för språk och din region för tjänsten för Taligenkänning
 
 Olika språk stöds för olika Speech Services-funktioner. Följande tabeller sammanfattar språkstöd.
 
-## <a name="speech-to-text"></a>Tal-till-text
+## <a name="speech-to-text"></a>Tal till text
 
 Microsoft taligenkänningens API stöder följande språk. Olika typer av anpassningar är tillgängliga för varje språk.
 
@@ -60,7 +60,7 @@ Microsoft taligenkänningens API stöder följande språk. Olika typer av anpass
  TH-TH | Thailändska (Thailand) | Nej | Nej | Nej
 
 
-## <a name="text-to-speech"></a>Text-till-tal
+## <a name="text-to-speech"></a>Text till tal
 
 Text till tal REST API har stöd för dessa röster som stöder ett visst språk och dialekt som identifieras av nationella inställningar.
 
@@ -75,7 +75,7 @@ Neural röster kan användas för att göra interaktion med chattrobotar och vir
 
 En fullständig lista över neural röster och regional tillgänglighet finns i [regioner](regions.md#neural-voices).
 
-| Nationella inställningar | Språk | Kön | Tjänsten Namnmappningen|
+| Nationell inställning | Språk | Kön | Tjänsten Namnmappningen|
 |--------|----------|---------|--------------------|
 | en-US | English (US) | Man | ”Microsoft Server tal Text till tal-röst (en-US, GuyNeural)” |
 | en-US | English (US) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, JessaNeural)” |
@@ -88,7 +88,7 @@ En fullständig lista över neural röster och regional tillgänglighet finns i 
 
 Mer än 75 standard röster är tillgängliga i över 45 språk och nationella inställningar, där du kan omvandla text till syntetiskt tal. Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-voices).
 
-Nationella inställningar | Språk | Kön | Tjänsten Namnmappningen
+Nationell inställning | Språk | Kön | Tjänsten Namnmappningen
 -------|----------|---------|--------------------
 ar-t.ex.\* | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)”
 ar-SA | Arabiska (Saudiarabien) | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)”

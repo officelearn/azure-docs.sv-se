@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c7b3695e5cb43a9c8f659a3ac1baddab51526b2d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299052"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893739"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -28,14 +28,15 @@ Datakällor och anslutningsappar som visas i hämta Data eller Importguiden i Vi
 |Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   Ja       |    Nej      |
 |Azure Table Storage<sup>[1](#tab1400a)</sup>    |   Ja       |    Nej      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Ja        |  Nej        |
-|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   Ja       |    Nej      |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Ja       |    Nej      |
 |Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Ja     |   Nej       |
 |Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Ja       |   Nej       |
 ||||
 
-<a name="tab1400a">1</a> tabell 1400 och högre modeller.   
-<a name="azsqlmanaged">2</a> finns stöd för azure SQL Database Managed Instance. Eftersom en hanterad instans körs i Azure virtuellt nätverk med en privat IP-adress, krävs en lokal Datagateway.   
-<a name="databricks">3</a> azure Databricks med Spark-anslutningsappen stöds inte för tillfället.
+<a name="tab1400a">1</a> -tabell 1400 och högre modeller.   
+<a name="azsqlmanaged">2</a> – azure SQL Database Managed Instance stöds. Eftersom en hanterad instans körs i Azure virtuellt nätverk med en privat IP-adress, krävs en lokal Datagateway.   
+<a name="databricks">3</a> – azure Databricks med Spark connector inte stöds för tillfället.   
+<a name="gen2">4</a> -ADLS Gen2 stöds inte för tillfället.
 
 
 **Providern**   

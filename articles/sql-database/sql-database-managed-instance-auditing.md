@@ -13,13 +13,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729005"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894402"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database managed instance granskning
 
@@ -154,7 +154,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
 Ytterligare information:
 
-- [Granskning skillnaderna mellan enskilda databaser, elastisk pool, s och hanterade instanser i Azure SQL Database och databaser i SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Granskning skillnaderna mellan enskilda databaser, elastisk pool, s och hanterade instanser i Azure SQL Database och databaser i SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [SKAPA SERVERGRANSKNING](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -223,13 +223,13 @@ Log Analytics ger dig operational realtidsinsikter med integrerad sökning och a
 
 De viktigaste skillnaderna mellan granskning i databaser i Azure SQL Database och databaser i SQL Server är:
 
-- Med alternativet för hanterad instans-distribution i Azure SQL Database-granskning fungerar på servernivå och lagrar `.xel` loggfiler på en Azure blob storage-konto.
+- Med alternativet för hanterad instans-distribution i Azure SQL Database-granskning fungerar på servernivå och lagrar `.xel` loggfiler i Azure Blob storage.
 - Med enkel databas och elastisk pool distributionsalternativ i Azure SQL Database-granskning fungerar på databasnivå.
 - I SQL Server lokalt per virtuell datorer, granska fungerar på servern nivå, men lagrar händelser på filer system/windows-händelseloggar.
 
-XEvent granskning i hanterad instans stöder prestandamål i Azure blob storage. Fil- och windows-loggar är **stöds inte**.
+XEvent granskning i hanterad instans stöder prestandamål i Azure Blob storage. Fil- och windows-loggar är **stöds inte**.
 
-Nyckeln skillnader i den `CREATE AUDIT` syntax för granskning till Azure blob storage är:
+Nyckeln skillnader i den `CREATE AUDIT` syntax för granskning till Azure Blob storage är:
 
 - En ny syntax `TO URL` tillhandahålls och kan du ange URL: en för Azure blob Storage-behållare där de `.xel` filerna är placerade.
 - En ny syntax `TO EXTERNAL MONITOR` är tillgänglig för att även Hub och Log Analytics-mål.

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Ordlista för Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: anroth
-ms.openlocfilehash: 8d3962459bc173e2db19cfa4728e7eb683511eb3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e659367ae13026dbe48ed681d0a68058d686e3ec
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217164"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884359"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Ordlista för Custom Vision Service
 
@@ -25,7 +25,7 @@ Här följer några termer som används i Custom Vision Service och deras inneb�
 
 En klassificerare är en modell som du skapar med Custom Vision Service med hjälp av några inlärningsbilder. När du är klar med utbildning för en ny klassificerare får du en utvärdering slutpunkt (HTTPS) som du kan lägga till din app. Varje klassificerare som du skapar är i sin egen projekt och du kan visa alla projekt när du har loggat in.
 
-## <a name="domain"></a>Domän
+## <a name="domain"></a>Domain
 
 När du skapar ett projekt kan välja du en ”domän” för projektet. Domänen optimerar en klassificerare för en viss typ av objekt i dina avbildningar. Till exempel, om ditt scenario är att klassificera mellan bilder av apple cirkel jämfört med avbildningar av man odlar Lammefjordsmorötter enkelt kan sedan välja ”mat”-domänen. Om du är osäker på vilken domän som du väljer, väljer du ”Generic” domän.
 
@@ -80,13 +80,13 @@ Det finns två typer av inställningar, inställningar och användarnivå.
    - Project-domain
    - Projektnamn
    - Projektbeskrivning
-   - Syntax:
+   - Användning:
       - Antal inlärningsbilder
       - Antal taggar som har skapats
       - Antal upprepningar som har skapats
 
 - Användarnivå inställningar: 
    - Prenumerationsnycklar: en för träning, en för utvärdering/förutsägelse.
-   - Syntax:
+   - Användning:
       - Antalet projekt som har skapats
       - Antal utvärdering/förutsägelse-API-anrop.

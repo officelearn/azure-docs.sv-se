@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 4bfe4f9f97587b6791e73c2f04055b2dcf5d0f0d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: da46d33e05a6f76687d3b8982855d477cbabfe86
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766222"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895626"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions Proxies
 
@@ -94,7 +94,7 @@ Svarsparametrar kan användas som en del av ändra svaret till klienten. Följan
 
 ### <a name="use-appsettings"></a>Referens för programinställningar
 
-Du kan också referera [programinställningar som definierats för funktionsappen](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop) om inställningsnamn med procenttecken (%).
+Du kan också referera [programinställningar som definierats för funktionsappen](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) om inställningsnamn med procenttecken (%).
 
 Till exempel en backend-URL: en för *https://%ORDER_PROCESSING_HOST%/api/orders* skulle ha ”% ORDER_PROCESSING_HOST %” ersätts med värdet för inställningen ORDER_PROCESSING_HOST.
 

@@ -1,23 +1,23 @@
 ---
-title: Med hjälp av HDFS-CLI med Azure Data Lake Storage Gen2 förhandsversion
-description: Introduktion till HDFS CLI för Data Lake Storage Gen2 förhandsversion
+title: Med hjälp av HDFS-CLI med Azure Data Lake Storage Gen2
+description: Introduktion till HDFS CLI för Data Lake Storage Gen2
 services: storage
 author: artemuwka
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: b4485e234e19e93a852895c80775b8aadc7a15ce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 649fe5ebadf69a90b4794fcaf4519ea5bcc0c4a2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975405"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874199"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Med hjälp av HDFS-CLI med Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 förhandsversion kan du hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Om du har ett HDInsight-kluster-ansluten eller kör ett Apache Spark-jobb med Azure Databricks för att utföra analyser på data som lagras i ett Azure Storage-konto kan använda du kommandoradsgränssnittet (CLI) att hämta och ändra inlästa data.
+Azure Data Lake Storage Gen2 kan du hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Om du har ett HDInsight-kluster-ansluten eller kör ett Apache Spark-jobb med Azure Databricks för att utföra analyser på data som lagras i ett Azure Storage-konto kan använda du kommandoradsgränssnittet (CLI) att hämta och ändra inlästa data.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDFS CLI med HDInsight
 

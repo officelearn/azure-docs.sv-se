@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472583"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895439"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupper med beroendemappning för grupp
 
@@ -104,7 +104,7 @@ När du har installerat agenter på alla datorer i gruppen kan du visualisera be
 3. Om du vill visa mer detaljerade beroenden, klickar du på tidsintervall om du vill ändra den. Intervallet är en timme som standard. Du kan ändra tidsintervallet eller ange start- och slutdatum och varaktighet.
 
     > [!NOTE]
-      Beroendevisualisering Användargränssnittet stöder för närvarande inte valet av ett tidsintervall som är längre än en timme. Använda Log Analytics för att [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-a-group#query-dependency-data-from-log-analytics) över en längre period.
+      Beroendevisualisering Användargränssnittet stöder för närvarande inte valet av ett tidsintervall som är längre än en timme. Använda Log Analytics för att [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) över en längre period.
 
 4. Kontrollera beroende datorer den process som körs på varje dator och identifiera de datorer som ska läggas till eller tas bort från gruppen.
 5. Använd Ctrl + klicka för att välja datorer på kartan för att lägga till eller ta bort dem från gruppen.

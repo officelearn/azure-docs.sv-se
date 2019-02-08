@@ -3,7 +3,7 @@ title: Öka kvoten för slutpunkt
 titleSuffix: Azure Cognitive Services
 description: Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ba3ca363afe96c137a4a9eecdeda33e0f9129111
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491730"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868437"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera endpoint kvot över nycklar
 Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet. 

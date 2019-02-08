@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Lär dig om schemaformat i den kunskap utforskning Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227309"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860719"
 ---
 # <a name="schema-format"></a>Schema Format
 
@@ -43,12 +43,12 @@ Nedan visas en lista över attribut som stöds datatyper:
 
 | Type | Beskrivning | Åtgärder | Exempel |
 |------|-------------|------------|---------|
-| Sträng | Sträng (1 – 1024 tecken) | lika med, starts_with | ”hello world” |
+| String | Sträng (1 – 1024 tecken) | lika med, starts_with | ”hello world” |
 | Int32 | Ett signerat 32-bitars heltal | är lika med, starts_with, is_between | 2016 |
 | Int64 | Ett signerat 64-bitars heltal | är lika med, starts_with, is_between | 9876543210 |
-| Double-värde | Flyttal med dubbel precision | är lika med, starts_with, is_between | 1.602e-19 |
-| Datum | Datum (1400-01-01 till 9999-12-31) | lika med, is_between | '2016-03-14' |
-| GUID | Globalt unik identifierare | är lika med | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| Double | Flyttal med dubbel precision | är lika med, starts_with, is_between | 1.602e-19 |
+| Date | Datum (1400-01-01 till 9999-12-31) | lika med, is_between | '2016-03-14' |
+| Guid | Globalt unik identifierare | lika med | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | Blob | Internt komprimerade data som inte är indexerade | *Ingen* | ”Hjälpa människor och organisationer i världen för att uppnå mer” |
 | Sammansatta | Sammansättning av flera underordnade attribut| *Saknas* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756588"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875499"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Media Services v3
 
@@ -36,17 +36,7 @@ Vi rekommenderar att du skickar in jobb med hjälp av en HTTP-URL som pekar på 
 
 ### <a name="how-does-pagination-work"></a>Hur fungerar sidbrytning?
 
-Media Services har stöd för $top för resurser som har stöd för OData men värdet som skickas till $top måste vara mindre än 1 000 (till exempel sidstorleken för sidbrytning).
-
-På så sätt kan du antingen hämta ett litet antal objekt som använder $top (till exempel de 100 senaste objekten) eller sidan men alla objekt som använder sidbrytning. 
-
-Media Services stöder inte växling via data med en användare som har angetts sidstorlek.
-
-Mer information finns i [filtrering, sortering, växling](entities-overview.md).
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Hur du hämtar en entitet i Media Services v3?
-
-v3 baseras på en enhetlig API-yta, som innehåller funktioner för både hantering och åtgärder som bygger på **Azure Resource Manager**. I enlighet med **Azure Resource Manager**, resursnamnen alltid är unika. Därför kan du använda alla strängar som unik identifierare (till exempel GUID) för din resurs.
+När du använder sidbrytning, bör du alltid använda nästa länk att räkna upp samlingen och inte är beroende av en viss storlek. Mer information och exempel, i [filtrering, sortering, växling](entities-overview.md).
 
 ## <a name="live-streaming"></a>Liveuppspelning 
 

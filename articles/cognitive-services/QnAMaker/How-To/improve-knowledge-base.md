@@ -3,19 +3,19 @@ title: Förbättra kunskapsbas - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
-manager: cgronlun
+manager: nitinme
 displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6feb521aa47ca813b3067451c8c77111deb60e73
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755772"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874013"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
@@ -56,7 +56,7 @@ Algoritm och fastställa närhet är inte en enkel beräkning. Intervall i före
 
 ## <a name="turn-on-active-learning"></a>Aktivera aktiv inlärning
 
-Aktiv inlärning är inaktiverat som standard. Aktiverat den föreslagna frågor. 
+Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor. 
 
 1. Om du vill aktivera active learning på, klicka på din **namn**går du till [ **tjänstinställningar** ](https://www.qnamaker.ai/UserSettings) i QnA Maker-portalen i det övre högra hörnet.  
 

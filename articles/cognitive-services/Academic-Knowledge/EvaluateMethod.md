@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Använd metoden utvärdera om du vill returnera en uppsättning akademiska enheter baserat på ett frågeuttryck.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187308"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871327"
 ---
 # <a name="evaluate-method"></a>utvärdera metod
 
@@ -28,7 +28,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## <a name="request-parameters"></a>Parametrar för begäran  
-Name     | Value | Krävs?  | Beskrivning
+Namn     | Värde | Krävs?  | Beskrivning
 -----------|-----------|---------|--------
 **uttryck för Markörstorlek**       | Textsträngen | Ja | Ett frågeuttryck som anger vilka enheter som ska returneras.
 **model**      | Textsträngen | Nej  | Namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.        
@@ -39,7 +39,7 @@ Name     | Value | Krävs?  | Beskrivning
   
  <br>
 ## <a name="response-json"></a>Svar (JSON)
-Name | Beskrivning
+Namn | Beskrivning
 -------|-----   
 **uttryck för Markörstorlek** |  Den *uttryck* parametern från begäran.
 **Entiteter** |  En matris med 0 eller fler entiteter som matchade frågeuttrycket. Varje entitet innehåller ett naturliga loggen sannolikhetsvärde och värdena för andra attribut som begärs.

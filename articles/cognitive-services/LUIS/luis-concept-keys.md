@@ -4,19 +4,19 @@ titleSuffix: Language Understadning - Azure Cognitive Services
 description: LUIS använder två nycklar, på kostnadsfria redigering för att skapa din modell och förbrukade slutpunktsnyckeln för att fråga förutsägelse slutpunkten med användaren yttranden.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 81744e2af75410da911ee17f2c4acd05d5a57051
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0bb535a75d1eefcb835d25d28dc65c565655d2c5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222601"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881816"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Skriv- och fråga förutsägelse endpoint nycklar i LUIS
 LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md), [tilldela den](luis-how-to-azure-subscription.md) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 

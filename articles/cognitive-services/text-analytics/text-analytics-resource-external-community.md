@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Partner bloggar, youtube-videor, utbildning för Microsoft Cognitive Services Text Analytics API på Azure.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: heidist
-ms.openlocfilehash: 04846ab2f1ade6f22898f88ac82bb36b42c5a1e1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ec6deb934846e24887386dd696f1b0eaf32465aa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207198"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861859"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Extern & community-innehåll för Text Analytics Cognitive Service
 
@@ -35,7 +35,7 @@ ms.locfileid: "55207198"
 
 + Power BI-bloggen: Extraktion av nyckelfraser från Facebook-meddelanden: [Del 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) och [del 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-## <a name="videos"></a>Videor
+## <a name="videos"></a>Videoklipp
 
 + [Logic App för att identifiera sentiment och extrahera nyckelfraser i texten](https://www.youtube.com/watch?v=jVN9NObAzgk)
 

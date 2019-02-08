@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 5995c896f02720d82862895795e1e8d43f6bb226
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d24dcc6f12347c66abc033f4c8b25c3b49870a44
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756477"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895779"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använda portalen för att koppla en datadisk till en Linux VM 
 Den här artikeln visar hur du kopplar både nya och befintliga diskar till en Linux-dator via Azure portal. Du kan också [ansluter en datadisk till en virtuell Windows-dator i Azure-portalen](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -102,10 +102,10 @@ Här kan *sdc* är den disk som vi vill.
 ### <a name="partition-a-new-disk"></a>Partitionera en ny disk
 Om du använder en befintlig disk som innehåller data, kan du hoppa över att montera disken. Om du kopplar en ny disk kan behöva du partitionera disken.
 
-Partitionera disken med `parted`om disken är 2 tebibyte (TiB) eller större måste du använda GPT partitionering, om det är under 2TiB, kan du använda antingen MBR eller GPT partitionering. Gör det primär disk på partition 1 och Godkänn andra standardinställningar. Följande exempel startar den `parted` på */dev/sdc*:
+Partitionera disken med `fdisk`. Om disken är 2 tebibyte (TiB) eller större sedan måste du använda GPT partitionering, som du kan använda `parted` att utföra GPT partitionering. Om disken är under 2TiB, kan du använda antingen MBR eller GPT partitionering. Gör det primär disk på partition 1 och Godkänn andra standardinställningar. Följande exempel startar den `fdisk` på */dev/sdc*:
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Använd den `n` att lägga till en ny partition. I det här exemplet vi också välja `p` för en primär partition av och accepterar du resten av standardinställningarna. Utdata ska vara detsamma som i följande exempel:

@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f7df77447d0571b6d111e316f3f2bcf85b4e1aa4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813831"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893773"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhetsöverväganden för att komma åt appar med Azure AD Application Proxy
 
@@ -147,7 +147,7 @@ Om du har konfigurerat appen att preauthenticate med Azure AD omdirigeras använ
 
 2. När alla kontroller är uppfyllda, Azure AD STS utfärdar en signerade token för programmet och omdirigerar användaren tillbaka till Application Proxy-tjänsten.
 
-3. Programproxyn verifierar att token utfärdats för att åtgärda programmet. Den utför även andra kontroller, till exempel att säkerställa att token har signerats av Azure AD och att det är fortfarande i giltigt fönstret.
+3. Programproxyn verifierar att token har utfärdats till rätt program. Den utför även andra kontroller, till exempel att säkerställa att token har signerats av Azure AD och att det är fortfarande i giltigt fönstret.
 
 4. Application Proxy anger en krypterad autentiseringscookie att indikera att autentiseringen till programmet har uppstått. Cookien innehåller ett förfallodatum tidsstämpel som baseras på token från Azure AD och andra data, till exempel det användarnamn som autentiseringen baseras på. Cookien krypteras med en privat nyckel som bara du känner till Application Proxy-tjänsten.
 

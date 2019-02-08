@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.openlocfilehash: dfc47c40ce82eb8e9d414cb49c22bee033d000a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1c50a6e14955b2c31222ff1317aa99ad28866ec8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239040"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864748"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Med hjälp av Azure Data Lake Storage Gen2 för stordatakrav
 
@@ -82,6 +82,8 @@ För att ladda upp datauppsättningar som intervall i flera terabyte kan med hj�
 När data är tillgängliga i Data Lake Storage Gen2 kan du köra analys på dessa data med hjälp av stöds stordata-program. För närvarande kan du använda Azure HDInsight och Azure Databricks för att köra data analysis-jobb på data som lagras i Data Lake Storage Gen2.
 
 ![Analysera data i Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "analysera data i Data Lake Storage Gen2")
+
+Ett exempel finns i [Använd Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
 
 
 ## <a name="download-data-from-data-lake-storage-gen2"></a>Hämta data från Data Lake Storage Gen2

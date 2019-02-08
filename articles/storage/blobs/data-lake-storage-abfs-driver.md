@@ -1,5 +1,5 @@
 ---
-title: Azure Blob-filsystem-drivrutin för Azure Data Lake Storage Gen2 förhandsversion
+title: Azure Blob-filsystem-drivrutin för Azure Data Lake Storage Gen2
 description: The ABFS Hadoop Filesystem driver
 services: storage
 author: jamesbak
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f50723fa494df0ff1490bf27451394a6e13da467
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c2830cb92df0794e9afbaadfe872ab3e044669cb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240887"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865972"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob-filsystem drivrutinen (ABFS): En dedikerad Azure Storage-drivrutin för Hadoop
 
-En av de primära åtkomst metoderna för data i Azure Data Lake Storage Gen2 förhandsversion är den [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 kan användare av Azure Blob Storage-åtkomst till en ny drivrutin drivrutinen Azure Blob-filsystem eller `ABFS`. ABFS är en del av Apache Hadoop och som ingår i många av de kommersiella Hadoop-distributionerna. Med den här drivrutinen kan många program och ramverk som kan komma åt data i Azure Blob Storage utan att någon kod som uttryckligen refererar till Data Lake Storage Gen2.
+En av de primära åtkomst metoderna för data i Azure Data Lake Storage Gen2 är den [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 kan användare av Azure Blob Storage-åtkomst till en ny drivrutin drivrutinen Azure Blob-filsystem eller `ABFS`. ABFS är en del av Apache Hadoop och som ingår i många av de kommersiella Hadoop-distributionerna. Med den här drivrutinen kan många program och ramverk som kan komma åt data i Azure Blob Storage utan att någon kod som uttryckligen refererar till Data Lake Storage Gen2.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Tidigare kapacitet: Windows Azure Storage Blob-drivrutinen
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Internt ABFS drivrutinen översätter resurserna som anges i URI: N till filer och kataloger och gör anrop till Azure Data Lake Storage REST API med dessa referenser.
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 ABFS-drivrutinen stöder två typer av autentisering så att Hadoop-program kan få säker åtkomst till resurser som ingår i ett kompatibelt Gen2 för Data Lake Storage-konto. Fullständig information om tillgängliga autentiseringsmetoder finns i den [säkerhetsguiden för Azure Storage](../common/storage-security-guide.md). De är:
 

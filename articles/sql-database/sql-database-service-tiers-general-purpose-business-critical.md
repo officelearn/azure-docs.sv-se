@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: 3521f910ded2e24de9cfa7b1aa1d635843527ef5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511843"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878824"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-tjänstnivåer
 
 Azure SQL Database är baserad på SQL Server Database Engine-arkitektur som justeras för molnmiljön för att säkerställa 99,99% tillgänglighet även i fall av infrastrukturfel. Det finns tre arkitekturmodeller som används i Azure SQL Database:
+
 - [Generella](sql-database-service-tier-general-purpose.md) utformad för de flesta av de allmänna arbetsbelastningarna.
 - [Alternativet affärskritisk](sql-database-service-tier-business-critical.md) utformad för arbetsbelastningar med låg latens med en läsbar replik som helst.
 - [Hyperskala](sql-database-service-tier-hyperscale.md) utformat för mycket stora databaser (upp till 100 TB) med flera läsbara repliker.
@@ -40,8 +41,8 @@ Tänk också på följande:
 - När du konfigurerar den nödvändiga enda databasstorleken (storleken på MDF), läggs 30% av ytterligare lagringsutrymme automatiskt till stöd för LDF
 - Lagringsstorlek i Managed Instance måste anges i multipler av 32 GB.
 - Du kan välja valfri databasstorlek mellan 10 GB och högsta som stöds
-  - För standardlagring, öka eller minska storleken i steg om 10 GB
-  - För Premium storage kan öka eller minska storleken i steg om 250 GB
+  - För lagring på tjänstnivåerna standard eller allmänna, öka eller minska storleken i steg om 10 GB
+  - För lagring på premium- eller buxiness kritiska-nivåer, öka eller minska storleken i steg om 250 GB
 - På tjänstnivån generella `tempdb` använder anslutna SSD-disk och den här lagringskostnad ingår i priset för vCore.
 - På tjänstnivån affärskritisk `tempdb` resurser anslutna SSD med MDF-filen och IDF-filer och tempDB lagringskostnad ingår i det vCore-priset.
 

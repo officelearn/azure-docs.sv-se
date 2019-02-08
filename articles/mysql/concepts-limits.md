@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 19fc20f21a57c2325254581c642b75c92c221fd9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 55106f855d1f2cab82b751b306a3a289bd740e9e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536098"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895354"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database for MySQL
 I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegier support, manipulering av instruktionen stöd och funktionella begränsningar i databastjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) gäller för MySQL-databasmotorn.
@@ -55,6 +55,7 @@ När anslutningar överskrider gränsen, kan följande felmeddelande visas:
 ### <a name="unsupported"></a>Stöds inte
 - DBA-roll: Många serverparametrar och inställningar kan du oavsiktligt försämra serverprestanda eller negera ACID-egenskaper för DBMS. Därför för att upprätthålla integriteten för tjänsten och SLA på en produktnivå, exponerar den här tjänsten inte DBA-rollen. Standardanvändarkontot som skapas när en ny databasinstans har skapats, kan användaren utföra de flesta av DDL och DML-instruktioner i hanterade databasinstansen. 
 - SUPER privilegium: På samma sätt [SUPER behörighet](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är också begränsad.
+- DEFINER: Kräver super behörighet för att skapa och är begränsad. Om du importerar data med hjälp av en säkerhetskopia, ta bort den `CREATE DEFINER` kommandon manuellt eller genom att använda den `--skip-definer` kommandot när du utför en mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Stöd för manipulering av instruktionen
 

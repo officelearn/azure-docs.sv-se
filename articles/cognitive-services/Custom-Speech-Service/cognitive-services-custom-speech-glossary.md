@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: panosper
-ms.openlocfilehash: 889eabf38f25923d9bd84ea6ceaa5567c74216df
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: d25ef4d5549d7674c2846a28745b4c9c7a90beb4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223824"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856061"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -36,7 +36,7 @@ En modell som är lämpliga för att känna igen tal som sägs i ett konversatio
 
 ## <a name="d"></a>D
 
-### <a name="deployment"></a>Distribuering
+### <a name="deployment"></a>Distribution
 
 Processen som anpassats anpassade modellen blir en tjänst och Exponerar en URI
 
@@ -90,7 +90,7 @@ En akustisk modell är lämplig för bearbetning av kommandon. Microsoft Search 
 
 Prenumerationsnyckel är en sträng som du vill ange som en frågesträngsparameter för att kunna anropa någon Custom Speech Service-modell. En prenumerationsnyckel hämtas från [Azure-portalen](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) och hämtas en gång det finns i ”Mina prenumerationer” Custom Speech Service-portalen.
 
-## <a name="t"></a>t
+## <a name="t"></a>T
 
 ### <a name="transcription"></a>Avskrift
 

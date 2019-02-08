@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Den här artikeln är en översikt över Text till tal röst anpassning, där du kan skapa en identifierbara, en av-unika varumärkesröst.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
-ms.openlocfilehash: 783679d3d989fe40c6a5ef0c8592ed10aae26643
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239901"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868335"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 

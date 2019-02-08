@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658342"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894164"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor och svar om Marketplace
 
@@ -350,7 +350,7 @@ Om du inte redan har ett Microsoft-konto, kan du [skapa ett konto](https://signu
 
 **Varför är Dev Center-konto som krävs?**
 
-Ett Dev Center-konto krävs för att Microsoft att debitera kunder för utgivarens räkning för Transact visa en lista över typer. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation. Mer information finns i [registrera i Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center).
+Ett Dev Center-konto krävs för att Microsoft att debitera kunder för utgivarens räkning för Transact visa en lista över typer. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation. Mer information finns i [registrera i Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Vilken utgivare kräver Kontoregistrering för en Dev Center?**
 

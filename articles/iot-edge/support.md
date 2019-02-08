@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6443260de0a8bd8531edb303fa581d281034fef3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d8059ac4965ce5582b899ebc0d765e00ae9deb35
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555616"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892804"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge stöds system
 
@@ -26,36 +26,50 @@ Det finns en mängd olika sätt att söka efter support för Azure IoT Edge-prod
 
 **Funktionen begäranden** – The Azure IoT Edge-produkten spårar funktionsförfrågningar via produktens [User Voice-sidan](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
+## <a name="container-engines"></a>Behållare-motorer
+Azure IoT Edge måste en motor för behållaren att starta moduler eftersom de har implementerats som behållare. Microsoft tillhandahåller en motor för behållare, moby-motorn att uppfylla detta krav. Den är baserad på öppen källkod-projekt Moby. Docker CE- och Docker EE är andra populära container-motorer. De också är baserade på öppen källkod-projekt Moby och är kompatibla med Azure IoT Edge. Microsoft tillhandahåller support efter bästa förmåga för system med hjälp av de motorerna för behållaren. Microsoft har dock inte att leverera korrigeringar för problem i dem. Därför rekommenderar Microsoft med moby-motor på produktionssystemen.
+
+<br>
+<center>
+![Moby som behållare runtime](./media/support/only-moby-for-production.png)
+</center>
+
 ## <a name="operating-systems"></a>Operativsystem
 Azure IoT Edge som körs på de flesta operativsystem som kan köra behållare. men stöds alla dessa lika inte. Operativsystem är grupperade i nivåer som representerar supportnivå de kan förvänta sig.
+* Nivå 1-system kan betraktas som officiellt stöds. Detta innebär att Microsoft:
+    * har det här operativsystemet i automatiska tester
+    * tillhandahåller installationspaket för dem.
+* Nivå 2-system kan betraktas som kompatibelt med Azure IoT Edge och relativt lätt kan användas. Detta innebär att:
+    * Microsoft har gjort ad hoc testning på plattformarna eller känner av en partner som kör Azure IoT Edge-plattformen
+    * Installationspaket för andra plattformar fungerar på följande plattformar
+    
+Familjen av värdens operativsystem måste alltid matcha familjen av gäst-OS som används i en modul behållare. Med andra ord, kan du bara använda Linux-behållare på Linux och Windows-behållare på Windows. När du använder Windows kan är bara processen isolerade behållare stöds, inte hyper-v isolerad behållare.  
+
+<br>
+<center>
+![Värdoperativsystem matchar gäst-OS](./media/support/edge-on-device.png)
+</center>
 
 ### <a name="tier-1"></a>Nivå 1
-Nivå 1-system kan betraktas som officiellt stöds. Detta innebär att Microsoft:
-* har dessa operativsystem i automatiska tester
-* tillhandahåller installationspaket för dem.
-
 Allmänt tillgänglig
-| Operativsystem | AMD64 | ARM32 |
+| Operativsystem | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Raspbian stretch | Nej | Ja|
 | Ubuntu Server 16.04 | Ja | Nej |
 | Ubuntu Server 18.04 | Ja | Nej |
 
 Offentlig förhandsversion
-| Operativsystem | AMD64 | ARM32 |
+| Operativsystem | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core build 17763 | Ja | Nej |
-| Windows 10 skapa 17763 för Windows-behållare<br><br>Windows 10 build 14393 eller senare för Linux-behållare\* | Ja | Nej |
-| Windows Server 2019 för Windows-behållare<br><br>Windows Server 2016 eller senare för Linux-behållare\* | Ja | Nej |
+| Windows 10 IoT Enterprise build 17763 | Ja | Nej |
+| Windows Server 2019 | Ja | Nej |
 
-\* Microsoft tillhandahåller installationspaket för Linux-behållare på Windows-enheter endast för utveckling och testning. Detta är inte en konfiguration som stöds för användning i produktion. 
+Windows-OSE ovan är kraven för enheter som kör Windows-behållare på Windows. Det här är det enda konfigurationen som stöds för produktion. Azure IoT Edge-paket för Windows kan använda Linux-behållare på Windows; Det är dock endast för utveckling och testning. Användning av Linux-behållare i Windows är inte en konfiguration som stöds för produktion. Valfri version av Windows 10-version 14393 eller senare och Windows Server 2016 eller senare kan användas för det här scenariot för utveckling.
 
 ### <a name="tier-2"></a>Nivå 2
-Nivå 2-system kan betraktas som kompatibelt med Azure IoT Edge och relativt lätt kan användas. Detta innebär att:
-* Microsoft har gjort ad hoc testning på plattformarna eller känner av en partner som kör Azure IoT Edge-plattformen
-* Installationspaket för andra plattformar fungerar på följande plattformar
 
-| Operativsystem | AMD64 | ARM32 |
+| Operativsystem | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | CentOS 7.5 | Ja | Ja |
 | Debian 8 | Ja | Ja |
@@ -66,6 +80,16 @@ Nivå 2-system kan betraktas som kompatibelt med Azure IoT Edge och relativt lä
 | Vind floden 8 | Ja | Nej |
 | Yocto | Ja | Nej |
 
-## <a name="container-engines"></a>Behållare-motorer
-Azure IoT Edge måste en motor för behållaren att starta moduler, oavsett vilket operativsystem som den körs. Microsoft tillhandahåller en motor för behållare, moby-motorn att uppfylla detta krav. Den är baserad på öppen källkod-projekt Moby. Docker CE- och Docker EE är andra populära container-motorer. De även baseras på Moby öppnas source-projektet och är kompatibla med Azure IoT Edge. Microsoft tillhandahåller support efter bästa förmåga för system med hjälp av de motorerna för behållaren. Microsoft har dock inte att leverera korrigeringar för problem i dem. Därför rekommenderar Microsoft med moby-motor på produktionssystemen.
 
+## <a name="virtual-machines"></a>Virtuella datorer
+Azure IoT Edge kan köras på virtuella datorer. Detta är vanligt när kunder som vill förbättra befintliga infrastruktur med gränsintelligens. Familjen av värdoperativsystemet för virtuell dator måste matcha familjen av gäst-OS som används i en modul behållare. Det här är samma krav när du kör Azure IoT Edge direkt på en enhet. Azure IoT Edge är oberoende av den underliggande virtualiseringstekniken och fungerar på virtuella datorer som drivs av plattformar som Hyper-V och vSphere.
+
+<br>
+<center>
+![Azure IoT Edge på en virtuell dator](./media/support/edge-on-vm.png)
+</center>
+
+## <a name="minimum-system-requirements"></a>Minsta systemkrav
+Azure IoT Edge fungerar perfekt på enheter som är så litet som en Raspberry Pi3 att servermaskinvaran i företagsklass. Välja rätt maskinvara för ditt scenario är beroende av de arbetsbelastningar som du vill köra. Beslutet om den sista enhet kan vara komplicerat; Du kan dock enkelt starta prototyper en lösning på traditionella bärbara och stationära datorer.
+
+Upplev medan prototyper kommer att guida valet av sista enhet. Frågor som du bör inkludera: hur många moduler utgör din arbetsbelastning, hur många lager gör dina moduler behållare resursen, i vilket språk är din moduler som skrivits, hur mycket data kommer dina moduler kan behandla, göra dina moduler behöver någon särskild maskinvara för att påskynda sina arbetsbelastningar, vilka är de önskade prestandaegenskaperna för din lösning, vad är en mer hållbar budget med maskinvara?

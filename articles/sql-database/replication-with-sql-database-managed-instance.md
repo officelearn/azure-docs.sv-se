@@ -1,6 +1,6 @@
 ---
-title: Konfigurera replikering i Azure SQL Database Managed Instance | Microsoft Docs
-description: Läs om hur du konfigurerar Transaktionsreplikering i Azure SQL Database Managed Instance
+title: Konfigurera replikering i en Azure SQL Database-hanterad databasinstans | Microsoft Docs
+description: Läs om hur du konfigurerar Transaktionsreplikering i en Azure SQL Database-hanterad instans-databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,61 +11,58 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467671"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893026"
 ---
-# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Konfigurera replikering i Azure SQL Database Managed Instance
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Konfigurera replikering i en Azure SQL Database-hanterad databasinstans
 
-Transaktionsreplikering gör det möjligt att replikera data från SQL Server eller Azure SQL Database Managed Instance databaserna till den hanterade instansen eller att skicka ändringar som gjorts i dina databaser i Managed Instance till andra SQL Server, SQL Database enkel databas eller elastisk pool eller andra Managed Instance. Replikeringen är i offentlig förhandsversion på [Azure SQL Database Managed Instance](sql-database-managed-instance.md). En hanterad instans kan vara värd för utgivaren och distributören prenumerant databaser. Se [Transaktionsreplikering konfigurationer](sql-database-managed-instance-transactional-replication.md#common-configurations) för tillgängliga konfigurationer.
+Transaktionsreplikering kan du replikera data till en Azure SQL Database-hanterad instans-databas från en SQL Server-databas eller en annan instans-databas. Du kan också använda Transaktionsreplikering för att skicka ändringar som gjorts i en instans-databas i Azure SQL Database hanterad instans till en SQL Server-databas till en enskild databas i Azure SQL Database till en databas i pool i en Azure SQL Database-elastisk pool. Transaktionsreplikering finns i offentlig förhandsversion på [Azure SQL Database-hanterad instans](sql-database-managed-instance.md). En hanterad instans kan vara värd för utgivaren och distributören prenumerant databaser. Se [Transaktionsreplikering konfigurationer](sql-database-managed-instance-transactional-replication.md#common-configurations) för tillgängliga konfigurationer.
 
 ## <a name="requirements"></a>Krav
 
-Utgivaren och distributören på Azure SQL Database kräver:
+Konfigurera en hanterad instans för att fungera som en utgivare eller distributör kräver:
 
-- Azure SQL Database Managed Instance som inte är i Geo-DR-konfiguration.
+- Att den hanterade instansen inte för närvarande deltar i en geo-replikeringsrelation.
 
    >[!NOTE]
-   >Azure SQL-databaser som inte är konfigurerade med Managed Instance kan bara vara prenumeranter.
+   >Enskilda databaser och databaser i en pool i Azure SQL Database kan bara vara prenumeranter.
 
-- Alla instanser av SQL Server måste finnas i samma virtuella nätverk.
+- Alla hanterade instanser måste finnas på samma virtuella nätverk.
 
 - Anslutningen använder SQL-autentisering mellan replikering deltagare.
 
 - Ett Azure Storage-konto-resurs för arbetskatalogen för replikering.
 
-- Port 445 (TCP utgående) måste vara öppna i säkerhetsregler för hanterad instans-undernätet för att komma åt Azure-filresursen
+- Port 445 (TCP utgående) måste vara öppna i säkerhetsregler för hanterad instans-undernätet för att få åtkomst till Azure-filresursen
 
 ## <a name="features"></a>Funktioner
 
 Stöder:
 
-- Transaktions- och replikering blandning av både lokala och Azure SQL Database Managed Instance instanser.
-
-- Prenumeranter kan vara en lokal, enkel databas i Azure SQL Database eller databaser i pooler i elastiska pooler i Azure SQL Database.
-
+- Transaktions- och replikering blandning av lokal SQL Server och hanterade instanser i Azure SQL Database.
+- Prenumeranter kan vara i en lokal SQL Server-databaser, enskilda databaser i Azure SQL Database eller databaser i pooler i elastiska pooler i Azure SQL Database.
 - Enkelriktade eller dubbelriktade replikering.
 
-Följande funktioner stöds inte:
+Följande funktioner stöds inte i en hanterad instans i Azure SQL Database:
 
 - Uppdateringsbara prenumerationer.
-
 - Aktiv geo-replikering.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Konfigurera publicering och distribution av exempel
 
-1. [Skapa en Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) i portalen.
+1. [Skapa en hanterad Azure SQL Database-instans](sql-database-managed-instance-create-tutorial-portal.md) i portalen.
 2. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbetskatalogen.
 
    Glöm inte att kopiera storage-nycklar. Se [visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Skapa en databas för utgivaren.
+3. Skapa en databasinstans för utgivaren.
 
-   I exemplet skripten nedan ersätter `<Publishing_DB>` med namnet på den här databasen.
+   I exemplet skripten nedan ersätter `<Publishing_DB>` med namnet på databasinstans.
 
 4. Skapa en databasanvändare med SQL-autentisering för distributören. Använd ett säkert lösenord.
 

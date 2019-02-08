@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 'Tal till Text-API: et transkriberar ljud till text som din app kan visa eller utföra åtgärder för som indata. Tjänsten är tillgänglig via SDK och en RESTful-slutpunkt.'
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4884756c50e181e5536ad93ae795543bf1edf8ba
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5dd544f221699bb342021f9bbd3432c70cff37de
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220244"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862538"
 ---
 # <a name="about-the-speech-to-text-api"></a>Om tal till Text API
 

@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a8134e2350b650f7dfe0b3a1d58d107e42493223
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766511"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895076"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Hantera lagringskonton i Azure Stack
 
@@ -67,7 +67,7 @@ Du kanske är i en situation där du vill återställa ett Borttaget konto.
 
 Det finns ett enkelt sätt att göra det i Azure Stack:
 
-1. Bläddra till i listan över storage-konton. Se [hitta ett lagringskonto](#find) i den här artikeln för mer information.
+1. Bläddra till i listan över storage-konton. Se hitta ett storage-konto i den här artikeln för mer information.
 2. Leta upp det specifika kontot i listan. Du kan behöva filtrera.
 3. Kontrollera den *tillstånd* för kontot. Det ska stå **borttagna**.
 4. Välj kontot som öppnar rutan information.
@@ -113,7 +113,7 @@ En av sidoeffekter med en kvarhållningsperiod är att ett Borttaget konto forts
 Du kan frigöra kapacitet med hjälp av portalen eller PowerShell.
 
 **Frigöra kapacitet med hjälp av portalen:**
-1. Gå till fönstret storage-konton. Se [hitta ett lagringskonto](#find).
+1. Gå till fönstret storage-konton. Se hitta ett lagringskonto.
 2. Välj **frigöra utrymme** överst i fönstret.
 3. Läs meddelandet och välj sedan **OK**.
 

@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a180dd92af20df5cd8f7dbfd12687e7cddd223f2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295584"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856639"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Nedladdningsbar Infografik: Machine learning-grunder med algoritmexempel
 Ladda ned den här lätt att förstå informationsgrafik över grunderna i machine learning att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning. Algoritmexempel hjälpa machine learning-nybörjare förstå vilka algoritmer som ska användas och vad de används för.
@@ -32,8 +32,8 @@ Ladda ned den här lätt att förstå informationsgrafik över grunderna i machi
 * En djupare beskrivning av de olika typerna av machine learning-algoritmer, hur de används och hur du väljer rätt typ för din lösning finns i [så väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md).
 * En lista efter kategori av alla de tillgängliga maskininlärningsalgoritmer i Machine Learning Studio finns i [initiera modell] [ initialize-model] i Machine Learning Studio-algoritmen och modulen hjälpa.
 * En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio finns i [A-Z-lista över Machine Learning Studio-moduler] [ a-z-list] i modulen hjälpen och Machine Learning Studio-algoritm.
-* Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
 * En översikt över Azure AI-galleriet och de användargenererat resurserna som finns där, se [resurs och identifiera resurser i Azure AI-galleriet](gallery-how-to-use-contribute-publish.md).
+* Du kan hämta och skriva ut ett diagram som ger en översikt över funktionerna i Machine Learning Studio: [Microsoft Azure Machine Learning-översikt över funktioner i Studio (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
 
 
 

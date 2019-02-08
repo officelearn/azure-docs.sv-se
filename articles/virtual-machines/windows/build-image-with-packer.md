@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: f848c6b654f3378df04d1320d957e76ac5384465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bab3b37d2d5063c77f8aceee84646b1ee72b0617
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427832"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892549"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Windows-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar den Windows-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace erbjuder många avbildningar av första och tredje part för de vanligaste OS och programmiljöer, eller skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder Verktyg för öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
@@ -70,7 +70,6 @@ Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange 
 | *client_secret*                     | Lösenordet du angav i `$securePassword` |
 | *tenant_id*                         | Utdata från `$sub.TenantId` kommando |
 | *subscription_id*                   | Utdata från `$sub.SubscriptionId` kommando |
-| *object_id*                         | Visa tjänstens huvudnamn objekt-ID med `$sp.Id` |
 | *managed_image_resource_group_name* | Namnet på resursgruppen som du skapade i det första steget |
 | *managed_image_name*                | Namn för den hantera diskavbildningen som har skapats |
 
@@ -83,7 +82,6 @@ Skapa en fil med namnet *windows.json* och klistra in följande innehåll. Ange 
     "client_secret": "P@ssw0rd!",
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "object_id": "a7dfb070-0d5b-47ac-b9a5-cf214fff0ae2",
 
     "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",

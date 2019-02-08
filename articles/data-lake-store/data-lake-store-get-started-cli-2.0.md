@@ -10,16 +10,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3e3c456da122e33a67b2ee3377bc15cb684b896
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979074"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864867"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Kom igång med Azure Data Lake Store med Azure CLI
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 > [!div class="op_single_selector"]
-> * [Portalen](data-lake-store-get-started-portal.md)
+> * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
@@ -37,7 +40,7 @@ Innan du påbörjar den här artikeln måste du ha:
 
 * **Azure CLI** – Se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) anvisningar.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 Den här artikeln använder en enklare metod för autentisering med Data Lake Storage Gen1 där du loggar in som en användare av slutanvändaren. Åtkomstnivå till Data Lake Storage Gen1 kontot och filsystemet styrs av åtkomstnivån för den inloggade användaren. Men det finns andra sätt att autentisera med Data Lake Storage Gen1 som är **slutanvändarautentisering** eller **tjänst-till-tjänst-autentisering**. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
 

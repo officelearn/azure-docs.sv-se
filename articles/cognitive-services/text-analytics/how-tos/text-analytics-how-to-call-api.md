@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Lär dig hur du anropar den REST API för textanalys.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 579040c3a1466d431a9ae2105edbf02fa41570b6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 60aa51e4dac796e034b7b0506be0e205951226de
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211596"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870783"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Hur du anropar den REST API för textanalys
 
@@ -42,7 +42,7 @@ Indata måste vara JSON i raw ostrukturerad text. XML stöds inte. Schemat är e
 
 För närvarande kan du skicka samma dokumenten för alla åtgärder för textanalys: sentiment, diskussionsämne, språkidentifiering och enhetens identifiering. (Schemat är kan variera för varje analys i framtiden.)
 
-| Element | Giltiga värden | Obligatoriskt? | Användning |
+| Element | Giltiga värden | Krävs? | Användning |
 |---------|--------------|-----------|-------|
 |`id` |Datatypen är sträng, men i praktiken dokument-ID: N tenderar att vara heltal. | Krävs | Systemet använder ID: N som du anger för att strukturera utdata. Språkkoder, nyckelfraser och sentimentpoäng genereras för varje-ID i begäran.|
 |`text` | Ostrukturerade rå text, upp till 5 000 tecken. | Krävs | För språkidentifiering, kan text uttryckas i valfritt språk. För attitydanalys, extrahering av diskussionsämne och enhetens identifiering texten måste vara i en [språk som stöds](../text-analytics-supported-languages.md). |

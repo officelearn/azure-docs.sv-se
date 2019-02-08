@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f9172418f15b129a71242038efd4cdb7683bbf7
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516281"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873027"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Hantera åtkomst, kraft och anslutningsläget för din Azure Data Box-Gateway (förhandsversion)
 
@@ -35,7 +35,7 @@ I den här artikeln kan du se hur du:
 
 ### <a name="change-device-administrator-password"></a>Ändra enhetens administratörslösenord
 
-Om du glömmer ditt lösenord kan du ändra lösenordet. Följ dessa steg i det lokala Användargränssnittet för att ändra enhetens administratörslösenord.
+Följ dessa steg i det lokala Användargränssnittet för att ändra enhetens administratörslösenord.
 
 1. I det lokala webbgränssnittet går du till **Underhåll > lösenordsändring**.
 2. Ange det aktuella lösenordet och sedan det nya lösenordet. Det angivna lösenordet måste vara mellan 8 och 16 tecken. Lösenordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Bekräfta det nya lösenordet.
@@ -75,11 +75,11 @@ Följ dessa steg om du vill ändra Enhetsläge:
 2. Inaktivera den **Cloud överföring och hämtning**.
 3. Om du vill köra enheten i delvis frånkopplat läge, aktivera **hantering av Azure portal**.
 
-    ![Läge för dataanslutning](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
+    ![Anslutningsläge](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
  
 4. Om du vill köra enheten i frånkopplat läge, inaktivera **hantering av Azure portal**. Enheten kan nu endast hanteras via det lokala webbgränssnittet.
 
-    ![Läge för dataanslutning](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
+    ![Anslutningsläge](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
 
 ## <a name="manage-power"></a>Hantera power
 
@@ -88,7 +88,7 @@ Du kan stänga av eller starta om fysiska och virtuella enheten med det lokala w
 1. I det lokala webbgränssnittet går du till **Underhåll > energiinställningar**.
 2. Klicka på **avstängning** eller **starta om** beroende på vad du vill göra.
 
-    ![Energiinställningar](media/data-box-gateway-manage-access-power-connectivity-mode/shut-down-restart-1.png)
+    ![Energisparinställningar](media/data-box-gateway-manage-access-power-connectivity-mode/shut-down-restart-1.png)
 
 3. När du uppmanas att bekräfta klickar du på **Ja** att fortsätta.
 

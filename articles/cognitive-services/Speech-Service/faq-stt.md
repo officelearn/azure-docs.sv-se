@@ -4,24 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: Få svar på de mest populära frågorna om tal till Text-tjänsten.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 965d690184071da3f01ba165ccb0edd7e15f99b8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5c5a42908198b3a8f473efbe4f54bc481e250efa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225354"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876002"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga och frågor svar om tal till Text
 
 Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan du kolla [andra supportalternativ](support.md).
 
-## <a name="general"></a>Generell
+## <a name="general"></a>Allmänt
 
 **F: Vad är skillnaden mellan en baslinje-modell och ett anpassat tal till Text-modellen?**
 
@@ -85,7 +85,7 @@ Kontakta oss om du behöver en högre skala.
 
 Om du har fler sekretessfrågor som förhindrar att du använder med custom Speech service kan du kontakta någon av supportkanalerna.
 
-## <a name="importing-data"></a>Importerar data
+## <a name="importing-data"></a>Importera data
 
 **F: Vad är gränsen för storleken på en datauppsättning och varför är det gränsen?**
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1430bc4a9de863c25e40a2655f0a1cd7a75ae0f7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561407"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858288"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurera och hantera Azure SQL Database-säkerhet för geo-återställning eller redundans
 
@@ -32,6 +32,9 @@ Den huvudsakliga kompromiss är att hantera återställningsprocessen i stor ska
 ## <a name="how-to-configure-logins-and-users"></a>Så här konfigurerar du inloggningar och användare
 
 Om du använder inloggningar och användare (i stället för inneslutna användare), måste du vidta ytterligare åtgärder för att se till att samma inloggningar finns i master-databasen. I följande avsnitt beskrivs de steg som ingår och ytterligare övervägandena.
+
+  >[!NOTE]
+  > Du kan också använda Azure Active Directory (AAD)-inloggningar för att hantera dina databaser. Mer information finns i [Azure SQL-inloggningar och användare](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Konfigurera användaråtkomst till en sekundär eller återställda databas
 

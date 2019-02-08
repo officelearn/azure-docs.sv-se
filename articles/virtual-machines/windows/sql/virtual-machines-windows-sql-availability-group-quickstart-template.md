@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0ac37c2bb0430cc4299947638596be8698ae4a34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814545"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892347"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Skapa WSFC, lyssnaren och och konfigurera ILB för en Always On-tillgänglighetsgrupp på en SQL Server-dator med Azure-Snabbstartsmall
 Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis automatisera distributionen av en Always On tillgänglighetsgruppens konfiguration för SQL Server-datorer i Azure. Det finns två Azure-Snabbstartsmallar som används i den här processen. 
@@ -166,7 +166,7 @@ Valda availability-gruppen som används i Azure-Snabbstartsmall för AG-lyssnare
 ### <a name="connection-only-works-from-primary-replica"></a>Anslutningen fungerar bara från primära repliken
 Det här beteendet är sannolikt efter en misslyckad **101-sql-vm-aglistener-setup** malldistributionen lämnar ILB-konfigurationen i ett inkonsekvent tillstånd. Kontrollera att serverdelspoolen visar tillgänglighetsuppsättningen och att det finns regler för hälsoavsökningen och för regler för belastningsutjämning. Om något saknas, är ett inkonsekvent tillstånd med ILB-konfigurationen. 
 
-Lös problemet genom att ta bort lyssnaren med [PowerShell](#remove-availability-group-listener), ta bort den interna belastningsutjämnaren via Azure portal och börja om igen [steg3](#step-3---manually-create-the-internal-load-balanced-ilb). 
+Lös problemet genom att ta bort lyssnaren med [PowerShell](#remove-availability-group-listener), ta bort den interna belastningsutjämnaren via Azure portal och börja om igen steg3. 
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest - endast SQL VM-lista kan uppdateras
 Det här felet kan uppstå när du distribuerar den **101-sql-vm-aglistener-setup** mall om lyssnaren togs bort via SQL Server Management Studio (SSMS), men har inte tagits bort från SQL VM-resursprovidern. Tar bort lyssnaren via SSMS tar inte bort metadata för lyssnaren från resursprovidern SQL VM; lyssnaren måste tas bort från resursprovidern med hjälp av [PowerShell](#remove-availability-group-listener). 

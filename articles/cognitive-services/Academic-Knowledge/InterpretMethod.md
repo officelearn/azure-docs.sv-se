@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Använd metoden tolkningar för att returnera formaterade tolkningar av frågesträngar för användaren baserat på Academic Graph-data och akademiska grammatik i Microsoft Cognitive Services.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171668"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860532"
 ---
 # <a name="interpret-method"></a>tolka metod
 
@@ -29,7 +29,7 @@ Om du vill skapa en interaktiv upplevelse, kan du anropa den här metoden upprep
 
 ## <a name="request-parameters"></a>Parametrar för begäran
 
-Name     | Value | Krävs?  | Beskrivning
+Namn     | Värde | Krävs?  | Beskrivning
 ---------|---------|---------|---------
 **Fråga**    | Textsträngen | Ja | Frågan som angetts av användaren.  Om fullständig har angetts till 1, tolkas fråga som ett prefix för generering frågeförslag för automatisk komplettering.        
 **model**    | Textsträngen | Nej  | Namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.        
@@ -40,7 +40,7 @@ Name     | Value | Krävs?  | Beskrivning
 <br>
   
 ## <a name="response-json"></a>Svar (JSON)
-Name     | Beskrivning
+Namn     | Beskrivning
 ---------|---------
 **Fråga** |Den *fråga* parametern från begäran.
 **tolkningar** |En matris med 0 eller fler olika sätt med matchande indata från användaren mot grammatik.

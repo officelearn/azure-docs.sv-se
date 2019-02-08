@@ -4,30 +4,30 @@ titlesuffix: Azure Cognitive Services
 description: Lär dig hur du använder-metoden CalcHistogram i den kunskap utforskning Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f994a254e661cd245d2e953efd3bd595d50c6fc7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214321"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860464"
 ---
 # <a name="calchistogram-method"></a>calchistogram metod
 Den *calchistogram* metoden beräknar de objekt som matchar ett strukturerade frågeuttryck och beräknar fördelningen av deras attributvärden.
 
-## <a name="request"></a>Begäran
+## <a name="request"></a>Förfrågan
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-Name|Value|Beskrivning
+Namn|Värde|Beskrivning
 ----|-----|-----------
 uttryck för Markörstorlek | Textsträngen | Strukturerade frågeuttryck som anger index-entiteter över som du vill beräkna histogram.
 Attribut | Textsträng (standard = ””) | Kommaavgränsad lista över attribut som ska inkluderas i svaret.
- antal   | Antal (standard = 10) | Antalet resultat som ska returneras.
+count   | Antal (standard = 10) | Antalet resultat som ska returneras.
 offset  | Antal (standard = 0) | Index för det första resultatet ska returneras.
 
 ## <a name="response-json"></a>Svar (JSON)

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/06/2019
 ms.author: juliako
-ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153972"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878365"
 ---
 # <a name="live-event-types-comparison"></a>Live-händelse typer jämförelse
 
@@ -45,7 +45,7 @@ I följande tabell jämförs funktionerna i de två typerna av direktsänd händ
 | Maximal video upplösning på utdata-video|Samma som indata|720p (på 30 bilder per sekund)|
 | Inkommande protokoll|RTMP, fragmenterad-MP4 (Smooth Streaming)|RTMP, fragmenterad-MP4 (Smooth Streaming)|
 | Pris|Se den [prissättningssidan](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken ”Live-Video”|Se den [prissättningssidan](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken ”Live-Video”|
-| Maximal körtid|24 x 365 live linjär|Dygnet runt|
+| Maximal körtid| 24 timmar x 365 dagar, live linjär | Upp till 24 timmar|
 | Möjligheten att överföra via embedded CEA 608/708 bildtexter data|Ja|Ja|
 | Stöd för att infoga pekdatorer|Nej|Nej|
 | Stöd för ad-signalering via API: et| Nej|Nej|

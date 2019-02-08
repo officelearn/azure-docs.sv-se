@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d6fed65dad0e8f12495177b274cef181e9e91879
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7c47e6df1e8b92d122dcc6bed55506f2fccf9e89
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044322"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877515"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd bulk executor .NET-biblioteket för att utföra massåtgärder i Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Massinläsning executor biblioteket är för närvarande stöds av Azure Cosmos 
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar. 
 
-* Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda den [Azure Cosmos DB-emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med den `https://localhost:8081` URI. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).
+* Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda den [Azure Cosmos DB-emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med den `https://localhost:8081` slutpunkt. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).
 
 * Skapa ett Azure Cosmos DB SQL API-konto med hjälp av stegen som beskrivs i [skapa databaskonto](create-sql-api-dotnet.md#create-a-database-account) i .NET snabbstartsartikeln. 
 
@@ -115,7 +115,7 @@ Den klonade lagringsplatsen innehåller två exempel ”BulkImportSample” och 
    |NumberOfDocumentsImported (long)   |  Det totala antalet dokument som importerades från de dokument som angetts för stora importera API-anrop.       |
    |TotalRequestUnitsConsumed (double)   |   De totala begäransenheter (RU) som används av stora importera API-anrop.      |
    |TotalTimeTaken (TimeSpan)    |   Den totala tid som massimporten API-anrop för att slutföra körning.      |
-   |BadInputDocuments (lista<object>)   |     Listan över dokument felaktig-format som inte har importerats i grupp importera API-anrop. Användaren bör åtgärda dokumenten som returneras och försök att importera igen. Felaktig-formaterade dokument innehålla dokument vars ID-värdet inte är en sträng (det är ogiltiga null eller andra datatype).    |
+   |BadInputDocuments (List<object>)   |     Listan över dokument felaktig-format som inte har importerats i grupp importera API-anrop. Användaren bör åtgärda dokumenten som returneras och försök att importera igen. Felaktig-formaterade dokument innehålla dokument vars ID-värdet inte är en sträng (det är ogiltiga null eller andra datatype).    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Uppdatera stora mängder data i Azure Cosmos DB
 

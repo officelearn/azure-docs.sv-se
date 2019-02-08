@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i lagring, till exempel Azure Blobs. Med hjälp av dedikerad REST-API kan du pekar på ljudfiler med signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228669"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867128"
 ---
 # <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
@@ -49,7 +49,7 @@ API: et för Batch avskrift stöder följande format:
 > [!NOTE]
 > API: et för Batch avskrift kräver en S0-nyckel (betala nivå). Det fungerar inte med en kostnadsfri (f0)-nyckel.
 
-Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar Batch avskrift API. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. I följande JSON-exempel visas utdata för en kanal, includuing egenskaper för att ställa in filter mot olämpligt språk och skiljetecken-modell.
+Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar Batch avskrift API. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. Följande JSON visar en exempelförfrågan includuing egenskaper för att konfigurera svordomar filtrera skiljetecken modellen och word på tidsstämplar
 
 ```json
 {
@@ -60,7 +60,8 @@ Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar B
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ För närvarande är endast lagring som stöds Azure Blob storage.
 Du hittar exemplet i den här artikeln på [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> En ljudutskrift kräver normalt ett tidsintervall som är lika med varaktigheten för filen, plus en två till tre minuters kostnader.
+> Vi erbjuder inte en tid serviceavtal för ljud trascriptions via batch. Men när jobbet avskrift är actioned (i körningstillstånd) kan bearbetas typially snabbare än realtid.
 
 ## <a name="next-steps"></a>Nästa steg
 

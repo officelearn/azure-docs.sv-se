@@ -1,6 +1,6 @@
 ---
 title: Använd Key Vault för att lagra och komma åt Azure Cosmos DB-nycklar
-description: Använda Azure Key Vault för att lagra och komma åt Azure Cosmos DB-anslutningssträngen, nycklar, URI'S.
+description: Använda Azure Key Vault för att lagra och komma åt Azure Cosmos DB-anslutningssträngen, nycklar, slutpunkter.
 author: rafats
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
 ms.reviewer: sngun
-ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 770e1e543a16bb54acc216aa550c44be26ab7a1a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463318"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858459"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Säkra Azure Cosmos-nycklar med hjälp av Azure Key Vault 
 
-När du använder Azure Cosmos DB för dina program kan du komma åt databasen, samlingar, dokument med hjälp av slutpunkt URI och nyckeln i appens konfigurationsfilen.  Det är dock inte säkert att placera nycklar och URL: en direkt i programkoden eftersom de är tillgängliga i klartext för alla användare. Du vill se till att URI och nycklar är tillgänglig men via en säker mekanism. Det här är där Azure Key Vault kan hjälpa dig att säkert lagra och hantera programhemligheter.
+När du använder Azure Cosmos DB för dina program kan du komma åt databasen, samlingar, dokument med hjälp av slutpunkten och nyckeln i appens konfigurationsfilen.  Det är dock inte säkert att placera nycklar och URL: en direkt i programkoden eftersom de är tillgängliga i klartext för alla användare. Du vill se till att slutpunkten och nycklar är tillgänglig men via en säker mekanism. Det här är där Azure Key Vault kan hjälpa dig att säkert lagra och hantera programhemligheter.
 
 Följande steg krävs för att lagra och läsa åtkomstnycklar för Azure Cosmos DB från Key Vault:
 

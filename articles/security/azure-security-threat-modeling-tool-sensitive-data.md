@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002054"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892566"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Security ram: Känsliga Data | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -38,7 +38,7 @@ ms.locfileid: "53002054"
 
 ## <a id="binaries-info"></a>Se till att binärfilerna har dolts om de innehåller känslig information
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -49,7 +49,7 @@ ms.locfileid: "53002054"
 
 ## <a id="efs-user"></a>Överväg att använda krypterade filsystem (EFS) används för att skydda konfidentiella användarspecifika data
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Utveckla |  
@@ -60,7 +60,7 @@ ms.locfileid: "53002054"
 
 ## <a id="filesystem"></a>Se till att känsliga data som lagras av programmet i filsystemet är krypterad
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -71,11 +71,11 @@ ms.locfileid: "53002054"
 
 ## <a id="cache-browser"></a>Se till att känsligt innehåll inte cachelagras i webbläsare
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk, Web Forms, MVC5, MVC6 |
+| **Tillämpliga tekniker** | Generic, Web Forms, MVC5, MVC6 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
 | **Steg** | Webbläsare kan lagra information om cachelagring och historik. Dessa cachelagrade filer lagras i en mapp som mappen Tillfälliga Internetfiler för Internet Explorer. När dessa sidor kallas igen, visar webbläsaren dem från sitt cacheminne. Om känslig information visas för användaren (till exempel deras, kreditkort, personnummer eller användarnamn), kan sedan den här informationen vara lagrad i webbläsarens cacheminne och därför hämtningsbara via undersöka webbläsarens cache eller bara att trycka på knappen ”Bakåt” i webbläsaren. Ange cache-control svar huvudvärde till ”no-store” för alla sidor. |
@@ -124,18 +124,18 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="encrypt-data"></a>Kryptera avsnitt för Web App configuration-filer som innehåller känslig information
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Så här: Kryptera konfigurationsavsnitt i ASP.NET 2.0 med hjälp av DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [att ange en Konfigurationsprovider för skyddade](https://msdn.microsoft.com/library/68ze1hb2.aspx), [med hjälp av Azure Key Vault för att skydda programhemligheter](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Referenser**              | [Anvisningar: Kryptera konfigurationsavsnitt i ASP.NET 2.0 med hjälp av DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [att ange en Konfigurationsprovider för skyddade](https://msdn.microsoft.com/library/68ze1hb2.aspx), [med hjälp av Azure Key Vault för att skydda programhemligheter](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Steg** | Konfigurationsfiler, till exempel Web.config, appsettings.json ofta används för att lagra känslig information, inklusive användarnamn, lösenord, anslutningssträngar för databasen och krypteringsnycklar. Om du inte skyddar den här informationen kan är ditt program sårbar för attacker eller illvilliga användare att känslig information som användarnamn och lösenord, databasnamn och servernamn. Baserat på typen av distribution (azure/on-premises), kryptera känsliga grupper i konfigurationsfiler med hjälp av DPAPI eller tjänster som Azure Key Vault. |
 
 ## <a id="autocomplete-input"></a>Inaktivera automatisk komplettering HTML-attribut i känsliga formulär och indata
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -154,7 +154,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="data-mask"></a>Se till att känsliga data som visas på användarskärmen maskeras
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -165,18 +165,18 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="dynamic-users"></a>Implementera dynamisk datamaskning för att begränsa exponering icke privilegierad användare för känsliga data
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | SQL Azure, OnPrem |
+| **Tillämpliga tekniker** | Sql Azure, OnPrem |
 | **Attribut**              | SQL-Version - V12, SQL-Version - MsSQL2016 |
 | **Referenser**              | [Dynamisk Datamaskning](https://msdn.microsoft.com/library/mt130841) |
 | **Steg** | Syftet med dynamisk datamaskning är att begränsa exponering av känsliga data, hindra användare som inte ska ha åtkomst till data från att visa den. Dynamisk datamaskning syftar inte till att förhindra användare från att ansluta direkt till databasen och köra fullständig frågor som exponerar delar av känsliga data. Dynamisk datamaskning är kompletterar andra SQL Server-säkerhetsfunktioner (granskning, kryptering och säkerhet på radnivå...) och det rekommenderas att använda den här funktionen tillsammans med dem också för att bättre skydda känsliga data i den -databasen. Observera att den här funktionen stöds endast av SQL Server från och med 2016 och Azure SQL Database. |
 
 ## <a id="salted-hash"></a>Se till att lösenord lagras i saltat hash-format
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -187,18 +187,18 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="db-encrypted"></a>Se till att känsliga data i databaskolumner är krypterad
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Version av SQL - alla |
-| **Referenser**              | [Kryptera känsliga data i SQLServer](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [så här: kryptera en kolumn med Data i SQL Server](https://msdn.microsoft.com/library/ms179331), [Encrypt av certifikat](https://msdn.microsoft.com/library/ms188061) |
+| **Referenser**              | [Kryptera känsliga data i SQLServer](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [så här: Kryptera en kolumn med Data i SQLServer](https://msdn.microsoft.com/library/ms179331), [kryptera med certifikat](https://msdn.microsoft.com/library/ms188061) |
 | **Steg** | Känsliga data, till exempel kreditkortsnummer måste vara krypterade i databasen. Data kan krypteras med kryptering på enhetsnivå kolumnen eller av en program-funktion med hjälp av funktioner för kryptering. |
 
 ## <a id="tde-enabled"></a>Kontrollera att databasnivå-kryptering (TDE) är aktiverat
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -209,7 +209,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="backup"></a>Se till att databassäkerhetskopiorna är krypterad
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -220,7 +220,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="api-browser"></a>Se till att känsliga data som är relevanta för webb-API inte lagras i webbläsarens storage
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -244,7 +244,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="encrypt-docdb"></a>Kryptera känsliga data som lagras i Cosmos DB
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
 | **SDL fas**               | Utveckla |  
@@ -255,7 +255,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="disk-vm"></a>Använda Azure Disk Encryption för att kryptera diskar som används av virtuella datorer
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure IaaS VM-Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -266,18 +266,18 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="fabric-apps"></a>Kryptera hemligheter i Service Fabric-program
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric-Förtroendegräns | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
-| **Attribut**              | Miljö - Azure |
+| **Attribut**              | Environment - Azure |
 | **Referenser**              | [Hantera hemligheter i Service Fabric-program](https://azure.microsoft.com/documentation/articles/service-fabric-application-secret-management/) |
 | **Steg** | Hemligheter kan vara känslig information, till exempel storage-anslutningssträngar, lösenord och andra värden som inte ska hanteras i oformaterad text. Använda Azure Key Vault för att hantera nycklar och hemligheter i service fabric-program. |
 
 ## <a id="modeling-teams"></a>Utföra security modellering och använda enheter/Verksamhetsteamen om det behövs
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Utveckla |  
@@ -288,7 +288,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="entities"></a>Minimera åtkomst om du vill dela funktionen på kritiska entiteter
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Distribution |  
@@ -299,7 +299,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="good-practices"></a>Utbilda användare på riskerna med funktionen för Dynamics CRM-resurs och säkerhetsprinciper
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Distribution |  
@@ -310,7 +310,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="exception-mgmt"></a>Inkludera en regel för utveckling-standarder som proscribing med config information i hantering av undantag
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Distribution |  
@@ -321,7 +321,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="sse-preview"></a>Använd Azure Storage Service Encryption (SSE) för Data i vila (förhandsversion)
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -332,24 +332,24 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="client-storage"></a>Använda Client Side Encryption för att lagra känsliga data i Azure Storage
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Client Side Encryption och Azure Key Vault för Microsoft Azure Storage](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Självstudier: kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [lagra Data säkert i Azure Blob Storage med Azure Encryption-tillägg](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
+| **Referenser**              | [Client Side Encryption och Azure Key Vault för Microsoft Azure Storage](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [självstudien: Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [lagra Data säkert i Azure Blob Storage med Azure-tillägg för kryptering](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
 | **Steg** | <p>Azure Storage-klientbiblioteket för .NET Nuget-paket har stöd för kryptering av data i klientprogram före överföringen till Azure Storage och dekryptering av data under nedladdningen till klienten. Biblioteket stöder även integrering med Azure Key Vault för hantering av nycklar för lagringskonton. Här är en kort beskrivning av hur kryptering fungerar:</p><ul><li>SDK för Azure Storage-klient genererar en content krypteringsnyckel (CEK), vilket är en symmetrisk nyckel för en gång användning</li><li>Kundernas data krypteras med den här CEK</li><li>CEK kapslas sedan (krypterad) med klartextnyckel-nyckel (KEK). KEK kan identifieras med en nyckelidentifierare och vara ett asymmetriskt nyckelpar eller en symmetrisk nyckel och kan hanteras lokalt eller i Azure Key Vault. Storage-klienten sig själv har aldrig åtkomst till KEK. Den anropar bara viktiga radbrytning algoritmen som tillhandahålls av Key Vault. Kunderna kan välja att använda anpassade providers för nyckeln radbrytning/uppackning om de vill</li><li>Krypterade data överförs sedan till Azure Storage-tjänsten. Kontrollera länkarna i referensavsnittet för på låg nivå implementeringsdetaljer.</li></ul>|
 
 ## <a id="pii-phones"></a>Kryptera känsliga eller PII-data som skrivs till lokal lagring för telefoner
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | Mobila klienten | 
+| **Komponent**               | Mobile Client | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Allmän och Xamarin  |
+| **Tillämpliga tekniker** | Generic, Xamarin  |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Hantera inställningar och funktioner på dina enheter med Microsoft Intune-principer](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy), [nyckelring Valet](https://components.xamarin.com/view/square.valet) |
+| **Referenser**              | [Hantera inställningar och funktioner på dina enheter med Microsoft Intune-principer](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), [nyckelring Valet](https://components.xamarin.com/view/square.valet) |
 | **Steg** | <p>Om programmet skriver känslig information, t.ex. användarens personligt identifierbar information (e-post, telefonnummer, förnamn, efternamn, inställningar osv.) -på Mobiles filsystem, sedan den ska krypteras innan du skriver till det lokala filsystemet. Om programmet är ett företagsprogram, utforska du möjligheten att publicera program med hjälp av Windows Intune.</p>|
 
 ### <a name="example"></a>Exempel
@@ -393,9 +393,9 @@ Om programmet inte är ett företagsprogram, använda plattform tillhandahålls 
 
 ## <a id="binaries-end"></a>Förvräng genererade binärfiler innan du distribuerar till slutanvändare
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | Mobila klienten | 
+| **Komponent**               | Mobile Client | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
@@ -404,11 +404,11 @@ Om programmet inte är ett företagsprogram, använda plattform tillhandahålls 
 
 ## <a id="cert"></a>Ange clientCredentialType till certifikat eller Windows
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | .NET framework 3 |
+| **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Spikning](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **Steg** | Med hjälp av en UsernameToken med lösenord i klartext via en okrypterad kanal exponerar lösenordet för att angripare som kan söka SOAP-meddelanden. Leverantörer av tjänster som använder UsernameToken kan acceptera lösenord skickas i klartext. Skicka lösenord i klartext via en okrypterad kanal kan exponera autentiseringsuppgifterna för attacker som kan söka SOAP-meddelandet. | 
@@ -423,11 +423,11 @@ Ange clientCredentialType till certifikat eller Windows.
 
 ## <a id="security"></a>WCF-Security-läge är inte aktiverat
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Allmän och .NET Framework 3 |
+| **Tillämpliga tekniker** | Generic, .NET Framework 3 |
 | **Attribut**              | Läget - Transport, säkerhetsläget - säkerhetsmeddelande |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [grunderna i säkerhet för WCF CoDe Magazine](http://www.codemag.com/article/0611051) |
 | **Steg** | Ingen transport eller meddelandet säkerhet har definierats. Program som överför meddelanden utan transport eller meddelandet säkerhet inte kan garantera integritet eller konfidentialiteten för meddelanden. När en bindning för WCF-säkerhet är inställd på Ingen, både transport- och meddelandet säkerhet är inaktiverade. |

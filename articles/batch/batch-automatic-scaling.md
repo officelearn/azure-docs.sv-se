@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730025"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869100"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en formel för automatisk skalning för att skala beräkningsnoder i en Batch-pool
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> När du skapar en pool med automatisk skalning aktiverat kan inte anger den _targetDedicatedComputeNodes_ parametern eller _targetLowPriorityComputeNodes_ parameter i anropet till **CreatePool** . Ange i stället den **AutoScaleEnabled** och **AutoScaleFormula** egenskaper för poolen. Värden för dessa egenskaper fastställa antalet varje typ av nod. Dessutom att manuellt ändra storlek på en autoskalning-aktiverat pool (till exempel med [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), första **inaktivera** automatisk skalning på den lagringspoolen och sedan ändra storlek på den.
+> När du skapar en pool med automatisk skalning aktiverat kan inte anger den _targetDedicatedNodes_ parametern eller _targetLowPriorityNodes_ parameter i anropet till **CreatePool** . Ange i stället den **AutoScaleEnabled** och **AutoScaleFormula** egenskaper för poolen. Värden för dessa egenskaper fastställa antalet varje typ av nod. Dessutom att manuellt ändra storlek på en autoskalning-aktiverat pool (till exempel med [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), första **inaktivera** automatisk skalning på den lagringspoolen och sedan ändra storlek på den.
 >
 >
 
@@ -412,7 +412,7 @@ När du aktiverar automatisk skalning på en befintlig pool, Tänk på följande
   * Om du utelämnar formel för automatisk skalning eller utvärderingsintervall, Batch-tjänsten fortsätter att använda det aktuella värdet för den här inställningen.
 
 > [!NOTE]
-> Om du har angett värden för den *targetDedicatedComputeNodes* eller *targetLowPriorityComputeNodes* parametrarna för den **CreatePool** metoden när du skapade poolen i .NET, eller för parametrarna jämförbara på ett annat språk sedan ignoreras dessa värden när automatisk skalningsformel utvärderas.
+> Om du har angett värden för den *targetDedicatedNodes* eller *targetLowPriorityNodes* parametrarna för den **CreatePool** metoden när du skapade poolen i .NET eller för den När automatisk skalningsformel utvärderas ignoreras jämförbara parametrar i ett annat språk och sedan dessa värden.
 >
 >
 

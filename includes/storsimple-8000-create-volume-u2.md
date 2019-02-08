@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cce78fb6a5472a625e973bb8ca4afdfd6290a26c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165319"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888983"
 ---
-<!--author=alkohli last changed: 07/19/2017-->
-
 #### <a name="to-create-a-volume"></a>Skapa en volym
 1. Välj din enhet i tabellistan med enheter på bladet **Enheter**. Klicka på **+ Lägg till volymen**.
 

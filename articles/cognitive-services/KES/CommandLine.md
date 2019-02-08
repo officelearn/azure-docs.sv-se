@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Använda kommandoradsgränssnittet för att skapa indexet och grammatik filer från strukturerade data och sedan distribuera dem som webbtjänster.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 52d001e32e1bdb0d0046853f18649bafa49b1f14
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228533"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860124"
 ---
 # <a name="command-line-interface"></a>Kommandoradsgränssnitt
 

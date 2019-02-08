@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/06/2019
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0531c106228190fdc40f494e8eee70ec550f6404
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6a888df453a2626756fa47115ef97d04be701265
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820270"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892872"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -27,23 +27,24 @@ Följande information visar för närvarande stöds [Microsoft Azure erbjuder](h
 
 | Kategori  | **Erbjudandets namn** | **Erbjudandets nummer** |
 | --- | --- | --- |
-| **Enterprise-avtal (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
+| **Azure Germany** | [Azure Tyskland betala per användning](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
+|**Azure Government**|Azure Government Enterprise|MS-AZR-USGOV-0017P|
 | **Enterprise-avtal (EA)**| Enterprise – utveckling/testning | MS-AZR-0148P |
+| **Enterprise-avtal (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
 | **Microsoft Developer Network (MSDN)** | [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
+| **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
+| **Betala per användning** | [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
+| **Betala per användning** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
+| **Betala per användning** | [Microsoft Azure sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
+| **Betala per användning** | [Kostnadsfri utvärderingsversion](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
+| **Betala per användning** | [Azure i Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
+| **Betala per användning** | [Azure för studenter](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
+| **Betala per användning** | Azure-pass | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p/) | MS-AZR-0029P |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) | MS-AZR-0059P |
 | **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) | MS-AZR-0060P |
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P |
-| **Direct/betala per användning-As-You-Go** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
-| **Direct/betala per användning-As-You-Go** | Microsoft Azure Internal Consumption | MS-AZR-0015P |
-| **Direct/betala per användning-As-You-Go** | [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
-| **Direct/betala per användning-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **Direct/betala per användning-As-You-Go** | [Microsoft Azure sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
-| **Direct/betala per användning-As-You-Go** | [Kostnadsfri utvärderingsversion](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
-| **Direct/betala per användning-As-You-Go** | [Azure i Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
-| **Direct/betala per användning-As-You-Go** | [Azure för studenter](https://azure.microsoft.com/en-us/offers/ms-azr-0170p/) | MS-AZR-0170P |
-| **Direct/betala per användning-As-You-Go** | Azure-pass | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
 
 I följande tabell visar erbjudanden som inte stöds.
 
@@ -52,7 +53,7 @@ I följande tabell visar erbjudanden som inte stöds.
 | **Leverantörer av Molnlösningar (CSP)** | Microsoft Azure | MS-AZR-0145P |
 | **Leverantörer av Molnlösningar (CSP)** | Azure Government CSP | MS-AZR-USGOV-0145P |
 | **Leverantörer av Molnlösningar (CSP)** | Azure Tyskland i CSP för Microsoft Cloud i Tyskland | MS-AZR-DE-0145P |
-| **Direct/betala per användning-As-You-Go** | Startprogrammet för Azure för studenter | MS-AZR-0144P |
+| **Betala per användning** | Startprogrammet för Azure för studenter | MS-AZR-0144P |
 | **Supportavtal** | Standard Support | MS-AZR-0041P |
 | **Supportavtal** | Professional Direct-support | MS-AZR-0042P |
 | **Supportavtal** | Utvecklarsupport | MS-AZR-0043P |
@@ -76,7 +77,7 @@ Följande tabeller visar data som har inkluderat eller inte finns i Cost Managem
 | Enterprise-avtal (EA) | Cloud Solution Provider (CSP) – mer information, se den [Partnercenter översikt](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview). |
 | Betala per användning (PAYG) |   |
 | Utveckling/testning |   |
-| Kostnadsfri utvärderingsversion och sponsrade |   |
+| Kostnadsfritt och utvärderingsversion |   |
 | Partnernätverk |   |
 | Azure i Open | &nbsp;  |
 

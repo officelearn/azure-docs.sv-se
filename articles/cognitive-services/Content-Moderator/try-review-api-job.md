@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Använd granska API-jobbet åtgärderna för att initiera jobb innehållsmoderering för slutpunkt till slutpunkt för bild eller text innehåll i Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ad504051980356737dbc9af9263bc8370421cdb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9fac80ff152b0f7b9c36c182759d41245364fff9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228227"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862436"
 ---
 # <a name="start-a-moderation-job-from-the-api-console"></a>Starta ett jobb för moderering från API-konsol
 

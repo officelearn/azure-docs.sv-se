@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0af7a7fd43bba46de6faa770bf3042fbf58a90f6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197284"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890909"
 ---
 # <a name="azure-application-skus-tab"></a>Fliken för Azure application SKU: er
 
@@ -90,7 +90,7 @@ Konfigurera följande inställningar för SKU:
   >[!NOTE]
   >Spara dina ändringar i prissättning för att aktivera under exporten/importen av prisnivå data.
 
-- **Förenklad valuta priser** -ange priset för SKU: N i USD per månad. Detta måste vara samma som gamla priser. Mer information finns i [förenklad valuta priser](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer#simplified-currency-pricing).
+- **Förenklad valuta priser** -ange priset för SKU: N i USD per månad. Detta måste vara samma som gamla priser. Mer information finns i [förenklad valuta priser](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer).
 
 ### <a name="package-details-for-solution-template"></a>Paketinformation för lösningsmallen
 
@@ -112,7 +112,7 @@ Ange följande information i paketet:
 
 - **Version** -versionen av paketet som du överför. Version taggar måste vara i formatet X.Y.Z, där X, Y och Z är heltal.
 - **Paketfil (.zip)** – det här paketet innehåller följande filer sparas i en .zip-fil.
-  - applianceMainTemplate.json - distribution mallfilen som används för att distribuera lösningen/program och skapa de resurser som har definierats. Mer information finns i [snabbstarten: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal). 
+  - applianceMainTemplate.json - distribution mallfilen som används för att distribuera lösningen/program och skapa de resurser som har definierats. Mer information finns i [ Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal). 
   - applianceCreateUIDefinition.json - den här filen används av Azure-portalen för att generera användargränssnittet för att etablera den här lösningen/application. Mer information finns i [skapa Azure portal användargränssnittet för det hanterade programmet](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
   - mainTemplate.json - mallfilen som innehåller endast Microsoft.Solution/appliances resursen. Mer information finns i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). <br>
 Observera följande viktiga egenskaper för den här resursen:
@@ -121,7 +121,7 @@ Observera följande viktiga egenskaper för den här resursen:
     - ”Formatet för PublisherPackageId” – den sträng som unikt identifierar paketet. Det här värdet måste således: det är en sammansättning av [publisherId]. [OfferId]-förhandsversion [SKUID]. [PackageVersion].
 
   >[!IMPORTANT] 
-  >Det här paketet innehåller alla kapslade mallar eller skript som behövs för att etablera det här programmet. De här filerna måste vara i rotmappen:  MainTemplate.json applianceMainTemplate.json och applianceCreateUIDefinition.json.
+  >Det här paketet innehåller alla kapslade mallar eller skript som behövs för att etablera det här programmet. De här filerna måste vara i rotmappen:  MainTemplate.json, applianceMainTemplate.json, and applianceCreateUIDefinition.json.
 
 - **Klient-Id** -Azure Active Directory-klient-id för din organisation.
 - **Aktivera JIT-åtkomst?** – Välj **Ja** att aktivera Just-In-Time-åtkomst för distributioner med det här erbjudandet.

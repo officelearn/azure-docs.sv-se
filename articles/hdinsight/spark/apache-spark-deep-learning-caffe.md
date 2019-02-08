@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 451ccff9747988ee019f2be9e0cccec12c9c1ef9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118244"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891087"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning
 
@@ -64,7 +64,7 @@ Det finns två steg i skriptåtgärden. Det första steget är att installera bi
 
 Det andra steget är att hämta, kompilera och installera protobuf 2.5.0 för Caffe under körning. Protobuf 2.5.0 [krävs](https://github.com/yahoo/CaffeOnSpark/issues/87), men den här versionen inte är tillgänglig som ett paket på Ubuntu 16, så du behöver att kompilera från källkoden. Det finns också några resurser på Internet om hur du kompilera den. Mer information finns i [här](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-För att komma igång, kan du bara köra den här skriptåtgärden mot ditt kluster till alla arbetsnoder och huvudnoder (för HDInsight 3.5). Du kan köra åtgärderna som skript i ett befintligt kluster, eller använda skriptåtgärder när klustret skapas. Mer information om åtgärderna som skript finns i dokumentationen [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+För att komma igång, kan du bara köra den här skriptåtgärden mot ditt kluster till alla arbetsnoder och huvudnoder (för HDInsight 3.5). Du kan köra åtgärderna som skript i ett befintligt kluster, eller använda skriptåtgärder när klustret skapas. Mer information om åtgärderna som skript finns i dokumentationen [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
 ![Skriptåtgärder för att installera beroenden](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
@@ -183,7 +183,7 @@ Du kan ändra andra rader efter behov.
 Den andra filen (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) definierar hur neuron nätverket ser ut och relevanta indata och utdatafilen. Du måste också uppdatera filen för att återspegla Dataplats utbildning. Ändra följande del i lenet_memory_train_test.prototxt (du måste pekar på rätt plats som är specifika för ditt kluster):
 
 - Ändra ”file:/Users/mridul/bigml/demodl/mnist_train_lmdb” till ”wasb: / / / projekt/machine_learning/image_dataset/mnist_train_lmdb”
-- Ändra ”file:/Users/mridul/bigml/demodl/mnist_test_lmdb/” till ”wasb: / / / projekt/machine_learning/image_dataset/mnist_test_lmdb”
+- change "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" to "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
 ![Caffe Config](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 

@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 121b5542f9388355b97744aa224ac824dd8d8728
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631954"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867213"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analysverktyg för textbearbetning i Azure Search
 
@@ -53,7 +53,7 @@ Du kan anpassa en fördefinierad analyzer, till exempel **mönstret** eller **st
  
  | Scenario | Påverkan | Steg |
  |----------|--------|-------|
- | Lägg till ett nytt fält | Minimal | Om fältet inte finns ännu i schemat, finns det inga fält revision eftersom fältet ännu inte har en fysisk närvaro i ditt index. Använd [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för den här uppgiften.|
+ | Lägg till ett nytt fält | minimal | Om fältet inte finns ännu i schemat, finns det inga fält revision eftersom fältet ännu inte har en fysisk närvaro i ditt index. Använd [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för den här uppgiften.|
  | Lägg till en analyzer till ett befintligt indexerade fält. | Återskapa | Vägar i inverterad indexet för det fältet måste återskapas från grunden upp och innehållet för dessa fält måste indexeras. <br/> <br/>För index utvecklas, [ta bort](https://docs.microsoft.com/rest/api/searchservice/delete-index) och [skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) i index för att hämta den nya fältdefinitionen. <br/> <br/>Index i produktion, bör du skapa ett nytt fält för att ge den omarbetade definitionen och börja använda den. Använd [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) att lägga till det nya fältet. Senare, som en del av index för planerat underhåll, kan du rensa i index för att ta bort föråldrade fält. |
 
 ## <a name="tips-and-best-practices"></a>Tips och råd
@@ -92,7 +92,7 @@ Gå igenom det här exemplet:
 * Analysverktyg är en egenskap i klassen fält för ett sökbart fält.
 * Ett anpassat analysverktyg är en del av en Indexdefinition. Det kan lätt anpassas (till exempel hur du anpassar ett alternativ i ett filter) eller anpassade på flera platser.
 * I det här fallet anpassade analysatorn är ”my_analyzer”, som i sin tur använder en anpassad standard tokenizer ”my_standard_tokenizer” och två token filter: gemener och anpassade asciifolding filtret ”my_asciifolding”.
-* Den definierar även ett anpassad ”map_dash” char filter om du vill ersätta alla bindestreck med understreck innan tokenisering (de standard tokenizer radbrytningar på dash men inte på understreck).
+* It also defines 2 custom char filters "map_dash" and "remove_whitespace". Den första som ersätter alla bindestreck med understreck medan den andra mallen tar du bort alla blanksteg. Blankstegen måste vara UTF-8-kodat i regler för mappning. Char-filter tillämpas innan tokenisering och påverkar de resulterande token (de standard tokenizer radbrytningar på bindestreck och blanksteg men inte på understreck).
 
 ~~~~
   {
@@ -116,7 +116,8 @@ Gå igenom det här exemplet:
            "name":"my_analyzer",
            "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
            "charFilters":[
-              "map_dash"
+              "map_dash",
+              "remove_whitespace"
            ],
            "tokenizer":"my_standard_tokenizer",
            "tokenFilters":[
@@ -130,6 +131,11 @@ Gå igenom det här exemplet:
            "name":"map_dash",
            "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
            "mappings":["-=>_"]
+        },
+        {
+           "name":"remove_whitespace",
+           "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
+           "mappings":["\\u0020=>"]
         }
      ],
      "tokenizers":[

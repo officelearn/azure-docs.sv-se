@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Speech-tjänsten fungerar med en mängd olika enheter och ljud datakällor. Nu kan dra du ditt talprogram till nästa nivå med matchande maskinvara och programvara. I den här artikeln lär du dig att få åtkomst till tal Devices SDK och börja utveckla.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 905f3dde7c9c728c2a57858578cef8cff2777d81
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733475"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872160"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Hämta Cognitive Services tal enheter SDK
 

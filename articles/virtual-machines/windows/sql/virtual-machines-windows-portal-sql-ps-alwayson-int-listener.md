@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/22/2017
+ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: dd09dd337cfe11729ef3ddc5d9b19f024d64300e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064006"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873010"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always On availability-grupplyssnare - Resource Manager
 Det här avsnittet visar hur du:
@@ -40,16 +40,42 @@ Relaterade ämnen innefattar:
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
+## <a name="verify-powershell-version"></a>Kontrollera PowerShell-version
+
+Exemplen i den här artikeln testas med hjälp av Azure PowerShell-Modulversion 5.4.1.
+
+Kontrollera din PowerShell-modulen är 5.4.1 eller senare.
+
+Se [installera Azure PowerShell-modulen](http://docs.microsoft.com/powershell/azure/install-az-ps).
+
 ## <a name="configure-the-windows-firewall"></a>Konfigurera Windows-brandväggen
+
 Konfigurera Windows-brandväggen så att SQL Server-åtkomst. Brandväggsreglerna tillåta TCP-anslutningar till portar används av SQL Server-instansen och lyssnare-avsökning. Detaljerade anvisningar finns i [konfigurerar en Windows-brandvägg för Databasmotoråtkomst](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Skapa en regel för inkommande för SQL Server-porten och avsökningsporten.
 
 Om du är att begränsa åtkomst med en Azure Network Security Group, se till att Tillåt-reglerna omfattar serverdel SQL Server VM IP-adresser och belastningsutjämnare flytande IP-adresser för AG-lyssnare och klustrets core IP-adress om det är tillämpligt.
 
+## <a name="determine-the-load-balancer-sku-required"></a>Fastställa belastningsutjämnaren SKU som krävs
+
+[Azure-belastningsutjämnare](../../../load-balancer/load-balancer-overview.md) finns i 2 SKU: er: Grundläggande och Standard. Belastningsutjämnaren på standard rekommenderas. Om de virtuella datorerna finns i en tillgänglighetsuppsättning, tillåts belastningsutjämnare. Standardbelastningsutjämnare kräver att alla VM-IP-adresser använder standard IP-adresser.
+
+Aktuellt [Microsoft-mallen för](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) för en tillgänglighet gruppen använder en grundläggande belastningsutjämnare med grundläggande IP-adresser.
+
+Exemplen i den här artikeln anger en standardbelastningsutjämnare. I exemplen är skriptet innehåller `-sku Standard`.
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+```
+
+Om du vill skapa en basic load balancer, tar du bort `-sku Standard` från den rad som skapar belastningsutjämnaren. Exempel:
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+```
+
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Exempel på skript: Skapa en intern belastningsutjämnare med PowerShell
+
 > [!NOTE]
-> Om du har skapat tillgänglighetsgruppen med den [Microsoft-mallen för](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), den interna belastningsutjämnaren har redan skapats. 
-> 
-> 
+> Om du har skapat tillgänglighetsgruppen med den [Microsoft-mallen för](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), den interna belastningsutjämnaren har redan skapats.
 
 Följande PowerShell-skript skapar en intern belastningsutjämnare, konfigurerar regler för belastningsutjämning och anger en IP-adress för belastningsutjämnaren. Öppna Windows PowerShell ISE för att köra skriptet, och klistra in skriptet i skriptfönstret. Använd `Connect-AzureRmAccount` att logga in på PowerShell. Om du har flera Azure-prenumerationer kan du använda `Select-AzureRmSubscription ` att ställa in prenumerationen. 
 
@@ -86,7 +112,7 @@ $SQLHealthProbe = New-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -Protoco
 
 $ILBRule = New-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP 
 
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe 
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 
 $bepool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB 
 

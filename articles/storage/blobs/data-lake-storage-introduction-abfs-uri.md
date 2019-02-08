@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Data Lake Storage Gen2 förhandsversion URI
-description: Använda Azure Data Lake Storage Gen2 förhandsversion URI
+title: Använda Azure Data Lake Storage Gen2 URI
+description: Använda Azure Data Lake Storage Gen2 URI
 services: storage
 author: jamesbak
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 63dcea94fd880102a784e6f776855c44d4e97c87
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe020ab1091b91ba21174b59d0ce25ab0c6122ca
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243325"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878314"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Använda Azure Data Lake Storage Gen2 URI
 
-Den [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) drivrutin som är kompatibel med Azure Data Lake Storage Gen2 förhandsversion är känd av dess schema-identifierare `abfs` (Azure Blob-filsystem). Konsekvent med andra Hadoop Filesystem-drivrutiner, ABFS drivrutinen använder en URI-format för att adressera filer och kataloger i ett kompatibelt Gen2 för Data Lake Storage-konto.
+Den [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) drivrutin som är kompatibel med Azure Data Lake Storage Gen2 är känd av dess schema-identifierare `abfs` (Azure Blob-filsystem). Konsekvent med andra Hadoop Filesystem-drivrutiner, ABFS drivrutinen använder en URI-format för att adressera filer och kataloger i ett kompatibelt Gen2 för Data Lake Storage-konto.
 
 ## <a name="uri-syntax"></a>URI-syntax
 

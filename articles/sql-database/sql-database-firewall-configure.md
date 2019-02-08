@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: e4b217ada2aae159680b113b6ddcb41c9d121f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753069"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894708"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse IP-brandväggsregler
 
@@ -92,7 +92,7 @@ För att förbättra prestanda cachelagras IP-brandväggsregler på servernivå 
 > [!TIP]
 > Du kan använda [SQL Database Auditing](sql-database-auditing.md) att granska ändringar av brandvägg på servernivå och databasnivå.
 
-## <a name="manage-ip-firewall-rules-using-the-azure-portal"></a>Hantera IP-brandväggsregler med hjälp av Azure portal
+## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>Hantera brandväggsregler på servernivå IP med Azure portal
 
 Om du vill ange en IP-brandväggsregel på servernivå på Azure-portalen, går antingen du till sidan Översikt för Azure SQL database eller översiktssidan för din SQL Database-server.
 
@@ -196,7 +196,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Ta bort brandväggsregel](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Tar bort IP-brandväggsregler på servernivå |
 | [Hämta brandväggsregler](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Hämtar IP-brandväggsregler på servernivå |
 
-## <a name="server-level-ip-firewall-rule-versus-a-database-level-ip-firewall-rule"></a>IP-brandväggsregel på servernivå runt jämfört med en IP-brandväggsregel på databasnivå
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>På servernivå och databasnivå IP-brandväggsregler
 
 F. Bör användare av en databas är helt isolerade från en annan databas?
 Om Ja, kan du bevilja åtkomst med hjälp av IP-brandväggsregler på databasnivå. Detta förhindrar med servernivå IP-brandväggsregler, som tillåter åtkomst genom brandväggen till alla databaser, dina försvar djup.

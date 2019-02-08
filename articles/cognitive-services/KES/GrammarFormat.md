@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Läs mer om grammatikformat i den kunskap utforskning Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f3cb307a52cfddebfa97c1b8608549acdd89169d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 72dec3effe5e350818c01cf65c9140e778effd17
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215082"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860295"
 ---
 # <a name="grammar-format"></a>Grammatikformat
 
@@ -128,9 +128,9 @@ I följande tabell visas de stöds `op` värden för varje attributtyp.  Deras a
 
 | Attributtyp | Op värde | Beskrivning | Indexåtgärden
 |----|----|----|----|
-| Sträng | eq | Exakt matchning av sträng | är lika med |
-| Sträng | starts_with | Prefix för strängmatchning | starts_with |
-| Int32, Int64, Double-värde | eq |  Numeriska likhetsmatchning | är lika med |
+| String | eq | Exakt matchning av sträng | lika med |
+| String | starts_with | Prefix för strängmatchning | starts_with |
+| Int32, Int64, Double-värde | eq |  Numeriska likhetsmatchning | lika med |
 | Int32, Int64, Double-värde | lt, le, gt, ge | Numeriska ojämlikhet matchning (<, < =, >, > =) | is_between |
 | Int32, Int64, Double-värde | starts_with | Prefixmatchning värde i decimalform | starts_with |
 

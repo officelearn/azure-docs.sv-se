@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Lägg till entiteter (viktiga data i ditt programs domän) i appar för Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a6dba36eadde9bc9bb1e6ca778a3bce07b561e54
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 61211db72928bebf0e1ea50cad6362337f66f0eb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207300"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859629"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entitetstyper och deras syften i LUIS
 
@@ -86,7 +86,7 @@ Entiteter kan extraheras med machine learning, vilket gör att LUIS för att lä
 
 När entiteten har extraherat entitetsdata representeras som en enhet av information eller kombineras med andra entiteter för att bilda en enhet med information att klientprogrammet kan använda.
 
-|Machine-learned|Kan markera|Självstudie|Exempel<br>Svar|Entitetstyp|Syfte|
+|Machine-learned|Kan markera|Självstudier|Exempel<br>Svar|Entitetstyp|Syfte|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Sammansatta**](#composite-entity)|Gruppering av enheter, oavsett typ av enhet.|
 |✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarkisk**](#hierarchical-entity)|Gruppering av enkla enheter.|

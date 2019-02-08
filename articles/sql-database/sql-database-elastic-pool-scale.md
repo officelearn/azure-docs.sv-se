@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 426c090a79931f252a5daeacbdd83d0238ecf672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455107"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868129"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala resurser för elastisk pool i Azure SQL Database
 
@@ -27,8 +27,8 @@ Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som 
 
 - Storage kan etableras upp till den maximala storleksgränsen:
 
-  - För standardlagring, öka eller minska storleken i steg om 10 GB
-  - För Premium storage kan öka eller minska storleken i steg om 250 GB
+  - För lagring på tjänstnivåerna standard eller allmänna, öka eller minska storleken i steg om 10 GB
+  - För lagring i premium- eller affärskritisk tjänstnivåer, öka eller minska storleken i steg om 250 GB
 - Lagring för en elastisk pool kan etableras genom att öka eller minska dess maxstorleken.
 - Priset för lagring för en elastisk pool är det lagringsutrymmet multiplicerat med a-pris för lagring av tjänstnivån. Mer information om priset för extra lagringsutrymme finns [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 

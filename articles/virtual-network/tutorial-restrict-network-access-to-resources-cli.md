@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e4f8b99cfeaa35644ed51fd8ad712fe4744c0226
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751505"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890951"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Begränsa nätverksåtkomst till PaaS-resurser med virtuella nätverksslutpunkter med Azure CLI
 
@@ -72,7 +72,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-Skapa ett ytterligare undernät i det virtuella nätverket med [az network vnet-undernät skapa](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). I det här exemplet, en tjänstslutpunkt för *Microsoft.Storage* har skapats för undernätet: 
+Skapa ett ytterligare undernät i det virtuella nätverket med [az network vnet-undernät skapa](/cli/azure/network/vnet/subnet). I det här exemplet, en tjänstslutpunkt för *Microsoft.Storage* har skapats för undernätet: 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -85,7 +85,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>Begränsa nätverksåtkomst för ett undernät
 
-Skapa en nätverkssäkerhetsgrupp med [az network nsg skapa](/cli/azure/network/nsg#az_network_nsg_create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsgPrivate*.
+Skapa en nätverkssäkerhetsgrupp med [az network nsg skapa](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -93,7 +93,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Associera nätverkssäkerhetsgruppen till den *privata* undernätet med [az network vnet-undernät uppdatering](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). I följande exempel kopplar den *myNsgPrivate* nätverkssäkerhetsgrupp till det *privata* undernät:
+Associera nätverkssäkerhetsgruppen till den *privata* undernätet med [az network vnet-undernät uppdatering](/cli/azure/network/vnet/subnet). I följande exempel kopplar den *myNsgPrivate* nätverkssäkerhetsgrupp till det *privata* undernät:
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ De steg som behövs för att begränsa nätverksåtkomsten till resurser som har
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Skapa ett Azure storage-konto med [az storage-konto skapar](/cli/azure/storage/account#az_storage_account_create). Ersätt `<replace-with-your-unique-storage-account-name>` med ett namn som är unikt i alla Azure-platser, mellan 3 och 24 tecken långt, med hjälp av endast siffror och gemener.
+Skapa ett Azure storage-konto med [az storage-konto skapar](/cli/azure/storage/account). Ersätt `<replace-with-your-unique-storage-account-name>` med ett namn som är unikt i alla Azure-platser, mellan 3 och 24 tecken långt, med hjälp av endast siffror och gemener.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -197,7 +197,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Neka alla åtkomst till ett lagringskonto
 
-Som standard godkänner lagringskonton nätverksanslutningar från klienter i alla nätverk. För att begränsa åtkomsten till valda nätverk, ändrar du åtgärden du *neka* med [az storage-konto uppdatering](/cli/azure/storage/account#az_storage_account_update). Lagringskontot är inte tillgänglig från alla nätverk när nätverksåtkomst nekas.
+Som standard godkänner lagringskonton nätverksanslutningar från klienter i alla nätverk. För att begränsa åtkomsten till valda nätverk, ändrar du åtgärden du *neka* med [az storage-konto uppdatering](/cli/azure/storage/account). Lagringskontot är inte tillgänglig från alla nätverk när nätverksåtkomst nekas.
 
 ```azurecli-interactive
 az storage account update \
@@ -208,7 +208,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>Aktivera nätverksåtkomst från ett undernät
 
-Tillåt nätverksåtkomst till storage-konto från den *privata* undernätet med [az storage-konto-regel för Lägg till](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
+Tillåt nätverksåtkomst till storage-konto från den *privata* undernätet med [az storage-konto-regel för Lägg till](/cli/azure/storage/account/network-rule).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -334,7 +334,7 @@ az storage share list \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du använda [az group delete](/cli/azure#az_group_delete) att ta bort resursgruppen och alla resurser den innehåller.
+När den inte längre behövs kan du använda [az group delete](/cli/azure) att ta bort resursgruppen och alla resurser den innehåller.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

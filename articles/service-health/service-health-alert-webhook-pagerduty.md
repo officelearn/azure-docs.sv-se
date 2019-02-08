@@ -1,25 +1,17 @@
 ---
 title: Konfigurera Azure service health-aviseringar med PagerDuty | Microsoft Docs
 description: Få personligt anpassade meddelanden om service health-händelser till din PagerDuty-instans.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-ms.assetid: ''
-ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: stephbaron
+ms.author: stbaron
 ms.topic: article
+ms.service: service-health
 ms.date: 11/14/2017
-ms.author: shtabriz
-ms.openlocfilehash: eba81e0d0a5b178aec6f712abaae2b566bc54316
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583457"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883057"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Konfigurera service health-aviseringar med PagerDuty
 
@@ -40,7 +32,7 @@ Den här artikeln visar hur du ställer in Azure service health meddelanden via 
 
     b. **Namn på Integration**: \<Namn\>
 
-    ![”Integreringen Settings” i PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
+    ![The "Integration Settings" in PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
 1.  Fyll i alla obligatoriska fält och välj **Lägg till**.
 

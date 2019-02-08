@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Översikt om hur du använder Bing Custom Search för att hämta avbildningar från din anpassade vy över webben.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 742436b3314886cc81bdefcf9a2961d25e268a02
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 42679635aab8df7174eb06928631e2b677d0a20b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148565"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55855922"
 ---
 # <a name="get-images-from-your-custom-view"></a>Hämta avbildningar från den anpassade vyn
 

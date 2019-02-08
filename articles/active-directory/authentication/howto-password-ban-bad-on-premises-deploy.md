@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 824bedf782d6d227f2fa3adcf52492bb5a3eb478
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c018bec98fc9e1edc22a8535d06961d192f4c992
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696871"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880424"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera Azure AD-lösenordsskydd
 
@@ -169,7 +169,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenord skydd s
       I exemplen ovan lyckas bara om den inloggade användaren också är administratör för Active Directory-domän för rotdomänen. Om detta inte är fallet kan du ange alternativa domänautentiseringsuppgifter via parametern - ForestCredential.
 
    > [!NOTE]
-   > Om flera proxyservrar är installerade i din miljö, spelar ingen roll vilken proxyserver som används för att registrera skogen.
+   > Om flera proxyservrar är installerade i din miljö, spelar ingen roll vilken proxyserver används för att registrera skogen.
 
    > [!TIP]
    > Det kan finnas en avsevärd fördröjning (antal sekunder) första gången den här cmdleten körs för en viss Azure-klient innan cmdleten är slutfört. Om inte ett fel rapporteras ska inte den här fördröjningen betraktas oroväckande.

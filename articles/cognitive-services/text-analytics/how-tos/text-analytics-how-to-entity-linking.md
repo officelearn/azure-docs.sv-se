@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Lär dig hur du känner igen entiteter med hjälp av den REST API för textanalys.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5b8ebc76355d39c1e81217fd1f7af09f876838c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220400"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862353"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Hur du använder med namnet Entitetsidentifiering i Text Analytics (förhandsversion)
 
@@ -46,24 +46,24 @@ Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskaps
 | Person        | EJ TILLÄMPLIGT\*         | "Jeff", "Bill Gates"     |
 | Plats      | EJ TILLÄMPLIGT\*         | "Redmond, Washington", "Paris"  |
 | Organisation  | EJ TILLÄMPLIGT\*         | "Microsoft"   |
-| Antal      | Antal        | "6", "six"     | 
-| Antal      | Procent    | "50%", "fifty percent"| 
-| Antal      | Ordinal       | "2nd", "second"     | 
-| Antal      | NumberRange   | ”4 till 8”     | 
-| Antal      | Ålder           | ”90 dagar gamla”, ”30 år”    | 
-| Antal      | Valuta      | "$10.99"     | 
-| Antal      | Dimension     | "10 miles", "40 cm"     | 
-| Antal      | Temperatur   | "32 degrees"    |
+| Kvantitet      | Tal        | "6", "six"     | 
+| Kvantitet      | Procent    | "50%", "fifty percent"| 
+| Kvantitet      | Ordinal       | "2nd", "second"     | 
+| Kvantitet      | NumberRange   | ”4 till 8”     | 
+| Kvantitet      | Ålder           | ”90 dagar gamla”, ”30 år”    | 
+| Kvantitet      | Valuta      | "$10.99"     | 
+| Kvantitet      | Dimension     | "10 miles", "40 cm"     | 
+| Kvantitet      | Temperatur   | "32 degrees"    |
 | DateTime      | EJ TILLÄMPLIGT\*         | ”18:30:00 den 4 februari 2012”      | 
-| DateTime      | Datum          | "May 2nd, 2017", "05/02/2017"   | 
-| Tidpunkt     | Tid          | "8am", "8:00"  | 
+| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   | 
+| Datum och tid     | Tid          | "8am", "8:00"  | 
 | DateTime      | DateRange     | ”2 maj till 5 maj”    | 
 | DateTime      | TimeRange     | ”18: 00 till 19: 00”     | 
 | DateTime      | Varaktighet      | ”1 minut och 45 sekunder”   | 
-| DateTime      | Uppsättning           | ”varje tisdag”     | 
+| DateTime      | Ange           | ”varje tisdag”     | 
 | DateTime      | TimeZone      |    | 
 | URL           | EJ TILLÄMPLIGT\*         | "http://www.bing.com"    |
-| E-post          | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
+| E-post         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
 \* Beroende på indata- och extraherade entiteter, vissa entiteter kan utelämna den `SubType`.
 
 

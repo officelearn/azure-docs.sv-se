@@ -1,25 +1,18 @@
 ---
 title: Azure Resource Health vanliga frågor och svar | Microsoft Docs
 description: Översikt över Azure Resource Health
-services: Resource health
-documentationcenter: dev-center-name
-author: BernardoAMunoz
-manager: ''
-editor: ''
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.date: 01/29/2019
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: BernardoAMunoz
-ms.openlocfilehash: 1e22c62c291909bb4079ebaf389cfbd15ae9d8d5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054944"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884553"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health vanliga frågor och svar
 Lär dig svar på vanliga frågor om Azure Resource Health.
@@ -40,7 +33,7 @@ Resurshälsa utför olika kontroller baserat på den [resurstyp](resource-health
 Det finns tre olika hälsotillstånd statusar:
 - Tillgängliga: Det inte finns några kända problem i Azure-plattformen som kan påverka den här resursen
 - Inte tillgänglig: Resource health har identifierat problem som påverkar resursen
-- Okänd: Resource health kan inte fastställa hälsotillståndet för en resurs eftersom den är stoppad ta emot information om den. 
+- Okänt: Resource health kan inte fastställa hälsotillståndet för en resurs eftersom den är stoppad ta emot information om den. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>Vad betyder okänd status? Är något fel med min resurs?
 Hälsostatus anges till okänd när Resource Health slutar ta emot information om en viss resurs. Även om denna status inte är en slutgiltig indikation på tillståndet för resursen, i fall där du får problem, betyda det att det finns ett Azure-problem.

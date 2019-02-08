@@ -4,47 +4,47 @@ titlesuffix: Azure Cognitive Services
 description: Läs om de attribut som du kan använda med dokumentet entiteten i Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: d36a39f10f9e0129af3b730a65387d7108209004
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 240541dd76221ee19c96b162da02ced90fb0ad90
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168387"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873095"
 ---
 # <a name="paper-entity"></a>Dokumentet entitet
 
 <sub> * Nedan attribut är specifika för dokumentet entitet. (Ty = ”0”) </sub>
 
 
-Namn    |Beskrivning                                        |Typ       | Åtgärder
+Namn    |Beskrivning                                        |Type       | Åtgärder
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |Enhets-id                                          |Int64      |Lika med
-Ti      |Dokumentet rubrik                                        |Sträng     |Är lika med,<br/>StartsWith
-L       |Språkkod för dokumentet avgränsade med ”\@@@”            |Sträng     |Lika med
+Ti      |Dokumentet rubrik                                        |String     |Är lika med,<br/>StartsWith
+L       |Språkkod för dokumentet avgränsade med ”\@@@”            |String     |Lika med
 Y       |Dokumentet år                                         |Int32      |Är lika med,<br/>IsBetween
 D       |Dokumentet datum                                         |Date       |Är lika med,<br/>IsBetween
 Kopia      |Antalet källhänvisningar                                     |Int32      |inga  
 ECC     |Beräknad citat antal                           |Int32      |inga
-AA.AuN  |Upphovsmannens namn                                        |Sträng     |Är lika med,<br/>StartsWith
+AA.AuN  |Upphovsmannens namn                                        |String     |Är lika med,<br/>StartsWith
 AA.AuId |Författare-ID                                          |Int64      |Lika med
-AA.AfN  |Författarens namn i anknytning                            |Sträng     |Är lika med,<br/>StartsWith
+AA.AfN  |Författarens namn i anknytning                            |String     |Är lika med,<br/>StartsWith
 AA.AfId |Författare anknytning-ID                              |Int64      |Lika med
 AA.S    |Författare för dokumentet                         |Int32      |Lika med
-F.FN    |Fältet för studier namn                                |Sträng     |Är lika med,<br/>StartsWith
+F.FN    |Fältet för studier namn                                |String     |Är lika med,<br/>StartsWith
 F.FId   |Fältet för studie-ID                                  |Int64      |Lika med
-J.JN    |Namn                                       |Sträng     |Är lika med,<br/>StartsWith
+J.JN    |Namn                                       |String     |Är lika med,<br/>StartsWith
 J.JId   |Ändringsjournalens ID                                         |Int64      |Lika med
-C.CN    |Konferensen serienamn                             |Sträng     |Är lika med,<br/>StartsWith
+C.CN    |Konferensen serienamn                             |String     |Är lika med,<br/>StartsWith
 C.CId   |ID för konferens-serien                               |Int64      |Lika med
 RId     |Refererade dokument-ID                              |Int64[]    |Lika med
 W       |Ord från papper rubrik och sammanfattning                |String[]   |Lika med
-E       |Utökade metadata (se tabellen nedan)                |Sträng     |inga  
+E       |Utökade metadata (se tabellen nedan)                |String     |inga  
         
 
 

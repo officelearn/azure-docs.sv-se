@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2ef37e9661139b0b1d24ddc005df7bf338397803
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163814"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856367"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Hantera enkel inloggning och token anpassning med anpassade principer i Azure Active Directory B2C
 
@@ -52,7 +52,18 @@ Följande värden har angetts i föregående exempel:
 - **Livslängd för uppdateringstoken** – den livslängd för uppdateringstoken värdet med den **refresh_token_lifetime_secs** metadata-objekt. Standardvärdet är 1209600 sekunder (14 dagar).
 - **Token livslängd för skjutfönster** – om du vill ange en livslängd för skjutfönster för att uppdateringstoken, ange värdet för **rolling_refresh_token_lifetime_secs** metadata-objekt. Standardvärdet är 7776000 (90 dagar). Om du inte vill tillämpa en livslängd för skjutfönster, ersätter du objektet med `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
 - **Utfärdaren (iss) anspråk** -anspråk The utfärdare (iss) anges med den **IssuanceClaimPattern** metadata-objekt. Lämpliga värden är `AuthorityAndTenantGuid` och `AuthorityWithTfp`.
-- **Inställningen anspråk som representerar princip-ID** -alternativ för det här värdet är `TFP` (litar framework princip) och `ACR` (autentisering kontext referens). `TFP` är det rekommenderade värdet. Ange **AuthenticationContextReferenceClaimPattern** med värdet för `None`. I din **OutputClaims** objektet, Lägg till det här elementet:
+- **Inställningen anspråk som representerar princip-ID** -alternativ för det här värdet är `TFP` (litar framework princip) och `ACR` (autentisering kontext referens). `TFP` är det rekommenderade värdet. Ange **AuthenticationContextReferenceClaimPattern** med värdet för `None`. 
+
+    I den **ClaimsSchema** element, lägga till det här elementet: 
+    
+    ```XML
+    <ClaimType Id="trustFrameworkPolicy">
+      <DisplayName>Trust framework policy name</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    ```
+    
+    I din **OutputClaims** element, lägga till det här elementet:
     
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />

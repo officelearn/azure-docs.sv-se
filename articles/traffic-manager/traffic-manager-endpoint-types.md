@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: fb8922424de064bc63f793479d8c3a98b506b844
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232523"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882003"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-slutpunkter
 Microsoft Azure Traffic Manager kan du styra hur nätverkstrafiken distribueras till distribution av program som körs i olika datacenter. Du konfigurerar varje programdistribution som en slutpunkt i Traffic Manager. När Traffic Manager tar emot en DNS-begäran, väljer en slutpunkt som är tillgängliga för att returnera i DNS-svaret. Traffic manager baser valet aktuella statusen för slutpunkten och routning av nätverkstrafik-metoden. Mer information finns i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md).
@@ -63,7 +63,7 @@ Kapslade slutpunkter kombinera flera Traffic Manager-profiler för att skapa fle
 
 Vissa ytterligare förutsättningar gäller när du konfigurerar Webbappar som slutpunkter i Traffic Manager:
 
-1. Endast Webbappar på ”Standard” SKU eller högre är tillämpliga för användning med Traffic Manager. Försök att lägga till en Webbapp med en lägre SKU misslyckas. SKU-nedgradering av en befintlig Webbapp resulterar i Traffic Manager inte längre skickar trafik till Webbappen.
+1. Endast Webbappar på ”Standard” SKU eller högre är tillämpliga för användning med Traffic Manager. Försök att lägga till en Webbapp med en lägre SKU misslyckas. SKU-nedgradering av en befintlig Webbapp resulterar i Traffic Manager inte längre skickar trafik till Webbappen. Mer information om stöds planer finns i den [App Service-planer](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 2. När en slutpunkt får en HTTP-förfrågan, används 'host'-huvudet i begäran för att avgöra vilken Webbapp som ska hantera begäran. Värdhuvudet innehåller DNS-namn som används för att initiera begäran, till exempel ”contosoapp.azurewebsites.net”. Om du vill använda ett annat DNS-namn med ditt webbprogram, måste DNS-namnet registreras som ett anpassat domännamn för appen. När du lägger till en Web App-slutpunkt som en Azure-slutpunkt, registreras automatiskt Traffic Manager profilen DNS-namn för appen. Denna registrering tas bort automatiskt när slutpunkten tas bort.
 3. Varje Traffic Manager-profil kan ha högst en Web App-slutpunkt från varje Azure-region. Undvik för den här begränsningen genom kan du konfigurera en Webbapp som en extern slutpunkt. Mer information finns i den [vanliga frågor och svar](traffic-manager-faqs.md#traffic-manager-endpoints).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Skapa och ändra en ExpressRoute-krets - portal: Azure | Microsoft Docs'
+title: 'Skapa och ändra en ExpressRoute-krets - portalen: Azure | Microsoft Docs'
 description: Skapa, etablera, verifiera, uppdatera, ta bort och Avetablerar en ExpressRoute-krets.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091535"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894725"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Skapa och ändra en ExpressRoute-krets
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ Den här artikeln hjälper dig att skapa en ExpressRoute-krets med hjälp av Azu
   ![Konfigurera SKU-nivån och datamätning](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **Nivån** bestämmer om en ExpressRoute-standard eller en ExpressRoute-premiumtillägget är aktiverat. Du kan ange **Standard** att hämta standard-SKU eller **Premium** premium-tillägg.
-  * **Datamätning** avgör vilken fakturering. Du kan ange **förbrukade** för ett abonnemang med förbrukade data och **obegränsad** för en obegränsad dataplan. Observera att du kan ändra typen fakturering från **förbrukade** till **obegränsad**, men du kan inte ändra typen från **obegränsad** till **förbrukade**.
+  * **Datamätning** avgör vilken fakturering. Du kan ange **förbrukade** för ett abonnemang med förbrukade data och **obegränsad** för en obegränsad dataplan. Observera att du kan ändra typen fakturering från **förbrukade** till **obegränsad**.
+    > [!IMPORTANT] Du kan inte ändra typen från **obegränsad** till **förbrukade**.
   * **Peeringplatsen** är den fysiska platsen där du peer med Microsoft.
 
     > [!IMPORTANT]
@@ -77,20 +78,20 @@ På den här sidan **Providerstatus** innehåller information om det aktuella ti
 
 När du skapar en ny ExpressRoute-krets är kretsen i följande tillstånd:
 
-Providerstatus: inte etablerats<BR>
-Circuit status: aktiverat
+Providerstatus: Inte etablerats<BR>
+Kretsstatus: Enabled
 
 ![Starta etableringsprocessen](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Kretsen ändras till följande tillstånd när anslutningsleverantören håller på att aktivera den för du:
 
-Providerstatus: etablering<BR>
-Circuit status: aktiverat
+Providerstatus: Etablering<BR>
+Kretsstatus: Enabled
 
 Du kan använda en ExpressRoute-krets, måste den vara i följande tillstånd:
 
-Providerstatus: etablerats<BR>
-Circuit status: aktiverat
+Providerstatus: Etablerad<BR>
+Kretsstatus: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Regelbundet kontrollera status och tillståndet för nyckeln krets
 Du kan visa egenskaperna för kretsen som du är intresserad av genom att välja den. Kontrollera den **Providerstatus** och se till att den har flyttats till **etablerad** innan du fortsätter.
@@ -117,10 +118,11 @@ Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka ansl
 Du kan utföra följande uppgifter utan avbrott:
 
 * Aktivera eller inaktivera en ExpressRoute Premium-tillägget för ExpressRoute-krets.
-* Öka bandbredden för ExpressRoute-kretsen, förutsatt att det finns tillgänglig kapacitet på porten. Nedgradera bandbredden för en krets stöds inte. 
-* Ändra Avläsning av planen från *förbrukade Data* till *obegränsade Data*. Prisplanen ändras Avläsning av programvara från obegränsade Data för förbrukade Data stöds inte.
+* Öka bandbredden för ExpressRoute-kretsen, förutsatt att det finns tillgänglig kapacitet på porten.
+  > [!IMPORTANT] Nedgradera bandbredden för en krets stöds inte. 
+* Ändra Avläsning av planen från *förbrukade Data* till *obegränsade Data*.
+  > [!IMPORTANT] Prisplanen ändras Avläsning av programvara från obegränsade Data för förbrukade Data stöds inte.
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
-
 > [!IMPORTANT]
 > Du kan behöva återskapa ExpressRoute-krets om det finns lite kapacitet på befintliga porten. Du kan inte uppgradera kretsen om det finns inga ytterligare kapacitet på den platsen.
 >

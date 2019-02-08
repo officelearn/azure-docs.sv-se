@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Custom Speech Service är nu en del av tal-tjänst. Växla till tal-tjänsten för att dra nytta av de senaste uppdateringarna kvalitet och funktion.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 594233b9e345f9578c218b042a64ea167d50addb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211040"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856905"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrera från Custom Speech Service till Speech-tjänsten
 
@@ -40,12 +40,6 @@ Prismodellen är enklare med hjälp av en timme-baserade prismodellen för tjän
 3. Följ de snabbstartguider och SDK-exempel för att använda rätt API: er. Om du använder REST-API: er, måste du också använda rätt slutpunkterna och resursnycklar.
 
 4. Uppdatera klientprogram för att använda tal-tjänst och API: er.
-
-> [!NOTE]
-> * Om du har aktiverat tal i Språkförståelse (LUIS) fungerar en enskild LUIS-resurs i samma region för LUIS samt alla taltjänster. Mer information finns i [identifierar intentioner från tal](how-to-recognize-intents-from-speech-csharp.md).
-> * Översättning av text-till-text är inte en del av tal-tjänst. Den här funktionen kräver en egen prenumeration på Azure-resurs.
- 
-
 
 ## <a name="migration-for-existing-customers"></a>Migrering för befintliga kunder
 

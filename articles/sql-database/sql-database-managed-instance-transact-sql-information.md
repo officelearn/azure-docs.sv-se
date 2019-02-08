@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 59599686b2a9ccee7250e33f0786d4c7af816983
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734614"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894317"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database managed instance T-SQL skillnader från SQL Server
 
@@ -27,7 +27,7 @@ Alternativ för distribution av hanterade instansen tillhandahåller hög kompat
 
 Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den här artikeln sammanfattar och förklarar skillnaderna. <a name="Differences"></a>
 - [Tillgänglighet](#availability) inklusive skillnaderna i [alltid på](#always-on-availability) och [säkerhetskopior](#backup),
-- [Security](#security) inklusive skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credentials), [kryptografiproviders](#cryptographic-providers), [Inloggningar / användare](#logins--users), [nyckel och huvudnyckeln för tjänsten](#service-key-and-service-master-key),
+- [Security](#security) inklusive skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), [kryptografiproviders](#cryptographic-providers), [Inloggningar / användare](#logins--users), [nyckel och huvudnyckeln för tjänsten](#service-key-and-service-master-key),
 - [Konfigurationen](#configuration) inklusive skillnaderna i [buffra pool tillägget](#buffer-pool-extension), [sortering](#collation), [kompatibilitetsnivå](#compatibility-levels),[databas spegling](#database-mirroring), [databasalternativ](#database-options), [SQL Server Agent](#sql-server-agent), [Tabellalternativ](#tables),
 - [Lär dig om funktionerna](#functionalities) inklusive [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distribuerade transaktioner](#distributed-transactions), [ Utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [Filestream- och Filetable](#filestream-and-filetable), [semantiska fulltextsökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [Polybase](#polybase), [replikering](#replication), [ÅTERSTÄLLA](#restore-statement), [Service Broker](#service-broker), [ Lagrade procedurer, funktioner och utlösare](#stored-procedures-functions-triggers),
 - [Funktioner som har olika beteenden i hanterade instanser](#Changes)
@@ -74,13 +74,13 @@ Information om säkerhetskopior med hjälp av T-SQL finns i [BACKUP](https://doc
 
 De viktigaste skillnaderna mellan granskning i databaser i Azure SQL Database och databaser i SQL Server är:
 
-- Med alternativet för hanterad instans-distribution i Azure SQL Database-granskning fungerar på servernivå och lagrar `.xel` loggfiler på en Azure blob storage-konto.
+- Med alternativet för hanterad instans-distribution i Azure SQL Database-granskning fungerar på servernivå och lagrar `.xel` loggfiler i Azure Blob storage.
 - Med enkel databas och elastisk pool distributionsalternativ i Azure SQL Database-granskning fungerar på databasnivå.
 - I SQL Server lokalt per virtuell datorer, granska fungerar på servern nivå, men lagrar händelser på filer system/windows-händelseloggar.
   
-XEvent granskning i hanterad instans stöder prestandamål i Azure blob storage. Fil- och windows-loggar stöds inte.
+XEvent granskning i hanterad instans stöder prestandamål i Azure Blob storage. Fil- och windows-loggar stöds inte.
 
-Nyckeln skillnader i den `CREATE AUDIT` syntaxen för granskning till Azure blob storage är:
+Nyckeln skillnader i den `CREATE AUDIT` syntaxen för granskning till Azure Blob storage är:
 
 - En ny syntax `TO URL` tillhandahålls och kan du ange URL: en för Azure blob Storage-behållare där `.xel` filer ska placeras
 - Syntaxen `TO FILE` stöds inte eftersom en hanterad instans inte kan komma åt Windows-filresurser.
@@ -170,7 +170,7 @@ Mer information finns i [ALTER DATABASE SET PARTNER och SET WITNESS](https://doc
 - InMemory-objekt stöds inte på tjänstnivån generell användning.  
 - Det finns en gräns på 280 filer per instans innebär max 280 filer per databas. Både data och loggfiler räknas mot den här gränsen.  
 - Databasen får inte innehålla filgrupper som innehåller filestream-data.  Återställningen misslyckas om .bak innehåller `FILESTREAM` data.  
-- Varje fil placeras i Azure Premium storage. I/o och dataflöde per fil beror på storleken på varje enskild fil på samma sätt som de gör för Azure Premium Storage-diskar. Se [Azure Premium-diskprestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Varje fil placeras i Azure Blob storage. I/o och dataflöde per fil beror på storleken på varje enskild fil.  
 
 #### <a name="create-database-statement"></a>CREATE DATABASE-instruktionen
 
@@ -275,10 +275,10 @@ Information om att skapa och ändra tabeller finns i [CREATE TABLE](https://docs
 
 ### <a name="bulk-insert--openrowset"></a>Massinfogning / openrowset
 
-En hanterad instans kan inte komma åt delade filer och mappar i Windows, så att filerna måste importeras från Azure blob storage:
+En hanterad instans kan inte komma åt delade filer och mappar i Windows, så att filerna måste importeras från Azure Blob storage:
 
-- `DATASOURCE` Du måste ange i `BULK INSERT` kommandot när du importerar filer från Azure blob storage. Se [MASSINFOGNING](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` Du måste ange i `OPENROWSET` fungerar när du läser en innehållet i en fil från Azure blob storage. Se [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` Du måste ange i `BULK INSERT` kommandot när du importerar filer från Azure Blob storage. Se [MASSINFOGNING](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` Du måste ange i `OPENROWSET` fungerar när du läser en innehållet i en fil från Azure Blob storage. Se [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
@@ -305,7 +305,7 @@ Varken MSDTC eller [elastiska transaktioner](sql-database-elastic-transactions-o
 
 Vissa Windows-specifika mål för XEvents stöds inte:
 
-- `etw_classic_sync target` stöds inte. Store `.xel` filer på Azure blob-lagring. Se [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
+- `etw_classic_sync target` stöds inte. Store `.xel` filer på Azure blob-lagring. Se [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
 - `event_file target`stöds inte. Store `.xel` filer på Azure blob-lagring. Se [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Externa bibliotek
@@ -347,7 +347,7 @@ Länkade servrar i hanterade instanser stöder ett begränsat antal mål:
 
 ### <a name="polybase"></a>Polybase
 
-Externa tabeller som refererar till filer i HDFS- eller Azure blob storage stöds inte. Läs om hur Polybase [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+Externa tabeller som refererar till filer i HDFS- eller Azure Blob-lagring stöds inte. Läs om hur Polybase [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replikering
 
@@ -365,7 +365,7 @@ Replikering är tillgänglig för en förhandsversion för hanterade instanser. 
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Källa  
-  - `FROM URL` (Azure blob storage) är endast alternativ som stöds.
+  - `FROM URL` (Azure Blob storage) är bara stöds.
   - `FROM DISK`/`TAPE`/ enhet för säkerhetskopiering stöds inte.
   - Säkerhetskopior stöds inte.
 - `WITH` alternativ stöds inte (Nej `DIFFERENTIAL`, `STATS`osv.)

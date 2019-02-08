@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Det är enkelt och prisvärt att komma igång med Speech-tjänsten. En 30-dagars kostnadsfri utvärderingsversion kan du identifiera vad tjänsten kan göra och bestämmer om det är rätt för programmets behov.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 2317341d508f6e4f681c396f649179691f5485f3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a378948d1bd9a48e85122a18ce34260056c9a1f1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208901"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861008"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
 

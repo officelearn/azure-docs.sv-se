@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659525"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894070"
 ---
 # <a name="live-events-and-live-outputs"></a>Livehändelser och liveresultat
 
 Azure Media Services kan du leverera händelser till dina kunder på Azure-molnet. Om du vill konfigurera din strömmade direktsändningar av evenemang i Media Services v3, måste du förstå begrepp som diskuteras i den här artikeln:
 
 * [Live-händelser](#live-events)
-* [Live händelsetyper](#live-vent-types)
-* [Live-händelse typer jämförelse](#live-event-types-comparison)
+* Live händelsetyper
+* Live-händelse typer jämförelse
 * [Live-alternativ för skapande av händelse](#live-event-creation-options)
 * [Live-händelse mata in URL: er](#live-event-ingest-urls)
 * [Live-händelse förhandsgransknings-URL](#live-event-preview-url)
@@ -66,11 +66,11 @@ Du kan skicka bidraget feed på upp till 1080 p upplösning vid en bildfrekvens 
 
 När du skapar en Live-händelse, kan du ange följande alternativ:
 
-* Strömningsprotokoll för Live-händelse (stöds för närvarande protokollen RTMP och Smooth Streaming).<br/>Du kan inte ändra protokollalternativ när direktsänd händelse eller dess associerade Live utdata körs. Om du behöver olika protokoll, bör du skapa separata direktsänd händelse för varje strömningsprotokoll.  
-* IP-begränsningar på infogning och förhandsgranskning. Du kan definiera de IP-adresser som får mata in en video till den här Live-händelsen. Tillåtna IP-adresser kan anges som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med IP-adress och en CIDR-nätmask (till exempel 10.0.0.1/22) eller ett IP-intervall med en IP-adress och en prickad decimalnätmask (till exempel 10.0.0.1(255.255.252.0)).<br/>Om inga IP-adresser har angetts och det saknas regeldefinitioner, kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.<br/>IP-adresserna måste vara i något av följande format: IpV4-adress med 4 siffror, CIDR-adressintervall.
-* När du skapar händelsen, kan du ange att den ska startas automatiskt. <br/>När autostart är angett till true (sant) startas live-händelsen efter skapandet. Faktureringen startar när Live-händelsen börjar köras. Du måste explicit anropa Stop på resursen för direktsänd händelse att stoppa ytterligare fakturering. Du kan också starta händelsen när du är redo att börja direktuppspelning. 
+* Strömningsprotokollet för livehändelsen (för närvarande stöds protokollen RTMP och Smooth Streaming).<br/>Du kan inte ändra protokollalternativ när livehändelsen eller dess associerade liveutdata körs. Om du behöver olika protokoll får du skapa separata livehändelser för varje strömningsprotokoll.  
+* IP-begränsningar på infogning och förhandsgranskning. Du kan definiera de IP-adresser som får mata in en video till den här livehändelsen. Tillåtna IP-adresser kan anges som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med IP-adress och en CIDR-nätmask (till exempel 10.0.0.1/22) eller ett IP-intervall med en IP-adress och en prickad decimalnätmask (till exempel 10.0.0.1(255.255.252.0)).<br/>Om inga IP-adresser har angetts och det saknas regeldefinitioner, kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.<br/>IP-adresserna måste vara i något av följande format: IpV4-adress med 4 siffror, CIDR-adressintervall.
+* När du skapar händelsen, kan du ange att den ska startas automatiskt. <br/>När autostart är angett till true (sant) startas live-händelsen efter skapandet. Faktureringen startar när Live-händelsen börjar köras. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering. Du kan också starta händelsen när du är redo att börja direktuppspelning. 
 
-    Mer information finns i [direktsänd händelse tillstånd och fakturering](live-event-states-billing.md).
+    Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
 
 ## <a name="live-event-ingest-urls"></a>Live-händelse mata in URL: er
 
@@ -133,7 +133,7 @@ När den **direktsänd händelse** börjar ta emot bidrag feed, dess förhandsgr
 När du har dataströmmen väl flödar till Live-händelse, kan du påbörja strömningshändelsen genom att skapa en [tillgången](https://docs.microsoft.com/rest/api/media/assets), [Live utdata](https://docs.microsoft.com/rest/api/media/liveoutputs), och [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators). Live utdata kommer arkiverar dataströmmen och gör den tillgänglig för visning via den [Strömningsslutpunkt](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
 
 > [!NOTE]
-> Live utdata start vid skapandet och avbryts när tas bort. När du tar bort Live-utdata kan du inte tar bort den underliggande tillgången och innehållet i tillgången. 
+> Liveutdata startar när de skapas och avbryts när de tas bort. När du tar bort liveutdata tar du inte bort den underliggande tillgången och innehållet i tillgången. 
 
 Förhållandet mellan en **direktsänd händelse** och dess **Live utdata** är liknar traditionella TV-sändning, där en kanal (**direktsänd händelse**) representerar en konstant strömma video och en inspelning (**Live utdata**) är begränsad till en viss tidpunkt-segment (till exempel kvällar nyheter från 18:30:00 till 19:00:00). Du kan spela TV med hjälp av en Digital Video Recorder (DVR) – den motsvarande funktionen i Live-händelser hanteras via den **ArchiveWindowLength** egenskapen. Det är en ISO 8601-timespan varaktighet (till exempel PTHH:MM:SS) som anger kapaciteten för DVR och kan anges från minst 3 minuter till högst 25 timmar.
 

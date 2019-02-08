@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Lär dig hur du använder i den kunskap utforskning Service (KES) API-Evaluate-metoden.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: d6ddb76954108c037dc4135393df8622c9dbd101
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dcfa9bb7931cf3b682bacf722b67acd6d4a370c0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220781"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860736"
 ---
 # <a name="evaluate-method"></a>utvärdera metod
 
@@ -23,15 +23,15 @@ Den *utvärdera* metoden utvärderar och returnerar resultatet av ett strukturer
 
 Vanligtvis hämtas ett uttryck som från ett svar till metoden tolkningar.  Men du kan också skapa frågeuttryck själv (se [strukturerade frågeuttryck](Expressions.md)).  
 
-## <a name="request"></a>Begäran 
+## <a name="request"></a>Förfrågan 
 
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-Name|Value|Beskrivning
+Namn|Värde|Beskrivning
 ----|----|----
 uttryck för Markörstorlek       | Textsträngen | Strukturerade frågeuttryck som väljer en delmängd av index entiteter.
 Attribut | Textsträngen | Kommaavgränsad lista med attribut som ska ingå i svaret.
- antal      | Antal (standard = 10) | Maximalt antal resultat som ska returneras.
+count      | Antal (standard = 10) | Maximalt antal resultat som ska returneras.
 offset     | Antal (standard = 0) | Index för det första resultatet ska returneras.
 orderby |   Textsträngen | Namnet på attributet som används för att sortera resultaten, följt av valfritt sorteringsordningen (standard = asc) ”:*%{attrname/*[: (asc&#124;desc)]”.  Om inte anges returneras resultatet genom att minska sannolikheten för naturliga loggen.
 timeout  | Antal (standard = 1000) | Tidsgräns i millisekunder. Endast returneras en beräknad innan tidsgränsen har gått ut.

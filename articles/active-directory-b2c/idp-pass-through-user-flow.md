@@ -10,20 +10,17 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6e236144909fc45e0e9d49273d7aed1e3e577436
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161350"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882224"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomst-token via ett användarflöde till ditt program i Azure Active Directory B2C
 
 > [!NOTE]
 > Den här funktionen är för närvarande i offentlig förhandsversion.
-
-> [!Important]
-> Förhandsversion av funktionen är inte tillgänglig för tillfället.
 
 En [användarflödet](active-directory-b2c-reference-policies.md) i Azure Active Directory (Azure AD) B2C ger ditt programs användare möjlighet att registrera dig eller logga in med en identitetsprovider. När vägen startar Azure AD B2C får en [åtkomsttoken](active-directory-b2c-reference-tokens.md) från identitetsprovidern. Azure AD B2C använder den token för att hämta information om användaren. Du kan aktivera ett anspråk i ditt användarflöde och skicka token via till de program som du registrerar i Azure AD B2C.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 11541318ca7e693cc422ecaeab182407cc5bd736
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188600"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895762"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -532,7 +532,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 | **Företagets**         | Företagets   |     |  Skapa och uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa och uppdatera |
 | **ManagerReference**   | ansvarig  |     |  Skapa och uppdatera |
-| **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera | 
+| **BusinessTitle**   |  title     |     |  Skapa och uppdatera | 
 | **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
 | **Kommuner**   |   L   |     | Skapa och uppdatera |
 | **CountryReferenceTwoLetter**      |   CO |     |   Skapa och uppdatera |
@@ -713,7 +713,7 @@ När appkonfigurationer för Workday-etablering har slutförts, kan du aktivera 
 
 3. Den här åtgärden startar den första synkroniseringen, vilket kan ta varierande flera timmar beroende på hur många användare finns i Workday-klient. 
 
-4. När som helst kontrollera den **granskningsloggar** flik i Azure portal för att se vilka åtgärder som etableringstjänsten har utförts. Granskningsloggarna innehåller alla enskilda synkroniseringar händelser utförs av etableringstjänsten, till exempel vilka användare som ska läsa från Workday och sedan därefter läggs till eller uppdateras till Active Directory. Referera till den [felsökning](#troubleshooting-provisioning-issues) för anvisningar om hur du granskar du granskningsloggar och korrigering etablering fel.
+4. När som helst kontrollera den **granskningsloggar** flik i Azure portal för att se vilka åtgärder som etableringstjänsten har utförts. Granskningsloggarna innehåller alla enskilda synkroniseringar händelser utförs av etableringstjänsten, till exempel vilka användare som ska läsa från Workday och sedan därefter läggs till eller uppdateras till Active Directory. Se avsnittet om felsökning för instruktioner om hur du granskningsloggarna och åtgärda etablering fel.
 
 5. När den inledande synkroniseringen är klar skrivs en sammanfattning av granskningsrapporten den **etablering** fliken enligt nedan.
 

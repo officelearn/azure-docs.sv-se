@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e47bf2a75b06f0804e446b0fdde4215b6e8193f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190929"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874727"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) kan du automatisera den genereringen, underhå
 
 * Möjlighet att matcha befintliga identiteter mellan käll- och system.
 * Anpassningsbara attributmappningar som definierar vilka användardata som ska flöda från källsystemet till målsystemet.
-* Valfri e-postaviseringar för att etablera fel
+* Valfri e-postaviseringar för att etablera fel.
 * Rapportering och aktivitet loggar för bättre övervakning och felsökning.
 
 ## <a name="why-use-automated-provisioning"></a>Varför använda automatiserad etablering?
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) kan du automatisera den genereringen, underhå
 Vissa vanliga motiveringarna till att använda den här funktionen är:
 
 * Undvika de kostnader och ineffektivitet handhavarfel vid manuell etablering processer.
-* Undvika kostnader i samband med som är värd för och underhålla anpassade lösningar för etablering och skript
+* Undvika kostnader i samband med som är värd för och underhålla anpassade lösningar för etablering och skript.
 * Att skydda din organisation genom att direkt ta bort användarnas identiteter från viktiga SaaS-appar när de lämnar organisationen.
 * Att enkelt importera ett stort antal användare till ett visst SaaS-program eller system.
 * Att få med en enda uppsättning principer för att fastställa vem som har etablerats och vem som kan logga in till en app.
@@ -107,7 +107,7 @@ På skärmen application management etablering har konfigurerats i den **etabler
 
 ![Inställningar](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Omfångsfilter** berätta etableringstjänsten för vilka användare och grupp i källsystemet bör vara etablerade och/eller avetableras till målsystemet. Det finns två aspekter att Omfångsfilter som utvärderas ihop som bestämmer vem som är inom omfånget för etablering:
+* **Omfångsfilter** berätta etableringstjänsten för vilka användare och grupper i källsystemet bör vara etablerade och/eller tagit bort etableringen till målsystemet. Det finns två aspekter att Omfångsfilter som utvärderas ihop som bestämmer vem som är inom omfånget för etablering:
 
     * **Filtret på attributvärden** -menyn ”omfång för källobjekt” i attributmappningarna kan filtrera efter specifika attributvärden. Du kan till exempel ange att endast användare med attributet ”avdelning” med ”försäljning” ska vara i omfånget för etablering. Mer information finns i [med Omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -214,13 +214,13 @@ För konfigurationen **synkronisering tilldelade användare och grupper bara**, 
     
 Sammanfattning av faktorer som påverkar den tid det tar för att slutföra en **inledande synkronisering**:
 
-* Det totala antalet användare och grupper i omfånget för etablering
+* Det totala antalet användare och grupper i omfånget för etablering.
 
-* Det totala antalet användare, grupper och medlemmar i gruppen finns i källsystemet (Azure AD)
+* Det totala antalet användare, grupper och medlemmar i gruppen finns i källsystemet (Azure AD).
 
 * Huruvida användare inom omfånget för etablering matchas mot befintliga användare i målprogrammet eller måste skapas för första gången. Synkroniseringsjobb som alla användare skapas för första gången tar cirka *dubbelt så länge* som Synkronisera jobb som alla användare matchas mot befintliga användare.
 
-* Antal fel i den [granskningsloggar](check-status-user-account-provisioning.md). Prestanda är långsammare om det finns många fel och etableringstjänsten är i ett tillstånd i karantän 
+* Antal fel i den [granskningsloggar](check-status-user-account-provisioning.md). Prestanda är långsammare om det finns många fel och etableringstjänsten är i ett tillstånd i karantän.    
 
 * Begära hastighetsbegränsningar och begränsning implementeras av målsystemet. Vissa målsystem implementerar begäran hastighetsbegränsningar och begränsning vilket kan påverka prestanda under stora synkroniseringsåtgärder. Under dessa förhållanden kan en app som tar emot för många begäranden för snabbt långsam dess konverteringsfrekvensen eller stänga anslutningen. Anslutningen måste justera genom att inte skicka appförfrågningar snabbare än appen kan bearbeta dem för att förbättra prestanda. Etablering anslutningsverktyg som bygger Microsoft göra den här justering. 
 

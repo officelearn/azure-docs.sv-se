@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cb44311ecdf6a2c9284b14884184863237422f96
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e7939b8d7a6a64519ac8239591c37e06ced56599
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754548"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890526"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Livscykeln för Service Fabric
 Som med andra plattformar, ett program på Azure Service Fabric vanligtvis går igenom följande faser: design, utveckling, testning, distribution, uppgradera, underhållet och borttagningen. Service Fabric erbjuder förstklassig support för hela programlivscykeln för molnprogram, från utveckling till distribution, daglig hantering och underhåll till eventuell inaktivering. Tjänstmodellen gör det möjligt för flera olika roller att delta oberoende av varandra i programmets hela livscykel. Den här artikeln innehåller en översikt över API: er och hur de används av de olika rollerna i hela faserna i livscykeln för Service Fabric-program.
@@ -58,7 +58,7 @@ Se [distribuera ett program](service-fabric-deploy-remove-applications.md) exemp
 
 ## <a name="test"></a>Testa
 1. När du har distribuerat till det lokala utvecklingsklustret eller ett testkluster en *tjänsten developer* körs Testscenario inbyggd växling vid fel med hjälp av den [ **FailoverTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) och [ **FailoverTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) klasser, eller [ **Invoke-ServiceFabricFailoverTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). Testa redundansscenario körs en angiven tjänst via viktiga övergångar och redundans så att den är fortfarande tillgängliga och fungerar.
-2. Den *tjänsten developer* kör sedan inbyggda chaos test scenariot med den [ **ChaosTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) och [  **ChaosTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario#System_Fabric_Testability_Scenario_ChaosTestScenario) klasser, eller [ **Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Testscenario chaos startar slumpmässigt flera noden kodpaketet och repliken fel i klustret.
+2. Den *tjänsten developer* kör sedan inbyggda chaos test scenariot med den [ **ChaosTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) och [  **ChaosTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) klasser, eller [ **Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Testscenario chaos startar slumpmässigt flera noden kodpaketet och repliken fel i klustret.
 3. Den *tjänsten developer* [testar tjänst-till-tjänst-kommunikation](service-fabric-testability-scenarios-service-communication.md) genom att redigera test-scenarier som flyttar primära repliker runt i klustret.
 
 Se [introduktion till Fault Analysis Service](service-fabric-testability-overview.md) för mer information.

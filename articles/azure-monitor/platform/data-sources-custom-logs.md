@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 628cbcbfb712d2fcaa53bdaee262f88a78dd1527
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198788"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895677"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i Log Analytics
 Datakälla för anpassade loggar i Log Analytics kan du samla in händelser från textfiler på både Windows och Linux-datorer. Många program logga information till textfiler i stället för standardtjänster loggning, till exempel Windows händelselogg eller Syslog. När samlats in, kan du parsa data till enskilda fält i dina frågor eller extrahera data vid insamling av enskilda fält.
@@ -29,7 +29,7 @@ Loggfiler ska samlas in måste matcha följande kriterier.
 
 - Loggen måste antingen ha en enda post per rad eller använda en tidsstämpel som matchar en av följande format i början av varje post.
 
-    ÅÅÅÅ-MM-DD: MM: SS<br>M/D/ÅÅÅÅ HH: MM: SS AM/PM<br>Mån DD, YYYY: mm: ss<br />ååmmdd: mm: ss<br />ddMMyy: mm: ss<br />MMM d: mm: ss<br />dd/mm/yyyy:HH:mm:ss zzz<br />åååå-MM-ddTHH:mm:ssK
+    ÅÅÅÅ-MM-DD: MM: SS<br>M/D/ÅÅÅÅ HH: MM: SS AM/PM<br>Mon DD, YYYY HH:MM:SS<br />yyMMdd HH:mm:ss<br />ddMMyy: mm: ss<br />MMM d: mm: ss<br />dd/mm/yyyy:HH:mm:ss zzz<br />yyyy-MM-ddTHH:mm:ssK
 
 - Loggfilen får inte tillåta cirkulär loggning eller loggrotation, där filen skrivs över med nya poster.
 - Loggfilen måste använda ASCII- eller UTF-8-kodning.  Andra format, till exempel UTF-16 stöds inte.
@@ -40,6 +40,10 @@ Loggfiler ska samlas in måste matcha följande kriterier.
   
 >[!NOTE]
 > Om ditt program skapar en ny loggfil skapas varje dag eller när den når en viss storlek, identifierar Log Analytics-agenten för Linux inte dem förrän den startas. Detta är eftersom agenten endast räknar upp och börjar övervakning för mönster med de angivna loggarna vid start och därför måste du planera runt den genom att automatisera omstarten av agenten.  Den här begränsningen finns inte med Log Analytics-agenten för Windows.  
+>
+
+>[!NOTE]
+> Du kan skapa upp till 500 anpassade loggar per Log Analytics-arbetsytan. 
 >
 
 ## <a name="defining-a-custom-log"></a>Definiera en anpassad logg
@@ -127,7 +131,7 @@ Poster för den anpassade loggen har en typ med namnet på loggen som du anger o
 |:--- |:--- |
 | TimeGenerated |Datum och tid då posten har samlats in av Log Analytics.  Om loggen använder en tidsbaserad avgränsare är den tid som samlas in från posten. |
 | SourceSystem |Typ av posten har samlats in från agenten. <br> Ansluta OpsManager – Windows-agenten, antingen direkt eller System Center Operations Manager <br> Linux – alla Linux-agenter |
-| \Data |Fulltextsökning i posten som samlas in. Du kommer förmodligen vill [parsa dessa data till enskilda egenskaper](../log-query/parse-text.md). |
+| RawData |Fulltextsökning i posten som samlas in. Du kommer förmodligen vill [parsa dessa data till enskilda egenskaper](../log-query/parse-text.md). |
 | ManagementGroupName |Namnet på hanteringsgruppen för System Center Operations Manager-agenter.  För andra agenter är detta AOI -\<arbetsyte-ID\> |
 
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: dc9c3b6740533ae26cf395e436908a359cadf8d9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: c92bb8e7441e9701d11f3223fa6ebde7869d6233
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321321"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895740"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -27,6 +27,8 @@ En HTTP-utlösare kan anpassas för att svara på [webhooks](https://en.wikipedi
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+Koden i den här artikeln som standard Functions 2.x syntax som använder .NET Core. Information om 1.x-syntax finns i den [1.x fungerar mallar](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
@@ -63,26 +65,21 @@ I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) so
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
-public static async Task<HttpResponseMessage> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, 
-    ILogger log)
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] 
+    HttpRequest req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
+    string name = req.Query["name"];
 
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
 
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
 
@@ -117,48 +114,46 @@ Här är den *function.json* fil:
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
-Här är C#-skriptkoden som binder till `HttpRequestMessage`:
+Här är C#-skriptkoden som binder till `HttpRequest`:
 
-```csharp
+```cs
 using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
-    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
+    string name = req.Query["name"];
 
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
 
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
 
-Du kan bindas till ett anpassat objekt i stället för `HttpRequestMessage`. Det här objektet har skapats från brödtexten i begäran, parsade som JSON. På samma sätt kan kan en typ skickas till HTTP-svaret utdata bindning och returneras som svarstexten, tillsammans med statuskoden 200.
+Du kan bindas till ett anpassat objekt i stället för `HttpRequest`. Det här objektet skapas från brödtexten i begäran och parsade som JSON. På samma sätt kan kan en typ skickas till HTTP-svaret utdata bindning och returneras som svarstexten, tillsammans med statuskoden 200.
 
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-public static string Run(CustomObject req, ILogger log)
-{
-    return "Hello " + req?.name;
+public static string Run(Person person, ILogger log)
+{   
+    return person.Name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {person.Name}")
+        : new BadRequestObjectResult("Please pass an instance of Person.");
 }
 
-public class CustomObject {
-     public string name {get; set;}
+public class Person {
+     public string Name {get; set;}
 }
 ```
 
@@ -547,12 +542,12 @@ Du kan ange tillståndet och det tillåtna HTTP-metoder i attributet konstruktor
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
+public static Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
 {
     ...
 }
- ```
+```
 
 Ett komplett exempel finns i [utlösare – C#-exempel](#trigger---c-example).
 
@@ -572,7 +567,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
-För C# och F# funktion, kan du deklarera vilken typ av utlösaren indata ska vara antingen `HttpRequestMessage` eller en anpassad typ. Om du väljer `HttpRequestMessage`, får du fullständig åtkomst till Begäranobjektet. För en anpassad typ försöker körningen parsa JSON-begärandetexten för att ange objektets egenskaper.
+För C# och F# funktion, kan du deklarera vilken typ av utlösaren indata ska vara antingen `HttpRequest` eller en anpassad typ. Om du väljer `HttpRequest`, får du fullständig åtkomst till Begäranobjektet. För en anpassad typ försöker körningen parsa JSON-begärandetexten för att ange objektets egenskaper.
 
 Functions-körning ger begärandetexten i stället för Begäranobjektet för JavaScript-funktioner. Mer information finns i den [JavaScript utlösaren exempel](#trigger---javascript-example).
 
@@ -612,13 +607,19 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 På så sätt kan function-koden att stödja två parametrar i adressen _kategori_ och _id_. Du kan använda någon [webb-API: et Route begränsningen](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) med parametrarna. Den följande C#-Funktionskoden använder båda parametrarna.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
-                                                ILogger log)
+public static Task<IActionResult> Run(HttpRequest req, string category, int? id, ILogger log)
 {
     if (id == null)
-        return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
+    {
+        return (ActionResult)new OkObjectResult($"All {category} items were requested.");
+    }
     else
-        return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
+    {
+        return (ActionResult)new OkObjectResult($"{category} item with id = {id} has been requested.");
+    }
+    
+    // -----
+    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 }
 ```
 
@@ -674,7 +675,7 @@ public static IActionResult Run(HttpRequest req, ILogger log)
 {
     ClaimsPrincipal identities = req.HttpContext.User;
     // ...
-    return new OkResult();
+    return new OkObjectResult();
 }
 ```
 
@@ -730,7 +731,7 @@ Det finns inga stöds API för att programmässigt erhålla funktionstangenter.
 
 De flesta http-utlösaren mallar kräver en API-nyckel i begäran. HTTP-begäran ser så normalt ut som följande URL:
 
-    https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
+    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 
 Nyckeln kan ingå i en fråga variabel med namnet `code`, precis som ovan. Det kan också ingå i en `x-functions-key` HTTP-huvud. Värdet för nyckeln kan vara valfri funktionsnyckel som definierats för funktionen eller valfri tangent för värden.
 
@@ -774,7 +775,7 @@ Slack webhook genererar en token för dig i stället för där du kan ange den, 
 
 Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-utlösare och mekanismen varierar beroende på typ av webhook. Varje metod förlitar sig på en nyckel. Som standard används funktionsnyckel med namnet ”standard”. Konfigurera webhook-providern för att skicka nyckelnamnet med förfrågan i något av följande sätt om du vill använda en annan nyckel:
 
-* **Frågesträng**: Providern skickar nyckelnamnet i den `clientid` frågesträngparametern, till exempel `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Frågesträng**: Providern skickar nyckelnamnet i den `clientid` frågesträngparametern, till exempel `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Begärandehuvud**: Providern skickar nyckelnamnet i den `x-functions-clientid` rubrik.
 
 ## <a name="trigger---limits"></a>Utlösare - gränser
@@ -805,7 +806,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 ## <a name="output---usage"></a>Utdata - användning
 
-Använda språk-standard svar mönster för att skicka en HTTP-svar. I C# eller C#-skript, se funktionen returtyp `HttpResponseMessage` eller `Task<HttpResponseMessage>`. I C#, krävs inte ett returvärde attribut.
+Använda språk-standard svar mönster för att skicka en HTTP-svar. I C# eller C#-skript, se funktionen returtyp `IActionResult` eller `Task<IActionResult>`. I C#, krävs inte ett returvärde attribut.
 
 Till exempel svar, se den [utlösaren exempel](#trigger---example).
 

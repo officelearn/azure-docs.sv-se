@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: abfdf75c6460efe50dcc9959ffb297f77a72f8c4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 539567634b940584c3bff47011e0891cc96ff0bd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813219"
+ms.locfileid: "55862079"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -89,7 +89,7 @@ Följande är en sammanfattning av expressinstallationsfiler sidorna i guiden, d
 
 | Guidesidan | Autentiseringsuppgifter samlas in | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Gäller inte |Användaren som kör installationsguiden |Administratör för den lokala servern |<li>Skapar ADSync konto tjänstkontot som används för att köra synkroniseringstjänsten. |
+| Gäller inte |Användaren som kör installationsguiden |Administratör för den lokala servern |<li>Skapar ADSync kontot som används för att köra synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapa ett Azure AD Connector-konto som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
 | Anslut till AD DS |Den lokala Active Directory-autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar AD DS-anslutningskontot i Active Directory och ger behörighet till den. Om du skapade kontot används för att läsa och skriva kataloginformation under synkroniseringen.</li> |
 

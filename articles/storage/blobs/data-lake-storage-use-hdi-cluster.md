@@ -1,22 +1,22 @@
 ---
-title: Använda Azure Data Lake Storage Gen2 förhandsversion med Azure HDInsight-kluster
-description: Lär dig mer om att fråga efter data från Azure Data Lake Storage Gen2 förhandsversion och lagrar resultatet av dina analyser.
+title: Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
+description: Lär dig mer om att fråga efter data från Azure Data Lake Storage Gen2 och lagrar resultatet av dina analyser.
 author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 739076289a1324cb47f0c980f0d21b153c7b5edc
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0932c576a47af85c496d5d2d12dbc1b997d48e16
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662966"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874336"
 ---
-# <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 förhandsversion med Azure HDInsight-kluster
+# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
-Om du vill analysera data i ett HDInsight-kluster kan kan du lagra data i valfri kombination av Azure Blob Storage, Azure Blob Storage med Azure Data Lake Storage Gen2 förhandsgranskningen är aktiverad eller Azure Data Lake Storage Gen1. Alla lagringsalternativ för kan du ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
+Om du vill analysera data i ett HDInsight-kluster kan kan du lagra data i valfri kombination av Azure Blob Storage, Azure Blob Storage med Azure Data Lake Storage Gen2 aktiverad eller Azure Data Lake Storage Gen1. Alla lagringsalternativ för kan du ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
 
 Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange en blobbehållare i Azure Storage eller hierarkiskt namnområde som erbjuds av Data Lake Storage Gen2 som standardfilsystemet under skapandeprocessen för HDInsight-kluster. Du kan också med HDInsight 3.5 kan kan du välja en behållare eller hierarkiskt namnområde som standardfilsystem med några undantag.
 
@@ -154,7 +154,7 @@ az storage account create \
 ```
 
 > [!NOTE]
-> Den offentliga förhandsversionen av Data Lake Storage Gen2 endast `--sku Standard_LRS` stöds.
+> Under offentligt av Data Lake Storage Gen2 `--sku Standard_LRS` stöds.
 
 Du kommer att bli ombedd att ange den geografiska region som lagringskontot kommer att finnas i. Skapa lagringskontot i samma region som du vill skapa ditt HDInsight-kluster.
 

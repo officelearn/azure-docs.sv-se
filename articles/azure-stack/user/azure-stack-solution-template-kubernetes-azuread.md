@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 8d2d8d0595099081498202a3103caa10df8cf67d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657849"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891461"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Distribuera Kubernetes i Azure Stack med Azure Active Directory
 
@@ -37,7 +37,7 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure St
 
 1. Kontrollera att du kan skapa program i Azure Active Directory (Azure AD)-klienten. Du behöver följande behörigheter för Kubernetes-distribution.
 
-    Anvisningar om hur du felsöker dina behörigheter finns i [Kontrollera Azure Active Directory-behörigheter](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#check-azure-active-directory-permissions).
+    Anvisningar om hur du felsöker dina behörigheter finns i [Kontrollera Azure Active Directory-behörigheter](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
 1. Skapa en SSH offentlig och privat nyckel att logga in på Linux VM på Azure Stack. Du behöver den offentliga nyckeln när du skapar klustret.
 

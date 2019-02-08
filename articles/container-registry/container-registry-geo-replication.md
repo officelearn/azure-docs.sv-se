@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 784174c1fb2427441e0ed1a13b147d2440539fa9
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a83cf6b37a28ec38165778faa7a9ecc266cce7bd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870346"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858271"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
@@ -26,14 +26,18 @@ Ett geo-replikerade register ger följande fördelar:
 * Inga ytterligare utgående avgifter som avbildningar hämtas från en lokal, replikerade registret i samma region som din behållarvärd
 * Enkel hantering av ett register över flera regioner
 
+> [!NOTE]
+> Om du vill upprätthålla kopior av behållaravbildningar i mer än en Azure container registry, Azure Container Registry stöder också [bild import](container-registry-import-images.md). Till exempel i ett DevOps-arbetsflöde, kan du importera en avbildning från ett register med utveckling till ett register för produktion, utan att behöva använda Docker-kommandon.
+>
+
 ## <a name="example-use-case"></a>Exempel användningsfall
-Contoso körs en offentlig närvaro webbplats finns i USA, Kanada och Europa. För att leverera dessa marknader med lokal och nätverksnära innehåll, Contoso körs [Azure Container Service](/azure/container-service/kubernetes/) (ACS) Kubernetes-kluster i västra USA, östra USA, Kanada, centrala och Europa, västra. Webbplats-program som distribueras som en Docker-avbildning, använder samma kod och bild i alla regioner. Innehåll, lokala för den regionen hämtas från en databas som har etablerats unikt i varje region. Varje regionala distribution har unika konfigurationen för resurser som den lokala databasen.
+Contoso körs en offentlig närvaro webbplats finns i USA, Kanada och Europa. För att leverera dessa marknader med lokal och nätverksnära innehåll, Contoso körs [Azure Kubernetes Service](/azure/aks/) -kluster (AKS) i västra USA, östra USA, Kanada, centrala och Europa, västra. Webbplats-program som distribueras som en Docker-avbildning, använder samma kod och bild i alla regioner. Innehåll, lokala för den regionen hämtas från en databas som har etablerats unikt i varje region. Varje regionala distribution har unika konfigurationen för resurser som den lokala databasen.
 
 Utvecklingsteamet finns i Seattle, WA, använder Datacenter för västra USA.
 
 ![Push-överföring till flera register](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Push-överföring till flera register*
 
-Innan du använder funktioner för geo-replikering, hade Contoso ett amerikanska register i västra USA, med en ytterligare register i Västeuropa. Utvecklingsteamet behövde push-överför avbildningar till två olika register för att leverera dessa olika regioner.
+Innan du använder funktioner för geo-replikering, hade Contoso ett amerikanska register i västra USA, med en ytterligare register i Västeuropa. För att leverera dessa olika regioner, pushas Utvecklingsteamet avbildningar till två olika register.
 
 ```bash
 docker push contoso.azurecr.io/public/products/web:1.2

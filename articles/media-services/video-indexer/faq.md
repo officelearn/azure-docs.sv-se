@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0b74b6ef1d849f40e7a8e6f50d87e7b322e919e7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567289"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891785"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -66,7 +66,7 @@ I Video Indexer webbaserad portal du kan ladda upp en mediefil med hjälp av dia
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Hur lång tid tar det Video-indexeraren extrahera insikter från media?
 
-Hur lång tid det tar för att indexera en video- eller ljudinnehåll fil, båda med Video Indexer API: et och Video Indexer webbaserat gränssnitt som beror på flera parametrar, t.ex filen längd och kvalitet, antal insikter hittades i filen, antalet [reserverade enheter för](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) tillgängliga, och om den [slutpunkt för direktuppspelning](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) har aktiverats eller inte. Om vi antar att 10 reserverade enheter av typen S3 är aktiverade för de flesta typer förutsäga vi att indexering tar från 1/3 ½ av varaktigheten för filen ljud eller video (till exempel en 10: e minut källa video tar 3.5 till 5 minuter). Vi rekommenderar dock att du kör några testfiler med ditt eget innehåll och dra ett medelvärde för att få en bättre uppfattning.
+Hur lång tid det tar för att indexera en video- eller ljudinnehåll fil, båda med Video Indexer API: et och Video Indexer webbaserat gränssnitt som beror på flera parametrar, t.ex filen längd och kvalitet, antal insikter hittades i filen, antalet [reserverade enheter för](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) tillgängliga, och om den [slutpunkt för direktuppspelning](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) har aktiverats eller inte. Vi rekommenderar att du kör några testfiler med ditt eget innehåll och dra ett medelvärde för att få en bättre uppfattning.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Kan jag skapa anpassade arbetsflöden för att automatisera processer med Video Indexer?
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770494"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860415"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Vanliga frågor: Azure till Azure replikering
 
@@ -33,6 +33,10 @@ Den här artikeln innehåller svar på vanliga frågor om hur du distribuerar ha
 
 ### <a name="how-is-site-recovery-priced"></a>Hur prissätts Site Recovery?
 Granska [priserna för Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) information.
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Hur fungerar den kostnadsfria nivån för Azure Site Recovery?
+Varje instans som skyddas med Azure Site Recovery är kostnadsfri under de första 31 dagarna med skydd. Från och med den 32:a dagen debiteras skydd för instansen med de priser som anges ovan.
+###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Förekommer det några andra avgifter för Azure under de första 31 dagarna?
+Ja, även om Azure Site Recovery är kostnadsfritt under de första 31 dagarna för en skyddad instans kan du komma att debiteras för Azure Storage, lagringstransaktioner och dataöverföring. En återställd virtuell dator kan också debiteras för Azure-beräkningsavgifter. Hämta fullständig information om priser [här](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Vad är bästa praxis för att konfigurera Site Recovery på Azure Virtual Machines?
 1. [Förstå Azure till Azure-arkitektur](azure-to-azure-architecture.md)
@@ -70,6 +74,10 @@ Med Site Recovery kan du replikera och återställa virtuella datorer mellan all
 
 Site Recovery kräver Nej, inte ansluten till internet. Men det kräver åtkomst till Site Recovery-webbadresser och IP-intervall som anges i [i den här artikeln](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Kan jag replikera program med separat resursgrupp för separata nivåer? 
+Ja, kan du replikera programmet och hålla katastrofberedskapskonfigurationen i separat resursgrupp för.
+Till exempel om du har ett program med var och en nivåerna, db och webb i separat resursgrupp och du måste klicka på den [guiden replikering](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) tre gånger om för att skydda alla nivåer. ASR replikeras dessa tre nivåer i tre olika resursgrupp.
+
 ## <a name="replication-policy"></a>Replikeringsprincip
 
 ### <a name="what-is-a-replication-policy"></a>Vad är en replikeringsprincip?
@@ -89,9 +97,12 @@ Idag är kan de flesta program återställas från kraschkonsekventa ögonblicks
 Skapar site Recovery en kraschkonsekvent återställningspunkt var femte minut.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Vad är en programkonsekvent återställningspunkt? 
-Programkonsekventa återställningspunkter skapas från programkonsekventa ögonblicksbilder. Programkonsekventa ögonblicksbilder in samma data som kraschkonsekventa ögonblicksbilder, och Lägg till alla data i minnet och alla pågående transaktioner. 
+Programkonsekventa återställningspunkter skapas från programkonsekventa ögonblicksbilder. Programkonsekventa återställningspunkter avbilda samma data som kraschkonsekventa ögonblicksbilder, och Lägg till alla data i minnet och alla pågående transaktioner. 
 
 På grund av deras extra innehåll programkonsekventa ögonblicksbilder är den vanligaste och tar den längsta för att utföra. Vi rekommenderar programkonsekventa återställningspunkter för databas-operativsystem och program som SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Vad är effekten av programkonsekventa återställningspunkter på programmets prestanda?
+Överväger programkonsekventa återställningspunkter samlar in alla data i minnet och pågående kräver den framework som VSS i windows för att inaktivera programmet. Detta, kan om gjort ofta ha prestandapåverkan om arbetsbelastningen är redan mycket upptagen. Vanligtvis rekommenderas inte för att använda låg frekvens för appkonsekvent återställningspunkter för icke-databasarbetsbelastningar och även för databas-arbetsbelastning 1 timme räcker. 
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Vad är den lägsta frekvensen för programkonsekventa recovery point generation?
 Skapar site Recovery kan en programkonsekvent återställningspunkt med en minimifrekvens på under timmen.

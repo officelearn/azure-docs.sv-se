@@ -4,32 +4,32 @@ titlesuffix: Azure Cognitive Services
 description: Lär dig hur du använder-metoden tolkningar i den kunskap utforskning Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4f950734081be6cf76770b1c6cb2feca7efdae70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221411"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870936"
 ---
 # <a name="interpret-method"></a>tolka metod
 
 Den *tolka* metoden tar en frågesträng för naturligt språk och returnerar formaterad tolkningar av användaravsikt baserat på de grammatik- eller indexhantering.  För att ge en interaktiv sökning, den här metoden kan anropas när varje tecken anges av användaren med den *fullständig* parameteruppsättning till 1 för att aktivera automatisk komplettering förslag.
 
-## <a name="request"></a>Begäran
+## <a name="request"></a>Förfrågan
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Name|Value| Beskrivning
+Namn|Värde| Beskrivning
 ----|----|----
-fråga    | Textsträngen | Frågan som angetts av användaren.  Om fullständig har angetts till 1, tolkas fråga som ett prefix för generering frågeförslag för automatisk komplettering.        
+DocumentDB    | Textsträngen | Frågan som angetts av användaren.  Om fullständig har angetts till 1, tolkas fråga som ett prefix för generering frågeförslag för automatisk komplettering.        
 Slutför | 0 (standardvärde) eller 1 | 1 innebär att automatisk komplettering förslag genereras baserat på de grammatik- eller indexhantering.         
- antal    | Antal (standard = 10) | Maximalt antal tolkningar för att returnera.         
+count    | Antal (standard = 10) | Maximalt antal tolkningar för att returnera.         
 offset   | Antal (standard = 0) | Index för den första tolkningen ska returneras.  Till exempel *count = 2 & örskjutning = 0* returnerar tolkningar 0 och 1. *Antal = 2 & örskjutning = 2* returnerar tolkningar 2 och 3.       
 timeout  | Antal (standard = 1000) | Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
 

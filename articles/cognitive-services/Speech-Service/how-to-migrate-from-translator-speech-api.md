@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Lär dig hur du migrerar dina program från Translator Speech API till Speech-tjänsten.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: 42f1279e0459f113fbe9540a6a3a15b307c93763
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: de9727df9255fb880403e0409055b73db240e882
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225592"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868130"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrera från API för Talöversättning till Speech-tjänsten
 
@@ -43,7 +43,7 @@ Använd den här artikeln för att migrera dina program från Microsoft Translat
 | Andra filtyper som indata                         | : heavy_minus_sign:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Ofullständiga resultat                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Tidsinställning info                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
-| Korrelations-id                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
+| Korrelations-ID                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Anpassade talmodeller                              | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Med Taltjänsten ger anpassade talmodeller som gör att du kan anpassa taligenkänning till din organisations unika ordförråd.                                                                                                                                           |
 | Anpassade översättningsmodeller                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Prenumerera på Microsoft Text Translation-API kan du använda [anpassad Translator](https://www.microsoft.com/translator/business/customization/) att använda dina egna data för exaktare översättningar.                                                 |
 

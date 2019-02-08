@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b4de9efbe85d5ab497bccd1742df23ddc1b3af43
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bb88736762219028d58fe70d0ec32309967c95a4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354667"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55830676"
 ---
 Lagring optimerad VM-storlekar ger högt diskgenomflöde och I/O och är perfekt för Stordata, SQL, NoSQL-databaser, informationslagerhantering och stora transaktionsdatabaser.  Exempel är Cassandra, MongoDB, Cloudera och Redis. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lokal lagring dataflöde och nätverket bandbredden för varje optimerad storlek.
 
@@ -31,7 +31,7 @@ Premium-lagring: Stöds
 
 Premium Storage Caching: Stöds inte
 
-| Storlek          | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GiB) | NVMe-diskar | NVMe diskdataflöde<sup>2</sup> (Läs IOPS / Mbit/s) | Vara värd för cachestorlek<sup>3</sup> | Maximalt antal Datadiskar | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
+| Storlek          | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe diskdataflöde<sup>3</sup> (Läs IOPS / Mbit/s) | Vara värd för cachestorlek<sup>4</sup> | Maximalt antal Datadiskar | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2,000 | Gäller inte | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4,500 | Gäller inte | 32 | 4 / 6,400  | 
@@ -39,11 +39,13 @@ Premium Storage Caching: Stöds inte
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.7 M / 18 000   | Gäller inte | 32 | 8 / 25,600 |
 | Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | Gäller inte | 32 | 8 / 32,000 |
  
-<sup>1</sup> Lsv2-serien virtuella datorer har standard SCSI-baserat temp resursdisk för OS sidindelning/swap-fil (D: på Windows, /dev/sdb på Linux). Den här disken innehåller 80 GiB lagringsutrymme, 4 000 IOPS och 80 Mbit/s överföringshastighet för varje 8 virtuella processorer (t.ex. Standard_L80s_v2 ger 800 GiB på 40 000 IOPS och 800 Mbit/s). Detta säkerställer att NVMe-enheter kan vara helt reserverad för användningen av.
+<sup>1</sup> Lsv2-serien virtuella datorer har standard SCSI-baserat temp resursdisk för OS sidindelning/swap-fil (D: på Windows, /dev/sdb på Linux). Den här disken innehåller 80 GiB lagringsutrymme, 4 000 IOPS och 80 Mbit/s överföringshastighet för varje 8 virtuella processorer (t.ex. Standard_L80s_v2 ger 800 GiB på 40 000 IOPS och 800 Mbit/s). Detta säkerställer att NVMe-enheter kan vara helt reserverad för användningen av. Den här disken är tillfälliga och alla data på Stoppa/Frigör förlorade.
 
-<sup>2</sup> Hyper-V NVMe Direct-teknik ger obegränsad åtkomst till NVMe-enheter på ett säkert sätt mappas till gäst VM utrymme.  För att uppnå maximal prestanda krävs med den senaste versionen av WS2019 eller Ubuntu 18.04 eller 16.04 från Azure Marketplace.  Skrivprestanda varierar beroende på i/o-storlek, enhet belastning och kapacitetsanvändning.
+<sup>2</sup> lokala NVMe-diskar är tillfälliga, data går förlorade på diskarna om du stoppa/frigöra den virtuella datorn.
 
-<sup>3</sup> Lsv2-serien virtuella datorer innehåller värden för datadisk som inte nytta av Lsv2-arbetsbelastningar.  Lsv2 virtuella datorer kan dock innehålla alternativet Azures tillfälliga VM OS-disk (upp till 30 GiB). 
+<sup>3</sup> Hyper-V NVMe Direct-teknik ger obegränsad åtkomst till lokala NVMe-enheter på ett säkert sätt mappas till gäst VM utrymme.  För att uppnå maximal prestanda krävs med den senaste versionen av WS2019 eller Ubuntu 18.04 eller 16.04 från Azure Marketplace.  Skrivprestanda varierar beroende på i/o-storlek, enhet belastning och kapacitetsanvändning.
+
+<sup>4</sup> Lsv2-serien virtuella datorer innehåller värden för datadisk som inte nytta av Lsv2-arbetsbelastningar.  Lsv2 virtuella datorer kan dock innehålla alternativet Azures tillfälliga VM OS-disk (upp till 30 GiB). 
 
 
 

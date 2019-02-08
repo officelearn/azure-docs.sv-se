@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846344"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895864"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomstkontroll med signaturer för delad åtkomst
 
@@ -96,7 +96,7 @@ En SAS-token är giltig för alla resurser som föregås av den `<resourceURI>` 
 
 Vi rekommenderar att du regelbundet återskapar nycklarna som används i den [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) objekt. De primära och sekundära nyckeln fack finns så att du kan rotera nycklar gradvis. Om programmet använder vanligtvis den primära nyckeln, kan du kopiera den primära nyckeln till det sekundära nyckeln facket och endast sedan återskapa den primära nyckeln. Ny primärnyckelvärdet kan sedan konfigureras i klientprogram som ha fortsatt åtkomst med hjälp av den gamla primära nyckeln på den sekundära platsen. När alla klienter har uppdaterats kan återskapa du den sekundära nyckeln för att slutligen Dra tillbaka den gamla primära nyckeln.
 
-Om du vet eller misstänker att en nyckel har komprometterats och du behöver återkalla nycklarna kan du återskapa både den [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) och [sekundär nyckel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) av en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), ersätta dem med nya nycklar. Den här proceduren upphäver alla token som signerats med de gamla nycklarna.
+Om du vet eller misstänker att en nyckel har komprometterats och du behöver återkalla nycklarna kan du återskapa både den [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) och [sekundär nyckel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) av en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), ersätta dem med nya nycklar. Den här proceduren upphäver alla token som signerats med de gamla nycklarna.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autentisering med delad Åtkomstsignatur med Service Bus
 
@@ -255,7 +255,7 @@ I följande tabell visas de behörigheter som krävs för olika åtgärder på S
 
 | Åtgärd | Anspråk som krävs | Anspråk omfång |
 | --- | --- | --- |
-| **Namespace** | | |
+| **Namnområde** | | |
 | Konfigurera auktoriseringsregeln för ett namnområde |Hantera |Alla adresser för namnområde |
 | **Service Registry** | | |
 | Räkna upp principer som privat |Hantera |Alla adresser för namnområde |

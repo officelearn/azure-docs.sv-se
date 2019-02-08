@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS-behållaren läser in tränade eller publicerade appen i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API-slutpunkter.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 1ae4396c6b91f81e273e6ad171f4cac9b55445f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296910"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864741"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -252,7 +252,7 @@ Mer [exempel](luis-container-configuration.md#example-docker-run-commands) av de
 
 Behållaren innehåller REST-baserade frågan förutsägelse endpoint API: er. Slutpunkter för publicerade (mellanlagring eller produktion) appar har en _olika_ väg än slutpunkter för tränade appar. 
 
-Använd värden https://localhost:5000, för behållaren API: er. 
+Använd värden `https://localhost:5000`, för behållaren API: er. 
 
 |Pakettyp|Metod|Routa|Frågeparametrar|
 |--|--|--|--|

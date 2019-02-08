@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: d49c8a8434dfa7202707731f46ea31c77d32541d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4ec63251e73e694a69f84262e9de7cce6eb8f11f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812267"
+ms.locfileid: "55878501"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snabbstart: Konfigurera kluster i HDInsight
 
-I den här snabbstarten du lär dig hur du skapar och konfigurerar kluster i HDInsight med Hadoop, Spark, Kafka, Interactive Query, HBase, R Server eller Storm. Lär dig också att anpassa kluster, ansluta dem till en domän och kopplar dem till ett lagringskonto med [förhandsversion av Azure Data Lake Storage Gen2](data-lake-storage-introduction.md) aktiverat.
+I den här snabbstarten du lär dig hur du skapar och konfigurerar kluster i HDInsight med Hadoop, Spark, Kafka, Interactive Query, HBase, R Server eller Storm. Lär dig också att anpassa kluster, ansluta dem till en domän och kopplar dem till ett lagringskonto med [Azure Data Lake Storage Gen2](data-lake-storage-introduction.md) aktiverat.
 
 Ett Hadoop-kluster består av flera virtuella datorer (noder) som används för distribuerad bearbetning av uppgifter. Azure HDInsight hanterar implementeringsdetaljer för installation och konfiguration av enskilda noder, så du behöver bara ange allmänna konfigurationsinformation.
 

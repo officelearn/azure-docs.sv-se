@@ -1,21 +1,18 @@
 ---
 title: Hämta Azure resource health-händelser med hjälp av REST-API | Microsoft Docs
 description: 'Använd Azure REST API: er för att hämta health-händelser för dina Azure-resurser.'
-services: Resource health
-author: rloutlaw
-ms.reviewer: routlaw
-manager: angerobe
+author: stephbaron
+ms.author: stbaron
 ms.service: service-health
 ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: routlaw
-ms.openlocfilehash: 6e4bd5977eb1761a065d5583675e6fd405b4610a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750366"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878399"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Hämta Resource Health med hjälp av REST-API 
 

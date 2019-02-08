@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 24feef28edac73f625de1c1b7dfd9a4aaf9883af
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734631"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893604"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -65,14 +65,14 @@ Du kan ställa in Azure SQL-databaser för att samla in följande diagnostiktele
 
 | Övervakning av telemetri för databaser | Enkel databas och stöd för databas i pool | Hanterad instans-stöd |
 | :------------------- | ------------------- | ------------------- |
-| [Alla mått](sql-database-metrics-diag-logging.md#all-metrics): Innehåller DTU/CPU-procent, DTU/CPU-begränsning, fysiska data läses procent, skriva log procent brandväggsanslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent och XTP lagringsprocent lyckades/misslyckades/blockerades. | Ja | Nej |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Innehåller information om den fråga runtime statistik, till exempel CPU-användning och fråga varaktighet. | Ja | Ja |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Innehåller information om frågestatistik för vänta (vad dina frågor kan ha väntat), till exempel processor, LOG och låser. | Ja | Ja |
-| [Fel](sql-database-metrics-diag-logging.md#errors-dataset): Innehåller information om SQL-fel på databasen. | Ja | Ja |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Innehåller information om hur lång tid att databasen har använt för att vänta på olika vänta typer. | Ja | Nej |
-| [Tidsgränser](sql-database-metrics-diag-logging.md#time-outs-dataset): Innehåller information om tidsgränser för databasen. | Ja | Nej |
-| [Block](sql-database-metrics-diag-logging.md#blockings-dataset): Innehåller information om blockering av händelser i databasen. | Ja | Nej |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Innehåller intelligenta insikter om prestanda. Mer information finns i [smarta insikter](sql-database-intelligent-insights.md). | Ja | Ja |
+| [Alla mått](#all-metrics): Innehåller DTU/CPU-procent, DTU/CPU-begränsning, fysiska data läses procent, skriva log procent brandväggsanslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent och XTP lagringsprocent lyckades/misslyckades/blockerades. | Ja | Nej |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Innehåller information om den fråga runtime statistik, till exempel CPU-användning och fråga varaktighet. | Ja | Ja |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Innehåller information om frågestatistik för vänta (vad dina frågor kan ha väntat), till exempel processor, LOG och låser. | Ja | Ja |
+| [Fel](#errors-dataset): Innehåller information om SQL-fel på databasen. | Ja | Ja |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Innehåller information om hur lång tid att databasen har använt för att vänta på olika vänta typer. | Ja | Nej |
+| [Tidsgränser](#time-outs-dataset): Innehåller information om tidsgränser för databasen. | Ja | Nej |
+| [Block](#blockings-dataset): Innehåller information om blockering av händelser i databasen. | Ja | Nej |
+| [SQLInsights](#intelligent-insights-dataset): Innehåller intelligenta insikter om prestanda. Mer information finns i [smarta insikter](sql-database-intelligent-insights.md). | Ja | Ja |
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -169,7 +169,7 @@ Du kan ställa in en hanterad instans-resurs för att samla in följande diagnos
 
 | Resurs | Övervakning av telemetri |
 | :------------------- | ------------------- |
-| **Hanterad instans** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) innehåller antal virtuella kärnor, Genomsnittlig CPU-procent, i/o-begäranden, byte lästa/skrivna, reserverade lagringsutrymme och använt lagringsutrymme. |
+| **Hanterad instans** | [ResourceUsageStats](#logs-for-managed-instances) innehåller antal virtuella kärnor, Genomsnittlig CPU-procent, i/o-begäranden, byte lästa/skrivna, reserverade lagringsutrymme och använt lagringsutrymme. |
 
 Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en hanterad instans-resurs:
 

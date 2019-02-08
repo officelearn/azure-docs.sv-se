@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du använda online Content Moderator granskningsverktyget för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 52c69aee4a8fdf8ad08590113c95ff3de3b0883b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cfaf0bf20449262fcebb6cefc1b0a499c6190ae8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55205805"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861178"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Snabbstart: Prova Content Moderator på webben
 
@@ -50,7 +50,7 @@ Skicka in ditt innehåll för moderering. Internt anropar granskningsverktyget m
 
 Granska de tillämpade moderering taggarna. Du kan se vilka taggar har kopplats till ditt innehåll och vad poängen var i varje kategori. Se den [bild](image-moderation-api.md), [Text](text-moderation-api.md), och [Video](video-moderation-api.md) moderering avsnitt mer information om olika innehåll taggar visas.
 
-![Granska resultat](images/reviewresults_text.png)
+![Granska resultatet](images/reviewresults_text.png)
 
 Du eller ditt granskningsteam kan ändra dessa taggar eller lägga till fler taggar efter behov i ett projekt. Du skickar ändringarna med den **nästa** knappen. Dina affärsprogram anropar Moderator-API: er, kommer taggade innehållet köa här, kan granskas av mänsklig granskning-team. Du kan snabbt granska stora mängder innehåll med hjälp av den här metoden.
 

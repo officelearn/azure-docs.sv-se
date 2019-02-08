@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d60c99349fef26fc1ead7f6ea4b77d0c364c4abb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244478"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868148"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 
@@ -44,9 +44,7 @@ Flera datatekniker som jag pratade med dessa som det enda säkra sättet att hit
 Här är ett exempel från den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
-> Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
-> 
-> 
+> För att ladda ned en enkel att förstå informationsgrafiken översikt över grunderna i machine learning att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning, [Machine learning-grunder med algoritmexempel](basics-infographic-with-algorithm-examples.md).
 
 ## <a name="flavors-of-machine-learning"></a>Varianter av machine learning
 
@@ -242,13 +240,13 @@ Igång och leds av Microsoft Researchs egen John Langford, är VW en formel en p
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En nedladdningsbar infografik som beskriver algoritmer och ger exempel, se [nedladdningsbar Infografik: Machine learning-grunder med algoritmexempel](basics-infographic-with-algorithm-examples.md).
+* För att ladda ned en enkel att förstå informationsgrafiken översikt över grunderna i machine learning att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning, [Machine learning-grunder med algoritmexempel](basics-infographic-with-algorithm-examples.md).
 
 * En lista efter kategori av alla de tillgängliga maskininlärningsalgoritmer i Machine Learning Studio finns i [initiera modell](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) i Machine Learning Studio-algoritmen och modulen hjälpa.
 
 * En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio finns i [A-Z-lista över Machine Learning Studio-moduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) i modulen hjälpen och Machine Learning Studio-algoritm.
 
-* Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
+* Du kan hämta och skriva ut ett diagram som ger en översikt över funktionerna i Machine Learning Studio: [Microsoft Azure Machine Learning-översikt över funktioner i Studio (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
 
 <!-- Media -->
 

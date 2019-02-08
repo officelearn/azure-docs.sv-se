@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Använd metoden Grafsökning i Academic Knowledge API för att returnera en uppsättning akademiska enheter baserat på specifika grafmönster.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197644"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864476"
 ---
 # <a name="graph-search-method"></a>Sökmetod
 
@@ -29,7 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Parametrar för begäran  
-Name     | Value | Krävs?  | Beskrivning
+Namn     | Värde | Krävs?  | Beskrivning
 -----------|-----------|---------|--------
 **mode**       | Textsträngen | Ja | Namnet på det läge som du vill använda. Värdet är antingen *json* eller *lambda*.
 
@@ -46,7 +46,7 @@ För den *lambda* search, POST brödtexten är en vanlig textsträng. Brödtexte
 
 <br>
 ## <a name="response-json"></a>Svar (JSON)
-Name | Beskrivning
+Namn | Beskrivning
 -------|-----   
 **Resultat** | En matris med 0 eller fler entiteter som matchar frågeuttrycket. Varje entitet innehåller värdena för attribut som begärs. Det här fältet är tillgänglig om begäran har behandlats.
 **Fel** | HTTP-statuskoder. Det här fältet är tillgänglig om begäran misslyckas.

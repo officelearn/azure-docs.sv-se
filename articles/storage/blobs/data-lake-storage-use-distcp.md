@@ -1,6 +1,6 @@
 ---
-title: Kopiera data till Azure Data Lake Storage Gen2 förhandsversion använda DistCp | Microsoft Docs
-description: Använd DistCp för att kopiera data till och från Data Lake Storage Gen2 förhandsversion
+title: Kopiera data till Azure Data Lake Storage Gen2 använda DistCp | Microsoft Docs
+description: Använd DistCp för att kopiera data till och från Data Lake Storage Gen2
 services: storage
 author: seguler
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8328ea5afb66bbecdafbb06dcbf6700194d62f9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244155"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864068"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>Använd DistCp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen2 förhandsversion
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Använd DistCp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen2
 
 Du kan använda [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) att kopiera data mellan ett lagringskonto för generell användning V2 och ett lagringskonto för generell användning V2 med hierarkiskt namnområde aktiverat. Den här artikeln innehåller anvisningar om hur du använder verktyget DistCp.
 
@@ -24,8 +24,8 @@ DistCp erbjuder en mängd olika kommandoradsparametrar och rekommenderar vi att 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett befintligt Azure Storage-konto utan att Data Lake Storage Gen2 förhandsvisningsfunktionerna (hierarkiskt namnområde) aktiverat**.
-* **Ett Azure Storage-konto med Data Lake Storage Gen2 (förhandsgranskning)-funktionen aktiverad**. Anvisningar för hur du skapar ett finns i [skapa ett lagringskonto i Azure Data Lake Storage Gen2 förhandsversion](data-lake-storage-quickstart-create-account.md)
+* **Ett befintligt Azure Storage-konto utan att Data Lake Storage Gen2 möjliggörs (hierarkiskt namnområde)**.
+* **Ett Azure Storage-konto med Data Lake Storage Gen2 funktionen aktiverad**. Anvisningar för hur du skapar ett finns i [skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 * **Ett filsystem** som har skapats i lagringskontot med hierarkiskt namnområde aktiverat.
 * **Azure HDInsight-kluster** med åtkomst till ett lagringskonto med Data Lake Storage Gen2 aktiverat. Se [Använd Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](data-lake-storage-use-hdi-cluster.md). Kontrollera att du aktivera Fjärrskrivbord för klustret.
 

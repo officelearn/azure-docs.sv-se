@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: c0067dc96837d758e4c2551bcb29faf63c1a7715
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751556"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895049"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Använda avancerad datasäkerhet med virtuella nätverk och nästan 100% kompatibilitet SQL-databas
 
@@ -93,8 +93,8 @@ Båda versionerna garanterar 99,99% tillgänglighet och gör att du kan välja l
 I följande lista beskrivs nyckelegenskap för tjänstnivån generell användning:
 
 - Design för flesta affärsprogram med vanliga prestandakrav
-- Azure Premium storage med höga prestanda (8 TB)
-- Inbyggda [hög tillgänglighet](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) baserat på tillförlitlig Azure Premium Storage och [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Azure Blob storage med höga prestanda (8 TB)
+- Inbyggda [hög tillgänglighet](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) baserat på den pålitliga Azure Blob storage och [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 Mer information finns i [storage layer generellt syfte nivån](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) och [bästa praxis för prestanda för lagring och överväganden för hanterade instanser (Allmänt)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -107,7 +107,7 @@ Kritiska-affärsnivå har utformats för program med höga i/o-krav. Det erbjude
 I följande lista beskrivs de främsta egenskaperna för nivån affärskritisk service:
 
 - Utformad för affärsprogram med högsta prestanda och hög tillgänglighet krav
-- Medföljer Supersnabb SSD-lagring (upp till 1 TB på Gen 4 och upp till 4 TB på Gen 5)
+- Medföljer Supersnabb lokal SSD-lagring (upp till 1 TB på Gen 4 och upp till 4 TB på Gen 5)
 - Inbyggda [hög tillgänglighet](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) utifrån [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Ytterligare inbyggda [skrivskyddad databasrepliken](sql-database-read-scale-out.md) som kan användas för rapportering och andra skrivskyddade arbetsbelastningar
 - [In-Memory OLTP](sql-database-in-memory.md) som kan användas för arbetsbelastningar med höga prestanda krav  
@@ -179,7 +179,7 @@ De hanterade instansen alternativet mål användaren distributionsscenarierna me
 
 ### <a name="back-up-and-restore"></a>Säkerhetskopiera och återställa  
 
-Förhållningssätt till Databasmigrering utnyttjar SQL-säkerhetskopior till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till en hanterad instans med hjälp av den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+Förhållningssätt till Databasmigrering utnyttjar SQL-säkerhetskopior till Azure Blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till en hanterad instans med hjälp av den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
 - En Snabbstart som visar hur du återställer Wide World Importers – Standard databassäkerhetskopia, se [återställa en säkerhetskopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md). Denna Snabbstart visar du behöver ladda upp en säkerhetskopia till Azure BLOB-lagring och skydda den med en signatur för delad åtkomstnyckel.
 - Information om återställning från URL: en finns i [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).

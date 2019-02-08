@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105193"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895847"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveriberedskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
@@ -50,9 +50,9 @@ o för fysiska datorer, följ den här [självstudien](./physical-azure-disaster
 --|--|--
 **Nödvändiga komponenter** |Mobilitetstjänsten på replikerade datorer. Den lokala konfigurationsservern, processervern och huvudmålservern. Tillfällig processerver i Azure för återställning efter fel.|Mobilitetstjänsten Processervern, konfigurationsservern och Huvudmålservern
 **Konfiguration och dirigering** |Recovery Services-valv i Azure portal | Med hjälp av vContinuum 
-**Replikerade**|Disk (Windows och Linux) |Volym-Windows<br> Disk-Linux
+**Replikerade**|Disk (Windows och Linux) |Volume-Windows<br> Disk-Linux
 **Delad klusterdisk**|Stöds inte|Stöds
-**Dataomsättning begränsningar (genomsnitt)** |10 MB/s data per disk<br> Data för 25MB/s per virtuell dator<br> [Läs mer](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Data > 10 MB/s per disk  <br> Data > 25 MB/s per virtuell dator
+**Dataomsättning begränsningar (genomsnitt)** |10 MB/s data per disk<br> 25MB/s data per VM<br> [Läs mer](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s data per VM
 **Övervakning** |Från Azure-portalen|Från CX (konfigurationsserver)
 **Stödmatris**| [Klicka här för information](./vmware-physical-azure-support-matrix.md)|[Ladda ned ASR Scout kompatibel matris](https://aka.ms/asr-scout-cm)
 
@@ -82,7 +82,7 @@ Installera uppdateringar på följande sätt:
 
 Ladda ned den [uppdatera](https://aka.ms/asr-scout-update7) .zip-filen och [MySQL och PHP uppgradera](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) konfigurationsfiler. Uppdatera ZIP-filen innehåller alla base binärfiler och ackumulerad uppgradering binärfilerna för följande komponenter: 
   - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
-  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.GZ
+  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
   - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
   - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
   - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
@@ -161,7 +161,7 @@ PHP-skriptplattform bör uppgraderas till version 7.2.10 på konfigurationsserve
 MySQL-databashanteringssystem bör uppgraderas till version 5.7.23 på konfigurationsservern, Processervern och RX-Server.
 Följ manaual stegen i den [snabb installationsguide](https://aka.ms/asr-scout-quick-install-guide) till uppgraderingar PHP och MySQL.
 
-### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 uppdatering 6 
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 Uppdaterad: 12 oktober 2017
 
 Ladda ned [Scout uppdatering 6](https://aka.ms/asr-scout-update6).
@@ -172,7 +172,7 @@ Scout uppdatering 6 är en ackumulerad uppdatering. Den innehåller alla korrige
 * Stöd har lagts till för källa Windows Server 2016
 * Stöd har lagts till för följande Linux-operativsystem:
     - Red Hat Enterprise Linux (RHEL) 6,9
-    - CentOS 6,9
+    - CentOS 6.9
     - Oracle Linux 5.11
     - Oracle Linux 6.8
 * Stöd har lagts till för VMware Center 6.5
@@ -211,14 +211,14 @@ Ladda ned den [uppdatera](https://aka.ms/asr-scout-update6) .zip-filen. Filen in
 #### <a name="bug-fixes-and-enhancements"></a>Felkorrigeringar och förbättringar
 - Återställning efter fel skydd misslyckas för Linux VM med listan över diskar som ska replikeras är tom i slutet av konfiguration.
 
-### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 uppdatering 5
+### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 Update 5
 Scout uppdatering 5 är en ackumulerad uppdatering. Den innehåller alla korrigeringar från uppdatering 1 till uppdatering 4 och de nya ändringarna som beskrivs nedan.
 - Korrigeringar från Site Recovery Scout uppdatering 4 för uppdatering 5 är avsedda för mål- och vContinuum huvudkomponenter.
 - Om källservrar, huvudmålservern, konfiguration, process och RX servrar redan kör uppdatering 4, därefter tillämpa det endast på huvudmålservern. 
 
 #### <a name="new-platform-support"></a>Stöd för nya plattformar
 * SUSE Linux Enterprise Server 11 Service Pack-4(SP4)
-* SLES 11 SP4 64 bitars **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** paketeras med grundläggande Scout GA-paketet (**InMage_Scout_Standard_8.0.1 GA.zip**). Ladda ned GA-paketet från portalen, enligt beskrivningen i [skapa ett valv](#create-a-vault).
+* SLES 11 SP4 64 bitars **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** paketeras med grundläggande Scout GA-paketet (**InMage_Scout_Standard_8.0.1 GA.zip**). Ladda ned GA-paketet från portalen, enligt beskrivningen i Skapa ett valv.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>Felkorrigeringar och förbättringar
@@ -239,7 +239,7 @@ Scout uppdatering 5 är en ackumulerad uppdatering. Den innehåller alla korrige
 > * När en SLES11 eller SLES11 (med alla servicepack) källserver startas utan problem, sedan manuellt vill markera det **rot** disk replikering par för omsynkronisering. Det finns inget meddelande i CX-gränssnittet. Om du inte markerar disken rot för omsynkronisering, märker du problem med dataintegriteten.
 
 
-### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 uppdatering 4
+### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
 Scout uppdatering 4 är en ackumulerad uppdatering. Den innehåller alla korrigeringar från uppdatering 1 till uppdatering 3 och de nya ändringarna som beskrivs nedan.
 
 #### <a name="new-platform-support"></a>Stöd för nya plattformar
@@ -252,7 +252,7 @@ Scout uppdatering 4 är en ackumulerad uppdatering. Den innehåller alla korrige
   * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 64-bitars **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** paketeras med grundläggande Scout GA-paketet **InMage_Scout_Standard_8.0.1 GA.zip**. Ladda ned Scout GA-paketet från portalen enligt beskrivningen i [skapa ett valv](#create-a-vault).
+> RHEL/CentOS 7 64-bitars **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** paketeras med grundläggande Scout GA-paketet **InMage_Scout_Standard_8.0.1 GA.zip**. Ladda ned Scout GA-paketet från portalen enligt beskrivningen i Skapa ett valv.
 
 #### <a name="bug-fixes-and-enhancements"></a>Felkorrigeringar och förbättringar
 
@@ -283,7 +283,7 @@ Scout uppdatering 4 är en ackumulerad uppdatering. Den innehåller alla korrige
 > * Konfigurationsservern och RX uppdateringar kan inte återställas när de har tillämpats.
 
 
-### <a name="azure-site-recovery-scout-801-update-3"></a>Azure Site Recovery Scout 8.0.1 uppdatering 3
+### <a name="azure-site-recovery-scout-801-update-3"></a>Azure Site Recovery Scout 8.0.1 Update 3
 
 Alla Site Recovery-uppdateringar är kumulativa. Update 3 innehåller alla korrigeringar från uppdatering 1 och uppdatering 2. Uppdatering 3 kan tillämpas direkt på 8.0.1 GA. Konfigurationsservern och RX uppdateringar kan inte återställas när de har tillämpats.
 
@@ -314,14 +314,14 @@ Uppdatering 3 åtgärdar följande problem:
     * Ladda upp skadliga filer: Filer är begränsade till specifika tillägg: z, aiff, asf, avi, bmp, csv, dokument, docx, FLA-, flv, gif, gz, gzip, jpeg, jpg, log, mid mov, mp3, mp4, mpc, mpeg, mpg, ods odt, pdf, png, ppt, pptx, pxd, qt, RAM-minne, rar, rm, rmi, rmvb, rtf, sdc, sitd, SWF- , sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml och zip.
     * Beständiga cross site scripting: Inkommande verifieringar har lagts till.
 
-### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 uppdatering 2 (uppdatering 03 15 december)
+### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
 
 Korrigeringar i uppdatering 2 omfattar:
 
 * **Konfigurationsservern**: Problem som förhindrade 31 dagar kostnadsfria Avläsning av funktion inte fungerar som förväntat när konfigurationsservern registrerades till Azure Site Recovery-valv.
 * **Enhetlig agenten**: Åtgärda ett problem i uppdatering 1 som resulterade i uppdateringen inte installeras på huvudmålservern, vid uppgradering från version 8.0 8.0.1.
 
-### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 uppdatering 1
+### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 Update 1
 Uppdatering 1 innehåller följande felkorrigeringar och nya funktioner:
 
 * kostnadsfria skydd per serverinstans 31 dagar. På så sätt kan du testa funktionen eller ställa in proof-of-concept.

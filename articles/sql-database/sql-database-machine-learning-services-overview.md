@@ -11,20 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: e2159e7cc59830c3d0d10f1c5b9697ab5b45b666
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/06/2019
+ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824292"
+ms.locfileid: "55875611"
 ---
 # <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Machine Learning-tjänster (med R) i Azure SQL Database (förhandsversion)
 
 Machine Learning Services är en funktion i Azure SQL-databas som används för att köra R-skript i databasen. Funktionen innehåller Microsoft R-paket för högpresterande förutsägande analys och maskininlärning. Relationella data kan användas i R-skript via lagrade procedurer, T-SQL-skript som innehåller R-uttryck eller R-kod som innehåller T-SQL.
 
-> [!NOTE]
-> Machine Learning-tjänster (med R) i Azure SQL Database är för närvarande i offentlig förhandsversion. [Registrera dig för förhandsversionen av](#signup) nedan.
+> [!IMPORTANT]
+> Machine Learning-tjänster (med R) i Azure SQL Database är för närvarande i förhandsversion för enskilda databaser och elastiska pooler med den vCore-baserade inköpsmodellen i den **generella** och **företag kritiska** tjänstnivåer. I den här första offentliga förhandsversionen kan den **hyperskala** tjänstnivå och **hanterad instans** distributionsalternativet stöds inte. R är för närvarande det enda språk som stöds. Det finns inget stöd för Python just nu. 
+>
+> Förhandsgranskningen är för närvarande tillgängligt i de följande regioner: västra Europa, Norra Europa, västra USA 2, östra USA, södra centrala USA, norra centrala USA, Kanada, centrala, Sydostasien, södra och Australien, sydöstra Australien. 
+>
+> [Registrera dig för förhandsversionen av](#signup) nedan.
 
 ## <a name="what-you-can-do-with-r"></a>Vad du kan göra med R
 
@@ -55,10 +59,6 @@ Om du vill registrera dig för den offentliga förhandsversionen kan du följa d
 2. Skicka ett e-postmeddelande till Microsoft på [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) om du vill registrera dig för den offentliga förhandsversionen. Den offentliga förhandsversionen av Machine Learning Services (med R) i SQL Database är inte aktiverad som standard.
 
 När du är registrerad i programmet Microsoft publicerar du så att den allmänna förhandsgranskningen och aktivera R din befintliga eller nya databas.
-
-Machine Learning-tjänster (med R) i SQL-databas är för närvarande endast tillgängliga i den vCore-baserade inköpsmodellen i den **generella** och **affärskritisk** tjänstnivåer för fristående och distributionsalternativ för elastisk pool. I den här första offentliga förhandsversionen kan den **hyperskala** tjänstnivå och **Managed Instance** distributionsalternativ stöds inte.
-
-R är för närvarande det enda språk som stöds. Det finns inget stöd för Python just nu. Förhandsgranskningen är tillgängliga i den följande regioner: västra Europa, Norra Europa, västra USA 2, östra USA, södra centrala USA, norra centrala USA, Kanada, centrala, Sydostasien, södra och Australien, sydöstra Australien. Fler regioner kommer att läggas till senare.
 
 Använd inte Machine Learning-tjänster med R för produktionsarbetsbelastningar den offentliga förhandsversionen.
 

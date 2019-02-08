@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Lär dig mer om att hämta prenumerationsnycklar för anrop till API för visuellt innehåll i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: c4c7ee1ab756f458c6e9fed4ff5ee54dfaba919e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 08838ce0af16cc4ae768bd5d2ecf72c57f8fae97
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222243"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858084"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Hur du hämtar prenumerationsnycklar
 
@@ -32,7 +32,7 @@ Din prenumerationsnycklar är giltiga för endast en av dessa [Microsoft Azure-r
 | Västra USA | westus.API.cognitive.microsoft.com |
 | USA, östra 2 | eastus2.api.cognitive.microsoft.com |
 | Västra centrala USA | westcentralus.api.cognitive.microsoft.com |
-| Västeuropa | westeurope.api.cognitive.microsoft.com |
+| Västra Europa | westeurope.api.cognitive.microsoft.com |
 | Sydostasien | southeastasia.api.cognitive.microsoft.com |
 
 Om du registrerar dig med hjälp av den kostnadsfria utvärderingsversionen av visuellt innehåll, dina prenumerationsnycklar är giltiga för den **westcentral** region (`https://westcentralus.api.cognitive.microsoft.com/`). Det är i de flesta fall. Men om du registrerar dig för visuellt innehåll med Microsoft Azure-konto via den [ https://azure.microsoft.com/ ](https://azure.microsoft.com/) webbplatsen du anger regionen för din utvärderingsversion i ovanstående lista över regioner.

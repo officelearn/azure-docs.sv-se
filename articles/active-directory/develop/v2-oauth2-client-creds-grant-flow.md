@@ -12,30 +12,30 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/13/2018
+ms.topic: conceptual
+ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 090f9771bf8d1010e4249d97d5768891f02c54b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 49c5aef3e67d90590fdc1bffa195b94143bc38b8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096610"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883040"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0- och OAuth 2.0 flödet
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Du kan använda den [beviljande av autentiseringsuppgifter för OAuth 2.0-klient](https://tools.ietf.org/html/rfc6749#section-4.4) anges i RFC 6749, även kallad *tvåledade OAuth*, för att få åtkomst till webb-värdbaserade resurser med hjälp av identiteten för ett program. Den här typen av ge ofta används för server-till-server-interaktioner som måste köras i bakgrunden utan direkt interaktion med en användare. Dessa typer av program som ofta kallas *daemons* eller *tjänstkonton*.
+Du kan använda den [beviljande av autentiseringsuppgifter för OAuth 2.0-klient](https://tools.ietf.org/html/rfc6749#section-4.4) anges i RFC 6749, även kallad *tvåledade OAuth*, för att få åtkomst till webb-värdbaserade resurser med hjälp av identiteten för ett program. Den här typen av bevilja används ofta för server-till-server-interaktioner som måste köras i bakgrunden utan direkt interaktion med en användare. Dessa typer av program ofta kallas *daemons* eller *tjänstkonton*.
 
-Autentiseringsuppgifter för OAuth 2.0-klient ge flow tillåter en webbtjänst (konfidentiell klient) för att använda sina egna autentiseringsuppgifter, i stället för att personifiera en användare för att autentisera vid anrop av en annan webbtjänst. I det här scenariot är klienten vanligtvis en webbtjänst på mellannivå, en daemon-tjänst eller webbplats. För en högre säkerhetsnivå kan Azure Active Directory (Azure AD) också anropa tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en autentiseringsuppgift.
+Autentiseringsuppgifter för OAuth 2.0-klient ge flow tillåter en webbtjänst (konfidentiell klient) för att använda sina egna autentiseringsuppgifter, i stället för att personifiera en användare för att autentisera vid anrop av en annan webbtjänst. I det här scenariot är klienten vanligtvis en webbtjänst på mellannivå, en daemontjänst eller en webbplats. Microsoft identity-plattformen kan också anropa tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en autentiseringsuppgift för en högre säkerhetsnivå.
 
 > [!NOTE]
 > V2.0-slutpunkten stöder inte alla Azure AD-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
 
-I en typisk *treledade OAuth*, ett klientprogram som har beviljats behörighet att komma åt en resurs för en viss användares räkning. Behörigheten har delegerats från användaren till programmet, vanligtvis under den [godkänna](v2-permissions-and-consent.md) processen. I flödet, men beviljas behörigheter direkt till själva programmet. När appen anger hur många en token till en resurs måste resursen tillämpar som själva appen har behörighet att utföra en åtgärd och inte som har användaren behörighet.
+I en typisk *treledade OAuth*, ett klientprogram som har beviljats behörighet att komma åt en resurs för en viss användares räkning. Behörigheten har delegerats från användaren till programmet, vanligtvis under den [godkänna](v2-permissions-and-consent.md) processen. Men i klientens autentiseringsuppgifter (*tvåledade OAuth*) flödet, behörigheterna har beviljats direkt till själva programmet. När i appen visas en token till en resurs, tillämpar resursen att själva appen har behörighet att utföra en åtgärd och inte användare. 
 
 ## <a name="protocol-diagram"></a>Protokollet diagram
 
@@ -47,10 +47,10 @@ Hela flödet ser ut ungefär som i följande diagram. Vi beskriver varje steg ne
 
 En app tar normalt emot direkta tillstånd att komma åt en resurs i ett av två sätt: 
 
-* Via en åtkomstkontrollista (ACL) på resursen
-* Via programtilldelning behörighet i Azure AD
+* [Via en åtkomstkontrollista (ACL) på resursen](#access-control-lists)
+* [Via programtilldelning behörighet i Azure AD](#application-permissions)
 
-Dessa två metoder är de vanligaste i Azure AD och vi rekommenderar dem för klienter och resurser för klienten flödet. En resurs kan välja att ge sina kunder på annat sätt, men. Varje resurs-server kan välja den metod som passar bäst för sina program.
+Dessa två metoder är de vanligaste i Azure AD och vi rekommenderar dem för klienter och resurser för klienten flödet. En resurs kan också välja att ge sina kunder på andra sätt. Varje resurs-server kan välja den metod som passar bäst för sina program.
 
 ### <a name="access-control-lists"></a>Listor för åtkomstkontroll
 
@@ -73,12 +73,12 @@ Mer information om behörigheter för programmet går du till [Microsoft Graph](
 
 Följ stegen som beskrivs i nästa avsnitt för att använda behörigheter för programmet i din app.
 
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörighet i portalen för registrering av App
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörighet i portalen för registrering av app
 
-1. Registrera dig och skapa en app via den [Programregistreringsportalen](quickstart-v2-register-an-app.md) eller nya [appregistreringar (förhandsversion) får](quickstart-register-app.md).
+1. Registrera dig och skapa en app via den [programregistreringsportalen](quickstart-v2-register-an-app.md) eller nya [appregistreringar (förhandsversion) får](quickstart-register-app.md).
 1. Gå till ditt program på portalen som du använde för att registrera eller skapa din app. Du måste använda minst en programhemlighet när du skapar din app.
-2. Leta upp den **Microsoft Graph-behörigheter** , och lägger sedan till den **programbehörigheter** som din app kräver.
-3. **Spara** appregistreringen.
+1. Leta upp den **API-behörigheter** , och lägger sedan till den **programbehörigheter** som din app kräver.
+1. **Spara** appregistreringen.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Rekommenderat: Logga in användaren till din app
 
@@ -100,7 +100,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 ```
-// Pro tip: Try pasting the following request in a browser!
+// Pro tip: Try pasting the following request in a browser.
 ```
 
 ```
@@ -170,9 +170,9 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | --- | --- | --- |
 | `tenant` | Krävs | Directory-klient programmet planerar att arbeta mot, i GUID eller domännamn format. |
 | `client_id` | Krävs | Program-ID som har tilldelats din app. Du hittar den här informationen i portalen där du har registrerat appen. |
-| `scope` | Krävs |Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. Det här värdet informerar v2.0-slutpunkten att den över alla direkt tillämpning behörigheter som du har konfigurerat för din app, bör utfärda en token för de som hör till resursen som du vill använda. |
+| `scope` | Krävs | Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. </br>Det här värdet anger v2.0-slutpunkten att slutpunkten för alla direkt tillämpning behörigheter du har konfigurerat för din app, bör utfärdar en token för de som hör till resursen som du vill använda. Mer information om den `/.default` omfång kan du läsa den [godkänna dokumentation](v2-permissions-and-consent.md#the-default-scope). |
 | `client_secret` | Krävs | Programhemlighet som du skapade för din app i portalen för registrering av appen. Klienthemlighet måste vara URL-kodat innan de skickas. |
-| `grant_type` | Krävs | Måste vara `client_credentials`. |
+| `grant_type` | Krävs | Måste anges till `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: Begäran om åtkomsttoken med ett certifikat
 
@@ -191,10 +191,10 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Directory-klient programmet planerar att arbeta mot, i GUID eller domännamn format. |
-| `client_id` | Krävs |Program-ID som har tilldelats din app. |
-| `scope` | Krävs | Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. <br>Det här värdet informerar v2.0-slutpunkten att den över alla direkt tillämpning behörigheter som du har konfigurerat för din app, bör utfärda en token för de som hör till resursen som du vill använda. |
-| `client_assertion_type` | Krävs | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| `client_assertion` | Krävs | Ett intyg (en JSON Web Token) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig hur du registrerar ditt certifikat och format för kontrollen.|
+| `client_id` | Krävs |ID för programmet (klient) som har tilldelats din app. |
+| `scope` | Krävs | Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. <br>Det här värdet informerar v2.0-slutpunkten att den över alla direkt tillämpning behörigheter som du har konfigurerat för din app, bör utfärda en token för de som hör till resursen som du vill använda. Mer information om den `/.default` omfång kan du läsa den [godkänna dokumentation](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Krävs | Värdet måste anges till `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Krävs | Ett intyg (en JSON-webbtoken) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig hur du registrerar ditt certifikat och format för kontrollen.|
 | `grant_type` | Krävs | Måste anges till `client_credentials`. |
 
 Observera att parametrarna är nästan samma sätt som i fallet med begäran från delad hemlighet förutom att parametern client_secret ersätts av två parametrar: en client_assertion_type och client_assertion.
@@ -261,6 +261,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## <a name="code-sample"></a>Kodexempel
+## <a name="code-samples-and-other-documentation"></a>Kodexempel och annan dokumentation
 
-Ett exempel på ett program som implementerar beviljande av klientautentiseringsuppgifter för med hjälp av administratören godkänna slutpunkt finns i vår [v2.0-kodexempel som daemon](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Läs den [klientautentiseringsuppgifter översikt dokumentation](http://aka.ms/msal-net-client-credentials) från Microsoft Authentication Library
+
+| Exempel | Plattform |Beskrivning |
+|--------|----------|------------|
+|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET core 2.1-konsolen | Ett enkelt program i .NET Core som visar användarna för en klient frågar Microsoft Graph med hjälp av identiteten för programmet, i stället för för en användares räkning. Exemplet visar också variationen använda certifikat för autentisering. |
+|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Ett webbprogram som synkroniserar data från Microsoft Graph med hjälp av identiteten för programmet, i stället för för en användares räkning. |

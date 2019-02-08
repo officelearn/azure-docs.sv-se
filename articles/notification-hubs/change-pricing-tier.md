@@ -1,5 +1,5 @@
 ---
-title: Ändra priciing nivån för Notification Hubs-namnområdet | Microsoft Docs
+title: Ändra prisnivån för Notification Hubs-namnområdet | Microsoft Docs
 description: Lär dig hur du ändrar prisnivån för ett namnområde för Azure Notification Hubs.
 services: notification-hubs
 author: jwargo
@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: jowargo
-ms.openlocfilehash: fb84cc0a6e2fc427727fa0c50583b7f1a37e0160
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c572f64bdcb8846b5f73a0fee34f11c9729ee45d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199253"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55885063"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Ändra prisnivån för ett namnområde med Azure notification hubs
 Finns tre olika nivåer av Meddelandehubbar: **kostnadsfria**, **grundläggande**, och **standard**. Den här artikeln visar hur du ändrar prisnivån för ett Azure Notification Hubs-namnområde. 

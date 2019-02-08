@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Begrepp att känna igen utskrivna och handskriven text i bilder med den API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6ee2b3282a5f895c61b9f0b55aa3353e534b6e37
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7908c29f3a48821588ea93ebe33ffb6b8de77520
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191049"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881183"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
 

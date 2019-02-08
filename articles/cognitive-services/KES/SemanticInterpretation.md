@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Lär dig mer om att använda semantisk tolkning i den kunskap utforskning Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217279"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860821"
 ---
 # <a name="semantic-interpretation"></a>Semantisk tolkning
 
@@ -35,13 +35,13 @@ Nedan visas en lista över typer av data som för närvarande stöds:
 
 |Type|Beskrivning|Exempel|
 |----|----|----|
-|Sträng|Sekvens med 0 eller flera tecken|"Hello World!"<br/>""|
-|Bool|Booleskt värde|sant<br/>falskt|
+|String|Sekvens med 0 eller flera tecken|"Hello World!"<br/>""|
+|Bool|Booleskt värde|true<br/>false|
 |Int32|32-bitars heltal.  -2.1e9 2.1e9|123<br/>-321|
 |Int64|64-bitars heltal. -9.2e18 och 9.2e18|9876543210|
-|Double-värde|Med dubbel precision. 1.7E +/-308 (15 siffror)|123.456789<br/>1.23456789e2|
-|GUID|Globalt unik identifierare|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
-|Fråga|Frågeuttryck som anger en delmängd av dataobjekt i indexet|All()<br/>Och (*q1*, *q2*)|
+|Double|Med dubbel precision. 1.7E +/-308 (15 siffror)|123.456789<br/>1.23456789e2|
+|Guid|Globalt unik identifierare|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
+|Söka i data|Frågeuttryck som anger en delmängd av dataobjekt i indexet|All()<br/>Och (*q1*, *q2*)|
 
 ## <a name="semantic-functions"></a>Semantisk funktioner
 
@@ -139,7 +139,7 @@ Frågevariabler för omfånget är gemensamma för alla tolkningar inom den aktu
 
 Systemvariabler är fördefinierade av tjänsten och kan användas för att hämta statistik om det aktuella tillståndet för systemet.  Nedan är uppsättningen som för närvarande stöds systemvariabler:
 
-|Name|Typ|Beskrivning|
+|Namn|Typ|Beskrivning|
 |----|----|----|
 |IsAtEndOfQuery|Bool|SANT om den aktuella tolkningen matchade alla inkommande frågetexten|
 |IsBeyondEndOfQuery|Bool|SANT om den aktuella tolkningen har föreslagits slutföranden utöver inkommande frågetexten|

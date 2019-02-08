@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 'En lista med naturligt språk som stöds av API för textanalys. Den här artikeln beskriver vilka språk som stöds för varje åtgärd: attitydanalys, extrahering av diskussionsämne, språkidentifiering och igenkänning av entiteter.'
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: ec1858256c942fd50818a214de426fd00c3c2c88
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 421d891ea6c580cfbdd7cfc40755b43e1d4b207e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216939"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871293"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Stöd för språk och din region för Textanalys
 
@@ -33,11 +33,11 @@ För attitydanalys, extrahering av diskussionsämne och entitetsidentifiering ä
 
 Språk som stöds är inledningsvis lanseras i förhandsversion, de blivit allmänt tillgänglig (GA) status, oberoende av varandra och av övergripande Text Analytics-tjänsten. Det är möjligt för språk som ska behållas i förhandsversion, även under API för textanalys övergår till allmänt tillgänglig.
 
-| Språk    | Språkkod | Sentiment | Nyckelfraser | Igenkänning av enhet |   OBS!  |
+| Språk    | Språkkod | Sentiment | Nyckelfraser | Igenkänning av enhet |   Anteckningar  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Danska      | `da`          | ✔ \*     | ✔           |             |     |
 | Nederländska       | `nl`          | ✔ \*     | ✔          |             |     |
-| Engelska     | `en`          | ✔        | ✔           |  ✔ \*   |      |
+| Svenska     | `en`          | ✔        | ✔           |  ✔ \*   |      |
 | Finska     | `fi`          | ✔ \*     | ✔           |             |     |
 | Franska      | `fr`          | ✔        | ✔           |             |     |
 | Tyska      | `de`          | ✔ \*     | ✔           |            |     |
@@ -46,13 +46,13 @@ Språk som stöds är inledningsvis lanseras i förhandsversion, de blivit allm�
 | Japanska    | `ja`          |          | ✔           |            |     |
 | Koreanska      | `ko`          |          | ✔           |            |     |
 | Norska (Bokmål) | `no`          | ✔ \*     |  ✔          |             |     |
-| polska      | `pl`          | ✔ \*     |  ✔          |             |     |
+| Polska      | `pl`          | ✔ \*     |  ✔          |             |     |
 | Portugisiska (Portugal) | `pt-PT`| ✔        |  ✔          |       |`pt` även accepterat|
 | Portugisiska (Brasilien)   | `pt-BR`|          |  ✔   |         |     |
-| ryska     | `ru`          | ✔ \*     | ✔           |             |     |
+| Ryska     | `ru`          | ✔ \*     | ✔           |             |     |
 | Spanska     | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
-| svenska     | `sv`          | ✔ \*     | ✔           |             |     |
-| turkiska     | `tr`          | ✔ \*     |             |             |  |
+| Svenska     | `sv`          | ✔ \*     | ✔           |             |     |
+| Turkiska     | `tr`          | ✔ \*     |             |             |  |
 
 \* Anger språkstöd i förhandsversion
 

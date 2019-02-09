@@ -1,6 +1,6 @@
 ---
-title: Hur du distribuerar Windows 10 på Azure med Multitenant värd rättigheter
-description: Lär dig att maximera dina Windows Software Assurance-förmåner för att försätta lokalt licenser i Azure
+title: Hur du distribuerar Windows 10 på Azure med Multitenant som är värd för behörighet
+description: Lär dig att maximera din Windows Software Assurance-förmåner för att använda lokala licenser för Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5952c602a90568a9ce9e71dfa2c0dd383aed4e16
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dc798dc78ed0cdbf11bbe3bc2dd805433b127a4d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915379"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976933"
 ---
-# <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Hur du distribuerar Windows 10 på Azure med Multitenant värd rättigheter 
-För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows virtuella skrivbordet åtkomst per användare (användare prenumerationslicenser eller tillägg användarlicenser prenumeration) kan Multitenant värd rättigheter för Windows 10 du hämta din Windows 10-licenser till molnet och kör Windows 10-datorer i Azure utan att betala för en annan licens. Mer information finns [Multitenant värd för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+# <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Hur du distribuerar Windows 10 på Azure med Multitenant som är värd för behörighet 
+För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows virtuella skrivbord åtkomst per användare (användare prenumerationslicenser eller tillägg användarlicenser prenumeration), Multitenant som är värd för rättigheter för Windows 10 som gör att du kan ta med din Windows 10-licenser till molnet och kör Windows 10-datorer i Azure utan att betala för en annan licens. Mer information finns i [Multitenant som är värd för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> Den här artikeln lär du implementera licensierings-förmån för Windows 10 Pro Desktop-avbildningar på Azure Marketplace.
-> - Windows 7, 8.1, 10 Enterprise (x64) bilder på Azure Marketplace för MSDN-prenumeration, referera till [Windows-klient i Azure för utveckling och testning scenarier](client-images.md)
-> - Windows Server-licensiering fördelar, referera till [Azure Hybrid använda fördelar för Windows Server-avbildningar](hybrid-use-benefit-licensing.md).
+> Den här artikeln visar att implementera licensieringsförmånen för Windows 10 Pro Desktop-avbildningar på Azure Marketplace.
+> - Windows 7, 8.1, 10 Enterprise (x64)-avbildningar på Azure Marketplace för MSDN-prenumerationer finns i [Windows-klienten i Azure för utveckling och testning](client-images.md)
+> - Windows Server-licensiering fördelar, finns i [Azure Hybrid använda förmåner för Windows Server-avbildningar](hybrid-use-benefit-licensing.md).
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Distribuera Windows 10-avbildning från Azure Marketplace 
-Windows 10-avbildning hittar du med följande publishername, erbjudande, sku för Powershell, CLI och Azure Resource Manager distributioner för mallen.
+För Powershell, CLI och Azure Resource Manager-mall-distributioner finns Windows 10-avbildning med följande publishername, erbjudande, sku.
 
 | Operativsystem  |      PublisherName      |  Erbjudande | Sku |
 |:----------|:-------------:|:------|:------|
@@ -40,14 +40,14 @@ Windows 10-avbildning hittar du med följande publishername, erbjudande, sku fö
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
-## <a name="uploading-windows-10-vhd-to-azure"></a>Överför Windows 10-VHD till Azure
-Om du överför en generaliserad Windows 10-VHD, Lägg märke till Windows 10 inte har inbyggda administratörskontot aktiverat som standard. Om du vill aktivera det inbyggda administratörskontot lägga in följande kommando som en del av tillägget för anpassat skript.
+## <a name="uploading-windows-10-vhd-to-azure"></a>Ladda upp Windows 10 virtuell Hårddisk till Azure
+Om du överför en generaliserad virtuell Hårddisk 10 Windows, Lägg märke till Windows 10 inte har inbyggda administratörskontot är aktiverat som standard. Inkludera följande kommando som en del av tillägget för anpassat skript för att aktivera det inbyggda administratörskontot.
 
 ```powershell
 Net user <username> /active:yes
 ```
 
-Följande powershell-fragment är att markera alla administratörskonton som aktiv, inklusive det inbyggda administratörskontot. Det här exemplet är användbart om de inbyggda administratörsanvändarnamnet är okänd.
+Följande powershell-kodavsnitt är att markera alla administratörskonton som aktiv, inklusive det inbyggda administratörskontot. Det här exemplet är användbart om inbyggda administratörens användarnamn är okänd.
 ```powershell
 $adminAccount = Get-WmiObject Win32_UserAccount -filter "LocalAccount=True" | ? {$_.SID -Like "S-1-5-21-*-500"}
 if($adminAccount.Disabled)
@@ -57,20 +57,20 @@ if($adminAccount.Disabled)
 }
 ```
 Mer information: 
-* [Hur man överför VHD till Azure](upload-generalized-managed.md)
-* [Hur du förbereder en Windows-VHD att överföra till Azure](prepare-for-upload-vhd-image.md)
+* [Ladda upp VHD till Azure](upload-generalized-managed.md)
+* [Så här förbereder du en Windows virtuell Hårddisk för överföring till Azure](prepare-for-upload-vhd-image.md)
 
 
-## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Distribuera Windows 10 med flera värd rättigheter
-Kontrollera att du har [installerat och konfigurerat den senaste Azure PowerShell](/powershell/azure/overview). När du har skapat den virtuella Hårddisken kan överföra den virtuella Hårddisken till din Azure Storage-konto med den `Add-AzureRmVhd` cmdlet enligt följande:
+## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Distribuera Windows 10 med flera innehavare som värd rättigheter
+Kontrollera att du har [installerat och konfigurerat den senaste Azure PowerShell](/powershell/azure/overview). När du har skapat en virtuell Hårddisk kan ladda upp den virtuella Hårddisken till ditt Azure Storage-kontot med den `Add-AzVhd` cmdlet enligt följande:
 
 ```powershell
-Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
+Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
     -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd"
 ```
 
 
-**Distribuera med Azure Resource Manager malldistribution** i Resource Manager-mallar, en ytterligare parameter för `licenseType` kan anges. Du kan läsa mer om [skapa mallar för Azure Resource Manager](../../resource-group-authoring-templates.md). När du har den virtuella Hårddisken överförs till Azure kan redigera Resource Manager-mall om du vill inkludera licenstypen som en del av compute-providern och distribuera mallen som vanligt:
+**Distribuera med hjälp av Azure Resource Manager-mall för distribution** i Resource Manager-mallar, en extra parameter för `licenseType` kan anges. Du kan läsa mer om [skapa Azure Resource Manager-mallar](../../resource-group-authoring-templates.md). När du har en virtuell Hårddisk som överförts till Azure kan redigera Resource Manager-mall för att inkludera licenstypen som en del av compute-providern och distribuera din mall som vanligt:
 ```json
 "properties": {  
    "licenseType": "Windows_Client",
@@ -79,15 +79,15 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
    }
 ```
 
-**Distribuera via PowerShell** när du distribuerar Windows Server-VM via PowerShell kan du ha en ytterligare parameter för `-LicenseType`. När du har den virtuella Hårddisken överförs till Azure kan du skapa en virtuell dator med hjälp av `New-AzureRmVM` och ange licensiering på följande sätt:
+**Distribuera via PowerShell** när du distribuerar Windows Server-dator via PowerShell måste du ha en extra parameter för `-LicenseType`. När du har en virtuell Hårddisk som överförts till Azure kan du skapa en virtuell dator med `New-AzVM` och ange vilken licensiering enligt följande:
 ```powershell
-New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
+New-AzVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
-## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Kontrollera den virtuella datorn använder licensiering fördelen
-När du har distribuerat den virtuella datorn via antingen PowerShell eller Resource Manager distributionsmetoden, kontrollera licenstypen med `Get-AzureRmVM` på följande sätt:
+## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Kontrollera Virtuellt datorn använder licensieringsförmånen
+När du har distribuerat den virtuella datorn via antingen distributionsmetoden PowerShell eller Resource Manager, kontrollera licenstypen med `Get-AzVM` på följande sätt:
 ```powershell
-Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
 Utdata liknar följande exempel för Windows 10 med rätt licenstyp:
@@ -98,7 +98,7 @@ Location                 : westus
 LicenseType              : Windows_Client
 ```
 
-Detta utdata skiljer från med följande VM distribueras utan Azure Hybrid Använd förmånen licensiering, till exempel en virtuell dator distribueras direkt från Azure-galleriet:
+Detta utdata visas med följande VM distribuerats utan Azure Hybrid Use Benefit licensiering, till exempel en virtuell dator distribueras direkt från Azure-galleriet:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -106,14 +106,14 @@ Location                 : westus
 LicenseType              :
 ```
 
-## <a name="additional-information-about-joining-azure-ad"></a>Mer Information om att ansluta till Azure AD
+## <a name="additional-information-about-joining-azure-ad"></a>Mer Information om för Azure AD
 >[!NOTE]
->Azure tillhandahåller alla virtuella Windows-datorer med det inbyggda administratörskontot som inte kan användas för att ansluta till AAD. Till exempel *Inställningar > konto > åtkomst till arbetsplats eller skola > + Anslut* fungerar inte. Du måste skapa och logga in som ett andra administratörskonto att ansluta till Azure AD manuellt. Du kan också konfigurera Azure AD med hjälp av ett etableringspaket, Använd länken är den *nästa steg* avsnittet om du vill veta mer.
+>Azure etablerar alla Windows-datorer med inbyggda administratörskontot som inte kan användas för att ansluta till AAD. Till exempel *Inställningar > konto > åtkomst till arbets- eller skola > + Connect* fungerar inte. Du måste skapa och logga in som en andra administratörskonto för att ansluta till Azure AD manuellt. Du kan också konfigurera Azure AD med hjälp av ett konfigurationspaket, Använd länken är den *nästa steg* avsnittet om du vill veta mer.
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [konfigurera VDA för Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
-- Lär dig mer om [Multitenant värd för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
+- Läs mer om [konfigurera VDA för Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
+- Läs mer om [Multitenant som är värd för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
 
 

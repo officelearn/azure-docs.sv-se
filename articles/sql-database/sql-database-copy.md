@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 080cfb43f8fef04d2459dd0bb8779d2aa66cc359
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461347"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960981"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktionsmässigt konsekvent kopia av en Azure SQL database
 
@@ -68,6 +68,7 @@ Logga in på master-databasen med den primära inloggningen på servernivå elle
 Börja kopiera källdatabasen med den [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) instruktionen. Kör den här instruktionen initierar databasen kopiering av processen. Eftersom kopiera en databas är en asynkron process, returnerar CREATE DATABASE-instruktionen innan databasen kopieringen har slutförts.
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>Kopiera en SQL-databas till samma server
+
 Logga in på master-databasen med den primära inloggningen på servernivå eller inloggning som skapade databasen som du vill kopiera. Databasen kopiera ska lyckas, måste inloggningar som inte är servernivå vara medlemmar i rollen dbmanager.
 
 Det här kommandot kopierar Databas1 till en ny databas med namnet Databas2 på samma server. Kopiera åtgärden kan ta lite tid att slutföra beroende på databasens storlek.
@@ -86,6 +87,9 @@ Det här kommandot kopierar Databas1 på server1 till en ny databas med namnet D
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
+## <a name="to-move-a-database-between-subscriptions"></a>Du flyttar en databas mellan prenumerationer
+
+I den [Azure-portalen](https://portal.azure.com), klickar du på **SQL-servrar** och välj sedan den server som är värd för databasen i listan. Klicka på **flytta**, och sedan välja resurser att flytta och prenumeration för att flytta till.
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Övervaka förloppet för åtgärden kopiering
 
@@ -96,7 +100,6 @@ Det här kommandot kopierar Databas1 på server1 till en ny databas med namnet D
 
 > [!NOTE]
 > Om du vill avbryta kopieringen medan det pågår kan köra den [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) uttryck på den nya databasen. Du kan också avbryter DROP DATABASE-instruktionen körs på källdatabasen också kopieringen.
-> 
 
 ## <a name="resolve-logins"></a>Lösa inloggningar
 

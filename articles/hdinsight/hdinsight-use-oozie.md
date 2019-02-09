@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 983ea87a7387c4ce6bb0c1c67bf46d81c717e69a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993103"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984264"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde i HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -123,26 +123,23 @@ Det finns två åtgärder som definierats i arbetsflödet. Start-till-åtgärden
 
 RunHiveScript har flera variabler. Du kan skicka värdena när du har skickat jobbet Oozie från din arbetsstation med hjälp av Azure PowerShell.
 
-<table border = "1">
-<tr><th>Arbetsflödesvariabler</th><th>Beskrivning</th></tr>
-<tr><td>${jobTracker}</td><td>Anger URL: en för spårningsverktyget för Hadoop-jobb. Använd <strong>jobtrackerhost:9010</strong> i HDInsight version 3.0 och 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Anger URL: en för noden Hadoop namn. Använda file system standardadressen, till exempel <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Anger namnet på kön som jobbet skickas till. Använd den <strong>standard</strong>.</td></tr>
-</table>
+|Arbetsflödesvariabler|Beskrivning|
+|---|---|
+|${jobTracker}|Anger URL: en för spårningsverktyget för Hadoop-jobb. Använd **jobtrackerhost:9010** i HDInsight version 3.0 och 2.1.|
+|${nameNode}|Anger URL: en för noden Hadoop namn. Använda file system standardadressen, till exempel *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+|${queueName}|Anger namnet på kön som jobbet skickas till. Använd den **standard**.|
 
-<table border = "1">
-<tr><th>Variabeln för hive-åtgärd</th><th>Beskrivning</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Anger källkatalogen för Hive Create Table-kommando.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Anger den utgående mappen för instruktionen INSERT skrivs över.</td></tr>
-<tr><td>${hiveTableName}</td><td>Anger namnet på Hive-tabell som refererar till log4j-datafiler.</td></tr>
-</table>
+|Variabeln för hive-åtgärd|Beskrivning|
+|---|---|
+|${hiveDataFolder}|Anger källkatalogen för Hive Create Table-kommando.|
+|${hiveOutputFolder}|Anger den utgående mappen för instruktionen INSERT skrivs över.|
+|${hiveTableName}|Anger namnet på Hive-tabell som refererar till log4j-datafiler.|
 
-<table border = "1">
-<tr><th>Sqoop åtgärd variabel</th><th>Beskrivning</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Anger anslutningssträngen för Azure SQL-databasen.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Anger Azure SQL database-tabell där data exporteras till.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Anger den utgående mappen för instruktionen Hive Infoga skrivs över. Det här är samma mapp för Sqoop exportera (export-dir).</td></tr>
-</table>
+|Sqoop åtgärd variabel|Beskrivning|
+|---|---|
+|${sqlDatabaseConnectionString}|Anger anslutningssträngen för Azure SQL-databasen.|
+|${sqlDatabaseTableName}|Anger Azure SQL database-tabell där data exporteras till.|
+|${hiveOutputFolder}|Anger den utgående mappen för instruktionen Hive Infoga skrivs över. Det här är samma mapp för Sqoop exportera (export-dir).|
 
 Läs mer om hur Oozie-arbetsflöde och använder arbetsflödesåtgärder [Apache Oozie 4.0 dokumentation] [ apache-oozie-400] (för HDInsight version 3.0) eller [Apache Oozie 3.3.2 dokumentation] [ apache-oozie-332] (för HDInsight version 2.1).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 12f7c52f916f385ddf95cf16aa89c4848ab7c118
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6a128f8fbfd39c364d63ff03a156788e44f37119
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406610"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981306"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Logga Analytics tillägg för virtuell dator för Windows
 
@@ -140,13 +140,13 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Log Analytics agent-tillägget för virtuell dator till en befintlig virtuell dator. Innan du kör kommandot, måste de offentliga och privata konfigurationerna lagras i en PowerShell-hash-tabell. 
+Den `Set-AzVMExtension` kommando kan användas för att distribuera Log Analytics agent-tillägget för virtuell dator till en befintlig virtuell dator. Innan du kör kommandot, måste de offentliga och privata konfigurationerna lagras i en PowerShell-hash-tabell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}
 $ProtectedSettings = @{"workspaceKey" = "myWorkspaceKey"}
 
-Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
+Set-AzVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
@@ -164,7 +164,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
 Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure PowerShell-modulen. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure PowerShell-modulen.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 Tillägget utförande-utdatan loggas till filer som finns i följande katalog:

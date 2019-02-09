@@ -2,21 +2,21 @@
 title: Konfigurera användarens medgivande till ett program – Azure Active Directory | Microsoft Docs
 description: Lär dig mer om att hantera hur användare godkänna att behörigheter för programmet. Du kan förenkla användarupplevelsen genom att tilldela administratörens godkännande. Dessa metoder gäller alla användare i din Azure Active Directory (Azure AD)-klient.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 8f2d1580cfbf23bd54498243a8bfac43c32973ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f1cec8de1407f4e67ccc48bd8bfad3e825fa5e33
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183024"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960487"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Konfigurera hur slutanvändare samtycka till ett program i Azure Active Directory
 Lär dig mer om att konfigurera hur användare godkänna att behörigheter för programmet. Du kan förenkla användarupplevelsen genom att tilldela administratörens godkännande. Den här artikeln innehåller olika sätt du kan konfigurera användarens medgivande. Metoderna som gäller för alla användare i din Azure Active Directory (Azure AD)-klient. 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0f6677cce369117886a8b4534423414c2fd56d0c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d9cedd05e949d9684473d620629314a34802c1fc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331069"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977311"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automatisk uppdatering av SQL Server i Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -53,6 +53,8 @@ För att använda automatisk uppdatering, Överväg följande krav:
 **Azure PowerShell**:
 
 * [Installera de senaste Azure PowerShell-kommandona](/powershell/azure/overview) om du planerar att konfigurera automatisk uppdatering med PowerShell.
+
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > Automatisk uppdatering är beroende av SQL Server IaaS Agent-tillägget. Aktuell SQL VM-galleriavbildningar lägga till det här tillägget som standard. Mer information finns i [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).
@@ -103,13 +105,13 @@ Om du aktiverar automatisk uppdatering för första gången, konfigurerar SQL Se
 ## <a name="configuration-with-powershell"></a>Med PowerShell
 När du har etablerat din SQL-VM, konfigurera automatisk uppdatering med hjälp av PowerShell.
 
-I följande exempel används PowerShell för att konfigurera automatisk uppdatering på en befintlig SQL Server-dator. Den **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig** kommando konfigurerar en ny underhållsperiod för automatiska uppdateringar.
+I följande exempel används PowerShell för att konfigurera automatisk uppdatering på en befintlig SQL Server-dator. Den **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig** kommando konfigurerar en ny underhållsperiod för automatiska uppdateringar.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
-    Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > Om tillägget inte redan är installerat installerar tillägget startar om SQL Server-tjänsten.
@@ -125,7 +127,7 @@ Utifrån det här exemplet beskrivs i följande tabell i praktiken på Virtuella
 
 Det kan ta flera minuter att installera och konfigurera SQL Server IaaS Agent.
 
-Om du vill inaktivera automatisk uppdatering, kör samma skript utan den **-aktivera** parametern till den **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig**. Om den **-aktivera** parametern signalerar kommandot för att inaktivera funktionen.
+Om du vill inaktivera automatisk uppdatering, kör samma skript utan den **-aktivera** parametern till den **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig**. Om den **-aktivera** parametern signalerar kommandot för att inaktivera funktionen.
 
 ## <a name="next-steps"></a>Nästa steg
 Information om andra tillgängliga automation-aktiviteter finns i [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).

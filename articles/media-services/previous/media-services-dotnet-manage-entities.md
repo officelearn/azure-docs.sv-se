@@ -1,5 +1,5 @@
 ---
-title: Hantera resurser och relaterade entiteter med Media Services .NET SDK
+title: Hantera tillgångar och relaterade entiteter med Media Services .NET SDK
 description: Lär dig hur du hanterar tillgångar och relaterade entiteter med Media Services SDK för .NET.
 author: juliako
 manager: cfowler
@@ -12,33 +12,33 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: af5baf3444196e5a0e8412d9ab4f019fdccb033e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788846"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979980"
 ---
-# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Hantera resurser och relaterade entiteter med Media Services .NET SDK
+# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Hantera tillgångar och relaterade entiteter med Media Services .NET SDK
 > [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-manage-entities.md)
+> * [NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)
 > 
 > 
 
-Det här avsnittet visar hur du hanterar Azure Media Services entiteter med .NET. 
+Det här avsnittet visar hur du hanterar Azure Media Services-enheter med .NET (äldre)
 
 >[!NOTE]
-> Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Till exempel på 1 April 2017 tas alla jobb poster i ditt konto som är äldre än den 31 December 2016 automatiskt bort. Du kan använda koden som beskrivs i det här avsnittet om du behöver Arkivera jobb/aktivitetsinformationen.
+> Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Exempelvis den 1 April 2017 tas alla jobbposter i ditt konto som är äldre än den 31 December 2016 automatiskt bort. Om du behöver Arkivera jobb/uppgiftsinformationen kan du använda koden som beskrivs i det här avsnittet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
 
-## <a name="get-an-asset-reference"></a>Hämta en referens till en tillgång
-En uppgift som ofta är att hämta en referens till en befintlig tillgång i Media Services. Följande kodexempel visar hur du kan hämta en referens för tillgångsinformation från samlingen tillgångar på servern context-objektet, baserat på en tillgång Id. Följande kodexempel använder en Linq-fråga för att hämta en referens till ett befintligt IAsset-objekt.
+## <a name="get-an-asset-reference"></a>Hämta en referens för tillgången
+En återkommande uppgift är att hämta en referens till en befintlig tillgång i Media Services. I följande kodexempel visas hur du skaffar en tillgång referens från mängden tillgångar på servern context-objektet, baserat på en tillgång Id. I följande kodexempel används en Linq-frågan för att hämta en referens till ett befintligt IAsset-objekt.
 
 ```csharp
     static IAsset GetAsset(string assetId)
@@ -55,8 +55,8 @@ En uppgift som ofta är att hämta en referens till en befintlig tillgång i Med
     }
 ```
 
-## <a name="list-all-assets"></a>Visa en lista med alla tillgångar
-När antalet tillgångar som du har i lagring växer, är det bra att visa dina tillgångar. Följande kodexempel visar hur du söker igenom tillgångar samling på servern kontextobjektet. Med varje tillgång skriver kodexemplet aktuella även några av dess egenskapsvärden i konsolen. Varje tillgång kan exempelvis innehålla många mediefiler. Exemplet skriver ut alla filer som är associerade med varje tillgång.
+## <a name="list-all-assets"></a>Lista över alla tillgångar
+När antalet tillgångar som du har i storage växer, är det bra att lista dina tillgångar. I följande kodexempel visar hur du gå igenom samlingen tillgångar på server context-objektet. Med varje tillgången skriver kodexemplet aktuella även några av dess egenskapsvärden till konsolen. Varje tillgång kan exempelvis innehålla många mediefiler. Kodexemplet skriver ut alla filer som är associerade med varje tillgång.
 
 ```csharp
     static void ListAssets()
@@ -96,11 +96,11 @@ När antalet tillgångar som du har i lagring växer, är det bra att visa dina 
     }
 ```
 
-## <a name="get-a-job-reference"></a>Hämta en referens i projektet
+## <a name="get-a-job-reference"></a>Hämta en referens för jobbet
 
-När du arbetar med att bearbeta uppgifter i Media Services kod måste ofta du hämta en referens till ett befintligt jobb baserat på ett Id. Följande kodexempel visar hur du hämtar en referens till ett IJob objekt från samlingen jobb.
+När du arbetar med bearbetning av uppgifter i Media Services-koden kan behöver du ofta hämta en referens till ett befintligt jobb baserat på ett Id. I följande kodexempel visar hur du hämtar en referens till en IJob-objektet från mängden jobb.
 
-Du kan behöva hämta en referens för jobbet när du startar en tidskrävande kodningsjobbet och behöver kontrollera Jobbstatus i en tråd. När metoden returnerar från en tråd i detta fall måste du hämta en uppdateras referens till ett jobb.
+Du kan behöva hämta en referens för jobbet när du startar en tidskrävande kodningsjobb och behöva kontrollera Jobbstatus i en tråd. När metoden returnerar från en tråd i detta fall måste du hämta en uppdaterad referens till ett jobb.
 
 ```csharp
     static IJob GetJob(string jobId)
@@ -118,10 +118,10 @@ Du kan behöva hämta en referens för jobbet när du startar en tidskrävande k
     }
 ```
 
-## <a name="list-jobs-and-assets"></a>Lista över jobb och tillgångar
-En viktig uppgift är att lista över tillgångar med deras associerade jobbet i Media Services. Följande kodexempel visar hur du listar alla IJob-objekt, och sedan för varje projekt, den visar egenskaper om jobbet, alla relaterade uppgifter, alla indata-tillgångar och alla utdata tillgångar. Koden i det här exemplet kan vara användbart för flera uppgifter. Om du vill visa en lista med tillgångar utdata från ett eller flera kodning jobb som du tidigare körde visar denna kod hur du kommer åt utdata tillgångar. När du har en referens till en utdatatillgången, kan du sedan leverera innehållet till andra användare eller program genom att hämta den eller tillhandahålla URL: er. 
+## <a name="list-jobs-and-assets"></a>Lista jobb och tillgångar
+En viktig relaterade uppgift är att lista resurser med deras associerade jobbet i Media Services. I följande kodexempel visar hur att lista alla IJob-objekt, och sedan för varje jobb visas egenskaper om jobbet, alla relaterade uppgifter, alla indata-tillgångar och alla resurser som utdata. Koden i det här exemplet kan vara användbart för ett flertal andra aktiviteter. Om du vill visa en lista över utdataresultat från en eller flera kodningsjobb som du körde tidigare visar den här kod hur du kommer åt utdata-tillgångar. När du har en referens till en utdatatillgången, kan du sedan levererar innehåll till andra användare eller program genom att hämta den eller tillhandahålla URL: er. 
 
-Mer information om alternativ för att leverera tillgångar finns [leverera tillgångar med Media Services SDK för .NET](media-services-deliver-streaming-content.md).
+Läs mer om alternativen för att leverera tillgångar [leverera tillgångar med Media Services SDK för .NET](media-services-deliver-streaming-content.md).
 
 ```csharp
     // List all jobs on the server, and for each job, also list 
@@ -200,10 +200,10 @@ Mer information om alternativ för att leverera tillgångar finns [leverera till
     }
 ```
 
-## <a name="list-all-access-policies"></a>Visa en lista med alla åtkomstprinciper
-I Media Services kan du definiera en åtkomstprincip för en tillgång eller dess filer. En åtkomstprincip definierar behörigheter för en fil eller en tillgång (vilken typ av åtkomst och varaktighet). I Media Services-koden definiera du vanligtvis en åtkomstprincip genom att skapa ett IAccessPolicy objekt och associera den med en befintlig tillgång. Sedan kan du skapa en ILocator-objektet, vilket gör att du kan ge direktåtkomst till tillgångar i Media Services. Visual Studio-projekt som medföljer den här dokumentationen serien innehåller flera kodexempel som visar hur du skapar och tilldelar tillgångar åtkomstprinciper och lokaliserare.
+## <a name="list-all-access-policies"></a>Lista över alla åtkomstprinciper
+I Media Services kan du definiera en åtkomstprincip för en tillgång eller dess filer. En åtkomstprincip definierar behörigheter för en fil eller en tillgång (vilken typ av åtkomst och varaktighet). I Media Services-koden definiera du vanligtvis en åtkomstprincip genom att skapa ett IAccessPolicy-objekt och koppla det till en befintlig tillgång. Sedan kan du skapa en ILocator-objektet, vilket låter dig ge direktåtkomst till tillgångar i Media Services. Visual Studio-projekt som medföljer den här dokumentationen-serien innehåller flera kodexempel som visar hur du skapar och tilldelar åtkomstprinciper och positionerare till tillgångar.
 
-Följande kodexempel visar hur du listar alla åtkomstprinciper på servern och visar vilken typ av behörigheter som associeras med varje. Ett annat bra sätt att visa principer för åtkomst är att lista alla ILocator objekt på servern och sedan för varje lokaliserare, kan du visa dess associerade åtkomstprincip via egenskapen AccessPolicy.
+I följande kodexempel visar hur du listar alla åtkomstprinciper på servern och visar vilken typ av behörigheter som hör till var. En annan bra sätt att visa åtkomstprinciper är att lista alla ILocator objekt på servern och sedan för varje positionerare du visa en lista med dess associerade åtkomstprincip via egenskapen AccessPolicy.
 
 ```csharp
     static void ListAllPolicies()
@@ -220,7 +220,7 @@ Följande kodexempel visar hur du listar alla åtkomstprinciper på servern och 
     }
 ```
     
-## <a name="limit-access-policies"></a>Gränsen åtkomstprinciper 
+## <a name="limit-access-policies"></a>Policyer för åtkomst 
 
 >[!NOTE]
 > Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). 
@@ -239,7 +239,7 @@ Du kan till exempel skapa en allmän uppsättning principer med följande kod so
     Console.WriteLine("One week policy ID is: " + policyWeek.Id);
 ```
 
-Du kan sedan använda de befintliga ID i koden så här:
+Du kan sedan använda de befintliga ID: N i din kod så här:
 
 ```csharp
     const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
@@ -263,12 +263,12 @@ Du kan sedan använda de befintliga ID i koden så här:
     Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
 ```
 
-## <a name="list-all-locators"></a>Visa en lista med alla positionerare
-En positionerare är en URL som innehåller en direkt sökväg för att komma åt en tillgång, tillsammans med behörigheter till tillgången som definieras av den positionerare associerade åtkomstprincip. Varje tillgång kan ha en samling ILocator objekt som är associerade med den på egenskapen lokaliserare. Serverkontext har också en positionerare samling som innehåller alla lokaliserare.
+## <a name="list-all-locators"></a>Lista över alla positionerare
+En positionerare är en URL som innehåller en direkt sökväg för att få åtkomst till en tillgång, tillsammans med behörigheter för att tillgången som definieras av positionerarprincipen associerade åtkomst. Varje tillgång kan ha en samling ILocator objekt som är associerade med den på dess positionerare-egenskap. Server-kontexten har också en positionerare-samling som innehåller alla positionerare.
 
-Följande kodexempel visar alla positionerare på servern. För varje lokaliserare visas Id för den relaterade tillgången och åtkomst. Den visar även typ av behörigheter, förfallodatum och den fullständiga sökvägen till tillgången.
+I följande kodexempel visar en lista över alla positionerare på servern. För varje positionerare visas Id för principen för relaterade tillgångar och åtkomst. Den visar även typ av behörigheter, datumet och den fullständiga sökvägen till tillgången.
 
-Observera att en positionerare sökväg till en tillgång är en grundläggande Webbadress till tillgången. Om du vill skapa en direkt sökväg till enskilda filer som en användare eller ett program kan bläddra till din kod måste lägga till specifika filsökvägen lokaliserare sökvägen. Mer information om hur du gör detta finns i avsnittet [leverera tillgångar med Media Services SDK för .NET](media-services-deliver-streaming-content.md).
+Observera att en positionerare sökväg till en tillgång är en grundläggande Webbadress till tillgången. Om du vill skapa en direkt sökväg till enskilda filer som en användare eller ett program kan bläddra till din kod måste lägga till sökvägen till specifika positionerare sökvägen. Mer information om hur du gör detta finns i avsnittet [leverera tillgångar med Media Services SDK för .NET](media-services-deliver-streaming-content.md).
 
 ```csharp
     static void ListAllLocators()
@@ -291,9 +291,9 @@ Observera att en positionerare sökväg till en tillgång är en grundläggande 
 ```
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>Uppräkning av stora mängder av entiteter
-När du frågar entiteter, finns det en gräns på 1000 entiteter som returneras i taget eftersom offentlig REST-v2 begränsar frågeresultaten till 1000 resultat. Du måste använda Skip och vidta vid uppräkning av stora mängder av entiteter. 
+Vid frågor till entiteter, finns det en gräns på 1000 enheter som returneras i taget eftersom offentlig REST-v2 begränsar frågeresultaten till 1000 resultat. Du måste använda hoppa över och vidta vid uppräkning av stora mängder av entiteter. 
 
-Följande funktion loop genom alla jobb i den angivna Media Services-konto. Media Services returnerar 1000 jobb i Jobbsamlingen. Funktionen tillämpar Skip och vidta för att se till att alla jobb räknas (om du har fler än 1000 jobb i ditt konto).
+Följande funktion igenom alla jobb i den angivna Media Services-konto. Media Services returnerar 1000 jobb i Jobbsamlingen. Funktionen gör att användning av hoppa över och gör att se till att alla jobb räknas (om du har fler än 1000 jobb i ditt konto).
 
 ```csharp
     static void ProcessJobs()
@@ -350,9 +350,9 @@ I följande exempel tar bort en tillgång.
 ```
 
 ## <a name="delete-a-job"></a>Ta bort ett jobb
-Om du vill ta bort ett jobb, måste du kontrollera status för jobbet som anges i egenskapen State. Jobb som har slutförts eller avbrutits kan tas bort medan jobb som har vissa andra tillstånd, till exempel köade schemalagda eller bearbetning, måste först avbrytas och sedan kan du ta bort.
+Om du vill ta bort ett jobb, måste du kontrollera status för jobbet som anges i egenskapen State. Jobb som har slutförts eller avbrutits kan tas bort när jobb som har vissa andra tillstånd, som i kö, schemalagda eller bearbetningsfunktioner, måste först avbrytas, och sedan kan du ta bort.
 
-Följande exempel visar en metod för att ta bort ett jobb genom att kontrollera status för jobb och ta sedan bort när tillståndet slutförts eller avbrutits. Den här koden är beroende av föregående avsnitt i det här avsnittet för att hämta en referens till ett jobb: hämta en referens i projektet.
+I följande kodexempel visar en metod för att ta bort ett jobb genom att markera status för jobb och tar sedan bort när tillståndet är klar eller har avbrutits. Den här koden är beroende av föregående avsnitt i det här avsnittet för att hämta en referens till ett jobb: Hämta en referens för jobbet.
 
 ```csharp
     static void DeleteJob(string jobId)
@@ -403,7 +403,7 @@ Följande exempel visar en metod för att ta bort ett jobb genom att kontrollera
 
 
 ## <a name="delete-an-access-policy"></a>Ta bort en åtkomstprincip
-Följande kodexempel visar hur du hämtar en referens till en princip utifrån en princip-Id, och sedan ta bort principen.
+I följande kodexempel visar hur du hämtar en referens till en princip utifrån en princip-Id, och för att ta bort principen.
 
 ```csharp
     static void DeleteAccessPolicy(string existingPolicyId)

@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: ff2352005470755c8ca0f472c4a790a820fea6b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a5e3fbc3369f19af8d93e23d669a4449ab3d414c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754395"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980592"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
 En hanterad avbildningsresurs kan skapas från en generaliserad virtuell dator (VM) som lagras som en hanterad disk eller en ohanterad disk i ett lagringskonto. Avbildningen kan sedan användas för att skapa flera virtuella datorer. Information om hur hanterade avbildningar faktureras, se [priser för Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalisera den virtuella Windows-datorn med hjälp av Sysprep
 
@@ -85,11 +87,11 @@ Följ dessa steg för att generalisera den virtuella Windows-datorn:
 Skapa en avbildning direkt från den virtuella datorn ser du till att avbildningen innehåller alla diskar som är associerade med den virtuella datorn, inklusive OS-disken och eventuella datadiskar. Det här exemplet visar hur du skapar en hanterad avbildning från en virtuell dator som använder hanterade diskar.
 
 
-Innan du börjar måste du se till att du har den senaste versionen av AzureRM.Compute PowerShell-modulen, som måste vara version 5.7.0-installationsprogram eller senare. Om du vill ta reda på vilken version du kör `Get-Module -ListAvailable AzureRM.Compute` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps). Om du kör PowerShell lokalt, kör `Connect-AzureRmAccount` att skapa en anslutning till Azure.
+Innan du börjar måste du se till att du har den senaste versionen av AzureRM.Compute PowerShell-modulen, som måste vara version 5.7.0-installationsprogram eller senare. Om du vill ta reda på vilken version du kör `Get-Module -ListAvailable AzureRM.Compute` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/azurerm/install-az-ps). Om du kör PowerShell lokalt, kör `Connect-AzAccount` att skapa en anslutning till Azure.
 
 
 > [!NOTE]
-> Om du vill lagra avbildningen i zonredundant lagring måste du skapa den i en region som har stöd för [tillgänglighetszoner](../../availability-zones/az-overview.md) och inkludera den `-ZoneResilient` parameter i bildkonfiguration (`New-AzureRmImageConfig` kommandot).
+> Om du vill lagra avbildningen i zonredundant lagring måste du skapa den i en region som har stöd för [tillgänglighetszoner](../../availability-zones/az-overview.md) och inkludera den `-ZoneResilient` parameter i bildkonfiguration (`New-AzImageConfig` kommandot).
 
 Följ dessa steg om du vill skapa en VM-avbildning:
 
@@ -104,30 +106,30 @@ Följ dessa steg om du vill skapa en VM-avbildning:
 2. Kontrollera att den virtuella datorn har frigjorts.
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Ange status för den virtuella datorn till **generaliserad**. 
    
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
 4. Hämta den virtuella datorn. 
 
     ```azurepowershell-interactive
-    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
+    $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
     ```
 
 5. Skapa avbildningskonfigurationen.
 
     ```azurepowershell-interactive
-    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
+    $image = New-AzImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
     ```
 6. Skapa avbildningen.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
+    New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Skapa en avbildning från en hanterad disk med hjälp av PowerShell
@@ -148,7 +150,7 @@ Om du vill skapa en avbildning av endast OS-disken kan du ange ID för hanterad 
 2. Hämta den virtuella datorn.
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
+   $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. Hämta ID för den hantera disken.
@@ -160,14 +162,14 @@ Om du vill skapa en avbildning av endast OS-disken kan du ange ID för hanterad 
 3. Skapa avbildningskonfigurationen.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
     ```
     
 4. Skapa avbildningen.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -188,19 +190,19 @@ Du kan skapa en hanterad avbildning från en ögonblicksbild av en generaliserad
 2. Hämta ögonblicksbilden.
 
    ```azurepowershell-interactive
-   $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
+   $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
 3. Skapa avbildningskonfigurationen.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
 4. Skapa avbildningen.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -221,20 +223,20 @@ Skapa en hanterad avbildning från en generaliserad OS-VHD i ett lagringskonto. 
 2. Stoppa/frigör den virtuella datorn.
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Markera den virtuella datorn som generaliserad.
 
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized  
     ```
 4.  Skapa avbildningen med hjälp av din generaliserade OS-VHD.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
     

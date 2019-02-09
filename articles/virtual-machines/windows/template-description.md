@@ -15,18 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e32e2833edc7027a984bb27b34608e4b1b898113
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 094df21bb0264ebbd8ad23c594ceb52db19d9c2f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767094"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979623"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
 Den här artikeln beskrivs olika aspekter av en Azure Resource Manager-mall som gäller för virtuella datorer. Den här artikeln beskriver inte en fullständig mall för att skapa en virtuell dator; för att du behöver resursdefinitionerna för lagringskonton, nätverksgränssnitt, offentliga IP-adresser och virtuella nätverk. Mer information om hur dessa resurser kan definieras tillsammans finns i den [genomgång av Resource Manager-mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Det finns många [mallar i galleriet](https://azure.microsoft.com/documentation/templates/?term=VM) som innehåller den Virtuella datorresursen. Här beskrivs inte alla element som kan ingå i en mall.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 Det här exemplet visas en typisk resursavsnitt i en mall för att skapa ett angivet antal virtuella datorer:
 
@@ -163,8 +165,9 @@ Versionen av API: et som du anger i mallen påverkar vilka egenskaper som du kan
 Använd dessa möjligheter för att få de senaste API-versionerna:
 
 - REST-API – [lista alla resursprovidrar](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell – [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
+- PowerShell – [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+
 
 ## <a name="parameters-and-variables"></a>Parametrar och variabler
 
@@ -442,7 +445,7 @@ Du kan se status för de installerade tilläggen från inställningarna för til
 
 ![Hämta Tilläggsstatus för](./media/template-description/virtual-machines-show-extensions.png)
 
-Du kan också få tilläggsinformation med hjälp av den **Get-AzureRmVMExtension** PowerShell-kommando i **vm-tillägget get** Azure CLI-kommando eller **hämta tilläggsinformation**REST-API.
+Du kan också få tilläggsinformation med hjälp av den **Get-AzVMExtension** PowerShell-kommando i **vm-tillägget get** Azure CLI-kommando eller **hämta tilläggsinformation**REST-API.
 
 ## <a name="deployments"></a>Distributioner
 

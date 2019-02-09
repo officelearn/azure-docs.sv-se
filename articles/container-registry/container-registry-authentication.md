@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6ae388107e527b399dc758abccbefcec955a60d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 9682b9b832a8fd7374cb84e8cc6faad69df15945
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661640"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979079"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autentisera med ett privat Docker-behållarregister
 
@@ -60,7 +60,7 @@ Tjänstens huvudnamn aktivera fjärradministrerad anslutning till ett register i
 
 Du kan också logga in direkt med ett huvudnamn för tjänsten. När du kör följande kommando interaktivt ange tjänstens huvudnamn appID (användarnamn) och lösenord när du uppmanas till detta. Metodtips att hantera autentiseringsuppgifter för inloggning, finns i den [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens:
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -80,7 +80,7 @@ Varje behållarregister innehåller ett administratörskonto för användare som
 
 Administratörskontot som har angetts med två lösenord som kan återskapas. Två lösenord kan du upprätthålla anslutning till registret genom att använda ett lösenord medan du återskapar den andra. Om administratörskontot som är aktiverad, du kan skicka användarnamn och antingen lösenord för att den `docker login` kommandot när du tillfrågas om grundläggande autentisering till registret. Exempel:
 
-```Docker
+```
 docker login myregistry.azurecr.io 
 ```
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: cadf4c564ab8600094bc545ae7270eb9c0642e1e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a5a4205c97e4db25d5d0a92472610364d912b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890968"
+ms.locfileid: "55963445"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Moln och regioner där Azure Media Services v3 finns
 
@@ -65,11 +65,39 @@ Till exempel för Azure-regionen USA, västra 2 (visas nedan), använder du ”v
 
 ## <a name="endpoints"></a>Slutpunkter  
 
-| Slutpunkt|Globalt Azure | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
-| --- | --- | --- | --- | --- |
-| Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
-| Tokenmålgruppen | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
+Följande slutpunkter är viktigt att veta när du ansluter till Media Services-konton från olika nationella Azure-moln.
+
+### <a name="global-azure"></a>Globalt Azure
+
+|Slutpunkter ||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| Tokenmålgruppen | `https://management.core.windows.net/` |
+
+### <a name="azure-government"></a>Azure Government
+
+|Slutpunkter||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| Tokenmålgruppen | `https://management.core.usgovcloudapi.net/` |
+
+### <a name="azure-germany"></a>Azure Tyskland
+
+| Slutpunkter ||
+| --- | --- |  
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| Tokenmålgruppen | `https://management.core.cloudapi.de/`|
+
+### <a name="azure-china-21vianet"></a>Azure Kina 21Vianet
+
+|Slutpunkter||
+| --- | --- | 
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| Tokenmålgruppen |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Nästa steg
 

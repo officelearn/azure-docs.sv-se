@@ -8,20 +8,22 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 33f96c67e7179104d1895cf62f834d3b592bee04
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 86ccd35d14df529a22bd4cdcd50566e7dc0c1375
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487633"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983721"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot Kör
 
 Kör kommandot använder VM-agenten för att köra PowerShell-skript i en Windows Azure-dator. Skripten kan användas för allmän dator eller hantering av program och kan användas för att snabbt diagnostisera och åtgärda problem med åtkomst och nätverk av virtuell dator och få den virtuella datorn till ett fungerande tillstånd.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="benefits"></a>Fördelar
 
-Det finns flera alternativ som kan användas för att få åtkomst till dina virtuella datorer. Kör kommandot kan köra skript på dina virtuella datorer via fjärranslutning med VM-agenten. Kör kommandot kan användas via Azure-portalen [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), eller [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) för virtuella Windows-datorer.
+Det finns flera alternativ som kan användas för att få åtkomst till dina virtuella datorer. Kör kommandot kan köra skript på dina virtuella datorer via fjärranslutning med VM-agenten. Kör kommandot kan användas via Azure-portalen [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), eller [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) för virtuella Windows-datorer.
 
 Den här funktionen är användbar i samtliga scenarier där du vill köra ett skript i en virtuella datorer och är ett av de enda sätten att felsöka och åtgärda en virtuell dator som inte har RDP eller SSH-porten som är öppna på grund av felaktig nätverks- eller administrativ användare konfiguration.
 
@@ -72,10 +74,11 @@ Den här tabellen visas listan över kommandon som är tillgängliga för virtue
 
 ## <a name="powershell"></a>PowerShell
 
-Följande är ett exempel med hjälp av den [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) vill köra ett PowerShell-skript i en Azure VM. Cmdleten förväntar sig skriptet som refereras till i den `ScriptPath` variabel som ska vara lokalt där cmdleten som kördes.
+Följande är ett exempel med hjälp av den [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet för att köra ett PowerShell-skript på en virtuell Azure-dator. Cmdleten förväntar sig skriptet som refereras till i den `-ScriptPath` parameter ska vara lokalt där cmdleten körs.
+
 
 ```azurepowershell-interactive
-Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
 ## <a name="limiting-access-to-run-command"></a>Begränsa åtkomsten till kommandot Kör

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d5b44011607a393a682112e56aff1803c6d7cf72
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ce7b73afa150ef5fef58c5baf861da92c5203548
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811604"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980508"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestandavägledning för SQL Server i Azure Virtual Machines
 
@@ -135,7 +135,7 @@ Det finns ett undantag till den här rekommendationen: _om TempDB-användningen 
 
   * Rekommendationerna ovan gäller för Premium Storage-diskar. Om du inte använder Premium Storage kan du inte aktivera någon cachelagring på eventuella datadiskar.
 
-  * Mer information om hur du konfigurerar diskcachelagring finns i följande artiklar. Klassiskt (ASM) distributionsmodell finns: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager deployment model finns i: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) och [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+  * Mer information om hur du konfigurerar diskcachelagring finns i följande artiklar. Klassiskt (ASM) distributionsmodell finns: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager deployment model finns i: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) och [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
 
      > [!WARNING]
      > Stoppa SQL Server-tjänsten när du ändrar cache-inställningen för Virtuella Azure-diskar för att undvika risken att databasen är skadad.

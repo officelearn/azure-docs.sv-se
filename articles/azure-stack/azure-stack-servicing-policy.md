@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1664e19f3a238b2986af4669c3853a54d7c7e328
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6825524667c473496b62cecbce54f6e249742bae
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250831"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977719"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack som hanteringsprincip
 
@@ -52,11 +52,10 @@ Microsoft förväntar sig att frigöra programuppdateringspaket på en månatlig
 Hitta dokumentation om hur du planerar för och hantera uppdateringar och hur du fastställer din nuvarande version i [hantera uppdaterar översikt](azure-stack-updates.md).
 
 Information om uppdateringen inklusive hur du hämtar det, finns i viktig information för att uppdatera:
-
+- [Uppdatering av Azure Stack 1901](azure-stack-update-1901.md)
 - [Uppdatering av Azure Stack 1811](azure-stack-update-1811.md)
 - [Uppdatering av Azure Stack 1809](azure-stack-update-1809.md)
 - [Uppdatering av Azure Stack 1808](azure-stack-update-1808.md)
-- [Uppdatering av Azure Stack 1807](azure-stack-update-1807.md)
 
 ## <a name="hotfixes"></a>Snabbkorrigeringar
 

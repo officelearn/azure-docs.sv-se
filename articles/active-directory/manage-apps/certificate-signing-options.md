@@ -3,10 +3,8 @@ title: Avancerad certifikatsignering alternativ i SAML-token för förintegrerad
 description: Lär dig hur du använder avancerade alternativ i SAML-token för förintegrerade appar i Azure Active Directory för Certifikatsignering
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
-ms.assetid: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 245e3d32bc546ae6f725ac6f7eb549d77119c956
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 667eb7204669d0d94903fa652956e7671a9a9651
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191524"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963428"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ i SAML-token för gallery-appar i Azure Active Directory för Certifikatsignering
 Idag stöd för tusentals förintegrerade program i Appgalleriet för Azure Active Directory i Azure Active Directory (AD Azure). Det här värdet innefattar fler än 500 program som stöder enkel inloggning med hjälp av SAML 2.0-protokollet. När en användare autentiseras till ett program via Azure AD med hjälp av SAML skickar Azure AD en token till programmet (via en HTTP-POST). Programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token har signerats med det unika certifikat som genereras i Azure AD och av specifika standard algoritmer.

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 01/31/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 05efa7eaf6d95cbf63efd17b00d321d8c8509f28
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: acd92c711f432cf103b9309247704ff348287ff6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246787"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964074"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: skillnader och överväganden
 
@@ -32,13 +32,12 @@ Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att 
 > [!Note]  
 > Hanterade diskar på Azure Stack är tillgänglig från 1808 update. Det är aktiverat som standard när du skapar virtuella datorer med Azure Stack-portalen från 1811 update.
   
-
 ## <a name="cheat-sheet-managed-disk-differences"></a>Lathund: Managed disk skillnader
 
 | Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |Kryptering för vilande Data |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE)     |BitLocker 128-bitars AES-kryptering      |
-|Bild          | Stöd för anpassade avbildningar |Stöds inte än|
+|Bild          | Stöd för anpassade avbildningar |Stöds|
 |Alternativ för säkerhetskopiering |Stöd för Azure Backup-tjänsten |Stöds inte än |
 |Alternativen för katastrofåterställning |Stöd för Azure Site Recovery |Stöds inte än|
 |Disktyper     |Premium SSD, Standard SSD (förhandsversion) och Standard-Hårddisk |Premium SSD, Standard HDD |
@@ -66,6 +65,72 @@ Managed Disks för Azure Stack stöd för följande API-versioner:
 
 - 2017-03-30
 
+## <a name="managed-images"></a>Hanterade avbildningar
+
+Azure Stack-stöder *hanteras avbildningar*, vilka aktivera du att skapa en hanterad avbildning-objekt på en generaliserad virtuell dator (både ohanterade och hanterade) som kan bara skapa hanterade disk virtuella datorer framöver. Hanterade avbildningar kan följande två scenarier:
+
+- Du har generaliserats ohanterade virtuella datorer och vill använda hanterade diskar framöver.
+- Du har en generaliserad hanterad virtuell dator och vill skapa flera, liknande hanterade virtuella datorer.
+
+### <a name="migrate-unmanaged-vms-to-managed-disks"></a>Migrera ohanterade virtuella datorer till managed disks
+
+Följ instruktionerna [här](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) att skapa en hanterad avbildning från en generaliserad virtuell Hårddisk i ett lagringskonto. Den här avbildningen kan användas för att skapa hanterade virtuella datorer framöver.
+
+### <a name="create-managed-image-from-vm"></a>Skapa en hanterad avbildning från virtuell dator
+
+När du har skapat en avbildning från en befintlig hanterad disk i virtuell dator med hjälp av skriptet [här](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , följande exempelskript skapar en liknande Linux VM från ett befintligt bildobjekt:
+
+```powershell
+# Variables for common values
+$resourceGroup = "myResourceGroup"
+$location = "redmond"
+$vmName = "myVM"
+$imagerg = "managedlinuxrg"
+$imagename = "simplelinuxvmm-image-2019122"
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# Create a subnet configuration
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+
+# Create a virtual network
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+
+# Create a public IP address and specify a DNS name
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+
+# Create an inbound network security group rule for port 3389
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+
+# Create a network security group
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+
+# Create a virtual network card and associate with public IP address and NSG
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+$image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+# Create a virtual machine configuration
+$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
+Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
+Set-AzureRmVMSourceImage -Id $image.Id | `
+Add-AzureRmVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+
+Mer information finns i Azure hanteras bild artiklar [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../../virtual-machines/windows/capture-image-resource.md) och [skapa en virtuell dator från en hanterad avbildning](../../virtual-machines/windows/create-vm-generalized-managed.md).
+
 ## <a name="configuration"></a>Konfiguration
 
 Efter att ha tillämpat 1808 uppdatera eller senare, måste du utföra följande konfigurationssteg innan du använder Managed Disks:
@@ -73,8 +138,7 @@ Efter att ha tillämpat 1808 uppdatera eller senare, måste du utföra följande
 - Om en prenumeration skapades före uppdateringen 1808, följer du stegen nedan för att uppdatera prenumerationen. Annars kan misslyckas distribuera virtuella datorer i den här prenumerationen med felmeddelandet ”internt fel i Diskhanteraren”.
    1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
    2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
-- Om du använder en miljö med flera organisationer, be din molnoperator (kan vara i din organisation eller från Service Provider) att konfigurera om var och en av dina gäst-kataloger följa dessa steg på [i den här artikeln](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Annars kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med den gästkatalogen med felmeddelandet ”internt fel i Diskhanteraren”.
-
+- Om du använder en miljö med flera organisationer, fråga din molnoperator (som kan vara i din organisation eller från service provider) att konfigurera om var och en av dina gäst-kataloger följa stegen i [i den här artikeln](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Annars kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med den gästkatalogen med felmeddelandet ”internt fel i Diskhanteraren”.
 
 ## <a name="next-steps"></a>Nästa steg
 

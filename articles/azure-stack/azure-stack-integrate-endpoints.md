@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816364"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977755"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter-integrering – publicera slutpunkter
 
@@ -38,11 +38,11 @@ Intern infrastruktur för virtuella IP-adresser inte visas eftersom de inte krä
 |Slutpunkt (VIP)|DNS vara värd för en post|Protokoll|Portar|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portal (administratör)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Portal (administratör)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure Resource Manager (administratör)|Adminmanagement.  *&lt;region >.&lt; FQDN >*|HTTPS|443<br>30024|
-|Portal (användare)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Azure Resource Manager (administratör)|Adminmanagement.  *&lt;region >.&lt; FQDN >*|HTTPS|443|
+|Portal (användare)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lista över återkallade certifikat|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP OCH UDP|53|
@@ -79,7 +79,6 @@ Azure Stack stöder endast transparent proxy-servrar. I en distribution där en 
 |NTP|(IP för NTP-server för distribution)|UDP|123|Offentliga VIP - /27|
 |DNS|(IP-DNS-server för distribution)|TCP<br>UDP|53|Offentliga VIP - /27|
 |LISTAN ÖVER ÅTERKALLADE CERTIFIKAT|(URL under CRL-distributionspunkter på ditt certifikat)|HTTP|80|Offentliga VIP - /27|
-|Infrastruktur för säkerhetskopiering|(IP eller FQDN för externa målets filserver)|SMB|445|Infrastruktur för offentliga nätverk|
 |LDAP|Active Directory-skog för Graph-integrering|TCP<br>UDP|389|Offentliga VIP - /27|
 |LDAP SSL|Active Directory-skog för Graph-integrering|TCP|636|Offentliga VIP - /27|
 |LDAP GC|Active Directory-skog för Graph-integrering|TCP|3268|Offentliga VIP - /27|
@@ -89,9 +88,6 @@ Azure Stack stöder endast transparent proxy-servrar. I en distribution där en 
 
 > [!Note]  
 > Utgående URL: er är belastningsutjämnad med Azure traffic manager för att tillhandahålla den bästa möjliga anslutningen baserat på geografisk plats. Med att läsa in belastningsutjämnade URL: er, Microsoft kan uppdatera och ändra serverdelsslutpunkter utan att påverka kunder. Microsoft delar inte listan över IP-adresser för belastningsutjämnade URL: er. Du bör använda en enhet som stöder filtrering efter URL i stället för IP.
-
-> [!Note]  
-> I 1809 kommunicerar infrastruktur säkerhetskopieringstjänsten extern filserver från det offentliga VIP-nätverket. Innan du 1809, tjänsten som kommunicerades via infrastruktur för offentliga nätverk. Om din miljö inte tillåter åtkomst till resurser i infrastrukturen från det offentliga VIP-nätverket, tillämpa senast [1809 snabbkorrigering](azure-stack-update-1809.md#post-update-steps) för Azure Stack. Den här snabbkorrigeringen flyttas infrastruktur säkerhetskopieringstjänsten tillbaka till nätverkets infrastruktur för offentliga. Om du har installerat snabbkorrigeringen 1809 i 1811 förblir säkerhetskopieringstjänsten infrastruktur i infrastruktur för offentliga nätverk. Om du inte installerar snabbkorrigeringen, flyttas uppdateringen tjänsten tillbaka till nätverkets infrastruktur för offentliga.
 
 ## <a name="next-steps"></a>Nästa steg
 

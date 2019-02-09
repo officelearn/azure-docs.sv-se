@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: e4963ebae73bdd81246433fe43206139caa1661c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295788"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982853"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-containerregister med hjälp av Docker CLI
 
@@ -37,7 +37,7 @@ az acr login --name myregistry
 
 Du kan också logga in med [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/). Du kan till exempel ha [tilldelat ett tjänstobjekt](container-registry-authentication.md#service-principal) till registret för ett automation-scenario. När du kör följande kommando interaktivt ange tjänstens huvudnamn appID (användarnamn) och lösenord när du uppmanas till detta. Metodtips att hantera autentiseringsuppgifter för inloggning, finns i den [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens:
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -50,7 +50,7 @@ Båda kommandona returnerar `Login Succeeded` när det har slutförts.
 
 Först hämta den offentliga Nginx-avbildningen till den lokala datorn.
 
-```Docker
+```
 docker pull nginx
 ```
 
@@ -58,7 +58,7 @@ docker pull nginx
 
 Kör följande [docker kör](https://docs.docker.com/engine/reference/run/) kommando för att starta en lokal instans av Nginx-behållaren interaktivt (`-it`) på port 8080. Den `--rm` argumentet anger att behållaren ska tas bort när du stoppar den.
 
-```Docker
+```
 docker run -it --rm -p 8080:80 nginx
 ```
 
@@ -74,7 +74,7 @@ Stoppa och ta bort behållaren genom att trycka på `Control` + `C`.
 
 Använd [dockertagg](https://docs.docker.com/engine/reference/commandline/tag/) att skapa ett alias för avbildningen med den fullständiga sökvägen till registret. I det här exemplet anges `samples`-namnområdet för att undvika oreda i registrets rot.
 
-```Docker
+```
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
@@ -84,7 +84,7 @@ Mer information om taggar med namnområden finns i den [namnrymder](container-re
 
 Nu när du har taggat avbildningen med den fullständiga sökvägen till ditt privata register, kan du skicka den till registret med [docker push](https://docs.docker.com/engine/reference/commandline/push/):
 
-```Docker
+```
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
@@ -92,7 +92,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Använd den [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) kommando för att hämta avbildningen från registret:
 
-```Docker
+```
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
@@ -100,7 +100,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 
 Använd den [docker kör](https://docs.docker.com/engine/reference/run/) kommando för att köra avbildningen du har samlat från ditt register:
 
-```Docker
+```
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
@@ -112,7 +112,7 @@ Stoppa och ta bort behållaren genom att trycka på `Control` + `C`.
 
 Om du inte längre behöver Nginx-avbildningen kan du radera den lokalt med den [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) kommando.
 
-```Docker
+```
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 

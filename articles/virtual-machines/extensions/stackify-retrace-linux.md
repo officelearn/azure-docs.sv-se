@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: b286ebc2e50166e8491b45346a81b161227f8d21
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415122"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979725"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify gå tillägget för Linux-Agent
 
@@ -46,8 +46,8 @@ Bläddra-agenten kan köras mot dessa Linux-distributioner
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS, 16,10 och nr 17.04 från |
 | Debian | 7,9 + och 8.2 +, 9 |
-| Red Hat | 6.7 +, 7.1 + |
-| CentOS | 6.3 +, 7.0 + |
+| Red Hat | 6.7+, 7.1+ |
+| CentOS | 6.3+, 7.0+ |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 Stackify-agenttillägg för Linux kräver att den virtuella måldatorn är ansluten till internet. 
@@ -147,7 +147,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Stackify gå Linux-Agent-tillägget för virtuell dator till en befintlig virtuell dator. Innan du kör kommandot, måste de offentliga och privata konfigurationerna lagras i en PowerShell-hash-tabell.
+Den `Set-AzVMExtension` kommando kan användas för att distribuera Stackify gå Linux-Agent-tillägget för virtuell dator till en befintlig virtuell dator. Innan du kör kommandot, måste de offentliga och privata konfigurationerna lagras i en PowerShell-hash-tabell.
 
 Tillägget kräver den `environment` och `activationKey`.
 
@@ -155,7 +155,7 @@ Tillägget kräver den `environment` och `activationKey`.
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 
-Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
+Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Stackify.LinuxAgent.Extension" `
@@ -188,7 +188,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Installationsfel | activationKey krävs |
 | 51 | Installationsfel | OS-distribution som inte stöds |
 | 60 | Installationsfel | miljö krävs |
-| 70 | Installationsfel | Okänt |
+| 70 | Installationsfel | Inte tillgängligt |
 | 80 | Aktivera fel | Installation av Service misslyckades |
 | 90 | Aktivera fel | Tjänsten kunde inte startas |
 | 100 | Inaktivera det när | Tjänststoppet misslyckades |

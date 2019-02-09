@@ -3,8 +3,8 @@ title: Problem med att spara autentiseringsuppgifter för administratörer när 
 description: Så här felsöker du vanliga problem som kan stöta på när Konfigurera användaretablering för ett program redan visas i Azure AD-Programgalleriet
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 7cf7fb676681099aae92f7ea468eacd6976296d1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6aae03369ca9f5266511acb94f7020bfe02f09ed
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163746"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961881"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problem med att spara autentiseringsuppgifter när du konfigurerar användaretablering för ett program för Azure Active Directory-galleri 
 

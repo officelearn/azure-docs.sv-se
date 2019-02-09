@@ -1,26 +1,26 @@
 ---
 title: Vanliga frågor – VMware till Azure-haveriberedskap med Azure Site Recovery | Microsoft Docs
 description: Den här artikeln sammanfattas vanliga frågor när du konfigurerar haveriberedskap för lokala virtuella VMware-datorer till Azure med Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 1/29/2019
+ms.date: 2/7/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fb4add1194f7fe6d10859f76f244f027b35ad92d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212247"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960589"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
 Den här artikeln innehåller svar på vanliga frågor som vi kan se när du distribuerar haveriberedskap för lokala virtuella VMware-datorer till Azure. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="general"></a>Generell
+## <a name="general"></a>Allmänt
 ### <a name="how-is-site-recovery-priced"></a>Hur prissätts Site Recovery?
 Granska [priserna för Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) information.
 
@@ -64,7 +64,7 @@ Se våra vägledningen [här](https://aka.ms/asr_vmware_upgrades) att uppgradera
 
 Alternativ som rekommenderas, är det inte obligatoriskt för varje uppgradering. Se [här](https://aka.ms/asr_vmware_upgrades) för tydliga anvisningar.
 
-## <a name="on-premises"></a>Lokalt
+## <a name="on-premises"></a>Lokal
 
 ### <a name="what-do-i-need-on-premises"></a>Vad gör jag behöver på plats?
 
@@ -108,6 +108,9 @@ För replikering, måste en VMware VM köra ett operativsystem som stöds. Dessu
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
 Replikeringen är kontinuerlig när du replikerar virtuella VMware-datorer till Azure.
+
+### <a name="can-i-retain-the-ip-address-on-failover"></a>Kan jag behålla IP-adress på redundans?
+Ja, kan du behålla IP-adress vid redundans. Se till att du nämner mål-IP ”beräkning och nätverk-bladet före redundans. Kontrollera också om du vill stänga av datorer vid tidpunkten för redundans för att undvika IP-konflikter vid tidpunkten för återställning efter fel.
 
 ### <a name="can-i-extend-replication"></a>Kan jag utöka replikeringen?
 Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

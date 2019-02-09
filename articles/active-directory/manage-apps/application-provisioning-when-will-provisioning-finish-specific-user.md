@@ -3,8 +3,8 @@ title: Ta reda på när en viss användare kommer att kunna komma åt ett progra
 description: Hur du tar reda på när en ytterst viktiga användare kunna komma åt ett program som du har konfigurerat för etableringen av användare med Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 13568c42ed520ba9963541eb7c890612d9657b91
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2f6ebd6d9024c912e1af427ac5a5b62a817651ab
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174201"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964380"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Ta reda på när en viss användare kommer att kunna komma åt ett program
 När du använder automatisk användaretablering med ett program, Azure AD automatiskt etablera och uppdatera användarkonton i en app baserat på saker som [användar- och grupptilldelningar](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) vid en schemalagd tid intervall, vanligtvis varje 10 minuter.

@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 027d4a9f93032bfdd0f4cda96df74c92b5679540
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251579"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965332"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Använd ASDK för att validera en säkerhetskopiering i Azure Stack
 När du distribuerar Azure Stack och etablera användarresurser, till exempel erbjudanden, planer, kvoter och prenumerationer, bör du [Aktivera säkerhetskopiering av Azure Stack-infrastruktur](../azure-stack-backup-enable-backup-console.md). Schemaläggning och körning av infrastruktur för regelbundna säkerhetskopieringar säkerställer att infrastrukturen hanteringsdata inte går förlorad om det finns ett oåterkalleligt maskinvaru- eller tjänstfel.
@@ -47,7 +47,7 @@ Infrastruktur säkerhetskopior från distributionen av integrerade system kan ve
 
 
 
-### <a name="cloud-recovery-prerequisites"></a>Krav för återställning av molnet
+### <a name="prereqs"></a>Krav för återställning av molnet
 Innan du startar en molndistribution för återställning av ASDK ska du kontrollera att du har följande information:
 
 |Krav|Beskrivning|
@@ -80,6 +80,43 @@ Den **InstallAzureStackPOC.ps1** skript används för att initiera molnåterstä
 > [!IMPORTANT]
 > ASDK installation har stöd för exakt ett nätverkskort (NIC) för nätverk. Om du har flera nätverkskort kan du kontrollera att endast ett är aktiverat (och alla andra har inaktiverats) innan du kör skriptet för distribution.
 
+### <a name="use-the-installer-to-deploy-the-asdk-in-recovery-mode"></a>Använd installationsprogrammet för att distribuera ASDK i återställningsläge
+Stegen i det här avsnittet visar hur du distribuerar ASDK med ett grafiskt användargränssnitt (GUI) som tillhandahålls av ladda ned och köra den **asdk installer.ps1** PowerShell-skript.
+
+> [!NOTE]
+> Installationsprogrammet användargränssnittet för Azure Stack Development Kit är en öppen källkod-skript som baseras på WCF- och PowerShell.
+
+1. När värddatorn startar i CloudBuilder.vhdx-avbildning, logga in med administratörsautentiseringsuppgifter för anges när du [förberett värddatorn development kit](asdk-prepare-host.md) för ASDK installation. Detta bör vara samma som development kit-autentiseringsuppgifter för lokal administratör på värden.
+2. Öppna en upphöjd PowerShell-konsol och kör den  **&lt;enhetsbeteckning > \AzureStack_Installer\asdk-installer.ps1** PowerShell-skript. Skriptet kan nu vara på en annan enhet än C:\ i CloudBuilder.vhdx bild. Klicka på **återställa**.
+
+    ![ASDK installer skript](media/asdk-validate-backup/1.PNG) 
+
+3. Ange din Azure AD directory-information (valfritt) och det lokala administratörslösenordet för ASDK värddatorn på sidan identity-providern och autentiseringsuppgifter. Klicka på **Nästa**.
+
+    ![Sidan för identiteter och autentiseringsuppgifter](media/asdk-validate-backup/2.PNG) 
+
+4. Välj nätverkskortet som ska användas av ASDK värddatorn och klicka på **nästa**. Alla andra nätverksgränssnitt kommer att inaktiveras under installationen av ASDK. 
+
+    ![Nätverkskortet](media/asdk-validate-backup/3.PNG) 
+
+5. Ange giltig tidsservern och DNS-vidarebefordrare IP-adresser på sidan nätverkskonfiguration. Klicka på **Nästa**.
+
+    ![Sidan för konfiguration av nätverk](media/asdk-validate-backup/4.PNG) 
+
+6. När egenskaper för kortet nätverksgränssnitt har verifierats, klickar du på **nästa**. 
+
+    ![Verifiering av nätverket kort inställningar](media/asdk-validate-backup/5.PNG) 
+
+7. Ange nödvändig information som beskrivs tidigare i [krav](#prereqs) på inställningssidan för säkerhetskopiering och användarnamnet och lösenordet som används för att få åtkomst till resursen. Klicka på **nästa**: 
+
+   ![Sidan för inställningar för säkerhetskopiering](media/asdk-validate-backup/6.PNG) 
+
+8. Granska distributionsskriptet som ska användas för att distribuera ASDK på sammanfattningssidan. Klicka på **distribuera** att starta distributionen. 
+
+    ![Sammanfattningssida](media/asdk-validate-backup/7.PNG) 
+
+
+### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Använd PowerShell för att distribuera ASDK i återställningsläge
 Ändra följande PowerShell-kommandon för din miljö och kör dem om du vill distribuera ASDK i återställningsläge för molnet:
 
 ```powershell

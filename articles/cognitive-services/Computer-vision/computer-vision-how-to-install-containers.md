@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: fbfe32ee8eede6666e0c7086ef4c586af1c1b4c4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 58a22253efb6928c87937e4aba852dd93a3e4422
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861314"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978552"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installera och köra Identifiera Text behållare
 
@@ -72,7 +72,7 @@ Använd den [ `docker pull` ](https://docs.docker.com/engine/reference/commandli
 
 ### <a name="docker-pull-for-the-recognize-text-container"></a>Docker pull för behållaren identifiera Text
 
-```Docker
+```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
@@ -146,18 +146,7 @@ Om du kör behållaren med ett utgående [montera](./computer-vision-resource-co
 
 Identifiera Text behållare skicka faktureringsinformation till Azure, med en _identifiera Text_ resurs på ditt Azure-konto. 
 
-Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata till Microsoft. 
-
-Den `docker run` kommando använder följande argument för fakturering:
-
-| Alternativ | Beskrivning |
-|--------|-------------|
-| `ApiKey` | API-nyckeln för den _identifiera Text_ resurs som används för att spåra faktureringsinformation. |
-| `Billing` | Slutpunkten för den _identifiera Text_ resurs som används för att spåra faktureringsinformation.|
-| `Eula` | Anger att du har godkänt licensen för behållaren.<br/>Värdet för det här alternativet måste anges till `accept`. |
-
-> [!IMPORTANT]
-> Alla tre alternativ måste anges med giltiga värden eller behållaren startar inte.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Mer information om alternativen finns i [konfigurera behållare](./computer-vision-resource-container-config.md).
 

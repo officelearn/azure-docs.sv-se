@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec80be0ece3596eab418ac39507954142944e34a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260503"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978876"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installera och använda Apache Giraph på Windows-baserade HDInsight-kluster
 
@@ -46,17 +46,12 @@ Du kan installera Giraph på någon typ av kluster (Hadoop-, Storm, HBase, Spark
 
     ![Använda skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Använd skriptåtgärder för att anpassa ett kluster")
 
-    <table border='1'>
-        <tr><th>Egenskap </th><th>Värde</th></tr>
-        <tr><td>Namn</td>
-            <td>Ange ett namn för skriptåtgärden. Till exempel <b>installera Giraph</b>.</td></tr>
-        <tr><td>Skript-URI</td>
-            <td>Ange det ID: T URI (Uniform Resource) till det skript som anropas om du vill anpassa klustret. Exempel: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-        <tr><td>Nodtyp</td>
-            <td>Ange de noder som anpassning skriptet körs. Du kan välja <b>alla noder</b>, <b>huvudnoder endast</b>, eller <b>arbetsnoder endast</b>.
-        <tr><td>Parametrar</td>
-            <td>Ange parametrar, om det krävs av skriptet. Skript för att installera Giraph kräver inte några parametrar, så du kan lämna det tomt.</td></tr>
-    </table>
+    |Egenskap |Värde|  
+    |---|---|  
+    |Namn|Ange ett namn för skriptåtgärden. Till exempel **installera Giraph**|
+    |Skript-URI|Ange det ID: T URI (Uniform Resource) till det skript som anropas om du vill anpassa klustret. Exempel: *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |Nodtyp|Ange de noder som anpassning skriptet körs. Du kan välja **alla noder**, **huvudnoder endast**, eller **arbetsnoder endast**.
+    |Parametrar|Ange parametrar, om det krävs av skriptet. Skript för att installera Giraph kräver inte några parametrar, så du kan lämna det tomt.|  
 
     Du kan lägga till fler än en skriptåtgärd för att installera flera komponenter i klustret. När du har lagt till skripten, klicka på bockmarkeringen för att skapa klustret.
 
@@ -78,6 +73,7 @@ Vi använder SimpleShortestPathsComputation-exempel för att demonstrera grundl�
     Utdragen, och använder värdet (eller vikt) som avståndet mellan objekten kan informationen som beskrivs ovan kan se ut så här:
 
     ![tiny_graph.txt ritas som cirklar med varierande avståndet mellan rader](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+
 2. Kör exemplet SimpleShortestPathsComputation. Använd följande Azure PowerShell-cmdletar för att köra exemplet med hjälp av tiny_graph.txt-filen som indata.
 
     > [!IMPORTANT]  

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025913"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980475"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Virtuella datorer, tillägg och funktioner för Windows
 
@@ -75,12 +75,12 @@ Windows-Gästagenten har inte proxyserver som stöd att omdirigera trafik agentb
 
 ## <a name="discover-vm-extensions"></a>Identifiera VM-tillägg
 
-Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. Om du vill se en fullständig lista, använda [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). I följande exempel visar en lista över alla tillgängliga tillägg i den *WestUS* plats:
+Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. Om du vill se en fullständig lista, använda [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). I följande exempel visar en lista över alla tillgängliga tillägg i den *WestUS* plats:
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location "WestUS" | `
-Get-AzureRmVMExtensionImageType | `
-Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location "WestUS" | `
+Get-AzVMExtensionImageType | `
+Get-AzVMExtensionImage | Select Type, Version
 ```
 
 ## <a name="run-vm-extensions"></a>Kör VM-tillägg
@@ -91,10 +91,10 @@ Följande metoder kan användas för att köra ett tillägg mot en befintlig vir
 
 ### <a name="powershell"></a>PowerShell
 
-Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista kan du använda [Get-Command](/powershell/module/microsoft.powershell.core/get-command) och filtrerar på *tillägget*:
+Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista kan du använda [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) och filtrerar på *tillägget*:
 
 ```powershell
-Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module AzureRM.Compute
 ```
 
 Detta ger utdata som liknar följande:
@@ -102,25 +102,25 @@ Detta ger utdata som liknar följande:
 ```powershell
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Set-AzureRmVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAccessExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMADDomainExtension                     4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAEMExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBackupExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBginfoExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMChefExtension                         4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDscExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMExtension                             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
 ```
 
 I följande exempel använder tillägget för anpassat skript för att hämta ett skript från en GitHub-lagringsplatsen till den virtuella måldatorn och kör skriptet. Läs mer på det anpassade skripttillägget [översikt över tillägget för anpassat skript](custom-script-windows.md).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
+Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" -Name "myCustomScript" `
     -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
     -Run "Create-File.ps1" -Location "West US"
@@ -131,12 +131,12 @@ I följande exempel används VM Access-tillägg för att återställa lösenorde
 ```powershell
 $cred=Get-Credential
 
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
+Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
     -Location WestUS -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Den `Set-AzureRmVMExtension` kommando kan användas för att starta alla VM-tillägg. Mer information finns i den [Set-AzureRmVMExtension referens](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension).
+Den `Set-AzVMExtension` kommando kan användas för att starta alla VM-tillägg. Mer information finns i den [Set-AzVMExtension referens](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -269,7 +269,7 @@ Utgivare göra uppdateringar tillgängliga för regioner vid olika tidpunkter, s
 #### <a name="listing-extensions-deployed-to-a-vm"></a>Visa en lista över tillägg som distribuerats till en virtuell dator
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
+$vm = Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
 $vm.Extensions | select Publisher, VirtualMachineExtensionType, TypeHandlerVersion
 ```
 
@@ -310,10 +310,10 @@ Vi rekommenderar att du alltid välja automatisk uppdatering i distributionen ti
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identifiera om tillägget är inställd med autoUpgradeMinorVersion på en virtuell dator
 
-Du kan se från den Virtuella datormodellen om tillägget etablerades med 'autoUpgradeMinorVersion'. Du kan kontrollera genom att använda [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) och ange resursgrupp och virtuell dator namn på följande sätt:
+Du kan se från den Virtuella datormodellen om tillägget etablerades med 'autoUpgradeMinorVersion'. Du kan kontrollera genom att använda [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) och ange resursgrupp och virtuell dator namn på följande sätt:
 
 ```powerShell
- $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
+ $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
@@ -366,10 +366,10 @@ Följande felsökningssteg gäller för alla VM-tillägg.
 
 ### <a name="view-extension-status"></a>Visa status för tillägg
 
-När en VM-tillägget har körts mot en virtuell dator kan du använda [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) Tilläggsstatus ska returneras. *Underordnad status [0]* visar att tillägget etableringen är klar, vilket innebär att lyckas den distribueras till den virtuella datorn, men inte det gick att köra av tillägget på den virtuella datorn, *underordnad status [1]*.
+När en VM-tillägget har körts mot en virtuell dator kan du använda [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) Tilläggsstatus ska returneras. *Underordnad status [0]* visar att tillägget etableringen är klar, vilket innebär att lyckas den distribueras till den virtuella datorn, men inte det gick att köra av tillägget på den virtuella datorn, *underordnad status [1]*.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
+Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
 Utdata liknar följande Exempelutdata:
@@ -402,10 +402,10 @@ Körningsstatus för tillägg finns också i Azure-portalen. Om du vill visa sta
 
 ### <a name="rerun-vm-extensions"></a>Köra VM-tillägg
 
-Det kan finnas fall där ett VM-tillägg måste köras igen. Du kan köra ett tillägg genom att ta bort den och sedan köra tillägget med en körning metod för ditt val. Ta bort ett tillägg med [Remove-AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) på följande sätt:
+Det kan finnas fall där ett VM-tillägg måste köras igen. Du kan köra ett tillägg genom att ta bort den och sedan köra tillägget med en körning metod för ditt val. Ta bort ett tillägg med [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) på följande sätt:
 
 ```powershell
-Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
+Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
 Du kan också ta bort ett tillägg i Azure-portalen på följande sätt:

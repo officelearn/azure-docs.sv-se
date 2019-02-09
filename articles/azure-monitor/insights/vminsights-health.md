@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 17fdcb4a57379fd11e841715a6908a4a0d280bd9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891478"
+ms.locfileid: "55961279"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer (förhandsversion)
 Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med hjälp av Log Analytics och Azure Monitor, har de inte utvecklats modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
@@ -44,7 +44,7 @@ Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i 
 >
 >Det finns inga regression av någon funktionalitet som levereras i dag med funktionen Health i Azure Monitor för virtuella datorer.
 
->Till följd av den här ändringen kommer att vissa avbrott under en kort tidsperiod med tjänsten och tidigare hälsotillstånd. De båda upplevelserna i hälsotillstånd diagnostik påverkas – ändringshistoriken för tillstånd kommer att återställas och föregående tillståndsändringar för health-villkor kan inte tillgänglig för granskning i kolumnen tillståndsändring i diagnostik hälsosidan. Om du är intresserad av historiska data för någon verksamhetskritiska kritiska virtuell dator, och du kan ta en skärmbild av kriterier hälsodata och motsvarande tillståndsändringar som referens. 
+>Till följd av den här ändringen två upplevelser i hälsotillstånd diagnostik påverkas – ändringshistoriken för tillstånd kommer att återställas och föregående tillståndsändringar för health-villkor kan inte tillgänglig för granskning i kolumnen tillståndsändring i diagnostik hälsosidan. Om du är intresserad av historiska data för någon verksamhetskritiska kritiska virtuell dator, och du kan ta en skärmbild av kriterier hälsodata och motsvarande tillståndsändringar som referens. 
 
 ## <a name="monitoring-configuration-details"></a>Information om övervakning
 Det här avsnittet beskrivs standardkriteriet för hälsotillstånd som definierats för att övervaka Azure Windows och Linux-datorer. Alla health-villkor är förinställd på att aviseringen när det felaktiga villkoret uppfylls. 

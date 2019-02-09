@@ -11,46 +11,59 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 02/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 20412efac553458f3028f873bcc6d918a673f261
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7e3142e0274f2328d3e0c8a3e6f9a2e4c3d45d87
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838825"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959145"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
 I Azure Lab Services är ett labbkonto en behållare för hanterade labbar som klassrum labs. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
 
 ## <a name="create-a-lab-account"></a>Skapa ett labbkonto
+Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto med Azure Lab Services. 
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Skapa en resurs** på huvudmenyn till vänster.
-3. Sök efter **Lab Services** på Azure Marketplace och välj **Lab Services** i listrutan. 
-4. Välj **Lab Services (förhandsvisning)** i den filtrerade listan över tjänster. 
-5. I fönstret **Skapa ett labbkonto** väljer du **Skapa**.
-7. Utför följande i fönstret **Labbkonto**: 
+2. Välj **alla tjänster** på den vänstra menyn. Välj **Lab-konton** i den **DEVOPS** avsnittet. Om du väljer star (`*`) bredvid **Lab-konton**, läggs den till den **Favoriter** avsnitt i den vänstra menyn. Nästa gång och senare, väljer du **Lab-konton** under **Favoriter**.
+
+    ![Alla tjänster -> Lab-konton](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. På den **Lab-konton** väljer **Lägg till** i verktygsfältet. 
+
+    ![Välj Lägg till på sidan Lab-konton](../media/tutorial-setup-lab-account/add-lab-account-button.png)
+4. På den **Labbkonto** gör du följande åtgärder: 
     1. För **namnet på labbkontot** anger du ett namn. 
     2. Välj den **Azure-prenumeration** där du vill skapa labbkontot.
     3. Som **Resursgrupp** väljer du **Skapa ny** och anger ett namn på resursgruppen.
     4. Som **Plats** väljer du den plats/region där du vill att labbkontot ska skapas. 
     5. Välj **Skapa**. 
 
-        ![Fönstret Skapa ett labbkonto](../media/how-to-manage-lab-accounts/lab-account-settings.png)
-5. Om du inte ser sidan för labbkontot väljer du knappen **Meddelanden** och klickar sedan på knappen **Gå till resurs** i meddelandena. 
+        ![Fönstret Skapa ett labbkonto](../media/tutorial-setup-lab-account/lab-account-settings.png)
+5. Välj den **klockikonen** i verktygsfältet (**meddelanden**), bekräfta att distributionen är klar och välj sedan **gå till resurs**. 
 
-    ![Fönstret Skapa ett labbkonto](../media/how-to-manage-lab-accounts/notification-go-to-resource.png)    
+    Du kan också välja **uppdatera** på den **Lab-konton** och välj labb-kontot som du skapade. 
+
+    ![Fönstret Skapa ett labbkonto](../media/tutorial-setup-lab-account/go-to-lab-account.png)    
 6. Sidan **Labbkonto** öppnas:
 
-    ![Sidan Labbkonto](../media/how-to-manage-lab-accounts/lab-account-page.png)
+    ![Sidan Labbkonto](../media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Lägga till en användare i rollen Labbskapare
 Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa labbkontot läggs automatiskt till i den här rollen. Om du planerar att använda samma användarkonto för att skapa ett klassrumslabb kan du hoppa över det här steget. Om du vill använda ett annat konto för att skapa ett klassrumslabb gör du följande: 
 
-1. På den **Labbkonto** väljer **åtkomstkontroll (IAM)**, och klicka på **+ Lägg till rolltilldelning** i verktygsfältet. 
-2. På sidan **Lägg till behörigheter** väljer du **Labbskapare** som **Roll**. Välj den användare som du vill lägga till rollen Labbskapare och välj **Spara**.
+Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till dem i rollen **Labbskapare**:
 
-## <a name="specify-marketplace-images-available-to-lab-owners"></a>Ange Marketplace-avbildningar som är tillgängliga för labbägare
+1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** och klickar på **+ Lägg till rolltilldelning** i verktygsfältet. 
+
+    ![Access Control -> knappen Lägg till rolltilldelning](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
+1. På den **Lägg till rolltilldelning** väljer **Labbskaparen** för **rollen**, Välj den användare som du vill lägga till rollen Lab skapare och välj **spara**. 
+
+    ![Lägg till labbskaparen](../media/tutorial-setup-lab-account/add-lab-creator.png)
+
+
+## <a name="specify-marketplace-images-available-to-lab-creators"></a>Ange Marketplace-avbildningar som är tillgängliga för skapare av testlabb
 Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan använda för att skapa labb i labbkontot. 
 
 1. Välj **Marketplace-avbildningar** på menyn till vänster. Som standard kan se du en fullständig lista över avbildningar (både aktiverade och inaktiverade). Du kan filtrera listan för att endast se aktiverade/inaktiverade avbildningar genom att välja alternativet **Endast aktiverade**/**Endast inaktiverade** från listrutan längst upp. 
@@ -76,16 +89,23 @@ Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan anv
 ## <a name="view-lab-accounts"></a>Visa lab-konton
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla resurser** på menyn. 
-3. Välj **Lab Services** för den **typ**. 
+3. Välj **Lab-konton** för den **typ**. 
     Du kan också filtrera efter prenumeration, resursgrupp, platser och taggar. 
+
+    ![Alla resurser -> Lab-konton](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
+
 
 ## <a name="delete-a-lab-account"></a>Ta bort ett labbkonto
 Följ anvisningarna i föregående avsnitt som visar lab-konton i en lista. Använd följande instruktioner för att ta bort ett labbkonto: 
 
 1. Välj den **labbkonto** som du vill ta bort. 
 2. Välj **ta bort** från verktygsfältet. 
-3. Typ **Ja** bekräftelse.
-4. Välj **Ta bort**. 
+
+    ![Lab-konton -> Ta bort-knappen](../media/how-to-manage-lab-accounts/delete-button.png)
+1. Typ **Ja** bekräftelse.
+1. Välj **Ta bort**. 
+
+    ![Ta bort labbkonto - bekräftelse](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 ## <a name="view-and-manage-labs-in-the-lab-account"></a>Visa och hantera labb i labbkonto
 
@@ -107,7 +127,7 @@ Följ anvisningarna i föregående avsnitt för att se en lista över labs i lab
     ![Ta bort ett labb - knappen](../media/how-to-manage-lab-accounts/delete-lab-button.png)
 2. Välj **Ja** i varningsmeddelandet. 
 
-
+    ![Bekräfta borttagning av testlabb](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

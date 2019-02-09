@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1c4637bf3b71ade6cceb4427180edf8bc408670
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3470caec801c5be54f04fc09a5da734a973f0c82
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408110"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962170"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline klienten med Apache Hive
 
@@ -25,6 +25,7 @@ Beeline är en Hive-klient som ska tas med på huvudnoderna i ditt HDInsight-klu
 
 * __Använda Beeline från en SSH-anslutning till en huvudnod eller edge-nod__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
 * __Använda Beeline på en klient som ansluter till HDInsight via Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Använda Beeline på en klient som ansluter till ett kluster i HDInsight Enterprise Security Package (ESP) över Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
 * __Använda Beeline på en klient som ansluter till HDInsight via det offentliga internet__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -35,6 +36,8 @@ Beeline är en Hive-klient som ska tas med på huvudnoderna i ditt HDInsight-klu
 > Ersätt `clustername` med namnet på HDInsight-klustret.
 >
 > När du ansluter till klustret via ett virtuellt nätverk, Ersätt `<headnode-FQDN>` med fullständigt kvalificerade domännamnet för en klusterhuvudnod.
+>
+> När du ansluter till ett kluster med Enterprise Security Package (ESP), Ersätt `<AAD-Domain>` med namnet på den Azure Active Directory (AAD) som klustret tillhör. Ersätt `<username>` med namnet på ett konto på domänen med behörigheter för åtkomst till klustret.
 
 ## <a id="prereq"></a>Förhandskrav
 
@@ -67,6 +70,12 @@ Beeline är en Hive-klient som ska tas med på huvudnoderna i ditt HDInsight-klu
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
+    * När du ansluter till ett kluster med Enterprise Security Package (ESP) ansluten till Azure Active Directory (AAD), måste du även ange domännamnet `<AAD-Domain>` och namnet på ett domänanvändarkonto med behörigheter för åtkomst till klustret `<username>`:
+        
+        ```bash
+        kinit <username>
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
 2. Beeline kommandon som börjar med en `!` tecken, till exempel `!help` visar hjälpen. Dock `!` kan utelämnas för vissa kommandon. Till exempel `help` fungerar även.

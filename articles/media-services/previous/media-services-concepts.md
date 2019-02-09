@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/08/2018
 ms.author: juliako
-ms.openlocfilehash: 06c6451a7c8532b32a1c130f6b71df97857d2e7f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b3805cf46fe0fbf2461ab11959de101d8d4154f0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353713"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984604"
 ---
-# <a name="azure-media-services-concepts"></a>Azure Media Services-begrepp
+# <a name="azure-media-services-concepts-legacy"></a>Azure Media Services-koncepten (äldre)
+
 Det här avsnittet ger en översikt över de viktigaste begreppen för Media Services.
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Tillgångar och lagring
@@ -74,7 +75,7 @@ En blob-behållare grupperar en uppsättning blobbar. BLOB-behållare används s
 ### <a name="a-idlocatorslocators"></a><a id="locators"/>Positionerare
 [Lokaliserare](https://docs.microsoft.com/rest/api/media/operations/locator)s ger en startpunkt för att få åtkomst till filer i en tillgång. En åtkomstprincip används för att definiera behörigheter och varaktighet för att en klient har åtkomst till en given tillgång. Lokaliserare kan ha en många-till-en-relation med en åtkomstprincip, så att olika lokaliserare kan ge olika start- och anslutningstyper till olika klienter samtidigt som alla använder samma behörighet och varaktighet inställningar. på grund av en delad åtkomst principbegränsning som anges av Azure storage-tjänster, kan inte du ha fler än fem unik positionerare som är associerade med en given tillgång i taget. 
 
-Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) eller progressivt hämta media och SAS-Webbadressen positionerare som används för att överföra eller hämta media filer to\from Azure storage. 
+Media Services stöder två typer av lokaliserare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) eller hämta progressivt media och SAS-URL-positionerare som används för att överföra eller hämta media filer to\from Azure storage. 
 
 >[!NOTE]
 >Behörigheten lista (AccessPermissions.List) ska inte användas när du skapar en OnDemandOrigin-positionerare. 
@@ -87,7 +88,7 @@ En [jobbet](https://docs.microsoft.com/rest/api/media/operations/job) används v
 
 Ett jobb innehåller metadata om bearbetningen som ska utföras. Varje jobb som innehåller en eller flera [uppgift](https://docs.microsoft.com/rest/api/media/operations/task)s som anger en atomisk bearbetning uppgift, tillgångarna indata, utdata tillgångar, en medieprocessor och dess tillhörande inställningar. Uppgifter i ett jobb kan sammanlänkas, där utdatatillgången för en aktivitet ges som indata tillgången till nästa aktivitet. På så vis kan ett jobb innehålla all bearbetning behövs för en media.
 
-## <a id="encoding"></a>Kodning
+## <a id="encoding"></a>Encoding
 Azure Media Services erbjuder flera alternativ för kodning av media i molnet.
 
 När du börjar med Media Services, är det viktigt att förstå skillnaden mellan codec- och filformat.
@@ -137,7 +138,7 @@ Mer information finns i:
 ### <a name="dynamic-encryption"></a>Dynamisk kryptering
 Azure Media Services kan du skydda dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Media Services kan du leverera ditt innehåll dynamiskt krypterad med Standard AES (Advanced Encryption) (med 128-bitars krypteringsnycklar) och gemensam kryptering (CENC) med PlayReady och/eller Widevine DRM. Media Services tillhandahåller också en tjänst för leverans av nycklar för AES och PlayReady-licenser till auktoriserade klienter.
 
-För närvarande kan du kryptera följande strömningsformat: HLS, MPEG DASH och Smooth Streaming. Du kan inte krypteras progressiva nedladdningar.
+För närvarande kan kryptera du följande strömningsformat: HLS, MPEG DASH och Smooth Streaming. Du kan inte krypteras progressiva nedladdningar.
 
 Om du vill använda för Media Services för att kryptera en tillgång, måste du associera en krypteringsnyckel (CommonEncryption eller EnvelopeEncryption) med din tillgång och även konfigurera auktoriseringsprinciper för nyckeln.
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e45dfbea9545c72d80a17e8ae144f4dacc70a63
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995022"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977617"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Använda tidsbaserad Apache Oozie-koordinator med Apache Hadoop i HDInsight för att definiera arbetsflöden och samordna jobb
 I den här artikeln får lära du dig hur du definierar arbetsflöden och koordinatorer och hur du utlöser coordinator jobben, baserat på tiden. Är det bra att gå igenom [Använd Apache Oozie med HDInsight] [ hdinsight-use-oozie] innan du läser den här artikeln. Förutom Oozie, kan du också schemalägga jobb med hjälp av Azure Data Factory. Läs Azure Data Factory i [använda Apache Pig- och Apache Hive med Data Factory](../data-factory/transform-data.md).
@@ -68,24 +68,23 @@ Innan du påbörjar de här självstudierna måste du ha:
 
 * **Ett HDInsight-kluster**. Information om hur du skapar ett HDInsight-kluster finns i [skapa HDInsight-kluster][hdinsight-provision], eller [Kom igång med HDInsight][hdinsight-get-started]. Du måste gå igenom självstudien följande data:
 
-    <table border = "1">
-    <tr><th>Kluster-egenskapen</th><th>Variabelnamn för Windows PowerShell</th><th>Värde</th><th>Beskrivning</th></tr>
-    <tr><td>HDInsight-klusternamnet</td><td>$clusterName</td><td></td><td>HDInsight-kluster som du vill köra den här självstudien.</td></tr>
-    <tr><td>Användarnamn för HDInsight-kluster</td><td>$clusterUsername</td><td></td><td>Användarnamn för HDInsight-kluster. </td></tr>
-    <tr><td>Användarlösenord för HDInsight-kluster </td><td>$clusterPassword</td><td></td><td>Användarlösenord för HDInsight-kluster.</td></tr>
-    <tr><td>Azure storage-kontonamn</td><td>$storageAccountName</td><td></td><td>Ett Azure Storage-konto är tillgänglig för HDInsight-klustret. Använd standardkontot för lagring som du angav när klustret etablera den här självstudien.</td></tr>
-    <tr><td>Azure Blob-behållarnamn</td><td>$containerName</td><td></td><td>I det här exemplet använder du Azure Blob storage-behållaren som används för standardfilsystemet för HDInsight-kluster. Som standard har samma namn som HDInsight-klustret.</td></tr>
-    </table>
+    |Kluster-egenskapen|Variabelnamn för Windows PowerShell|Värde|Beskrivning|
+    |---|---|---|---|
+    |HDInsight-klusternamnet|$clusterName||HDInsight-kluster som du vill köra den här självstudien.|
+    |Användarnamn för HDInsight-kluster|$clusterUsername||Användarnamn för HDInsight-kluster. |
+    |Användarlösenord för HDInsight-kluster |$clusterPassword||Användarlösenord för HDInsight-kluster.|
+    |Azure storage-kontonamn|$storageAccountName||Ett Azure Storage-konto är tillgänglig för HDInsight-klustret. Använd standardkontot för lagring som du angav när klustret etablera den här självstudien.|
+    |Azure Blob-behållarnamn|$containerName||I det här exemplet använder du Azure Blob storage-behållaren som används för standardfilsystemet för HDInsight-kluster. Som standard har samma namn som HDInsight-klustret.|
+
 
 * **En Azure SQL database**. Du måste konfigurera en brandväggsregel för SQL-databasserver och tillåta åtkomst från din arbetsstation. Mer information om att skapa en Azure SQL-databas och konfigurerar brandväggen finns i [komma igång med Azure SQL-databas][sqldatabase-get-started]. Den här artikeln innehåller ett Windows PowerShell-skript för att skapa Azure SQL database-tabell som ska användas för den här självstudien.
 
-    <table border = "1">
-    <tr><th>Egenskapen för SQL-databas</th><th>Variabelnamn för Windows PowerShell</th><th>Värde</th><th>Beskrivning</th></tr>
-    <tr><td>SQL server-databasnamn</td><td>$sqlDatabaseServer</td><td></td><td>SQL-databasservern som Sqoop exporterar data. </td></tr>
-    <tr><td>SQL database-inloggningsnamn</td><td>$sqlDatabaseLogin</td><td></td><td>Inloggningsnamn för SQL-databas.</td></tr>
-    <tr><td>Inloggningslösenordet för SQL-databas</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Inloggningslösenordet för SQL-databas.</td></tr>
-    <tr><td>SQL-databasnamn</td><td>$sqlDatabaseName</td><td></td><td>Azure SQL-databasen som Sqoop exporterar data. </td></tr>
-    </table>
+    |Egenskapen för SQL-databas|Variabelnamn för Windows PowerShell|Värde|Beskrivning|
+    |---|---|---|---|
+    |SQL server-databasnamn|$sqlDatabaseServer||SQL-databasservern som Sqoop exporterar data. |
+    |SQL database-inloggningsnamn|$sqlDatabaseLogin||Inloggningsnamn för SQL-databas.|
+    |Inloggningslösenordet för SQL-databas|$sqlDatabaseLoginPassword||Inloggningslösenordet för SQL-databas.|
+    |SQL-databasnamn|$sqlDatabaseName||Azure SQL-databasen som Sqoop exporterar data. |
 
   > [!NOTE]   
   > Som standard tillåter anslutningar från Azure-tjänster, till exempel Azure HDInsight i en Azure SQL database. Om brandväggsinställningen är inaktiverad, måste du aktivera det från Azure Portal. Anvisningar om att skapa en SQL-databas och konfigurera brandväggsregler finns i [skapa och konfigurera SQL Database][sqldatabase-get-started].
@@ -190,30 +189,27 @@ Hive-åtgärden i arbetsflödet anropar en skriptfil för HiveQL. Den här skrip
 
     Arbetsflödesvariabler
 
-    <table border = "1">
-    <tr><th>Arbetsflödesvariabler</th><th>Beskrivning</th></tr>
-    <tr><td>${jobTracker}</td><td>Ange Webbadressen till spårningsverktyget för Hadoop-jobb. Använd <strong>jobtrackerhost:9010</strong> på HDInsight-kluster version 3.0 och 2.0.</td></tr>
-    <tr><td>${nameNode}</td><td>Ange URL: en för noden Hadoop namn. Använd standard file system wasb: / / adress, till exempel <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-    <tr><td>${queueName}</td><td>Anger namnet på kön som jobbet ska skickas till. Använd <strong>standard</strong>.</td></tr>
-    </table>
+    |Arbetsflödesvariabler|Beskrivning|
+    |---|---|
+    |${jobTracker}|Ange Webbadressen till spårningsverktyget för Hadoop-jobb. Använd **jobtrackerhost:9010** på HDInsight-kluster version 3.0 och 2.0.|
+    |${nameNode}|Ange URL: en för noden Hadoop namn. Använd standard file system wasb: / / adress, till exempel *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+    |${queueName}|Anger namnet på kön som jobbet ska skickas till. Använd **standard**.|
 
     Åtgärdsvariabler för hive
 
-    <table border = "1">
-    <tr><th>Variabeln för hive-åtgärd</th><th>Beskrivning</th></tr>
-    <tr><td>${hiveDataFolder}</td><td>Källkatalog för Hive Create Table-kommando.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>Utdatamappen för instruktionen INSERT skrivs över.</td></tr>
-    <tr><td>${hiveTableName}</td><td>Namnet på Hive-tabell som refererar till log4j-datafiler.</td></tr>
-    </table>
+    |Variabeln för hive-åtgärd|Beskrivning|
+    |----|----|
+    |${hiveDataFolder}|Källkatalog för Hive Create Table-kommando.|
+    |${hiveOutputFolder}|Utdatamappen för instruktionen INSERT skrivs över.|
+    |${hiveTableName}|Namnet på Hive-tabell som refererar till log4j-datafiler.|
 
     Sqoop åtgärdsvariabler
 
-    <table border = "1">
-    <tr><th>Sqoop åtgärd variabel</th><th>Beskrivning</th></tr>
-    <tr><td>${sqlDatabaseConnectionString}</td><td>Anslutningssträngen för SQL-databas.</td></tr>
-    <tr><td>${sqlDatabaseTableName}</td><td>Azure SQL-databastabell där data ska exporteras.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>Utdatamappen för instruktionen Hive Infoga skrivs över. Det här är samma mapp för Sqoop exportera (export-dir).</td></tr>
-    </table>
+    |Sqoop åtgärd variabel|Beskrivning|
+    |---|---|
+    |${sqlDatabaseConnectionString}|Anslutningssträngen för SQL-databas.|
+    |${sqlDatabaseTableName}|Azure SQL-databastabell där data ska exporteras.|
+    |${hiveOutputFolder}|Utdatamappen för instruktionen Hive Infoga skrivs över. Det här är samma mapp för Sqoop exportera (export-dir).|
 
     Läs mer om hur Oozie-arbetsflöde och använder arbetsflödesåtgärderna [Apache Oozie 4.0 dokumentation] [ apache-oozie-400] (för HDInsight-kluster av version 3.0) eller [Apache Oozie 3.3.2 dokumentation ] [ apache-oozie-332] (för HDInsight-kluster av version 2.1).
 

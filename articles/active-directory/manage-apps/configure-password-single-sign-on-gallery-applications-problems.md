@@ -3,9 +3,8 @@ title: Problem med att konfigurera lösenord för enkel inloggning för ett Azur
 description: Förstå de vanliga problem personer står inför när du konfigurerar lösenord för enkel inloggning för program som redan ingår i Azure AD-Programgalleriet
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-ms.assetid: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: e0571a92f376e0be481a9016f186846fe29b0a37
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.openlocfilehash: 7d1c83440457e2ac0f4a810b37298f3d31a16adb
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168285"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965298"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera lösenord för enkel inloggning för ett Azure AD-galleriprogram
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/4/2019
+ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 31683159f96dd87fe4e7ceea050d5e1d213decba
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770358"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979181"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -43,6 +43,12 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 | **Lägsta stödda körningar**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+* Dirigera GA.
+* Stöd har lagts till för QueryMetrics.
+* Ändra API: er som tar emot java.util.Collection där ordningen är viktig att acceptera java.util.List i stället.
+  Nu acceptera ConnectionPolicy#getPreferredLocations() och JsonSerialization PartitionKey(.) lista.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
 * Stöd har lagts till för direkt.
@@ -130,6 +136,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |Den 8 februari 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 februari 2019|--- |
 | [2.3.1](#2.3.1) |15 jan 2019|--- |
 | [2.3.0](#2.3.0) |Den 29 november 2018|--- |

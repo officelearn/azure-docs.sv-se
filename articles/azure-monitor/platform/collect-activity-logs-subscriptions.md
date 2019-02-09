@@ -10,18 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 344b049c46243c06c32ed061410f48f71bc70f54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580951"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984587"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Samla in Azures aktivitetsloggar till Log Analytics i alla prenumerationer
+# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>Samla in Azures aktivitetsloggar till Log Analytics i alla prenumerationer i olika Azure Active Directory-klienter
 
-Den här artikeln visar en metod för att samla in Azure-aktivitetsloggar till en Log Analytics-arbetsyta med hjälp av Azure Log Analytics datainsamlare för Logic Apps. Använd processen i den här artikeln när du behöver skicka loggar till en arbetsyta i en annan Azure Active Directory. Om du till exempel är en leverantör av hanterade tjänster kanske du vill samla in aktivitetsloggar från en kunds prenumeration och lagra dem i Log Analytics-arbetsytan i din egen prenumeration.
+Den här artikeln visar en metod för att samla in Azure-aktivitetsloggar till en Log Analytics-arbetsyta med hjälp av Azure Log Analytics datainsamlare för Logic Apps. Använd processen i den här artikeln när du behöver skicka loggar till en arbetsyta i en annan Azure Active Directory-klient. Om du till exempel är en leverantör av hanterade tjänster kanske du vill samla in aktivitetsloggar från en kunds prenumeration och lagra dem i Log Analytics-arbetsytan i din egen prenumeration.
 
 Om Log Analytics-arbetsytan finns i samma Azure-prenumeration, eller i en annan prenumeration men i samma Azure Active Directory, använder du stegen i [lösningen för Azure-aktivitetsloggar](collect-activity-logs.md) till att samla in Azures aktivitetsloggar.
 

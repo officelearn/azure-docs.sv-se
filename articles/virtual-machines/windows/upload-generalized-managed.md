@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 1a5b9f7abbb17aeefa3647e965c63c1f6dc4b0a7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b1ad5aa074a7719dbe6000301c8cd04e6e1ad632
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429267"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984553"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Ladda upp en generaliserad virtuell Hårddisk och använda den för att skapa nya virtuella datorer i Azure
 
@@ -32,7 +32,8 @@ Ett exempelskript finns i [exempel på skript för att ladda upp en virtuell Hå
 
 - Innan du laddar upp alla VHD till Azure, bör du följa [förbereda en Windows-VHD eller VHDX för att överföra till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Granska [planera för migrering till Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) innan du påbörjar migreringen till [Managed Disks](managed-disks-overview.md).
-- Den här artikeln kräver AzureRM-modulen version 5.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM.Compute` att hitta din version. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalisera den Virtuella källdatorn med hjälp av Sysprep
@@ -65,17 +66,17 @@ Om du ska använda den virtuella Hårddisken skapar en hanterad disk för en vir
 Om du vill visa tillgängliga storage-konton, anger du:
 
 ```azurepowershell
-Get-AzureRmStorageAccount | Format-Table
+Get-AzStorageAccount | Format-Table
 ```
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella Hårddisken till ditt storage-konto
 
-Använd den [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet för att ladda upp den virtuella Hårddisken till en behållare i ditt storage-konto. Det här exemplet överför filen *myVHD.vhd* från *C:\Users\Public\Documents\Virtual hårddiskar\\*  till ett lagringskonto med namnet *mystorageaccount* i den *myResourceGroup* resursgrupp. Filen ska placeras i behållaren med namnet *mycontainer* och det nya filnamnet blir *myUploadedVHD.vhd*.
+Använd den [Lägg till AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet för att ladda upp den virtuella Hårddisken till en behållare i ditt storage-konto. Det här exemplet överför filen *myVHD.vhd* från *C:\Users\Public\Documents\Virtual hårddiskar\\*  till ett lagringskonto med namnet *mystorageaccount* i den *myResourceGroup* resursgrupp. Filen ska placeras i behållaren med namnet *mycontainer* och det nya filnamnet blir *myUploadedVHD.vhd*.
 
 ```powershell
 $rgName = "myResourceGroup"
 $urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -129,15 +130,15 @@ $imageName = "myImage"
 Skapa avbildningen med hjälp av din generaliserade OS-VHD.
 
 ```powershell
-$imageConfig = New-AzureRmImageConfig `
+$imageConfig = New-AzImageConfig `
    -Location $location
-$imageConfig = Set-AzureRmImageOsDisk `
+$imageConfig = Set-AzImageOsDisk `
    -Image $imageConfig `
    -OsType Windows `
    -OsState Generalized `
    -BlobUri $urlOfUploadedImageVhd `
    -DiskSizeGB 20
-New-AzureRmImage `
+New-AzImage `
    -ImageName $imageName `
    -ResourceGroupName $rgName `
    -Image $imageConfig
@@ -150,7 +151,7 @@ Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer f
 
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -ImageName $imageName `

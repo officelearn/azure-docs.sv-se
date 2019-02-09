@@ -1,21 +1,21 @@
 ---
 title: Integrera lokala appar med Cloud App Security - Azure Active Directory | Microsoft Docs
 description: Konfigurera ett lokalt program i Azure Active Directory för att arbeta med Microsoft Cloud App Security (MCAS). Använda MCAS-Appkontroll för villkorsstyrd åtkomst för att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer på den lokala program som använder Application Proxy i Azure Active Directory (AD Azure).
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: fbe3ce83cebe556f4248b1d62bb87c000823a31d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fe35f91d9b27d9ac5ab511de99fc2bf1dc74bdce
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182072"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958830"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Konfigurera övervakning av realtidsprogram åtkomst med Microsoft Cloud App Security och Azure Active Directory
 Konfigurera ett lokalt program i Azure Active Directory (AD Azure) att använda Microsoft Cloud App Security (MCAS) för övervakning i realtid. MCAS använder Appkontroll för villkorsstyrd åtkomst för att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer på den lokala program som använder Application Proxy i Azure Active Directory (AD Azure).

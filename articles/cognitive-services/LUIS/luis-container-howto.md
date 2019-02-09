@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 1ae4396c6b91f81e273e6ad171f4cac9b55445f6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864741"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982394"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -60,7 +60,7 @@ Den `--cpus` och `--memory` inställningarna används som en del av den `docker 
 
 Använd den [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållaravbildning från den `mcr.microsoft.com/azure-cognitive-services/luis` lagringsplats:
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -324,18 +324,7 @@ Om du kör behållaren med ett utgående [montera](luis-container-configuration.
 
 LUIS behållare skickar information till Azure-fakturering, med en _Språkförståelse_ resurs på ditt Azure-konto. 
 
-Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (uttryck) till Microsoft. 
-
-Den `docker run` använder följande argument för fakturering:
-
-| Alternativ | Beskrivning |
-|--------|-------------|
-| `ApiKey` | API-nyckeln för den _Språkförståelse_ resurs som används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till en API-nyckel för den etablerade LUIS Azure-resursen som anges i `Billing`. |
-| `Billing` | Slutpunkten för den _Språkförståelse_ resurs som används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till slutpunkten för en etablerad LUIS Azure-resurs-URI.|
-| `Eula` | Anger att du har godkänt licensen för behållaren.<br/>Värdet för det här alternativet måste anges till `accept`. |
-
-> [!IMPORTANT]
-> Alla tre alternativ måste anges med giltiga värden eller behållaren startar inte.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Mer information om alternativen finns i [konfigurera behållare](luis-container-configuration.md).
 

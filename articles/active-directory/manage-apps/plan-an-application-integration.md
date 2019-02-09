@@ -3,9 +3,8 @@ title: Kom igång med att integrera Azure AD med appar | Microsoft Docs
 description: Den här artikeln är en komma igång-guide för att integrera Azure Active Directory (AD) med dina lokala program och molnprogram.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: a644b5e3d5c959acf5f1b013bebe8023418fa28a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a412627378d574e28cc1a41fa0e5f9059ab62761
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175901"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960708"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrera Azure Active Directory med komma igång-guide
 

@@ -1,22 +1,61 @@
 ---
 title: Felsöka problem med replikering för akutåterställning av virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
 description: Den här artikeln innehåller information om att felsöka vanliga replikeringsproblem under haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/18/2019
-ms.author: ramamill
-ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/7/2019
+ms.author: mayg
+ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411483"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964789"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
 
 Du kan se ett specifikt felmeddelande när du skyddar dina virtuella VMware-datorer eller fysiska servrar med hjälp av Azure Site Recovery. Den här artikeln beskriver några vanliga problem som kan uppstå när du replikerar lokala virtuella VMware-datorer och fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md).
+
+## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>Övervaka hälsa för Process Server att undvika problem med replikering
+
+Vi rekommenderar att övervaka hälsotillståndet Process Server (PS) på portalen för att säkerställa att replikeringen fortlöper för din associerade källdatorer. Gå till hantera i valvet > Site Recovery-infrastruktur > Konfigurationsservrar. Klicka på Processervern under associerade servrar på Configuration Server-bladet. Process Server-bladet som öppnas med dess hälsostatistik. Du kan spåra processoranvändning, minnesanvändning, status för PS-tjänster som krävs för replikering, certifikat upphör att gälla och tillgängligt ledigt utrymme. Status för all statistik vara grön. 
+
+**Vi rekommenderar att ha minne och CPU-användning under 70% och ledigt utrymme som är ovan 25%**. Ledigt utrymme refererar till cache diskutrymme i Processervern som används för att lagra data för replikering från källdatorer innan du laddar upp till Azure. Om den minskar till mindre än 20% kommer replikeringen att begränsas för alla associerade källdatorer. Följ den [kapacitet vägledning](./site-recovery-plan-capacity-vmware.md#capacity-considerations) att förstå konfigurationen som krävs för att replikera källdatorer.
+
+Se till att följande tjänster körs på den PS-datorn. Starta eller starta om alla tjänster som inte körs.
+
+**Inbyggd Processerver**
+
+* cxprocessserver
+* InMage PushInstall
+* Ladda upp Loggtjänsten (LogUpload)
+* InMage Scout Application Service
+* Microsoft Azure Recovery Services-agenten (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+* World Wide Web Publishing Service (W3SVC)
+* MySQL
+* Microsoft Azure Site Recovery-tjänsten (dra)
+
+**Skalbar Processerver**
+
+* cxprocessserver
+* InMage PushInstall
+* Ladda upp Loggtjänsten (LogUpload)
+* InMage Scout Application Service
+* Microsoft Azure Recovery Services-agenten (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+
+**Processerver i Azure för återställning efter fel**
+
+* cxprocessserver
+* InMage PushInstall
+* Ladda upp Loggtjänsten (LogUpload)
+
+Se till att StartType för alla tjänster har angetts till **automatisk eller automatiskt (förskjuten Start)**. Microsoft Azure Recovery Services-agenten (obengine) tjänsten behöver inte ha sin StartType som ovan.
 
 ## <a name="initial-replication-issues"></a>Problem med inledande replikering
 
@@ -26,7 +65,7 @@ Inledande replikeringsfel orsakas ofta av problem med nätverksanslutningen mell
 
 I följande lista visas hur du kan kontrollera källdatorn:
 
-*  Använda Telnet på kommandoraden på källservern, pinga processervern via HTTPS-porten (HTTPS-standardporten är 9443) genom att köra följande kommando. Kommandot kontrollerar för problem med nätverksanslutningen och problem som blockerar brandväggsporten.
+*  Använda Telnet pinga processervern via HTTPS-porten genom att köra följande kommando på kommandoraden på källservern. HTTPS-Port 9443 är standardinställningen som används av Processervern för att skicka och ta emot replikeringstrafik. Du kan ändra den här porten vid tidpunkten för registrering. Följande kommando kontrollerar för problem med nätverksanslutningen och problem som blockerar brandväggsporten.
 
 
    `telnet <process server IP address> <port>`
@@ -35,13 +74,42 @@ I följande lista visas hur du kan kontrollera källdatorn:
    > [!NOTE]
    > Använda Telnet för att testa anslutningen. Använd inte `ping`. Om Telnet inte är installerad, slutför du stegen i [installera Telnet-klienten](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
+   Om telnet kan ansluta till PS-port, skulle ett tomt fönster visas.
+
    Om du inte kan ansluta till processervern, kan du inkommande port 9443 på processervern. Exempel: du kan behöva tillåta inkommande port 9443 på processervern om nätverket har ett perimeternätverk eller avskärmat undernät. Kontrollera sedan om problemet kvarstår.
 
-*  Kontrollera status för den **InMage Scout VX Agent – Sentinel/OutpostStart** service. Om tjänsten inte körs måste starta tjänsten och kontrollera sedan om problemet kvarstår.   
+*  Om telnet lyckas och ännu källdatorn rapporterar Processervern inte kan nås, öppna webbläsaren på källdatorn och kontrollera om adressen https://<PS_IP>:<PS_Data_Port>/ kan nås.
+
+    HTTPS-certifikatfel förväntas på stöter på den här adressen. Ignorera certifikatfelet och du fortsätter bör hamnar i 400 – Felaktig begäran, vilket innebär att servern inte kan hantera begäran i webbläsarens och att standard HTTPS-anslutning till servern fungerar bra och bra.
+
+    Om det inte lyckas, ger information om felmeddelandet webbläsare vägledning. För t.ex. om proxy-autentisering är felaktigt proxyservern returnerar 407-Proxy-autentisering krävs tillsammans med nödvändiga åtgärder i felmeddelandet. 
+
+*  Kontrollera följande loggar på den Virtuella källdatorn för fel som rör nätverket uppladdningsfel:
+
+       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 ### <a name="check-the-process-server"></a>Kontrollera processervern
 
 I följande lista visas hur du kan kontrollera processervern:
+
+> [!NOTE]
+> Processervern måste ha en statisk IPv4-adress och bör inte ha NAT IP konfigurerat på den.
+
+* **Kontrollera anslutningen mellan källdatorer och Processervern**
+1. Om du att telnet från källdatorn och ännu Processervern kan inte nås från källa, kan du kontrollera anslutningen för slutpunkt till slutpunkt med cxprocessserver från den Virtuella källdatorn genom att köra cxpsclient verktyget på den Virtuella källdatorn:
+
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+
+    Kontrollera de genererade loggarna på PS i följande kataloger för information om motsvarande fel:
+
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+2. Kontrollera följande loggar på Processervern om det finns inget pulsslag från PS:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 *  **Kontrollera om processervern aktivt skicka data till Azure**.
 

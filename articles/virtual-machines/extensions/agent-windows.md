@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bba03d8e62c481e9eb5cce8468a6a84f5e492d2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 051c9cb0c6c1af121a1bdd1f553ef124f980b49d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254000"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977159"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure VM-agenten
 Microsoft Azure VM-agenten (VM-agenten) är en säker och enkel process som hanterar kommunikation mellan virtuella datorer (VM) med Azure-Infrastrukturkontrollanten. VM-agenten har en primär roll i att aktivera och köra Azure virtual machine-tillägg. VM-tillägg aktivera efter distribution konfiguration av virtuell dator, till exempel installera och konfigurera programvara. VM-tillägg också aktivera funktioner, som att återställa lösenordet för administratörer av en virtuell dator. VM-tillägg kan inte köras utan Azure VM-agenten.
@@ -72,12 +72,13 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 
 ### <a name="powershell"></a>PowerShell
 
-Azure Resource Managers PowerShell-modulen kan användas för att hämta information om virtuella Azure-datorer. Om du vill se information om en virtuell dator, till exempel Etableringsstatus för Azure VM-agenten använder [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm):
+Azure Resource Managers PowerShell-modulen kan användas för att hämta information om virtuella Azure-datorer. Om du vill se information om en virtuell dator, till exempel Etableringsstatus för Azure VM-agenten använder [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm):
 
-'' 'powershell ”Get-AzureRmVM
+```powershell
+Get-AzVM
 ```
 
-The following condensed example output shows the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
+Följande komprimerade exempel utdata visar den *ProvisionVMAgent* egenskapen inuti *OSProfile*. Den här egenskapen kan användas för att avgöra om VM-agenten har distribuerats till den virtuella datorn:
 
 ```PowerShell
 OSProfile                  :
@@ -91,7 +92,7 @@ OSProfile                  :
 Följande skript kan användas för att returnera en kortfattad lista över namn på virtuella datorer och tillståndet för VM-agenten:
 
 ```PowerShell
-$vms = Get-AzureRmVM
+$vms = Get-AzVM
 
 foreach ($vm in $vms) {
     $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Windowsconfiguration | Select ProvisionVMAgent

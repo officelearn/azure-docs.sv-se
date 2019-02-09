@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: c71c7423b4cde2a24c8154899eec256e5746b6d7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9bff93fbec73eb73dca01660d46e35e194edb626
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865377"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963496"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault hanteras lagringskonto – CLI
 
@@ -44,6 +44,12 @@ ms.locfileid: "55865377"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Steg för steg-instruktioner om hur du använder Key Vault för att hantera Lagringskontonycklar
 --------------------------------------------------------------------------------
+Begreppsmässigt lista över steg som är
+- Vi först hämta ett storage-konto (befintlig)
+- Vi sedan enkelt hämta (befintlig) key vault
+- Vi sedan lägga till ett KeyVault-hanterade storage-konto till valvet, ställa in Key1 som den aktiva nyckeln och med en återskapandeperiod på 180 dagar
+- Till sist ska du ange en storage-kontext för det angivna lagringskontot med Key1
+
 I den nedan information vi tilldela Key Vault som en tjänst har operatorn behörigheter för ditt storage-konto
 
 > [!NOTE]
@@ -85,9 +91,41 @@ I den nedan information vi tilldela Key Vault som en tjänst har operatorn behö
     ```
     Om användaren inte har skapat lagringskontot och inte har behörighet att storage-konto, ange behörigheter för ditt konto så att du kan hantera alla behörigheter som lagring i Key Vault i stegen nedan.
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Steg för steg-instruktioner om hur du använder Key Vault för att skapa och generera SAS-token
+--------------------------------------------------------------------------------
+Du kan även ställa Key Vault för att generera SAS (Shared Access Signature)-token. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Med en SAS kan kan du ge klienterna åtkomst till resurser i ditt storage-konto utan att dela dina kontonycklar. Det här är en viktig aspekt av att använda signaturer för delad åtkomst i dina program – en SAS är ett säkert sätt att dela dina lagringsresurser utan att kompromissa med lagringsnycklar.
+
+När du har slutfört köra stegen ovan kan du följande kommandon för att be Key Vault för att generera SAS-token åt dig. 
+
+Lista över saker som kan uppnås på den nedanstående steg är
+- Anger ett konto med SAS-definition med namnet '<YourSASDefinitionName>”på en hanterad KeyVault storage-konto'<YourStorageAccountName>” i ditt valv'<VaultName>'. 
+- Skapar en SAS-token för kontot för tjänsterna Blob, fil, tabell och kö för resurstyperna Service, behållare och objekt, med alla behörigheter över https och med de angivna start- och slutdatumen
+- Anger en hanterad KeyVault-lagring SAS-definitionen i valvet med mall-uri som SAS-token som skapade ovan, för SAS-typ 'account' och giltig för N dagar
+- Hämtar den faktiska åtkomst-token från KeyVault-hemligheten som motsvarar den SAS-definitionen
+
+1. I det här steget ska vi skapa en SAS-definitionen. När den här SAS-definitionen har skapats kan be du Key Vault för att generera mer SAS-token åt dig. Den här åtgärden kräver behörigheten lagring/setsas.
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+Du kan se mer hjälp om åtgärden ovan [här](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
+
+När den här åtgärden har körts kan bör du se utdata som liknar enligt nedan. Kopiera som
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. I det här steget använder vi utdata ($sasToken) genereras ovan för att skapa en SAS-Definition. Mer dokumentation finns [här](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > I det fallet att användaren inte har behörighet att storage-konto kan hämta vi först objekt-Id för användaren
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ I den nedan information vi tilldela Key Vault som en tjänst har operatorn behö
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Hur du kommer åt ditt storage-konto med SAS-token
+## <a name="fetch-sas-tokens-in-code"></a>Hämta SAS-token i koden
 
 I det här avsnittet diskuteras hur du kan göra åtgärder på ditt lagringskonto genom att hämta [SAS-token](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) från Key Vault
 
-I den under avsnittet vi visar hur du kan hämta din lagringskontonyckel som lagras i Key Vault och använda den för att skapa en definition för SAS (Shared Access Signature) för ditt lagringskonto.
+I den under avsnittet vi visar hur du kan hämta SAS-token när en SAS-definitionen har skapats enligt ovan.
 
 > [!NOTE] 
   Det finns 3 sätt att autentisera till Key Vault eftersom du kan läsa i den [grundläggande begrepp](key-vault-whatis.md#basic-concepts)

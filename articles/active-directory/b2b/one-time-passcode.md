@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 412e114fde8f9b9017d476083f1237c922c67bc8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c6bfa9acb29820a2c9646d6302871bb6a2dd1ac6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463063"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982173"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-engångskod authentication (förhandsversion)
 
@@ -29,7 +29,7 @@ Funktionen för e-post engångskod autentiserar B2B-gästanvändare när de inte
 Den här funktionen är tillgänglig för förhandsversion (se [valde förhandsversionen](#opting-in-to-the-preview) nedan). Efter förhandsversionen kan aktiveras den här funktionen som standard för alla klienter.
 
 > [!NOTE]
-> Engångskod användare måste logga in med en länk som innehåller klient-kontext (till exempel `https://myapps.microsoft.com/?tenantid=<tenant id>` eller `https://portal.azure.com/<tenant id>`, eller när det gäller en verifierad standarddomän `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direktlänkar till program och resurser fungerar också så länge som de innehåller klient-kontext. Gästanvändare kan för närvarande inte att logga in med slutpunkter som har ingen klient-kontext. Till exempel `https://myapps.microsoft.com`, `https://portal.azure.com`, eller team vanliga slutpunkten kommer att orsaka fel. 
+> Engångskod användare måste logga in med en länk som innehåller klient-kontext (till exempel `https://myapps.microsoft.com/?tenantid=<tenant id>` eller `https://portal.azure.com/<tenant id>`, eller när det gäller en verifierad domän `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direktlänkar till program och resurser fungerar också så länge som de innehåller klient-kontext. Gästanvändare kan för närvarande inte att logga in med slutpunkter som har ingen klient-kontext. Till exempel `https://myapps.microsoft.com`, `https://portal.azure.com`, eller team vanliga slutpunkten kommer att orsaka fel. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Användarupplevelsen för engångslösenord gästanvändare
 Med engångskod autentisering kan gästanvändaren Lös in inbjudan genom att klicka på en direktlänk eller med hjälp av e-postinbjudan. I båda fallen indikerar ett meddelande i webbläsaren att en kod kommer att skickas till gästanvändarens e-postadress. Gästanvändaren väljer **skicka kod**:

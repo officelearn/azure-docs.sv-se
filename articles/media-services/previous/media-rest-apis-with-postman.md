@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ee7f87a9c358f2b6ee655d13b74297a96b25cfcc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d9db9cd83e0775ac71a852069cdf13c01fefea1d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233794"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981068"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>Konfigurera Postman för Media Services REST API-anrop
+# <a name="configure-postman-for-media-services-rest-api-calls-legacy"></a>Konfigurera Postman för Media Services REST API-anrop (äldre)
 
 Den här självstudien visar hur du konfigurerar **Postman** så att den kan användas för att anropa Azure Media Services (AMS) REST API: er. Kursen visas hur du importerar miljö och samling filerna till **Postman**. Samlingen innehåller grupperade definitioner av HTTP-begäranden som anropar Azure Media Services (AMS) REST API: er. Miljö-filen innehåller variabler som används av samlingen.
 

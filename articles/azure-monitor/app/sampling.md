@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8e9cb570f69eb29887f4f904ba7b2b35548f3771
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117460"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965366"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -195,6 +195,63 @@ När du [konfigurera webbsidor för Application Insights](../../azure-monitor/ap
 Samplingsprocenten, Välj i procent som ligger nära 100/N där N är ett heltal.  Samlar för närvarande stöd inte för andra värden.
 
 Om du aktiverar också fast räntesats sampling på servern, synkroniserar klienter och servrar så att, i sökningen som du kan navigera mellan relaterade sidvisningar och förfrågningar.
+
+## <a name="aspnet-core-sampling"></a>ASP.NET Core Sampling
+
+Adaptiv sampling är aktiverat som standard för alla ASP.NET Core-program. Du kan inaktivera eller anpassa beteendet sampling.
+
+### <a name="turning-off-adaptive-sampling"></a>Om du inaktiverar Adaptiv Sampling
+
+Standard sampling-funktionen kan inaktiveras när vi lägger till Application Insights-tjänsten i metoden ```ConfigureServices```med hjälp av ```ApplicationInsightsServiceOptions```:
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+Koden ovan inaktiverar sampling funktionen. Följ stegen nedan för att lägga till sampling med fler anpassade alternativ.
+
+### <a name="configure-sampling-settings"></a>Konfigurera inställningarna för Sampling
+
+Använd tilläggsmetoder för ```TelemetryProcessorChainBuilder``` som visas nedan för att anpassa sampling beteende.
+
+> [!IMPORTANT]
+> Om du använder den här metoden för att konfigurera sampling, kontrollera att du använder aiOptions.EnableAdaptiveSampling = false; inställningar med AddApplicationInsightsTelemetry().
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**Om du använder metoden ovan för att konfigurera sampling, kontrollerar du att du använder ```aiOptions.EnableAdaptiveSampling = false;``` inställningar med AddApplicationInsightsTelemetry().**
+
+Utan detta kommer att flera sampling processorer i kedjan TelemetryProcessor leda till oönskade konsekvenser.
 
 ## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>Fast räntesats samplingsfrekvensen för ASP.NET och Java-webbplatser
 Fast pris sampling minskar den trafik som skickas från webbservern och webbläsare. Till skillnad från Adaptiv sampling minskar den telemetri till en fast kostnad som du valt. Det synkroniserar även klienten och servern sampling så att relaterade objekt bevaras – till exempel när du tittar på en Sidvisning i Search, du kan hitta relaterade begäran.

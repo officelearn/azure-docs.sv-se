@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1b5c32d79e3664caf18cfc81fca563b295574cf4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7cc65c0564b6171e66c4337ce02e1c2d6449e101
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329325"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975423"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure virtuella datorer med SQL Server Agent-tillägget (Resource Manager)
 > [!div class="op_single_selector"]
@@ -64,6 +64,8 @@ Krav för att använda SQL Server IaaS Agent-tillägget på den virtuella datorn
 
 * [Hämta och konfigurera de senaste Azure PowerShell-kommandona](/powershell/azure/overview)
 
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > För närvarande den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md) stöds inte för FCI för SQL Server på Azure. Vi rekommenderar att du avinstallerar tillägget från virtuella datorer som deltar i ett FCI. Funktioner som stöds av tillägget är inte tillgängliga för SQL-datorer när agenten har avinstallerats.
 
@@ -71,7 +73,7 @@ Krav för att använda SQL Server IaaS Agent-tillägget på den virtuella datorn
 SQL Server IaaS Agent-tillägget installeras automatiskt när du etablerar en galleriavbildningar för SQL Server-dator. Om du vill installera om tillägget manuellt på en av de här SQL Server-datorer kan du använda följande PowerShell-kommando:
 
 ```powershell
-Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
+Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
 > [!IMPORTANT]
@@ -85,13 +87,13 @@ Ett sätt att kontrollera att tillägget har installerats är att visa agentens 
 
 ![SQL Server IaaS Agent-tillägget i Azure-portalen](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-Du kan också använda den **Get-AzureRmVMSqlServerExtension** Azure PowerShell-cmdleten.
+Du kan också använda den **Get-AzVMSqlServerExtension** Azure PowerShell-cmdleten.
 
-    Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 
 Föregående kommando bekräftar agenten är installerad och ger allmän statusinformation. Du kan också hämta statusinformation om automatisk säkerhetskopiering och uppdatering med följande kommandon.
 
-    $sqlext = Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+    $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
     $sqlext.AutoPatchingSettings
     $sqlext.AutoBackupSettings
 
@@ -100,9 +102,9 @@ I Azure-portalen kan du avinstallera tillägget genom att klicka på ellipsen p�
 
 ![Avinstallera SQL Server IaaS Agent-tillägget i Azure-portalen](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 
-Du kan också använda den **Remove-AzureRmVMSqlServerExtension** PowerShell-cmdlet.
+Du kan också använda den **Remove-AzVMSqlServerExtension** PowerShell-cmdlet.
 
-    Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
+    Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
 
 ## <a name="next-steps"></a>Nästa steg
 Börja med någon av de tjänster som stöds av tillägget. Mer information finns i artiklar som refereras till i den [tjänster som stöds](#supported-services) i den här artikeln.

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819526"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960574"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure Stack 
 
@@ -91,7 +91,7 @@ Du kan använda administrationsportalen visa lagringskapaciteten för alla resur
 1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
 2. Välj **alla tjänster** > **Storage** att öppna fillistan för resurs där du kan visa information om syntax. 
 
-  ![Exempel: Lagringsfilresurser](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Exempel: Lagringsfilresurser](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **Totalt antal** är det totala utrymmet i byte som är tillgängliga för resursen. Här används för data och metadata som underhålls av storage-tjänster.
   - **ANVÄNDS** är mängden data i byte som används av de alla utrymmena de filer som lagrar data för klientorganisationen och tillhörande metadata.

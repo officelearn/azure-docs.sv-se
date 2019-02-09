@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6c4cd4e698630c06ab8e7ba144791800f091abfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 7ce752fcee99b3f85099d83ab11451c427dea91e
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458949"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964023"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Resurser-gränser för elastiska pooler med den DTU-baserade inköpsmodellen 
 
@@ -126,12 +126,11 @@ I följande tabell beskrivs egenskaperna för databaser i en pool.
 | Maximalt lagringsutrymme per databas |Den maximala databasstorleken som anges av användaren för en databas i poolen. Pooldatabaser delar dock allokerade lagringsutrymme. Även om det totala lagringsutrymmet som max *per databas* anges vara större än det totala lagringsutrymmet som tillgängliga *utrymme i poolen*, totalt utrymme som faktiskt används av alla databaserna kommer inte att kunna överskrida den tillgängliga poolen gräns. Maximal databasstorlek avser den maximala storleken för datafilerna och omfattar inte utrymmet som används av loggfiler. |
 |||
  
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga frågor och svar.
-- Se [översikt över resource begränsar på en SQL-databasserver](sql-database-resource-limits-database-server.md) information om begränsningar på de server och prenumeration.
+- VCore-resursgränser för en enskild databas, se [resursgränser för enskilda databaser med hjälp av den vCore-baserade inköpsmodellen](sql-database-vcore-resource-limits-single-databases.md)
+- DTU-resursgränser för en enskild databas, se [resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-single-databases.md)
+- VCore-resursgränser för elastiska pooler, se [resursgränser för elastiska pooler med hjälp av den vCore-baserade inköpsmodellen](sql-database-vcore-resource-limits-elastic-pools.md)
+- Resursgränser för hanterade instanser, se [hanterad instans resursbegränsningar](sql-database-managed-instance-resource-limits.md).
 - Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
-- Information om dtu: er och edtu: er finns i [dtu: er och edtu: er](sql-database-service-tiers.md#dtu-based-purchasing-model).
-- Information om storleksgränser för tempdb finns i https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.
+- Läs om hur resursbegränsningar på en databasserver, [översikt över resursgränser på en SQL-databasserver](sql-database-resource-limits-database-server.md) information om begränsningar på de server och prenumeration.

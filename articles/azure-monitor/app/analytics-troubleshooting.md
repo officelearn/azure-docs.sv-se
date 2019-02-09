@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189940"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960691"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Felsökningsanalys i Application Insights
 Problem med [Application Insights Analytics](analytics.md)? Börja här. Analytics är verktyget kraftfull sökning av Azure Application Insights.
@@ -36,7 +36,7 @@ Inaktivera tillägget eller Använd en annan webbläsare.
 
 Internt fel inträffade under portal runtime ohanterat undantag.
 
-* Rensa webbläsarens cache. 
+* Rensa webbläsarens cache.
 
 ## <a name="e-b"></a>403 ... Försök att läsa in
 ![403 ... Försök att läsa in](media/analytics-troubleshooting/020.png)
@@ -71,7 +71,7 @@ Ett autentiseringsrelaterat fel har inträffat (under autentisering eller under 
 ## <a name="e-d"></a>404 ... Resursen hittades inte
 ![404... Det gick inte att hitta resursen](media/analytics-troubleshooting/040.png)
 
-Programresursen har tagits bort från Application Insights och är t tillgänglig längre. Detta kan inträffa om du har sparat URL: en till analyssidan.
+Programresursen har tagits bort från Application Insights och är inte tillgänglig längre. Detta kan inträffa om du har sparat URL: en till analyssidan.
 
 ## <a name="e-e"></a>403 ... Ingen auktorisering
 ![403 ... inte behörighet](media/analytics-troubleshooting/050.png)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 540abeed3587959af5ca229f59343774b824547b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566245"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982904"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen att göra det för att gå smidigt. Ägna tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter.
@@ -131,23 +131,25 @@ Följande har ett problem upptäcks i många av de större migreringarna. Detta 
     - Routningstabeller
 
     Du kan kontrollera din aktuella kvoter för Azure Resource Manager med hjälp av följande kommandon med den senaste versionen av Azure PowerShell.
+    
+    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
     **Compute** *(kärnor, Tillgänglighetsuppsättningar)*
 
     ```powershell
-    Get-AzureRmVMUsage -Location <azure-region>
+    Get-AzVMUsage -Location <azure-region>
     ```
 
     **Nätverk** *(virtuella nätverk, statiska offentliga IP-adresser, offentliga IP-adresser, Nätverkssäkerhetsgrupperna, nätverks-gränssnitt, belastningsutjämnare, routningstabeller)*
 
     ```powershell
-    Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
+    Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
     **Storage** *(Storage-konto)*
 
     ```powershell
-    Get-AzureRmStorageUsage
+    Get-AzStorageUsage
     ```
 
 - **Azure Resource Manager API nätverksbegränsningar** – om du har en tillräckligt stor miljö (t.ex.) > 400 virtuella datorer i ett virtuellt nätverk), du kommer till standard-API nätverksbegränsningar för skrivning (för närvarande `1200 writes/hour`) i Azure Resource Manager. Innan du påbörjar migreringen bör du öka ett supportärende för att öka gränsen för din prenumeration.

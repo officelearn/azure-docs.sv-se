@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756537"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981459"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
@@ -47,6 +47,11 @@ Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En 
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**Alla beräkningsresurser mål kan återanvändas för flera upplärningsjobb**. När du kopplar en fjärransluten virtuell dator till din arbetsyta, kan du till exempel återanvända den för flera jobb.
+
+> [!NOTE]
+> Beräkning av Azure Machine Learning kan skapas som en beständig resurs eller skapats dynamiskt när du begär en körning. Kör-baserade skapa tar bort beräkningsmål när utbildning körningen är klar, så du inte kan återanvända beräkningsmål som skapats på detta sätt.
+
 ## <a name="whats-a-run-configuration"></a>Vad är en körningskonfiguration?
 
 När utbildning, är det vanligt att starta på den lokala datorn och kör senare utbildning skriptet på en andra beräkningsmål. Med Azure Machine Learning-tjänsten kan du köra skriptet på olika beräkningsmål utan att behöva ändra ditt skript. 
@@ -65,7 +70,7 @@ Använd en miljö som hanteras av datorn när du vill [Conda](https://conda.io/d
 
 Allt du behöver göra är att ange varje paket beroende med hjälp av den [CondaDependency klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) sedan Conda skapar en fil med namnet **conda_dependencies.yml** i den **aml_config** katalogen i din arbetsyta med din lista över paketberoenden och ställer in Python-miljön när du skickar in din träningsexperiment. 
 
-Den första konfigureringen av en ny miljö kan ta flera minuter beroende på storleken på de nödvändiga beroendena. Så länge listan över paket förblir oförändrat, sker Ställ in tid bara en gång.
+Installationen av en ny miljö kan ta flera minuter beroende på storleken på de nödvändiga beroendena. Så länge listan över paket förblir oförändrat, sker installationen tiden bara en gång.
   
 Följande kod visar ett exempel på en system-hanterad miljö kräver scikit-Läs:
     
@@ -73,7 +78,7 @@ Följande kod visar ett exempel på en system-hanterad miljö kräver scikit-Lä
 
 #### <a name="user-managed-environment"></a>Användarhanterade miljö
 
-För en användarhanterade miljöer är du ansvarig för att konfigurera din miljö och installerar varje paket utbildning-skriptet på beräkningsmål. Om din miljö redan har konfigurerats (till exempel på den lokala datorn), kan du hoppa över Ställ in steg genom att ange `user_managed_dependencies` till True. Conda kommer inte att kontrollera din miljö eller installera något för dig.
+För en användarhanterade miljö är du ansvarig för att konfigurera din miljö och installerar varje paket utbildning-skriptet på beräkningsmål. Om din miljö redan är konfigurerad (till exempel på den lokala datorn), kan du hoppa över steget av installationen genom att ange `user_managed_dependencies` till True. Conda kommer inte att kontrollera din miljö eller installera något för dig.
 
 Följande kod visar ett exempel på hur du konfigurerar träningskörningar för en användarhanterade miljö:
 
@@ -242,7 +247,7 @@ Du kan komma åt beräkningsmål som är associerade med din arbetsyta i Azure-p
 
 * [Visa beräkningsmål](#portal-view) kopplad till din arbetsyta
 * [Skapa ett beräkningsmål](#portal-create) i din arbetsyta
-* [Återanvända befintliga beräkningsmål](#portal-reuse)
+* [Koppla ett beräkningsmål](#portal-reuse) som har skapats utanför arbetsytan
 
 När ett mål skapas och ansluts till din arbetsyta, kommer du använda den i din kör konfiguration med en `ComputeTarget` objekt: 
 
@@ -293,9 +298,11 @@ Följ de här stegen om du vill visa en lista över beräkningsmål. Använd sed
 
 
 
-### <a id="portal-reuse"></a>Återanvända befintliga beräkningsmål
+### <a id="portal-reuse"></a>Bifoga beräkningsmål
 
-Följ stegen som beskrivs ovan för att visa en lista över beräkningsmål. Sedan använda de här stegen för att återanvända en beräkningsmål: 
+Du måste koppla dem om du vill använda beräkningsmål som skapas utanför arbetsytan Azure Machine Learning-tjänsten. Koppla ett beräkningsmål gör dem tillgängliga för din arbetsyta.
+
+Följ stegen som beskrivs ovan för att visa en lista över beräkningsmål. Sedan använda följande steg för att koppla en beräkningsmål: 
 
 1. Klicka på plustecknet (+) för att lägga till ett beräkningsmål. 
 1. Ange ett namn för beräkningsmål. 

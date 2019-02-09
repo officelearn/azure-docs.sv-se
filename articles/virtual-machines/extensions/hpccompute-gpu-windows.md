@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 4bb27959bb57f3d59621e5bbbfaba9aa0c331432
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200691"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977634"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutinen-tillägg för Windows
 
@@ -39,7 +39,7 @@ Det här tillägget har stöd för följande operativsystem:
 |---|---|
 | Windows 10 (upp till version 1803)| Kärna |
 | Windows Server 2016 | Kärna |
-| Windows Server 2012R2 | Kärna |
+| Windows Server 2012 R2 | Kärna |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
@@ -112,7 +112,7 @@ I följande exempel förutsätter att tillägget är kapslade i den virtuella da
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -144,7 +144,7 @@ az vm extension set `
 Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure PowerShell och Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli
@@ -166,7 +166,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | 100 | Åtgärden stöds inte eller kunde inte slutföras. | Möjliga orsaker: PowerShell-version som inte stöds, VM-storleken är inte en N-serien virtuell dator, fel laddades ned. Kontrollera loggfilerna om du vill ta reda på orsaken till felet. |
 | 240, 840 | Tidsgränsen för åtgärden. | Försök igen. |
 | -1 | Undantag inträffade. | Kontrollera loggfilerna om du vill ta reda på orsaken till undantaget. |
-| – 5 gånger | Åtgärden avbröts på grund av en väntande omstart. | Starta om virtuell dator. Installationen fortsätter efter omstart. Avinstallera ska anropas manuellt. |
+| -5x | Åtgärden avbröts på grund av en väntande omstart. | Starta om virtuell dator. Installationen fortsätter efter omstart. Avinstallera ska anropas manuellt. |
 
 
 ### <a name="support"></a>Support

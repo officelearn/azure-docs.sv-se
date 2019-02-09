@@ -3,8 +3,8 @@ title: Hur du konfigurerar federerad enkel inloggning för ett Azure AD-gallerip
 description: Hur du konfigurerar federerad enkel inloggning för ett befintligt Azure AD-galleriet och Använd självstudier för att komma igång snabbt
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: e1555830fb8e355ec4e291dc49b7d6983f87ffc5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.openlocfilehash: 5fdb03327f25a215b5bfc550fb69f8d575013ae2
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168404"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964781"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Hur du konfigurerar federerad enkel inloggning för ett Azure AD-galleriprogram
 

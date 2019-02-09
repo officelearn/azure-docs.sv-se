@@ -1,6 +1,6 @@
 ---
-title: Konfigurera WinRM-åtkomst för en virtuell dator i Azure | Microsoft Docs
-description: Konfigurera WinRM-åtkomst för användning med en Azure-dator som skapats i Resource Manager-distributionsmodellen.
+title: Konfigurera WinRM-åtkomst för en Azure-dator | Microsoft Docs
+description: Konfigurera WinRM-åtkomst för användning med en Azure virtuell dator som skapats i Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
@@ -15,40 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 22a522fcde2b79d89e6084cdcfcbf64e4e5bd5ce
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30914553"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977974"
 ---
-# <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Konfigurera WinRM-åtkomst för virtuella datorer i Azure Resource Manager
-## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM i Azure Service Management vs Azure Resource Manager
+# <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Hur du konfigurerar WinRM-åtkomst för virtuella datorer i Azure Resource Manager
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
-
-* En översikt över Azure Resource Manager finns [artikel](../../azure-resource-manager/resource-group-overview.md)
-* Skillnader mellan Azure Service Management och Azure Resource Manager finns det [artikel](../../resource-manager-deployment-model.md)
-
-Den viktigaste skillnaden i konfigurationen av WinRM-konfigurationen mellan två platser är hur certifikatet installeras på den virtuella datorn. I Azure Resource Manager-stacken modelleras certifikaten som resurser som hanteras av Key Vault Resource Provider. Därför kan användaren måste ange sina egna certifikat och överföra den till ett Nyckelvalv innan den används i en virtuell dator.
-
-Här är de steg som du måste utföra för att konfigurera en virtuell dator med WinRM-anslutningen
+Här är de steg som du behöver utföra för att konfigurera en virtuell dator med WinRM-anslutningen
 
 1. Skapa en Key Vault-lösning
 2. Skapa ett självsignerat certifikat
-3. Överför ditt självsignerade certifikat till Key Vault
-4. Hämta URL för ditt självsignerade certifikat i Nyckelvalvet
-5. Referera till URL: en självsignerade certifikat när du skapar en virtuell dator
+3. Ladda upp ett självsignerat certifikat till Key Vault
+4. Hämta URL för ditt självsignerade certifikat i Key Vault
+5. Använda självsignerade certifikat-URL när du skapar en virtuell dator
 
-## <a name="step-1-create-a-key-vault"></a>Steg 1: Skapa en Key Vault
-Du kan använda den under kommando för att skapa Nyckelvalvet
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+## <a name="step-1-create-a-key-vault"></a>Steg 1: Skapa en Key Vault-lösning
+Du kan använda den nedan kommando för att skapa Key Vault
 
 ```
-New-AzureRmKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
+New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
 ## <a name="step-2-create-a-self-signed-certificate"></a>Steg 2: Skapa ett självsignerat certifikat
-Du kan skapa ett självsignerat certifikat med hjälp av PowerShell-skript
+Du kan skapa ett självsignerat certifikat med det här PowerShell-skript
 
 ```
 $certificateName = "somename"
@@ -62,8 +56,8 @@ $password = Read-Host -Prompt "Please enter the certificate password." -AsSecure
 Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $password
 ```
 
-## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Steg 3: Överför din självsignerade certifikatet i nyckelvalvet
-Den måste konverteras till ett format som Microsoft.Compute-resursprovidern kan förstå innan du laddar upp certifikatet i nyckelvalvet som skapades i steg 1. Den nedan PowerShell skript kan du göra det
+## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Steg 3: Ladda upp ett självsignerat certifikat till Key Vault
+Innan du laddar upp certifikatet i nyckelvalvet som du skapade i steg 1, måste den konverteras till ett format som kan förstå Microsoft.Compute-resursprovidern. Den nedan PowerShell skriptet kan du göra det
 
 ```
 $fileName = "<Path to the .pfx file>"
@@ -85,8 +79,8 @@ $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
-## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Steg 4: Hämta URL för ditt självsignerade certifikat i Nyckelvalvet
-Microsoft.Compute-resursprovidern måste en URL till hemligheten i Nyckelvalvet vid etablering av den virtuella datorn. Detta gör att Microsoft.Compute-resursprovidern att hämta hemligheten och skapa motsvarande certifikat på den virtuella datorn.
+## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Steg 4: Hämta URL för ditt självsignerade certifikat i Key Vault
+Microsoft.Compute-resursprovidern måste en hemlighet i Key Vault-URL när du etablerar den virtuella datorn. På så sätt kan Microsoft.Compute-resursprovidern att hämta hemligheten och skapa motsvarande certifikat på den virtuella datorn.
 
 > [!NOTE]
 > URL: en för hemlighet måste innehålla versionen också. En exempel-URL som ser ut som nedan https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
@@ -94,18 +88,18 @@ Microsoft.Compute-resursprovidern måste en URL till hemligheten i Nyckelvalvet 
 > 
 
 #### <a name="templates"></a>Mallar
-Du kan hämta en länk till en URL i en mall med hjälp av den under
+Du kan hämta en länk till URL: en i mallen med hjälp av den under
 
     "certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
 
 #### <a name="powershell"></a>PowerShell
-Du kan hämta den här URL: en med hjälp av den under PowerShell-kommando
+Du kan hämta den här URL: en med de PowerShell-kommandot nedan
 
     $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
-## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Steg 5: Referera självsignerade certifikat-URL när du skapar en virtuell dator
+## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Steg 5: Använda självsignerade certifikat-URL när du skapar en virtuell dator
 #### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
-När du skapar en virtuell dator via mallar, hämtar certifikatet refereras i avsnittet hemligheter och avsnittet winRM enligt nedan:
+När du skapar en virtuell dator via mallar, hämtar certifikatet refereras till i den hemligheter och winRM-avsnitt enligt nedan:
 
     "osProfile": {
           ...
@@ -139,29 +133,29 @@ När du skapar en virtuell dator via mallar, hämtar certifikatet refereras i av
           }
         },
 
-En exempelmall för ovanstående finns här på [201 vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
+Ett exempel på mall för ovanstående finns här på [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
 
 Källkoden för den här mallen finns på [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### <a name="powershell"></a>PowerShell
-    $vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
+    $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
     $credential = Get-Credential
     $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
-    $sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
+    $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
+    $sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
     $CertificateStore = "My"
-    $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
+    $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
 ## <a name="step-6-connecting-to-the-vm"></a>Steg 6: Ansluta till den virtuella datorn
-Innan du kan ansluta till den virtuella datorn måste du kontrollera att är datorn konfigurerad för fjärrhantering med WinRM. Starta PowerShell som administratör och kör den nedan kommando för att kontrollera att du har konfigurerat.
+Innan du kan ansluta till den virtuella datorn måste du kontrollera att har din dator konfigurerats för fjärrhantering med WinRM. Starta PowerShell som administratör och kör den nedanstående kommando för att kontrollera att du har konfigurerat.
 
     Enable-PSRemoting -Force
 
 > [!NOTE]
-> Du kan behöva kontrollera att WinRM-tjänsten körs om detta inte fungerar. Du kan göra det med `Get-Service WinRM`
+> Du kan behöva kontrollera att WinRM-tjänsten körs om ovanstående inte fungerar. Du kan göra det med `Get-Service WinRM`
 > 
 > 
 
-När installationen är klar kan du ansluta till den virtuella datorn med hjälp av den nedan kommando
+När installationen är klar kan du kan ansluta till en virtuell dator med hjälp av den nedanstående kommando
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate

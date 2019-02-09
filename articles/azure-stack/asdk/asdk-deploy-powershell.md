@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 09/10/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247739"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984281"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Distribuera ASDK från kommandoraden
 ASDK är en miljö för testning och utveckling som du kan distribuera för att utvärdera och demonstrera Azure Stack-funktioner och tjänster. Om du vill hämta den måste drift, att förbereda miljön maskinvara och köra några skript (det kan ta flera timmar). Efter det kan du logga in på portalerna administratörs- och att börja använda Azure Stack.
@@ -134,7 +134,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 Om din miljö inte har DHCP-aktiverat, måste du inkludera de här parametrarna till något av alternativen ovan (exempel på användning tillhandahålls): 
 
 ```powershell
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 10.222.112.26
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 valfria parametrar
@@ -146,9 +146,6 @@ Om din miljö inte har DHCP-aktiverat, måste du inkludera de här parametrarna 
 |InfraAzureDirectoryTenantAdminCredential|Valfri|Ställer in Azure Active Directory-användarnamn och lösenord. Dessa autentiseringsuppgifter för Azure måste vara ett Org ID.|
 |InfraAzureEnvironment|Valfri|Välj Azure-miljön som du vill registrera den här Azure Stack-distributionen. Till exempel offentliga Azure, Azure - Kina, Azure - amerikanska myndigheter.|
 |DNSForwarder|Valfri|En DNS-server skapas som en del av Azure Stack-distribution. Ange din befintliga infrastruktur för DNS-server så att datorer i lösningen att matcha namn utanför stämpeln. DNS-server i stämpel vidarebefordras okänt namn på den här servern.|
-|NatIPv4Address|Krävs för DHCP NAT-support|Anger en statisk IP-adress för MAS-BGPNAT01. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
-|NatIPv4Subnet|Krävs för DHCP NAT-support|IP-undernät prefix som används för DHCP över NAT-stöd. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
-|PublicVlanId|Valfri|Anger VLAN-ID. Använd bara den här parametern om värden och MAS-BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och Internet). Till exempel.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
 |Kör om|Valfri|Använd den här flaggan för att köra distributionen. Alla tidigare indata används. Återinföra data som tidigare tillhandahölls stöds inte eftersom flera unika värden genereras och används för distribution.|
 
 

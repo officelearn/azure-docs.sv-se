@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 77eb372bbe3647e03919aae21087d3270c22148a
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506566"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979895"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Återställa Remote Desktop Services eller dess administratörslösenordet, i en virtuell Windows-dator
 Om du inte kan ansluta till en Windows-dator (VM), kan du återställa ditt lösenord för lokal administratör eller återställa Remote Desktop Services-konfigurationen (stöds inte på Windows-domänkontrollanter). Om du vill återställa lösenordet använder du Azure-portalen eller tillägget för VM-åtkomst i Azure PowerShell. När du har loggat in till den virtuella datorn kan du återställa lösenordet för den lokala administratören.  
@@ -54,11 +54,11 @@ Logga först in på den [Azure-portalen](https://portal.azure.com) och välj sed
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Återställa med hjälp av VMAccess-tillägget och PowerShell
 
-Kontrollera först att du har den [senaste PowerShell-modulen installeras och konfigureras](/powershell/azure/overview) och har loggat in på Azure-prenumerationen med hjälp av den [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
+Kontrollera först att du har den [senaste PowerShell-modulen installeras och konfigureras](/powershell/azure/overview) och har loggat in på Azure-prenumerationen med hjälp av den [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Återställa lösenordet för lokala administratörskontot**
 
-- Återställ administratörsnamn för lösenord eller användarnamn med den [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell-cmdlet. Den `typeHandlerVersion` inställningen måste vara 2.0 eller senare, eftersom version 1 är föråldrad. 
+- Återställ administratörsnamn för lösenord eller användarnamn med den [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell-cmdlet. Den `typeHandlerVersion` inställningen måste vara 2.0 eller senare, eftersom version 1 är föråldrad. 
 
     ```powershell
     $SubID = "<SUBSCRIPTION ID>" 
@@ -66,9 +66,9 @@ Kontrollera först att du har den [senaste PowerShell-modulen installeras och ko
     $VmName = "<VM NAME>" 
     $Location = "<LOCATION>" 
  
-    Connect-AzureRmAccount 
-    Select-AzureRMSubscription -SubscriptionId $SubID 
-    Set-AzureRmVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
+    Connect-AzAccount 
+    Select-AzSubscription -SubscriptionId $SubID 
+    Set-AzVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
     ```
 
     > [!NOTE] 
@@ -76,10 +76,10 @@ Kontrollera först att du har den [senaste PowerShell-modulen installeras och ko
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Återställ Remote Desktop Services-konfiguration**
 
-1. Återställ fjärråtkomst till den virtuella datorn med den [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell-cmdlet. I följande exempel återställs access-tillägg med namnet `myVMAccess` på den virtuella datorn med namnet `myVM` i den `myResourceGroup` resursgrupp:
+1. Återställ fjärråtkomst till den virtuella datorn med den [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell-cmdlet. I följande exempel återställs access-tillägg med namnet `myVMAccess` på den virtuella datorn med namnet `myVM` i den `myResourceGroup` resursgrupp:
 
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
+    Set-AzVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
     ```
 
     > [!TIP]

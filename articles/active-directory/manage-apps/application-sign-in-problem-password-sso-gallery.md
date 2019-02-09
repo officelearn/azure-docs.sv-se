@@ -2,8 +2,8 @@
 title: Problem med inloggning till en Azure AD-galleriprogram konfigurerad för enkel inloggning | Microsoft Docs
 description: Så här felsöker du problem med Azure AD-galleriprogram som konfigurerats för lösenord för enkel inloggning
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ca71cb06b32f0db81c7795ded5121f9212e641c4
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822535"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962782"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problem med inloggning till ett program för Azure AD-Galleriprogram som konfigurerats för lösenord för enkel inloggning
 

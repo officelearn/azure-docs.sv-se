@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755433"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982275"
 ---
-# <a name="the-azure-sql-database-service"></a>Azure SQL Database-tjänsten
+# <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten?
 
 SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database levererar dynamiskt skalbar prestanda i två olika inköpschef modeller: en vCore-baserade inköpsmodellen och en DTU-baserade inköpsmodellen. SQL Database tillhandahåller också alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extrem analytisk analys och rapportering, och [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen.
 
@@ -67,10 +67,10 @@ Dynamisk skalbarhet skiljer sig från autoskalning. Med Autoskala avses när en 
 SQL Database erbjuder två inköpschef modeller:
 
 - Den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) erbjuder en kombination av beräkning, minne, IO-resurser i tre tjänstnivåer för att stödja lätta till tunga arbetsbelastningar. Compute-storlekar inom varje nivå med en blandning av dessa resurser, där du kan lägga till ytterligare lagringsresurser.
-- Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) kan du välja antal virtuella kärnor, hur mycket eller minne, och mycket och snabbt lagringsutrymme.
+- Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) kan du välja antal virtuella kärnor, hur mycket eller minne, och mycket och snabbt lagringsutrymme. Den vCore-baserade inköpsmodellen kan du använda [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) att få kostnadsbesparingar. Läs mer om Azure Hybrid-förmånen [vanliga frågor och svar](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > Den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md) finns för närvarande i offentlig förhandsversion. Vi rekommenderar inte någon produktionsarbetsbelastning körs ännu i hyperskala databaser. Du kan inte uppdatera en storskalig databas till andra tjänstnivåer. För testning syfte rekommenderar vi du gör en kopia av den aktuella databasen och uppdatera kopian hyperskala tjänstnivån.
+  > Den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md) för enskilda databaser är för närvarande i offentlig förhandsversion. Vi rekommenderar inte någon produktionsarbetsbelastning körs ännu i hyperskala databaser. Du kan inte uppdatera en storskalig databas till andra tjänstnivåer. För testning syfte rekommenderar vi du gör en kopia av den aktuella databasen och uppdatera kopian hyperskala tjänstnivån.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 
@@ -195,6 +195,41 @@ SQL Database gör byggandet och underhållet av appar enklare och mer produktivt
   En kostnadsfri, nedladdningsbar, öppen källkod Kodredigerare för Windows, macOS och Linux som stöder tillägg, inklusive den [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse.
 
 Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och Windows har stöd för SQL-databas. SQL Database stöder samma [anslutningsbibliotek](sql-database-libraries.md) som SQL Server.
+
+## <a name="sql-database-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om SQL-databas
+
+### <a name="what-is-the-current-version-of-sql-database"></a>Vad är den aktuella versionen av SQL-databas
+
+Den aktuella versionen av SQL-databas är V12. Version V11 har tagits bort.
+
+### <a name="can-i-control-when-patching-downtime-occurs"></a>Jag kan styra när uppdatering driftstopp uppstår
+
+Nej. Effekten av korrigeringar är vanligtvis inte märkbar om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Mer information om hur du förbereder planerat underhåll utförs på Azure SQL database finns i [planering för Azure-Underhåll i Azure SQL Database](sql-database-planned-maintenance.md).
+
+### <a name="azure-hybrid-benefit-questions"></a>Azure Hybrid Benefit questions
+
+#### <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Finns det dubbla användningsrättigheter med Azure Hybrid-förmånen för SQL Server
+
+Du har dubbel användningsrättigheter för att säkerställa migreringar kör smidigt 180 dagar. Efter den 180 dagar, SQL Server-licens kan bara användas i molnet i SQL-databas och inte har dubbel användning rights lokalt och i molnet.
+
+#### <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Hur skiljer sig Azure Hybrid-förmånen för SQL Server från licensmobilitet
+
+Idag erbjuder vi license mobility-förmånerna för SQL Server-kunder med Software Assurance som tillåter ny tilldelning av sina licenser för delade-servrar från tredje part. Den här förmånen kan användas på Azure IaaS och AWS EC2.
+Azure Hybrid-förmånen för SQL Server skiljer sig från licensmobilitet inom två viktiga områden:
+
+- Det ger ekonomiska fördelar för att flytta mycket virtualiserade arbetsbelastningar till Azure. SQL EE kunder får 4 kärnor i Azure i SKU för generell användning för varje kärna de äger lokalt för mycket virtualiserade program. Licensmobilitet tillåter inte någon särskild kostnadsfördelar för att flytta virtualiserade arbetsbelastningar till molnet.
+- Det ger en PaaS-mål på Azure (SQL Database Managed Instance) som är mycket kompatibelt med SQL Server on-premises
+
+#### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Vilka är de specifika rättigheterna för Azure Hybrid-förmånen för SQL Server
+
+SQL-databaskunder har följande rättigheter som är associerade med Azure Hybrid-förmånen för SQL Server:
+
+|Licens fotavtryck|Vad kostar Azure Hybrid-förmånen för SQL Server får du?|
+|---|---|
+|SQL Server Enterprise Edition core kunder med SA|<li>Kan betala grundpris på generell användning eller SKU affärskritisk</li><br><li>1 kärna på lokala = 4 kärnor i SKU generell användning</li><br><li>1 kärna på lokala = 1 kärna i SKU affärskritisk</li>|
+|SQL Server Standard Edition core kunder med SA|<li>Endast kan grundpris betalar SKU generell användning</li><br><li>1 kärna på lokala = 1 kärna i SKU generell användning</li>|
+|||
+
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Tala med teknikteamet för SQL Server
 

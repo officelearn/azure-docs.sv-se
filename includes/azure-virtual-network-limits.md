@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513983"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905214"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -76,11 +76,12 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md)
 
 | Resurs | Standardgräns |
-| --- | --- | --- |
+| --- | --- |
 | Lastbalanserare | 1000 | 
 | Regler per resurs, Basic | 250 |
 | Regler per resurs, Standard | 1500 | 
 | Regler per IP-konfiguration | 299 |
+| Regler per nätverkskort | 500 |
 | Frontend IP-konfigurationer, Basic | 200 |
 | Frontend IP-konfigurationer, Standard | 600 |
 | Serverpoolen Basic | 100, enkel Tillgänglighetsuppsättning |
@@ -88,7 +89,5 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Serverdelsresurser per belastningsutjämnare, Standard * | 150 |
 | Hög tillgänglighet portar, Standard | 1 per interna klientdel |
 
-** Upp till 150 resurser, valfri kombination av fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsuppsättningar.
-
-[Kontakta supporten](../articles/azure-supportability/resource-manager-core-quotas-request.md ) om du måste öka gränserna från standardvärdet.
+** Upp till 150 resurser, valfri kombination av fristående virtuella datorresurser, tillgänglighetsuppsättningar resurser och resurser för VM-skalningsuppsättningen.
 

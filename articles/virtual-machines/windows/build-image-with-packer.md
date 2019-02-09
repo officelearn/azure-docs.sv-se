@@ -14,44 +14,45 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: bab3b37d2d5063c77f8aceee84646b1ee72b0617
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0ae4c883baa156276646755273547a17d23edc55
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892549"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982496"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Windows-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar den Windows-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace erbjuder många avbildningar av första och tredje part för de vanligaste OS och programmiljöer, eller skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder Verktyg för öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-azure-resource-group"></a>Skapa Azure-resursgrupp
 När du skapar skapar Packer tillfällig Azure-resurser som den bygger den Virtuella källdatorn. För att avbilda den Virtuella källdatorn för användning som en avbildning måste du definiera en resursgrupp. Utdata från skapandeprocessen Packer lagras i den här resursgruppen.
 
-Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa en resursgrupp med [New AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```powershell
 $rgName = "myResourceGroup"
 $location = "East US"
-New-AzureRmResourceGroup -Name $rgName -Location $location
+New-AzResourceGroup -Name $rgName -Location $location
 ```
 
 ## <a name="create-azure-credentials"></a>Skapa Azure-autentiseringsuppgifter
 Packer autentiserar med Azure med ett huvudnamn för tjänsten. Ett huvudnamn för Azure-tjänsten är en säkerhetsidentitet som du kan använda med appar, tjänster och automatiseringsverktyg som Packer. Du kontrollerar och definiera behörigheter om vilka åtgärder som tjänstens huvudnamn kan utföra i Azure.
 
-Skapa ett tjänstobjekt med [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) och tilldela behörigheter för tjänstens huvudnamn att skapa och hantera resurser med [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment). Ersätt *&lt;lösenord&gt;* i exempel med ditt eget lösenord.  
+Skapa ett tjänstobjekt med [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) och tilldela behörigheter för tjänstens huvudnamn att skapa och hantera resurser med [New AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Ersätt *&lt;lösenord&gt;* i exempel med ditt eget lösenord.  
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
+$sp = New-AzADServicePrincipal -DisplayName "AzurePacker" `
     -Password (ConvertTo-SecureString "<password>" -AsPlainText -Force)
 Sleep 20
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Om du vill autentisera till Azure måste du också behöva hämta dina Azure-klient och prenumeration ID: N med [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
+Om du vill autentisera till Azure måste du också behöva hämta dina Azure-klient och prenumeration ID: N med [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-$sub = Get-AzureRmSubscription
+$sub = Get-AzSubscription
 $sub.TenantId[0]
 $sub.SubscriptionId[0]
 ```
@@ -206,10 +207,10 @@ Det tar några minuter för Packer att skapa den virtuella datorn, kör provisio
 
 
 ## <a name="create-a-vm-from-the-packer-image"></a>Skapa en virtuell dator från Packer-avbildning
-Du kan nu skapa en virtuell dator från avbildningen med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Stödnätverksresurser skapas om de inte redan finns. När du uppmanas, anger du ett administratörsanvändarnamn och lösenord som ska skapas på den virtuella datorn. I följande exempel skapas en virtuell dator med namnet *myVM* från *myPackerImage*:
+Du kan nu skapa en virtuell dator från avbildningen med [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Stödnätverksresurser skapas om de inte redan finns. När du uppmanas, anger du ett administratörsanvändarnamn och lösenord som ska skapas på den virtuella datorn. I följande exempel skapas en virtuell dator med namnet *myVM* från *myPackerImage*:
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -Location $location `
@@ -221,16 +222,16 @@ New-AzureRmVm `
     -Image "myPackerImage"
 ```
 
-Om du vill skapa virtuella datorer i en annan resursgrupp eller region än din Packer-avbildning, ange avbildnings-ID i stället för namnet på avbildningen. Du kan hämta avbildnings-ID med [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
+Om du vill skapa virtuella datorer i en annan resursgrupp eller region än din Packer-avbildning, ange avbildnings-ID i stället för namnet på avbildningen. Du kan hämta avbildnings-ID med [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/Get-AzImage).
 
 Det tar några minuter att skapa den virtuella datorn från en Packer-avbildning.
 
 
 ## <a name="test-vm-and-webserver"></a>Testa virtuell dator och webbserver
-Hämta den offentliga IP-adressen för den virtuella datorn med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
+Hämta den offentliga IP-adressen för den virtuella datorn med [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
 
 ```powershell
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
     -ResourceGroupName $rgName `
     -Name "myPublicIPAddress" | select "IpAddress"
 ```

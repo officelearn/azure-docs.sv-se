@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 0932c576a47af85c496d5d2d12dbc1b997d48e16
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: df65c29b39921eda6ba2bd682e5938f58a9e4de7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874336"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964585"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -20,7 +20,7 @@ Om du vill analysera data i ett HDInsight-kluster kan kan du lagra data i valfri
 
 Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange en blobbehållare i Azure Storage eller hierarkiskt namnområde som erbjuds av Data Lake Storage Gen2 som standardfilsystemet under skapandeprocessen för HDInsight-kluster. Du kan också med HDInsight 3.5 kan kan du välja en behållare eller hierarkiskt namnområde som standardfilsystem med några undantag.
 
-I den här artikeln får du lära dig hur Data Lake Storage Gen2 fungerar med HDInsight-kluster. Mer information om hur du skapar ett HDInsight-kluster finns i [konfigurera HDInsight-kluster med Azure Data Lake Storage med Hadoop, Spark, Kafka med mera](data-lake-storage-quickstart-create-connect-hdi-cluster.md).
+I den här artikeln får du lära dig hur Data Lake Storage Gen2 fungerar med HDInsight-kluster. Mer information om hur du skapar ett HDInsight-kluster finns i [konfigurera HDInsight-kluster med Azure Data Lake Storage med Hadoop, Spark, Kafka med mera](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
 
 Azure Storage är en robust lagringslösning för allmänna ändamål som smidigt kan integreras med HDInsight. HDInsight kan använda Azure Data Lake Storage som standardfilsystem för klustret. Genom ett distribuerat filsystem (HDFS) gränssnitt för Hadoop tillämpas en fullständig uppsättning komponenter i HDInsight direkt på filer i Azure Data Lake Storage.
 
@@ -209,7 +209,6 @@ Mer information finns i:
 
 * [Drivrutinen ABFS Hadoop-filsystem för Azure Data Lake Storage Gen2](data-lake-storage-abfs-driver.md)
 * [Introduktion till Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
-* [Ställ in HDInsight-kluster med hjälp av Azure Data Lake Storage Gen2 med Hadoop, Spark, Kafka med mera](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [Mata in data till Azure Data Lake Storage Gen2 använda distcp](data-lake-storage-use-distcp.md)
 
 [powershell-install]: /powershell/azure/install-az-ps

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 60f04ac857079a1019ca744f3b26b0d05ae6ca6c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c37347928e75986fa8aee0d3d0a4db2667312f56
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426938"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984383"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Så här etablerar du SQL Server-datorer med Azure PowerShell
 
@@ -29,17 +29,17 @@ Den här guiden beskriver dina alternativ för att skapa Windows SQL Server-dato
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här artikeln kräver Azure PowerShell-Modulversion 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ## <a name="configure-your-subscription"></a>Konfigurera din prenumeration
 
-1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Connect-AzureRmAccount**.
+1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra den **Connect AzAccount** kommando.
 
    ```PowerShell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
-1. Du bör se en skärm för att ange dina autentiseringsuppgifter. Använd samma e-postadress och lösenord som du använder för att logga in på Azure Portal.
+1. Du bör se en skärm där du kan ange dina autentiseringsuppgifter. Använd samma e-postadress och lösenord som du använder för att logga in på Azure Portal.
 
 ## <a name="define-image-variables"></a>Definiera variabler för avbildning
 Starta genom att definiera ett antal variabler för att återanvända värden och förenkla skriptskapande. Ändra parametervärden som du vill, men tänk på att namnge restriktioner relaterade till namn längder och specialtecken när du ändrar de värden som anges.
@@ -104,10 +104,10 @@ $OSDiskName = $VMName + "OSDisk"
 
 Du kan använda följande variabler för att definiera den SQL Server-avbildningen som ska användas för den virtuella datorn. 
 
-1. Först lista med avbildningserbjudanden för SQL Server med den `Get-AzureRmVMImageOffer` kommando. Det här kommandot visar aktuella avbildningar som är tillgängliga i Azure Portal och äldre avbildningar som bara kan installeras med PowerShell:
+1. Först lista med avbildningserbjudanden för SQL Server med den `Get-AzVMImageOffer` kommando. Det här kommandot visar aktuella avbildningar som är tillgängliga i Azure Portal och äldre avbildningar som bara kan installeras med PowerShell:
 
    ```PowerShell
-   Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
    ```
 
 1. Den här självstudien använder du följande variabler ange SQL Server 2017 på Windows Server 2016.
@@ -121,7 +121,7 @@ Du kan använda följande variabler för att definiera den SQL Server-avbildning
 1. Sedan en lista över tillgängliga versioner för ditt erbjudande.
 
    ```PowerShell
-   Get-AzureRmVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
+   Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
 1. Den här självstudien använder du SQL Server 2017 Developer edition (**SQLDEV**). Utvecklarversionen fritt är licensierad för utveckling och testning och du betalar bara för kostnaden för att köra den virtuella datorn.
@@ -131,21 +131,21 @@ Du kan använda följande variabler för att definiera den SQL Server-avbildning
    ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Med Resource Manager-distributionsmodellen är det första objektet som du skapar resursgruppen. Använd den [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet för att skapa en Azure-resursgrupp och dess resurser. Ange de variabler som du tidigare har initierats för resursgruppens namn och plats.
+Med Resource Manager-distributionsmodellen är det första objektet som du skapar resursgruppen. Använd den [New AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet för att skapa en Azure-resursgrupp och dess resurser. Ange de variabler som du tidigare har initierats för resursgruppens namn och plats.
 
 Kör denna cmdlet för att skapa en ny resursgrupp.
 
 ```PowerShell
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
-Den virtuella datorn kräver lagringsresurser för operativsystemdisken och för de SQL Server data och loggfiler. För enkelhetens skull ska du skapa en enskild disk för båda. Du kan lägga till ytterligare diskar senare med den [Lägg till Azure-Disk](/powershell/module/servicemanagement/azure/add-azuredisk) cmdlet för att placera dina SQL Server-data och loggfiler filer på dedikerade diskar. Använd den [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet för att skapa ett standardlagringskonto i din nya resursgrupp. Ange de variabler som du tidigare har initierats för lagringskontonamn, storage Sku-namn och plats.
+Den virtuella datorn kräver lagringsresurser för operativsystemdisken och för de SQL Server data och loggfiler. För enkelhetens skull ska du skapa en enskild disk för båda. Du kan lägga till ytterligare diskar senare med den [Lägg till Azure-Disk](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) cmdlet för att placera dina SQL Server-data och loggfiler filer på dedikerade diskar. Använd den [New AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet för att skapa ett standardlagringskonto i din nya resursgrupp. Ange de variabler som du tidigare har initierats för lagringskontonamn, storage Sku-namn och plats.
 
 Kör denna cmdlet för att skapa det nya kontot.
 
 ```PowerShell
-$StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName `
+$StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
    -Name $StorageName -SkuName $StorageSku `
    -Kind "Storage" -Location $Location
 ```
@@ -161,7 +161,7 @@ Den virtuella datorn kräver ett antal nätverksresurser för nätverksanslutnin
 * Ett nätverksgränssnitt måste definieras med en offentlig eller privat IP-adress.
 
 ### <a name="create-a-virtual-network-subnet-configuration"></a>Skapa en undernätskonfiguration för virtuellt nätverk
-Börja med att skapa en undernätskonfiguration för det virtuella nätverket. I den här självstudien skapar du en standard undernätet med hjälp av den [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) cmdlet. Ange de variabler som du tidigare har initierats för undernätsprefixet för namn och adress.
+Börja med att skapa en undernätskonfiguration för det virtuella nätverket. I den här självstudien skapar du en standard undernätet med hjälp av den [New AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet. Ange de variabler som du tidigare har initierats för undernätsprefixet för namn och adress.
 
 > [!NOTE]
 > Du kan definiera ytterligare egenskaper för den virtuella nätverkskonfigurationen på undernätet med hjälp av den här cmdleten, men som ligger utanför omfånget för den här självstudien.
@@ -169,22 +169,22 @@ Börja med att skapa en undernätskonfiguration för det virtuella nätverket. I
 Kör denna cmdlet för att skapa din virtuella undernät-konfiguration.
 
 ```PowerShell
-$SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
+$SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 ```
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Därefter skapar det virtuella nätverket i din nya resurs med det [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) cmdlet. Ange de variabler som du tidigare har initierats för namn, plats och adressprefix. Använd Undernätskonfigurationen som du definierade i föregående steg.
+Därefter skapar det virtuella nätverket i din nya resurs med det [New AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) cmdlet. Ange de variabler som du tidigare har initierats för namn, plats och adressprefix. Använd Undernätskonfigurationen som du definierade i föregående steg.
 
 Kör denna cmdlet för att skapa det virtuella nätverket.
 
 ```PowerShell
-$VNet = New-AzureRmVirtualNetwork -Name $VNetName `
+$VNet = New-AzVirtualNetwork -Name $VNetName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -AddressPrefix $VNetAddressPrefix -Subnet $SubnetConfig
 ```
 
 ### <a name="create-the-public-ip-address"></a>Skapa offentlig IP-adress
-Nu när ditt virtuella nätverk har definierats, måste du konfigurera en IP-adress för anslutning till den virtuella datorn. I den här självstudien skapar du en offentlig IP-adress med hjälp av dynamisk IP-adresser för att stödja Internetanslutning. Använd den [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) cmdlet för att skapa den offentliga IP-adressen i din nya resursgrupp. Ange de variabler som du tidigare har initierats för namn, plats, allokeringsmetoden och DNS-domännamnsetikett.
+Nu när ditt virtuella nätverk har definierats, måste du konfigurera en IP-adress för anslutning till den virtuella datorn. I den här självstudien skapar du en offentlig IP-adress med hjälp av dynamisk IP-adresser för att stödja Internetanslutning. Använd den [New AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) cmdlet för att skapa den offentliga IP-adressen i din nya resursgrupp. Ange de variabler som du tidigare har initierats för namn, plats, allokeringsmetoden och DNS-domännamnsetikett.
 
 > [!NOTE]
 > Du kan definiera ytterligare egenskaper för offentliga IP-adress med hjälp av den här cmdleten, men som ligger utanför omfånget för den här första självstudien. Du kan också skapa en privat adress eller en adress med en statisk adress, men som också är utanför omfattningen för den här självstudien.
@@ -192,7 +192,7 @@ Nu när ditt virtuella nätverk har definierats, måste du konfigurera en IP-adr
 Kör denna cmdlet för att skapa din offentliga IP-adress.
 
 ```PowerShell
-$PublicIp = New-AzureRmPublicIpAddress -Name $InterfaceName `
+$PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -AllocationMethod $TCPIPAllocationMethod -DomainNameLabel $DomainName
 ```
@@ -203,14 +203,14 @@ Skapa en nätverkssäkerhetsgrupp för att skydda den virtuella dator och SQL Se
 1. Skapa först en nätverkssäkerhetsgruppregel för RDP att tillåta anslutningar till fjärrskrivbord.
 
    ```PowerShell
-   $NsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
+   $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
    ```
 1. Konfigurera en regel för nätverkssäkerhetsgrupp som tillåter trafik på TCP-port 1433. Detta möjliggör anslutningar till SQL Server via internet.
 
    ```PowerShell
-   $NsgRuleSQL = New-AzureRmNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
+   $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
       -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
    ```
@@ -218,18 +218,18 @@ Skapa en nätverkssäkerhetsgrupp för att skydda den virtuella dator och SQL Se
 1. Skapa nätverkssäkerhetsgruppen.
 
    ```PowerShell
-   $Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
+   $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
       -Location $Location -Name $NsgName `
       -SecurityRules $NsgRuleRDP,$NsgRuleSQL
    ```
 
 ### <a name="create-the-network-interface"></a>Skapa nätverksgränssnittet
-Du är nu redo att skapa nätverksgränssnitt för den virtuella datorn. Använd den [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) cmdlet för att skapa ett nätverksgränssnitt i din nya resursgrupp. Ange namn, plats, undernät och offentlig IP-adress som tidigare definierats.
+Du är nu redo att skapa nätverksgränssnitt för den virtuella datorn. Använd den [New AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) cmdlet för att skapa ett nätverksgränssnitt i din nya resursgrupp. Ange namn, plats, undernät och offentlig IP-adress som tidigare definierats.
 
 Kör denna cmdlet för att skapa ett nätverksgränssnitt.
 
 ```PowerShell
-$Interface = New-AzureRmNetworkInterface -Name $InterfaceName `
+$Interface = New-AzNetworkInterface -Name $InterfaceName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $PublicIp.Id `
    -NetworkSecurityGroupId $Nsg.Id
@@ -244,12 +244,12 @@ Nu när lagrings- och nätverksresurser definieras, är du redo att definiera be
 - Ange operativsystemets disk.
 
 ### <a name="create-the-vm-object"></a>Skapa VM-objekt
-Starta genom att ange storleken på virtuella datorn. Ange en DS13 i den här självstudien. Använd den [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) cmdlet för att skapa en konfigurerbar virtuella datorobjektet. Ange de variabler som du tidigare har initierats för namn och storlek.
+Starta genom att ange storleken på virtuella datorn. Ange en DS13 i den här självstudien. Använd den [New AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) cmdlet för att skapa en konfigurerbar virtuella datorobjektet. Ange de variabler som du tidigare har initierats för namn och storlek.
 
 Kör denna cmdlet för att skapa det virtuella datorobjektet.
 
 ```PowerShell
-$VirtualMachine = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
+$VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 ```
 
 ### <a name="create-a-credential-object-to-hold-the-name-and-password-for-the-local-administrator-credentials"></a>Skapa ett autentiseringsuppgiftsobjekt för att lagra namn och lösenord för autentiseringsuppgifter för lokal administratör
@@ -262,7 +262,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Ange egenskaperna för operativsystemet för den virtuella datorn
-Nu är du redo att ställa in egenskaperna för operativsystemet i den virtuella datorn med den [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet.
+Nu är du redo att ställa in egenskaperna för operativsystemet i den virtuella datorn med den [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet.
 
 - Ange typ av operativsystem som Windows.
 - Kräver den [VM-agenten](../../extensions/agent-windows.md) installeras.
@@ -272,18 +272,18 @@ Nu är du redo att ställa in egenskaperna för operativsystemet i den virtuella
 Kör denna cmdlet för att ställa in egenskaperna för operativsystemet för den virtuella datorn.
 
 ```PowerShell
-$VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
    -Windows -ComputerName $ComputerName -Credential $Credential `
    -ProvisionVMAgent -EnableAutoUpdate
 ```
 
 ### <a name="add-the-network-interface-to-the-virtual-machine"></a>Lägga till nätverksgränssnittet till den virtuella datorn
-Använd sedan den [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) cmdlet för att lägga till nätverksgränssnittet med hjälp av variabeln som du angav tidigare.
+Använd sedan den [Lägg till AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) cmdlet för att lägga till nätverksgränssnittet med hjälp av variabeln som du angav tidigare.
 
 Kör denna cmdlet för att ställa in nätverksgränssnitt för den virtuella datorn.
 
 ```PowerShell
-$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 ```
 
 ### <a name="set-the-blob-storage-location-for-the-disk-to-be-used-by-the-virtual-machine"></a>Ange platsen för blob-lagring för disken som ska användas av den virtuella datorn
@@ -296,7 +296,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 ```
 
 ### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>Ange operativsystemet diskegenskaper för den virtuella datorn
-Nu ska vi konfigurera operativsystemet diskegenskaper för den virtuella datorn med den [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) cmdlet. 
+Nu ska vi konfigurera operativsystemet diskegenskaper för den virtuella datorn med den [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) cmdlet. 
 
 - Ange att operativsystemet för den virtuella datorn kommer från en avbildning.
 - Ange cachelagring för att läsa endast (eftersom SQL Server installeras på samma disk).
@@ -305,23 +305,23 @@ Nu ska vi konfigurera operativsystemet diskegenskaper för den virtuella datorn 
 Kör denna cmdlet för att ställa in operativsystemet diskegenskaper för den virtuella datorn.
 
 ```PowerShell
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name `
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
    $OSDiskName -VhdUri $OSDiskUri -Caching ReadOnly -CreateOption FromImage
 ```
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>Ange plattformsavbildningen som för den virtuella datorn
-Det sista konfigurationssteget är att ange plattformsavbildningen som för din virtuella dator. Använd den senaste SQL Server 2016 CTP-avbildningen för den här självstudien. Använd den [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) cmdlet för att använda den här avbildningen med de variabler som du angav tidigare.
+Det sista konfigurationssteget är att ange plattformsavbildningen som för din virtuella dator. Använd den senaste SQL Server 2016 CTP-avbildningen för den här självstudien. Använd den [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) cmdlet för att använda den här avbildningen med de variabler som du angav tidigare.
 
 Kör denna cmdlet för att ange plattformsavbildningen som för din virtuella dator.
 
 ```PowerShell
-$VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
    -PublisherName $PublisherName -Offer $OfferName `
    -Skus $Sku -Version $Version
 ```
 
 ## <a name="create-the-sql-vm"></a>Skapa den virtuella SQL-datorn
-Nu när du är klar konfigurationsstegen, är du redo att skapa den virtuella datorn. Använd den [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet för att skapa den virtuella datorn med hjälp av variablerna som du har definierat.
+Nu när du är klar konfigurationsstegen, är du redo att skapa den virtuella datorn. Använd den [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet för att skapa den virtuella datorn med hjälp av variablerna som du har definierat.
 
 > [!TIP]
 > Kan ta några minuter att skapa den virtuella datorn.
@@ -329,7 +329,7 @@ Nu när du är klar konfigurationsstegen, är du redo att skapa den virtuella da
 Kör denna cmdlet för att skapa den virtuella datorn.
 
 ```PowerShell
-New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
+New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 ```
 
 Den virtuella datorn skapas.
@@ -342,21 +342,21 @@ SQL Server-datorer stöder automatisk hanteringsfunktioner med den [SQL Server I
 
 
    ```PowerShell
-   Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
 ## <a name="stop-or-remove-a-vm"></a>Stoppa eller ta bort en virtuell dator
 
-Om du inte behöver den virtuella datorn ska köras kontinuerligt kan undvika du onödiga kostnader genom att stoppa den när den inte används. Följande kommando stoppar den virtuella datorn men lämnar den tillgänglig för framtida bruk.
+Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika onödiga kostnader genom att stoppa den när den inte används. Följande kommando stoppar den virtuella datorn men lämnar den tillgänglig för framtida bruk.
 
 ```PowerShell
-Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn med kommandot **Remove-AzureRmResourceGroup**. Detta permanent tar bort den virtuella datorn, så Använd det här kommandot med försiktighet.
+Du kan även permanent ta bort alla resurser som är associerade med den virtuella datorn med den **Remove-AzResourceGroup** kommando. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet.
 
 ## <a name="example-script"></a>Exempelskript
-Följande skript innehåller det fullständiga PowerShell-skriptet för den här självstudiekursen. Det förutsätts att du redan har installerat Azure-prenumerationen ska användas med den **Connect-AzureRmAccount** och **Select-AzureRmSubscription** kommandon.
+Följande skript innehåller det fullständiga PowerShell-skriptet för den här självstudiekursen. Det förutsätts att du redan har installerat Azure-prenumerationen ska användas med den **Connect AzAccount** och **Välj AzSubscription** kommandon.
 
 ```PowerShell
 # Variables
@@ -392,36 +392,36 @@ $Sku = "SQLDEV"
 $Version = "latest"
 
 # Resource Group
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 # Storage
-$StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
+$StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
 
 # Network
-$SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
-$VNet = New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName -Location $Location -AddressPrefix $VNetAddressPrefix -Subnet $SubnetConfig
-$PublicIp = New-AzureRmPublicIpAddress -Name $InterfaceName -ResourceGroupName $ResourceGroupName -Location $Location -AllocationMethod $TCPIPAllocationMethod -DomainNameLabel $DomainName
-$NsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
-$NsgRuleSQL = New-AzureRmNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
-$Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $Location -Name $NsgName -SecurityRules $NsgRuleRDP,$NsgRuleSQL
-$Interface = New-AzureRmNetworkInterface -Name $InterfaceName -ResourceGroupName $ResourceGroupName -Location $Location -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $PublicIp.Id -NetworkSecurityGroupId $Nsg.Id
+$SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
+$VNet = New-AzVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName -Location $Location -AddressPrefix $VNetAddressPrefix -Subnet $SubnetConfig
+$PublicIp = New-AzPublicIpAddress -Name $InterfaceName -ResourceGroupName $ResourceGroupName -Location $Location -AllocationMethod $TCPIPAllocationMethod -DomainNameLabel $DomainName
+$NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
+$NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
+$Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $Location -Name $NsgName -SecurityRules $NsgRuleRDP,$NsgRuleSQL
+$Interface = New-AzNetworkInterface -Name $InterfaceName -ResourceGroupName $ResourceGroupName -Location $Location -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $PublicIp.Id -NetworkSecurityGroupId $Nsg.Id
 
 # Compute
-$VirtualMachine = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
+$VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
-$VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate #-TimeZone = $TimeZone
-$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate #-TimeZone = $TimeZone
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName + ".vhd"
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $OSDiskName -VhdUri $OSDiskUri -Caching ReadOnly -CreateOption FromImage
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $OSDiskName -VhdUri $OSDiskUri -Caching ReadOnly -CreateOption FromImage
 
 # Image
-$VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName $PublisherName -Offer $OfferName -Skus $Sku -Version $Version
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName $PublisherName -Offer $OfferName -Skus $Sku -Version $Version
 
 # Create the VM in Azure
-New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
+New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 
 # Add the SQL IaaS Extension
-Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
 ```
 
 ## <a name="next-steps"></a>Nästa steg

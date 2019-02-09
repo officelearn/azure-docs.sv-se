@@ -15,17 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4fb31721da679b21fa311340269cf07f93cd903
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817343"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981272"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Felsöka fjärrskrivbordsanslutningar till virtuella Azure-datorer
 Remote Desktop Protocol (RDP)-anslutning till din Windows-baserade Azure-dator (VM) kan misslyckas av olika skäl, så att du inte kan komma åt den virtuella datorn. Problemet kan vara med Remote Desktop-tjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbord-klienten på värddatorn. Den här artikeln vägleder dig igenom några av de vanligaste sätt att lösa problem med RDP-anslutningen. 
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **hämta stöder**.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 <a id="quickfixrdp"></a>
 
@@ -107,7 +109,7 @@ Om du inte redan gjort [installera och konfigurera den senaste Azure PowerShell]
 I följande exempel används variablerna som `myResourceGroup`, `myVM`, och `myVMAccessExtension`. Ersätt dessa variabelnamn och platser med dina egna värden.
 
 > [!NOTE]
-> Du återställer användarens autentiseringsuppgifter och RDP-konfigurationen med hjälp av den [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell-cmdlet. I följande exempel `myVMAccessExtension` är ett namn som du anger som en del av processen. Om du tidigare har arbetat med VMAccessAgent, kan du hämta namnet på befintliga tillägget med hjälp av `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` att kontrollera egenskaperna för den virtuella datorn. Om du vill visa namnet, tittar du under avsnittet ”tillägg” i utdata.
+> Du återställer användarens autentiseringsuppgifter och RDP-konfigurationen med hjälp av den [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell-cmdlet. I följande exempel `myVMAccessExtension` är ett namn som du anger som en del av processen. Om du tidigare har arbetat med VMAccessAgent, kan du hämta namnet på befintliga tillägget med hjälp av `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` att kontrollera egenskaperna för den virtuella datorn. Om du vill visa namnet, tittar du under avsnittet ”tillägg” i utdata.
 
 När du har varje fel, försök att ansluta till den virtuella datorn igen. Om du fortfarande inte kan ansluta kan du försöka nästa steg.
 
@@ -116,7 +118,7 @@ När du har varje fel, försök att ansluta till den virtuella datorn igen. Om d
     I följande exempel återställer RDP-anslutningen på en virtuell dator med namnet `myVM` i den `WestUS` plats och i resursgruppen med namnet `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
     ```
 2. **Kontrollera nätverkssäkerhetsgruppsregler**. Den här åtgärden kontrollerar att du har en regel i Nätverkssäkerhetsgruppen för att tillåta RDP-trafik. Standardporten för RDP är TCP-port 3389. En regel för att tillåta RDP-trafik kan inte skapas automatiskt när du skapar den virtuella datorn.
@@ -124,7 +126,7 @@ När du har varje fel, försök att ansluta till den virtuella datorn igen. Om d
     Först, tilldela alla konfigurationsdata för Nätverkssäkerhetsgruppen för den `$rules` variabeln. I följande exempel hämtas information om Nätverkssäkerhetsgruppen med namnet `myNetworkSecurityGroup` i resursgruppen med namnet `myResourceGroup`:
    
     ```powershell
-    $rules = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
+    $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
         -Name "myNetworkSecurityGroup"
     ```
    
@@ -164,7 +166,7 @@ När du har varje fel, försök att ansluta till den virtuella datorn igen. Om d
     Nu kan du uppdatera autentiseringsuppgifterna på den virtuella datorn. I följande exempel uppdaterar autentiseringsuppgifterna på en virtuell dator med namnet `myVM` i den `WestUS` plats och i resursgruppen med namnet `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location WestUS -Name "myVMAccessExtension" `
         -UserName $cred.GetNetworkCredential().Username `
         -Password $cred.GetNetworkCredential().Password
@@ -174,14 +176,14 @@ När du har varje fel, försök att ansluta till den virtuella datorn igen. Om d
     I följande exempel startar om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`:
    
     ```powershell
-    Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+    Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **Distribuera om den virtuella datorn**. Den här åtgärden distribuerar om den virtuella datorn till en annan värd i Azure för att åtgärda eventuella underliggande plattformen eller nätverksproblem.
    
     I följande exempel distribuerar om den virtuella datorn med namnet `myVM` i den `WestUS` plats och i resursgruppen med namnet `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+    Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
 6. **Kontrollera routning**. Använda Network Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte förhindrar trafik dirigeras till eller från en virtuell dator. Du kan också gå igenom effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [använda effektiva vägar för felsökning av VM infrastrukturtrafiken rör](../../virtual-network/diagnose-network-routing-problem.md).

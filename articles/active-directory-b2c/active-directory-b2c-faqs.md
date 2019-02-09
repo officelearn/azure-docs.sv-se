@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8774792879443cb39238285b0fdc63ca1097dbea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cef6f47b62a500737e5b01865f73253f18fa470c
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191191"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960606"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor och svar (FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
@@ -83,7 +83,7 @@ Du kan använda Azure AD Graph API för att skriva din Migreringsverktyg. Se den
 Användarflödet för Azure AD B2C-lösenord för lokala konton baseras på principen för Azure AD. Azure AD B2C användarens registrering, registrering eller inloggning och lösenord för återställning av användarflöden använda ”starka” lösenordssäkerhet och inte går ut eventuella lösenord. Läs den [Azure AD-lösenordsprincip](https://msdn.microsoft.com/library/azure/jj943764.aspx) för mer information. Information om kontolåsningar och lösenord finns i [hanterar hot mot resurser och data i Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan jag använda Azure AD Connect för att migrera konsumentidentiteter som lagras på min lokala Active Directory till Azure AD B2C?
-Nej, Azure AD Connect är inte avsedd att fungera med Azure AD B2C. Överväg att använda den [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) för användarmigrering.  Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
+Nej, Azure AD Connect är inte avsedd att fungera med Azure AD B2C. Överväg att använda den [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) för användarmigrering.  Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Öppnar min app in Azure AD B2C-sidor i en iFrame?
 Nej, kan Azure AD B2C sidor inte öppnas i en iFrame av säkerhetsskäl.  Vår tjänst kommunicerar med webbläsaren om du vill förbjuda iFrames.  Säkerhets-communityn i allmän och en OAUTH2-specifikationen rekommenderar mot att använda iFrames för identitetsupplevelser på grund av risken för Klicka fästpunkter.

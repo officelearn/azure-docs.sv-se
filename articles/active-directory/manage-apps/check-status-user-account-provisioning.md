@@ -3,8 +3,8 @@ title: Rapportering om Azure Active Directory Automatisk etablering av användar
 description: Lär dig hur du kontrollerar status för automatisk användarkonto Etableringsjobb och hur du felsöker etableringen av enskilda användare.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a013c8d3c78801414ab83fd89a59caa316f1c28f
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203920"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958710"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudier: Rapportering om automatisk användarens kontoetablering
 
@@ -58,13 +58,13 @@ Härifrån kan du komma åt både en sammanfattningsrapport för etablering och 
 
 Etablering sammanfattningsrapporten syns i den **etablering** fliken för angivna program. Finns den i den **synkroniseringsinformation** avsnittet under **inställningar**, och innehåller följande information:
 
-* Det totala antalet användare och / grupper som har synkroniserats och finns för närvarande i omfånget för etablering mellan källsystemet och målsystemet
+* Det totala antalet användare och / grupper som har synkroniserats och finns för närvarande i omfånget för etablering mellan källsystemet och målsystemet.
 
 * Tid för senaste synkronisering kördes. Synkronisering sker vanligtvis var 20 – 40 minuter efter en [inledande synkronisering](user-provisioning.md#what-happens-during-provisioning) har slutförts.
 
-* Huruvida en [inledande synkronisering](user-provisioning.md#what-happens-during-provisioning) har slutförts
+* Huruvida en [inledande synkronisering](user-provisioning.md#what-happens-during-provisioning) har slutförts.
 
-* Huruvida etableringen har placerats i karantän och nyheter statusorsaken för karantän (t.ex, det gick inte att kommunicera med målsystemet på grund av ogiltiga autentiseringsuppgifter)
+* Huruvida etableringen har placerats i karantän och nyheter statusorsaken för karantän (t.ex, det gick inte att kommunicera med målsystemet på grund av ogiltiga autentiseringsuppgifter).
 
 Etablering sammanfattningsrapporten ska vara den första plats administratörer titt att läsa på driftstatusen för etableringsjobbet för.
 
@@ -79,7 +79,7 @@ Alla aktiviteter som utförs av etableringstjänsten registreras i Azure AD-gran
 
 * **Exportera händelser** -registreras en ”export”-händelse varje gång den Azure AD-etableringtjänsten skriver ett användarobjekt för konto eller grupp till ett målsystem. De här händelserna registrera alla användarattribut och deras värden som har skrivits av Azure AD etableringstjänsten vid tidpunkten för händelsen. Om ett fel uppstod vid skrivning till användarobjektet konto eller grupp till målsystemet, visas det här.
 
-* **Bearbeta händelser escrow** -processen escrows inträffa när etableringstjänsten påträffar ett fel vid försök till operationer och börjar att göra om åtgärden på en backoffintervall tid. Varje gång som en åtgärd för etablering drogs tillbaka registreras en ”escrow”-händelse.
+* **Bearbeta händelser escrow** -processen escrows inträffa när etableringstjänsten påträffar ett fel vid försök till operationer och börjar att göra om åtgärden på en backoffintervall tid. Varje gång som en allokering åtgärden återförsöktes registreras en ”escrow”-händelse.
 
 När du visar etablering händelser för en enskild användare, sker normalt i den här ordningen:
 
@@ -102,7 +102,7 @@ Den vanligaste för etablering granskningsloggarna är att kontrollera Etablerin
 
 2. Från den **kategori** menyn och välj **Kontoetablering**.
 
-3. I den **datumintervall** menyn, Välj datumintervall som du vill söka i,
+3. I den **datumintervall** menyn, Välj datumintervall som du vill söka efter.
 
 4. I den **Search** stapeln, ange användar-ID för den användare som du vill söka efter. Formatet för ID-värdet måste matcha det du valt som primärt matchande ID i attributmappning konfigurationen (till exempel userPrincipalName eller medarbetare ID-nummer). ID-värdet som krävs kommer att visas i kolumnen mål.
 

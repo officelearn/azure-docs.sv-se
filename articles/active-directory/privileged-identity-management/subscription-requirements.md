@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ad64fba0288aa5663e008484d6f0d2cbdff0bca6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6e2042f94ce653c1d569385deddbade548a58b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187299"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977838"
 ---
 # <a name="license-requirements-to-use-pim"></a>Licenskrav gäller för att använda PIM
 
@@ -33,6 +33,7 @@ Om du vill använda PIM måste din katalog ha ett av följande avgiftsbelagda el
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
+- Microsoft 365 M5
 
 Mer information finns i [Vad är Azure Active Directory?](../fundamentals/active-directory-whatis.md).
 
@@ -63,5 +64,6 @@ Om en Azure AD Premium P2 eller EMS E5 utvärderingslicensen upphör att gälla 
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Distribuera PIM](pim-deployment-plan.md)
 - [Börja använda PIM](pim-getting-started.md)
 - [Roller som du inte kan hantera i PIM](pim-roles.md)

@@ -13,14 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901198"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980116"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
+
+> [!IMPORTANT]
+> Informationen här för att skapa en avisering med en Resource Manager-mall är av datum nu när [Log Analytics-aviseringar har utökats till Azure Monitor](../platform/alerts-extend.md). Mer information om hur du skapar en avisering om log med en Resource Manager-mall finns i [Hantera aviseringar med hjälp av Azure-resursmall](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
 
 > [!NOTE]
 > Det här är preliminära dokumentationen för att skapa lösningar för hantering som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.
@@ -180,7 +183,7 @@ Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| Typ | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
+| Type | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
 | Namn | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
 | Beskrivning | Nej | Valfri beskrivning av aviseringen. |
 | Severity | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**

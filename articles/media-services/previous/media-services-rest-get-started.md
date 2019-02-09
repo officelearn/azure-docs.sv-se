@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b76adda6e09cdce1f94c2d0691cbe7e4cc2b6b50
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237612"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983533"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST
+# <a name="get-started-with-delivering-content-on-demand-using-rest-legacy"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST (äldre)
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Denna Snabbstart vägleder dig genom stegen för att implementera ett program för leverans av video på begäran (VoD) med hjälp av Azure Media Services (AMS) REST API: er.
@@ -268,7 +269,7 @@ En SAS-URL har följande format:
 Vissa förutsättningar gäller:
 
 * Du kan inte ha fler än fem unik positionerare som är associerade med en given tillgång i taget. 
-* Om du vill ladda upp dina filer omedelbart ska du ange StartTime-värdet till fem minuter före aktuell tid. Det beror på att det kan finnas klockan skeva mellan klientdatorn och Media Services. Dessutom StartTime-värdet måste vara i formatet DateTime: ÅÅÅÅ-MM-: ssZ (till exempel ”2014-05-23T17:53:50Z”).    
+* Om du vill ladda upp dina filer omedelbart ska du ange StartTime-värdet till fem minuter före aktuell tid. Det beror på att det kan finnas klockan skeva mellan klientdatorn och Media Services. Dessutom måste StartTime-värdet vara i formatet DateTime: ÅÅÅÅ-MM-: ssZ (till exempel ”2014-05-23T17:53:50Z”).    
 * Det kan finnas en 30 – 40 andra fördröjning när en positionerare skapas när den är tillgänglig för användning. Det här problemet gäller både [SAS-Webbadressen](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) och ursprung lokaliserare.
 
 I följande exempel visar hur du skapar en SAS-URL: en lokaliserare som definieras av Type-egenskapen i begärandetexten (”1” för en SAS-lokaliserare) och ”2” för en lokaliserare för ursprung på begäran. Den **sökväg** -egenskapen som returneras innehåller den URL som du måste använda för att överföra din fil.
@@ -407,7 +408,7 @@ Om detta lyckas, returneras följande:
 
 När du matar in tillgångar i Media Services, media kan kodas, användas med transmux, förses med vattenstämpel och så vidare innan de skickas till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. De här aktiviteterna kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i tillgångsfilen (Mer information finns i [jobbet](https://docs.microsoft.com/rest/api/media/operations/job), [uppgift](https://docs.microsoft.com/rest/api/media/operations/task) beskrivningar).
 
-Som tidigare nämnts, när du arbetar med Azure Media Services som ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services kan dynamiskt Paketera en uppsättning MP4-filer till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Som tidigare nämnts, när du arbetar med Azure Media Services som ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services kan dynamiskt Paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 Följande avsnitt visar hur du skapar ett jobb som innehåller ett kodningsjobb. Uppgiften anger att omkodning av mezzaninfilen till en uppsättning med anpassningsbar bithastighet MP4s med **Media Encoder Standard**. Avsnittet visar också hur du övervakar jobbet bearbetningsförlopp. När jobbet har slutförts, skulle du kunna skapa lokaliserare som behövs för att få åtkomst till dina tillgångar.
 
@@ -458,7 +459,7 @@ Följande kod begär den kodaren id.
     }
 
 ### <a name="create-a-job"></a>Skapa ett jobb
-Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning som du vill utföra. Via REST-API kan du skapa jobb och deras relaterade uppgifter i ett av två sätt: uppgifter kan vara definierats internt via navigeringsegenskapen uppgifter på jobbet entiteter eller OData-batch-bearbetning. Media Services SDK använder batch-bearbetning. För läsbarhet av kodexemplen i den här artikeln är dock uppgifter definierats internt. Information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning som du vill utföra. Via REST-API kan du skapa jobb och deras relaterade uppgifter i ett av två sätt: Aktiviteter kan vara definierats internt via navigeringsegenskapen uppgifter på jobbet entiteter eller OData-batch-bearbetning. Media Services SDK använder batch-bearbetning. För läsbarhet av kodexemplen i den här artikeln är dock uppgifter definierats internt. Information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 I följande exempel visas hur du skapar och publicerar ett jobb med en åtgärd ange för att koda en video med en viss upplösning och kvalitet. Avsnittet följande dokumentation innehåller listan över alla de [uppgift förinställningar](https://msdn.microsoft.com/library/mt269960) stöds av Media Encoder Standard processorn.  
 
@@ -692,7 +693,7 @@ Följande kod visar hur du begär utdatatillgången Id.
 
 ## <a id="publish_get_urls"></a>Publicera tillgången och hämta strömning och progressiv nedladdning URL: er med REST API
 
-Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Positionerare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler. 
+Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Lokaliserare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler. 
 
 När du har skapat positionerna kan du skapa de webbadresser som används för att strömma eller hämta dina filer.
 
@@ -915,7 +916,7 @@ Strömma videon med hjälp av [Azure Media Services Player](http://amsplayer.azu
 
 Om du vill testa den progressiva nedladdningen, klistra du in en URL i en webbläsare (till exempel Internet Explorer, Chrome, Safari).
 
-## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: sökvägar för Media Services-utbildning
+## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

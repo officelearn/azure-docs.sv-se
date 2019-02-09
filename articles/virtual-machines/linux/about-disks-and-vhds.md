@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 07d26590799f169e8e252557287b5c7e0003ea87
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3bc7853ea306a5872e34c7e90f2bd7d6c334eafd
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469421"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958974"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Om disklagring för virtuella Linux-datorer
 Precis som alla andra datorer Använd virtuella datorer i Azure diskar som en plats för att lagra ett operativsystem, program och data. Alla Azure virtuella datorer har minst två diskar – en operativsystemdisk för Linux och en tillfällig disk. Operativsystemdisken har skapats från en avbildning och både operativsystemdisken och avbildningen är virtuella hårddiskar (VHD) lagras i ett Azure storage-konto. Virtuella datorer kan också ha en eller flera datadiskar som lagras också som virtuella hårddiskar.
@@ -33,7 +33,7 @@ Varje virtuell dator har en ansluten operativsystemdisk. Den är registrerad som
 
 ## <a name="temporary-disk"></a>Temporär disk
 
-Varje virtuell dator innehåller en tillfällig disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuera om en virtuell dator](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Data på den temporära enheten under en standard omstart av den virtuella datorn ska sparas. Men finns det fall där data inte kanske finns kvar, till exempel flyttar till en ny värd. Därför får alla data på den temporära enheten inte vara data som är nödvändiga i systemet.
+Varje virtuell dator innehåller en tillfällig disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuera om en virtuell dator](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Data på den temporära enheten under en standard omstart av den virtuella datorn ska sparas. Men finns det fall där data inte kanske finns kvar, till exempel flyttar till en ny värd. Därför får alla data på den temporära enheten inte vara data som är nödvändiga i systemet. När du utformar ett program som använder en temporär enhet som en cache för att öka programprestanda förutsätter i din design att Datacachen på den temporära enheten går förlorad under omstart och att programmet behöver tid att återskapa Datacachen innan en liknande prestanda uppnås.
 
 På Linux-datorer, disken är vanligtvis **/dev/sdb** och formateras och monterade i **/mnt** av Azure Linux-agenten. Storleken på den temporära disken varierar baserat på storleken på den virtuella datorn. Mer information finns i [storlekar för virtuella Linux-datorer](../windows/sizes.md).
 

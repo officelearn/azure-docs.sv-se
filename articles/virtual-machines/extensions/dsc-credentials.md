@@ -7,7 +7,7 @@ author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
-keywords: DSC
+keywords: dsc
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 52e115aa7f54eccc2be4e500c544aa38ca3bc32d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631284"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975792"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Skicka autentiseringsuppgifter till Azure DSCExtension-hanteraren
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 Den här artikeln beskriver tillägget Desired State Configuration (DSC) för Azure. En översikt över hanteraren för DSC-tillägg finns i [introduktion till Azure Desired State Configuration-tilläggshanterare](dsc-overview.md).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="pass-in-credentials"></a>Skicka in autentiseringsuppgifter
 
@@ -65,7 +65,7 @@ Det är viktigt att inkludera **noden localhost** som en del av konfigurationen.
 
 Att publicera det här skriptet till Azure Blob storage:
 
-`Publish-AzureRmVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
+`Publish-AzVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
 Ange Azure DSC-tillägg och ange autentiseringsuppgiften:
 
@@ -73,16 +73,16 @@ Ange Azure DSC-tillägg och ange autentiseringsuppgiften:
 $configurationName = 'Main'
 $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = 'user_configuration.ps1.zip'
-$vm = Get-AzureRmVM -Name 'example-1'
+$vm = Get-AzVM -Name 'example-1'
 
-$vm = Set-AzureRmVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
+$vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
 
-$vm | Update-AzureRmVM
+$vm | Update-AzVM
 ```
 
 ## <a name="how-a-credential-is-secured"></a>Hur en autentiseringsuppgift är skyddad
 
-Kör den här koden efterfrågar autentiseringsuppgifter. När autentiseringsuppgifterna har angetts, lagras den kort i minnet. När autentiseringsuppgifterna har publicerats med hjälp av den **Set-AzureRmVMDscExtension** cmdlet, autentiseringsuppgifter skickas över HTTPS till den virtuella datorn. I den virtuella datorn lagrar autentiseringsuppgifterna krypteras på disk med hjälp av lokal VM-certifikatet i Azure. Autentiseringsuppgifterna dekrypteras kort i minnet och sedan krypteras det igen för att skicka dem till DSC.
+Kör den här koden efterfrågar autentiseringsuppgifter. När autentiseringsuppgifterna har angetts, lagras den kort i minnet. När autentiseringsuppgifterna har publicerats med hjälp av den **Set-AzVMDscExtension** cmdlet, autentiseringsuppgifter skickas över HTTPS till den virtuella datorn. I den virtuella datorn lagrar autentiseringsuppgifterna krypteras på disk med hjälp av lokal VM-certifikatet i Azure. Autentiseringsuppgifterna dekrypteras kort i minnet och sedan krypteras det igen för att skicka dem till DSC.
 
 Den här processen skiljer sig från [använder säker konfigurationer utan tillägg hanteraren](/powershell/dsc/securemof). Azure-miljön är ett sätt att överföra konfigurationsdata på ett säkert sätt via certifikat. När du använder DSC-tilläggshanterare, behöver du inte ange **$CertificatePath** eller en **$CertificateID**/ **$Thumbprint** post i **ConfigurationData**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 3e3d31f146fb49fdab8d955754572e4ea74dd3f6
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: fe730c826e082f26ce7b4604a5fbf46692ef0bed
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198396"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982513"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutinen tillägg för Linux
 
@@ -85,7 +85,7 @@ Alla inställningar är valfria. Standardinställningen är att inte uppdatera k
 | Namn | Beskrivning | Standardvärde | Giltiga värden | Datatyp |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Uppdatera kernel även om det inte krävs för installation av drivrutiner | false | SANT, FALSKT | boolesk |
-| driverVersion | NV: RUTNÄTET drivrutinsversion<br> NC/ND: CUDA toolkit-version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | senaste | GRID: ”410.71”, ”390.75”, ”390.57”, ”390.42”<br> CUDA: ”10.0.130”, ”9.2.88”, ”9.1.85” | sträng |
+| driverVersion | NV: RUTNÄTET drivrutinsversion<br> NC/ND: CUDA toolkit-version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | senaste | GRID: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | sträng |
 | installCUDA | Installera CUDA toolkit. Detta gäller endast för NC/ND-serien virtuella datorer. | true | SANT, FALSKT | boolesk |
 
 
@@ -123,7 +123,7 @@ I följande exempel förutsätter att tillägget är kapslade i den virtuella da
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -159,7 +159,7 @@ az vm extension set `
 Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure PowerShell och Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

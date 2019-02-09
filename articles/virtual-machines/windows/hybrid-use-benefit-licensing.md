@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 7bd228a01cd3841772750882d13c33459385cc21
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4de6e4429543ea4f691cc3a38c15b896b866075b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817724"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980728"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmånen för Windows Server du använda dina lokala Windows Server-licenser och köra Windows-datorer i Azure mot en lägre kostnad. Du kan använda Azure Hybrid-förmånen för Windows Server för att distribuera nya virtuella datorer med Windows OS. Den här artikeln går över anvisningar om hur du distribuerar nya virtuella datorer med Azure Hybrid-förmånen för Windows Server och hur du kan uppdatera befintliga köra virtuella datorer. Läs mer om Azure Hybrid-förmånen för Windows Server licensierings- och besparingar i den [Azure Hybrid-förmånen för Windows Server-licensiering sidan](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -36,6 +36,7 @@ För kunder med Software Assurance kan Azure Hybrid-förmånen för Windows Serv
 > För klassiska virtuella datorer stöds endast distribuera nya virtuella datorn från en lokal anpassade avbildningar. Om du vill dra nytta av funktionerna som stöds i den här artikeln, måste du först migrera klassiska virtuella datorer till Resource Manager-modellen.
 >
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Sätt att använda Azure Hybrid-förmånen för Windows Server
 Det finns flera sätt att använda Windows-datorer med Azure Hybrid-förmånen:
@@ -53,8 +54,10 @@ Alla Windows Server-operativsystem baserade avbildningar har stöd för Azure Hy
 Använd växlingsknappen för att skapa en virtuell dator med Azure Hybrid-förmånen för Windows Server, under avsnittet ”Spara pengar”.
 
 ### <a name="powershell"></a>PowerShell
+
+
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVM" `
     -Location "East US" `
@@ -95,17 +98,17 @@ Från bladet VM-portalen kan du uppdatera den virtuella datorn för att använda
 - Konvertera befintliga Windows Server-datorer till Azure Hybrid-förmånen för Windows Server
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "Windows_Server"
-    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
 - Konvertera virtuella Windows Server-datorer med förmånen tillbaka till betala per användning
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "None"
-    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
 ### <a name="cli"></a>CLI
@@ -124,7 +127,7 @@ Från bladet VM-portalen kan du visa växlingsknappen för Azure Hybrid-förmån
 ### <a name="powershell"></a>PowerShell
 I följande exempel visas licenstypen för en enskild virtuell dator
 ```powershell
-Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
 Utdata:
@@ -158,7 +161,7 @@ Från virtuell dator eller virtuell dator scale sets resursbladet, kan du visa e
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzureRMVM 
+$vms = Get-AzVM 
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: d60c99349fef26fc1ead7f6ea4b77d0c364c4abb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ee2ea608fb2a53563340b76ea916160231b27dca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868148"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978433"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 
@@ -245,8 +245,6 @@ Igång och leds av Microsoft Researchs egen John Langford, är VW en formel en p
 * En lista efter kategori av alla de tillgängliga maskininlärningsalgoritmer i Machine Learning Studio finns i [initiera modell](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) i Machine Learning Studio-algoritmen och modulen hjälpa.
 
 * En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio finns i [A-Z-lista över Machine Learning Studio-moduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) i modulen hjälpen och Machine Learning Studio-algoritm.
-
-* Du kan hämta och skriva ut ett diagram som ger en översikt över funktionerna i Machine Learning Studio: [Microsoft Azure Machine Learning-översikt över funktioner i Studio (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
 
 <!-- Media -->
 

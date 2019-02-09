@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/08/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 27e9a5b33170855455e8906b659e0f0c009e42d3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384742"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984111"
 ---
-# <a name="media-encoder-standard-formats-and-codecs"></a>Standardformat för Media Encoder och codec-rutiner
+# <a name="media-encoder-standard-formats-and-codecs-legacy"></a>Media Encoder Standard-format och -codec (äldre)
 
-> [!div class="op_single_selector" title1="Välj den version av Media Services som du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-media-encoder-standard-formats.md)
 > * [Version 3](../latest/media-encoder-standard-formats.md)
 
@@ -32,12 +32,12 @@ Det här dokumentet innehåller en lista med de vanligaste import- och exportfil
 | Filformat (filnamnstillägg) | Stöds |
 | --- | --- | --- | --- |
 | FLV (med H.264- och AAC-codec) (.flv) |Ja |
-| MXF (.mxf) |Ja |
+| MXF    (.mxf) |Ja |
 | GXF (.gxf) |Ja |
 | MPEG2-PS MPEG2-TS 3GP (TS, PS, .3gp, .3gpp, MPG) |Ja |
-| Windows Media Video (WMV) / ASF (.wmv, .asf) |Ja |
+| Windows Media Video (WMV)/ASF (.wmv, .asf) |Ja |
 | AVI (okomprimerad 8-bitars/10-bitars) (.avi) |Ja |
-| MP4 (.mp4, .m4a, .m4v) / ISMV (.isma, .ismv) |Ja |
+| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Ja |
 | [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Ja |
 | Matroska/WebM (.mkv) |Ja |
 | WAVE/WAV (.wav) |Ja |
@@ -61,8 +61,8 @@ eller
 | Codec för indatavideo | Stöds |
 | --- | --- | --- | --- |
 | AVC 8-bitars/10-bitars, upp till 4:2:2, inklusive AVCIntra |8-bitars 4:2:0 och 4:2:2 |
-| Avid DNxHD (i MXF) |Ja |
-| DVCPro/DVCProHD (i MXF) |Ja |
+| Avid DNxHD (in MXF) |Ja |
+| DVCPro/DVCProHD (in MXF) |Ja |
 | Digital video (DV) (i AVI-filer) |Ja |
 | JPEG 2000 |Ja |
 | MPEG-2 (upp till 422-profil och högnivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10) |Upp till 422-profil |
@@ -78,7 +78,7 @@ eller
 | Apple ProRes Proxy |Ja |
 | Apple ProRes 4444 |Ja |
 | Apple ProRes 4444 XQ |Ja |
-| HEVC/H.265| Omänprofil|
+| HEVC/H.265| Huvud- och Main 10 (&#42;) profiler<br/>Stöd för main 10-profil är avsedd för 8-bitars 4:2:0 innehåll. |
 
 ## <a name="input-audio-codecs"></a>Indataljud
 | Indataljud | Stöds |
@@ -86,8 +86,8 @@ eller
 | AAC (AAC-LC, AAC-HE och AAC-HEv2, upp till 5.1) |Ja |
 | MPEG-nivå 2 |Ja |
 | MP3 (MPEG-1 ljud Layer 3) |Ja |
-| Windows Media ljud |Ja |
-| WAV PCM / |Ja |
+| Windows Media Audio |Ja |
+| WAV/PCM |Ja |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Ja |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Ja |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Ja |

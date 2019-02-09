@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 85b05e50dd989ef8db737df0a43f29b20aefb596
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657764"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978603"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -241,11 +241,11 @@ nyckeldata | Ja | Sträng | Anger en base64-kodad offentlig SSH-nyckel
 
 Ett exempel finns i [101 – vm-sshkey GitHub-snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzureRmVmss` när du lägger till fler än ett certifikat från samma nyckelvalvet, visas följande meddelande:
+### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzVmss` när du lägger till fler än ett certifikat från samma nyckelvalvet, visas följande meddelande:
 
->Update-AzureRmVmss: Lista hemlighet innehåller upprepade instanser av /subscriptions/ < min-prenumerations-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, vilket inte är tillåtet.
+>Update-AzVmss: Lista hemlighet innehåller upprepade instanser av /subscriptions/ < min-prenumerations-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, vilket inte är tillåtet.
 
-Detta kan inträffa om du försöker lägga till samma valv istället för att använda ett nytt valv-certifikat för den befintliga källvalv igen. Den `Add-AzureRmVmssSecret` kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
+Detta kan inträffa om du försöker lägga till samma valv istället för att använda ett nytt valv-certifikat för den befintliga källvalv igen. Den `Add-AzVmssSecret` kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
 
 Uppdatera listan över $vmss.properties.osProfile.secrets[0].vaultCertificates för att lägga till fler hemligheter från samma nyckelvalvet.
 
@@ -284,11 +284,11 @@ Om du vill lära dig mer om att distribuera certifikat för Linux-datorer, se [d
 Se följande PowerShell-exempel för att lägga till ett vault-certifikat till en befintlig hemlighet. Använd bara en hemlig objekt.
 
 ```powershell
-$newVaultCertificate = New-AzureRmVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
+$newVaultCertificate = New-AzVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
 
 $vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVaultCertificate)
 
-Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssName
+Update-AzVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssName
 ```
 
 ### <a name="what-happens-to-certificates-if-you-reimage-a-vm"></a>Vad händer med certifikat om du återavbilda en virtuell dator?
@@ -365,11 +365,11 @@ Ja. Du kan se några exempel MSI-mallar i Azure Quickstart-mallar. Linux: [ http
 Använd följande PowerShell-exempel för att ta bort tillägg för virtuell dator scale set:
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName"
+$vmss = Get-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName"
 
-$vmss=Remove-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
+$vmss=Remove-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
 
-Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
+Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
 
 Du kan hitta Tilläggsnamn värdet i `$vmss`.
@@ -402,9 +402,9 @@ Det finns två huvudsakliga sätt att ändra lösenordet för virtuella datorer 
 
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
-    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
     ```
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hur lägger jag till ett tillägg för alla virtuella datorer i min skalningsuppsättning för virtuella datorer?
@@ -464,13 +464,13 @@ $vmssname = 'autolapbr'
 $location = 'eastus'
 
 # Retrieve the most recent version number of the extension.
-$allVersions= (Get-AzureRmVMExtensionImage -Location $location -PublisherName "Microsoft.Azure.Security" -Type "IaaSAntimalware").Version
+$allVersions= (Get-AzVMExtensionImage -Location $location -PublisherName "Microsoft.Azure.Security" -Type "IaaSAntimalware").Version
 $versionString = $allVersions[($allVersions.count)-1].Split(".")[0] + "." + $allVersions[($allVersions.count)-1].Split(".")[1]
 
-$VMSS = Get-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
+$VMSS = Get-AzVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
 echo $VMSS
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publisher "Microsoft.Azure.Security" -Type "IaaSAntimalware" -TypeHandlerVersion $versionString
-Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
+Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publisher "Microsoft.Azure.Security" -Type "IaaSAntimalware" -TypeHandlerVersion $versionString
+Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
 ### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Jag vill köra ett anpassat skript som finns i ett privat storage-konto. Skriptet körts har när lagringen är offentlig, men när jag försöker använda en signatur för delad åtkomst (SAS), misslyckas. Det här meddelandet visas: ”Obligatoriska parametrar saknas för giltig signatur för delad åtkomst”. Länken + SAS fungerar bra från min lokala webbläsare.

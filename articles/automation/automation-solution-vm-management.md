@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658394"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979657"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -209,7 +209,7 @@ I följande tabell visas de variabler som skapats i ditt Automation-konto. Endas
 |External_AutoStop_TimeAggregationOperator | Operatorn tid-aggregering, som tillämpas på den valda fönsterstorleken för att utvärdera villkoret. Godkända värden är **genomsnittliga**, **minsta**, **maximala**, **totala**, och **senaste**.|
 |External_AutoStop_TimeWindow | Fönsterstorleken då Azure analyserar valda mått för att utlösa en avisering. Den här parametern accepterar indata i timespan-format. Möjliga värden är från 5 minuter till 6 timmar.|
 |External_EnableClassicVMs| Anger om klassiska virtuella datorer som omfattas av lösningen. Standardvärdet är sant. Detta bör anges till falskt för CSP-prenumerationer.|
-|External_ExcludeVMNames | Ange namn på virtuella datorer som ska undantas, att avgränsa namnen med kommatecken utan blanksteg.|
+|External_ExcludeVMNames | Ange namn på virtuella datorer som ska undantas, att avgränsa namnen med kommatecken utan blanksteg. Det här är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer har lagts till virtuella datorer som ska uteslutas går att starta eller stänga av misstag|
 |External_Start_ResourceGroupNames | Anger en eller flera resursgrupper, att avgränsa värden med hjälp av ett kommatecken, avsedda för start-åtgärder.|
 |External_Stop_ResourceGroupNames | Anger en eller flera resursgrupper, att avgränsa värden med hjälp av ett kommatecken, avsedda för stop-åtgärder.|
 |Internal_AutomationAccountName | Anger namnet på Automation-kontot.|
@@ -333,7 +333,7 @@ Det finns ett par alternativ som du kan använda för att se till att en virtuel
 
 ### <a name="exclude-a-vm"></a>Undanta en virtuell dator
 
-Om du vill exkludera en virtuell dator från lösningen kan du lägga till den till den **External_ExcludeVMNames** variabeln. Den här variabeln är en kommaavgränsad lista med specifika virtuella datorer ska undantas från lösningen Starta/Stoppa.
+Om du vill exkludera en virtuell dator från lösningen kan du lägga till den till den **External_ExcludeVMNames** variabeln. Den här variabeln är en kommaavgränsad lista med specifika virtuella datorer ska undantas från lösningen Starta/Stoppa. Den här listan är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer till den här kommaseparerad lista med kan virtuella datorer som är inställda som ska undantas vara oavsiktligt startas eller stoppas.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Ändra scheman för start och avstängning
 

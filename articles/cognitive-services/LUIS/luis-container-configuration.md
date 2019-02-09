@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 9678259f4eb6fc634459f80e47b507ebe435ea37
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878926"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983278"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurera Language Understanding Docker-behållare 
 
@@ -59,7 +59,7 @@ Använd inte starter-nyckel eller nyckeln för redigering.
 
 ## <a name="billing-setting"></a>Inställningen för fakturering
 
-Den `Billing` inställningen anger URI för den _Språkförståelse_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _Språkförståelse_ resurs på Azure.
+Den `Billing` inställningen anger URI för den _Språkförståelse_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _Språkförståelse_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
 
 Den här inställningen kan hittas på följande platser:
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 059c90df16a46c2575635d7c729ec563ef1130c6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1015e6774dac1258820e3ca4b3d06786046a8554
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459731"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980864"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
@@ -42,9 +42,9 @@ Om du tänker använda ögonblicksbilden för att skapa en ny virtuell dator rek
 
 ## <a name="use-powershell"></a>Använd PowerShell
 
-Följande steg visar hur du kopierar VHD-disken, skapa ögonblicksbild konfigurationen och ta en ögonblicksbild av disken med hjälp av den [New AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
+Följande steg visar hur du kopierar VHD-disken, skapa ögonblicksbild konfigurationen och ta en ögonblicksbild av disken med hjälp av den [New AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
-Innan du börjar måste du kontrollera att du har den senaste versionen av AzureRM.Compute PowerShell-modulen, som måste vara version 5.7.0-installationsprogram eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt, kör [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) att skapa en anslutning till Azure.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 1. Ange vissa parametrar: 
 
@@ -58,7 +58,7 @@ $snapshotName = 'mySnapshot'
 2. Hämta den virtuella datorn:
 
  ```azurepowershell-interactive
-$vm = get-azurermvm `
+$vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
 ```
@@ -66,7 +66,7 @@ $vm = get-azurermvm `
 3. Skapa ögonblicksbild-konfigurationen. I det här exemplet är ögonblicksbilden av OS-disken:
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig 
+$snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
@@ -78,7 +78,7 @@ $snapshot =  New-AzureRmSnapshotConfig
 4. Ta ögonblicksbilden:
 
  ```azurepowershell-interactive
-New-AzureRmSnapshot 
+New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 

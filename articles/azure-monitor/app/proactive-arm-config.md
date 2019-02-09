@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881604"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962238"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Hantera regler för smart identifiering för Application Insights med hjälp av Azure Resource Manager-mallar
 
@@ -31,6 +31,7 @@ Du kan konfigurera följande inställningar för en regel för smart identifieri
 - Om regeln är aktiverad (standard är **SANT**.)
 - Om e-postmeddelanden ska skickas till prenumerationsägare, deltagare och läsare när en identifiering hittas (standardinställningen är **SANT**.)
 - Eventuella ytterligare e-mottagare som ska få ett meddelande när en identifiering hittas.
+- * E-postkonfigurationen är inte tillgänglig för regler för Smart identifiering märkta _förhandsversion_.
 
 För att konfigurera regelinställningar för via Azure Resource Manager måste regelkonfigurationen för smart identifiering är nu tillgänglig som en inre resurs i Application Insights-resurs med namnet **ProactiveDetectionConfigs**.
 Varje regel för smart identifiering kan konfigureras med unika meddelandeinställningar för maximal flexibilitet.

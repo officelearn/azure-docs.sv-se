@@ -3,8 +3,8 @@ title: Skriva uttryck för attributmappningar i Azure Active Directory | Microso
 description: Lär dig hur du använder uttrycksmappningar för att omvandla attributvärden till ett acceptabelt format vid automatisk etablering av objekt för SaaS-app i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 3361bc384f3da3d2bde6eab703056dd85356b5f8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: c97fd915e9022171125c7c0f687413e433f82871
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895422"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983852"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -49,7 +49,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
+| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
 | **suffix** |Krävs |Sträng |Den sträng som du vill lägga till i slutet av värdet för datakällan. |
 
 - - -
@@ -72,7 +72,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 
 **Beskrivning:**<br> JOIN() liknar Append(), förutom att det kan kombinera flera **källa** sträng värden till en sträng och varje värde skiljs åt av en **avgränsare** sträng.
 
-Om en av källvärdena är ett attribut med flera värden och sedan varje värde i attributet kommer att anslutas tillsammans, avgränsade avgränsare värdet.
+Om en av källvärdena är ett attribut med flera värden, och sedan varje värde i attributet ska anslutas tillsammans, avgränsade med värdet för avgränsare.
 
 **Parametrar:**<br> 
 
@@ -105,7 +105,7 @@ Om en av källvärdena är ett attribut med flera värden och sedan varje värde
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **Källa** |Krävs |Sträng | Vanligtvis ett förnamn eller senaste name-attribut |
+| **Källa** |Krävs |String | Vanligtvis ett förnamn eller senaste name-attribut. |
 
 - - -
 ### <a name="not"></a>inte
@@ -117,7 +117,7 @@ Om en av källvärdena är ett attribut med flera värden och sedan varje värde
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **Källa** |Krävs |Booleska sträng |Förväntat **källa** värden är ”True” eller ”False”... |
+| **Källa** |Krävs |Booleska sträng |Förväntat **källa** värden är ”True” eller ”False”. |
 
 - - -
 ### <a name="replace"></a>Ersätt
@@ -128,7 +128,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 * När **oldValue** och **ersättningsvärde** tillhandahålls:
   
-  * Ersätter alla förekomster av oldValue i källan med ersättningsvärde
+  * Ersätter alla förekomster av **oldValue** i den **källa** med *ersättningsvärde**
 * När **oldValue** och **mall** tillhandahålls:
   
   * Ersätter alla förekomster av den **oldValue** i den **mall** med den **källa** värde
@@ -167,7 +167,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **uniqueValueRule1... uniqueValueRuleN** |Minst är 2 krävs, inte övre gräns |Sträng | Lista över regler för rapportmodellgenerering unikt värde ska utvärderas |
+| **uniqueValueRule1... uniqueValueRuleN** |Minst är 2 krävs, inte övre gräns |String | Lista över regler för rapportmodellgenerering unikt värde ska utvärderas. |
 
 
 - - -
@@ -219,7 +219,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
+| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
 | **kultur** |Valfri |String |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
 
 - - -
@@ -232,7 +232,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
+| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
 | **kultur** |Valfri |String |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
 
 ## <a name="examples"></a>Exempel

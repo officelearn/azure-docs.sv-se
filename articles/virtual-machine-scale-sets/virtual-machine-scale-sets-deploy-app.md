@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 09145612821cb669e26e3ccb8d15611112eca700
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733152"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980082"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera ditt program i VM-skalningsuppsättningar
+
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. Den här artikeln beskrivs olika sätt att skapa en anpassad virtuell datoravbildning för instanser i en skalningsuppsättning eller automatiskt köra installationsskripten på befintliga VM-instanser. Du också lära dig hur du hanterar program eller uppdateringar av Operativsystemet i en skalningsuppsättning.
 
 
@@ -50,8 +51,8 @@ PowerShell DSC-tillägget kan du anpassa VM-instanser i en skalningsuppsättning
 
 - Instruerar VM-instanser för att ladda ned ett DSC-paket från GitHub- *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Anger att köra ett installationsskript - tillägget `configure-http.ps1`
-- Hämtar information om en skalningsuppsättning med [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
-- Gäller tillägget för Virtuella datorer med [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
+- Hämtar information om en skalningsuppsättning med [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
+- Gäller tillägget för Virtuella datorer med [Update AzVmss](/powershell/module/az.compute/update-azvmss)
 
 DSC-tillägget tillämpas på den *myScaleSet* VM-instanser i resursgruppen med namnet *myResourceGroup*. Ange egna namn enligt följande:
 
@@ -67,12 +68,12 @@ $dscConfig = @{
 }
 
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
                 -ResourceGroupName "myResourceGroup" `
                 -VMScaleSetName "myScaleSet"
 
 # Add the Desired State Configuration extension to install IIS and configure basic website
-$vmss = Add-AzureRmVmssExtension `
+$vmss = Add-AzVmssExtension `
     -VirtualMachineScaleSet $vmss `
     -Publisher Microsoft.Powershell `
     -Type DSC `
@@ -81,13 +82,13 @@ $vmss = Add-AzureRmVmssExtension `
     -Setting $dscConfig
 
 # Update the scale set and apply the Desired State Configuration extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
     -ResourceGroupName "myResourceGroup" `
     -Name "myScaleSet"  `
     -VirtualMachineScaleSet $vmss
 ```
 
-Om uppgraderingen principen på din skalningsuppsättning är *manuell*, uppdatera dina VM-instanser med [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Denna cmdlet gäller konfigurationen för uppdaterade skalningsuppsättningen för VM-instanser och installerar programmet.
+Om uppgraderingen principen på din skalningsuppsättning är *manuell*, uppdatera dina VM-instanser med [uppdatering AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance). Denna cmdlet gäller konfigurationen för uppdaterade skalningsuppsättningen för VM-instanser och installerar programmet.
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Installera en app till en Linux VM med cloud-init

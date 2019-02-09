@@ -3,8 +3,8 @@ title: Rubrikbaserad autentisering med PingAccess för Azure AD Application Prox
 description: Publicera program med PingAccess och App Proxy som stöd för rubrikbaserad autentisering.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5d93eb08b81f6507bc8bc023ceab7c8677546c6a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 279c37af17819cf11bf9f5167ee0b458cd97a183
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191966"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960861"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 

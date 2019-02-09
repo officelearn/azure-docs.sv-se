@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 436dbccfe8d5b732bc64b58ff79dc772ac8b2bce
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754027"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964193"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Kontrollera och att bevilja åtkomst till databasen till SQL Database och SQL Data Warehouse
 
@@ -37,11 +37,14 @@ Det finns två administrativa konton (**Serveradministratör** och **Active Dire
 
 - **Serveradministratör**
 
-När du skapar en Azure SQL-server måste du ange en **Inloggning för serveradministratör**. SQL Server skapar kontot som en inloggning i huvuddatabasen. Det här kontot ansluter med hjälp av SQL Server-autentisering (användarnamn och lösenord). Endast ett av dessa konton kan finnas.   
+  När du skapar en Azure SQL-server måste du ange en **Inloggning för serveradministratör**. SQL Server skapar kontot som en inloggning i huvuddatabasen. Det här kontot ansluter med hjälp av SQL Server-autentisering (användarnamn och lösenord). Endast ett av dessa konton kan finnas.
 
-- **Azure Active Directory-administratör**   
+  > [!NOTE]
+  > Om du vill återställa lösenordet för serveradministratören, går du till den [Azure-portalen](https://portal.azure.com), klickar du på **SQL-servrar**, Välj servern i listan och klicka sedan på **Återställ lösenord**.
 
-Ett Azure Active Directory-konto, antingen ett enskilt eller säkerhetsgruppkonto, kan också konfigureras som en administratör. Det är valfritt att konfigurera en Azure AD-administratör, men en Azure AD-administratör **måste** konfigureras om du vill använda Azure AD-konton för att ansluta till SQL-databas. Mer information om hur du konfigurerar åtkomst till Azure Active Directory finns i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md) och [SSMS-stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+- **Azure Active Directory-administratör**
+
+  Ett Azure Active Directory-konto, antingen ett enskilt eller säkerhetsgruppkonto, kan också konfigureras som en administratör. Det är valfritt att konfigurera en Azure AD-administratör, men en Azure AD-administratör **måste** konfigureras om du vill använda Azure AD-konton för att ansluta till SQL-databas. Mer information om hur du konfigurerar åtkomst till Azure Active Directory finns i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md) och [SSMS-stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 Kontona **Serveradministratör** och **Azure AD-administratör** har följande egenskaper:
 
@@ -71,7 +74,6 @@ En genomgång av hur du skapar en server, en databas, IP-brandväggsregler på s
 
 > [!IMPORTANT]
 > Det rekommenderas att du alltid använder den senaste versionen av Management Studio för att förbli synkroniserad med uppdateringar av Microsoft Azure och SQL Database. [Uppdatera SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-
 
 ## <a name="additional-server-level-administrative-roles"></a>Ytterligare administrativa roller på servernivå
 

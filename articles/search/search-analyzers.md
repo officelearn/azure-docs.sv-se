@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 121b5542f9388355b97744aa224ac824dd8d8728
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 008a24fe9822ca51b81e1f6979a3731d794a8867
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867213"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964346"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analysverktyg för textbearbetning i Azure Search
 
@@ -92,7 +92,7 @@ Gå igenom det här exemplet:
 * Analysverktyg är en egenskap i klassen fält för ett sökbart fält.
 * Ett anpassat analysverktyg är en del av en Indexdefinition. Det kan lätt anpassas (till exempel hur du anpassar ett alternativ i ett filter) eller anpassade på flera platser.
 * I det här fallet anpassade analysatorn är ”my_analyzer”, som i sin tur använder en anpassad standard tokenizer ”my_standard_tokenizer” och två token filter: gemener och anpassade asciifolding filtret ”my_asciifolding”.
-* It also defines 2 custom char filters "map_dash" and "remove_whitespace". Den första som ersätter alla bindestreck med understreck medan den andra mallen tar du bort alla blanksteg. Blankstegen måste vara UTF-8-kodat i regler för mappning. Char-filter tillämpas innan tokenisering och påverkar de resulterande token (de standard tokenizer radbrytningar på bindestreck och blanksteg men inte på understreck).
+* It also defines 2 custom char filters "map_dash" and "remove_whitespace". Den första som ersätter alla bindestreck med understreck medan den andra mallen tar du bort alla blanksteg. Blanksteg måste vara UTF-8-kodat i regler för mappning. Char-filter tillämpas innan tokenisering och påverkar de resulterande token (de standard tokenizer radbrytningar på bindestreck och blanksteg men inte på understreck).
 
 ~~~~
   {

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448474"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965264"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exempel 3 – skapa ett perimeternätverk för att skydda nätverk med en brandvägg, UDR och NSG
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -109,35 +109,46 @@ När routningstabeller skapas är de bundna till sina undernät. För undernäte
 I det här exemplet används följande kommandon för att skapa routningstabellen, lägga till en användardefinierad väg och Binder routningstabellen till ett undernät (Obs!; eventuella objekt nedan som börjar med ett dollartecken (t.ex.: $BESubnet) är användardefinierade variabler i skriptet i den referensavsnittet i det här dokumentet):
 
 1. Först måste du skapa grundläggande routningstabellen. Det här kodfragmentet visar tabellen för Backend-undernät. I skriptet skapas också en motsvarande tabell för undernätet på klientsidan.
-   
-     Ny AzureRouteTable-namnge $BERouteTableName '
-   
-         -Location $DeploymentLocation `
-         -Label "Route table for $BESubnet subnet"
+
+   ```powershell
+   New-AzureRouteTable -Name $BERouteTableName `
+       -Location $DeploymentLocation `
+       -Label "Route table for $BESubnet subnet"
+   ```
+
 2. När routningstabellen har skapats kan specifikt användardefinierade vägar läggas till. I det här liten, kommer all trafik (0.0.0.0/0) att dirigeras via den virtuella installationen (en variabel, $VMIP [0] används för att skicka in IP-adressen som tilldelas när den virtuella installationen har skapats tidigare i skriptet). I skriptet skapas också en motsvarande regel i Frontend-tabellen.
-   
-     Get-AzureRouteTable $BERouteTableName | `
-   
-         Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-         -NextHopType VirtualAppliance `
-         -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 3. Posten ovan vägen åsidosätter ”0.0.0.0/0” standardvägen, men 10.0.0.0/16 Standardregeln fortfarande befintliga som skulle tillåta trafik inom det virtuella nätverket kan dirigera direkt till målet och inte till den virtuella nätverksinstallationen. Till rätt problemet Följ regeln läggas.
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 4. Det finns nu ett val görs. Med ovanstående två vägar dirigerar all trafik till brandväggen för utvärdering, även trafik i ett enda undernät. Detta kan det vara önskvärt, men för att tillåta trafik i ett undernät för att dirigera lokalt utan inblandning av brandväggen tredje mycket specifik regel kan läggas till. Den här vägen för aviseringar som alla adresser destine för det lokala undernätet behöver bara vidarebefordra det direkt (NextHopType = VNETLocal).
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
-            -NextHopType VNETLocal
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+           -NextHopType VNETLocal
+   ```
+
 5. Slutligen med routningstabellen skapas och konfigureras med en användardefinierad routning, måste tabellen nu vara bundet till ett undernät. I skriptet routningstabellen klientdelen också är bundet till undernätet på klientsidan. Här är skriptet bindning för backend-undernät.
-   
-     Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-   
-        -SubnetName $BESubnet `
-        -RouteTableName $BERouteTableName
+
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+       -SubnetName $BESubnet `
+       -RouteTableName $BERouteTableName
+   ```
 
 ## <a name="ip-forwarding"></a>IP-vidarebefordran
 En tillhörande funktion till UDR, är IP-vidarebefordran. Det här är en inställning på en virtuell installation som kan det ta emot trafik som inte är adresserad till installationen och sedan vidarebefordra trafiken till destinationen ultimate.
@@ -152,10 +163,11 @@ Till exempel om trafik från AppVM01 gör en begäran till servern DNS01 skulle 
 Konfigurera IP-vidarebefordran är ett enda kommando och kan göras vid tidpunkten för skapandet av virtuell dator. Kodfragmentet är mot slutet av skriptet och grupperas med UDR-kommandon för flödet av det här exemplet:
 
 1. Anropa den VM-instans som är din virtuella installation brandväggen i det här fallet och aktivera IP-vidarebefordran (Obs!; ett objekt i rött som börjar med ett dollartecken (t.ex.: $VMName[0]) är en användardefinierad variabel från skriptet i referensavsnittet i det här dokumentet. Nollbaserade omges av hakparenteser [0] representerar den första virtuella datorn i matrisen med virtuella datorer för exempelskript för att fungera utan modifiering, den första virtuella datorn (VM 0) måste vara brandväggen):
-   
-     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-   
+
+    ```powershell
+    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
         Set-AzureIPForwarding -Enable
+    ```
 
 ## <a name="network-security-groups-nsg"></a>Nätverkssäkerhetsgrupper (NSG)
 I det här exemplet bygger en NSG-grupp och sedan läsa in med en enda regel. Den här gruppen binds sedan endast till de Frontend och Backend-undernät (inte SecNet). Deklarativt följande regel håller på att skapas:
@@ -166,22 +178,26 @@ I det här exemplet bygger en NSG-grupp och sedan läsa in med en enda regel. De
 
 En intressant avseende Nätverkssäkerhetsgruppen i det här exemplet är att den innehåller endast en regel som visas nedan, vilket är att neka internet-trafik till det hela virtuella nätverket som skulle inkludera Security-undernätet. 
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
-        from the Internet" `
-        -Type Inbound -Priority 100 -Action Deny `
-        -SourceAddressPrefix INTERNET -SourcePortRange '*' `
-        -DestinationAddressPrefix VIRTUAL_NETWORK `
-        -DestinationPortRange '*' `
-        -Protocol *
+```powershell
+Get-AzureNetworkSecurityGroup -Name $NSGName | `
+    Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
+    from the Internet" `
+    -Type Inbound -Priority 100 -Action Deny `
+    -SourceAddressPrefix INTERNET -SourcePortRange '*' `
+    -DestinationAddressPrefix VIRTUAL_NETWORK `
+    -DestinationPortRange '*' `
+    -Protocol *
+```
 
 Men eftersom NSG: N är bara kopplat till Frontend och Backend-undernät, regeln inte bearbetas på trafik inkommande till undernätet för säkerhet. Även om NSG-regel säger utan Internet-trafik till en adress på det virtuella nätverket, eftersom NSG: N har aldrig kopplad till undernätet för säkerhet, därför flödar trafik till undernätet för säkerhet.
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $FESubnet -VirtualNetworkName $VNetName
+```powershell
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $FESubnet -VirtualNetworkName $VNetName
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $BESubnet -VirtualNetworkName $VNetName
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $BESubnet -VirtualNetworkName $VNetName
+```
 
 ## <a name="firewall-rules"></a>Brandväggsregler
 I brandväggen måste vidarebefordra regler skapas. Eftersom brandväggen blockerar eller vidarebefordran alla inkommande, utgående och intra-VNet-trafik krävs många brandväggsregler. Dessutom överskrids all inkommande trafik säkerhetstjänst offentliga IP-adress (på olika portar), för att bearbetas av brandväggen. Ett bra tips är att diagram logiska flöden innan du konfigurerar undernäten och brandväggsregler för att undvika att omarbeta senare. Följande bild är en logisk vy för brandväggsregler i det här exemplet:
@@ -233,9 +249,11 @@ En förutsättning för den virtuella datorn körs i brandväggen är offentliga
 
 En slutpunkt kan öppnas antingen vid tidpunkten för skapandet av VM eller anslår versionen som är klar i exempelskriptet och nedan i det här kodfragmentet (Obs!; alla objekt som börjar med ett dollartecken (t.ex.: $VMName[$i]) är en användardefinierad variabel från skriptet i referens AVS n i det här dokumentet. ”$I” i hakparenteserna, [$i] representerar matris-numret för en specifik virtuell dator i en matris med virtuella datorer):
 
-    Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
-        -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
-        Update-AzureVM
+```powershell
+Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
+    -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
+    Update-AzureVM
+```
 
 Även om inte tydligt visas här på grund av användningen av variabler, men slutpunkter är **endast** öppnas på Molntjänsten säkerhet. Detta är att se till att all inkommande trafik hanteras (dirigeras, NAT hade, släppa) av brandväggen.
 
@@ -338,7 +356,7 @@ Egenskaperna för varje regel som krävs för att slutföra det här exemplet be
   
     Regeln Pass tillåter alla IIS-servrar på undernätet på klientsidan för att nå AppVM01 (IP-adressen 10.0.2.5) med hjälp av alla protokoll som ska få åtkomst till data som krävs av webbprogrammet på alla portar.
   
-    I den här skärmbilden en ”\<explicit dest\>” används i fältet mål för en obestämd 10.0.2.5 som mål. Det kan antingen explicit enligt eller en med namnet nätverksobjekt (som gjordes i förutsättningarna för DNS-servern). Det här är upp till administratören för brandväggen om vilka metoden ska användas. Om du vill lägga till 10.0.2.5 som en Explict Desitnation dubbelklickar du på den första tomma raden under \<explicit dest\> och ange adressen i fönstret som öppnas.
+    I den här skärmbilden en ”\<explicit dest\>” används i fältet mål för en obestämd 10.0.2.5 som mål. Det kan antingen explicit enligt eller en med namnet nätverksobjekt (som gjordes i förutsättningarna för DNS-servern). Det här är upp till administratören för brandväggen om vilka metoden ska användas. Om du vill lägga till 10.0.2.5 som ett Explict mål, dubbelklickar du på den första tomma raden under \<explicit dest\> och ange adressen i fönstret som öppnas.
   
     Med regeln skicka krävs inga NAT eftersom detta är intern trafik så anslutningsmetoden kan anges till ”Nej SNAT”.
   
@@ -389,7 +407,7 @@ Det här exemplet miljö-versionen har slutförts med aktivering brandväggen Ru
 
 ## <a name="traffic-scenarios"></a>Trafik-scenarier
 > [!IMPORTANT]
-> En viktig takeway är att komma ihåg att **alla** kommer trafik genom brandväggen. Så till fjärrskrivbord till IIS01-servern, ska även om det är i Front End-Molntjänsten och på frontend-undernätet för att komma åt den här servern vi behöva RDP i brandväggen på port 8014, och låt brandväggen för att dirigera begäran RDP internt till RDP-Por IIS01 t. Azure portal ”Anslut” knappen fungerar inte eftersom det finns ingen direkt RDP-väg till IIS01 (så länge portalen kan se). Det innebär att alla anslutningar från internet kommer att tjänsten Security och en Port, t.ex. secscv001.cloudapp.net:xxxx.
+> En viktig sak är att komma ihåg att **alla** kommer trafik genom brandväggen. Så till fjärrskrivbord till IIS01-servern, ska även om det är i Front End-Molntjänsten och på frontend-undernätet för att komma åt den här servern vi behöva RDP i brandväggen på port 8014, och låt brandväggen för att dirigera begäran RDP internt till RDP-Por IIS01 t. Azure portal ”Anslut” knappen fungerar inte eftersom det finns ingen direkt RDP-väg till IIS01 (så länge portalen kan se). Det innebär att alla anslutningar från internet kommer att tjänsten Security och en Port, t.ex. secscv001.cloudapp.net:xxxx.
 > 
 > 
 
@@ -592,6 +610,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
 > 
 > 
 
+```powershell
     <# 
      .SYNOPSIS
       Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
@@ -604,7 +623,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
        - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
        - One server on the FrontEnd Subnet
        - Three Servers on the BackEnd Subnet
-       - IP Forwading from the FireWall out to the internet
+       - IP Forwarding from the FireWall out to the internet
        - User Defined Routing FrontEnd and BackEnd Subnets to the NVA
 
       Before running script, ensure the network configuration file is created in
@@ -702,7 +721,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.4"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - The First Application Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -711,7 +730,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - The Second Application Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -730,7 +749,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User Defined Variables or   #
     # Configuration past this point #
     # ----------------------------- #
 
@@ -741,7 +760,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
 
       # Create Storage Account
         If (Test-AzureName -Storage -Name $StorageAccountName) { 
-            Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
+            Write-Host "Fatal Error: This storage account name is already in use, please pick a different name." -ForegroundColor Red
             Return}
         Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
@@ -872,7 +891,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
             |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $FEPrefix `
             -NextHopType VNETLocal
 
-      # Assoicate the Route Tables with the Subnets
+      # Associate the Route Tables with the Subnets
         Write-Host "Binding Route Tables to the Subnets" -ForegroundColor Cyan 
         Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
             -SubnetName $BESubnet `
@@ -920,11 +939,12 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
       Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
       Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
       Write-Host
-
+```
 
 #### <a name="network-config-file"></a>Konfigurationsfilen för nätverk
 Spara den här xml-filen med uppdaterade plats och lägga till länken till den här filen till variabeln $NetworkConfigFile i skriptet ovan.
 
+```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
@@ -957,6 +977,7 @@ Spara den här xml-filen med uppdaterade plats och lägga till länken till den 
         </VirtualNetworkSites>
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
+```
 
 #### <a name="sample-application-scripts"></a>Exempelskript för program
 Om du vill installera ett exempelprogram för detta och andra DMZ-exempel finns en på följande länk: [Exempelskript för program][SampleApp]

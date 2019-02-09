@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 63334c861cc85c7119ccd3111429dee47ada3162
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862946"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984366"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vad bra yttranden är avsedda för LUIS-app
 
@@ -39,7 +39,7 @@ När du först komma igång genom [lägger du till exempel yttranden](luis-how-t
 
 ### <a name="utterances-arent-always-well-formed"></a>Yttranden stöddata inte alltid
 
-Det kan vara en mening, till exempel ”boka en biljett till Paris för mig” eller ett fragment i en mening, t.ex. ”bokning” eller ”Paris flygning”.  Användare kan du ofta göra stavfel. När du planerar din app bör tänka på om huruvida du använder [Bing stavningskontroll Check][(luis-tutorial-bing-spellcheck) att korrigera indata från användaren innan det skickas till LUIS. 
+Det kan vara en mening, till exempel ”boka en biljett till Paris för mig” eller ett fragment i en mening, t.ex. ”bokning” eller ”Paris flygning”.  Användare kan du ofta göra stavfel. När du planerar din app bör tänka på om du använder [stavningskontroll i Bing](luis-tutorial-bing-spellcheck.md) att korrigera indata från användaren innan det skickas till LUIS. 
 
 Om du inte stavningskontroll kontroll användaren yttranden, bör du tränar LUIS på yttranden som innehåller Skriv- och stavfel.
 

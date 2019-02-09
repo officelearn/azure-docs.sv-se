@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2016
+ms.date: 02/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: c284236af64c3981a5d15570bcd2705bb7d6a99b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121062"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962119"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
  Smart identifiering varnar automatiskt dig om potentiella prestandaproblem i ditt webbprogram. Den utför proaktiv analys av telemetrin som appen skickar till [Application Insights](../../azure-monitor/app/app-insights-overview.md). Om det finns en plötslig i Felfrekvens eller onormala mönster i klient- eller prestanda, får du en avisering. Ingen konfiguration krävs för den här funktionen. Det fungerar om ditt program skickar så mycket telemetri.
@@ -46,6 +46,14 @@ Det finns tre typer av identifiering:
 * [Smart identifiering – Azure Cloud Service problem](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Du får aviseringar om din app finns i Azure Cloud Services och en rollinstans har startfel, vanligt återkommande återanvändning eller runtime-krascher.
 
 (Hjälplänkar i varje meddelande tar dig till artiklarna.)
+
+## <a name="smart-detection-email-notifications"></a>Smart identifiering av e-postaviseringar
+
+Alla regler för Smart identifiering, förutom regler som markerats som förhandsversion, är konfigurerade som standard skickar e-postmeddelanden när identifieringar hittas.
+
+Konfigurera e-postmeddelanden för en viss regel för Smart identifiering kan göras genom att öppna Smart identifiering **inställningar** bladet och välja regeln, vilket öppnar den **Redigera regeln** bladet.
+
+Du kan också ändra konfigurationen med Azure Resource Manager-mallar. [Se regler för smart identifiering hantera Application Insights med hjälp av Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) för mer information.
 
 ## <a name="video"></a>Video
 

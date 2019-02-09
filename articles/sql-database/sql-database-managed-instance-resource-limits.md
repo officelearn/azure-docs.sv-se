@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 799f47b291b3943dcb4d6b31bc8df732c28990cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: a9e5be3c1dcbf4461bd00b2b1ce530aa16e441ef
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816602"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962136"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database Managed Instance resursbegränsningar
 
@@ -34,7 +34,7 @@ Hanterad instans har egenskaper och resursbegränsningar som beror på den under
 
 Azure SQL Database Managed Instance kan distribueras på två maskinvara generationens (Gen4 och Gen5). Maskinvarugenerationer har olika egenskaper som beskrivs i följande tabell:
 
-|   | **Generation 4** | **5: e generationen** |
+|   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Maskinvara | Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysiska kärnor) | Intel E5-2673 v4 (Broadwell) 2.3-GHz-processorer, snabb NVMe SSD, vCore = 1 LP (hyper-tråd) |
 | Compute | 8, 16, 24 virtuella kärnor | 8, 16, 24, 32, 40, 64, 80 vCores |
@@ -51,7 +51,7 @@ Hanterad instans har två tjänstnivåer - generell användning och affärskriti
 | --- | --- | --- |
 | Antal virtuella kärnor\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
 | Minne | Gen4: 56 GB – 168 GB<br/>Gen5: 40.8 GB – 408 GB<br/>\*I proportion till antalet virtuella kärnor | Gen4: 56 GB – 168 GB <br/> Gen5: 40.8 GB – 408 GB<br/>\*I proportion till antalet virtuella kärnor |
-| Maxstorlek för lagring | 8 TB | Gen 4: 1 TB <br/> 5: e generationen: <br/>-1 TB för 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>-4 TB för 32, 40, 64, 80 virtuella kärnor |
+| Maxstorlek för lagring | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>-1 TB för 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>-4 TB för 32, 40, 64, 80 virtuella kärnor |
 | Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans | Bestäms av den maximala lagringsstorleken per instans |
 | Maximalt antal databaser per instans | 100 | 100 |
 | Max databasfiler per instans | Upp till 280 | 32 767 filer per databas |

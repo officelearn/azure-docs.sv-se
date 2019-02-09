@@ -2,21 +2,21 @@
 title: Slutanvändarupplevelser för program – Azure Active Directory | Microsoft Docs
 description: Azure Active Directory (Azure AD) erbjuder anpassningsbara sätt att distribuera program för slutanvändare i din organisation.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 19e6c34ac549926626900db82b78a9bd9dc9265c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 285fd4be7953c9965ea3f91580753e05bcb4d89d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55204175"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964399"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Upplevelse för slutanvändare för program i Azure Active Directory
 Azure Active Directory (Azure AD) erbjuder anpassningsbara sätt att distribuera program för slutanvändare i din organisation:

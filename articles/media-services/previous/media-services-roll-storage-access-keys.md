@@ -4,7 +4,7 @@ description: Den här artikeln ger vägledning om hur du uppdaterar Media Servic
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 4ab2c58e5a0f9e04d824eeea443a13af7a32617d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 096372215ae44902c633489d197dc1d8aa60f193
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619664"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983023"
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys"></a>Uppdatera Media Services efter återställning av lagringsåtkomstnycklar
+# <a name="update-media-services-after-rolling-storage-access-keys-legacy"></a>Uppdatera Media Services efter återställning av lagringsåtkomstnycklar (äldre)
 
 När du skapar ett nytt konto i Azure Media Services (AMS) uppmanas du även välja ett Azure Storage-konto som används för att lagra ditt medieinnehåll. Du kan lägga till fler än ett storage-konto till ditt Media Services-konto. Den här artikeln visar hur du rotera lagringsnycklar. Den visar också hur du lägger till storage-konton till ett media-konto. 
 
@@ -68,7 +68,7 @@ I följande exempel visar hur du hämtar storage-konto och synkronisera den med 
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Steg för att lägga till lagringskonton på ditt AMS-konto
 
-I följande artikel visar hur du lägger till storage-konton till AMS-kontot: [koppla flera lagringskonton till ett Media Services-konto](meda-services-managing-multiple-storage-accounts.md).
+I följande artikel visar hur du lägger till storage-konton till AMS-kontot: [Koppla flera lagringskonton till ett Media Services-konto](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -77,4 +77,4 @@ I följande artikel visar hur du lägger till storage-konton till AMS-kontot: [k
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Bekräftelser
-Vi hoppas att du är medveten om följande personer som har bidragit till att skapa det här dokumentet: Cenk Dingiloglu, Milano Gada Seva Titov.
+Vi hoppas att du är medveten om följande personer som har bidragit till att skapa det här dokumentet: Cenk Dingiloglu, Milan Gada, Seva Titov.

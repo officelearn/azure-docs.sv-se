@@ -7,7 +7,7 @@ author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
-keywords: DSC
+keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 18d6478763fd6551cc8baac6ea54e8d91f1a28e6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629976"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980609"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till Azure Desired State Configuration-tilläggshanterare
 
@@ -35,16 +35,16 @@ Den här artikeln innehåller information om båda scenarierna: med hjälp av DS
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- **Lokal dator**: för att interagera med Azure VM-tillägget, måste du använda Azure portal eller Azure PowerShell SDK.
-- **Gästagenten**: den virtuella Azure-datorer som har konfigurerats av DSC-konfigurationen måste vara ett operativsystem som stöder Windows Management Framework (WMF) 4.0 eller senare. En fullständig lista över operativsystemversioner som stöds finns i den [versionshistorik för DSC-tillägget](/powershell/dsc/azuredscexthistory).
+- **Lokal dator**: För att interagera med Azure VM-tillägget, måste du använda Azure portal eller Azure PowerShell SDK.
+- **Gästagenten**: Azure VM som har konfigurerats av DSC-konfigurationen måste vara ett operativsystem som stöder Windows Management Framework (WMF) 4.0 eller senare. En fullständig lista över operativsystemversioner som stöds finns i den [versionshistorik för DSC-tillägget](/powershell/dsc/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Termer och begrepp
 
 Den här guiden förutsätter förtrogenhet med följande begrepp:
 
-- **Konfigurationen**: A DSC konfigurationsdokumentet.
-- **Noden**: ett mål för en DSC-konfiguration. I det här dokumentet *noden* alltid refererar till en Azure-dator.
-- **Konfigurationsdata**: en .psd1-fil som har miljödata för en konfiguration.
+- **Konfiguration av**: Ett dokument för DSC-konfiguration.
+- **Noden**: Ett mål för en DSC-konfiguration. I det här dokumentet *noden* alltid refererar till en Azure-dator.
+- **Konfigurationsdata**: En .psd1-fil som innehåller miljön data för en konfiguration.
 
 ## <a name="architecture"></a>Arkitektur
 
@@ -70,17 +70,17 @@ I de flesta fall är Resource Manager-distributionsmallar det förväntade sätt
 
 PowerShell-cmdlets som används för att hantera DSC-tillägget bäst i interaktiva felsökning och scenarier för insamling av information. Du kan använda cmdlets för att paketera, publicera och övervaka distribution av DSC-tillägget. Cmdlet: ar för DSC-tillägget inte ännu har uppdaterats för att fungera med den [standard konfigurationsskript](#default-configuration-script).
 
-Den **publicera AzureRmVMDscConfiguration** cmdlet tar i en konfigurationsfil, söker beroende DSC-resurser och skapar sedan en .zip-fil. ZIP-filen innehåller konfigurations- och DSC-resurser som krävs för att införa konfigurationen. Cmdlet: en kan också skapa paketet lokalt genom att använda den *- OutputArchivePath* parametern. I annat fall cmdlet: en publiceras .zip-filen till blob storage och skyddar den med en SAS-token.
+Den **publicera AzVMDscConfiguration** cmdlet tar i en konfigurationsfil, söker beroende DSC-resurser och skapar sedan en .zip-fil. ZIP-filen innehåller konfigurations- och DSC-resurser som krävs för att införa konfigurationen. Cmdlet: en kan också skapa paketet lokalt genom att använda den *- OutputArchivePath* parametern. I annat fall cmdlet: en publiceras .zip-filen till blob storage och skyddar den med en SAS-token.
 
 .Ps1-konfigurationsskript som cmdleten skapar är i ZIP-filen i roten på arkivmappen. Modulmappen placeras i arkivmapp i resurser.
 
-Den **Set-AzureRmVMDscExtension** cmdlet lägger in de inställningar som kräver att PowerShell DSC-tillägg i en VM-konfigurationsobjektet.
+Den **Set-AzVMDscExtension** cmdlet lägger in de inställningar som kräver att PowerShell DSC-tillägg i en VM-konfigurationsobjektet.
 
-Den **Get-AzureRmVMDscExtension** cmdlet hämtar status för DSC-tillägg för en specifik virtuell dator.
+Den **Get-AzVMDscExtension** cmdlet hämtar status för DSC-tillägg för en specifik virtuell dator.
 
-Den **Get-AzureRmVMDscExtensionStatus** cmdlet: en hämtar status för DSC-konfiguration som trätt i kraft av hanteraren för DSC-tillägget. Den här åtgärden kan utföras på en enskild virtuell dator eller på en grupp virtuella datorer.
+Den **Get-AzVMDscExtensionStatus** cmdlet: en hämtar status för DSC-konfiguration som trätt i kraft av hanteraren för DSC-tillägget. Den här åtgärden kan utföras på en enskild virtuell dator eller på en grupp virtuella datorer.
 
-Den **Remove-AzureRmVMDscExtension** cmdlet tar bort tillägget hanteraren från en specifik virtuell dator. Denna cmdlet har *inte* ta bort konfigurationen, avinstallera WMF eller ändra inställningarna som används på den virtuella datorn. Det bara tar bort tillägg för hanteraren. 
+Den **Remove-AzVMDscExtension** cmdlet tar bort tillägget hanteraren från en specifik virtuell dator. Denna cmdlet har *inte* ta bort konfigurationen, avinstallera WMF eller ändra inställningarna som används på den virtuella datorn. Det bara tar bort tillägg för hanteraren. 
 
 Viktig information om cmdlet: ar för resurshanteraren DSC-tillägg:
 
@@ -117,9 +117,9 @@ $location = 'westus'
 $vmName = 'myVM'
 $storageName = 'demostorage'
 #Publish the configuration script to user storage
-Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
-Set-AzureRmVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
 ```
 
 ## <a name="azure-portal-functionality"></a>Azure portal-funktioner
@@ -133,21 +133,21 @@ Konfigurera DSC i portalen:
 
 Portalen samlar in följande indata:
 
-- **Konfiguration av moduler eller skript**: det här fältet är obligatoriskt (formuläret har inte uppdaterats för den [standard konfigurationsskript](#default-configuration-script)). Konfiguration av moduler och skript kräver en .ps1-fil som har ett konfigurationsskript eller en .zip-fil med en .ps1-konfigurationsskript i roten. Om du använder en .zip-fil, måste alla beroende resurser inkluderas i modulen mappar i .zip. Du kan skapa ZIP-filen med hjälp av den **publicera AzureVMDscConfiguration - OutputArchivePath** cmdlet som ingår i Azure PowerShell SDK. ZIP-filen laddas upp till blobblagringen användare och skyddas av en SAS-token.
+- **Konfiguration av moduler eller skript**: Det här fältet är obligatoriskt (formuläret har inte uppdaterats för den [standard konfigurationsskript](#default-configuration-script)). Konfiguration av moduler och skript kräver en .ps1-fil som har ett konfigurationsskript eller en .zip-fil med en .ps1-konfigurationsskript i roten. Om du använder en .zip-fil, måste alla beroende resurser inkluderas i modulen mappar i .zip. Du kan skapa ZIP-filen med hjälp av den **publicera AzureVMDscConfiguration - OutputArchivePath** cmdlet som ingår i Azure PowerShell SDK. ZIP-filen laddas upp till blobblagringen användare och skyddas av en SAS-token.
 
-- **Modulkvalificerade namn Configuration**: du kan inkludera flera configuration-funktioner i en .ps1-fil. Ange namnet på konfigurationsskript för .ps1 följt av \\ och namnet på funktionen konfiguration. Till exempel om .ps1 skriptet har namnet configuration.ps1 och konfigurationen är **IisInstall**, ange **configuration.ps1\IisInstall**.
+- **Modulkvalificerade namn på konfiguration**: Du kan inkludera flera configuration-funktioner i en .ps1-fil. Ange namnet på konfigurationsskript för .ps1 följt av \\ och namnet på funktionen konfiguration. Till exempel om .ps1 skriptet har namnet configuration.ps1 och konfigurationen är **IisInstall**, ange **configuration.ps1\IisInstall**.
 
-- **Konfiguration av argument**: om configuration-funktionen tar argument kan du ange dem här i formatet **argumentName1 = värde1, argumentName2 = värde2**. Det här formatet är ett annat format där configuration argument accepteras i PowerShell-cmdlets eller Resource Manager-mallar.
+- **Konfiguration av argument**: Om configuration-funktionen tar argument kan du ange dem här i formatet **argumentName1 = värde1, argumentName2 = värde2**. Det här formatet är ett annat format där configuration argument accepteras i PowerShell-cmdlets eller Resource Manager-mallar.
 
-- **PSD1 för Konfigurationsdatafilen**: det här fältet är valfritt. Om din konfiguration kräver en konfigurationsfil för data i .psd1, kan du använda det här fältet för att välja datafältet och överföra den till blobblagringen användare. Konfigurationsdatafilen skyddas av en SAS-token i blob storage.
+- **PSD1 för Konfigurationsdatafilen**: Det här fältet är valfritt. Om din konfiguration kräver en konfigurationsfil för data i .psd1, kan du använda det här fältet för att välja datafältet och överföra den till blobblagringen användare. Konfigurationsdatafilen skyddas av en SAS-token i blob storage.
 
 - **WMF Version**: Anger vilken version av Windows Management Framework (WMF) och som ska installeras på den virtuella datorn. Denna egenskap anges till senaste installerar den senaste versionen av WMF. För närvarande endast möjliga värden för den här egenskapen är 4.0, 5.0, 5.1, och de senaste. Dessa möjliga värden är föremål för uppdateringar. Standardvärdet är **senaste**.
 
 - **Datainsamling**: Anger om tillägget samlar in telemetri. Mer information finns i [Azure DSC-tillägg-datainsamling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
 
-- **Version**: Anger versionen för DSC-tillägget för att installera. Information om versioner finns i [versionshistorik för DSC-tillägget](/powershell/dsc/azuredscexthistory).
+- **Version**: Anger vilken version av DSC-tillägget för att installera. Information om versioner finns i [versionshistorik för DSC-tillägget](/powershell/dsc/azuredscexthistory).
 
-- **Automatiskt uppgradera delversion**: det här fältet som mappar till den **AutoUpdate** växla i cmdlets och aktiverar tillägget att uppdatera till den senaste versionen automatiskt under installationen. **Ja** instruerar tilläggshanterare att använda den senaste tillgängliga versionen och **nr** tvingar den **Version** angivna installeras. Att välja varken **Ja** eller **nr** är detsamma som att välja **nr**.
+- **Automatisk uppgradering delversion**: Det här fältet som mappar till den **AutoUpdate** växla i cmdlets och aktiverar tillägget att uppdatera till den senaste versionen automatiskt under installationen. **Ja** instruerar tilläggshanterare att använda den senaste tillgängliga versionen och **nr** tvingar den **Version** angivna installeras. Att välja varken **Ja** eller **nr** är detsamma som att välja **nr**.
 
 ## <a name="logs"></a>Logs
 

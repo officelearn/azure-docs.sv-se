@@ -15,15 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 738bdd303d6e8e41df179021ebca521100ace325
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 56d637fd1aec05089e4f20c9205f648934594cc6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828085"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981255"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Kryptera virtuella diskar på en virtuell Windows-dator
 För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar i Azure krypteras. Diskar krypteras med hjälp av kryptografiska nycklar som skyddas i ett Azure Key Vault. Du kontrollerar dessa kryptografiska nycklar och kan granska deras användning. Den här artikeln beskriver hur du kryptera virtuella diskar på en virtuell Windows-dator med hjälp av Azure PowerShell. Du kan också [kryptera en Linux VM med hjälp av Azure CLI](../linux/encrypt-disks.md).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="overview-of-disk-encryption"></a>Översikt över diskkryptering
 Virtuella diskar på Windows virtuella datorer krypteras i vila med hjälp av BitLocker. Det är kostnadsfritt för att kryptera virtuella diskar i Azure. Kryptografiska nycklar lagras i ett Azure Key Vault med hjälp av software protection eller kan du importera eller generera dina nycklar i Maskinvarusäkerhetsmoduler (HSM) som är certifierade enligt standarderna FIPS 140-2 nivå 2-standarder. Kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. Du kan behålla kontrollen över dessa kryptografiska nycklar och kan granska deras användning. 
@@ -63,21 +65,21 @@ Innan du börjar bör du kontrollera att den senaste versionen av Azure PowerShe
 
 Det första steget är att skapa ett Azure Key Vault för att lagra kryptografiska nycklar. Azure Key Vaults kan lagra nycklar, hemligheter eller lösenord så att du kan implementera dem på ett säkert sätt i dina program och tjänster. För virtuell diskkryptering, ska du skapa ett Nyckelvalv för att lagra en krypteringsnyckel som används för att kryptera eller dekryptera din virtuella diskar. 
 
-Aktivera Azure Key Vault-providern i Azure-prenumerationen med [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider), skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas ett Resursgruppsnamn *myResourceGroup* i den *USA, östra* plats:
+Aktivera Azure Key Vault-providern i Azure-prenumerationen med [registrera AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider), skapa en resursgrupp med [New AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas ett Resursgruppsnamn *myResourceGroup* i den *USA, östra* plats:
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $location = "East US"
 
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"
-New-AzureRmResourceGroup -Location $location -Name $rgName
+Register-AzResourceProvider -ProviderNamespace "Microsoft.KeyVault"
+New-AzResourceGroup -Location $location -Name $rgName
 ```
 
-Azure-Nyckelvalv som kryptografiska nycklar och associerade beräkningsresurser som lagring och Virtuellt datorn måste vara i samma region. Skapa ett Azure Key Vault med [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) och aktivera Key Vault för användning med diskkryptering. Ange ett unikt namn för Key Vault för *keyVaultName* på följande sätt:
+Azure-Nyckelvalv som kryptografiska nycklar och associerade beräkningsresurser som lagring och Virtuellt datorn måste vara i samma region. Skapa ett Azure Key Vault med [New AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) och aktivera Key Vault för användning med diskkryptering. Ange ett unikt namn för Key Vault för *keyVaultName* på följande sätt:
 
 ```azurepowershell-interactive
 $keyVaultName = "myKeyVault$(Get-Random)"
-New-AzureRmKeyVault -Location $location `
+New-AzKeyVault -Location $location `
     -ResourceGroupName $rgName `
     -VaultName $keyVaultName `
     -EnabledForDiskEncryption
@@ -85,7 +87,7 @@ New-AzureRmKeyVault -Location $location `
 
 Du kan lagra kryptografiska nycklar med hjälp av programvara eller maskinvara Security Model (HSM)-skydd.  Ett standard Key Vault lagrar bara programvaruskyddade nycklar. Använda en HSM kräver en premium Key Vault en extra kostnad. När du skapar en premium Key Vault i föregående steg till den *- Sku ”Premium”* parametern. I följande exempel används programvaruskyddade nycklar eftersom vi har skapat ett Nyckelvalv som standard. 
 
-För båda modellerna för skydd måste Azure-plattformen beviljas åtkomst för att begära krypteringsnycklarna när den virtuella datorn startas för att dekryptera virtuella diskar. Skapa en krypteringsnyckel i Key Vault med [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey). I följande exempel skapas en nyckel med namnet *myKey*:
+För båda modellerna för skydd måste Azure-plattformen beviljas åtkomst för att begära krypteringsnycklarna när den virtuella datorn startas för att dekryptera virtuella diskar. Skapa en krypteringsnyckel i Key Vault med [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey). I följande exempel skapas en nyckel med namnet *myKey*:
 
 ```azurepowershell-interactive
 Add-AzureKeyVaultKey -VaultName $keyVaultName `
@@ -94,12 +96,12 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
 ```
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-Testa krypteringsprocessen genom att skapa en virtuell dator med [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas en virtuell dator med namnet *myVM* med hjälp av en *Windows Server 2016 Datacenter* bild. När du tillfrågas om autentiseringsuppgifter, anger du användarnamnet och lösenordet som ska användas för den virtuella datorn:
+Testa krypteringsprocessen genom att skapa en virtuell dator med [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVM* med hjälp av en *Windows Server 2016 Datacenter* bild. När du tillfrågas om autentiseringsuppgifter, anger du användarnamnet och lösenordet som ska användas för den virtuella datorn:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -Location $location `
@@ -112,15 +114,15 @@ New-AzureRmVm `
 
 
 ## <a name="encrypt-a-virtual-machine"></a>Kryptera en virtuell dator
-Kryptera din virtuella dator med [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) med hjälp av Azure Key Vault-nyckeln. I följande exempel hämtar all viktig information och sedan krypterar den virtuella datorn med namnet *myVM*:
+Kryptera din virtuella dator med [Set-AzVMDiskEncryptionExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiskencryptionextension) med hjälp av Azure Key Vault-nyckeln. I följande exempel hämtar all viktig information och sedan krypterar den virtuella datorn med namnet *myVM*:
 
 ```azurepowershell-interactive
-$keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
+$keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
 $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
+Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -VMName "myVM" `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
     -DiskEncryptionKeyVaultId $keyVaultResourceId `
@@ -128,10 +130,10 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -KeyEncryptionKeyVaultId $keyVaultResourceId
 ```
 
-Acceptera uppmaningen att fortsätta med VM-kryptering. Den virtuella datorn startas om under processen. När krypteringsprocessen har slutförts och den virtuella datorn har startats om, granska krypteringsstatus med [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus):
+Acceptera uppmaningen att fortsätta med VM-kryptering. Den virtuella datorn startas om under processen. När krypteringsprocessen har slutförts och den virtuella datorn har startats om, granska krypteringsstatus med [Get-AzVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiskencryptionstatus):
 
 ```azurepowershell-interactive
-Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
+Get-AzVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
 ```
 
 Utdata ser ut ungefär så här:

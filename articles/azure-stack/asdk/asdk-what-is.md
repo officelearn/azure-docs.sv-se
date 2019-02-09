@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9cfa06dfd0b38aa288502afbee30fb48ee7dd4e1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 489ef2c472cb9622e83a04428ec9c5958e5a5003
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247671"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983380"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Vad är Azure Stack Development Kit?
 [Integrerade Microsoft Azure Stack-system](../azure-stack-poc.md) i intervallet från 4 – 16 noder och gemensamt stöds av en partner för maskinvara och Microsoft. Du kan använda integrerade Azure Stack-systemen för att aktivera nya scenarier för produktionsarbetsbelastningar. Om du är en Azure Stack-operatör som hanterar den integrerade system-infrastrukturen och erbjuder tjänster, se vår [operatorn dokumentation](https://docs.microsoft.com/azure/azure-stack).
@@ -50,7 +50,7 @@ Nod ASDK distributioner skiljer sig från flera noder Azure Stack-distributioner
 |-----|-----|-----|
 |**Skalning**|Alla komponenter är installerade på en nod serverdator.|Kan variera i storlek från 4 – 16 noder.|
 |**Återhämtning**|Konfiguration av en nod ge inte hög tillgänglighet|[Hög tillgänglighet](../azure-stack-key-features.md#high-availability-for-azure-stack) funktioner som stöds.|
-|**Nätverk**|ASDK använder en virtuell dator med namnet AzS-BGPNAT01 för att dirigera all ASDK nätverkstrafik. Det finns inga krav på ytterligare växel.|AzS-BGPNAT01 VM finns inte i flernodiga distributioner. Mer komplexa [network routningsinfrastruktur](../azure-stack-network.md#network-infrastructure) krävs inklusive Top-Of-Rack (TOR), Hanteringsstyrenheten för baskort (BMC) och kantlinje (datacenternätverk) växlar.|
+|**Nätverk**|ASDK värden dirigerar alla ASDK nätverkstrafik. Det finns inga krav på ytterligare växel.|Mer komplexa [network routningsinfrastruktur](../azure-stack-network.md#network-infrastructure) i flernodiga distributioner krävs inklusive Top-Of-Rack (TOR), Hanteringsstyrenheten för baskort (BMC) och kantlinje (datacenternätverk) växlar.|
 |**Patch- och uppdateringsprocessen**|Om du vill flytta till en ny version av ASDK, måste du distribuera om ASDK på värddatorn för development kit.|[Korrigera och uppdatera](../azure-stack-updates.md) process som används för att uppdatera den installerade versionen av Azure Stack.|
 |**Support**|MSDN Azure Stack-forum. Microsofts kundservice och Support (CSS) support är *inte* tillgänglig för icke-produktionsmiljöer.|[MSDN Azure Stack-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) och stöd för fullständig CSS.|
 | | |

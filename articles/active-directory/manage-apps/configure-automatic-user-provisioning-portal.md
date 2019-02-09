@@ -3,9 +3,8 @@ title: Hantering för företagsappar i Azure Active Directory för användaretab
 description: Lär dig att hantera användarens kontoetablering för enterprise-appar som använder Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: ca0be0d4e2b9f76a521d8fc04195311b3603e411
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ae4f92d9dc1671ab32a2a309da5095d59b9b5212
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180559"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961227"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto etablering för företagsappar i Azure portal
 Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera etablering av automatisk användarkonto och avetablering för program som stöder den. Läs mer om automatisk användarkontoetablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).

@@ -16,18 +16,18 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f900fa5105f42dac57b392d41a8cd888850fc648
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 491664067c87de8f94d2395cb2ffbdeade2595b0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249503"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979555"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integrering med Azure Stack-datacenter
 
-Den här artikeln beskriver kundupplevelsen för slutpunkt till slutpunkt i Azure Stack, från att köpa en integrerad lösning genom att lokala distributionen av en leverantör av lösningar. Använd informationen för att underlätta din resa och för att skapa förväntningar på det du, som Azure Stack-kund kan förvänta dig när de integrerar Azure Stack i ditt datacenter.
+Den här artikeln beskriver kundupplevelsen för slutpunkt till slutpunkt i Azure Stack, från att köpa ett integrerat system genom att lokala distributionen av en leverantör av lösningar. Använd den här informationen för att underlätta din resa och för att skapa förväntningar för ett Azure Stack-kunder.
 
-Azure Stack-kund, bör du förutse följande datacenter integration faser:
+Azure Stack-kund, bör du förutse följande faser:
 
 |     |Planeringsfasen|Process för|Före|Factory process|Maskinvara leverans|Distribution på plats|
 |-----|-----|-----|-----|-----|-----|-----|
@@ -63,7 +63,7 @@ Under den här fasen måste du bestämma hur du vill integrera Azure Stack i dit
 Den [Allmänt datacenter integration överväganden](azure-stack-datacenter-integration.md) artikeln innehåller information som hjälper till att du slutför mallen kallas kalkylblad för distribution. 
 
 > [!IMPORTANT]
-> Under det här steget är det viktigt att all information som krävs är undersöks och valt innan ordning lösningen. Tänk på att det här steget tar tid och kräver samordning och samla in data från flera områden inom din organisation. 
+> Under det här steget är det viktigt att all information som krävs är undersöks och valt innan ordning lösningen. Tänk på att det här steget tar tid och kräver samordning och samla in data från flera områden inom din organisation. Felaktig eller ofullständig information kan resultera i en längre distribution. 
 
 I fasen före distributionen måste du fatta beslut om följande:
 
@@ -90,7 +90,7 @@ Det är **avgörande** att alla nödvändiga data är låst och kan *innan den p
 
 -   Alla certifikat måste köpas och är redo.
 
--   Domännamnet måste vara valt.
+-   Regionsnamn måste vara valt.
 
 -   Alla nätverksparametrar integration slutförs och överensstämmer med vad du har delat med leverantören.
 
@@ -102,16 +102,16 @@ För att distribuera Azure Stack, måste tillgång till tekniker från maskinvar
 
 Följande är vad du bör förvänta sig teknikern under distributionen av:
 
-- Kontrollera alla kablar och kantlinje anslutningen för att säkerställa att lösningen är korrekt uppbyggd och uppfyller dina krav
-- Konfigurera lösningen HLH (maskinvara livscykel Host)
+- Kontrollera alla kablar och kantlinje anslutningen för att säkerställa att lösningen är korrekt uppbyggd och uppfyller dina krav.
+- Konfigurera lösningen HLH (maskinvara livscykel Host), om sådan finns.
 - Kontrollera att alla BMC, BIOS och nätverket är korrekta.
-- Kontrollera att den inbyggda programvaran för alla komponenter är den senaste godkända versionen av lösningen
-- Starta distributionen
+- Kontrollera att den inbyggda programvaran för alla komponenter är den senaste godkända versionen av lösningen.
+- Starta distributionen.
 
 > [!NOTE]
 > En procedur för distribution av teknikern kan ta ungefär en vecka för företag för att slutföra.
 
-## <a name="post-integration-phase"></a>Efter integrering fas
+## <a name="post-deployment-phase"></a>Efter distributionen fas
 Flera steg måste utföras av partnern innan lösningen skickas till kunden i fasen efter integrering. I den här fasen är verifiering viktigt att se till att systemet har distribuerats och fungerar korrekt. 
 
 Åtgärder som vidtas av OEM-Partner är:
@@ -122,13 +122,13 @@ Flera steg måste utföras av partnern innan lösningen skickas till kunden i fa
 
 -   [Marketplace-syndikering](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Konfigurationsfiler för säkerhetskopiering växel
+-   Säkerhetskopiering växelkonfiguration och HLH konfigurationsfiler
 
 -   Ta bort DVM
 
 -   Förbereda en sammanfattning av kund för distribution
 
--   [Kontrollera uppdateringar att kontrollera att lösningen-klientprogramvara uppdateras till den senaste versionen](azure-stack-updates.md)
+-   [Kontrollera uppdateringar att kontrollera att lösningen-klientprogramvara uppdateras till den senaste versionen](.\azure-stack-updates.md)
 
 Det finns flera steg som är obligatoriska eller valfria beroende på installationstypen av.
 

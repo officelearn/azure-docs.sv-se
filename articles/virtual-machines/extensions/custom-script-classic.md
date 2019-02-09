@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: roiyz
-ms.openlocfilehash: 8eb7822962988b02f09c2a2ea31b745ef01d5533
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: f7a1cb0ff1e530f15db7d56421fcc67555ac8ada
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451858"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978569"
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Anpassade skript-tillägget för Windows med hjälp av den klassiska distributionsmodellen
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](custom-script-windows.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](custom-script-windows.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../includes/virtual-machines-classic-portal.md)]
 
 Det anpassade Skripttillägget laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skripten kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Det anpassade skripttillägget är integrerat med Azure Resource Manager-mallar och kan också köras med hjälp av Azure CLI, PowerShell, Azure-portalen eller REST API:n för virtuella Azure-datorer.
@@ -78,7 +78,7 @@ Följande JSON visar schemat för tillägget för anpassat skript. Tillägget kr
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | utgivare | Microsoft.Compute |
-| Tillägget | CustomScriptExtension |
+| extension | CustomScriptExtension |
 | typeHandlerVersion | 1.8 |
 | fileUris (t.ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (t.ex.) | PowerShell - ExecutionPolicy obegränsad - filen konfigurera-musik-app.ps1 |
@@ -89,7 +89,7 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schem
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Den `Set-AzureVMCustomScriptExtension` kommando kan användas för att lägga till tillägget för anpassat skript i en befintlig virtuell dator. Mer information finns i [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+Den `Set-AzureVMCustomScriptExtension` kommando kan användas för att lägga till tillägget för anpassat skript i en befintlig virtuell dator. Mer information finns i [Set-AzVMCustomScriptExtension ](https://docs.microsoft.com/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
 # create vm object

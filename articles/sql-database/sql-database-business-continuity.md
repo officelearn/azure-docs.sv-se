@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 90d95d7ad1ffb3200a69e0e7980dae2d7ed97470
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894334"
+ms.locfileid: "55960891"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -100,6 +100,7 @@ Använda grupper för automatisk redundans om programmet uppfyller något av des
 - Den extra kostnaden för aktiv geo-replikering är lägre än de potentiella ekonomiska skyldigheterna och den associerade affärsförlusten.
 
 När du utför en åtgärd, hur lång tid det tar att återställa och hur mycket data går förlorade beror på hur du väljer att använda dessa funktioner för affärskontinuitet i ditt program. Verkligen, kan du välja att använda en kombination av databassäkerhetskopior och aktiv geo-replikering beroende på dina programkrav. En beskrivning av designöverväganden för fristående databaser och för elastiska pooler när dessa funktioner för affärskontinuitet, finns i [utforma ett program för katastrofåterställning i molnet](sql-database-designing-cloud-solutions-for-disaster-recovery.md) och [elastisk lagringspoolen strategier för haveriberedskap](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
 
 Följande avsnitt innehåller en översikt över stegen för att återställa med hjälp av databassäkerhetskopior eller aktiv geo-replikering. Detaljerade anvisningar för planering av krav, steg efter återställning och information om hur du simulerar ett avbrott för att utföra ett programåterställningstest, i [återställa en SQL-databas från ett avbrott](sql-database-disaster-recovery.md).
 

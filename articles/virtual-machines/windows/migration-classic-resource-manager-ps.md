@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: e1144611c68e8a3c450f8017388cfa84629f9921
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5e905168ab2c2f10bcfadfc605fdcaa800e70332
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256501"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982015"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure PowerShell
 De här stegen visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS)-resurser från den klassiska distributionsmodellen Azure Resource Manager-distributionsmodellen.
@@ -36,6 +36,8 @@ Här är ett flödesschema för att identifiera den ordning som stegen måste ut
 
 ![Skärmbild som visar migreringsstegen](media/migration-classic-resource-manager/migration-flow.png)
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="step-1-plan-for-migration"></a>Steg 1: Planera för migrering
 Här följer några metodtips som vi rekommenderar medan du utvärderar migrera IaaS-resurser från klassisk till Resource Manager:
 
@@ -48,13 +50,13 @@ Här följer några metodtips som vi rekommenderar medan du utvärderar migrera 
 >ExpressRoute-gatewayer som ansluter till ExpressRoute-kretsar i en annan prenumeration migreras inte automatiskt. I sådana fall kan du ta bort ExpressRoute-gatewayen, migrera det virtuella nätverket och återskapa gatewayen. Se [migrera ExpressRoute circuits och tillhörande virtuella nätverk från klassiskt till Resource Manager-distributionsmodellen](../../expressroute/expressroute-migration-classic-resource-manager.md) för mer information.
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Steg 2: Installera den senaste versionen av Azure PowerShell
-Det finns två huvudsakliga alternativ för att installera Azure PowerShell: [PowerShell-galleriet](https://www.powershellgallery.com/profiles/azure-sdk/) eller [webbplattformen (WebPI)](https://aka.ms/webpi-azps). Installationsprogram för webbplattform får månatliga uppdateringar. PowerShell-galleriet tar emot uppdateringar regelbundet. Den här artikeln är baserad på Azure PowerShell-version 2.1.0.
+Det finns två huvudsakliga alternativ för att installera Azure PowerShell: [PowerShell-galleriet](https://www.powershellgallery.com/profiles/azure-sdk/) eller [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). Installationsprogram för webbplattform får månatliga uppdateringar. PowerShell-galleriet tar emot uppdateringar regelbundet. Den här artikeln är baserad på Azure PowerShell-version 2.1.0.
 
 Installationsanvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 <br>
 
-## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>Steg 3: Kontrollera att du är administratör för prenumerationen på Azure-portalen
+## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>Steg 3: Se till att du är administratör för prenumerationen på Azure-portalen
 För att genomföra migreringen, du måste läggas till som medadministratör för prenumerationen på den [Azure-portalen](https://portal.azure.com).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
@@ -69,19 +71,19 @@ Starta först en PowerShell-kommandotolk. För migrering, måste du konfigurera 
 Logga in på ditt konto för Resource Manager-modellen.
 
 ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
 ```
 
 Hämta tillgängliga prenumerationer med hjälp av följande kommando:
 
 ```powershell
-    Get-AzureRMSubscription | Sort Name | Select Name
+    Get-AzSubscription | Sort Name | Select Name
 ```
 
 Ange din Azure-prenumeration för den aktuella sessionen. Det här exemplet anges prenumerationsnamnet standard **min Azure-prenumeration**. Ersätt exempel prenumerationens namn med dina egna.
 
 ```powershell
-    Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
+    Select-AzSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 > [!NOTE]
@@ -92,13 +94,13 @@ Ange din Azure-prenumeration för den aktuella sessionen. Det här exemplet ange
 Registrera med resursprovidern migrering med hjälp av följande kommando:
 
 ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+    Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
 Vänta fem minuter att slutföra registreringen. Du kan kontrollera statusen för godkännandet med hjälp av följande kommando:
 
 ```powershell
-    Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
 Se till att RegistrationState `Registered` innan du fortsätter.
@@ -129,7 +131,7 @@ Du kan använda följande PowerShell-kommando för att kontrollera det aktuella 
 Det här exemplet kontrollerar tillgängligheten den **västra USA** region. Ersätt region Exempelnamn med dina egna.
 
 ```powershell
-Get-AzureRmVMUsage -Location "West US"
+Get-AzVMUsage -Location "West US"
 ```
 
 ## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Steg 6: Kör kommandon för att migrera IaaS-resurser

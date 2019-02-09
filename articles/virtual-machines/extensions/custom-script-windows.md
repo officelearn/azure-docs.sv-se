@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963512"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984400"
 ---
 # <a name="custom-script-extension-for-windows"></a>Tillägget för anpassat skript för Windows
 
@@ -31,7 +31,7 @@ Det här dokumentet beskriver hur du använder det anpassade Skripttillägget me
 ## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]  
-> Använd inte tillägget för anpassat skript för att köra Update-AzureRmVM med samma virtuella dator som dess parameter, eftersom det väntar på sig självt.  
+> Använd inte tillägget för anpassat skript för att köra Update-AzVM med samma virtuella dator som dess parameter, eftersom det väntar på sig självt.  
 >   
 > 
 
@@ -117,7 +117,7 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 | tidsstämpel (t.ex.) | 123456789 | 32-bitars heltal |
 | commandToExecute (t.ex.) | PowerShell - ExecutionPolicy obegränsad - filen konfigurera-musik-app.ps1 | sträng |
 | storageAccountName (t.ex.) | examplestorageacct | sträng |
-| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q / + hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg == | sträng |
+| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
 
 >[!NOTE]
 >Dessa egenskapsnamn är skiftlägeskänsliga. Undvik distributionsproblem genom att använda namnen som visas här.
@@ -140,15 +140,15 @@ Inställningar för offentliga skickas i klartext till den virtuella datorn där
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schema, som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget för anpassat skript under en malldistribution för Azure Resource Manager. Följande exempel visar hur du använder tillägget för anpassat skript:
 
-* [Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Självstudier: Distribuera virtual machine-tillägg med Azure Resource Manager-mallar](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Distribuera två Nivåprogram på Windows och Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Den `Set-AzureRmVMCustomScriptExtension` kommando kan användas för att lägga till tillägget för anpassat skript i en befintlig virtuell dator. Mer information finns i [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+Den `Set-AzVMCustomScriptExtension` kommando kan användas för att lägga till tillägget för anpassat skript i en befintlig virtuell dator. Mer information finns i [Set-AzVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location myLocation `
     -FileUri myURL `
@@ -173,7 +173,7 @@ $storagekey = "1234ABCD"
 $ProtectedSettings = @{"storageAccountName" = $storageaccname; "storageAccountKey" = $storagekey; "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File 1_Add_Tools.ps1"};
 
 #run command
-Set-AzureRmVMExtension -ResourceGroupName myRG `
+Set-AzVMExtension -ResourceGroupName myRG `
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "buildserver1" ` 
@@ -190,7 +190,7 @@ I det här exemplet kan du använda en lokal SMB-server för din skriptplats Obs
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
  
-Set-AzureRmVMExtension -ResourceGroupName myRG 
+Set-AzVMExtension -ResourceGroupName myRG 
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "serverUpdate" 
@@ -213,7 +213,7 @@ Om du vill köra det anpassade skripttillägget mer än en gång kan du bara utf
 Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure PowerShell-modulen. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 Tillägget utförande-utdatan loggas till filer som finns i följande katalog på den virtuella måldatorn.

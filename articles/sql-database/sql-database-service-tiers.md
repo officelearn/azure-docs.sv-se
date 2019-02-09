@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e0455ef99016fe1029f17256a6dbf5d9bbd8aa4d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3e4e9d9fb3b7e9a66ec3522e046bdca1ecad98c9
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890577"
+ms.locfileid: "55965101"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
 
@@ -39,10 +39,20 @@ Följande tabell och diagrammet Jämför och kontrastera dessa två inköpschef 
 |**Inköpsmodell**|**Beskrivning**|**Bäst för**|
 |---|---|---|
 |DTU-baserad modell|Den här modellen är baserad på ett paketerat mått av beräkning, lagring och IO-resurser. Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [vad är dtu: er och edtu: er?](sql-database-service-tiers.md#dtu-based-purchasing-model).|Bäst för kunder som vill ha enkel, förkonfigurerade alternativ.|
-|vCore-baserad modell|Den här modellen kan du välja oberoende beräknings- och lagringsresurser. Du kan också använda Azure Hybrid-förmånen för SQL Server för att få kostnadsbesparingar.|Bäst för kunder som värde flexibilitet, kontroll och transparens.|
+|vCore-baserad modell|Den här modellen kan du välja oberoende beräknings- och lagringsresurser. Den vCore-baserade inköpsmodellen kan du använda [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) att få kostnadsbesparingar.|Bäst för kunder som värde flexibilitet, kontroll och transparens.|
 ||||  
 
 ![Prismodell](./media/sql-database-service-tiers/pricing-model.png)
+
+## <a name="compute-costs"></a>Beräkna kostnader
+
+Beräkningskostnaden Visar total beräknings-kapacitet som tillhandahålls för programmet. På affärsnivå kritiska-allokera vi automatiskt minst 3 repliker. För att återspegla den här ytterligare tilldelning av beräkningsresurser är priset i den vCore-baserade inköpsmodellen cirka 2.7 x högre på kritiska-affärsnivå än på tjänstnivån generell användning. Av samma orsak högre lagringen pris per GB på de kritiska-affärsnivå återspeglar hög i/o och låg fördröjning av SSD-lagring. På samma gång är kostnaden för lagring av säkerhetskopior inte skillnaden mellan dessa två tjänstnivåer eftersom i båda fallen använder vi en klass standardlagring.
+
+## <a name="storage-costs"></a>Lagringskostnader
+
+Olika typer av lagring faktureras på olika sätt. För lagring av data debiteras du för den etablerade lagring baserat på den maximala storleken för databas eller pool du väljer. Kostnaden ändras inte om inte du minska eller öka den högsta. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans och allokeras dynamiskt. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen. Det tillkommer ingen ytterligare avgift för lagringsenhet för säkerhetskopior för upp till 100 procent av ditt totala etablerade serverutrymme. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras i GB per månad. Om du till exempel har en databaslagringsstorlek på 100 GB får du 100 GB säkerhetskopiering utan extra kostnad. Men om säkerhetskopieringen är på 110 GB får du betala för de extra 10 GB.
+
+Du debiteras för lagring av säkerhetskopior för en enkel databas, på en proportionell beräkning för den lagring som har tilldelats till säkerhetskopior av databasen minus på databasens storlek. Du debiteras för lagring av säkerhetskopior för en elastisk pool, på en proportionell beräkning för den lagring som har tilldelats till säkerhetskopior av databasen på alla databaser i poolen minus den maximala datastorleken för den elastiska poolen. Varje ökning av databasens storlek eller elastisk pool eller ökning av transaktioner, kräver mer lagringsutrymme och därför ökar din faktura för lagring av säkerhetskopior.  Om du ökar den maximala datastorleken kan den här nya är dras av från Faktureras säkerhetskopieringslagring storlek.
 
 ## <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
 
@@ -97,6 +107,22 @@ Om du vill migrera en befintlig lokal- eller SQL Server VM-arbetsbelastning till
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Arbetsbelastningar som har nytta av en elastisk pool med resurser
 
 Pooler lämpar sig för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av ett medelvärde för låg användning med relativt ovanliga användningstoppar. SQL Database utvärderar automatiskt den historiska resursanvändningen för databaser på en befintlig SQL Database-server och rekommenderar lämplig poolkonfiguration på Azure Portal. Mer information finns i [När ska jag använda en elastisk pool?](sql-database-elastic-pool.md)
+
+## <a name="service-tier-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om tjänstnivå
+
+### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Måste jag ta mitt program offline för att konvertera från en DTU-baserad databas till en vCore-baserad tjänstenivå
+
+De nya tjänstenivåerna erbjuder en enkel konverteringsmetod online som liknar den befintliga processen att uppgradera databaser från tjänstenivån Standard till Premium och vice versa. Den här konverteringen kan inledas med Azure portal, PowerShell, Azure CLI, T-SQL eller REST API. Se [Hantera enkla databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
+
+### <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>Jag kan byta en databas från en vCore-baserade tjänstnivå till en DTU-baserade
+
+Ja, kan du enkelt konvertera din databas till stöds prestanda ändamålet med hjälp av Azure portal, PowerShell, Azure CLI, T-SQL eller REST API. Se [Hantera enkla databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
+
+### <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Jag kan uppgradera eller nedgradera mellan generell användning och affärskritisk-tjänstnivåer
+
+Ja, med vissa begränsningar. Ditt mål-SKU måste uppfylla maximala databas eller elastisk pool-storlek som du har konfigurerat för den befintliga distributionen. Om du använder [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), SKU affärskritisk är endast tillgänglig för kunder med Enterprise Edition-licenser. Endast de användare som har migrerats från lokala på tjänstnivån för generell användning med Azure Hybrid-förmånen för SQL Server med Enterprise Edition-licenser kan uppgradera till kritiska-företagsnivån. Mer information finns i [vad är Azure Hybrid-förmånen för SQL Server specifika rättigheter](https://azure.microsoft.com/pricing/hybrid-benefit/)?
+
+Den här konverteringen resulterar inte i driftstopp och kan inledas via Azure portal, PowerShell, Azure CLI, T-SQL eller REST API. Se [Hantera enkla databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

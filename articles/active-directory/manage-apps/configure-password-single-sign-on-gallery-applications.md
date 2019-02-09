@@ -3,8 +3,8 @@ title: Så här konfigurerar du lösenord för enkel inloggning för ett Azure A
 description: Hur du konfigurerar ett program för säker lösenordsbaserad enkel inloggning när det redan finns i Azure AD-Programgalleriet
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.openlocfilehash: 0ae6e684a379cc68feb0606b0a810b7e891f1c01
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815412"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962051"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för ett Azure AD-galleriprogram
 

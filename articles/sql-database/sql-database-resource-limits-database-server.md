@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 11/13/2018
-ms.openlocfilehash: 5f2e71736d25003e6b4e9640a5f82dd1d92b0d95
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: 189b6bc3de4cc17d16c18baf046c5ede9b6363a2
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508308"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962666"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resursgränser för Azure SQL Database-server
 
@@ -76,7 +76,6 @@ När den påträffar hög användning för sessionen eller arbete, är minskning
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga frågor och svar.
 - Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
 - Information om dtu: er och edtu: er finns i [dtu: er och edtu: er](sql-database-service-tiers.md#dtu-based-purchasing-model).
 - Information om storleksgränser för tempdb finns i [TempDB i Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

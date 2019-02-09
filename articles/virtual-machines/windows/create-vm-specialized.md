@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 53062ee6384113ef8c483bc9cc6b407559c35994
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 662713a5ef350bd34f25558de69e3cbfd5fc80a3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406134"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982870"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en särskild disk med hjälp av PowerShell
 
@@ -37,22 +37,16 @@ Du kan också använda Azure portal för att [skapa en ny virtuell dator från e
 
 Den här artikeln visar hur du använder hanterade diskar. Om du har en äldre distribution som kräver att du använder ett lagringskonto, se [skapa en virtuell dator från en specialiserad virtuell Hårddisk i ett lagringskonto](sa-create-vm-specialized.md).
 
-## <a name="before-you-begin"></a>Innan du börjar
-Kontrollera att du har den senaste versionen av AzureRM.Compute PowerShell-modulen för att använda PowerShell. 
-
-```powershell
-Install-Module AzureRM -RequiredVersion 6.0.0
-```
-Mer information finns i [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>Alternativ 1: Använd en befintlig disk
 
-Om du har en virtuell dator som du har tagit bort och du vill återanvända OS-disken du skapar en ny virtuell dator, använder [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermdisk?view=azurermps-6.8.1).
+Om du har en virtuell dator som du har tagit bort och du vill återanvända OS-disken du skapar en ny virtuell dator, använder [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk?view=azurermps-6.8.1).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
 $osDiskName = 'myOsDisk'
-$osDisk = Get-AzureRmDisk `
+$osDisk = Get-AzDisk `
 -ResourceGroupName $resourceGroupName `
 -DiskName $osDiskName
 ```
@@ -76,31 +70,31 @@ Du behöver ett lagringskonto i Azure för att lagra den överförda virtuella H
 Visa tillgängliga storage-konton.
 
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 Om du vill använda ett befintligt lagringskonto, fortsätter du till den [överför den virtuella Hårddisken](#upload-the-vhd-to-your-storage-account) avsnittet.
 
 Skapa ett lagringskonto.
 
-1. Du behöver namnet på resursgruppen där lagringskontot ska skapas. Använd Get-AzureRmResourceGroup finns i alla resursgrupper i prenumerationen.
+1. Du behöver namnet på resursgruppen där lagringskontot ska skapas. Använd Get-AzResourceGroup finns i alla resursgrupper i prenumerationen.
    
     ```powershell
-    Get-AzureRmResourceGroup
+    Get-AzResourceGroup
     ```
 
     Skapa en resursgrupp med namnet *myResourceGroup* i den *västra USA* region.
 
     ```powershell
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
        -Name myResourceGroup `
        -Location "West US"
     ```
 
-2. Skapa ett lagringskonto med namnet *mystorageaccount* i den nya resursgruppen med hjälp av den [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet.
+2. Skapa ett lagringskonto med namnet *mystorageaccount* i den nya resursgruppen med hjälp av den [New AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet.
    
     ```powershell
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
        -ResourceGroupName myResourceGroup `
        -Name mystorageaccount `
        -Location "West US" `
@@ -109,12 +103,12 @@ Skapa ett lagringskonto.
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella Hårddisken till ditt storage-konto 
-Använd den [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet för att ladda upp den virtuella Hårddisken till en behållare i ditt storage-konto. Det här exemplet överför filen *myVHD.vhd* från ”C:\Users\Public\Documents\Virtual hårddiskar\" till ett lagringskonto med namnet *mystorageaccount* i den  *myResourceGroup* resursgrupp. Filen lagras i behållare med namnet *mycontainer* och det nya filnamnet blir *myUploadedVHD.vhd*.
+Använd den [Lägg till AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet för att ladda upp den virtuella Hårddisken till en behållare i ditt storage-konto. Det här exemplet överför filen *myVHD.vhd* från ”C:\Users\Public\Documents\Virtual hårddiskar\" till ett lagringskonto med namnet *mystorageaccount* i den  *myResourceGroup* resursgrupp. Filen lagras i behållare med namnet *mycontainer* och det nya filnamnet blir *myUploadedVHD.vhd*.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $resourceGroupName `
+Add-AzVhd -ResourceGroupName $resourceGroupName `
    -Destination $urlOfUploadedVhd `
    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
@@ -138,13 +132,13 @@ Det här kommandot kan ta en stund att slutföra beroende på din nätverksanslu
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>Skapa en hanterad disk från den virtuella Hårddisken
 
-Skapa en hanterad disk från en specialiserad virtuell Hårddisk i ditt storage-konto med hjälp av [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Det här exemplet används *myOSDisk1* för namnet på disken, placerar du disken i *Standard_LRS* lagring och använder *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* som URI för källan VHD.
+Skapa en hanterad disk från en specialiserad virtuell Hårddisk i ditt storage-konto med hjälp av [New AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Det här exemplet används *myOSDisk1* för namnet på disken, placerar du disken i *Standard_LRS* lagring och använder *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* som URI för källan VHD.
 
 Skapa en ny resursgrupp för den nya virtuella datorn.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location `
+New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
@@ -153,8 +147,8 @@ Skapa den nya OS-disken från den överförda virtuella Hårddisken.
 ```powershell
 $sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
 $osDiskName = 'myOsDisk'
-$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
+$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
+    (New-AzDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
@@ -167,7 +161,7 @@ Du kan skapa en kopia av en virtuell dator som använder hanterade diskar genom 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Ta en ögonblicksbild av OS-disken
 
-Du kan ta en ögonblicksbild av en hel virtuell dator (inklusive alla diskar) eller bara en enda disk. Följande steg visar hur du kan ta en ögonblicksbild av bara operativsystemdisken för den virtuella datorn med den [New AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
+Du kan ta en ögonblicksbild av en hel virtuell dator (inklusive alla diskar) eller bara en enda disk. Följande steg visar hur du kan ta en ögonblicksbild av bara operativsystemdisken för den virtuella datorn med den [New AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
 Innan du definiera vissa parametrar. 
 
@@ -181,20 +175,20 @@ $snapshotName = 'mySnapshot'
 Hämta det Virtuella datorobjektet.
 
 ```powershell
-$vm = Get-AzureRmVM -Name $vmName `
+$vm = Get-AzVM -Name $vmName `
    -ResourceGroupName $resourceGroupName
 ```
 Hämta namnet på OS-disk.
 
  ```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName `
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName `
    -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
 Skapa ögonblicksbild-konfigurationen. 
 
  ```powershell
-$snapshotConfig =  New-AzureRmSnapshotConfig `
+$snapshotConfig =  New-AzSnapshotConfig `
    -SourceUri $disk.Id `
    -OsType Windows `
    -CreateOption Copy `
@@ -204,24 +198,24 @@ $snapshotConfig =  New-AzureRmSnapshotConfig `
 Ta ögonblicksbilden.
 
 ```powershell
-$snapShot = New-AzureRmSnapshot `
+$snapShot = New-AzSnapshot `
    -Snapshot $snapshotConfig `
    -SnapshotName $snapshotName `
    -ResourceGroupName $resourceGroupName
 ```
 
 
-Om du vill använda den här ögonblicksbilden för att skapa en virtuell dator som måste vara hög prestanda, lägger du till parametern `-AccountType Premium_LRS` till kommandot New-AzureRmSnapshot. Den här parametern skapar ögonblicksbilden så att den lagras som en hanterad Disk i Premium. Premium Managed Disks är dyrare än Standard, så du behöver Premium innan du använder den här parametern.
+Om du vill använda den här ögonblicksbilden för att skapa en virtuell dator som måste vara hög prestanda, lägger du till parametern `-AccountType Premium_LRS` till kommandot New-AzSnapshot. Den här parametern skapar ögonblicksbilden så att den lagras som en hanterad Disk i Premium. Premium Managed Disks är dyrare än Standard, så du behöver Premium innan du använder den här parametern.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Skapa en ny disk från ögonblicksbilden
 
-Skapa en hanterad disk från ögonblicksbilden med hjälp av [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Det här exemplet används *myOSDisk* för diskens namn.
+Skapa en hanterad disk från ögonblicksbilden med hjälp av [New AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Det här exemplet används *myOSDisk* för diskens namn.
 
 Skapa en ny resursgrupp för den nya virtuella datorn.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location `
+New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
@@ -234,8 +228,8 @@ $osDiskName = 'myOsDisk'
 Skapa den hantera disken.
 
 ```powershell
-$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig  -Location $location -CreateOption Copy `
+$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
+    (New-AzDiskConfig  -Location $location -CreateOption Copy `
     -SourceResourceId $snapshot.Id) `
     -ResourceGroupName $destinationResourceGroup
 ```
@@ -253,7 +247,7 @@ Skapa den [virtuellt nätverk](../../virtual-network/virtual-networks-overview.m
    
     ```powershell
     $subnetName = 'mySubNet'
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig `
        -Name $subnetName `
        -AddressPrefix 10.0.0.0/24
     ```
@@ -262,7 +256,7 @@ Skapa den [virtuellt nätverk](../../virtual-network/virtual-networks-overview.m
    
     ```powershell
     $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork `
+    $vnet = New-AzVirtualNetwork `
        -Name $vnetName -ResourceGroupName $destinationResourceGroup `
        -Location $location `
        -AddressPrefix 10.0.0.0/16 `
@@ -278,11 +272,11 @@ Det här exemplet anger nätverkssäkerhetsgruppsnamn (NSG) till *myNsg* och Reg
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $destinationResourceGroup `
    -Location $location `
    -Name $nsgName -SecurityRules $rdpRule
@@ -298,7 +292,7 @@ Om du vill aktivera kommunikation med den virtuella datorn i det virtuella nätv
    
     ```powershell
     $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress `
+    $pip = New-AzPublicIpAddress `
        -Name $ipName -ResourceGroupName $destinationResourceGroup `
        -Location $location `
        -AllocationMethod Dynamic
@@ -308,7 +302,7 @@ Om du vill aktivera kommunikation med den virtuella datorn i det virtuella nätv
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName `
+    $nic = New-AzNetworkInterface -Name $nicName `
        -ResourceGroupName $destinationResourceGroup `
        -Location $location -SubnetId $vnet.Subnets[0].Id `
        -PublicIpAddressId $pip.Id `
@@ -323,31 +317,31 @@ Det här exemplet anges VM-namnet *myVM* och VM-storleken till *Standard_A2*.
 
 ```powershell
 $vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
 ### <a name="add-the-nic"></a>Lägga till NIC
     
 ```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
 
 ### <a name="add-the-os-disk"></a>Lägg till OS-disk 
 
-Lägg till OS-disken i konfigurationen med hjälp av [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). Det här exemplet anger storleken på disken för att *128 GB* och kopplar den hantera disken som en *Windows* OS-disken.
+Lägg till OS-disken i konfigurationen med hjälp av [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). Det här exemplet anger storleken på disken för att *128 GB* och kopplar den hantera disken som en *Windows* OS-disken.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
+$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
 ### <a name="complete-the-vm"></a>Slutför den virtuella datorn 
 
-Skapa den virtuella datorn med hjälp av [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) med konfigurationer som vi precis skapade.
+Skapa den virtuella datorn med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) med konfigurationer som vi precis skapade.
 
 ```powershell
-New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
+New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
 Om det här kommandot lyckas visas utdata som liknar detta:
@@ -363,7 +357,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 Du bör se den nya virtuella datorn antingen i den [Azure-portalen](https://portal.azure.com) under **Bläddra** > **virtuella datorer**, eller genom att använda följande PowerShell-kommandon.
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $destinationResourceGroup
+$vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 

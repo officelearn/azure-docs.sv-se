@@ -3,8 +3,8 @@ title: Felsöka Application Proxy | Microsoft Docs
 description: Beskriver hur du felsöker fel i Azure AD-programproxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e6560209d3dd4fe2185e0f5b16c29bf235223805
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9daec14acd23cdd2444699efb30aa7ff891ca18c
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167503"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962153"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med Application Proxy och felmeddelanden
 Om fel uppstår i komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD-programproxyn fungerar korrekt:

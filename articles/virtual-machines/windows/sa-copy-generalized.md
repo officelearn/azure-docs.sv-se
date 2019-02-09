@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 63fdf9cf24c7e412533f15ff0701bc8fb481602a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cf0eb7a0b9e38397034c03ef2b4310ed67c6e6dd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240621"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980388"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Hur du skapar en ohanterad VM-avbildning från en Azure-dator
 
@@ -29,8 +29,7 @@ Den här artikeln beskriver storage-konton. Vi rekommenderar att du använder ha
 
 Den här artikeln visar hur du använder Azure PowerShell för att skapa en avbildning av en generaliserad virtuell Azure-dator med hjälp av ett lagringskonto. Du kan sedan använda avbildningen för att skapa en annan virtuell dator. Bilden innehåller operativsystemdisken och datadiskar som är kopplade till den virtuella datorn. Bilden innehåller inte de virtuella nätverksresurserna, så du måste konfigurera de här resurserna när du skapar den nya virtuella datorn. 
 
-## <a name="prerequisites"></a>Förutsättningar
-Du måste ha Azure PowerShell-version 1.0.x eller senare installerad. Om du inte redan har installerat PowerShell, Läs [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för installationssteg.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="generalize-the-vm"></a>Generalisera den virtuella datorn 
 Det här avsnittet visar hur att generalisera den virtuella datorn i Windows för användning som en bild. Generalisera en virtuell dator tar bort all personlig kontoinformation, bland annat och förbereder datorn som ska användas som en bild. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
@@ -63,19 +62,19 @@ Du kan också generalisera en Linux VM med hjälp av `sudo waagent -deprovision+
 1. Öppna Azure PowerShell och logga in på ditt Azure-konto.
    
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
    
     Ett popup-fönster öppnas där du kan ange dina autentiseringsuppgifter för Azure-konto.
 2. Hämta prenumerations-ID för dina tillgängliga prenumerationer.
    
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 3. Ange rätt prenumeration med hjälp av prenumerations-ID.
    
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
+    Select-AzSubscription -SubscriptionId "<subscriptionID>"
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Frigör den virtuella datorn och ange läget till generaliserad
@@ -87,19 +86,19 @@ Du kan också generalisera en Linux VM med hjälp av `sudo waagent -deprovision+
 1. Frigör VM-resurser.
    
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
+    Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
     Den *Status* för den virtuella datorn i Azure portal ändras från **stoppad** till **Stoppad (frigjord)**.
 2. Ange status för den virtuella datorn till **generaliserad**. 
    
     ```powershell
-    Set-AzureRmVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
+    Set-AzVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
     ```
 3. Kontrollera status för den virtuella datorn. Den **OSState/generaliserad** avsnittet för den virtuella datorn ska ha den **DisplayStatus** inställd **virtuell dator generaliserad**.  
    
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -Status
+    $vm = Get-AzVM -ResourceGroupName <resourceGroup> -Name <vmName> -Status
     $vm.Statuses
     ```
 
@@ -108,7 +107,7 @@ Du kan också generalisera en Linux VM med hjälp av `sudo waagent -deprovision+
 Skapa en ohanterad VM-avbildning i mål-storage-behållare med hjälp av det här kommandot. Avbildningen skapas i samma lagringskonto som den ursprungliga virtuella datorn. Den `-Path` parametern sparar en kopia av JSON-mallen för den Virtuella källdatorn till din lokala dator. Den `-DestinationContainerName` parametern är namnet på den behållare som du vill lagra dina avbildningar. Om behållaren inte finns skapas den åt dig.
    
 ```powershell
-Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
+Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -DestinationContainerName <destinationContainerName> -VHDNamePrefix <templateNamePrefix> `
     -Path <C:\local\Filepath\Filename.json>
 ```
@@ -138,14 +137,14 @@ Skapa vNet och undernät för den [virtuellt nätverk](../../virtual-network/vir
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubnet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
 2. Skapa det virtuella nätverket. I följande exempel skapas ett virtuellt nätverk med namnet **myVnet** i den **västra USA** plats med adressprefix **10.0.0.0/16**.  
    
     ```powershell
     $location = "West US"
     $vnetName = "myVnet"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+    $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
@@ -156,14 +155,14 @@ För att upprätta kommunikation med den virtuella datorn i det virtuella nätve
    
     ```powershell
     $ipName = "myPip"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+    $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
 2. Skapa nätverkskortet. Det här exemplet skapar ett nätverkskort med namnet **myNic**. 
    
     ```powershell
     $nicName = "myNic"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
+    $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
         -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
@@ -175,12 +174,12 @@ Det här exemplet skapar en Nätverkssäkerhetsgrupp med namnet **myNsg** som in
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
 
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
 ```
 
@@ -189,7 +188,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 Skapa en variabel för det virtuella nätverket som slutförda. 
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>Skapa den virtuella datorn
@@ -228,33 +227,33 @@ Följande PowerShell Slutför konfigurationerna för virtuella datorer och anvä
     $skuName = "Standard_LRS"
 
     # Get the storage account where the uploaded image is stored
-    $storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
+    $storageAcc = Get-AzStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
 
     # Set the VM name and size
-    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
+    $vmConfig = New-AzVMConfig -VMName $vmName -VMSize $vmSize
 
     #Set the Windows operating system configuration and add the NIC
-    $vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
+    $vm = Set-AzVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
         -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+    $vm = Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
 
     # Create the OS disk URI
     $osDiskUri = '{0}vhds/{1}-{2}.vhd' `
         -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
     # Configure the OS disk to be created from the existing VHD image (-CreateOption fromImage).
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
+    $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
         -CreateOption fromImage -SourceImageUri $imageURI -Windows
 
     # Create the new VM
-    New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+    New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Kontrollera att den virtuella datorn har skapats
 När du är klar bör du se den nyligen skapade virtuella datorn i den [Azure-portalen](https://portal.azure.com) under **Bläddra** > **virtuella datorer**, eller genom att använda följande PowerShell kommandon:
 
 ```powershell
-    $vmList = Get-AzureRmVM -ResourceGroupName $rgName
+    $vmList = Get-AzVM -ResourceGroupName $rgName
     $vmList.Name
 ```
 

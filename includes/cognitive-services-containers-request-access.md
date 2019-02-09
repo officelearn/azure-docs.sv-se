@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/24/2019
-ms.openlocfilehash: 08e6b5d109d6647f2a291f117f4993bae7598464
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d5a6692aceedb6dc7fad7a434a433882cdbea015
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302334"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984913"
 ---
 Du måste först slutför och skicka den [Cognitive Services Vision behållare formulär](https://aka.ms/VisionContainersPreview) att begära åtkomst till behållaren. Formuläret begär information om dig, ditt företag och Användarscenario som du använder behållaren. När skickat, Azure Cognitive Services-teamet har granskat formuläret för att säkerställa att du uppfyller villkoren för åtkomst till det privata behållarregistret.
 
@@ -24,13 +24,13 @@ Det finns flera sätt att autentisera med det privata behållarregistret för Co
 
 Använd den [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot, som visas i följande exempel för att logga in på `containerpreview.azurecr.io`, privat behållarregister för Cognitive Services-behållare. Ersätt *\<användarnamn\>* med användarnamnet och *\<lösenord\>* med det angivna inloggningsuppgifterna lösenordet som du fick från Azure Cognitive Services-teamet.
 
-```docker
+```
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
 Om du har skyddat dina autentiseringsuppgifter i en textfil kan du sammanfoga innehållet i texten fil, använda den `cat` för att den `docker login` kommandot som visas i följande exempel. Ersätt *\<{passwordFile\>* med sökvägen och namnet på den textfil som innehåller lösenordet och *\<användarnamn\>* med användarnamnet tillhandahålla i dina autentiseringsuppgifter.
 
-```docker
+```
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
 ```
 

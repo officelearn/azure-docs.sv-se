@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c223b55e8854c9d304354d917e07f4dd7720e72c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507825"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958498"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Tjänstnivå för Azure SQL Database Premium RS (förhandsversion) tas ur - alternativ för migrering
 
@@ -50,8 +50,8 @@ För Premium RS beräkningsintensiva arbetsbelastningar rekommenderar vi att mig
 
 |**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
 |---|---|---|
-|Premium RS 1|Allmänt syfte 1 vCore (Gen 4)|Standard 3|
-|Premium RS 2|Allmänt syfte 2 virtuella kärnor (Gen 4)|Standard 4|
+|Premium RS 1|Allmänt syfte 1 vCore (Gen4)|Standard 3|
+|Premium RS 2|Allmänt syfte 2 virtuella kärnor (Gen4)|Standard 4|
 |Premium RS 4|Allmänt syfte 4 virtuella kärnor (Gen4)|Standard 6|
 |Premium RS 6|Allmänt syfte 6 virtuella kärnor (Gen4)|Standard 7|
 
@@ -59,8 +59,8 @@ För Premium RS beräkningsintensiva arbetsbelastningar rekommenderar vi att mig
 
 |**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
 |---|---|---|
-|Premium RS lagringspoolen 125 DTU|Allmänt syfte 1 vCore (Gen 4)|Standardpool 100 edtu: er|
-|Premium RS lagringspoolen 250 DTU|Allmänt syfte 2 virtuella kärnor (Gen 4)|Standardpool 250 edtu: er|
+|Premium RS lagringspoolen 125 DTU|Allmänt syfte 1 vCore (Gen4)|Standardpool 100 edtu: er|
+|Premium RS lagringspoolen 250 DTU|Allmänt syfte 2 virtuella kärnor (Gen4)|Standardpool 250 edtu: er|
 |Premium RS lagringspoolen 500 DTU|Allmänt syfte 4 virtuella kärnor (Gen4)|Standardpool 500 edtu: er|
 |Premium RS lagringspoolen 1000 DTU|Allmänt syfte 8 virtuella kärnor (Gen4)|Standardpool 1000 edtu: er|
 
@@ -70,10 +70,10 @@ Vi rekommenderar att du migrerar dina i/o-intensiva enskilda databaser till vår
 
 |**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
 |---|---|---|
-|Premium RS 1|(Förhandsversion) Hyperskala 1 vCore (Gen 4) eller företag kritiska 1 vCore (Gen 4)|Premium 1|
-|Premium RS 2|(Förhandsversion) Hyperskala 2 virtuella kärnor (Gen 4) eller Business kritiska 2 virtuella kärnor (Gen 4|Premium 2|
-|Premium RS 4|(Förhandsversion) Hyperskala 4 virtuella kärnor (Gen 4) eller företag kritiska 4 virtuella kärnor (Gen4)|Premium 4
-|Premium RS 6|(Förhandsversion) Hyperskala 6 virtuella kärnor (Gen 4) eller företag kritiska 6 virtuella kärnor (Gen4)|Premium 6|
+|Premium RS 1|(Förhandsversion) Hyperskala 1 vCore (Gen4) eller företag kritiska 1 vCore (Gen4)|Premium 1|
+|Premium RS 2|(Förhandsversion) Hyperskala 2 virtuella kärnor (Gen4) eller Business kritiska 2 virtuella kärnor (Gen4|Premium 2|
+|Premium RS 4|(Förhandsversion) Hyperskala 4 virtuella kärnor (Gen4) eller företag kritiska 4 virtuella kärnor (Gen4)|Premium 4
+|Premium RS 6|(Förhandsversion) Hyperskala 6 virtuella kärnor (Gen4) eller företag kritiska 6 virtuella kärnor (Gen4)|Premium 6|
 
 |**Om du är på...**|**Migrera till jämförbara vCore-baserade...**|**Migrera till jämförbara DTU-baserade...**|
 |---|---|---|

@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: c679d2e6b7dc8998016e79d265f368504d6def3d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f2ba1a6fef944911c0706ca4e71be6a55bc4b16a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038423"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961847"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Anslut till Cosmos-konto använda Studio 3T
 
@@ -26,7 +26,7 @@ Om du vill ansluta till en Cosmos-konto med Azure Cosmos DB API för MongoDB, m�
 ## <a name="create-the-connection-in-studio-3t"></a>Skapa anslutningen i Studio 3T
 Utför följande steg för att lägga till ditt Cosmos-konto till Studio 3T connection manager:
 
-1. Hämta anslutningsinformationen för ditt Cosmos-konto som har konfigurerats med Azure Cosmos DB API MongoDB med hjälp av anvisningarna i den [Anslut en MongoDB-program till Azure Cosmos DB](connect-mongodb-account.md) artikeln.
+1. Hämta anslutningsinformationen för ditt Cosmos-konto som har konfigurerats med Azure Cosmos DB API för MongoDB med hjälp av anvisningarna i den [Anslut en MongoDB-program till Azure Cosmos DB](connect-mongodb-account.md) artikeln.
 
     ![Skärmbild av sidan med anslutningssträngen](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Klicka på **Connect** för att öppna hanteraren för anslutning, klicka sedan på **ny anslutning**
@@ -111,5 +111,5 @@ Om du vill skapa en databas, samling och dokument med hjälp av Studio 3T, utfö
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [använda Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB-API för MongoDB.
-- Utforska MongoDB [exempel](mongodb-samples.md) med Azure Cosmos DB-API för MongoDB.
+- Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
+- Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.

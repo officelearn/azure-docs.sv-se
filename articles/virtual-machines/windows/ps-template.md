@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d467310d45801edb68551696ca4b44ac0bef4d8f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fe3bbb3a998c0457cd504da5a785c805fc1b73e5
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421736"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977498"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Skapa en Windows-dator från en Resource Manager-mall
 
@@ -33,7 +33,7 @@ Det bör ta ungefär fem minuter för att utföra stegen i den här artikeln.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien version 5.3 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien version 5.3 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -42,13 +42,13 @@ Alla resurser måste distribueras i en [resursgrupp](../../azure-resource-manage
 1. Hämta en lista över tillgängliga platser där resurser kan skapas.
    
     ```powershell   
-    Get-AzureRmLocation | sort-object DisplayName | Select DisplayName
+    Get-AzLocation | sort-object DisplayName | Select DisplayName
     ```
 
 2. Skapa resursgruppen på den plats som du väljer. Det här exemplet visar skapandet av en resursgrupp med namnet **myResourceGroup** i den **västra USA** plats:
 
     ```powershell   
-    New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
+    New-AzResourceGroup -Name "myResourceGroup" -Location "West US"
     ```
 
 ## <a name="create-the-files"></a>Skapa filer
@@ -177,8 +177,8 @@ I det här steget skapar du en mallfil som distribuerar resurserna och en fil me
 
     ```powershell
     $storageName = "st" + (Get-Random)
-    New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" -AccountName $storageName -Location "West US" -SkuName "Standard_LRS" -Kind Storage
-    $accountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name $storageName).Value[0]
+    New-AzStorageAccount -ResourceGroupName "myResourceGroup" -AccountName $storageName -Location "West US" -SkuName "Standard_LRS" -Kind Storage
+    $accountKey = (Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -Name $storageName).Value[0]
     $context = New-AzureStorageContext -StorageAccountName $storageName -StorageAccountKey $accountKey 
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
@@ -199,7 +199,7 @@ Distribuera mallen med hjälp av parametrarna:
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
 $parametersPath = "https://" + $storageName + ".blob.core.windows.net/templates/Parameters.json"
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "myDeployment" -TemplateUri $templatePath -TemplateParameterUri $parametersPath 
+New-AzResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "myDeployment" -TemplateUri $templatePath -TemplateParameterUri $parametersPath 
 ```
 
 > [!NOTE]

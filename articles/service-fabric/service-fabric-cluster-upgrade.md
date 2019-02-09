@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102404"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961898"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Uppgradera och uppdaterar ett Azure Service Fabric-kluster
 
@@ -27,7 +27,7 @@ Utformning av möjligheterna är avgörande för att uppnå långsiktig framgån
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Kontrollera den fabric-versionen som körs på klustret
 
-Se till att hålla ditt kluster som kör en version stöds fabric alltid. Och när vi presentera en ny version av service fabric, markeras den tidigare versionen för support upphör efter 60 dagar efter att minst. De nya versionerna tillkännages i service fabric-teamets blogg. Den nya versionen är tillgänglig för att välja sedan.
+Se till att hålla ditt kluster som kör en [stöds infrastrukturversion](service-fabric-versions.md) alltid. Och när vi presentera en ny version av service fabric, markeras den tidigare versionen för support upphör efter 60 dagar efter att minst. De nya versionerna tillkännages i service fabric-teamets blogg. Den nya versionen är tillgänglig för att välja sedan.
 
 14 dagar före utgången av den versionen som klustret körs en hälsotillståndshändelse genereras som placerar klustret i ett varningshälsotillstånd. Klustret förblir i ett varningstillstånd förrän du har uppgraderat till en version som stöds fabric.
 

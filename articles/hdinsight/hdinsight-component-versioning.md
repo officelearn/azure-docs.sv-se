@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 4b9c57785b9b3176def495af6bc5956d70fa5c35
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7da765bda815e9112dac809d259fd417dc4d866e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657917"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981102"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -228,45 +228,35 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
 
 * Alla regioner utom södra Brasilien och västra Japan:
 
-<html><body><table width="100%">
-<tr align="left"><th>Klustertyp</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interaktiv fråga</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server&nbsp;</th><th>Kafka&nbsp;</th></tr>
-
-<tr><td>Huvud: standardstorleken för virtuella datorer</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td><td>D3v2</td></tr>
-
-<tr><td rowspan="4" valign="top">Huvud: rekommenderade storlekar för Virtuella datorer</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td><td>A2M v2</td></tr>
-<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td><td>D3 v2</td></tr>
-<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td><td>D4 v2</td></tr>
-<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td><td>D12 v2</td></tr>
-
-<tr><td>Worker: standardstorleken för virtuella datorer</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td><td>4 D12v2 med 2 S30 diskar per meddelandekö</td></tr>
-
-<tr><td rowspan="8" valign="top">Worker: rekommenderade storlekar för Virtuella datorer</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td><td>D13 v2</td></tr>
-<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td><td>DS12 v2</td></tr>
-<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td><td>DS13 v2</td></tr>
-<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td><td>E4 v3</td></tr>
-<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td><td>ES4 v3</td></tr>
-<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td><td>E8 v3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td><td>ES8 v3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td><td></td></tr>
-
-<tr><td>ZooKeeper: standardstorleken för virtuella datorer</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td><td>D3v2</td></tr>
-
-<tr><td rowspan="3" valign="top">ZooKeeper: rekommenderade storlekar för Virtuella datorer</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td><td>A2M v2</td></tr>
-<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td><td>D3 v2</td></tr>
-<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td><td>E8 v3</td></tr>
-
-<tr align="left"><td>Edge: standardstorleken för virtuella datorer</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
-
-<tr><td rowspan="8" valign="top">Edge: Rekommenderad storlek för virtuell dator</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td><td></td></tr>
-
-</table></body></html>
+|Klustertyp|Hadoop|HBase|Interaktiv fråga|Storm|Spark|ML Server|Kafka|
+|---|---|---|---|---|---|---|---|
+|Huvud: standardstorleken för virtuella datorer|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
+|Huvud: rekommenderade storlekar för Virtuella datorer|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
+||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
+||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
+||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
+|Worker: standardstorleken för virtuella datorer|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2 med 2 S30 diskar per meddelandekö|
+|Worker: rekommenderade storlekar för Virtuella datorer|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
+||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
+||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
+||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
+||||E32 v3||E16 v3|E16 v3|ES4 v3|
+||||E64 v3||E20 v3|E20 v3|E8 v3|
+||||||E32 v3|E32 v3|ES8 v3|
+||||||E64 v3|E64 v3||
+|ZooKeeper: standardstorleken för virtuella datorer||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
+|ZooKeeper: rekommenderade storlekar för Virtuella datorer||A4 v2||A2 v2|||A2M v2|
+|||A8 v2||A4 v2|||D3 v2|
+|||A2m v2||A8 v2|||E8 v3|
+|Edge: standardstorleken för virtuella datorer||||||D4 v2||
+|Edge: Rekommenderad storlek för virtuell dator||||||D4 v2||
+|||||||D12 v2||
+|||||||D13 v2||
+|||||||D14 v2||
+|||||||E16 v3||
+|||||||E20 v3||
+|||||||E32 v3||
+|||||||E64 v3||
 
 * Södra Brasilien och västra Japan endast (ingen v2-storlekar):
 

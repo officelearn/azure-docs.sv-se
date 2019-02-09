@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e103124b2b0e720517106f9b4453ee8a76688eca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565912"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977226"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Hantera Media Services-tillgångar över flera lagringskonton
+# <a name="managing-media-services-assets-across-multiple-storage-accounts-legacy"></a>Hantera Media Services-tillgångar över flera lagringskonton (äldre)
 
 Du kan koppla flera lagringskonton till ett enda Media Services-konto. Möjlighet att ansluta flera lagringskonton till ett Media Services-konto ger följande fördelar:
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du kan koppla flera lagringskonton till ett Media Se
 
 När du ansluter flera lagringskonton till ditt Media Services-konto, gäller följande:
 
-* Media Services-kontot och alla tillhörande lagringskonton måste vara i samma Azure-prenumeration. Det rekommenderas att använda lagringskonton på samma plats som Media Services-kontot.
+* Media Services-kontot och alla associerade lagringskonton måste finnas i samma Azure-prenumeration. Vi rekommenderar att du använder lagringskonton på samma plats som Media Services-kontot.
 * Ett lagringskonto är kopplade till det angivna Media Services-kontot kan inte kopplas från.
 * Primär storage-konto är det som anges under skapandeprocessen för Media Services-konto. För närvarande kan ändra du inte standardkontot för lagring. 
 * Om du vill lägga till ett konto med lågfrekvent lagring till AMS-konto, måste storage-konto vara en Blob och inställd på icke-primär.

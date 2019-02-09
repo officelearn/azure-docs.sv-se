@@ -16,24 +16,24 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 4c13708ad785a2291da3db61d739f604a2c3bb88
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 676adb05178097c1802c0ff5b3a5da1bbb7b188c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475898"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978382"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagringstypen för en hanterad disk
 
 Azure Managed Disks finns tre alternativ för typ av lagring: [Premium SSD](../windows/premium-storage.md), [Standard SSD](../windows/disks-standard-ssd.md), och [Standard HDD](../windows/standard-storage.md). Du kan växla en hanterad disk mellan lagringstyper med minimal avbrottstid, baserat på dina behov. Växla mellan lagringstyper stöds inte för en ohanterad disk; men du kan enkelt [konvertera en ohanterad disk till en hanterad disk](convert-unmanaged-to-managed-disks.md).
 
-Den här artikeln visar hur du konverterar en hanterad disk från standard till premium och vice versa med hjälp av Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Eftersom konverteringen kräver en omstart av den virtuella datorn (VM), bör du schemalägga migreringen av din disklagring under en schemalagd underhållstid. 
 * Om du använder en ohanterad disk först [konvertera den till en hanterad disk](convert-unmanaged-to-managed-disks.md) så att du kan växla mellan lagringstyper. 
-* Exemplen i den här artikeln kräver Azure PowerShell-Modulversion 6.0.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Kör [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) att skapa en anslutning till Azure.
+* Exemplen i den här artikeln kräver Azure PowerShell-Modulversion 6.0.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-az-ps) (Installera Azure PowerShell-modul). Kör [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) att skapa en anslutning till Azure.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Konvertera alla hanterade diskar på en virtuell dator från standard till premium
@@ -55,30 +55,30 @@ $storageType = 'Premium_LRS'
 $size = 'Standard_DS2_v2'
 
 # Stop and deallocate the VM before changing the size
-Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
 
-$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
+$vm = Get-AzVM -Name $vmName -resourceGroupName $rgName
 
 # Change the VM size to a size that supports premium storage
 # Skip this step if converting storage from premium to standard
 $vm.HardwareProfile.VmSize = $size
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Get all disks in the resource group of the VM
-$vmDisks = Get-AzureRmDisk -ResourceGroupName $rgName 
+$vmDisks = Get-AzDisk -ResourceGroupName $rgName 
 
 # For disks that belong to the selected VM, convert to premium storage
 foreach ($disk in $vmDisks)
 {
     if ($disk.ManagedBy -eq $vm.Id)
     {
-        $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
-        Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
+        $diskUpdateConfig = New-AzDiskUpdateConfig –AccountType $storageType
+        Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
         -DiskName $disk.Name
     }
 }
 
-Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 ## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Konvertera en hanterad disk från standard till premium
@@ -95,27 +95,27 @@ $storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
 
-$disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
+$disk = Get-AzDisk -DiskName $diskName -ResourceGroupName $rgName
 
 # Get parent VM resource
-$vmResource = Get-AzureRmResource -ResourceId $disk.ManagedBy
+$vmResource = Get-AzResource -ResourceId $disk.ManagedBy
 
 # Stop and deallocate the VM before changing the storage type
-Stop-AzureRmVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name -Force
+Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name -Force
 
-$vm = Get-AzureRmVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
+$vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
 # Change the VM size to a size that supports premium storage
 # Skip this step if converting storage from premium to standard
 $vm.HardwareProfile.VmSize = $size
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
+$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
+Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 -DiskName $disk.Name
 
-Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
+Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
 ## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd"></a>Konvertera en hanterad disk från standard HDD till standard SSD
@@ -130,22 +130,22 @@ $rgName = 'yourResourceGroupName'
 # Choose between Standard_LRS and StandardSSD_LRS based on your scenario
 $storageType = 'StandardSSD_LRS'
 
-$disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
+$disk = Get-AzDisk -DiskName $diskName -ResourceGroupName $rgName
 
 # Get parent VM resource
-$vmResource = Get-AzureRmResource -ResourceId $disk.ManagedBy
+$vmResource = Get-AzResource -ResourceId $disk.ManagedBy
 
 # Stop and deallocate the VM before changing the storage type
-Stop-AzureRmVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name -Force
+Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name -Force
 
-$vm = Get-AzureRmVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
+$vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
 # Update the storage type
-$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
-Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
+$diskUpdateConfig = New-AzDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
+Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 -DiskName $disk.Name
 
-Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
+Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
 ## <a name="next-steps"></a>Nästa steg

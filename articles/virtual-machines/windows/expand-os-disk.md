@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3d5d0d4b17bcdc5e0461b977c4c832762a46b99b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bd863a8ddd9e2277b628673d2146efd8c458c319
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456195"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979504"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Hur du expandera operativsystemenheten för en virtuell dator
 
@@ -37,6 +37,10 @@ När du skapar en ny virtuell dator (VM) i en resursgrupp genom att distribuera 
 > När du expanderar diskarna, måste du [utöka volymen i Operativsystemet](#expand-the-volume-within-the-os) att dra nytta av större disk.
 > 
 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+
 ## <a name="resize-a-managed-disk"></a>Ändra storlek på en hanterad disk
 
 Öppna Powershell ISE eller Powershell-fönstret i administrativt läge och följ anvisningarna nedan:
@@ -44,8 +48,8 @@ När du skapar en ny virtuell dator (VM) i en resursgrupp genom att distribuera 
 1. Logga in på Microsoft Azure-kontot i resurshanteringsläge och välj din prenumeration på följande sätt:
    
    ```powershell
-   Connect-AzureRmAccount
-   Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
+   Connect-AzAccount
+   Select-AzSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Ange namn på resursgrupp och virtuell dator på följande sätt:
    
@@ -56,19 +60,19 @@ När du skapar en ny virtuell dator (VM) i en resursgrupp genom att distribuera 
 3. Hämta en referens till din virtuella dator på följande sätt:
    
    ```powershell
-   $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
    ```
 4. Stoppa den virtuella datorn innan du ändrar storlek på disken på följande sätt:
    
     ```Powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 5. Hämta en referens till den hantera OS-disken. Ange storleken på den hantera OS-disken till önskat värde och uppdatera disken på följande sätt:
    
    ```Powershell
-   $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+   $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
    $disk.DiskSizeGB = 1023
-   Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+   Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
    ```   
    > [!WARNING]
    > Den nya storleken måste vara större än den befintliga. Det högsta tillåtna är 2 048 GB för OS-diskar. (Det är möjligt att expandera VHD-bloben utöver den storleken, men Operativsystemet kommer bara att kunna arbeta med de första 2 048 GB utrymme.)
@@ -77,7 +81,7 @@ När du skapar en ny virtuell dator (VM) i en resursgrupp genom att distribuera 
 6. Det kan ta några sekunder att uppdatera den virtuella datorn. När kommandot har körts klart startar du om den virtuella datorn på följande sätt:
    
    ```Powershell
-   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   Start-AzVM -ResourceGroupName $rgName -Name $vmName
    ```
 
 Klart! Anslut till den virtuella datorn via RDP, öppna Datorhantering (eller Diskhantering) och expandera enheten med det nya utrymmet.
@@ -89,8 +93,8 @@ Klart! Anslut till den virtuella datorn via RDP, öppna Datorhantering (eller Di
 1. Logga in på Microsoft Azure-kontot i resurshanteringsläge och välj din prenumeration på följande sätt:
    
    ```Powershell
-   Connect-AzureRmAccount
-   Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
+   Connect-AzAccount
+   Select-AzSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Ange namn på resursgrupp och virtuell dator på följande sätt:
    
@@ -101,18 +105,18 @@ Klart! Anslut till den virtuella datorn via RDP, öppna Datorhantering (eller Di
 3. Hämta en referens till din virtuella dator på följande sätt:
    
    ```Powershell
-   $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
    ```
 4. Stoppa den virtuella datorn innan du ändrar storlek på disken på följande sätt:
    
     ```Powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 5. Ange storleken på ohanterade OS-disken till önskat värde och uppdatera den virtuella datorn på följande sätt:
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
-   Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
+   Update-AzVM -ResourceGroupName $rgName -VM $vm
    ```
    
    > [!WARNING]
@@ -123,7 +127,7 @@ Klart! Anslut till den virtuella datorn via RDP, öppna Datorhantering (eller Di
 6. Det kan ta några sekunder att uppdatera den virtuella datorn. När kommandot har körts klart startar du om den virtuella datorn på följande sätt:
    
    ```Powershell
-   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   Start-AzVM -ResourceGroupName $rgName -Name $vmName
    ```
 
 
@@ -135,30 +139,30 @@ Nedan visas det fullständiga skriptet för din referens för både hanterade oc
 **Hanterade diskar**
 
 ```Powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
-$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-$disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+$vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
+Stop-AzVM -ResourceGroupName $rgName -Name $vmName
+$disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
 $disk.DiskSizeGB = 1023
-Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
-Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 **Ohanterade diskar**
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
-$vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+$vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
+Stop-AzVM -ResourceGroupName $rgName -Name $vmName
 $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
-Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Update-AzVM -ResourceGroupName $rgName -VM $vm
+Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 ## <a name="resizing-data-disks"></a>Ändra storlek på datadiskar
@@ -168,7 +172,7 @@ Den här artikeln fokuserar främst på att utöka den virtuella datorn OS-disk,
 **Hanterad disk**
 
 ```powershell
-$disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
+$disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
 $disk.DiskSizeGB = 1023
 ```
 
@@ -187,7 +191,7 @@ På samma sätt kan du referera till andra diskar som är anslutna till den virt
 **Hanterad disk**
 
 ```powershell
-(Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
+(Get-AzDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```
 
 **Ohanterad disk**

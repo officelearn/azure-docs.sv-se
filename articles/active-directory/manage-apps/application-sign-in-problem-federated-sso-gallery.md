@@ -3,8 +3,8 @@ title: Problem som loggar in på en galleriprogram som konfigurerats för federe
 description: Riktlinjer för de specifika felen när du loggar in i ett program som du har konfigurerat för SAML-baserad federerad enkel inloggning med Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 8d19c2815eb6d7c6ad8cac002716913c329903de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bd82808e53e8272cf55fbb43aed1b5f2f9f5ff56
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177805"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963615"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en galleriprogram som konfigurerats för federerad enkel inloggning
 

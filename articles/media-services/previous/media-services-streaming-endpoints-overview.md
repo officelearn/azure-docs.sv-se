@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: f0f3ec25f10faa25b6b90ba4d8114c15d25131c6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359995"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979147"
 ---
-# <a name="streaming-endpoints-overview"></a>Översikt över slutpunkter för direktuppspelning 
+# <a name="streaming-endpoints-overview-legacy"></a>Strömmande slutpunkter översikt (äldre)
 
 ## <a name="overview"></a>Översikt
 
@@ -48,7 +48,7 @@ För alla ytterligare slutpunkter: `{EndpointName}-{AccountName}.streaming.media
 
 Från och med januari 2017-versionen av Media Services kan ha du två strömmande typer: **Standard** och **Premium**. Typerna är en del av strömning endpoint version ”2.0”.
 
-Typ|Beskrivning
+Type|Beskrivning
 ---|---
 **Standard**|Det här är standardalternativet som skulle fungera för flesta scenarier.<br/>Med det här alternativet kan du få fast/begränsad SLA, första 15 dagarna efter att du startar slutpunkten för direktuppspelning är kostnadsfri.<br/>Om du skapar flera slutpunkter för direktuppspelning, endast den första som är kostnadsfri under de första 15 dagarna, faktureras de andra när du startar. <br/>Observera att kostnadsfria utvärderingsversionen bara gäller för nya media services-konton och standardslutpunkt för direktuppspelning. Befintliga slutpunkter för direktuppspelning och dessutom skapade slutpunkter för direktuppspelning inte innehåller kostnadsfria utvärderingsperioden även de uppgraderas till version 2.0 eller de skapas som version 2.0.
 **Premium**|Det här alternativet är lämpligt för professionella scenarier som kräver högre skala eller kontroll.<br/>Variabeln serviceavtal som baseras på strömmande enhet (SU) premiumkapacitet köpt, dedikerad slutpunkter för direktuppspelning live i isolerad miljö och konkurrerar inte om resurser.
@@ -71,7 +71,7 @@ Om din **version ”1.0”** slutpunkt för direktuppspelning har > = 1 premium 
 
 ### <a name="versions"></a>Versioner
 
-|Typ|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|SLA| 
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Klassisk|1.0|0|Ej tillämpligt|Kostnadsfri|Ej tillämpligt|
 |Standard-slutpunkt för direktuppspelning|2.0|0|Ja|Avgiftsbelagt|Ja|

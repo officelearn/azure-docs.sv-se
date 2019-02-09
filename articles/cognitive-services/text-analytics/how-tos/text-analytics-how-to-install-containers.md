@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 105b4e34d307ac08b8efbb5e263825f2df28e28c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862334"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977108"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och köra textanalys behållare
 
@@ -77,19 +77,19 @@ Använd den [ `docker pull` ](https://docs.docker.com/engine/reference/commandli
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull för nyckelbehållare frasen extrahering
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
 ### <a name="docker-pull-for-the-language-detection-container"></a>Docker pull för behållaren för identifiering av språk
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
 ### <a name="docker-pull-for-the-sentiment-container"></a>Docker pull för behållaren sentiment
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
@@ -156,18 +156,7 @@ Om du kör behållaren med ett utgående [montera](../text-analytics-resource-co
 
 Textanalys behållare skicka faktureringsinformation till Azure, med en _textanalys_ resurs på ditt Azure-konto. 
 
-Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata till Microsoft. 
-
-Den `docker run` kommando använder följande argument för fakturering:
-
-| Alternativ | Beskrivning |
-|--------|-------------|
-| `ApiKey` | API-nyckeln för den _textanalys_ resurs som används för att spåra faktureringsinformation. |
-| `Billing` | Slutpunkten för den _textanalys_ resurs som används för att spåra faktureringsinformation.|
-| `Eula` | Anger att du har godkänt licensen för behållaren.<br/>Värdet för det här alternativet måste anges till `accept`. |
-
-> [!IMPORTANT]
-> Alla tre alternativ måste anges med giltiga värden eller behållaren startar inte.
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Mer information om alternativen finns i [konfigurera behållare](../text-analytics-resource-container-config.md).
 

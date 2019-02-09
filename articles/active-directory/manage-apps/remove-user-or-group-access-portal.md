@@ -3,9 +3,8 @@ title: Ta bort en användare eller grupp från en företagsapp i Azure Active Di
 description: Ta bort tilldelningen för åtkomst av en användare eller grupp från en företagsapp i Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/14/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 709489a1e96691a677261bfb2c7b5c29158e62c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7d9f0ed56acce59832af3c02f88746869163ce42
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162455"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963712"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Ta bort en användare eller grupp från en företagsapp i Azure Active Directory
 Det är enkelt att ta bort en användare eller en grupp tilldelas åtkomst till en av dina företagsprogram i Azure Active Directory (AD Azure). Du måste ha behörighet att hantera appen enterprise och du måste vara global administratör för katalogen.

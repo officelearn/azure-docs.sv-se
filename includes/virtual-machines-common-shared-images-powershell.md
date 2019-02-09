@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3ec5b9c6357f0d075ddd9b0fd5c8a88ee2846209
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192314"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985013"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -27,31 +27,31 @@ Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra h
 Delade Image Galleries är i förhandsversion, men du behöver registrera funktionen innan du kan använda den. Så här registrerar funktionen delad Image Galleries:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature `
+Register-AzProviderFeature `
    -FeatureName GalleryPreview `
    -ProviderNamespace Microsoft.Compute
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ## <a name="get-the-managed-image"></a>Hämta hanterad avbildning
 
-Du kan se en lista med avbildningar som är tillgängliga i en resurs med [Get-AzureRmImage](/powershell/module/AzureRM.Compute/get-azurermimage). När du vet avbildningens namn och vilken resursgrupp det är i, du kan använda `Get-AzureRmImage` igen för att hämta objektet för avbildning och lagra den i en variabel för senare användning. Det här exemplet hämtar en avbildning med namnet *myImage* från resursgruppen ”myResourceGroup” och tilldelar den till variabeln *$managedImage*. 
+Du kan se en lista med avbildningar som är tillgängliga i en resurs med [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). När du vet avbildningens namn och vilken resursgrupp det är i, du kan använda `Get-AzImage` igen för att hämta objektet för avbildning och lagra den i en variabel för senare användning. Det här exemplet hämtar en avbildning med namnet *myImage* från resursgruppen ”myResourceGroup” och tilldelar den till variabeln *$managedImage*. 
 
 ```azurepowershell-interactive
-$managedImage = Get-AzureRmImage `
+$managedImage = Get-AzImage `
    -ImageName myImage `
    -ResourceGroupName myResourceGroup
 ```
 
 ## <a name="create-an-image-gallery"></a>Skapa ett avbildningsgalleri 
 
-Ett galleri med avbildningar är den primära resursen som används för att aktivera delning av avbildningen. Galleriet namn måste vara unikt inom prenumerationen. Skapa en avbildning galleriet med hjälp av [New AzureRmGallery](/powershell/module/AzureRM.Compute/new-azurermgallery). I följande exempel skapas ett galleri med namnet *myGallery* i den *myGalleryRG* resursgrupp.
+Ett galleri med avbildningar är den primära resursen som används för att aktivera delning av avbildningen. Galleriet namn måste vara unikt inom prenumerationen. Skapa en avbildning galleriet med hjälp av [New AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). I följande exempel skapas ett galleri med namnet *myGallery* i den *myGalleryRG* resursgrupp.
 
 ```azurepowershell-interactive
-$resourceGroup = New-AzureRMResourceGroup `
+$resourceGroup = New-AzResourceGroup `
    -Name 'myGalleryRG' `
    -Location 'West Central US'  
-$gallery = New-AzureRmGallery `
+$gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
@@ -60,10 +60,10 @@ $gallery = New-AzureRmGallery `
    
 ## <a name="create-an-image-definition"></a>Skapa en definition för avbildning 
 
-Skapar galleriet bilden definition med [New AzureRmGalleryImageDefinition](/powershell/module/azurerm.compute/new-azurermgalleryimageversion). I det här exemplet heter galleriet bilden *myGalleryImage*.
+Skapar galleriet bilden definition med [New AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). I det här exemplet heter galleriet bilden *myGalleryImage*.
 
 ```azurepowershell-interactive
-$galleryImage = New-AzureRmGalleryImageDefinition `
+$galleryImage = New-AzGalleryImageDefinition `
    -GalleryName $gallery.Name `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $gallery.Location `
@@ -87,7 +87,7 @@ Alla tre av dessa ha unika värden. I en kommande version kommer du att kunna ko
 
 ```powershell
 # The following should set the source image as myImage1 from the table above
-$vmConfig = Set-AzureRmVMSourceImage `
+$vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
    -Offer myOffer `
@@ -98,14 +98,14 @@ Detta liknar hur du för närvarande kan ange dessa för [Azure Marketplace-avbi
 
 ##<a name="create-an-image-version"></a>Skapa en Bildversion
 
-Skapa en Avbildningsversion från en hanterad avbildning med hjälp av [New AzureRmGalleryImageVersion](/powershell/module/AzureRM.Compute/new-azurermgalleryimageversion) . I det här exemplet är versionsnumret för avbildningen *1.0.0* och den replikeras till både *USA, västra centrala* och *södra centrala USA* datacenter.
+Skapa en Avbildningsversion från en hanterad avbildning med hjälp av [New AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . I det här exemplet är versionsnumret för avbildningen *1.0.0* och den replikeras till både *USA, västra centrala* och *södra centrala USA* datacenter.
 
 
 ```azurepowershell-interactive
 $region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
-$job = $imageVersion = New-AzureRmGalleryImageVersion `
+$job = $imageVersion = New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $galleryImage.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `

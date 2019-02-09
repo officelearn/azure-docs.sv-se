@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5ab47165118b68e91c1218be35c6f88aa55350e2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190909"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982615"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfiguration och hantering av vanliga frågor och svar för Web Apps i Azure
 
@@ -244,7 +244,7 @@ Du kan skapa ett schemalagt Webbjobb med hjälp av Cron-uttryck:
 
 1. Skapa filen settings.job.
 2. I det här JSON-fil innehåller en schema-egenskap med hjälp av ett Cron-uttryck: 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -270,7 +270,7 @@ När meddelandet indikerar, kan bedrägeri verifieringen ta upp till 24 timmar a
 
 Om din App Service certificate fortsätter att visa det här meddelandet efter 24 timmar, kör följande PowerShell-skript. Skript-kontakter den [certifikatleverantör](https://www.godaddy.com/) direkt för att lösa problemet.
 
-```
+```powershell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
@@ -312,10 +312,10 @@ Om ingen av dessa villkor gäller och problemet kvarstår kan du skicka en suppo
 
 Lägg till följande kod i filen web.config på programnivå om du vill aktivera komprimering både för statisk och dynamisk innehållstyper:
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 Du kan också ange vilka dynamiska och statiska MIME-typer som du vill komprimera. Mer information finns i våra svar på frågor i forum [httpCompression inställningar på en enkel Azure webbplats](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).

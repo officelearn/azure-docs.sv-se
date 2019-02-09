@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 577860baa74d9f0cd7f411a64d9e6bfa9322731c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894998"
+ms.locfileid: "55964822"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Konfigurera inställningar och principer
 Den här artikeln beskriver hur du lägga till användare i labbet, hämta dem registrerad labbet, antalet timmar som de kan använda den virtuella datorn och mycket mer. 
@@ -66,11 +66,14 @@ Du kan ange kvoter per användare med hjälp av följande steg:
 
 1. Välj **Användare** på den vänstra menyn.
 2. Välj **kvot per användare: obegränsad** i verktygsfältet. 
-3. På den **kvot per användare** väljer **begränsa antalet timmar som en användare kan använda en virtuell dator**. 
-4. För **hur många timmar du vill ge till varje användare**anger hur många timmar och väljer **spara**. 
+3. På den **kvot per användare** väljer du något av följande alternativ: 
+    1. **Ingen**. Användare kan använda sina virtuella datorer under schema eller när labbägare sätter på virtuella datorer för dessa.
+    2. **Obegränsat (standard)**. Användare kan använda sina virtuella datorer utan några tidsbegränsningar.
+    3. **Ange antal timmar per användare**. Användare kan använda sina virtuella datorer för ett angivet antal timmar (anges nedan) utöver den schemalagda tiden. Om du väljer det här alternativet anger du den **antal timmar** i textrutan. 
 
-    ![Antal timmar per användare](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. Du ser hur många timmar i verktygsfältet nu: **Kvot per användare: &lt;antal timmar&gt;**. 
+        ![Antal timmar per användare](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. Välj **Spara**. 
+5. Du ser uppdaterade värden i verktygsfältet nu: **Kvot per användare: &lt;antal timmar&gt;**. 
 
     ![Kvot per användare](../media/how-to-configure-student-usage/quota-per-user.png)
 
@@ -80,8 +83,19 @@ Du kan ange kvoter per användare med hjälp av följande steg:
 ### <a name="add-users-by-uploading-a-csv-file"></a>Lägga till användare genom att ladda upp en CSV-fil
 Du kan också lägga till användare genom att ladda upp en CSV-fil med e-postadresserna för användarna.
 
-1. Välj **ladda upp CSV** i verktygsfältet.
-2. Välj CSV-fil med användarnas e-postadresser. E-postadresser måste vara i en kolumn när du öppnar den i Excel. 
+1. Skapa en CSV-fil med e-postadresser för användare i en kolumn.
+
+    ![Kvot per användare](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. På den **användare** sidan labbet, väljer **ladda upp CSV** i verktygsfältet.
+
+    ![Ladda upp CSV-knappen](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. Välj CSV-fil med användarnas e-postadresser. När du väljer **öppna** efter att CSV-fil, visas följande **lägga till användare** fönster. E-postadress listan fylls med e-postadresser från CSV-filen. 
+
+    ![Lägg till användarfönstret fylls i med e-postadresser från CSV-fil](../media/how-to-configure-student-usage/add-users-window.png)
+4. Välj **spara** i den **lägga till användare** fönster. 
+5. Kontrollera att du ser användare i listan över användare. 
+
+    ![Lista över användare som har lagts till](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## <a name="manage-user-vms"></a>Hantera användarnas VM: ar
 När studenter register med Azure Lab Services med hjälp av registreringen länka angivna dem ska du se de virtuella datorerna har tilldelats till studenter på **virtuella datorer** fliken. 

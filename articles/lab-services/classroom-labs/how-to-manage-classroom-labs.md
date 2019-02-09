@@ -1,6 +1,6 @@
 ---
 title: Hantera klassrum labb i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du skapar och konfigurerar ett klassrumslabb kan visa alla klassrum labbarna, fler registreringen länka till en lab-användare eller ta bort ett labb.
+description: Lär dig mer om att skapa och konfigurera ett klassrumslabb, visa alla labb för klassrum, dela registreringslänken med en lab-användare eller ta bort ett labb.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820002"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962833"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klassrum labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och tar bort ett klassrumslabb. Den också visar hur du visar alla klassrum-labb i ett labbkonto. 
@@ -107,7 +107,12 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 3. På den **Delete lab** dialogrutan **ta bort**. 
 
     ![Ta bort dialogrutan](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
- 
+
+## <a name="switch-to-another-classroom-lab"></a>Växla till en annan klassrumslabb
+Om du vill växla till en annan klassrumslabb från aktuellt, Välj den nedrullningsbara listan över labbar i labbkonto högst upp.
+
+![Välj labbet från listrutan överst](../media/how-to-manage-classroom-labs/switch-lab.png)
+
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

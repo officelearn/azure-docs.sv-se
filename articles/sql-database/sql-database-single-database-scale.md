@@ -11,17 +11,20 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b3ee256072e5c0b5b92daac07eae5b41b194ae8a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475966"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961354"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala resurser för enkel databas i Azure SQL Database
 
 Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som är tillgängliga för en enskild databas i Azure SQL Database.
+
+> [!IMPORTANT]
+> Du debiteras för varje timme som det finns en databas med hjälp av den högsta tjänstenivå + compute storlek som gällde under den timmen, oavsett användning eller om databasen var aktiv under mindre än en timme. Om du skapar en enkel databas och raderar den fem minuter senare visar din faktura en avgift för en databastimme.
 
 ## <a name="vcore-based-purchasing-model-change-storage-size"></a>vCore-baserade inköpsmodellen: Ändra lagringsstorlek
 

@@ -14,16 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 34b70b1a6a77a20a034a7822d9c4961c36cdd51c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d3ed1078f1f334a5732befa49cbdc5043767ad2c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663969"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978688"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft.OSTCExtensions.DSCForLinux)
-
-## <a name="overview"></a>Översikt
 
 Desired State Configuration (DSC) är en hanteringsplattform som hjälper dig att hantera IT-avdelningen och infrastruktur för utveckling med konfiguration som kod.
 
@@ -35,6 +33,8 @@ DSCForLinux tillägg publiceras och stöds av Microsoft. OMI och DSC-agenten ins
 - Tillämpa Meta MOF-konfigurationen för Linux VM konfigurera Hämtningsservern för att kunna hämta nodkonfiguration (Pull ExtensionAction)
 - Installera anpassade DSC-moduler för Linux VM (installera ExtensionAction)
 - Ta bort anpassade DSC-moduler för Linux VM (ta bort ExtensionAction)
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -366,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 Du kan logga in på ditt Azure-konto (Azure Resource Manager-läge) genom att köra:
 
 ```powershell>
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 Klicka på [ **här** ](../../azure-resource-manager/powershell-azure-resource-manager.md) mer information om hur du använder Azure PowerShell med Azure Resource Manager.
@@ -398,7 +398,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```

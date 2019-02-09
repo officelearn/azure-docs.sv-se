@@ -1,5 +1,5 @@
 ---
-title: Lär dig mer om live direktuppspelning lokala kodare som rekommenderas av Media Services – Azure | Microsoft Docs
+title: Live direktuppspelning kodare som rekommenderas av Media Services – Azure | Microsoft Docs
 description: Lär dig mer om live direktuppspelning lokala kodare som rekommenderas av Media Services
 services: media-services
 keywords: kodning; kodare; media
@@ -9,18 +9,18 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c3e42ba9fe84ded8c60fc71f19de785945852116
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a165fac2de89d5510b21b9185d4bc61e730b09ff
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656676"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960130"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Rekommenderade livekodare för direktuppspelning
 
-I Media Services, en [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) (kanal) representerar en pipeline för bearbetning av live-streaming-innehåll. Live-händelsen tar emot inkommande direktsändningar i ett av två sätt:
+I Azure Media Services, en [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) (kanal) representerar en pipeline för bearbetning av live-streaming-innehåll. Live-händelsen tar emot inkommande direktsändningar i något av två sätt.
 
-* En lokal livekodare skickar en med flera bithastigheter RTMP eller Smooth Streaming (fragmenterad MP4) strömma Live-händelsen som inte är aktiverad för att utföra live encoding med Media Services. De infogade strömmarna passerar via Live händelser utan vidare bearbetning. Den här metoden anropas **direkt**. En livekodare kan skicka en dataström med enkel bithastighet till släppa igenom kanal, men den här konfigurationen rekommenderas inte eftersom det inte tillåter för strömning med anpassad bithastighet till klienten.
+* En lokal livekodare skickar en med flera bithastigheter RTMP eller Smooth Streaming (fragmenterad MP4) strömma Live-händelsen som inte är aktiverad för att utföra live encoding med Media Services. De infogade strömmarna passerar via Live händelser utan vidare bearbetning. Den här metoden anropas **direkt**. En livekodare kan skicka en dataström med enkel bithastighet till en genomströmningskanal. Vi rekommenderar inte den här konfigurationen eftersom den inte tillåter för direktuppspelning med anpassningsbar bithastighet till klienten.
 
   > [!NOTE]
   > Genomströmningsmetoden är det mest ekonomiska sättet för liveuppspelning.
@@ -67,65 +67,65 @@ Information om vilka inställningar som är giltiga för din typ av live-händel
 
 ### <a name="playback-requirements"></a>Uppspelningskrav för
 
-Både en ljud- och ström måste finnas i ordning för uppspelning av innehåll. Uppspelning av videon endast dataströmmen stöds inte.
+För att spela upp innehåll, måste både en ljud- och ström finnas. Uppspelning av videon endast dataströmmen stöds inte.
 
 ### <a name="configuration-tips"></a>Konfigurationstips
 
 - När det är möjligt använda ett inbyggt internet-anslutning.
-- En bra tumregel när du fastställer kraven på nätverksbandbredd är att dubbla strömmande bithastighet. Detta är inte ett obligatoriskt krav, kan minimera effekten av överbelastning på nätverket.
-- När du använder programvara baserat kodare, Stäng ut alla onödiga program.
-- Ändra inte din konfiguration för kodare har startat push-överföring. Den har negativ inverkan på händelsen och kan orsaka händelsen ska vara instabil. 
-- Se till att ge dig själv gott om tid att konfigurera din händelse. För storskaliga händelser, vi rekommenderar att starta installationsprogrammet en timme innan evenemanget.
+- När du bestämmer krav på bandbredd, dubbla strömmande bithastighet. Även om det är inte obligatoriska regeln enkel hjälper dig för att undvika påverkan av överbelastning på nätverket.
+- När du använder programvarubaserad kodare kan du stänga alla onödiga program.
+- Ändra din Kodarkonfiguration när det har startat push-överföring har negativ inverkan på händelsen. Konfigurationsändringar kan orsaka händelsen för att bli instabil. 
+- Se till att du ger dig själv gott om tid att bygga upp din händelse. För hög skalbarhet händelser rekommenderar vi startar installationsprogrammet en timme innan evenemanget.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Hur du blir partner lokala kodare
+## <a name="becoming-an-on-premises-encoder-partner"></a>Bli en partner för den lokala kodare
 
-Som ett Azure Media Services lokala kodare partner främjar medietjänster din produkt genom att rekommendera kodaren för företagskunder. Om du vill bli lokala kodare-partner måste du kontrollera kompatibiliteten för din lokala kodare med Media Services. Slutför följande verifieringar gör du:
+Som ett Azure Media Services lokala kodare partner främjar medietjänster din produkt genom att rekommendera kodaren för företagskunder. Om du vill bli lokala kodare-partner måste du kontrollera kompatibiliteten för din lokala kodare med Media Services. Du gör detta genom att slutföra följande verifieringar.
 
 ### <a name="pass-through-live-event-verification"></a>Genomströmning direktsänd händelse verifiering
 
 1. I ditt Media Services-konto, se till att den **Strömningsslutpunkt** körs. 
-2. Skapa och starta den **direkt** direktsänd händelse. <br/> Mer information finns i [direktsänd händelse tillstånd och fakturering](live-event-states-billing.md).
-3. Hämta URL: er för inmatning och konfigurera din lokala kodare för att använda Webbadressen för att skicka den en direktsänd dataström med multibithastighet till Media Services.
+2. Skapa och starta den **direkt** direktsänd händelse. <br/> Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
+3. Hämta URL: er för inmatning och konfigurera din lokala kodare för att använda Webbadressen för att skicka en direktsänd dataström med multibithastighet till Media Services.
 4. Få förhandsgransknings-URL och använda den för att kontrollera att indata från kodaren faktiskt tas emot.
 5. Skapa en ny **tillgången** objekt.
 6. Skapa en **Live utdata** och använda Tillgångsnamn som du skapade.
 7. Skapa en **Strömningspositionerare** med inbyggt **Streaming princip** typer.
 8. Lista över sökvägar på den **Strömningspositionerare** att få tillbaka de URL: er för att använda.
-9. Hämta värdnamnet för den **Strömningsslutpunkt** du vill strömma från.
+9. Hämta värdnamnet för den **Strömningsslutpunkt** som du vill spela från.
 10. Kombinera URL: en från steg 8 med värdnamnet i steg 9 för att hämta den fullständiga URL: en.
 11. Kör din live-kodare i cirka 10 minuter.
-12. Stoppa direktsändningen. 
-13. Använd en spelare som [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem för alla kvalitetsnivå (eller, du kan också se och validera via förhandsgransknings-URL i live-session).
-14. Registrera tillgångs-ID publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare.
+12. Stoppa livehändelsen. 
+13. Använd en spelare som [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) att titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem på alla servicenivåer. Eller titta på och validera via förhandsgransknings-URL i live-session.
+14. Registrera tillgångs-ID, publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare.
 15. Återställ direktsänd händelse tillståndet när du har skapat varje exempel.
-16. Upprepa steg 5 till 15 för alla konfigurationer som stöds av din kodare (med och utan ad signalering/bildtexter/olika hastigheter-kodning).
+16. Upprepa steg 5 till 15 för alla konfigurationer som stöds av din kodare (med och utan ad signalering, undertexter eller olika kodning hastigheter).
 
 ### <a name="live-encoding-live-event-verification"></a>Live encoding direktsänd händelse-verifiering
 
 1. I ditt Media Services-konto, se till att den **Strömningsslutpunkt** körs. 
-2. Skapa och starta den **direktsänd kodning** direktsänd händelse. <br/> Mer information finns i [direktsänd händelse tillstånd och fakturering](live-event-states-billing.md).
+2. Skapa och starta den **direktsänd kodning** direktsänd händelse. <br/> Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
 3. Hämta URL: er för inmatning och konfigurera kodaren för att skicka en direktsänd dataström med enkel bithastighet till Media Services.
 4. Få förhandsgransknings-URL och använda den för att kontrollera att indata från kodaren faktiskt tas emot.
 5. Skapa en ny **tillgången** objekt.
 6. Skapa en **Live utdata** och använda Tillgångsnamn som du skapade.
 7. Skapa en **Strömningspositionerare** med inbyggt **Streaming princip** typer.
 8. Lista över sökvägar på den **Strömningspositionerare** att få tillbaka de URL: er för att använda.
-9. Hämta värdnamnet för den **Strömningsslutpunkt** du vill strömma från.
+9. Hämta värdnamnet för den **Strömningsslutpunkt** som du vill spela från.
 10. Kombinera URL: en från steg 8 med värdnamnet i steg 9 för att hämta den fullständiga URL: en.
 11. Kör din live-kodare i cirka 10 minuter.
-12. Stoppa direktsändningen.
-13. Använd en spelare som [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem för alla kvalitetsnivå (eller, du kan också se och validera via förhandsgransknings-URL i live-session).
-14. Registrera tillgångs-ID publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare.
+12. Stoppa livehändelsen.
+13. Använd en spelare som [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) att titta på den arkiverade tillgången för att säkerställa att uppspelningen har inga synliga problem för alla kvalitetsnivå. Eller titta på och validera via förhandsgransknings-URL i live-session.
+14. Registrera tillgångs-ID, publicerade strömmande URL för live-arkivet, inställningar och version som används från din live-kodare.
 15. Återställ direktsänd händelse tillståndet när du har skapat varje exempel.
-16. Upprepa steg 5 till 15 för alla konfigurationer som stöds av din kodare (med och utan ad signalering/bildtexter/olika hastigheter-kodning).
+16. Upprepa steg 5 till 15 för alla konfigurationer som stöds av din kodare (med och utan ad signalering, undertexter eller olika kodning hastigheter).
 
 ### <a name="longevity-verification"></a>Verifiering av livslängd
 
-Samma steg som i [direkt direktsänd händelse verifiering](#pass-through-live-event-verification) förutom steg 11. <br/>I stället för 10 minuter att köra din live-kodare för en vecka eller längre. Använd en spelare som [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) att titta på live direktuppspelning från tid till tid (eller arkiverade tillgången) för att säkerställa att uppspelningen har inga synliga problem.
+Följ samma steg som i [direkt direktsänd händelse verifiering](#pass-through-live-event-verification) förutom steg 11. <br/>I stället för 10 minuter att köra din live-kodare för en vecka eller längre. Använd en spelare som [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) att titta på live direktuppspelning från tid till tid (eller en arkiverade tillgången) för att säkerställa att uppspelningen har inga synliga problem.
 
 ### <a name="email-your-recorded-settings"></a>E-inställningarna inspelade
 
-Till sist e inspelade inställningarna och live-arkivet parametrar till Azure Media Services på amsstreaming@microsoft.com som ett meddelande om att alla självhantering verifieringskontroller är uppfyllda. Dessutom innehåller din kontaktinformation för alla Följ ups. Du kan kontakta Azure Media Services-teamet med några frågor om den här processen.
+Slutligen e-inställningarna inspelade och live-arkivet parametrar till Azure Media Services på amsstreaming@microsoft.com som ett meddelande om att alla självhantering verifieringskontroller är uppfyllda. Dessutom innehåller din kontaktinformation för alla uppföljningar. Du kan kontakta Azure Media Services-teamet om du har frågor om den här processen.
 
 ## <a name="next-steps"></a>Nästa steg
 

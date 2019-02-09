@@ -4,7 +4,7 @@ description: Den här specifikationen beskriver protokollet och format för frag
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228886"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984842"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifikation för Azure Media Services fragmenterad MP4 live-inmatning
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Specifikation (äldre) för Azure Media Services fragmenterad MP4 live-inmatning
+
 Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade live direktuppspelning inmatning för Azure Media Services. Media Services tillhandahåller en liveuppspelningstjänst som kunder kan använda för att strömma direktsändningar och skicka innehållet i realtid genom att använda Azure som molnplattformen. Det här dokumentet beskriver också bästa metoder för att skapa mycket redundant och robust live mata in mekanismer.
 
 ## <a name="1-conformance-notation"></a>1. Efterlevnadsstatus notation
@@ -78,7 +79,7 @@ Stream är den grundläggande körningsenheten på åtgärden i live-inmatning f
 
 En kund vill skapa en live direktuppspelning presentation som innehåller följande ljud/video olika bithastigheter:
 
-Video – 3000 kbit/s, 1 500 kbit/s, 750 kbit/s
+Video – 3000 kbps, 1500 kbps, 750 kbps
 
 Ljud – 128 kbit/s
 

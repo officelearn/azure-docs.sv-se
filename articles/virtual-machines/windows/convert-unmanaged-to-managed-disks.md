@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: fecf17d95231cc37a141cfb72397f44ce2e980b5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: bcfb227b8ced6b17fe23c1a60468de24f1835ba0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435608"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979963"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en Windows-dator från ohanterade diskar till managed disks
 
 Om du har befintliga Windows virtuella datorer (VM) som använder ohanterade diskar kan du konvertera de virtuella datorerna för att använda hanterade diskar via den [Azure Managed Disks](managed-disks-overview.md) service. Den här processen konverterar både operativsystemdisken och kopplade datadiskar.
 
-Den här artikeln visar hur du konverterar virtuella datorer med hjälp av Azure PowerShell. Om du behöver installera eller uppgradera den kan du läsa [installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -43,18 +43,18 @@ Den här artikeln visar hur du konverterar virtuella datorer med hjälp av Azure
 ## <a name="convert-single-instance-vms"></a>Konvertera en instans virtuella datorer
 Det här avsnittet beskriver hur du konverterar en instans virtuella Azure-datorer från ohanterade diskar till hanterade diskar. (Om dina virtuella datorer finns i en tillgänglighetsuppsättning, se nästa avsnitt.) 
 
-1. Frigör den virtuella datorn med hjälp av den [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) cmdlet. I följande exempel bort den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`: 
+1. Frigör den virtuella datorn med hjälp av den [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet. I följande exempel bort den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`: 
 
   ```azurepowershell-interactive
   $rgName = "myResourceGroup"
   $vmName = "myVM"
-  Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+  Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
   ```
 
-2. Konvertera den virtuella datorn till hanterade diskar med hjälp av den [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) cmdlet. Följande process konverterar den föregående virtuella datorn, inklusive OS-disken och eventuella datadiskar och startar den virtuella datorn:
+2. Konvertera den virtuella datorn till hanterade diskar med hjälp av den [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) cmdlet. Följande process konverterar den föregående virtuella datorn, inklusive OS-disken och eventuella datadiskar och startar den virtuella datorn:
 
   ```azurepowershell-interactive
-  ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+  ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
 
@@ -63,40 +63,40 @@ Det här avsnittet beskriver hur du konverterar en instans virtuella Azure-dator
 
 Om de virtuella datorer som du vill konvertera till hanterade diskar är i en tillgänglighetsuppsättning, måste du först omvandla tillgänglighetsuppsättningen till en hanterad tillgänglighetsuppsättning.
 
-1. Omvandla tillgänglighetsuppsättningen med hjälp av den [Update-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/update-azurermavailabilityset) cmdlet. I följande exempel uppdaterar tillgänglighetsuppsättningen med namnet `myAvailabilitySet` i resursgruppen med namnet `myResourceGroup`:
+1. Omvandla tillgänglighetsuppsättningen med hjälp av den [uppdatering AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet. I följande exempel uppdaterar tillgänglighetsuppsättningen med namnet `myAvailabilitySet` i resursgruppen med namnet `myResourceGroup`:
 
   ```azurepowershell-interactive
   $rgName = 'myResourceGroup'
   $avSetName = 'myAvailabilitySet'
 
-  $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
-  Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
   ```
 
   Om den region där din tillgänglighetsuppsättning finns har bara 2 hanterade feldomäner men antalet ohanterade feldomäner är 3, det här kommandot visar ett fel som liknar ”den angivna feldomänsantal 3 måste ligga i intervallet 1 till 2”. Lös felet genom att uppdatera feldomänen till 2 och uppdatera `Sku` till `Aligned` på följande sätt:
 
   ```azurepowershell-interactive
   $avSet.PlatformFaultDomainCount = 2
-  Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
+  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
-2. Frigöra och konvertera de virtuella datorerna i tillgänglighetsuppsättningen. Följande skript Frigör varje virtuell dator med hjälp av den [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) cmdlet, konverterar den med hjälp av [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk), och startar om automatiskt så upp processen :
+2. Frigöra och konvertera de virtuella datorerna i tillgänglighetsuppsättningen. Följande skript Frigör varje virtuell dator med hjälp av den [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet, konverterar den med hjälp av [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk), och startar om automatiskt så upp processen:
 
   ```azurepowershell-interactive
-  $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
   foreach($vmInfo in $avSet.VirtualMachinesReferences)
   {
-     $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
-     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
-     ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
+     $vm = Get-AzVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
+     Stop-AzVM -ResourceGroupName $rgName -Name $vm.Name -Force
+     ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
   }
   ```
 
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om det finns ett fel under konverteringen, eller om en virtuell dator är i ett felaktigt tillstånd på grund av problem i en föregående konvertering, kör den `ConvertTo-AzureRmVMManagedDisk` cmdlet igen. Ett enkelt återförsök avblockeras vanligtvis situationen.
+Om det finns ett fel under konverteringen, eller om en virtuell dator är i ett felaktigt tillstånd på grund av problem i en föregående konvertering, kör den `ConvertTo-AzVMManagedDisk` cmdlet igen. Ett enkelt återförsök avblockeras vanligtvis situationen.
 Innan du konverterar, kontrollera att alla VM-tillägg finns i ”lyckades” Etableringsstatus eller konverteringen misslyckas med felkoden 409.
 
 

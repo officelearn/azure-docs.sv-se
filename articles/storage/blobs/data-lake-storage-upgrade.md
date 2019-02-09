@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 750f66b0957262a62f71cb90f7035749b2128224
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: feb656fcdbb98dcab0a3ccf372a05b3f3dca91c4
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895915"
+ms.locfileid: "55961388"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Uppgradera din big data analytics-lösningar från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2
 
@@ -128,7 +128,7 @@ När du använder Data Lake Storage Gen1, kan du använda olika Microsoft-tjäns
 | Förbrukning          | [Power BI Desktop  ](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *Ännu inte tillgänglig*                                                                                                                                                          | *Ännu inte tillgänglig*                                                                                                                             |
 |                      | [Excel ](https://techcommunity.microsoft.com/t5/Excel-Blog/Announcing-the-Azure-Data-Lake-Store-Connector-in-Excel/ba-p/91677)                                                 | *Ännu inte tillgänglig*                                                                                                                                                          | *Ännu inte tillgänglig*                                                                                                                             |
 |                      | [Analysis Services ](https://blogs.msdn.microsoft.com/analysisservices/2017/09/05/using-azure-analysis-services-on-top-of-azure-data-lake-storage/)                            | *Ännu inte tillgänglig*                                                                                                                                                          | *Ännu inte tillgänglig*                                                                                                                             |
-| Produktivitet         | [Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Stöds inte*                                                                                                                                                              | Kontohantering *– nu tillgängligt* <br><br>Dataåtgärder *–**ännu inte tillgänglig*                                                                    |
+| Produktivitet         | [Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Stöds inte*                                                                                                                                                              | Kontohantering *– nu tillgängligt* <br><br>Dataåtgärder *–**ännu inte tillgänglig*                                                                   |
 |                      | [Data Lake Tools för Visual Studio ](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-install)                                   | *Ännu inte tillgänglig*                                                                                                                                                          | *Ännu inte tillgänglig*                                                                                                                             |
 |                      | [Azure Storage Explorer ](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)                                                          | *Tillgängligt nu*                                                                                                                                                              | *Tillgängligt nu*                                                                                                                                 |
 |                      | [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=usqlextpublisher.usql-vscode-ext)                                                                     | *Ännu inte tillgänglig*                                                                                                                                                          | *Ännu inte tillgänglig*                                                                                                                             |
@@ -232,7 +232,7 @@ Observera att det finns en tredje part som kan hantera Data Lake Storage Gen1 ti
 
 * Om du använder ett verktyg som inte kopierar ACL: er eller om du inte vill kopiera över ACL: er så kommer du behöver ange ACL: er på målet manuellt på den översta nivån som är lämpliga. Du kan göra det genom att använda Storage Explorer. Kontrollera att dessa ACL: er är standard-ACL: er så att de filer och mappar som du kopierar du över ärver dem.
 
-* I Data Lake Storage Gen1 är den högsta nivån som du kan ange ACL: er i roten för kontot. I Data Lake Storage Gen1, men är den högsta nivån som du kan ange ACL: er i rotmappen i ett filsystem, inte hela kontot. Om du vill använda standard-ACL: er på kontonivå, måste du därför att duplicera de över alla filsystem i ditt Data Lake Storage Gen2-konto.
+* I Data Lake Storage Gen1 är den högsta nivån som du kan ange ACL: er i roten för kontot. I Data Lake Storage Gen2, men är den högsta nivån som du kan ange ACL: er i rotmappen i ett filsystem, inte hela kontot. Om du vill använda standard-ACL: er på kontonivå, måste du därför att duplicera de över alla filsystem i ditt Data Lake Storage Gen2-konto.
 
 * Filen namngivningsbegränsningar skiljer sig mellan de två systemen för lagring. Dessa skillnader särskilt om när du kopierar från Data Lake Storage Gen2 till Data Lake Storage Gen1 eftersom det senare har mer begränsad begränsningar.
 

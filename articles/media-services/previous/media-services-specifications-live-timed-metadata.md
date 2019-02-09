@@ -4,7 +4,7 @@ description: Den här specifikationen beskrivs två lägen som stöds av Media S
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: johndeu
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3c51b5fd5bf577479aaeb316d5c1b5f8704f2d19
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265898"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980439"
 ---
-# <a name="signaling-timed-metadata-in-live-streaming"></a>Signalering av Metadata med tidsgräns i liveuppspelning
+# <a name="signaling-timed-metadata-in-live-streaming-legacy"></a>Signalering tidsgränsen Metadata i Live Streaming (äldre)
 
 
 ## <a name="1-introduction"></a>1 introduktion 
@@ -68,8 +68,8 @@ För RTMP enkelt läge stöder Media Services ett enda AMF stack-meddelande som 
 
 | Fältnamn | Fälttyp | Krävs? | Beskrivningar                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| Låt dig ledas        | Sträng     | Krävs | Händelsemeddelandet.  Vara skall ”SpliceOut” för att ange ett enkelt läge splice.                                              |
-| id         | Sträng     | Krävs | En unik identifierare som beskriver splice eller segment. Identifierar den här instansen av meddelandet                            |
+| Låt dig ledas        | String     | Krävs | Händelsemeddelandet.  Vara skall ”SpliceOut” för att ange ett enkelt läge splice.                                              |
+| id         | String     | Krävs | En unik identifierare som beskriver splice eller segment. Identifierar den här instansen av meddelandet                            |
 | varaktighet   | Tal     | Krävs | Varaktigheten för splice. Enheterna är fraktionell.                                                                |
 | elapsed    | Tal     | Valfri | När signalen upprepas för att stödja Kolla in, det här fältet ska vara presentation tiden som har förflutit sedan splice påbörjades. Enheterna är fraktionell. När du använder enkelt läge måste får det här värdet inte överstiga splice ursprungliga varaktighet.                                                  |
 | time       | Tal     | Krävs | Skall vara tidpunkten för splice, tidpunkt för presentation. Enheterna är fraktionell.                                     |
@@ -80,9 +80,9 @@ För RTMP enkelt läge stöder Media Services ett enda AMF stack-meddelande som 
 
 | Fältnamn | Fälttyp | Krävs? | Beskrivningar                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| Låt dig ledas        | Sträng     | Krävs | Händelsemeddelandet.  För [SCTE 35] meddelanden måste vara base64 (IETF RFC 4648) binär kodade splice_info_section() för meddelanden som ska skickas till HLS, Smooth och Dash klienter i enlighet med [SCTE 67].                                              |
-| typ       | Sträng     | Krävs | En URN eller en URL som anger meddelande-schema. Detta måste vara ”urn: scte:scte35:2013a:bin” för att meddelanden ska skickas till HLS, Smooth och Dash klienter i enlighet med [SCTE 67] för [SCTE 35].  |
-| id         | Sträng     | Krävs | En unik identifierare som beskriver splice eller segment. Identifierar den här instansen av meddelandet.  Meddelanden med motsvarande semantik bör ha samma värde.|
+| Låt dig ledas        | String     | Krävs | Händelsemeddelandet.  För [SCTE 35] meddelanden måste vara base64 (IETF RFC 4648) binär kodade splice_info_section() för meddelanden som ska skickas till HLS, Smooth och Dash klienter i enlighet med [SCTE 67].                                              |
+| typ       | String     | Krävs | En URN eller en URL som anger meddelande-schema. Detta måste vara ”urn: scte:scte35:2013a:bin” för att meddelanden ska skickas till HLS, Smooth och Dash klienter i enlighet med [SCTE 67] för [SCTE 35].  |
+| id         | String     | Krävs | En unik identifierare som beskriver splice eller segment. Identifierar den här instansen av meddelandet.  Meddelanden med motsvarande semantik bör ha samma värde.|
 | varaktighet   | Tal     | Krävs | Varaktigheten för händelsen eller ad splice-segmentet, om det är möjligt. Om det är okänd, vara värdet 0.                                                                 |
 | elapsed    | Tal     | Valfri | Om ad-signal [SCTE 35] upprepas för att Kolla in och vara det här fältet presentation tiden som har förflutit sedan splice påbörjades. Enheterna är fraktionell. Det här värdet får överstiga den ursprungliga angivna varaktigheten splice eller segment i [SCTE 35]-läge.                                                  |
 | time       | Tal     | Krävs | Presentation-tid för händelsen eller ad splice.  Presentation starttid och varaktighet ska justeras med Stream åtkomst punkter (SAP) av typen 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga. Tid och varaktighet ska justeras med segment gränser för HLS utgående data. Presentation-tid och varaktighet för olika händelsemeddelanden inom samma händelseströmmen får inte överlappa varandra. Enheterna är fraktionell.
@@ -102,11 +102,11 @@ Null-optimerade spåra måste deklareras i rutan Live Server Manifest med en \<t
 | **Attributnamn** | **Fälttyp** | **Krävs?** | **Beskrivning**                                                                                                                                                                                                                                                 |
 |--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | systemBitrate      | Tal         | Krävs      | MÅSTE vara ”0”, som anger ett spår med okänd, variabel bithastighet.                                                                                                                                                                                                 |
-| parentTrackName    | Sträng         | Krävs      | MÅSTE vara namnet på den överordnade kurs, som är null-optimerade spåra tidskoderna tidsskalan justerad. Den överordnade-kursen får inte vara ett null-optimerade spår.                                                                                                                    |
+| parentTrackName    | String         | Krävs      | MÅSTE vara namnet på den överordnade kurs, som är null-optimerade spåra tidskoderna tidsskalan justerad. Den överordnade-kursen får inte vara ett null-optimerade spår.                                                                                                                    |
 | manifestOutput     | Boolesk        | Krävs      | MÅSTE vara ”sant”, som anger att null-optimerade spåra bäddas in manifestet Smooth klienten.                                                                                                                                                               |
-| Undertyp            | Sträng         | Krävs      | Vara måste fyra tecken code ”DATA”.                                                                                                                                                                                                                         |
-| Schema             | Sträng         | Krävs      | MÅSTE vara en URN eller URL: en identifiering av meddelande-schema. Detta måste vara ”urn: scte:scte35:2013a:bin” för att meddelanden ska skickas till HLS, Smooth och Dash klienter i enlighet med [SCTE 67] för [SCTE 35]. |
-| TrackName          | Sträng         | Krävs      | MÅSTE vara namnet på den null-optimerade kursen. TrackName kan användas för att skilja flera händelseströmmar med samma schema. Varje unik händelseström måste ha ett unikt namn.                                                                           |
+| Undertyp            | String         | Krävs      | Vara måste fyra tecken code ”DATA”.                                                                                                                                                                                                                         |
+| Schema             | String         | Krävs      | MÅSTE vara en URN eller URL: en identifiering av meddelande-schema. Detta måste vara ”urn: scte:scte35:2013a:bin” för att meddelanden ska skickas till HLS, Smooth och Dash klienter i enlighet med [SCTE 67] för [SCTE 35]. |
+| TrackName          | String         | Krävs      | MÅSTE vara namnet på den null-optimerade kursen. TrackName kan användas för att skilja flera händelseströmmar med samma schema. Varje unik händelseström måste ha ett unikt namn.                                                                           |
 | tidsskalan          | Tal         | Valfri      | MÅSTE vara tidsskalan i den överordnade kursen.                                                                                                                                                                                                                      |
 
 -------------------------------------
@@ -228,7 +228,7 @@ Tidsinställda metadata för Apple HTTP Live Streaming (HLS) kan bäddas in list
 | LÅT DIG LEDAS                | sträng inom citattecken                 | Krävs                                  | Meddelandet kodade som en base64-sträng som beskrivs i [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). Detta är base64-kodad splice_info_section() för [SCTE 35] meddelanden.                                                                                                |
 | TYP               | sträng inom citattecken                 | Krävs                                  | En URN eller en URL som anger meddelande-schema. För [SCTE 35] tar typen särskilda värdet ”scte35”.                                                                                                                                |
 | ID                 | sträng inom citattecken                 | Krävs                                  | En unik identifierare för händelsen. Om det ID: T inte anges när meddelandet matas genererar Azure Media Services ett unikt id.                                                                                                                                          |
-| Varaktighet           | decimal flyttalsnummer | Krävs                                  | Varaktighet för händelsen. Om det är okänd, vara värdet 0. Enheterna är factional sekunder.                                                                                                                                                                                           |
+| VARAKTIGHET           | decimal flyttalsnummer | Krävs                                  | Varaktighet för händelsen. Om det är okänd, vara värdet 0. Enheterna är factional sekunder.                                                                                                                                                                                           |
 | FÖRFLUTEN TID            | decimal flyttalsnummer | Valfritt, men krävs för skjutfönster | När signalen upprepas för ett skjutfönster presentation, måste det här fältet vara presentation tiden som har förflutit sedan händelsen påbörjades. Enheterna är fraktionell. Det här värdet kan överskrida den ursprungliga angivna varaktigheten splice eller segment. |
 | TIME               | decimal flyttalsnummer | Krävs                                  | Presentation-tid för händelse. Enheterna är fraktionell.                                                                                                                                                                                                                    |
 

@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 80fbad64cda9267e468f9385d48dd5d40468eaca
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a349b50ce0c4e7c47979a6dee5694411a1d807c2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203427"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982258"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>Roller som du inte kan hantera i PIM
 
@@ -43,6 +43,5 @@ Roller i Exchange Online eller SharePoint Online, förutom Exchange-administrat�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Börja använda PIM](pim-getting-started.md)
 - [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
 - [Tilldela Azure-resursroller i PIM](pim-resource-roles-assign-roles.md)

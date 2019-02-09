@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: e00a4c5f5ee307a2d574702844e481894d28cb93
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 6ace72aea22224e2df04ecfe872dafdd497b1d37
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340315"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976783"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Högpresterande storlekar på virtuella datorer
 
@@ -33,7 +33,7 @@ ms.locfileid: "49340315"
 
 * **Operativsystemet** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-* **MPI** -Microsoft MPI (MS-MPI) 2012 R2 eller senare, Intel MPI biblioteket 5.x
+* **MPI** - Microsoft MPI (MS-MPI) 2012 R2 or later, Intel MPI Library 5.x
 
   Stöds MPI-implementeringar använda Microsoft Network Direct-gränssnittet för att kommunicera mellan instanser. 
 
@@ -45,7 +45,7 @@ ms.locfileid: "49340315"
   Följande kommando installerar det senaste version 1.1 HpcVMDrivers tillägget på en befintlig RDMA-kompatibla virtuell dator med namnet *myVM* distribuerat i resursgruppen med namnet *myResourceGroup* i den  *Västra USA* region:
 
   ```PowerShell
-  Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   
   Mer information finns i [virtuella datorer, tillägg och funktioner](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributionsmodellen](classic/manage-extensions.md).

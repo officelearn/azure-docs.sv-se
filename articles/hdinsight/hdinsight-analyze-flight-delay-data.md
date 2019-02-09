@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 311e2ee65b2c24eb1c288a2161bf371732aea452
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e95440f72580b928cd41b6d03f30459cfb70a510
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817673"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965400"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight
 [Apache Hive](https://hive.apache.org/) ger dig möjlighet att köra [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) via ett SQL-liknande skriptspråk som kallas *[HiveQL] [ hadoop-hiveql]*, som kan tillämpas gentemot sammanfatta, fråga och analysera stora mängder data.
@@ -66,13 +66,13 @@ Om du vill lära dig att get/laddar upp data till ditt eget lagringskonto, och s
 
 I följande tabell visas de filer som används i den här självstudien:
 
-<table border="1">
-<tr><th>Filer</th><th>Beskrivning</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>HiveQL skriptfilen som används av Hive-jobb. Det här skriptet har överförts till ett Azure Blob storage-konto med offentlig åtkomst. <a href="#appendix-b">Bilaga B</a> har anvisningar för hur förbereder och överför den här filen till ditt eget Azure Blob storage-konto.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Indata för Hive-jobb. Data har överförts till ett Azure Blob storage-konto med offentlig åtkomst. <a href="#appendix-a">Bilaga A</a> innehåller anvisningar som beskriver när data hämtades och ladda upp data till ditt eget Azure Blob storage-konto.</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>Sökvägen för utdata för Hive-jobb. Standardbehållaren används för att lagra utdata.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>Hive-jobb status mappen på behållare som standard.</td></tr>
-</table>
+|Filer|Beskrivning|  
+|----|----|   
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|HiveQL skriptfilen som används av Hive-jobb. Det här skriptet har överförts till ett Azure Blob storage-konto med offentlig åtkomst. <a href="#appendix-b">Bilaga B</a> har anvisningar för hur förbereder och överför den här filen till ditt eget Azure Blob storage-konto.|
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Indata för Hive-jobb. Data har överförts till ett Azure Blob storage-konto med offentlig åtkomst. <a href="#appendix-a">Bilaga A</a> innehåller anvisningar som beskriver när data hämtades och ladda upp data till ditt eget Azure Blob storage-konto.|
+|\tutorials\flightdelays\output|Sökvägen för utdata för Hive-jobb. Standardbehållaren används för att lagra utdata.|
+|\tutorials\flightdelays\jobstatus|Hive-jobb status mappen på behållare som standard.|
+
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Skapa kluster och köra Hive/Sqoop jobb
 Hadoop MapReduce är batchbearbetning. Det mest kostnadseffektiva sättet att köra ett Hive-jobb är att skapa ett kluster för jobbet och tar bort jobbet när jobbet har slutförts. Följande skript täcker hela processen.
@@ -250,12 +250,11 @@ Ladda upp datafilen och [HiveQL](https://cwiki.apache.org/confluence/display/Hiv
 1. Gå till [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. Välj följande värden på sidan:
 
-    <table border="1">
-    <tr><th>Namn</th><th>Värde</th></tr>
-    <tr><td>Filtrera år</td><td>2013 </td></tr>
-    <tr><td>Filtrera period</td><td>Januari</td></tr>
-    <tr><td>Fält</td><td>*År*, *FlightDate*, *UniqueCarrier*, *operatör*, *FlightNum*, *OriginAirportID*, *Ursprung*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (rensa alla andra fält)</td></tr>
-    </table>
+    |Namn|Värde|
+    |---|---|
+    |Filtrera år|2013|
+    |Filtrera period|Januari|
+    |Fält|*År*, *FlightDate*, *UniqueCarrier*, *operatör*, *FlightNum*, *OriginAirportID*, *Ursprung*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (rensa alla andra fält)|
 
 3. Klicka på **Hämta**.
 4. Packa upp filen till den **C:\Tutorials\FlightDelay\2013Data** mapp. Varje fil är en CSV-fil och är cirka 60GB i storlek.
@@ -266,11 +265,10 @@ Ladda upp datafilen och [HiveQL](https://cwiki.apache.org/confluence/display/Hiv
 
 1. Förbered parametrarna:
 
-    <table border="1">
-    <tr><th>Variabelnamn</th><th>Anteckningar</th></tr>
-    <tr><td>$storageAccountName</td><td>Azure Storage-konto där du vill överföra data till.</td></tr>
-    <tr><td>$blobContainerName</td><td>Blob-behållaren där du vill överföra data till.</td></tr>
-    </table>
+    |Variabelnamn|Anteckningar|
+    |---|---|
+    |$storageAccountName|Azure Storage-konto där du vill överföra data till.|
+    |$blobContainerName|Blob-behållaren där du vill överföra data till.|
     
 2. Öppna Azure PowerShell ISE.
 3. Klistra in följande skript i skriptfönstret:
@@ -375,11 +373,10 @@ En fullständig lista över HiveQL-kommandon finns i [Apache Hive-datadefinition
 
 1. Förbered parametrarna:
 
-    <table border="1">
-    <tr><th>Variabelnamn</th><th>Anteckningar</th></tr>
-    <tr><td>$storageAccountName</td><td>Azure Storage-konto där du vill ladda upp HiveQL-skript till.</td></tr>
-    <tr><td>$blobContainerName</td><td>Blob-behållaren där du vill ladda upp HiveQL-skript till.</td></tr>
-    </table>
+    |Variabelnamn|Anteckningar|
+    |---|---|
+    |$storageAccountName|Azure Storage-konto där du vill ladda upp HiveQL-skript till.|
+    |$blobContainerName|Blob-behållaren där du vill ladda upp HiveQL-skript till.|
     
 2. Öppna Azure PowerShell ISE.  
 
@@ -564,14 +561,14 @@ En fullständig lista över HiveQL-kommandon finns i [Apache Hive-datadefinition
 
 1. Förbered parametrarna:
 
-    <table border="1">
-    <tr><th>Variabelnamn</th><th>Anteckningar</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>Namnet på Azure SQL database-server. Ange inget att skapa en ny server.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>Inloggningsnamnet för Azure SQL database-server. Om $sqlDatabaseServerName är en befintlig server, är användarnamn och inloggningslösenord för används för att autentisera med servern. Annars används för att skapa en ny server.</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>Inloggningslösenordet för Azure SQL database-server.</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>Det här värdet används endast när du skapar en ny Azure database-server.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>SQL-databas som används för att skapa tabellen AvgDelays för Sqoop jobbet. Lämna det tomt skapar en databas som heter HDISqoop. Tabellnamnet Sqoop utdata för jobbet är AvgDelays. </td></tr>
-    </table>
+    |Variabelnamn|Anteckningar|
+    |---|---|
+    |$sqlDatabaseServerName|Namnet på Azure SQL database-server. Ange inget att skapa en ny server.|
+    |$sqlDatabaseUsername|Inloggningsnamnet för Azure SQL database-server. Om $sqlDatabaseServerName är en befintlig server, är användarnamn och inloggningslösenord för används för att autentisera med servern. Annars används för att skapa en ny server.|
+    |$sqlDatabasePassword|Inloggningslösenordet för Azure SQL database-server.|
+    |$sqlDatabaseLocation|Det här värdet används endast när du skapar en ny Azure database-server.|
+    |$sqlDatabaseName|SQL-databas som används för att skapa tabellen AvgDelays för Sqoop jobbet. Lämna det tomt skapar en databas som heter HDISqoop. Tabellnamnet Sqoop utdata för jobbet är AvgDelays.|
+
     
 2. Öppna Azure PowerShell ISE.
 

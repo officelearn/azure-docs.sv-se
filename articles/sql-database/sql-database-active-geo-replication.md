@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 0c574aab722cdce91cd5a2569c14c4f1710483ed
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468282"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965230"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Skapa läsbara sekundära databaser med aktiv geo-replikering
 
@@ -46,6 +46,14 @@ Du kan hantera replikering och redundans för en individuell databas eller en up
 Kontrollera autentiseringskrav för din server och databas har konfigurerats på den nya primärt efter redundansväxlingen. Mer information finns i [SQL Database-säkerhet efter haveriberedskap](sql-database-geo-replication-security-config.md).
 
 Aktiv geo-replikering utnyttjar den [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) teknik för SQL Server för att replikera asynkront genomförda transaktioner på den primära databasen till en sekundär databas med ögonblicksbildisolering. Automatisk redundans grupper ger gruppen semantik ovanpå aktiv geo-replikering, men samma asynkron replikeringsmekanism används. Den sekundära databasen inte är efter den primära databasen på en given tidpunkt, sekundära data är säkert att aldrig ha partiella transaktioner. Redundans över regioner gör det möjligt för program att snabbt återställa en förlust av ett helt datacenter eller delar av ett datacenter på grund av naturkatastrofer, oåterkalleligt mänskliga faktorn eller skadliga åtgärder. Specifika RPO data finns på [översikt över affärskontinuitet](sql-database-business-continuity.md).
+
+> [!NOTE]
+> Om det finns ett nätverksfel mellan två regioner, gör vi var tionde sekund för att återupprätta anslutningarna.
+> [!IMPORTANT]
+> Du kan tvinga synkroniseringen att se till att replikeringen av viktiga ändringar (till exempel, lösenordsuppdateringar) för att garantera att viktiga förändringar i den primära databasen replikeras till en sekundär före redundans. Framtvingad synkronisering påverkar prestanda eftersom blockeras anropstråden tills alla genomförda transaktioner replikeras. Mer information finns i [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Om du vill övervaka replikeringsfördröjning mellan den primära databasen och geo-secondary Se [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+
+
+
 
 Följande bild visar ett exempel på aktiv geo-replikering konfigurerade med en primär i regionen USA, norra centrala och sekundära i regionen södra centrala USA.
 

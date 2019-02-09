@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c452341567055e0272c8e6a90c43d6b886d6a928
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425602"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977566"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Skapa en virtuell dator från en hanterad avbildning
 
 Du kan skapa flera virtuella datorer (VM) från en Azure-hanterade VM bild med hjälp av Azure portal eller PowerShell. En hanterad datoravbildning av virtuell innehåller informationen som krävs för att skapa en virtuell dator, inklusive operativsystem och datadiskar. De virtuella hårddiskarna (VHD) som utgör bilden, inklusive både OS-diskar och eventuella datadiskar lagras som hanterade diskar. 
 
 Innan du skapar en ny virtuell dator, måste du [skapa en hanterad virtuell datoravbildning](capture-image-resource.md) ska användas som Källavbildningen. 
+
 
 ## <a name="use-the-portal"></a>Använda portalen
 
@@ -41,17 +42,17 @@ Innan du skapar en ny virtuell dator, måste du [skapa en hanterad virtuell dato
 
 ## <a name="use-powershell"></a>Använd PowerShell
 
-Du kan använda PowerShell för att skapa en virtuell dator från en avbildning med hjälp av förenklad parameteruppsättning för den [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Avbildningen måste finnas i samma resursgrupp där du skapar den virtuella datorn.
+Du kan använda PowerShell för att skapa en virtuell dator från en avbildning med hjälp av förenklad parameteruppsättning för den [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. Avbildningen måste finnas i samma resursgrupp där du skapar den virtuella datorn.
 
-Det här exemplet kräver AzureRM-Modulversion 5.6.0 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-En förenklad parameteruppsättning för [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) endast kräver att du anger namn, resursgrupp och Avbildningsnamnet för att skapa en virtuell dator från en avbildning. New-AzureRmVm kommer att använda värdet för den **-namnet** parametern som namnet på alla resurser som skapas automatiskt. I det här exemplet vi ger mer detaljerad namnen för varje resurs men låta cmdleten skapa dem automatiskt. Du kan också skapa resurser i förväg, till exempel det virtuella nätverket, och skicka resursnamnet i cmdleten. New-AzureRmVm använder befintliga resurser om det hittar dem efter deras namn.
+En förenklad parameteruppsättning för [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) endast kräver att du anger namn, resursgrupp och Avbildningsnamnet för att skapa en virtuell dator från en avbildning. Nya AzVm kommer att använda värdet för den **-namnet** parametern som namnet på alla resurser som skapas automatiskt. I det här exemplet vi ger mer detaljerad namnen för varje resurs men låta cmdleten skapa dem automatiskt. Du kan också skapa resurser i förväg, till exempel det virtuella nätverket, och skicka resursnamnet i cmdleten. Ny AzVm använder befintliga resurser om det hittar dem efter deras namn.
 
 I följande exempel skapas en virtuell dator med namnet *myVMFromImage*i den *myResourceGroup* resursgrupp från avbildningen med namnet *myImage*. 
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
     -ImageName "myImage" `

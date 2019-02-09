@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112e9aa023fb29bd960b61139861db4007c61b4d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245981"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962255"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Att tänka på när virtuella datorer i Azure Stack
 
@@ -41,8 +41,9 @@ Azure Stack-datorer tillhandahåller behovsbaserade och skalbara datorresurser. 
 | Prestanda för virtuella datorer-diskar | Beror på disktyp och storlek. | Beror på storleken på virtuella datorer som diskarna som är kopplade till, referera till den [VM-storlekar som stöds i Azure Stack](azure-stack-vm-sizes.md) artikeln.
 | API-versioner | Azure har alltid de senaste API-versionerna för alla VM-funktioner. | Azure Stack har stöd för specifika Azure-tjänster och specifika API-versioner för dessa tjänster. Om du vill visa listan över API-versioner som stöds, referera till den [API-versioner](#api-versions) i den här artikeln. |
 | Azure Instance Metadata service | Azure Instance Metadata Service innehåller information om hur du kör instanser av virtuella datorer som kan användas för att hantera och konfigurera dina virtuella datorer.  | Instance metadata service stöds inte på Azure Stack. |
-|Tillgänglighetsuppsättningar för virtuella datorer|Flera feldomäner (2 eller 3 per region)<br>Flera uppdateringsdomäner<br>Hanterade disksupport|Flera feldomäner (2 eller 3 per region)<br>Flera uppdateringsdomäner (upp till 20)<br>Inget stöd för hanterad disk|
-|Skalningsuppsättningar för virtuella datorer|Automatisk skalning som stöds|Automatisk skalning inte stöds.<br>Lägga till fler instanser i en skalningsuppsättning med portalen, Resource Manager-mallar eller PowerShell.
+| Tillgänglighetsuppsättningar för virtuella datorer|Flera feldomäner (2 eller 3 per region)<br>Flera uppdateringsdomäner|Flera feldomäner (2 eller 3 per region)<br>Flera uppdateringsdomäner (upp till 20)|
+| Skalningsuppsättningar för virtuella datorer|Automatisk skalning som stöds|Automatisk skalning inte stöds.<br>Lägga till fler instanser i en skalningsuppsättning med portalen, Resource Manager-mallar eller PowerShell. |
+| Diagnostik för virtuell dator | Linux VM-diagnostik | Linux VM-diagnostik stöds inte i Azure Stack. Distributionen misslyckas när du distribuerar en Linux VM med VM-diagnostik aktiverat. Distributionen misslyckas också om du aktiverar den grundläggande Linux VM-mätvärden via diagnostikinställningar.
 
 ## <a name="virtual-machine-sizes"></a>Storlekar för virtuella datorer
 
@@ -71,7 +72,7 @@ Storlekar för virtuella datorer och deras associerade resursen kvantiteter är 
 
 ## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator
 
- Azure Stack innehåller en liten uppsättning tillägg. Uppdateringar och ytterligare tillägg är tillgänglig via Marketplace-syndikering.
+Azure Stack innehåller en liten uppsättning tillägg. Uppdateringar och ytterligare tillägg är tillgänglig via Marketplace-syndikering.
 
 Använd följande PowerShell-skript för att hämta listan över tillägg för virtuell dator som är tillgängliga i Azure Stack-miljön:
 
@@ -82,6 +83,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+Om det tar för lång tid att etablera ett tillägg på en VM-distribution, kan du etablering tidsgränsen istället för att försöka stoppa processen för att frigöra eller ta bort den virtuella datorn.
 
 ## <a name="api-versions"></a>API-versioner
 

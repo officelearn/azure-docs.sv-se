@@ -11,22 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 240715fe6d3e8344c15cddf80a23829ec84e81a2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: 48180d4a9dcf7219815b5bc397647d7d97467cf7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511997"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961796"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid-förmånen och migrering
 
 Den vCore-baserade inköpsmodellen kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris. Du kan också välja maskinvarusystem:
 
-- Gen 4 – upp till 24 logiska processorer bygger på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, vCore = 1 sidor (fysiska kärnor), 7 GB per kärna, anslutna SSD
-- Gen 5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.1 GB per kärna, snabb eNVM SSD
+- Gen4 – upp till 24 logiska processorer som baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, vCore = 1 sidor (fysiska kärnor), 7 GB per kärna, anslutna SSD
+- Gen5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.1 GB per kärna, snabb eNVM SSD
 
-vCore-modellen kan du använda [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) att få kostnadsbesparingar.
+Gen4 maskinvara erbjuder betydligt mer minne per vCore. Gen5 maskinvara kan du skala upp beräkningsresurserna som är mycket högre.
 
 > [!NOTE]
 > Information om DTU-baserade tjänstnivåer finns i [DTU-baserade tjänstnivåer](sql-database-service-tiers-dtu.md). Information om hur man skiljer DTU-baserade tjänstnivåer och vCore-baserade tjänstnivåer finns i [Azure SQL Database köpa modeller](sql-database-service-tiers.md).
@@ -58,8 +58,6 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan de tre nivåerna:
 
 > [!IMPORTANT]
 > Om du behöver mindre än 1 vCore för beräkningskapacitet kan använda den DTU-baserade inköpsmodellen.
-
-Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga frågor och svar.
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid-förmån
 

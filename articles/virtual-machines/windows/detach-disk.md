@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: e27826629873566bf7b746649923c25e6ab70827
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457164"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981153"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Hur du koppla ifrån en datadisk från en Windows-dator
 
@@ -35,16 +35,18 @@ När du inte längre behöver en datadisk som är ansluten till en virtuell dato
 Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator, eller till en annan.
 
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="detach-a-data-disk-using-powershell"></a>Koppla ifrån en datadisk med hjälp av PowerShell
 
 Du kan *frekvent* ta bort en datadisk med hjälp av PowerShell, men kontrollera att inget aktivt använder disken innan du kopplar bort det från den virtuella datorn.
 
-I det här exemplet tar vi bort disken med namnet **myDisk** från den virtuella datorn **myVM** i den **myResourceGroup** resursgrupp. Först du tar bort en disk med hjälp av den [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet. Sedan du uppdatera tillståndet för den virtuella datorn med hjälp av den [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdleten för att slutföra processen med att ta bort datadisken.
+I det här exemplet tar vi bort disken med namnet **myDisk** från den virtuella datorn **myVM** i den **myResourceGroup** resursgrupp. Först du tar bort en disk med hjälp av den [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) cmdlet. Sedan du uppdatera tillståndet för den virtuella datorn med hjälp av den [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdleten för att slutföra processen med att ta bort datadisken.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
+Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
 Disken kvar i lagring, men är inte längre kopplad till en virtuell dator.

@@ -3,9 +3,8 @@ title: Hantera åtkomst till appar med hjälp av Azure AD | Microsoft Docs
 description: Beskriver hur Azure Active Directory kan organisationer att ange de appar som varje användare har åtkomst till.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: barbkess
-ms.openlocfilehash: 0c8450523890430587bedebbcd77ceddd8a03e42
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.openlocfilehash: 1be695384ff6828561fe8e1e858d052cba302dc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183398"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982708"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 Pågående hantering, användning utvärdering och rapportering fortsätta att vara en utmaning att när en app har integrerats i din organisations identitetssystem. I många fall kan måste IT-administratörer eller supportavdelningen vidta en pågående aktiv roll i hanteringen av åtkomst till dina appar. Ibland utförs tilldelning av en allmän eller avdelningar IT-team. Ofta tilldelning beslutet är avsedd att delegeras till beslutsfattare företag som kräver godkännande innan IT gör tilldelningen.  Andra organisationer investera i integrering med ett befintligt automatiserade identitets- och -system, som rollbaserad åtkomstkontroll (RBAC) eller attributbaserad åtkomstkontroll (ABAC). Både integrering och utveckling av regeln brukar vara särskilda och dyra. Övervakning eller rapporter på antingen hanteringsstrategi är en egen separat, kostsamma och komplexa investering.
@@ -39,7 +38,7 @@ Med dessa två tilldelning lägen kan kan administratörer få alla önskvärt t
 Med Azure AD, är användning och tilldelning reporting helt integrerat, vilket gör att administratörer att enkelt rapportera om tilldelningen av, Tilldelningsfel och även användning.
 
 ## <a name="complex-application-assignment-with-azure-ad"></a>Programtilldelning av komplexa med Azure AD
-Tänk dig ett program som Salesforce. I många organisationer används främst Salesforce av organisationer för marknadsföring och försäljning. Medlemmar i marknadsföringsgruppen har ofta högt privilegierade åtkomst till Salesforce, medlemmarna i säljgruppen har begränsad åtkomst. I många fall har en bred uppsättning informationsarbetare begränsad åtkomst till programmet. Undantag till dessa regler ting. Det är ofta förmånsrätt marknadsföring eller försäljning ledarskap team att ge en användaråtkomst eller ändra deras roller oberoende av dessa allmänna regler.
+Tänk dig ett program som Salesforce. I många organisationer används huvudsakligen Salesforce teamen för marknadsföring och försäljning. Medlemmar i marknadsföringsgruppen har ofta högt privilegierade åtkomst till Salesforce, medlemmarna i säljgruppen har begränsad åtkomst. I många fall har en bred uppsättning informationsarbetare begränsad åtkomst till programmet. Undantag till dessa regler ting. Det är ofta förmånsrätt marknadsföring eller försäljning ledarskap team att ge en användaråtkomst eller ändra deras roller oberoende av dessa allmänna regler.
 
 Med Azure AD kan program som Salesforce vara redan konfigurerats för enkel inloggning (SSO) och automatisk etablering. När programmet har konfigurerats kan kan en administratör bli engångsåtgärd du skapar och tilldelar lämpliga grupper. I det här exemplet kan en administratör kör följande tilldelningar:
 

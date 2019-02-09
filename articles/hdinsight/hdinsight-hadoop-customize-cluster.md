@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6f67ad04fed2018ba71dd39ed03c24e6aebecf90
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746804"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984740"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Anpassa Windows-baserade HDInsight-kluster med skriptåtgärd
 **Skripta åtgärd** kan användas för att anropa [anpassade skript](hdinsight-hadoop-script-actions.md) när klustret skapas för att installera ytterligare programvara på ett kluster.
@@ -62,17 +62,12 @@ HDInsight innehåller flera skript för att installera följande komponenter på
 
     ![Använda skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Använd skriptåtgärder för att anpassa ett kluster")
 
-    <table border='1'>
-        <tr><th>Egenskap </th><th>Värde</th></tr>
-        <tr><td>Namn</td>
-            <td>Ange ett namn för skriptåtgärden.</td></tr>
-        <tr><td>Skript-URI</td>
-            <td>Ange URI: N till det skript som anropas om du vill anpassa klustret. S</td></tr>
-        <tr><td>HEAD/Worker</td>
-            <td>Ange noderna (**Head** eller **Worker**) som anpassning skriptet körs.</b>.
-        <tr><td>Parametrar</td>
-            <td>Ange parametrar, om det krävs av skriptet.</td></tr>
-    </table>
+      |Egenskap |Värde|  
+      |---|---|
+      |Namn|Ange ett namn för skriptåtgärden.|
+      |Skript-URI|Ange URI: N till det skript som anropas om du vill anpassa klustren.|
+      |HEAD/Worker|Ange noderna (**Head** eller **Worker**) som anpassning skriptet körs.|
+      |Parametrar|Ange parametrar, om det krävs av skriptet.|
 
     Tryck på RETUR för att lägga till fler än en skriptåtgärd för att installera flera komponenter i klustret.
 3. Klicka på **Välj** spara skriptet åtgärd konfigurationen och fortsätta med Skapa kluster.
@@ -80,7 +75,7 @@ HDInsight innehåller flera skript för att installera följande komponenter på
 ## <a name="call-scripts-using-azure-powershell"></a>Anropa skript med hjälp av Azure PowerShell
 Den här följande PowerShell-skript visar hur du installerar Spark på Windows-baserat HDInsight-kluster.  
 
-    ```powershell
+```powershell  
     # Provide values for these variables
     $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
@@ -159,7 +154,7 @@ Den här följande PowerShell-skript visar hur du installerar Spark på Windows-
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-    ```
+```
 
 Om du vill installera annan programvara, måste du ersätta skriptfilen i skriptet:
 
@@ -172,12 +167,14 @@ I följande exempel visar hur du installerar Apache Spark på Windows-baserat HD
 
 1. Skapa ett C#-konsolprogram i Visual Studio.
 2. Kör följande kommando från Nuget Package Manager-konsolen.
-    ```powershell
+
+    ```powershell  
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
     ```
-3. Använd följande using-satser i filen Program.cs:
+
+1. Använd följande using-satser i filen Program.cs:
 
     ```csharp
         using System;

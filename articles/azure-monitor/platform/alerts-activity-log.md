@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 17a7b0e0ee76490ef43fb869260dceef83cbd124
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816585"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984502"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -203,20 +203,28 @@ Exempel-json ovan kan sparas som (exempelvis) sampleActivityLogAlert.json i den 
 [Azure Monitor - aktivitet Log aviseringar API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
 
 ## <a name="powershell"></a>PowerShell
-Bilden nedan användning via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleActivityLogAlert.json) i avsnittet resursmall:
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
-```
-Där sampleActivityLogAlert.parameters.json har de angivna värdena för de parametrar som behövs för att skapa en aviseringsregel.
+
+Aktivitetsloggaviseringar ha dedikerade PowerShell-cmdlets som är tillgängliga:
+
+- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): Att skapa en ny eller uppdatera befintlig aktivitet varningsregel loggresurs
+- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): Att hämta en eller flera aktivitet log varningsregel resurser
+- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): Att ta bort aktivitet varningsregel loggresurs med Användarbekräftelse
+- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): Så här aktiverar du en befintlig aktivitet log varningsregel resurs
+- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): Inaktivera en befintlig aktivitet log varningsregel resurs
 
 ## <a name="cli"></a>CLI
-Bilden nedan användning via Azure Resource Manager-kommando i Azure CLI för exemplet resursmall som visades tidigare (sampleActivityLogAlert.json) i avsnittet resursmall:
 
-```azurecli
-az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
-```
-Den *sampleActivityLogAlert.parameters.json* filen har de angivna värdena för de parametrar som behövs för att skapa en aviseringsregel.
+Dedikerade Azure CLI-kommandon under uppsättningen [az monitor-aktivitetsloggaviseringen](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) är tillgängliga för att hantera aktivitetsloggsaviseringsregler.
 
+Om du vill skapa en ny aktivitetsloggsaviseringsregel att använda i den här ordningen:
+
+1. [Skapa AZ monitor-aktivitetsloggaviseringen](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Skapa ny aktivitet varningsregel loggresurs
+1. [AZ monitor aktivitetsloggen avisering omfång](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Lägg till omfattning för skapade aktivitetsloggsaviseringsregel
+1. [AZ monitor aktivitetsloggen avisering-åtgärdsgrupp](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Lägg till åtgärdsgrupp aviseringsregeln för aktivitetsloggen
+
+Att hämta en enda aktivitet log varningsregel resurs, Azure CLI-kommando [az monitor-aktivitetsloggen alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+) kan användas. Och för att visa alla aktivitet varningsregel loggresurs i en resursgrupp, använda [az monitor-aktivitetsloggen Aviseringslista](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Aktivitet log varningsregel resurser kan tas bort med hjälp av Azure CLI-kommando [az monitor-aktivitetsloggen borttagning](https://docs.microsoft.com/en-us/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## <a name="next-steps"></a>Nästa steg
 

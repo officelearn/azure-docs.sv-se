@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 45ecc1cbe2a9cf7d11d7b17a7a72887dcb7aa1e3
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821481"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965417"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Hantera användning och kostnader för Log Analytics
 
@@ -117,6 +117,9 @@ Om du vill flytta din arbetsyta till aktuell prisnivå kan du behöva [ändra pr
 > [!NOTE]
 > Om arbetsytan är länkad till ett Automation-konto måste du ta bort alla **Automation and Control**-lösningar och ta bort länken för Automation-kontot innan du kan välja prisnivån *Fristående (per GB)*. I arbetsytebladet klickar du på **Lösningar** under **Allmänt** för att visa och ta bort lösningar. Du tar bort länken för Automation-kontot genom att klicka på namnet på Automation-kontot på bladet **Prisnivå**.
 
+> [!NOTE]
+> Du kan läsa mer om (inställning prisnivån via ARM) [https://docs.microsoft.com/en-us/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] och hur du säkerställer att din ARM-distribution lyckas oavsett om prenumerationen är i äldre eller nya prismodellen. 
+
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Felsökning varför Log Analytics inte längre att samla in data
 Om du är på den äldre kostnadsfria prisnivån och skicka fler än 500 MB data under en dag, stoppar insamling av data under resten av dagen. Når den dagliga gränsen är en vanlig orsak som Log Analytics slutar att samla in data eller data verkar sakna.  Log Analytics skapar en händelse av typen igen när datainsamlingen startar och stoppar. Kör följande fråga i sökningen för att kontrollera om du når den dagliga gränsen och saknade data: 
@@ -128,7 +131,7 @@ När datainsamlingen slutar OperationStatus är en varning. När datainsamlingen
 |Stoppar orsak samling| Lösning| 
 |-----------------------|---------|
 |Dagliga gränsen på äldre kostnadsfria prisnivån har nåtts |Vänta tills nästa dag för samlingen att starta om automatiskt eller ändra till en betald prisnivå.|
-|Dagligt tak för din arbetsyta har uppnåtts|Vänta tills samling att starta om automatiskt, eller öka den dagliga datavolymen som beskrivs i hantera den maximala dagliga datavolymen. Dagligt tak återställningstiden är visas på den **Datavolymhantering** sidan. |
+|Dagligt tak för din arbetsyta har uppnåtts|Vänta tills samling att starta om automatiskt eller öka den dagliga datavolymen som beskrivs i [hantera den maximala dagliga datavolymen](#manage-the-maximum-daily-volume). Dagligt tak återställningstiden är visas på den **Datavolymhantering** sidan. |
 |Azure-prenumerationen är i ett pausat tillstånd på grund av:<br> Kostnadsfri utvärderingsversion avslutades<br> Azure-pass har upphört att gälla<br> Varje månad utgiftsgränsen har nåtts (till exempel på en MSDN eller Visual Studio-prenumeration)|Konvertera till en betald prenumeration<br> Ta bort gränsen, eller vänta tills begränsningen återställs|
 
 Om du vill meddelas när datainsamlingen slutar, använder du stegen som beskrivs i *skapa dagliga data gräns* avisering du vill meddelas när datainsamlingen slutar och följ stegen använder stegen som beskrivs i Lägg till åtgärder för att Avisera regler konfigurera ett e-postmeddelande webhook eller runbook-åtgärden för regeln. 

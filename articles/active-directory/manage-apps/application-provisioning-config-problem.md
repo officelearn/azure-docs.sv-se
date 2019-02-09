@@ -3,8 +3,8 @@ title: Problem med att konfigurera användaretablering för ett Azure AD-galleri
 description: Så här felsöker du vanliga problem som kan stöta på när Konfigurera användaretablering för ett program redan visas i Azure AD-Programgalleriet
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 90f53624a05b462f517c8e2b36034326348f9899
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822280"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959382"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problem med att konfigurera användaretablering för ett Azure AD-galleriprogram
 
@@ -55,7 +55,7 @@ Om du ställer in den **Etableringsstatus** vara **på** i den **Azure Active Di
 
 ## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Det går inte att spara konfigurationen på grund av app autentiseringsuppgifter fungerar inte
 
-Azure AD kräver giltiga autentiseringsuppgifter som gör att den kan ansluta till en API som tillhandahålls av appen för användarhantering i ordning för etablering för att fungera. Om autentiseringsuppgifterna inte fungerar eller om du inte vet wat som de är, gå till självstudie för att konfigurera den här appen, som beskrivs ovan.
+Azure AD kräver giltiga autentiseringsuppgifter som gör att den kan ansluta till en API som tillhandahålls av appen för användarhantering i ordning för etablering för att fungera. Om autentiseringsuppgifterna inte fungerar eller om du inte vet vad de är, gå till självstudie för att konfigurera den här appen, som beskrivs ovan.
 
 ## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Granskningsloggar säger användare hoppas över och inte har etablerats även om de är tilldelade
 

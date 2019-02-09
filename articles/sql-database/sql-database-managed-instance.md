@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c0067dc96837d758e4c2551bcb29faf63c1a7715
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895049"
+ms.locfileid: "55964159"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Använda avancerad datasäkerhet med virtuella nätverk och nästan 100% kompatibilitet SQL-databas
 
@@ -107,7 +107,7 @@ Kritiska-affärsnivå har utformats för program med höga i/o-krav. Det erbjude
 I följande lista beskrivs de främsta egenskaperna för nivån affärskritisk service:
 
 - Utformad för affärsprogram med högsta prestanda och hög tillgänglighet krav
-- Medföljer Supersnabb lokal SSD-lagring (upp till 1 TB på Gen 4 och upp till 4 TB på Gen 5)
+- Medföljer Supersnabb lokal SSD-lagring (upp till 1 TB på Gen4 och upp till 4 TB på Gen5)
 - Inbyggda [hög tillgänglighet](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) utifrån [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Ytterligare inbyggda [skrivskyddad databasrepliken](sql-database-read-scale-out.md) som kan användas för rapportering och andra skrivskyddade arbetsbelastningar
 - [In-Memory OLTP](sql-database-in-memory.md) som kan användas för arbetsbelastningar med höga prestanda krav  

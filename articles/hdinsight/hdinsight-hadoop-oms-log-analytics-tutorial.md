@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2f45b8e5a8fbf06a86a16336b825d185baf4976b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386462"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959687"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Använda Azure Log Analytics för att övervaka HDInsight-kluster
 
@@ -46,9 +46,19 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster om du vill använda en Azure Log Analytics-arbetsyta för att övervaka jobb, felsökningsloggar osv.
 
-1. Öppna ett HDInsight-kluster i Azure-portalen.
-2. I den vänstra rutan väljer **övervakning**.
-3. I den högra rutan, väljer **aktivera**, Välj en befintlig Log Analytics-arbetsyta och välj sedan **spara**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+
+2. I den vänstra menyn, Välj **alla tjänster**.
+
+3. Under **ANALYTICS**väljer **HDInsight-kluster**.
+
+4. Från vänster, under **övervakning**väljer **Operations Management Suite**.
+
+5. Från den huvudsakliga vyn under **OMS-övervakning**väljer **aktivera**.
+
+6. Från den **Välj en arbetsyta** listrutan väljer du en befintlig Log Analytics-arbetsyta.
+
+7. Välj **Spara**.
 
     ![Aktivera övervakning för HDInsight-kluster](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "aktiverar övervakning av HDInsight-kluster")
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056754"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976936"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Network Watcher-Agent VM-tillägg för Windows
 
@@ -79,10 +79,10 @@ Du kan distribuera Azure VM-tillägg med Azure Resource Manager-mallar. Du kan a
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Använd den `Set-AzureRmVMExtension` kommando för att distribuera Network Watcher-Agent-tillägget för virtuell dator till en befintlig virtuell dator:
+Använd den `Set-AzVMExtension` kommando för att distribuera Network Watcher-Agent-tillägget för virtuell dator till en befintlig virtuell dator:
 
 ```powershell
-Set-AzureRmVMExtension `
+Set-AzVMExtension `
   -ResourceGroupName "myResourceGroup1" `
   -Location "WestUS" `
   -VMName "myVM1" `
@@ -99,7 +99,7 @@ Set-AzureRmVMExtension `
 Du kan hämta data om tillståndet för distributioner av tillägg från Azure-portalen och PowerShell. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure PowerShell-modulen:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
+Get-AzVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
 Tillägget utförande-utdatan loggas till filer som finns i följande katalog:

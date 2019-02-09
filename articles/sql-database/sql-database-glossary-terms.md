@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 0ae6dea86019b84e8d086a595995f8bd5b2a55ed
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: d773d270b3b352bcaef189d201d824695b42bcef
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753307"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980150"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database i ordlista
 
@@ -28,7 +28,7 @@ ms.locfileid: "55753307"
 ||Elastisk pool|[Elastisk pool](sql-database-elastic-pool.md)|
 ||Hanterad instans|[Hanterad instans](sql-database-managed-instance.md)|
 |Serverobjekt|SQL Database-server eller database-server|[Databasserver](sql-database-servers.md)|
-||SQL Database-hanterad instans eller hanterad instans|[Hanterad instans](sql-database-managed-instance.md)|
+||SQL Database hanterad instans-server, hanterad instans-server eller instans-server|[Hanterad instans](sql-database-managed-instance.md)|
 Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
 ||Enskild databas|En databas som skapats som en fristående databas med enkel databas|
 ||Databas i pool|En databas som skapats i eller flyttas till en elastisk pool|
@@ -47,6 +47,6 @@ Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
 ||Lagringsutrymme|Mängden lagring som är tillgängliga för en enkel databas eller elastisk pool hanterad instans|
 ||Compute-generering|Generering av processorn i en tjänstnivå|
 |Brandväggsregler för databasservers IP-adress|IP-brandväggsregler|[IP-brandväggsregler](sql-database-firewall-configure.md)|
-||IP-brandväggsregler på servernivå|[IP-brandväggsregler på servernivå](sql-database-firewall-configure.md#overview)|
+||Brandväggsregler för IP-adress på servernivå|[IP-brandväggsregler på servernivå](sql-database-firewall-configure.md#overview)|
 || IP-brandväggsregler på databasnivå|[IP-brandväggsregler på databasnivå](sql-database-firewall-configure.md#overview)|
 ||Slutpunkter för virtuellt nätverk och regler|[Slutpunkter och regler för virtuellt nätverk](sql-database-vnet-service-endpoint-rule-overview.md)|

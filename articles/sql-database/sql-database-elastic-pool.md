@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e7ec07c29f742202b17e94d96d88b0dfb223100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464355"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963853"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
@@ -34,6 +34,9 @@ Elastiska pooler löser det här problemet genom att se till att databaserna få
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
+
+> [!IMPORTANT]
+> Det är kostnadsfritt per databas för elastiska pooler. Du debiteras för varje timme som en pool finns på den högsta eDTU eller vCores, oavsett användning eller om poolen var aktiv under mindre än en timme.
 
 Elastiska pooler gör att utvecklare kan köpa resurser för en pool som delas av flera databaser för att därigenom hantera oförutsägbara perioder av användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Resurskrav för poolen bestäms av den sammanlagda användningen av dess databaser. Mängden resurser som är tillgängligt för poolen beror på utvecklarens budget. Utvecklaren bara lägger till databaser i poolen, anger de lägsta och högsta resurserna för databaserna (antingen lägsta och högsta dtu: er eller lägsta eller högsta vCores beroende på ditt val av resourcing modellen), och ställer sedan resurser på poolen baserat på sina budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
 

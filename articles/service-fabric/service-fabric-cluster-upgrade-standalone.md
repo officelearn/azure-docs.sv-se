@@ -1,6 +1,6 @@
 ---
 title: Uppgradera en fristående Azure Service Fabric-kluster | Microsoft Docs
-description: Lär dig mer om hur du uppgraderar versionen eller konfiguration av ett fristående Azure Service Fabric-kluster.  t
+description: Lär dig mer om hur du uppgraderar versionen eller konfiguration av ett fristående Azure Service Fabric-kluster.  T
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 6f0ffac9ecf4d0c8f6c3dc7c57670b168417cd3a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ed50f49b110d910a298e608f3625a3bddfe8a0a8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855142"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963174"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Uppgradera och uppdatera fristående Service Fabric-kluster
 
 Utformning av möjligheterna är avgörande för att uppnå långsiktig framgång av din produkt för alla moderna system. Ett fristående Azure Service Fabric-kluster är en resurs som du äger. Den här artikeln beskriver vad kan uppgraderas eller uppdateras.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Kontrollera den fabric-versionen som körs på klustret
-Kontrollera att klustret alltid körs en Service Fabric-version som stöds. När Microsoft presenterar lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för support upphör när du har minst 60 dagar från datumet då meddelandet. Nya versioner tillkännages [på Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/). Den nya versionen är kan väljas vid den tidpunkten.
+Kontrollera att klustret körs alltid en [Service Fabric-version som stöds](service-fabric-versions.md). När Microsoft presenterar lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för support upphör när du har minst 60 dagar från datumet då meddelandet. Nya versioner tillkännages [på Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/). Den nya versionen är kan väljas vid den tidpunkten.
 
 Du kan ställa in klustret för att ta emot automatiska infrastrukturuppgraderingar som Microsoft släpper eller manuellt kan du välja en stöds fabric-versionen som du vill att klustret ska vara på. Mer information finns i [uppgradera Service Fabric-versionen som körs på klustret](service-fabric-cluster-upgrade-windows-server.md).
 

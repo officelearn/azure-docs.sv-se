@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 824c7c70cf3e79df3aa04bbe86674ed9486b79f2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d5ce80e44ee1a3a48443b190ea9259fe2dea0dcb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300446"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983227"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server disaster recovery
 
@@ -130,7 +130,7 @@ Kör installationsfilen på följande sätt:
 Parametern MySQLCredsFilePath använder en fil som indata. Skapa filen med följande format och skickar den som indataparameter till MySQLCredsFilePath.
 ```ini
 [MySQLCredentials]
-MySQLRootPassword = "Password>"
+MySQLRootPassword = "Password"
 MySQLUserPassword = "Password"
 ```
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Skapa fil som indata för ProxySettingsFilePath
@@ -157,9 +157,10 @@ Du kan ändra proxyinställningarna för configuration server-dator på följand
 5. Ange nya proxyinformationen och klicka på den **registrera** knappen.
 6. Öppna en Admin PowerShell-kommandofönster.
 7. Kör följande kommando:
-  ```powershell
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+
+  ```PowerShell
+  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
   net stop obengine
   net start obengine
   ```
@@ -177,9 +178,9 @@ Du kan ändra proxyinställningarna för configuration server-dator på följand
   6. Öppna en Admin PowerShell-kommandofönster.
   7. Kör följande kommando
 
-      ```powershell
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      ```PowerShell
+      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
       net stop obengine
       net start obengine
       ```
@@ -207,7 +208,7 @@ Du kan ändra proxyinställningarna för configuration server-dator på följand
 8. Kör följande kommando
     ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
     net start obengine
     ```
@@ -273,16 +274,16 @@ Uppgradera servern på följande sätt:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Nu ställa in valvets sammanhang
     
-    ```powershell
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```PowerShell
+    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. Hämta väljer konfigurationsservern
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Ta bort konfigurationsservern
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force] `
 
 > [!NOTE]
 > Den **-tvinga** alternativ i Remove-AzureRmSiteRecoveryFabric kan användas för att Framtvinga borttagning av/borttagning av konfigurationsservern.

@@ -1,7 +1,7 @@
 ---
 title: SSH-stöd för App Service i Linux – Azure | Microsoft Docs
 description: Lär dig mer om hur du använder SSH med Azure App Service i Linux.
-keywords: Azure apptjänst, webbapp, linux, oss
+keywords: azure app service, web app, linux, oss
 services: app-service
 documentationcenter: ''
 author: wesmc7777
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251316"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984485"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service i Linux
 
@@ -58,7 +58,7 @@ De här stegen visas i Azure App Service-databasen som [ett exempel](https://git
     > [!NOTE]
     > Den här konfigurationen tillåter inga externa anslutningar till containern. SSH kan bara kommas åt via Kudu / SCM-webbplatsen som autentiseras med hjälp av autentiseringsuppgifterna för publicering.
 
-    ```docker
+    ```Dockerfile
     # ------------------------
     # SSH Server support
     # ------------------------
@@ -74,13 +74,13 @@ De här stegen visas i Azure App Service-databasen som [ett exempel](https://git
     > * `Ciphers` måste innehålla minst en av följande: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` måste innehålla minst en av följande: `hmac-sha1,hmac-sha1-96`.
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
 3. Inkludera port 2222 i den [ `EXPOSE` instruktionen](https://docs.docker.com/engine/reference/builder/#expose) för Dockerfile. Trots att rotlösenordet är känt går det inte att nå port 2222 från internet. Det är en intern endast port tillgänglig endast via behållare inom ett privat virtuellt nätverks nätverksbrygga.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 2222 80
     ```
 
@@ -93,7 +93,7 @@ De här stegen visas i Azure App Service-databasen som [ett exempel](https://git
 
 Dockerfile som använder den [ `ENTRYPOINT` instruktionen](https://docs.docker.com/engine/reference/builder/#entrypoint) att köra skriptet.
 
-    ```docker
+    ```Dockerfile
     COPY init_container.sh /opt/startup
     ...
     RUN chmod 755 /opt/startup/init_container.sh

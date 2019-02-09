@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 7b8516566709c024043c413098c948965e255e13
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746667"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982887"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Så här återställer du nätverksgränssnitt för virtuella Azure Windows-datorer 
 
@@ -61,14 +61,14 @@ Den här artikeln visar hur du återställer nätverksgränssnitt för virtuella
     $IP = "NEWIP"
 
     #Log in to the subscription 
-    Add-AzureRMAccount
-    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
+    Add-AzAccount
+    Select-AzSubscription -SubscriptionId $SubscriptionId 
     
     #Check whether the new IP address is available in the virtual network.
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
+    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. Försök att RDP till din dator.  Om detta lyckas kan du ändra privat IP-adress tillbaka till ursprungligt om du vill ha. I annat fall kan du behålla den.
 

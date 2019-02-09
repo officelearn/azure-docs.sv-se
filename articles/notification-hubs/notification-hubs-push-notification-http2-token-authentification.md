@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 46c00a4dbf6e72165477662dbc709211dad70737
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d0d181afd9bb8f1d387ce8e33f50a78dae3a11ec
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452538"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961439"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Token-baserad (HTTP/2)-autentisering för APNS
 
@@ -118,7 +118,7 @@ Du kan konfigurera din hubb för att använda token autentisering med hjälp av 
 
 Här är ett kodexempel som illustrerar rätt användning:
 
-```text
+```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
 string token = "YOUR TOKEN HERE";
 string keyId = "YOUR KEY ID HERE";

@@ -1,6 +1,6 @@
 ---
-title: Hämta en mall för en virtuell dator i Azure | Microsoft Docs
-description: Hämta templatefor en virtuell dator för att automatisera distributioner i Resource Manager-distributionsmodellen
+title: Ladda ned mallen för en Azure-dator | Microsoft Docs
+description: Ladda ned templatefor en virtuell dator för att automatisera distributioner i Resource Manager-distributionsmodellen
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,40 +15,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 93ed84cb146119c877c3a143c5f7af9ca8ba0656
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
-ms.locfileid: "26055797"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984536"
 ---
 # <a name="download-the-template-for-a-vm"></a>Ladda ned mallen för en virtuell dator
-När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell skapas automatiskt en Resource Manager-mall för dig. Du kan använda den här mallen för att snabbt duplicera en distribution. Mallen innehåller information om alla resurser i en resursgrupp. För en virtuell dator, innebär detta att mallen innehåller allt som har skapats för den virtuella datorn i den resursgrupp, inklusive nätverksresurser.
+När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell skapas automatiskt en Resource Manager-mall för dig. Du kan använda den här mallen för att snabbt kopiera en distribution. Mallen innehåller information om alla resurser i en resursgrupp. För en virtuell dator innebär detta att mallen innehåller allt som har skapats som stöd för den virtuella datorn i den resursgruppen, inklusive nätverksresurser.
 
-## <a name="download-the-template-using-the-portal"></a>Hämta en mall med hjälp av portalen
+## <a name="download-the-template-using-the-portal"></a>Ladda ned mallen med hjälp av portalen
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. En den vänstra menyn markerar **virtuella datorer**.
+2. En den vänstra menyn, Välj **virtuella datorer**.
 3. Välj den virtuella datorn i listan.
-4. Välj **automatiseringsskriptet**.
-5. Välj **hämta** från menyn överst och spara ZIP-filen till den lokala datorn.
-6. Öppna .zip-filen och extrahera filerna till en mapp. ZIP-filen innehåller:
+4. Välj **automationsskript**.
+5. Välj **hämta** från menyn längst upp och spara ZIP-filen till din lokala dator.
+6. Öppna ZIP-filen och extrahera filerna till en mapp. ZIP-filen innehåller:
    
-   * Deploy.ps1
-   * Deploy.SH 
-   * deployer.RB
+   * deploy.ps1
+   * deploy.sh 
+   * deployer.rb
    * DeploymentHelper.cs
-   * parameters.JSON
-   * Template.JSON
+   * parameters.json
+   * template.json
 
 Filen template.json är mallen.
 
-## <a name="download-the-template-using-powershell"></a>Hämta en mall med hjälp av PowerShell
-Du kan också hämta JSON mallen filen med den [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) cmdlet. Du kan använda den `-path` parametern för att ange filnamnet och sökvägen för JSON-fil. Det här exemplet illustrerar hur du hämtar mallen för resursgruppen med namnet **myResourceGroup** till den **C:\users\public\downloads** mapp på den lokala datorn.
+## <a name="download-the-template-using-powershell"></a>Ladda ned mallen med hjälp av PowerShell
+Du kan också hämta .json mall filen med den [Export AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) cmdlet. Du kan använda den `-path` parametern för att ange filnamnet och sökvägen för JSON-fil. Det här exemplet visar hur du laddar ned mallen för resursgruppen med namnet **myResourceGroup** till den **C:\users\public\downloads** mapp på din lokala dator.
 
 ```powershell
-    Export-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
+    Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du distribuerar resurser med hjälp av mallar finns [genomgång av Resource Manager-mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Läs mer om att distribuera resurser med hjälp av mallar i [genomgång av Resource Manager-mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 

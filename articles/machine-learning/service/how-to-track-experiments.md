@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83e17d4988753e757d6e30299e648af083b0a1a5
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 07b29b05bc15f57d6fd3ec64ceaee812b912b0f6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239170"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977906"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Spåra experiment och utbildning mått i Azure Machine Learning
 
@@ -241,6 +241,12 @@ if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
 Observera att för närvarande bara ScriptRun och PipelineRun typer stöder Avbryt åtgärden.
+
+Du kan dessutom avbryta en körning via CLI med följande kommando:
+```shell
+az ml run cancel -r <run_id> -p <project_path>
+```
+
 
 ## <a name="view-run-details"></a>Visa körningsinformation
 

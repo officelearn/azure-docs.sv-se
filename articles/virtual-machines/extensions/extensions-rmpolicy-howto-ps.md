@@ -13,18 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434997"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980881"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Använda Azure Policy för att begränsa installation av tillägg på virtuella Windows-datorer
 
 Du kan skapa en Azure policy som använder PowerShell för att begränsa tillägg för virtuella datorer i en resursgrupp om du vill förhindra användning eller installationen av vissa tillägg på dina virtuella Windows-datorer. 
 
-Den här självstudien används Azure PowerShell i Cloud Shell, som uppdateras till den senaste versionen. Om du väljer att installera och använda PowerShell lokalt behöver du ha version 3.6 eller senare av Azure PowerShell-modulen för den här självstudien. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+Den här självstudien används Azure PowerShell i Cloud Shell, som uppdateras till den senaste versionen. 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-a-rules-file"></a>Skapa en regelfil
 
@@ -97,13 +99,13 @@ När du är klar trycker du på den **Ctrl + O** och sedan **RETUR** att spara f
 
 ## <a name="create-the-policy"></a>Skapa principen
 
-En principdefinition är ett objekt som används för att lagra den konfiguration som du vill använda. Principdefinitionen använder filerna regler och parametrar för att definiera principen. Skapa en principdefinition med den [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet.
+En principdefinition är ett objekt som används för att lagra den konfiguration som du vill använda. Principdefinitionen använder filerna regler och parametrar för att definiera principen. Skapa en principdefinition med den [New AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) cmdlet.
 
  Hanteringsprincipregler (MPR) och parametrar är filer som du skapade och lagras som JSON-filer i cloudshell.
 
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
    -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
@@ -116,13 +118,13 @@ $definition = New-AzureRmPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Tilldela principen
 
-Det här exemplet tilldelar principen till en resurs med [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Alla virtuella datorer som skapats i den **myResourceGroup** resursgrupp kommer inte att kunna installera tillägg för VM-agenten för åtkomst eller anpassade skript. 
+Det här exemplet tilldelar principen till en resurs med [New AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Alla virtuella datorer som skapats i den **myResourceGroup** resursgrupp kommer inte att kunna installera tillägg för VM-agenten för åtkomst eller anpassade skript. 
 
-Använd den [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) cmdlet för att hämta ditt prenumerations-ID du använder i stället för den i det här exemplet.
+Använd den [Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) cmdlet för att hämta ditt prenumerations-ID du använder i stället för den i det här exemplet.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
-$assignment = New-AzureRMPolicyAssignment `
+$assignment = New-AzPolicyAssignment `
    -Name "not-allowed-vmextension-windows" `
    -Scope $scope `
    -PolicyDefinition $definition `
@@ -139,10 +141,10 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testa principen
 
-Om du vill testa principen som du försök använda VM Access-tillägg. Följande bör misslyckas med meddelandet ”Set-AzureRmVMAccessExtension: Resursen 'myVMAccess' förhindrades av principen ”.
+Om du vill testa principen som du försök använda VM Access-tillägg. Följande bör misslyckas med meddelandet ”Set-AzVMAccessExtension: Resursen 'myVMAccess' förhindrades av principen ”.
 
 ```azurepowershell-interactive
-Set-AzureRmVMAccessExtension `
+Set-AzVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
    -Name "myVMAccess" `
@@ -154,13 +156,13 @@ I portalen lösenordsändringen bör inte fungera med den ”malldistributionen 
 ## <a name="remove-the-assignment"></a>Ta bort tilldelningen
 
 ```azurepowershell-interactive
-Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
+Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
 ## <a name="remove-the-policy"></a>Ta bort principen
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
+Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Nästa steg

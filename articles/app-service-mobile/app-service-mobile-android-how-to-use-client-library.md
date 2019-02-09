@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 803c9af7b6c40f7deee2b81fb7ff0ae82ef6778a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158170"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965162"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Hur du använder Azure Mobile Apps-SDK för Android
 
@@ -55,7 +55,7 @@ Om du inte väljer att slutföra Snabbstart-självstudien utför du följande up
 
 1. Lägg till koden för den *projekt* nivå **build.gradle** filen i den *buildscript* tagg:
 
-    ```text
+    ```gradle
     buildscript {
         repositories {
             jcenter()
@@ -65,7 +65,7 @@ Om du inte väljer att slutföra Snabbstart-självstudien utför du följande up
 
 2. Lägg till koden för den *modulen app* nivå **build.gradle** filen i den *beroenden* tagg:
 
-    ```text
+    ```gradle
     compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
@@ -496,7 +496,7 @@ Layouten definieras av flera fragment för XML-koden. Med en befintlig layout ka
 
 I den föregående koden i *listitem* attributet Anger id för layouten för en enskild rad i listan. Den här koden anger en kryssruta och tillhörande text och hämtar instansieras en gång för varje objekt i listan. Den här layouten visas inte den **id** fält och en mer komplex layout skulle ange ytterligare fält i visningen. Den här koden är i den **row_list_to_do.xml** fil.
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -520,7 +520,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 Åsidosätt korten **getView** metod. Exempel:
 
-```
+```java
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -770,7 +770,7 @@ Azure Mobile Apps klient-SDK implementerar också offlinesynkronisering av data 
 * Inkrementell synkronisering: Endast hämtas uppdaterade och nya poster, spara bandbredd och minnesförbrukningen.
 * Optimistisk samtidighet: Åtgärder antas ska lyckas.  Konfliktlösning skjuts upp tills uppdateringarna utförs på servern.
 * Lösning: SDK: N identifierar när en konflikt ändring har gjorts på servern och ger hookar för att varna användaren.
-* Mjuk borttagning: Raderade poster är markerade har tagits bort, vilket gör att andra enheter att uppdatera sina offlinecache.
+* Soft Delete: Raderade poster är markerade har tagits bort, vilket gör att andra enheter att uppdatera sina offlinecache.
 
 ### <a name="initialize-offline-sync"></a>Initiera synkronisering Offline
 
@@ -959,7 +959,7 @@ Du måste också konfigurera projektet för customtabs.  Först ange en omdirige
 
 Lägg till den **redirectUriScheme** till den `build.gradle` filen för ditt program:
 
-```text
+```gradle
 android {
     buildTypes {
         release {
@@ -976,7 +976,7 @@ android {
 
 Slutligen lägger du till `com.android.support:customtabs:23.0.1` i beroendelistan i den `build.gradle` fil:
 
-```text
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.3'
@@ -1076,7 +1076,7 @@ Du kan använda Active Directory Authentication Library (ADAL) för att registre
 1. Konfigurera mobilappsserverdelen för AAD-inloggningen genom att följa den [så här konfigurerar du App Service för Active Directory-inloggning] [ 22] självstudien. Se till att slutföra det valfria steget med att registrera ett internt klientprogram.
 2. Installera ADAL genom att ändra build.gradle-filen för att inkludera följande definitioner:
 
-    ```
+    ```gradle
     repositories {
         mavenCentral()
         flatDir {

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 57ba4b35cf470eff040d4a2dca42c60820fa9d9e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a119e2797c4771551b6087e148d609c68ffd36db
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079978"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977536"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Element i B2B-samarbete e-postinbjudan - Azure Active Directory
 
@@ -66,6 +66,14 @@ Sidfoten innehåller Microsoft företagets varumärke och gör att mottagaren ka
 
   ![När mottagaren inte behöver lösa in inbjudan](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## <a name="how-the-language-is-determined"></a>Hur bestäms språket
+Det språk som presenteras för gästanvändaren i e-postinbjudan bestäms av följande inställningar. De här inställningarna visas i prioritetsordning. Om en inställning inte är konfigurerat anger Nästa inställning i listan över språk. 
+- Den **messageLanguage** egenskapen för den [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) objekt om skapa inbjudan API används
+-   Den **preferredLanguage** egenskapen som angetts i gästens [användarobjekt](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
+-   Den **aviseringsspråk** ange i egenskaperna för gästanvändarens startklientorganisation (för Azure AD-klienter)
+-   Den **aviseringsspråk** ange i egenskaperna för resurs-klient
+
+Om ingen av de här inställningarna är konfigurerade som standard språket till engelska (US).
 
 ## <a name="next-steps"></a>Nästa steg
 

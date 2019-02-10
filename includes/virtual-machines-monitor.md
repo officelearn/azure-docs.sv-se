@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55147929"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985516"
 ---
 Du kan dra nytta av många möjligheter att övervaka dina virtuella datorer genom att samla in, visa och analysera diagnostiska och logga data. Att göra enkla [övervakning](../articles/azure-monitor/overview.md) för den virtuella datorn kan du använda översiktsskärmen för den virtuella datorn i Azure-portalen. Du kan använda [tillägg](../articles/virtual-machines/windows/extensions-features.md) att konfigurera diagnostik på dina virtuella datorer att samla in ytterligare måttdata. Du kan också använda mer avancerade alternativ för övervakning, till exempel [Programinsikter](../articles/azure-monitor/app/app-insights-overview.md) och [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -23,7 +23,7 @@ Du kan konfigurera och övervaka mängden [diagnostikdata](https://docs.microsof
 
     Eftersom virtuella datorer startar boot diagnostikagenten samlar in startutdata och lagrar den i Azure storage. Dessa data kan användas för att felsöka startproblem med de virtuella datorerna. Startdiagnostik aktiveras inte automatiskt när du skapar en virtuell dator från kommandoradsverktyg. Innan du aktiverar startdiagnostik måste du skapa ett lagringskonto för att lagra startloggarna. Om du aktiverar startdiagnostik i Azure portal, skapas ett lagringskonto automatiskt åt dig.
 
-    Om du inte aktiverar startdiagnostik när den virtuella datorn skapades, du kan alltid aktivera det senare med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmbootdiagnostics), eller en [Azure Resource Manager-mall](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
+    Om du inte aktiverar startdiagnostik när den virtuella datorn skapades, du kan alltid aktivera det senare med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostics), eller en [Azure Resource Manager-mall](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
 - **Aktivera insamling av diagnostikdata för gäst-OS.** När du skapar en virtuell dator kan välja du på inställningsskärmen för att aktivera diagnostik för gäst-OS. När du aktiverar insamling av diagnostikdata, den [IaaSDiagnostics-tillägg för Linux](../articles/virtual-machines/linux/diagnostic-extension.md) eller [IaaSDiagnostics-tillägg för Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) läggs till i den virtuella datorn, vilket gör det möjligt att samla in ytterligare data på disk, CPU och minne.
 

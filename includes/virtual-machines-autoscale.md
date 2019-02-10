@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 93103311e8a9f6f4998195e21cdbc7523b1d4fca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594251"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985514"
 ---
 Du kan enkelt [skala automatiskt](../articles/azure-monitor/platform/autoscale-best-practices.md) din [virtuella datorer (VM)](../articles/virtual-machines/windows/overview.md) när du använder [VM-skalningsuppsättningar](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) och [funktionen för automatisk skalning i Azure Övervaka](../articles/azure-monitor/platform/autoscale-overview.md). Dina virtuella datorer måste vara medlemmar i en skalningsuppsättning kan skalas automatiskt. Den här artikeln innehåller information som hjälper dig att bättre förstå hur du skalar dina virtuella datorer både lodrätt och vågrätt med hjälp av automatisk och manuell metoder.
 
@@ -57,11 +57,11 @@ Du kan [konfigurera utlösare](../articles/azure-monitor/platform/autoscale-webh
 
 Du kan lägga till eller ta bort virtuella datorer genom att ändra kapaciteten för skalningsuppsättningen. I Azure-portalen kan du öka eller minska antalet virtuella datorer (visas som **antal instanser**) i skalningsuppsättningen med hjälp av skjutreglaget åsidosättning villkor på skärmen skalning åt vänster eller höger.
 
-Med Azure PowerShell kan du behöver skala uppsättning objekt med [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Sedan ställer du in den **sku.capacity** egenskapen för hur många virtuella datorer som du vill och uppdatera skalningsuppsättning med [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Med Azure CLI kan du ändra kapaciteten med den **--ny kapacitet** parametern för den [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) kommando.
+Med Azure PowerShell kan du behöver skala uppsättning objekt med [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss). Sedan ställer du in den **sku.capacity** egenskapen för hur många virtuella datorer som du vill och uppdatera skalningsuppsättning med [uppdatering AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). Med Azure CLI kan du ändra kapaciteten med den **--ny kapacitet** parametern för den [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) kommando.
 
 ### <a name="vertical"></a>Lodrät
 
-Du kan manuellt ändra storleken på de virtuella datorerna i Azure-portalen på skärmen storlek för skalningsuppsättningen. Du kan använda Azure PowerShell med Get-AzureRmVmss, ange sku-egenskapen bild referens och sedan använda [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) och [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+Du kan manuellt ändra storleken på de virtuella datorerna i Azure-portalen på skärmen storlek för skalningsuppsättningen. Du kan använda Azure PowerShell med Get-AzVmss, ange sku-egenskapen bild referens och sedan använda [uppdatering AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) och [uppdatering AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 4e2fcdac282d0cca9fe993efdaf787e43c2b6e9d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68e4a7bd73b7fdd4b21140c912422b062f51c775
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433824"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869202"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Dokumentation om Azure Data Lake Storage Gen1
 
-Lär dig hur du använder Azure Data Lake Storage Gen1 (tidigare Azure Data Lake Store) för att skapa en Hadoop-kompatibel lagringsplats i hyperskala för analys av data av alla storlekar, typer och inmatningshastigheter. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar, hanterar och får åtkomst till en Data Lake-lagringsplats för drifts- och förberedande analys.
+Azure Data Lake Storage Gen2 är nu allmänt tillgänglig. Vi rekommenderar att du börjar använda den idag. Mer information finns på [produktsidan](https://aka.ms/adlsgen2-product).
 
-Gå till [produktsidan](https://aka.ms/adlsgen2-product) om du vill veta mer om förhandsversionen av Data Lake Storage Gen2.
+Lär dig hur du använder Azure Data Lake Storage Gen1 (tidigare Azure Data Lake Store) för att skapa en Hadoop-kompatibel lagringsplats i hyperskala för analys av data av alla storlekar, typer och inmatningshastigheter. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar, hanterar och får åtkomst till en Data Lake-lagringsplats för drifts- och förberedande analys.
 
 <ul class="panelContent cardsFTitle">
     <li>

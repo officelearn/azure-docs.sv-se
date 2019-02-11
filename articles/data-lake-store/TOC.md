@@ -1,5 +1,5 @@
 # [Dokumentation om Data Lake Storage Gen1](index.md)
-# [Växla till dokumentation om Data Lake Storage Gen2 (förhandsversion)](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Växla till dokumentationen om Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Översikt
 ## [Översikt över Data Lake Storage Gen1](data-lake-store-overview.md)
@@ -28,7 +28,7 @@
 ### [Åtkomstkontroll](data-lake-store-access-control.md)
 ### [Att säkra lagrade data](data-lake-store-secure-data.md)
 ### [Kryptering](data-lake-store-encryption.md)
-### [Virtuell nätverksintegrering (förhandsversion)](data-lake-store-network-security.md)
+### [Integrering med virtuellt nätverk](data-lake-store-network-security.md)
 
 ## Autentisera med Data Lake Storage Gen1
 ### [Autentiseringsalternativ](data-lakes-store-authentication-using-azure-active-directory.md)

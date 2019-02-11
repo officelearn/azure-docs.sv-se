@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 358e8cd92fe250741adbbb9208b5e149a5f60216
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959741"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962459"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Hur du använder Apache Cordova-klientbiblioteket för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -55,7 +55,7 @@ ionic plugin add cordova-plugin-ms-azure-mobile-apps
 
 Lägg till följande rader till `app.component.ts` att skapa klientobjektet:
 
-```
+```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
@@ -71,19 +71,19 @@ Azure Mobile Apps Cordova-plugin-programmet har stöd för både joniska v1 och 
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Så här: autentisera användare
-Azure App Service stöder autentisering och auktorisering av appanvändare som använder olika externa indentitetsprovidrar: Facebook, Google, Account och Twitter. Du kan ange behörigheter för tabeller för att begränsa åtkomst för specifika åtgärder endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i server-skript. Mer information finns i den [komma igång med autentisering] självstudien.
+## <a name="auth"></a>Hur: Autentisera användare
+Azure App Service stöder autentisering och auktorisering av appanvändare som använder olika externa indentitetsprovidrar: Facebook, Google, Microsoft-konto och Twitter. Du kan ange behörigheter för tabeller för att begränsa åtkomst för specifika åtgärder endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i server-skript. Mer information finns i den [komma igång med autentisering] självstudien.
 
 När du använder autentisering i en Apache Cordova-app, måste följande Cordova-plugin-program vara tillgängliga:
 
-* [cordova-plugin-programmet-enhet]
-* [cordova-plugin-programmet-inappbrowser]
+* [cordova-plugin-device]
+* [cordova-plugin-inappbrowser]
 
 Två autentiseringsflöden stöds: ett flöde för server och ett klient-flöde.  Server-flödet innehåller enklaste autentiseringsupplevelse som den är beroende av leverantörens Webbgränssnitt för autentisering. Klientflödet gör för djupare integrering med specifika funktioner som enkel inloggning som den är beroende av provider-specifik enhetsspecifika SDK: er.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Så här: konfigurera din mobila App Service för externa Omdirigeringswebbadresser.
+### <a name="configure-external-redirect-urls"></a>Hur: Konfigurera Mobile App-tjänsten för externa Omdirigeringswebbadresser.
 Flera typer av Apache Cordova-program använda en loopback-funktion för att hantera OAuth UI flöden.  OAuth UI-flöden på localhost orsaka problem Eftersom Autentiseringstjänsten vet bara hur du använder tjänsten som standard.  Exempel på problematiska OAuth UI flöden:
 
 * Ripple-emulatorn.
@@ -123,10 +123,10 @@ Också lägga till dessa loopback-URL: er i CORS-inställningarna för din App S
 
 Det tar cirka 10 – 15 sekunder för de nya inställningarna ska börja gälla.
 
-## <a name="register-for-push"></a>Så här: registrera för push-meddelanden
+## <a name="register-for-push"></a>Hur: Registrera dig för push-meddelanden
 Installera den [modul phonegap plugin push] att hantera pushmeddelanden.  Det här plugin-program kan enkelt läggas till med hjälp av den `cordova plugin add` kommandot på kommandoraden eller via installationsprogrammet för Git-plugin-programmet i Visual Studio.  Följande kod i din Apache Cordova-app registrerar din enhet för push-meddelanden:
 
-```
+```javascript
 var pushOptions = {
     android: {
         senderId: '<from-gcm-console>'
@@ -179,6 +179,6 @@ Du hittar detaljerad information om API: et i vår [API-dokumentation](https://a
 [din första Apache Cordova-app]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [modul phonegap plugin push]: https://www.npmjs.com/package/phonegap-plugin-push
-[cordova-plugin-programmet-enhet]: https://www.npmjs.com/package/cordova-plugin-device
-[cordova-plugin-programmet-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
+[cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
+[cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

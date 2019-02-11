@@ -14,45 +14,45 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 47f02c008a0498492af3503d90fda8ff6e2eefa8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: cc4fb07874015112791ef2eaf9c39b31b690006c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060924"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978671"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Skapa och hantera en virtuell Windows-dator som har flera nätverkskort
 Virtuella datorer (VM) i Azure kan ha flera virtuella nätverkskort (NIC) kopplade till sig. Ett vanligt scenario är att ha olika undernät för frontend och backend-anslutning. Du kan associera flera nätverkskort på en virtuell dator i flera undernät, men dessa undernät måste finnas i samma virtuella nätverk (vNet). Den här artikeln beskriver hur du skapar en virtuell dator som har flera nätverkskort som är kopplade till den. Du också lära dig hur du lägger till eller ta bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) stöd för olika antal nätverkskort, storlek, så den virtuella datorn i enlighet med detta.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Se till att du har den [senaste Azure PowerShell-versionen installeras och konfigureras](/powershell/azure/overview).
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-a-vm-with-multiple-nics"></a>Skapa en virtuell dator med flera nätverkskort
 Skapa först en resursgrupp. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *EastUs* plats:
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
 ### <a name="create-virtual-network-and-subnets"></a>Skapa virtuellt nätverk och undernät
 Ett vanligt scenario är för ett virtuellt nätverk har två eller flera undernät. Ett undernät kan vara för frontend-trafik, en för backend-trafik. Om du vill ansluta till båda undernäten måste använda du sedan flera nätverkskort på den virtuella datorn.
 
-1. Definiera två undernät för virtuella nätverk med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Följande exempel definierar undernäten för *mySubnetFrontEnd* och *mySubnetBackEnd*:
+1. Definiera två undernät för virtuella nätverk med [New AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Följande exempel definierar undernäten för *mySubnetFrontEnd* och *mySubnetBackEnd*:
 
     ```powershell
-    $mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
+    $mySubnetFrontEnd = New-AzVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
         -AddressPrefix "192.168.1.0/24"
-    $mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
+    $mySubnetBackEnd = New-AzVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
         -AddressPrefix "192.168.2.0/24"
     ```
 
-2. Skapa ditt virtuella nätverk och undernät med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet*:
+2. Skapa ditt virtuella nätverk och undernät med [New AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet*:
 
     ```powershell
-    $myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+    $myVnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
         -Location "EastUs" `
         -Name "myVnet" `
         -AddressPrefix "192.168.0.0/16" `
@@ -61,17 +61,17 @@ Ett vanligt scenario är för ett virtuellt nätverk har två eller flera undern
 
 
 ### <a name="create-multiple-nics"></a>Skapa flera nätverkskort
-Skapa två nätverkskort med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Ansluta ett nätverkskort till klientdelsundernätet och ett nätverkskort till backend-undernät. I följande exempel skapas nätverkskort med namnet *myNic1* och *myNic2*:
+Skapa två nätverkskort med [New AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). Ansluta ett nätverkskort till klientdelsundernätet och ett nätverkskort till backend-undernät. I följande exempel skapas nätverkskort med namnet *myNic1* och *myNic2*:
 
 ```powershell
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
-$myNic1 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+$myNic1 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic1" `
     -Location "EastUs" `
     -SubnetId $frontEnd.Id
 
 $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
-$myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+$myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic2" `
     -Location "EastUs" `
     -SubnetId $backEnd.Id
@@ -88,39 +88,39 @@ Nu börja skapa din VM-konfiguration. Varje VM-storlek har en gräns för det to
     $cred = Get-Credential
     ```
 
-2. Definiera den virtuella datorn med [nya AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). Följande exempel definierar en virtuell dator med namnet *myVM* och använder en VM-storlek som har stöd för fler än två nätverkskort (*Standard_DS3_v2*):
+2. Definiera den virtuella datorn med [nya AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig). Följande exempel definierar en virtuell dator med namnet *myVM* och använder en VM-storlek som har stöd för fler än två nätverkskort (*Standard_DS3_v2*):
 
     ```powershell
-    $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
+    $vmConfig = New-AzVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
     ```
 
-3. Skapa resten av VM-konfiguration med [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) och [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). I följande exempel skapas en virtuell Windows Server 2016-dator:
+3. Skapa resten av VM-konfiguration med [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) och [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage). I följande exempel skapas en virtuell Windows Server 2016-dator:
 
     ```powershell
-    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig `
+    $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
         -Windows `
         -ComputerName "myVM" `
         -Credential $cred `
         -ProvisionVMAgent `
         -EnableAutoUpdate
-    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig `
+    $vmConfig = Set-AzVMSourceImage -VM $vmConfig `
         -PublisherName "MicrosoftWindowsServer" `
         -Offer "WindowsServer" `
         -Skus "2016-Datacenter" `
         -Version "latest"
    ```
 
-4. Ansluta de två nätverkskort som du skapade tidigare med [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
+4. Ansluta de två nätverkskort som du skapade tidigare med [Lägg till AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
 
     ```powershell
-    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
-    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
+    $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
+    $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. Skapa den virtuella datorn med [nya AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm):
 
     ```powershell
-    New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
+    New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
 
 6. Lägg till vägar för sekundära nätverkskort i operativsystem genom att följa stegen i [konfigurera operativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
@@ -128,34 +128,34 @@ Nu börja skapa din VM-konfiguration. Varje VM-storlek har en gräns för det to
 ## <a name="add-a-nic-to-an-existing-vm"></a>Lägg till ett nätverkskort i en befintlig virtuell dator
 Om du vill lägga till ett virtuellt nätverkskort i en befintlig virtuell dator du frigör den virtuella datorn, Lägg till det virtuella nätverkskortet och sedan starta den virtuella datorn. Olika [VM-storlekar](sizes.md) stöd för olika antal nätverkskort, storlek, så den virtuella datorn i enlighet med detta. Om det behövs kan du [ändra storlek på en virtuell dator](resize-vm.md).
 
-1. Frigör den virtuella datorn med [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). I följande exempel bort den virtuella datorn med namnet *myVM* i *myResourceGroup*:
+1. Frigör den virtuella datorn med [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). I följande exempel bort den virtuella datorn med namnet *myVM* i *myResourceGroup*:
 
     ```powershell
-    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Hämta den befintliga konfigurationen av den virtuella datorn med [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). I följande exempel hämtar information för den virtuella datorn med namnet *myVM* i *myResourceGroup*:
+2. Hämta den befintliga konfigurationen av den virtuella datorn med [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). I följande exempel hämtar information för den virtuella datorn med namnet *myVM* i *myResourceGroup*:
 
     ```powershell
-    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. I följande exempel skapas ett virtuellt nätverkskort med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) med namnet *myNic3* som är kopplad till *mySubnetBackEnd*. Det virtuella nätverkskortet kopplas sedan till den virtuella datorn med namnet *myVM* i *myResourceGroup* med [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
+3. I följande exempel skapas ett virtuellt nätverkskort med [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) med namnet *myNic3* som är kopplad till *mySubnetBackEnd*. Det virtuella nätverkskortet kopplas sedan till den virtuella datorn med namnet *myVM* i *myResourceGroup* med [Lägg till AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
 
     ```powershell
     # Get info for the back end subnet
-    $myVnet = Get-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
+    $myVnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
     $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 
     # Create a virtual NIC
-    $myNic3 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+    $myNic3 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
         -Name "myNic3" `
         -Location "EastUs" `
         -SubnetId $backEnd.Id
 
     # Get the ID of the new virtual NIC and add to VM
-    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
-    Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
+    Add-AzVMNetworkInterface -VM $vm -Id $nicId | Update-AzVm -ResourceGroupName "myResourceGroup"
     ```
 
     ### <a name="primary-virtual-nics"></a>Primära virtuella nätverkskort
@@ -170,13 +170,13 @@ Om du vill lägga till ett virtuellt nätverkskort i en befintlig virtuell dator
     $vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
     
     # Update the VM state in Azure
-    Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
+    Update-AzVM -VM $vm -ResourceGroupName "myResourceGroup"
     ```
 
-4. Starta den virtuella datorn med [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
+4. Starta den virtuella datorn med [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+    Start-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
 5. Lägg till vägar för sekundära nätverkskort i operativsystem genom att följa stegen i [konfigurera operativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
@@ -184,38 +184,38 @@ Om du vill lägga till ett virtuellt nätverkskort i en befintlig virtuell dator
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Ta bort ett nätverkskort från en befintlig virtuell dator
 Om du vill ta bort ett virtuellt nätverkskort från en befintlig virtuell dator måste du frigör den virtuella datorn, ta bort det virtuella nätverkskortet och starta den virtuella datorn.
 
-1. Frigör den virtuella datorn med [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). I följande exempel bort den virtuella datorn med namnet *myVM* i *myResourceGroup*:
+1. Frigör den virtuella datorn med [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). I följande exempel bort den virtuella datorn med namnet *myVM* i *myResourceGroup*:
 
     ```powershell
-    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Hämta den befintliga konfigurationen av den virtuella datorn med [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). I följande exempel hämtar information för den virtuella datorn med namnet *myVM* i *myResourceGroup*:
+2. Hämta den befintliga konfigurationen av den virtuella datorn med [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). I följande exempel hämtar information för den virtuella datorn med namnet *myVM* i *myResourceGroup*:
 
     ```powershell
-    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. Få information om NIC remove med [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). I följande exempel hämtar information *myNic3*:
+3. Få information om NIC remove med [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface). I följande exempel hämtar information *myNic3*:
 
     ```powershell
     # List existing NICs on the VM if you need to determine NIC name
     $vm.NetworkProfile.NetworkInterfaces
 
-    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
+    $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. Ta bort nätverkskort med [Remove-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface) och sedan uppdatera den virtuella datorn med [Update-AzureRmVm](/powershell/module/azurerm.compute/update-azurermvm). I följande exempel tar bort *myNic3* som erhålls av `$nicId` i föregående steg:
+4. Ta bort nätverkskort med [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) och sedan uppdatera den virtuella datorn med [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). I följande exempel tar bort *myNic3* som erhålls av `$nicId` i föregående steg:
 
     ```powershell
-    Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
-        Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
+        Update-AzVm -ResourceGroupName "myResourceGroup"
     ```   
 
-5. Starta den virtuella datorn med [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
+5. Starta den virtuella datorn med [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
 
     ```powershell
-    Start-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    Start-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```   
 
 ## <a name="create-multiple-nics-with-templates"></a>Skapa flera nätverkskort med mallar

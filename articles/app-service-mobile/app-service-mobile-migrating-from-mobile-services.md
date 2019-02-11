@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119000"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960752"
 ---
 # <a name="article-top"></a>Migrera din befintliga Azure-Mobiltjänst till Azure App Service
 Med den [allmän tillgänglighet för Azure App Service], Azure Mobile Services-platser kan enkelt migreras på plats kan utnyttja alla funktioner i Azure App Service.  Det här dokumentet beskriver vad som händer när du migrerar din webbplats från Azure Mobile Services till Azure App Service.
@@ -81,7 +81,7 @@ Som utgångspunkt rekommenderar vi följande nivåer:
 | Mobiltjänst prisnivå | App Service-prisnivå |
 |:--- |:--- |
 | Kostnadsfri |F1 Kostnadsfri |
-| Basic |Basic B1 |
+| Basic |B1 Basic |
 | Standard |S1 Standard |
 
 Det finns större flexibilitet att välja rätt prisnivån för ditt program.  Referera till [Prissättning för App Service] för fullständig information om priser för din nya App Service.
@@ -231,7 +231,7 @@ Schemalagda jobb visas med den frekvens som du har angett före migreringen.  P�
 
 Jobb på begäran finns i `App_Data/config/scripts/scheduler post-migration`.  Vi rekommenderar att du konverterar alla på begäran-jobb [webjobs] eller [Funktioner].  Skriva ny scheduler-jobb som [WebJobs] eller [Funktioner].
 
-### <a name="notification-hubs"></a>Meddelandehubbar
+### <a name="notification-hubs"></a>Notification Hubs
 Mobiltjänster använder Meddelandehubbar för push-meddelanden.  Följande inställningar för appen används för att länka Notification Hub i dina mobila tjänster efter migreringen:
 
 | Tillämpningsinställning | Beskrivning |
@@ -270,7 +270,7 @@ Följande ytterligare inställningar är migrerade från din Mobiltjänst och ä
 | Tillämpningsinställning | Beskrivning |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Namnet på din app |
-| **MS\_MobileServiceDomainSuffix** |Domänprefixet. dvs azure-mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Domänprefixet. i.e azure-mobile.net |
 | **MS\_ApplicationKey** |Din programnyckel |
 | **MS\_MasterKey** |Din app huvudnyckel |
 
@@ -332,7 +332,7 @@ Lösning: Om du vill klona din webbplats kan du göra det via portalen.
 ### <a name="changing-webconfig-does-not-work"></a>Ändra Web.config fungerar inte
 Om du har en ASP.NET-webbplats kan ändras till den `Web.config` filen inte tillämpas.  Azure App Service bygger ett lämpligt `Web.config` fil under starten för mobiltjänster-runtime.  Du kan åsidosätta vissa inställningar (till exempel anpassade huvuden) med hjälp av en XML-transformation.  Skapa en fil i kallas `applicationHost.xdt` -den här filen måste hamnar i den `D:\home\site` på Azure-tjänsten.  Ladda upp den `applicationHost.xdt` filen via ett anpassat distributionsskript eller direkt med hjälp av Kudu.  Nedan visas ett exempel dokument:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>

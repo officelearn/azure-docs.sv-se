@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fce90c05fb2e79be23cfd7a58875f8cb6b3ddbf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212239"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819781"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Självstudier: Artikelanpassning för kontextuellt beslutsfattande
 
@@ -44,7 +44,7 @@ Varje flöde innehåller en lista över artiklar. I RSS anges var och en av ett 
 </channel></rss>
 ```
 
-Sorteringen av artiklarna är viktig. Den anger standardrangordningen, vilket är din kvalificerade gissning för hur artiklarna bör sorteras. Standardrangordningen används sedan för prestandajämförelse på [instrumentpanelen](#performance-dashboard).
+Sorteringen av artiklarna är viktig. Den anger standardrangordningen, vilket är din kvalificerade gissning för hur artiklarna bör sorteras. Standardrangordningen används sedan till prestandajämförelser på instrumentpanelen.
 
 Mer information om feedformatet finns i [API-referensen](custom-decision-service-api-reference.md#action-set-api-customer-provided).
 

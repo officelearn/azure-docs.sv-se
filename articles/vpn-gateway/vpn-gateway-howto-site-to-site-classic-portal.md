@@ -1,5 +1,5 @@
 ---
-title: 'Ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk: VPN från plats till plats (klassisk): Portal | Microsoft Docs'
+title: 'Anslut ditt lokala nätverk till ett virtuellt Azure-nätverk: Plats-till-plats-VPN (klassiskt): Portal | Microsoft Docs'
 description: Skapa en IPsec-anslutning från ditt lokala nätverk till ett klassiskt virtuellt Azure-nätverk via offentligt Internet.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477904"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695612"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
 
@@ -66,7 +66,7 @@ Vi använder följande värden i exemplen. Du kan använda värdena till att ska
 * **Plats:** Östra USA
 * **DNS-server:** 10.11.0.3 (valfritt för den här övningen)
 * **Namn på lokal plats:** Site2
-* **Klientadressutrymme:** Adressutrymmet som finns på din lokala plats.
+* **Adressutrymme för klienten:** Adressutrymmet på den lokala platsen.
 
 ## <a name="CreatVNet"></a>1. Skapa ett virtuellt nätverk
 
@@ -129,7 +129,7 @@ Den lokala platsen avser vanligtvis din lokala plats. Den innehåller IP-adresse
 4. Klicka på **Lokal plats - Konfigurera obligatoriska inställningar** för att öppna sidan **Lokal plats**. Konfigurera inställningarna och klicka sedan på **OK** för att spara inställningarna.
   - **Namn:** Ange ett namn för den lokala platsen så att du enkelt kan identifiera den.
   - **IP-adress till VPN-gateway:** Det här är den offentliga IP-adressen till VPN-enheten för ditt lokala nätverk. VPN-enheten måste ha en offentlig IP-adress (IPv4). Ange en giltig offentlig IP-adress för VPN-enheten som du vill ansluta till. Den får inte vara bakom en NAT och måste kunna nås av Azure. Om du inte vet VPN-enhetens IP-adress kan du använda ett platshållarvärde (i formatet för en giltig offentlig IP-adress) och ändra det senare.
-  - **Klientadressutrymme:** Visar IP-adressintervall som du vill dirigera till det lokala nätverket via denna gateway. Du kan lägga till flera adressintervall. Se till att intervallen du anger här inte överlappar intervallen för andra nätverk som ditt virtuella nätverk ansluter till, eller överlappar adressintervallen för det virtuella nätverket.
+  - **Klientadressutrymme:** Här visas de IP-adressintervall som du vill dirigera till det lokala nätverket via denna gateway. Du kan lägga till flera adressintervall. Se till att intervallen du anger här inte överlappar intervallen för andra nätverk som ditt virtuella nätverk ansluter till, eller överlappar adressintervallen för det virtuella nätverket.
 
   ![Lokal plats](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Konfigurera lokal plats")
 
@@ -208,7 +208,7 @@ När du arbetar med PowerShell och den klassiska distributionsmodellen kan resur
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-När anslutningen har skapats visas resultatet: **Status: Lyckades**.
+När anslutningen har skapats visas följande resultat: **Status: Lyckades**.
 
 ## <a name="verify"></a>9. Verifiera din anslutning
 
@@ -226,5 +226,5 @@ Stegvisa anvisningar som beskriver hur du ändrar en gateway-SKU finns i [Resize
 
 ## <a name="next-steps"></a>Nästa steg
 
-* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/).
 * Information om tvingad tunneltrafik finns i [Om forcerade tunnlar](vpn-gateway-about-forced-tunneling.md).

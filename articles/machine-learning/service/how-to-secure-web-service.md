@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769329"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098110"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Använda SSL för att skydda webbtjänster med Azure Machine Learning-tjänsten
 
@@ -82,6 +82,16 @@ Om du vill distribuera (eller omdistribuera) tjänsten med SSL aktiverat, ange d
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **Distribuera på fältet Programmable Gate matriser (FPGA)**
+
+  När du distribuerar till FPGA, anger du värden för parametrarna SSL-relaterade som visas i kodfragmentet:
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## <a name="update-your-dns"></a>Uppdatera din DNS-Server
 
 Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
@@ -97,10 +107,6 @@ Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
   Uppdatera DNS under fliken ”Configuration” i ”offentliga IP-adressen” för AKS-kluster som du ser i bilden. Du hittar den offentliga IP-adressen som en av de resurstyper som skapats under resursgruppen med agentnoderna AKS och andra nätverksresurser.
 
   ![Azure Machine Learning-tjänsten: Skydda webbtjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
-
-+ **För FPGA**:
-
-Med hjälp av SSL med tjänster som distribueras till FPGA stöds inte för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig att:

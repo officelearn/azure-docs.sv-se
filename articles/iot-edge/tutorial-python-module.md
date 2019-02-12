@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 89c19adc571d500fff54d493072bb9976ce51aa9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 24ca97c21ac3728880db4c924179be1b78ec2f18
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052895"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565776"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Python IoT Edge-modul till din simulerade enhet
 
@@ -57,7 +57,7 @@ Utvecklingsresurser:
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-I den här självstudien använder du Azure IoT-verktyg för Visual Studio Code för att skapa en modul och skapa en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
+I den här självstudien använder du Azure IoT-verktyg för Visual Studio Code för att skapa en modul och en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
 
 Du kan använda valfritt Docker-kompatibelt register för att lagra dina containeravbildningar. Två populära Docker-registertjänster är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). I den här kursen använder vi Azure Container Registry. 
 
@@ -113,7 +113,7 @@ Använd Python-paketet **cookiecutter** för att skapa en Python-lösningsmall s
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
    | Välj modulmall | Välj **Python-modul**. |
    | Ange ett modulnamn | Ge modulen namnet **PythonModule**. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. Den slutliga strängen ser ut så här: \<registernamn\>.azurecr.io/pythonmodule. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den slutliga avbildningslagringsplatsen ser ut så här: \<registernamn\>.azurecr.io/pythonmodule. |
  
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-python-module/repository.png)
 
@@ -246,6 +246,12 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **Pyt
 När du instruerar Visual Studio Code att skapa din lösning hämtar den först information från distributionsmallen och genererar en .json-distributionsfil i en ny mapp med namnet **config**. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger Python-koden i en container och push-överför sedan koden till containerregistret du angav när du initierade lösningen. 
 
 Den fullständiga adressen med tagg för containeravbildningen i `docker build`-kommandot som körs i den integrerade VS Code-terminalen. Avbildningsadressen skapas från information i filen module.json och har formatet \<lagringsplats\>:\<version\>-\<plattform\>. I den här självstudien ska adressen se ut så här: registryname.azurecr.io/pythonmodule:0.0.1-amd64.
+
+>[!TIP]
+>Om du får ett fel när du försöker skapa och överföra modulen gör du följande kontroller:
+>* Loggade du in på Docker i Visual Studio Code med autentiseringsuppgifter från ditt containerregister? Dessa autentiseringsuppgifter är inte samma som uppgifterna du använder för att logga in i Azure Portal.
+>* Stämmer containerlagringsplatsen? Öppna **moduler** > **cmodule** > **module.json** och leta upp fältet **lagringsplats**. Avbildningslagringsplatsen ska se ut så här: **\<registernamn\>.azurecr.io/pythonmodule**. 
+>* Skapar du samma typ av containrar som utvecklingsdatorn kör? Visual Studio Code använder Linux amd64-containrar som standard. Om din utvecklingsdator kör Linux arm32v7-containrar uppdaterar du plattformen i det blå statusfältet längst ned i VS Code-fönstret. Python-moduler saknar stöd för Windows-behållare. 
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 

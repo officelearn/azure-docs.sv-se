@@ -1,5 +1,5 @@
 ---
-title: Skapa en Kubernetes-utvecklarmiljö i molnet med .NET Core och VS Code | Microsoft Docs
+title: Skapa en Kubernetes-utvecklingsmiljö i molnet med hjälp av .NET Core och VS Code | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: b51bf83d2e44239ebd6bc17e25efaa2fe94250f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467143"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700714"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Komma igång med Azure Dev Spaces med .NET Core
 
@@ -99,13 +99,7 @@ Avancerade funktioner som Kubernetes-felsökning är tillgängliga för .NET Cor
 I det här avsnittet ska du skapa en ASP.NET Core-webbapp och köra den i en container i Kubernetes.
 
 ### <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
-Om du har [.NET Core](https://www.microsoft.com/net) installerat kan du snabbt skapa en ASP.NET Core-webbapp i en mapp med namnet `webfrontend`.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-Du kan också **ladda ned exempelkod från GitHub** genom att gå till https://github.com/Azure/dev-spaces och välja **Klona eller Ladda ned** för att ladda ned GitHub-databasen till din lokala miljö. Koden för den här guiden finns i `samples/dotnetcore/getting-started/webfrontend`.
+Klona eller ladda ned [Azure Dev Spaces-exempelprogrammet](https://github.com/Azure/dev-spaces). I den här artikeln används koden i katalogen *samples/dotnetcore/getting-started/webfrontend*.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Förbereda kod för Docker- och Kubernetes-utveckling
 Hittills har du en grundläggande webbapp som kan köras lokalt. Du kommer nu använda den i en container genom att skapa tillgångar som definierar appens container och hur den kommer att distribueras till Kubernetes. Den här uppgiften är enkel att utföra med Azure Dev Spaces: 
@@ -245,4 +239,4 @@ Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om teamutveckling](team-development-netcore.md)
+> [Lär dig mer om utveckling för flera tjänster](multi-service-netcore.md)

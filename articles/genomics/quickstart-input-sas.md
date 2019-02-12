@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733505"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749031"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Skicka ett arbetsflöde till Microsoft Genomics med en SAS istället för en lagringskontonyckel 
 
@@ -32,12 +32,12 @@ Två eller fler SAS-token krävs för varje arbetsflöde som skickas till tjäns
 
 SAS för indatafilerna ska ha följande egenskaper:
 1.  Omfattning (konto, container, blob): blob
-2.  Utgångsdatum: om 48 timmar
+2.  Förfallotid: 48 timmar från nu
 3.  Behörigheter: läsa
 
 SAS för utdatacontainern ska ha följande egenskaper:
 1.  Omfattning (konto, container, blob): container
-2.  Utgångsdatum: om 48 timmar
+2.  Förfallotid: 48 timmar från nu
 3.  Behörigheter: läsa, skriva, ta bort
 
 
@@ -45,18 +45,18 @@ SAS för utdatacontainern ska ha följande egenskaper:
 Det finns två sätt att skapa ett SAS-token, antingen med Azure Storage Explorer eller programmässigt.  Om du skriver kod kan du skapa ditt SAS själv, eller använda Azure Storage SDK:n på det språk du önskar.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Konfigurera: Skapa en SAS med Azure Storage Explorer
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Konfigurera: Skapa en SAS med hjälp av Azure Storage Explorer
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett verktyg för att hantera resurser som du har lagrat i Azure Storage.  Du kan läsa mer om att använda Azure Storage Explorer [här](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-SAS för indatafilerna ska vara begränsad till den specifika indatafilen (bloben). Skapa en SAS-token genom att följa [anvisningarna](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). När du har skapat SAS tillhandahålls en fullständig URL med både frågesträngen och frågesträngen fristående som kan kopieras från nästa skärm.
+SAS för indatafilerna ska vara begränsad till den specifika indatafilen (bloben). Skapa en SAS-token genom att följa [anvisningarna](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). När du har skapat SAS tillhandahålls en fullständig URL med både frågesträngen och frågesträngen fristående som kan kopieras från nästa skärm.
 
  ![Genomics SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage Explorer")
 
 
-### <a name="set-up-create-a-sas-programattically"></a>Konfigurera: Skapa en SAS programmässigt
+### <a name="set-up-create-a-sas-programattically"></a>Konfigurera: Skapa en SAS programmatiskt
 
-Om du vill skapa en SAS med Azure Storage SDK läser du den befintliga dokumentationen på flera språk, som [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) och [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage#work-with-shared-access-signatures). 
+Om du vill skapa en SAS med Azure Storage SDK läser du den befintliga dokumentationen på flera språk, som [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) och [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 Om du vill skapa en SAS utan SDK kan du skapa SAS-frågesträngen direkt, inklusive all nödvändig information för att autentisera din SAS. Dessa [instruktioner](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) innehåller information om komponenterna i SAS-frågesträngen och hur du skapar den. SAS-signaturen som krävs skapas via generering av en HMAC med blobens/behållarens autentiseringsinformation, som beskrivs i de här [instruktionerna](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

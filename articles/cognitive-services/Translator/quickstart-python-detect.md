@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 23f1aa8e6356c9a0d3ce7e680ae1b0ca7d0b1bc3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 70b73fec4a6955bc1fcc91cb3895b07fd667ebca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213811"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692773"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Snabbstart: Använda Translator Text API till att identifiera textspråk med hjälp av Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-För närvarande är en slutpunkt tillgänglig för Translator Text, och den anges som `base_url`. `path` anger `detect`-vägen och identifierar att vi vill nå version 3 av API:et.
+Den globala Translator Text-slutpunkten har angetts som `base_url`. `path` anger `detect`-vägen och identifierar att vi vill nå version 3 av API:et.
 
 >[!NOTE]
 > Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: Identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).

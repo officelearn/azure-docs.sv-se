@@ -1,74 +1,79 @@
 ---
-title: 'Snabbstart: API för entitetsökning i Bing, Python'
+title: 'Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Python'
 titlesuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för entitetssökning i Bing.
+description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av Python och få ett JSON-svar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: fb0ed14a2369034b3185875f7e94e4576277b4fb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: df78c6930552865db9fb25df8e412e8644c8f265
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186288"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754718"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-python"></a>Snabbstart för API för entitetssökning i Bing med Python
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Python
 
-Den här artikeln visar hur du använder [API:et för entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  med Python.
+Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Python-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
+
+Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Python 3.x](https://www.python.org/downloads/) för att köra koden.
+* [Python](https://www.python.org/downloads/) 2.x eller 3.x
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:et för entitetssökning i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.   Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-## <a name="search-entities"></a>Entitetssökning
+## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-Följ dessa steg om du vill köra programmet.
+1. Skapa en ny Python-fil i valfri IDE eller valfritt redigeringsprogram och lägg till följande importer. Skapa variabler för din prenumerationsnyckel, slutpunkt, marknad och en sökfråga. Du hittar slutpunkten på Azure-instrumentpanelen.
 
-1. Skapa ett nytt Python-projekt i valfri IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+    ```python
+    import http.client, urllib.parse
+    import json
+    
+    subscriptionKey = 'ENTER YOUR KEY HERE'
+    host = 'api.cognitive.microsoft.com'
+    path = '/bing/v7.0/entities'
+    mkt = 'en-US'
+    query = 'italian restaurants near me'
+    ```
 
-```python
-# -*- coding: utf-8 -*-
+2. Skapa en begärande-URL genom att lägga till din marknadsvariabel i parametern `?mkt=`. URL-koda frågan och bifoga den i parametern `&q=`. 
+    
+    ```python
+    params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
+    ```
 
-import http.client, urllib.parse
-import json
+## <a name="send-a-request-and-get-a-response"></a>Skicka en begäran och få ett svar
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+1. Skapa en funktion som heter `get_suggestions()`. Utför sedan följande steg.
+    1. Lägg till din prenumerationsnyckel i en ordlista med `Ocp-Apim-Subscription-Key` som en nyckel.
+    2. Använd `http.client.HTTPSConnection()` för att skapa ett HTTPS-klientobjekt. Skicka en `GET`-begäran via `request()` med sökväg och parametrar samt huvudinformation.
+    3. Lagra svaret med `getresponse()` och returnera `response.read()`.
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+    ```python
+    def get_suggestions ():
+        headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+        conn = http.client.HTTPSConnection (host)
+        conn.request ("GET", path + params, None, headers)
+        response = conn.getresponse ()
+        return response.read()
+    ```
 
-host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/entities'
+2. Anropa `get_suggestions()` och skriv ut json-svaret.
 
-mkt = 'en-US'
-query = 'italian restaurants near me'
+    ```python
+    result = get_suggestions ()
+    print (json.dumps(json.loads(result), indent=4))
+    ```
 
-params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
-
-def get_suggestions ():
-    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-    conn = http.client.HTTPSConnection (host)
-    conn.request ("GET", path + params, None, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-result = get_suggestions ()
-print (json.dumps(json.loads(result), indent=4))
-```
-
-**Svar**
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -133,11 +138,10 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 }
 ```
 
-[Överst på sidan](#HOLTop)
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om entitetssökning i Bing](../tutorial-bing-entities-search-single-page-app.md)
-> [Översikt över entitetssökning i Bing](../search-the-web.md )
-> [API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
+
+* [Vad är API:et för entitetssökning i Bing?](../search-the-web.md)
+* [Referens för API för entitetsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

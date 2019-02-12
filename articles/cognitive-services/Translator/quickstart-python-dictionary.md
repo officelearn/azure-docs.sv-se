@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/21/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 8dcde1231d5e2d73b868411cb22b8420843197be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ca07416c615984b4eb6c7799ff17d9fbe43fa3b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458279"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691478"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Snabbstart: Slå upp ord med en tvåspråkig ordlista med hjälp av Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-För närvarande är en slutpunkt tillgänglig för Translator Text, och den anges som `base_url`. `path` anger `dictionary/lookup`-vägen och identifierar att vi vill nå version 3 av API:et.
+Den globala slutpunkten för Translator Text anges som `base_url`. `path` anger `dictionary/lookup`-vägen och identifierar att vi vill nå version 3 av API:et.
 
 `params` används till att ange källan och utdataspråken. I det här exemplet använder vi engelska och spanska: `en` och `es`.
 

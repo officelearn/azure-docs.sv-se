@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/05/2019
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 3e4cd8859f376fa4fbb9069b145d893483c3fc14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0ffde84a39ef2955f14af66a05195e35109d41bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101268"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692145"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Snabbstart: Konfigurera en utvecklingsmiljö
 
@@ -64,8 +64,11 @@ Om du inte har en befintlig klient som är kopplad till ditt konto kan du ser et
 Om du inte redan har en Azure AD-klientorganisation eller vill skapa en ny för utveckling använder du [funktionerna för katalogskapande](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Du måste ange följande information för att skapa den nya klientorganisationen:
 
 - **Organisationens namn**
-- **Initial domän** – kommer att vara en del av *.onmicrosoft.com. Du kan anpassa domänen mer senare. 
+- **Initial domän** – kommer att vara en del av *.onmicrosoft.com. Du kan anpassa domänen mer senare.
 - **Land eller region**
+
+> [!NOTE]
+> När du namnger din klientorganisation ska du använda alfanumeriska tecken. Specialtecken är inte tillåtna. Namnet får inte överskrida 256 tecken.
 
 ## <a name="social-and-local-accounts"></a>Sociala och lokala konton
 

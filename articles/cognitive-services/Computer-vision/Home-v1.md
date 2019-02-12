@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198154"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816551"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Vad är visuellt innehåll API version 1.0?
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198154"
 >- [API v2.0 för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 Det molnbaserade API:et för visuellt innehåll ger utvecklare åtkomst till avancerade algoritmer för bearbetning av bilder och returnering av information. Genom att ladda upp en bild eller ange en bilds webbadress kan Microsofts algoritmer för visuellt innehåll analysera visuellt innehåll på olika sätt beroende på indata och användarens val. Med API för visuellt innehåll kan användare analysera bilder för att:
-* [Tagga bilder baserat på innehållet.](#Tagging)
-* [Kategorisera bilder.](#Categorizing)
-* [Identifiera bildens typ och kvalitet.](#Identifying)
+* Tagga bilder baserat på innehållet.
+* Kategorisera bilder.
+* Identifiera bilders typ och kvalitet.
 * [Identifiera ansikten och returnera deras koordinater. ](#Faces)
-* [Identifiera domänspecifikt innehåll.](#Domain-Specific)
-* [Generera beskrivningar av innehållet.](#Descriptions)
-* [Använda optisk teckenläsning för att identifiera tryckt text i bilder.](#OCR)
-* [Identifiera handskriven text.](#RecognizeText)
-* [Skilja färgscheman.](#Color)
-* [Markera innehåll som är olämpligt för barn.](#Adult)
-* [Beskära foton som ska användas som miniatyrbilder.](#Thumbnails)
+* Identifiera domänspecifikt innehåll.
+* Generera beskrivningar av innehållet.
+* Använda optisk teckenläsning för att identifiera tryckt text i bilder.
+* Identifiera handskriven text.
+* Skilja mellan färgscheman.
+* Flagga innehåll som är olämpligt för barn.
+* Beskära foton som ska användas som miniatyrbilder.
 
 ## <a name="requirements"></a>Krav
 * Indatametoder som stöds: Binära rawbildfiler i form av ett program-/oktettflöde eller bild-URL.

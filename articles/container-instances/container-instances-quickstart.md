@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189616"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562070"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Snabbstart: Köra ett containerprogram i Azure Container Instances med Azure CLI
 
@@ -39,7 +39,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure CLI anger du ett resursgruppsnamn, ett containerinstansnamn och en Docker-containeravbildning till kommandot [az container create][az-container-create]. Du kan exponera dina containrar för internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller bådadera. I den här snabbstarten distribuerar du en container med en DNS-namnetikett som är värd för en liten webbapp som skrivits i Node.js.
+Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure CLI anger du ett resursgruppsnamn, ett containerinstansnamn och en Docker-containeravbildning till kommandot [az container create][az-container-create]. I den här snabbstarten använder du `microsoft/aci-helloworld`-avbildningen från det offentliga Docker Hub-registret. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
+
+Du kan exponera dina containrar till internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller båda. I den här snabbstarten distribuerar du en container med en DNS-namnetikett så att webbappen kan nås offentligt.
 
 Kör följande kommando för att starta en instans av containern. Värdet `--dns-name-label` måste vara unikt inom den Azure-region som du skapar instansen i. Om du får felmeddelandet ”DNS-namnetiketten är inte tillgänglig” provar du med en annan DNS-namnetikett.
 
@@ -92,7 +94,7 @@ listening on port 80
 
 Förutom att granska loggarna kan du ansluta dina lokala standardströmmar för utdata och fel till containerns dataström.
 
-Börja med att köra kommandot [az container attach][az-container-attach] för att ansluta din lokala konsol till behållarens utdataströmmar:
+Börja med att köra kommandot [az container attach][az-container-attach] för att ansluta din lokala konsol till containerns utdataströmmar:
 
 ```azurecli-interactive
 az container attach --resource-group myResourceGroup -n mycontainer
@@ -145,7 +147,7 @@ I den här snabbstarten skapade du en Azure-containerinstans med en avbildning s
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)
 
-Om du vill testa alternativ för att köra containrar i ett orkestreringssystem på Azure kan du gå vidare till snabbstarterna om [Service Fabric][service-fabric] eller [Azure Kubernetes Service (AKS)][container-service].
+Om du vill testa alternativ för att köra containrar i ett orkestreringssystem på Azure kan du gå vidare till snabbstarterna om [Azure Kubernetes Service (AKS)][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -166,4 +168,3 @@ Om du vill testa alternativ för att köra containrar i ett orkestreringssystem 
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

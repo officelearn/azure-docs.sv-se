@@ -8,16 +8,16 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: ac9af046675cf868f158ee3af71e6c968c6ba98a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 084a5c8113e73590e3e7b9603542a0d866606f96
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463148"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818965"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Skapa en filresurs i Azure Files
 Du kan skapa Azure-filresurser med hjälp av  [Azure-portalen](https://portal.azure.com/), PowerShell-cmdlets för Azure Storage, klientbiblioteken för Azure Storage eller Azure Storage REST-API:et. I den här kursen lär du dig:
-* [Så här skapar du en Azure-filresurs med Azure-portalen](#create-file-share-through-the-azure-portal)
+* Så här skapar du en Azure-filresurs med Azure-portalen
 * [Så här skapar du en Azure-filresurs med Powershell](#create-file-share-through-powershell)
 * [Så här skapar du en Azure-filresurs med CLI](#create-file-share-through-command-line-interface-cli)
 

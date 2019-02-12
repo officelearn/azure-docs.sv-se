@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224249"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770443"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
@@ -202,6 +202,7 @@ Säkerställ korrekta säkerhetskopieringar med hjälp av Azure Backup för SQL 
 
   * Avslutande/inledande blanksteg
   * Avslutande ”!”
+  * Avslutande hakparentes ”]”
 
 Vi har alias för tecken som inte stöds i Azure-tabellen, men vi rekommenderar att du undviker dem också. Mer information finns i [den här artikeln](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -721,6 +722,8 @@ När du stoppar skydd för en SQL Server-databas frågar Azure Backup om återst
 * Stoppa alla framtida säkerhetskopieringsjobb, men lämna kvar återställningspunkterna.
 
 Om du väljer att stoppa säkerhetskopiering och behålla data rensas återställningspunkterna enligt säkerhetskopieringspolicyn. Du debiteras avgiften för SQL-skyddad instans plus den lagring som använts tills alla återställningspunkter har rensats. Mer information om prissättning för Azure Backup för SQL finns på [sidan med prisinformation för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+
+När du stoppar säkerhetskopiering och behåller data upphör återställningspunkterna att gälla enligt bevarandeprincipen, men Azure Backup kommer alltid att ha den senaste återställningspunkten tills du uttryckligen tar bort säkerhetskopierade data. På samma sätt du om du tar bort en datakälla utan att stoppa säkerhetskopieringen börjar nya säkerhetskopior att misslyckas och gamla återställningspunkter upphör att gälla enligt bevarandeprincipen, men den senaste återställningspunkten behålls alltid tills du stoppar säkerhetskopieringen och tar bort data.
 
 Så här stoppar du skydd för en databas:
 

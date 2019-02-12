@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2bb5550cfe07064d595151305955d87f9c61050
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208150"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819543"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Kom igång med tjänsten för kunskapsutveckling
 
@@ -100,7 +100,7 @@ När du har en schemafil och datafil kan du skapa ett komprimerat binärt index 
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-För snabba prototyper utanför Azure kan [`kes.exe build_index`](CommandLine.md#build_index-command) skapa lokala, små index från filer som innehåller upp till 10 000 objekt. För större filer, kan du antingen köra kommandot inifrån en [Windows-dator i Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) eller utföra en fjärransluten kompilering i Azure. Mer information finns i [Skala upp](#scaling-up).
+För snabba prototyper utanför Azure kan [`kes.exe build_index`](CommandLine.md#build_index-command) skapa lokala, små index från filer som innehåller upp till 10 000 objekt. För större filer, kan du antingen köra kommandot inifrån en [Windows-dator i Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) eller utföra en fjärransluten kompilering i Azure. Mer information finns i Skala upp.
 
 ## <a name="use-an-xml-grammar-specification"></a>Använd en specifikation med XML-grammatik
 
@@ -211,7 +211,7 @@ För snabba prototyper kan du lagra grammatik och index i en webbtjänst på den
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-Detta startar en lokal instans av webbtjänsten. Du kan testa tjänsten interaktivt genom att besöka `http::localhost:<port>` från en webbläsare. Mer information finns i [testa tjänsten](#testing-service).
+Detta startar en lokal instans av webbtjänsten. Du kan testa tjänsten interaktivt genom att besöka `http::localhost:<port>` från en webbläsare. Mer information finns i Testa tjänsten.
 
 Du kan också anropa olika [webb-API: er](WebAPI.md) direkt för att testa tolkning av naturligt språk, frågeslutföring, strukturerad frågeutvärdering och histogramberäkning. Stoppa tjänsten genom att ange ”Avsluta” i kommandotolken för `kes.exe host_service` eller trycka på Ctrl + C. Här följer några exempel:
 
@@ -220,7 +220,7 @@ Du kan också anropa olika [webb-API: er](WebAPI.md) direkt för att testa tolkn
 * [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
 * [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Utanför Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) är begränsad till index för upp till 10 000 objekt. Andra begränsningar inkluderar en API-hastighet på 10 förfrågningar per sekund och totalt 1000 begäranden innan processen avslutas automatiskt. Om du vill kringgå dessa begränsningar, kör du kommandot inifrån en [Windows-dator i Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) eller distribuerar till en Azure-molntjänst med hjälp av kommandot [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Mer information finns i [Distribuera tjänsten](#deploying-service).
+Utanför Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) är begränsad till index för upp till 10 000 objekt. Andra begränsningar inkluderar en API-hastighet på 10 förfrågningar per sekund och totalt 1000 begäranden innan processen avslutas automatiskt. Om du vill kringgå dessa begränsningar, kör du kommandot inifrån en [Windows-dator i Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) eller distribuerar till en Azure-molntjänst med hjälp av kommandot [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Mer information finns i Distribuera tjänsten.
 
 ## <a name="scale-up-to-host-larger-indices"></a>Skala upp till större index
 
@@ -262,7 +262,7 @@ När du har distribuerat tjänsten kan du anropa olika [webb-API: er](WebAPI.md)
 
 ## <a name="test-the-service"></a>Testa tjänsten
 
-Bläddra till värddatorn från en webbläsare för att felsöka en live-tjänst. För en lokal tjänst som distribuerats via [host_service](#hosting-service) går du till `http://localhost:<port>/`.  För en Azure-molntjänst som har distribuerats via [deploy_service](#deploying-service) går du till `http://<serviceName>.cloudapp.net/`.
+Bläddra till värddatorn från en webbläsare för att felsöka en live-tjänst. För en lokal tjänst som distribueras via host_service går du till `http://localhost:<port>/`.  För en Azure-molntjänst som distribueras via deploy_service går du till `http://<serviceName>.cloudapp.net/`.
 
 Den här sidan innehåller en länk till information om grundläggande statistik för API-anrop, samt grammatik och index som finns på den här tjänsten. Den här sidan innehåller också ett gränssnitt för interaktiv sökning som visar hur du använder webb-API:er. Ange frågor i sökrutan för att se resultaten av API-anropen [interpret](interpretMethod.md), [evaluate](evaluateMethod.md), och [calchistogram](calchistogramMethod.md). Den underliggande HTML-källan för den här sidan fungerar också som ett exempel på hur du integrerar webb-API:er i en app för att skapa en omfattande och interaktiv sökfunktion.
 

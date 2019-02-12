@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 81bc37a4bbd63beda122d7254409e2b16f0e3cb1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2075f8f83392c9ddd1761a96958fcb6cb12dc013
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852175"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816432"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 
@@ -45,13 +45,13 @@ Den här självstudien omfattar följande steg:
 > [!NOTE] 
 > Du kan också skapa ett Service Bus-namnområde och meddelandeentiteter med [PowerShell](/powershell/azure/get-started-azureps). Mer information finns i [Använda PowerShell för att hantera Service Bus-resurser](service-bus-manage-with-ps.md).
 
-Om du redan har skapat ett namnområde för Service Bus-meddelanden går du vidare till avsnittet [Skapa en kö med hjälp av Azure Portal](#2-create-a-queue-using-the-azure-portal).
+Om du redan har skapat en namnrymd för Service Bus-meddelanden går du vidare till avsnittet Skapa en kö med hjälp av Azure-portalen.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-queue-using-the-azure-portal"></a>Skapa en kö med hjälp av Azure Portal
 
-Om du redan har skapat en Service Bus-kö går du vidare till avsnittet [Skicka meddelanden till kön](#3-send-messages-to-the-queue).
+Om du redan har skapat en Service Bus-kö går du vidare till avsnittet Skicka meddelanden till kön.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 

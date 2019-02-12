@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288721"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694014"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Sakernas Internet (IoT)-tekniker och -lösningar: PaaS och SaaS
 
@@ -58,7 +58,7 @@ Organisationer med färre enhetsmodeller, mer förutsägbara scenarier och begr�
 
 ### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Jämför Azure IoT-lösningsacceleratorer och Azure IoT Central
 
-För att implementera en typisk [IoT-lösningsarkitektur](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture), erbjuder Azure IoT flera alternativ, [Azure IoT-lösningsacceleratorer](/azure/iot-suite) och [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), vart och ett passar för olika uppsättningar av kundbehov.
+För att implementera en typisk [IoT-lösningsarkitektur](/azure/iot-fundamentals/iot-introduction), erbjuder Azure IoT flera alternativ, [Azure IoT-lösningsacceleratorer](/azure/iot-suite) och [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), vart och ett passar för olika uppsättningar av kundbehov.
 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) är kärnan i Azure PaaS och används av både Azure IoT Central och Azure IoT-lösningsacceleratorer. IoT Hub möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och är en molnlösning. IoT Hub hjälper dig att möta utmaningarna för IoT-implementering som:
 

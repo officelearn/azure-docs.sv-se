@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015280"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564569"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snabbstart: Skapa en pipeline för kognitiv sökning med kunskaper och exempeldata
 
@@ -147,15 +147,19 @@ Guiden kan vanligtvis härleda ett standardindex. I det här steget kan du visa 
 
 I den här snabbstarten passar guidens standardinställningar bra: 
 
-+ Standardnamnet är *azureblob-index*.
++ Standardnamnet är *azureblob-index* baserat på datakällans typ. 
+
++ Standardfält baseras på det ursprungliga källdatafältet (`content`), plus utdatafälten (`people`, `organizations` och `locations`) som skapas av den kognitiva pipelinen. Standarddatatyperna härleds från metadata och datasampling.
+
 + Standardnyckeln är *metadata_storage_path* (det här fältet innehåller unika värden).
-+ Standarddatatyper och -attribut är giltiga för scenarier med fulltextsökning.
 
-Överväg att ta bort **Hämtbar** från fältet `content`. I blobbar kan det här fältet köas i tusentals rader. Du kan föreställa dig hur svårt det kan vara att visa innehållet i omfattande filer, till exempel Word-dokument eller PowerPoint-kort som JSON i en lista över sökresultat. 
-
-Eftersom du har definierat en kunskapsuppsättning förutsätter guiden att du vill använda det ursprungliga källdatafältet, och utdatafälten som skapas av den kognitiva pipelinen. Därför läggs indexfält till för `content`, `people`, `organizations` och `locations`. Observera att **Hämtbar** och **Sökbar** aktiveras automatiskt för dessa fält. **Sökbar** anger att det går att söka i ett fält. **Hämtbar** betyder att det kan returneras i resultat. 
++ Standardattributen är **Hämtningsbart** och **Sökbart** i dessa fält. **Sökbar** anger att det går att söka i ett fält. **Hämtbar** betyder att det kan returneras i resultat. Guiden förutsätter att du vill att dessa fält ska vara hämtningsbara och sökbara, eftersom du har skapat dem via en kompetensuppsättning.
 
   ![Indexfält](media/cognitive-search-quickstart-blob/index-fields.png)
+
+Observera genomstrykningen och frågetecknet i attributet **Hämtningsbart** i fältet `content`. I textbaserade blobbdokument innehåller fältet `content` den största delen av filen, som skulle kunna köras som tusentals rader. Om du vill skicka filens innehåll till klientkod, ser du till att **Hämtningsbart** förblir markerat. Annars kan du ta bort attributet i `content` om de extraherade elementen (`people`, `organizations` och `locations`) är tillräckliga för dina syften.
+
+Att ett fält markeras som **Hämtningsbart** innebär inte att fältet *måste* finnas i sökresultaten. Du kan detaljstyra sammansättningen av sökresultat med hjälp av frågeparametern **$select** om du vill ange vilka fält som ska inkluderas. I textintensiva fält som `content`, är parametern **$select** din lösning för att dina programanvändare ska få hanterbara sökresultat, samtidigt som du säkerställer att klientkoden har åtkomst till all information som behövs via attributet **Hämtningsbart**.
   
 Fortsätt till nästa sida.
 

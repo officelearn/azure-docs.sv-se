@@ -1,21 +1,21 @@
 ---
 title: Använda Azure Virtual WAN för att skapa ExpressRoute-anslutningar till Azure och lokala miljöer | Microsoft Docs
-description: I den här självstudien lär du dig hur du använder Azure Virtual WAN för att skapa ExpressRoute-anslutningar till Azure och lokala miljöer.
+description: I den här självstudien lär du dig att använda Azure Virtual WAN för att skapa ExpressRoute-anslutningar till Azure och lokala miljöer.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: c02020ba8d49b123cf8914214d52ac40896a3c20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248188"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692898"
 ---
-# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Självstudie: Skapa en ExpressRoute-association med hjälp av Azure Virtual WAN (förhandsversion)
+# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Självstudier: Skapa en ExpressRoute-association med hjälp av Azure Virtual WAN (förhandsversion)
 
 Den här självstudien visar hur du använder Virtual WAN för att ansluta dina resurser i Azure via en ExpressRoute-krets och en association. Mer information om virtuella WAN-nätverk finns i [översikten om virtuellt WAN](virtual-wan-about.md)
 
@@ -45,7 +45,7 @@ Du måste registrera din prenumeration i förhandsversionen innan du kan konfigu
 
 **Överväganden för förhandsversion:**
 
-* Tillgänglighet för regioner: USA, västra centrala
+* Regional tillgänglighet: Västra centrala USA
 * ExpressRoute-kretsen måste vara aktiverad i ett land som stöder [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Skapa ett virtuellt nätverk
@@ -75,7 +75,7 @@ Du måste registrera din prenumeration i förhandsversionen innan du kan konfigu
 5. Ange följande uppgifter:
 * **Auktoriseringsnyckel** – genereras av kretsägaren enligt beskrivningen ovan
 * **Peer-kretsens URI** – krets-URI som tillhandahålls av kretsägaren och är den unika identifieraren för kretsen
-* **Routningsvikt** - [Routningsvikt](../expressroute/expressroute-optimize-routing.md) gör att du kan föredra vissa vägar när flera kretsar från olika peering-platser är ansluten till samma hubb
+* **Routningsvikt** - [Routningsvikt](../expressroute/expressroute-optimize-routing.md) gör att du kan föredra vissa vägar när flera kretsar från olika peeringplatser är anslutna till samma hubb
 6. Klicka på **Hitta krets** och välj kretsen om den hittas
 7. Välj 1 eller flera hubbar i listrutan och klicka på **Spara**
 

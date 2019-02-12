@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 251161fbb5213c765463835e4537f1b443699670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450225"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491747"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory? 
 Azure Active Directory (Azure AD) är Microsofts molnbaserade identitets- och åtkomshanteringstjänst. Azure AD hjälper dina medarbetare att logga in och få åtkomst till resurser i:
@@ -72,7 +72,7 @@ För att bättre förstå Azure AD och dess dokumentation bör du läsa följand
 |Global Azure AD-administratör|Den här administratörsrollen tilldelas automatiskt till den som har skapat Azure AD-klienten. Globala administratörer kan utföra alla administrativa funktioner för Azure AD och alla tjänster som federeras till Azure AD, som Exchange Online, SharePoint Online och Skype för företag – Online. Du kan flera globala administratörer men bara globala administratörer kan tilldela administratörsroller (inklusive tilldela andra globala administratörer) till användare.<br><br>**Obs!**<br>Administratörsrollen kallas för Global administratör i Azure-portalen men kallas för **Företagsadministratör** i Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell.<br><br>Mer information om olika administratörsroller finns i artikeln om [behörigheter för administratörsrollen i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Microsoft-konto (kallas även MSA)|Personliga konton som ger åtkomst till dina kundorienterade Microsoft-produkter och -molntjänster som Outlook, OneDrive, Xbox LIVE eller Office 365. Ditt Microsoft-konto skapas och lagras i Microsofts kontosystem för konsumentidentiteter som drivs av Microsoft.|
 
-## <a name="what-features-work-in-azure-ad"></a>Vilka funktioner fungerar i Azure AD?
+## <a name="which-features-work-in-azure-ad"></a>Vilka funktioner fungerar i Azure AD?
 När du har valt din Azure AD-licens har du åtkomst till några eller alla av följande funktioner för organisationen:
 
 |Kategori|Beskrivning|

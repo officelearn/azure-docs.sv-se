@@ -1,280 +1,267 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med 4me | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med 4me | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och 4me.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 983eecc6-41f8-49b7-b7f6-dcf833dde121
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/03/2018
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.openlocfilehash: 8f02260ff7a13ffb2f07e6e272be1e70d5a1577f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158133"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661589"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-4me"></a>Självstudier: Azure Active Directory-integration med 4me
+# <a name="tutorial-azure-active-directory-integration-with-4me"></a>Självstudier: Azure Active Directory-integrering med 4me
 
-I den här självstudien får du lära dig hur du integrerar 4me med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig att integrera 4me med Azure Active Directory (Azure AD).
+När du integrerar 4me med Azure AD får du följande fördelar:
 
-Integrera 4me med Azure AD ger dig följande fördelar:
+* Du kan styra åtkomsten till 4me via Azure AD.
+* Du kan konfigurera inställningar så att dina användare automatiskt loggas in i 4me (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till 4me.
-- Du kan aktivera användarna att automatiskt få loggat in på 4me (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integreringen med 4me behöver du det här:
 
-Om du vill konfigurera Azure AD-integrering med 4me, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En 4me enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En 4me-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till 4me från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-4me-from-the-gallery"></a>Att lägga till 4me från galleriet
-För att konfigurera integrering av 4me i Azure AD, som du behöver lägga till 4me från galleriet i din lista över hanterade SaaS-appar.
+* 4me har stöd för **SP**-initierad enkel inloggning
+* 4me har stöd för etablering av användare enligt principen **just-in-time**
 
-**Utför följande steg för att lägga till 4me från galleriet:**
+## <a name="adding-4me-from-the-gallery"></a>Lägga till 4me från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+När du ska konfigurera integreringen av 4me i Azure AD måste du lägga till 4me från galleriet i listan med hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Så här lägger du till 4me från galleriet:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-4. I sökrutan skriver **4me**väljer **4me** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![4me i resultatlistan](./media/4me-tutorial/tutorial_4me_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+    ![Knappen Nytt program](common/add-new-app.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med 4me baserat på en testanvändare som kallas ”Britta Simon”.
+4. I sökrutan skriver du **4me**, väljer **4me** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i 4me är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i 4me upprättas.
+     ![4me i resultatlistan](common/search-new-app.png)
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med 4me, måste du utföra följande byggblock:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare 4me](#create-a-4me-test-user)**  – du har en motsvarighet för Britta Simon i 4me som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD till 4me baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och motsvarande 4me-användare.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Om du vill konfigurera och testa enkel Azure AD-inloggning med 4me måste du utföra följande grundåtgärder:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt 4me program.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för 4me](#configure-4me-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa 4me-testanvändaren](#create-4me-test-user)** – för att ha en motsvarighet till Britta Simon i 4me som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med 4me:**
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **4me** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning för länken][4]
+Så här konfigurerar du enkel inloggning i Azure AD med 4me:
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/4me-tutorial/tutorial_4me_samlbase.png)
+1. I [Azure Portal](https://portal.azure.com/) öppnar du programintegreringssidan för **4me** och väljer **Enkel inloggning**.
 
-3. På den **4me domän och URL: er** avsnittet, utför följande steg:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![4me domän och URL: er med enkel inloggning för information](./media/4me-tutorial/tutorial_4me_url.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![4me-domän och webbadresser med information om enkel inloggning](common/sp-identifier.png)
+
+    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster:
 
     | Miljö| URL|
     |---|---|
     | PRODUKTION | `https://<SUBDOMAIN>.4me.com`|
-    | KVALITETSKONTROLL| `https://<SUBDOMAIN>.4me.qa`|
-  
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
-    
+    | QA| `https://<SUBDOMAIN>.4me.qa`|
+    | | |
+
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
+
     | Miljö| URL|
     |---|---|
     | PRODUKTION | `https://<SUBDOMAIN>.4me.com`|
-    | KVALITETSKONTROLL| `https://<SUBDOMAIN>.4me.qa`|
+    | QA| `https://<SUBDOMAIN>.4me.qa`|
+    | | |
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [4me klienten supportteamet](mailto:support@4me.com) att hämta dessa värden. 
- 
-4. 4me program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.
-    
-    ![Konfigurera enkel inloggning](./media/4me-tutorial/tutorial_4me_attribute.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [4me-supportteamet](mailto:support@4me.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
-    
-    | Attributnamn | Attributvärde |
-    | ---------------| --------------- |    
-    | Förnamn | User.givenName |
-    | Efternamn | User.surname |
+5. 4me-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    ![image](common/edit-attribute.png)
 
-    ![Konfigurera enkel inloggning](./media/4me-tutorial/tutorial_attribute_04.png)
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
-    ![Konfigurera enkel inloggning](./media/4me-tutorial/tutorial_attribute_05.png)
-    
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
-    
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    | Namn | Källattribut|
+    | ---------------| --------------- |
+    | first_name | user.givenname |
+    | last_name | user.surname |
+    | | |
 
-    d. Lämna den **Namespace** tom.
-    
-    d. Klicka på **Ok**
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-6. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet på datorn.
+    ![image](common/new-save-attribute.png)
 
-    ![Länk för hämtning av certifikat](./media/4me-tutorial/tutorial_4me_certificate.png) 
+    ![image](common/new-attribute-details.png)
 
-7. Klicka på **spara** knappen.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/4me-tutorial/tutorial_general_400.png)
+    c. Lämna **Namnrymd** tom.
 
-8. På den **4me Configuration** klickar du på **konfigurera 4me** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    d. Välj Källa som **Attribut**.
 
-    ![4me konfiguration](./media/4me-tutorial/tutorial_4me_configure.png) 
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-9. I ett annat webbläsarfönster, logga in på 4me som administratör.
+    f. Klicka på **Ok**
 
-10. På upp till vänster, klickar du på **inställningar** logotyp och på fältet i vänster **enkel inloggning**.
+    g. Klicka på **Spara**.
 
-    ![4me inställningar](./media/4me-tutorial/tutorial_4me_settings.png)
+7. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
 
-11. På den **enkel inloggning** utför följande steg:
+    ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
 
-    ![4me singleasignon](./media/4me-tutorial/tutorial_4me_singlesignon.png)
+8. Kopiera **Tumavtryck** i avsnittet **SAML-signeringscertifikat** och spara det på datorn.
 
-    a. Välj den **aktiverad** alternativet.
+    ![Kopiera värdet för Tumavtryck](common/copy-thumbprint.png)
 
-    b. I den **Remote utloggnings-URL** textrutan klistra in värdet för **URL: en för utloggning**, som du har kopierat från Azure-portalen.
+9. I avsnittet **Konfigurera 4me** kopierar du de webbadresser du behöver.
 
-    c. Under **SAML** avsnittet i den **URL för SAML SSO** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    d. I den **certifikat fingeravtryck** textrutan klistra in den **TUMAVTRYCK** värdet avgränsade med kolon i duplets ordning (AA:BB:CC:DD:EE:FF:GG:HH:II), som du har kopierat från Azure-portalen.
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-4me-single-sign-on"></a>Konfigurera enkel inloggning för 4me
+
+1. Logga in på 4me som säkerhetsadministratör i ett annat webbläsarfönster.
+
+2. Klicka på **Inställningar** uppe till vänster och på **Enkel inloggning** i det vänstra sidofältet.
+
+    ![4me-inställningar](./media/4me-tutorial/tutorial_4me_settings.png)
+
+3. På sidan **Enkel inloggning** utför du följande steg:
+
+    ![4me enkel inloggning](./media/4me-tutorial/tutorial_4me_singlesignon.png)
+
+    a. Välj alternativet **Aktiverad**.
+
+    b. I textrutan **Remote Logout URL** (URL för fjärrutloggning) klistrar du in värdet för **Utloggnings-URL** som du kopierade från Azure-portalen.
+
+    c. Under avsnittet **SAML**, i textrutan **SAML SSO URL** (URL för enkel inloggning med SAML) klistrar du in värdet för **Inloggnings-URL** som du kopierade från Azure Portal.
+
+    d. I textrutan **Fingeravtryck för certifikat** klistrar du in **TUMAVTRYCK**-värdet avgränsat med kolon i dubbletter (AA:BB:CC:DD:EE:FF:GG:HH:II), som du kopierade från Azure Portal.
 
     e. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/4me-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/4me-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/4me-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/4me-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-4me-test-user"></a>Skapa en 4me testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i 4me. 4me stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt 4me om det inte finns ännu.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
->[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [4me supportteamet](mailto:support@4me.com).
+I det här avsnittet gör du så att Britta Simon kan använda enkel inloggning med Azure genom att ge åtkomst till 4me.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+1. I Azure Portal väljer du **Företagsprogram**, **Alla program** och sedan **4me**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till 4me.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-![Tilldela rollen][200] 
+2. Välj **4me** i listan med program.
 
-**Om du vill tilldela Britta Simon 4me, utför du följande steg:**
+    ![4me-länken i programlistan](common/all-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Tilldela användare][201] 
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **4me**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken 4me i listan med program](./media/4me-tutorial/tutorial_4me_app.png)  
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Länken ”användare och grupper”][202]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Fönstret Lägg till tilldelning][203]
+### <a name="create-4me-test-user"></a>Skapa 4me-testanvändare
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+I det här avsnittet skapar du en användare med namnet Britta Simon i 4me. 4me har stöd för användaretablering enligt just-in-time, och det är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om användaren inte redan finns i 4me skapas en ny efter autentisering.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+> [!Note]
+> Om du vill skapa en användare manuellt kan du kontakta [supportteamet för 4me](mailto:support@4me.com).
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen 4me i åtkomstpanelen du bör få automatiskt loggat in på ditt 4me program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på 4me-panelen på åtkomstpanelen bör du automatiskt loggas in i det 4me som du konfigurerade enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/4me-tutorial/tutorial_general_01.png
-[2]: ./media/4me-tutorial/tutorial_general_02.png
-[3]: ./media/4me-tutorial/tutorial_general_03.png
-[4]: ./media/4me-tutorial/tutorial_general_04.png
-
-[100]: ./media/4me-tutorial/tutorial_general_100.png
-
-[200]: ./media/4me-tutorial/tutorial_general_200.png
-[201]: ./media/4me-tutorial/tutorial_general_201.png
-[202]: ./media/4me-tutorial/tutorial_general_202.png
-[203]: ./media/4me-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

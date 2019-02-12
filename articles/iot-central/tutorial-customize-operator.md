@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 070a6ee4bc712b2dbec598cdb9be5c324895c033
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154989"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657662"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Självstudie: Anpassa operatörsvyn i Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Självstudier: Anpassa operatörsvyn i Azure IoT Central
 
 Den här självstudien visar hur du som är byggare anpassar operatörsvyn för programmet. När du som byggare gör en ändring i programmet kan du förhandsgranska operatörsvyn i Microsoft Azure IoT Central.
 
@@ -30,6 +30,8 @@ I den här guiden får du lära dig att:
 > * Förhandsgranska enheten som operatör
 > * Konfigurera standardstartsidan
 > * Förhandsgranska standardstartsidan som operatör
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

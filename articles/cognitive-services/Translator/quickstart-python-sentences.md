@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 22b12349ac93f0c9dd595e01ecb4661e019c346b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ad5af3e43e1419246d1692c5028cb2453b04516c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458260"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696155"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Snabbstart: Använda Translator Text API för att fastställa meningslängd med hjälp av Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-För närvarande är en slutpunkt tillgänglig för Translator Text, och den anges som `base_url`. `path` anger `breaksentence`-vägen och identifierar att vi vill nå version 3 av API:et.
+Den globala slutpunkten för Translator Text anges som `base_url`. `path` anger `breaksentence`-vägen och identifierar att vi vill nå version 3 av API:et.
 
 `params` i det här exemplet används för att ange språket för den angivna texten. `params` behövs inte för `breaksentence`-vägen. Om de utelämnas från begäran försöker API:et att identifiera språket för den angivna texten och ange den här informationen tillsammans med en förtroendepoäng i svaret.
 

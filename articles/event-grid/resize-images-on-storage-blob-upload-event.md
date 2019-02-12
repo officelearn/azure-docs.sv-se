@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301466"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756877"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: Automatisera storleksändring av överförda bilder med Event Grid
 
@@ -105,7 +105,7 @@ Nu måste du konfigurera funktionsappen så att den ansluts till Blob Storage-ko
 
 ## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
 
-Funktionen behöver anslutningssträngen för att ansluta till bloblagringskontot. Funktionskoden som du distribuerar till Azure i följande steg letar efter anslutningssträngen i appinställningen myblobstorage_STORAGE, och den letar efter miniatyrbildens behållarnamn i appinställningen myContainerName. Visa anslutningssträngen med kommandot [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Ange programinställningar med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+Funktionen behöver anslutningssträngen för att ansluta till bloblagringskontot. Funktionskoden som du distribuerar till Azure i följande steg letar efter anslutningssträngen i appinställningen myblobstorage_STORAGE, och den letar efter miniatyrbildens behållarnamn i appinställningen myContainerName. Visa anslutningssträngen med kommandot [az storage account show-connection-string](/cli/azure/storage/account). Ange programinställningar med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 I följande CLI-kommandon är `<blob_storage_account>` namnet på det bloblagringskonto du skapade i föregående självstudie.
 
@@ -128,7 +128,7 @@ Nu kan du distribuera ett funktionskodprojekt till den här funktionsappen.
 
 # <a name="nettabdotnet"></a>[\..NET](#tab/dotnet)
 
-Storleksändringen för C#-exempelskriptet (.csx) är tillgängligt på [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Distribuera funktionskodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+Storleksändringen för C#-exempelskriptet (.csx) är tillgängligt på [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Distribuera funktionskodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source). 
 
 I följande kommando är `<function_app>` namnet på funktionsappen som du skapade tidigare.
 
@@ -137,7 +137,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-Storleksändringsfunktionen för exemplet Node.js är tillgängligt på [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Distribuera funktionskodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config).
+Storleksändringsfunktionen för exemplet Node.js är tillgängligt på [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Distribuera funktionskodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
 I följande kommando är `<function_app>` namnet på funktionsappen som du skapade tidigare.
 
@@ -184,8 +184,12 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
     | **Händelsetyper** | Blob skapas | Avmarkera alla typer utom **Blob skapas**. Det är bara händelsetyper för `Microsoft.Storage.BlobCreated` som skickas till funktionen.| 
     | **Typ av prenumerant** |  genereras automatiskt |  Fördefinieras som Web Hook. |
     | **Slutpunkt för prenumerant** | genereras automatiskt | Använd den slutpunktsadress som genereras åt dig. | 
-4. *Valfritt:* Om du vill skapa ytterligare containrar i samma bloblagring för andra ändamål i framtiden kan du använda **funktionerna för ämnesfiltrering** på fliken **Filter**. Då får du mer detaljerad styrning för blobhändelser, och kan se till att din funktionsapp endast anropas när blobar läggs till i **avbildningscontainern**. 
-5. Klicka på **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser funktionen `Thumbnail` när en blob läggs till i containern *images*. Funktionen återställer bildstorleken och lägger till dem i containern med *miniatyrer*.
+4. Växla till fliken **Filter** och gör följande:     
+    1. Välj alternativet **Aktivera ämnesfiltrering**.
+    2. För **Ämne börjar med** anger du följande värde: **/blobServices/default/containers/images/blobs/**.
+
+        ![Ange filter för händelseprenumeration](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
+2. Välj **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser funktionen `Thumbnail` när en blob läggs till i containern `images`. Funktionen ändrar storlek på avbildningarna och lägger till dem till containern `thumbnails`.
 
 Nu när tjänsterna på serversidan har konfigurerats ska du testa funktionen för storleksändring i exempelwebbappen. 
 

@@ -4,17 +4,17 @@ description: Använd Azure-skisser för att skapa, definiera och distribuera art
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320692"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566993"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definiera och tilldela en Azure-skiss med REST API
 
@@ -76,7 +76,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Begärandetext
@@ -135,7 +135,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2018-11-01-preview
      ```
 
    - Begärandetext
@@ -155,7 +155,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2018-11-01-preview
      ```
 
    - Begärandetext
@@ -183,7 +183,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
      ```
 
    - Begärandetext
@@ -211,7 +211,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2018-11-01-preview
      ```
 
    - Begärandetext
@@ -297,7 +297,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
      ```
 
    - Begärandetext
@@ -320,14 +320,14 @@ Nu när artefakter har lagts till i skissen är det dags att publicera den. När
 - REST API-URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2017-11-11-preview
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2018-11-01-preview
   ```
 
 Värdet för `{BlueprintVersion}` är en sträng med bokstäver, siffror och bindestreck (inga blanksteg eller andra specialtecken) med en högsta längd på 20 tecken. Använd något unikt och beskrivande som **v20180622-135541**.
 
 ## <a name="assign-a-blueprint"></a>Tilldela en skiss
 
-När en skiss har publicerats med hjälp av REST API kan den tilldelas till en prenumeration. Tilldela skissen som du skapade till någon av prenumerationerna i din hierarki med hanteringsgrupper. **Begärandetexten** anger vilken skiss som tilldelas, anger namnet och platsen för resursgrupper i skissdefinitionen och anger alla parametrar som definierades i skissen och som används av en eller flera kopplade artefakter.
+När en skiss har publicerats med hjälp av REST API kan den tilldelas till en prenumeration. Tilldela skissen som du skapade till någon av prenumerationerna i din hierarki med hanteringsgrupper. Om skissen sparas till en prenumeration kan den endast tilldelas till den prenumerationen. **Begärandetexten** anger vilken skiss som tilldelas, anger namnet och platsen för resursgrupper i skissdefinitionen och anger alla parametrar som definierades i skissen och som används av en eller flera kopplade artefakter.
 
 1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är statiskt (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men tjänstobjektets ID varierar beroende på klientorganisation. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
 
@@ -342,7 +342,7 @@ När en skiss har publicerats med hjälp av REST API kan den tilldelas till en p
    - REST API-URI
 
      ```http
-     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Begärandetext
@@ -395,7 +395,7 @@ Du kan ta bort en skiss från en prenumeration. Borttagningen görs ofta när ar
 - REST API-URI
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="delete-a-blueprint"></a>Ta bort en skiss
@@ -405,7 +405,7 @@ Om du vill ta bort själva skissen använder du följande REST API-åtgärd:
 - REST API-URI
 
   ```http
-  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="next-steps"></a>Nästa steg

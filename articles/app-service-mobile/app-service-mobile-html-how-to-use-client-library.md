@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: ba2eb5a7f888e4cffcd798259afa8194b4021025
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488900"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100548"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Hur du använder JavaScript-klientbiblioteket för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "38488900"
 Den här guiden lär du dig att utföra vanliga scenarier med senast [JavaScript SDK för Azure Mobile Apps]. Om du är nybörjare på Azure Mobile Apps slutföra [Azure mobila appar Snabbstart] att skapa en serverdel och skapa en tabell. I den här guiden kommer fokusera vi på att använda mobila serverdelstjänst i HTML/JavaScript-webbprogram.
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
-Vi har en gräns webbläsarstöd till de aktuella och de senaste versionerna av större webbläsare: Google Chrome, Microsoft Edge, Microsoft Internet Explorer och Mozilla Firefox.  Vi räknar med SDK: N ska fungera med alla relativt moderna webbläsare.
+Vi har en gräns webbläsarstöd till de aktuella och de senaste versionerna av större webbläsare:  Google Chrome, Microsoft Edge, Microsoft Internet Explorer och Mozilla Firefox.  Vi räknar med SDK: N ska fungera med alla relativt moderna webbläsare.
 
 Paketet distribueras som en Universal JavaScript-modul så att den stöder globals, AMD, och CommonJS format.
 
@@ -42,10 +42,10 @@ npm install azure-mobile-apps-client --save
 
 Biblioteket kan också användas som en ES2015-modul i CommonJS miljöer, till exempel Browserify och Webpack och som en AMD-bibliotek.  Exempel:
 
-```
-# For ECMAScript 5.1 CommonJS
+```javascript
+// For ECMAScript 5.1 CommonJS
 var WindowsAzure = require('azure-mobile-apps-client');
-# For ES2015 modules
+// For ES2015 modules
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 
@@ -57,14 +57,14 @@ Du kan också använda en färdiga version av SDK: N genom att ladda ned direkt 
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Så här: autentisera användare
-Azure App Service stöder autentisering och auktorisering av appanvändare som använder olika externa indentitetsprovidrar: Facebook, Google, Account och Twitter. Du kan ange behörigheter för tabeller för att begränsa åtkomst för specifika åtgärder endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i server-skript. Mer information finns i den [komma igång med autentisering] självstudien.
+## <a name="auth"></a>Hur: Autentisera användare
+Azure App Service stöder autentisering och auktorisering av appanvändare som använder olika externa indentitetsprovidrar: Facebook, Google, Microsoft-konto och Twitter. Du kan ange behörigheter för tabeller för att begränsa åtkomst för specifika åtgärder endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i server-skript. Mer information finns i den [komma igång med autentisering] självstudien.
 
 Två autentiseringsflöden stöds: ett flöde för server och ett klient-flöde.  Server-flödet innehåller enklaste autentiseringsupplevelse som den är beroende av leverantörens Webbgränssnitt för autentisering. Klientflödet gör för djupare integrering med specifika funktioner som enkel inloggning som den är beroende av provider-specifik SDK: er.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Så här: konfigurera din mobila App Service för externa Omdirigeringswebbadresser.
+### <a name="configure-external-redirect-urls"></a>Hur: Konfigurera Mobile App-tjänsten för externa Omdirigeringswebbadresser.
 Flera typer av JavaScript-program använda en loopback-funktion för att hantera OAuth UI flöden.  Dessa funktioner är:
 
 * Kör din tjänst lokalt

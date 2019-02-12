@@ -1,10 +1,22 @@
 ---
-Rubrik: Enkelt experiment titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: självstudien
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/20/2017
+title: Enkelt experiment
+titleSuffix: Azure Machine Learning Studio
+description: Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: tutorial
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: be52f5fbe6c7d282a50e53c4326478b937ea8081
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488395"
 ---
-
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Självstudier: Skapa ditt första dataexperiment i Azure Machine Learning Studio
 
 Om du aldrig har använt **Azure Machine Learning Studio** tidigare är den här självstudien något för dig.

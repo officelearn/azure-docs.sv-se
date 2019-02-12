@@ -4,17 +4,17 @@ description: Använd Azure Policy för att genomdriva standarder, efterleva krav
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845630"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730279"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att använda kompatibilitet
 
@@ -322,7 +322,7 @@ Den returnerar alla tillgängliga principdefinitioner, inklusive inbyggda princi
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Skapa och tilldela en initiativdefinition
 
-Med en initiativdefinition kan du gruppera flera principdefinitioner för att uppnå ett övergripande mål. Du skapar en initiativdefinition för att kontrollera att resurser inom definitionens omfång efterlever de principdefinitioner som utgör initiativdefinitionen. Se [Översikt över Azure Policy](../overview.md) för mer information om initiativdefinitioner.
+Med en initiativdefinition kan du gruppera flera principdefinitioner för att uppnå ett övergripande mål. Ett initiativ utvärderar resurser inom omfånget för tilldelningen för efterlevnad med tillhörande principer. Se [Översikt över Azure Policy](../overview.md) för mer information om initiativdefinitioner.
 
 ### <a name="create-an-initiative-definition"></a>Skapa en initiativdefinition
 

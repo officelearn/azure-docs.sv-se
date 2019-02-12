@@ -3,7 +3,7 @@ title: Azure CLI-exempelskript för SQL Database | Microsoft Docs
 description: Azure CLI-exempelskript för att skapa och hantera Azure SQL Database-servrar, elastiska pooler, databaser och brandväggar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,15 +11,25 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 3eb077cf705f08e1ad953211c00c6b1eaa50ee3b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/03/2019
+ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477904"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560829"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure CLI-exempel för Azure SQL Database
+
+Azure SQL Database kan konfigureras med <a href="/cli/azure">Azure CLI</a>.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+
+## <a name="single-database--elastic-pools"></a>Enkel databas och elastiska pooler
 
 Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL Database.
 
@@ -31,5 +41,19 @@ Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL
 |**Skala en databas och en elastisk pool**||
 | [Skala en databas](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skalar en enda Azure SQL-databas till en annan beräkningsstorlek efter att ha kört en fråga om databasens storlek. |
 | [Skala en elastisk pool](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skalar en elastisk SQL-pool till en annan beräkningsstorlek.  |
-| [Skapa och hantera en hanterad instans](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | Dessa CLI-skript visar hur du skapar och hanterar en hanterad instans med hjälp av Azure CLI |
 |||
+
+Läs mer om [Azure CLI API för enkel databas](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
+
+## <a name="managed-instance"></a>Managed Instance
+
+Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL Database – Managed Instance.
+
+| |  |
+|---|---|
+| [Skapa en hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | Det här CLI-skriptet visar hur du skapar en hanterad instans. |
+| [Uppdatera en hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | Det här CLI-skriptet visar hur du uppdaterar en hanterad instans. |
+| [Flytta en databas till en annan hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Det här CLI-skriptet visar hur du återställer en säkerhetskopia av en databas från en instans till en annan. |
+|||
+
+Läs mer om [Azure CLI API för hanterad instans](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) och hitta [ytterligare exempel här](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

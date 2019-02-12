@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Taligenkänning, Node.js – Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av Speech SDK för Node.js. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
+description: Använd den här guiden till att skapa ett tal till text-konsolprogram med hjälp av Speech SDK för Node.js. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
@@ -10,53 +10,53 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: c9f83368a540003e8bcc35282c664ec23e4ff068
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 99938f8b64339556c0ee4b9caa9124c609159af6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226510"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747289"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Snabbstart: Taligenkänning med Speech SDK för Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln lär du dig hur du skapar ett Node.js-projekt med hjälp av JavaScript-bindningen i Cognitive Services Speech SDK för att transkribera tal till text.
-Appen baseras på Microsoft [Cognitive Services Speech SDK](https://aka.ms/csspeech/npmpackage).
+I den här artikeln beskrivs hur du skapar ett Node.js-projekt med hjälp av JavaScript-bindningen i Speech SDK för Azure Cognitive Services för att transkribera tal till text.
+Programmet är baserat på [Speech SDK för JavaScript](https://aka.ms/csspeech/npmpackage).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En Azure-prenumerationsnyckel för Speech Service. [Skaffa en utan kostnad](get-started.md).
+* En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en kostnadsfritt](get-started.md).
 * En aktuell version av [Node.js](https://nodejs.org).
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-Skapa en ny mapp och initiera projektet.
+Skapa en ny mapp och initiera projektet:
 
 ```sh
 npm init -f
 ```
 
-På så sätt kommer package.json-filer att initieras med standardvärden. Du vill förmodligen redigera den här filen senare.
+Med det här kommandot initierar du filen **package.json** med standardvärden. Du vill förmodligen redigera den här filen senare.
 
 ## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
-Lägg till Speech SDK till ditt Node.js-projekt.
+Lägg till Speech SDK i Node.js-projektet:
 
 ```
 npm install microsoft-cognitiveservices-speech-sdk
 ```
 
-Detta gör att den senaste versionen av Speech SDK och eventuella nödvändiga förutsättningar från npmjs laddas ned och installeras. SDK kommer att installeras i `node_modules`-katalogen i projektmappen.
+Med det här kommandot laddar du ned och installerar den senaste versionen av Speech SDK och eventuella nödvändiga förutsättningar från **npmjs**. SDK:t installeras i katalogen `node_modules` i projektmappen.
 
 ## <a name="use-the-speech-sdk"></a>Använda Speech SDK
 
-Skapa en ny fil i mappen, med namnet `index.js` och öppna filen med en textredigerare.
+Skapa en ny fil i mappen med namnet `index.js` och öppna filen i en textredigerare.
 
 > [!NOTE]
-> Observera att i Node.js har inte Speech SDK stöd för mikrofonen eller fildatatypen. Båda stöds endast på webbläsare. Använd i stället Stream-gränssnittet till Speech SDK, antingen via `AudioInputStream.createPushStream()` eller `AudioInputStream.createPullStream()`.
+> I Node.js har inte Speech SDK stöd för mikrofonen eller **fildatatypen**. Båda stöds endast på webbläsare. Använd i stället **Stream**-gränssnittet till Speech SDK, antingen via `AudioInputStream.createPushStream()` eller `AudioInputStream.createPullStream()`.
 
-I det här exemplet ska vi använda `PushAudioInputStream`-gränssnittet.
+I det här exemplet använder vi gränssnittet `PushAudioInputStream`.
 
 Lägg till följande JavaScript-kod:
 
@@ -64,15 +64,15 @@ Lägg till följande JavaScript-kod:
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-Om du vill starta appen, anpassa `YourSubscriptionKey`, `YourServiceRegion` och `YourAudioFile.wav` till din konfiguration. Sedan kan du köra den genom att anropa följande kommando:
+Om du vill öppna appen ändrar du `YourSubscriptionKey`, `YourServiceRegion` och `YourAudioFile.wav` till din konfiguration. Kör den sedan med följande kommando:
 
 ```sh
 node index.js
 ```
 
-Det utlöser en igenkänning med hjälp av det angivna filnamnet och utdata på konsolen.
+Då utlöses ett erkännande med hjälp av det angivna filnamnet. Utdata visas på konsolen.
 
-Här är ett exempel på utdata av att köra `index.js` när du uppdaterat prenumerationsnyckeln och använt filen `whatstheweatherlike.wav`.
+Här visas utdata när du kör `index.js` efter att du har uppdaterat prenumerationsnyckeln och använder filen `whatstheweatherlike.wav`:
 
 ```json
 SpeechRecognitionResult {
@@ -96,33 +96,33 @@ SpeechRecognitionResult {
 
 Du kan också köra exemplet från Visual Studio Code. Följ stegen nedan för att installera, öppna och köra snabbstarten:
 
-1. Starta Visual Studio Code och klicka på ”Öppna mapp” och navigera sedan till snabbstartsmappen
+1. Starta Visual Studio Code. Välj **Öppna mapp**. Bläddra sedan till snabbstartsmappen.
 
-   ![Skärmbild av Öppna mapp](media/sdk/qs-js-node-01-open_project.png)
+   ![Öppna mappen](media/sdk/qs-js-node-01-open_project.png)
 
-1. Öppna en terminal i Visual Studio Code
+1. Öppna en terminal i Visual Studio Code.
 
-   ![Skärmbild av terminalfönstret](media/sdk/qs-js-node-02_open_terminal.png)
+   ![Terminalfönstret](media/sdk/qs-js-node-02_open_terminal.png)
 
-1. Kör npm för att installera beroenden
+1. Kör `npm` för att installera beroenden.
 
-   ![Skärmbild av npm-installering](media/sdk/qs-js-node-03-npm_install.png)
+   ![Installera npm](media/sdk/qs-js-node-03-npm_install.png)
 
-1. Nu är du redo att öppna `index.js`och konfigurera en brytpunkt
+1. Nu är du redo att öppna `index.js` och konfigurera en brytpunkt.
 
-   ![Skärmbild av index.js med en brytpunkt på rad 16](media/sdk/qs-js-node-04-setup_breakpoint.png)
+   ![index.js med en brytpunkt på rad 16](media/sdk/qs-js-node-04-setup_breakpoint.png)
 
-1. Om du vill starta felsökning, tryck antingen på F5 eller välj Felsöka/Starta felsökning från menyn
+1. Om du vill börja felsöka trycker du antingen på F5 eller så väljer du **Felsöka/Starta felsökning** från menyn.
 
-   ![Skärmbild av felsökningsmenyn](media/sdk/qs-js-node-05-start_debugging.png)
+   ![Felsökningsmenyn](media/sdk/qs-js-node-05-start_debugging.png)
 
-1. När en brytpunkt kommer, kan du inspektera anropsstacken och variablerna
+1. När du kommer till en brytpunkt kan du inspektera anropsstacken och variablerna.
 
-   ![Skärmbild av felsökningsprogram](media/sdk/qs-js-node-06-hit_breakpoint.png)
+   ![Felsökare](media/sdk/qs-js-node-06-hit_breakpoint.png)
 
-1. Inga utdata visas i konsolfönstret för felsökning
+1. Alla utdata visas i konsolfönstret för felsökningen.
 
-   ![Skärmbild av felsökningskonsolen](media/sdk/qs-js-node-07-debug_output.png)
+   ![Felsökningskonsolen](media/sdk/qs-js-node-07-debug_output.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

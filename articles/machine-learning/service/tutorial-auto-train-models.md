@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
-ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.reviewer: trbye
+ms.date: 02/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a293389b8175406d9036cd95c14748e5a626fb91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244283"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752542"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -34,7 +34,6 @@ I den här självstudien kommer du att lära dig följande:
 > * Träna en regressionsmodell automatiskt.
 > * Köra modellen lokalt med anpassade parametrar.
 > * Utforska resultaten.
-> * Registrera den bästa modellen.
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
@@ -43,36 +42,74 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-> * [Kör självstudien för dataförberedelse](tutorial-data-prep.md).
-> * En konfigurerad miljö med automatiserad maskininlärning. Exempel är [Azure Notebooks](https://notebooks.azure.com/), en lokal Python-miljö eller en Data Science Virtual Machine. [Konfigurera automatiserad maskininlärning](samples-notebooks.md).
+Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
 
-## <a name="get-the-notebook"></a>Hämta anteckningsboken
+* [Kör självstudien för dataförberedelse](tutorial-data-prep.md).
+* En notebook-server för Python 3.6 med följande installerat:
+    * Azure Machine Learning SDK för Python med extrafunktionerna `automl` och `notebooks`
+    * `matplotlib`
+* Anteckningsboken för självstudie
+* En Machine Learning-arbetsyta
+* Konfigurationsfilen för arbetsytan i samma katalog som anteckningsboken
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Kör anteckningsboken `regression-part2-automated-ml.ipynb` antingen i [Azure Notebooks](https://notebooks.azure.com/) eller på din egen Jupyter Notebook-server.
+Hämta alla dessa förutsättningar från något av avsnitten nedan.
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* Använd [Azure Notebooks](#azure)
+* Använd [din egen Notebook-server](#server)
 
-## <a name="import-packages"></a>Importera paket
+### <a name="azure"></a>Använd Azure Notebooks: Kostnadsfria Jupyter-anteckningsböcker i molnet
+
+Det är lätt att komma igång med Azure Notebooks! [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig i [Azure Notebooks](https://notebooks.azure.com/). Installationen och framtida uppdateringar hanteras automatiskt via Azure-tjänster.
+
+När du har slutfört stegen nedan kan du köra anteckningsboken **tutorials/regression-part2-automated-ml.ipynb** i ditt **Komma igång**-projekt.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>Använda en egen Jupyter Notebook-server
+
+Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slutfört stegen kör du anteckningsboken **tutorials/regression-part2-automated-ml.ipynb**.
+
+1. Slutför [snabbstarten för Azure Machine Learning med Python](quickstart-create-workspace-with-python.md) för att skapa en Miniconda-miljö och en arbetsyta.
+1. Installera extrafunktionerna `automl` och `notebooks` i din miljö med hjälp av `pip install azureml-sdk[automl,notebooks]`.
+1. Installera `maplotlib` med hjälp av `pip install maplotlib`.
+1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. Starta notebook-servern från den klonade katalogen.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+* Configure your workspace
+
+### Install and import packages
+
+If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+
+```shell
+pip install azureml-sdk[automl,notebooks] matplotlib
+```
+
 Importera de Python-paket som du behöver i självstudien:
-
 
 ```python
 import azureml.core
 import pandas as pd
 from azureml.core.workspace import Workspace
-from azureml.train.automl.run import AutoMLRun
-import time
 import logging
 import os
 ```
 
-Om du följer självstudien i din egen Python-miljö använder du följande för att installera nödvändiga paket.
-
-```shell
-pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
-```
-
-## <a name="configure-workspace"></a>Konfigurera arbetsyta
+### <a name="configure-workspace"></a>Konfigurera arbetsyta
 
 Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En `Workspace` är en klass som accepterar din Azure-prenumeration och resursgruppsinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen.
 
@@ -743,7 +780,6 @@ for run in children:
     metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
-import pandas as pd
 rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
@@ -1177,6 +1213,5 @@ I den här automatiserade självstudiekursen om maskininlärning har du gjort f�
 > * Konfigurerat en arbetsyta och förberett data för ett experiment.
 > * Tränat med hjälp av en automatiserad regressionsmodell lokalt med anpassade parametrar.
 > * Utforskat och granskat träningsresultat.
-> * Registrerat den bästa modellen.
 
 [Distribuera modellen](tutorial-deploy-models-with-aml.md) med Azure Machine Learning.

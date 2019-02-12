@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997127"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768665"
 ---
 # <a name="what-is-azure-cost-management"></a>Vad är Azure Cost Management?
 
-Kostnadshantering är processen med att effektivt planera och styra kostnaderna i företaget. Kostnadshanteringsuppgifter utförs normalt av ekonomi-, hanterings- och appteam. Azure Cost Management hjälper organisationer med Microsoft Enterprise-avtal (EA) att planera utifrån kostnader. Det hjälper även till att effektivt analysera kostnader och vidta åtgärder för att optimera molnutgifter. Om du vill veta mer om metoder för kostnadshantering för organisationer kan du läsa artikeln om [metodtips för Azure Cost Management](cost-mgt-best-practices.md).
+Kostnadshantering är processen med att effektivt planera och styra kostnaderna i företaget. Kostnadshanteringsuppgifter utförs normalt av ekonomi-, hanterings- och appteam. Azure Cost Management hjälper organisationer att planera med kostnaderna i åtanke. Det hjälper även till att effektivt analysera kostnader och vidta åtgärder för att optimera molnutgifter. Om du vill veta mer om metoder för kostnadshantering för organisationer kan du läsa artikeln om [metodtips för Azure Cost Management](cost-mgt-best-practices.md).
 
 Fakturering är relaterat till kostnadshantering men inbegriper skillnader. I faktureringsprocessen ingår att fakturera kunder för varor eller tjänster och att hantera den affärsrelationen.  Inköps- och ekonomiteamen genomför vanligtvis faktureringsuppgifter.
 
@@ -45,7 +45,7 @@ Om du använder externa system för att komma åt eller granska kostnadshanterin
 
 ## <a name="additional-azure-tools"></a>Ytterligare Azure-verktyg
 
-Azure har andra verktyg som inte är en del av Azure Cost Management-funktionsuppsättningen. De har dock en viktig roll i kostnadshanteringsprocessen. Se följande länkar om du vill veta mer om dessa verktyg.
+Azure har andra verktyg som inte är en del av Azure Cost Management-funktionsuppsättningen. De spelar dock en viktig roll i kostnadshanteringsprocessen. Se följande länkar om du vill veta mer om dessa verktyg.
 
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) – använd det här verktyget för att beräkna dina startkostnader för moln.
 - [Azure Migrate](../migrate/migrate-overview.md) – utvärdera din nuvarande datacenterarbetsbelastning för att få insikter om vad som behövs från en Azure-ersättningslösning.

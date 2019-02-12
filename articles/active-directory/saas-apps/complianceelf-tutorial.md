@@ -1,227 +1,194 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med efterlevnad Tomtenisse | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och efterlevnad Tomtenisse.
+title: 'Självstudier: Azure Active Directory-integrering med Compliance ELF | Microsoft Docs'
+description: Lär dig att konfigurera enkel inloggning mellan Azure Active Directory och Compliance ELF.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 01/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 509bec49840537dbb5bb7f0ec69cc4dfb750244a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: f29b87a314974154076a81572eca4b5db2d4fb30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189433"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567357"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Självstudier: Azure Active Directory-integrering med efterlevnad Tomtenisse
+# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Självstudier: Azure Active Directory-integrering med Compliance ELF
 
-Lär dig hur du integrerar efterlevnad Tomtenisse med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien lär du dig att integrera Compliance ELF med Azure Active Directory (Azure AD).
+När du integrerar Compliance ELF med Azure AD får du följande fördelar:
 
-Integrera efterlevnad Tomtenisse med Azure AD ger dig följande fördelar:
+* Du kan styra i Azure AD vem som ska ha åtkomst till Compliance ELF.
+* Du kan se till att dina användare loggas in automatiskt på Compliance ELF (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till efterlevnad Tomtenisse.
-- Du kan aktivera användarna att automatiskt få loggat in på efterlevnad Tomtenisse (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Compliance ELF, behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med efterlevnad Tomtenisse, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En efterlevnad Tomtenisse enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Prenumeration för Compliance ELF med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till efterlevnad Tomtenisse från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-compliance-elf-from-the-gallery"></a>Att lägga till efterlevnad Tomtenisse från galleriet
-För att konfigurera integrering av efterlevnad Tomtenisse i Azure AD, som du behöver lägga till efterlevnad Tomtenisse från galleriet i din lista över hanterade SaaS-appar.
+* Compliance ELF har stöd för **SP- och IDP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till efterlevnad Tomtenisse från galleriet:**
+## <a name="adding-compliance-elf-from-the-gallery"></a>Lägga till Compliance ELF från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Om du vill konfigurera integreringen av Compliance ELF i Azure AD, måste du lägga till Compliance ELF från galleriet i din lista med hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till Compliance ELF från galleriet:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Azure Active Directory-knappen](common/select-azuread.png)
+
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **efterlevnad Tomtenisse**väljer **efterlevnad Tomtenisse** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Compliance ELF**, väljer **Compliance ELF** i resultatpanelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
-    ![Efterlevnad Tomtenisse i listan med resultat](./media/complianceelf-tutorial/tutorial_complianceelf_addfromgallery.png)
+     ![Compliance ELF i listan med resultat](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med efterlevnad Tomtenisse baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Compliance ELF, baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Compliance ELF upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i efterlevnad Tomtenisse är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i efterlevnad Tomtenisse upprättas.
-
-I efterlevnad Tomtenisse tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med efterlevnad Tomtenisse, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning i Azure AD med Compliance ELF, måste du slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare efterlevnad Tomtenisse](#create-a-compliance-elf-test-user)**  – du har en motsvarighet för Britta Simon i efterlevnad Tomtenisse som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för Compliance ELF](#configure-compliance-elf-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa testanvändare i Compliance ELF](#create-compliance-elf-test-user)** – för att ha en motsvarighet till Britta Simon i Compliance ELF som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för efterlevnad Tomtenisse.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med efterlevnad Tomtenisse:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Compliance ELF:
 
-1. I Azure-portalen på den **efterlevnad Tomtenisse** program integration-sidan klickar du på **enkel inloggning**.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Compliance ELF** i [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Enkel inloggning för dialogrutan](./media/complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På den **efterlevnad Tomtenisse domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Efterlevnad Tomtenisse domän och URL: er med enkel inloggning för information](./media/complianceelf-tutorial/tutorial_complianceelf_url.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    I den **identifierare** textrutan anger du ett URL: en som: `https://sso.cordium.com`
+4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+    ![Information om Compliance ELF-domän och URL:er med enkel inloggning](common/idp-identifier.png)
 
-    ![Efterlevnad Tomtenisse domän och URL: er som enkel inloggning](./media/complianceelf-tutorial/tutorial_complianceelf_url1.png)
+    I textrutan **Identifierare** skriver du en URL: `https://sso.cordium.com`
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.complianceelf.com`
-    
-    > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera den här värden med den faktiska inloggnings-URL. Kontakta [efterlevnad Tomtenisse supportteamet](mailto:support@complianceelf.com) att hämta det här värdet.
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
-    
-    ![Konfigurera enkel inloggning](./media/complianceelf-tutorial/tutorial_metadataurl.png)
-     
-6. Klicka på knappen **Spara**.
+    ![image](common/both-preintegrated-signon.png)
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/complianceelf-tutorial/tutorial_general_400.png)
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<subdomain>.complianceelf.com`
 
-7. Att konfigurera enkel inloggning på **efterlevnad Tomtenisse** sida, som du behöver skicka den **Appfederationsmetadata** till [efterlevnad Tomtenisse supportteamet](mailto:support@complianceelf.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    > [!NOTE]
+    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [supportteamet för Compliance ELF](mailto:support@complianceelf.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-   ![Skapa en Azure AD-testanvändare][100]
+### <a name="configure-compliance-elf-single-sign-on"></a>Konfigurera enkel inloggning i Compliance ELF
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+För att konfigurera enkel inloggning på **Compliance ELF**-sidan måste du skicka **URL:en med appfederationsmetadata** till [supportteamet för Compliance ELF](mailto:support@complianceelf.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-    ![Azure Active Directory-knappen](./media/complianceelf-tutorial/create_aaduser_01.png)
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/complianceelf-tutorial/create_aaduser_02.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Knappen Lägg till](./media/complianceelf-tutorial/create_aaduser_03.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Dialogrutan användare](./media/complianceelf-tutorial/create_aaduser_04.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** skriver **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
-  
-### <a name="create-a-compliance-elf-test-user"></a>Skapa en testanvändare efterlevnad Tomtenisse
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i efterlevnad Tomtenisse. Arbeta med [efterlevnad Tomtenisse supportteamet](mailto:support@complianceelf.com) att lägga till användare i efterlevnad Tomtenisse-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Compliance ELF.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till efterlevnad Tomtenisse.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Compliance ELF**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela efterlevnad Tomtenisse Britta Simon utför du följande steg:**
+2. I listan med program väljer du **Compliance ELF**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Compliance ELF-länken i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-2. I listan med program väljer **efterlevnad Tomtenisse**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Länken efterlevnad Tomtenisse i listan med program](./media/complianceelf-tutorial/tutorial_complianceelf_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-compliance-elf-test-user"></a>Skapa testanvändare för Compliance ELF
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Compliance ELF. Samarbeta med [supportteamet för Compliance ELF](mailto:support@complianceelf.com) när du ska lägga till användare i plattformen för Compliance ELF. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen efterlevnad Tomtenisse i åtkomstpanelen du bör få automatiskt loggat in på ditt efterlevnad Tomtenisse program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Compliance ELF-ikonen i åtkomstpanelen bör du loggas in automatiskt på den Compliance ELF som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/complianceelf-tutorial/tutorial_general_01.png
-[2]: ./media/complianceelf-tutorial/tutorial_general_02.png
-[3]: ./media/complianceelf-tutorial/tutorial_general_03.png
-[4]: ./media/complianceelf-tutorial/tutorial_general_04.png
-
-[100]: ./media/complianceelf-tutorial/tutorial_general_100.png
-
-[200]: ./media/complianceelf-tutorial/tutorial_general_200.png
-[201]: ./media/complianceelf-tutorial/tutorial_general_201.png
-[202]: ./media/complianceelf-tutorial/tutorial_general_202.png
-[203]: ./media/complianceelf-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

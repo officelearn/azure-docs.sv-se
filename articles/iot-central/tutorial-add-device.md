@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c3b8f4f8188a6a28cca8b77f169a00657b11dfc5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 695050a46df4b208205ce394cc79db891803cfa4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154819"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731537"
 ---
-# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Självstudie: Lägga till en riktig enhet till Azure IoT Central-programmet
+# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Självstudier: Lägga till en riktig enhet till Azure IoT Central-programmet
 
 Den här självstudien visar hur du lägger till och konfigurerar en riktig enhet till Microsoft Azure IoT Central-programmet.
 
@@ -109,9 +109,11 @@ Följande steg visar hur du förbereder [Node.js](https://nodejs.org/)-exemplet:
 
    Läs mer om [kommandoradsverktyget här](https://www.npmjs.com/package/dps-keygen).
 
-1. Ladda ned och packa upp (Windows) verktyget dps_cstr från [GitHub](https://github.com/Azure/dps-keygen/tree/master/bin)
+1. Ladda ned och packa upp (Windows) verktyget dps_cstr från [GitHub](https://github.com/Azure/dps-keygen/archive/master.zip
 
-    Se till att du väljer det alternativ som matchar din plattform. På till exempel Windows bör filen dps_cstr.exe och dll-filerna finnas tillgängliga i mappen. 
+)
+
+    Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
 
 1. Anslutningssträngen för en enhetsinstans i ditt program genereras från enhetsinformation som tillhandahålls av IoT Central.
 

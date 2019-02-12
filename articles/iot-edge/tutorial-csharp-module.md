@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2acf30a9f71accb4780d473ce51b3ff640f12dac
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 21f59ad03f2ff91b3c33675b0994b7f565bf5031
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303522"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563209"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en C# IoT Edge-modul och distribuera till den simulerade enheten
 
@@ -99,7 +99,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
    | Välj modulmall | Välj **C#-modul**. |
    | Ange ett modulnamn | Ge modulen namnet **CSharpModule**. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. Den slutliga strängen ser ut så här: \<registernamn\>.azurecr.io/csharpmodule. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i från det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den slutliga avbildningslagringsplatsen ser ut så här: \<registry name\>.azurecr.io/csharpmodule. |
  
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-csharp-module/repository.png)
 
@@ -306,6 +306,12 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSh
 När du instruerar Visual Studio Code att skapa din lösning hämtar den först information från distributionsmallen och genererar en .json-distributionsfil i en ny mapp med namnet **config**. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar din kod, bäddar in CSharpModule.dll i en container och skickar sedan koden till det containerregister som du angav när du initierade lösningen. 
 
 Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Avbildningsadressen skapas från information som finns i filen module.json med formatet \<lagringsplats\>:\<version\>-\<plattform\>. I den här självstudien bör den se ut så här: registryname.azurecr.io/csharpmodule:0.0.1-amd64.
+
+>[!TIP]
+>Om du får ett fel när du försöker skapa och överföra modulen gör du följande kontroller:
+>* Loggade du in på Docker i Visual Studio Code med autentiseringsuppgifter från ditt containerregister? Dessa autentiseringsuppgifter skiljer sig från dem som du använder för att logga in på Azure-portalen.
+>* Stämmer containerlagringsplatsen? Öppna **moduler** > **cmodule** > **module.json** och leta upp fältet **lagringsplats**. Avbildningslagringsplatsen ska se ut så här: **\<registernamn\>.azurecr.io/csharpmodule**. 
+>* Bygger du samma typ av containrar som utvecklingsdatorn kör? Visual Studio Code använder som standard Linux amd64-containrar. Om din utvecklingsdator kör Windows-containrar eller Linux arm32v7-containrar uppdaterar du plattformen i det blå statusfältet längst ned i VS Code-fönstret så att den matchar din containerplattform.
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 

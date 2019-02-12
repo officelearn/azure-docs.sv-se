@@ -4,17 +4,17 @@ description: Azure Blueprint är en tjänst i Azure som används för att skapa,
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246253"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563379"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -56,17 +56,14 @@ En skiss består av _artefakter_. Skisser stöder för närvarande följande res
 
 |Resurs  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
-|Resursgrupper     | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar.         |
-|Azure Resource Manager-mall      | Prenumeration, resursgrupp | Mallar används till att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
-|Principtilldelning     | Prenumeration, resursgrupp | Tillåter tilldelning av en princip eller ett initiativ till den prenumeration som skissen är tilldelad till. Principen eller initiativet måste vara inom skissens omfång (i skissens hanteringsgrupp eller tidigare). Om principen eller initiativet har parametrar kan de parametrarna tilldelas vid skapandet av skissen eller under skisstilldelningen.       |
-|Rolltilldelning   | Prenumeration, resursgrupp | Lägg till en befintlig användare eller grupp till en inbyggd roll för att se till att rätt personer alltid har rätt åtkomst till dina resurser. Rolltilldelningar kan definieras för hela prenumerationen eller kapslade till en specifik resursgrupp som ingår i skissen. |
+|Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar. |
+|Azure Resource Manager-mall | Prenumeration, resursgrupp | Mallar används till att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
+|Principtilldelning | Prenumeration, resursgrupp | Tillåter tilldelning av en princip eller ett initiativ till den prenumeration som skissen är tilldelad till. Principen eller initiativet måste vara inom omfånget för skissdefinitionens plats. Om principen eller initiativet har parametrar kan de parametrarna tilldelas vid skapandet av skissen eller under skisstilldelningen. |
+|Rolltilldelning | Prenumeration, resursgrupp | Lägg till en befintlig användare eller grupp till en inbyggd roll för att se till att rätt personer alltid har rätt åtkomst till dina resurser. Rolltilldelningar kan definieras för hela prenumerationen eller kapslade till en specifik resursgrupp som ingår i skissen. |
 
-### <a name="blueprints-and-management-groups"></a>Skisser och hanteringsgrupper
+### <a name="blueprint-definition-locations"></a>Skissdefinitionsplatser
 
-När du skapar en skissdefinition ska du definiera var skissen har sparats. Skisser kan för närvarande endast sparas till en [hanteringsgrupp](../management-groups/overview.md) som du har **deltagaråtkomst**. Skissen kan tilldelas till alla underordnade prenumerationer för den hanteringsgruppen.
-
-> [!IMPORTANT]
-> Om du inte har åtkomst till några hanteringsgrupper eller om inga hanteringsgrupper har konfigurerats visar en inläsning av listan över skissdefinitioner att ingen är tillgänglig. Om du klickar på **Omfång** öppnas ett fönster med en varning om att hämta hanteringsgrupper. Lös detta genom att se till att en prenumeration som du har lämplig åtkomst till är en del av en [hanteringsgrupp](../management-groups/overview.md).
+När du skapar en skissdefinition ska du definiera var skissen har sparats. Skisser kan sparas till en [hanteringsgrupp](../management-groups/overview.md) som eller en prenumeration som du har **deltagaråtkomst** till. Om platsen är en hanteringsgrupp kan skissen tilldelas till valfri underordnad prenumeration för den hanteringsgruppen.
 
 ### <a name="blueprint-parameters"></a>Skissparametrar
 
@@ -101,7 +98,7 @@ Om du vill ta bort skisser måste ditt konto ha följande behörigheter:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> Eftersom skissdefinitioner skapas i en hanteringsgrupp måste, behörigheterna för skissens definition beviljas i ett hanteringsgruppomfång eller ärvas till ett hanteringsgruppomfång.
+> Behörigheter för skissdefinition måste beviljas eller ärvas i det omfång för hanteringsgrupp eller prenumeration där den sparas.
 
 Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha följande behörigheter:
 

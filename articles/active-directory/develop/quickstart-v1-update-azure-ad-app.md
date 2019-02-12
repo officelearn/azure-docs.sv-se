@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 437217bdd3cc2ae8724d6bf24134d8fe725daac7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093316"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819101"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Snabbstart: Uppdatera ett program i Azure Active Directory
 
@@ -156,7 +156,7 @@ När du registrerar ett program i Azure AD vill du kanske att ditt program endas
 Det är viktigt att observera skillnaderna mellan ett program för en enskild klientorganisation och ett program för flera klientorganisationer:  
 
 - Ett program för en enskild klientorganisation är avsett att användas i en organisation. Det är vanligtvis ett LoB-program (Line of Business, affärsapplikation) som skrivits av en företagsutvecklare. Ett program för en enskild klientorganisation kan bara kommas åt av användare med konton i samma klientorganisation som programregistreringen. Därför behöver det bara etableras i en katalog.
-- Ett program för flera klientorganisationer är avsett att användas i många organisationer. Det kallas för ett SaaS-webbprogram (Software as a Service) och skrivs vanligtvis av en oberoende programvaruleverantör (ISV). Program för flera klientorganisationer måste etableras i varje klientorganisation där användarna behöver åtkomst. För andra klientorganisationer än den där programmet har registrerats krävs medgivande från användare eller administratörer för att registrera dem. Observera att interna klientprogram är till för flera klientorganisationer som standard eftersom de är installerade på resursägarens enhet. Se föregående avsnitt [Översikt över ramverket för medgivande](#overview-of-the-consent-framework) för att få information om ramverket för medgivande.
+- Ett program för flera klientorganisationer är avsett att användas i många organisationer. Det kallas för ett SaaS-webbprogram (Software as a Service) och skrivs vanligtvis av en oberoende programvaruleverantör (ISV). Program för flera klientorganisationer måste etableras i varje klientorganisation där användarna behöver åtkomst. För andra klientorganisationer än den där programmet har registrerats krävs medgivande från användare eller administratörer för att registrera dem. Observera att interna klientprogram är till för flera klientorganisationer som standard eftersom de är installerade på resursägarens enhet. Se föregående avsnitt Översikt över ramverket för medgivande för att få information om ramverket för medgivande.
 
 Att göra ett program till ett program för flera klientorganisationer kräver både ändringar i programregistreringen och i själva webbprogrammet. I följande avsnitt beskrivs båda dessa.
 
@@ -184,7 +184,7 @@ Stöd program för flera klientorganisationer förlitar sig mycket på Azure AD-
 Ditt webbprogram kan även erbjuda:
 
 - Möjligheten för administratörer att ”registrera mitt företag”. Detta kallas för ”administratörsmedgivande” och ger en administratör möjlighet att ge samtycke för *alla användares* räkning i dennes organisation. Det är bara användare som autentiseras med ett konto som tillhör rollen Global administratör som kan administratörsmedgivande; andra får ett felmeddelande.
-- En inloggningsfunktion för användare. Det förväntas att användaren får en ”registreringsknapp” som omdirigerar webbläsaren till Azure AD OAuth2.0 `/authorize`-slutpunkten eller en OpenID Connect `/userinfo`-slutpunkt. Dessa slutpunkter gör det möjligt för programmet för att hämta information om den nya användaren genom att granska id_token. Efter registreringsfasen ges användaren en fråga om medgivande som liknar den som visas i avsnittet [Översikt över ramverket för medgivande](#overview-of-the-consent-framework).
+- En inloggningsfunktion för användare. Det förväntas att användaren får en ”registreringsknapp” som omdirigerar webbläsaren till Azure AD OAuth2.0 `/authorize`-slutpunkten eller en OpenID Connect `/userinfo`-slutpunkt. Dessa slutpunkter gör det möjligt för programmet för att hämta information om den nya användaren genom att granska id_token. Efter registreringsfasen ges användaren en fråga om medgivande som liknar den som visas i avsnittet Översikt över ramverket för medgivande.
 
 Mer information om de programändringar som krävs för att stödja åtkomst för flera klientorganisationer och funktioner för inloggning och utloggning finns i:
 

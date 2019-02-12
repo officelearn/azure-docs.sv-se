@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190296"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566127"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Snabbstart: Köra ett containerprogram i Azure Container Instances på Azure-portalen
 
@@ -41,7 +41,7 @@ Ange följande värden i textfälten **Containernamn**, **Containeravbildning** 
 
 ![Konfigurera grundläggande inställningar för en ny containerinstans i Azure Portal][aci-portal-03]
 
-Du kan skapa både Windows- och Linux-behållare i Azure Container Instances. I den här snabbstarten lämnar du standardinställningen för **Linux** för att distribuera den Linux-baserade `microsoft/aci-helloworld` avbildningen.
+För den här snabbstarten lämnar du standardinställningen **offentlig** för att distribuera `microsoft/aci-helloworld`-avbildningen från det offentliga Docker Hub-registret. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
 
 Under **Konfiguration** anger du en **DNS-namnetikett** för din container. Namnet måste vara unikt i den Azure-region där du skapar containerinstansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`.
 

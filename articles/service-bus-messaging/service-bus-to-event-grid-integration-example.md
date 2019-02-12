@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 55798af8d8e2b50614a3eee51b330c5b4fa0f918
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409584"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821831"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exempel på integration av Azure Service Bus till Azure Event Grid
 
 Den här artikeln visar hur du konfigurerar en Azure-funktion och en logikapp som båda tar emot meddelanden baserat på när en händelse från Azure Event Grid tas emot. Du får:
  
-* Skapa en enkel [Azure-testfunktion](#test-function-setup) för felsökning och för att visa det första flödet av händelser från Event Grid. Utför det här steget oavsett om du utför de andra stegen eller inte.
-* Skapa en [Azure-funktion som tar emot och bearbetar Azure Service Bus-meddelanden](#receive-messages-using-azure-function) baserat på Event Grid-händelser.
-* Använd [Logic Apps-funktionen i Azure App Service](#receive-messages-using-azure-logic-app).
+* Skapa en enkel Azure-testfunktion för felsökning och för att visa det första flödet av händelser från Event Grid. Utför det här steget oavsett om du utför de andra stegen eller inte.
+* Skapa en Azure-funktion som tar emot och bearbetar Azure Service Bus-meddelanden baserat på Event Grid-händelser.
+* Använd Logic Apps-funktionen i Azure App Service.
 
 I exemplet som du skapar förutsätter vi att Service Bus-ämnet har två prenumerationer. Vi förutsätter också att Event Grid-prenumerationen har skapats för att skicka händelser för endast en Service Bus-prenumeration. 
 

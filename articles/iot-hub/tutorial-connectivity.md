@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685373"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745817"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen till din IoT-hubb
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen med din IoT-hubb
 
 I den här kursen använder du Azure IoT Hub-portalverktyg och Azure CLI-kommandon för att testa anslutningen för enheten. Den här kursen använder också en enkel enhetssimulator som du kör på din stationära dator.
 
@@ -75,7 +75,7 @@ För att hämta anslutningssträngen för **MyTestDevice**, klicka på den i lis
 
 För att simulera när **MyTestDevice** skickar telemetri till din IoT-hubb kan du köra den Node.js simulerade enheten programmet du hämtade tidigare.
 
-Navigera till rotmappen för Node.js-exempelprojektet som du hämtade i ett terminalfönster på din utvecklingsdator. Gå sedan till mappen **iot hub\Tutorials\ConnectivityTests\simulated-device**.
+Navigera till rotmappen för Node.js-exempelprojektet som du hämtade i ett terminalfönster på din utvecklingsdator. Gå sedan till mappen **iot-hub\Tutorials\ConnectivityTests**.
 
 Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret. Använd enhetsanslutningssträngen som du antecknade när du lade till enheten i portalen.
 

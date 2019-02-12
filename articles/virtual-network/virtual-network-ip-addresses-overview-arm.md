@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/30/2019
 ms.author: jdial
-ms.openlocfilehash: f4af899be489dab2fc73bb33943882d4dc81576f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054766"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488102"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
@@ -61,22 +61,23 @@ Offentliga IP-adresser skapas med någon av följande SKU:er:
 Alla offentliga IP-adresser som skapas före införandet av SKU:er är grundläggande offentliga IP-adresser för SKU. Genom att införa SKU:er kan du välja att ange vilken SKU du vill att den offentliga IP-adressen ska vara. Grundläggande SKU-adresser är:
 
 - Tilldelas med en statisk eller dynamisk allokeringsmetod.
+- Har en justerbar inkommande tidsgräns för inaktivitet i flöde på 4–30 minuter, med ett standardvärde på 4 minuter, och en fast utgående tidsgräns för inaktivitet i flöde på 4 minuter.
 - Är öppna som standard.  Nätverkssäkerhetsgrupper rekommenderas, men är valfritt för att begränsa inkommande eller utgående datatrafik.
 - Tilldelas till en Azure-resurs som kan tilldelas en offentlig IP-adress, t.ex. nätverksgränssnitt, VPN Gateway, Application Gateway och Internetuppkopplade lastbalanserare.
-- Kan tilldelas till en viss zon.
-- Ej zonredundant. Mer information om tillgänglighetszoner finns i [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Stöd inte scenarier med tillgänglighetszoner.  Du behöver använda en standardmässig offentlig SKU-IP-adress för scenarier med tillgänglighetszoner. Om du vill veta mer om tillgänglighetszoner kan du läsa [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Standard Load Balancer och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 #### <a name="standard"></a>Standard
 
 Offentliga IP-adresser för standard-SKU:
 
-- Tilldelas endast med den statiska allokeringsmetoden.
+- Använd alltid den statiska allokeringsmetoden.
+- Ha en justerbar inkommande och utgående tidsgräns för inaktivitet i flöde på 4–66 minuter, med ett standardvärde på 4 minuter.
 - Är säkra som standard och stängda för inkommande trafik. Du måste explicit göra en lista över tillåten inkommande trafik med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups).
-- Tilldelat till nätverksgränssnitt, offentlig Standard Load Balancer, Application Gateways eller VPN-gatewayer. Mer information om standardlastbalanserare i Azure finns i [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Zonredundant som standard. Kan skapas zonindelat och garanteras i en viss tillgänglighetszon. Om du vill veta mer om tillgänglighetszoner kan du läsa [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Standard Load Balancer och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Tilldelat till nätverksgränssnitt, offentliga Standard Load Balancers, programgatewayer eller VPN-gatewayer. Mer information om Standard Load Balancer finns i [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Zonredundant som standard och valfritt zonindelad (kan skapas zonindelad och garanteras i en specifik tillgänglighetszon). Om du vill veta mer om tillgänglighetszoner kan du läsa [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Standard Load Balancer och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Kommunikationen med resursen med standard-SKU misslyckas tills du har skapat och kopplat en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups) och uttryckligen tillåtit önskad inkommande trafik.
+> Inkommande kommunikation med en resurs med standard-SKU misslyckas tills du har skapat och kopplat en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups) och uttryckligen tillåtit önskad inkommande trafik.
 
 ### <a name="allocation-method"></a>Allokeringsmetod
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177040"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098229"
 ---
 # <a name="publish-azure-application-offer"></a>Publicera erbjudande för Azure-program
 
@@ -46,7 +46,6 @@ I följande tabell listar och beskriver hur publicering och ger en Uppskattad ti
 | Live                           | < 1 dag | Erbjudandet är publicerat, replikeras till de angivna regionerna och göras tillgängliga för allmänheten. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
 
- 
 Du kan övervaka publiceringsprocessen i den **Status** fliken för ditt erbjudande i partnerportalen i molnet.
 
 ![Fliken status för ett erbjudande för Azure-app](./media/offer-status-tab.png)
@@ -54,38 +53,13 @@ Du kan övervaka publiceringsprocessen i den **Status** fliken för ditt erbjuda
 När du har slutfört processen för att publicera ditt erbjudande visas i den [Microsoft Azure Marketplace-programkategori](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 
-
 ## <a name="errors-and-review-feedback"></a>Fel och granska feedback
 
-Förutom att visa publiceringsstatus för ditt erbjudande i **Status** fliken visas även felmeddelanden och feedback från den **Microsoft granska** steg.  Granska problem är normalt refereras till som pull-begäran (PR).  Varje pull-begäran är länkad till en online Visual Studio Team Services (VSTS, bytt namn till [Azure DevOps](https://azure.microsoft.com/services/devops/)) objekt som innehåller information om problemet.  Följande bild visar ett exempel på en granska PR-referens.  För mer komplexa situationer, granskning och support team kan via e-post. 
-
-![Status för fliken visas granska feedback](./media/status-tab-ms-review.png)
-
-Du måste åtgärda varje rapporterad fråga innan erbjudandet fortsätter via publiceringsprocessen.  Följande diagram illustrerar hur den här feedbackprocessen relaterar till publiceringsprocessen.
-
-![Publicera steg med VSTS-feedback](./media/pub-flow-vsts-access.png)
-
-
-### <a name="vsts-access"></a>VSTS-åtkomst
-
-Utgivare måste beviljas rätt behörighet för om du vill visa VSTS-objekt som refereras i Granska feedback.  Annars kan nya utgivare ta emot en `401 - Not Authorized` svar sidan.  Utför följande steg för att begära åtkomst till erbjudandet granska VSTS systemet:
-
-1. Samla in följande information:
-    - Ditt namn på utgivare och -ID
-    - Erbjudandetyp (Azure app), erbjuder namnet och SKU-ID
-    - Pull-begäran länka till exempel: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  Den här URL: en kan hämtas från meddelandet eller adressen till sidan 401-svar.
-    - E-postadresserna för personerna från organisationen publishing som du vill bevilja åtkomst till.  Dessa bör inkludera ägare-adresser som du angav när du registrerar en utgivare på partnerportalen i molnet.
-2. Skapa ett supportärende.  I namnlisten i Cloud Partner Portal, väljer du den **hjälpa** knappen och välj sedan **Support** på menyn.  Du default web browser bör starta och gå till Microsoft support incident sidan Ny.  (Du kan behöva logga in först.)
-3. Ange den **problemtyp** som **marketplace onboarding** och **kategori** som **problem med anslutningen**och välj sedan **Start begäran**.
-
-    ![Stöd för biljett kategori](./media/support-incident1.png)
-
-4. I **steg 1 av 2** , ange din kontaktinformation och välj **Fortsätt**.
-5. I **steg 2 av 2** anger du ett incidentrubrik (till exempel `Request VSTS access`) och ange den information du samlade in i det första steget (ovan).  Läsa och godkänna avtalet och välj sedan **skicka**.
-
-Om incidentskapande, visas en bekräftelsesida.  Bekräftelseinformationen för din referens sparas.  Microsoft-supporten ska svara på din förfrågan inom ett par arbetsdagar.
+Förutom att visa publiceringsstatus för ditt erbjudande i **Status** fliken visas även felmeddelanden och feedback från alla publishing steg där ett problem har påträffats.  Om problemet är kritiska kan avbryts sedan publicera.  Du måste sedan rätta till felen i rapporterade och publicera erbjudandet.  Eftersom den **Microsoft granska** steg representerar en omfattande granskning av ditt erbjudande och dess associerade tekniska resurser (särskilt Azure Resource Manager-mall), problem visas vanligtvis som pull-begäran (PR) länkar.  En förklaring av hur du visar och svara på dessa PR Se [hantering granska feedback](./cpp-handling-review-feedback.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
+
+Om du har stött på fel i en eller flera av publishing stegen, måste du åtgärda dem och publicera ditt erbjudande.  Om allvarliga problem som uppstår i den **Microsoft granska** steg, måste du [hantera granska feedback](./cpp-handling-review-feedback.md) granska gruppens Azure DevOps-databasen genom att gå till Microsoft.
 
 När en Azure-app har publicerats kan du [uppdatera befintligt erbjudande](./cpp-update-existing-offer.md) så att företag eller tekniska behoven. 

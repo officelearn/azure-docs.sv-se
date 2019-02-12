@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: e7cb8b2d699418b4d70d60f19a3a60ce0c7b8d38
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 566523b1ca461d6a8a0ffaf8830481e5dc3ce26f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888676"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770375"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>Snabbstart: SSH/RDP över IoT Hub-enhetsströmmar med hjälp av C#-proxyprogram (förhandsversion)
 
@@ -36,9 +36,9 @@ I bilden nedan visas konfigurationen för hur de enhets- och tjänstlokala proxy
 
 2. Enhetslokal proxy slutför handskakningen för ströminitiering och upprättar en slutpunkt till slutpunkt-strömningstunnel via IoT-hubbens slutpunkt för direktuppspelning till tjänstsidan.
 
-3. Enhetslokal proxy ansluter till den SSH-daemon (SSHD) som lyssnar på port 22 på enheten (porten kan konfigureras enligt beskrivningen [nedan](#run-the-device-side-application)).
+3. Enhetslokal proxy ansluter till den SSH-daemon (SSHD) som lyssnar på port 22 på enheten (porten kan konfigureras enligt beskrivningen [nedan](#run-the-device-local-proxy)).
 
-4. Tjänstlokal proxy väntar på nya SSH-anslutningar från användaren genom att lyssna på en avsedd port, vilket i det här fallet är port 2222 (detta kan också konfigureras enligt beskrivningen [nedan](#run-the-service-side-application)). När användaren ansluter via SSH-klient gör tunneln så att programtrafik kan växlas mellan SSH-klienten och serverprogram.
+4. Tjänstlokal proxy väntar på nya SSH-anslutningar från användaren genom att lyssna på en avsedd port, vilket i det här fallet är port 2222 (detta kan också konfigureras enligt beskrivningen [nedan](#run-the-service-local-proxy)). När användaren ansluter via SSH-klient gör tunneln så att programtrafik kan växlas mellan SSH-klienten och serverprogram.
 
 > [!NOTE]
 > SSH-trafik som skickas via en strömmen dirigeras via IoT-hubbens slutpunkt för direktuppspelning i stället för att skickas direkt mellan tjänst och enhet. Detta ger [dessa fördelar](./iot-hub-device-streams-overview.md#benefits).
@@ -110,32 +110,6 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH till en enhet via enhetsströmmar
 
-### <a name="run-the-service-side-proxy"></a>Köra proxy på tjänstsidan
-
-Gå till `device-streams-proxy/service` i den uppackade projektmappen. Du behöver ha följande information till hands:
-
-| Parameternamn | Parametervärde |
-|----------------|-----------------|
-| `iotHubConnectionString` | Tjänstanslutningssträngen för din IoT-hubb. |
-| `deviceId` | Identifieraren för den enhet som du skapade tidigare. |
-| `localPortNumber` | En lokal port dit din SSH-klient ska ansluta. Vi använder port 2222 i det här exemplet, men du kan ändra detta till andra godtyckliga nummer. |
-
-Kompilera och kör koden på följande sätt:
-
-```
-cd ./iot-hub/Quickstarts/device-streams-proxy/service/
-
-# Build the application
-dotnet build
-
-# Run the application
-# In Linux/MacOS
-dotnet run $serviceConnectionString MyDevice 2222
-
-# In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
-```
-
 ### <a name="run-the-device-local-proxy"></a>Köra den enhetslokala proxyn
 
 Gå till `device-streams-proxy/device` i den uppackade projektmappen. Du behöver ha följande information till hands:
@@ -162,31 +136,7 @@ dotnet run $deviceConnectionString localhost 22
 dotnet run %deviceConnectionString% localhost 22
 ```
 
-Använd nu SSH-klientprogrammet och anslut till den tjänstlokala proxyn på port 2222 (i stället för direkt till SSH-daemon). 
-
-```
-ssh <username>@localhost -p 2222
-```
-
-Nu visas prompten för SSH-inloggning, där du anger dina autentiseringsuppgifter.
-
-Konsolens utdata på tjänstsidan (den tjänstlokala proxyn lyssnar på port 2222):
-
-![Alternativ text](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "Utdata för tjänstlokal proxy")
-
-Konsolens utdata på den enhetslokala proxy som ansluter till SSH-daemon på `IP_address:22`:
-
-]Alternativ text(./media/quickstart-device-streams-proxy-csharp/device-console-output.png "")Utdata för enhetslokal proxy")
-
-Konsolens utdata för SSH-klientprogrammet (SSH-klienten kommunicerar med SSH-daemon genom att ansluta till port 22 där den tjänstlokala proxyn lyssnar):
-
-![Alternativ text](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "Utdata för SSH-klientprogram")
-
-## <a name="rdp-to-a-device-via-device-streams"></a>RDP till en enhet via enhetsströmmar
-
-Konfigurationen för RDP liknar SSH (beskrivs ovan). I princip behöver vi använda RDP-mål-IP och port 3389 i stället och använda RDP-klienten (i stället för SSH-klienten).
-
-### <a name="run-the-service-side-application"></a>Köra programmet på tjänstsidan
+### <a name="run-the-service-local-proxy"></a>Köra den tjänstlokala proxyn
 
 Gå till `device-streams-proxy/service` i den uppackade projektmappen. Du behöver ha följande information till hands:
 
@@ -212,7 +162,34 @@ dotnet run $serviceConnectionString MyDevice 2222
 dotnet run %serviceConnectionString% MyDevice 2222
 ```
 
-### <a name="run-the-device-side-application"></a>Köra programmet på enhetssidan
+### <a name="run-ssh-client"></a>Köra SSH-klient
+
+Använd nu SSH-klientprogrammet och anslut till den tjänstlokala proxyn på port 2222 (i stället för direkt till SSH-daemon). 
+
+```
+ssh <username>@localhost -p 2222
+```
+
+Nu visas prompten för SSH-inloggning, där du anger dina autentiseringsuppgifter.
+
+Konsolens utdata på tjänstsidan (den tjänstlokala proxyn lyssnar på port 2222):
+
+![Alternativ text](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "Utdata för tjänstlokal proxy")
+
+Konsolens utdata på den enhetslokala proxy som ansluter till SSH-daemon på `IP_address:22`:
+
+]Alternativ text(./media/quickstart-device-streams-proxy-csharp/device-console-output.png "")Utdata för enhetslokal proxy")
+
+Konsolens utdata för SSH-klientprogrammet (SSH-klienten kommunicerar med SSH-daemon genom att ansluta till port 22 där den tjänstlokala proxyn lyssnar):
+
+![Alternativ text](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "Utdata för SSH-klientprogram")
+
+
+## <a name="rdp-to-a-device-via-device-streams"></a>RDP till en enhet via enhetsströmmar
+
+Konfigurationen för RDP liknar SSH (beskrivs ovan). I princip behöver vi använda RDP-mål-IP och port 3389 i stället och använda RDP-klienten (i stället för SSH-klienten).
+
+### <a name="run-the-device-local-proxy-rdp"></a>Köra den enhetslokala proxyn (RDP)
 
 Gå till `device-streams-proxy/device` i den uppackade projektmappen. Du behöver ha följande information till hands:
 
@@ -234,6 +211,34 @@ dotnet run $DeviceConnectionString localhost 3389
 # In Windows
 dotnet run %DeviceConnectionString% localhost 3389
 ```
+
+### <a name="run-the-service-local-proxy-rdp"></a>Köra den tjänstlokala proxyn (RDP)
+
+Gå till `device-streams-proxy/service` i den uppackade projektmappen. Du behöver ha följande information till hands:
+
+| Parameternamn | Parametervärde |
+|----------------|-----------------|
+| `iotHubConnectionString` | Tjänstanslutningssträngen för din IoT-hubb. |
+| `deviceId` | Identifieraren för den enhet som du skapade tidigare. |
+| `localPortNumber` | En lokal port dit din SSH-klient ska ansluta. Vi använder port 2222 i det här exemplet, men du kan ändra detta till andra godtyckliga nummer. |
+
+Kompilera och kör koden på följande sätt:
+
+```
+cd ./iot-hub/Quickstarts/device-streams-proxy/service/
+
+# Build the application
+dotnet build
+
+# Run the application
+# In Linux/MacOS
+dotnet run $serviceConnectionString MyDevice 2222
+
+# In Windows
+dotnet run %serviceConnectionString% MyDevice 2222
+```
+
+### <a name="run-rdp-client"></a>Köra RDP-klient
 
 Använd RDP-klientprogrammet och anslut till den tjänstlokala proxyn på port 2222 (det här var en godtycklig tillgänglig port som du valde tidigare).
 

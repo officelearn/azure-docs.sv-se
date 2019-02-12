@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461210"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752525"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Självstudier: Skydda en fristående databas eller en databas som ingår i en pool
 
@@ -45,7 +45,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - En Azure SQL-server och -databas
-  - Skapa dem med [Azure-portalen](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), eller [PowerShell](sql-database-powershell-samples.md)
+  - Skapa dem med [Azure-portalen](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md), eller [PowerShell](sql-database-powershell-samples.md)
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -64,7 +64,7 @@ Ställ in **Tillåt åtkomst till Azure-tjänster** på **AV** för den säkrast
 
 ### <a name="set-up-sql-database-server-firewall-rules"></a>Konfigurera brandväggsregler för SQL Database-server
 
-Brandväggsregler på servernivå gäller för alla databaser på samma SQL Database-server.
+IP-brandväggsregler på servernivå gäller för alla databaser på samma SQL Database-server.
 
 Konfigurera en brandväggsregel på servernivå:
 
@@ -231,7 +231,7 @@ Så här kopierar du en säker anslutningssträng:
 
 ## <a name="enable-security-features"></a>Aktivera säkerhetsfunktioner
 
-Azure SQL Database innehåller säkerhetsfunktioner som nås med hjälp av Azure portal. Dessa funktioner är tillgängliga för både databasen och servern, förutom datamaskning, som endast är tillgängligt för databasen. Mer information finns i [Avancerad datasäkerhet](sql-advanced-threat-protection.md), [Granskning](sql-database-auditing.md), [Dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md) och [Transparent datakryptering](transparent-data-encryption-azure-sql.md).
+Azure SQL Database innehåller säkerhetsfunktioner som nås med hjälp av Azure portal. Dessa funktioner är tillgängliga för både databasen och servern, förutom datamaskning, som endast är tillgängligt för databasen. Mer information finns i [Avancerad datasäkerhet](sql-database-advanced-data-security.md), [Granskning](sql-database-auditing.md), [Dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md) och [Transparent datakryptering](transparent-data-encryption-azure-sql.md).
 
 ### <a name="advanced-data-security"></a>Avancerad datasäkerhet
 

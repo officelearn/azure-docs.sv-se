@@ -15,14 +15,14 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: f2b0cd404c0c5ee94b669f366abc79353096a5a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241420"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561203"
 ---
-# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera en .NET-app (tillförlitliga tjänster) till Service Fabric
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera ett .NET-program för tillförlitliga tjänster till Service Fabric
 
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och containrar.
 
@@ -36,8 +36,7 @@ Med det här programmet får du lära dig att:
 * Använda ASP.NET Core som webbklient
 * Lagra programdata i en tillståndskänslig tjänst
 * Felsöka programmet lokalt
-* Distribuera programmet till ett kluster i Azure
-* Skala programmet över flera noder
+* Skala ut programmet över flera noder
 * Utföra en löpande programuppgradering
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -50,6 +49,27 @@ För att slutföra den här snabbstarten behöver du:
 4. Kör följande kommando för att aktivera Visual Studio för distribution till det lokala Service Fabric-klustret:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+    ```
+    
+## <a name="build-a-cluster"></a>Bygga ett kluster
+
+När du har installerat runtime, SDK:er, Visual Studio Tools, Docker och har Docker igång skapar du ett lokalt utvecklingskluster med fem noder.
+
+> [!IMPORTANT]
+> Docker **måste** köras innan du kan skapa ett kluster.
+> Testa att Docker körs genom att öppna ett terminalfönster och köra `docker ps` för att se om det uppstår något fel. Om svaret inte indikerar något fel körs Docker och du är redo att skapa ett kluster.
+
+
+1. Öppna ett nytt, upphöjt PowerShell-fönster som administratör.
+2. Kör följande PowerShell-kommando för att skapa till ett utvecklingskluster:
+
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+    ```
+3. Kör följande kommando för att starta det lokala klusterhanteringsverktyget:
+
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
 
 >[!NOTE]
@@ -75,9 +95,9 @@ Röstningsprogrammet är som standard inställt på att lyssna på port 8080.  P
 Distribuera programmet genom att trycka på **F5**.
 
 > [!NOTE]
-> Första gången du kör och distribuerar programmet skapar Visual Studio ett lokalt kluster för felsökning. Den här åtgärden kan ta lite tid. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.  I dina utdata visas ett meddelande om att programmets URL är inte inställd eller inte är en HTTP-/HTTPS-URL och att webbläsaren därför inte öppnas i programmet.  Det här meddelandet anger inte ett fel, utan att webbläsaren inte kommer att startas automatiskt.
+> I ditt Visual Studio-utdatafönster visas ett meddelande om att programmets URL är inte inställd eller inte är en HTTP-/HTTPS-URL och att webbläsaren därför inte öppnas i programmet.  Det här meddelandet anger inte ett fel, utan att webbläsaren inte kommer att startas automatiskt.
 
-När distributionen är klar, startar du en webbläsare och öppnar den här sidan: `http://localhost:8080` – programmets klientdel.
+När distributionen är klar, startar du en webbläsare och öppnar `http://localhost:8080` för att visa programmets klientdel.
 
 ![Programmets klientdel](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
@@ -132,88 +152,6 @@ Gör så här om du vill se vad som händer i koden:
 
 Stoppa felsökningssessionen genom att trycka på **Skift + F5**.
 
-## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
-
-Om du vill distribuera programmet till Azure behöver du ett Service Fabric-kluster som kör programmet.
-
-### <a name="join-a-party-cluster"></a>Ansluta till ett partkluster
-
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. Klustret använder ett enda självsignerat certifikat för nod-till nod- samt klient-till-nod-säkerhet.
-
-Logga in och [ansluta till ett Windows-kluster](https://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Klicka på länken **Hur ansluter man till ett säkert partkluster?** och kopiera lösenordet för certifikatet. Certifikatet, certifikatlösenordet och värdet **Anslutningsslutpunkt** används i följande steg.
-
-![PFX och klientanslutningsslutpunkt](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
-
-> [!Note]
-> Det finns ett begränsat antal tillgängliga partkluster per timme. Om du får ett felmeddelande när du försöker registrera dig för ett partkluster, kan du vänta en stund och försöka igen, eller följa stegen i självstudien [Distribuera en .NET-app](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) som hjälper dig att skapa ett Service Fabric-kluster i din Azure-prenumeration och distribuera programmet till den. Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). När du har distribuerat och kontrollerat programmet i klustret kan du gå vidare till [Skala program och tjänster i ett kluster](#scale-applications-and-services-in-a-cluster) i denna snabbstart.
->
-
-På en Windows-dator installerar du PFX i certifikatarkivet *CurrentUser\My*.
-
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
-
-
-   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
-
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
-
-Kom ihåg tumavtrycket för följande steg.
-
-> [!Note]
-> Frontwebbtjänsten är som standard konfigurerad för att lyssna efter inkommande trafik på port 8080. Port 8080 är öppen i partklustret.  Om du behöver ändra programporten ändrar du den till en av de portar som är öppna i partklustret.
->
-
-### <a name="deploy-the-application-using-visual-studio"></a>Distribuera programmet med hjälp av Visual Studio
-
-Nu när programmet är redo kan du distribuera det till ett kluster direkt från Visual Studio.
-
-1. Högerklicka på **Röstning** i Solution Explorer och välj **Publicera**. Dialogrutan Publicera visas.
-
-2. Kopiera **Anslutningsslutpunkten** för partyklustret till fältet **Anslutningsslutpunkt**. Till exempel `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klicka på **Avancerade anslutningsparametrar** och kontrollera att värdena *FindValue* och *ServerCertThumbprint* matchar tumavtrycket för certifikatet som installerades i föregående steg.
-
-    ![Dialogrutan Publicera](./media/service-fabric-quickstart-dotnet/publish-app.png)
-
-    Varje program i klustret måste ha ett unikt namn.  Partkluster är en offentlig, delad miljö men det kan finnas en konflikt med ett befintligt program.  Om det finns en namnkonflikt byter du namn på Visual Studio-projektet och distribuerar igen.
-
-3. Klicka på **Publicera**.
-
-4. Öppna en webbläsare och ange klusteradressen följt av ”: 8080” för att komma till programmet i klustret, till exempel `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Du bör nu se det program som körs i klustret i Azure.
-
-    ![Programmets klientdel](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
-
-## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
-
-Service Fabric-tjänster kan enkelt skalas över ett kluster beroende på en ändring av belastningen på tjänsterna. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det går att skala tjänsterna på flera sätt, till exempel med skript eller kommandon från PowerShell eller Service Fabric CLI (sfctl). I det här exemplet använder du Service Fabric Explorer.
-
-Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanteringsport (19080), till exempel `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-
-Du kan få en webbläsarvarning att platsen inte är betrodd. Det beror på att certifikatet är självsignerat. Du kan välja att ignorera varningen och gå vidare.
-1. När du uppmanas av webbläsaren väljer du det installerade certifikatet för att ansluta. Certifikatet för partklustret som du väljer från listan måste matcha partklustret som du försöker få åtkomst till. Till exempel win243uja6w62r.westus.cloudapp.azure.com.
-2. Om du uppmanas av webbläsaren beviljar du åtkomst till din CryptoAPI Private Key för den här sessionen.
-
-Gör så här om du vill skala frontwebbtjänsten:
-
-1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-
-2. I trädvyn öppnar du **Applications**->**VotingType**->**fabric:/Voting** (Program > Rösttyp > fabric: /Röstning). Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/Voting/VotingWeb** i trädvyn och välj **Scale Service** (Skala tjänst).
-
-    ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
-
-    Du kan nu välja att skala antalet instanser av frontwebbtjänsten.
-
-3. Ändra antalet till **2** och klicka på **Scale Service** (Skala tjänst).
-4. Klicka på noden **fabric:/Voting/VotingWeb** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare).
-
-    ![Skalningstjänst i Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
-
-    Efter en stund kan du se att tjänsten har två instanser.  I trädvyn ser du vilka noder instanserna körs på.
-
-Med den här enkla hanteringsåtgärden har vi dubblerat resurserna för bearbetning av användarbelastning för frontwebbtjänsten. Det är viktigt att veta att du inte behöver flera instanser av en tjänst för att den ska köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
-
 ## <a name="perform-a-rolling-application-upgrade"></a>Utföra en löpande programuppgradering
 
 När du distribuerar nya uppdateringar till programmet, sprider Service Fabric uppdateringen på ett säkert sätt. Med löpande uppgraderingar slipper du driftstopp under uppgraderingen och du får även automatisk återställning om det uppstår fel.
@@ -228,14 +166,18 @@ Gör så här om du vill uppgradera programmet:
 6. Ändra versionen av elementet **Kod** under **VotingWebPkg** till exempelvis "2.0.0" och klicka på **Spara**.
 
     ![Dialogrutan Ändra version](./media/service-fabric-quickstart-dotnet/change-version.png)
-7. I dialogrutan för att **publicera Service Fabric-program** markerar du kryssrutan för att uppgradera programmet och klickar på **Publicera**.
+7. I dialogrutan för att **publicera Service Fabric-program** markerar du **kryssrutan för att uppgradera programmet**.
+8.  Ändra **målprofilen** till **PublishProfiles\Local.5Node.xml** och se till att **anslutningsslutpunkten** är inställd på **lokalt kluster**. 
+9. Välj **Upgrade the Application** (Uppradera programmet).
 
     ![Dialogrutan Publicera, uppgradera inställning](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 
+10. Klicka på **Publicera**.
+
     Du kan fortfarande använda programmet när uppgraderingen körs. Eftersom du har två instanser av tjänsten som körs i klustret kan en del förfrågningar få en uppgraderad version av programmet, medan andra kan få den gamla versionen.
 
-8. Öppna webbläsaren och bläddra till klusteradressen på port 19080, t.ex. `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-9. Klicka på noden **Program** i trädvyn och sedan **Pågående uppgraderingar** i det högra fönstret. Du kan se hur uppgraderingen går igenom uppgraderingsdomänerna i klustret och ser till att varje domän fungerar som den ska innan den går vidare till nästa. En uppgraderingsdomän i förloppsfältet visas som grön när domänens hälsotillstånd har verifierats.
+11. Öppna webbläsaren och bläddra till klusteradressen på port 19080. Till exempel `http://localhost:19080/`.
+12. Klicka på noden **Program** i trädvyn och sedan **Pågående uppgraderingar** i det högra fönstret. Du kan se hur uppgraderingen går igenom uppgraderingsdomänerna i klustret och ser till att varje domän fungerar som den ska innan den går vidare till nästa. En uppgraderingsdomän i förloppsfältet visas som grön när domänens hälsotillstånd har verifierats.
     ![Uppgraderingsvy i Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric gör uppgraderingar på ett säkert sätt genom att vänta två minuter efter uppgradering av tjänsten på varje nod i klustret. Du kan förvänta dig att hela uppgraderingen tar cirka åtta minuter.
@@ -248,8 +190,7 @@ I den här snabbstarten har du lärt dig att:
 * Använda ASP.NET Core som webbklient
 * Lagra programdata i en tillståndskänslig tjänst
 * Felsöka programmet lokalt
-* Distribuera programmet till ett kluster i Azure
-* Skala programmet över flera noder
+* Skala ut programmet över flera noder
 * Utföra en löpande programuppgradering
 
 Titta på den här självstudien om du vill veta mer om Service Fabric och .NET:

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/07/2019
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077665"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769859"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -32,7 +32,9 @@ I den här snabbstarten lär du dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Kostnadsanalys är tillgängligt för alla [Enterprise-avtalskunder (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata. Mer information om hur du får åtkomst till Cost Management finns i [Tilldela åtkomst till data](assign-access-acm-data.md).
+Kostnadsanalys stöder en mängd olika typer av Azure-konton. Om du vill visa en fullständig lista över typer av stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto.
+
+För [EA-kunder (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/) måste du minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata.
 
 - Faktureringskonto
 - Avdelning
@@ -41,13 +43,15 @@ Kostnadsanalys är tillgängligt för alla [Enterprise-avtalskunder (EA)](https:
 - Prenumeration
 - Resursgrupp
 
+Mer information om hur du får åtkomst till Cost Management finns i [Tilldela åtkomst till data](assign-access-acm-data.md).
+
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 - Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="review-costs-in-cost-analysis"></a>Granska kostnader i kostnadsanalys
 
-Om du vill granska dina kostnader med kostnadsanalys går du i Azure-portalen till **Kostnadshantering + fakturering** &gt; **Kostnadshantering** &gt; **Ändra omfång**, väljer ett omfång och klickar sedan på **Välj**.
+Om du vill granska dina kostnader med kostnadsanalys går du i Azure-portalen till **Cost Microsoft Azure-portalen + fakturering** &gt; **Kostnadsanalys**. Välj **Scope: (Omfång): _ScopeName_**, välj ett omfång och klicka sedan på **Välj**.
 
 Det omfång som du väljer används i hela Cost Management för att ge datakonsolidering och styra åtkomsten till kostnadsinformation. När du använder omfång så använder du inte flerval för dem. I stället väljer du ett större omfång som andra ackumuleras till, och sedan filtrerar du ned till det du vill. Detta är viktigt att förstå eftersom vissa användare inte ska ha åtkomst till ett överordnat omfång som underordnade omfång ackumuleras till.
 
@@ -94,7 +98,8 @@ Här är en vy över Azure-tjänstkostnaderna för en vy över föregående mån
 
 ![Grupperad daglig ackumulerad vy som visar exempel på kostnader för Azure-tjänster för den senaste månaden](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Pivotdiagram under huvuddiagram visar olika grupperingar för att ge dig en bredare bild av de totala kostnaderna för den valda tidsperioden och filtren. Välj en egenskap eller en tagg för att visa samlade kostnader efter valfri dimension. Du kan visa en fullständig uppsättning data för totalvyn finns längst ned på skärmen genom att expandera rutan **Data** eller välja **Exportera > Ladda ned CSV** längst upp på skärmen. Här är ett exempel på datarutan för resursgrupper.
+Pivotdiagram under huvuddiagram visar olika grupperingar för att ge dig en bredare bild av de totala kostnaderna för den valda tidsperioden och filtren. Välj en egenskap eller en tagg för att visa samlade kostnader efter valfri dimension.
+
 
 ![Fullständiga data för den aktuella vyn som visar namn på resursgrupper](./media/quick-acm-cost-analysis/full-data-set.png)
 
@@ -103,6 +108,10 @@ I föregående bild visas resursgruppnamn. Du kan gruppera efter tagg för att v
 När du grupperar kostnader efter ett specifikt attribut visas de tio viktigaste kostnadsfaktorerna från högsta till lägsta. Om det finns fler än tio grupper visas de nio viktigaste kostnadsfaktorerna. Det visas även en grupp som heter **Andra**, som omfattar alla de återstående grupperna tillsammans. När du grupperar efter taggar kan det även hända att du ser en **Otaggad** grupp för kostnader som inte har taggnyckeln tillämpad. **Otaggad** är alltid är sist även om det finns fler otaggade kostnader än taggade kostnader. Om det finns minst tio taggvärden ingår otaggade kostnader i **Andra**.
 
 *Klassiska* virtuella datorer (Azure Service Management eller ASM), nätverk och lagringsresurser delar inte detaljerad faktureringsinformation. De slås samman som **klassiska tjänster** när kostnader grupperas.
+
+Du kan visa den fullständiga datauppsättningen för alla vyer. Oavsett vilka val och filter som du använder påverkar de data som visas. Om du vill se en fullständig uppsättning data klickar du på listan **diagramtyp** och därefter på **tabellvyn**.
+
+![Data för aktuell vy i en tabellvy](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
 
 ## <a name="download-cost-analysis-data"></a>Ladda ned kostnadsanalysdata

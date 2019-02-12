@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 3df96451838fe90b7d45d1aedd272fc10d798e57
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6e378263ac8bcd7cfee36209f70f26680988e6e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883983"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753806"
 ---
-# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Front Door-domän
+# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Front Door-domän
 
 Den här självstudien visar hur du aktiverar HTTPS-protokollet för en anpassad domän som är associerad med din Front Door i avsnittet om klientdelsvärdar. Med HTTPS-protokollet på din anpassade domän (till exempel https:\//www.contoso.com) ser du till att dina känsliga data levereras på ett säkert sätt via TLS-/SSL-kryptering när de skickas över Internet. När webbläsaren är ansluten till en webbplats via HTTPS valideras webbplatsens säkerhetscertifikat och verifierar att det är utfärdat av en giltig certifikatutfärdare. Den här processen ger trygghet och skyddar dina webbprogram mot attacker.
 
@@ -27,11 +27,11 @@ Azure Front Door Service stöder HTTPS på ett Front Door-standardvärdnamn, som
 
 Några viktiga attribut i den anpassade HTTPS-funktionen är:
 
-- Ingen extra kostnad: det kostar ingenting att förvärva eller förnya certifikat och det tillkommer ingen extra kostnad för HTTPS-trafik. 
+- Utan extra kostnad: Det kostar ingenting att förvärva eller förnya certifikat, och det tillkommer ingen extra kostnad för HTTPS-trafik. 
 
-- Enkel aktivering: enklicksetablering är tillgänglig från [Azure Portal](https://portal.azure.com). Du kan också aktivera funktionen med REST API eller andra utvecklingsverktyg.
+- Enkel aktivering: Enklicksetablering är tillgänglig från [Azure-portalen](https://portal.azure.com). Du kan också aktivera funktionen med REST API eller andra utvecklingsverktyg.
 
-- Komplett certifikathantering finns tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
+- Fullständig certifikathantering är tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -43,7 +43,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i din Front Door](front-door-custom-domain.md).
+Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudie: Lägg till en anpassad domän i din Front Door](front-door-custom-domain.md).
 
 ## <a name="ssl-certificates"></a>SSL-certifikat
 
@@ -75,7 +75,7 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
  
 1. Azure Key Vault: Du måste ha ett aktivt Azure Key Vault-konto under samma prenumeration som den Front Door där du vill aktivera anpassad HTTPS. Skapa ett Azure Key Vault-konto om du inte redan har ett.
  
-2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan också skapa ett nytt certifikat direkt via Azure Key Vault från en av partnercertifikatutfärdarna som Azure Key Vault integreras med.
+2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan även skapa ett nytt certifikat direkt via Azure Key Vault från en av de partnercertifikatutfärdare som Azure Key Vault integreras med.
 
 > [!WARNING]
 > </br> – Azure Front Door Service stöder för närvarande endast Key Vault-konton i samma prenumeration som Front Door-konfiguration. Om du väljer ett Key Vault under en annan prenumeration än din Front Door inträffar ett fel.
@@ -143,7 +143,7 @@ CNAME-posten ska ha följande format, där *Namn* är namnet på ditt anpassade 
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azurefd.net |
 
-Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
+Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
 Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 
@@ -261,5 +261,5 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapar en Front Door](quickstart-create-front-door.md).
-- Lär dig [hur Front Door fungerar](front-door-routing-architecture.md).
+- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Läs [hur Front Door fungerar](front-door-routing-architecture.md).

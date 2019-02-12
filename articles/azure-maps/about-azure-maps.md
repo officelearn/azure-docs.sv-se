@@ -1,24 +1,24 @@
 ---
 title: Översikt över Azure Maps | Microsoft Docs
 description: En introduktion till Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/12/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 02/04/2019
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9bf168a0f06d662526d172687e54327b55d50bd8
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ce55185effc67709157ce6219c405bb8e32dd5db
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104275"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768587"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
-Azure Maps är en samling geospatiala tjänster som backas upp av nya mappningsdata. Du kan ange exakt geografisk kontext till webb- och mobilprogram. Den innehåller REST API:er för rendering av kartor och söka efter platser av intresse. API:erna kan också hitta vägar till platser av intresse, trafikförhållanden, tidszoner och en plats från en IP-adress. API:erna använder välbekanta verktyg för att snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Utöver dess REST API:er får du en webbaserad [JavaScript-kartkontroll](https://docs.microsoft.com/javascript/api/azure-maps-control) som gör utveckling enkel, flexibel och portabel över flera medier.
+Azure Maps är en samling geospatiala tjänster som ersätts med nya mappningsdata, vilket ger exakt geografisk kontext till webb- och mobilprogram. Azure Maps består av REST API:er för rendering av **kartor** i olika format och satellitbilder, **sökning** efter adresser och platser av intresse runt om i världen, **ruttplanering**, Point-to-Point, MultiPoint, MultiPoint-optimering, isokroner, nyttofordon, trafik som påverkas och matrisroutning, se bästa trafikflödet och incidenter, fastställa användarens plats via **Geoplats**, konvertera plats till **tidszoner**, samt se lokal tid för en plats. Dessutom erbjuder Azure Maps tjänster för **Geofencing**, lagring av kartans **data** – vara värd för platsinformation i Azure och **Spatial Operations** som visar platsinformation via geospatial analys. Azure Maps-tjänsterna är tillgängliga direkt som REST API:er eller genom **Web SDK** eller **Android SDK**. Med de här verktygen kan utvecklarna snabbt ta fram och skala lösningar som integrerar platsinformation i dina Azure-lösningar inifrån Azure-molnet. Registrera dig för ditt kostnadsfria [Azure Maps-konto](https://azure.microsoft.com/services/azure-maps/) i dag och sätt igång med utvecklingen!
 
 I följande video beskriver vi Azure Maps mer ingående:
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754075"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818591"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -62,7 +62,7 @@ Några av följande resurser – konton, beräkningsnoder, pooler, jobb och akti
   * [Startaktivitet](#start-task)
   * [Job Manager-aktivitet](#job-manager-task)
   * [Jobbförberedelse- och jobbpubliceringsaktiviteter](#job-preparation-and-release-tasks)
-  * [Aktivitet med flera instanser (MPI)](#multi-instance-tasks)
+  * Aktivitet med flera instanser (MPI)
   * [Aktivitetsberoenden](#task-dependencies)
 * [Programpaket](#application-packages)
 
@@ -153,7 +153,7 @@ Detaljerade krav och steg finns i [Use a custom image to create a pool of virtua
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Stöd för containrar i pooler med virtuella datorer
 
-När du skapar en pool med virtuella datorer med hjälp av Batch-API:er kan du ställa in poolen på att köra uppgifter i Docker-containrar. För närvarande måste du skapa poolen med hjälp av en avbildning som stöder Docker-container. Använd Windows Server 2016 Datacenter och en containeravbildning från Microsoft Azure Marketplace. Alternativt kan du ange en anpassad VM-avbildning som innehåller Docker Community Edition eller Enterprise Edition och alla nödvändiga drivrutiner. Poolinställningarna måste innehålla en [containerkonfiguration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) som kopierar containeravbildningar till de virtuella datorerna när poolen skapas. Uppgifter som körs i poolen kan sedan referera till containeravbildningar och körningsalternativ för containrar.
+När du skapar en pool med virtuella datorer med hjälp av Batch-API:er kan du ställa in poolen på att köra uppgifter i Docker-containrar. För närvarande måste du skapa poolen med hjälp av en avbildning som stöder Docker-container. Använd Windows Server 2016 Datacenter och en containeravbildning från Microsoft Azure Marketplace. Alternativt kan du ange en anpassad VM-avbildning som innehåller Docker Community Edition eller Enterprise Edition och alla nödvändiga drivrutiner. Poolinställningarna måste innehålla en [containerkonfiguration](/rest/api/batchservice/pool/add) som kopierar containeravbildningar till de virtuella datorerna när poolen skapas. Uppgifter som körs i poolen kan sedan referera till containeravbildningar och körningsalternativ för containrar.
 
 Mer information finns i [Run Docker container applications on Azure Batch](batch-docker-container-workloads.md) (Köra Docker-behållarprogram på Azure Batch).
 
@@ -215,7 +215,7 @@ Du kan ange [programpaket](#application-packages) som ska distribueras till ber�
 
 ### <a name="network-configuration"></a>Nätverkskonfiguration
 
-Du kan ange undernätet för ett [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) i Azure där poolens beräkningsnoder ska skapas. Mer information finns i avsnittet om [nätverkskonfiguration för pooler](#pool-network-configuration).
+Du kan ange undernätet för ett [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) i Azure där poolens beräkningsnoder ska skapas. Mer information finns i avsnittet om nätverkskonfiguration för pooler.
 
 
 ## <a name="job"></a>Jobb
@@ -248,7 +248,7 @@ En aktivitet är en beräkningsenhet som associeras med ett jobb. Den körs på 
 
 När du skapar en aktivitet kan du ange:
 
-* Uppgiftens **kommandorad**. Det här är kommandoraden som kör ditt program eller skript på beräkningsnoden.
+* Uppgiftens **kommandoraden**. Det här är kommandoraden som kör ditt program eller skript på beräkningsnoden.
 
     Det är viktigt att notera att kommandoraden egentligen inte körs under ett gränssnitt. Därför har den inte inbyggt stöd för shell-funktioner som tillägg i [miljövariabler](#environment-settings-for-tasks) (till exempel `PATH`). Om du vill dra nytta av den här typen av funktioner måste du anropa gränssnittet på kommandoraden, till exempel genom att starta `cmd.exe` på Windows-noder eller `/bin/sh` på Linux:
 
@@ -271,7 +271,7 @@ Utöver de aktiviteter som du definierar för att utföra beräkningen på en no
 * [Startaktivitet](#start-task)
 * [Job Manager-aktivitet](#job-manager-task)
 * [Jobbförberedelse- och jobbpubliceringsaktiviteter](#job-preparation-and-release-tasks)
-* [Aktiviteter med flera instanser (MPI)](#multi-instance-tasks)
+* Aktiviteter med flera instanser (MPI)
 * [Aktivitetsberoenden](#task-dependencies)
 
 ### <a name="start-task"></a>Startaktivitet

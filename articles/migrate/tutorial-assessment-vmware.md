@@ -4,15 +4,15 @@ description: Beskriver hur du identifierar och utvärderar lokala virtuella VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298729"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730772"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -78,7 +78,7 @@ Azure Migrate skapar en lokal virtuell dator som kallas för insamlarprogram. De
     > [!NOTE]
     > Installationen för engångsidentifiering är nu inaktuell eftersom den här metoden förlitade sig på vCenter Servers statistikinställningarna för tillgänglighet av prestandadatapunkt och samlade in räknare för genomsnittlig prestanda, vilket resulterade i för små VM-storlekar för migrering till Azure.
 
-    **Omedelbar tillfredsställelse:** Tack vare installationen för kontinuerlig identifiering kan du omedelbart skapa utvärderingar när identifieringen är klar (det klar några timmar beroende på antalet virtuella datorer). Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *som lokalt* om du behöver omedelbar tillfredsställelse. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
+    **Snabba bedömningar:** Tack vare installationen för kontinuerlig identifiering kan du omedelbart skapa utvärderingar när identifieringen är klar (det klar några timmar beroende på antalet virtuella datorer). Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *lokalt* om du behöver göra en snabb bedömning. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
 
     Installationen samlar bara in prestandadata kontinuerligt. Den identifierar inte någon konfigurationsändring i den lokala miljön (det vill säga tillägg av virtuell dator, borttagning, disktillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
@@ -185,7 +185,7 @@ Importera den nedladdade filen till vCenter Server.
     - Om den virtuella datorn har åtkomst till Internet via en proxy, klickar du på **Proxyinställningar** där du anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) om kraven för Internetanslutning och den [lista över URL:er](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) som insamlaren använder.
 
       > [!NOTE]
-      > Proxyadressen måste anges i formatet http://ProxyIPAddress eller http://ProxyFQDN. Endast HTTP-proxy stöds. Om du har en spärrande proxy kan Internetanslutningen misslyckas om du inte har importerat proxycertifikatet. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) om hur du kan åtgärda detta genom att importera proxycertifikatet som ett betrott certifikat på den virtuella datorn för insamling.
+      > Proxyadressen måste anges i formatet http://ProxyIPAddress eller http://ProxyFQDN. Endast HTTP-proxy stöds. Om du har en spärrande proxy kan Internetanslutningen misslyckas om du inte har importerat proxycertifikatet. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector) om hur du kan åtgärda detta genom att importera proxycertifikatet som ett betrott certifikat på den virtuella datorn för insamling.
 
     - Insamlaren kontrollerar att insamlingstjänsten körs. Tjänsten installeras som standard på den virtuella insamlardatorn.
     - Ladda ned och installera VMware PowerCLI.
@@ -196,7 +196,7 @@ Importera den nedladdade filen till vCenter Server.
     - I **Samlingens omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 500 virtuella datorer. [Lär dig mer](how-to-scale-assessment.md) om hur du kan identifiera en större miljö.
 
 7. I **Specify migration project** (Ange migreringsprojekt) anger du det projekt-ID och den nyckel för Azure Migrate som du kopierade från portalen. Om du inte kopierade dem öppnar du Azure Portal från den virtuella insamlardatorn. På projektsidan **Översikt** klickar du på **Identifiera datorer** och kopierar värdena.  
-8. Övervaka identifieringsstatus i **visa insamlingsförloppet**. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om vilka data som samlas in av Azure Migrate-insamlaren.
+8. Övervaka identifieringsstatus i **visa insamlingsförloppet**. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector) om vilka data som samlas in av Azure Migrate-insamlaren.
 
 > [!NOTE]
 > Insamlaren har endast stöd för ”Engelska (USA)” som operativsystemspråk och gränssnittsspråk i insamlaren.

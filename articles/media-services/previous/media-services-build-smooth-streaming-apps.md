@@ -4,7 +4,7 @@ description: Lär dig hur du använder Azure Media Services för att skapa en C#
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828323"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992151"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Hur du skapar ett Smooth Streaming Windows Store-program
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Hur du skapar ett Smooth Streaming Windows Store-program  
 
 Smooth Streaming klient SDK för Windows 8 gör det möjligt för utvecklare att bygga Windows Store-program som kan spelas upp på begäran och live Smooth Streaming-innehåll. Förutom grundläggande uppspelningen av Smooth Streaming-innehåll finns i SDK även omfattande funktioner som Microsoft PlayReady-skydd, begränsning för kvalitet, Live DVR ljudström växlar, lyssna efter statusuppdateringar (till exempel kvalitet ändras) och felhändelser och så vidare. Mer information om hur över funktionerna som stöds finns i den [viktig](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Mer information finns i [Player Framework för Windows 8](http://playerframework.codeplex.com/). 
 

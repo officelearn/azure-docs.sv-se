@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 238999448f719ca8c95d8c170a9f2e6b6d7bc851
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 934acf44fe2c36e9f7c2f2d2fdb3b191806d0014
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814128"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769463"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Självstudier: Azure Active Directory-katalogintegrering med Slack
 
@@ -106,12 +106,12 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Slack:
 
     ![Slack – enkel inloggning-information för domän och -URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.slack.com`.
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.slack.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** uppdaterar du värdet med inloggnings-URL:en. Det här är din arbetsytedomän. Till exempel: `https://contoso.slack.com`.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://slack.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Kontakta [Slack-kundsupporten](https://slack.com/help/contact) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Slack-kundsupporten](https://slack.com/help/contact) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Slack-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 

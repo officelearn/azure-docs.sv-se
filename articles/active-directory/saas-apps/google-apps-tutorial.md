@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902473"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Självstudier: Azure Active Directory-katalogintegrering med G Suite
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 Om du vill konfigurera Azure AD-integrering med G Suite, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En prenumeration med enkel inloggning med G Suite aktiverat
+- En G Suite-prenumeration med enkel inloggning aktiverat
 - En Google Apps-prenumeration eller Google Cloud Platform-prenumeration.
 
 > [!NOTE]
@@ -77,9 +77,9 @@ Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
     E-postadressattribut fylls i automatiskt för alla användare med en giltig Exchange-licens. Om användaren inte är e-postaktiverad, får hen det här felet allteftersom programmet behöver få det här attributet för att ge åtkomst.
 
-    För att tilldela en Exchange-licens kan du gå till portal.office.com med ett administratörskonto. I administrationscentret klickar du därefter på fakturering, prenumerationer, väljer din Office 365-prenumeration och sedan klickar du på tilldela till användare, väljer de användare som du vill kontrollera prenumerationen för och i den högra rutan klickar du på redigera licenser.
+    Du kan gå till portal.office.com med ett administratörskonto och sedan i administrationscentret klicka på fakturering, prenumerationer, välja din Office 365-prenumeration och sedan klicka på tilldela till användare, välja de användare som du vill kontrollera prenumerationen för och i den högra rutan klicka på redigera licenser.
 
-    När Exchange-licensen har tilldelats kan det ta några minuter innan den blir aktiv. Efter det kommer attributet user.mail att fyllas i automatiskt och problemet ska vara löst.
+    När O365-licensen har tilldelats kan det ta några minuter innan den blir aktiv. Efter det kommer attributet user.mail att fyllas i automatiskt och problemet ska vara löst.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -115,7 +115,7 @@ Om du vill konfigurera integreringen av G Suite till Azure AD, behöver du lägg
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med G Suite baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera så måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i G Suite upprättas.
 
-Om du vill konfigurera och testa enkel inloggning till Azure AD med G Suite, måste du utföra följande byggblock:
+För att konfigurera och testa enkel inloggning med Azure AD med G Suite behöver du utföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för G Suite](#configure-g-suite-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
@@ -142,28 +142,45 @@ Utför följande steg för att konfigurera enkel inloggning till Azure AD med G 
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera för **Gmail**:
 
     ![Information om enkel inloggning till G Suite-domän och URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
+    b. I textrutan **Identifierare** anger du en URL med följande mönster:
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Supportteamet för G Suite](https://www.google.com/contact/) för att hämta dessa värden.
 
-5. Ditt G Suite-program förväntar sig att SAML-intygen är i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i SAML-tokenattributkonfigurationen. Följande skärmbild visar ett exempel på detta. Standardvärdet för **Unik användaridentifierare** är **user.userprincipalname**, men G Suite förväntar sig att detta mappas med användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration.
+5. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera för **Google Cloud Platform**:
+
+    ![Information om enkel inloggning till G Suite-domän och URL:er](common/sp-identifier.png)
+
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+
+    b. I textrutan **Identifierare** anger du en URL med följande mönster:
+    | |
+    |--|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
+    
+    > [!NOTE] 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Supportteamet för G Suite](https://www.google.com/contact/) för att hämta dessa värden.
+
+6. Ditt G Suite-program förväntar sig att SAML-intygen är i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i SAML-tokenattributkonfigurationen. Följande skärmbild visar ett exempel på detta. Standardvärdet för **Unik användaridentifierare** är **user.userprincipalname**, men G Suite förväntar sig att detta mappas med användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration.
 
     ![image](common/edit-attribute.png)
 
-6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
+7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
     | Namn | Källattribut |
     | ---------------| --------------- |
@@ -187,11 +204,11 @@ Utför följande steg för att konfigurera enkel inloggning till Azure AD med G 
 
     g. Klicka på **Spara**.
 
-7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+8. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-8. I avsnittet **Konfigurera G Suite** kopierar du lämpliga URL:er enligt dina behov.
+9. I avsnittet **Konfigurera G Suite** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -203,7 +220,7 @@ Utför följande steg för att konfigurera enkel inloggning till Azure AD med G 
 
 ### <a name="configure-g-suite-single-sign-on"></a>Konfigurera enkel inloggning för G Suite
 
-1. Öppna en ny flik i webbläsaren och logga in på [G Suite-administratörskonsolen](https://admin.google.com/) med ditt administratörskonto.
+1. Öppna en ny flik i webbläsaren och logga in på [G Suite-administratörskonsolen](http://admin.google.com/) med ditt administratörskonto.
 
 2. Klicka på **Säkerhet**. Om du inte ser länken, kan den vara dold under menyn **Fler kontroller** längst ned på skärmen.
 
@@ -266,7 +283,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 2. I listan över program skriver och väljer du **G Suite**.
 
-    ![G Suite-länken i programlistan](common/all-applications.png)
+    ![Länken för G Suite i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 

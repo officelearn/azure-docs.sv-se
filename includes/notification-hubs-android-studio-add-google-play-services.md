@@ -5,30 +5,37 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f00ca7ddf44a9d5b850cd47520970a0396a0c1b5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bc920493b32d500602a5b683c098d23aff855150
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453104"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55823298"
 ---
-1. Öppna Android SDK Manager genom att klicka på ikonen i verktygsfältet för Android Studio eller genom att klicka på **Verktyg** > **Android** > **SDK Manager** i menyn. Hitta målversionen av Android SDK:n som används i ditt projekt, öppna den genom att klicka på **Visa paketinformation** och välj **Google API:er** om det inte redan har installerats.
-2. Klicka på fliken **SDK-verktyg**. Om du inte redan har installerat Google Play-tjänsten klickar du på **Google Play Services** enligt nedan. Klicka sedan på **Tillämpa** för att installera. Anteckna SDK-sökvägen för användning i ett senare steg.
+1. Öppna **Android Studio**, välj **Verktyg** på menyn och välj **SDK Manager**. 
+2. Välj målversionen av det Android-SDK som används i projektet och välj **Visa paketinformation**. 
 
-    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
-3. Öppna filen `build.gradle` i appkatalogen.
+    ![Android SDK Manager – välj målversion](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Välj **Google APIs** om det inte redan är installerat.
 
-    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
-4. Lägg till den här raden under `dependencies`:
+    ![Android SDK Manager – Google APIs valt](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Växla till fliken **SDK-verktyg**. Om du inte redan har installerat Google Play Service väljer du **Google Play Services** så som visas i bilden nedan. Klicka sedan på **Tillämpa** för att installera. Anteckna SDK-sökvägen för användning i ett senare steg.
+
+    ![Android SDK Manager – Google Play Services valt](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. Om du ser dialogrutan **Bekräfta ändringen** väljer du **OK**. De begärda komponenterna installeras. Välj **Slutför** när komponenterna har installerats.
+4. Välj **OK** för att stänga dialogrutan **Inställningar för nya projekt**.  
+5. Öppna filen `build.gradle` i katalogen **app** och lägg till följande rad under `dependencies`. 
 
     ```text
-    compile 'com.google.android.gms:play-services-gcm:12.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
-5. Klicka på ikonen **Synkronisera projektet med Gradle-filer** i verktygsfältet.
-6. Öppna **AndroidManifest.xml** och lägg till den här taggen till *program*-taggen.
+5. Välj ikonen **Synkronisera nu** i verktygsfältet.
+
+    ![Synkronisering med Gradle](./media/notification-hubs-android-studio-add-google-play-services/gradle-sync.png)
+1. Öppna **AndroidManifest.xml** och lägg till den här taggen till *program*-taggen.
 
     ```xml
     <meta-data android:name="com.google.android.gms.version"

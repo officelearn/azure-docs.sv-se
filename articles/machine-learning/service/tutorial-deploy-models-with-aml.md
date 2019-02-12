@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 01/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 887be89060a6d02eea74cd127cfbc93e48c0b3ff
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0f596f40cdea095ea152785e656c44eaa062e28c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240870"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564042"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudier: Distribuera en bildklassificeringsmodell i Azure Container Instances
 
@@ -33,23 +33,18 @@ I den här delen av självstudien använder du Azure Machine Learning Service f�
 > * Distribuera modellen till Container Instances.
 > * Testa den distribuerade modellen.
 
-Container Instances är inte idealiskt för produktionsdistributioner, men det är utmärkt vid testning och för att förstå arbetsflödet. För skalbara produktionsdistributioner kan du använda Azure Kubernetes Service. Mer information finns i [Hur och var man distribuerar](how-to-deploy-and-where.md).
-
-## <a name="get-the-notebook"></a>Hämta anteckningsboken
-
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Kör anteckningsboken *tutorials/img-classification-part2-deploy.ipynb* antingen i [Azure Notebooks](https://notebooks.azure.com/) eller på din egen Jupyter Notebook-server.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+Container Instances är en bra lösning för testning och för att förstå arbetsflödet. För skalbara produktionsdistributioner kan du använda Azure Kubernetes Service. Mer information finns i [Hur och var man distribuerar](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.2.
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.8.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+Gå vidare till [Set the development environment](#start) (Ange utvecklingsmiljö) för att läsa igenom stegen för anteckningsboken.  
 
-Gör modellträningen i följande anteckningsbok: [Självstudie (del 1): Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).  
+Om du vill köra anteckningsboken slutför du först modellträningen i [Självstudie (del 1): Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).   Kör sedan anteckningsboken **tutorials/img-classification-part2-deploy.ipynb** med samma notebook-server.
 
 
-## <a name="set-up-the-environment"></a>Konfigurera miljön
+## <a name="start"></a>Konfigurera miljön
 
 Börja med att konfigurera en testmiljö.
 
@@ -78,13 +73,16 @@ Du registrerade en modell på din arbetsyta i föregående självstudie. Nu kan 
 ```python
 from azureml.core import Workspace
 from azureml.core.model import Model
-
+import os 
 ws = Workspace.from_config()
 model=Model(ws, 'sklearn_mnist')
-model.download(target_dir = '.')
-import os 
+
+model.download(target_dir=os.getcwd(), exist_ok=True)
+
 # verify the downloaded model file
-os.stat('./sklearn_mnist_model.pkl')
+file_path = os.path.join(os.getcwd(), "sklearn_mnist_model.pkl")
+
+os.stat(file_path)
 ```
 
 ## <a name="test-the-model-locally"></a>Testa modellen lokalt
@@ -100,12 +98,12 @@ Läs in testdata från katalogen **./data/** som skapades i träningssjälvstudi
 
 ```python
 from utils import load_data
+import os
 
+data_folder = os.path.join(os.getcwd(), 'data')
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
-
-X_test = load_data('./data/test-images.gz', False) / 255.0
-y_test = load_data('./data/test-labels.gz', True).reshape(-1)
-
+X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
+y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
 ```
 
 ### <a name="predict-test-data"></a>Förutsäga testdata
@@ -116,7 +114,7 @@ För att få förutsägelser så matar du in testdatauppsättningen i modellen:
 import pickle
 from sklearn.externals import joblib
 
-clf = joblib.load('./sklearn_mnist_model.pkl')
+clf = joblib.load( os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
 y_hat = clf.predict(X_test)
 ```
 
@@ -214,7 +212,8 @@ def run(raw_data):
     data = np.array(json.loads(raw_data)['data'])
     # make prediction
     y_hat = model.predict(data)
-    return json.dumps(y_hat.tolist())
+    # you can return any data type as long as it is JSON-serializable
+    return y_hat.tolist()
 ```
 
 <a name="make-myenv"></a>
@@ -314,10 +313,10 @@ n = 30
 sample_indices = np.random.permutation(X_test.shape[0])[0:n]
 
 test_samples = json.dumps({"data": X_test[sample_indices].tolist()})
-test_samples = bytes(test_samples, encoding = 'utf8')
+test_samples = bytes(test_samples, encoding='utf8')
 
 # predict using the deployed model
-result = json.loads(service.run(input_data=test_samples))
+result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
@@ -347,7 +346,6 @@ Du kan också skicka en rå HTTP-begäran för att testa webbtjänsten:
 
 ```python
 import requests
-import json
 
 # send a random row from the test set to score
 random_index = np.random.randint(0, len(X_test)-1)
@@ -380,6 +378,8 @@ service.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Läs mer om alla [distributionsalternativ för Azure Machine Learning Service](how-to-deploy-and-where.md). Alternativen inkluderar Azure Container Instances, Azure Kubernetes Service, FPGA och Azure IoT Edge.
-
-+ Se hur Azure Machine Learning Service automatiskt väljer och finjusterar den bästa algoritmen för din modell. Den skapar även den modellen åt dig. Prova självstudien [automatiskt algoritmval](tutorial-auto-train-models.md). 
++ Läs mer om alla [distributionsalternativ för Azure Machine Learning Service](how-to-deploy-and-where.md).
++ Lär dig att [skapa klienter för webbtjänsten](how-to-consume-web-service.md).
++  [Göra förutsägelser kring stora mängder data](how-to-run-batch-predictions.md) asynkront.
++ Övervaka dina Azure Machine Learning-modeller med [Application Insights](how-to-enable-app-insights.md).
++ Prova självstudien [automatiskt algoritmval](tutorial-auto-train-models.md). 

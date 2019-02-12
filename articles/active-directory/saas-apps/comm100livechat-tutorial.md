@@ -1,296 +1,276 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Comm100 Live-chatt | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Comm100 Live-chatt.
+title: 'Självstudier: Azure Active Directory-integrering med Comm100 Live Chat | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Comm100 Live Chat.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 0340d7f3-ab54-49ef-b77c-62a0efd5d49c
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/09/2018
+ms.topic: tutorial
+ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: b85162c8392e8ecdb08a3ed04ff5b9de835808a1
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
-ms.translationtype: MT
+ms.openlocfilehash: 1e0fbf7678ddac76d1a31c4bde4d75545b429add
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42059191"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700709"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Självstudier: Azure Active Directory-integration med Comm100 Live-chatt
+# <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Självstudier: Azure Active Directory-integrering med Comm100 Live Chat
 
-I den här självstudien får du lära dig hur du integrerar Comm100 Live-chatt med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Comm100 Live Chat med Azure Active Directory (AD Azure).
+Integreringen av Comm100 Live Chat med Azure AD medför följande fördelar:
 
-Integrera Comm100 Live-chatt med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Comm100 Live Chat.
+* Du kan göra så att dina användare automatiskt loggas in på Comm100 Live Chat (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Comm100 Live-chatt.
-- Du kan aktivera användarna att automatiskt få loggat in på Comm100 Live-chatt (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Comm100 Live Chat behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Comm100 Live-chatt, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Comm100 Live-chatt enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Comm100 Live Chat-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Comm100 Live-chatt från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-comm100-live-chat-from-the-gallery"></a>Att lägga till Comm100 Live-chatt från galleriet
-För att konfigurera integrering av Comm100 chatta Live i Azure AD, som du behöver lägga till Comm100 Live-chatt från galleriet i din lista över hanterade SaaS-appar.
+* Comm100 Live Chat har stöd för **SP**-initierad enkel inloggning
 
-**Om du vill lägga till Comm100 Live-chatt från galleriet, utför du följande steg:**
+## <a name="adding-comm100-live-chat-from-the-gallery"></a>Lägga till Comm100 Live Chat från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integreringen av Comm100 Live Chat i Azure AD måste du lägga till Comm100 Live Chat från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till Comm100 Live Chat från galleriet:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-4. I sökrutan skriver **Comm100 Live-chatt**väljer **Comm100 Live-chatt** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Comm100 Live-chatt i resultatlistan](./media/comm100livechat-tutorial/tutorial_comm100livechat_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+    ![Knappen Nytt program](common/add-new-app.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Comm100 Live-chatt baserat på en testanvändare som kallas ”Britta Simon”.
+4. I sökrutan skriver du **Comm100 Live Chat**, väljer **Comm100 Live Chat** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Comm100 Live-chatt är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Comm100 Live-chatt upprättas.
+     ![Comm100 Live Chat i resultatlistan](common/search-new-app.png)
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Comm100 Live-chatt, måste du utföra följande byggblock:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Comm100 Live-chatt](#create-a-comm100-live-chat-test-user)**  – du har en motsvarighet för Britta Simon i Comm100 Live-chatt som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Comm100 Live Chat baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Comm100 Live Chat upprättas.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+För att konfigurera och testa enkel inloggning med Azure AD med Comm100 Live Chat behöver du utföra följande byggstenar:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Comm100 Live-chatt.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Comm100 Live Chat](#configure-comm100-live-chat-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Comm100 Live Chat-testanvändare](#create-comm100-live-chat-test-user)** – för att skapa en motsvarighet till Britta Simon i Comm100 Live Chat som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Comm100 Live-chatt:**
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **Comm100 Live-chatt** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning för länken][4]
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Comm100 Live Chat:
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/comm100livechat-tutorial/tutorial_comm100livechat_samlbase.png)
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Comm100 Live Chat**-programintegrering och väljer **Enkel inloggning**.
 
-3. På den **Comm100 Live-chatt domän och URL: er** avsnittet, utför följande steg:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Comm100 Live-chatt domän och URL: er med enkel inloggning för information](./media/comm100livechat-tutorial/tutorial_comm100livechat_url.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
-    
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Information om enkel inloggning med Comm100 Live Chat-domän och -URL:er](common/sp-signonurl.png)
+
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
+
     > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkliga. Du uppdaterar inloggnings-URL-värdet med det faktiska inloggnings-URL, vilket beskrivs senare i självstudien.
+    > Inloggnings-URL-värdet är inte verkligt. Du uppdaterar värdet för inloggnings-URL med den faktiska inloggnings-URL:en, vilket förklaras senare i självstudien.
 
-4. Comm100 Live chattprogram förväntar sig SAML-intyg innehålla specifika attribut. Konfigurera följande attribut för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.
+5. Comm100 Live Chat-programmet förväntar sig SAML-försäkran i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![Konfigurera enkel inloggning](./media/comm100livechat-tutorial/tutorial_attribute_03.png)
-    
-5. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
-    
-    |  Attributnamn  | Attributvärde |
-    | --------------- | -------------------- |    
-    |   e-post    | User.Mail |
+    ![image](common/edit-attribute.png)
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    ![Konfigurera enkel inloggning](./media/comm100livechat-tutorial/tutorial_attribute_04.png)
+    | Namn |  Källattribut|
+    | ---------------| --------------- |
+    |   e-post    | user.mail |
 
-    ![Konfigurera enkel inloggning](./media/comm100livechat-tutorial/tutorial_attribute_05.png)
-    
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
-    
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    d. Lämna den **Namespace** tom.
-    
-    e. Klicka på **OK**.
+    ![image](common/new-save-attribute.png)
 
-6. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+    ![image](common/new-attribute-details.png)
 
-    ![Länk för hämtning av certifikat](./media/comm100livechat-tutorial/tutorial_comm100livechat_certificate.png) 
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-7. Klicka på **spara** knappen.
+    c. Lämna **Namnrymd** tom.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/comm100livechat-tutorial/tutorial_general_400.png)
+    d. Välj Källa som **Attribut**.
 
-8. På den **Comm100 Live-chatt Configuration** klickar du på **konfigurera Comm100 Live-chatt** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    ![Comm100 Live-chatt-konfiguration](./media/comm100livechat-tutorial/tutorial_comm100livechat_configure.png)
+    f. Klicka på **Ok**
 
-9. I ett annat webbläsarfönster, logga in på Comm100 Live-chatt som en administratör.
+    g. Klicka på **Spara**.
 
-10. På upp till höger på sidan, klickar du på **mitt konto**.
+4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Comm100 Live-chatt myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-11. Till vänster i menyn klickar du på **Security** och klicka sedan på **agenten Single Sign-On**.
+6. I avsnittet **Konfigurera Comm100 Live Chat** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Comm100 Live-chatt säkerhet](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-12. På den **agenten Single Sign-On** utför följande steg:
+    a. Inloggnings-URL
 
-    ![Comm100 Live-chatt säkerhet](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+    b. Azure AD-identifierare
 
-    a. Kopiera den första markerade länken och klistra in den i **inloggnings-URL** -textrutan i **Comm100 Live-chatt domän och URL: er** avsnittet på Azure-portalen.
+    c. Utloggnings-URL
 
-    b. I den **URL för SAML SSO** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
+### <a name="configure-comm100-live-chat-single-sign-on"></a>Konfigurera enkel inloggning för Comm100 Live Chat
 
-    c. I den **Remote URL för utloggning** textrutan klistra in värdet för **URL: en för utloggning**, som du har kopierat från Azure-portalen.
+9. I ett annat webbläsarfönster loggar du in på Comm100 Live Chat som säkerhetsadministratör.
 
-    d. Klicka på **Välj en fil** att ladda upp Base64-kodat certifikat som du har hämtat från Azure-portalen i den **certifikat**.
+10. Längst upp till höger på sidan klickar du på **Mitt konto**.
 
-    e. Klicka på **spara ändringar**
+    ![Comm100 Live Chat – myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+11. Till vänster i menyn klickar du på **Security** och sedan på **Agent Single Sign-On** (Enkel inloggning för agent).
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    ![Comm100 Live Chat-säkerhet](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-   ![Skapa en Azure AD-testanvändare][100]
+12. På sidan **Agent Single Sign-On** (Enkel inloggning för agent) utför du följande steg:
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Comm100 Live Chat-säkerhet](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    a. Kopiera den första markerade länken och klistra in den textrutan **Inloggnings-URL** i avsnittet **Comm100 Live Chat Domain and URLs** (Comm100 Live Chat-domän och -URL:er) i Azure-portalen.
 
-    ![Azure Active Directory-knappen](./media/comm100livechat-tutorial/create_aaduser_01.png)
+    b. I textrutan **SAML SSO URL** (URL för enkel inloggning med SAML) klistrar du in det värde för **Inloggnings-URL** som du har kopierat från Azure-portalen.
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    c. I textrutan **Remote Logout URL** (URL för fjärrutloggning) klistrar du in det värde för **Utloggnings-URL** som du har kopierat från Azure-portalen.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/comm100livechat-tutorial/create_aaduser_02.png)
+    d. Klicka på **Välj en fil** för att ladda upp det base-64-kodade certifikat som du har laddat ned från Azure-portalen till **certifikatet**.
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    e. Klicka på **Spara ändringar**
 
-    ![Knappen Lägg till](./media/comm100livechat-tutorial/create_aaduser_03.png)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-4. I den **användaren** dialogrutan utför följande steg:
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![Dialogrutan användare](./media/comm100livechat-tutorial/create_aaduser_04.png)
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    a. I den **namn** skriver **BrittaSimon**.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+2. Välj **Ny användare** överst på skärmen.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    ![Knappen Ny användare](common/new-user.png)
+
+3. Genomför följande steg i Användaregenskaper.
+
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-comm100-live-chat-test-user"></a>Skapa en testanvändare Comm100 Live-chatt
 
-Om du vill aktivera Azure AD-användare att logga in på Comm100 Live-chatt, måste de etableras i Comm100 Live-chatt. I Comm100 Live Chat är etablering en manuell aktivitet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Comm100 Live Chat.
+
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Comm100 Live Chat**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I programlistan väljer du **Comm100 Live Chat**.
+
+    ![Länken för Comm100 Live Chat i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-comm100-live-chat-test-user"></a>Comm100 Live Chat-testanvändare
+
+För att Azure AD-användare ska kunna logga in i Comm100 Live Chat måste de etableras till Comm100 Live Chat. I Comm100 Live Chat är etablering en manuell uppgift.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-1. Logga in på Comm100 Live-chatt som en administratör.
+1. Logga in på Comm100 Live Chat som administratör.
 
-2. På upp till höger på sidan, klickar du på **mitt konto**.
+2. Längst upp till höger på sidan klickar du på **Mitt konto**.
 
-    ![Comm100 Live-chatt myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+    ![Comm100 Live Chat – myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-3. Till vänster i menyn klickar du på **agenter** och klicka sedan på **ny Agent**.
+3. Till vänster i menyn klickar du på **Agenter** och sedan på **Ny agent**.
 
-    ![Comm100 Live-chatt-agenten](./media/comm100livechat-tutorial/tutorial_comm100livechat_agent.png)
+    ![Comm100 Live Chat-agent](./media/comm100livechat-tutorial/tutorial_comm100livechat_agent.png)
 
-4. På den **ny Agent** utför följande steg:
+4. På sidan **Ny agent** utför du följande steg:
 
-    ![Ny Comm100 Live-chatt-agent](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
+    ![Comm100 Live Chat – ny agent](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-    a. a. I **e-post** text, ange den e-postadressen för användaren som **Brittasimon@contoso.com**.
+    a. a. I textrutan **E-post** anger du användarens e-postadress som **Brittasimon@contoso.com**.
 
-    b. I **Förnamn** text, ange först namnet på användaren som **Britta**.
+    b. I textrutan **Förnamn** anger du förnamnet på användaren som **Britta**.
 
-    c. I **efternamn** text anger efternamn för användaren som **simon**.
+    c. I textrutan **Efternamn** anger du efternamnet på användaren som **simon**.
 
-    d. I den **visningsnamn** textrutan Ange visningsnamnet för användare som **Britta simon**
+    d. I rutan **Visningsnamn** anger du visningsnamnet för användaren: **Britta simon**
 
-    e. I den **lösenord** textrutan, ange ditt lösenord.
+    e. I textrutan **Lösenord** skriver du ditt lösenord.
 
     f. Klicka på **Spara**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Comm100 Live-chatt.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-![Tilldela rollen][200] 
-
-**Om du vill tilldela Britta Simon Comm100 Live-chatt, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-2. I listan med program väljer **Comm100 Live-chatt**.
-
-    ![Länken Comm100 Live-chatt i listan med program](./media/comm100livechat-tutorial/tutorial_comm100livechat_app.png)  
-
-3. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Länken ”användare och grupper”][202]
-
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Comm100 Live-chatt i åtkomstpanelen du bör få automatiskt loggat in på programmets Comm100 Live-chatt.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på Comm100 Live Chat-panelen i åtkomstpanelen bör du automatiskt loggas in på Comm100 Live Chat som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/comm100livechat-tutorial/tutorial_general_01.png
-[2]: ./media/comm100livechat-tutorial/tutorial_general_02.png
-[3]: ./media/comm100livechat-tutorial/tutorial_general_03.png
-[4]: ./media/comm100livechat-tutorial/tutorial_general_04.png
-
-[100]: ./media/comm100livechat-tutorial/tutorial_general_100.png
-
-[200]: ./media/comm100livechat-tutorial/tutorial_general_200.png
-[201]: ./media/comm100livechat-tutorial/tutorial_general_201.png
-[202]: ./media/comm100livechat-tutorial/tutorial_general_202.png
-[203]: ./media/comm100livechat-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

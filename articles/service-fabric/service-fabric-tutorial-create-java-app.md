@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667225"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810822"
 ---
-# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Självstudie: Skapa en app med en Java Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst i Service Fabric
+# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Självstudier: Skapa ett program med en Java Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst i Service Fabric
 
 Den här självstudien ingår i en serie. När du är klar har du ett röstningsprogram med en Java-webbklientdel som sparar röstningsresultaten i en tillståndskänslig serverdelstjänst i klustret. För den här självstudien måste du ha en fungerande dator för Mac OSX eller Linux-utvecklare. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden för det färdiga programmet](https://github.com/Azure-Samples/service-fabric-java-quickstart) och gå vidare till [Gå igenom exempelprogrammet för röstning](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 HTTP-kommunikationslyssnaren fungerar som en kontrollant som konfigurerar HTTP-servern och gör de API:er som definierar röstningsåtgärder tillgängliga. Högerklicka på paketet *statelessservice* i mappen *VotingWeb/src/statelessservice* och välj sedan **Nytt->Fil**.  Ge filen namnet *HttpCommunicationListener.java* och klicka på **Slutför**.
 
-Byt ut filens innehåll mot följande och spara sedan ändringarna.  Längre fram, i [Uppdatera filen HttpCommunicationListener.java](#updatelistener_anchor), ändras den här filen till att rendera, läsa och skriva röstningsdata från serverdelstjänsten.  För närvarande returnerar lyssnaren endast statisk HTML för röstningsappen.
+Byt ut filens innehåll mot följande och spara sedan ändringarna.  Längre fram ändras den här filen till att rendera, läsa och skriva röstningsdata från serverdelstjänsten i Uppdatera filen HttpCommunicationListener.java.  För närvarande returnerar lyssnaren endast statisk HTML för röstningsappen.
 
 ```java
 // ------------------------------------------------------------
@@ -891,7 +891,7 @@ Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
 
 2. Kör det lokala Service Fabric-klustret. Det här steget beror på vilken utvecklingsmiljö du har (Mac eller Linux).
 
-    Om du använder en Mac kan du köra det lokala klustret med följande kommando: Ersätt kommandot som skickades till parametern **-v** med sökvägen till din egen arbetsyta.
+    Om du använder en Mac-dator kan du köra det lokala klustret med följande kommando: Ersätt kommandot som skickades till parametern **-v** med sökvägen till din egen arbetsyta.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox

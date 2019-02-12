@@ -1,6 +1,6 @@
 ---
-title: Hantera livscykeln för enheter i Azure AD | Microsoft Docs
-description: Lär dig hur enhetshantering kan hjälpa dig att få kontroll över de enheter som har åtkomst till resurser i din miljö.
+title: Hantera inaktuella enheter i Azure AD | Microsoft Docs
+description: Vanligtvis finns det ett antal inaktuella enheter i miljön, eftersom enheter kan tappas bort, stjälas eller gå sönder och operativsystem behöver installeras om. Lär dig hur du tar bort inaktuella enheter från databasen med registrerade enheter i Azure Active Directory (AD Azure).
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 20bfa4cf02c86922836a70f8885f910814eafb22
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092190"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493328"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Instruktioner: Hantera inaktuella enheter i Azure AD
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instruktioner: Hantera inaktuella enheter i Azure AD
 
 Vi rekommenderar att avregistrera registrerade enheter när det inte behövs längre, och när livscykeln ska avslutas. Men på grund av, till exempel, förlorade, stulna eller trasiga enheter, eller ominstallationer av operativsystem har du vanligtvis enheter i din miljö. Som IT-administratör vill du troligen ha en metod för att ta bort inaktuella enheter, så att du kan fokusera dina resurser på att hantera enheter som faktiskt kräver hantering.
 

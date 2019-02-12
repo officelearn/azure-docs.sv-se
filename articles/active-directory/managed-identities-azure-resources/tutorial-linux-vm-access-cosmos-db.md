@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: priyamo
-ms.openlocfilehash: a79a776e088461b702a3fe5217eceb6c7234919c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d107e8283e68043a49c080fd1b021b29b917c6f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186646"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812483"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Cosmos DB 
 
@@ -87,7 +87,7 @@ Svaret innehåller information om den systemtilldelade hanterade identiteten (no
 
 Cosmos DB har inte inbyggt stöd för Azure AD-autentisering. Du kan emellertid använda en hanterad identitet för att hämta en åtkomstnyckel för Cosmos DB från Resource Manager och sedan använda nyckeln för att komma åt Cosmos DB. I det här steget ger du den systemtilldelade hanterade identiteten åtkomst till nycklarna till Cosmos DB-kontot.
 
-Om du ska ge den systemtilldelade hanterade identiteten åtkomst till Cosmos DB-kontot i Azure Resource Manager med hjälp av Azure CLI uppdaterar du värdet för `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` för din miljö. Ersätt `<MI PRINCIPALID>` med `principalId`-egenskapen som returnerades av kommandot `az resource show` i [Hämta principalID för den virtuella Linux-datorns MI](#retrieve-the-principalID-of-the-linux-VM's-system-assigned-identity).  Cosmos DB stöder två detaljnivåer när åtkomstnycklar används: läs- och skrivåtkomst till kontot samt skrivskyddad åtkomst till kontot.  Tilldela rollen `DocumentDB Account Contributor` om du vill använda läs-/skrivnycklar för kontot, eller rollen `Cosmos DB Account Reader Role` om du vill använda skrivskyddade nycklar för kontot:
+Om du ska ge den systemtilldelade hanterade identiteten åtkomst till Cosmos DB-kontot i Azure Resource Manager med hjälp av Azure CLI uppdaterar du värdet för `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` för din miljö. Ersätt `<MI PRINCIPALID>` med den `principalId`-egenskap som returneras av kommandot `az resource show` i Hämta principalID för den virtuella Linux-datorns MI.  Cosmos DB stöder två detaljnivåer när åtkomstnycklar används: läs- och skrivåtkomst till kontot samt skrivskyddad åtkomst till kontot.  Tilldela rollen `DocumentDB Account Contributor` om du vill använda läs-/skrivnycklar för kontot, eller rollen `Cosmos DB Account Reader Role` om du vill använda skrivskyddade nycklar för kontot:
 
 ```azurecli-interactive
 az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"

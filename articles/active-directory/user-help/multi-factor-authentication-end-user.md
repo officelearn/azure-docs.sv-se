@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
-ms.openlocfilehash: a6beba81bf76549010bbf586cfbd0f018ee0a0dd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 853ca60ac10272062a1eb61c5f8763e4d9e120f7
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166619"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55748224"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Vad betyder Azure Multi-Factor Authentication för mig?
 Du har alltså fått ett e-postmeddelande från någon på IT-avdelningen eller från din chef om att de har lagt till ytterligare säkerhetsverifiering för ditt konto.  Vad betyder detta?
@@ -44,4 +44,4 @@ Välj ett av följande avsnitt för att komma igång.
 | [Inloggning](multi-factor-authentication-end-user-signin.md) |Visar vad du kan förvänta dig när du loggar in med olika metoder, som telefon eller app. |
 | [Ändra inställningar](multi-factor-authentication-end-user-manage-settings.md) |Visar hur du kan ändra inställningar som telefonnummer eller önskad registreringsmetod. |
 | [Hjälp med applösenord](multi-factor-authentication-end-user-app-passwords.md) |Hitta information om att skapa och använda applösenord. |
-| [Använda mobilappen](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) och [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |
+| [Använda mobilappen](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594) och [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|

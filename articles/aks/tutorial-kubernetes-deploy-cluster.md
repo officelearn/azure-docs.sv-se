@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720670"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754565"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Självstudier: Distribuera ett AKS-kluster (Azure Kubernetes Service)
 
@@ -67,10 +67,10 @@ Börja med att hämta ACR-resurs-ID:t med [az acr show][]. Uppdatera `<acrName>`
 az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-Skapa en rolltilldelning med kommandot [az role assignment create][] så att AKS-klustret kan använda avbildningar som lagras i ACR. Byt ut `<appId`> och `<acrId>` mot värdena du antecknade i föregående två steg.
+För att ge korrekt åtkomst så att AKS-klustret kan hämta avbildningar som lagras i ACR tilldelar du rollen `AcrPull` med hjälp av kommandot [az role assignment create][]. Byt ut `<appId`> och `<acrId>` mot värdena du antecknade i föregående två steg.
 
 ```azurecli
-az role assignment create --assignee <appId> --scope <acrId> --role Reader
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
 
 ## <a name="create-a-kubernetes-cluster"></a>Skapa ett Kubernetes-kluster

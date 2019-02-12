@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6bfc12c17b38543f0c6979b5f5eeada562483bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352822"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819356"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -26,7 +26,7 @@ Microsoft Azure Media Services (AMS) gör det möjligt att på ett säkert sätt
 
 AMS körs på flera datacenter över hela världen. Dessa datacenter är grupperade i geografiska regioner så att du kan välja var du vill bygga dina program. Se [listan över regioner och deras platser](https://azure.microsoft.com/regions/). 
 
-Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live](#live_scenarios) eller [på begäran](#vod_scenarios). Ämnet innehåller också information om tillgängligheten för mediefunktioner och tjänster i datacenter.
+Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live](#live_scenarios) eller på begäran. Ämnet innehåller också information om tillgängligheten för mediefunktioner och tjänster i datacenter.
 
 ## <a name="overview"></a>Översikt
 
@@ -148,7 +148,7 @@ AMS-kunder kan skala slutpunkter för direktuppspelning, mediebearbetning och la
 
     **Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Kunder som har en **Premium**-slutpunkt för direktuppspelning får som standard en direktuppspelande enhet (SU). Du kan skala slutpunkten för direktuppspelning genom att lägga till direktuppspelande enheter. Varje direktuppspelande enhet ger ytterligare bandbreddskapacitet till programmet. Mer information om hur du skalar **Premium**-slutpunkter för direktuppspelning finns i avsnittet [Scaling streaming endpoints](media-services-portal-scale-streaming-endpoints.md) (Skala slutpunkter för direktuppspelning).
 
-* Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** och **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**.
+* Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** eller **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**.
 
     Förutom att ange typ av reserverad enhet kan du etablera **reserverade enheter** (RU:er) för ditt konto. Antalet etablerade RU:er anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto.
 
@@ -183,7 +183,7 @@ Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktu
 
 #### <a name="availability"></a>Tillgänglighet
 
-Tillgänglig i alla datacenter förutom: Tyskland, södra Brasilien, västra Indien, södra Indien och centrala Indien. 
+Tillgängligt i alla datacenter förutom: Tyskland, Brasilien, södra, Indien, västra, Indien, södra och Indien, centrala. 
 
 ### <a name="encoding-media-processors"></a>Mediebearbetare för kodning
 
@@ -240,7 +240,7 @@ Tillgängligt i alla datacenter.
 
 ### <a name="reserved-unit-ru-type"></a>Typ av reserverad enhet (RU)
 
-Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: S1, S2 och S3.
+Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: S1, S2 eller S3.
 
 Mer information finns i avsnittet om [skalning](#scaling).
 

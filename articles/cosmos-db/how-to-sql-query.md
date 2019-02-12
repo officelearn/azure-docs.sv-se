@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459034"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822416"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-exempelfrågor för Azure Cosmos DB
 
@@ -1365,29 +1365,29 @@ De matematiska funktionerna utför en beräkning baserat på indatavärden som t
 
 | Användning | Beskrivning |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | Returnerar det absoluta (positiva) värdet för det angivna numeriska uttrycket. |
-| [CEILING (num_expr)](#bk_ceiling) | Returnerar det minsta heltalsvärdet som är större än eller lika med det angivna numeriska uttrycket. |
-| [FLOOR (num_expr)](#bk_floor) | Returnerar det största heltalsvärdet som är mindre än eller lika med det angivna numeriska uttrycket. |
-| [EXP (num_expr)](#bk_exp) | Returnerar exponenten för det angivna numeriska uttrycket. |
+| [ABS (num_expr) | Returnerar det absoluta (positiva) värdet för det angivna numeriska uttrycket. |
+| CEILING (num_expr) | Returnerar det minsta heltalsvärdet som är större än eller lika med det angivna numeriska uttrycket. |
+| FLOOR (num_expr) | Returnerar det största heltalsvärdet som är mindre än eller lika med det angivna numeriska uttrycket. |
+| EXP (num_expr) | Returnerar exponenten för det angivna numeriska uttrycket. |
 | [LOG (num_expr [,base])](#bk_log) | Returnerar den naturliga logaritmen för det angivna numeriska uttrycket eller den logaritm som använder den angivna basen |
-| [LOG10 (num_expr)](#bk_log10) | Returnerar det logaritmiska bas 10-värdet för det angivna numeriska uttrycket. |
-| [ROUND (num_expr)](#bk_round) | Returnerar ett numeriskt värde avrundat till närmaste heltal. |
-| [TRUNC (num_expr)](#bk_trunc) | Returnerar ett numeriskt värde trunkerat till närmaste heltal. |
-| [SQRT (num_expr)](#bk_sqrt) | Returnerar kvadratroten av det angivna numeriska uttrycket. |
-| [SQUARE (num_expr)](#bk_square) | Returnerar kvadraten av det angivna numeriska uttrycket. |
+| LOG10 (num_expr) | Returnerar det logaritmiska bas 10-värdet för det angivna numeriska uttrycket. |
+| ROUND (num_expr) | Returnerar ett numeriskt värde avrundat till närmaste heltal. |
+| TRUNC (num_expr) | Returnerar ett numeriskt värde trunkerat till närmaste heltal. |
+| SQRT (num_expr) | Returnerar kvadratroten av det angivna numeriska uttrycket. |
+| SQUARE (num_expr) | Returnerar kvadraten av det angivna numeriska uttrycket. |
 | [POWER (num_expr, num_expr)](#bk_power) | Returnerar exponenten för det angivna numeriska uttrycket till det angivna värdet. |
-| [SIGN (num_expr)](#bk_sign) | Returnerar teckenvärdet (-1, 0, 1) för det angivna numeriska uttrycket. |
-| [ACOS (num_expr)](#bk_acos) | Returnerar vinkeln i radianer vars cosinus är det angivna numeriska uttrycket. Kallas även arccosinus. |
-| [ASIN (num_expr)](#bk_asin) | Returnerar vinkeln i radianer vars sinus är det angivna numeriska uttrycket. Den här funktionen kallas även arcsinus. |
-| [ATAN (num_expr)](#bk_atan) | Returnerar vinkeln i radianer vars tangent är det angivna numeriska uttrycket. Detta kallas även arctangens. |
-| [ATN2 (num_expr)](#bk_atn2) | Returnerar vinkeln i radianer mellan den positiva x- axeln och strålen från origo till punkten (y, x) där x och y är värdena för de två angivna flyttalsuttrycken. |
-| [COS (num_expr)](#bk_cos) | Returnerar trigonometrisk cosinus för den angivna vinkeln i radianer i det angivna uttrycket. |
-| [COT (num_expr)](#bk_cot) | Returnerar trigonometrisk cotangens för den angivna vinkeln i radianer i det angivna numeriska uttrycket. |
-| [DEGREES (num_expr)](#bk_degrees) | Returnerar motsvarande vinkel i grader för en vinkel som anges i radianer. |
-| [PI ()](#bk_pi) | Returnerar konstantvärdet för PI. |
-| [RADIANS (num_expr)](#bk_radians) | Returnerar radianer när ett numeriskt uttryck i grader anges. |
-| [SIN (num_expr)](#bk_sin) | Returnerar trigonometrisk sinus för den angivna vinkeln i radianer i det angivna uttrycket. |
-| [TAN (num_expr)](#bk_tan) | Returnerar tangens för indatauttrycket i det angivna uttrycket. |
+| SIGN (num_expr) | Returnerar teckenvärdet (-1, 0, 1) för det angivna numeriska uttrycket. |
+| ACOS (num_expr) | Returnerar vinkeln i radianer vars cosinus är det angivna numeriska uttrycket. Kallas även arccosinus. |
+| ASIN (num_expr) | Returnerar vinkeln i radianer vars sinus är det angivna numeriska uttrycket. Den här funktionen kallas även arcsinus. |
+| ATAN (num_expr) | Returnerar vinkeln i radianer vars tangent är det angivna numeriska uttrycket. Detta kallas även arctangens. |
+| ATN2 (num_expr) | Returnerar vinkeln i radianer mellan den positiva x- axeln och strålen från origo till punkten (y, x) där x och y är värdena för de två angivna flyttalsuttrycken. |
+| COS (num_expr) | Returnerar trigonometrisk cosinus för den angivna vinkeln i radianer i det angivna uttrycket. |
+| COS (num_expr) | Returnerar trigonometrisk cotangens för den angivna vinkeln i radianer i det angivna numeriska uttrycket. |
+| DEGREES (num_expr) | Returnerar motsvarande vinkel i grader för en vinkel som anges i radianer. |
+| PI () | Returnerar konstantvärdet för PI. |
+| RADIANS (num_expr) | Returnerar radianer när ett numeriskt uttryck i grader anges. |
+| SIN (num_expr) | Returnerar trigonometrisk sinus för den angivna vinkeln i radianer i det angivna uttrycket. |
+| TAN (num_expr) | Returnerar tangens för indatauttrycket i det angivna uttrycket. |
 
 Till exempel kan du nu köra frågor på det sätt som visas i följande exempel:
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 97ec3db40279f12fd0e0f53b11b5d7f9ca7063d5
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: f35a6c61cdbbb71d937b5293df1535e7751cf31d
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020876"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757544"
 ---
 > [!IMPORTANT]
-> När du väljer att ladda ned någon av Cognitive Services Speech SDK-komponenterna på den här sidan accepterar du även dess licens. Mer information finns i [licensavtalet för Speech SDK](https://aka.ms/csspeech/license201809).
+> När du väljer att ladda ned någon av Speech SDK för Cognitive Services-komponenterna på den här sidan accepterar du även dess licens. Se [licensvillkoren för Microsoft-programvara för Speech SDK](https://aka.ms/csspeech/license201809).

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051319"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812352"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Principer för tjänstslutpunkter för virtuella nätverk (förhandsversion)
 
@@ -154,7 +154,7 @@ Det finns ingen centraliserad loggning för tjänstslutpunktsprinciper. Se [logg
 ### <a name="troubleshooting-scenarios"></a>Felsökningsscenarier
 - Åtkomst tillåts till lagringskonton som inte anges i slutpunktsprinciperna
   - Nätverkssäkerhetsgrupper kan tillåta åtkomst till Internet eller Azure Storage-konton i andra regioner.
-  - Nätverkssäkerhetsgrupper bör konfigureras för att neka all utgående Internettrafik och endast tillåta trafik till specifika Azure Storage-regioner. Mer information finns i [Nätverkssäkerhetsgrupper](#network-security-groups).
+  - Nätverkssäkerhetsgrupper bör konfigureras för att neka all utgående Internettrafik och endast tillåta trafik till specifika Azure Storage-regioner. Mer information finns i Nätverkssäkerhetsgrupper.
 - Åtkomst nekas för konton som anges i slutpunktsprinciperna
   - Nätverkssäkerhetsgrupper och brandväggsfiltrering blockerar kanske åtkomst
   - Om borttagning/återtillämpning av principen leder till anslutningsförlust:

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095863"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816279"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -64,7 +64,7 @@ De här stegen visar hur du installerar och konfigurerar autentiseringspipelinen
 
 Om du i stället vill ladda ned Visual Studio-projektet för det här exemplet följer du dessa steg:
 1. [Ladda ned projektet på GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
-1. Gå vidare till [konfigurationssteget](#configure-your-webconfig-and-register-an-application) för att konfigurera kodexemplet innan du kör koden.
+1. Gå vidare till konfigurationssteget för att konfigurera kodexemplet innan du kör koden.
 
 ## <a name="step-2-create-your-aspnet-project"></a>Steg 2: Skapa ASP.NET-projektet
 

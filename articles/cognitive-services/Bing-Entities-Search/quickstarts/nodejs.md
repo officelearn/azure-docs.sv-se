@@ -1,94 +1,114 @@
 ---
-title: 'Snabbstart: API för entitetsökning i Bing, Node.js'
+title: 'Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Node.js'
 titlesuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för entitetssökning i Bing.
+description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 18476b8fa272ea235526693a9e2bab577298244d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 37e00c6cdc5340607a4aabc446d87e1a8575c552
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174473"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755143"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-nodejs"></a>Snabbstart för API för entitetssökning i Bing med Node.js
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Node.js
 
-Den här artikeln visar hur du använder [API:et för entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  med Node.JS.
+Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla JavaScript-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
+
+Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Node.js 6](https://nodejs.org/en/download/) för att köra den här koden.
+* Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:et för entitetssökning i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [Begäransbiblioteket för JavaScript](https://github.com/request/request)
 
-## <a name="search-entities"></a>Entitetssökning
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-Följ dessa steg för att köra programmet.
+## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa ett nytt Node.js-projekt i valfri IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+1. Skapa en ny JavaScript-fil i din favorit-IDE eller -redigerare och ange strikthet och https-krav.
 
-```nodejs
-'use strict';
+    ```javaScript
+    'use strict';
+    let https = require ('https');
+    ```
 
-let https = require ('https');
+2. Skapa variabler för API-slutpunkten, prenumerationsnyckeln och sökfrågan.
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    ```javascript
+    let subscriptionKey = 'ENTER YOUR KEY HERE';
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/entities';
+    
+    let mkt = 'en-US';
+    let q = 'italian restaurant near me';
+    ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
+3. Lägg till parametrarna för marknad och fråga till en sträng som heter `query`. Se till att URL-koda frågan med `encodeURI()`.
+    ```javascript 
+    let query = '?mkt=' + mkt + '&q=' + encodeURI(q);
+    ```
 
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/entities';
+## <a name="handle-and-parse-the-response"></a>Hantera och parsa svaret
 
-let mkt = 'en-US';
-let q = 'italian restaurant near me';
+1. Definiera en funktion med namnet `response_handler` som tar ett HTTP-anrop, `response`, som parameter. Utför följande steg inom den här funktionen:
 
-let params = '?mkt=' + mkt + '&q=' + encodeURI(q);
+    1. Definiera en variabel så att den innehåller brödtexten i JSON-svaret.  
+        ```javascript
+        let response_handler = function (response) {
+            let body = '';
+        };
+        ```
 
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+    2. Lagra svarets brödtext när flaggan för **data** anropas.
+        ```javascript
+        response.on('data', function (d) {
+            body += d;
+        });
+        ```
 
-let Search = function () {
-    let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+    3. När en **end**-flagga (slutflagga) parsar du JSON och skriver ut det.
 
-    let req = https.request (request_params, response_handler);
-    req.end ();
-}
+        ```javascript
+        response.on ('end', function () {
+        let json = JSON.stringify(JSON.parse(body), null, '  ');
+        console.log (json);
+        });
+        ```
 
-Search ();
-```
+## <a name="send-a-request"></a>Skicka en förfrågan
 
-**Svar**
+1. Skapa en funktion som heter `Search` för att skicka en sökbegäran. I den utför du följande steg.
+
+    1. Skapa ett JSON-objekt som innehåller dina begärandeparametrar: använd `Get` för metoden och lägg till information om din värd och sökväg. Lägg till din prenumerationsnyckel i `Ocp-Apim-Subscription-Key`-huvudet. 
+    2. Använd `https.request()` för att skicka begäran med den svarshanterare som du skapade tidigare samt sökparametrarna.
+    
+    ```javascript
+    let Search = function () {
+        let request_params = {
+            method : 'GET',
+            hostname : host,
+            path : path + query,
+            headers : {
+                'Ocp-Apim-Subscription-Key' : subscriptionKey,
+            }
+        };
+    
+        let req = https.request (request_params, response_handler);
+        req.end ();
+    }
+    ```
+
+2. Anropa funktionen `Search()`.
+
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -153,11 +173,10 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 }
 ```
 
-[Överst på sidan](#HOLTop)
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om entitetssökning i Bing](../tutorial-bing-entities-search-single-page-app.md)
-> [Översikt över entitetssökning i Bing](../search-the-web.md )
-> [API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
+
+* [Vad är API:et för entitetssökning i Bing?](../overview.md )
+* [Referens för API för entitetsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

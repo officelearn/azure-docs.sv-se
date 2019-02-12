@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621038"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818047"
 ---
 # <a name="what-is-azure-relay"></a>Vad är Azure Relay?
 Med Azure Relay-tjänsten kan du på ett säkert sätt visa tjänster som körs i företagets nätverk för det offentliga molnet. Du kan göra det utan att behöva öppna en port i brandväggen eller göra störande ändringar i företagets nätverksinfrastruktur. 
@@ -44,7 +44,7 @@ I det vidarebefordrade dataöverföringsmönstret omfattar de grundläggande ste
 Azure Relay erbjuder två funktioner:
 
 - [Hybridanslutningar](#hybrid-connections) – Använder den öppna standarden Web Sockets som ger stöd för scenarier med flera plattformar.
-- [WCF-reläer](#wcf-relays) – Använder Windows Communication Foundation (WCF) för att aktivera RPC-anrop. WCF Relay är den äldre Relay-tjänsten som många kunder redan använder med sina WCF-programmeringsmodeller.
+- WCF-reläer – Använder Windows Communication Foundation (WCF) för att aktivera RPC-anrop. WCF Relay är den äldre Relay-tjänsten som många kunder redan använder med sina WCF-programmeringsmodeller.
 
 ## <a name="hybrid-connections"></a>Hybridanslutningar
 

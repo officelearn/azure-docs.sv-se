@@ -4,16 +4,16 @@ description: Azure Resource Graph är en tjänst i Azure som möjliggör komplex
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ed64f6317fefb9e82dbe14e806499965d926d434
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6b3bad4e4619f8909f5c6d71111b4fad9ddb3098
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316207"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813287"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph
 
@@ -45,6 +45,10 @@ Information om åtgärder och funktioner som kan användas med Azure Resource Gr
 ## <a name="permissions-in-azure-resource-graph"></a>Behörigheter i Azure Resource Graph
 
 Om du vill använda Resource Graph måste du ha rätt behörighet i [Rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC) med minst läsbehörighet till de resurser som du vill fråga. Utan minst `read`-behörigheter för Azure-objektet eller -objektgruppen returneras inte resultat.
+
+## <a name="throttling"></a>Begränsning
+
+Frågor till Resource Graph begränsas för att tillhandahålla den bästa upplevelsen svarstiden till alla kunder. Om din organisation vill använda Resource Graph API för storskaliga och vanligt förekommande frågor använder du portal-”feedback” från Resource Graph-sidan. Se till att ange ditt affärsfall och markera kryssrutan ”Microsoft kan kontakta mig via e-post om min feedback” så att teamet kan kontakta dig.
 
 ## <a name="running-your-first-query"></a>Kör din första fråga
 

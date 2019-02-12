@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053542"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766429"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>Självstudie: Skapa och hantera exporterade data
+# <a name="tutorial-create-and-manage-exported-data"></a>Självstudier: Skapa och hantera exporterade data
 
 Om du har läst självstudien om kostnadsanalys är du bekant med att manuellt ladda ned Cost Management-data. Du kan dock skapa en återkommande uppgift som automatiskt exporterar Cost Management-data till Azure Storage varje dag, vecka eller månad. Exporterade data är i CSV-format och innehåller all information som samlas in av Cost Management. Du kan sedan använda exporterade data i Azure Storage med externa system och kombinera dem med dina egna anpassade data. Och du kan använda din exporterade data i ett externt system, till exempel en instrumentpanel eller något annat ekonomisystem.
 
@@ -30,8 +30,7 @@ I den här guiden får du lära dig att:
 > * Kontrollera att data samlas in
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-
-Dataexport är tillgängligt för alla [Enterprise-avtalskunder (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Följande Azure-behörigheter stöds per prenumeration för dataexport efter användare och grupp:
+Dataexport är tillgänglig för en mängd olika typer av Azure-konton, exempelvis för [EA-kunder (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/). Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Följande Azure-behörigheter stöds per prenumeration för dataexport efter användare och grupp:
 
 - Ägare – kan skapa, ändra eller ta bort schemalagda exporter för en prenumeration.
 - Deltagare – kan skapa, ändra eller ta bort sina egna schemalagda exporter. Kan ändra namnet på schemalagda exporter som skapats av andra.

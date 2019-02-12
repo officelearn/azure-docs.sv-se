@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 39261f18c4335f0f27b68a2df2246ec4180d11e7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0900f5e2cab24004c4e2a358a98cd750f0968b50
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193713"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752986"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Konfigurera Log Analytics-agenten för Windows-datorer i en hybridmiljö
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) kan samla in data direkt från fysiska eller virtuella Windows-datorer i ditt datacenter eller en annan molnmiljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från Windows-datorer med några enkla steg.  För virtuella Azure Windows-datorer kan du se avsnittet [Samla in data om virtuella datorer i Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
@@ -83,7 +83,7 @@ Log Analytics kan samla in händelser från Windows-händelseloggar och prestand
 4. Du kan lägga till en händelselogg genom att skriva namnet på loggen.  Skriv **System** och klicka sedan på plustecknet **+**.  
 5. Kontrollera allvarlighetsgraderna **Fel** och **Varning** i tabellen.   
 6. Klicka på **Spara** överst på sidan för att spara konfigurationen.
-7. Välj **Windows-prestandadata** för att aktivera insamling av prestandaräknare på en Windows-dator. 
+7. Välj **Windows-prestandaräknare** för att aktivera insamling av prestandaräknare i en Windows-dator. 
 8. När du först konfigurerar Windows-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.<br> ![Standardalternativen för Windows-prestandaräknare markerade](media/quick-collect-windows-computer/windows-perfcounters-default.png).<br> Klicka på **Lägg till valda prestandaräknare**.  De läggs till med en förinställning av provintervall på tio sekunder.  
 9. Klicka på **Spara** överst på sidan för att spara konfigurationen.
 

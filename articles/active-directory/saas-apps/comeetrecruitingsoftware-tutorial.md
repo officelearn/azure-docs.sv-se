@@ -1,243 +1,235 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Comeet rekrytering programvara | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Comeet rekrytering programvara.
+title: 'Självstudier: Azure Active Directory-integrering med Comeet Recruiting Software | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Comeet Recruiting Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 75f51dc9-9525-4ec6-80bf-28374f0c8adf
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/29/2018
+ms.topic: tutorial
+ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 137ba7a7e82ff3e57d862868859e8049838701a3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: MT
+ms.openlocfilehash: f49d57207a7e8ea421ff64afc6aa98ed6a0cdc91
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307839"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663493"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Självstudier: Azure Active Directory-integrering med Comeet rekrytering programvara
+# <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Självstudier: Azure Active Directory-integrering med Comeet Recruiting Software
 
-I den här självstudien får du lära dig hur du integrerar Comeet rekrytering programvara med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Comeet Recruiting Software med Azure Active Directory (AD Azure).
+När du integrerar Comeet Recruiting Software med Azure AD får du följande fördelar:
 
-Integrera Comeet rekrytering programvara med Azure AD ger dig följande fördelar:
+* I Azure AD kan du styra vem som har åtkomst till Comeet Recruiting Software.
+* Du kan göra så att dina användare automatiskt loggas in på Comeet Recruiting Software (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Comeet rekrytering programvara.
-- Du kan aktivera användarna att automatiskt få loggat in på Comeet rekrytering programvara (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Comeet Recruiting Software behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med Comeet rekrytering programvara, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Comeet rekrytering programvara enkel inloggning aktiverat prenumeration
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Enkel inloggning-aktiverad prenumeration på Comeet Recruiting Software
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Lägga till Comeet rekrytering programvara från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* Comeet Recruiting Software stöder **SP- och IDP**-initierad SSO
 
-## <a name="adding-comeet-recruiting-software-from-the-gallery"></a>Lägga till Comeet rekrytering programvara från galleriet
+## <a name="adding-comeet-recruiting-software-from-the-gallery"></a>Lägga till Comeet Recruiting Software från galleriet
 
-För att konfigurera integrering av Comeet rekrytering programvara i Azure AD, som du behöver lägga till Comeet rekrytering programvara från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integrering av Comeet Recruiting Software i Azure AD behöver du lägga till Comeet Recruiting Software från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Comeet rekrytering programvara från galleriet:**
+**Så här lägger du till Comeet Recruiting Software från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Comeet rekrytering programvara**väljer **Comeet rekrytering programvara** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Comeet Recruiting Software**, väljer **Comeet Recruiting Software** från resultatpanelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
-    ![Comeet rekrytering programvara i resultatlistan](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_addfromgallery.png)
+     ![Comeet Recruiting Software i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Comeet rekrytering programvara baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Comeet Recruiting Software baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Comeet Recruiting Software upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Comeet rekrytering programvara till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Comeet rekrytering programvara upprättas.
+Om du vill konfigurera och testa Azure AD enkel inloggning med Comeet Recruiting Software måste du utföra följande byggblock:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Comeet rekrytering programvara, måste du utföra följande byggblock:
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Comeet Recruiting Software](#configure-comeet-recruiting-software-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Recruiting Software-testanvändare](#create-comeet-recruiting-software-test-user)** – för att ha en motsvarighet för Britta Simon i Recruiting Software som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Comeet rekrytering programvara](#create-a-comeet-recruiting-software-test-user)**  – du har en motsvarighet för Britta Simon Comeet rekrytering programvara som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i programmet Comeet rekrytering.
+Om du vill konfigurera Azure AD enkel inloggning med Comeet Recruiting Software gör du följande:
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Comeet rekrytering programvara:**
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Comeet Recruiting Software** på [Azure-portalen](https://portal.azure.com/).
 
-1. I Azure-portalen på den **Comeet rekrytering programvara** program integration-sidan klickar du på **enkel inloggning**.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera enkel inloggning för länken][4]
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Enkel inloggning för dialogrutan](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-3. På den **Comeet rekrytering programvara domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Comeet domän och URL: er med enkel inloggning för information](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_url1.png)
+4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+    ![Information om enkel inloggning med Comeet Recruiting Software-domäner och -URL:er](common/idp-intiated.png)
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren svars-URL. Du får dessa värden från portalen Comeet rekrytering programvara enligt de [supportsidan](https://support.comeet.co/knowledgebase/adfs-single-sign-on/).
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [supportteamet för Comeet Recruiting Software-klienten](https://support.comeet.co/knowledgebase/adfs-single-sign-on/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Comeet rekrytering programvara domän och URL: er enkel inloggning för information](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_url2.png)
+    ![Information om enkel inloggning med Comeet Recruiting Software-domäner och -URL:er](common/metadata-upload-additional-signon.png)
 
-    I den **inloggnings-URL** textrutan anger du URL: `https://app.comeet.co`
+    I rutan **Inloggnings-URL** anger du en URL: `https://app.comeet.co`
 
-5. Comeet rekrytering programvara förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel för detta. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men **Comeet rekrytering programvara** förväntar sig detta mappas med användarens e-postadress. Som du kan använda **user.mail** attribut i listan eller Använd rätt attribut-värde baserat på konfigurationen för din organisation.
+5. Comeet Recruiting Software sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![Konfigurera enkel inloggning](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. Klicka på **visa och redigera alla andra användarattribut** kryssrutan i den **användarattribut** avsnitt för att expandera attribut. Utför följande steg på varje visas attribut-
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    | Attributnamn | Attributvärde |
+    | Namn |  Källattribut|
     | ---------------| --------------- |
-    | comeet_id | User.userPrincipalName |
+    | nameidentifier | user.mail |
+    | comeet_id | user.userprincipalname |
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![Konfigurera enkel inloggning](./media/comeetrecruitingsoftware-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Konfigurera enkel inloggning](./media/comeetrecruitingsoftware-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-attribute-details.png)
 
-    b. I den **namn** textrutan skriver den **attributnamnet** visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    c. Lämna **Namnrymd** tom.
 
-    d. Klicka på **OK**.
+    d. Välj Källa som **Attribut**.
 
-7. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    ![Länk för hämtning av certifikat](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_certificate.png)
+    f. Klicka på **Ok**
 
-8. Klicka på **spara** knappen.
+    g. Klicka på **Spara**.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/comeetrecruitingsoftware-tutorial/tutorial_general_400.png)
+4. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-9. Att konfigurera enkel inloggning på **Comeet rekrytering programvara** sida, klistra in innehållet i den hämtade XML-Metadata i Comeet rekrytering programvara, enligt den [supportsidan](https://support.comeet.co/knowledgebase/adfs-single-sign-on/).
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+6. I avsnittet **Konfigurera Comeet Recruiting Software** kopierar du en eller flera lämpliga URL:er, enligt dina behov.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-   ![Skapa en Azure AD-testanvändare][100]
+    a. Inloggnings-URL
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    b. Azure AD-identifierare
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    c. Utloggnings-URL
 
-    ![Azure Active Directory-knappen](./media/comeetrecruitingsoftware-tutorial/create_aaduser_01.png)
+### <a name="configure-comeet-recruiting-software-single-sign-on"></a>Konfigurera enkel inloggning för Comeet Recruiting Software
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+Om du vill konfigurera enkel inloggning på **Comeet Recruiting Software**-sidan så behöver du skicka den hämtade **XML-federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Comeet Recruiting Software-supportteamet](https://support.comeet.co/knowledgebase/adfs-single-sign-on/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/comeetrecruitingsoftware-tutorial/create_aaduser_02.png)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![Knappen Lägg till](./media/comeetrecruitingsoftware-tutorial/create_aaduser_03.png)
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-4. I den **användaren** dialogrutan utför följande steg:
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Dialogrutan användare](./media/comeetrecruitingsoftware-tutorial/create_aaduser_04.png)
+2. Välj **Ny användare** överst på skärmen.
 
-    a. I den **namn** skriver **BrittaSimon**.
+    ![Knappen Ny användare](common/new-user.png)
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+3. Genomför följande steg i Användaregenskaper.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="create-a-comeet-recruiting-software-test-user"></a>Skapa en testanvändare Comeet rekrytering programvara
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet skapar du en användare som kallas Britta Simon Comeet rekrytering programvara. Arbeta med [Comeet rekrytering programvara supportteamet](mailto:support@comeet.co) att lägga till användare i Comeet rekrytering programvara-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Comeet Recruiting Software.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Comeet Recruiting Software**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Comeet rekrytering programvara.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-![Tilldela rollen][200]
+2. I listan med program väljer du **Comeet Recruiting Software**.
 
-**Om du vill tilldela Britta Simon Comeet rekrytering programvara, utför du följande steg:**
+    ![Länken Comeet Recruiting Software i listan med program](common/all-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Tilldela användare][201]
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **Comeet rekrytering programvara**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken Comeet rekrytering programvara i listan med program](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_app.png)  
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Länken ”användare och grupper”][202]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Fönstret Lägg till tilldelning][203]
+### <a name="create-comeet-recruiting-software-test-user"></a>Skapa Comeet Recruiting Software-testanvändare
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Comeet Recruiting Software. Arbeta med [supportteamet för Comeet Recruiting Software-klienten](mailto:support@comeet.co) för att lägga till användare i Comeet Recruiting Software-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Comeet rekrytering programvara i åtkomstpanelen du bör få automatiskt loggat in på ditt Comeet rekrytering programvara.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på Comeet Recruiting Software-panelen i åtkomstpanelen bör du automatiskt loggas in på Comeet Recruiting Software som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_01.png
-[2]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_02.png
-[3]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_03.png
-[4]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_100.png
-
-[200]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_200.png
-[201]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_201.png
-[202]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_202.png
-[203]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_203.png

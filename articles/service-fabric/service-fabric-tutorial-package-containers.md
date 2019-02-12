@@ -13,17 +13,17 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 135189c576c67212dac6afc1388a6ef9fb045346
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255565"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512388"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudie: Paketera och distribuera containers som en Service Fabric-app med Yeoman
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudier: Paketera och distribuera containrar som ett Service Fabric-program med hjälp av Yeoman
 
 Den här självstudien är del två i en serie. I den här självstudien används ett verktyg för mallgenerering (Yeoman) för att skapa en Service Fabric-programdefinition. Programmet kan sedan användas för att distribuera containrar till Service Fabric. I den här självstudiekursen får du lära du dig att:
 
@@ -227,28 +227,53 @@ Mallen för ett tjänstepaketprogram är nu tillgänglig för distribuering till
 
 ## <a name="create-a-service-fabric-cluster"></a>Skapa ett Service Fabric-kluster
 
-Om du vill distribuera programmet till ett kluster i Azure kan du skapa ett eget kluster.
+Om du vill distribuera programmet till Azure behöver du ett Service Fabric-kluster som kör programmet. Följande kommandon skapar ett kluster med fem noder i Azure.  Kommandona skapar även ett självsignerat certifikat, lägger till det i ett nyckelvalv och laddar ned certifikatet lokalt som en PEM-fil. Det nya certifikatet används för att skydda klustret när distribueras och används för att autentisera klienter.
 
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster som finns på Azure. De körs av Service Fabric-teamet. Där kan alla distribuera program och lära sig mer om plattformen. [Följ dessa instruktioner](https://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster.
+```azurecli
+#!/bin/bash
 
-Du kan använda Service Fabric Explorer, CLI eller Powershell för att utföra hanteringsåtgärder på det säkra partklustret. Om du vill använda Service Fabric Explorer behöver du ladda ned PFX-filen från webbplatsen med partklustret och importera certifikatet till certifikatarkivet (Windows eller Mac) eller till webbläsaren (Ubuntu). Det finns inget lösenord för självsignerade certifikat från partklustret.
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
 
-Om du vill utföra hanteringsåtgärder med Powershell eller CLI behöver du PFX (Powershell) eller PEM (CLI). Om du vill konvertera PFX-filen till en PEM-fil kör du följande kommando:
+# Login to Azure and set the subscription
+az login
 
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  
+# The certificate is downloaded locally as a PEM file.
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+--certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
-Information om hur du skapar ett eget kluster finns i [Skapa ditt första Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+> [!Note]
+> Frontwebbtjänsten är konfigurerad för att lyssna efter inkommande trafik på port 80. Som standard är port 80 öppen på dina virtuella klusterdatorer och Azure-belastningsutjämnaren.
+>
+
+Mer information om hur du skapar ett eget kluster finns i [Skapa ett Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Bygg och distribuera programmet till klustret
 
 Du kan distribuera programmet till Azure-klustret med Service Fabric CLI. Om Service Fabric CLI inte är installerat på datorn följer du [dessa](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) anvisningar och installerar det.
 
-Anslut till Service Fabric-klustret i Azure. Byt exempelslutpunkten mot din egen. Slutpunkten måste vara en fullständig webbadress som liknar den som visas nedan.
+Anslut till Service Fabric-klustret i Azure. Byt exempelslutpunkten mot din egen. Slutpunkten måste vara en fullständig webbadress som liknar den som visas nedan.  PEM-filen är det självsignerade certifikat som skapades tidigare.
 
 ```bash
-sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
 Använd installationsskriptet som medföljer i katalogen **TestContainer** för att kopiera programpaketet till klustrets avbildningsarkiv, registrera programtypen och skapa en instans av programmet.
@@ -257,11 +282,11 @@ Använd installationsskriptet som medföljer i katalogen **TestContainer** för 
 ./install.sh
 ```
 
-Öppna en webbläsare och gå till Service Fabric Explorer på http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Expandera programnoden och observera att det finns en post för din programtyp och en för instansen.
+Öppna en webbläsare och gå till Service Fabric Explorer på http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expandera programnoden och observera att det finns en post för din programtyp och en för instansen.
 
 ![Service Fabric Explorer][sfx]
 
-Anslut till det aktiva programmet genom att öppna en webbläsare och gå till webbadressen för klustret, t.ex. http://lin0823ryf2he.cloudapp.azure.com:80. Röstningsprogrammet ska visas i webbläsaren.
+Anslut till det aktiva programmet genom att öppna en webbläsare och gå till webbadressen för klustret, t.ex. http://containertestcluster.eastus.cloudapp.azure.com:80. Röstningsprogrammet ska visas i webbläsaren.
 
 ![röstningsapp][votingapp]
 

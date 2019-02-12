@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 25b2e90c6293b93a15aeae2fbf08b70cb191cef0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 13841e1ef6298ffc85f6ccf5cb2a60e5a9b992b3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098722"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099385"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protokoll – OAuth 2.0-auktoriseringskodflöde
 
@@ -53,13 +53,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
-&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345
 ```
 
 > [!TIP]
 > Klicka på länken nedan för att utföra den här begäran! Efter inloggningen webbläsaren ska omdirigeras till `https://localhost/myapp/` med en `code` i adressfältet.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> 
+> 
 
 | Parameter    | Krävs/valfritt | Beskrivning |
 |--------------|-------------|--------------|
@@ -138,7 +140,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
@@ -168,7 +170,7 @@ Ett lyckat svar för token kommer att se ut:
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
@@ -239,7 +241,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Access_tokens är korta bott och du måste uppdatera dem när de går ut om du vill fortsätta få åtkomst till resurser. Kan du göra det genom att skicka in en annan `POST` begäran till den `/token` slutpunkten, den här gången erbjuder den `refresh_token` i stället för den `code`.  Uppdateringstoken är giltig för alla behörigheter som klienten redan har tagit emot medgivande för - därför en uppdateringstoken utfärdas för en begäran för `scope=mail.read` kan användas för att begära en ny åtkomsttoken för `scope=api://contoso.com/api/UseResource`.  
 
-Uppdatera token har inte angiven livslängd. Livslängd för uppdateringstoken är oftast relativt lång. Men i vissa fall kan uppdaterings-tokens upphör att gälla, har återkallats eller saknar tillräcklig behörighet för den önskade åtgärden. Programmet behöver för att förvänta sig och hantera [fel som returneras av utfärdande-slutpunkten](#error-codes-for-token-endpoint-errors) korrekt. 
+Uppdatera token har inte angiven livslängd. Livslängd för uppdateringstoken är oftast relativt lång. Men i vissa fall kan uppdaterings-tokens upphör att gälla, har återkallats eller saknar tillräcklig behörighet för den önskade åtgärden. Programmet behöver för att förvänta sig och hantera [fel som returneras av utfärdande-slutpunkten](#error-codes-for-token-endpoint-errors) korrekt.  Observera att uppdateringstoken inte återkallas när användes för att hämta nya åtkomsttoken. 
 
 ```
 // Line breaks for legibility only
@@ -249,7 +251,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=refresh_token
@@ -280,7 +282,7 @@ Ett lyckat svar för token kommer att se ut:
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }

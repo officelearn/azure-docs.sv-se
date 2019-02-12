@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c84d876828ac96bfb44b84e99b13489d51ae3370
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474878"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694031"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -33,6 +33,7 @@ I den här självstudien gör du så att användare kan återställa sina lösen
    * [Hybrid Azure AD-anslutna](../device-management-hybrid-azuread-joined-devices-setup.md) med en nätverksanslutning till en domänkontrollant.
 * Du måste aktivera självbetjäning av lösenordsåterställning med Azure AD.
 * Om dina Windows 10-enheter är bakom en proxyserver eller en brandvägg måste du lägga till URL:erna `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com` i din lista över URL:er med tillåten HTTPS-trafik (port 443).
+* Granska begränsningarna nedan innan du provar den här funktionen i din miljö.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Konfigurera länken Återställ lösenord med Intune
 
@@ -106,6 +107,8 @@ Azure AD-granskningsloggen innehåller information om IP-adressen och klienttype
 
 ![Exempel på lösenordsåterställning för inloggningssida i Azure AD-granskningsloggen](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
+När användarna återställer sina lösenord från inloggningsskärmen för en Windows 10-enhet skapas ett tillfälligt lågprivilegierat konto med namnet ”defaultuser1”. Det här kontot används för att skydda processen för lösenordsåterställning. Själva kontot har ett slumpmässigt genererat lösenord som inte visas för att logga in enheten och tas bort automatiskt när användaren återställer sitt lösenord. Flera ”defaultuser”-profiler kan finnas men kan ignoreras.
+
 ## <a name="limitations"></a>Begränsningar
 
 När du testar funktionen med Hyper-V visas inte länken ”Återställ lösenord”.
@@ -116,7 +119,9 @@ När du testar funktionen med hjälp av Fjärrskrivbord eller en förbättrad VM
 
 * Återställning av lösenord stöds inte från ett Fjärrskrivbord.
 
-Om Ctrl+Alt+Del krävs av principen eller meddelanden för låsskärmen är avstängda fungerar inte **Återställ lösenord**.
+Om Ctrl + Alt + Del krävs av principen i versioner av Windows 10 innan 1809 fungerar inte **Återställ lösenord**.
+
+Om meddelanden för låsskärmen är avstängda fungerar inte **Återställ lösenord**.
 
 Det har bekräftats att följande principinställningar stör möjligheten att återställa lösenord
 
@@ -128,7 +133,7 @@ Det har bekräftats att följande principinställningar stör möjligheten att �
 
 Den här funktionen fungerar inte för nätverk som distribuerar nätverksautentisering 802.1x och alternativet ”Utför omedelbart innan användaren loggar in”. Nätverk med nätverksautentiseringen 802.1x distribuerad rekommenderas att använda datorautentisering för att aktivera funktionen.
 
-För Hybrid-domänanslutna scenarier så finns ett scenario där SSPR-arbetsflödet slutförs utan att en Active Directory-domänkontrollant behövs. Anslutning med en domänkontrollant krävs när lösenordet ska användas för första gången.
+För Hybrid-domänanslutna scenarier slutförs SSPR-arbetsflödet utan att en Active Directory-domänkontrollant behövs. Om en användare har slutfört processen för lösenordsåterställning när kommunikation till en Active Directory-domänkontrollant inte är ansluten, till exempel när du arbetar via fjärranslutning, kommer användaren inte att kunna logga in på enheten förrän enheten kan kommunicera med en domänkontrollant och uppdatera cachelagrade autentiseringsuppgifter. **Anslutning med en domänkontrollant krävs när lösenordet ska användas för första gången**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

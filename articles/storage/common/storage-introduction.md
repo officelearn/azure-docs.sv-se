@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a82ea1e7f584cd9cab794d147c3f19f04e23732b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 953615a9c6b716db1db0c7bfb993f3d47aefd7a9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474810"
+ms.locfileid: "55507781"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
 
@@ -130,13 +130,13 @@ Lagringsklientbiblioteken har metoder som du kan anropa för att programmässigt
 
 Mer information om kryptering på klientsidan finns i [Kryptering på klientsidan med .NET för Microsoft Azure Storage](storage-client-side-encryption.md).
 
-## <a name="replication"></a>Replikering
+## <a name="redundancy"></a>Redundans
 
-För att säkerställa att dina data är beständiga kan Azure Storage replikera flera kopior av dina data. När du konfigurerar ditt lagringskonto väljer du en replikeringstyp. I de flesta fall kan den här inställningen ändras efter att lagringskontot har skapats. 
+För att säkerställa att dina data är beständiga kan Azure Storage replikera flera kopior av dina data. När du konfigurerar ditt lagringskonto väljer du ett redundansalternativ. 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Information om haveriberedskap finns i [Vad du gör om ett avbrott i Azure Storage inträffar?](storage-disaster-recovery-guidance.md).
+Mer information om haveriberedskap finns i avsnittet om [haveriberedskap och redundans för lagringskonto (förhandsversion) i Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Överföra data till och från Azure Storage
 

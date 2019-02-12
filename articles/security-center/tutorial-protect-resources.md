@@ -3,7 +3,7 @@ title: Azure Security Center-självstudie – Skydda dina resurser med Azure Sec
 description: I den här självstudien får du se hur du konfigurerar en princip för Just-in-time-åtkomst till virtuell dator och en princip för programkontroll.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -14,16 +14,16 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 19b5f6d6cb8e0e17dba9944e8b72c6938f168c70
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: monhaber
+ms.openlocfilehash: df9e804e8b8f3a9b40a18873f61ec96edee1503d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839355"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490278"
 ---
-# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudie: Skydda dina resurser ed Azure Security Center
-Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. Just-in-time-åtkomst till virtuell dator (VM) minskar din exponering för attacker genom att göra det möjligt för dig att neka beständig åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
+# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudier: Skydda dina resurser med Azure Security Center
+Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. JIT-åtkomst (just-in-time) till virtuella datorer (VM) minskar din exponering för attacker genom att du kan neka beständig åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
 
 ## <a name="manage-vm-access"></a>Hantera åtkomst till virtuella datorer
-Just in time-åtkomst till virtuella datorer kan användas till att låsa inkommande trafik till dina virtuella Azure-datorer. Det här minskar exponeringen för attacker samtidigt som du enkelt kan ansluta till virtuella datorer när du behöver.
+JIT-åtkomst till virtuella datorer kan användas till att låsa inkommande trafik till dina virtuella Azure-datorer. Det här minskar exponeringen för attacker samtidigt som du enkelt kan ansluta till de virtuella datorerna när du behöver.
 
 Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När Just-in-time är aktiverat använder Security Center NSG-regler (Network Security Group), vilket begränsar åtkomsten till hanteringsportar så de inte kan nås av angripare.
 
@@ -45,7 +45,7 @@ Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara �
 
   ![Just-in-time-åtkomst till virtuell dator][1]
 
-  **Just-in-time-åtkomst till virtuell dator** tillhandahåller information om dina virtuella datorers status:
+  **Just-in-time-åtkomst till virtuell dator** ger information om dina virtuella datorers status:
 
   - **Konfigurerad** – Virtuella datorer som har konfigurerats för att stödja Just-in-time-åtkomst till virtuella datorer.
   - **Rekommenderas** – Virtuella datorer som kan stödja Just-in-time-åtkomst till virtuell dator men som inte har konfigurerats för det.
@@ -55,7 +55,7 @@ Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara �
     - Klassisk virtuell dator – Security Centers just-in-time-åtkomst till virtuell dator stöder för närvarande bara virtuella datorer som har distribuerats via Azure Resource Manager.
     - Övrigt – En virtuell dator i den här kategorin om just-in-time-lösningen är avstängd i säkerhetsprincipen för prenumerationen eller resursgruppen, eller om den virtuella datorn saknar en offentlig IP-adress och inte har någon NSG.
 
-2. Välj en rekommenderad virtuell dator och klicka på alterantivet för att **aktivera JIT på 1 virtuell dator** för att konfigurera en just-in-time-princip för den virtuella datorn:
+2. Välj en rekommenderad virtuell dator och klicka på alternativet för att **aktivera JIT på 1 virtuell dator** för att konfigurera en just-in-time-princip för den virtuella datorn:
 
   Du kan spara standardportarna som Security Center rekommenderar eller så kan du lägga till och konfigurera en ny port som du vill aktivera just-in-time-lösningen på. I den här självstudien ska vi lägga till en port genom att välja **Lägg till**.
 
@@ -81,9 +81,9 @@ Den här funktionen är endast tillgänglig för Windows-datorer.
 
   Avsnittet **Resursgrupper** innehåller tre flikar:
 
-  - **Konfigurerad**: lista över resursgrupper som innehåller de virtuella datorer som konfigurerades med programkontroll.
-  - **Rekommenderas**: lista över resursgrupper som programkontroll rekommenderas för.
-  - **Ingen rekommendation**: lista över resursgrupper som innehåller virtuella datorer utan rekommendationer för programkontroll. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
+  - **Konfigurerade**: lista med resursgrupper som innehåller de virtuella datorer som konfigurerades med programkontroll.
+  - **Rekommenderas**: lista med resursgrupper som programkontroll rekommenderas för.
+  - **Ingen rekommendation**: lista med resursgrupper som innehåller virtuella datorer utan någon rekommendation för programkontroll. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
 
 2. Markera fliken **Rekommenderas** för att visa en lista över resursgrupper med rekommendationer för programkontroll.
 
@@ -92,9 +92,9 @@ Den här funktionen är endast tillgänglig för Windows-datorer.
 3. Välj en resursgrupp för att öppna alternativet **Skapa regler för programkontroll**. I **Välj virtuella datorer** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda programkontroll för. I **Välj processer för reglerna för lista över tillåtna** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda. Listan innehåller:
 
   - **NAMN**: den fullständiga programsökvägen
-  - **PROCESSER**: Hur många program som finns på varje sökväg
-  - **GEMENSAM**: "Ja" betyder att dessa processer har körts på de flesta virtuella datorerna i den här resursgruppen
-  - **EXPLOATERBAR**: En varningsikon anger om programmen skulle kunna användas av en angripare för att kringgå listan över tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
+  - **PROCESSER**: antalet program som finns på varje sökväg
+  - **GEMENSAM**: "Ja" betyder att dessa processer har körts på de flesta virtuella datorer i den här resursgruppen
+  - **EXPLOATERBAR**: en varningsikon anger om programmet skulle kunna användas av en angripare för att kringgå listan med tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
 
 4. När du är färdig med dina val klickar du på **Skapa**.
 
@@ -128,7 +128,7 @@ I den här självstudien har du lärt dig att begränsa din exponering för hot 
 Gå vidare till nästa kurs om du vill veta mer om att hantera säkerhetsincidenter.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
+> [Självstudier: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9695c3d40ee85cf1a46e078776c88ad2f61ed839
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d4aee884e91c52be48c8a44f185f188b0c93ab5
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465419"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511147"
 ---
 # <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Skapa en .NET Core- och SQL Database-app i Azure App Service i Linux
 
@@ -359,6 +359,35 @@ När `git push` har slutförts kan du gå till Azure-appen och prova att använd
 ![Azure-appen efter Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 Alla befintliga att-göra-uppgifter visas fortfarande. När du publicerar om .NET Core-appen går inte befintliga data i SQL Database förlorade. Med Entity Framework Core Migrations ändras endast dataschemat, så att befintliga data lämnas intakta.
+
+## <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar
+
+Exempelprojektet följer redan riktlinjerna i [ASP.NET Core-loggning i Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) med två konfigurationsändringar:
+
+- Innehåller en referens till `Microsoft.Extensions.Logging.AzureAppServices` i *DotNetCoreSqlDb.csproj*.
+- Anropar `loggerFactory.AddAzureWebAppDiagnostics()` i *Startup.cs*.
+
+> [!NOTE]
+> Projektets loggnivå är inställd på `Information` i *appsettings.json*.
+> 
+
+I App Service i Linux körs appar i en container från en Docker-standardavbildning. Du kan komma åt de konsolloggar som genereras i containern. Om du vill hämta loggarna aktiverar du först containerloggning genom att köra kommandot [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) i Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
+```
+
+När containerloggning är aktiverad kan du se loggströmmarna genom att köra kommandot [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) i Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Uppdatera Azure-app i webbläsaren så hämtas webbtrafik när loggströmningen har startats. Du kan nu se konsolloggarna som skickas till terminalen. Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
+
+Skriv när som helst `Ctrl`+`C` om du vill stoppa loggströmningen.
+
+Mer information om att anpassa ASP.NET Core-loggar finns i [Loggning i ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 

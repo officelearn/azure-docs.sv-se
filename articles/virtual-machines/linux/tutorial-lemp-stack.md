@@ -3,7 +3,7 @@ title: Självstudier – Distribuera LEMP på en virtuell Linux-dator i Azure | 
 description: I den här självstudiekursen lär du dig hur du installerar LEMP-stacken på en virtuell Linux-dator i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: c4926760162baa5687242f4372377c64c7e24b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: 0a9d63f4064952adbfedfc3f9656370ef7c4a1cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999366"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511285"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Installera en LEMP-webbserver på en virtuell Linux-dator i Azure
 
@@ -46,17 +46,15 @@ Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.
 Kör följande kommandon för att uppdatera Ubuntu-paketkällorna och installera NGINX, MySQL och PHP. 
 
 ```bash
-sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
+sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-mysql php-fpm
 ```
 
-Du uppmanas att installera paketen och andra beroenden. När du uppmanas anger du ett rotlösenord för MySQL. Välj [Retur] för att fortsätta. Följ återstående anvisningar. Den här processen installerar lägsta nödvändiga PHP-tillägg för användning av PHP med MySQL. 
-
-![MySQL-rotlösenordssida][1]
+Du uppmanas att installera paketen och andra beroenden. Den här processen installerar lägsta nödvändiga PHP-tillägg för användning av PHP med MySQL.  
 
 ## <a name="verify-installation-and-configuration"></a>Verifiera installation och konfiguration
 
 
-### <a name="nginx"></a>NGINX
+### <a name="verify-nginx"></a>Verifiera NGINX
 
 Kontrollera version av NGINX med följande kommando:
 ```bash
@@ -68,7 +66,7 @@ När NGINX är installerat och port 80 är öppen för den virtuella datorn kan 
 ![NGINX-standardsida][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>Verifiera och skydda MySQL
 
 Kontrollera versionen av MySQL med följande kommando (observera versal i parameter `V`):
 
@@ -76,24 +74,24 @@ Kontrollera versionen av MySQL med följande kommando (observera versal i parame
 mysql -V
 ```
 
-Kör skriptet `mysql_secure_installation` för att skydda installationen av MySQL. Om du bara konfigurerar en tillfällig server kan du hoppa över det här steget. 
+Om du vill skydda installationen av MySQL, inklusive att ange ett rotlösenord, kör du skriptet `mysql_secure_installation`. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-Ange ett rotlösenord för MySQL och konfigurera säkerhetsinställningarna för miljön.
+Om du vill kan du även konfigurera plugin-programmet Validate Password (Verifiera lösenord; rekommenderas). Sedan anger du ett lösenord för MySQL-rotanvändaren och konfigurerar återstående säkerhetsinställningar för miljön. Vi rekommenderar att du svarar ”Y” (Ja) på alla frågor.
 
 Om du vill prova MySQL-funktioner (skapa en MySQL-databas, lägga till användare eller ändra konfigurationsinställningar) loggar du in på MySQL. Det här steget krävs inte för att genomföra kursen. 
 
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 När du är klar lämnar du mysql-frågan genom att skriva `\q`.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>Verifiera PHP
 
 Kontrollera versionen av PHP med följande kommando:
 
@@ -109,7 +107,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-I redigeringsprogrammet byter du ut innehållet i `/etc/nginx/sites-available/default` mot följande. Visa kommentarerna för att få en förklaring av inställningarna. Ersätt den offentliga IP-adressen för den virtuella datorn med *din offentliga IP-adress*, och låt de övriga inställningarna stå. Spara sedan filen.
+I redigeringsprogrammet byter du ut innehållet i `/etc/nginx/sites-available/default` mot följande. Visa kommentarerna för att få en förklaring av inställningarna. Ersätt den offentliga IP-adressen för den virtuella datorn med *yourPublicIPAddress* (din offentliga IP-adress), bekräfta PHP-versionen i `fastcgi_pass` och låt de övriga inställningarna stå. Spara sedan filen.
 
 ```
 server {
@@ -129,7 +127,7 @@ server {
     # Include FastCGI configuration for NGINX
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
     }
 }
 ```
@@ -177,6 +175,5 @@ Gå vidare till nästa självstudiekurs där du får lära dig att skydda webbse
 > [!div class="nextstepaction"]
 > [Säker webbserver med SSL](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

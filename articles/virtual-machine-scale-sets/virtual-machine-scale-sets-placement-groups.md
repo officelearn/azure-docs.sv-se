@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 5280936cdec25f7b5fc4b77c989b31c7a01f7bd6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2a1c78a4cec595b672604c90e103ae3b9e40273f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958643"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693691"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
 Du kan nu skapa [skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) med en kapacitet på upp till 1 000 virtuella datorer. I detta dokument definieras en _stor VM-skalningsuppsättning_ som en skalningsuppsättning som kan skalas för över 100 virtuella datorer. Den här funktionen ställs in med skalningsuppsättningsegenskapen (_singlePlacementGroup=False_). 
@@ -61,7 +61,7 @@ Kommandot _vmss create_ ställer in vissa konfigurationsvärden som standard om 
 az vmss create --help
 ```
 
-Kontrollera att mallen skapar en skalningsuppsättning som baseras på Azure Managed Disks om du skapar en stor skalningsuppsättning genom att skapa en Azure Resource Manager-mall. Du kan ställa in egenskapen _singlePlacementGroup_ som _falskt_ i avsnittet _egenskaper_ i resursen _Microsoft.Compute/virtualMAchineScaleSets_. Följande JSON-fragment visas i början av en mall för skalningsuppsättningar, inklusive kapaciteten på 1 000 virtuella datorer och inställningen _"singlePlacementGroup" : false_:
+Kontrollera att mallen skapar en skalningsuppsättning som baseras på Azure Managed Disks om du skapar en stor skalningsuppsättning genom att skapa en Azure Resource Manager-mall. Du kan ställa in egenskapen _singlePlacementGroup_ som _falsk_ i avsnittet _egenskaper_ i resursen _Microsoft.Compute/virtualMachineScaleSets_. Följande JSON-fragment visas i början av en mall för skalningsuppsättningar, inklusive kapaciteten på 1 000 virtuella datorer och inställningen _"singlePlacementGroup" : false_:
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",

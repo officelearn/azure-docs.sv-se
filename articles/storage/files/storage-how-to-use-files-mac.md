@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 86224b90f7a93eae41c127d4ba87f685f895e15a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475717"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820410"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montera en Azure-filresurs via SMB med macOS
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras med SMB-3 protokollet, som är branschstandard, av macOS El Capitan 10.11+. Den här artikeln visar två olika sätt att montera en Azure-filresurs på macOS: med hjälp av användargränssnittet Finder och med terminalen.
@@ -38,7 +38,7 @@ ms.locfileid: "55475717"
 1. **Öppna Finder**: Som standard är Finder redan öppet på macOS, men du kan kontrollera att det är det för tillfället valda programmet genom att klicka på ”ikonen med macOS-ansiktet” i Dock:  
     ![ikonen med macOS-ansiktet](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Välj ”Anslut till Server” från menyn ”Gå”**: Med hjälp av UNC-sökvägen från [krav](#preq) konverterar du de första dubbla omvända snedstrecken (`\\`) till `smb://` och alla andra omvända snedstreck (`\`) till snedstreck (`/`). Din länk bör se ut så här: ![Dialogrutan ”Anslut till server”](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Välj ”Anslut till Server” från menyn ”Gå”**: Med hjälp av UNC-sökvägen från kraven konverterar du de första dubbla omvända snedstrecken (`\\`) till `smb://` och alla andra omvända snedstreck (`\`) till snedstreck (`/`). Din länk bör se ut så här: ![Dialogrutan ”Anslut till server”](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Använd lagringskontonamnet och lagringskontonyckeln när du tillfrågas om användarnamn och lösenord**: När du klickar på ”Anslut” i dialogrutan ”Anslut till server” uppmanas du att ange ett användarnamn och lösenord (det kommer att fyllas i automatiskt med ditt macOS-användarnamn). Du har möjlighet att lägga till ditt lagringskontonamnet/lagringskontonyckel i din nyckelring för macOS.
 

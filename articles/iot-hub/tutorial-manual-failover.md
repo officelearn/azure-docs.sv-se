@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250059"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821294"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Självstudie: Utför en manuell redundans för en IoT-hubb (offentlig förhandsversion)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Självstudier: Utför en manuell redundans för en IoT-hubb (offentlig förhandsversion)
 
 Manuell redundans är en funktion i IoT Hub-tjänsten som gör att kunder kan utföra [redundans](https://en.wikipedia.org/wiki/Failover) för hubbens åtgärder från en primär region till motsvarande geoparade Azure-region. Manuell redundans kan utföras i händelse av ett regionalt haveri eller ett längre tjänstavbrott. Du kan även utföra en planerad redundans för att testa din haveriberedskap, men vi rekommenderar att du använder en IoT-testhubb i stället för en som körs i produktion. Funktionen för manuell redundans erbjuds till kunder utan extra kostnad.
 
@@ -112,7 +112,7 @@ En återställning efter fel utförs precis som en manuell redundans. Det här �
 
    ![Skärmbild på manuell begäran om återställning efter fel](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   Banderollerna visas enligt beskrivning i avsnittet [utföra en redundans](#perform-a-failover). När återställningen är klar visar den återigen `westus2` som den primära platsen och `WestCentralUS` som den sekundära platsen, enligt den ursprungliga inställningen.
+   Banderollerna visas enligt beskrivning i avsnittet utföra en redundans. När återställningen är klar visar den återigen `westus2` som den primära platsen och `WestCentralUS` som den sekundära platsen, enligt den ursprungliga inställningen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c9759b8900f0579ccd56d001d50d65aedce2b445
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1480032b7ff018081d9dc25038bf336740810079
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716046"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657589"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Självstudie: Skapa en app med flera containrar (förhandsversion) med Web App for Containers
 
@@ -38,7 +38,12 @@ I den här kursen får du lära du dig att:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="preview-feature-limitations"></a>Begränsningar i förhandsgranskningsfunktion
+Flera containrar är nu i förhandsversion. Följande funktioner i App Service-plattformen stöds inte. Vi förväntar oss att aktivera dessa funktioner för webbapp med flera containrar före allmän tillgänglighet (GA):
+* Autentisering/auktorisering
+* Hanterade identiteter
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna genomföra den här självstudiekursen behöver du erfarenhet av [Docker Compose](https://docs.docker.com/compose/) eller [Kubernetes](https://kubernetes.io/).
 

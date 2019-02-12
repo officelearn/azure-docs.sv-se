@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: cbd17ef81f5bcdf1c5c2f14f11388fd4f23e5da6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239935"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694175"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Snabbstart: Analysera data i Azure Data Lake Storage Gen2 med hjälp av Azure Databricks
 
@@ -29,15 +29,11 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 <a id="config"/>
 
-## <a name="set-aside-storage-account-configuration"></a>Spara lagringskontokonfiguration
-
-Du behöver namnet på ditt lagringskonto och en slutpunkts-URI för filsystem.
+## <a name="get-the-name-of-your-storage-account"></a>Hämta namnet på ditt lagringskonto
 
 Du kan få fram namnet på ditt lagringskonto i Azure-portalen genom att välja **Alla tjänster** och filtrera på *lagring*. Välj sedan **Lagringskonton** och leta rätt på ditt lagringskonto.
 
-Du kan få fram slutpunkts-URI:n för filsystem genom att välja **Egenskaper**, och i egenskapsfönstret hittar du värdet för fältet **Primär slutpunkt för ADLS-filsystem**.
-
-Klistra in båda dessa värden i en textfil. Du kommer att behöva dem snart.
+Klistra in det namnet i en textfil. Du behöver det snart.
 
 <a id="service-principal"/>
 
@@ -46,8 +42,6 @@ Klistra in båda dessa värden i en textfil. Du kommer att behöva dem snart.
 Skapa ett huvudnamn för tjänsten genom att följa anvisningarna i det här avsnittet: [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 Det finns några saker som du måste göra när du utför stegen i den här artikeln.
-
-:heavy_check_mark: När du utför stegen i avsnittet [Skapa ett Azure Active Directory-program](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) i artikeln måste du ange slutpunkts-URI:n som du nyss tog fram i fältet **Inloggnings-URL** i dialogrutan **Skapa**.
 
 :heavy_check_mark: När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln måste du tilldela programmet till **deltagarrollen för bloblagring**.
 
@@ -136,7 +130,7 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
     > [!NOTE]
     > Det här kodblocket kommer åt Data Lake Gen2-slutpunkten direkt genom OAuth, men det finns även andra sätt att ansluta Databricks-arbetsytan till ditt Data Lake Storage Gen2-konto. Du kan till exempel montera filsystemet med hjälp av OAuth eller tillämpa direktåtkomst med delad nyckel. <br>Exempel på de här metoderna finns i artikeln om [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen.
 
-5. I det här kodblocket ersätter du platshållarvärdena `storage-account-name`, `application-id`, `authentication-id` och `tenant-id` med de värden som du hämtade när du genomförde stegen i avsnitten [Spara lagringskontokonfiguration](#config) och [Skapa ett huvudnamn för tjänsten](#service-principal) i den här artikeln.  Ange det namn du vill använda för filsystemet med platshållarvärdet `file-system-name`.
+5. I det här kodblocket ersätter du platshållarvärdena `storage-account-name`, `application-id`, `authentication-id` och `tenant-id` med de värden som du hämtade när du genomförde stegen i avsnitten [Get the name of your storage account](#config) (Hämta namnet på lagringskontot) och [Skapa ett huvudnamn för tjänsten](#service-principal) i den här artikeln.  Ange det namn du vill använda för filsystemet med platshållarvärdet `file-system-name`.
 
 6. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 

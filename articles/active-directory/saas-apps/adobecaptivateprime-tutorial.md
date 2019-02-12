@@ -4,219 +4,197 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2f95b226-1465-47f4-b8b7-de4b0772abbc
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/02/2018
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: aa20e4544fcd78330c0daa15b9aa058ba80af2d5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: e8b8f99b25063e29f9a4ae51387a00c247e31ec5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171957"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Självstudier: Azure Active Directory-integrering med Adobe Captivate Prime
 
-I den här självstudien får du lära dig hur du integrerar Adobe Captivate Prime med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Adobe Captivate Prime med Azure Active Directory (AD Azure).
+Integreringen av Adobe Captivate Prime med Azure AD medför följande fördelar:
 
-Integrera Adobe Captivate Prime med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Adobe Captivate Prime.
+* Du kan göra så att dina användare automatiskt loggas in på Adobe Captivate Prime (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Adobe Captivate Prime.
-- Du kan aktivera användarna att automatiskt få loggat in på Adobe Captivate Prime (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Adobe Captivate Prime behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Adobe Captivate Prime, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- Ett Adobe Captivate Prime enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Adobe Captivate Prime-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Adobe Captivate Prime från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-adobe-captivate-prime-from-the-gallery"></a>Att lägga till Adobe Captivate Prime från galleriet
-För att konfigurera integrering av Adobe Captivate Prime i Azure AD, som du behöver lägga till Adobe Captivate Prime från galleriet i din lista över hanterade SaaS-appar.
+* Adobe Captivate Prime har stöd för **IDP**-initierad enkel inloggning
+
+## <a name="adding-adobe-captivate-prime-from-the-gallery"></a>Lägga till Adobe Captivate Prime från galleriet
+
+För att konfigurera integreringen av Adobe Captivate Prime i Azure AD måste du lägga till Adobe Captivate Prime från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Adobe Captivate Prime från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Adobe Captivate Prime**väljer **Adobe Captivate Prime** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Adobe Captivate Prime**, väljer **Adobe Captivate Prime** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Adobe Captivate Prime i resultatlistan](./media/adobecaptivateprime-tutorial/tutorial_adobecaptivateprime_addfromgallery.png)
+     ![Adobe Captivate Prime i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Adobe Captivate Prime baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Adobe Captivate Prime baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Adobe Captivate Prime upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Adobe Captivate Prime är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Adobe Captivate Prime upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med Adobe Captivate Prime, måste du utföra följande byggblock:
+För att konfigurera och testa enkel inloggning med Azure AD med Adobe Captivate Prime behöver du utföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare för Adobe Captivate Prime](#create-an-adobe-captivate-prime-test-user)**  – du har en motsvarighet för Britta Simon i Adobe Captivate Prime som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för Adobe Captivate Prime](#configure-adobe-captivate-prime-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa Adobe Captivate Prime-testanvändare](#create-adobe-captivate-prime-test-user)** – för att skapa en motsvarighet till Britta Simon i Adobe Captivate Prime som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Adobe Captivate Prime-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Adobe Captivate Prime:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Adobe Captivate Prime:
 
-1. I Azure-portalen på den **Adobe Captivate Prime** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Adobe Captivate Prime**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/adobecaptivateprime-tutorial/tutorial_adobecaptivateprime_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **Adobe Captivate Prime domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Adobe Captivate Prime domän och URL: er med enkel inloggning för information](./media/adobecaptivateprime-tutorial/tutorial_adobecaptivateprime_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **identifierare** textrutan anger du ett URL: `https://captivateprime.adobe.com`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **svars-URL** textrutan anger du ett URL: `https://captivateprime.adobe.com/saml/SSO`
+4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    ![Information om enkel inloggning med Adobe Captivate Prime-domän och -URL:er](common/idp-intiated.png)
 
-    ![Länk för hämtning av certifikat](./media/adobecaptivateprime-tutorial/tutorial_adobecaptivateprime_certificate.png) 
+    a. I textrutan **Identifierare** skriver du in en URL: `https://captivateprime.adobe.com`
 
-5. Klicka på **spara** knappen.
+    b. I textrutan **Svars-URL** skriver du en URL: `https://captivateprime.adobe.com/saml/SSO`
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobecaptivateprime-tutorial/tutorial_general_400.png)
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-6. Gå till **egenskaper** fliken, kopiera den **URL för användaråtkomst** och klistra in den i anteckningar.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Länken för användaren åtkomst](./media/adobecaptivateprime-tutorial/tutorial_adobecaptivateprime_appprop.png)
+6. I avsnittet **Konfigurera Adobe Captivate Prime** kopierar du lämpliga URL:er enligt dina behov.
 
-7. Att konfigurera enkel inloggning på **Adobe Captivate Prime** sida, som du behöver skicka de hämtade **XML-Metadata för** och kopierade **URL för användaråtkomst** till [Adobe Captivate Prime supportteamet](mailto:captivateprimesupport@adobe.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+    a. Inloggnings-URL
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    b. Azure AD-identifierare
 
-   ![Skapa en Azure AD-testanvändare][100]
+    c. Utloggnings-URL
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+7. Gå till fliken **Egenskaper**, kopiera **URL för användaråtkomst** och klistra in den i Anteckningar.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    ![Länk för användaråtkomst](./media/adobecaptivateprime-tutorial/tutorial_adobecaptivateprime_appprop.png)
 
-    ![Azure Active Directory-knappen](./media/adobecaptivateprime-tutorial/create_aaduser_01.png)
+### <a name="configure-adobe-captivate-prime-single-sign-on"></a>Konfigurera enkel inloggning för Adobe Captivate Prime
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+För att konfigurera enkel inloggning på **Adobe Captivate Prime**-sidan behöver du skicka nedladdad **federationsmetadata-XML**, kopierad **URL för användaråtkomst** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/adobecaptivateprime-tutorial/create_aaduser_02.png)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![Knappen Lägg till](./media/adobecaptivateprime-tutorial/create_aaduser_03.png)
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-4. I den **användaren** dialogrutan utför följande steg:
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Dialogrutan användare](./media/adobecaptivateprime-tutorial/create_aaduser_04.png)
+2. Välj **Ny användare** överst på skärmen.
 
-    a. I den **namn** skriver **BrittaSimon**.
+    ![Knappen Ny användare](common/new-user.png)
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+3. Genomför följande steg i Användaregenskaper.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
-  
-### <a name="create-an-adobe-captivate-prime-test-user"></a>Skapa ett Adobe Captivate Prime testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Adobe Captivate Prime. Arbeta med [Adobe Captivate Prime supportteamet](mailto:captivateprimesupport@adobe.com) att lägga till användare i Adobe Captivate Prime-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Adobe Captivate Prime.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Adobe Captivate Prime.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Adobe Captivate Prime**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Adobe Captivate Prime Britta Simon utför du följande steg:**
+2. I programlistan väljer du **Adobe Captivate Prime**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken för Adobe Captivate Prime i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-2. I listan med program väljer **Adobe Captivate Prime**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Adobe Captivate Prime länken i listan med program](./media/adobecaptivateprime-tutorial/tutorial_adobecaptivateprime_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-adobe-captivate-prime-test-user"></a>Skapa Adobe Captivate Prime-testanvändare
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Adobe Captivate Prime. Kontakta [supportteamet för Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) och lägg till användarna i Adobe Captivate Prime-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Adobe Captivate Prime i åtkomstpanelen du bör få automatiskt loggat in på ditt Adobe Captivate Prime-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Adobe Captivate Prime-panelen i åtkomstpanelen bör du automatiskt loggas in på Adobe Captivate Prime som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/adobecaptivateprime-tutorial/tutorial_general_01.png
-[2]: ./media/adobecaptivateprime-tutorial/tutorial_general_02.png
-[3]: ./media/adobecaptivateprime-tutorial/tutorial_general_03.png
-[4]: ./media/adobecaptivateprime-tutorial/tutorial_general_04.png
-
-[100]: ./media/adobecaptivateprime-tutorial/tutorial_general_100.png
-
-[200]: ./media/adobecaptivateprime-tutorial/tutorial_general_200.png
-[201]: ./media/adobecaptivateprime-tutorial/tutorial_general_201.png
-[202]: ./media/adobecaptivateprime-tutorial/tutorial_general_202.png
-[203]: ./media/adobecaptivateprime-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

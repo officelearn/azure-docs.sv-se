@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 3ccba82e626882a99deaca2f12be3d2f96869b81
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0ef206cf4407c6392ae5d9a70ba156f5635715e9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078957"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814800"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Skapa ett Kubernetes-kluster med Azure Kubernetes Service och Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) hanterar din värdmiljö för Kubernetes, vilket gör det enkelt att snabbt distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också problem med pågående åtgärder och underhåll genom etablering, uppgradering och skalning av resurser på begäran, utan att koppla från dina program.
@@ -352,7 +352,7 @@ I det här avsnittet ser du hur du använder kommandot `terraform init` för att
 
     ![Exempel på resultat för "terraform plan"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Kör kommandot `terraform apply` för att tillämpa planen för att skapa Kubernetes-klustret. Processen för att skapa ett Kubernetes-kluster kan ta flera minuter, vilket resulterar i att tidsgränsen för Cloud Shell-sessionen nås. Om tidsgränsen för Cloud Shell-sessionen nås kan du följa stegen i avsnittet [Återhämtning från en Cloud Shell-timeout](#recover-from-a-dloud-shell-timeout) för att slutföra självstudien.
+1. Kör kommandot `terraform apply` för att tillämpa planen för att skapa Kubernetes-klustret. Processen för att skapa ett Kubernetes-kluster kan ta flera minuter, vilket resulterar i att tidsgränsen för Cloud Shell-sessionen nås. Om tidsgränsen för Cloud Shell-sessionen nås kan du följa stegen i avsnittet Återhämtning från en Cloud Shell-timeout för att slutföra självstudien.
 
     ```bash
     terraform apply out.plan
@@ -362,7 +362,7 @@ I det här avsnittet ser du hur du använder kommandot `terraform init` för att
 
     ![Exempel på resultat för "terraform apply"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. I Azure-portalen väljer du **Alla tjänster** i den vänstra menyn för att se resurserna som skapades för ditt nya Kubernetese-kluster.
+1. I Azure-portalen väljer du **Alla tjänster** i den vänstra menyn för att se resurserna som skapades för ditt nya Kubernetes-kluster.
 
     ![Cloud Shell-kommandotolk](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 

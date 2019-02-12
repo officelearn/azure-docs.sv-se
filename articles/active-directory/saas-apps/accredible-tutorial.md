@@ -4,227 +4,202 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/07/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c5eaa0944210e701c306180709bf97abdbb3b9e3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 89cb00d4d0ee941dcd7e7a3ee3d200ff288ee679
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151285"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Självstudier: Azure Active Directory-integrering med Accredible
 
-I den här självstudien får du lära dig hur du integrerar Accredible med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Accredible med Azure Active Directory (AD Azure).
+Integreringen av Accredible med Azure AD medför följande fördelar:
 
-Integrera Accredible med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Accredible.
+* Du kan göra så att dina användare automatiskt loggas in på Accredible (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Accredible.
-- Du kan aktivera användarna att automatiskt få loggat in på Accredible (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Accredible behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Accredible, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Accredible enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Accredible-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Accredible från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-accredible-from-the-gallery"></a>Att lägga till Accredible från galleriet
-För att konfigurera integrering av Accredible i Azure AD, som du behöver lägga till Accredible från galleriet i din lista över hanterade SaaS-appar.
+* Accredible stöder **IDP**-initierad enkel inloggning
+
+## <a name="adding-accredible-from-the-gallery"></a>Lägga till Accredible från galleriet
+
+För att konfigurera integreringen av Accredible i Azure AD måste du lägga till Accredible från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Accredible från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Accredible**väljer **Accredible** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Accredible**, väljer **Accredible** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Accredible i resultatlistan](./media/accredible-tutorial/tutorial_accredible_addfromgallery.png)
+     ![Accredible i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Accredible baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Accredible baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Accredible upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Accredible är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Accredible upprättas.
-
-I Accredible, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med Accredible, måste du utföra följande byggblock:
+För att konfigurera och testa enkel inloggning med Azure AD med Accredible behöver du utföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare Accredible](#create-an-accredible-test-user)**  – du har en motsvarighet för Britta Simon i Accredible som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för Accredible](#configure-accredible-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa Accredible-testanvändare](#create-accredible-test-user)** – för att skapa en motsvarighet till Britta Simon i Accredible som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Accredible program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Accredible:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Accredible:
 
-1. I Azure-portalen på den **Accredible** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Accredible**-programintegrering och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/accredible-tutorial/tutorial_accredible_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **Accredible domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Accredible domän och URL: er med enkel inloggning för information](./media/accredible-tutorial/tutorial_accredible_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **identifierare** textrutan anger du ett URL:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
+
+    ![Information om enkel inloggning med Accredible-domän och -URL:er](common/idp-intiated.png)
+
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster:
+
     | |
     |--|
     |  `https://api.accredible.com/sp/admin/accredible` |
     | `https://api.accredible.com/sp/user/accredible` |
+    | |
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://api.accredible.com/v1/saml/admin/<Unique id>/consume`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://api.accredible.com/v1/saml/admin/<Unique id>/consume`
 
-    > [!NOTE] 
-    > Värdet för svars-URL:en är inte verkligt. Använda ID-värde enligt rollen för användaren. Varje kund har en unik svars-URL beroende på deras ID. Kontakta [Accredible supportteamet](mailto:support@accredible.com) att hämta dessa värden.
- 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    > [!NOTE]
+    > Värdet för svars-URL:en är inte verkligt. Utefter användarens roll använder du respektive identifierarvärde. Varje kund har en unik svars-URL beroende på kundens ID. Kontakta [supportteamet för Accredible ](mailto:support@accredible.com) för att hämta dessa värden.
 
-    ![Länk för hämtning av certifikat](./media/accredible-tutorial/tutorial_accredible_certificate.png) 
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **XML-federationsmetadata** från de angivna alternativen enligt dina behov och sparar dem på datorn.
 
-5. Klicka på **spara** knappen.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/accredible-tutorial/tutorial_general_400.png)
+6. I avsnittet **Konfigurera Accredible** kopierar du lämpliga URL:er enligt dina behov.
 
-6. Att konfigurera enkel inloggning på **Accredible** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Accredible supportteamet](mailto:support@accredible.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-accredible-single-sign-on"></a>Konfigurera enkel inloggning för Accredible
+
+För att konfigurera enkel inloggning på **Accredible**-sidan behöver du skicka nedladdad **federationsmetadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Accredible](mailto:support@accredible.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/accredible-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/accredible-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/accredible-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/accredible-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
-  
-### <a name="create-an-accredible-test-user"></a>Skapa en Accredible testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Accredible. Du behöver skicka användarens emailid till [Accredible supportteamet](mailto:support@accredible.com), och sedan de kontrollera e-postmeddelandet och skicka inbjudan e-postmeddelandet så att du kan lägga till användare i accredible-plattformen.
- 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Accredible.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Accredible.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Accredible**.
 
-**Om du vill tilldela Britta Simon Accredible, utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I programlistan väljer du **Accredible**.
 
-    ![Tilldela användare][201] 
+    ![Länken för Accredible i programlistan](common/all-applications.png)
 
-2. I listan med program väljer **Accredible**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken Accredible i listan med program](./media/accredible-tutorial/tutorial_accredible_app.png)  
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-accredible-test-user"></a>Skapa Accredible-testanvändare
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+I det här avsnittet skapar du en användare med namnet Britta Simon i Accredible. Du behöver skicka användarens emailid (e-post-ID) till [supportteamet för Accredible](mailto:support@accredible.com). De verifierar e-postadressen och skickar e-postinbjudan till dig så att du kan lägga till användare i Accredible-plattformen.
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Accredible i åtkomstpanelen du bör få automatiskt loggat in på ditt Accredible program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Accredible-panelen i åtkomstpanelen bör du automatiskt loggas in på Accredible som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/accredible-tutorial/tutorial_general_01.png
-[2]: ./media/accredible-tutorial/tutorial_general_02.png
-[3]: ./media/accredible-tutorial/tutorial_general_03.png
-[4]: ./media/accredible-tutorial/tutorial_general_04.png
-
-[100]: ./media/accredible-tutorial/tutorial_general_100.png
-
-[200]: ./media/accredible-tutorial/tutorial_general_200.png
-[201]: ./media/accredible-tutorial/tutorial_general_201.png
-[202]: ./media/accredible-tutorial/tutorial_general_202.png
-[203]: ./media/accredible-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

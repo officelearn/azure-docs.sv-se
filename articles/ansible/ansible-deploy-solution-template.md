@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 705d23a93b25c513d413f2115c47d52ff6ef2bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9fa711c86e3ef7f05e87504905ec642808d8f601
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229219"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770290"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Distribuera Ansible-lösningsmallen för Azure till CentOS
 Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-instans på en virtuell CentOS-dator med Ansible och en uppsättning verktyg som konfigurerats att fungera med Azure. Här är några av verktygen:
@@ -53,7 +53,7 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
 1. På fliken **Ytterligare inställningar** anger du nödvändig information:
 
     - **Storlek** – En standardstorlek används på Azure-portalen. Om du vill använda en annan storlek som passar ditt scenario väljer du pilen för att visa en lista med olika storlekar.
-    - **VM-diskstorlek** – Välj antingen **SSD** (Premium Solid-State Drive) eller **HDD** (hårddisk). I den här demonstrationen används **SSD** eftersom SSD har flera prestandafördelar. Mer information om dessa typer av disklagring finns i följande artiklar:
+    - **VM-disktyp** – Välj antingen **SSD** (Premium Solid-State Drive) eller **HDD** (hårddisk). I den här demonstrationen används **SSD** eftersom SSD har flera prestandafördelar. Mer information om dessa typer av disklagring finns i följande artiklar:
         - [Premium Storage och hanterade diskar för virtuella datorer med höga prestanda](/azure/virtual-machines/windows/premium-storage)
         - [Standard SSD Managed Disks för arbetslastningar för virtuella Azure-datorer](/azure/virtual-machines/windows/disks-standard-ssd)
     - **Offentlig IP-adress** – Ange den här inställningen om du vill kommunicera med den virtuella datorn utanför den virtuella datorn. Standardvärdet är en ny offentlig IP-adress med namnet `ansible-pip`. Om du vill ange en annan IP-adress väljer du pilen för att ange attributen, till exempel namn, SKU och tilldelning för IP-adressen. 

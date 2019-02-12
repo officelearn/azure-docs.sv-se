@@ -6,29 +6,16 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 559bdd479d02a8744f9b113c43c2c860d8218401
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbdc57489eb7ebd50e3ce7e2b4e0e4081aef8e27
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038202"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770392"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
-<table>
-<tr>
-  <td><strong>Binärfiler</strong></td>
-  <td>[Ladda ned MSI](https://aka.ms/cosmosdb-emulator)</td>
-</tr>
-<tr>
-  <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
-</tr>
-<tr>
-  <td><strong>Docker-källa</strong></td>
-  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
-</tr>
-</table>
+|**Binärfiler**|[Ladda ned MSI](https://aka.ms/cosmosdb-emulator)| |**Docker**|[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)| |**Docker-källa** | [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)|
 
 Azure Cosmos DB-emulatorn ger en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utveckling. Med Azure Cosmos DB-emulatorn kan du utveckla och testa ditt program lokalt, utan att skapa en Azure-prenumeration och utan kostnad. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan du växla till ett Azure Cosmos DB-konto i molnet.
 
@@ -162,133 +149,28 @@ Du kan använda kommandoraden från installationsplatsen för att starta och sto
 
 Om du vill visa en lista över alternativ skriver du `CosmosDB.Emulator.exe /?` i kommandotolken.
 
-<table>
-<tr>
-  <td><strong>Alternativ</strong></td>
-  <td><strong>Beskrivning</strong></td>
-  <td><strong>Kommando</strong></td>
-  <td><strong>Argument</strong></td>
-</tr>
-<tr>
-  <td>[Inga argument]</td>
-  <td>Startar Azure Cosmos DB-emulatorn med standardinställningar.</td>
-  <td>CosmosDB.Emulator.exe</td>
-  <td></td>
-</tr>
-<tr>
-  <td>[Hjälp]</td>
-  <td>Visar en lista över kommandoradsargument som stöds.</td>
-  <td>CosmosDB.Emulator.exe /?</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GetStatus</td>
-  <td>Laddar ned status för Azure Cosmos DB-emulatorn. Statusen visas med slutkoden: 1 = Startar, 2 = Körs, 3 = Stoppad. En negativ slutkod anger att ett fel har uppstått. Inga andra utdata produceras.</td>
-  <td>CosmosDB.Emulator.exe /GetStatus</td>
-  <td></td>
-<tr>
-  <td>Avstängning</td>
-  <td>Stänger Azure Cosmos DB-emulatorn.</td>
-  <td>CosmosDB.Emulator.exe /Shutdown</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DataPath</td>
-  <td>Anger den sökväg där du kan lagra filer. Standardinställningen är %LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
-  <td>&lt;datapath&gt;: En åtkomlig sökväg</td>
-</tr>
-<tr>
-  <td>Port</td>
-  <td>Anger det portnummer som ska användas för emulatorn. Standardvärdet är 8081.</td>
-  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
-  <td>&lt;port&gt;: Enskilt portnummer</td>
-</tr>
-<tr>
-  <td>MongoPort</td>
-  <td>Anger det portnummer som ska användas för API för MongoDB-kompatibilitet. Standardvärdet är 10255.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
-  <td>&lt;mongoport&gt;: Enskilt portnummer</td>
-</tr>
-<tr>
-  <td>DirectPorts</td>
-  <td>Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254.</td>
-  <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
-  <td>&lt;directports&gt;: Kommaavgränsad lista över 4 portar</td>
-</tr>
-<tr>
-  <td>Nyckel</td>
-  <td>Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
-  <td>&lt;nyckel&gt;: Nyckeln måste vara en base-64-kodning av en 64 bytes vektor</td>
-</tr>
-<tr>
-  <td>EnableRateLimiting</td>
-  <td>Anger att begränsande beteende för förfrågningsfrekvens är aktiverat.</td>
-  <td>CosmosDB.Emulator.exe /EnableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DisableRateLimiting</td>
-  <td>Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat.</td>
-  <td>CosmosDB.Emulator.exe /DisableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoUI</td>
-  <td>Visa inte emulatorns användargränssnitt.</td>
-  <td>CosmosDB.Emulator.exe /NoUI</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoExplorer</td>
-  <td>Visa inte datautforskaren vid start.</td>
-  <td>CosmosDB.Emulator.exe /NoExplorer</td>
-  <td></td>
-</tr>
-<tr>
-  <td>PartitionCount</td>
-  <td>Anger det högsta antalet partitionerade samlingar. Läs [Ändra antalet samlingar](#set-partitioncount) för mer information.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
-  <td>&lt;partitioncount&gt;: Det högsta antalet tillåtna enskilda partitionssamlingar. Standardvärdet är 25. Maxvärdet är 250 GB.</td>
-</tr>
-<tr>
-  <td>DefaultPartitionCount</td>
-  <td>Anger standardantalet för partitioner för en partitionerad samling.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
-  <td>&lt;defaultpartitioncount&gt; Standardvärdet är 25.</td>
-</tr>
-<tr>
-  <td>AllowNetworkAccess</td>
-  <td>Ger åtkomst till emulatorn över ett nätverk. Du måste även skicka /Key=&lt;key_string&gt; eller /KeyFile=&lt;file_name&gt; för att aktivera nätverksåtkomst.</td>
-  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>eller<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoFirewall</td>
-  <td>Justera inga brandväggsregler när /AllowNetworkAccess används.</td>
-  <td>CosmosDB.Emulator.exe /NoFirewall</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GenKeyFile</td>
-  <td>Generera en ny auktoriseringsnyckel och spara den i den angivna filen. Den genererade nyckeln kan användas med alternativen /Key eller /KeyFile.</td>
-  <td>CosmosDB.Emulator.exe /GenKeyFile=&lt;sökväg till nyckelfilen&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>Konsekvens</td>
-  <td>Ställ in konsekvensnivå för kontot.</td>
-  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
-  <td>&lt;konsekvens&gt;: Värdet måste ha någon av följande [konsekvensnivåer](consistency-levels.md): Session, Stark, Eventuell eller BoundedStaleness. Standardvärdet är Session.</td>
-</tr>
-<tr>
-  <td>?</td>
-  <td>Visa hjälpmeddelandet.</td>
-  <td></td>
-  <td></td>
-</tr>
-</table>
+|**Alternativ** | **Beskrivning** | **Kommando**| **Argument**|
+|---|---|---|---|
+|[Inga argument] | Startar Azure Cosmos DB-emulatorn med standardinställningar. |CosmosDB.Emulator.exe| |
+|[Hjälp] |Visar en lista över kommandoradsargument som stöds.|CosmosDB.Emulator.exe /? | |
+| GetStatus |Laddar ned status för Azure Cosmos DB-emulatorn. Statusen visas med slutkoden: 1 = Startar, 2 = Körs, 3 = Stoppad. En negativ slutkod anger att ett fel har uppstått. Inga andra utdata produceras. | CosmosDB.Emulator.exe /GetStatus| |
+| Avstängning| Stänger Azure Cosmos DB-emulatorn.| CosmosDB.Emulator.exe /Shutdown | |
+|DataPath | Anger den sökväg där du kan lagra filer. Standardinställningen är %LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: En åtkomlig sökväg |
+|Port | Anger det portnummer som ska användas för emulatorn. Standardvärdet är 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<port\>: Enskilt portnummer |
+| MongoPort | Anger det portnummer som ska användas för API för MongoDB-kompatibilitet. Standardvärdet är 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: Enskilt portnummer|
+| DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
+| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | CosmosDB.Emulator.exe /Key:\<key\> | \<nyckel\>: Nyckeln måste vara en base-64-kodning av en 64 bytes vektor|
+| EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |CosmosDB.Emulator.exe /EnableRateLimiting | |
+| DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |CosmosDB.Emulator.exe /DisableRateLimiting | |
+| NoUI | Visa inte emulatorns användargränssnitt. | CosmosDB.Emulator.exe /NoUI | |
+| NoExplorer | Visa inte datautforskaren vid start. |CosmosDB.Emulator.exe /NoExplorer | | 
+| PartitionCount | Anger det högsta antalet partitionerade samlingar. Läs [Ändra antalet samlingar](#set-partitioncount) för mer information. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: Det högsta antalet tillåtna enskilda partitionssamlingar. Standardvärdet är 25. Maxvärdet är 250 GB.|
+| DefaultPartitionCount| Anger standardantalet för partitioner för en partitionerad samling. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> Standardvärdet är 25.|
+| AllowNetworkAccess | Ger åtkomst till emulatorn över ett nätverk. Du måste även skicka /Key=\<key_string\> eller /KeyFile=\<file_name\> för att aktivera nätverksåtkomst. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> eller CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
+| NoFirewall | Justera inga brandväggsregler när /AllowNetworkAccess används. |CosmosDB.Emulator.exe /NoFirewall | |
+| GenKeyFile | Generera en ny auktoriseringsnyckel och spara den i den angivna filen. Den genererade nyckeln kan användas med alternativen /Key eller /KeyFile. | CosmosDB.Emulator.exe /GenKeyFile=\<sökväg till nyckelfilen\> | |
+| Konsekvens | Ställ in konsekvensnivå för kontot. | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<konsekvens\>: Värdet måste ha någon av följande [konsekvensnivåer](consistency-levels.md): Session, Stark, Eventuell eller BoundedStaleness. Standardvärdet är Session. |
+| ? | Visa hjälpmeddelandet.| | |
 
 ## <a id="set-partitioncount"></a>Ändra antalet samlingar
 

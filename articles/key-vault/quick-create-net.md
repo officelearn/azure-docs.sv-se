@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en nodwebbapp – Azure Key Vault | Microsoft Docs'
-description: 'Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp'
+description: I den här snabbstarten konfigurerar du och hämtar en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,31 +9,32 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002611"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565555"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 
-I den här snabbstarten följer du de steg som behövs för att få ett Azure-webbprogram att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. Lär dig att:
+I den här snabbstarten följer du stegen för att få ett Azure-webbprogram att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. Key Vault hjälper till att skydda informationen. Lär dig att:
 
-> [!div class="checklist"]
-> * Skapa ett nyckelvalv.
-> * Lagra en hemlighet i nyckelvalvet.
-> * Hämta en hemlighet från nyckelvalvet.
-> * Skapa ett Azure-webbprogram.
-> * Aktivera en [hanterad tjänstidentitet](../active-directory/managed-identities-azure-resources/overview.md) för webbappen.
-> * Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från nyckelvalvet.
+* Skapa ett nyckelvalv.
+* Lagra en hemlighet i nyckelvalvet.
+* Hämta en hemlighet från nyckelvalvet.
+* Skapa ett Azure-webbprogram.
+* Aktivera en [hanterad tjänstidentitet](../active-directory/managed-identities-azure-resources/overview.md) för webbappen.
+* Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från nyckelvalvet.
 
-Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen](key-vault-whatis.md#basic-concepts).
+Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen för Key Vault](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
 >Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Det här kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. 
 >
->Med [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) ges program som körs i Azure en identitet som hanteras automatiskt av Azure. Det här löser *problemet med den första hemligheten* så att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten.
+>Med [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) får program som körs i Azure en identitet som hanteras automatiskt av Azure. Det här löser *problemet med den första hemligheten* så att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -77,7 +78,7 @@ Den resursgrupp du nyss skapade används i hela den här artikeln.
 
 Nu ska du skapa ett nyckelvalv i resursgruppen som du skapade i föregående steg. Ange följande information:
 
-* Key Vault-namn: Namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla (0–9, a–z, A–Z och -).
+* Key Vault-namn: Namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla 0–9, a–z, A–Z och ett bindestreck (-).
 * Namn på resursgrupp.
 * Plats: **USA, östra**.
 
@@ -119,7 +120,7 @@ Redigera program.cs-filen för att köra exemplet med namnet på ditt specifika 
 
 1. Bläddra till mappen key-vault-dotnet-core-quickstart.
 2. Öppna filen key-vault-dotnet-core-quickstart.sln i Visual Studio 2017.
-3. Öppna Program.cs-filen och uppdatera platshållaren *YourKeyVaultName* (ditt nyckelvalvsnamn) med namnet på det nyckelvalv du skapade tidigare.
+3. Öppna Program.cs-filen och uppdatera platshållaren *YourKeyVaultName* (ditt nyckelvalvsnamn) med namnet på det nyckelvalv som du skapade tidigare.
 
 Den här lösningen använder NuGet-biblioteken [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
@@ -143,8 +144,7 @@ Publicera den här appen till Azure för att se den live som webbapp, och också
 
 Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. [Hanterade identiteter för Azure-resurser (översikt)](../active-directory/managed-identities-azure-resources/overview.md) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
-1. Gå tillbaka till Azure CLI.
-2. Kör kommandot assign-identity för att skapa identiteten för det här programmet:
+Kör kommandot assign-identity i Azure CLI för att skapa identiteten för det här programmet:
 
    ```azurecli
    az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
@@ -171,10 +171,20 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Nu när du kör programmet bör ditt hemliga värde hämtas. I kommandot ovan ger du Identity(MSI) för App Service behörighet att utföra åtgärderna **hämta** och **lista** i ditt Key Vault
+Nu när du kör programmet bör ditt hemliga värde hämtas. I det föregående kommandot ger du identiteten för App Service behörighet att utföra åtgärderna **get** (hämta) och **list** (lista) i ditt nyckelvalv.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när du inte längre behöver dem. Det gör du genom att markera resursgruppen för den virtuella datorn och välja **Ta bort**.
+
+Ta bort nyckelvalvet med hjälp av kommandot [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
+
+```azurecli
+az keyvault delete --name
+                   [--resource-group]
+                   [--subscription]
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
-* [Azure SDK för .NET](https://github.com/Azure/azure-sdk-for-net)
-* [Azure REST API-referens](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [Läs mer om Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

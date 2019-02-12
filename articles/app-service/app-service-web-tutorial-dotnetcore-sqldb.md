@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721860"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510705"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Självstudier: Skapa en .NET Core- och SQL Database-app i Azure App Service
 
@@ -367,9 +367,40 @@ När `git push` har slutförts kan du gå till App Service-appen och prova att a
 
 Alla befintliga att-göra-uppgifter visas fortfarande. När du publicerar om .NET Core-appen går inte befintliga data i SQL Database förlorade. Med Entity Framework Core Migrations ändras endast dataschemat, så att befintliga data lämnas intakta.
 
+## <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar
+
+När ASP.NET Core-appen körs i Azure App Service kan du skicka konsolloggarna till Cloud Shell. På så sätt kan du få samma diagnostikmeddelanden för att felsöka programfel.
+
+Exempelprojektet följer redan riktlinjerna i [ASP.NET Core-loggning i Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) med två konfigurationsändringar:
+
+- Innehåller en referens till `Microsoft.Extensions.Logging.AzureAppServices` i *DotNetCoreSqlDb.csproj*.
+- Anropar `loggerFactory.AddAzureWebAppDiagnostics()` i *Startup.cs*.
+
+För att ange [loggnivå](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) för ASP.NET Core i App Service till `Information` från standardnivån `Warning`använder du kommandot [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) i Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> Projektets loggnivå är redan inställd på `Information` i *appsettings.json*.
+> 
+
+Starta loggströmningen genom att använda kommandot [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) i Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Uppdatera Azure-app i webbläsaren så hämtas webbtrafik när loggströmningen har startats. Du kan nu se konsolloggarna som skickas till terminalen. Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
+
+Skriv när som helst `Ctrl`+`C` om du vill stoppa loggströmningen.
+
+Mer information om hur du anpassar ASP.NET Core-loggar finns i avsnittet om [loggning i ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
-Gå till [Azure Portal](https://portal.azure.com) om du vill se den app du skapade.
+Gå till [Azure-portalen](https://portal.azure.com) om du vill se den app du skapade.
 
 Klicka på **App Services** på menyn till vänster och klicka sedan på din Azure-apps namn.
 

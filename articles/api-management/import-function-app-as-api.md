@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129768"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810787"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
 
@@ -160,7 +160,7 @@ Du kan anropa åtgärder direkt från Azure-portalen. Azure-portalen är ett pra
 
 Du kan även anropa åtgärder från utvecklarportalen för att testa API:er. 
 
-1. Välj det API som du skapade i [Importera och publicera ett serverdels-API](#create-api).
+1. Välj det API du skapade i Importera och publicera ett serverdels-API.
 
 2. Välj **Developer portal** (Utvecklarportal).
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: b9ea87b3a56c4759a0d96b7d01e33087c64ccd91
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 631642f487986e3315c1988f8b591f6e6b43d760
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037567"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561395"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en SQL API-app med Python och Azure Portal
 
@@ -75,7 +75,27 @@ Nu ska vi klona vi en SQL API-app från GitHub, ange anslutningssträngen och k�
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git
     ```  
-    
+
+## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
+
+Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
+
+1. Gå till [Azure-portalen](https://portal.azure.com/). Gå till ditt Azure Cosmos DB-konto och klicka på **Nycklar** i den vänstra navigeringspanelen. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
+
+    ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
+
+2. Öppna filen `CosmosGetStarted.py` i C:\git-samples\azure-cosmos-db-python-getting-started i Visual Studio Code.
+
+3. Kopiera ditt **URI**-värde från portalen (med kopieringsknappen) och gör det till värdet för **slutpunktsnyckeln** i ``CosmosGetStarted.py``. 
+
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
+
+4. Kopiera sedan värdet för **PRIMÄRNYCKEL** från portalen och gör det till värdet för **config.PRIMARYKEY** i ``CosmosGetStarted.py``. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
+
+    `'PRIMARYKEY': 'FILLME',`
+
+5. Spara filen ``CosmosGetStarted.py``.
+
 ## <a name="review-the-code"></a>Granska koden
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
@@ -84,7 +104,7 @@ Observera att om du är bekant med den tidigare versionen av Python SDK så är 
 
 Följande kodavsnitt är alla hämtade från filen `CosmosGetStarted.py`.
 
-* CosmosClient initieras.
+* CosmosClient initieras. Se till att uppdatera värdena ”Endpoint” (Slutpunkt) och ”master key” (huvudnyckel) enligt beskrivningen i avsnittet [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
     ```python
     # Initialize the Cosmos client
@@ -146,27 +166,7 @@ Följande kodavsnitt är alla hämtade från filen `CosmosGetStarted.py`.
     for item in iter(result_iterable):
         print(item['message'])
     ```
-
-## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
-
-Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
-
-1. Gå till [Azure-portalen](https://portal.azure.com/). Gå till ditt Azure Cosmos DB-konto och klicka på **Nycklar** i den vänstra navigeringspanelen. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
-
-    ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
-
-2. Öppna filen `CosmosGetStarted.py` i C:\git-samples\azure-cosmos-db-python-getting-started i Visual Studio Code.
-
-3. Kopiera ditt **URI**-värde från portalen (med kopieringsknappen) och gör det till värdet för **slutpunktsnyckeln** i ``CosmosGetStarted.py``. 
-
-    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
-
-4. Kopiera sedan värdet för **PRIMÄRNYCKEL** från portalen och gör det till värdet för **config.PRIMARYKEY** i ``CosmosGetStarted.py``. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
-
-    `'PRIMARYKEY': 'FILLME',`
-
-5. Spara filen ``CosmosGetStarted.py``.
-    
+   
 ## <a name="run-the-app"></a>Kör appen
 
 1. Gå till Visual Studio Code och välj **Visa**>**Kommandopalett**. 

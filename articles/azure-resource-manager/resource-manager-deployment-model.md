@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382802"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486817"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager kontra klassisk distribution: Förstå distributionsmodeller och tillståndet för dina resurser
 
@@ -30,6 +30,8 @@ Artikeln beskriver både Azure Resource Manager och de klassiska distributionsmo
 Microsoft rekommenderar att du använder Resource Manager för alla nya resurser, för att förenkla distributionen och hanteringen av resurser. Om möjligt rekommenderar Microsoft att du distribuerar om befintliga resurser via Resource Manager.
 
 Om du är nybörjare i Resource Manager kan du läsa den terminologi som definieras i [Översikt över Azure Resource Manager](resource-group-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="history-of-the-deployment-models"></a>Historik för distributionsmodellerna
 Azure levererade ursprungligen bara den klassiska distributionsmodellen. I den modellen var varje resurs fristående och det gick inte att gruppera relaterade resurser. I stället var du tvungen att manuellt spåra vilka resurser som fanns i din lösning eller ditt program och sedan komma ihåg att hantera dem på ett samordnat sätt. Om du ville distribuera en lösning var du tvungen att skapa varje resurs individuellt via portalen, eller skapa ett skript som distribuerade alla resurser i rätt ordning. Om du ville ta bort en lösning var du tvungen att ta bort varje resurs separat. Det gick inte att tillämpa och uppdatera principerna för åtkomstkontroll för relaterade resurser på ett enkelt sätt. Slutligen kunde du inte tillämpa taggar på resurser för att märka dem med villkor som hjälpte dig att övervaka dina resurser och hantera faktureringen.
@@ -57,7 +59,7 @@ Om resursen har skapats via klassisk distribution måste du fortsätta att anvä
 I vissa fall kan ett Resource Manager-kommando hämta information om en resurs som skapats via klassisk distribution, eller utföra administrativa åtgärder som att flytta en klassisk resurs till en annan resursgrupp. Men detta behöver inte innebära att typen har stöd för Resource Manager-åtgärder. Anta att exempelvis att du har en resursgrupp med en virtuell dator som har skapats med klassisk distribution. Om du kör följande PowerShell-kommando i Resource Manager:
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+Get-AzResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 ```
 
 Returneras den virtuella datorn:
@@ -72,10 +74,10 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-Men Resource Manager-cmdleten **Get-AzureRmVM** returnerar endast virtuella datorer som har distribuerats via Resource Manager. Följande kommando returnerar inte den virtuella dator som skapades via klassisk distribution.
+Men Resource Manager-cmdleten **Get-AzVM** returnerar endast virtuella datorer som har distribuerats via Resource Manager. Följande kommando returnerar inte den virtuella dator som skapades via klassisk distribution.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName ExampleGroup
+Get-AzVM -ResourceGroupName ExampleGroup
 ```
 
 Det är bara resurser som har skapats via Resource Manager som har stöd för taggar. Du kan inte använda taggar på klassiska resurser.

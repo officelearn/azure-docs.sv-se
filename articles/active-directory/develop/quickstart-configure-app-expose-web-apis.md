@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095710"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814028"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Snabbstart: Konfigurera en app att exponera webb-API:er (förhandsversion)
 
@@ -116,7 +116,7 @@ Så här exponerar du ett nytt omfång eller en ny roll via applikationsmanifest
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verifiera att webb-API:et görs tillgängligt för andra appar
 
 1. Gå tillbaka till din Azure AD-klientorganisation, välj **Appregistreringar**, leta upp och välj det klientprogram som du vill konfigurera.
-1. Upprepa stegen som beskrivs i [Konfigurera ett klientprogram för åtkomst till webb-API:er](#configure-a-client-application-to-access-web-apis).
+1. Upprepa stegen som beskrivs i Konfigurera ett klientprogram för åtkomst till webb-API:er.
 1. När du kommer till steget **Välja ett API** väljer du din resurs. Du bör se det nya omfånget, tillgängligt för begäranden om klientbehörighet.
 
 ## <a name="more-on-the-application-manifest"></a>Mer information om programmanifestet

@@ -1,20 +1,20 @@
 ---
 title: Vad är Azure Search-tjänsten – Azure Search
-description: Azure Search är en fullständigt hanterad värdbaserad molnsöktjänst. Läs funktionsbeskrivningar, gå igenom ett utvecklingsarbetsflöde, jämför Azure Search med andra sökprodukter och få hjälp med att komma igång.
+description: Azure Search är en fullständigt hanterad värdbaserad molnsöktjänst från Microsoft. Läs funktionsbeskrivningar, gå igenom ett utvecklingsarbetsflöde, jämför Azure Search med andra sökprodukter från Microsoft och få hjälp med att komma igång.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/09/2018
+ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 884a726dbc7d7f2812f4de2228ca5adaf9b223ea
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 36d65e1ffab79c8f0866d60f4a133798d25e9dea
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630409"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562801"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Frågor körs över ett användardefinierat index.

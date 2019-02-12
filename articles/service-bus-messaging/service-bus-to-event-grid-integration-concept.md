@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 640c01b2c73509ac897218fdea3841d016767a49
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856918"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818270"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Översikt över integration av Azure Service Bus till Event Grid
 
@@ -43,7 +43,7 @@ Gå till din Service Bus-namnrymd och välj **Åtkomstkontroll (IAM)** samt flik
 Service Bus skickar händelser för två scenarier:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* DeadletterMessagesAvailable
 
 Dessutom använder Service Bus standardsäkerhet för Event Grid och [autentiseringsmekanismer](https://docs.microsoft.com/azure/event-grid/security-authentication).
 
@@ -115,7 +115,7 @@ Om du enbart vill hämta händelser från exempelvis en kö eller en prenumerati
 
 Du kan skapa Event Grid-prenumerationer för Service Bus-namnområden på tre sätt:
 
-* I [Azure Portal](#portal-instructions)
+* I Azure-portalen
 * I [Azure CLI](#azure-cli-instructions)
 * I [PowerShell](#powershell-instructions)
 
@@ -168,7 +168,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-Härifrån kan du utforska andra installationsalternativ eller [testa händelser som flödar in](#test-that-events-are-flowing).
+Härifrån kan du utforska andra installationsalternativ eller testa om händelser flödar in.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 19b485add894dbe99a524d16f891d001991c1ec7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 2cfd984129097b598c08e53b3698dc32ed616cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558387"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810677"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Aktivera avbildning av händelser som strömmas via Azure Event Hubs
 
@@ -37,6 +37,9 @@ När du skapar en händelsehubb kan du aktivera avbildningsfunktionen genom att 
 Standardvärdet för Tidsperiod är 5 minuter. Lägsta värde är 1 och högsta är 15. Du kan ange intervallet 10–500 MB för **Storlek**.
 
 ![Tidsperiod för avbildning][1]
+
+> [!NOTE]
+> Du kan aktivera eller inaktivera tomma filer om inga händelser inträffar i fönstret Hämta. 
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Samla in data till ett Azure Data Lake Store-konto
 

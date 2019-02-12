@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 8bb06493683dabb92dfe75f371f96db14a7951b3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ba37be1f0d7224b7e607955ab350e756b6fec350
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301011"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697559"
 ---
-# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Självstudiekurs – Bevilja åtkomst för en grupp med RBAC och Azure PowerShell
+# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Självstudier: Bevilja åtkomst för en grupp med hjälp av RBAC och Azure PowerShell
 
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) är sättet som du hantera åtkomst till resurser i Azure. I den här självstudien kommer du at ge en grupp åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
 
@@ -32,6 +32,8 @@ I den här guiden får du lära dig att:
 > * Tar bort åtkomst
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -68,16 +70,16 @@ Om du vill tilldela en roll behöver du en användare, grupp eller tjänstens hu
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Om du inte har behörighet för att skapa grupper kan du prova [Självstudier: Bevilja åtkomst för en användare med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md) i stället.
+Om du inte har behörighet att skapa grupper kan du prova [Självstudie: Bevilja åtkomst för en användare med hjälp av RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md) i stället.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Du kan använda en resursgrupp för att visa hur du tilldelar en roll med resursgruppomfång.
 
-1. Hämta en lista över regionplatser med hjälp av kommandot [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+1. Hämta en lista över regionplatser med hjälp av kommandot [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
    ```azurepowershell
-   Get-AzureRmLocation | select Location
+   Get-AzLocation | select Location
    ```
 
 1. Välj en plats nära dig och tilldela en variabel.
@@ -86,10 +88,10 @@ Du kan använda en resursgrupp för att visa hur du tilldelar en roll med resurs
    $location = "westus"
    ```
 
-1. Skapa en ny resursgrupp med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+1. Skapa en ny resursgrupp med hjälp av kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
+   New-AzResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
    ```
 
    ```Example
@@ -102,7 +104,7 @@ Du kan använda en resursgrupp för att visa hur du tilldelar en roll med resurs
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) för att tilldela en roll. Du måste ange säkerhetsobjekt, rolldefinition och omfång.
+Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att tilldela en roll. Du måste ange säkerhetsobjekt, rolldefinition och omfång.
 
 1. Hämta objekt-ID för en grupp med kommandot [Get-AzureADGroup](/powershell/module/azuread/new-azureadgroup).
 
@@ -122,10 +124,10 @@ Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzureRmRole
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. Hämta ID för din prenumeration med hjälp av kommandot [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+1. Hämta ID för din prenumeration med hjälp av kommandot [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     ```Example
@@ -144,7 +146,7 @@ Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzureRmRole
 1. Tilldela rollen [Läsare](built-in-roles.md#reader) i gruppen i prenumerationsomfattningen.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -164,7 +166,7 @@ Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzureRmRole
 1. Tilldela rollen [Deltagare](built-in-roles.md#contributor) i gruppen i resursgruppomfattningen.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -183,10 +185,10 @@ Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzureRmRole
 
 ## <a name="list-access"></a>Visar åtkomst
 
-1. För att bekräfta åtkomsten till prenumerationen använder du kommandot [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) för att visa en lista över rolltilldelningarna.
+1. För att bekräfta åtkomsten till prenumerationen använder du kommandot [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) för att visa en lista över rolltilldelningarna.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -Scope $subScope
+    Get-AzRoleAssignment -ObjectId $groupId -Scope $subScope
     ```
 
     ```Example
@@ -203,10 +205,10 @@ Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzureRmRole
 
     Du kan se att rollen Läsare har tilldelats till gruppen RBAC-kursgrupp med prenumerationsomfång.
 
-1. För att bekräfta åtkomsten till resursgruppen använder du kommandot [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) för att visa en lista över rolltilldelningarna.
+1. För att bekräfta åtkomsten till resursgruppen använder du kommandot [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) för att visa en lista över rolltilldelningarna.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
+    Get-AzRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -245,12 +247,12 @@ Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzureRmRole
 
 ## <a name="remove-access"></a>Tar bort åtkomst
 
-Ta bort åtkomst för användare, grupper och program med [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) för att ta bort en rolltilldelning.
+Om du vill ta bort åtkomst för användare, grupper och program använder du [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) för att ta bort en rolltilldelning.
 
 1. Använd följande kommando för att ta bort rolltilldelningen Deltagare från gruppens resursgruppomfång.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -258,7 +260,7 @@ Ta bort åtkomst för användare, grupper och program med [Remove-AzureRmRoleAss
 1. Använd följande kommando för att ta bort rolltilldelningen Läsare från gruppens prenumerationsomfång.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -267,10 +269,10 @@ Ta bort åtkomst för användare, grupper och program med [Remove-AzureRmRoleAss
 
 Om du vill rensa resurserna som har skapats med den här självstudien kan du ta bort resursgruppen och gruppen.
 
-1. Om du vill ta bort resursgruppen använder du kommandot [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+1. Ta bort resursgruppen med hjälp av kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
     ```azurepowershell
-    Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
+    Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
     ```
 
     ```Example

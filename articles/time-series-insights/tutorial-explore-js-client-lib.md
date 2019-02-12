@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: f231fa7624a2babea2a3d91076ad0348b3c9e976
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540392"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812080"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Självstudie: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
 
@@ -147,7 +147,7 @@ Att fylla i och rendera diagramkontroller följer ett allmänt mönster. Du komm
    | `splitByObject`   | Strängegenskapen som du vill dela med (valfritt – kan vara null). | `{property: 'Station', type: 'String'}` |
    | `color`         | Färgen på de objekt som du vill rendera. | `'pink'` |
    | `alias`           | Ett eget namn på mängduttrycket. | `'Factory3Temperature'` |
-   | `contextMenuActions` | En matris med åtgärder som ska bindas till tidsserieobjekten i en visualisering (valfritt). | För mer information, se [Popup-snabbmenyer i avsnittet Avancerade funktioner.](#popup-context-menus) |
+   | `contextMenuActions` | En matris med åtgärder som ska bindas till tidsserieobjekten i en visualisering (valfritt). | Mer information finns i Popup-snabbmenyer i avsnittet Avancerade funktioner. |
 
 3. Anropa en TSI-fråga med hjälp av `TsiClient.Server` API:er för att begära sammanställda data:
 
@@ -260,7 +260,7 @@ Skärmbilden visar diagram med deras respektive popup-snabbmenyer. Cirkel- och s
 
 Penslar används för att omfatta ett tidsintervall för att definiera åtgärder som zooma och utforska.
 
-Den kod som används för att illustrera penslar visas i exemplet ovan Linjediagrammet med kontextmeny för att skapa cirkel/stapel linjediagrammet som beskriver [popup-snabbmenyer](#popup-context-menus-section).
+Den kod som används för att illustrera penslar visas i föregående exempel för ”Linjediagram med kontextmeny för att skapa cirkel-/stapeldiagram” som beskriver popup-snabbmenyer.
 
 1. Pensel åtgärder liknar en snabbmeny i att de definierar en serie av anpassade åtgärder för penseln. Varje åtgärd innehåller en matris med ett eller flera element. Varje element definierar ett enskilt kontextmenyalternativ:
    - `name`: Den text som ska användas för menyalternativet: ”Skriv ut parametrar till konsolen”.

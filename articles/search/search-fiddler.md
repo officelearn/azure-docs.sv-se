@@ -1,5 +1,5 @@
 ---
-title: Utforska REST API:er i Fiddlers eller Postmans HTTP-testverktyg för webben – Azure Search
+title: Utforska REST API:er i Postmans eller Fiddlers HTTP-testverktyg för webben – Azure Search
 description: Så här använder du Fiddler eller Postman för att skicka HTTP-begäranden och REST API-anrop till Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5946ff5e75e7c3fedf42c23200f61e821c0d9d61
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 06e2667b59b27039ad3c62379f654dd693999f99
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631404"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756083"
 ---
-# <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Utforska REST-API:er för Azure Search med hjälp av Fiddler eller Postman
+# <a name="explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Utforska REST-API:er för Azure Search med hjälp av Postman eller Fiddler
 
-Ett av de enklaste sätten att utforska den [REST-API:er för Azure Search](https://docs.microsoft.com/rest/api/searchservice) är att använda Fiddler eller Postman för att formulera HTTP-begäranden och granska svaren. Med hjälp av rätt verktyg och de här instruktionerna kan du skicka begäranden och visa svar innan du skriver någon kod.
+Ett av de enklaste sätten att utforska [REST-API:er för Azure Search](https://docs.microsoft.com/rest/api/searchservice) på, är att använda Postman eller Fiddler för att formulera HTTP-begäranden och granska svaren. Med hjälp av rätt verktyg och de här instruktionerna kan du skicka begäranden och visa svar innan du skriver någon kod.
 
 > [!div class="checklist"]
 > * Ladda ned ett testverktyg för webb-API

@@ -3,7 +3,7 @@ title: Självstudier – Distribuera LAMP på en virtuell Linux-dator i Azure | 
 description: I den här självstudiekursen lär du dig hur du installerar LAMP-stacken på en virtuell Linux-dator i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: 5caed6fba607cb93a6168bded7531bc8bf63b9da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: c69c7055e420ffa64e547f5c3fe53d997cf90168
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970693"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753715"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Installera en LAMP-webbserver på en virtuell Linux-dator i Azure
 
@@ -50,15 +50,12 @@ Kör följande kommando för att uppdatera Ubuntu-paketkällorna och installera 
 sudo apt update && sudo apt install lamp-server^
 ```
 
-
-Du uppmanas att installera paketen och andra beroenden. När du uppmanas anger du ett rotlösenord för MySQL. Välj [Retur] för att fortsätta. Följ återstående anvisningar. Den här processen installerar lägsta nödvändiga PHP-tillägg för användning av PHP med MySQL. 
-
-![MySQL-rotlösenordssida][1]
+Du uppmanas att installera paketen och andra beroenden. Den här processen installerar lägsta nödvändiga PHP-tillägg för användning av PHP med MySQL.  
 
 ## <a name="verify-installation-and-configuration"></a>Verifiera installation och konfiguration
 
 
-### <a name="apache"></a>Apache
+### <a name="verify-apache"></a>Verifiera Apache
 
 Kontrollera versionen av Apache med följande kommando:
 ```bash
@@ -70,7 +67,7 @@ När Apache är installerat och port 80 är öppen för den virtuella datorn kan
 ![Apache-standardsida][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>Verifiera och skydda MySQL
 
 Kontrollera versionen av MySQL med följande kommando (observera versal i parameter `V`):
 
@@ -78,23 +75,23 @@ Kontrollera versionen av MySQL med följande kommando (observera versal i parame
 mysql -V
 ```
 
-Kör skriptet `mysql_secure_installation` för att skydda installationen av MySQL. Om du bara konfigurerar en tillfällig server kan du hoppa över det här steget.
+Om du vill skydda installationen av MySQL, inklusive att ange ett rotlösenord, kör du skriptet `mysql_secure_installation`. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-Ange ett rotlösenord för MySQL och konfigurera säkerhetsinställningarna för miljön.
+Om du vill kan du även konfigurera plugin-programmet Validate Password (Verifiera lösenord; rekommenderas). Sedan anger du ett lösenord för MySQL-rotanvändaren och konfigurerar återstående säkerhetsinställningar för miljön. Vi rekommenderar att du svarar ”Y” (Ja) på alla frågor.
 
 Om du vill prova MySQL-funktioner (skapa en MySQL-databas, lägga till användare eller ändra konfigurationsinställningar) loggar du in på MySQL. Det här steget krävs inte för att genomföra kursen.
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 När du är klar lämnar du mysql-frågan genom att skriva `\q`.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>Verifiera PHP
 
 Kontrollera versionen av PHP med följande kommando:
 
@@ -114,7 +111,6 @@ Nu kan du kontrollera PHP-informationssidan som du har skapat. Öppna en webblä
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 Under den här kursen distribuerade du en LAMP-server i Azure. Du har lärt dig att:
@@ -131,6 +127,5 @@ Gå vidare till nästa självstudiekurs där du får lära dig att skydda webbse
 > [!div class="nextstepaction"]
 > [Säker webbserver med SSL](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

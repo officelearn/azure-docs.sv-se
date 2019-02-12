@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 89a54d99aa47af273e5955c2103ec696a985737e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8e9d41131228c2399277e59a6d0edd78efda307b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493753"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999121"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuera en Azure Machine Learning Studio-webbtjänst
 Azure Machine Learning kan du skapa, testa och distribuera förutsägande Analyslösningar.
@@ -34,7 +34,7 @@ För att träna en modell för förutsägelseanalys använda du Azure Machine Le
 Processen för att skapa och hantera utbildning experiment beskrivs mer i detalj någon annanstans. Mer information finns i dessa artiklar:
 
 * [Skapa ett enkelt experiment i Azure Machine Learning Studio](create-experiment.md)
-* [Utveckla en förutsägande lösning med Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [Utveckla en förutsägande lösning med Azure Machine Learning](tutorial-part1-credit-risk.md)
 * [Importera dina utbildningsdata till Azure Machine Learning Studio](import-data.md)
 * [Hantera iterationer av experiment i Azure Machine Learning Studio](manage-experiment-iterations.md)
 

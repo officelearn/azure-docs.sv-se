@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: ba3ca363afe96c137a4a9eecdeda33e0f9129111
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868437"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997914"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera endpoint kvot över nycklar
 Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet. 
@@ -362,6 +362,9 @@ Lyckat svar med LUIS-slutpunkten är:
 ## <a name="use-the-traffic-manager-parent-profile"></a>Använd Traffic Manager överordnade profil
 För att kunna hantera trafik över slutpunkter, måste du infoga ett anrop till Traffic Manager DNS för att hitta LUIS-slutpunkten. Det här anropet görs för varje slutpunkt LUIS-begäran och behöver simulera den geografiska platsen för användare på LUIS-klientprogrammet. Lägga till DNS-svarskod mellan klientprogrammet LUIS och begäran till LUIS för slutpunkten förutsägelser. 
 
+## <a name="resolving-a-degraded-state"></a>Hur du löser ett degraderat tillstånd
+
+Aktivera [diagnostikloggar](../../traffic-manager/traffic-manager-diagnostic-logs.md) för Traffic Manager att se varför slutpunktsstatus har degraderats.
 
 ## <a name="clean-up"></a>Rensa
 Ta bort de två LUIS endpoint nycklarna, tre Traffic Manager-profiler och resursgruppen som innehåller dessa fem resurser. Detta görs från Azure-portalen. Du tar bort de fem resurserna i resurslistan. Ta sedan bort resursgruppen. 

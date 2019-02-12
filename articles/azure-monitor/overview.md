@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098038"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002006"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -28,6 +28,7 @@ Azure Monitor maximerar tillgänglighet och prestanda för dina program genom at
 ## <a name="overview"></a>Översikt
 Följande diagram ger en översikt över Azure Monitor. I mitten av diagrammet är datalager för mått och loggar som finns två grundläggande typer av data används av Azure Monitor. Till vänster är den [källor för övervakningsdata](platform/data-sources.md) som fylla i dessa [datalager](platform/data-collection.md). Till höger är olika funktioner som Azure Monitor utför med den här insamlade data, till exempel analys, aviseringar och direktuppspelning till externa system.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Översikt över Azure Monitor](media/overview/overview.png)
 
@@ -35,11 +36,11 @@ Följande diagram ger en översikt över Azure Monitor. I mitten av diagrammet �
 ## <a name="monitoring-data-platform"></a>Övervaka dataplattform
 Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer [mått och loggar](platform/data-collection.md). [Mått](platform/data-collection.md#metrics) är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. De är enkel och kan stödja scenarier i nästan realtid. [Loggar](platform/data-collection.md#logs) innehåller olika typer av data ordnas i poster med olika uppsättningar med egenskaper för varje typ. Telemetri, till exempel händelser och spårningar lagras som loggar dessutom till prestandadata så att den kan alla kombineras för analys.
 
-För många Azure-resurser visas data som samlas in av Azure Monitor direkt i sina översiktssidan i Azure-portalen. Till exempel ta en titt på en virtuell dator och du ser flera diagram som visar prestandamått. Klicka på något av diagrammen för att öppna data i [Metric explorer](platform/metrics-charts.md) i Azure-portalen, där du kan skapa diagram över värdena för flera mått med tiden.  Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar.
+För många Azure-resurser visas data som samlas in av Azure Monitor direkt i sina översiktssidan i Azure-portalen. Till exempel ta en titt på en virtuell dator och du ser flera diagram som visar prestandamått. Klicka på något av diagrammen för att öppna data i [måttutforskaren](platform/metrics-charts.md) i Azure-portalen, där du kan skapa diagram över värdena för flera mått med tiden.  Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar.
 
 ![Mått](media/overview/metrics.png)
 
-Loggdata som samlas in av Azure Monitor lagras i Log Analytics som innehåller en [funktionsrikt frågespråk](log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med den [sidan Log Analytics](log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [ aviseringsregler](platform/alerts-overview.md).
+Loggdata som samlas in av Azure Monitor kan analyseras med [frågor](log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med [logganalys](log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [avisering regler för](platform/alerts-overview.md).
 
 Azure Monitor använder en version av den [Datautforskaren frågespråk](/azure/kusto/query/) som är lämplig för enkel logg frågar men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](log-query/get-started-queries.md).  Viss vägledning erbjuds användare som redan är bekanta med [SQL](log-query/sql-cheatsheet.md) och [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -54,7 +55,7 @@ Azure Monitor kan samla in data från olika källor. Du kan se övervakningsdata
 - **Azure-prenumeration övervakningsdata**: Data om driften och hanteringen av en Azure-prenumeration, samt data om klientens hälsotillstånd och driften av Azure själva. 
 - **Azure-klient övervakningsdata**: Information om driften av Azure på klientnivå-tjänster, till exempel Azure Active Directory.
 
-När du skapar en Azure-prenumeration och börja lägga till resurser, till exempel virtuella datorer och webbappar, startar Azure Monitor insamling av data.  [Aktivitetsloggar](platform/activity-logs-overview.md) registrera när resurser skapas eller ändras. [Mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md) talar om hur resursen fungerar och de resurser som den förbrukar. 
+När du skapar en Azure-prenumeration och börja lägga till resurser, till exempel virtuella datorer och webbappar, startar Azure Monitor insamling av data.  [Aktivitetsloggar](platform/activity-logs-overview.md) registrera när resurser skapas eller ändras. [Mått](platform/data-collection.md) talar om hur resursen fungerar och de resurser som den förbrukar. 
 
 Utöka dina data som du samlar in i den faktiska användningen av resurser genom att [aktiverar diagnostik](platform/diagnostic-logs-overview.md) och [att lägga till en agent](platform/agent-windows.md) att beräkna resurser. Detta samlar in telemetri för den interna åtgärden på resursen och gör att du kan konfigurera olika [datakällor](platform/agent-data-sources.md) att samla in loggar och mått från Windows och Linux gästoperativsystemet. 
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 26445017553435454e929d9852dfd9fc173c3b2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d9952581049198131e30cd7d0ba0ebf6a14cc54
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460105"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098876"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Hanterade API-referens för Azure SQL Database-hanterade instanser
 
@@ -93,5 +93,5 @@ Använd dessa REST API-begäranden för att skapa och hantera instanser som hant
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om hur du migrerar en SQL Server-databas till Azure i [migrera till Azure SQL Database](sql-database-cloud-migrate.md).
+- Läs om hur du migrerar en SQL Server-databas till Azure i [migrera till Azure SQL Database](sql-database-single-database-migrate.md).
 - Information om vilka funktioner som stöds finns i avsnittet [Funktioner](sql-database-features.md).

@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251307"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097393"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Säkerhetskopiering och dataåterställning för Azure Stack med Backup-tjänsten infrastruktur
 
@@ -52,12 +52,16 @@ Tjänsterna innehåller följande funktioner.
   Du behöver en filresurs kan nås från Azure Stack som kan innehålla sju säkerhetskopieringar. Varje säkerhetskopiering är ungefär 10 GB. Din resurs ska kunna lagra 140 GB säkerhetskopieringar. Mer information om hur du väljer en lagringsplats för Azure Stack-infrastruktur Backup-tjänsten finns i [kraven för säkerhetskopiering domänkontrollanter](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Autentiseringsuppgifter**  
   Du behöver ett domänanvändarkonto och autentiseringsuppgifter, du kan till exempel använda Azure Stack-administratörsautentiseringsuppgifter.
-- **Krypteringsnyckel**  
-  Säkerhetskopiorna krypteras med hjälp av den här nyckeln. Se till att lagra den här nyckeln på en säker plats. När du anger den här nyckeln för första gången eller rotera nyckeln i framtiden ska visa du inte den här nyckeln från det här gränssnittet. För mer anvisningar för att generera en i förväg delad nyckel, följer du skript på [Aktivera säkerhetskopiering för Azure Stack med PowerShell](azure-stack-backup-enable-backup-powershell.md).
+- **Krypteringscertifikat**  
+  Säkerhetskopiorna krypteras med hjälp av den offentliga nyckeln i certifikatet. Se till att lagra certifikatet på en säker plats. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [Aktivera säkerhetskopiering för Azure Stack från administrationsportalen](azure-stack-backup-enable-backup-console.md).
-- Lär dig hur du [Aktivera säkerhetskopiering för Azure Stack med PowerShell](azure-stack-backup-enable-backup-powershell.md).
-- Lär dig hur du [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md )
-- Lär dig hur du [fort oåterkallelig dataförlust](azure-stack-backup-recover-data.md)
+Lär dig hur du [Aktivera säkerhetskopiering för Azure Stack från administrationsportalen](azure-stack-backup-enable-backup-console.md).
+
+Lär dig hur du [Aktivera säkerhetskopiering för Azure Stack med PowerShell](azure-stack-backup-enable-backup-powershell.md).
+
+Lär dig hur du [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md )
+
+Lär dig hur du [fort oåterkallelig dataförlust](azure-stack-backup-recover-data.md)

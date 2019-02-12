@@ -1,25 +1,25 @@
 ---
 title: Kopiera en Azure SQL database | Microsoft Docs
-description: Skapa transaktionellt konsekvent kopia av en befintlig Azure SQL-databas på samma server eller en annan server.
+description: Skapa en transaktionsmässigt konsekvent kopia av en befintlig Azure SQL-databas på samma server eller en annan server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 080cfb43f8fef04d2459dd0bb8779d2aa66cc359
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6e25c0970a48674e157dac5f51c9508596ff6ea1
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960981"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097090"
 ---
-# <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktionsmässigt konsekvent kopia av en Azure SQL database
+# <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktionsmässigt konsekvent kopia av en Azure SQL database
 
 Azure SQL Database erbjuder flera metoder för att skapa en transaktionsmässigt konsekvent kopia av en befintlig Azure SQL-databas på samma server eller en annan server. Du kan kopiera en SQL-databas med hjälp av Azure-portalen, PowerShell eller T-SQL. 
 

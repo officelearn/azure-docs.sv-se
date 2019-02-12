@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 904c96d71194a097f2750ad2c1076b30b80f3745
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105210"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100235"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner. När en cache har skapats kan skala du storleken och prisnivå för cachen om kraven för ditt program ändrar. Den här artikeln visar hur du skalar cachen med hjälp av Azure-portalen och verktyg som Azure PowerShell och Azure CLI.
@@ -69,9 +69,12 @@ Förutom att skala din cache-instanser i Azure-portalen, du kan skala med hjälp
 * [Skala med MAML](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>Skala med hjälp av PowerShell
-Du kan skala din Azure-Cache för Redis-instanser med PowerShell med hjälp av den [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) cmdlet när den `Size`, `Sku`, eller `ShardCount` egenskaper har ändrats. I följande exempel visas hur du skalar en cache med namnet `myCache` ett 2,5 GB cacheminne. 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Du kan skala din Azure-Cache för Redis-instanser med PowerShell med hjälp av den [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) cmdlet när den `Size`, `Sku`, eller `ShardCount` egenskaper har ändrats. I följande exempel visas hur du skalar en cache med namnet `myCache` ett 2,5 GB cacheminne. 
+
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 Mer information om skalning med PowerShell finns i [att skala en Azure Cache för Redis med hjälp av Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
 

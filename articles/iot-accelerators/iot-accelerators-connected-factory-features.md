@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: af2a2c84f9eb420a7ca9a8bd5909cbf856d29a5e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b54331e644d55497a7c7d33344cf29a82404847e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309203"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096920"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Vad är ansluten fabrik IoT lösningsaccelerator?
 
@@ -25,21 +25,21 @@ Ansluten fabrik lösningsaccelerator [koden finns på GitHub](https://github.com
 
 Ansluten fabrik innehåller följande funktioner:
 
-## <a name="industrial-device-interoperability"></a>Industriella enheter samverkan
+## <a name="industrial-device-interoperability"></a>Interoperabilitet för industriella enheter
 
-- Anslut till industriella tillgångar med en OPC UA-gränssnitt.
+- Anslut till industriella tillgångar med OPC UA-gränssnitt.
 - Använda simulerade produktionsrader (köra OPC UA-servrar i Docker-behållare) för att se live telemetri från dem.
 - Bläddra OPC UA-informationsmodellen av OPC UA-servrar från en instrumentpanel i molnet.
 
 ## <a name="remote-management"></a>Fjärrhantering
 
-- Konfigurera dina OPC UA-tillgångar från molnet instrumentpanelen (anropa metoder, läsa och skriva data).
-- Publicera och avpublicera telemetridata från dina OPC UA-resurser från en instrumentpanel i molnet.
+- Konfigurera OPC UA-tillgångar från molninstrumentpanelen (anropa metoder, läsa och skriva data).
+- Publicera och avpublicera telemetridata från dina OPC UA-tillgångar från en molninstrumentpanel.
 
-## <a name="cloud-dashboard"></a>Cloud-instrumentpanelen
+## <a name="cloud-dashboard"></a>Molninstrumentpanel
 
 - Visa telemetri förhandsversioner direkt i en instrumentpanel i molnet.
-- Visa trender i dessa data och skapa samband med hjälp av Time Series Insights Explorer-instrumentpanel.
+- Visa trender i telemetridata och skapa korrelationer med hjälp av Time Series Insights Explorer-instrumentpanelen.
 - Se beräknade övergripande utrustning effektivitet (OEE) och (Key Performance Indicator) från en instrumentpanel i molnet.
 - Visa industriella tillgångar hierarkier i en topologi i trädet och på en interaktiv karta.
 - Visa, är medveten om och stänga aviseringar från en instrumentpanel i molnet.
@@ -53,9 +53,9 @@ Ansluten fabrik innehåller följande funktioner:
 
 [Konfigurera tröskelbaserade regler för aviseringar](iot-accelerators-connected-factory-configure.md).
 
-## <a name="end-to-end-security"></a>Slutpunkt till slutpunkt säkerhet
+## <a name="end-to-end-security"></a>Säkerhet slutpunkt till slutpunkt
 
-- Konfigurera behörigheter för användare med hjälp av rollbaserad åtkomstkontroll (RBAC).
+- Konfigurera säkerhetsbehörigheter för användare med hjälp av rollbaserad åtkomstkontroll (RBAC).
 - Slutpunkt till slutpunkt kryptering implementeras med hjälp av OPC UA-autentisering (med X.509-certifikat) samt säkerhetstoken.
 
 ## <a name="customizability"></a>Anpassningsbarhet

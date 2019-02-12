@@ -11,18 +11,40 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: cea5f2a3eaa7bddb523d95936fbe0a50e0fd16ed
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4e7cc1340a85e1d00c2f64abeb35a99052184c52
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564348"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100184"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En fullständig beskrivning av varje SDK finns i referensdokument för:
 + Azure Machine Learning [ **huvudsakliga SDK för Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-11"></a>2019-02-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1015"></a>Azure Machine Learning-SDK för Python v1.0.15
+
++ **Nya funktioner**
+  + Azure Machine Learning Pipelines har lagts till AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep ([notebook](https://aka.ms/pl-hyperdrive)) och tidsbaserade schemaläggning funktionsduglighet ([notebook](https://aka.ms/pl-schedule)).
+  +  DataTranferStep uppdateras för att arbeta med Azure SQL Server och Azure database för PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
+
++ **Ändringar**
+  + Inaktuell `PublishedPipeline.get_published_pipeline` för `PublishedPipeline.get`.
+  + Inaktuell `Schedule.get_schedule` för `Schedule.get`.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning Data Prep SDK v1.0.12
+
++ **Nya funktioner**
+  + Data Prep stöder nu läsa från en Azure SQL-databas med datalagret.
+ 
++ **Ändringar**
+  + Förbättrats avsevärt minnesprestanda för vissa åtgärder på stora mängder data.
+  + `read_pandas_dataframe()` kräver nu att `temp_folder` anges.
+  + Den `name` egenskapen `ColumnProfile` har föråldrat – Använd `column_name` i stället.
 
 ## <a name="2019-01-28"></a>2019-01-28
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b76b64ddf854b32c51b8b319479a35331e0f72f3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b8f8d0a089a74334a908e3dad65c63231bbe5975
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957443"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098943"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Hur du skyddar backend-tjänster med hjälp av klienten autentisering i Azure API Management
 
@@ -38,7 +38,7 @@ Följ stegen nedan för att ladda upp ett nytt klientcertifikat. Om du inte har 
 
 1. Gå till din Azure API Management-tjänstinstans i Azure-portalen.
 2. Välj **klientcertifikat** på menyn.
-3. Klicka på den **+ Lägg till** knappen.  
+3. Klicka på knappen **+ Lägg till**.  
     ![Lägg till certifikat](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
 4. Bläddra fram certifikatet, anger dess ID och lösenord.  
 5. Klicka på **Skapa**.
@@ -83,7 +83,7 @@ Om certifikaten som används av ett API, visas en varning-skärm. Om du vill ta 
 
 Om du använder självsignerade certifikat, måste du inaktivera verifiering av certifikatkedjan för API Management att kommunicera med backend-system. Annars returneras en 500 felkod. Om du vill skapa den här konfigurationen kan du använda den [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (för ny serverdel) eller [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (för befintliga serverdel) PowerShell-cmdletar och ange den `-SkipCertificateChainValidation` parameter `True`.
 
-```
+```powershell
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```

@@ -16,12 +16,12 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fa8328039c82ffb8be94c1d7abde7b2b6b6dd52d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077262"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098246"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app (förhandsversion)
 
@@ -76,7 +76,7 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 | `ztdid`                    | Zero touch-distributions-ID | JWT | | Enhetsidentitet används för [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 |`email`                     | Den adresserbara e-postadress för användaren, om användaren har en.  | JWT, SAML | | Det här värdet ingår som standard om användaren inte är gäst i klienten.  För hanterade användare (de i klienten), måste det begäras via den här valfria anspråk eller på v2.0, med OpenID-området.  För hanterade användare, e-postadressen måste anges i den [administrationsportalen för Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Status för användare i klienten. | JWT, SAML | | Om användaren är medlem i klienten, är värdet `0`. Om de är en gäst, är värdet `1`. |
-| `upn`                      | UserPrincipalName anspråk. | JWT, SAML  |           | Även om det här anspråket medföljer automatiskt, kan du ange det som ett valfritt anspråk att koppla ytterligare egenskaper om du vill ändra sitt beteende i fallet för gäst-användare. <br> Ytterligare egenskaper: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | UserPrincipalName anspråk. | JWT, SAML  |           | Även om det här anspråket medföljer automatiskt, kan du ange det som ett valfritt anspråk att koppla ytterligare egenskaper om du vill ändra sitt beteende i fallet för gäst-användare.  |
 
 ### <a name="v20-optional-claims"></a>V2.0 valfria anspråk
 
@@ -85,30 +85,28 @@ De här anspråken är alltid är inkluderad i v1.0 token, men inte ingår i v2.
 **Tabell 3: Endast v2.0 valfria anspråk**
 
 | JWT-anspråk     | Namn                            | Beskrivning                                | Anteckningar |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen loggat in från klienten.   |       |
 | `onprem_sid`  | Lokal säkerhetsidentifierare |                                             |       |
 | `pwd_exp`     | Förfallotid för lösenord        | Datum/tid då lösenordet upphör att gälla. |       |
-| `pwd_url`     | Ändra lösenord URL             | En URL som användaren kan besöka för att ändra sina lösenord.   |       |
-| `in_corp`     | Inifrån företagsnätverket        | Signaler om klienten inloggning från företagsnätverket. Om de inte är ingår inte anspråket.   |       |
-| `nickname`    | Smeknamn                        | Ytterligare ett namn för användaren, separat från förnamn eller efternamn. |       |                                                                                                                |       |
+| `pwd_url`     | Ändra lösenord URL             | En URL som användaren kan besöka för att ändra sina lösenord.   |   |
+| `in_corp`     | Inifrån företagsnätverket        | Signaler om klienten inloggning från företagsnätverket. Om de inte är ingår inte anspråket.   |  Baserade ut från den [tillförlitliga IP-adresser](../authentication/howto-mfa-mfasettings.md#trusted-ips) inställningar i MFA.    |
+| `nickname`    | Smeknamn                        | Ytterligare ett namn för användaren, separat från förnamn eller efternamn. | 
 | `family_name` | Efternamn                       | Innehåller senaste namn, efternamn eller namn för användaren som definieras i Azure AD-användarobjektet. <br>"family_name":"Miller" |       |
 | `given_name`  | Förnamn                      | Innehåller först eller ”förnamn” för användaren som Azure AD user-objektet.<br>"given_name": ”Frank”                   |       |
+| `upn`       | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktigt ID för användaren och bör inte användas till att viktiga data. | Se [ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för att konfigurera anspråket. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
-Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras. Dessa ytterligare egenskaper används huvudsakligen för att migrera lokala program med olika förväntningar (till exempel `include_externally_authenticated_upn_without_hash` hjälper till med klienter som inte kan hantera hashmarks (`#`) UPN)
+Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returneras. Dessa ytterligare egenskaper används huvudsakligen för att migrera lokala program med olika förväntningar (till exempel `include_externally_authenticated_upn_without_hash` hjälper till med klienter som inte kan hantera hash-tecken (`#`) UPN)
 
-**Tabell 4: Värden för att konfigurera standard valfria anspråk**
+**Tabell 4: Värden för att konfigurera valfria anspråk**
 
-| Egenskapsnamn                                     | Ytterligare egenskapsnamn                                                                                                             | Beskrivning |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  Kan användas för både SAML- och JWT-svar.        |
-| | `include_externally_authenticated_upn`              | Innehåller gästen UPN som lagras i resurs-klient. Till exempel, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | Samma som ovan, med undantag för att hashmarks (`#`) ersätts med understreck (`_`), till exempel `foo_hometenant.com_EXT_@resourcetenant.com` |             
-
-> [!Note]
->Ange upn-anspråket utan ytterligare en egenskap för valfritt inte ändrar någon funktion – om du vill se ett nytt anspråk som utfärdats i token, måste minst en av ytterligare egenskaper läggas. 
+| Egenskapsnamn  | Ytterligare egenskapsnamn | Beskrivning |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | Kan användas för både SAML- och JWT-svar och för v1.0 och v2.0-token. |
+|                | `include_externally_authenticated_upn`  | Innehåller gästen UPN som lagras i resurs-klient. Till exempel, `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | Samma som ovan, förutom att hashen markerar (`#`) ersätts med understreck (`_`), till exempel `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Ytterligare egenskaper-exempel
 
@@ -151,12 +149,12 @@ Du kan konfigurera valfria anspråk för ditt program genom att ändra programma
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }

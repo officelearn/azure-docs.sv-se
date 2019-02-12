@@ -14,12 +14,12 @@ ms.subservice: compliance
 ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 1c71333a49643647bae3730e4f14f26939388c4f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2393aaec32f2813860ab422b42772eef11ccd8a3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153751"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099164"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Skapa en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst med Azure AD
 
@@ -115,7 +115,7 @@ Baserat på dina val i vid slutförande-inställningar, autotillämpad ska köra
 
 ## <a name="create-reviews-via-apis"></a>Skapa granskningar via API: er
 
-Du kan också skapa åtkomstgranskningar med API: er. Vad du gör för att hantera åtkomst går igenom i grupper och användare i Azure-portalen kan också göras med hjälp av Microsoft Graph API: er. Mer information finns i den [Azure AD-Åtkomstgranskningar API-referens](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/accessreviews_root). Finns ett kodexempel i [exempel för att hämta Azure AD-Åtkomstgranskningar via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+Du kan också skapa åtkomstgranskningar med API: er. Vad du gör för att hantera åtkomst går igenom i grupper och användare i Azure-portalen kan också göras med hjälp av Microsoft Graph API: er. Mer information finns i den [Azure AD-Åtkomstgranskningar API-referens](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Finns ett kodexempel i [exempel för att hämta Azure AD-Åtkomstgranskningar via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Nästa steg
 

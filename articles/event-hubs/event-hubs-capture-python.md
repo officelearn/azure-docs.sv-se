@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 72efe156920bb78631ea71a0f47f7f5fe19c7e23
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 639bc4ff9c69bca3d5f8bca6967bfc3e8e6a13d4
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133663"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100558"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs Capture genomgång: Python
 
@@ -41,7 +41,7 @@ Det här exemplet används den [Azure Python SDK](https://azure.microsoft.com/de
 - Python 2.7.x
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - En aktiv [Event Hubs-namnområde och en händelsehubb](event-hubs-create.md). 
-- Aktivera **avbilda** funktionen för event hub genom att följa instruktionerna från: [aktivera Event Hubs Capture i Azure Portal](event-hubs-capture-enable-through-portal.md)
+- Aktivera **avbilda** funktionen för event hub genom att följa instruktionerna från: [Aktivera Event Hubs Capture i Azure Portal](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob storage-konto
 1. Logga in på [Azure Portal][Azure portal].
@@ -62,7 +62,7 @@ Det här exemplet används den [Azure Python SDK](https://azure.microsoft.com/de
    import datetime
    import random
    import json
-   from azure.servicebus import ServiceBusService
+   from azure.servicebus.control_client import ServiceBusService
    
    sbs = ServiceBusService(service_namespace='INSERT YOUR NAMESPACE NAME', shared_access_key_name='RootManageSharedAccessKey', shared_access_key_value='INSERT YOUR KEY')
    devices = []

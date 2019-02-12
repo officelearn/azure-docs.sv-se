@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c569d1be9a301b2282ad1b4fd6e21130f7de2575
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ae589cdf1ef7df054bbbbe393cc2ebe8454937e5
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103538"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099759"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll – SPA med det implicita flödet
 
@@ -79,7 +79,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `client_id` | obligatorisk |Program-Id som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app. |
 | `response_type` | obligatorisk |Måste innehålla `id_token` för OpenID Connect-inloggning. De kan också innehålla response_type `token`. Med hjälp av `token` här gör att din app för att få en åtkomsttoken direkt från slutpunkten för auktorisering utan att behöva göra en andra begäran till slutpunkten för auktorisering. Om du använder den `token` response_type, den `scope` parametern måste innehålla en omfattning som anger vilken resurs för att utfärda token för. |
 | `redirect_uri` | Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. |
-| `scope` | obligatorisk |En blankstegsavgränsad lista med omfattningar. Det måste innehålla omfånget för OpenID Connect, `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Alternativt kan du också vill ska ingå i `email` eller `profile` [scope](v2-permissions-and-consent.md) för att få åtkomst till ytterligare användardata. Du kan också omfatta andra scope i den här begäran för att begära tillstånd att olika resurser. |
+| `scope` | obligatorisk |En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md). Det måste innehålla omfånget för OpenID Connect, `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Alternativt kan du också vill ska ingå i `email` eller `profile` omfång för att få åtkomst till ytterligare användardata. Du kan också omfatta andra scope i den här begäran för att begära tillstånd att olika resurser. |
 | `response_mode` | valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Standardinställningen är att fråga efter ett åtkomsttoken, men fragment om förfrågningen innehåller en id_token. |
 | `state` | Rekommenderas |Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | `nonce` | obligatorisk |Ett värde som ingår i den begäran som skapats av appen, som ska tas med i den resulterande id_token som ett anspråk. Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att fastställa ursprunget för begäran. Krävs endast när en id_token har begärts. |
@@ -100,7 +100,7 @@ GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
 &expires_in=3599
-&scope=https%3a%2f%2fgraph.microsoft.com%2fmail.read 
+&scope=https%3a%2f%2fgraph.microsoft.com%2fuser.read 
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 ```
@@ -156,7 +156,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment
 &state=12345&nonce=678910
 &prompt=none
 &domain_hint=organizations
@@ -166,9 +166,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 Mer information om Frågeparametrar i URL-Adressen finns [skicka tecknet i begäran](#send-the-sign-in-request).
 
 > [!TIP]
-> Försök kopiera och klistra in den nedan begäran till en ny flik i webbläsaren! (Glöm inte att ersätta den `domain_hint` och `login_hint` värden med rätt värden för dina användare)
+> Försök kopiera och klistra in den nedan begäran till en ny flik i webbläsaren! (Glöm inte att ersätta den `login_hint` värden med rätt värde för dina användare)
 >
->`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=consumers-or-organizations&login_hint=your-username`
+>`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint=your-username`
 >
 
 Tack vare den `prompt=none` parametern denna begäran antingen lyckas eller misslyckas omedelbart och gå tillbaka till ditt program. Ett lyckat svar skickas till din app på den angivna `redirect_uri`, med den metod som beskrivs i den `response_mode` parametern.

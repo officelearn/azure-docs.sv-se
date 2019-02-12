@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1076ddfb840ba845718c5ca0deea8c5788e7d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096712"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100337"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Konfigurera datorer för hantering av Azure Automation State Configuration
 
@@ -24,7 +24,8 @@ Som [PowerShell Desired State Configuration](/powershell/dsc/overview), tillstå
 
 Azure Automation-Tillståndskonfiguration kan användas för att hantera olika datorer:
 
-- Virtuella Azure-datorer (distribuerad både i den klassiska portalen och distributionsmodellen Azure Resource Manager)
+- Virtuella Azure-datorer
+- Azure-datorer (klassisk)
 - Amazon Web Services (AWS) EC2-instanser
 - Fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure/AWS
 - Fysiska/virtuella Linux-datorer lokalt, i Azure eller i ett annat moln än Azure
@@ -35,6 +36,31 @@ Dessutom om du inte är redo att hantera datorkonfigurationen från molnet kan t
 > Hantera virtuella Azure-datorer med Tillståndskonfiguration ingår utan extra kostnad om VM DSC-tillägget installerat är större än 2.70. Referera till den [ **Automation prissättningssidan** ](https://azure.microsoft.com/pricing/details/automation/) för mer information.
 
 I följande avsnitt beskrivs hur du kan registrera varje typ av dator till Azure Automation State Configuration.
+
+## <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
+
+Tillståndskonfiguration för Azure Automation kan du enkelt integrera Azure virtual machines för konfigurationshantering med Azure-portalen, Azure Resource Manager-mallar eller PowerShell. Under huven och utan att en administratör som har fjärråtkomst till den virtuella datorn registreras tillägget Azure VM Desired State Configuration den virtuella datorn med Azure Automation State Configuration.
+Eftersom Azure VM Desired State Configuration-tillägget körs asynkront, steg för att spåra förloppet eller felsöka den finns i följande [ **felsöka Azure VM onboarding** ](#troubleshooting-azure-virtual-machine-onboarding) avsnittet.
+
+### <a name="azure-portal"></a>Azure Portal
+
+I den [Azure-portalen](https://portal.azure.com/), gå till Azure Automation-konto där du vill publicera virtuella datorer. På konfigurationssidan för tillstånd och **noder** fliken **+ Lägg till**.
+
+Välj en Azure virtuell dator att publicera.
+
+Om datorn inte har PowerShell desired tillstånd-tillägget installerat och energinivån körs, klickar du på **Connect**.
+
+Under **registrering**, ange den [PowerShell DSC lokal konfigurationshanterare värden](/powershell/dsc/metaconfig4) krävs för ditt användningsområde och eventuellt en nodkonfiguration ska tilldelas den virtuella datorn.
+
+![Onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
+
+Azure-datorer kan distribueras och har integrerats i Azure Automation-Tillståndskonfiguration via Azure Resource Manager-mallar. Se [konfigurera en virtuell dator via DSC-tillägget och Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) för en exempelmall som registrerar virtuella en befintlig virtuell dator till Azure Automation State Configuration. Att hitta nyckeln för tjänstregistrering och Registreringswebbadress vidtas som indata i den här mallen, ser du följande [ **säker registrering** ](#secure-registration) avsnittet.
+
+### <a name="powershell"></a>PowerShell
+
+Den [registrera AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet kan användas för att publicera virtuella datorer i Azure-portalen via PowerShell.
 
 ## <a name="azure-virtual-machines-classic"></a>Azure-datorer (klassisk)
 
@@ -116,31 +142,6 @@ $VM | Update-AzureVM
 
 > [!NOTE]
 > Statliga är Configuration nodkonfiguration skiftlägeskänsliga i portalen. Om det är felaktigt noden visas inte den **noder** fliken.
-
-## <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
-
-Tillståndskonfiguration för Azure Automation kan du enkelt integrera Azure virtual machines för konfigurationshantering med Azure-portalen, Azure Resource Manager-mallar eller PowerShell. Under huven och utan att en administratör som har fjärråtkomst till den virtuella datorn registreras tillägget Azure VM Desired State Configuration den virtuella datorn med Azure Automation State Configuration.
-Eftersom Azure VM Desired State Configuration-tillägget körs asynkront, steg för att spåra förloppet eller felsöka den finns i följande [ **felsöka Azure VM onboarding** ](#troubleshooting-azure-virtual-machine-onboarding) avsnittet.
-
-### <a name="azure-portal"></a>Azure Portal
-
-I den [Azure-portalen](https://portal.azure.com/), gå till Azure Automation-konto där du vill publicera virtuella datorer. På konfigurationssidan för tillstånd och **noder** fliken **+ Lägg till**.
-
-Välj en Azure virtuell dator att publicera.
-
-Om datorn inte har PowerShell desired tillstånd-tillägget installerat och energinivån körs, klickar du på **Connect**.
-
-Under **registrering**, ange den [PowerShell DSC lokal konfigurationshanterare värden](/powershell/dsc/metaconfig4) krävs för ditt användningsområde och eventuellt en nodkonfiguration ska tilldelas den virtuella datorn.
-
-![Onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
-
-### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
-
-Azure-datorer kan distribueras och har integrerats i Azure Automation-Tillståndskonfiguration via Azure Resource Manager-mallar. Se [konfigurera en virtuell dator via DSC-tillägget och Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) för en exempelmall som registrerar virtuella en befintlig virtuell dator till Azure Automation State Configuration. Att hitta nyckeln för tjänstregistrering och Registreringswebbadress vidtas som indata i den här mallen, ser du följande [ **säker registrering** ](#secure-registration) avsnittet.
-
-### <a name="powershell"></a>PowerShell
-
-Den [registrera AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet kan användas för att publicera virtuella datorer i Azure-portalen via PowerShell.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Amazon Web Services (AWS) virtuella datorer
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 67cc7d0dc162f2b36e38f1068f46079f46120f1c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c9158eebb876f5c3349528ffb7707629791421ce
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819849"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099946"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure Cache för Redis
 Det här avsnittet beskrivs konfigurationerna som är tillgängliga för din Azure-Cache för Redis-instanser. Det här avsnittet innehåller också Redis server standardkonfigurationen för Azure Cache för Redis-instanser.
@@ -429,7 +429,7 @@ Den nya Azure Cache för Redis-instanser har konfigurerats med följande Redis c
 Mer information om databaser finns i [vad är Redis-databaser?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> Den `databases` inställning kan vara konfigurerade under Skapa cache och endast med hjälp av PowerShell, CLI eller andra management-klienter. Ett exempel på hur du konfigurerar `databases` när cache skapas med hjälp av PowerShell, se [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> Den `databases` inställning kan vara konfigurerade under Skapa cache och endast med hjälp av PowerShell, CLI eller andra management-klienter. Ett exempel på hur du konfigurerar `databases` när cache skapas med hjälp av PowerShell, se [New AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 > 
 > 
 

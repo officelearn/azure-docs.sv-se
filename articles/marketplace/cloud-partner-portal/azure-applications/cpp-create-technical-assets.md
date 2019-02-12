@@ -14,18 +14,23 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6050ad98c87dbe38516a6ee3c4862495ad868031
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 78aa65614920d093b6ba0b8fa43614fd7f3c5176
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414388"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100439"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Förbereda dina tekniska resurser för Azure-program
 
 Den här artikeln beskriver resurserna för att förbereda tekniska resurser för ditt erbjudande i Azure-program.
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
+Granska på nedanstående video, [mallar för att skapa lösningar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603), en översikt över hur du skapar en Azure Resource Manager-mall för att definiera en Azure lösning och sedan hur du därefter publicera apperbjudandet på Azure Marketplace.
+
+>[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
+
 
 Granska följande dokumentation från Azure-program, vilket ger Snabbstarter, självstudier och exempel.
 

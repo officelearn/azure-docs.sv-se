@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a901072875d6810711cb0b23d17555d9492c240a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157983"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100133"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Översikt över användarkonton i Azure Active Directory B2C
 
@@ -47,21 +47,21 @@ När du lägger till ett nytt arbetskonto, måste du tänka på följande konfig
 Du kan använda följande information för att skapa en ny arbetskonto:
 
 - [Azure Portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Uppdatera en användarprofil
 
 Du kan använda följande information för att uppdatera profilen för en användare:
 
 - [Azure Portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Återställa ett lösenord för en användare
 
 Du kan använda följande information för att återställa lösenordet för en användare: 
 
 - [Azure Portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Gästanvändare
 
@@ -69,7 +69,7 @@ Du kan bjuda in externa användare till din klient som gästanvändare. Ett typi
 
 När du bjuder in gästanvändare till din klient, kan du ange e-postadressen till mottagaren och ett meddelande som beskriver inbjudan. Inbjudan länken öppnas sidan medgivande där den **börjar** knapp väljs och granskning av behörigheterna har godkänts. Om en inkorg inte är kopplad till den e-postadressen, kan användaren gå till sidan medgivande genom att gå till en Microsoft-sida med inbjudna autentiseringsuppgifter. Om användaren tvingas sedan att lösa in inbjudan på samma sätt som när du klickar på länken i e-postmeddelandet. Till exempel: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Du kan också använda den [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/invitation_post) att bjuda in gästanvändare.
+Du kan också använda den [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) att bjuda in gästanvändare.
 
 ## <a name="consumer-user"></a>Konsument-användare
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: d0176cde824346c80fff097b87c107b7052e822f
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3588496a2f41af0af273497ea3952d138385f0af
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959569"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100874"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2.0-protokollet kompatibiliteten för Azure AD-användare Provisioning-tjänsten
 
@@ -59,7 +59,7 @@ Ja. Följ anvisningarna nedan om du redan använder den här instansen av progra
 1. Logga in på Azure-portalen på https://portal.azure.com.
 2. I den **Azure Active Directory > företagsprogram** avsnitt av Azure-portalen, leta upp och välj ditt befintliga SCIM-program.
 3.  I den **egenskaper** avsnittet för din befintliga SCIM-app, kopiera den **objekt-ID**.
-4.  I ett nytt webbläsarfönster, går du till https://developer.microsoft.com/en-us/graph/graph-explorer och logga in som administratör för Azure AD-klient där din app har lagts till.
+4.  I ett nytt webbläsarfönster, går du till https://developer.microsoft.com/graph/graph-explorer och logga in som administratör för Azure AD-klient där din app har lagts till.
 5. I Graph-testaren kör du kommandot nedan för att hitta ID: T för din Etableringsjobbet. Ersätt ”[objekt-id]” med ägar-ID (objekt-ID) som kopieras från det tredje steget-tjänsten.
  
  `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -99,7 +99,7 @@ Ja. Om du hade kodade ett program till det gamla beteende som gällde före korr
 1.  Logga in på Azure-portalen på https://portal.azure.com.
 2. i den **Azure Active Directory > företagsprogram > Skapa program** avsnitt av Azure portal, skapa en ny **icke-galleriet** program.
 3.  I den **egenskaper** delen av den nya anpassa appen, kopiera den **objekt-ID**.
-4.  I ett nytt webbläsarfönster, går du till https://developer.microsoft.com/en-us/graph/graph-explorer och logga in som administratör för Azure AD-klient där din app har lagts till.
+4.  I ett nytt webbläsarfönster, går du till https://developer.microsoft.com/graph/graph-explorer och logga in som administratör för Azure AD-klient där din app har lagts till.
 5. I Graph-testaren kör du kommandot nedan för att initiera etableringskonfiguration för din app.
 Ersätt ”[objekt-id]” med ägar-ID (objekt-ID) som kopieras från det tredje steget-tjänsten.
 

@@ -14,15 +14,17 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 0f86bd807bf7bf0d00ad659f86b6e1170f31074c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 72e27b7098d9891dc54b31c34e2211362e7c9f50
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020013"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099980"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Hur du administrerar Azure Cache för Redis
 Det här avsnittet beskriver hur du utför administrationsuppgifter som [omstart](#reboot) och [schemalägga uppdateringar](#schedule-updates) för din Azure-Cache för Redis-instanser.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="reboot"></a>Starta om
 Den **omstart** kan du starta om en eller flera noder i cacheminnet. Den här funktionen för omstart kan du testa ditt program för återhämtning om det uppstår ett fel för en cachenod.
@@ -92,7 +94,7 @@ Den **Schemalägg uppdateringar** kan du ange en underhållsperiod för din cach
 
 Om du vill ange en underhållsperiod, de önskade dagarna och ange starttid för underhåll fönstret för varje dag och klicka på **OK**. Observera att underhållsfönstertiden är i UTC. 
 
-Standard- och minimumkapacitet underhållsperiod för programuppdateringar är fem timmar. Det här värdet kan inte konfigureras från Azure-portalen, men du kan konfigurera det i PowerShell med hjälp av den `MaintenanceWindow` -parametern för den [New AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet. Mer information finns i [kan jag hantera schemalagda uppdateringar med hjälp av PowerShell, CLI eller andra hanteringsverktyg?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+Standard- och minimumkapacitet underhållsperiod för programuppdateringar är fem timmar. Det här värdet kan inte konfigureras från Azure-portalen, men du kan konfigurera det i PowerShell med hjälp av den `MaintenanceWindow` -parametern för den [New AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. Mer information finns i [kan jag hantera schemalagda uppdateringar med hjälp av PowerShell, CLI eller andra hanteringsverktyg?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 
 
 ## <a name="schedule-updates-faq"></a>Schemalägga uppdateringar av vanliga frågor och svar
@@ -110,10 +112,10 @@ Endast Redis-server som har uppdaterats under det schemalagda underhållsfönstr
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Kan jag hanterade schemalagda uppdateringar med hjälp av PowerShell, CLI eller andra hanteringsverktyg?
 Ja, du kan hantera dina schemalagda uppdateringar med hjälp av följande PowerShell-cmdletar:
 
-* [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
+* [Get-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/get-azrediscachepatchschedule)
+* [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
+* [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
+* [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Vilka priser nivåerna kan använda funktionen Schemalägg uppdateringar?
 Den **Schemalägg uppdateringar** funktionen är endast tillgänglig i premiumprisnivån.

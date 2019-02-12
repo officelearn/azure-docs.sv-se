@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 7b1d58b82f2ccc99ecacb6099f6063fba5899421
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: c5d74c707c34cdcfba7bb0556c6e91a356123296
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478465"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099702"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent datakryptering för SQL Database och Data Warehouse
 
@@ -40,15 +40,14 @@ Microsoft även sömlöst flyttar hanterar nycklar som behövs för geo-repliker
 > [!IMPORTANT]
 > Alla nyligen skapade SQL-databaser krypteras som standard med hjälp av tjänsthanterad transparent datakryptering. Azure SQL-hanterad instans-databaser, befintliga SQL-databaser som skapats före maj 2017 och SQL-databaser som skapats via återställning, geo-replikering och databaskopiering krypteras inte som standard.
 
-## <a name="bring-your-own-key"></a>Ta med din egen nyckel
+## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Kundhanterad transparent datakryptering, Bring Your Own Key
 
-Med stöd för Bring Your Own Key kan du ta kontrollen över dina nycklar för kryptering av data transparent och kontrollera vem som kan komma åt dem och när. Key Vault, som är det Azure-molnbaserade externa nyckelhanteringssystemet, är den första nyckelhanteringstjänst att transparent datakryptering har integrerats med Bring Your Own Key support. Med stöd för Bring Your Own Key skyddas databaskrypteringsnyckeln av en asymmetrisk nyckel som lagras i Key Vault. En asymmetrisk nyckel lämnar aldrig Key Vault. När servern har behörighet till ett Nyckelvalv, skickar servern grundläggande nyckelåtgärd begäranden till den via Key Vault. Du kan ange en asymmetrisk nyckel på servernivå och alla *krypterade* databaser under den här servern ärver den.
+[TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) tillåter för att kryptera den databasen Datakrypteringsnyckeln (DEK) med en kundhanterad asymmetrisk nyckel kallas TDE-skydd.  TDE-skyddet lagras i en kundägda och hanteras [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade externa nyckelhanteringssystem. TDE DEK, som finns på startsidan av en databas, krypteras och dekrypteras av TDE-skyddet, som lagras i Azure Key Vault och lämnar aldrig nyckelvalvet.  SQL-databasen måste ha behörighet till kundägda nyckelvalvet för att dekryptera och kryptera DEK. Om behörigheterna för den logiska SQL-servern till nyckelvalvet har återkallats, en databas kan inte nås och alla data krypteras. För Azure SQL Database, TDE-skyddet är inställd på den logiska SQL-servernivån och ärvs av alla databaser som är associerade med den här servern. För Azure SQL Managed Instance TDE-skyddet är inställd på instansnivå och den ärvs av alla *krypterade* databaser på instansen. Termen *server* refererar både till servern och instansen i hela dokumentet, om inte anges på olika sätt.
 
-Med stöd för Bring Your Own Key kan styra du viktiga hanteringsuppgifter, till exempel nyckelrotationer och nyckelvalvet behörigheter. Du kan också ta bort nycklar och aktivera granskning/rapportering på alla krypteringsnycklar. Key Vault ger central nyckelhantering och använder nära övervakade HSM: er. Key Vault främjar uppdelning av hantering av nycklar och data för att uppfylla regelefterlevnad. Läs mer om Key Vault i den [dokumentationssidan för Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+Med transparent Datakryptering med Azure Key Vault-integrering, kan användare styra viktiga hanteringsaktiviteter, inklusive nyckelrotationer, nyckelvalvet behörigheter, nyckelsäkerhetskopior och aktivera granskning/reporting på alla TDE-skydd med hjälp av Azure Key Vault-funktioner. Key Vault ger central nyckelhantering, utnyttjar nära övervakade maskinvarusäkerhetsmoduler (HSM) och låter uppdelning av uppgifter mellan hantering av nycklar och data för att uppfylla efterlevnad med säkerhetsprinciper.
+Läs mer om transparent datakryptering med Azure Key Vault-integrering (stöd för Bring Your Own Key) för Azure SQL Database, SQL-hanterad instans och Data Warehouse i [Transparent datakryptering med Azure Key Vault-integrering](transparent-data-encryption-byok-azure-sql.md).
 
-Läs mer om transparent datakryptering med Bring Your Own Key-stöd för Azure SQL Database, SQL-hanterad instans och Data Warehouse i [Transparent datakryptering med stöd för Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
-
-Om du vill börja använda transparent datakryptering med stöd för Bring Your Own Key, finns i den här guiden [aktivera transparent datakryptering med hjälp av en egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
+Om du vill börja använda transparent datakryptering med Azure Key Vault-integrering (stöd för Bring Your Own Key), finns i den här guiden [aktivera transparent datakryptering med hjälp av en egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 
 ## <a name="move-a-transparent-data-encryption-protected-database"></a>Flytta en transparent data encryption-skyddad databas
 

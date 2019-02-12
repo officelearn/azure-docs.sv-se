@@ -1,6 +1,6 @@
 ---
-title: Visualisera Azure Network Watcher NSG-flödesloggar med verktyg för öppen källkod | Microsoft Docs
-description: Den här sidan beskriver hur du använder Verktyg för öppen källkod för att visualisera flödesloggar för NSG.
+title: Hantera och analysera flödesloggar för Nätverkssäkerhetsgruppen med Network Watcher och Elastic Stack | Microsoft Docs
+description: Hantera och analysera Flow loggar för Nätverkssäkerhetsgrupper i Azure med Network Watcher och Elastic Stack.
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822916"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099011"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisera Azure Network Watcher NSG-flödesloggar med verktyg för öppen källkod
 
@@ -177,7 +177,7 @@ sudo /etc/init.d/logstash start
 
 Mer information om det här plugin-programmet i den [dokumentation](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
-### <a name="install-kibana"></a>Installera Kibana
+### <a name="install-kibana"></a>Install Kibana
 
 1. Kör följande kommandon för att installera Kibana:
 

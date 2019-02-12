@@ -4,17 +4,17 @@ description: Beskriver hur resource principdefinitionen används av Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 14c5a9a5d9e3bd71ca1fdaf3545af3e74b3973c2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698300"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100658"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -90,8 +90,20 @@ Parametrar fungerar på samma sätt som när du skapar principer. Du kan återan
 > [!NOTE]
 > Parametrar kan läggas till en befintlig och tilldelade definition. Den nya parametern måste innehålla den **defaultValue** egenskapen. Detta förhindrar att befintliga tilldelningar för principen eller initiativ indirekt görs ogiltig.
 
-Exempelvis kan definiera du en princip för att begränsa de platser där resurser kan distribueras.
-Du kan deklarera följande parametrar när du skapar en princip:
+### <a name="parameter-properties"></a>Egenskaper för rapportparameter
+
+En parameter har följande egenskaper som används i principdefinitionen:
+
+- **Namn på**: Namnet på parametern. Används av den `parameters` distribution funktion i principregeln. Mer information finns i [med hjälp av ett parametervärde](#using-a-parameter-value).
+- `type`: Anger om parametern är en **sträng** eller en **matris**.
+- `metadata`: Definierar subegenskaper som främst används av Azure-portalen för att visa användarvänliga information:
+  - `description`: Förklaring av vad parametern används för. Kan användas för att ge exempel på de godkända värdena.
+  - `displayName`: Det egna namnet som visas i portalen för parametern.
+  - `strongType`: (Valfritt) Används när du tilldelar principdefinitionen via portalen. Innehåller en kontext medveten lista. Mer information finns i [strongType](#strongtype).
+- `defaultValue`: (Valfritt) Anger värdet för parametern i en tilldelning om inget värde anges. Krävs när du uppdaterar en befintlig principdefinition som är tilldelad.
+- `allowedValues`: (Valfritt) Innehåller en lista med värden som parametern accepterar under tilldelning.
+
+Exempelvis kan definiera du en principdefinition för att begränsa de platser där resurser kan distribueras. En parameter för den principdefinitionen kan vara **allowedLocations**. Den här parametern används av varje tilldelning av principdefinitionen för att begränsa de godkända värdena. Användning av **strongType** ger en förbättrad upplevelse när du har slutfört tilldelningen via portalen:
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ Du kan deklarera följande parametrar när du skapar en princip:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-Typen för en parameter kan vara antingen sträng eller matris. Metadata-egenskapen används för verktyg som Azure-portalen för att visa användarvänliga information.
-
-Du kan använda inom metadata-egenskap **strongType** att tillhandahålla en flervalslista med alternativ i Azure-portalen. Tillåtna värden för **strongType** nu:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>Med hjälp av ett parametervärde
 
 I principregeln du referera till parametrar med följande `parameters` distribution värdet funktionens syntax:
 
@@ -126,6 +134,19 @@ I principregeln du referera till parametrar med följande `parameters` distribut
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+Det här exemplet refererar till den **allowedLocations** parameter som visades i [parameteregenskaper](#parameter-properties).
+
+### <a name="strongtype"></a>strongType
+
+I den `metadata` egenskapen, som du kan använda **strongType** att tillhandahålla en flervalslista med alternativ i Azure-portalen. Tillåtna värden för **strongType** nu:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>Definitionens plats
 

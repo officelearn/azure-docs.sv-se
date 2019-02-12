@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332310"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097656"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödesloggar för nätverkssäkerhetsgrupper
 
@@ -65,7 +65,7 @@ Flödesloggar innehålla följande egenskaper:
                     * **Protokollet** -protokollet för flödet. Giltiga värden är **T** för TCP och **U** för UDP
                     * **Traffic Flow** -trafikflödet riktning. Giltiga värden är **jag** för inkommande och **O** för utgående.
                     * **Trafik beslut** – oavsett om trafik tillåts eller nekas. Giltiga värden är **A** för tillåtna och **D** för nekad.
-                    * **Läget för energiflöde - Version 2 endast** -samlar in tillståndet för flödet. Möjliga tillstånd är **B**: Börja när ett flöde skapas. Statistik tillhandahålls inte. **C**: Du kan fortsätta för en pågående flow. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutar när ett flöde har avslutats. Statistik tillhandahålls.
+                    * **Läget för energiflöde - Version 2 endast** -samlar in tillståndet för flödet. Möjliga tillstånd är **B**: Början när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter för ett pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls.
                     * **Paket - källa till mål - Version 2 endast** det totala antalet TCP eller UDP-paket som skickats från källa till mål sedan senaste uppdateringen.
                     * **Byte som skickats - källa till mål - Version 2 endast** det totala antalet TCP eller UDP-paket byte som skickats från källan till målet sedan senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.
                     * **Paket - mål-källan – Version 2 endast** det totala antalet TCP eller UDP-paket som skickats från mål till källa sedan senaste uppdateringen.
@@ -73,7 +73,7 @@ Flödesloggar innehålla följande egenskaper:
 
 ## <a name="nsg-flow-logs-version-2"></a>NSG-flödesloggarna version 2
 > [!NOTE] 
-> Flödesloggar av version 2 är endast tillgängliga i regionen USA, västra centrala. Aktivera Version 2 resulterar-loggar i en region som stöds inte i Version 1-loggarna för utdata till ditt lagringskonto.
+> Flödesloggar av version 2 är endast tillgängliga i regionen USA, västra centrala. Om du aktiverar loggar av version 2 i en region som inte stöds matas loggar av version 1 in i ditt lagringskonto.
 
 Version 2 av loggarna introducerar flow tillstånd. Du kan konfigurera vilken version av flödesloggar felmeddelandet. Läs hur du aktiverar flödesloggar i [aktiverar NSG-flödesloggar](network-watcher-nsg-flow-logging-portal.md).
 
@@ -287,5 +287,6 @@ Texten nedan är ett exempel på en flow-log. Som du ser finns det flera poster 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs hur du aktiverar flödesloggar i [aktiverar NSG-flödesloggar](network-watcher-nsg-flow-logging-portal.md).
+- Läs hur du läser flödesloggar i [Läs NSG-flödesloggar](network-watcher-read-nsg-flow-logs.md).
 - Läs mer om NSG loggning i [Log analytics för nätverkssäkerhetsgrupper (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - För att avgöra om trafik tillåts eller nekas till eller från en virtuell dator, se [diagnostisera ett problem med VM network trafik filter](diagnose-vm-network-traffic-filtering-problem.md)

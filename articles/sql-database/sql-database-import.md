@@ -7,17 +7,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
-ms.reviewer: carlrab
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5b717e26e61a6633ea51817bcb21ebeb15a20969
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/11/2019
+ms.openlocfilehash: 7ea1de4719d171605a49727d6924cb4b617b04bc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892011"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097871"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Snabbstart: Importera en BACPAC-fil till en ny Azure SQL Database
 
@@ -37,7 +37,7 @@ Du importerar en databas i Azure portal genom att öppna sidan för SQL Database
 
    ![databasimport](./media/sql-database-import/import.png)
 
-Välj lagringskontot, behållaren och BACPAC-fil som du vill importera. Ange den nya databasstorleken (vanligtvis samma som ursprung) och ange målet autentiseringsuppgifter för SQL Server. 
+Välj lagringskontot, behållaren och BACPAC-fil som du vill importera. Ange den nya databasstorleken (vanligtvis samma som ursprung) och ange målet autentiseringsuppgifter för SQL Server. En lista över möjliga värden för en ny Azure SQL-databas finns i [Create Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
 ### <a name="monitor-imports-progress"></a>Övervaka förloppet för import's
 
@@ -120,5 +120,5 @@ Du kan också använda guiderna.
 
 - Läs hur du ansluter till och fråga importerade SQL Database i [snabbstarten: Azure SQL Database: Använda SQL Server Management Studio för att ansluta och fråga data](sql-database-connect-query-ssms.md).
 - En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
-- En beskrivning av hela SQL Server-databasmigreringsprocessen, inklusive prestandarekommendationer, finns i [migrering av SQL Server-databas till Azure SQL Database](sql-database-cloud-migrate.md).
+- En beskrivning av hela SQL Server-databasmigreringsprocessen, inklusive prestandarekommendationer, finns i [migrering av SQL Server-databas till Azure SQL Database](sql-database-single-database-migrate.md).
 - Lär dig hur du hantera och dela lagringsnycklar och delad åtkomst signaturer på ett säkert sätt, finns i [säkerhetsguiden för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 478b03c979f5f2b588d51306ffa7b3c84ef25887
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 4cac603b0d575a4cf70cf4c5df6924be19bdfa2e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902490"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100286"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Skicka en begäran om att betala Azure-prenumeration med faktura
 
@@ -44,7 +44,7 @@ Du kan ändra betalningssätt för din Azure-prenumeration till faktura genom at
 
     * Företagsnamn
     * Faktureringsadress
-    * [Kontoadministratörens e-postadress](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
+    * [Kontoadministratörens e-postadress](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
 
 1. Verifiera din kontaktinformation, din önskade kontaktmetod och klicka på **Skapa**.
 

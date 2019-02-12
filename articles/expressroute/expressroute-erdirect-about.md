@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: mialdrid
+ms.date: 02/11/2019
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0415c329364f8df312667e725f3c5376ea13a6f4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098106"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100745"
 ---
 # <a name="about-expressroute-direct-preview"></a>Dirigera om ExpressRoute (förhandsversion)
 
@@ -58,7 +58,7 @@ Funktionerna i de flesta fall motsvarar kretsar som använder en ExpressRoute-le
 
 ## <a name="circuit-skus"></a>Kretsen SKU: er
 
-ExpressRoute Direct stöder scenarier för inmatning av massiva data i Azure storage och andra tjänster för stordata. ExpressRoute circuits på ExpressRoute Direct nu också stöd för **40 Gbit/s** och **100 Gbit/s** krets SKU: er.
+ExpressRoute Direct stöder scenarier för inmatning av massiva data i Azure storage och andra tjänster för stordata. ExpressRoute circuits på ExpressRoute Direct nu också stöd för **40 Gbit/s** och **100 Gbit/s** krets SKU: er. De fysiska portpar är **100 Gbit/s** endast och kan ha flera virtuella kretsar med bandbredder 5 Gbit/s, 10 Gbit/s, 40 Gbit/s, 100 Gbit/s - upp till 200 GB/s i vilken kombination som helst. 
 
 ## <a name="vlan-tagging"></a>VLAN-märkning
 

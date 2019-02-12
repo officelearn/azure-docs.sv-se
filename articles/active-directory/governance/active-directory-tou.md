@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2019
+ms.date: 02/09/2019
 ms.author: rolyon
-ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d063fd27d4de2fa37825294cd10f4f9a69731f63
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822518"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099997"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -333,6 +333,9 @@ Du kan konfigurera en princip för villkorlig åtkomst för Azure Information Pr
 Du kan konfigurera en princip för villkorlig åtkomst för Microsoft Intune-registrering appen och behöver en användningsvillkoren innan du registrerar en enhet i Intune. Mer information finns i [välja rätt villkor lösning för din organisation blogginlägget](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ![Microsoft Intune molnapp](./media/active-directory-tou/cloud-app-intune.png)
+
+> [!NOTE]
+> Appen Intune-registrering stöds inte för [Per enhet användningsvillkor](#per-device-terms-of-use).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

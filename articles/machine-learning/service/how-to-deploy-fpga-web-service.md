@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9c26a2a0eaf9c2669a71cdca729a6e64fe5cd5c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d7403d4f791151b167f03ee79c30623bbd644008
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301313"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100729"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning-tjänsten
 
@@ -179,7 +179,7 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>Skydda FPGA-webbtjänster
 
-Skydda FPGA webbtjänster med SSL stöds inte för närvarande.
+Information om hur du skyddar FPGA webbtjänster finns i den [skydda webbtjänster](how-to-secure-web-service.md) dokumentet.
 
 
 ## <a name="next-steps"></a>Nästa steg

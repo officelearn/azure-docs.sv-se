@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 871b6314bff7c984bc6cc779c43800883b8ff767
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 14f4d4dbdd06de91e126652497c49e4d74b4d3ad
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963819"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098161"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
@@ -79,7 +79,7 @@ Data Lake Storage Gen2 har stöd för flera plattformar för öppen källkod. De
 | [Hadoop](https://hadoop.apache.org/) | 2.7 + | [Apache Hadoop släpper Arkiv](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1 + | [Cloudera Enterprise 6.x viktig information](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2 + | [Databricks Runtime-versioner](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 2.6 + | [Hortonworks-dokumentation](https://docs.hortonworks.com/) |
+|[Hortonworks](https://hortonworks.com/)| 3.1.x+ | [Hortonworks-dokumentation](https://docs.hortonworks.com/) |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 110397e8399d153356a574b00d34a4cb781ec1b5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2ff0266faae102dcd6bc89644503e911971fc482
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811570"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099792"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-åtkomsttoken
 
@@ -87,7 +87,7 @@ Anspråk finns endast om ett värde för att fylla i. Appen ska därför inte sk
 |-----|--------|-------------|
 | `aud` | Sträng, ett App-ID-URI | Identifierar den avsedda mottagaren av token. I åtkomst-token är målgruppen appens program-ID som tilldelats din app i Azure-portalen. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
 | `iss` | Sträng, en STS-URI | Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient där användaren autentiserades. Om Utfärdad token är en v2.0-token (se den `ver` anspråk), URI: N går ut om `/v2.0`. Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. Din app ska använda GUID-del av kravet för att minska antalet klienter som kan logga in på appen, om tillämpligt. |
-|`idp`|String, usually an STS URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot inte i samma klient som utfärdaren - gäster, till exempel. Om anspråket inte är tillgänglig, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en orgnizational kontext (till exempel ett personligt konto bjudits in till en Azure AD-klient), den `idp` anspråk kan vara ”live.com” eller en STS-URI som innehåller Microsoft-kontots klientorganisation `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`|String, usually an STS URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot inte i samma klient som utfärdaren - gäster, till exempel. Om anspråket inte är tillgänglig, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en organisations kontext (till exempel ett personligt konto bjudits in till en Azure AD-klient), den `idp` anspråk kan vara ”live.com” eller en STS-URI som innehåller Microsoft-kontots klientorganisation `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, en UNIX-tidsstämpel | ”Utfärdat till” anger när autentisering för den här token inträffade. |
 | `nbf` | int, en UNIX-tidsstämpel | ”Nbf” (inte före)-anspråket identifierar den tid som JWT inte måste godkännas för bearbetning. |
 | `exp` | int, en UNIX-tidsstämpel | ”Exp” (upphör att gälla)-anspråket identifierar den upphör att gälla på eller efter vilket JWT måste inte godkännas för bearbetning. Det är viktigt att Observera att en resurs kan avvisa token före denna tidpunkt, till exempel när en ändring i autentisering krävs eller en återkallningen av token har identifierats. |
@@ -101,16 +101,15 @@ Anspråk finns endast om ett värde för att fylla i. Appen ska därför inte sk
 | `groups` | JSON-matris av GUID | Innehåller objekt-ID som representerar användarens gruppmedlemskap. Dessa värden är unikt (se objekt-ID) och kan användas på ett säkert sätt för att hantera åtkomst till exempel framtvinga behörighet att komma åt en resurs. De grupper som ingår i grupper-anspråket är konfigurerade på basis av per program, via den `groupMembershipClaims` egenskapen för den [programmanifestet](reference-app-manifest.md). En null-värde ska undanta alla grupper, värdet ”Tilldelningsmodulen” innehåller endast Active Directory-säkerhetsgrupp-medlemskap och ett värde av ”alla” kommer inkludera säkerhetsgrupper och distributionslistor för Office 365. <br><br>Se den `hasgroups` anspråk nedan för information om hur du använder den `groups` anspråk med implicit beviljande. <br>För andra flöden om antalet grupper som användaren är i går via en gräns (150 för SAML, 200 för JWT), läggs sedan ett överförbrukning anspråk till anspråk datakällor som pekar på Graph-slutpunkt som innehåller listan över grupper för användaren. |
 | `hasgroups` | Boolesk | Om det finns alltid `true`, anger användaren finns i minst en grupp. Används i stället för den `groups` anspråk för JWTs i implicit beviljande av flöden om fullständig grupper anspråk kan utökas URI-fragment överskrider gränserna för URL-längd (för närvarande 6 eller flera grupper). Anger att klienten ska använda i diagrammet för att fastställa användarens grupper (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | JSON-objekt | För tokenbegäranden som inte är begränsad längd (se `hasgroups` ovan) men fortfarande är för stor för token en länk till fullständiga listan över för användaren ska inkluderas. För JWTs som en distribuerad anspråk för SAML som ett nytt anspråk i stället för den `groups` anspråk. <br><br>**Exempelvärde JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
-| `preferred_name` | String | Visa endast i v2.0-token. Primära användarnamnet som representerar användaren. Det kan vara en e-postadress, telefonnummer eller ett allmänt användarnamn utan angivet format. Värdet är föränderliga och kan ändras över tid. Eftersom det är föränderliga, måste det här värdet inte användas vid auktoriseringsbeslut. Den `profile` omfattning krävs för att ta emot det här anspråket. |
+| `preferred_username` | String | Primära användarnamnet som representerar användaren. Det kan vara en e-postadress, telefonnummer eller ett allmänt användarnamn utan angivet format. Värdet är föränderliga och kan ändras över tid. Eftersom det är föränderliga, måste det här värdet inte användas vid auktoriseringsbeslut.  Den kan användas för användarnamn tips om. Den `profile` omfattning krävs för att ta emot det här anspråket. |
 | `name` | String | Innehåller ett läsbart värde som identifierar föremål för token. Värdet är inte säkert att vara unikt, det är föränderliga och den har utformats för att användas endast för visning. Den `profile` omfattning krävs för att ta emot det här anspråket. |
 | `oid` | Sträng, ett GUID | Oföränderligt ID för ett objekt i Microsoft identity-plattformen, i det här fallet ett användarkonto. Det kan också användas för att utföra auktoriseringskontroller på ett säkert sätt och som en nyckel i databastabeller. Detta ID identifierar användaren för program – två olika program som loggar in samma användare får samma värde i den `oid` anspråk. Därför `oid` kan användas när att göra frågor till Microsoft online services, till exempel Microsoft Graph. Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto. Eftersom den `oid` tillåter flera appar att korrelera användare, den `profile` omfattning krävs för att ta emot det här anspråket. Observera att om en enskild användare finns i flera klienter, användaren innehåller ett annat objekt-ID i varje klient – de anses vara olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
 | `rh` | Täckande sträng | Ett internt anspråk som används av Azure för att verifiera token. Resurser bör inte använda det här anspråket. |
 | `scp` | Sträng, ett blanksteg avgränsade lista med omfattningar | Uppsättningen med omfattningar som exponeras av ditt program där klientprogrammet har begärt (och tas emot) godkänna. Din app ska kontrollera att dessa scope är giltigt som exponeras av din app och fatta auktoriseringsbeslut baserat på värdet för dessa scope. Ingår endast för [användartoken](#user-and-application-tokens). |
-| `roles`| Sträng, ett blanksteg avgränsade lista över behörigheter | Uppsättningen behörigheter som exponeras av programmet som det begärande programmet har fått behörighet att anropa. Den används vid den [klientautentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md) flödar i stället för användaren scope och finns bara i [program token](#user-and-application-tokens). |
+| `roles`| Sträng, ett blanksteg avgränsade lista över behörigheter | Uppsättningen behörigheter som exponeras av programmet som det begärande programmet har fått behörighet att anropa. Den används vid den [klientautentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md) flödar i stället för användaren scope och finns bara i [programmet token](#user-and-application-tokens). |
 | `sub` | Sträng, ett GUID | Huvudkontot som token kontrollerar information, t.ex användare av en app. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Den kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs och kan användas som en nyckel i databastabeller. Eftersom ämne är alltid finns i token som Azure AD-problem, rekommenderar vi att använda det här värdet i ett auktoriseringssystem för allmänna. Ämnet är dock en pairwise identifierare – det är unikt för ett visst program-ID. Om en användare loggar in på två olika appar med hjälp av två olika klient-ID, därför får apparna två olika värden för ämne anspråket. Detta kan eller inte är önskvärt beroende på dina krav arkitektur och sekretess. |
 | `tid` | Sträng, ett GUID | Representerar den Azure AD-klient som användaren är från. För arbets- och skolkonton-konton är GUID oföränderligt klient-ID för den organisation som användaren tillhör. Värdet är för personliga konton `9188040d-6c67-4c5b-b112-36a304b66dad`. Den `profile` omfattning krävs för att ta emot det här anspråket. |
 | `unique_name` | String | Visa endast i v1.0 token. Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är inte säkert att vara unika inom en klient och bör endast användas för visning. |
-| `upn` | String | Användarnamnet för användaren. Kan vara ett telefonnummer, e-postadress eller oformaterad sträng. Bör endast användas för visning och tillhandahåller användarnamn tips i omautentisering scenarier. |
 | `uti` | Täckande sträng | Ett internt anspråk som används av Azure för att verifiera token. Resurser bör inte använda det här anspråket. |
 | `ver` | Sträng, 1.0 eller 2.0 | Anger versionen av den åtkomst-token. |
 
@@ -128,6 +127,7 @@ Följande anspråken kommer att inkluderas i v1.0 token om det är tillämpligt,
 | `nickname`| String | Ytterligare ett namn för användaren, separat från förnamn eller efternamn.|
 | `family_name` | String | Finns den senaste namn, efternamn eller namn för användaren som definieras på användarobjektet. |
 | `given_name` | String | Innehåller först eller namnet för användaren som angetts på användarobjektet. |
+| `upn` | String | Användarnamnet för användaren. Kan vara ett telefonnummer, e-postadress eller oformaterad sträng. Bör endast användas för visning och tillhandahåller användarnamn tips i omautentisering scenarier. |
 
 #### <a name="the-amr-claim"></a>Den `amr` anspråk
 

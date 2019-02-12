@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 8127abf19c31b8a50079f416e73c98efebfd0983
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 02/11/2019
+ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999427"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098366"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database-hanterad instans
 
-I den här artikeln får du lära dig om metoder för att migrera en SQL Server 2005 eller senare version instans till [Azure SQL Database-hanterad instans](sql-database-managed-instance.md).
+I den här artikeln får du lära dig om metoder för att migrera en SQL Server 2005 eller senare version instans till [Azure SQL Database-hanterad instans](sql-database-managed-instance.md). Information om hur du migrerar till en enkel databas eller elastisk pool finns i [migrera till en enda eller grupperade databas](sql-database-cloud-migrate.md). Migreringsinformation om hur du migrerar från andra plattformar finns i [Databasmigreringsguide för Azure](https://datamigration.microsoft.com/).
 
 Migreringen av databasen ut som på en hög nivå:
 
@@ -34,7 +34,7 @@ Migreringen av databasen ut som på en hög nivå:
 - [Övervaka program](#monitor-applications)
 
 > [!NOTE]
-> Om du vill migrera en enskild databas i en enkel databas eller elastisk pool, se [migrera en SQL Server-databas till Azure SQL Database](sql-database-cloud-migrate.md).
+> Om du vill migrera en enskild databas i en enkel databas eller elastisk pool, se [migrera en SQL Server-databas till Azure SQL Database](sql-database-single-database-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Utvärdera kompatibilitet för hanterad instans
 

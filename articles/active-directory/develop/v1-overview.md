@@ -16,16 +16,16 @@ ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4b3e7e777abc524e512acb2f9abc9c53ba29146d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a8cd7fca52809b1e093100f47ae0eb3a1438ca85
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102472"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097295"
 ---
 # <a name="about-v10"></a>Om v1.0
 
-Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att skapa appar som på ett säkert sätt kan logga in användare som har ett arbets- eller skolkonto hos Microsoft. Azure AD stöder utvecklare som skapar såväl verksamhetsspecifika appar för en klient som appar för flera klienter. Förutom grundläggande inloggning, kan Azure AD även låta appar anropa både Microsoft API:er som [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) och anpassade API:er som bygger på Azure AD-plattformen. Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av protokoll av branschstandardtyp som OAuth2.0 och OpenID Connect.
+Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att skapa appar som på ett säkert sätt kan logga in användare som har ett arbets- eller skolkonto hos Microsoft. Azure AD stöder utvecklare som skapar såväl verksamhetsspecifika appar för en klient som appar för flera klienter. Förutom grundläggande inloggning, kan Azure AD även låta appar anropa både Microsoft API:er som [Microsoft Graph](https://docs.microsoft.com/graph/overview) och anpassade API:er som bygger på Azure AD-plattformen. Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av protokoll av branschstandardtyp som OAuth2.0 och OpenID Connect.
 
 > [!NOTE]
 > Merparten av innehållet på den här sidan fokuserar på v1.0 slutpunkt och plattform, vilken enbart stöder Microsoft arbets- eller skolkonton. Om du vill logga in konsumentkonton eller personliga Microsoft-konton, se information på den [v2.0-slutpunkten och plattformen](v2-overview.md). V2.0-slutpunkten erbjuder en enhetlig utvecklarupplevelse för appar som vill logga in alla Microsoft-identiteter.

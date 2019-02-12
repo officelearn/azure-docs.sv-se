@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
-ms.openlocfilehash: 0e2b6e29e159970784ab8c321bbc8c16e96b60e3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 21bd83511f09c3049c396e13161e02dead6e3459
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757715"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100014"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Anvisningar: Konfigurera Azure AD SAML-tokenkryptering (förhandsversion)
 
@@ -33,19 +33,19 @@ Kryptera SAML-intyg mellan Azure AD och programmet tillhandahåller ytterligare 
 
 Även om du inte tokenkryptering skickas aldrig Azure AD SAML-tokens i nätverket i klartext. Azure AD kräver token begäran/svar-utbyten ska göras för krypterade HTTPS/TLS-kanaler så att kommunikationen mellan IDP: N, webbläsare och program kan ske under krypterade länkar. Överväg att värdet för kryptering av säkerhetstoken för din situation jämfört med arbetet med att hantera ytterligare certifikat.   
 
-Om du vill konfigurera tokenkryptering, måste du ladda upp en X509 certifikatfilen som innehåller den offentliga nyckeln till programmet Azure AD-objekt som representerar programmet. Att hämta X509 certifikat, kan du hämta det från själva programmet eller hämta det från programleverantören i fall där programleverantören ger krypteringsnycklar eller i fall där programmet förväntar sig att du kan ange en privat nyckel kan det vara skapas med hjälp av kryptografi-verktyg, den privata nyckeldelen överförs till programmets nyckelarkivet och matchande offentliga nyckelcertifikat som överförts till Azure AD.
+Om du vill konfigurera tokenkryptering, måste du överföra en fil för X.509-certifikat som innehåller den offentliga nyckeln till programmet Azure AD-objekt som representerar programmet. För att få X.509-certifikat kan hämta du den från programmet sig själv eller hämta det från programleverantören i fall där programleverantören ger krypteringsnycklar eller i fall där programmet förväntar sig att du kan ange en privat nyckel kan det vara skapas med hjälp av kryptografi-verktyg, den privata nyckeldelen överförs till programmets nyckelarkivet och matchande offentliga nyckelcertifikat som överförts till Azure AD.
 
 Azure AD använder AES-256 för att kryptera SAML assertion data.
 
 ## <a name="configure-saml-token-encryption"></a>Konfigurera SAML-tokenkryptering
 
-Följ dessa steg om du vill konfigurera SAML-tokenkryptering.
+Följ dessa steg för att konfigurera SAML-tokenkryptering:
 
 1. Hämta ett certifikat med offentlig nyckel som matchar en privat nyckel som har konfigurerats i programmet.
 
-    Skapa ett asymmetriskt nyckelpar ska användas för kryptering. Eller, om programmet tillhandahåller en offentlig nyckel ska användas för kryptering, följer du anvisningarna för programmets att ladda ned X509 certifikat.
+    Skapa ett asymmetriskt nyckelpar ska användas för kryptering. Eller om programmet tillhandahåller en offentlig nyckel ska användas för kryptering, följ programmets anvisningar för att hämta X.509-certifikat.
 
-    Den offentliga nyckeln ska lagras i en X509 certifikatfilen i .cer-format.
+    Den offentliga nyckeln ska lagras i en fil med X.509-certifikatet i .cer-format.
 
     Om programmet använder en nyckel som du skapar för din instans, följer du instruktionerna från ditt program för att installera den privata nyckeln som programmet använder för att dekryptera token från Azure AD-klienten.
 
@@ -66,9 +66,9 @@ Du kan lägga till offentligt certifikat till din programkonfiguration i Azure-p
     > [!NOTE]
     > Den **Token kryptering** alternativet är bara tillgängligt för SAML-program som har ställts in från den **företagsprogram** bladet i Azure-portalen, antingen från Programgalleriet eller en Icke-galleri-app. Alternativet är inaktiverat för andra program. För program som är registrerade via den **appregistreringar** upplevelse i Azure-portalen kan du konfigurera kryptering för SAML-token med hjälp av programmet manifest via Microsoft Graph eller PowerShell.
 
-1. På den **Token kryptering** väljer **Importera certifikat** att importera CER-filen som innehåller din offentliga X509 certifikat.
+1. På den **Token kryptering** väljer **Importera certifikat** att importera CER-filen som innehåller din offentliga X.509-certifikat.
 
-    ![Importera CER-filen som innehåller X509 certifikat](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Importera CER-filen som innehåller X.509-certifikat](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. När certifikatet har importerats och den privata nyckeln är konfigurerad för användning på programsidan, aktivera kryptering genom att välja den **...**  Nästa om du vill tumavtryck status och välj sedan **Aktivera kryptering av säkerhetstoken** från alternativen i den nedrullningsbara menyn.
 
@@ -94,7 +94,7 @@ När du konfigurerar en keyCredential med hjälp av Graph, PowerShell, eller i a
 
 ### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Konfigurera kryptering av säkerhetstoken med hjälp av Microsoft Graph
 
-1. Uppdatera programmets `keyCredentials` med en X509 certifikat för kryptering. I följande exempel visas hur du gör detta.
+1. Uppdatera programmets `keyCredentials` med ett X.509-certifikat för kryptering. I följande exempel visas hur du gör detta.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766103"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099147"
 ---
 # <a name="azure-stack-1811-update"></a>Uppdatering av Azure Stack 1811
 
@@ -118,6 +118,18 @@ Den här uppdateringen innehåller följande nya funktioner och förbättringar 
 - Hanterade diskar är nu aktiverad som standard när du skapar virtuella datorer med Azure Stack-portalen. Se den [kända problem](#known-issues-post-installation) för ytterligare steg som krävs för Managed Disks att undvika att skapa en VM-fel.
 
 - Den här versionen innehåller aviseringen **reparera** åtgärder för Azure Stack-operatör. Vissa aviseringar i 1811 tillhandahåller en **reparera** knappen i aviseringen som du kan välja för att lösa problemet. Mer information finns i [övervaka hälsotillstånd och aviseringar i Azure Stack](azure-stack-monitor-health.md).
+
+- Uppdateringar av uppdateringar i Azure Stack. Update-förbättringarna omfattar: 
+    - Flikarna som delar uppdateringar från uppdateringshistorik för bättre spårning uppdateringar pågår och slutfört uppdateringar.
+    - Förbättrad tillstånd visualiseringar i informationsavsnittet med nya ikoner och layout för aktuella och OEM-versioner som senast uppdaterad datum.
+    - **Visa** länka för kolumnen Release notes tar användaren direkt till dokumentationen specifika till att update i stället för sidan Allmänt.
+    - Den **uppdateringshistorik** fliken används för att fastställa körtider för var och en av uppdateringarna samt förbättrad filtreringsfunktioner.  
+    - Azure Stack-skalningsenheter som är anslutna får fortfarande automatiskt **uppdatering** när de blir tillgängliga.
+    - Azure Stack-skalningsenheter som inte är ansluten kan importera uppdateringarna precis som innan. 
+    - Det finns inga ändringar i processen för att ladda ned JSON-loggar från portalen. Azure Stack-operatörer kommer att se Expandera steg uttrycka pågår.
+
+    Mer information finns i [tillämpa uppdateringar i Azure Stack](azure-stack-apply-updates.md).
+
 
 ## <a name="fixed-issues"></a>Åtgärdade problem
 

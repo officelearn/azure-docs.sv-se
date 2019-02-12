@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 1cd862c59154f9da766b5df1ab8fb8d61e15d054
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628297"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099709"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhetsfilter för att trimma Azure-sökresultaten med hjälp av Active Directory-identiteter
 
@@ -64,7 +64,7 @@ Om du inte har befintliga användare kan använda du Microsoft Graph API: er fö
 
 Användar- och gruppmedlemskap kan vara mycket flytande, särskilt i stora organisationer. Kod som skapar identiteter för användare och grupper bör köras tillräckligt ofta för att hämta ändringar i medlemskap i organisationen. På samma sätt kan kräver din Azure Search-index ett liknande uppdateringsschema för att återspegla aktuell status för tillåtna användare och resurser.
 
-### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>Steg 1: Skapa [AAD-grupp](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
+### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>Steg 1: Skapa [AAD-grupp](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -78,7 +78,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>Steg 2: Skapa [AAD-användare](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
+### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>Steg 2: Skapa [AAD-användare](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -139,7 +139,7 @@ Gå igenom följande steg för att filtrera dokument som returneras i sökresult
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Steg 1: Hämta användarens grupp-ID: n
 
-Om användarens grupper inte har cachelagrade eller cacheminnet har upphört att gälla, utfärdar den [grupper](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) begäran
+Om användarens grupper inte har cachelagrade eller cacheminnet har upphört att gälla, utfärdar den [grupper](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) begäran
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

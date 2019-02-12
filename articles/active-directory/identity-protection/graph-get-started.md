@@ -17,20 +17,20 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 4ee2f0387ee3c56dda7cd1a89f5c808f55699856
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 47786ac687272cc2a88c3fa885fece9c858a3c2b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658631"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099079"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
 Microsoft Graph är Microsofts enhetlig API-slutpunkt och hem för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API: er. Det finns tre API: er som visar information om riskfylld användare och inloggningar. Den första API **identityRiskEvents**, kan du fråga Microsoft Graph för en lista över [riskhändelser](../reports-monitoring/concept-risk-events.md) och tillhörande information. Andra API: et **riskyUsers**, kan du fråga Microsoft Graph för information om användare Identity Protection har identifierats som risk. Den tredje API **inloggning från**, kan du fråga Microsoft Graph information om Azure AD-inloggningar med specifika egenskaper som rör risktillstånd, information och nivå. Den här artikeln kommer du igång med [ansluter till Microsoft Graph](#Connect-to-Microsoft-Graph) och [frågor till dessa API: er](#Query-the-APIs). En djupgående introduktion, fullständig dokumentation och åtkomst till Graph-testaren finns i den [Microsoft Graph plats](https://graph.microsoft.io/) eller specifika referensdokumentationen för dessa API: er:
 
-* [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
-* [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
-* [inloggning från API: et](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
+* [inloggning från API: et](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
 
 
 ## <a name="connect-to-microsoft-graph"></a>Ansluta till Microsoft graph
@@ -217,7 +217,7 @@ Lägg till klient-ID, den hemliga nyckeln och klient-domänen.
 
 ## <a name="query-the-apis"></a>Fråga efter API: er
 
-Dessa tre API: er ger en mängd möjligheter att hämta information om riskfylld användare och inloggningar i din organisation. Nedan visas några vanliga användningsområden för dessa API: er och de associerade exempelförfrågan. Du kan köra dessa frågor med hjälp av exempelkoden ovan eller med hjälp av [Graph-testaren](https://developer.microsoft.com/en-us/graph/graph-explorer).
+Dessa tre API: er ger en mängd möjligheter att hämta information om riskfylld användare och inloggningar i din organisation. Nedan visas några vanliga användningsområden för dessa API: er och de associerade exempelförfrågan. Du kan köra dessa frågor med hjälp av exempelkoden ovan eller med hjälp av [Graph-testaren](https://developer.microsoft.com/graph/graph-explorer).
 
 ### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Hämta händelser (identityRiskEvents API) med hög risk och medel risk
 
@@ -251,7 +251,7 @@ Grattis, du har skapat just ditt första anrop till Microsoft Graph!
 Nu kan du fråga identitet riskhändelser och använda data men du vill.
 
 
-Om du vill veta mer om Microsoft Graph och hur du skapar program med Graph API kan ta en titt på [dokumentation](https://docs.microsoft.com/graph/overview) och mycket mer på den [Microsoft Graph plats](https://developer.microsoft.com/en-us/graph). 
+Om du vill veta mer om Microsoft Graph och hur du skapar program med Graph API kan ta en titt på [dokumentation](https://docs.microsoft.com/graph/overview) och mycket mer på den [Microsoft Graph plats](https://developer.microsoft.com/graph). 
 
 
 Relaterad information finns i:

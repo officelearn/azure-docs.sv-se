@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fbafd2d224879dbe33c581c13dfe52fc9a22ae55
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510834"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098549"
 ---
 # <a name="api-management-cross-domain-policies"></a>Korsdomänprinciper för API Management
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -145,7 +145,7 @@ Det här exemplet visar hur du stöd för före flygning begäranden, till exemp
 Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Princip-avsnitt:** inkommande
-- **Princip för omfång:** API: et, igen
+- **Princip-scope:** globala, API, igen
 
 ## <a name="JSONP"></a> JSONP
 Den `jsonp` Grupprincip lägger till JSON med stöd för utfyllnad (JSONP) till en åtgärd eller ett API för att tillåta anrop mellan domäner från JavaScript-webbläsarbaserade klienter. JSONP är en metod som används i JavaScript-program att begärandedata från en server i en annan domän. JSONP kringgår den begränsning som tillämpas av de flesta webbläsare där åtkomst till webbsidor måste vara i samma domän.

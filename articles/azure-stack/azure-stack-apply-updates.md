@@ -11,22 +11,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
-ms.reviewer: wfayed
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.reviewer: justini
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729956"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099300"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Tillämpa uppdateringar i Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system*
 
-Du kan använda den **uppdatera** panelen i administrationsportalen för att tillämpa Microsoft- eller OEM-uppdateringspaket för Azure Stack. Du måste ladda ned uppdateringspaketet, importera paketfilerna till Azure Stack och sedan installera uppdateringspaketet.
+Du kan använda den **uppdatera** panelen i administrationsportalen för att tillämpa Microsoft- eller OEM-uppdateringspaket för Azure Stack.
+
+Om du använder en integrerade system version 1807 eller tidigare, måste du ladda ned uppdateringspaketet, importera paketfilerna till Azure Stack och sedan installera uppdateringspaketet. Anvisningar finns i [Update Azure Stack genom att ladda ned paketet](#update-azure-stack-by-downloading-the-package)
+
+Dessa uppgradera instruktioner fungerar med integrerade Azure Stack-systemen. Om du använder Azure Stack Development System, måste du hämta installationspaketet för den aktuella versionen. Anvisningar finns i [installera Azure Stack Development Kit](.\asdk\asdk-install.md)
+
+## <a name="update-azure-stack"></a>Uppdatera Azure Stack
+
+### <a name="select-and-apply-an-update-package"></a>Välj och tillämpa ett uppdateringspaket
+
+1. Öppna administrationsportalen.
+
+2. Välj **instrumentpanelen**. Välj den **uppdatering** panelen.
+
+    ![Azure Stack-uppdatering tillgänglig](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+
+3. Anteckna den aktuella versionen av Azure Stack. Du kan uppdatera till den nästa fullständiga versionen. Till exempel om du kör Azure Stack 1811 nästa publicerat version är 1901.
+
+    ![Använd Azure Stack-uppdatering](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+
+4. Välj den nästa tillgängliga versionen i listan med uppdateringar. Du kan välja **visa** i version anmärkningar för att öppna avsnittet viktig information för versionen om vill granska versionsändringarna.
+
+5. Välj uppdatering nu. Uppdateringen startar.
+
+### <a name="review-update-history"></a>Granska uppdateringshistorik
+
+1. Öppna administrationsportalen.
+
+2. Välj **instrumentpanelen**. Välj den **uppdatering** panelen.
+
+3. Välj **uppdateringshistorik**.
+
+![Uppdateringshistorik för Azure Stack](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+
+## <a name="update-azure-stack-by-downloading-the-package"></a>Uppdatera Azure Stack genom att ladda ned paketet
+
+Om du använder en integrerade system version 1807 eller tidigare, måste du ladda ned uppdateringspaketet, importera paketfilerna till Azure Stack och sedan installera uppdateringspaketet.
 
 ## <a name="download-the-update-package"></a>Ladda ned uppdateringspaketet
 

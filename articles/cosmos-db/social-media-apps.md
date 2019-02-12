@@ -4,14 +4,14 @@ description: Läs mer om ett designmönster för sociala nätverk genom att utny
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/11/2019
 ms.author: maquaran
-ms.openlocfilehash: 8d6dfa292bd597c2e37f7111e3a068010dc4653c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042691"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100371"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialt med Azure Cosmos DB
 
@@ -222,7 +222,7 @@ Ett annat tillgängliga alternativ är att använda [Azure Cognitive Services](h
 
 Det finns en sista, men inte minst viktiga artikeln jag måste åtgärda: **skalbarhet**. När du utformar en arkitektur för ska varje komponent skalas på egen hand. Du kommer behöva bearbeta mer data och du vill ha en större geografiska täckning. Testningskostnader uppnå båda uppgifterna är en **nyckelfärdiga** med Cosmos DB.
 
-Cosmos DB stöder [dynamisk partitionering](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of the box. Skapar automatiskt partitioner som baseras på en viss **partitionsnyckel**, som har definierats som ett attribut i dina dokument. Definiera rätt partitionsnyckel måste göras vid designtillfället. Mer information finns i den [välja rätt partitionsnyckel](partitioning-overview.md#choose-partitionkey) artikeln.
+Cosmos DB stöder dynamisk partitionering out-of the box. Skapar automatiskt partitioner som baseras på en viss **partitionsnyckel**, som har definierats som ett attribut i dina dokument. Definiera rätt partitionsnyckel måste göras vid designtillfället. Mer information finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
 
 För en social upplevelse, måste du justera partitioneringsstrategin med hur du frågar och skriva. (Till exempel läsningar inom samma partition är önskvärt, och undvika ”hotspots” genom att sprida skrivningar på flera partitioner.) Vissa alternativ är: partitioner baserat på en temporal key (dag/månad/vecka), av Innehållskategori, geografisk region eller användare. Allt beror på hur du fråga efter data och visa data i din-upplevelsen.
 

@@ -3,6 +3,7 @@ title: SQLServer på Azure VM viktig information | Microsoft Docs
 description: Lär dig mer om nya funktioner och förbättringar av SQL Server på en Azure VM
 services: virtual-machines-windows
 author: MashaMSFT
+ms.author: mathoma
 manager: craigg
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -12,17 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/5/2019
-ms.author: mathoma
-ms.openlocfilehash: e6640725c1c2de4676cbaad2698f77887d4f0547
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1be413e2c09033268a13d1eb954c8f0922911ba2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004697"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098569"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server på Azure-dator viktig information
 
-Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inbyggda i. Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de senaste versionerna av [SQL Server på Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates)
+Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inbyggda i. Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de senaste versionerna av [SQL Server på Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).  Artikeln innehåller också viktiga uppdateringar av innehållet som inte är direclty relaterade till versionen men publicerats i samma tidsram. Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates)
 
 ## <a name="december-2018"></a>December 2018
 

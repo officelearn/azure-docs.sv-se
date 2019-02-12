@@ -14,16 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1fe847bd0cdceec7eccab8218ccf787d8f4366ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197245"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097798"
 ---
 # <a name="azure-application-prerequisites"></a>Krav för Azure-program
 
-Den här artikeln beskriver de tekniska och affärsmässiga krav för att publicera ett erbjudande om hanterat program på Azure Marketplace.
+Den här artikeln beskriver de tekniska och affärsmässiga krav för att publicera ett erbjudande om hanterat program på Azure Marketplace.  Om du inte redan har gjort det, visa videon [mallar för att skapa lösningar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+
 
 ## <a name="technical-requirements"></a>Tekniska krav
 
@@ -36,6 +37,7 @@ De tekniska kraven är följande:
   * [GitHub: Azure Resource Manager-Snabbstartsmallar](https://github.com/azure/azure-quickstart-templates). Den här lagringsplatsen innehåller alla tillgängliga Azure Resource Manager-mallar som tillförts av communityn. En mall för sökbart index hålls på https://azure.microsoft.com/en-us/documentation/templates/.
 * Skapa UI-Definition<br>
 Mer information finns i [skapa Azure portal användargränssnittet för det hanterade programmet](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Den här artikeln beskriver grundläggande begrepp i filen createUiDefinition.json. Azure-portalen använder den här filen för att generera användargränssnittet för att skapa ett hanterat program.
+
 
 ## <a name="business-requirements"></a>Affärskrav
 
@@ -54,6 +56,7 @@ Affärskraven omfattar följande procedur, avtalsenliga och juridiska skyldighet
 * Du måste godkänna villkoren i Deltagandepolicyer för Microsoft Azure Marketplace och avtalet för utgivare.
 * Du måste vara kompatibel med Microsoft Azure av användningsvillkor för webbplatsen, sekretesspolicy för Microsoft och Microsoft Azure Certified-programavtalet.
 
+
 ## <a name="publishing-requirements"></a>Krav för publicering
 
 Om du vill publicera ett nytt erbjudande för Azure-program, måste du uppfylla följande krav:
@@ -62,10 +65,12 @@ Om du vill publicera ett nytt erbjudande för Azure-program, måste du uppfylla 
   * En rubrik
   * En beskrivning (i HTML-format)
   * En logotyp (i PNG-format) och fasta bildstorleken i den här: 40 x 40 bildpunkter, 90 x 90 bildpunkter, 115 x 115 bildpunkter och 255 x 115 bildpunkter.
-* En användningsvillkor och en sekretesspolicy
+* En *användningsvillkoren* och en *sekretesspolicy*
 * Dokumentation
 * Supportkontakter
 
+
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa ett erbjudande för Azure-program](./cpp-create-offer.md) 
+När du har uppfyllt alla krav, måste du vara redo att [skapa ett Azure-program-erbjudande](./cpp-create-offer.md). 
+ 

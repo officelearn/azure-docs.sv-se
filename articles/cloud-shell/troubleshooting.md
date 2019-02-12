@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568540"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100575"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsökning av & begränsningar i Azure Cloud Shell
 
@@ -109,10 +109,6 @@ Cloudshell har stöd för de senaste versionerna av följande webbläsare:
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="for-a-given-user-only-one-shell-can-be-active"></a>För en viss användare kan endast en shell vara aktiv
-
-Användarna kan bara starta en typ av gränssnittet i taget, antingen **Bash** eller **PowerShell**. Du kan dock ha flera instanser av Bash eller PowerShell som körs på en gång. Växlar mellan Bash eller PowerShell orsaker Cloud Shell för att starta om, vilket avslutar befintliga sessioner.
-
 ### <a name="usage-limits"></a>Användningsgränser
 
 Cloudshell är avsedd för interaktiva användningsfall. Därför kan avslutas alla tidskrävande icke-interaktiva sessioner utan varning.
@@ -140,10 +136,6 @@ Den `SqlServer` modulen som ingår i Cloud Shell har endast förhandsversioner s
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standardplatsen för när de skapas från Azure-enheten
 
 Med hjälp av PowerShell-cmdletar, kan inte användare skapa filer under Azure-enheten. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano filerna sparas i den `$HOME` som standard.
-
-### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>Kommandon som skapar GUI popup-fönster stöds inte
-
-Om du kör ett kommando som skapar en Windows-dialogruta som `Connect-AzureAD`, `Connect-AzureRmAccount`, eller `Connect-AzAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Tabbifyllning kan utlösa PSReadline undantag
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: c6d696f8bf5f649321ee0be93ae13571a7ba3019
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a5634054746d7e60aff154165f651f7c815c39a3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896738"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100830"
 ---
 # <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Övergång från självsignerat till offentlig CA-certifikat för P2S-gatewayer
 
@@ -23,14 +23,14 @@ Tidigare behövde självsignerat certifikat för gateway uppdateras varje 18 må
 Endast äldre gatewayer som påverkas av den här ändringen. Om din gateway-certifikatet måste överföras, får du kommunikation eller popup i Azure-portalen. Du kan kontrollera om din gateway påverkas med hjälp av stegen i den här artikeln.
 
 >[!IMPORTANT]
->Övergången är schemalagd för mars 09,2019 kl. 18:00 UTC. Du kan skapa ett supportärende om du föredrar ett annat tidsintervall. Du kan begära en av följande fönster:
+>Övergången är schemalagd för mars 12,2019 kl. 18:00 UTC. Du kan skapa ett supportärende om du föredrar ett annat tidsintervall. Du kan begära en av följande fönster:
 >
 >* 06:00 UTC på 25 Feb
 >* 18:00 UTC på 25 Feb
 >* 06:00 UTC på 1 mars
 >* 18:00 UTC på 1 mars
 >
->**Alla återstående gatewayer övergår mars 09 2019 kl. 18:00 UTC**.
+>**Alla återstående gatewayer övergår mars 12 2019 kl. 18:00 UTC**.
 >
 
 ## <a name="1-verify-your-certificate"></a>1. Kontrollera ditt certifikat

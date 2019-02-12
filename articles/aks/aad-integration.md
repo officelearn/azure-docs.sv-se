@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081253"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099266"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
@@ -220,7 +220,9 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 
 När du är klar cachelagras autentiseringstoken. Du är bara reprompted för inloggning när token har upphört att gälla eller Kubernetes-config-fil som skapas på nytt.
 
-Om du ser ett meddelande om auktoriseringsfel när inloggningen, kontrollerar du att användaren du loggar in som är inte en gäst i Azure AD (det är ofta fallet om du använder en federerad inloggning från en annan katalog).
+Om du ser ett meddelande om auktoriseringsfel efter inloggningen, kontrollera om:
+1. Användaren du loggar in som är inte en gäst i Azure AD-instans (det är ofta fallet om du använder en federerad inloggning från en annan katalog).
+2. Användaren är inte medlem i fler än 200.
 
 ```console
 error: You must be logged in to the server (Unauthorized)

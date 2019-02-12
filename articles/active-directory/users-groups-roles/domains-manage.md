@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 198fb3376d44123d39a0b3ca2fb1edbd070f1f09
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 7822b5abe78bf969171f7f6ee7d706dadb8d0188
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510994"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100456"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domännamn i Azure Active Directory
 
@@ -66,7 +66,7 @@ Du måste ändra eller ta bort alla sådana resurser i Azure AD-katalogen innan 
 
 ### <a name="forcedelete-option"></a>ForceDelete alternativet
 
-Du kan **ForceDelete** ett domännamn i den [Azure AD-administrationscentret](https://aad.portal.azure.com) eller med hjälp av [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete). Dessa alternativ använder en asynkron åtgärd och uppdatera alla referenser från det anpassade domännamnet som ”user@contoso.com” så här det inledande standarddomännamnet som ”user@contoso.onmicrosoft.com”. 
+Du kan **ForceDelete** ett domännamn i den [Azure AD-administrationscentret](https://aad.portal.azure.com) eller med hjälp av [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Dessa alternativ använder en asynkron åtgärd och uppdatera alla referenser från det anpassade domännamnet som ”user@contoso.com” så här det inledande standarddomännamnet som ”user@contoso.onmicrosoft.com”. 
 
 Att anropa **ForceDelete** Azure-portalen måste du se till att det finns färre än 1 000 referenser till domännamnet och alla referenser där Exchange är etableringstjänsten måste uppdateras eller tas bort i den [ Administrationscenter för Exchange](https://outlook.office365.com/ecp/). Detta inkluderar Exchange Mail-Enabled säkerhetsgrupper och distribuerade listor. Mer information finns i [tar bort e-postaktiverade säkerhetsgrupper](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Dessutom den **ForceDelete** åtgärden inte lyckas om något av följande stämmer:
 
@@ -112,4 +112,4 @@ De flesta hanteringsuppgifter för domännamn i Azure Active Directory kan ocks�
 
 * [Lägga till anpassade domännamn](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Ta bort Exchange-e-postaktiverade säkerhetsgrupper i administrationscentret för Exchange på ett anpassat domännamn i Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [ForceDelete ett anpassat domännamn med Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)
+* [ForceDelete ett anpassat domännamn med Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)

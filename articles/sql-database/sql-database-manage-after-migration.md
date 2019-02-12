@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751947"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099742"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -310,7 +310,7 @@ SQL Database använder vissa smart tekniker för att den kan hantera vissa klass
 Du har flera olika sätt att åstadkomma detta:
 
 - **[Datasynkronisering](sql-database-sync-data.md)**  – den här funktionen kan du synkronisera data dubbelriktat mellan flera lokala SQL Server-databaser och SQL-databas. Om du vill synkronisera med en lokal SQL Server-databaser, måste du installera och konfigurera sync-agenten på en lokal dator och öppna utgående TCP-port 1433.
-- **[Transaktionsreplikering](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – med replikering av transaktioner kan du synkronisera dina data från en lokal plats till Azure SQL DB med den lokala utgivaren och Azure SQL-databas som prenumeranten. För närvarande stöds endast den här installationen. Mer information om hur du migrerar dina data från en lokal plats till Azure SQL med minimal avbrottstid finns: [Använd Transaktionsreplikering](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transaktionsreplikering](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – med replikering av transaktioner kan du synkronisera dina data från en lokal plats till Azure SQL DB med den lokala utgivaren och Azure SQL-databas som prenumeranten. För närvarande stöds endast den här installationen. Mer information om hur du migrerar dina data från en lokal plats till Azure SQL med minimal avbrottstid finns: [Använd Transaktionsreplikering](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Nästa steg
 

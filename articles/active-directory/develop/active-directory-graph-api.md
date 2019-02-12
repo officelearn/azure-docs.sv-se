@@ -16,19 +16,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: ce1940d0b83e0713ce41d84e8d4bfeff6cb75954
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2c95e19fe47e23cda6d14fc047fbe6c30100d78e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075864"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097772"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
 > Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph/) i stället för Azure AD Graph API för att komma åt resurser i Azure Active Directory. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett begränsat antal scenarier där Azure AD Graph API fortfarande kan vara lämpligt. Mer information finns i blogginlägget [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) (Microsoft Graph eller Azure AD Graph) i Office Dev Center.
 
-Den här artikeln gäller för Azure AD Graph API. Liknande information relaterad till Microsoft Graph API finns i [använder Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api). 
+Den här artikeln gäller för Azure AD Graph API. Liknande information relaterad till Microsoft Graph API finns i [använder Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api). 
 
 Azure Active Directory Graph API ger Programmeringsåtkomst till Azure AD via REST API-slutpunkter. Program kan använda Azure AD Graph API för att utföra skapa, läsa, uppdatera och ta bort (CRUD)-åtgärder på katalogdata och objekt. Till exempel stöder Azure AD Graph API följande vanliga åtgärder för ett användarobjekt:
 

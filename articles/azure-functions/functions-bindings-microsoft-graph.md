@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822637"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100806"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindningar för Azure Functions
 
@@ -670,7 +670,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 
 Bindningen visar följande typer till .NET-funktioner:
 - byte
-- Stream
+- Strömma
 - sträng
 - Microsoft.Graph.DriveItem
 
@@ -817,7 +817,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 
 Bindningen visar följande typer till .NET-funktioner:
 - byte
-- Stream
+- Strömma
 - sträng
 - Microsoft.Graph.DriveItem
 
@@ -982,7 +982,7 @@ Webhooks kan du reagera på händelser i Microsoft Graph. För att stödja webho
 - En [webhook-prenumeration för Microsoft Graph indatabindning](#webhook-input) kan du lista över befintliga prenumerationer och du kan också uppdatera dem.
 - En [webhook-prenumeration för Microsoft Graph-utdatabindning](#webhook-output) kan du skapa eller ta bort webhook-prenumerationer.
 
-Bindningarna själva kräver inte några Azure AD-behörigheter, men du måste begära behörighet som är relevanta för den resurstyp som du vill ta hänsyn till. En lista av vilka behörigheter som krävs för varje resurstyp finns i [Prenumerationsbehörigheter](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
+Bindningarna själva kräver inte några Azure AD-behörigheter, men du måste begära behörighet som är relevanta för den resurstyp som du vill ta hänsyn till. En lista av vilka behörigheter som krävs för varje resurstyp finns i [Prenumerationsbehörigheter](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Läs mer om webhooks [arbeta med webhooks i Microsoft Graph].
 

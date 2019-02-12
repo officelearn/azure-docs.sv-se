@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e17ddb45143e03023c30b69ed314270ed97dc039
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973185"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822484"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Redundansväxla och återställa virtuella VMware-datorer och fysiska servrar som replikeras till Azure
 
@@ -56,7 +56,7 @@ Kontrollera VM-egenskaperna och se till att den virtuella datorn uppfyller [Azur
 
 2. I fönstret **Replikerade objekt** finns det en sammanfattning av VM-informationen, hälsostatus och de senaste tillgängliga återställningspunkterna. Klicka på **Egenskaper** för att se mer information.
 
-3. I **Beräkning och nätverk** kan du ändra Azure-namnet, resursgrupp, målstorlek, [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) och [hanterade diskinställningar](#managed-disk-considerations)
+3. I **Beräkning och nätverk** kan du ändra Azure-namnet, resursgrupp, målstorlek, [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) samt inställningar för hanterad disk
 
 4. Du kan visa och ändra inställningar för nätverk, inklusive det nätverk/undernät där den virtuella Azure-datorn kommer att finnas efter redundansen och den IP-adress som kommer att tilldelas till den.
 

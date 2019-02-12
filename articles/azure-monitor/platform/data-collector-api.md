@@ -1,6 +1,6 @@
 ---
-title: Logga Analytics http-API för datainsamling | Microsoft Docs
-description: 'Du kan använda Log Analytics HTTP Data Collector API för att lägga till POST JSON-data i Log Analytics-databasen från alla klienter som kan anropa REST-API. Den här artikeln beskriver hur du använder API: et och har exempel på hur du publicerar data med hjälp av olika programmeringsspråk.'
+title: Azure Monitor http-API för datainsamling | Microsoft Docs
+description: 'Du kan använda Azure Monitor HTTP Data Collector API för att lägga till POST JSON-data till en Log Analytics-arbetsyta från alla klienter som kan anropa REST-API. Den här artikeln beskriver hur du använder API: et och har exempel på hur du publicerar data med hjälp av olika programmeringsspråk.'
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,23 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: bwren
-ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 918cfb36c3afb9fc5c9a3f2c25b7c14b04354db1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211108"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002233"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)
-Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Log Analytics från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Log Analytics.  Exempel tillhandahålls för PowerShell, C# och Python.
+# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka data till Azure Monitor med HTTP Data Collector API (förhandsversion)
+Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Azure Monitor från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Azure Monitor.  Exempel tillhandahålls för PowerShell, C# och Python.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> Log Analytics HTTP Data Collector API finns i offentlig förhandsversion.
+> Azure Monitor HTTP Data Collector API finns i offentlig förhandsversion.
 
 ## <a name="concepts"></a>Begrepp
-Du kan använda HTTP Data Collector API för att skicka data till Log Analytics från alla klienter som kan anropa en REST-API.  Det kan vara en runbook i Azure Automation som samlar in hantering av data från Azure eller ett annat moln, eller så kanske ett alternativt system som använder Log Analytics att konsolidera och analysera data.
+Du kan använda HTTP Data Collector API för att skicka data till en Log Analytics-arbetsyta i Azure Monitor från alla klienter som kan anropa en REST-API.  Det kan vara en runbook i Azure Automation som samlar in hantering av data från Azure eller ett annat moln, eller så kanske ett alternativt system som använder Azure Monitor för att konsolidera och analysera loggdata.
 
-Alla data i Log Analytics-databasen lagras som en post med en viss posttyp.  Du kan formatera dina data att skicka till HTTP Data Collector API som flera poster i JSON.  När du skickar in data, skapas en enskild post i databasen för varje post i nyttolasten för begäran.
+Alla data i Log Analytics-arbetsytan lagras som en post med en viss posttyp.  Du kan formatera dina data att skicka till HTTP Data Collector API som flera poster i JSON.  När du skickar in data, skapas en enskild post i databasen för varje post i nyttolasten för begäran.
 
 
 ![HTTP Data Collector översikt](media/data-collector-api/overview.png)
@@ -54,7 +56,7 @@ Om du vill använda HTTP Data Collector API måste skapa du en POST-begäran som
 | API-version |Versionen av API för användning med den här begäran. Det är för närvarande 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvud
-| Sidhuvud | Beskrivning |
+| Huvud | Beskrivning |
 |:--- |:--- |
 | Auktorisering |Signatur för auktorisering. Senare i artikeln kan du läsa om hur du skapar en HMAC-SHA256-rubrik. |
 | Loggtyp |Ange posttypen för de data som skickas. Storleksgränsen för den här parametern är 100 tecken. |
@@ -62,7 +64,7 @@ Om du vill använda HTTP Data Collector API måste skapa du en POST-begäran som
 | time-generated-field |Namnet på ett fält i de data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält så att innehållet används för **TimeGenerated**. Om det här fältet har inte angetts standard för **TimeGenerated** är den tid som matas in meddelandet. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-: ssZ. |
 
 ## <a name="authorization"></a>Auktorisering
-Varje Log Analytics HTTP Data Collector API-begäran måste innehålla en auktoriseringsrubrik. För att autentisera en begäran, måste du logga på begäran med antingen primärt eller sekundära nyckeln för den arbetsyta som gör begäran. Skicka sedan den signaturen som en del av begäran.   
+Varje Azure Monitor HTTP Data Collector API-begäran måste innehålla en auktoriseringsrubrik. För att autentisera en begäran, måste du logga på begäran med antingen primärt eller sekundära nyckeln för den arbetsyta som gör begäran. Skicka sedan den signaturen som en del av begäran.   
 
 Här är formatet för auktoriseringsrubriken:
 
@@ -130,24 +132,24 @@ Du kan batch flera poster i en enskild begäran med hjälp av följande format. 
 ```
 
 ## <a name="record-type-and-properties"></a>Posttyp och egenskaper
-Du kan definiera en anpassad posttyp när du skickar data med hjälp av Log Analytics HTTP Data Collector API. Du kan inte för närvarande kan skriva data till befintliga posttyper som har skapats av andra datatyper och lösningar. Log Analytics läser inkommande data och skapar sedan egenskaper som matchar datatyperna för de värden som du anger.
+Du kan definiera en anpassad posttyp när du skickar data via Azure Monitor HTTP Data Collector API. Du kan inte för närvarande kan skriva data till befintliga posttyper som har skapats av andra datatyper och lösningar. Azure Monitor läser inkommande data och skapar sedan egenskaper som matchar datatyperna för de värden som du anger.
 
-Varje begäran till Log Analytics-API måste innehålla en **loggtyp** rubrik med namnet för posttypen. Suffixet **_CL** läggs automatiskt till namnet som du anger för att skilja den från andra loggtyper som en anpassad logg. Exempel: Om du anger namnet **MyNewRecordType**, Log Analytics skapas en post med typen **MyNewRecordType_CL**. Detta hjälper till att säkerställa att det inte finns några konflikter mellan användarskapade namn och de levereras i aktuellt eller framtida Microsoft-lösningar.
+Varje begäran om att Data Collector API måste innehålla en **loggtyp** rubrik med namnet för posttypen. Suffixet **_CL** läggs automatiskt till namnet som du anger för att skilja den från andra loggtyper som en anpassad logg. Exempel: Om du anger namnet **MyNewRecordType**, Azure Monitor skapas en post med typen **MyNewRecordType_CL**. Detta hjälper till att säkerställa att det inte finns några konflikter mellan användarskapade namn och de levereras i aktuellt eller framtida Microsoft-lösningar.
 
-Lägger till ett suffix till egenskapsnamnet för att identifiera datatypen för en egenskap, Log Analytics. Om en egenskap innehåller ett null-värde, ingår inte egenskapen i posten. Den här tabellen anger typ av egenskapsdata och motsvarande suffix:
+Om du vill identifiera datatypen för en egenskap, lägger Azure Monitor till ett suffix egenskapsnamnet. Om en egenskap innehåller ett null-värde, ingår inte egenskapen i posten. Den här tabellen anger typ av egenskapsdata och motsvarande suffix:
 
 | Typ av egenskapsdata | Suffix |
 |:--- |:--- |
-| Sträng |_s |
+| String |_s |
 | Boolesk |_b |
-| Double-värde |_d |
+| Double |_d |
 | Datum/tid |_t |
 | GUID |_g |
 
-Datatypen som Log Analytics använder för varje egenskap beror på om posttypen för den nya posten redan finns.
+Datatypen som Azure Monitor använder för varje egenskap beror på om posttypen för den nya posten redan finns.
 
-* Om posttypen inte finns, skapar en ny Log Analytics. Log Analytics använder inferens för JSON-typ för att fastställa datatypen av för varje egenskap för den nya posten.
-* Om typ av post finns försöker Log Analytics skapa en ny post baserat på befintliga egenskaper. Om datatypen för en egenskap i den nya posten matchar inte och kan inte konverteras till den befintliga typen, eller om posten innehåller en egenskap som inte finns, Log Analytics skapar en ny egenskap som har det relevanta suffixet.
+* Om posttypen inte finns, skapar en ny med hjälp av JSON-typ inferens för att fastställa datatypen av för varje egenskap för den nya posten i Azure Monitor.
+* Om typ av post finns försöker Azure Monitor skapa en ny post baserat på befintliga egenskaper. Om datatypen för en egenskap i den nya posten matchar inte och kan inte konverteras till den befintliga typen, eller om posten innehåller en egenskap som inte finns, Azure Monitor skapar en ny egenskap som har det relevanta suffixet.
 
 Skicka posten skulle till exempel skapa en post med tre egenskaper **number_d**, **boolean_b**, och **string_s**:
 
@@ -157,18 +159,18 @@ Om du sedan skickat den här nästa post med alla värden som är formaterade so
 
 ![Sample record 2](media/data-collector-api/record-02.png)
 
-Men om du har gjort den här nästa skickas sedan Log Analytics skapar de nya egenskaperna **boolean_d** och **string_d**. Dessa värden kan inte konverteras:
+Men om du har gjort den här nästa skickas sedan Azure Monitor skapar de nya egenskaperna **boolean_d** och **string_d**. Dessa värden kan inte konverteras:
 
 ![Sample record 3](media/data-collector-api/record-03.png)
 
-Om du skickat sedan följande post innan typ av post skapades, Log Analytics skulle skapa en post med tre egenskaper **antal_l**, **boolean_s**, och **string_s**. I den här posten formateras var och en av de initiala värdena som en sträng:
+Om du skickat sedan följande post innan typ av post skapades, Azure Monitor skulle skapa en post med tre egenskaper **antal_l**, **boolean_s**, och **string_s**. I den här posten formateras var och en av de initiala värdena som en sträng:
 
 ![Sample record 4](media/data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Databegränsningar
-Det finns vissa begränsningar kring data som skickats till Log Analytics-Data samling API: et.
+Det finns vissa begränsningar kring data som skickats till samlingen övervakningsdata som Azure API.
 
-* Högst 30 MB per post till Log Analytics Data Collector API. Det här är en storleksgräns för ett enskilt inlägg. Om data från en enda bokför som överskrider 30 MB, bör du dela upp data till mindre storlek segment och skicka dem samtidigt.
+* Högst 30 MB per post till Azure Monitor Data Collector API. Det här är en storleksgräns för ett enskilt inlägg. Om data från en enda bokför som överskrider 30 MB, bör du dela upp data till mindre storlek segment och skicka dem samtidigt.
 * Högst 32 KB-gränsen för fältvärden. Om fältets värde är större än 32 KB trunkeras data.
 * Rekommenderade maximala antalet fält för en viss typ är 50. Det här är en praktisk gräns från en användbarhet och Sök upplevelse perspektiv.  
 
@@ -179,7 +181,7 @@ Den här tabellen innehåller en fullständig uppsättning med statuskoder som k
 
 | Kod | Status | Felkod | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| 200 |OK | |Begäran har accepterats. |
+| 200 |Ok | |Begäran har accepterats. |
 | 400 |Felaktig förfrågan |InactiveCustomer |Arbetsytan har stängts. |
 | 400 |Felaktig förfrågan |InvalidApiVersion |API-version som du angav kändes inte av tjänsten. |
 | 400 |Felaktig förfrågan |InvalidCustomerId |Arbetsyte-ID som angetts är ogiltig. |
@@ -189,22 +191,17 @@ Den här tabellen innehåller en fullständig uppsättning med statuskoder som k
 | 400 |Felaktig förfrågan |MissingContentType |Innehållstypen har inte angetts. |
 | 400 |Felaktig förfrågan |MissingLogType |Loggtyp obligatoriskt värde har inte angetts. |
 | 400 |Felaktig förfrågan |UnsupportedContentType |Innehållstyp angavs inte **application/json**. |
-| 403 |Förbjuden |InvalidAuthorization |Tjänsten kunde inte autentisera begäran. Kontrollera att arbetsytenyckeln-ID och anslutningen är giltiga. |
+| 403 |Förbjudna |InvalidAuthorization |Tjänsten kunde inte autentisera begäran. Kontrollera att arbetsytenyckeln-ID och anslutningen är giltiga. |
 | 404 |Kunde inte hittas | | Antingen av Webbadressen som tillhandahålls är felaktig eller begäran är för stor. |
 | 429 |För många begäranden | | En stor mängd data från ditt konto har uppstått med tjänsten. Försök begäran igen senare. |
 | 500 |Internt serverfel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök med förfrågan. |
 | 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte ta emot begäranden. Försök igen. |
 
 ## <a name="query-data"></a>Söka i data
-Att köra frågor mot data som skickats av den Log Analytics HTTP Data Collector API, söka efter poster med **typ** som är lika med den **LogType** värde som du angav läggas till med **_CL**. Exempel: Om du använde **MyCustomLog**, och du kommer att returnera alla poster med **typ = MyCustomLog_CL**.
-
->[!NOTE]
-> Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](../../azure-monitor/log-query/log-query-overview.md), och sedan frågan ovan skulle ändras till följande.
-
-> `MyCustomLog_CL`
+Att köra frågor mot data som skickats av Azure Monitor HTTP Data Collector API, söka efter poster med **typ** som är lika med den **LogType** värde som du angav läggas till med **_CL**. Exempel: Om du använde **MyCustomLog**, och du kommer att returnera alla poster med `MyCustomLog_CL`.
 
 ## <a name="sample-requests"></a>Exempelförfrågan
-I nästa avsnitt hittar du exempel på hur du skickar data till Log Analytics HTTP Data Collector API med hjälp av olika programmeringsspråk.
+I nästa avsnitt hittar du exempel på hur du skickar data till Azure Monitor HTTP Data Collector API med hjälp av olika programmeringsspråk.
 
 För varje prov, gör du dessa steg för att ange variabler för auktoriseringsrubriken:
 
@@ -226,7 +223,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -321,10 +318,10 @@ namespace OIAPIExample
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        // LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Azure Monitor
         static string LogName = "DemoExample";
 
-        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
@@ -468,6 +465,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Använd den [Loggsöknings-API](../../azure-monitor/log-query/log-query-overview.md) att hämta data från Log Analytics-databasen.
+- Använd den [Loggsöknings-API](../log-query/log-query-overview.md) att hämta data från Log Analytics-arbetsytan.
 
-- Läs mer om hur [skapa en datapipeline med Data Collector API](../../azure-monitor/platform/create-pipeline-datacollector-api.md) med Logic Apps-arbetsflöde till Log Analytics.
+- Läs mer om hur [skapa en datapipeline med Data Collector API](create-pipeline-datacollector-api.md) med Logic Apps-arbetsflöde till Azure Monitor.

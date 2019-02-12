@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 23faf3b88584f8031b4a2fdbc6d94ac2ae861431
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cca3c69997865f22d22fc5b86565ae9f206b9aee
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104462"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990146"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Information om nätverkskonfiguration för App Service Environment för PowerApps med Azure ExpressRoute
 
@@ -59,9 +59,9 @@ App Service-miljö kräver följande nätverk anslutningsinställningarna ska fu
 
 * Inkommande åtkomst till nödvändiga portar för App Service Environment måste tillåtas. Mer information finns i [Kontrollera inkommande trafik till App Service Environment][requiredports].
 
-Kontrollera att en giltig DNS-infrastruktur konfigurerad och underhållen för det virtuella nätverket för att uppfylla kraven för DNS. Om DNS-konfigurationen har ändrats efter App Service Environment har skapats, kan utvecklare tvinga App Service Environment att den använder den nya DNS-konfigurationen. Du kan utlösa en löpande miljö omstart med hjälp av den **starta om** ikonen under App Service Environment management i [Azure-portalen] [NewPortal]. Omstarten gör miljön att den använder den nya DNS-konfigurationen.
+Kontrollera att en giltig DNS-infrastruktur konfigurerad och underhållen för det virtuella nätverket för att uppfylla kraven för DNS. Om DNS-konfigurationen har ändrats efter App Service Environment har skapats, kan utvecklare tvinga App Service Environment att den använder den nya DNS-konfigurationen. Du kan utlösa en löpande miljö omstart med hjälp av den **starta om** ikonen under App Service Environment-hantering i den [Azure-portalen][NewPortal]. Omstarten gör miljön att den använder den nya DNS-konfigurationen.
 
-För att uppfylla kraven för inkommande åtkomst, konfigurera en [nätverkssäkerhetsgrupp (NSG)][NetworkSecurityGroups] på undernätet för App Service Environment. NSG: N tillåter den nödvändiga åtkomsten [Kontrollera inkommande trafik till App Service Environment][requiredports].
+För att uppfylla kraven för inkommande åtkomst, konfigurera en [nätverkssäkerhetsgrupp (NSG)] [ NetworkSecurityGroups] på undernätet för App Service Environment. NSG: N tillåter den nödvändiga åtkomsten [Kontrollera inkommande trafik till App Service Environment][requiredports].
 
 ## <a name="outbound-network-connectivity"></a>Utgående nätverksanslutning
 
@@ -87,7 +87,7 @@ Den kombinerade effekten av den här konfigurationen är att på undernätsnivå
 
 Bakgrundsinformation om användardefinierade vägar finns i [trafikdirigering i virtuella nätverk][UDROverview].  
 
-Information om hur du skapar och konfigurerar användardefinierade vägar finns i [dirigera nätverkstrafik med en routningstabell med hjälp av PowerShell] [UDRHowTo].
+Information om hur du skapar och konfigurerar användardefinierade vägar finns [dirigera nätverkstrafik med en routningstabell med hjälp av PowerShell][UDRHowTo].
 
 ## <a name="udr-configuration"></a>Konfigurationen för UDR
 
@@ -95,7 +95,7 @@ Det här avsnittet visas en exempelkonfiguration UDR för App Service Environmen
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-* Installera Azure PowerShell från [nedladdningsbara filer för Azure page] [AzureDownloads]. Välj en nedladdning med ett datum i juni 2015 eller senare. Under **kommandoradsverktyg** > **Windows PowerShell**väljer **installera** att installera de senaste PowerShell-cmdletarna.
+* Installera Azure PowerShell från den [Azure hämtar sidan][AzureDownloads]. Välj en nedladdning med ett datum i juni 2015 eller senare. Under **kommandoradsverktyg** > **Windows PowerShell**väljer **installera** att installera de senaste PowerShell-cmdletarna.
 
 * Skapa ett unikt undernät för exklusiv användning av App Service Environment. Unikt undernät säkerställer att udr: er som tillämpas på undernät öppna utgående trafiken för App Service Environment endast.
 
@@ -118,7 +118,7 @@ Konfigurera utgående åtkomst till internet. Definiera en väg för 0.0.0.0/0 s
 
 0.0.0.0/0 är en bred adressintervall. Intervallet åsidosätts av adressintervallen som annonseras av ExpressRoute och som är mer specifika. En UDR med en väg med 0.0.0.0/0 bör användas tillsammans med en ExpressRoute-konfiguration som annonserar endast 0.0.0.0/0. 
 
-Alternativt kan du hämta en aktuella, heltäckande lista över CIDR-intervall som används av Azure. XML-filen för alla Azure-IP-adressintervall kan hämtas från [Microsoft Download Center] [DownloadCenterAddressRanges].  
+Alternativt kan du hämta en aktuella, heltäckande lista över CIDR-intervall som används av Azure. XML-filen för alla Azure-IP-adressintervall är tillgänglig från den [Microsoft Download Center][DownloadCenterAddressRanges].  
 
 > [!NOTE]
 >
@@ -148,16 +148,23 @@ Nu är du redo att distribuera App Service Environment!
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill komma igång med App Service Environment för PowerApps, finns i [introduktion till App Service Environment] [IntroToAppServiceEnvironment].
+Kom igång med App Service Environment för PowerApps, se [introduktion till App Service Environment][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
 [ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[networkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]: app-service-app-service-environment-intro.md [NewPortal]:  https://portal.azure.com
+<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
+
+[UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell
+[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
+[AzureDownloads]: https://azure.microsoft.com/downloads/ 
+[DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
+[NewPortal]:  https://portal.azure.com
 
 
 <!-- IMAGES -->

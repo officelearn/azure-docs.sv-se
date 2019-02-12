@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 08/16/2018
-ms.openlocfilehash: 10d7303c4323305e177cf006b9a259a817dc695e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 280a811e943c2e81a96875e3c8ba8efdb86fbf2a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247484"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004833"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Aktivera säkerhetskopiering för Azure Stack med PowerShell
 
@@ -29,8 +29,10 @@ ms.locfileid: "55247484"
 Aktivera tjänsten infrastruktur för säkerhetskopiering med Windows PowerShell så gör regelbundna säkerhetskopieringar av:
  - Intern identitetscertifikat för tjänsten och rot
  - Användaravtal, erbjudanden och prenumerationer
- - Keyvault-hemligheter
+ - Beräkning, lagring och nätverk användarkvoter
+ - Användaren Key vault-hemligheter
  - Användaren RBAC-roller och principer
+ - Storage-konton för användare
 
 Du kan komma åt PowerShell-cmdletar för att aktivera säkerhetskopiering av, starta säkerhetskopiering och få säkerhetskopierad information via operatorn hanteringsslutpunkten.
 
@@ -49,30 +51,42 @@ Redigera följande PowerShell-skript i samma PowerShell-session genom att lägga
 | $sharepath      | Ange sökvägen till den **lagringsplats för säkerhetskopiering**. Du måste använda en Universal Naming Convention (UNC)-sträng för sökväg till en filresurs på en separat enhet. En UNC-sträng Anger platsen för resurser, till exempel delade filer eller enheter. För att säkerställa tillgängligheten för säkerhetskopierade data, måste enheten vara i en separat plats. |
 | $frequencyInHours | Hur ofta i timmar bestämmer hur ofta säkerhetskopiering skapas. Standardvärdet är 12. Scheduler har stöd för upp till 12 och minst 4.|
 | $retentionPeriodInDays | Kvarhållningsperiod i dagar Anger hur många dagar säkerhetskopior bevaras på den externa platsen. Standardvärdet är 7. Scheduler har stöd för upp till 14 och minst 2. Säkerhetskopieringar som är äldre än kvarhållningsperioden automatiskt tas bort från den externa platsen.|
+| $encryptioncertpath | Kryptering certifikatsökväg anger sökvägen till den. CER-fil med offentlig nyckel som används för kryptering av data. |
 |     |     |
 
-   ```powershell
+```powershell
     # Example username:
     $username = "domain\backupadmin"
+ 
     # Example share path:
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-   
-    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
-    
-    # The encryption key is generated using the New-AzsEncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
-    # Make sure to store your encryption key in a secure location after it is generated.
-    $Encryptionkey = New-AzsEncryptionKeyBase64
-    $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
-    Set-AzsBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
-   ```
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+
+    # Create a self-signed certificate using New-SelfSignedCertificate, export the public key portion and save it locally.
+
+    $cert = New-SelfSignedCertificate `
+        -DnsName "www.contoso.com" `
+        -CertStoreLocation "cert:\LocalMachine\My" 
+
+    New-Item -Path "C:\" -Name "Certs" -ItemType "Directory" 
+
+    #make sure to export the PFX format of the certificate with the public and private keys and then delete the certifcate from the local certificate store of the machine where you created the certificate
+    
+    Export-Certificate `
+        -Cert $cert `
+        -FilePath c:\certs\AzSIBCCert.cer 
+
+    # Set the backup settings with the name, password, share, and CER certificate file.
+    Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
+```
    
 ##  <a name="confirm-backup-settings"></a>Bekräfta inställningar för säkerhetskopiering
 
 Kör följande kommandon i samma PowerShell-session:
 
    ```powershell
-    Get-AzsBackupLocation | Select-Object -Property Path, UserName
+    Get-AzsBackupConfiguration | Select-Object -Property Path, UserName
    ```
 
 Resultatet bör se ut som följande Exempelutdata:
@@ -90,8 +104,9 @@ Du kan uppdatera standardvärdena för kvarhållningsperiod och frekvens för s�
     $frequencyInHours = 10
     $retentionPeriodInDays = 5
 
-    Set-AzsBackupShare -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
-    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
+    Set-AzsBackupConfiguration -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
+
+    Get-AzsBackupConfiguration | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
    ```
 
 Resultatet bör se ut som följande Exempelutdata:
@@ -104,7 +119,15 @@ Resultatet bör se ut som följande Exempelutdata:
     BackupRetentionPeriodInDays : 5
    ```
 
+###<a name="azure-stack-powershell"></a>Azure Stack PowerShell 
+PowerShell-cmdlet för att konfigurera infrastruktur för säkerhetskopiering är Set-AzsBackupConfiguration. I tidigare versioner kunde cmdleten Set-AzsBackupShare. Denna cmdlet kräver att tillhandahålla ett certifikat. Om infrastruktur för säkerhetskopiering är konfigurerad med en krypteringsnyckel, kan du uppdatera krypteringsnyckeln eller visar egenskapen. Du måste använda Admin PowerShell-version 1.6. 
+
+Om infrastruktur för säkerhetskopiering har konfigurerats innan du uppdaterar till 1901, kan du använda version 1.6 av Admin PowerShell för att ställa in och visa krypteringsnyckeln. Version 1.6 kan inte uppdatera från krypteringsnyckeln till en certifikatfil.
+Referera till [installera Azure Stack PowerShell](azure-stack-powershell-install.md) för mer information om hur du installerar rätt version av modulen. 
+
+
 ## <a name="next-steps"></a>Nästa steg
 
- - Lär dig att köra en säkerhetskopiering, se [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md ).  
- - Lär dig att verifiera att säkerhetskopieringen har körts, se [bekräfta säkerhetskopieringen slutfördes i administrationsportalen](azure-stack-backup-back-up-azure-stack.md ).
+Lär dig att köra en säkerhetskopiering, se [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md)
+
+Lär dig att verifiera att säkerhetskopieringen har körts, se [bekräfta säkerhetskopieringen slutfördes i administrationsportalen](azure-stack-backup-back-up-azure-stack.md)

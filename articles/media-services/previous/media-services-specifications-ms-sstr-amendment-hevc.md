@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: 3261e84dcd3dee06071b0fed78b61e2959e3bbf9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e13995ccdc609951f908b4a1779eaefcfdc596bb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978775"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005224"
 ---
-# <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc-legacy"></a>Smooth Streaming-protokollet (MS-SSTR)-tillägg för – HEVC (äldre)
+# <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Jämn direktuppspelning Protocol (MS-SSTR)-tillägg för – HEVC 
 
 ## <a name="1-introduction"></a>1 introduktion 
 

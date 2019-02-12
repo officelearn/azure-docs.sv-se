@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 086816bdb93873a39575564496cf043797f3a530
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078108"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993273"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory? 
 
@@ -34,9 +34,9 @@ Den här artikeln ger dig den information du behöver att konfigurera platsvillk
 
 Azure AD aktiverar enkel inloggning på enheter, appar och tjänster från var som helst på internet. Du kan styra åtkomsten till dina molnappar baserat på nätverksplats för en användare med platsvillkor. Vanliga användningsområden för platsvillkoret är:
 
-- Att kräva multifaktorautentisering för användare som ansluter till en tjänst när är utanför företagets nätverk  
+- Att kräva multifaktorautentisering för användare som ansluter till en tjänst när är utanför företagets nätverk.
 
-- Blockera åtkomst för användare som ansluter till en tjänst från vissa länder eller regioner. 
+- Blockera åtkomst för användare som ansluter till en tjänst från vissa länder eller regioner.
 
 En plats är en etikett för en nätverksplats som antingen representerar en namngiven plats eller multifaktorautentisering tillförlitliga IP-adresser.
 
@@ -62,9 +62,9 @@ En namngiven plats har följande komponenter:
 
 - **Markera som betrodd plats** – en flagga som du kan ange för en namngiven plats att ange en betrodd plats. Betrodda platser är oftast nätverksområden som kontrolleras av IT-avdelningen. Förutom villkorlig åtkomst, betrodda namngivna platser används också av Azure Identity Protection och Azure AD-säkerhetsrapporter för att minska [falska positiva identifieringar](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
-- **Länder / regioner** – det här alternativet kan du välja en eller flera land eller region för att definiera en namngiven plats. 
+- **Länder/regioner** – det här alternativet kan du välja en eller flera land eller region för att definiera en namngiven plats. 
 
-- **Inkludera okända områden** -vissa IP-adresser mappas inte till ett visst land. Det här alternativet kan du välja om dessa IP-adresser ska ingå i den namngivna platsen. De kan kontrollera när principen med hjälp av den namngivna platsen ska gälla för okända platser.
+- **Inkludera okända områden** -vissa IP-adresser mappas inte till ett visst land. Det här alternativet kan du välja om dessa IP-adresser ska ingå i den namngivna platsen. Använd den här inställningen när principen med hjälp av den namngivna platsen ska gälla för okända platser.
 
 Antalet namngivna platser som du kan konfigurera begränsas av storleken på det relaterade objektet i Azure AD. Du kan konfigurera:
 
@@ -87,7 +87,7 @@ På inställningssidan för multi-Factor authentication-tjänsten kan du identif
 
 När du har kontrollerat det här alternativet, inklusive namngiven plats **MFA tillförlitliga IP-adresser** gäller för alla principer med den här valda.
 
-För mobila och skrivbordsprogram, som har länge sessionen livslängd, är villkorlig åtkomst regelbundet ny utvärdering. Standardvärdet är en gång i timmen. När insidan är i ett företagsnätverkanspråk och endast utfärdats vid tidpunkten för den första autentiseringen, Azure AD inte kan ha en lista över betrodda IP-adressintervall. I det här fallet är det svårare att avgöra om användaren är fortfarande i företagets nätverk:
+För mobila och skrivbordsprogram, som har länge sessionen livslängd, är villkorlig åtkomst regelbundet ny utvärdering. Standardvärdet är en gång i timmen. När inuti företagsnätverkanspråk utfärdas endast vid tidpunkten för den första autentiseringen, Azure AD kan inte ha en lista över betrodda IP-adressintervall. I det här fallet är det svårare att avgöra om användaren är fortfarande i företagets nätverk:
 
 1. Kontrollera om användarens IP-adress är i något av de betrodda IP-adressintervall.
 
@@ -150,7 +150,7 @@ När du skapar eller uppdaterar kan namngivna platser för massuppdateringar, du
 
 ### <a name="cloud-proxies-and-vpns"></a>Molnet proxyservrar och VPN-anslutningar 
 
-När du använder en molnvärd proxy eller VPN-lösning använder IP-adressen Azure AD när utvärdering av en princip är IP-adressen för proxyservern. Rubriken X-Forwarded-For (XFF) som innehåller de användare som offentlig IP-adress inte används eftersom det finns ingen validering som den kommer från en betrodd källa, skulle så presentera en metod för faking en IP-adress. 
+När du använder en molnvärd proxy eller VPN-lösning använder IP-adressen Azure AD när utvärdering av en princip är IP-adressen för proxyservern. X-Forwarded-For (XFF)-huvud som innehåller den offentliga IP-adressen används inte eftersom det finns ingen validering som den kommer från en betrodd källa, så skulle innebära en metod för faking en IP-adress. 
 
 När en cloud-proxy är på plats eller en princip som används för att kräva en domänansluten enhet kan användas för insidan corpnet anspråk från AD FS.
 

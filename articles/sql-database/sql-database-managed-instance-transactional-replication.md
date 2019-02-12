@@ -1,6 +1,6 @@
 ---
 title: Transaktionsreplikering med Azure SQL Database | Microsoft-Docs ”
-description: Lär dig om att använda Transaktionsreplikering i SQL Server med fristående, pooler, och databaser i Azure SQL Database-instans.
+description: Lär dig om hur du använder SQL Server-Transaktionsreplikering med enkel poolats markerar och instans databaser i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,15 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/08/2019
+ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814120"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993817"
 ---
-# <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionsreplikering med fristående, pooler och databaser i Azure SQL Database-instans
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionsreplikering med enda, pooler och databaser i Azure SQL Database-instans
 
 Transaktionsreplikering är en funktion i Azure SQL Database och SQL Server som gör det möjligt att replikera data från en tabell i Azure SQL Database eller en SQL Server till de tabeller som placeras på fjärr-databaser. Den här funktionen kan du synkronisera flera tabeller i olika databaser.
 
@@ -37,22 +37,21 @@ De viktigaste komponenterna i Transaktionsreplikering visas i följande bild:
 
 ![replikering med SQL-databas](media/replication-to-sql-database/replication-to-sql-database.png)
 
-
 Den **Publisher** är en instans eller en server som publicerar ändringar som görs på några tabeller (artikel) genom att skicka uppdateringar till distributören. Publicera till alla Azure SQL stöds database från en lokal SQL Server av följande versioner av SQL Server:
 
-   - SQL Server 2019 (förhandsversion)
-   - SQLServer 2016 till SQL 2017
-   - SQL Server 2014 SP1 CU3 eller större (12.00.4427)
-   - SQL Server 2014 RTM CU10 (12.00.2556)
-   - SQL Server 2012 SP3 eller större (11.0.6020)
-   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-   - För andra versioner av SQL Server som inte stöder publicering till objekt i Azure, är det möjligt att använda den [publicera data](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) metod för att flytta data till nyare versioner av SQL Server. 
+- SQL Server 2019 (förhandsversion)
+- SQLServer 2016 till SQL 2017
+- SQL Server 2014 SP1 CU3 eller större (12.00.4427)
+- SQL Server 2014 RTM CU10 (12.00.2556)
+- SQL Server 2012 SP3 eller större (11.0.6020)
+- SQL Server 2012 SP2 CU8 (11.0.5634.0)
+- För andra versioner av SQL Server som inte stöder publicering till objekt i Azure, är det möjligt att använda den [publicera data](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) metod för att flytta data till nyare versioner av SQL Server. 
 
 Den **distributören** är en instans eller en server som samlar in ändringar i artiklarna från en utgivare och distribuerar dem till prenumeranter. Distributören kan vara antingen Azure SQL Database Managed Instance eller SQL Server (alla versioner som hur lång tid det är lika med eller högre än versionen som utgivare). 
 
-Den **prenumerant** är en instans eller en server som tar emot ändringar som görs på utgivaren. Prenumeranter kan vara antingen fristående poolats markerar och instans databaser i Azure SQL Database eller SQL Server-databaser. En prenumerant på en fristående eller Avsökt databas måste konfigureras som push-prenumerant. 
+Den **prenumerant** är en instans eller en server som tar emot ändringar som görs på utgivaren. Prenumeranter kan vara antingen enkel poolats markerar och instans databaser i Azure SQL Database eller SQL Server-databaser. En prenumerant för en enskild eller grupperade databas måste konfigureras som push-prenumerant. 
 
-| Roll | Fristående och databaser i en pool | Instansdatabaser |
+| Roll | Enkel och delade databaser | Instansdatabaser |
 | :----| :------------- | :--------------- |
 | **Utgivare** | Nej | Ja | 
 | **Distributören** | Nej | Ja|
@@ -63,7 +62,7 @@ Den **prenumerant** är en instans eller en server som tar emot ändringar som g
 Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
-| Replikering | Fristående och databaser i en pool | Instansdatabaser|
+| Replikering | Enkel och delade databaser | Instansdatabaser|
 | :----| :------------- | :--------------- |
 | [**transaktionell**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja | 
 | [**ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
@@ -107,11 +106,11 @@ Utgivaren och distributören konfigureras på två hanterade instanser. I den h�
 - Både hanterade instanser är på samma plats.
 - Hanterade instanser som är värdar för publiceras och distributören databaser kan inte [georeplikerad med automatisk redundans-groups](sql-database-auto-failover-group.md).
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-standalone-pooled-and-instance-database"></a>Utgivaren och distributören lokalt med en prenumerant på en fristående, pooler och instansen databas 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Utgivaren och distributören lokalt med en prenumerant på en enda pool-, och database-instans 
 
 ![Azure SQL-databas som prenumerant](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-I den här konfigurationen är en Azure SQL Database (fristående, pooler och database-instans) en prenumerant. Den här konfigurationen stöder migrering från en lokal plats till Azure. Om en prenumerant finns på en fristående eller en databas, måste den vara i push-läget.  
+I den här konfigurationen är en Azure SQL Database (enkel, pooler och database-instans) en prenumerant. Den här konfigurationen stöder migrering från en lokal plats till Azure. Om en prenumerant finns på en enda eller grupperade databas, måste den vara i push-läget.  
 
 ## <a name="next-steps"></a>Nästa steg
 

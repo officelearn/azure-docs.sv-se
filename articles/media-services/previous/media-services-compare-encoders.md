@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: c08759f4682c6010c2338ff7aaf61cda92eb0484
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232095"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989346"
 ---
-# <a name="comparison-of-azure-on-demand-media-encoders"></a>Jämförelse av Azure på begäran media kodare
+# <a name="comparison-of-azure-on-demand-media-encoders"></a>Jämförelse av Azure på begäran media kodare  
 
 Det här avsnittet jämför kodningsfunktioner av **Media Encoder Standard** och **Media Encoder Premium Workflow**.
 
@@ -33,7 +33,7 @@ I följande tabell jämförs funktionerna mellan Media Encoder Standard (MES) oc
 |---|---|---|
 |Tillämpa villkorsstyrd logik vid kodning<br/>(till exempel om indata är HD, sedan koda 5.1 ljud)|Nej|Ja|
 |Textning|Nej|[Ja](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® professionella Loudness korrigering](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> med dialog Intelligence™|Nej|Ja|
+|[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> med dialog Intelligence™|Nej|Ja|
 |Avlägsnande av sammanflätning, inverterade telecine|Basic|Sändningskvalitet|
 |Identifiera och ta bort svarta kantlinjer <br/>(pillarboxes letterboxes)|Nej|Ja|
 |Skapa miniatyrbilder|[Ja](media-services-dotnet-generate-thumbnail-with-mes.md)|[Ja](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -69,8 +69,8 @@ I följande tabell jämförs funktionerna mellan Media Encoder Standard (MES) oc
 | Codec för Indatavideo | Media Encoder Standard | Arbetsflöde för Media Encoder Premium |
 | --- | --- | --- |
 | AVC 8-bitars/10-bitars, upp till 4:2:2, inklusive AVCIntra |8-bitars 4:2:0 och 4:2:2 |Ja |
-| Avid DNxHD (i MXF) |Ja |Ja |
-| DVCPro/DVCProHD (i MXF) |Ja |Ja |
+| Avid DNxHD (in MXF) |Ja |Ja |
+| DVCPro/DVCProHD (in MXF) |Ja |Ja |
 | JPEG2000 |Ja |Ja |
 | MPEG-2 (upp till 422-profil och högnivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10) |Upp till 422-profil |Ja |
 | MPEG-1 |Ja |Ja |
@@ -96,8 +96,8 @@ I följande tabell jämförs funktionerna mellan Media Encoder Standard (MES) oc
 | AAC (AAC-LC, AAC-HE och AAC-HEv2, upp till 5.1) |Ja |Ja |
 | MPEG-nivå 2 |Ja |Ja |
 | MP3 (MPEG-1 ljud Layer 3) |Ja |Ja |
-| Windows Media ljud |Ja |Ja |
-| WAV PCM / |Ja |Ja |
+| Windows Media Audio |Ja |Ja |
+| WAV/PCM |Ja |Ja |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Ja |Nej |
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Ja |Nej |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Ja |Nej |
@@ -120,7 +120,7 @@ I följande tabell jämförs funktionerna mellan Media Encoder Standard (MES) oc
 | --- | --- | --- |
 | AVC (H.264; 8-bitars, upp till hög profil nivå 5.2; 4 K Ultra HD; AVC Intra) |Endast 8-bitars 4:2:0 |Ja |
 | – HEVC (H.265; 8-bitars och 10-bitars)  |Nej |Ja |
-| Avid DNxHD (i MXF) |Nej |Ja |
+| Avid DNxHD (in MXF) |Nej |Ja |
 | MPEG-2 (upp till 422-profil och högnivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10) |Nej |Ja |
 | MPEG-1 |Nej |Ja |
 | Windows Media Video/VC-1 |Nej |Ja |
@@ -137,7 +137,7 @@ I följande tabell jämförs funktionerna mellan Media Encoder Standard (MES) oc
 | AAC (AAC-LC, AAC-HE och AAC-HEv2, upp till 5.1) |Ja |Ja |
 | MPEG-nivå 2 |Nej |Ja |
 | MP3 (MPEG-1 ljud Layer 3) |Nej |Ja |
-| Windows Media ljud |Nej |Ja |
+| Windows Media Audio |Nej |Ja |
 
 >[!NOTE]
 >Om du kodar Dolby® Digital (AC3), går det bara att skriva utdata i en ISO MP4-fil.

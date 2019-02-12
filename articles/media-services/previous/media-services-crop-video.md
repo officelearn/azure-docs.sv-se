@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: anilmur;juliako;
-ms.openlocfilehash: 3a8888148e1f58cdf2b1893c624b74ec6d6c93da
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 34db659232a27a18344ed492897641b92c0c1fa9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282551"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001349"
 ---
-# <a name="crop-videos-with-media-encoder-standard"></a>Beskär videoklipp med Media Encoder Standard
+# <a name="crop-videos-with-media-encoder-standard"></a>Beskär videoklipp med Media Encoder Standard  
+
 Du kan använda Media Encoder Standard (MES) för att beskära dina indata video. Beskära är processen för att välja ett rektangulärt fönster inom ramen för video och kodning bara bildpunkter i fönstret. Följande diagram hjälper illustrerar processen.
 
 ![Beskär en video](./media/media-services-crop-video/media-services-crop-video01.png)

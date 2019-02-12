@@ -1,6 +1,6 @@
 ---
-title: Användbara operatörer i Azure Log Analytics-frågor | Microsoft Docs
-description: Vanliga funktioner ska användas för olika scenarier i Log Analytics-frågor.
+title: Användbara operatörer i Azure Monitor logga frågor | Microsoft Docs
+description: Vanliga funktioner ska användas för olika scenarier i Azure Monitor log-frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 060b1e469a31c335f062ccd332157d13e64f9318
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183990"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000156"
 ---
-# <a name="useful-operators-in-log-analytics-queries"></a>Användbara operatörer i Log Analytics-frågor
+# <a name="useful-operators-in-azure-monitor-log-queries"></a>Användbara operatörer i Azure Monitor log-frågor
 
-Tabellen nedan innehåller några vanliga funktioner ska användas för olika scenarier i Log Analytics-frågor.
+Tabellen nedan innehåller några vanliga funktioner ska användas för olika scenarier i Azure Monitor log-frågor.
 
 ## <a name="useful-operators"></a>Användbara operatorer
 
@@ -46,4 +46,4 @@ Maskininlärning                        |`evaluate autocluster`, `basket`, `diff
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Gå igenom en lektion den [skriva frågor i Log Analytics](get-started-queries.md).
+- Gå igenom en lektion den [skriva loggfrågor i Azure Monitor](get-started-queries.md).

@@ -1,6 +1,6 @@
 ---
-title: Kom igång med frågor i Azure Log Analytics | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att få igång skriva frågor i Log Analytics.
+title: Kom igång med loggfrågor i Azure Monitor | Microsoft Docs
+description: Den här artikeln innehåller en självstudie för att komma igång skriva loggfrågor i Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883371"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994895"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>Kom igång med frågor i Log Analytics
+# <a name="get-started-with-azure-monitor-log-queries"></a>Kom igång med Azure Monitor log-frågor
 
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Analytics-portalen](get-started-portal.md) innan den här kursen.
+> Bör du genomföra [Kom igång med Azure Monitor log analytics](get-started-portal.md) innan den här kursen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-I den här självstudien kommer du lära dig att skriva Azure Log Analytics-frågor. Det får du lära dig hur du:
+Logga in frågor i den här självstudien lär du dig att skriva Azure LMonitor. Det får du lära dig hur du:
 
 - Förstå frågor-struktur
 - Sortera frågeresultaten
@@ -43,10 +43,10 @@ I den här självstudien kommer du lära dig att skriva Azure Log Analytics-frå
 Frågor kan börja med antingen ett tabellnamn eller *search* kommando. Du bör börja med ett tabellnamn eftersom den definierar en tydlig omfattning för frågan och förbättrar både frågeprestanda och relevans resultat.
 
 > [!NOTE]
-> Azure Log Analytics-frågespråket är skiftlägeskänsliga. Nyckelord är vanligen skrivna gemener. När du använder namn på tabeller eller kolumner i en fråga, se till att ha rätt skiftläge, som visas i fönstret schemat.
+> Data Explorer frågespråk som används av Azure Monitor är skiftlägeskänsligt. Nyckelord är vanligen skrivna gemener. När du använder namn på tabeller eller kolumner i en fråga, se till att ha rätt skiftläge, som visas i fönstret schemat.
 
 ### <a name="table-based-queries"></a>Tabell-baserade frågor
-Azure Log Analytics ordnas data i tabeller, var och en består av flera kolumner. Alla tabeller och kolumner som visas i fönstret schemat i Analytics-portalen. Identifiera en tabell att du är intresserad av och sedan ta en titt på en del data:
+Azure Monitor organiserar loggdata i tabeller, var och en består av flera kolumner. Alla tabeller och kolumner som visas i fönstret schemat i Log Analytics i Analytics-portalen. Identifiera en tabell att du är intresserad av och sedan ta en titt på en del data:
 
 ```Kusto
 SecurityEvent
@@ -112,7 +112,7 @@ När du skriver filtervillkor ska använda du följande uttryck:
 |:---|:---|:---|
 | == | Kontrollera likhet<br>(skiftlägeskänsligt) | `Level == 8` |
 | =~ | Kontrollera likhet<br>(skiftlägesokänsligt) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| ! =, <> | Kontrollera ojämlikhet<br>(båda uttrycken är identiska) | `Level != 4` |
+| !=, <> | Kontrollera ojämlikhet<br>(båda uttrycken är identiska) | `Level != 4` |
 | *och*, *eller* | Krävs mellan villkor| `Level == 16 or CommandLine != ""` |
 
 Om du vill filtrera efter flera villkor, du kan använda **och**:
@@ -164,7 +164,7 @@ SecurityEvent
 
 I föregående exempel genererar dessa utdata:
 
-![Logga Analytics projektresultat](media/get-started-queries/project.png)
+![Frågeresultat för projektet](media/get-started-queries/project.png)
 
 Du kan också använda **projekt** att byta namn på kolumner och definiera nya. I följande exempel används projektet för att göra följande:
 
@@ -236,7 +236,7 @@ Perf
 
 Om du vill göra den tydligare utdatan väljer du för att visa den som ett tidsdiagram som visar mängden tillgängligt minne över tid:
 
-![Log Analytics-minne över tid](media/get-started-queries/chart.png)
+![Fråga minne över tid](media/get-started-queries/chart.png)
 
 
 

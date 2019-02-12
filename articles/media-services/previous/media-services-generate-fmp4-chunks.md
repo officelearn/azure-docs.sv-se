@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: f2f3784ea2cb4a7864faef6a4e49edd7a289afc2
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c0535dd47f57cd50c92bc4358732c1990e32e84a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250576"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994463"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Skapa ett kodningsjobb som genererar fMP4-segment
 
@@ -41,7 +41,7 @@ I följande kodexempel använder Media Services .NET SDK för att utföra följa
 - Lägg till ett kodningsjobb i jobbet och ange om du vill använda den **Adaptiv direktuppspelning** förinställda. 
 - Skapa en utdata-tillgång som innehåller fMP4-segment och en .ism-fil.
 - Lägg till en händelsehanterare för att kontrollera jobbförloppet för.
-- Skicka jobbet.
+- Skicka in jobbet.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 

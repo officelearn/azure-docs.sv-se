@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 5db0d1043ad4b06540056be68a5c2b8a52c8f123
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3656597bda36446def7d4e4981ced4868ea6249d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247783"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55988076"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd"></a>H264, Flera bithastigheter, 4 x 3, SD
 `Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -29,7 +29,7 @@ ms.locfileid: "50247783"
  Den här förinställningen skapar en uppsättning 5 GOP-justerad MP4-filer, mellan 1600 kbit/s och 400 kbit/s och stereo AAC-ljud. Detaljerad information om profilen med flera bithastigheter, sampling hastighet och så vidare på detta förinställda ska undersöka XML eller JSON som definieras nedan. Förklaringar av vad varje element i dessa förinställningar innebär och de giltiga värdena för varje element finns i den [Media Encoder Standard schemat](media-services-mes-schema.md) avsnittet.  
   
 > [!NOTE]
->  När du ändrar den `Width` och `Height` värden över lager, se till att proportionerna förblir konsekvent. Till exempel: 1920 x 1080, 1 280 x 720, 1080 x 576 640 x 360. Du bör inte använda en blandning av proportioner, till exempel: 1 280 x 720, 720 x 480, 640 x 360.  
+>  När du ändrar den `Width` och `Height` värden över lager, se till att proportionerna förblir konsekvent. Exempel: 1920x1080, 1280x720, 1080x576, 640x360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640x360.  
   
  XML  
   

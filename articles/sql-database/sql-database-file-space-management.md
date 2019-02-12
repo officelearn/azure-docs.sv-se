@@ -11,15 +11,16 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: cf73708682a8434ffabaff101d6d6928671af4b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468639"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003728"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
+
 Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
 
 ## <a name="overview"></a>Översikt
@@ -33,11 +34,14 @@ I följande scenarier kan det vara nödvändigt att övervaka användningen av f
 - Tillåt att en enskild databas eller elastisk pool ändras till en annan tjänstnivå eller prestandanivå med en mindre maxstorlek.
 
 ### <a name="monitoring-file-space-usage"></a>Övervaka användning av diskutrymme
+
 De flesta mätvärden i storage utrymme visas i Azure portal och följande API: er endast mäta storleken på data som används sidor:
+
 - Azure Resource Manager baserade mått API: er, inklusive PowerShell [get-mått](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Dock följande API: er också mäta storleken på disken för databaser och elastiska pooler:
+
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
@@ -62,13 +66,14 @@ Förstå följande storage utrymme kvantiteter är viktiga för att hantera filu
 
 Följande diagram illustrerar förhållandet mellan de olika typerna av lagringsutrymme för en databas.
 
-![utrymme lagringstyper och relationer](./media/sql-database-file-space-management/storage-types.png) 
+![utrymme lagringstyper och relationer](./media/sql-database-file-space-management/storage-types.png)
 
 ## <a name="query-a-database-for-storage-space-information"></a>Fråga en databas för information om diskutrymme
 
 Följande frågor kan användas för att fastställa storage utrymme kvantiteter för en databas.  
 
 ### <a name="database-data-space-used"></a>Databasutrymme data som används
+
 Ändra följande fråga om du vill returnera mängden utrymme i databas data används.  Enheter av frågeresultatet är i MB.
 
 ```sql
@@ -81,6 +86,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Data databasutrymme allokeras och oanvända allokerat utrymme
+
 Använd följande fråga om du vill returnera mängden data databasutrymme allokeras och mängden outnyttjat utrymme som allokerats.  Enheter av frågeresultatet är i MB.
 
 ```sql
@@ -94,6 +100,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>Högsta tillåtna databasstorleken
+
 Ändra följande fråga för att returnera den högsta tillåtna databasstorleken.  Enheter av frågeresultatet är i byte.
 
 ```sql

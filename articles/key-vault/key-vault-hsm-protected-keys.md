@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 928ed383c08dd87cb003d1f729bc3fecce0c6935
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693892"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999240"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför HSM-skyddade nycklar för Azure Key Vault
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 För extra trygghet, när du använder Azure Key Vault, kan du importera eller generera nycklar i maskinvarusäkerhetsmoduler (HSM) som aldrig lämnar HSM: ens gränser. Det här scenariot kallas ofta att *egna nycklar*, eller BYOK. HSM-modulerna är FIPS 140-2 Level 2-verifierade. Azure Key Vault använder Thales nShield-familj av HSM: er för att skydda dina nycklar.
 
@@ -78,21 +80,19 @@ För det här första steget, gör du följande procedurer på en arbetsstation 
 
 ### <a name="step-11-install-azure-powershell"></a>Steg 1.1: Installera Azure PowerShell
 
-Hämta och installera Azure PowerShell-modulen som innehåller cmdletar för att hantera Azure Key Vault från den Internetanslutna arbetsstationen. Detta kräver en lägsta version av 0.8.13.
-
-Installationsanvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Hämta och installera Azure PowerShell-modulen som innehåller cmdletar för att hantera Azure Key Vault från den Internetanslutna arbetsstationen. Installationsanvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Steg 1.2: Hämta ditt Azure-prenumerations-ID
 
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med hjälp av följande kommando:
 
 ```Powershell
-   Add-AzureRMAccount
+   Connect-AzAccount
 ```
-Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Använd sedan den [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) kommando:
+Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Använd sedan den [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) kommando:
 
 ```powershell
-   Get-AzureRMSubscription
+   Get-AzSubscription
 ```
 Leta upp ID för den prenumeration som du ska använda för Azure Key Vault i utdata. Du behöver den här prenumerations-ID senare.
 
@@ -493,10 +493,10 @@ Använd en USB-enhet eller annan bärbar lagringsenhet för att kopiera utdatafi
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Steg 5: Överför din nyckel till Azure Key Vault
 
-Det här sista steget på den Internetanslutna arbetsstationen använder de [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet för att ladda upp nyckelöverföringspaketet som du kopierade från den frånkopplade arbetsstationen till Azure Key Vault HSM:
+Det här sista steget på den Internetanslutna arbetsstationen använder de [Lägg till AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet för att ladda upp nyckelöverföringspaketet som du kopierade från den frånkopplade arbetsstationen till Azure Key Vault HSM:
 
    ```powershell
-        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+        Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
    ```
 
 Om överföringen lyckas visas visas egenskaperna för den nyckel som du just lade till.

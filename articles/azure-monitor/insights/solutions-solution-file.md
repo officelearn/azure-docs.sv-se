@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105805"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999376"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en fil för lösningen i Azure (förhandsversion)
 > [!NOTE]
@@ -53,7 +53,7 @@ Den grundläggande strukturen i en fil för lösningen är samma som en [Resourc
 ## <a name="parameters"></a>Parametrar
 [Parametrar](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) är värden som du behöver från användaren när de installerar hanteringslösningen.  Det finns standardparametrar som har alla lösningar och du kan lägga till ytterligare parametrar som krävs för din lösning.  Hur användare ange parametervärden när de installerar din lösning beror på en viss parameter och hur lösningen installeras.
 
-När en användare [installerar din lösning](solutions.md#install-a-management-solution) via Azure Marketplace eller Azure QuickStart-mallar uppmanas de att välja en [Log Analytics-arbetsytan och Automation-kontot](solutions.md#log-analytics-workspace-and-automation-account).  De används för att fylla i värdena för var och en av parametrarna standard.  Användaren behöver inte ange direkt ange värden för parametrarna standard, men de uppmanas att ange värden för alla ytterligare parametrar.
+När en användare [installerar din lösning](solutions.md#install-a-monitoring-solution) via Azure Marketplace eller Azure QuickStart-mallar uppmanas de att välja en [Log Analytics-arbetsytan och Automation-kontot](solutions.md#log-analytics-workspace-and-automation-account).  De används för att fylla i värdena för var och en av parametrarna standard.  Användaren behöver inte ange direkt ange värden för parametrarna standard, men de uppmanas att ange värden för alla ytterligare parametrar.
 
 
 En exempel-parameter visas nedan.  
@@ -83,7 +83,7 @@ I följande tabell visas standardparametrar för alla lösningar för hantering.
 >
 >
 
-| Parameter | Typ | Beskrivning |
+| Parameter | Type | Beskrivning |
 |:--- |:--- |:--- |
 | Kontonamn |sträng |Azure Automation-kontonamn. |
 | pricingTier |sträng |Prisnivån för både Log Analytics-arbetsytan och Azure Automation-konto. |

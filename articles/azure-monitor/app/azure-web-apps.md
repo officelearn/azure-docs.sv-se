@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4ec6e1288b34f04350a88697ca13ed044922ee50
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565963"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002251"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
 I den [Azure-portalen](https://portal.azure.com) du kan konfigurera övervakning av programprestanda för dina webbappar, mobila serverdelar och API-appar i [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrumenterar din app så att den skickar telemetri om sina aktiviteter till Application Insights-tjänsten, där informationen lagras och analyseras. Där kan du använda diagram med mätvärden och sökverktyg för att diagnostisera problem, förbättra prestanda och utvärdera användningen.
@@ -29,7 +29,7 @@ Du kan konfigurera övervakning genom att instrumentera appen på något av två
 * **Vid utveckling** – Du kan installera ett paket i din app i samband med utvecklingen. Det här alternativet är mer flexibelt. Förutom motsvarande standardpaket kan du skriva kod för att anpassa telemetrin eller skicka din egen telemetri. Du kan logga specifika aktiviteter eller registrera händelser baserat på semantiken för din appdomän. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentering i samband med körning med Application Insights
-Om du redan kör en app service i Azure måste du redan tillgång till viss övervakning: begärande- och Felfrekvens. Lägg till Application Insights om du vill få tillgång till mer, till exempel svarstider, övervakning av anrop till beroenden, smart identifiering och det kraftfulla Log Analytics-frågespråket. 
+Om du redan kör en app service i Azure måste du redan tillgång till viss övervakning: begärande- och Felfrekvens. Lägg till Application Insights för att få ut mer, till exempel svarstider, övervakning av anrop till beroenden, smart identifiering och kraftfulla Datautforskaren frågespråket. 
 
 1. **Välj Application Insights** i Azure-Kontrollpanelen för app service.
 

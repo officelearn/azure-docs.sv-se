@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/12/2018
-ms.openlocfilehash: 8ffda7fd1b987e34dc0e8157b535ccef65571247
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 95a86dafc4705d58ac459ff57e4f221d19fb7a37
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567901"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990299"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett Transparent datakryptering (TDE)-skydd med hjälp av PowerShell
 
@@ -25,11 +25,11 @@ ms.locfileid: "55567901"
 
 - Du måste ha en Azure-prenumeration och vara administratör på den aktuella prenumerationen
 - Du måste ha Azure PowerShell-version 4.2.0 eller senare installerat och körs. 
-- Den här guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skyddet för en Azure SQL Database eller datalagret. Se [Transparent datakryptering med BYOK-stöd](transparent-data-encryption-byok-azure-sql.md) vill veta mer.
+- Den här guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skyddet för en Azure SQL Database eller datalagret. Se [Transparent datakryptering med Azure Key Vault-integrering - BYOK-stöd](transparent-data-encryption-byok-azure-sql.md) vill veta mer.
 
 ## <a name="overview"></a>Översikt
 
-Den här guiden beskriver hur du svarar på ett potentiellt komprometterade TDE-skydd för en Azure SQL-databas eller datalager som använder transparent Datakryptering med stöd för ta med din egen nyckel (BYOK). Läs mer om BYOK-stöd för transparent Datakryptering i den [översiktssidan](transparent-data-encryption-byok-azure-sql.md). 
+Den här guiden beskriver hur du svarar på ett potentiellt komprometterade TDE-skydd för en Azure SQL-databas eller datalager som använder transparent Datakryptering med Kundhanterade nycklar i Azure Key Vault - stöd för ta med din egen nyckel (BYOK). Läs mer om BYOK-stöd för transparent Datakryptering i den [översiktssidan](transparent-data-encryption-byok-azure-sql.md). 
 
 Följande procedurer bör endast göras i extrema fall eller i miljöer för testning. Granska den här guiden noggrant, som tar bort aktivt används TDE-skydd från Azure Key Vault kan resultera i **dataförlust**. 
 

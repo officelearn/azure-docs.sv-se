@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3ac07b06e1cf7b5b24956c10e202f9baeab60b2b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249941"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992254"
 ---
-# <a name="content-protection-overview"></a>Content protection-översikt
- Du kan använda Azure Media Services för att skydda dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Med medietjänster kan du leverera live och på begäran innehåll dynamiskt krypterad med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady och Google Widevine Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. 
+# <a name="content-protection-overview"></a>Content protection-översikt 
+
+ Du kan använda Azure Media Services för att skydda dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Med medietjänster kan leverera du live och på begäran innehållet krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. 
 
 Följande bild illustrerar arbetsflödet för Media Services-content protection: 
 
@@ -80,9 +81,9 @@ Följande gäller:
 * Krypteringstyp behöver inte anges i URL: en om det bara en kryptering har tillämpats på tillgången.
 * Krypteringstyp är skiftlägeskänsligt.
 * Du kan ange följande krypteringstyper av:
-  * **cenc**: för PlayReady eller Widevine (common encryption)
-  * **cbcs aapl**: för FairPlay (AES-CBC kryptering)
-  * **CBC**: för AES-kryptering för kuvert
+  * **cenc**: För PlayReady eller Widevine (common encryption)
+  * **cbcs-aapl**: För FairPlay (AES-CBC kryptering)
+  * **cbc**: För kuvert AES-kryptering
 
 ## <a name="next-steps"></a>Nästa steg
 I följande artiklar beskriver nästa steg för att hjälpa dig att komma igång med content protection:

@@ -13,34 +13,36 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 48f1789d4909a1c3af9e9ca01d0b9d0a8e6e09f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: aac58cc0887c566c7377edf08f5a86e2d12cdf28
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299648"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993249"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Data samling information om lösningar i Azure
-Den här artikeln innehåller en lista över [hanteringslösningar](solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det innehåller även information om deras metod och frekvensen för insamling av data till Log Analytics.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. 
+Den här artikeln innehåller en lista över [hanteringslösningar](solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det innehåller även information om deras metod och frekvensen för insamling av data i Azure Monitor.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="list-of-management-solutions"></a>Lista över lösningar för hantering
 
-Följande tabell listar de [hanteringslösningar](solutions.md) i Azure som tillhandahålls av Microsoft. En post i kolumnen innebär att lösningen samlar in data till Log Analytics med hjälp av metoden.  Om en lösning har inga kolumner har valts, sedan skriver den direkt till Log Analytics från en annan Azure-tjänst. Följ länken för var och en till den detaljerade dokumentationen för mer information.
+Följande tabell listar de [hanteringslösningar](solutions.md) i Azure som tillhandahålls av Microsoft. En post i kolumnen innebär att lösningen samlar in data i Azure Monitor med hjälp av metoden.  Om en lösning har inga kolumner har valts, sedan skriver den direkt till Azure Monitor från en annan Azure-tjänst. Följ länken för var och en till den detaljerade dokumentationen för mer information.
 
 Förklaringar av kolumnerna är följande:
 
-- **Microsoft övervakningsagent** -Agent som används i Windows och Linux för att köra Management pack från SCOM och hanteringslösningar från Azure. I den här konfigurationen är agenten ansluten direkt till Log Analytics inte är ansluten till en Operations Manager-hanteringsgrupp. 
-- **Operations Manager** -identiska agenten som Microsoft monitoring agent. I den här konfigurationen har [är ansluten till en Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) som är ansluten till Log Analytics. 
+- **Microsoft övervakningsagent** -Agent som används i Windows och Linux för att köra Management pack från SCOM och hanteringslösningar från Azure. I den här konfigurationen är agenten ansluten direkt till Azure Monitor inte är ansluten till en Operations Manager-hanteringsgrupp. 
+- **Operations Manager** -identiska agenten som Microsoft monitoring agent. I den här konfigurationen har [är ansluten till en Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) som är ansluten till Azure Monitor. 
 -  **Azure Storage** -lösningen samlar in data från ett Azure storage-konto. 
 - **Operations Manager som krävs?** – En ansluten hanteringsgrupp för Operations Manager krävs för insamling av hanteringslösningen. 
-- **Operations Manager agent-data skickas via hanteringsgruppen** – om agenten [är ansluten till en SCOM-hanteringsgrupp](../../azure-monitor/platform/om-agents.md), och sedan data skickas till Log Analytics från hanteringsservern. I det här fallet behöver agenten inte att ansluta direkt till Log Analytics. Om den här rutan inte är markerat, sedan skickas data från agenten direkt till Log Analytics även om agenten är ansluten till en SCOM-hanteringsgrupp. Den måste kunna kommunicera med Log Analytics genom den [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
+- **Operations Manager agent-data skickas via hanteringsgruppen** – om agenten [är ansluten till en SCOM-hanteringsgrupp](../../azure-monitor/platform/om-agents.md), och sedan data skickas till Azure Monitor från hanteringsservern. I det här fallet behöver agenten inte att ansluta direkt till Azure Monitor. Om den här rutan inte är markerat, sedan skickas data från agenten direkt till Azure Monitor även om agenten är ansluten till en SCOM-hanteringsgrupp. Den måste kunna kommunicera med Azure Monitor via den [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
 - **Insamlingsfrekvens** – anger hur ofta att data har samlats in av hanteringslösningen. 
 
 
 
 | **Lösning för hantering** | **Plattform** | **Microsoft övervakningsagent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager som krävs?** | **Operations Manager agent-data skickas via hanteringsgruppen** | **Insamlingsfrekvens** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | på meddelandet |
+| [Aktivitetslogganalys](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | på meddelandet |
 | [AD-bedömning](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagar |
 | [AD-replikeringsstatus](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dagar |
 | [Agenthälsa](solution-agenthealth.md) | Windows och Linux | &#8226; | &#8226; | | | &#8226; | 1 minut |

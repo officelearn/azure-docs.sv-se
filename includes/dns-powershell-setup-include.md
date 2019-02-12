@@ -8,16 +8,18 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 388bea528b138d78b9ec23ceea295108306c61e9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 9c0874199a21f7357ae387e7ac4a26267c6635fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31613610"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56078645"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Konfigurera Azure PowerShell för Azure DNS
 
 ### <a name="before-you-begin"></a>Innan du börjar
+
+[!INCLUDE [requires-azurerm](requires-azurerm.md)]
 
 Kontrollera att du har följande innan du påbörjar konfigurationen.
 
@@ -36,7 +38,7 @@ Find-Module -Name AzureRM.Dns
 Find-Module -Name AzureRM.Network 
 ``` 
  
-Utdata för kommandona ovan måste visa att versionen för AzureRM.Dns är 4.1.0 eller senare och att versionen för AzureRM.Network är 5.4.0 eller senare.  
+Utdata från kommandona ovan ska visa att versionen av AzureRM.Dns är 4.1.0 eller högre version och för AzureRM.Network är 5.4.0 eller senare version.  
 
 Om systemet har tidigare versioner installerar du antingen den senaste versionen av Azure PowerShell eller så hämtar du de ovan nämnda modulerna från PowerShell-galleriet med hjälp av länkarna ovan bredvid modulversionerna. Du kan sedan installera dem med hjälp av kommandona nedan. Båda modulerna som krävs och är helt bakåtkompatibla. 
 

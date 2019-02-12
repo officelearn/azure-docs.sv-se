@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492894"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989431"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Använda en Azure Machine Learning Studio-webbtjänst från Excel
 
@@ -26,7 +26,7 @@ Om du använder Excel 2013 (eller senare) eller Excel Online, så vi rekommender
 
 
 ## <a name="steps"></a>Steg
-Publicera en webbtjänst. [Den här sidan](walkthrough-5-publish-web-service.md) förklarar hur du gör. Excel-arbetsbok funktionen stöds för närvarande endast för begäran/svar-tjänster som har ett enda utflöde (det vill säga en enda bedömnings-etiketten). 
+Publicera en webbtjänst. [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md) förklarar hur du gör. Excel-arbetsbok funktionen stöds för närvarande endast för begäran/svar-tjänster som har ett enda utflöde (det vill säga en enda bedömnings-etiketten). 
 
 När du har en webbtjänst, klickar du på den **WEBBTJÄNSTER** till vänster i studio och välj sedan webbtjänsten för att använda från Excel.
 

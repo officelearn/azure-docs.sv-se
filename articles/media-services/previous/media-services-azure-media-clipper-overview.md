@@ -6,17 +6,18 @@ keywords: Clip, underklipp, kodning, media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0fc04fb64e6d34c46f20b4ba5ff8a1ffc8da9c31
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d306bc3b9e206e5f21f9c16c0cd32bc599f1b6d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237918"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003167"
 ---
-# <a name="create-clips-with-azure-media-clipper"></a>Skapa klipp med Azure Media Clipper
+# <a name="create-clips-with-azure-media-clipper"></a>Skapa klipp med Azure Media Clipper 
+
 Azure Media Clipper är ett kostnadsfritt JavaScript-bibliotek som gör det möjligt för webbutvecklare att ge användarna ett gränssnitt för att skapa media klipp. Det här verktyget kan integreras i en webbsida och tillhandahåller API: er för inläsning av tillgångar och skicka urklippningsjobb.
 
 Azure Media Clipper kan du:
@@ -30,7 +31,7 @@ Azure Media Clipper kan du:
 
 För att efterfråga nya funktioner, tillhandahåller förslag eller kommentarer, skicka till [UserVoice för Azure Media Services](https://aka.ms/amsvoice/). Om du har och specifika problem, frågor eller hitta eventuella buggar, släpp mediet Services team en linje vid amcinfo@microsoft.com.
 
-Följande bild illustrerar gränssnittet Clipper: ![Azure Media Clipper](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
+Följande bild illustrerar Clipper-gränssnittet: ![Azure Media Clipper](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
 
 ## <a name="release-notes"></a>Viktig information
 Se listan nedan för blogginlägget Clipper, olika kända problem och Ändringslogg för den senaste versionen av Clipper:
@@ -41,11 +42,11 @@ Se listan nedan för blogginlägget Clipper, olika kända problem och Ändringsl
 ## <a name="browser-support"></a>Webbläsarstöd
 Azure Media Clipper byggs med moderna HTML5-tekniker och har stöd för följande webbläsare:
 
-- Microsoft Edge 13 +
-- Internet Explorer 11 +
+- Microsoft Edge 13+
+- Internet Explorer 11+
 - Chrome 54 +
-- Safari 10 +
-- Firefox 50 +
+- Safari 10+
+- Firefox 50+
 
 > [!NOTE]
 > Endast HTML5 uppspelning av dataströmmar från Azure Media Services stöds för närvarande.

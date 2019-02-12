@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455073"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993647"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
@@ -237,7 +237,7 @@ Mer information finns i [introduktion till minnesoptimerade tabeller](https://do
 
 Det här mönstret flashminnet prestanda anger en försämring i den aktuella databasen arbetsbelastningens prestanda jämfört med grundregel de senaste sju dagar. Det är på grund av brist på tillgängliga dtu: er i den elastiska poolen för din prenumeration. 
 
-Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](sql-database-service-tiers.md#dtu-based-purchasing-model), som består av ett blandat mått av CPU- och IO (data- och transaktionslogg loggning i/o). [Elastisk pool i Azure-resurser](sql-database-elastic-pool.md) används som en pool med tillgängliga eDTU-resurser som delas mellan flera databaser för att skala syften. När tillgängliga eDTU-resurser i en elastisk pool inte är tillräckligt stort för alla databaser i poolen kan har en elastisk pool DTU brist prestandaproblem identifierats av systemet.
+Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](sql-database-purchase-models.md#dtu-based-purchasing-model), som består av ett blandat mått av CPU- och IO (data- och transaktionslogg loggning i/o). [Elastisk pool i Azure-resurser](sql-database-elastic-pool.md) används som en pool med tillgängliga eDTU-resurser som delas mellan flera databaser för att skala syften. När tillgängliga eDTU-resurser i en elastisk pool inte är tillräckligt stort för alla databaser i poolen kan har en elastisk pool DTU brist prestandaproblem identifierats av systemet.
 
 ### <a name="troubleshooting"></a>Felsökning
 

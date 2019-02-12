@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bd09205d4bdc60891044728cf0dcafa092ae9846
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 3615bd88cfadf2f59942fab7678d36d4d20d8c9f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377454"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992746"
 ---
 # <a name="widevine-license-template-overview"></a>Översikt över Widevine-licensmallen 
 
@@ -65,7 +65,7 @@ En Widevine-licensbegäran formateras som ett JSON-meddelande.
 | nyttolast |Base64-kodad sträng |Licensbegäran som skickats av en klient. |
 | content_id |Base64-kodad sträng |Identifieraren som används för att härleda nyckel-ID och innehåll nyckel för varje content_key_specs.track_type. |
 | Providern |sträng |Används för att söka efter innehåll nycklar och principer. Om du använder Microsoft key leverans för Widevine-licensleverans, ignoreras den här parametern. |
-| principens_namn |sträng |Namnet på en tidigare registrerad princip. Valfri. |
+| policy_name |sträng |Namnet på en tidigare registrerad princip. Valfri. |
 | allowed_track_types |Enum |SD_ONLY eller SD_HD. Styr vilka nycklar av innehåll som ingår i en licens. |
 | content_key_specs |Matris med JSON strukturer som stöds, se avsnittet ”Content viktiga specifikationer”.  |En mer detaljerad kontroll på vilka nycklar ska returneras. Mer information finns i avsnittet ”innehåll viktiga specifikationer”. Endast en av de allowed_track_types och content_key_specs värdena kan anges. |
 | use_policy_overrides_exclusively |Booleskt värde, true eller false |Använd principen attribut anges av policy_overrides och utelämna alla tidigare lagrade principen. |
@@ -82,7 +82,7 @@ Varje content_key_specs värde måste anges för alla spår, oavsett use_policy_
 | --- | --- | --- |
 | content_key_specs. track_type |sträng |Ett typnamn spåra. Om content_key_specs anges i licensbegäran, se till att ange alla spåra typer explicit. Det gick inte att göra det resulterar i det gick inte att spela upp de senaste 10 sekunder. |
 | content_key_specs  <br/> security_level |UInt32 |Definierar stabilitet klientkrav för uppspelning. <br/> -Programvarubaserad vit-box-kryptering krävs. <br/> -Kryptografi programvara och en dold avkodare måste anges. <br/> – Viktiga material och kryptografi aktiviteter måste utföras inom en maskinvarustöd betrodda körningsmiljö. <br/> -Kryptering och avkodning av innehåll måste utföras inom en maskinvarustöd betrodda körningsmiljö.  <br/> -Kryptering, avkodning och alla hantering av media (komprimerade och okomprimerade) måste hanteras inom en maskinvarustöd betrodda körningsmiljö. |
-| content_key_specs <br/> required_output_protection.hDC |sträng, ett av HDCP_NONE, HDCP_V1, HDCP_V2 |Anger om HDCP krävs. |
+| content_key_specs <br/> required_output_protection.hdc |sträng, ett av HDCP_NONE, HDCP_V1, HDCP_V2 |Anger om HDCP krävs. |
 | content_key_specs <br/>key |Base64-<br/>kodad sträng |Innehållsnyckeln ska användas för den här spåra. Om anges krävs track_type eller key_id. Innehållsleverantören kan använda det här alternativet för att mata in innehållsnyckeln för den här track i stället för att låta licensservern Widevine Generera eller söka efter en nyckel. |
 | content_key_specs.key_id |Binary base64-kodad sträng, 16 byte |Unik identifierare för nyckeln. |
 
@@ -92,13 +92,13 @@ Varje content_key_specs värde måste anges för alla spår, oavsett use_policy_
 | policy_overrides&#46;can_play |Booleskt värde, true eller false |Anger den uppspelningen av innehåll tillåts. Standardvärdet är false. |
 | policy_overrides&#46;can_persist |Booleskt värde, true eller false |Anger att licensen kan sparas till nonvolatile lagring för användning offline. Standardvärdet är false. |
 | policy_overrides&#46;can_renew |Booleskt värde, true eller false |Anger att förnyelse av denna licens tillåts. Om värdet är true, kan varaktigheten för licensen utökas med pulsslag. Standardvärdet är false. |
-| policy_overrides&#46;license_duration_seconds |Int64 |Anger tidsperioden för denna specifika licens. Värdet 0 anger att det finns ingen gräns för varaktigheten. Standardvärdet är 0. |
-| policy_overrides&#46;rental_duration_seconds |Int64 |Anger tidsperioden medan uppspelning är tillåten. Värdet 0 anger att det finns ingen gräns för varaktigheten. Standardvärdet är 0. |
-| policy_overrides&#46;playback_duration_seconds |Int64 |Fönstret Visa tid när uppspelning startas inom hela licens. Värdet 0 anger att det finns ingen gräns för varaktigheten. Standardvärdet är 0. |
+| policy_overrides&#46;license_duration_seconds |int64 |Anger tidsperioden för denna specifika licens. Värdet 0 anger att det finns ingen gräns för varaktigheten. Standardvärdet är 0. |
+| policy_overrides&#46;rental_duration_seconds |int64 |Anger tidsperioden medan uppspelning är tillåten. Värdet 0 anger att det finns ingen gräns för varaktigheten. Standardvärdet är 0. |
+| policy_overrides&#46;playback_duration_seconds |int64 |Fönstret Visa tid när uppspelning startas inom hela licens. Värdet 0 anger att det finns ingen gräns för varaktigheten. Standardvärdet är 0. |
 | policy_overrides&#46;renewal_server_url |sträng |Alla begäranden för pulsslag (förnyelse) för den här licensen dirigeras till den angivna URL: en. Det här fältet används endast om can_renew är sant. |
-| policy_overrides&#46;renewal_delay_seconds |Int64 |Hur många sekunder efter license_start_time innan förnyelse görs först. Det här fältet används endast om can_renew är sant. Standardvärdet är 0. |
-| policy_overrides&#46;renewal_retry_interval_seconds |Int64 |Anger fördröjningen i sekunder mellan begäranden om efterföljande licens förnyelse, om fel uppstår. Det här fältet används endast om can_renew är sant. |
-| policy_overrides&#46;renewal_recovery_duration_seconds |Int64 |Fönstret för gånger på vilka uppspelning kan fortsätta medan förnyelse görs, men misslyckades på grund av backend-problem med licensservern. Värdet 0 anger att det finns ingen gräns för varaktigheten. Det här fältet används endast om can_renew är sant. |
+| policy_overrides&#46;renewal_delay_seconds |int64 |Hur många sekunder efter license_start_time innan förnyelse görs först. Det här fältet används endast om can_renew är sant. Standardvärdet är 0. |
+| policy_overrides&#46;renewal_retry_interval_seconds |int64 |Anger fördröjningen i sekunder mellan begäranden om efterföljande licens förnyelse, om fel uppstår. Det här fältet används endast om can_renew är sant. |
+| policy_overrides&#46;renewal_recovery_duration_seconds |int64 |Fönstret för gånger på vilka uppspelning kan fortsätta medan förnyelse görs, men misslyckades på grund av backend-problem med licensservern. Värdet 0 anger att det finns ingen gräns för varaktigheten. Det här fältet används endast om can_renew är sant. |
 | policy_overrides&#46;renew_with_usage |Booleskt värde, true eller false |Anger att licensen har skickats kan förnyas när användning startar. Det här fältet används endast om can_renew är sant. |
 
 ## <a name="session-initialization"></a>Sessionen initieras

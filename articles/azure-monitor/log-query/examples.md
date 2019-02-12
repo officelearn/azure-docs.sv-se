@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Log Analytics-frågan exempel | Microsoft Docs
-description: Exempel på frågor i Log Analytics med hjälp av Kusto-språket.
+title: Azure Monitor Azure Monitor log-fråga-exempel | Microsoft Docs
+description: Exempel på loggfrågor i Azure Monitor med Datautforskaren frågespråket.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883495"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993205"
 ---
-# <a name="log-analytics-query-examples"></a>Logga Analytics-fråga exempel
-Den här artikeln innehåller olika exempel på [frågor](../../azure-monitor/log-query/log-query-overview.md) med hjälp av den [Kusto språk](https://docs.microsoft.com/azure/kusto/query/) att hämta olika typer av data från Log Analytics. Olika metoder för att konsolidera och analysera data, så du kan använda de här exemplen för att identifiera olika strategier som du kan använda för dina egna behov.  
+# <a name="azure-monitor-log-query-examples"></a>Azure Monitor log-fråga-exempel
+Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md) med hjälp av den [Datautforskaren frågespråk](https://docs.microsoft.com/azure/kusto/query/) att hämta olika typer av loggdata från Azure Monitor. Olika metoder för att konsolidera och analysera data, så du kan använda de här exemplen för att identifiera olika strategier som du kan använda för dina egna behov.  
 
-Se den [Kusto-Språkreferens](https://docs.microsoft.com/azure/kusto/query/) mer information om andra nyckelord som används i exemplen. Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du är nybörjare till Log Analytics.
+Se den [Kusto-Språkreferens](https://docs.microsoft.com/azure/kusto/query/) mer information om andra nyckelord som används i exemplen. Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du inte har använt Azure Monitor.
 
 ## <a name="events"></a>Händelser
 
@@ -237,7 +237,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Antal säkerhetshändelser av aktivitets-ID
 
 
-Det här exemplet är beroende av den fasta strukturen för de **aktivitet** kolumn: \<ID\>-\<namn\>.
+Det här exemplet är beroende av den fasta strukturen för de **aktivitet** kolumn: \<ID\>-\<Name\>.
 Den tolkar det **aktivitet** värdet till två nya kolumner och antal förekomster av varje **activityID**.
 
 ```Kusto
@@ -278,7 +278,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Parsa aktivitetsnamn och ID
-De två exemplen nedan beroende av den fasta strukturen för de **aktivitet** kolumn: \<ID\>-\<namn\>. Det första exemplet använder den **parsa** operator för att tilldela värden till två nya kolumner: **activityID** och **activityDesc**.
+De två exemplen nedan beroende av den fasta strukturen för de **aktivitet** kolumn: \<ID\>-\<Name\>. Det första exemplet använder den **parsa** operator för att tilldela värden till två nya kolumner: **activityID** och **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -440,4 +440,4 @@ Update
 ## <a name="next-steps"></a>Nästa steg
 
 - Referera till den [Kusto-Språkreferens](/azure/kusto/query) information om vilka språk.
-- Gå igenom en [lektion skriver frågor i Log Analytics](get-started-queries.md).
+- Gå igenom en [lektion skriver loggfrågor i Azure Monitor](get-started-queries.md).

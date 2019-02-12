@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883406"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990436"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -105,7 +105,7 @@ Hantera inställningar för de flesta den i den **avancerade inställningar** me
 Hantera lösningar i den **lösningar** menyn för arbetsytan. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Hur jag för att installera och ta bort hanteringslösningar?
-I OMS-portalen kan du installera lösningar från lösningsgalleriet och bort dem från **inställningar**. I Azure-portalen [installera hanteringslösningar](../insights/solutions.md#install-a-management-solution) från Azure Marketplace. [Ta bort lösningar](../insights/solutions.md#remove-a-management-solution) i listan över installerade lösningar.
+I OMS-portalen kan du installera lösningar från lösningsgalleriet och bort dem från **inställningar**. I Azure-portalen [installera hanteringslösningar](../insights/solutions.md#install-a-monitoring-solution) från Azure Marketplace. [Ta bort lösningar](../insights/solutions.md#remove-a-monitoring-solution) i listan över installerade lösningar.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Hur jag för att skapa och hantera aviseringar?
 Varningsregler baserat på Log Analytics-frågor hanteras nu i den [unified avisering upplevelse](../../azure-monitor/platform/alerts-metric.md). Se [utöka aviseringar från Log Analytics i Azure Alerts](../../azure-monitor/platform/alerts-extend-tool.md) för information om hur du konfigurerar och använder aviseringar i Azure-portalen.

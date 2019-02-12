@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486902"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997090"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-tillägget för Azure Machine Learning Studio-webbtjänster
 Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva någon kod.
@@ -24,8 +24,8 @@ Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva n�
 
 1. Öppna den [Excel-exempelfilen](https://aka.ms/amlexcel-sample-2), som innehåller Excel-tillägg och data om passagerare på den på Titanic. 
  
-> [!NOTE]
-> Du kan se listan över de webbtjänster relaterade till filen och längst ned på sidan en kryssruta för ”automatisk förutsäga”. Om du aktiverar automatisk-förutsäga förutsägelser för **alla** dina tjänster kommer att uppdateras varje gång en ändring på indata. Om alternativet är avmarkerat måste du klicka på ”förutse alla” för uppdatering. För att aktivera automatisk-förutsäga på en tjänst på Gå till steg 6.
+    > [!NOTE]
+    > Du kan se listan över de webbtjänster relaterade till filen och längst ned på sidan en kryssruta för ”automatisk förutsäga”. Om du aktiverar automatisk-förutsäga förutsägelser för **alla** dina tjänster kommer att uppdateras varje gång en ändring på indata. Om alternativet är avmarkerat måste du klicka på ”förutse alla” för uppdatering. För att aktivera automatisk-förutsäga på en tjänst på Gå till steg 6.
 
 2. Välj webbtjänsten genom att klicka på den-”Titanic efterlevande ge säkrare prognoser (Excel-tillägget prov) [poäng]” i det här exemplet.
    
@@ -37,7 +37,7 @@ Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva n�
    
     ![Förutsäga avsnittet][02]
 
-Distribuera en webbtjänst eller Använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [genomgång steg 5: Distribuera webbtjänsten Azure Machine Learning](walkthrough-5-publish-web-service.md).
+Distribuera en webbtjänst eller Använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md).
 
 Hämta API-nyckel för webbtjänsten. Om du utför beror denna åtgärd på om du har publicerat en klassiska Machine Learning-webbtjänst för en ny Machine Learning-webbtjänst.
 
@@ -65,7 +65,7 @@ Hämta API-nyckel för webbtjänsten. Om du utför beror denna åtgärd på om d
 
 ## <a name="steps-to-add-a-new-web-service"></a>Hur du lägger till en ny webbtjänst
 
-1. Distribuera en webbtjänst eller Använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [genomgång steg 5: Distribuera webbtjänsten Azure Machine Learning](walkthrough-5-publish-web-service.md).
+1. Distribuera en webbtjänst eller Använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md).
 2. Klicka på **förbrukar**.
 3. Leta efter den **grundläggande förbrukning info** avsnittet. Kopiera och spara den **primärnyckel** och **Request-Response** URL: en.
 4. I Excel, går du till den **webbtjänster** avsnittet (om du är i den **Predict** klickar du på bakåtpilen för att gå till listan för web services).

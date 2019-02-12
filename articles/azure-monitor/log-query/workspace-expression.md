@@ -1,6 +1,6 @@
 ---
-title: Workspace() uttryck i Azure Log Analytics-fråga | Microsoft Docs
-description: Arbetsytan uttryck används i en Log Analytics-fråga för att hämta data från en viss arbetsyta i samma resursgrupp, en annan resursgrupp eller en annan prenumeration.
+title: Workspace() uttryck i Azure Monitor log-fråga | Microsoft Docs
+description: Arbetsytan uttryck används i en Azure Monitor log-fråga för att hämta data från en viss arbetsyta i samma resursgrupp, en annan resursgrupp eller en annan prenumeration.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 24a737a728b0a249fda76cbff481bea284ac24aa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182952"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993007"
 ---
-# <a name="workspace-expression-in-log-analytics-query"></a>Workspace() uttryck i Log Analytics-fråga
+# <a name="workspace-expression-in-azure-monitor-log-query"></a>Workspace() uttryck i Azure Monitor log-fråga
 
-Den `workspace` uttryck används i en Log Analytics-fråga för att hämta data från en viss arbetsyta i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Detta är användbart att inkludera loggdata i en Application Insights-fråga och för att köra frågor mot data över flera arbetsytor i en loggfråga.
+Den `workspace` uttryck används i en Azure Monitor-fråga för att hämta data från en viss arbetsyta i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Detta är användbart att inkludera loggdata i en Application Insights-fråga och för att köra frågor mot data över flera arbetsytor i en loggfråga.
 
 
 ## <a name="syntax"></a>Syntax
 
-`workspace(`*identifierare*`)`
+`workspace(`*Identifier*`)`
 
 ## <a name="arguments"></a>Argument
 
@@ -36,9 +36,9 @@ Den `workspace` uttryck används i en Log Analytics-fråga för att hämta data 
 | Identifierare | Beskrivning | Exempel
 |:---|:---|:---|
 | Resursnamn | Mänskliga läsbart namn på arbetsyta (AKA ”komponentnamn”) | Workspace("contosoretail") |
-| Kvalificerat namn | Fullständigt namn på arbetsytan i formatet: ”subscriptionName/resourceGroup/componentName” | Workspace('Contoso/ContosoResource/ContosoWorkspace') |
-| ID | GUID för arbetsytan | Workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
-| Azure-resurs-ID | Identifierare för Azure-resursen | Workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/Workspaces/contosoretail") |
+| Kvalificerat namn | Fullständigt namn på arbetsytan i formatet: ”subscriptionName/resourceGroup/componentName” | workspace('Contoso/ContosoResource/ContosoWorkspace') |
+| ID | GUID för arbetsytan | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| Azure Resource ID | Identifierare för Azure-resursen | Workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/Workspaces/contosoretail") |
 
 
 ## <a name="notes"></a>Anteckningar
@@ -71,5 +71,6 @@ union
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se den [app uttryck](workspace-expression.md) att referera till Application Insights-app.
-- Läs om hur [Log Analytics-data](../../azure-monitor/log-query/log-query-overview.md) lagras.
+- Se den [app uttryck](app-expression.md) att referera till en Application Insights-app.
+- Läs om hur [Azure Monitor data](log-query-overview.md) lagras.
+- Få åtkomst till fullständig dokumentation för den [Datautforskaren frågespråk](/azure/kusto/query/).

@@ -1,10 +1,10 @@
 ---
 title: Skapa ContentKeys med .NET
-description: Lär dig hur du skapar innehåll nycklar som ger säker åtkomst till resurser.
+description: Lär dig hur du skapar nycklar som ger säker åtkomst till resurser.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
@@ -12,37 +12,37 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 53df4c4cef19f6eef99aa15bb265317aa0cd1d58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: af8c2b547e1ce1b15410ee20eb59934559ac41ac
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788188"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992168"
 ---
-# <a name="create-contentkeys-with-net"></a>Skapa ContentKeys med .NET
+# <a name="create-contentkeys-with-net-legacy"></a>Skapa ContentKeys med .NET (äldre)
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
-> * [.NET](media-services-dotnet-create-contentkey.md)
+> * [NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
 
 Media Services kan du skapa och leverera krypterade tillgångar. En **ContentKey** ger säker åtkomst till din **tillgången**s. 
 
-När du skapar en ny tillgång (till exempel innan du [ladda upp filer](media-services-dotnet-upload-files.md)), kan du ange följande krypteringsalternativen: **StorageEncrypted**, **CommonEncryptionProtected**, eller **EnvelopeEncryptionProtected**. 
+När du skapar en ny tillgång (till exempel innan du [ladda upp filer](media-services-dotnet-upload-files.md)), kan du ange följande alternativ för kryptering: **StorageEncrypted**, **CommonEncryptionProtected**, eller **EnvelopeEncryptionProtected**. 
 
-När du levererar tillgångar till dina klienter kan du [konfigurera för tillgångar ska vara dynamiskt krypterad](media-services-dotnet-configure-asset-delivery-policy.md) med något av följande två krypteringar: **DynamicEnvelopeEncryption** eller **DynamicCommonEncryption**.
+När du levererar tillgångar till dina klienter kan du [konfigurera för tillgångar ska vara dynamiskt krypterad](media-services-dotnet-configure-asset-delivery-policy.md) med någon av följande två krypteringar: **DynamicEnvelopeEncryption** eller **DynamicCommonEncryption**.
 
 Krypterade tillgångar måste associeras med **ContentKey**s. Den här artikeln beskriver hur du skapar en innehållsnyckel.
 
 > [!NOTE]
-> När du skapar en ny **StorageEncrypted** tillgång med Media Services .NET SDK i **ContentKey** skapas automatiskt och länkad till tillgången.
+> När du skapar en ny **StorageEncrypted** tillgång med Media Services .NET SDK, den **ContentKey** skapas automatiskt och som är kopplad till tillgången.
 > 
 > 
 
 ## <a name="contentkeytype"></a>ContentKeyType
-Ett av de värden som du måste ange när du skapar en innehåll nyckeln är viktiga innehållstypen. Välj något av följande värden. 
+En av de värden som du måste anges när du skapar en innehåll nyckeln är viktiga innehållstyp. Välj något av följande värden. 
 
 ```csharp
     public enum ContentKeyType
@@ -71,7 +71,7 @@ Ett av de värden som du måste ange när du skapar en innehåll nyckeln är vik
 ```
 
 ## <a id="envelope_contentkey"></a>Skapa kuvert typen ContentKey
-Följande kodavsnitt skapar en innehållsnyckel av typen kuvert kryptering. Sedan associerar den nyckeln med den angivna resursen.
+Följande kodfragment skapar en innehållsnyckel av typen kuvert-kryptering. Nyckeln kopplas sedan till den angivna tillgången.
 
 ```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -109,7 +109,7 @@ call
 
 
 ## <a id="common_contentkey"></a>Skapa gemensam typ. ContentKey
-Följande kodavsnitt skapar en innehållsnyckel av den gemensamma krypteringstypen. Sedan associerar den nyckeln med den angivna resursen.
+Följande kodfragment skapar en innehållsnyckel av krypteringstypen gemensam. Nyckeln kopplas sedan till den angivna tillgången.
 
 ```csharp
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)

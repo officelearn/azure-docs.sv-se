@@ -1,6 +1,6 @@
 ---
-title: Avancerade aggregeringar i Azure Log Analytics-frågor | Microsoft Docs
-description: Beskriver några av de mer avancerade aggregering alternativen som är tillgängliga för Log Analytics-frågor.
+title: Avancerade aggregeringar i Azure Monitor loggfrågor | Microsoft Docs
+description: Beskriver några av de mer avancerade aggregering alternativen som är tillgängliga för Azure Monitor log-frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 1116d03fc9c2328365b0bde29cf9ea900e58b7ed
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186369"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005428"
 ---
-# <a name="advanced-aggregations-in-log-analytics-queries"></a>Avancerade aggregeringar i Log Analytics-frågor
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Avancerade aggregeringar i Azure Monitor log-frågor
 
 > [!NOTE]
-> Bör du genomföra [aggregeringar i Log Analytics-frågor](./aggregations.md) innan du slutför den här lektionen.
+> Bör du genomföra [aggregeringar i Azure Monitor frågor](./aggregations.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Den här artikeln beskriver några av de mer avancerade aggregering alternativen som är tillgängliga för Log Analytics-frågor.
+Den här artikeln beskriver några av de mer avancerade aggregering alternativen som är tillgängliga för Azure Monitor-frågor.
 
 ## <a name="generating-lists-and-sets"></a>Skapa listor och uppsättningar
 Du kan använda `makelist` att pivotera data av ordningen värden i en viss kolumn. Du kanske vill utforska de vanligaste spelas upp ordning händelser på dina datorer. Du kan i princip pivotera data av ordningen EventIDs på varje dator. 
@@ -73,9 +73,9 @@ Heartbeat
 
 | Dator | Lösningar | 
 |--------------|----------------------|
-| Dator1 | ”säkerhet”, ”uppdateringar”, ”changeTracking” |
-| Dator2 | ”säkerhet”, ”uppdateringar” |
-| Dator3 | ”program mot skadlig kod”, ”changeTracking” |
+| Dator1 | "security", "updates", "changeTracking" |
+| Dator2 | "security", "updates" |
+| Dator3 | "antiMalware", "changeTracking" |
 | ... | ... | ... |
 
 Använd `mvexpand` att visa alla värden i en separat rad i stället för en CSV-lista:
@@ -89,13 +89,13 @@ Heartbeat
 
 | Dator | Lösningar | 
 |--------------|----------------------|
-| Dator1 | ”säkerhet” |
+| Dator1 | "security" |
 | Dator1 | ”uppdateringar” |
-| Dator1 | ”changeTracking” |
-| Dator2 | ”säkerhet” |
+| Dator1 | "changeTracking" |
+| Dator2 | "security" |
 | Dator2 | ”uppdateringar” |
 | Dator3 | ”program mot skadlig kod” |
-| Dator3 | ”changeTracking” |
+| Dator3 | "changeTracking" |
 | ... | ... | ... |
 
 
@@ -110,10 +110,10 @@ Heartbeat
 ```
 |Lösningar | list_Computer |
 |--------------|----------------------|
-| ”säkerhet” | [”computer1”, ”computer2”] |
-| ”uppdateringar” | [”computer1”, ”computer2”] |
-| ”changeTracking” | [”computer1”, ”Dator3”] |
-| ”program mot skadlig kod” | [”Dator3”] |
+| "security" | ["computer1", "computer2"] |
+| ”uppdateringar” | ["computer1", "computer2"] |
+| "changeTracking" | ["computer1", "computer3"] |
+| ”program mot skadlig kod” | ["computer3"] |
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>Hantering av lagerplatser som saknas
@@ -142,7 +142,7 @@ Heartbeat
 
 | Kategori | count_ | TimeGenerated |
 |---|---|---|
-| Direktagent | [15,60,0,55,60,57,60,...] | [”2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z”,...] |
+| Direktagent | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
 
 Det tredje elementet i den *count_* matrisen är 0 som förväntat och det finns en matchande tidsstämpeln för ”2017-06-06T19:00:00.0000000Z” i den _TimeGenerated_ matris. Den här matrisformat är svåra att läsa om. Använd `mvexpand` Expandera matriserna och producerar utdata som genereras av samma format `summarize`:
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se andra lektioner för att använda Log Analytics-frågespråket:
+Se andra lektioner för att använda den [Datautforskaren frågespråk](/azure/kusto/query/) logga data med Azure Monitor:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)

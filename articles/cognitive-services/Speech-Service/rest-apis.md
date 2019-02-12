@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: c1693c5e04c33da3f21847aada0adfe1b66c4b52
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0ce33f20d44ac284655569ff66825533650b9d9c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878093"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998968"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
@@ -66,7 +66,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-Brödtexten i svaret innehåller åtkomsttoken i Java Web Token (JWT)-format.
+Brödtexten i svaret innehåller åtkomsttoken i JSON Web Token (JWT)-format.
 
 #### <a name="powershell-sample"></a>PowerShell-exempel
 

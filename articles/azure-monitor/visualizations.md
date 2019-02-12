@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264418"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990180"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera logg- och måttdata som lagras i Azure Monitor.
 
 Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera övervakningsdata för att gå nedåt i problem och identifiera mönster. Beroende på vilket verktyg som du använder kanske du också alternativet för att dela visualiseringar med andra användare i och utanför din organisation.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="azure-dashboards"></a>Azure-instrumentpaneler
 [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md) är den primära dashboarding tekniken för Azure. De är särskilt användbart i att tillhandahålla enda glasruta över dina Azure-infrastruktur och tjänster så att du kan snabbt identifiera viktiga problem.
@@ -30,12 +32,12 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 ![Instrumentpanel](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Fördelar
-- Djup integrering i Azure. Visualiseringar kan fästas på instrumentpaneler från flera Azure sidor som mått analytics, logganalys och Application Insights.
+- Djup integrering i Azure. Visualiseringar kan fästas på instrumentpaneler från flera Azure sidor som måttutforskaren, log analytics och Application Insights.
 - Har stöd för både mått och loggar.
-- Kombinera data från flera källor, inklusive utdata från [måttutforskaren](../azure-monitor/platform/metrics-charts.md), [Log Analytics-frågor](../azure-monitor/log-query/log-query-overview.md), och [mappar](../azure-monitor/app/app-map.md) och tillgänglighet i Application Insights.
+- Kombinera data från flera källor, inklusive utdata från [måttutforskaren](platform/metrics-charts.md), [logga frågor](log-query/log-query-overview.md), och [mappar](app/app-map.md) och [tillgänglighet]() i Application Insights.
 - Alternativet för personliga eller delade instrumentpaneler. Integrerad med Azure [Rollbaserad autentisering (RBAC)](../role-based-access-control/overview.md).
 - Automatisk uppdatering. Mått-uppdatering är beroende av tidsintervall med minst fem minuter. Loggar uppdatera på en minut.
-- Parametriserade mått instrumentpaneler med tidsstämpel och anpassade parametrar.
+- Innehåller parametrar mått instrumentpaneler med tidsstämpel och anpassade parametrar.
 - Layoutalternativ för flexibel.
 - Helskärmsläge.
 
@@ -49,14 +51,14 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 - Begränsad sammanhangsberoende nedåt.
 
 ## <a name="azure-monitor-views"></a>Azure Monitor-vyer
-[Vyer i Azure Monitor](../log-analytics/log-analytics-view-designer.md) kan du skapa anpassade visualiseringar med loggdata. De används av [övervakningslösningar](insights/solutions.md) att presentera information som samlas in.
+[Vyer i Azure Monitor](platform/view-designer.md) kan du skapa anpassade visualiseringar med loggdata. De används av [övervakningslösningar](insights/solutions.md) att presentera information som samlas in.
 
 ![Visa](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Fördelar
 - Omfattande visualiseringar för loggdata.
 - Exportera och importera vyer för att överföra dem till andra resursgrupper och prenumerationer.
-- Integrerar Log Analytics Hanteringsmodellen med arbetsytor och övervakar lösningar.
+- Integrerar Azure Monitor-Hanteringsmodellen med arbetsytor och övervakar lösningar.
 - [Filter](platform/view-designer-filters.md) för anpassade parametrar.
 - Interaktiv, har stöd för flera nivåer drill-i (vy som går till en annan vy)
 
@@ -71,7 +73,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 
 
 ## <a name="application-insights-workbooks"></a>Application Insights-arbetsböcker
-[Arbetsböcker](../azure-monitor/app/usage-workbooks.md) är interaktiva dokument som ger djupare insikter om dina data, undersökningar och samarbete i teamet. Specifika exempel där arbetsböcker är användbara felsöker guider och incident postmortem.
+[Arbetsböcker](../application-insights/app-insights-usage-workbooks.md) är interaktiva dokument som ger djupare insikter om dina data, undersökningar och samarbete i teamet. Specifika exempel där arbetsböcker är användbara felsöker guider och incident postmortem.
 
 ![Arbetsbok](media/visualizations/workbook.png)
 
@@ -89,7 +91,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) är särskilt användbart för att skapa företagsanpassat instrumentpaneler och rapporter samt rapporter analysera långsiktig KPI-trender. Du kan [importerar resultatet av en loggfråga](../log-analytics/log-analytics-powerbi.md) till en Power BI-datauppsättning så att du kan dra nytta av dess funktioner som kombinerar data från olika källor och dela rapporter på webben och mobila enheter.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) är särskilt användbart för att skapa företagsanpassat instrumentpaneler och rapporter samt rapporter analysera långsiktig KPI-trender. Du kan [importerar resultatet av en loggfråga](platform/powerbi.md) till en Power BI-datauppsättning så att du kan dra nytta av dess funktioner som kombinerar data från olika källor och dela rapporter på webben och mobila enheter.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -109,7 +111,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) är en öppen plattform som är perfekt i driftsinstrumentpaneler. Det är särskilt användbart för att identifiera och isolera och sorterar operativa incidenter. Du kan lägga till [Grafana Azure Monitor-plugin-programmet för datakällans](../azure-monitor/platform/grafana-plugin.md) till din Azure-prenumeration att visualisera dina data i Azure-mått.
+[Grafana](https://grafana.com/) är en öppen plattform som är perfekt i driftsinstrumentpaneler. Det är särskilt användbart för att identifiera och isolera och sorterar operativa incidenter. Du kan lägga till [Grafana Azure Monitor-plugin-programmet för datakällans](platform/grafana-plugin.md) till din Azure-prenumeration att visualisera dina data i Azure-mått.
 
 ![Grafana](media/visualizations/grafana.png)
 
@@ -140,7 +142,6 @@ Du kan komma åt data i loggen och måttdata i Azure Monitor via sina API med va
 - Lär dig mer om den [data som samlas in av Azure Monitor](platform/data-collection.md).
 - Lär dig mer om [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md).
 - Lär dig mer om [vyer i Azure Monitor](platform/view-designer.md).
-- Lär dig mer om [arbetsböcker i Application Insights](../azure-monitor/app/usage-workbooks.md).
-- Lär dig mer om [importera loggdata till Power BI](../azure-monitor/platform/powerbi.md).
-- Lär dig mer om den [Grafana Azure Monitor-plugin-programmet för datakällans](../azure-monitor/platform/grafana-plugin.md).
-
+- Lär dig mer om [arbetsböcker i Application Insights](app/usage-workbooks.md).
+- Lär dig mer om [importera loggdata till Power BI](platform/powerbi.md).
+- Lär dig mer om den [Grafana Azure Monitor-plugin-programmet för datakällans](platform/grafana-plugin.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 850f9b28c112c11fd98a8abc81a1811cd26d81cc
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: fd03a0b1cd3f0ab55377d597a0c6e6595bc876fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166040"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004153"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Använda Kartkontrollen Azure Maps
 
@@ -23,46 +23,154 @@ Kartkontroll klientens Javascript-biblioteket kan du återge kartor och inbädda
 
 Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bibliotek för Kartkontrollen.
 
-1. Skapa en ny fil och ge den namnet **MapSearch.html**.
+1. Skapa en ny HTML-fil.
 
-2. Lägg till Azure Maps formatmall och skript källa referenser till den `<head>` elementet i filen:
+2. Läs in modulen Azure Maps-webb-SDK. Detta kan göras med hjälp av ett av två alternativ;
+    
+    a. Använd den globalt värdbaserade CDN-versionen av Azure Maps Web SDK genom att lägga till URL-slutpunkter i formatmall och skript referenser i den `<head>` elementet i filen:
 
     ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
     ```
 
-3. För att rendera en ny karta i webbläsaren ska du lägga till en **#map** refererar till i den `<style>` element:
+    b. Du kan också läsa in Azure mappar webbtjänst-SDK-källkoden lokalt med hjälp av den [azure maps control](https://www.npmjs.com/package/azure-maps-control) NPM paketera och lägga upp den med din app. Det här paketet innehåller också TypeScript definitioner.
+
+    > npm install azure-maps-kontroll
+
+    Lägg till referenser till Azure Maps formatmall och skript källa referenser till den `<head>` elementet i filen:
+
+    ```html
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css" />
+    <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
+    ```
+
+3. Lägg till följande för att rendera kartan så att det fyller den fullständiga brödtexten ska `<style>` elementet så att den `<head>` element.
 
     ```html
     <style>
-        #map {
-            width: 100%;
-            height: 100%;
+        html, body {
+            margin: 0;
+        }
+    
+        #myMap {
+            height: 100vh;
+            width: 100vw;
         }
     </style>
     ```
 
-4. Definiera ett nytt avsnitt i html-text och skapa ett skript för att initiera kartkontrollen. Använd din egen nyckel för Azure Maps-konto i skriptet. Om du vill skapa ett konto eller hitta din nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md). Den **språkinställning** metoden anger språket som ska användas för kartetiketter och kontroller. Mer information om språk som stöds finns i [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages).
+4. I tabellen på sidan, lägger du till en `<div>` element och ge den ett `id` av **myMap**. 
 
     ```html
-    <div id="map">
-        <script>
-            atlas.setSubscriptionKey("<_your account key_>");
-            atlas.setLanguage("en");
-            var map = new atlas.Map("map", {
-                center: [-122.33263,47.59093],
-                zoom: 12
-            });
-        </script>
-    </div>
+    <body>
+        <div id="myMap"></div>
+    </body>
     ```
 
-5. Öppna filen i din webbläsare och visa renderade kartan.
+5. Definiera ett nytt avsnitt i html-text och skapa ett skript för att initiera kartkontrollen. Använd din egen nyckel för Azure Maps-konto eller autentiseringsuppgifter för Azure Active Directory (AAD) för att autentisera en karta med hjälp av [authOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authoptions). Om du vill skapa ett konto eller hitta din nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md). Den **språk** alternativet anger språket som ska användas för kartetiketter och kontroller. Mer information om språk som stöds finns i [språk som stöds](supported-languages.md). Om du använder en prenumerationsnyckel för autentisering.
+
+    ```html
+    <script type='text/javascript'>
+        var map = new atlas.Map('myMap', {
+            center: [-122.33, 47.6],
+            zoom: 12,
+            language: 'en-US',
+            authOptions: {
+                authType: 'subscriptionKey',
+                subscriptionKey: '<Your Azure Maps Key>'
+            }
+        });
+    </script>
+    ```
+
+    Om du använder Azure Active Directory (AAD) för autentisering:
+
+    ```html
+    <script type='text/javascript'>
+        var map = new atlas.Map('myMap', {
+            center: [-122.33, 47.6],
+            zoom: 12,
+            language: 'en-US',
+            authOptions: {
+                authType: 'aad',
+                clientId: '<Your AAD Client Id>',
+                aadAppId: '<Your AAD App Id',
+                aadTenant: 'msft.ccsctp.net'
+            }
+        });
+    </script>
+    ```
+
+6. Du kan också hända att lägga till följande meta taggen element till chefen för sidan till hjälp:
+
+    ```html
+    <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    
+    <!-- Ensures the web page looks good on all screen sizes. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    ```
+
+7. Sätter samman allt HTML-fil bör se ut ungefär så här:
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    
+        <meta charset="utf-8" />
+        
+        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    
+        <!-- Ensures the web page looks good on all screen sizes. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    
+        <style>
+            html, body {
+                margin: 0;
+            }
+        
+            #myMap {
+                height: 100vh;
+                width: 100vw;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="myMap"></div>
+        
+        <script type='text/javascript'>
+            //Create an instance of the map control and set some options.
+            var map = new atlas.Map('myMap', {
+                center: [-122.33, 47.6],
+                zoom: 12,
+                language: 'en-US',
+                authOptions: {
+                    authType: 'subscriptionKey',
+                    subscriptionKey: '<Your Azure Maps Key>'
+                }
+            });
+        </script>
+    </body>
+    </html>
+    ```
+
+8. Öppna filen i din webbläsare och visa renderade kartan. Det bör se ut så här:
+
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Så här använder du kartkontroll" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se pennan <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>så här använder du kartkontroll</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du skapar en karta med ett fullständigt exempel:
+Lär dig hur du skapar och interagera med en karta:
 
 > [!div class="nextstepaction"]
 > [Skapa en karta](map-create.md)

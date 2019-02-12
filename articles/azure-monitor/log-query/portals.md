@@ -1,6 +1,6 @@
 ---
-title: Visa och analysera data i Azure Log Analytics | Microsoft Docs
-description: Den här artikeln beskriver portaler som du kan använda i Azure Log Analytics för att skapa och redigera loggsökningar.
+title: Visa och analysera loggdata i Azure Monitor | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Log Analytics i Azure-portalen att skapa och redigera loggfrågor i Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,22 +10,19 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 12/22/2018
 ms.author: bwren
-ms.openlocfilehash: 9a5472a6dfc944eb793e863704897c92b1a7572e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9567f8a6b581d7c246ebaa8eb8d72ad201bf2641
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183360"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990419"
 ---
-# <a name="viewing-and-analyzing-data-in-log-analytics"></a>Visa och analysera data i Log Analytics
-Det finns två alternativ som är tillgängliga i Azure-portalen för att analysera data som lagras i Log analytics och för att skapa frågor för ad hoc-analyser. Frågor som du skapar med hjälp av dessa portaler kan användas för andra funktioner, till exempel aviseringar och instrumentpaneler.
+# <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Visa och analysera loggdata i Azure Monitor
+Log Analytics är den primära upplevelsen för att arbeta med loggdata och skapa frågor i Azure Monitor. Öppna Log Analytics från **loggar** i den **Azure Monitor** menyn. Du kan få en introduktion till den här portalen och granska dess funktioner på [Kom igång med Log Analytics i Azure-portalen](get-started-portal.md).
 
-## <a name="log-analytics-page"></a>Sidan för log Analytics
-Öppna sidan Log Analytics från **loggar** i Log Analytics-menyn. Det här är en ny upplevelse för att arbeta med loggdata och skapa frågor. Du kan få en introduktion till den här portalen och granska dess funktioner på [Kom igång med Log Analytics-sidan i Azure-portalen](../../azure-monitor/log-query/get-started-portal.md).
-
-Sidan Log Analytics innehåller följande förbättringar över den [loggsökning (klassisk)](#log-search-classic) upplevelse.
+Log Analytics tillhandahåller följande funktioner för att arbeta med loggfrågor.
 
 * Flera flikar – skapa separata flikar för att arbeta med flera frågor.
 * Visualiseringar – olika diagramalternativ.
@@ -38,14 +35,14 @@ Sidan Log Analytics innehåller följande förbättringar över den [loggsöknin
 * Kolumnurval – sortera och gruppera kolumner i resultatet av frågan.
 
 > [!NOTE]
-> Sidan Log Analytics har samma funktioner som Advanced Analytics-portalen som är något externt verktyg utanför Azure-portalen. Advanced Analytics-portalen finns kvar, men länkar och andra referenser till den i Azure-portalen ersätts med den nya sidan.
+> Log Analytics har samma funktioner som Advanced Analytics-portalen som är något externt verktyg utanför Azure-portalen. Advanced Analytics-portalen finns kvar, men länkar och andra referenser till den i Azure-portalen ersätts med den nya sidan.
 
-![Avancerade analysportalen](media/portals/advanced-analytics-portal.png)
+![Log Analytics](media/portals/log-analytics.png)
 
 ### <a name="resource-logs"></a>Resurs-loggar
-Den nya Log Analytics-upplevelsen kan integreras med olika Azure-resurser som virtuella datorer. Det innebär att du kan öppna sidan Log Analytics direkt via övervakning resursmenyn utan att växla till Azure Monitor eller Log Analytics och att förlora resurs-kontext. **Loggar** har ännu inte aktiverats för alla Azure-resurser, men den börjar visas i portalmenyn för olika resurser typer.
+Log Analytics integreras med olika Azure-resurser som virtuella datorer. Det innebär att du kan öppna Log Analytics direkt via övervakning resursmenyn utan att växla till Azure Monitor och att förlora resurs-kontext. **Loggar** har ännu inte aktiverats för alla Azure-resurser, men den börjar visas i portalmenyn för olika resurser typer.
 
-När du öppnar Log Analytics från en specifik resurs, begränsas den automatiskt för att logga poster för den resursen endast.   Om du vill skriva en fråga som innehåller andra poster, skulle du måste öppna menyn Log Analytics och Azure Monitor.
+När du öppnar Log Analytics från en specifik resurs, begränsas den automatiskt för att logga poster för den resursen endast.   Om du vill skriva en fråga som innehåller andra poster, skulle du måste öppna den från Azure Monitor-menyn.
 
 Följande alternativ är ännu inte tillgängliga via vyn av Log Analytics:
 
@@ -56,7 +53,7 @@ Följande alternativ är ännu inte tillgängliga via vyn av Log Analytics:
 
 
 ### <a name="firewall-requirements"></a>Brandväggskrav
-Din webbläsare kräver åtkomst till följande adresser för åtkomst till Log Analytics-sidan och Advanced Analytics-portalen.  Om webbläsaren har åtkomst till Azure-portalen via en brandvägg, måste du aktivera åtkomst till dessa adresser.
+Din webbläsare kräver åtkomst till följande adresser åtkomst till Log Analytics.  Om webbläsaren har åtkomst till Azure-portalen via en brandvägg, måste du aktivera åtkomst till dessa adresser.
 
 | URI | IP-adress | Portar |
 |:---|:---|:---|
@@ -66,15 +63,15 @@ Din webbläsare kräver åtkomst till följande adresser för åtkomst till Log 
 
 
 ## <a name="log-search-classic"></a>Loggsökning (klassisk)
-Öppna sidan Log search från **loggar (klassisk)** i Log Analytics-menyn eller från **Log Analytics** i Azure Monitor-menyn. Det här är sidan klassiska används för att arbeta med Log Analytics-frågor som saknar de ytterligare funktionerna i den [sidan Log Analytics](#log-analytics-page) ovan.
+Loggsökning är den äldre upplevelsen i Azure-portalen för att fråga och analysera loggdata i Azure Monitor. Det kommer kommer att dras tillbaka snart men är fortfarande tillgänglig för närvarande. Öppna Loggsökning från **loggar (klassisk)** i Log Analytics-menyn.
 
 
 
-![Logga söksidan](media/portals/log-search-portal.png)
+![Loggsökning](media/portals/log-search-portal.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Gå igenom en [självstudier med Loggsökning](../../azure-monitor/learn/tutorial-viewdata.md) att lära dig hur du skapar frågor med frågespråket
-- Gå igenom en [lektion med hjälp av Advanced Analytics-portalen](../../azure-monitor/log-query/get-started-portal.md) som ger samma användarupplevelse som Log Analytics-sida.
+- Gå igenom en [självstudier med Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+- Gå igenom en [självstudier med Loggsökning](../../azure-monitor/learn/tutorial-viewdata.md).
 

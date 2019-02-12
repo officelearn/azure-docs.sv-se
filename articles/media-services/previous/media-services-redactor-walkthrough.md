@@ -4,7 +4,7 @@ description: Det här avsnittet innehåller stegvisa instruktioner om hur du kö
 services: media-services
 documentationcenter: ''
 author: Lichard
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 02/10/2019
 ms.author: rli; juliako;
-ms.openlocfilehash: 81618446930a23a7ea713da19bb7c63a06d135ed
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 14a274dbbc45f00ecf914d5bb0a3e1c040fb3a89
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162451"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994531"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redigera ansikten med Azure Media Analytics genomgången
 
@@ -128,7 +128,7 @@ Om du är utvecklare försök att parsa JSON-data som anteckningen kan du titta 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Översikt över Analytics för Azure Media Services](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Medieanalys-demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

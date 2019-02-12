@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e496e4e2e7e2f66033d090a0534911bff4c53baa
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 524c1a6d083db02349c7dae9a0131228613dc170
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310304"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997618"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure Search Service REST api-versionen 2017-11-11-förhandsversion
 Den här artikeln beskriver den `api-version=2017-11-11-Preview` versionen av Azure Search service REST API, erbjuder experimentella funktioner som inte ännu är allmänt tillgänglig.
@@ -28,7 +28,7 @@ Den här artikeln beskriver den `api-version=2017-11-11-Preview` versionen av Az
 
 ## <a name="new-in-2017-11-11-preview"></a>Nytt i 2017-11-11-förhandsversion
 
-[**Automatisk komplettering** ](search-autocomplete-tutorial.md) ansluter till den befintliga [förslag API](https://docs.microsoft.com/rest/api/searchservice/suggestions) att lägga till kompletterande frågeifyllningsförslag inträffar till sökfältet. Automatisk komplettering returnerar kandidat sökord som en användare kan välja som frågesträngen för en efterföljande sökning. Förslag visar faktiska dokument som svar på partiella indata: sökresultaten är omedelbar och ändras dynamiskt när termen sökinmatning växer och dessutom.
+[**automatisk komplettering** ](search-autocomplete-tutorial.md) ansluter till den befintliga [förslag API](https://docs.microsoft.com/rest/api/searchservice/suggestions) att lägga till kompletterande frågeifyllningsförslag inträffar till sökfältet. automatisk komplettering returnerar kandidat sökord som en användare kan välja som frågesträngen för en efterföljande sökning. Förslag visar faktiska dokument som svar på partiella indata: sökresultaten är omedelbar och ändras dynamiskt när termen sökinmatning växer och dessutom.
 
 [**Kognitiv sökning**](cognitive-search-concept-intro.md), en ny funktion för funktioner i Azure Search söker efter latent information i icke-text källor och odifferentierade text, omvandla det till fulltext sökbart innehåll i Azure Search. Följande resurser introducerades eller ändras i förhandsversionen av REST API. Alla andra REST API: er är samma oavsett om du anropar den allmänt tillgängliga eller förhandsversionen.
 

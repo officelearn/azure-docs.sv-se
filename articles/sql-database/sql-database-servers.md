@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: d08deda0483516180b9923838104cfb6596e7495
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756656"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003303"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL Database-servrar och deras hantering
 
 ## <a name="what-is-an-azure-sql-database-server"></a>Vad är en Azure SQL Database-server
 
-En SQL Database-server är en logisk konstruktion som fungerar som en central administrativ plats för flera fristående eller [med](sql-database-elastic-pool.md) databaser, [inloggningar](sql-database-manage-logins.md), [brandväggsregler](sql-database-firewall-configure.md), [granskning regler](sql-database-auditing.md), [hot principer](sql-database-threat-detection.md), och [redundansgrupper](sql-database-auto-failover-group.md) A SQL Database-server kan vara i en annan region än dess resursgrupp. SQL Database-server måste finnas innan du kan skapa Azure SQL-databasen. Alla databaser som hanteras av en SQL Database-server skapas inom samma region som SQL Database-servern.
+En SQL Database-server är en logisk konstruktion som fungerar som en central administrativ plats för flera enskilt eller [med](sql-database-elastic-pool.md) databaser, [inloggningar](sql-database-manage-logins.md), [brandväggsregler](sql-database-firewall-configure.md), [granskning regler](sql-database-auditing.md), [hot principer](sql-database-threat-detection.md), och [redundansgrupper](sql-database-auto-failover-group.md) A SQL Database-server kan vara i en annan region än dess resursgrupp. SQL Database-server måste finnas innan du kan skapa Azure SQL-databasen. Alla databaser som hanteras av en SQL Database-server skapas inom samma region som SQL Database-servern.
 
 En SQL Database-server skiljer sig från en SQL Server-instans som du kanske är bekant med lokala över hela världen. Mer specifikt garantier SQL Database-tjänsten inga avseende platsen för databaserna i förhållande till SQL Database-server som hanterar dem och exponerar inga funktioner eller åtkomst på instansnivå. Instansdatabaser i en hanterad instans är däremot alla samordnade-på samma sätt som att du är bekant med SQL Server i den lokala miljön.
 

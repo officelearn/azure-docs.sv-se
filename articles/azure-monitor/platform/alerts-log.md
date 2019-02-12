@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7ff4a4d64b69809c53ad70edf1455880da24d52a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892515"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990453"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor
 
@@ -106,8 +106,7 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
     Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 
-Användarna kan också underkänts analytics-fråga i [loggar analyssidan i Azure-portalen](../../azure-monitor/log-query/portals.md#log-analytics-page
-) och skickar sedan det för att skapa en avisering via ”+ ny aviseringsregel” knappen - och sedan följa instruktionerna från steg 6 och senare i självstudien ovan.
+Användarna kan också underkänts analytics-fråga i [logganalys](../log-query/portals.md) push-överföra den att skapa en avisering genom att ställa in avisering knappen - och följa anvisningarna steg 6 och senare i självstudien ovan.
 
  ![Log Analytics – Ställ in en avisering](media/alerts-log/AlertsAnalyticsCreate.png)
 

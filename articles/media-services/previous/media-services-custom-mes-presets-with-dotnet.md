@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 21f182051e3e92cd126b832876d57854ac126367
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 7c362cb366c0f34fa34189cf6b1ca702e513bb25
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247461"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000139"
 ---
-# <a name="customizing-media-encoder-standard-presets"></a>Anpassa Media Encoder Standard förinställningar
+# <a name="customizing-media-encoder-standard-presets"></a>Anpassa Media Encoder Standard förinställningar  
 
 ## <a name="overview"></a>Översikt
 
@@ -125,7 +125,7 @@ I följande kodexempel använder Media Services .NET SDK för att utföra följa
 - Ange indatatillgången som ska kodas.
 - Skapa en utdata-tillgång som innehåller den kodade tillgången.
 - Lägg till en händelsehanterare för att kontrollera jobbförloppet för.
-- Skicka jobbet.
+- Skicka in jobbet.
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 

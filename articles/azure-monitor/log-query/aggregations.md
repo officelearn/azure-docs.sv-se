@@ -1,6 +1,6 @@
 ---
-title: Aggregeringar i Azure Log Analytics-frågor | Microsoft Docs
-description: Beskriver aggregeringsfunktioner i Log Analytics-frågor som erbjuder ett bra sätt att analysera dina data.
+title: Aggregeringar i Azure Monitor logga frågor | Microsoft Docs
+description: Beskriver aggregeringsfunktioner i Azure Monitor log-frågor som erbjuder ett bra sätt att analysera dina data.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185757"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000855"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Aggregeringar i Log Analytics-frågor
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregeringar i Azure Monitor log-frågor
 
 > [!NOTE]
 > Bör du genomföra [Kom igång med Analytics-portalen](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Den här artikeln beskriver aggregeringsfunktioner i Log Analytics-frågor som erbjuder ett bra sätt att analysera dina data. Alla funktioner använder den `summarize` operator som du skapar en tabell med aggregerade resultatet av indatatabellen.
+Den här artikeln beskriver aggregeringsfunktioner i Azure Monitor log-frågor som erbjuder ett bra sätt att analysera dina data. Alla funktioner använder den `summarize` operator som du skapar en tabell med aggregerade resultatet av indatatabellen.
 
 ## <a name="counts"></a>Antal
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Se andra lektioner för att använda Log Analytics-frågespråket:
+Se andra lektioner för att använda den [Datautforskaren frågespråk](/azure/kusto/query/) logga data med Azure Monitor:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)

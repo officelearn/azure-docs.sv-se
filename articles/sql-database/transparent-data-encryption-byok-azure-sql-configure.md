@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell och CLI: Aktivera SQL TDE - din nyckel – Azure SQL Database | Microsoft Docs'
+title: 'PowerShell och CLI: Aktivera SQL TDE - med Azure Key Vault – ta med din egen nyckel – Azure SQL Database | Microsoft Docs'
 description: Lär dig hur du konfigurerar en Azure SQL Database och Data Warehouse för att börja använda Transparent datakryptering (TDE) för kryptering i vila med PowerShell eller CLI.
 services: sql-database
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: be73f5cb7db232538f301b2eb56bf61267fce5d5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b6abfa24d790554de239171ffef1899cdc135d26
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566728"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996261"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera Transparent datakryptering med hjälp av en egen nyckel från Azure Key Vault
+# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera Transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 
-Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault för Transparent datakryptering (TDE) på en SQL-databas eller datalager. Läs mer om transparent Datakryptering med stöd för ta med din egen nyckel (BYOK) [TDE Bring Your Own Key till Azure SQL](transparent-data-encryption-byok-azure-sql.md). 
+Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault för Transparent datakryptering (TDE) på en SQL-databas eller datalager. Mer information om TDE med Azure Key Vault-integrering – ta med din egen nyckel (BYOK) Support på [TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-azure-sql.md). 
 
 ## <a name="prerequisites-for-powershell"></a>Krav för PowerShell
 

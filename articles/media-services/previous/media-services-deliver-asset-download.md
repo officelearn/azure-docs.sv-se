@@ -1,10 +1,10 @@
 ---
-title: Hämta Media Services tillgångar till din dator - Azure | Microsoft Docs
-description: Lär dig mer om att hämta tillgångar till din dator. Kodexemplen är skrivna i C# och använder Media Services SDK för .NET.
+title: Hämta Media Services-tillgångar till din dator – Azure | Microsoft Docs
+description: Lär dig om att hämta tillgångar till datorn. Kodexemplen är skrivna C# och använda Media Services SDK för .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed53fe191dcf740f949b2d9cdcc3c97e30d85544
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788230"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993120"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Så här: leverera en tillgång för hämtning
-Den här artikeln beskrivs alternativ för att leverera media tillgångar som har överförts till Media Services. Du kan leverera Media Services-innehåll i Programscenarier med flera. Hämta de genererade media tillgångarna efter kodning, eller komma åt dem med hjälp av en strömningslokaliserare. Du kan också leverera innehåll med hjälp av en innehåll innehållsleveransnätverk (CDN) för bättre prestanda och skalbarhet.
+# <a name="how-to-deliver-an-asset-by-download"></a>Anvisningar: Leverera en tillgång efter hämtning  
+Den här artikeln beskriver alternativ för att leverera medietillgångar överförs till Media Services. Du kan leverera Media Services-innehåll i olika Programscenarier. Ladda ned de genererade medietillgångar efter kodning, eller komma åt dem med hjälp av en positionerare för direktuppspelning. Du kan också visa innehåll med hjälp av en innehåll Delivery Network (CDN) för bättre prestanda och skalbarhet.
 
-Det här exemplet visar hur du hämtar media tillgångar från Media Services till den lokala datorn. Koden frågar jobb som är associerade med Media Services-konto av jobb-ID och har tillgång till dess **OutputMediaAssets** samling (vilket är den uppsättning tillgångar i media utdata en eller flera som är ett resultat från att köra ett jobb). Det här exemplet illustrerar hur du hämtar utdata media tillgångar från ett jobb, men du kan använda samma metod för att ladda ned andra tillgångar.
+Det här exemplet visar hur du hämtar medietillgångar från Media Services till din lokala dator. Koden frågar de jobb som är associerade med Media Services-kontot genom att jobb-ID och åtkomst till dess **OutputMediaAssets** samling (vilket är uppsättningen med en eller flera utdata medietillgångar resulterar i att köra ett jobb). Det här exemplet visar hur du hämtar media utdataresultat från ett jobb, men du kan använda samma metod för att ladda ned andra tillgångar.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar eller åtkomstbehörigheter, till exempel principer för lokaliserare som är avsedda att vara på plats för lång tid (icke-överföringen principer). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar / åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 ```csharp
     // Download the output asset of the specified job to a local folder.
@@ -88,5 +88,5 @@ Det här exemplet visar hur du hämtar media tillgångar från Media Services ti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Leverera liveströmmat innehåll](media-services-deliver-streaming-content.md)
+[Leverera strömmat innehåll](media-services-deliver-streaming-content.md)
 

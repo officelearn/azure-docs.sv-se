@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564144"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994905"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Hantera säkerhetskopiering av virtuella Azure-datorer
 
@@ -142,7 +142,7 @@ Om du vill sluta skydda en virtuell dator, tillfrågas du om du vill behålla å
 
 Det finns en kostnad som är associerade med att lämna kvar återställningspunkterna i lagring. Fördelen med att lämna kvar återställningspunkterna är dock kan du återställa den virtuella datorn senare, om så önskas. Information om kostnaden för att lämna kvar återställningspunkterna finns i den [prisinformation](https://azure.microsoft.com/pricing/details/backup/). Om du väljer att ta bort alla återställningspunkter kan återställa du inte den virtuella datorn.
 
-När du stoppar säkerhetskopiering med Behåll data, återställningspunkterna upphör att gälla enligt policy för datalagring, men Azure Backup kommer alltid ha en senaste återställningspunkt tills du uttryckligen tar bort säkerhetskopierade data. På samma sätt du om du tar bort en datakälla utan att behöva genomföra stoppa säkerhetskopiering, nya säkerhetskopior börjar misslyckas och gamla återställningspunkterna upphör att gälla enligt kvarhållningsprincip men en senaste återställningspunkten behålls alltid tills du genomför stoppa säkerhetskopiering med ta bort data.
+Återställningspunkten kommer att bevaras alltid tills Säkerhetskopieringsobjekt är återaktivera skyddet med en bevarandeprincip eller StopProtection med ta borttagningsdata. Vid återaktiveringen av skyddet avgör den nya principen som är komma associerad kvarhållning av återställningspunkter. På samma sätt du om du tar bort en datakälla utan att behöva genomföra stoppa säkerhetskopiering, nya säkerhetskopior börjar misslyckas och gamla återställningspunkterna upphör att gälla enligt kvarhållningsprincip men en senaste återställningspunkten behålls alltid tills du genomför stoppa säkerhetskopiering med ta bort data.
 
 Sluta skydda en virtuell dator:
 

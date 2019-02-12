@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238666"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989169"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks för att övervaka jobbmeddelanden för Media Services med .NET
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks för att övervaka jobbmeddelanden för Media Services med .NET 
+
 När du kör jobb kräver ofta ett sätt att spåra jobbförloppet. Du kan övervaka jobbmeddelanden för Media Services med hjälp av Azure Webhooks eller [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Den här artikeln visar hur du arbetar med webhooks.
 
 Den här artikeln visar hur du
@@ -77,7 +78,7 @@ Din Azure-funktion är associerad med kod och andra filer som beskrivs i det hä
 
 ![filer](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-#### <a name="functionjson"></a>Function.JSON
+#### <a name="functionjson"></a>function.json
 
 Filen function.json definierar bindningarna som funktionen och andra konfigurationsinställningar. Körningen använder den här filen för att hitta händelser att övervaka och hur du överför data till och returnera data från körning av funktion. 
 
@@ -100,7 +101,7 @@ Filen function.json definierar bindningarna som funktionen och andra konfigurati
 }
 ```
 
-#### <a name="projectjson"></a>Project.JSON
+#### <a name="projectjson"></a>project.json
 
 Filen project.json innehåller beroenden. 
 
@@ -119,7 +120,7 @@ Filen project.json innehåller beroenden.
 }
 ```
     
-#### <a name="runcsx"></a>Run.csx
+#### <a name="runcsx"></a>run.csx
 
 Koden i det här avsnittet visar en implementering av en Azure-funktion som är en webhook. I det här exemplet funktionen lyssnar efter webhook-anrop från Media Services-meddelanden och publicerar utdatatillgången när jobbet har slutförts.
 

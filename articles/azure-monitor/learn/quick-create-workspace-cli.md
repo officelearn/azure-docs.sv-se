@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: bc3b96ee55ccd28cce89b1f37494b836851977f1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 18cb4aae9470766b75c3c6519473660ac24ad4f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259255"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003813"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Skapa en Log Analytics-arbetsyta med Azure CLI 2.0
 
-Azure CLI 2.0 används till att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du använder Azure CLI 2.0 för att distribuera en Log Analytics-arbetsyta i Azure, vilket är en unik miljö med en egen databas, datakällor och lösningar.  Stegen som beskrivs i den här artikeln krävs om du avser att samla in data från följande källor:
+Azure CLI 2.0 används till att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du använder Azure CLI 2.0 för att distribuera en Log Analytics-arbetsyta i Azure Monitor. En Log Analytics-arbetsyta är en unik miljö för Azure Monitor-loggdata. Varje arbetsyta har sin egen databas och konfiguration och datakällor och lösningar som är konfigurerade för att lagra sina data i en viss arbetsyta. Du behöver en Log Analytics-arbetsyta om du avser att samla in data från följande källor:
 
 * Azure-resurser i din prenumeration  
 * Lokala datorer som övervakas av System Center Operations Manager  
@@ -31,8 +31,8 @@ Azure CLI 2.0 används till att skapa och hantera Azure-resurser från kommandor
  
 Andra källor, till exempel virtuella Azure-datorer och Windows eller Linux-datorer i din miljö finns i följande avsnitt:
 
-* [Samla in data från Azure-datorer](../../azure-monitor/learn/quick-collect-azurevm.md)
-* [Samla in data från hybrid Linux-dator](../../azure-monitor/learn/quick-collect-linux-computer.md)
+* [Samla in data från Azure-datorer](../learn/quick-collect-azurevm.md)
+* [Samla in data från hybrid Linux-dator](../learn/quick-collect-linux-computer.md)
 * [Samla in data från hybrid Windows-dator](quick-collect-windows-computer.md)
 
 Om du inte har en Azure-prenumeration kan du skapa [ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -126,7 +126,7 @@ Det kan ta några minuter att slutföra distributionen. När den är klar kan du
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har en arbetsyta som är tillgängliga kan du konfigurera insamling av övervakning av telemetri, köra loggsökningar för att analysera dessa data och lägga till en hanteringslösning för att ge ytterligare data och analytisk insikt.  
 
-* Om du vill aktivera insamling av data från Azure-resurser med Azure Diagnostics eller Azure storage, se [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
-* Lägg till [System Center Operations Manager som en datakälla](../../azure-monitor/platform/om-agents.md) att samla in data från agenter som rapporterar Operations Manager-hanteringsgrupp och lagra den i Log Analytics-arbetsytan.  
-* Ansluta [Configuration Manager](../../azure-monitor/platform/collect-sccm.md) att importera datorer som är medlemmar i samlingar i hierarkin.  
-* Granska den [hanteringslösningar](../../azure-monitor/insights/solutions.md) tillgängliga och hur du lägger till eller ta bort en lösning från din arbetsyta.
+* Om du vill aktivera insamling av data från Azure-resurser med Azure Diagnostics eller Azure storage, se [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* Lägg till [System Center Operations Manager som en datakälla](../platform/om-agents.md) att samla in data från agenter som rapporterar Operations Manager-hanteringsgrupp och lagra den i Log Analytics-arbetsytan.  
+* Ansluta [Configuration Manager](../platform/collect-sccm.md) att importera datorer som är medlemmar i samlingar i hierarkin.  
+* Granska den [övervakningslösningar](../insights/solutions.md) tillgängliga och hur du lägger till eller ta bort en lösning från din arbetsyta.

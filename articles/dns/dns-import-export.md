@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3dac11ac4409ddde5264307439533bd583d75a9d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888659"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993067"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importera och exportera en DNS-zonfil med Azure CLI 
 
@@ -116,7 +116,7 @@ För att verifiera DNS-zonen när du importerar filen, kan du använda någon av
     az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
-* Du kan ange poster med hjälp av PowerShell-cmdleten `Get-AzureRmDnsRecordSet`.
+* Du kan ange poster med hjälp av Azure CLI-kommando `az network dns record-set ns list`.
 * Du kan använda `nslookup` att verifiera namnmatchning för poster. Eftersom zonen inte delegeras ännu, måste du uttryckligen ange rätt Azure DNS-namnservrarna. I följande exempel visas hur du hämtar namnservernamnen tilldelas zonen. Detta visar även hur du frågar ”www”-post med hjälp av `nslookup`.
 
     ```azurecli
@@ -188,6 +188,6 @@ Som med zon importen kan du först logga in, Välj din prenumeration och konfigu
 
 Så här exporterar du den befintliga Azure DNS-zonen **contoso.com** i resursgruppen **myresourcegroup** till filen **contoso.com.txt** (i den aktuella mappen), kör `azure network dns zone export`. Det här kommandot anropar Azure DNS-tjänsten för att räkna upp postuppsättningar i zonen och exportera resultaten till en BINDNING-kompatibla zonfil.
 
-    ```
-    az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
-    ```
+```
+az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
+```

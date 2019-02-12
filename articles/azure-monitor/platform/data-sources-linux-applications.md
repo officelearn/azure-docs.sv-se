@@ -1,5 +1,5 @@
 ---
-title: Samla in programprestanda på Linux i Log Analytics | Microsoft Docs
+title: Samla in programprestanda på Linux i Azure Monitor | Microsoft Docs
 description: Den här artikeln innehåller information för att konfigurera Log Analytics-agenten för Linux för att samla in prestandaräknare för MySQL och Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bf14e06f52f1b5a32ea3922083cc1f9bdbfb2aae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 453e66934b93ab4368c4d3816d3db1a4588ae660
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104853"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001343"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Samla in prestandaräknare för Linux-program i Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Samla in prestandaräknare för Linux-program i Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Den här artikeln innehåller information för att konfigurera den [Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program i Log Analytics.  De program som ingår i den här artikeln är:  
+Den här artikeln innehåller information för att konfigurera den [Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program i Azure Monitor.  De program som ingår i den här artikeln är:  
 
 - [MySQL](#MySQL)
-- [Apache HTTP-Server](#apache-http-server)
+- [Apache HTTP Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
 Om MySQL-Server eller MariaDB-Server har upptäckts på datorn när Log Analytics-agenten är installerad, installeras en provider för MySQL-Server för prestandaövervakning automatiskt. Den här providern ska ansluta till den lokala MySQL-/ MariaDB-servern att exponera prestandastatistik. Autentiseringsuppgifterna för MySQL-användare måste konfigureras så att providern har åtkomst till MySQL-servern.
@@ -51,10 +51,10 @@ Poster i autentiseringsfilen beskrivs i följande tabell.
 | Egenskap  | Beskrivning |
 |:--|:--|
 | Port | Representerar den aktuella porten MySQL-instans lyssnar på. Port 0 anger att egenskaperna efter används för standardinstansen. |
-| Bind-adress| Aktuella MySQL bind-adress. |
+| Bind-Address| Aktuella MySQL bind-adress. |
 | användarnamn| MySQL-användaren används för att använda för att övervaka MySQL-serverinstansen. |
 | Base64-kodade lösenord| Lösenordet för MySQL övervakning användaren i Base64-kodad. |
-| Automatisk uppdatering| Anger om att skanna efter ändringar i filen my.cnf och skriva över filen MySQL OMI autentisering när MySQL OMI providern uppgraderas. |
+| AutoUpdate| Anger om att skanna efter ändringar i filen my.cnf och skriva över filen MySQL OMI autentisering när MySQL OMI providern uppgraderas. |
 
 ### <a name="default-instance"></a>Standardinstans
 MySQL OMI autentiseringsfilen kan definiera en standard-instans och port kod för att göra hantering av flera MySQL-instanser på en Linux-värd enklare.  Standardinstansen markeras med en instans med port 0. Alla ytterligare instanser ärver egenskaperna från standardinstansen såvida inte de anger olika värden. Till exempel MySQL-instans som lyssnar på port '3308' läggs används standardinstansen bind-adress, användarnamn och lösenord för Base64-kodad att testa och övervaka den instans som lyssnar på 3308. Om instansen på 3308 är bunden till en annan adress och använder samma MySQL användarnamn och lösenord par endast bind-adress krävs och de andra egenskaperna ärvs.
@@ -101,7 +101,7 @@ MySQL-användaren kräver åtkomst till följande frågor för att samla in pres
 MySQL-användaren kräver också SELECT-åtkomst till standard i tabellerna nedan.
 
 - information_schema
-- MySQL. 
+- mysql. 
 
 Dessa behörigheter kan beviljas genom att köra följande kommandon för beviljande.
 
@@ -114,7 +114,7 @@ Dessa behörigheter kan beviljas genom att köra följande kommandon för bevilj
 
 ### <a name="define-performance-counters"></a>Definiera prestandaräknare
 
-När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Log Analytics, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Log Analytics](data-sources-performance-counters.md) med räknarna i följande tabell.
+När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
 | Objektnamn | Räknarnamn |
 |:--|:--|
@@ -137,7 +137,7 @@ När du har konfigurerat Log Analytics-agenten för Linux för att skicka data t
 | MySQL-server | Tabellen Cache används Pct |
 | MySQL-server | Tabellen Lås konkurrens Pct |
 
-## <a name="apache-http-server"></a>Apache HTTP-Server 
+## <a name="apache-http-server"></a>Apache HTTP Server 
 Om Apache HTTP Server har upptäckts på datorn när omsagent paketet installeras, installeras en prestandaövervakning provider för Apache HTTP Server automatiskt. Den här providern är beroende av en Apache-modul som måste läsas in i Apache HTTP-Server för att komma åt prestandadata. Modulen kan läsas in med följande kommando:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
@@ -150,14 +150,14 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definiera prestandaräknare
 
-När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Log Analytics, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Log Analytics](data-sources-performance-counters.md) med räknarna i följande tabell.
+När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Azure Monitor, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Azure Monitor](data-sources-performance-counters.md) med räknarna i följande tabell.
 
 | Objektnamn | Räknarnamn |
 |:--|:--|
-| Apache HTTP-Server | Upptagen arbetare |
-| Apache HTTP-Server | Inaktiva arbetare |
-| Apache HTTP-Server | PCT upptagen arbetare |
-| Apache HTTP-Server | Totalt antal Pct CPU |
+| Apache HTTP Server | Upptagen arbetare |
+| Apache HTTP Server | Inaktiva arbetare |
+| Apache HTTP Server | PCT upptagen arbetare |
+| Apache HTTP Server | Totalt antal Pct CPU |
 | Apache virtuell värd | Fel per minut - klienten |
 | Apache virtuell värd | Fel per minut - Server |
 | Apache virtuell värd | KB per begäran |
@@ -168,4 +168,4 @@ När du har konfigurerat Log Analytics-agenten för Linux för att skicka data t
 
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in prestandaräknare](data-sources-performance-counters.md) från Linux-agenter.
-* Lär dig mer om [logga frågor](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 

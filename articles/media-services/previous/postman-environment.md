@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: a5a08b851bf726a221662d7ec9fb28ae33958e69
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 99ed30809e49e36012263255c8cd0884cf6bbce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981697"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992066"
 ---
-# <a name="import-the-postman-environment-legacy"></a>Importera Postman-miljö (äldre)
+# <a name="import-the-postman-environment"></a>Importera Postman-miljö  
 
 Den här artikeln innehåller en definition av den **Postman** miljövariabler som används i [Postman-samling](postman-collection.md) som innehåller grupperade HTTP-begäranden som anropar Media Services REST API: er. Miljö och samling filer som används av den [konfigurera Postman för Media Services REST API-anrop](media-rest-apis-with-postman.md) självstudien.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0903756ba7df34e7dba20301d45cbd4b6cc4d5ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471325"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992525"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -63,6 +63,20 @@ Regionala avbrott är inte ovanligt och Azure Cosmos DB gör att din databas är
 - För flera regioner Cosmos-konton som är konfigurerade med en enda skrivregionen, [aktivera automatisk redundans med hjälp av Azure CLI eller Azure-portalen](how-to-manage-database-account.md#automatic-failover). När du har aktiverat automatisk redundans när det finns ett regionalt haveri redundansväxlas Cosmos DB automatiskt ditt konto.  
 
 - Även om ditt Cosmos-konto är med hög tillgänglighet kan kanske programmet inte korrekt utformas för att fortsätta att vara tillgänglig. Om du vill testa tillgängligheten slutpunkt till slutpunkt för ditt program med jämna mellanrum anropa den [manuell redundans med hjälp av Azure CLI eller Azure-portalen](how-to-manage-database-account.md#manual-failover), som en del av din Programtestning eller haveriberedskap (DR) tester.
+
+
+När du utvecklar din affärskontinuitetsplan måste du förstå den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse. Den tid som krävs för ett program för att återställa kallas återställningstid (RTO). Du måste också att förstå den längsta tid för senaste datauppdateringar som programmet kan tolerera att förlora när det återställs efter en avbrottshändelse. Tid då uppdateringar som du kanske har råd att förlora kallas mål för återställningspunkt (RPO).
+
+I följande tabell visas RPO och RTO för de vanligaste scenarierna.
+
+|Antalet region(er) |Konfiguration |Konsekvensnivå|Mål för återställningspunkt |MÅL FÖR ÅTERSTÄLLNINGSTID |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < 240 minuter | < 1 vecka |
+|>1     | Enskild replikering | Session, konsekventa Prefix, eventuell | < 15 minuter | < 15 minuter |
+|>1     | Enskild replikering | Begränsad föråldring | K & T | < 15 minuter |
+|>1     | Multi-Master-replikering | Session, konsekventa Prefix, eventuell | < 15 minuter | 0 |
+|>1     | Multi-Master-replikering | Begränsad föråldring | K & T | 0 |
+|>1     | * | Stark | 0 | < 15 minuter |
 
 ## <a name="next-steps"></a>Nästa steg
 

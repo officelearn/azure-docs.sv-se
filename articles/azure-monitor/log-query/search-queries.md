@@ -1,6 +1,6 @@
 ---
-title: Sökfrågor i Log Analytics | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att komma igång skriva sökfrågor i Log Analytics.
+title: Sökfrågor i Azure Monitor-loggarna | Microsoft Docs
+description: Den här artikeln innehåller en självstudie för att komma igång med sökning i Azure Monitor log-frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 1f3131585a8f6581690eda777b8ffc96768b3cc6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cda66b91a0e829ec3bc84a82c190b9d856827ad3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882833"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004459"
 ---
-# <a name="search-queries-in-log-analytics"></a>Sökfrågor i Log Analytics
+# <a name="search-queries-in-azure-monitor-logs"></a>Sökfrågor i Azure Monitor-loggar
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med frågor i Log Analytics](get-started-queries.md) innan du slutför den här lektionen.
+> Bör du genomföra [Kom igång med Azure Monitor log-frågor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Azure Log Analytics-frågor kan börja med ett tabellnamn eller ett sökkommando. Den här självstudien tar upp search-baserade frågor. Det finns fördelar med att varje metod.
+Azure Monitor log-frågor kan börja med ett tabellnamn eller ett sökkommando. Den här självstudien tar upp search-baserade frågor. Det finns fördelar med att varje metod.
 
 Tabell-baserade frågor starta genom att ange omfång frågan och därmed tenderar att vara effektivare än sökfrågor. Sökfrågor är mindre strukturerade vilket gör dem ett bättre val när du söker efter ett specifikt värde över kolumner eller tabeller. **Sök** söka igenom alla kolumner i en viss tabell eller i alla tabeller för det angivna värdet. Mängden data som bearbetas kan vara enorma, vilket är anledningen till de här frågorna kan ta längre tid att slutföra och kan returnera mycket stora resultatmängder.
 
@@ -144,4 +144,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se ytterligare självstudier på den [Log Analytics query language plats](https://aka.ms/LogAnalyticsLanguage).
+- Se ytterligare självstudier på den [Datautforskaren query language plats](/azure/kusto/query/).

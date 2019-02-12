@@ -3,21 +3,23 @@ title: Dirigera implementering av Azure DevTest Labs
 description: Den här artikeln innehåller riktlinjer för dirigera implementering av Azure DevTest Labs i din organisation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: spelluru
+author: christianreddington
 manager: femila
+editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 61ec9d0639f4bee950be69ee951492974ac95c64
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 02/11/2019
+ms.author: chredd
+ms.reviewer: anthdela,juselph
+ms.openlocfilehash: 1e657260eeb36dc813f856ab172882a396324450
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867485"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004442"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Dirigera implementeringen av Azure DevTest Labs
 Den här artikeln innehåller en rekommenderad metod för snabb utveckling och implementering av Azure DevTest Labs. Följande bild visar den övergripande processen som vägledning när du får flexibilitet för att stödja olika branschspecifika krav och scenarier.
@@ -27,9 +29,9 @@ Den här artikeln innehåller en rekommenderad metod för snabb utveckling och i
 ## <a name="assumptions"></a>Antaganden
 Den här artikeln förutsätter att du har följande objekt på plats innan du implementerar ett pilotprojekt Labb:
 
-- **Azure-prenumeration**: pilotteamet har åtkomst till att distribuera resurser till en Azure-prenumeration. Om arbetsbelastningarna som är endast utveckling och testning, rekommenderar vi att du väljer Enterprise DevTest-erbjudande för ytterligare tillgängliga avbildningar och lägre priser på Windows-datorer.
-- **Lokal åtkomst**: om behövs åtkomst till lokala har redan konfigurerats. Lokal åtkomst kan utföras via en plats-till-plats-VPN-anslutning eller via Express Route. Anslutning via Express Route kan vanligtvis ta flera veckor att upprätta, vi rekommenderar att du har Express-Route på plats innan du startar projektet.
-- **Pilotteam team**: ett inledande utvecklingsarbete projekt eller flera team som använder labb har identifierats tillsammans med tillämpliga utveckling eller testning aktiviteter och upprätta krav/mål/strategier för dessa grupper.
+- **Azure-prenumeration**: Pilotteamet har åtkomst till att distribuera resurser till en Azure-prenumeration. Om arbetsbelastningarna som är endast utveckling och testning, rekommenderar vi att du väljer Enterprise DevTest-erbjudande för ytterligare tillgängliga avbildningar och lägre priser på Windows-datorer.
+- **Lokal åtkomst**: Om det behövs har åtkomst till lokala redan konfigurerats. Lokal åtkomst kan utföras via en plats-till-plats-VPN-anslutning eller via Express Route. Anslutning via Express Route kan vanligtvis ta flera veckor att upprätta, vi rekommenderar att du har Express-Route på plats innan du startar projektet.
+- **Pilotteam team**: Ett inledande utvecklingsarbete projekt eller flera team som använder labb har identifierats tillsammans med tillämpliga utveckling eller testning aktiviteter och upprätta krav/mål/strategier för dessa grupper.
 
 ## <a name="milestone-1-establish-initial-network-topology-and-design"></a>Milstolpe 1: Upprätta inledande nätverkets topologi och design
 Det första området i fokus när du distribuerar en Azure DevTest Labs-lösning är att upprätta en planerad anslutning för virtuella datorer. Följande steg beskriver nödvändiga procedurer:
@@ -60,4 +62,4 @@ De första pilotprojekt teamen kan kräva djupgående stöd för att komma igån
 5. Se till att lämpliga granskningar för efterlevnad och säkerhet har slutförts
 
 ## <a name="next-steps"></a>Nästa steg
-Se nästa artikel i den här serien: [styrning i Azure DevTest Labs-infrastruktur](devtest-lab-guidance-governance-resources.md)
+Se nästa artikel i den här serien: [Styrning i Azure DevTest Labs-infrastruktur](devtest-lab-guidance-governance-resources.md)

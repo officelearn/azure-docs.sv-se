@@ -1,6 +1,6 @@
 ---
-title: Arbeta med datum-tid-värdena i Azure Log Analytics-frågor | Microsoft Docs
-description: Beskriver hur du arbetar med datum och tid-data i Log Analytics-frågor.
+title: Arbeta med datum-tid-värdena i Azure Monitor loggfrågor | Microsoft Docs
+description: Beskriver hur du arbetar med datum och tid-data i Azure Monitor log-frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 15767107a5c535cfda98da2a5177e15ca221f35d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214702"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999257"
 ---
-# <a name="working-with-date-time-values-in-log-analytics-queries"></a>Arbeta med datum-tid-värdena i Log Analytics-frågor
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Arbeta med datum-tid-värdena i Azure Monitor log-frågor
 
 > [!NOTE]
 > Bör du genomföra [Kom igång med Analytics-portalen](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Den här artikeln beskriver hur du arbetar med datum och tid-data i Log Analytics-frågor.
+Den här artikeln beskriver hur du arbetar med datum och tid-data i Azure Monitor log-frågor.
 
 
 ## <a name="date-time-basics"></a>Datum tid grunderna
-Frågespråket i Log Analytics har två huvudsakliga datatyper som är associerade med datum och tid: datetime och tidsintervallet. Alla datum uttrycks i UTC. Finns stöd för flera datum/tid-format är att föredra ISO8601-format. 
+Frågespråket i Data Explorer har två huvudsakliga datatyper som är associerade med datum och tid: datetime och tidsintervallet. Alla datum uttrycks i UTC. Finns stöd för flera datum/tid-format är att föredra ISO8601-format. 
 
 Tidsintervallen uttrycks som ett decimaltal följt av en tidsenhet:
 
@@ -161,7 +161,7 @@ Event
 | Hämta ett datum i förhållande till värde  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda Log Analytics-frågespråket:
+Se andra lektioner för att använda den [Datautforskaren frågespråk](/azure/kusto/query/) logga data med Azure Monitor:
 
 - [Strängåtgärder](string-operations.md)
 - [Aggregeringsfunktioner](aggregations.md)

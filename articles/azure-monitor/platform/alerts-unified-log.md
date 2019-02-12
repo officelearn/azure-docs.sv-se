@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 70f53ed06daad8adf10ef5a88f0672f86d6a8b48
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745725"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004136"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
-Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
+Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](../platform/alerts-overview.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
 
-Log aviseringen består av Loggsökning regler som har skapats för [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Läs mer om användningen i [skapar loggaviseringar i Azure](../../azure-monitor/platform/alerts-log.md)
+Log aviseringen består av loggen Frågeregler som skapats för [Azure Monitor](../learn/tutorial-viewdata.md) eller [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Läs mer om användningen i [skapar loggaviseringar i Azure](../platform/alerts-log.md)
 
 > [!NOTE]
-> Populära loggdata från [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](../../azure-monitor/platform/alerts-metric-logs.md)
+> Populära loggdata från [Azure Monitor](../learn/tutorial-viewdata.md) finns nu även på plattformen mått i Azure Monitor. För information om vy [mått aviseringar för loggar](../platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Sök loggvarningsregel - definitions- och typer
@@ -41,7 +41,7 @@ Regler för log search definieras av följande information:
 
 - **Tröskelvärde för**.  Resultatet av loggsökningen utvärderas för att avgöra om en avisering ska skapas.  Tröskelvärdet är olika för olika typer av Varningsregler i log search.
 
-Log search regler oavsett om det för [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), kan vara av två typer. De olika typerna beskrivs i detalj i avsnitten som följer.
+Logga Frågeregler oavsett om det för [Azure Monitor](../learn/tutorial-viewdata.md) eller [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events), kan vara av två typer. De olika typerna beskrivs i detalj i avsnitten som följer.
 
 - **[Antal resultat](#number-of-results-alert-rules)**. Avisering skapas när antalet poster som returneras av loggsökningen överskrider ett angivet tal.
 - **[Metrisk måttenhet](#metric-measurement-alert-rules)**.  Varning skapad för varje objekt i resultatet av loggsökningen med värden som överskrider angivet tröskelvärde.
@@ -114,11 +114,11 @@ Sök aviseringsregeln fungerar på logiken vinstmöjligheter av användaren enli
 
 Nu antar vi att vi har en loggvarningsregel som kallas *Contoso-Log-avisering*, enligt konfigurationen i den [exempel som angetts för många resultat typ log avisering](#example-of-number-of-records-type-log-alert). 
 - Klockan 13:05 när Contoso-Log-avisering utfördes av Azure-aviseringar, gav resultatet från 0 poster; under tröskelvärdet och kan därför inte startas aviseringen. 
-- I nästa iteration klockan 13:10 när Contoso-Log-avisering utfördes av Azure-aviseringar tillhandahålls resultatet från 5 posterna; som överskrider tröskeln och aktiveringen aviseringen strax efter genom att utlösa den [åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) som är associerade. 
-- Klockan 13:15 när Contoso-Log-avisering utfördes av Azure-aviseringar, får resultatet 2 poster; som överskrider tröskeln och aktiveringen aviseringen strax efter genom att utlösa den [åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) som är associerade.
+- I nästa iteration klockan 13:10 när Contoso-Log-avisering utfördes av Azure-aviseringar tillhandahålls resultatet från 5 posterna; som överskrider tröskeln och aktiveringen aviseringen strax efter genom att utlösa den [åtgärdsgrupp](../platform/action-groups.md) som är associerade. 
+- Klockan 13:15 när Contoso-Log-avisering utfördes av Azure-aviseringar, får resultatet 2 poster; som överskrider tröskeln och aktiveringen aviseringen strax efter genom att utlösa den [åtgärdsgrupp](../platform/action-groups.md) som är associerade.
 - Nu får resultatet i nästa iteration klockan 13:20 när Contoso-Log-aviseringen har utförts genom Azure avisering igen 0 poster; under tröskelvärdet och kan därför inte startas aviseringen.
 
-Men ovan listade om klockan 13:15 - Azure-aviseringar kan inte fastställa att de underliggande problem som kan uppstå vid 1:10 kvarstår och om det finns net nya fel; När frågan som användaren kan hänsyn till tidigare poster – kan Azure-aviseringar vara säker på att. Därför att err på sida av försiktighet när Contoso-Log-avisering körs klockan 13:15, konfigurerat [åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) utlöses igen. Klockan 13:20 när inga poster ses: Azure-aviseringar får inte vara säker på att har nu orsaken posterna åtgärdats; Contoso-Log-aviseringen ska därför inte ändras till löst i aviseringen om Azure-instrumentpanel och/eller meddelanden som skickas ut om upplösning av avisering.
+Men ovan listade om klockan 13:15 - Azure-aviseringar kan inte fastställa att de underliggande problem som kan uppstå vid 1:10 kvarstår och om det finns net nya fel; När frågan som användaren kan hänsyn till tidigare poster – kan Azure-aviseringar vara säker på att. Därför att err på sida av försiktighet när Contoso-Log-avisering körs klockan 13:15, konfigurerat [åtgärdsgrupp](../platform/action-groups.md) utlöses igen. Klockan 13:20 när inga poster ses: Azure-aviseringar får inte vara säker på att har nu orsaken posterna åtgärdats; Contoso-Log-aviseringen ska därför inte ändras till löst i aviseringen om Azure-instrumentpanel och/eller meddelanden som skickas ut om upplösning av avisering.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Priser och fakturering av aviseringar
@@ -133,9 +133,8 @@ Priser för loggvarningar anges på den [priser för Azure Monitor](https://azur
     > Om ogiltiga tecken som `<, >, %, &, \, ?, /` finns, kommer att ersättas med `_` på fakturan. Att ta bort scheduleQueryRules resurser som skapats för fakturering av Varningsregler med hjälp av [äldre Log Analytics API](api-alerts.md) -användare måste ta bort den ursprungliga schema och Aviseringsåtgärd med [äldre Log Analytics-API](api-alerts.md)
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [skapa i loggaviseringar i Azure](../../azure-monitor/platform/alerts-log.md).
+* Lär dig mer om [skapa i loggaviseringar i Azure](../platform/alerts-log.md).
 * Förstå [webhooks i loggaviseringar i Azure](alerts-log-webhook.md).
-* Lär dig mer om [Azure-aviseringar](../../azure-monitor/platform/alerts-overview.md).
-* Läs mer om [Application Insights](../../azure-monitor/app/analytics.md).
-* Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    
-
+* Lär dig mer om [Azure-aviseringar](../platform/alerts-overview.md).
+* Läs mer om [Application Insights](../app/analytics.md).
+* Läs mer om [loggfrågor i Azure Monitor](../log-query/log-query-overview.md).    

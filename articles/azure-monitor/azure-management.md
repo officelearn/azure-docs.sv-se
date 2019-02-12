@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e0ad6b212e328612d2934562e1292b5c36546478
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965113"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990282"
 ---
 # <a name="azure-management---monitoring"></a>Azure-hantering – övervakning
 
@@ -52,13 +52,3 @@ Skydd refererar till att säkerställa att program och data alltid är tillgäng
 ## <a name="migrate"></a>Migrera 
 Migrering refererar till att överföra arbetsbelastningar som körs lokalt till Azure-molnet.  [Azure Migrate](../migrate/migrate-overview.md) är en tjänst som hjälper dig att bedöma lämpligheten för migrering. Den omfattar prestandabaserade storleksändringar och kostnadsuppskattningar för lokala virtuella datorer till Azure.  Azure Site Recovery kan hjälpa dig att utföra den faktiska migreringen av virtuella datorer [från en lokal plats](../site-recovery/migrate-tutorial-on-premises-azure.md) eller [från Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) hjälper dig att migrera flera databaskällor till Azure-dataplattformar.
 
-
-## <a name="operations-management-suite"></a>Operations Management Suite
-Tidigare teknisk dokumentation för Azure-hantering innefattade Operations Management Suite (OMS), som är en sammanslagning av följande Azure-hanteringstjänster:
-
-- Azure Automation
-- Azure Backup
-- Log Analytics
-- Site Recovery
-
-Vi beskriver inte längre det sammanslagna paketet i vår tekniska dokumentation eftersom den fullständiga hanteringen i Azure har utökats för att omfatta andra tjänster. Ingen av de tjänster som ingår i OMS har ändrats och alla tjänster spelar fortfarande en viktig roll i hanteringen av Azures program och resurser. Du bör fokusera på de hanteringsuppgifter som du måste utföra och på de olika Azure-tjänster som fungerar tillsammans för varje uppgift.

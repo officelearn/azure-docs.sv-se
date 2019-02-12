@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 710ec72e9867ad180afcae8273a093f48933112a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251840"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991522"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming för iOS 
  Azure Media Services innehåller en uppsättning väl utformad [content protection services](https://azure.microsoft.com/services/media-services/content-protection/) som:
@@ -116,13 +116,13 @@ Media Services-kontot har nu konfigurerats för att leverera offline FairPlay-li
 FPS stöd för offline-läge är bara tillgängliga på iOS 10 och senare. FPS Server SDK (version 3.0 eller senare) innehåller dokumentet och exempel för FPS offline-läge. Mer specifikt innehåller FPS Server SDK (version 3.0 eller senare) följande två objekt som är relaterade till offline-läge:
 
 * Dokument: ”Offline uppspelning med FairPlay Streaming och HTTP-liveuppspelning”. Apple 14 September 2016. I FPS Server SDK-version 4.0, är det här dokumentet tillsammans huvudsakliga FPS dokumentet.
-* Exempelkoden: HLSCatalog-exemplet för FPS offlineläge i \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. I exempelappen HLSCatalog för följande kodfiler att implementera funktioner för offline-läge:
+* Exempelkod: HLSCatalog-exemplet för FPS offlineläge i \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. I exempelappen HLSCatalog för följande kodfiler att implementera funktioner för offline-läge:
 
     - AssetPersistenceManager.swift kodfilen: AssetPersistenceManager är huvudklass i det här exemplet visar hur du:
 
         - Hantera hämtar HLS strömmar, t.ex. API: er används för att starta och avbryta nedladdningar och ta bort befintliga resurser av enheter.
         - Övervaka hämtningsförloppet.
-    - AssetListTableViewController.swift och AssetListTableViewCell.swift Platskod filer: AssetListTableViewController är det viktigaste gränssnittet för det här exemplet. Den innehåller en lista över tillgångar exemplet kan använda för att spela upp, hämta, ta bort eller avbryta en hämtning. 
+    - AssetListTableViewController.swift och AssetListTableViewCell.swift kodfiler: AssetListTableViewController är det viktigaste gränssnittet för det här exemplet. Den innehåller en lista över tillgångar exemplet kan använda för att spela upp, hämta, ta bort eller avbryta en hämtning. 
 
 De här stegen visar hur du ställer in en som kör iOS-spelare. Anta att du startar från HLSCatalog exemplet i FPS Server SDK version 4.0.1 och gör följande ändringar i koden:
 

@@ -16,16 +16,16 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b6738496a25c49a74d3156b5dfba1ba2a91f102c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081967"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002055"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en risk för session har identifierats med villkorlig åtkomst i Azure Active Directory  
 
-För att hålla din miljö skyddad, kanske du vill blockera misstänkta användare från att registrera insign i aktiviteten. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyserar varje inloggning och beräknar sannolikheten att en inloggning försök inte har utförts av är tillförlitligt ägare för ett användarkonto. Sannolikheten (låg, medelhög och hög) anges i form av ett beräknat värde med namnet [risknivåer för inloggning](conditions.md#sign-in-risk). Du kan konfigurera principer för villkorlig åtkomst för att svara på specifika inloggningsrisk nivåer genom att ange villkoret inloggningsrisk. 
+Om du vill behålla din miljö skyddad, kanske du vill blockera misstänkta användare från att logga in. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyserar varje inloggning och beräknar sannolikheten att en inloggning försök inte har utförts av är tillförlitligt ägare för ett användarkonto. Sannolikheten (låg, medelhög och hög) anges i form av ett beräknat värde med namnet [risknivåer för inloggning](conditions.md#sign-in-risk). Du kan konfigurera principer för villkorlig åtkomst för att svara på specifika inloggningsrisk nivåer genom att ange villkoret inloggningsrisk. 
 
 Den här snabbstarten visar hur du konfigurerar en [princip för villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) som blockerar en inloggning vid en konfigurerad inloggningsrisk nivå har identifierats. 
 

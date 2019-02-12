@@ -1,6 +1,6 @@
 ---
-title: Lösningar för hantering i Azure Monitor | Microsoft Docs
-description: Lösningar för hantering i Azure Monitor är en samling logik, visualisering och datahämtningsregler som tillhandahåller statistik rörande särskilda problemområden.  Den här artikeln innehåller information om att installera och använda lösningar för hantering.
+title: Övervakningslösningar i Azure Monitor | Microsoft Docs
+description: Övervakar lösningar i Azure Monitor är en samling logik, visualisering och datahämtningsregler som tillhandahåller statistik rörande särskilda problemområden.  Den här artikeln innehåller information om att installera och använda övervakningslösningar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,27 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 8a6a679aaf43e4a92eb380368f3d68704853d3a3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ff7d886d3f219d007f159167cacfed1b8ee13863
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816823"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001025"
 ---
-# <a name="management-solutions-in-azure-monitor"></a>Lösningar för hantering i Azure Monitor
-Lösningar för hantering av utnyttja tjänster i Azure för att ge ytterligare insikter i driften av ett visst program eller tjänst. Den här artikeln innehåller en kort översikt över lösningar för hantering i Azure och information om hur du använder och installeras.
+# <a name="monitoring-solutions-in-azure-monitor"></a>Övervakar lösningar i Azure Monitor
+Övervakningslösningar utnyttja tjänster i Azure för att ge ytterligare insikter i driften av ett visst program eller tjänst. Den här artikeln innehåller en kort översikt över övervakning lösningar i Azure och information om hur du använder och installeras.
 
-Lösningar för hantering av normalt samla in loggdata och tillhandahålla frågor och vyer för att analysera insamlade data. De kan även använda andra tjänster som Azure Automation för att utföra åtgärder som rör programmet eller tjänsten.
+> [!NOTE]
+> Övervakningslösningar kallades tidigare hanteringslösningar.
 
-Du kan lägga till lösningar för hantering av Azure Monitor för alla program och tjänster som du använder. De finns vanligtvis på utan kostnad men samla in data som kan anropa avgifter för användning. Förutom lösningar från Microsoft, partner och kunder kan [skapa lösningar för hantering av](solutions-creating.md) som ska användas i sin egen miljö eller göras tillgängliga för kunder via communityn.
+Övervakningslösningar normalt samlar in loggdata och Tillhandahåll frågor och vyer för att analysera insamlade data. De kan även använda andra tjänster som Azure Automation för att utföra åtgärder som rör programmet eller tjänsten.
 
-## <a name="use-management-solutions"></a>Använd lösningar för hantering
-Öppna den **översikt** för Log Analytics-arbetsytan visas en panel för varje lösning som är installerade på arbetsytan. 
+Du kan lägga till övervakningslösningar Azure Monitor för alla program och tjänster som du använder. De finns vanligtvis på utan kostnad men samla in data som kan anropa avgifter för användning. Förutom lösningar från Microsoft, partner och kunder kan [skapa lösningar för hantering av](solutions-creating.md) som ska användas i sin egen miljö eller göras tillgängliga för kunder via communityn.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="use-monitoring-solutions"></a>Använda övervakningslösningar
+Öppna den **översikt** sida i Azure Monitor för att visa en panel för varje lösning som är installerade på arbetsytan. 
 
 1. Logga in på Azure Portal.
 1. Öppna **alla tjänster** och leta upp **övervakaren**.
@@ -38,14 +43,14 @@ Du kan lägga till lösningar för hantering av Azure Monitor för alla program 
 
 ![Översikt](media/solutions/overview.png)
 
-Hanteringslösningar kan innehålla flera typer av Azure-resurser och du kan visa alla resurser som ingår i en lösning precis som alla andra resurser. Till exempel alla loggfrågor som ingår i lösningen visas under **lösning frågor** i [frågeutforskaren](../log-query/get-started-portal.md#load-queries) du kan använda dessa frågor när du utför ad hoc-analyser med Log Analytics.
+Övervakningslösningar kan innehålla flera typer av Azure-resurser och du kan visa alla resurser som ingår i en lösning precis som alla andra resurser. Till exempel alla loggfrågor som ingår i lösningen visas under **lösning frågor** i [frågeutforskaren](../log-query/get-started-portal.md#load-queries) du kan använda dessa frågor när du utför ad hoc-analyser med [logga frågor ](../log-query/log-query-overview.md).
 
-## <a name="list-installed-management-solutions"></a>Visa installerade hanteringslösningar 
-Använd följande procedur för att lista hanteringslösningar som installerats i prenumerationen.
+## <a name="list-installed-monitoring-solutions"></a>Visa installerade övervakningslösningar 
+Använd följande procedur för att lista övervakningslösningar som installerats i prenumerationen.
 
 1. Logga in på Azure Portal.
 1. Öppna **alla tjänster** och leta upp **lösningar**.
-4. Lösningar som är installerade på alla dina arbetsytor visas i listan. Namnet på lösningen följt av namnet på den installeras på Log Analytics-arbetsytan.
+4. Lösningar som är installerade på alla dina arbetsytor visas i listan. Namnet på lösningen följt av namnet på den installeras på arbetsytan.
 1. Använda rutorna listrutan överst på skärmen för att filtrera efter prenumeration eller resursgrupp.
 
 
@@ -57,12 +62,12 @@ Klicka på namnet på en lösning för att öppna dess sammanfattningssidan. Den
 
 
 
-## <a name="install-a-management-solution"></a>Installera en lösning för hantering
-Lösningar från Microsoft och partner som är tillgängliga från den [Azure Marketplace](https://azuremarketplace.microsoft.com). Du kan söka efter tillgängliga lösningar och installera dem med hjälp av följande procedur. När du installerar en lösning måste du välja en [Log Analytics-arbetsyta](../platform/manage-access.md) var lösningen ska installeras och där data samlas in.
+## <a name="install-a-monitoring-solution"></a>Installera en lösning för övervakning
+Övervakningslösningar från Microsoft och partner som är tillgängliga från den [Azure Marketplace](https://azuremarketplace.microsoft.com). Du kan söka efter tillgängliga lösningar och installera dem med hjälp av följande procedur. När du installerar en lösning måste du välja en [Log Analytics-arbetsyta](../platform/manage-access.md) var lösningen ska installeras och där data samlas in.
 
 1. Från den [listan med lösningar för din prenumeration](#list-installed-management-solutions), klickar du på **Lägg till**. 
 1. Till höger om **hanteringslösningar**, klickar du på **mer**. 
-1. Leta upp den hanteringslösning som du vill ha och Läs igenom en beskrivning.
+1. Leta upp den övervakningslösningen du vill ha och Läs igenom en beskrivning.
 1. Klicka på **skapa** att starta installationen.
 1. När installationen startar uppmanas du att ange vilken konfiguration som krävs som varierar för varje lösning.
 
@@ -81,7 +86,7 @@ Medlemmar i communityn kan skicka datahanteringslösningar till Azure-Snabbstart
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-arbetsytan och Automation-konto
-Alla lösningar kräver en [Log Analytics-arbetsyta](../platform/manage-access.md) att lagra data som samlas in av lösningen och som värd för loggsökningar och vyer. Vissa lösningar kräver också en [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) som innehåller runbooks och relaterade resurser. Arbetsytan och kontot måste uppfylla följande krav.
+Alla övervakningslösningar kräver en [Log Analytics-arbetsyta](../platform/manage-access.md) att lagra data som samlas in av lösningen och som värd för loggsökningar och vyer. Vissa lösningar kräver också en [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) som innehåller runbooks och relaterade resurser. Arbetsytan och kontot måste uppfylla följande krav.
 
 * Varje installation av en lösning kan bara använda en Log Analytics-arbetsyta och ett Automation-konto. Du kan installera lösningen separat till flera arbetsytor.
 * Om en lösning kräver ett Automation-konto, måste sedan Log Analytics-arbetsytan och Automation-kontot kopplas till varandra. Log Analytics-arbetsytan kan endast kopplas till ett Automation-konto och ett Automation-konto kan endast kopplas till en Log Analytics-arbetsyta.
@@ -100,13 +105,11 @@ Du kan kontrollera länken mellan en Log Analytics-arbetsyta och ett Automation-
 1. Bläddra till den **relaterade resurser** på menyn.
 1. Om den **arbetsytan** inställningen är aktiverad och sedan det här kontot är länkat till en Log Analytics-arbetsyta. Du kan klicka på **arbetsytan** att visa information om arbetsytan.
 
-## <a name="remove-a-management-solution"></a>Ta bort en lösning för hantering
-Ta bort en installerad lösning genom att leta upp den i listan över installerade lösningar. Klicka på namnet på lösningen att öppna dess sammanfattningssidan och klicka sedan på **ta bort**.
-
-
+## <a name="remove-a-monitoring-solution"></a>Ta bort en lösning för övervakning
+Om du vill ta bort en installerad lösning, hitta det i den [listan över installerade lösningar](#list-installed-monitoring-solutions). Klicka på namnet på lösningen att öppna dess sammanfattningssidan och klicka sedan på **ta bort**.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Hämta en [lista med lösningar från Microsoft](solutions-inventory.md).
-* Lär dig hur du [skapa frågor](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in av lösningar för hantering.
+* Hämta en [lista över övervakningslösningar från Microsoft](solutions-inventory.md).
+* Lär dig hur du [skapa frågor](../log-query/log-query-overview.md) att analysera data som samlas in genom att övervaka lösningar.
 

@@ -1,6 +1,6 @@
 ---
-title: Parsa textdata i Azure Log Analytics | Microsoft Docs
-description: Beskriver olika alternativ för parsning data i Log Analytics-poster när data matas in och när de hämtas i en fråga, jämföra de relativa fördelarna för var och en.
+title: Parsa textdata i Azure Monitor-loggar | Microsoft Docs
+description: Beskriver olika alternativ för parsning av loggdata i Azure Monitor-poster när data matas in och när de hämtas i en fråga, att jämföra de relativa fördelarna för var och en.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214138"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002239"
 ---
-# <a name="parse-text-data-in-log-analytics"></a>Parsa textdata i Log Analytics
-Vissa data som samlas in av Log Analytics innehåller flera typer av information i en enskild egenskap. Dela dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel loggpost med flera värden i en enskild egenskap. Du kan söka genom att skapa olika egenskaper för de olika värdena och sammanställda på var och en.
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa textdata i Azure Monitor-loggar
+Vissa loggdata som samlas in av Azure Monitor innehåller flera typer av information i en enskild egenskap. Dela dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel loggpost med flera värden i en enskild egenskap. Du kan söka genom att skapa olika egenskaper för de olika värdena och sammanställda på var och en.
 
-Den här artikeln beskrivs olika alternativ för att parsa data i Log Analytics-poster när data matas in och när de hämtas i en fråga, jämföra de relativa fördelarna för var och en.
+Den här artikeln beskrivs olika alternativ för parsning av loggdata i Azure Monitor när data matas in och när de hämtas i en fråga, att jämföra de relativa fördelarna för var och en.
 
 
 ## <a name="parsing-methods"></a>Parsning metoder
@@ -60,7 +60,7 @@ Nackdelar med att den här metoden är följande:
 - Kan skapa overhead när du kör komplex logik mot mycket stora post skalningsuppsättningar (miljarder poster).
 
 ## <a name="parse-data-as-its-collected"></a>Tolka data eftersom den har samlats in
-Se [skapa anpassade fält i Log Analytics](../../log-analytics/log-analytics-custom-fields.md) mer information om parsning data eftersom den har samlats in. Detta skapar anpassade egenskaper i den tabell som kan användas av frågor, precis som någon annan egenskap.
+Se [skapa anpassade fält i Azure Monitor](../platform/custom-fields.md) mer information om parsning data eftersom den har samlats in. Detta skapar anpassade egenskaper i den tabell som kan användas av frågor, precis som någon annan egenskap.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Dela upp data från frågan med mönster
 När de data du vill parsa kan identifieras genom ett mönster som upprepas över poster, du kan använda olika operatorer i den [Datautforskaren frågespråk](/azure/kusto/query/) att extrahera viss typ av data till en eller flera nya egenskaper.
@@ -106,7 +106,7 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-Om du vill aktivera effektiv parsning i stor skala Log Analytics använder re2 version av reguljära uttryck, vilket är liknande men inte är identiska med några av de andra varianterna för reguljärt uttryck. Referera till den [re2 uttryckssyntax](https://aka.ms/kql_re2syntax) mer information.
+Om du vill aktivera effektiv parsning i stor skala Azure Monitor använder re2 version av reguljära uttryck, vilket är liknande men inte är identiska med några av de andra varianterna för reguljärt uttryck. Referera till den [re2 uttryckssyntax](https://aka.ms/kql_re2syntax) mer information.
 
 
 ## <a name="parse-delimited-data-in-a-query"></a>Parsa avgränsad data i en fråga

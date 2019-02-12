@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464746"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003677"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: Anslutningsfel för databasen och andra problem
 
@@ -99,8 +99,8 @@ Relaterade ämnen:
 
 | Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource ID: %d. %S gränsen för databasen är %d och har uppnåtts. Mer information finns i [SQL Database-resursgränser för fristående och pooldatabaser](sql-database-resource-limits-database-server.md).<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Resource ID: %d. %S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Mer information finns i [SQL Database-resursgränser för fristående och pooldatabaser](sql-database-resource-limits-database-server.md). I annat fall. Försök igen senare.<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Resource ID: %d. %S gränsen för databasen är %d och har uppnåtts. Mer information finns i [SQL Database-resursgränser för enkel och delade databaser](sql-database-resource-limits-database-server.md).<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resource ID: %d. %S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Mer information finns i [SQL Database-resursgränser för enkel och delade databaser](sql-database-resource-limits-database-server.md). I annat fall. Försök igen senare.<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Databasen har nått sin storlekskvot. Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen. |
 | 40549 |16 |Sessionen avslutas eftersom du har en tidskrävande transaktion. Försök att göra transaktionen kortare. |
 | 40550 |16 |Sessionen har avslutats eftersom det har fått för många Lås. Försök att läsa eller ändra färre rader i en enda transaktion. |

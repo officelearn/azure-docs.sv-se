@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197559"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991284"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Skapa höjdpunkter från befintliga videor
 
@@ -27,17 +27,14 @@ Det här avsnittet visar hur du skapar och publicerar videoinsikter baserat på 
     På sidan visas videons sammanfattade insikter. 
 
     ![Insikter](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
-
 3. Tryck på knappen **Redigera**.
 
     På den här sidan visas den fullständiga uppdelningen av en video. Den är indelad i block. Blocken gör det enklare att gå igenom dessa data. Blocken kan till exempel delas in baserat på när talare ändras eller det förekommer en lång paus. Du kan skapa en egen spellista som bara innehåller rader som du vill ha med. Om du bara vill visa specifika delar av källvideon kan du filtrera efter ämnen/nyckelord, attityder, personer och talare. Du kan välja att bara visa videons avskrift eller OCR.    
 
     ![Insikter](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
-
 4. Skapa spellistan.
 
     Lägg till eller ta bort rader i spellistan genom att trycka på **+**/**-**.
-
 5. Förhandsgranska spellistan.
 
     När du är klar med att skapa spellistan trycker du på **Förhandsgranska**.

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 096372215ae44902c633489d197dc1d8aa60f193
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 419e7b1ae05f92b5b97f5317c0315a71958eff9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983023"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005173"
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys-legacy"></a>Uppdatera Media Services efter återställning av lagringsåtkomstnycklar (äldre)
+# <a name="update-media-services-after-rolling-storage-access-keys"></a>Uppdatera Media Services efter återställning av lagringsåtkomstnycklar 
 
 När du skapar ett nytt konto i Azure Media Services (AMS) uppmanas du även välja ett Azure Storage-konto som används för att lagra ditt medieinnehåll. Du kan lägga till fler än ett storage-konto till ditt Media Services-konto. Den här artikeln visar hur du rotera lagringsnycklar. Den visar också hur du lägger till storage-konton till ett media-konto. 
 

@@ -4,7 +4,7 @@ description: 'Det här avsnittet beskriver hur du konfigurerar en kanal som tar 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809043"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990231"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Direktsänd strömning med lokala kodare som skapar strömmar med flera bithastigheter
 
@@ -187,7 +187,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläget.
 | Kanaltillstånd | Portalgränssnittsindikatorer | Fakturerad? |
 | --- | --- | --- | --- |
 | **Startar** |**Startar** |Nej (övergångsläge) |
-| **Kör** |**Redo** (inga program som körs)<p><p>eller<p>**Strömning** (minst ett aktivt program) |Ja |
+| **Körs** |**Redo** (inga program som körs)<p><p>eller<p>**Strömning** (minst ett aktivt program) |Ja |
 | **Stoppar** |**Stoppar** |Nej (övergångsläge) |
 | **Stoppad** |**Stoppad** |Nej |
 

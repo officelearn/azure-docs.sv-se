@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32f3f4fd3f4f299c9b084ab8604b56ea70e639a4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49b763cba505a3423b47e5a2601db53b8e47a5fe
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368241"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993986"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Skydda ditt innehåll med Apple FairPlay eller Microsoft PlayReady för HLS
 Azure Media Services kan du dynamiskt kryptera ditt innehåll med HTTP Live Streaming (HLS) med hjälp av följande format:  
@@ -54,7 +54,7 @@ Följande krävs när du använder Media Services att leverera HLS som krypterat
 
 Följande måste anges på sidan för viktiga leverans av Media Services:
 
-  * **App (Appcertifikat – AC)**: det här är en .pfx-fil som innehåller den privata nyckeln. Du skapar den här filen och krypterar dem med ett lösenord.
+  * **App-certifikat (AC)**: Det här är en .pfx-fil som innehåller den privata nyckeln. Du skapar den här filen och krypterar dem med ett lösenord.
 
        När du konfigurerar en viktiga leveransprincip måste du ange lösenordet och PFX-filen i Base64-format.
 
@@ -69,15 +69,15 @@ Följande måste anges på sidan för viktiga leverans av Media Services:
     3. Kör följande kommando från kommandoraden. Detta omvandlar PEM-filen till en .pfx-fil med den privata nyckeln. OpenSSL uppmanas sedan lösenordet för PFX-filen.
 
         ”C:\OpenSSL-Win32\bin\openssl.exe” pkcs12-export - ut FairPlay-out.pfx-inkey privatekey.pem-i FairPlay-out.pem - passin file:privatekey-pem-pass.txt
-  * **Lösenord för App-Cert**: lösenordet för att skapa .pfx-filen.
-  * **Lösenords-ID för App-Cert**: du måste överföra lösenord, liknar hur överför de andra Media Services-nycklar. Använd den **ContentKeyType.FairPlayPfxPassword** uppräkningsvärde för att hämta ID för Media Services. Det här är vad de ska användas i alternativet viktiga leverans.
-  * **IV**: det här är ett slumpmässigt värde med 16 byte. Det måste matcha iv i principen för tillgångsleverans. Du skapar iv och placera den på båda platserna: tillgångsleveransprincip och alternativet viktiga leverans.
-  * **Be**: den här nyckeln tas emot när du skapar certifieringen via Apple Developer-portalen. Varje Utvecklingsteamet tar emot en unik be. Spara en kopia av fråga och lagra den på en säker plats. Du måste konfigurera be som FairPlayAsk till Media Services senare.
-  * **Be ID**: det här ID: T hämtas när du överför be till Media Services. Du måste överföra fråga med hjälp av den **ContentKeyType.FairPlayAsk** enum-värde. Media Services-ID returneras som ett resultat, och det här är vad ska användas när du ställer in alternativet viktiga leverans.
+  * **Lösenord för App-Cert**: Lösenordet för att skapa .pfx-filen.
+  * **Lösenords-ID för App-Cert**: Du måste överföra lösenord, liknar hur överför de andra Media Services-nycklar. Använd den **ContentKeyType.FairPlayPfxPassword** uppräkningsvärde för att hämta ID för Media Services. Det här är vad de ska användas i alternativet viktiga leverans.
+  * **iv**: Det här är ett slumpmässigt värde med 16 byte. Det måste matcha iv i principen för tillgångsleverans. Du skapar iv och placera den på båda platserna: tillgångsleveransprincip och alternativet viktiga leverans.
+  * **ASK**: Den här nyckeln tas emot när du skapar certifieringen via Apple Developer-portalen. Varje Utvecklingsteamet tar emot en unik be. Spara en kopia av fråga och lagra den på en säker plats. Du måste konfigurera be som FairPlayAsk till Media Services senare.
+  * **BE ID**: Det här ID: T hämtas när du överför be till Media Services. Du måste överföra fråga med hjälp av den **ContentKeyType.FairPlayAsk** enum-värde. Media Services-ID returneras som ett resultat, och det här är vad ska användas när du ställer in alternativet viktiga leverans.
 
 Följande måste anges av klientsidan FPS:
 
-  * **App (Appcertifikat – AC)**: det här är en.cer/.der-fil som innehåller den offentliga nyckeln som operativsystemet använder för att kryptera vissa nyttolast. Media Services behöver veta om den eftersom det krävs av spelaren. Nyckelleveranstjänst dekrypterar den med hjälp av motsvarande privata nyckel.
+  * **App-certifikat (AC)**: Det här är en.cer/.der-fil som innehåller den offentliga nyckeln som operativsystemet använder för att kryptera vissa nyttolast. Media Services behöver veta om den eftersom det krävs av spelaren. Nyckelleveranstjänst dekrypterar den med hjälp av motsvarande privata nyckel.
 
 Få en verklig be första om du vill spela upp en krypterad FairPlay-dataström, och sedan generera ett verkligt certifikat. Den här processen skapar alla tre delar:
 
@@ -138,9 +138,9 @@ Följande gäller:
 * Typ av enhetskryptering har inte anges i URL: en om det bara en kryptering har tillämpats på tillgången.
 * Att krypteringstypen är skiftlägeskänsligt.
 * Du kan ange följande krypteringstyper av:  
-  * **cenc**: gemensam kryptering (PlayReady eller Widevine)
-  * **cbcs aapl**: FairPlay
-  * **CBC**: AES-kryptering för kuvert
+  * **cenc**:  Gemensam kryptering (PlayReady eller Widevine)
+  * **cbcs-aapl**: FairPlay
+  * **cbc**: AES-kryptering för kuvert
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -550,7 +550,7 @@ namespace DynamicEncryptionWithFairPlay
 }
 ```
 
-## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: Utbildningsvägar för Media Services
+## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

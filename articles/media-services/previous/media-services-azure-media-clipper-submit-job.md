@@ -6,17 +6,18 @@ keywords: Clip, underklipp, kodning, media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 585cb88ca853954b23369c8e097583e7e8656355
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821455"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002147"
 ---
-# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Skicka urklippningsjobb från Azure Media Clipper
+# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Skicka urklippningsjobb från Azure Media Clipper 
+
 Azure Media Clipper kräver en **submitSubclipCallback** metoden implementeras för att hantera urklippet jobböverföring. Den här funktionen är för att implementera en HTTP POST Clipper utdata till en webbtjänst. Den här webbtjänsten är där du kan skicka kodningsjobbet. Utdata från Clipper är antingen en Media Encoder Standard kodning förinställning för renderade jobb eller REST API-nyttolasten för dynamiskt manifestfilter-anrop. Den här direkt modellen är nödvändigt eftersom autentiseringsuppgifter för media services-konto inte är säkra i klientens webbläsare.
 
 Följande sekvensdiagram illustrerar arbetsflödet mellan webbläsarklienten, din webbtjänst och Azure Media Services: ![Azure Media Clipper sekvensdiagram](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)

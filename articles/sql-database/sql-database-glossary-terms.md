@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d773d270b3b352bcaef189d201d824695b42bcef
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980150"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990078"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database i ordlista
 
@@ -30,7 +30,7 @@ ms.locfileid: "55980150"
 |Serverobjekt|SQL Database-server eller database-server|[Databasserver](sql-database-servers.md)|
 ||SQL Database hanterad instans-server, hanterad instans-server eller instans-server|[Hanterad instans](sql-database-managed-instance.md)|
 Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
-||Enskild databas|En databas som skapats som en fristående databas med enkel databas|
+||Enskild databas|En databas som skapats med enkel databas|
 ||Databas i pool|En databas som skapats i eller flyttas till en elastisk pool|
 ||Databasinstans|En databas som skapats i en hanterad instans|
 ||Basic-databas|En databas skapas inom eller flyttas till grundläggande tjänstenivå för den DTU-baserade inköpsmodellen|
@@ -39,7 +39,7 @@ Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
 ||Databas för generell användning|En databas skapas inom eller flyttas till tjänstenivå för generell användning för den vCore-baserade inköpsmodellen|
 ||Storskalig databas|En databas skapas inom eller flyttas till hyperskala tjänstenivå för den vCore-baserade inköpsmodellen|
 ||Kritisk Business-databas|En databas skapas inom eller flyttas till företag kritiska tjänstenivå för den vCore-baserade inköpsmodellen|
-|[Inköp och resurser](sql-database-service-tiers.md)|DTU-baserade inköpsmodellen|[DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md)|
+|[Inköp och resurser](sql-database-purchase-models.md)|DTU-baserade inköpsmodellen|[DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md)|
 ||Virtuell kärna-baserad inköpsmodell|[vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md)|
 ||virtuell kärna|En kärna som fått gästoperativsystemet av hypervisor-programmet.|
 ||Tjänstenivå|En servicenivå inom en inköpsmodell|

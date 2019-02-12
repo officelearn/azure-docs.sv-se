@@ -1,6 +1,6 @@
 ---
-title: Arbeta med strängar i Azure Log Analytics-frågor | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att skriva frågor i Log Analytics Analytics-portalen.
+title: Arbeta med strängar i Azure Monitor loggfrågor | Microsoft Docs
+description: Den här artikeln innehåller en självstudie för att använda Azure Monitor log analytics i Azure-portalen för att fråga efter och analysera loggdata i Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 24f22d659ccfb6923ad2a038e12454716b2c5445
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263891"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993732"
 ---
-# <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Arbeta med JSON och datastrukturer i Log Analytics-frågor
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Arbeta med JSON och datastrukturer i Azure Monitor log-frågor
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Analytics-portalen](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
+> Bör du genomföra [Kom igång med Azure Monitor log analytics](get-started-portal.md) och [komma igång med Azure Monitor loggfrågor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -131,7 +131,7 @@ print hosts_object
 ![Skapa schema](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda Log Analytics-frågespråket:
+Se andra lektioner för att använda loggfrågor i Azure Monitor:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)

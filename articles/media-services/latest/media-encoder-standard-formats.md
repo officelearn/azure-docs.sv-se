@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 22603de40e2ebafb1354377898f5a0432e4f6129
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3bc42bf5b83f9ff983c3d8d88a9a496cc395096c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389017"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992593"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard format och -codec
 
@@ -29,12 +29,12 @@ Den här artikeln innehåller en lista med de vanligaste import- och exportfilfo
 | Filformat (filnamnstillägg) | Stöds |
 | --- | --- | --- | --- |
 | FLV (med H.264- och AAC-codec) (.flv) |Ja |
-| MXF (.mxf) |Ja |
+| MXF    (.mxf) |Ja |
 | GXF (.gxf) |Ja |
 | MPEG2-PS MPEG2-TS 3GP (TS, PS, .3gp, .3gpp, MPG) |Ja |
-| Windows Media Video (WMV) / ASF (.wmv, .asf) |Ja |
+| Windows Media Video (WMV)/ASF (.wmv, .asf) |Ja |
 | AVI (okomprimerad 8-bitars/10-bitars) (.avi) |Ja |
-| MP4 (.mp4, .m4a, .m4v) / ISMV (.isma, .ismv) |Ja |
+| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Ja |
 | [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Ja |
 | Matroska/WebM (.mkv) |Ja |
 | WAVE/WAV (.wav) |Ja |
@@ -58,8 +58,8 @@ eller
 | Codec för indatavideo | Stöds |
 | --- | --- | --- | --- |
 | AVC 8-bitars/10-bitars, upp till 4:2:2, inklusive AVCIntra |8-bitars 4:2:0 och 4:2:2 |
-| Avid DNxHD (i MXF) |Ja |
-| DVCPro/DVCProHD (i MXF) |Ja |
+| Avid DNxHD (in MXF) |Ja |
+| DVCPro/DVCProHD (in MXF) |Ja |
 | Digital video (DV) (i AVI-filer) |Ja |
 | JPEG 2000 |Ja |
 | MPEG-2 (upp till 422-profil och högnivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10) |Upp till 422-profil |
@@ -83,8 +83,8 @@ eller
 | AAC (AAC-LC, AAC-HE och AAC-HEv2, upp till 5.1) |Ja |
 | MPEG-nivå 2 |Ja |
 | MP3 (MPEG-1 ljud Layer 3) |Ja |
-| Windows Media ljud |Ja |
-| WAV PCM / |Ja |
+| Windows Media Audio |Ja |
+| WAV/PCM |Ja |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Ja |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Ja |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Ja |

@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 10e60076fe527e6e773e966ccdae52a7fe99c4b2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077716"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997216"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckelgranskning och -
 
 ## <a name="introduction"></a>Introduktion
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 När du har ett nyckelvalv kan börja du använda det för att lagra nycklar och hemligheter. Dina program behöver inte längre att bevara dina nycklar eller hemligheter, men kan begära dem från valvet efter behov. På så sätt kan du uppdatera nycklar och hemligheter utan att påverka beteendet för ditt program, vilket öppnar en bred möjligheter kring din nyckel och hemlighetshantering.
 
@@ -45,7 +47,7 @@ Den här artikeln beskriver:
 Om du vill aktivera ett program att hämta en hemlighet från Key Vault måste du först skapa hemligheten och överföra den till valvet. Detta kan åstadkommas genom att starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. PowerShell får alla prenumerationer som är associerade med det här kontot. PowerShell använder den första som standard.
@@ -53,19 +55,19 @@ Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i w
 Om du har flera prenumerationer kan behöva du ange det som användes för att skapa ett nyckelvalv. Ange följande för att visa prenumerationerna för ditt konto:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Ange om du vill ange den prenumeration som är associerad med nyckelvalvet som du ska logga:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscriptionID>
+Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
 Eftersom den här artikeln visar att lagra en lagringskontonyckel som en hemlighet, måste du hämta den lagringskontonyckeln.
 
 ```powershell
-Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
+Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
 När du hämtar din hemlighet (i det här fallet din lagringskontonyckel), måste du konvertera som till en säker sträng och sedan skapa en hemlighet med värdet i ditt nyckelvalv.
@@ -73,13 +75,13 @@ När du hämtar din hemlighet (i det här fallet din lagringskontonyckel), måst
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
-Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
+Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
 Hämta sedan URI: N för den hemlighet som du skapade. Detta används i ett senare steg när du anropar nyckelvalvet för att hämta din hemlighet. Kör följande PowerShell-kommando och anteckna ID-värde, som är den hemliga URI:
 
 ```powershell
-Get-AzureKeyVaultSecret –VaultName <vaultName>
+Get-AzKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>Konfigurera programmet
@@ -110,7 +112,7 @@ Nu ska du generera en nyckel för ditt program så att den kan interagera med Az
 Innan du upprättar alla anrop från ditt program till nyckelvalvet måste du se nyckelvalvet om ditt program och dess behörigheter. Följande kommando tar valvnamnet och program-ID från din app för Azure Active Directory och ger **hämta** åtkomst till nyckelvalvet för programmet.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
 Nu är du redo att börja bygga dina program-anrop. I ditt program måste du installera NuGet-paket som krävs för att interagera med Azure Key Vault och Azure Active Directory. Ange följande kommandon från Visual Studio Package Manager-konsolen. Vid skrivning av den här artikeln är den aktuella versionen av Azure Active Directory-klientpaketet 3.10.305231913, så du kanske vill kontrollera den senaste versionen och uppdateras.
@@ -188,7 +190,7 @@ I **tillgångar**, Välj **moduler**. Från **moduler**väljer **galleriet**, oc
 När du har hämtat det program-ID för Azure Automation-anslutningen kan se du ditt nyckelvalv för att att det här programmet har åtkomst till uppdatera hemligheter i valvet. Detta kan åstadkommas med följande PowerShell-kommando:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
 Välj sedan **Runbooks** under ditt Azure Automation-instans och välj sedan **Lägg till en Runbook**. Välj **Snabbregistrering**. Namnge din runbook och välj **PowerShell** som runbooktyp av. Du har möjlighet att lägga till en beskrivning. Klicka slutligen på **skapa**.
@@ -205,7 +207,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -230,12 +232,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Editor-fönstret Välj **Testfönster** att testa ditt skript. När skriptet körs utan fel kan du välja **publicera**, och du kan koppla ett schema för runbook tillbaka i fönstret konfiguration för runbook.
@@ -246,9 +248,9 @@ När du konfigurerar ett nyckelvalv, kan du aktivera granskning för att samla i
 Du måste först aktiverar loggning på ditt nyckelvalv. Detta kan göras via följande PowerShell-kommandon (fullständig information kan ses i [key-vault-loggning](key-vault-logging.md)):
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
-$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 När den är aktiverad, granskningsloggar börja samla in till det angivna lagringskontot. Dessa loggar innehålla händelser om hur och när nyckelvalven används och av vem.

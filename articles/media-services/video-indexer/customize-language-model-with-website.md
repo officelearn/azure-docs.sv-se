@@ -7,14 +7,14 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 9bf48a994c3efeb433bcb99342f7a477d87858eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285272"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998202"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Anpassa en språkmodell med Video Indexer-webbplats
 
@@ -75,11 +75,11 @@ Om du vill använda din språkmodell för att indexera en video i din samling, g
 
 Du kan se alternativ för att redigera din video, ta bort du video och indexera videon. Klicka på alternativet för att indexera videon.
 
-![Indexera](./media/customize-language-model/reindex1.png)
+![Reindex](./media/customize-language-model/reindex1.png)
 
 Detta ger dig möjlighet att välja den **Video källspråk** att indexera videon med. Klicka på listrutan och välj en språkmodell som du skapade i listan. Det bör stå språket i din språkmodell och det namn som du gav den inom parentes.
 
-![Indexera](./media/customize-language-model/reindex.png)
+![Reindex](./media/customize-language-model/reindex.png)
 
 Klicka på den **indexera** knappen och videon ska indexeras med du språkmodellen.
 

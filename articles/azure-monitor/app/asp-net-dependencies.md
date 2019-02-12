@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 880b4e4ce09fec3caf70586c2cfb54236d13b668
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812479"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996312"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: Beroendespårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som kallas via HTTP, eller en databas eller ett filsystem. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mäter hur länge ditt program väntar beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
@@ -133,7 +133,7 @@ Klicka här för att en förekomst av en misslyckad begäran och titta på dess 
 ![Klicka på en typ av begäran, instansen som ska komma till en annan vy av samma instans, klickar du på den för att få information om undantag.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analytics
-Du kan spåra beroenden i den [Log Analytics-frågespråket](https://aka.ms/LogAnalyticsLanguage). Här följer några exempel.
+Du kan spåra beroenden i den [Datautforskaren frågespråk](https://aka.ms/LogAnalyticsLanguage). Här följer några exempel.
 
 * Hitta alla misslyckade beroendeanrop:
 

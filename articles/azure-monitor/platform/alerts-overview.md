@@ -8,22 +8,24 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486308"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003320"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
 Den här artikeln beskriver vilka aviseringar har sina fördelar, och hur du kommer igång med dem.  
 
 
+
+
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Vad är aviseringar i Microsoft Azure?
 Aviseringar meddelar proaktivt dig när det är viktigt villkor finns i dina övervakningsdata. De gör att du kan identifiera och lösa problem innan användarna av systemet uppmärksamma dem. 
 
-Den här artikeln beskriver den avisering enhetlig upplevelsen i Azure Monitor, som nu innehåller Log Analytics och Application Insights. Den [tidigare avisering erfarenhet](alerts-classic.overview.md) och aviseringstyper kallas **klassiska aviseringar**. Du kan visa den här äldre upplevelse och äldre typ av avisering genom att klicka på **Visa klassiska aviseringar** överst på sidan avisering. 
+Den här artikeln beskriver den avisering enhetlig upplevelsen i Azure Monitor, som nu innehåller aviseringar som hanterades av Log Analytics och Application Insights. Den [tidigare avisering erfarenhet](alerts-classic.overview.md) och aviseringstyper kallas **klassiska aviseringar**. Du kan visa den här äldre upplevelse och äldre typ av avisering genom att klicka på **Visa klassiska aviseringar** överst på sidan avisering. 
 
 ## <a name="overview"></a>Översikt
 

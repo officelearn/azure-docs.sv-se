@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: a2e7c45615c1f9d07ef3392ee10579a1b5e3588f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31005077c9c149f9aff055432d9577a63bac8e1c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477989"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992305"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hur en Machine Learning Studio-modell övergår från ett experiment till en produktionsslutpunkt webbtjänst
 Azure Machine Learning Studio tillhandahåller en interaktiv arbetsyta där du kan utveckla, köra, testa och iterera ett ***experimentera*** som representerar en prediktiv analysmodell. Det finns en mängd olika moduler som kan:
@@ -46,7 +46,7 @@ Här följer stegen som en typisk lösning följer du utvecklar och distribuerar
 *Bild 1 – faser i en typisk prediktiv analysmodell*
 
 ### <a name="the-training-experiment"></a>Träningsexperimentet
-Den ***träningsexperiment*** är den första fasen i att utveckla webbtjänsten i Machine Learning Studio. Syftet med träningsexperimentet är att ge dig en plats för att utveckla, testa, iterera och så småningom träna en maskininlärningsmodell. Du kan även skapa flera modeller samtidigt som du leta efter den bästa lösningen, men när du är klar experimentera du väljer en enda tränas modellera och eliminera resten från experimentet. Ett exempel i att utveckla en förutsägande analys experiment finns i [utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Den ***träningsexperiment*** är den första fasen i att utveckla webbtjänsten i Machine Learning Studio. Syftet med träningsexperimentet är att ge dig en plats för att utveckla, testa, iterera och så småningom träna en maskininlärningsmodell. Du kan även skapa flera modeller samtidigt som du leta efter den bästa lösningen, men när du är klar experimentera du väljer en enda tränas modellera och eliminera resten från experimentet. Ett exempel i att utveckla en förutsägande analys experiment finns i [utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>Förutsägbart experiment
 När du har en tränad modell i experimentet utbildning, klickar du på **konfigurera Web Service** och välj **förutsägande webbtjänsten** i Machine Learning Studio för att starta processen för att konvertera utbildning Experimentera till en ***förutsägelseexperiment***. Syftet med förutsägelseexperiment är att använda den tränade modellen för att rangordna nya data, med målet att så småningom blir operationaliserat som Azure-webbtjänst.
@@ -114,5 +114,5 @@ Mer information om hur du utvecklar och experiment finns i följande artiklar:
 Exempel på hela processen, se:
 
 * [Självstudie om maskininlärning: Skapa ditt första experiment i Azure Machine Learning Studio](create-experiment.md)
-* [Genomgång: Utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [Genomgång: Utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](tutorial-part1-credit-risk.md)
 

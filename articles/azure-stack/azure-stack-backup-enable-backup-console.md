@@ -12,21 +12,21 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: db2c55ec30e766496b98ef66b584df26f2dfe116
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 1585eb460cc5f8ae437ee59a596dc7a854a108e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239289"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995738"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivera säkerhetskopiering för Azure Stack från administrationsportalen
-Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure Stack kan generera säkerhetskopieringar. Du kan använda dessa säkerhetskopior för att återskapa din miljö med hjälp av molnåterställning i händelse av [ett oåterkalleligt fel](./azure-stack-backup-recover-data.md). Syftet med molnet är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer som återställts, inklusive behörigheter för rollbaserad åtkomst och roller, ursprungliga planer, erbjudanden, och tidigare definierad beräkning, lagring och nätverkskvoter.
+Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure Stack kan generera infrastruktur säkerhetskopieringar. Maskinvara-partner kan använda dessa säkerhetskopior för att återställa din miljö med molnåterställning i händelse av [ett oåterkalleligt fel](./azure-stack-backup-recover-data.md). Syftet med molnet är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer som återställts, inklusive behörigheter för rollbaserad åtkomst och roller, ursprungliga planer, erbjudanden, och tidigare definierad beräkning, lagring, nätverkskvoter och Key Vault-hemligheter.
 
-Men säkerhetskopieringstjänsten infrastruktur kan du inte säkerhetskopiera virtuella IaaS-datorer, konfigurationer för nätverk och lagringsresurser, t.ex storage-konton, blobbar, tabeller och så vidare, så att användare som loggar in efter molnet återställningen har slutförts kommer inte se några av sina tidigare befintliga resurser. Plattform som en tjänst (PaaS) resurser och data också säkerhetskopieras inte av tjänsten. 
+Men infrastruktur Backup-tjänsten inte säkerhetskopiera virtuella IaaS-datorer, konfiguration och lagringsresurser, till exempel lagringskonton, blobbar, tabeller och så vidare, så att användare som loggar in när molnet är klar inte ser någon av sina tidigare befintliga resurser. Plattform som en tjänst (PaaS) resurser och data också säkerhetskopieras inte av tjänsten. 
 
 Administratörer och användare ansvarar för att säkerhetskopiera och återställa IaaS och PaaS-resurser separat från säkerhetskopiering infrastrukturprocesser. Information om hur du säkerhetskopierar IaaS och PaaS-resurser finns i följande länkar:
 
@@ -43,7 +43,7 @@ Administratörer och användare ansvarar för att säkerhetskopiera och återst�
 
     > [!Note]  
     > Om miljön stöder namnmatchning från nätverket för Azure Stack-infrastruktur för att din företagsmiljö kan använda du ett fullständigt domännamn i stället för IP-Adressen.
-    
+
 4. Skriv den **användarnamn** med domänen och användarnamnet har tillräcklig behörighet att läsa och skriva filer. Till exempel `Contoso\backupshareuser`.
 5. Skriv den **lösenord** för användaren.
 6. Ange lösenordet igen till **Bekräfta lösenord**.
@@ -53,13 +53,26 @@ Administratörer och användare ansvarar för att säkerhetskopiera och återst�
     > [!Note]  
     > Om du vill arkivera säkerhetskopior som är äldre än kvarhållningsperioden, se till att säkerhetskopiera filerna innan scheduler tar bort säkerhetskopiorna. Om du minskar kvarhållningsperiod för säkerhetskopiering (t.ex. från sju till 5 dagar) raderas Schemaläggaren alla säkerhetskopieringar som är äldre än den nya kvarhållningsperioden. Kontrollera att du är ok med säkerhetskopior tas bort innan du uppdaterar det här värdet. 
 
-9. Tillhandahålla en i förväg delad nyckel i den **krypteringsnyckeln** box. Säkerhetskopiorna krypteras med hjälp av den här nyckeln. Se till att lagra den här nyckeln på en säker plats. När du anger den här nyckeln för första gången eller rotera nyckeln i framtiden ska visa du inte nyckeln från det här gränssnittet. Kör följande Azure Stack PowerShell-kommandon för att skapa nyckeln:
+9. Ange ett certifikat i rutan certifikat .cer-filen i krypteringsinställningar. Säkerhetskopiorna krypteras med hjälp av den offentliga nyckeln i certifikatet. Du bör ange ett certifikat som endast innehåller den offentliga nyckeldelen när du konfigurerar inställningar för säkerhetskopiering. När du anger det här certifikatet för första gången eller rotera certifikatet i framtiden ska kan du bara visa tumavtrycket för certifikatet. Du kan inte ladda ned eller visa filen överförda certifikat. Kör följande PowerShell-kommando för att skapa ett självsignerat certifikat med offentliga och privata nycklar och exportera certifikat med endast den offentliga nyckeln delen för att skapa certifikatfilen.
+
     ```powershell
-    New-AzsEncryptionKeyBase64
+
+        $cert = New-SelfSignedCertificate `
+            -DnsName "www.contoso.com" `
+            -CertStoreLocation "cert:\LocalMachine\My"
+
+        New-Item -Path "C:\" -Name "Certs" -ItemType "Directory" 
+        Export-Certificate `
+            -Cert $cert `
+            -FilePath c:\certs\AzSIBCCert.cer 
     ```
+
+    > [!Note]  
+    > **1901 och senare**: Azure Stack accepterar ett certifikat för att kryptera säkerhetskopierade data för infrastruktur. Se till att lagra certifikatet med den offentliga och privata nyckeln på en säker plats. Av säkerhetsskäl rekommenderas inte att du använder certifikatet med de offentliga och privata nycklarna så här konfigurerar du inställningar för säkerhetskopiering. Mer information om hur du hanterar livscykeln för det här certifikatet finns i [infrastruktur Backup-tjänsten metodtips](azure-stack-backup-best-practices.md).
+
 10. Välj **OK** att spara dina inställningar för säkerhetskopiering controller.
 
-    ![Azure Stack - inställningarna för säkerhetskopiering-domänkontrollanter](media/azure-stack-backup/backup-controller-settings.png)
+![Azure Stack - inställningarna för säkerhetskopiering-domänkontrollanter](media/azure-stack-backup/backup-controller-settings-certificate.png)
 
 ## <a name="start-backup"></a>Starta Säkerhetskopiering
 Om du vill starta en säkerhetskopiering klickar du på **Säkerhetskopiera nu** att starta en säkerhetskopiering på begäran. En säkerhetskopiering på begäran kan inte ändra tiden för nästa schemalagda säkerhetskopiering. När uppgiften har slutförts kan du bekräfta inställningarna i **Essentials**:
@@ -89,8 +102,30 @@ Klicka på **aktivera automatiska säkerhetskopieringar** att informera schedule
 > [!Note]  
 > Om du har konfigurerat infrastrukturen backup innan du uppdaterar till 1807 kommer automatiska säkerhetskopieringar att inaktiveras. På så sätt de säkerhetskopior som startas av Azure Stack inte står i konflikt med säkerhetskopior som startats av en extern aktivitet schemaläggning av motorn. När du inaktiverar eventuella externa Schemaläggaren, klickar du på **aktivera automatiska säkerhetskopieringar**.
 
+## <a name="update-backup-settings"></a>Uppdatera inställningar för säkerhetskopiering
+Från och med 1901, stöd för krypteringsnyckeln är inaktuell. Om du konfigurerar säkerhetskopiering för första gången på 1901, måste du använda ett certifikat. Azure Stack stöder krypteringsnyckeln endast om nyckeln är konfigurerad innan du uppdaterar till 1901. Läge för bakåtkompatibilitet kommer att fortsätta i tre versioner. Efter det kommer du inte längre stöd krypteringsnycklar. 
+
+### <a name="default-mode"></a>Standardläge
+I krypteringsinställningarna för, om du konfigurerar säkerhetskopiering av infrastruktur för första gången efter installation eller uppdatering till 1901, måste du konfigurera säkerhetskopiering med ett certifikat. Det stöds inte längre att använda en krypteringsnyckel. 
+
+Om du vill uppdatera det certifikat som används för att kryptera säkerhetskopierade data, kan du överföra en ny. CER filen med den offentliga nyckeln delen och välj OK om du vill spara inställningarna. 
+
+Nya säkerhetskopior börjar använda den offentliga nyckeln i det nya certifikatet. Det finns ingen inverkan på alla befintliga säkerhetskopior som har skapats med det tidigare certifikatet. Se till att lagra äldre certifikat runt på en säker plats om du behöver den för i molnet.
+
+![Azure Stack – visa certifikatets tumavtryck](media/azure-stack-backup/encryption-settings-thumbprint.png)
+
+### <a name="backwards-compatibility-mode"></a>Bakåtkompatibilitet kompatibilitetsläge
+Om du har konfigurerat säkerhetskopiering innan du uppdaterar till 1901 överförs inställningarna med densamma. I det här fallet krypteringsnyckeln stöds för bakåtkompatibilitet kompatibilitet. Du har alternativet Uppdatera krypteringsnyckeln eller växlar för att använda ett certifikat. Du har tre versioner att fortsätta uppdatera krypteringsnyckeln. Använd den här gången med övergången till ett certifikat. 
+
+![Azure Stack – med hjälp av krypteringsnyckeln i läget för bakåtkompatibilitet](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
+
+> [!Note]  
+> Uppdaterar från krypteringsnyckeln till certifikat är en enkel åtgärd. När du har gjort den här ändringen kan du gå tillbaka till krypteringsnyckeln. Alla befintliga säkerhetskopior förblir krypterade med den tidigare krypteringsnyckeln. 
+
+![Azure Stack - krypteringscertifikat för användning i läget för bakåtkompatibilitet](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig att köra en säkerhetskopiering. Se [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Lär dig att verifiera att säkerhetskopieringen har körts. Se [bekräfta säkerhetskopieringen slutfördes i administrationsportalen](azure-stack-backup-back-up-azure-stack.md).
+Lär dig att köra en säkerhetskopiering. Se [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md)
+
+Lär dig att verifiera att säkerhetskopieringen har körts. Se [bekräfta säkerhetskopieringen slutfördes i administrationsportalen](azure-stack-backup-back-up-azure-stack.md)

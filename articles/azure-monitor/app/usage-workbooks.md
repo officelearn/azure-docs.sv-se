@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fecd5cf3b5a6aac1133f94b4dc220eec826392f6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057185"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993426"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor-arbetsböcker
 
@@ -77,7 +77,7 @@ Fråga avsnitt är mycket flexibel och kan användas för att besvara frågor so
 
 * Hur många undantag webbplatsen throw under samma tidsperiod som en nedgång i användningen?
 * Vad var distributionen av sidans belastning för användare som visar några sidan?
-* Hur många användare visas en uppsättning sidor på webbplatsen, men inte en annan uppsättning sidor? Detta kan vara användbar för att förstå om du har kluster av användare som använder olika delmängder av webbplatsens funktioner (Använd den `join` operator med den `kind=leftanti` modifieraren i Log Analytics-frågespråket).
+* Hur många användare visas en uppsättning sidor på webbplatsen, men inte en annan uppsättning sidor? Detta kan vara användbar för att förstå om du har kluster av användare som använder olika delmängder av webbplatsens funktioner (Använd den `join` operator med den `kind=leftanti` modifieraren i frågespråket i Data Explorer).
 
 Du också är inte endast begränsad till frågor från kontexten för programmet som du startade arbetsboken från. Du kan fråga över flera Application Insights övervakas appar samt Log Analytics-arbetsytor som du har åtkomstbehörighet till dessa resurser.
 
@@ -251,7 +251,7 @@ Att fästa en länk till en arbetsbok till en Azure-instrumentpanelen:
 
 1. Klicka på **öppna** i Åtgärdsfältet
 2. Klicka på knappen ”...” bredvid arbetsboken som du vill fästa
-3. Klicka på **fäst på instrumentpanelen**.
+3. Klicka på **Fäst vid instrumentpanelen**.
 
 ## <a name="contributing-workbook-templates"></a>Bidra med arbetsboksmallar
 

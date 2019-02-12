@@ -1,6 +1,6 @@
 ---
-title: Standardegenskaper i Azure Monitor Log Analytics-poster | Microsoft Docs
-description: Beskriver egenskaper som är gemensamma för olika datatyper i Azure Monitor Log Analytics.
+title: Standardegenskaper i Azure Monitor logga poster | Microsoft Docs
+description: Beskriver egenskaper som är gemensamma för olika datatyper i Azure Monitor-loggar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381957"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997047"
 ---
-# <a name="standard-properties-in-log-analytics-records"></a>Standardegenskaper i Log Analytics-poster
-Data i [Log Analytics](../log-query/log-query-overview.md) lagras som en uppsättning poster, var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
+# <a name="standard-properties-in-azure-monitor-log-records"></a>Standardegenskaper i Azure Monitor loggposter
+Loggdata i Azure Monitor är [lagras som en uppsättning poster](../log-query/log-query-overview.md), var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
 
 Vissa av dessa egenskaper är fortfarande håller på att utvecklas, så du kan se dem i vissa datatyper, men har ännu inte i andra.
 
@@ -39,7 +39,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>Typ
+## <a name="type"></a>Type
 Den **typ** egenskapen innehåller namnet på tabellen att posten har hämtats från vilket kan också betraktas som posttypen. Den här egenskapen är användbar i frågor som kombinerar poster från flera tabeller, som de som använder den `search` operator för att skilja mellan poster av olika typer. **$table** kan användas i stället för **typ** på vissa platser.
 
 ### <a name="examples"></a>Exempel
@@ -151,6 +151,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur [Log Analytics-data lagras](../log-query/log-query-overview.md).
-- Få en lektion på [skriva frågor i Log Analytics](../../azure-monitor/log-query/get-started-queries.md).
-- Få en lektion på [koppla tabeller i Log Analytics-frågor](../../azure-monitor/log-query/joins.md).
+- Läs mer om hur [Azure Monitor log-data lagras](../log-query/log-query-overview.md).
+- Få en lektion på [skriva loggfrågor](../../azure-monitor/log-query/get-started-queries.md).
+- Få en lektion på [koppla tabeller i loggfrågor](../../azure-monitor/log-query/joins.md).

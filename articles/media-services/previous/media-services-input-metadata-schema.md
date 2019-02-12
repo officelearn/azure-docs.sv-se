@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 42e3464a190f296675b544e0087b664ff256f2fa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994288"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003252"
 ---
-# <a name="input-metadata"></a>Inkommande Metadata
+# <a name="input-metadata-legacy"></a>Inkommande Metadata (äldre)
 
 Ett kodningsjobb som är associerad med en indatatillgången (eller tillgångar) på som du vill utföra vissa kodningsuppgifter.  En utdatatillgången skapas vid slutförandet av uppgiften.  Utdatatillgången innehåller video, ljud, miniatyrer, manifest osv. Utdatatillgången innehåller också en fil med metadata om indatatillgången. Namnet på den XML-fil har följande format: &lt;asset_id&gt;_metadata.xml (till exempel 41114ad3-eb5e - 4c 57 8d 92-5354e2b7d4a4_metadata.xml), där &lt;asset_id&gt; är AssetId värdet för den indatatillgången.  
 
@@ -40,7 +40,7 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 
 | Namn | Beskrivning |
 | --- | --- |
-| **AssetFile**<br /><br /> minOccurs = ”1” maxOccurs = ”obundna” |Ett enda underordnat element. Mer information finns i [AssetFile elementet](media-services-input-metadata-schema.md#AssetFile). |
+| **AssetFile**<br /><br /> minOccurs="1" maxOccurs="unbounded" |Ett enda underordnat element. Mer information finns i [AssetFile elementet](media-services-input-metadata-schema.md#AssetFile). |
 
 ## <a name="AssetFile"></a> AssetFile element
  Innehåller attribut och element som beskriver en resursfil.  
@@ -52,11 +52,11 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | --- | --- | --- |
 | **Namn**<br /><br /> Krävs |**Xs:String** |Filnamn för tillgången. |
 | **Storlek**<br /><br /> Krävs |**Xs:Long** |Storleken på resursfilen i byte. |
-| **Varaktighet**<br /><br /> Krävs |**Duration** |Innehåll play tillbaka varaktighet. Exempel: Varaktighet = ”PT25M37.757S”. |
-| **NumberOfStreams**<br /><br /> Krävs |**Xs:int** |Antal dataströmmar i tillgångsfilen. |
+| **Varaktighet**<br /><br /> Krävs |**xs:duration** |Innehåll play tillbaka varaktighet. Exempel: Duration="PT25M37.757S". |
+| **NumberOfStreams**<br /><br /> Krävs |**xs:int** |Antal dataströmmar i tillgångsfilen. |
 | **FormatNames**<br /><br /> Krävs |**Xs: sträng** |Formatnamn. |
 | **FormatVerboseNames**<br /><br /> Krävs |**Xs: sträng** |Utförlig formatnamn. |
-| **startTime** |**Duration** |Starttid för innehåll. Exempel: StartTime = ”PT2.669S”. |
+| **StartTime** |**xs:duration** |Starttid för innehåll. Exempel: StartTime="PT2.669S". |
 | **OverallBitRate** |**Xs: int** |Genomsnittlig bithastighet av tillgångsfil i kbit/s. |
 
 > [!NOTE]
@@ -70,7 +70,7 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | **Program**<br /><br /> minOccurs="0" | |Samling med alla [program elementet](media-services-input-metadata-schema.md#Programs) när tillgångsfilen är i MPEG-TS-format. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |Varje fysisk tillgång-fil kan innehålla noll eller fler videor spår överlagrad i ett format för att rätt behållare. Det här elementet innehåller en samling med alla [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) som ingår i tillgångsfilen. |
 | **AudioTracks**<br /><br /> minOccurs="0" | |Varje fysisk tillgång-fil kan innehålla noll eller flera ljudspår överlagrad i ett format för att rätt behållare. Det här elementet innehåller en samling med alla [AudioTracks](media-services-input-metadata-schema.md#AudioTracks) som ingår i tillgångsfilen. |
-| **metadata**<br /><br /> minOccurs = ”0” maxOccurs = ”obundna” |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Tillgången filens metadata som key\value strängar. Exempel:<br /><br /> **&lt;Metadata-key = ”language” värde = ”eng” /&gt;** |
+| **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Tillgången filens metadata som key\value strängar. Exempel:<br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
 ## <a name="TrackType"></a> TrackType
 Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
@@ -78,13 +78,13 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Id**<br /><br /> Krävs |**Xs:int** |Nollbaserade indexet för den här ljud- eller spåra.<br /><br /> Detta är inte nödvändigtvis att TrackID som används i en MP4-fil. |
+| **Id**<br /><br /> Krävs |**xs:int** |Nollbaserade indexet för den här ljud- eller spåra.<br /><br /> Detta är inte nödvändigtvis att TrackID som används i en MP4-fil. |
 | **Codec** |**Xs:String** |Video spåra codec-sträng. |
 | **CodecLongName** |**Xs: sträng** |Ljud- eller spåra codec långt namn. |
-| **Tidsvärde**<br /><br /> Krävs |**Xs:String** |Bas. Exempel: Tidsvärde = ”1/48000” |
-| **NumberOfFrames** |**Xs:int** |Antal bildrutor (finns för video spår). |
-| **startTime** |**Xs: varaktighet** |Spåra starttiden. Exempel: StartTime = ”PT2.669S” |
-| **Varaktighet** |**Duration** |Spåra varaktighet. Exempel: Varaktighet = ”PTSampleFormat M37.757S”. |
+| **TimeBase**<br /><br /> Krävs |**Xs:String** |Bas. Exempel: TimeBase="1/48000" |
+| **NumberOfFrames** |**xs:int** |Antal bildrutor (finns för video spår). |
+| **StartTime** |**Xs: varaktighet** |Spåra starttiden. Exempel: StartTime="PT2.669S" |
+| **Varaktighet** |**xs:duration** |Spåra varaktighet. Exempel: Duration="PTSampleFormat M37.757S". |
 
 > [!NOTE]
 > Följande två underordnade element måste visas i en sekvens.  
@@ -94,8 +94,8 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Disposition**<br /><br /> minOccurs = ”0” maxOccurs = ”1” |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Innehåller presentation information (till exempel om en viss ljudspår är för personer med nedsatt). |
-| **metadata**<br /><br /> minOccurs = ”0” maxOccurs = ”obundna” |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Allmän nyckel/värde-strängar som kan användas för att lagra en mängd information. Exempelvis används = ”language”, och värde = ”eng”. |
+| **Disposition**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Innehåller presentation information (till exempel om en viss ljudspår är för personer med nedsatt). |
+| **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Allmän nyckel/värde-strängar som kan användas för att lagra en mängd information. Exempelvis används = ”language”, och värde = ”eng”. |
 
 ## <a name="AudioTrackType"></a> AudioTrackType (ärver från TrackType)
  **AudioTrackType** är en global komplex typ som ärver från [TrackType](media-services-input-metadata-schema.md#TrackType).  
@@ -109,10 +109,10 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | --- | --- | --- |
 | **SampleFormat** |**Xs:String** |Exempelformat. |
 | **ChannelLayout** |**Xs: sträng** |Kanal-layout. |
-| **kanaler**<br /><br /> Krävs |**Xs:int** |Antal (0 eller fler) ljud kanaler. |
-| **SamplingRate**<br /><br /> Krävs |**Xs:int** |Ljud samplingsfrekvensen i exempel per sekund eller Hz. |
-| **Bithastighet** |**Xs:int** |Genomsnittlig ljud bithastighet i bitar per sekund, som beräknas från tillgångsfilen. Endast elementär stream nyttolasten räknas och paketering-kostnader ingår inte i det här antalet. |
-| **Bitspersample obsahuje neplatnou Hodnotu** |**Xs:int** |Bitar per-exemplet för formatet wFormatTag typ. |
+| **kanaler**<br /><br /> Krävs |**xs:int** |Antal (0 eller fler) ljud kanaler. |
+| **SamplingRate**<br /><br /> Krävs |**xs:int** |Ljud samplingsfrekvensen i exempel per sekund eller Hz. |
+| **Bithastighet** |**xs:int** |Genomsnittlig ljud bithastighet i bitar per sekund, som beräknas från tillgångsfilen. Endast elementär stream nyttolasten räknas och paketering-kostnader ingår inte i det här antalet. |
+| **BitsPerSample** |**xs:int** |Bitar per-exemplet för formatet wFormatTag typ. |
 
 ## <a name="VideoTrackType"></a> VideoTrackType (ärver från TrackType)
 **VideoTrackType** är en global komplex typ som ärver från [TrackType](media-services-input-metadata-schema.md#TrackType).  
@@ -128,17 +128,17 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | **Profil** |**Xs: sträng** |Video spåra profil. |
 | **Nivå** |**Xs: sträng** |Video spåra nivå. |
 | **PixelFormat** |**Xs: sträng** |Video spåra pixel-format. |
-| **Bredd**<br /><br /> Krävs |**Xs:int** |Kodad video bredd i bildpunkter. |
-| **Höjd**<br /><br /> Krävs |**Xs:int** |Kodad video höjd i bildpunkter. |
+| **Bredd**<br /><br /> Krävs |**xs:int** |Kodad video bredd i bildpunkter. |
+| **Höjd**<br /><br /> Krävs |**xs:int** |Kodad video höjd i bildpunkter. |
 | **DisplayAspectRatioNumerator**<br /><br /> Krävs |**Xs: dubbla** |Videoenhet proportionerna täljaren. |
-| **DisplayAspectRatioDenominator**<br /><br /> Krävs |**Xs:Double** |Videoenhet proportionerna nämnare. |
+| **DisplayAspectRatioDenominator**<br /><br /> Krävs |**xs:double** |Videoenhet proportionerna nämnare. |
 | **DisplayAspectRatioDenominator**<br /><br /> Krävs |**Xs: dubbla** |Video exempel proportionerna täljaren. |
 | **SampleAspectRatioNumerator** |**Xs: dubbla** |Video exempel proportionerna täljaren. |
-| **SampleAspectRatioNumerator** |**Xs:Double** |Video exempel proportionerna nämnare. |
-| **Ramhastighet**<br /><br /> Krävs |**Xs:decimal** |Mätt video bildfrekvens i .3f format. |
-| **Bithastighet** |**Xs:int** |Genomsnittlig video bithastighet i kilobit per sekund, som beräknas från tillgångsfilen. Endast elementär stream nyttolasten räknas och paketering overhead ingår inte. |
+| **SampleAspectRatioNumerator** |**xs:double** |Video exempel proportionerna nämnare. |
+| **Ramhastighet**<br /><br /> Krävs |**xs:decimal** |Mätt video bildfrekvens i .3f format. |
+| **Bithastighet** |**xs:int** |Genomsnittlig video bithastighet i kilobit per sekund, som beräknas från tillgångsfilen. Endast elementär stream nyttolasten räknas och paketering overhead ingår inte. |
 | **MaxGOPBitrate** |**Xs: int** |Max GOP genomsnittlig bithastigheter för den här videon spåra i kilobit per sekund. |
-| **HasBFrames** |**Xs:int** |Video spåra antalet ramar B. |
+| **HasBFrames** |**xs:int** |Video spåra antalet ramar B. |
 
 ## <a name="MetadataType"></a> MetadataType
 **MetadataType** är en global komplex typ som beskriver metadata för en resursfil som nyckel/värde-strängar. Exempelvis används = ”language”, och värde = ”eng”.  
@@ -157,9 +157,9 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **ProgramId**<br /><br /> Krävs |**Xs:int** |Program-Id |
-| **NumberOfPrograms**<br /><br /> Krävs |**Xs:int** |Antal program. |
-| **PmtPid**<br /><br /> Krävs |**Xs:int** |Programmet kartan tabeller (PMTs) innehåller information om program.  Mer information finns i [betalning](http://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
+| **ProgramId**<br /><br /> Krävs |**xs:int** |Program-Id |
+| **NumberOfPrograms**<br /><br /> Krävs |**xs:int** |Antal program. |
+| **PmtPid**<br /><br /> Krävs |**xs:int** |Programmet kartan tabeller (PMTs) innehåller information om program.  Mer information finns i [betalning](http://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
 | **PcrPid**<br /><br /> Krävs |**Xs: int** |Används av avkodaren. Mer information finns i [PCR](http://en.wikipedia.org/wiki/MPEG_transport_stream#PCR) |
 | **StartPTS** |**Xs: lång** |Från tidsstämpel för presentation. |
 | **EndPTS** |**Xs: lång** |Tidsstämpel för slutar presentation. |
@@ -173,14 +173,14 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Standard**<br /><br /> Krävs |**Xs: int** |Ange det här attributet 1 för att indikera att detta används standardpresentationen. |
-| **Dub**<br /><br /> Krävs |**Xs:int** |Anger du attributet till 1 för att indikera att detta är den går under benämningen presentationen. |
-| **Ursprungliga**<br /><br /> Krävs |**Xs: int** |Anger du attributet till 1 för att indikera att detta är den ursprungliga presentationen. |
-| **Kommentar**<br /><br /> Krävs |**Xs:int** |Anger du attributet till 1 för att indikera spåret innehåller kommentar. |
-| **Texter**<br /><br /> Krävs |**Xs:int** |Anger du attributet till 1 för att indikera spåret innehåller texter. |
-| **Karaoke**<br /><br /> Krävs |**Xs:int** |Anger du attributet till 1, vilket indikerar detta representerar karaoke spåra (bakgrundsmusik, inga sångrösten). |
-| **Tvingad**<br /><br /> Krävs |**Xs:int** |Anger du attributet till 1 för att indikera att detta är framtvingad presentationen. |
-| **HearingImpaired**<br /><br /> Krävs |**Xs:int** |Anger du attributet till 1 för att indikera spåret avser den hörselskadade. |
-| **VisualImpaired**<br /><br /> Krävs |**Xs:int** |Ange det här attributet på 1 för att ange den här spåra är för synskadade. |
+| **Dub**<br /><br /> Krävs |**xs:int** |Anger du attributet till 1 för att indikera att detta är den går under benämningen presentationen. |
+| **Original**<br /><br /> Krävs |**Xs: int** |Anger du attributet till 1 för att indikera att detta är den ursprungliga presentationen. |
+| **Kommentar**<br /><br /> Krävs |**xs:int** |Anger du attributet till 1 för att indikera spåret innehåller kommentar. |
+| **Texter**<br /><br /> Krävs |**xs:int** |Anger du attributet till 1 för att indikera spåret innehåller texter. |
+| **Karaoke**<br /><br /> Krävs |**xs:int** |Anger du attributet till 1, vilket indikerar detta representerar karaoke spåra (bakgrundsmusik, inga sångrösten). |
+| **Tvingad**<br /><br /> Krävs |**xs:int** |Anger du attributet till 1 för att indikera att detta är framtvingad presentationen. |
+| **HearingImpaired**<br /><br /> Krävs |**xs:int** |Anger du attributet till 1 för att indikera spåret avser den hörselskadade. |
+| **VisualImpaired**<br /><br /> Krävs |**xs:int** |Ange det här attributet på 1 för att ange den här spåra är för synskadade. |
 | **CleanEffects**<br /><br /> Krävs |**Xs: int** |Anger du attributet till 1 för att indikera spåret har ren effekter. |
 | **AttachedPic**<br /><br /> Krävs |**Xs: int** |Anger du attributet till 1 för att indikera spåret har bilder. |
 
@@ -190,7 +190,7 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Programmet**<br /><br /> minOccurs = ”0” maxOccurs = ”obundna” |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |Innehåller information om program i tillgångsfilen för tillgångsfiler med MPEG-TS-format. |
+| **Programmet**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |Innehåller information om program i tillgångsfilen för tillgångsfiler med MPEG-TS-format. |
 
 ## <a name="VideoTracks"></a> VideoTracks element
  -Elementet innehåller flera **VideoTrack** element.  
@@ -200,7 +200,7 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **VideoTrack**<br /><br /> minOccurs = ”0” maxOccurs = ”obundna” |[VideoTrackType (ärver från TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |Innehåller information om video spår i tillgångsfilen. |
+| **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType (ärver från TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |Innehåller information om video spår i tillgångsfilen. |
 
 ## <a name="AudioTracks"></a> AudioTracks element
  -Elementet innehåller flera **AudioTrack** element.  
@@ -210,7 +210,7 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **AudioTrack**<br /><br /> minOccurs = ”0” maxOccurs = ”obundna” |[AudioTrackType (ärver från TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Innehåller information om ljudspår i tillgångsfilen. |
+| **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType (ärver från TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Innehåller information om ljudspår i tillgångsfilen. |
 
 ## <a name="code"></a> Schema-kod
     <?xml version="1.0" encoding="utf-8"?>  

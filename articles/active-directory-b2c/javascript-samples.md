@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d664c33c4535d25ec93fd1f36c990f2764a4e071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729276"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000821"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel för användning i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Du kan lägga till egna klientens JavaScript-kod till din Azure Active Directory (Azure AD) B2C-program. Den här artikeln beskrivs hur du kan ändra din [anpassad princip](active-directory-b2c-overview-custom.md) att aktivera körning av skript.
+Du kan lägga till egna klientens JavaScript-kod till din Azure Active Directory (Azure AD) B2C-program. Den här artikeln beskrivs hur du kan ändra din [användarflödet](user-flow-javascript-overview.md) eller [anpassad princip](active-directory-b2c-overview-custom.md) att aktivera körning av skript.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Välj en [sidan kontrakt](page-contract.md) för användargränssnittets delar av ditt program. Om du tänker använda JavaScript måste du definiera en sida kontrakt-version för alla dina innehållsdefinitioner i en egen princip.
+Välj en [sidan kontrakt](page-contract.md) för användargränssnittets delar av ditt program. Om du tänker använda JavaScript som du behöver definiera en sida kontrakt-version för alla dina innehållsdefinitioner i ditt användarflöde eller en anpassad princip.
 
 ## <a name="add-the-scriptexecution-element"></a>Lägg till elementet ScriptExecution
 

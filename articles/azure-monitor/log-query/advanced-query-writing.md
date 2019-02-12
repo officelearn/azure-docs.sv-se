@@ -1,6 +1,6 @@
 ---
-title: Avancerade frågor i Azure Log Analytics | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att skriva frågor i Log Analytics Analytics-portalen.
+title: Avancerade frågor i Azure Azure Monitor | Microsoft Docs
+description: Den här artikeln innehåller en självstudie för att skriva frågor i Azure Monitor Analytics-portalen.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191554"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993222"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>Skriva avancerade frågor i Log Analytics
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Skriva avancerade frågor i Azure Monitor
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Analytics-portalen](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
+> Bör du genomföra [Kom igång med Azure Monitor log analytics](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda Log Analytics-frågespråket:
+Se andra lektioner för att använda den [Datautforskaren frågespråk](/azure/kusto/query/) logga data med Azure Monitor:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)

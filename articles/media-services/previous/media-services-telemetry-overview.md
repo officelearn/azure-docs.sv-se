@@ -1,10 +1,10 @@
 ---
-title: Azure Media Services telemetri | Microsoft Docs
-description: Den här artikeln ger en översikt över Azure Media Services telemetri.
+title: Telemetri för Azure Media Services | Microsoft Docs
+description: Den här artikeln ger en översikt över Azure Media Services-telemetri.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -12,171 +12,171 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 97df0876afd8b7258f985ab375b14f4aabde6e22
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48b88aed833b0cd15f47195c67be80fe75fe153f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790568"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005190"
 ---
-# <a name="azure-media-services-telemetry"></a>Azure Media Services telemetri
+# <a name="azure-media-services-telemetry"></a>Azure Media Services-telemetri  
 
-Azure Media Services (AMS) kan du komma åt telemetri/mätvärdesdata för dess tjänster. Den aktuella versionen av AMS kan du samla in telemetridata för live **kanal**, **StreamingEndpoint**, och live **Arkiv** entiteter. 
+Azure Media Services (AMS) kan du komma åt telemetri/mätvärden för sina tjänster. Den aktuella versionen av AMS kan du samla in telemetridata för live **kanal**, **StreamingEndpoint**, live och **Arkiv** entiteter. 
 
-Telemetri skrivs till en tabell för lagring i ett Azure Storage-konto som du anger (vanligtvis använder du storage-konto som är associerade med AMS-kontot). 
+Telemetri skrivs till en lagringstabell i ett Azure Storage-konto som du anger (vanligtvis använder du lagringskontot som är associerade med ditt AMS-konto). 
 
-Systemets telemetri hanterar inte datalagring. Du kan ta bort gamla telemetridata genom att ta bort storage-tabeller.
+Telemetrisystemet hanterar inte datakvarhållning. Du kan ta bort gamla telemetridata genom att ta bort storage-tabeller.
 
-Det här avsnittet beskrivs hur du konfigurerar och använder AMS telemetri.
+Det här avsnittet beskrivs hur du konfigurerar och använder AMS-telemetri.
 
 ## <a name="configuring-telemetry"></a>Konfigurera telemetri
 
-Du kan konfigurera telemetri på en nivå kornighet komponent. Det finns två detaljnivåer ”Normal” och ”utförlig”. För närvarande returnera båda nivåerna samma information. Det rekommenderas att använda ”Normal. 
+Du kan konfigurera telemetri på en nivå granularitet för komponenten. Det finns två detaljnivåer ”Normal” och ”utförlig”. För närvarande kan returnera båda nivåerna samma information. Det rekommenderas att använda ”Normal. 
 
 De följande avsnitten visar hur du aktiverar telemetri:
 
 [Aktivera telemetri med .NET](media-services-dotnet-telemetry.md) 
 
-[Aktivera telemetri med övriga](media-services-rest-telemetry.md)
+[Aktivera telemetri med REST](media-services-rest-telemetry.md)
 
-## <a name="consuming-telemetry-information"></a>Förbrukar telemetri information
+## <a name="consuming-telemetry-information"></a>Förbrukar telemetriinformation
 
-Telemetri skrivs till en tabell med Azure Storage i storage-konto som du angav när du har konfigurerat telemetri för Media Services-kontot. Det här avsnittet beskrivs storage-tabeller för mätvärdena.
+Telemetri skrivs till en Azure Storage-tabell i lagringskontot som du angav när du har konfigurerat telemetri för Media Services-kontot. Det här avsnittet beskrivs lagringstabeller för mätvärden.
 
-Du kan använda telemetridata på något av följande sätt:
+Du kan använda dessa data på något av följande sätt:
 
-- Läsa data direkt från Azure Table Storage (t.ex. med Storage SDK: N). Beskrivning av telemetri storage-tabeller, finns det **förbrukar telemetri information** i [detta](https://msdn.microsoft.com/library/mt742089.aspx) avsnittet.
+- Läsa data direkt från Azure Table Storage (t.ex. med Storage SDK). Beskrivning av telemetri storage-tabeller finns i den **förbrukar telemetriinformation** i [detta](https://msdn.microsoft.com/library/mt742089.aspx) avsnittet.
 
 Eller
 
 - Använd stöd i Media Services .NET SDK för att läsa in lagringsdata, enligt beskrivningen i [detta](media-services-dotnet-telemetry.md) avsnittet. 
 
 
-Telemetri schemat som beskrivs nedan är utformad för att ge bra prestanda inom gränserna för Azure Table Storage:
+Schemat för telemetri som beskrivs nedan har utformats för att ge bra prestanda inom ramen för Azure Table Storage:
 
 - Data har partitionerats med konto-ID och tjänst-ID för att tillåta telemetri från varje tjänst ska efterfrågas oberoende av varandra.
 - Partitioner innehålla datum att ge en rimlig övre gräns på partitionsstorleken.
-- Raden nycklar är i omvänd tid ordning så att de senaste telemetri objekten ska efterfrågas för en viss tjänst.
+- Radnycklar finns i omvänd tidsordning så att de senaste telemetri-objekt som ska efterfrågas för en viss tjänst.
 
-Det här ger många vanliga frågor ska vara effektiva:
+Det här ger många vanliga frågor för att effektivt:
 
-- Parallella, oberoende hämtning av data för olika tjänster.
-- Hämta alla data för en viss tjänst i ett datumintervall.
+- Parallella, oberoende hämtning av data för separata tjänster.
+- Hämta alla data för en viss tjänst i ett visst datumintervall.
 - Hämta senaste data för en tjänst.
 
-### <a name="telemetry-table-storage-output-schema"></a>Telemetri tabellschemat lagring utdata
+### <a name="telemetry-table-storage-output-schema"></a>Telemetri tabellschemat storage utdata
 
-Telemetridata lagras i mängd i en tabell, ”TelemetryMetrics20160321” där ”20160321” är datum för tabellen skapas. Telemetri systemet skapar en separat tabell för varje dag baserat på UTC 00:00. Tabellen används för att lagra återkommande värden som infognings-bithastighet inom en viss period tid, antal skickade byte osv. 
+Dessa data lagras i samlingen i en tabell, ”TelemetryMetrics20160321” där ”20160321” är datumet för den skapade tabellen. Telemetrisystem skapar en separat tabell för varje ny dag baserat på 00:00 UTC. Tabellen används för att lagra återkommande värden som matar in bithastighet inom en viss period av tid, skickade byte osv. 
 
-Egenskap|Värde|Exempel/Anteckningar
+Egenskap |Värde|Exempel/Anteckningar
 ---|---|---
-PartitionKey|{konto-ID} _ {enhets-ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66 < br /<br/>Konto-ID ingår i partitionsnyckel att förenkla arbetsflöden där flera Media Services-konton skriver till samma lagringskonto.
-RowKey|{sekunder till midnatt} _ {slumpmässigt värde}|01688_00199<br/><br/>Radnyckeln börjar med antalet sekunder som midnatt till att tillåta övre n format frågor inom en partition. Mer information finns i [den här artikeln](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern). 
+PartitionKey|{account ID} _ {entitets-ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Konto-ID är inkluderat i partitionsnyckel för att förenkla arbetsflöden där flera Media Services-konton skriver till samma lagringskonto.
+RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>Radnyckeln börjar med antalet sekunder till midnatt att tillåta övre n style frågor inom en partition. Mer information finns i [den här artikeln](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern). 
 Tidsstämpel|Datum/tid|Automatisk tidsstämpeln från tabellen Azure 2016-09-09T22:43:42.241Z
-Typ|Typ av enhet som tillhandahåller telemetridata|Kanal-StreamingEndpoint-Arkiv<br/><br/>Händelsetypen är bara ett strängvärde.
+Type|Typen av enhet som tillhandahåller telemetridata för|Kanalen eller StreamingEndpoint/arkivfiler<br/><br/>Händelsetypen är bara ett strängvärde.
 Namn|Namnet på händelsen telemetri|ChannelHeartbeat/StreamingEndpointRequestLog
-ObservedTime|Den tid som händelsen telemetri inträffade (UTC)|2016-09-09T22:42:36.924Z<br/><br/>Observerade tid som entiteten skicka telemetri (till exempel en kanal). Det kan finnas synkroniseringsproblem med mellan komponenter så att det här värdet är ungefärlig tid
-ServiceID|{tjänsten ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-Entitet-specifika egenskaper|Som definierats av händelsen|StreamName: stream1, bithastighet 10123 vid...<br/><br/>Återstående egenskaper har definierats för den angivna händelsen. Azure innehållet är nyckel/värde-par.  (det vill säga olika rader i tabellen har olika uppsättningar med egenskaper).
+ObservedTime|Den tid som telemetri händelsen inträffade (UTC)|2016-09-09T22:42:36.924Z<br/><br/>Den observerade tid kommer från den entitet som skickar telemetri (till exempel en kanal). Det kan finnas tid göra en uppskattning av synkroniseringsproblem mellan komponenter så att det här värdet är
+ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+Egenskaper för entitet|Som definieras av händelsen|StreamName: stream1, bithastighet 10123 vid...<br/><br/>Återstående egenskaper har definierats för given händelsetyp. Azure innehållet är nyckelvärdepar.  (det vill säga olika rader i tabellen har olika uppsättningar med egenskaper).
 
-### <a name="entity-specific-schema"></a>Företagsspecifika schema
+### <a name="entity-specific-schema"></a>Schema för entiteter
 
-Det finns tre typer av företagsspecifika telemetriska poster varje pushas med följande frekvens:
+Det finns tre typer av entiteter telemetriska dataposter vidare med följande frekvens:
 
-- Strömningsslutpunkter: var 30 sekunder
-- Live kanaler: varje minut
-- Live Arkiv: varje minut
+- Slutpunkter för direktuppspelning: Med 30 sekunders mellanrum
+- Livekanaler: Varje minut
+- Live-arkivet: Varje minut
 
-**Strömmande slutpunkt**
+**Slutpunkten för direktuppspelning**
 
-Egenskap|Värde|Exempel
+Egenskap |Värde|Exempel
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Tidsstämpel|Tidsstämpel|Automatisk tidsstämpel från Azure Table 2016-09-09T22:43:42.241Z
-Typ|Typ|StreamingEndpoint
+Type|Type|StreamingEndpoint
 Namn|Namn|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Tjänst-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-Värdnamn|Värdnamnet för slutpunkten|builddemoserver.Origin.mediaservices.Windows.NET
-statusCode|Registrerar HTTP-status|200
-ResultCode|Information om resultat|S_OK
-RequestCount|Totalt antal begäranden i aggregering|3
+Värdnamn|Värdnamnet för slutpunkten|builddemoserver.origin.mediaservices.windows.net
+StatusCode|Poster HTTP-status|200
+Resultatkod|Information om resultat|S_OK
+RequestCount|Totala antalet begäranden i sammansättning|3
 BytesSent|Sammanställda byte som skickats|2987358
-ServerLatency|Genomsnittlig server svarstid (inklusive lagring)|129
+ServerLatency|Genomsnittlig serversvarstid (inklusive storage)|129
 E2ELatency|Genomsnittlig svarstid för slutpunkt till slutpunkt|250
 
-**Live kanal**
+**Live channel**
 
-Egenskap|Värde|Exempel/Anteckningar
+Egenskap |Värde|Exempel/Anteckningar
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Tidsstämpel|Tidsstämpel|Automatisk tidsstämpeln från tabellen Azure 2016-09-09T22:43:42.241Z
-Typ|Typ|Kanal
+Type|Type|Kanal
 Namn|Namn|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Tjänst-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-TrackType|Typ av spåra video ljud/text|ljud och
-TrackName|Namnet på spåret|video/audio_1
+TrackType|Typ av spåra video/ljud/text|video/audio
+TrackName|Namnet på kursen|video/audio_1
 Bithastighet|Spåra bithastighet|785000
 CustomAttributes||   
 IncomingBitrate|Faktiska inkommande bithastighet|784548
-OverlapCount|Överlappar i infognings|0
+OverlapCount|Överlappar i för inmatning|0
 DiscontinuityCount|Avvikelse för spår|0
-LastTimestamp|Tidsstämpel för senaste infogade data|1800488800
+LastTimestamp|Tidsstämpel för senaste insamlade data|1800488800
 NonincreasingCount|Antal fragment förkastas på grund av icke-ökande tidsstämpel|2
-UnalignedKeyFrames|Om vi har tagit emot fragmenten (över kvalitet) där nyckeln ramar justeras inte |True
-UnalignedPresentationTime|Om vi har tagit emot fragmenten (alla kvalitet nivåer/spår) där presentation tiden justeras inte|True
-UnexpectedBitrate|Värdet är true, == beräknade/faktisk bithastighet för ljud och video spåra > 40 000 bit/s och IncomingBitrate eller IncomingBitrate och actualBitrate skiljer sig med 50% 0 |True
-Felfri|True, om <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> är alla 0|True<br/><br/>Felfri är en sammansatt funktion som returnerar värdet false när något av följande villkor:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames == True<br/>-UnalignedPresentationTime == True<br/>-UnexpectedBitrate == True
+UnalignedKeyFrames|Om vi har tagit emot fragmenten (över kvalitetsnivå) där nyckeln inte justerade bildrutor |True
+UnalignedPresentationTime|Om vi har tagit emot fragmenten (alla kvalitet nivåer/spår) där presentation tid är inte justerad|True
+UnexpectedBitrate|Värdet är true, == beräknade/faktiska bithastigheter för ljud/video spåra > 40 000 bit/s och IncomingBitrate eller IncomingBitrate och actualBitrate skiljer sig med 50% 0 |True
+Felfri|SANT, om <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> är alla 0|True<br/><br/>Felfria är en sammansatt funktion som returnerar false när något av följande villkor håller:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-**Live-Arkiv**
+**Live-arkivet**
 
-Egenskap|Värde|Exempel/Anteckningar
+Egenskap |Värde|Exempel/Anteckningar
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Tidsstämpel|Tidsstämpel|Automatisk tidsstämpeln från tabellen Azure 2016-09-09T22:43:42.241Z
-Typ|Typ|Arkiv
+Type|Type|Arkiv
 Namn|Namn|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Tjänst-ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-ManifestName|URL: en för programmet|Asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4BD2-8c01-a92a2b38c9ba.ISM
-TrackName|Namnet på spåret|Audio_1
-TrackType|Typ av spåret|Ljud och video
-CustomAttribute|Hexadecimala strängen som skiljer mellan olika spåra med samma namn och bithastighet (multi kameravinkel)|
+ManifestName|Program-url|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
+TrackName|Namnet på kursen|Audio_1
+TrackType|Typ av kursen|Audio/video
+CustomAttribute|Hexadecimal sträng som skiljer mellan olika spåra med samma namn och bithastighet (multi kameravinkel)|
 Bithastighet|Spåra bithastighet|785000
-Felfri|True, om FragmentDiscardedCount == 0 & & ArchiveAcquisitionError == False|True (dessa två värden finns inte i måttet men de finns i händelsen källa)<br/><br/>Felfri är en sammansatt funktion som returnerar värdet false när något av följande villkor:<br/><br/>-FragmentDiscardedCount > 0<br/>-ArchiveAcquisitionError == True
+Felfri|SANT, om FragmentDiscardedCount == 0 & & ArchiveAcquisitionError false|True (dessa två värden finns inte i måttet men de finns i händelsen källa)<br/><br/>Felfria är en sammansatt funktion som returnerar false när något av följande villkor håller:<br/><br/>- FragmentDiscardedCount > 0<br/>-ArchiveAcquisitionError == True
 
 ## <a name="general-qa"></a>Allmänna frågor och svar
 
-### <a name="how-to-consume-metrics-data"></a>Hur du använder mått data?
+### <a name="how-to-consume-metrics-data"></a>Hur man använder måttdata?
 
-Mått data lagras som en serie av Azure-tabeller i kundens lagringskonto. Den här informationen kan användas med hjälp av följande verktyg:
+Måttdata lagras som en serie med Azure-tabeller i kundens lagringskonto. Dessa data kan användas med hjälp av följande verktyg:
 
 - AMS SDK
-- Microsoft Azure Lagringsutforskaren (stöder exportera till CSV-format och bearbetade i Excel)
+- Microsoft Azure Storage Explorer (stöd för att exportera till CSV-format och bearbetade i Excel)
 - REST-API
 
-### <a name="how-to-find-average-bandwidth-consumption"></a>Hur du söker efter genomsnittlig bandbreddsanvändning?
+### <a name="how-to-find-average-bandwidth-consumption"></a>Så här hittar du genomsnittlig bandbreddsanvändning?
 
-Genomsnittlig bandbreddsanvändningen är medelvärdet för BytesSent över en tidsperiod.
+Den genomsnittliga bandbreddsanvändningen är medelvärdet för BytesSent under en tidsperiod.
 
 ### <a name="how-to-define-streaming-unit-count"></a>Hur du definierar antal strömmande enheter?
 
-Antalet strömmande enhet kan definieras som belastning genomströmning från tjänstens strömningsslutpunkter dividerat med belastning genomflödet av en strömmande slutpunkt. Belastning användbara genomflödet av en strömmande slutpunkten är 160 Mbit/s.
-Anta exempelvis att belastning genomströmning från en kundservice är 40 Mbit/s (det maximala värdet BytesSent över en tidsperiod). Sedan antalet strömmande enhet är lika med (40 MBps) * (8 bitar/byte) /(160 Mbps) = 2 strömmande enheter.
+Antalet strömmande enhet kan definieras som högsta dataflödet från tjänstens slutpunkter för direktuppspelning dividerat med högsta dataflödet för en slutpunkt för direktuppspelning. Högsta användbara dataflödet för en slutpunkt för direktuppspelning är 160 Mbit/s.
+Anta exempelvis att det högsta dataflöden från en kund-tjänsten är 40 Mbit/s (det maximala värdet BytesSent under en tidsperiod). Sedan det direktuppspelade antalet är lika med (40 Mbit/s) * (8 bitarna/byte) /(160 Mbps) = 2 enheter för strömning.
 
-### <a name="how-to-find-average-requestssecond"></a>Hur du söker efter medelvärde begäranden per sekund?
+### <a name="how-to-find-average-requestssecond"></a>Så här hittar du medelvärde begäranden/sekund?
 
-Om du vill hitta det genomsnittliga antalet begäranden per sekund, för att beräkna det genomsnittliga antalet förfrågningar (RequestCount) över en tidsperiod.
+För att hitta det genomsnittliga antalet förfrågningar per sekund, för att beräkna det genomsnittliga antalet förfrågningar (RequestCount) under en tidsperiod.
 
-### <a name="how-to-define-channel-health"></a>Hur du definierar kanal hälsa?
+### <a name="how-to-define-channel-health"></a>Hur du definierar kanal health?
 
-Kanal hälsa kan definieras som en sammansatt boolesk funktion som är false när något av följande villkor:
+Kanalen hälsa kan definieras som en sammansatt boolesk funktion som är false när något av följande villkor håller:
 
 - OverlapCount > 0
 - DiscontinuityCount > 0
@@ -186,17 +186,17 @@ Kanal hälsa kan definieras som en sammansatt boolesk funktion som är false nä
 - UnexpectedBitrate == True
 
 
-### <a name="how-to-detect-discontinuities"></a>Hur du identifierar avbrott?
+### <a name="how-to-detect-discontinuities"></a>Så här identifierar avbrott?
 
-Hitta alla poster för kanal-data för att identifiera avbrott, där DiscontinuityCount > 0. Motsvarande ObservedTime tidsstämpeln anger den tid då avbrott inträffade.
+Hitta alla dataposter för kanalen för att identifiera avbrott, där DiscontinuityCount > 0. Den motsvarande ObservedTime tidsstämpeln visar de tider då avbrott inträffade.
 
-### <a name="how-to-detect-timestamp-overlaps"></a>Hur du identifierar tidsstämpel överlappar?
+### <a name="how-to-detect-timestamp-overlaps"></a>Så identifierar tidsstämpel överlappar?
 
-Hitta alla poster för kanal-data för att identifiera tidsstämpel överlappningar där OverlapCount > 0. Motsvarande ObservedTime tidsstämpeln anger de tider då tidsstämpeln överlappar inträffade.
+Hitta alla dataposter för kanalen för att identifiera tidsstämpel överlappningar där OverlapCount > 0. Den motsvarande ObservedTime tidsstämpeln visar de tider då tidsstämpeln överlappar inträffade.
 
-### <a name="how-to-find-streaming-request-failures-and-reasons"></a>Hur du söker efter misslyckade direktuppspelade begäranden och orsaker?
+### <a name="how-to-find-streaming-request-failures-and-reasons"></a>Så här hittar du strömmande begäran fel och orsaker?
 
-Hitta alla Strömningsslutpunkt poster där ResultCode inte är lika med S_OK för att hitta misslyckade direktuppspelade begäranden och orsaker. Fältet motsvarande StatusCode anger varför begäran misslyckades.
+Hitta alla slutpunkt för direktuppspelning dataposter där Resultatkod inte är lika med S_OK för att hitta strömmande begäran fel och orsaker. Motsvarande StatusCode fält anger orsaken till felet i begäran.
 
 ### <a name="how-to-consume-data-with-external-tools"></a>Hur du använder data med externa verktyg?
 
@@ -204,13 +204,13 @@ Telemetriska data kan bearbetas och visualiseras med följande verktyg:
 
 - PowerBI
 - Application Insights
-- Azure-Monitor (tidigare lådan)
-- AMS Live instrumentpanelen
-- Azure-portalen (väntar version)
+- Azure Monitor (tidigare lådan)
+- Instrumentpanel för AMS-liveuppspelning
+- Azure-portalen (väntande version)
 
-### <a name="how-to-manage-data-retention"></a>Hur hanterar data finns kvar?
+### <a name="how-to-manage-data-retention"></a>Så här hanterar du datakvarhållning?
 
-Telemetri system ger inte några kvarhållning datahantering eller automatisk borttagning av gamla poster. Därför måste du hantera och ta bort poster med gamla manuellt från lagringstabellen. Du kan referera till lagrings-SDK för hur du gör.
+Telemetrisystemet ger inte datahantering för kvarhållning eller automatisk borttagning av den äldre poster. Därför måste du hantera och ta bort gamla poster manuellt från storage-tabell. Du kan referera till storage SDK för gör så.
 
 ## <a name="next-steps"></a>Nästa steg
 

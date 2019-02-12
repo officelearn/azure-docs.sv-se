@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 8a0300eeda49d85ffc08db8f285550e217613dcf
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7dfda29525d73bebd7a2201e5c9e85314e08d46a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821625"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993851"
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 
 Azure Key Vault är en molnbaserad tjänst som skyddar krypteringsnycklar och hemligheter (till exempel certifikat, anslutningssträngar och lösenord). Eftersom dessa data är känsliga och verksamhetskritiska, måste du skydda åtkomsten till dina nyckelvalv, auktoriserade så att endast program och användare. Den här artikeln innehåller en översikt över åtkomstmodellen för Nyckelvalvet. Den förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomst.
 
 ## <a name="overview"></a>Översikt
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Åtkomst till ett nyckelvalv styrs via två separata gränssnitt: hanteringplanet och dataplanet. 
 **Hanteringsplanet** behandlar hantera valvet, till exempel – skapa ett valv, uppdatera ett valv, ta bort ett valv. 
@@ -176,24 +178,24 @@ Följande PowerShell-kodavsnitt förutsätter:
 Först tilldelar prenumerationsadministratören `key vault Contributor` och `User Access Administrator` roller till säkerhetsteamet. Dessa roller kan säkerhetsteamet hantera åtkomst till andra resurser och hantera nyckelvalv i resursgruppen ContosoAppRG.
 
 ```PowerShell
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 Följande skript visar hur security-teamet kan skapa ett nyckelvalv och ställa in loggning och åtkomstbehörighet. Mer information om principen för Key Vault behörigheter finns i [om Azure Key Vault-nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md).
 
 ```PowerShell
 # Create key vault and enable logging
-$sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
-$kv = New-AzureRmKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
+$kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 
 # Data plane permissions for Security team
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
+Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
 
 # Management plane permissions for Dev/ops
 # Create a new role from an existing role
-$devopsrole = Get-AzureRmRoleDefinition -Name "Virtual Machine Contributor"
+$devopsrole = Get-AzRoleDefinition -Name "Virtual Machine Contributor"
 $devopsrole.Id = $null
 $devopsrole.Name = "Contoso App Devops"
 $devopsrole.Description = "Can deploy VMs that need secrets from key vault"
@@ -201,13 +203,13 @@ $devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 
 # Add permission for dev/ops so they can deploy VMs that have secrets deployed from key vaults
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
-New-AzureRmRoleDefinition -Role $devopsrole
+New-AzRoleDefinition -Role $devopsrole
 
 # Assign this newly defined role to Dev ops security group
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Data plane permissions for Auditors
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
+Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
 Den definierade anpassade rollen är bara tilldelningsbar till prenumerationen där den `ContosoAppRG` resursgruppen har skapats. Om samma anpassade roller ska användas för andra projekt i andra prenumerationer, kan dess omfattning ha flera prenumerationer tillagda.
@@ -247,7 +249,7 @@ Vi rekommenderar starkt att du ytterligare säker åtkomst till nyckelvalvet gen
   
 * [Åtkomstkontroll till hemlighet](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
-* [Ange](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) och [ta bort](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) åtkomstprincip för Key Vault med hjälp av PowerShell
+* [Ange](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) och [ta bort](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) åtkomstprincip för Key Vault med hjälp av PowerShell.
   
 ## <a name="next-steps"></a>Nästa steg
 

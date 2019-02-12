@@ -12,17 +12,17 @@ ms.author: jovanpop-msft
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d8a7ffd680ab38d78fa3675f49569dd79b91efe4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895116"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997370"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Generell användning tjänstnivå – Azure SQL Database
 
 > [!NOTE]
-> Service-nivån generell användning i den vCore-baserade inköpsmodellen kallas standard-tjänstnivå i DTU-baserade inköpsmodellen. En jämförelse av den vCore-baserade inköpsmodellen med den DTU-baserade inköpsmodellen i [köpa modeller och resurser för Azure SQL Database](sql-database-service-tiers.md).
+> Service-nivån generell användning i den vCore-baserade inköpsmodellen kallas standard-tjänstnivå i DTU-baserade inköpsmodellen. En jämförelse av den vCore-baserade inköpsmodellen med den DTU-baserade inköpsmodellen i [köpa modeller och resurser för Azure SQL Database](sql-database-purchase-models.md).
 
 Azure SQL Database är baserad på SQL Server database engine-arkitektur som anpassade för molnmiljön för att säkerställa 99,99% tillgänglighet även i fall av infrastrukturfel. Det finns tre tjänstnivåer som används i Azure SQL Database, var och en med olika arkitekturmodeller. Dessa är:
 

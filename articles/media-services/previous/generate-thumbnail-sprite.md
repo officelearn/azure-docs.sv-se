@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b4d760d8520f43b223665f17c85d3932761ebe17
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190751"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003116"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Generera en miniatyr sprite 
+# <a name="generate-a-thumbnail-sprite"></a>Generera en miniatyr sprite  
 
 Du kan använda Media Encoder Standard för att generera miniatyrbilder sprite, vilket är en JPEG-fil som innehåller flera små upplösning miniatyrer stitched tillsammans i en enda (stor) avbildning, tillsammans med en VTT-fil. Den här VTT-filen anger tidsintervallet i indatavideon som representerar varje miniatyr, tillsammans med den storlek och koordinaterna för den miniatyren i stora JPEG-filer. Videospelare använda VTT fil- och sprite avbildningar för att visa en 'visual' seekbar att erbjuda ett visningsprogram visuell feedback när Skrubba tillbaka och vidarebefordra längs video tidslinjen.
 

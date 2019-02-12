@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Log Analytics i Azure portal | Microsoft Docs
+title: Kom igång med Azure Monitor log analytics | Microsoft Docs
 description: Den här artikeln innehåller en självstudie för att använda Log Analytics i Azure-portalen för att skriva frågor.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b9a5c78ff9d6c1e2c7194f5b92511e94dfafb058
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000040"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990504"
 ---
-# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Kom igång med Log Analytics i Azure portal
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Kom igång med Azure Monitor log analytics
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-I den här självstudien kommer du lära dig hur du använder Log Analytics-sidan i Azure-portalen (för närvarande i förhandsversion) att skriva Log Analytics-frågor. Det får du lära dig hur du:
+I den här självstudiekursen kommer du lära dig hur du använder Azure Monitor log analytics i Azure-portalen för att skriva Azure Monitor log-frågor. Det får du lära dig hur du:
 
 - Skriva enkla frågor
 - Förstå schemat för dina data
@@ -35,8 +35,8 @@ I den här självstudien kommer du lära dig hur du använder Log Analytics-sida
 - Exportera och dela frågor
 
 
-## <a name="meet-the-log-analytics-page"></a>Uppfyll sidan Log Analytics 
-Sidan Log Analytics är ett webbverktyg som används för att skriva och köra Azure Log Analytics-frågor. Öppna den genom att välja **loggar (förhandsversion)** i Log Analytics-menyn. Det börjar med en ny tom fråga.
+## <a name="meet-log-analytics"></a>Uppfyll logganalys
+Log analytics är ett webbverktyg som används för att skriva och köra Azure Monitor log-frågor. Öppna den genom att välja **loggar** i Azure Monitor-menyn. Det börjar med en ny tom fråga.
 
 ![Startsida](media/get-started-portal/homepage.png)
 
@@ -64,7 +64,7 @@ I det här exemplet **search** är begränsad till den _händelse_ tabellen och 
 ## <a name="running-a-query"></a>En fråga som körs
 Köra en fråga genom att klicka på den **kör** knapp eller trycker på **SKIFT + RETUR**. Överväg följande information som avgör den kod som ska köras och de data som returneras:
 
-- Radbrytningar: en enda break gör din fråga tydligare. Flera radbrytningar dela upp den till separata frågor.
+- Radbrytningar: En enda break gör din fråga tydligare. Flera radbrytningar dela upp den till separata frågor.
 - Markören: Placera markören någonstans i frågan för att köra den. Den aktuella frågan anses vara koden tills en tom rad hittas.
 - Tidsintervall – ett tidsintervall för _senaste 24 timmarna_ är som standard. Om du vill använda ett annat intervall, Använd tidsväljare eller Lägg till en explicit tid filter för datumintervall i frågan.
 
@@ -83,10 +83,10 @@ Börja med att hämta allt den _händelse_ tabell.
 Event
 ```
 
-Log Analytics-sidan scope automatiskt resultaten efter:
+Logganalys automatiskt scope resultaten efter:
 
-- Tidsintervall: som standard frågorna är begränsade till den senaste 24 timmarna.
-- Antal resultat: resultatet är begränsad till högst 10 000 poster.
+- Tidsintervall:  Som standard är frågorna begränsade till den senaste 24 timmarna.
+- Antal resultat: Resultatet är begränsade till högst 10 000 poster.
 
 Den här frågan är mycket allmänna och returnerar den för många resultat för att användbar. Du kan filtrera resultaten via tabellelement eller genom att uttryckligen lägga till ett filter i frågan. Filtrerar resultaten via tabellelement gäller befintliga resultatmängden, medan ett filter för att själva frågan returnerar en ny filtrerat resultat ställa in och kan därför få exaktare resultat.
 
@@ -121,7 +121,7 @@ Resultattabellen innehåller ofta många kolumner. Du kanske upptäcker att viss
 
 
 ## <a name="select-a-time-range"></a>Välj ett tidsintervall
-Som standard Log Analytics-sidan gäller den _senaste 24 timmarna_ tidsintervall. Om du vill använda ett annat intervall, Välj ett annat värde via tidsväljare och klicka på **kör**. Utöver de förinställda värdena kan du använda den _anpassat tidsintervall_ möjlighet att välja ett absolut adressintervall för din fråga.
+Som standard logganalys tillämpar den _senaste 24 timmarna_ tidsintervall. Om du vill använda ett annat intervall, Välj ett annat värde via tidsväljare och klicka på **kör**. Utöver de förinställda värdena kan du använda den _anpassat tidsintervall_ möjlighet att välja ett absolut adressintervall för din fråga.
 
 ![Tidsväljare](media/get-started-portal/time-picker.png)
 
@@ -164,9 +164,9 @@ Klicka på ikonen PIN-kod för att fästa ett diagram eller en tabell till en av
 
 Vissa förenklingar tillämpas på ett diagram när du fäster den på en instrumentpanel:
 
-- Tabellen kolumner och rader: för att fästa en tabell till instrumentpanelen, måste den ha fyra eller färre kolumner. Endast de översta sju raderna visas.
-- Tid begränsning: frågor begränsas automatiskt till de senaste 14 dagarna.
-- Bin antal begränsning: Om du visar ett diagram med diskreta lagerplatser mycket mindre fylls i automatiskt lagerplatser automatiskt är grupperade i en enda _andra_ bin.
+- Tabellens kolumner och rader: För att fästa en tabell till instrumentpanelen, måste den ha fyra eller färre kolumner. Endast de översta sju raderna visas.
+- Begränsning: Frågor begränsas automatiskt till de senaste 14 dagarna.
+- Bin antal begränsningar: Om du visar ett diagram med diskreta lagerplatser mycket mindre fylls i automatiskt lagerplatser automatiskt är grupperade i en enda _andra_ bin.
 
 ## <a name="save-queries"></a>Spara frågor
 När du har skapat en användbar fråga, kanske du vill spara den eller dela med andra. Den **spara** ikonen som visas i det översta fältet.
@@ -175,7 +175,7 @@ Du kan spara sidan hela eller en enskild fråga som en funktion. Funktioner är 
 
 ![Spara funktionen](media/get-started-portal/save-function.png)
 
-Log Analytics-frågor finns alltid sparas i en vald arbetsyta och delas med andra användare av arbetsytan.
+Log analytics-frågor finns alltid sparas i en vald arbetsyta och delas med andra användare av arbetsytan.
 
 ## <a name="load-queries"></a>Läsa in frågor
 Query Explorer-ikonen visas i området längst upp till höger. Här visas alla sparade frågor efter kategori. Du kan också markera specifika frågor som Favoriter för att snabbt hitta dem i framtiden. Dubbelklicka på en sparad fråga om du vill lägga till den i det aktuella fönstret.
@@ -183,12 +183,12 @@ Query Explorer-ikonen visas i området längst upp till höger. Här visas alla 
 ![Frågeutforskaren](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exportera och dela som länk
-Sidan Log Analytics har stöd för flera exporterar metoder:
+Log analytics har stöd för flera exporterar metoder:
 
 - Excel: Spara resultatet som en CSV-fil.
-- Powerbi: Exportera resultaten till power BI. Se [importera Azure Log Analytics-data till Power BI](../../azure-monitor/platform/powerbi.md) mer information.
-- Dela en länk: själva frågan kan delas som en länk som sedan kan skickas och körs av andra användare som har åtkomst till samma arbetsyta.
+- Power BI: Exportera resultaten till power BI. Se [importera Azure Monitor log-data till Power BI](../../azure-monitor/platform/powerbi.md) mer information.
+- Dela en länk: Själva frågan kan delas som en länk som sedan kan skickas och körs av andra användare som har åtkomst till samma arbetsyta.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [skriva Log Analytics-frågor](get-started-queries.md).
+- Läs mer om [skriva frågor för Azure Monitor log](get-started-queries.md).

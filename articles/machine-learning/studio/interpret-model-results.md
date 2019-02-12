@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488551"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997013"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Tolka modellresultat i Azure Machine Learning Studio
 Det här avsnittet förklarar hur du visualiserar och tolka förutsagda resultaten i Azure Machine Learning Studio. När du har tränats en modell och göra förutsägelser ovanpå det. (”poängsätts modellen”), måste du förstå och tolka resultatet förutsägelse.
@@ -74,7 +74,7 @@ Det finns sex kolumner i resultattabellen. De vänstra fyra kolumnerna är fyra 
 
 **Web tjänstepublicering**
 
-När resultatet har förstått och bedömas ljud, kan experimentet publiceras som en webbtjänst så att du kan distribuera i olika program och kalla den för att hämta klass förutsägelser om alla nya iris blommor. Läs hur du ändrar ett träningsexperiment till ett bedömningsskript experiment och publicera den som en webbtjänst i [publicera Azure Machine Learning-webbtjänst](walkthrough-5-publish-web-service.md). Den här proceduren innehåller en arbetsflödesbaserad experiment som visas i bild 3.
+När resultatet har förstått och bedömas ljud, kan experimentet publiceras som en webbtjänst så att du kan distribuera i olika program och kalla den för att hämta klass förutsägelser om alla nya iris blommor. Läs hur du ändrar ett träningsexperiment till ett bedömningsskript experiment och publicera den som en webbtjänst i [självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md). Den här proceduren innehåller en arbetsflödesbaserad experiment som visas i bild 3.
 
 ![Skärmbild av bedömning experiment](./media/interpret-model-results/3.png)
 

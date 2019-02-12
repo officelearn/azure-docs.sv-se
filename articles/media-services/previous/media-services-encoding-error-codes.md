@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7e32d0826d36b0d6f68264ba8c74aec49574b0c2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ab537d94c56f1d5a9a0b32e3a18a416baf74a75
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254561"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995755"
 ---
 # <a name="encoding-error-codes"></a>Kodning felkoder
 
@@ -27,7 +27,7 @@ I följande tabell visas felkoder som kan returneras om ett fel uppstod under ak
 
 | ErrorDetail.Code | Möjliga orsaker till felet |
 | --- | --- |
-| Okänt |Ett okänt fel när aktiviteten körs |
+| Inte tillgängligt |Ett okänt fel när aktiviteten körs |
 | ErrorDownloadingInputAssetMalformedContent |Kategori för fel som avser fel nedladdningen av indatatillgången, till exempel felaktigt filnamn, noll längd-filer, som felaktigt format och så vidare. |
 | ErrorDownloadingInputAssetServiceFailure |Kategori för fel som beskriver problem på serversidan - exempel nätverks- eller fel vid nedladdning. |
 | ErrorParsingConfiguration |Kategori för fel där uppgiften <see cref="MediaTask.PrivateData"/> (konfiguration) är inte giltigt, till exempel konfigurationen är inte ett giltigt system förinställda eller innehåller ogiltig XML. |

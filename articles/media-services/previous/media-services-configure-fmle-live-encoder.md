@@ -4,7 +4,7 @@ description: Det här avsnittet visar hur du konfigurerar kodaren Flash Media Li
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665893"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003745"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Använd FMLE-kodare för att skicka en direktsänd dataström med enkel bithastighet
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>Använd FMLE-kodare för att skicka en direktsänd dataström för enkel bithastighet (äldre)
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -33,7 +33,7 @@ Den här artikeln visar hur du konfigurerar den [Flash Media Live Encoder](http:
 
 Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac- eller Linux kan du använda Azure-portalen för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Den här självstudien beskrivs hur du använder AAC. FMLE stöder inte AAC som standard. Du behöver du köpa ett plugin-program för AAC kodning till exempel från MainConcept: [AAC-pluginprogram](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Den här självstudien beskrivs hur du använder AAC. FMLE stöder inte AAC som standard. Du behöver du köpa ett plugin-program för AAC kodning som från MainConcept: [AAC-pluginprogram](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Förutsättningar
 * [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
@@ -80,7 +80,7 @@ I den här självstudien används följande utdatainställningar för. Resten av
 * Profil: Hög (nivå 4.0)
 * Med flera bithastigheter: 5000 kbit/s
 * Bildrutan: 2 sekunder (60 sekunder)
-* RAM-pris: 30
+* Bildfrekvens: 30
 
 **Ljud**:
 
@@ -93,8 +93,8 @@ I den här självstudien används följande utdatainställningar för. Resten av
 
     Gränssnittet är en huvudsidan för inställningar. Anteckna följande rekommenderade inställningar för att komma igång med strömning med FMLE.
 
-   * Format: H.264 bildfrekvens: 30,00
-   * Indatastorlek: 1 280 x 720
+   * Format: H.264 bildfrekvens: 30.00
+   * Inkommande storlek: 1280 x 720
    * Bithastighet: 5000 kbit/s (kan justeras utifrån nätverksbegränsningar)  
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
@@ -102,7 +102,7 @@ I den här självstudien används följande utdatainställningar för. Resten av
      När du använder sammanflätad källor, kan du markera alternativet ”Ej sammanflätning”
 2. Välj skiftnyckelikonen bredvid Format, dessa ytterligare inställningar ska vara:
 
-   * Profil: Main
+   * Profil: Huvud
    * Nivå: 4.0
    * Bildrutan frekvens: 2 sekunder
 

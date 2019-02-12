@@ -4,7 +4,7 @@ description: Lär dig hur du använder plugin-programmet Azure Media Services Sm
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cfabc068e801c610c9e393eea50213a3c5ad26ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229636"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000105"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Hur du använder Microsoft-Smooth Streaming-plugin-programmet för Adobe Open Source Media Framework
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Hur du använder Microsoft-Smooth Streaming-plugin-programmet för Adobe Open Source Media Framework  
 ## <a name="overview"></a>Översikt
 Plugin-program för Microsoft Smooth Streaming för Open Source Media Framework 2.0 (SS för OSMF) utökar standard-funktionerna för OSMF och lägger till Microsoft Smooth Streaming innehåll uppspelning nya och befintliga OSMF spelare. Plugin-programmet lägger också till Smooth Streaming-uppspelning kapacitet att Strobe Media Playback (SMP).
 
@@ -52,8 +52,8 @@ En fullständig lista över funktioner som stöds, funktioner som inte stöds oc
 ## <a name="loading-the-plugin"></a>Läser in plugin-programmet
 OSMF plugin-program kan läsas in statiskt (vid kompilering) eller dynamiskt (vid körning). Plugin-program för Smooth Streaming för OSMF download omfattar både dynamiska och statiska versioner.
 
-* Statisk inläsning: Läs in statiskt genom en statistikbiblioteket (SWC)-fil krävs. Statisk plugin-program har lagts till som en referens till projekt och sammanfoga i den slutgiltiga utdatafilen vid kompileringen.
-* Dynamisk inläsning: Läs in dynamiskt genom en förkompilerade (SWF)-fil krävs. Dynamisk plugin-program laddas i runtime och inte ingår i projektet utdata. (Kompilerade utdata) Dynamisk plugin-program kan läsas med hjälp av HTTP- och protokoll.
+* Statisk inläsning: Om du vill läsa in statiskt, krävs ett statiskt bibliotek (SWC)-fil. Statisk plugin-program har lagts till som en referens till projekt och sammanfoga i den slutgiltiga utdatafilen vid kompileringen.
+* Dynamisk inläsning: Om du vill läsa in dynamiskt, krävs en förkompilerade (SWF)-fil. Dynamisk plugin-program laddas i runtime och inte ingår i projektet utdata. (Kompilerade utdata) Dynamisk plugin-program kan läsas med hjälp av HTTP- och protokoll.
 
 Mer information om statisk och dynamisk inläsning finns i officiellt [OSMF plugin-programmet sidan](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 

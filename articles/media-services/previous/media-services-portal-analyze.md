@@ -4,7 +4,7 @@ description: 'Det här avsnittet beskrivs hur du bearbetar media med Media Analy
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services
@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 02b972c0591bb05f72887e3e1c3d057d373ff48c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666178"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004884"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Analysera dina medier med Azure Portal
+# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>Analysera dina medier med Azure-portalen (äldre)
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
@@ -53,10 +53,10 @@ Den **Azure Media Indexer** medieprocessor kan du göra mediefiler och innehåll
 ### <a name="language"></a>Språk
 Naturligt språk ska identifieras i multimediefilen. Till exempel engelska eller spanska. 
 
-### <a name="captions"></a>undertexter
+### <a name="captions"></a>Textning
 Du kan välja en etikett-format som genereras från ditt innehåll. Ett indexeringsjobb kan generera filer med dold textning i följande format:  
 
-* **SAMISKA**
+* **SAMI**
 * **TTML**
 * **WebVTT**
 
@@ -65,7 +65,7 @@ Stängd textning (kopia) filer i formaten som kan användas för att göra det t
 ### <a name="aib-file"></a>AIB-fil
 Välj det här alternativet om du vill generera en Audio Index-Blob-fil för användning med den anpassade SQL Server-IFilter. Mer information finns i [detta](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blogg.
 
-### <a name="keywords"></a>nyckelord
+### <a name="keywords"></a>Nyckelord
 Välj det här alternativet om du vill generera en XML-fil med nyckelord. Den här filen med nyckelord extraheras från talinnehållet med frekvens och förskjutning information.
 
 ### <a name="job-name"></a>Jobbnamn
@@ -108,7 +108,7 @@ Den **Ansiktsigenkänning i Azure Media** mediebearbetare (MP) kan du räkna, sp
 ### <a name="detection-mode"></a>Identifieringsläge
 En av följande lägen kan användas av processorn:
 
-* ansiktsigenkänning
+* Ansiktsigenkänning
 * känsloigenkänning per ansikte
 * Samlad känsloigenkänning
 
@@ -136,7 +136,7 @@ Ett eget namn som hjälper dig identifiera jobbet. [Detta](media-services-portal
 ### <a name="output-file"></a>Utdatafil
 Ett eget namn som hjälper dig identifiera utdata-innehåll. 
 
-## <a name="azure-media-content-moderator"></a>Azure Media för Content Moderator
+## <a name="azure-media-content-moderator"></a>Azure Media Content Moderator
 Den här processorn hjälper dig att identifiera potentiellt vuxet eller olämpligt innehåll i videor. Processorn identifierar automatiskt skärmbilder och nyckelbildrutor i videon. Den poängsätter nyckelrutorna för möjliga vuxet eller olämpligt innehåll och föreslår granskningar baserat på standardtröskelvärden. Mer information och exempel finns i [Använd Azure Media Content Moderator till måttlig videor](media-services-content-moderation.md)
 
 ![Måttlig videor](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)

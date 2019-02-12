@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 958c53108c024cb349922a1bd10b2cdc2dba41a3
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 90a94612248dead5b57ebff67562dda083d8669f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247290"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996142"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Koda en tillgång med Media Encoder Standard i Azure portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "50247290"
 > 
 > 
 
-Ett av de vanligaste scenarierna i att arbeta med Azure Media Services leverera strömning med anpassad bithastighet till dina klienter. Media Services stöder de följande strömningstekniker med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och Dynamic Adaptive Streaming over HTTP (DASH, kallas även MPEG-DASH). För att förbereda dina videor för strömning med anpassad bithastighet, koda källvideon som filer med flera bithastigheter. Du kan använda Azure Media Encoder Standard för att koda dina videor.  
+Ett av de vanligaste scenarierna i att arbeta med Azure Media Services leverera strömning med anpassad bithastighet till dina klienter. Media Services stöder de följande strömningstekniker med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och Dynamic Adaptive Streaming över HTTP (DASH, även kallad MPEG-DASH). För att förbereda dina videor för strömning med anpassad bithastighet, koda källvideon som filer med flera bithastigheter. Du kan använda Azure Media Encoder Standard för att koda dina videor.  
 
 Media Services ger dig dynamisk paketering. Med dynamisk paketering kan du leverera dina MP4 i multibithastighet MP4s i HLS, Smooth Streaming och MPEG-DASH, utan ompaketering i dessa strömningsformat. När du använder dynamisk paketering, kan du lagra och betala för filerna i ett enda lagringsformat. Media Services skapar och ger lämplig respons baserat på en klientbegäran.
 

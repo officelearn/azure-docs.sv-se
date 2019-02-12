@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585448"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997031"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Övervaka resursgrupper med Azure Monitor (förhandsversion)
 
@@ -93,9 +93,9 @@ Ett antal **redigera** rutor visas nära de olika elementen i arbetsboken. Välj
 
 ![Skärmbild av redigeringsrutor](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Detta visar den underliggande Log Analytics-frågan som driver tabellvisualiseringen.
+Detta visar den underliggande log-frågan som driver tabellvisualiseringen.
 
- ![Skärmbild av frågefönstret för log analytics](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Skärmbild av fönstret med frågan](./media/resource-group-insights/0010-failure-edit-query.png)
 
 Du kan ändra frågan direkt. Eller du kan använda den som en referens och lånar från den när du utformar dina egna anpassade parametriserade arbetsboken.
 

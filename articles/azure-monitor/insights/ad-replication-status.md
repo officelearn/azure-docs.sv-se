@@ -1,5 +1,5 @@
 ---
-title: Övervaka status för replikering av Active Directory med Azure Log Analytics | Microsoft Docs
+title: Övervaka replikeringsstatus för Active Directory med Azure Monitor | Microsoft Docs
 description: Active Directory-replikeringsstatus-lösningspaket övervakar regelbundet Active Directory-miljön för eventuella replikeringsfel.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d597a3491f80bc09c3e0676d17971f2509ba47a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3b7aa932d24b7879ee3f46419afa2327ee48b403
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818744"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001008"
 ---
-# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Övervaka status för Active Directory-replikering med Log Analytics
+# <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Övervaka replikeringsstatus för Active Directory med Azure Monitor
 
 ![Symbol för AD-replikeringsstatus](./media/ad-replication-status/ad-replication-status-symbol.png)
 
@@ -28,11 +28,26 @@ Active Directory är en viktig del av ett företags IT-miljö. För att säkerst
 
 AD-replikeringsstatus-lösningspaket övervakar regelbundet Active Directory-miljön för eventuella replikeringsfel.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
+
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till Log Analytics. Information om hur du ansluter Windows-datorer till Log Analytics finns i [ansluta Windows-datorer till Log Analytics](../../azure-monitor/platform/agent-windows.md). Om domänkontrollanten finns redan i en befintlig System Center Operations Manager-miljö som du vill ansluta till Log Analytics finns i [ansluta Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
-* Lägga till Active Directory-replikeringsstatus-lösning för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).  Det krävs ingen ytterligare konfiguration.
+### <a name="install-agents-on-domain-controllers"></a>Installera agenter på domänkontrollanter
+Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till Azure Monitor. Information om hur du ansluter Windows-datorer till Azure Monitor finns i [ansluta Windows-datorer till Azure Monitor](../../azure-monitor/platform/agent-windows.md). Om domänkontrollanten finns redan i en befintlig System Center Operations Manager-miljö som du vill ansluta till Azure Monitor finns i [ansluta Operations Manager till Azure Monitor](../../azure-monitor/platform/om-agents.md).
+
+### <a name="enable-non-domain-controller"></a>Aktivera icke-domänkontrollant
+Om du inte vill att ansluta alla dina domänkontrollanter direkt till Azure Monitor, kan du använda vilken dator som helst i din domän som är anslutna till Azure Monitor för att samla in data för AD-replikeringsstatus-lösningspaketet och den skickar data.
+
+1. Kontrollera att datorn är medlem i den domän som du vill övervaka med hjälp av AD-replikeringsstatus-lösning.
+2. [Ansluta Windows-dator till Azure Monitor](../../azure-monitor/platform/om-agents.md) eller [ansluta den med hjälp av den befintliga Operations Manager-miljön och Azure Monitor](../../azure-monitor/platform/om-agents.md), om den inte redan är ansluten.
+3. På datorn, anger du följande registernyckel:<br>Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Värde: **IsTarget**<br>Värdedata: **SANT**
+
+   > [!NOTE]
+   > Dessa ändringar inte gälla förrän din starta om tjänsten Microsoft Monitoring Agent (HealthService.exe).
+### <a name="install-solution"></a>Installera lösningen
+Följ processen som beskrivs i [installera en övervakningslösning](solutions.md#install-a-monitoring-solution) att lägga till den **Active Directory-replikeringsstatus** lösning till Log Analytics-arbetsytan. Det krävs ingen ytterligare konfiguration.
+
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD-replikeringsstatus data samling information
 I följande tabell visas data samlingsmetoder och annan information om hur data samlas in för AD-replikeringsstatus.
@@ -41,28 +56,15 @@ I följande tabell visas data samlingsmetoder och annan information om hur data 
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |var femte dag |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Du kan också aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics
-Om du inte vill att ansluta alla dina domänkontrollanter direkt till Log Analytics, kan du använda någon annan dator i domänen ansluten till Log Analytics för att samla in data för AD-replikeringsstatus-lösningspaketet och den skickar data.
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Så här aktiverar du en icke-domänkontrollant att skicka AD-data till Log Analytics
-1. Kontrollera att datorn är medlem i den domän som du vill övervaka med hjälp av AD-replikeringsstatus-lösning.
-2. [Anslut Windows-datorn till Log Analytics](../../azure-monitor/platform/om-agents.md) eller [ansluta den med hjälp av din befintliga Operations Manager-miljö till Log Analytics](../../azure-monitor/platform/om-agents.md), om den inte redan är ansluten.
-3. På datorn, anger du följande registernyckel:
-
-   * Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Värde: **IsTarget**
-   * Värdedata: **SANT**
-
-   > [!NOTE]
-   > Dessa ändringar inte gälla förrän din starta om tjänsten Microsoft Monitoring Agent (HealthService.exe).
-   >
-   >
 
 ## <a name="understanding-replication-errors"></a>Förstå replikeringsfel
-När du har AD status replikeringsdata som skickas till Log Analytics kan se du en panel som liknar följande bild i Log Analytics som anger hur många replikeringsfel som du har för närvarande.  
-![AD-replikeringsstatus panelen](./media/ad-replication-status/oms-ad-replication-tile.png)
 
-**Kritiskt replikeringsfel** finns fel eller högre än 75% av den [tombstone-livslängden](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) för Active Directory-skogen.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
+AD-replikeringsstatus-panelen visar hur många replikeringsfel som du har för närvarande. **Kritiskt replikeringsfel** finns fel eller högre än 75% av den [tombstone-livslängden](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) för Active Directory-skogen.
+
+![AD-replikeringsstatus panelen](./media/ad-replication-status/oms-ad-replication-tile.png)
 
 När du klickar på panelen kan visa du mer information om felen.
 ![AD-replikeringsstatus](./media/ad-replication-status/oms-ad-replication-dash.png)
@@ -104,11 +106,11 @@ Som nämnts tidigare, på instrumentpanelen för AD-replikeringsstatus-lösninge
 >
 
 ### <a name="ad-replication-status-details"></a>Statusinformation för AD-replikering
-När du klickar på ett objekt i någon av listor visas ytterligare information om den med hjälp av Loggsökning. Resultaten filtreras för att visa de fel som rör objektet. Exempel: Om du klickar på den första domänkontrollanten i listan under **Status för målserver (ADDC02)**, visas sökresultat som filtrerats till Visa fel med den domänkontrollanten som listas som målservern:
+När du klickar på ett objekt i någon av listor visas ytterligare information om den med hjälp av en loggfråga. Resultaten filtreras för att visa de fel som rör objektet. Exempel: Om du klickar på den första domänkontrollanten i listan under **Status för målserver (ADDC02)**, visas frågeresultat som filtrerats till Visa fel med den domänkontrollanten som listas som målservern:
 
-![AD-replikering status fel i sökresultaten](./media/ad-replication-status/oms-ad-replication-search-details.png)
+![AD-replikering status fel i frågeresultatet](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Härifrån kan du filtrera ytterligare, ändra sökfrågan och så vidare. Läs mer om hur du använder Log Search [Loggsökningar](../../azure-monitor/log-query/log-query-overview.md).
+Härifrån kan du filtrera ytterligare, ändra log-frågan och så vidare. Läs mer om hur du använder loggfrågor i Azure Monitor, [analysera loggdata i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 Den **HelpLink** fältet visar Webbadressen till en TechNet-sida med ytterligare information om det specifika felet. Du kan kopiera och klistra in den här länken i webbläsarfönstret för att visa information om felsökning och åtgärda felet.
 
@@ -124,10 +126,11 @@ S: Informationen uppdateras var femte dag.
 S: Inte just nu.
 
 **F: Behöver jag Lägg till alla domänkontrollanter i Min arbetsyta för Log Analytics för att visa replikeringsstatus?**
-S: Nej, endast en enda domänkontrollant måste läggas till. Om du har flera domänkontrollanter i Log Analytics-arbetsytan skickas data från alla till Log Analytics.
+S: Nej, endast en enda domänkontrollant måste läggas till. Om du har flera domänkontrollanter i Log Analytics-arbetsytan skickas data från dem alla till Azure Monitor.
 
 **F: Jag vill inte att lägga till alla domänkontrollanter i Min arbetsyta för Log Analytics. Kan jag fortfarande använda AD-replikeringsstatus-lösningen?**
-S: Ja. Du kan ange värdet för en registernyckel för att aktivera den. Se till att aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics.
+
+S: Ja. Du kan ange värdet för en registernyckel för att aktivera den. Se [aktivera icke-domänkontrollant](#enable-non-domain-controller).
 
 **F: Vad är namnet på processen som gör datainsamlingen?**
 S: AdvisorAssessment.exe
@@ -147,9 +150,9 @@ S: Normal användarbehörigheter till Active Directory är tillräckliga.
 ## <a name="troubleshoot-data-collection-problems"></a>Felsöka problem med insamling
 För att samla in data, kräver AD-replikeringsstatus-lösningspaket minst en domänkontrollant som är anslutna till Log Analytics-arbetsytan. Tills du ansluter en domänkontrollant, visas ett meddelande som anger att **data samlas fortfarande**.
 
-Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa dokumentationen på [ansluta Windows-datorer till Log Analytics](../../azure-monitor/platform/om-agents.md). Om domänkontrollanten är redan ansluten till en befintlig System Center Operations Manager-miljö kan du också visa dokumentationen på [ansluta System Center Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
+Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa dokumentationen på [ansluta Windows-datorer till Azure Monitor](../../azure-monitor/platform/om-agents.md). Om domänkontrollanten är redan ansluten till en befintlig System Center Operations Manager-miljö kan du också visa dokumentationen på [ansluta System Center Operations Manager till Azure Monitor](../../azure-monitor/platform/om-agents.md).
 
-Om du inte vill att någon av dina domänkontrollanter ansluta direkt till Log Analytics eller till System Center Operations Manager finns i Aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics.
+Om du inte vill att ansluta alla dina domänkontrollanter direkt till Azure Monitor eller System Center Operations Manager, se [aktivera icke-domänkontrollant](#enable-non-domain-controller).
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad status för data för Active Directory-replikering.
+* Använd [logga frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerad status för data för Active Directory-replikering.

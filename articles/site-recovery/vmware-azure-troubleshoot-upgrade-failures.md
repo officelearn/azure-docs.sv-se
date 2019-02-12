@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 5a328e64128503f98476deccf33a4395f99eeeb0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 9423fc844e766129ad81a8a286cb5bbdc722e2ca
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985171"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989329"
 ---
-# <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Felsök Microsoft Azure Site Recovery-providern uppgradering
+# <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Felsöka uppgraderingsfel för Microsoft Azure Site Recovery-providern
 
 Den här artikeln hjälper dig att lösa problem som kan orsaka fel under en Microsoft Azure Site Recovery-providern uppgradera.
 

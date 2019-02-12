@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: ec4b03629b56c09973c1ecc5c55930c33c24990b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994666"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997583"
 ---
-# <a name="output-metadata"></a>Utgående Metadata
+# <a name="output-metadata"></a>Output Metadata
 ## <a name="overview"></a>Översikt
 Ett kodningsjobb som är associerad med en indatatillgången (eller tillgångar) på som du vill utföra vissa kodningsuppgifter. Koda till exempel en MP4-fil för H.264 MP4 med anpassningsbar bithastighet uppsättningar; Skapa en miniatyrbild; Skapa överlägg. En utdatatillgången skapas vid slutförandet av uppgiften.  Utdatatillgången innehåller video, ljud, miniatyrer, osv. Utdatatillgången innehåller också en fil med metadata om utdatatillgången. Namnet på den XML-fil har följande format: &lt;source_file_name&gt;_manifest.xml (till exempel BigBuckBunny_manifest.xml).  
 
@@ -39,7 +39,7 @@ Samling av AssetFile poster för kodningsjobbet.
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **AssetFile**<br/><br/> minOccurs = ”0” maxOccurs = ”1” |En [AssetFile elementet](media-services-output-metadata-schema.md) som ingår i samlingen AssetFiles. |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |En [AssetFile elementet](media-services-output-metadata-schema.md) som ingår i samlingen AssetFiles. |
 
 ## <a name="AssetFile "></a> AssetFile element
 Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
@@ -48,15 +48,15 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Namn**<br/><br/> Krävs |**Xs:String** |Filnamnet för media tillgången. |
-| **Storlek**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:Long** |Storleken på resursfilen i byte. |
-| **Varaktighet**<br/><br/> Krävs |**Duration** |Innehåll play tillbaka varaktighet. |
+| **Storlek**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**Xs:Long** |Storleken på resursfilen i byte. |
+| **Varaktighet**<br/><br/> Krävs |**xs:duration** |Innehåll play tillbaka varaktighet. |
 
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
 | **Källor** |Samling av indatakälla/mediafiler, som bearbetades för att skapa den här AssetFile. Mer information finns i [Källelement](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs = ”0” maxOccurs = ”1” |Varje fysisk AssetFile i den kan innehålla noll eller flera videor spårar överlagrad i ett format för att rätt behållare. Mer information finns i [VideoTracks elementet](media-services-output-metadata-schema.md). |
-| **AudioTracks**<br/><br/> minOccurs = ”0” maxOccurs = ”1” |Varje fysisk AssetFile kan innehålla noll eller flera ljudspår överlagrad i ett format för att rätt behållare i den. Detta är en samling av alla dessa ljudspår. Mer information finns i [AudioTracks elementet](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Varje fysisk AssetFile i den kan innehålla noll eller flera videor spårar överlagrad i ett format för att rätt behållare. Mer information finns i [VideoTracks elementet](media-services-output-metadata-schema.md). |
+| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Varje fysisk AssetFile kan innehålla noll eller flera ljudspår överlagrad i ett format för att rätt behållare i den. Detta är en samling av alla dessa ljudspår. Mer information finns i [AudioTracks elementet](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a> Källor element
 Samling av indatakälla/mediafiler, som bearbetades för att skapa den här AssetFile.  
@@ -66,7 +66,7 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **Källa**<br/><br/> minOccurs = ”1” maxOccurs = ”obundna” |En indatakälla /-fil som används när du genererar den här tillgången. Mer information finns i [Källelement](media-services-output-metadata-schema.md). |
+| **Källa**<br/><br/> minOccurs="1" maxOccurs="unbounded" |En indatakälla /-fil som används när du genererar den här tillgången. Mer information finns i [Källelement](media-services-output-metadata-schema.md). |
 
 ## <a name="Source "></a> Källelement
 En indatakälla /-fil som används när du genererar den här tillgången.  
@@ -86,7 +86,7 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **VideoTrack**<br/><br/> minOccurs = ”1” maxOccurs = ”obundna” |En specifik video spåra i överordnat AssetFile. Mer information finns i [VideoTrack elementet](media-services-output-metadata-schema.md#VideoTrack). |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |En specifik video spåra i överordnat AssetFile. Mer information finns i [VideoTrack elementet](media-services-output-metadata-schema.md#VideoTrack). |
 
 ## <a name="VideoTrack"></a> VideoTrack element
 En specifik video spåra i överordnat AssetFile.  
@@ -96,19 +96,19 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Nollbaserade indexet för den här videon spåra. **Obs:** detta **Id** är inte nödvändigtvis TrackID som används i en MP4-fil. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Nollbaserade indexet för den här videon spåra. **Obs!**  Detta **Id** är inte nödvändigtvis TrackID som används i en MP4-fil. |
 | **FourCC**<br/><br/> Krävs |**Xs:String** |Video-codec FourCC kod. |
 | **Profil** |**Xs:String** |H264 profil (gäller endast för H264 codec). |
 | **Nivå** |**Xs:String** |H264 nivån (gäller endast för H264 codec). |
-| **Bredd**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Kodad video bredd i bildpunkter. |
-| **Höjd**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Kodad video höjd i bildpunkter. |
-| **DisplayAspectRatioNumerator**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:Double** |Videoenhet proportionerna täljaren. |
-| **DisplayAspectRatioDenominator**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:Double** |Videoenhet proportionerna nämnare. |
-| **ramhastighet**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:decimal** |Mätt video bildfrekvens i .3f format. |
-| **TargetFramerate**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:decimal** |Förinställda target video bildfrekvens i .3f format. |
-| **Bithastighet**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Genomsnittlig video bithastighet i kilobit per sekund, som beräknas från AssetFile. Räknar elementär stream nyttolasten och omfattar inte paketering overhead. |
-| **TargetBitrate**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Rikta genomsnittlig bithastigheter för den här videon spåra enligt en förfrågan via encoding förinställt i kilobit per sekund. |
-| **MaxGOPBitrate**<br/><br/> minInclusive = ”0” |**Xs:int** |Max GOP genomsnittlig bithastigheter för den här videon spåra i kilobit per sekund. |
+| **Bredd**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Kodad video bredd i bildpunkter. |
+| **Höjd**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Kodad video höjd i bildpunkter. |
+| **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:double** |Videoenhet proportionerna täljaren. |
+| **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:double** |Videoenhet proportionerna nämnare. |
+| **ramhastighet**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:decimal** |Mätt video bildfrekvens i .3f format. |
+| **TargetFramerate**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:decimal** |Förinställda target video bildfrekvens i .3f format. |
+| **Bithastighet**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Genomsnittlig video bithastighet i kilobit per sekund, som beräknas från AssetFile. Räknar elementär stream nyttolasten och omfattar inte paketering overhead. |
+| **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Rikta genomsnittlig bithastigheter för den här videon spåra enligt en förfrågan via encoding förinställt i kilobit per sekund. |
+| **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Max GOP genomsnittlig bithastigheter för den här videon spåra i kilobit per sekund. |
 
 ## <a name="AudioTracks "></a> AudioTracks element
 Varje fysisk AssetFile kan innehålla noll eller flera ljudspår överlagrad i ett format för att rätt behållare i den. Den **AudioTracks** element representerar en samling med alla dessa ljudspår.  
@@ -118,7 +118,7 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **AudioTrack**<br/><br/> minOccurs = ”1” maxOccurs = ”obundna” |En specifik ljudspår i överordnat AssetFile. Mer information finns i [AudioTrack elementet](media-services-output-metadata-schema.md). |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |En specifik ljudspår i överordnat AssetFile. Mer information finns i [AudioTrack elementet](media-services-output-metadata-schema.md). |
 
 ## <a name="AudioTrack "></a> AudioTrack element
 En specifik ljudspår i överordnat AssetFile.  
@@ -128,18 +128,18 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Nollbaserade indexet för den här ljudspår. **Obs:** detta är inte nödvändigtvis TrackID som används i en MP4-fil. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Nollbaserade indexet för den här ljudspår. **Obs!**  Detta är inte nödvändigtvis TrackID som används i en MP4-fil. |
 | **Codec** |**Xs:String** |Ljudspår codec-sträng. |
 | **EncoderVersion** |**Xs:String** |Versionssträng valfritt kodare som krävs för EAC3. |
-| **kanaler**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Antal ljud kanaler. |
-| **SamplingRate**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Ljud samplingsfrekvensen i exempel per sekund eller Hz. |
-| **Bithastighet**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Genomsnittlig ljud bithastighet i bitar per sekund, som beräknas från AssetFile. Räknar elementär stream nyttolasten och omfattar inte paketering overhead. |
-| **Bitspersample obsahuje neplatnou Hodnotu**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Bitar per-exemplet för formatet wFormatTag typ. |
+| **kanaler**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Antal ljud kanaler. |
+| **SamplingRate**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Ljud samplingsfrekvensen i exempel per sekund eller Hz. |
+| **Bithastighet**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Genomsnittlig ljud bithastighet i bitar per sekund, som beräknas från AssetFile. Räknar elementär stream nyttolasten och omfattar inte paketering overhead. |
+| **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Bitar per-exemplet för formatet wFormatTag typ. |
 
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br/><br/> minOccurs = ”0” maxOccurs = ”1” |Loudness Avläsning av resultatet parametrar. Mer information finns i [LoudnessMeteringResultParameters elementet](media-services-output-metadata-schema.md). |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Loudness Avläsning av resultatet parametrar. Mer information finns i [LoudnessMeteringResultParameters elementet](media-services-output-metadata-schema.md). |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters element
 Loudness Avläsning av resultatet parametrar.  
@@ -150,15 +150,15 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**Xs:String** |**Dolby** professionella loudness Avläsning av programvara development kit version. |
-| **DialogNormalization**<br/><br/> minInclusive = ”-31” maxInclusive = ”1”<br/><br/> Krävs |**Xs:int** |DialogNormalization som genereras genom DPLM, krävs när LoudnessMetering har angetts |
-| **IntegratedLoudness**<br/><br/> minInclusive = ”-70” maxInclusive = ”10”<br/><br/> Krävs |**Xs:float** |Integrerad loudness |
+| **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Krävs |**xs:int** |DialogNormalization som genereras genom DPLM, krävs när LoudnessMetering har angetts |
+| **IntegratedLoudness**<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> Krävs |**Xs:float** |Integrerad loudness |
 | **IntegratedLoudnessUnit**<br/><br/> Krävs |**Xs:String** |Integrerad loudness enhet. |
 | **IntegratedLoudnessGatingMethod**<br/><br/> Krävs |**Xs:String** |Hantera identifierare |
-| **IntegratedLoudnessSpeechPercentage**<br/><br/> minInclusive = ”0” maxInclusive = ”100” |**Xs:float** |Talat innehåll via programmet, som en procentandel. |
+| **IntegratedLoudnessSpeechPercentage**<br/><br/> minInclusive ="0" maxInclusive="100" |**Xs:float** |Talat innehåll via programmet, som en procentandel. |
 | **SamplePeak**<br/><br/> Krävs |**Xs:float** |Högsta absolut exempelvärde avmarkerad sedan återställning eller sedan den startades senast per kanal.  Enheterna är antingen. |
-| **SamplePeakUnit**<br/><br/> fast = ”dBFS”<br/><br/> Krävs |**Xs:anySimpleType** |Exemplet resursbehov. |
+| **SamplePeakUnit**<br/><br/> fixed="dBFS"<br/><br/> Krävs |**xs:anySimpleType** |Exemplet resursbehov. |
 | **TruePeak**<br/><br/> Krävs |**Xs:float** |Maximala SANT högsta värde, enligt ITU-R BS.1770-2, sedan återställning eller sedan den startades senast avmarkeras per kanal. Enheterna är dBTP. |
-| **TruePeakUnit**<br/><br/> fast = ”dBTP”<br/><br/> Krävs |**Xs:anySimpleType** |SANT resursbehov. |
+| **TruePeakUnit**<br/><br/> fixed="dBTP"<br/><br/> Krävs |**xs:anySimpleType** |SANT resursbehov. |
 
 ## <a name="schema-code"></a>Schema-kod
     <?xml version="1.0" encoding="utf-8"?>  

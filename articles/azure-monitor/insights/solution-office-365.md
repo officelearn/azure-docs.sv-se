@@ -1,6 +1,6 @@
 ---
 title: Lösning för Office 365 i Azure | Microsoft Docs
-description: Den här artikeln innehåller information om konfiguration och användning av Office 365-lösning i Azure.  Den innehåller en detaljerad beskrivning av Office 365-poster skapas i Log Analytics.
+description: Den här artikeln innehåller information om konfiguration och användning av Office 365-lösning i Azure.  Den innehåller en detaljerad beskrivning av Office 365-poster som skapats i Azure Monitor.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216620"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999308"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
 ![Logotyp för Office 365](media/solution-office-365/icon.png)
 
-Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Log Analytics.
+Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Azure Monitor.
 
 - Övervaka användaraktiviteter på Office 365-konton för att analysera användningsmönster samt identifiera beteendeanalys trender. Du kan exempelvis extrahera specifika Användningsscenarier, till exempel filer som delas utanför din organisation eller mest populära SharePoint-webbplatser.
 - Övervaka administratöraktiviteter för att spåra konfigurationsändringar eller Privilegierade åtgärder.
 - Upptäck och undersök oönskad användarnas beteende och som kan anpassas efter organisationens behov.
 - Visa gransknings- och kompatibilitetskontroller. Du kan till exempel övervaka åtkomst filåtgärder på konfidentiella filer, som kan hjälpa dig med processen gransknings- och kompatibilitetskontroller.
-- Utföra operativa felsökning med hjälp av [loggsökningar](../log-query/log-query-overview.md) ovanpå Office 365 aktivitetsdata för din organisation.
+- Utföra operativa felsökning med hjälp av [logga frågor](../log-query/log-query-overview.md) ovanpå Office 365 aktivitetsdata för din organisation.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande krävs innan den här lösningen som den installeras och konfigureras.
@@ -43,7 +43,7 @@ Följande krävs innan den här lösningen som den installeras och konfigureras.
 Den här lösningen installerar inte alla hanteringspaket i [anslutna hanteringsgrupper](../platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Installera och konfigurera
-Starta genom att lägga till den [Office 365-lösningen till din prenumeration](solutions.md#install-a-management-solution). När den har lagts till, måste du utföra konfigurationsstegen i det här avsnittet för att ge åtkomst till din Office 365-prenumeration.
+Starta genom att lägga till den [Office 365-lösningen till din prenumeration](solutions.md#install-a-monitoring-solution). När den har lagts till, måste du utföra konfigurationsstegen i det här avsnittet för att ge åtkomst till din Office 365-prenumeration.
 
 ### <a name="required-information"></a>Nödvändig information
 Samla in följande information innan du påbörjar den här proceduren.
@@ -375,7 +375,7 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Avinstallera
-Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort en hanteringslösning för](solutions.md#remove-a-management-solution). Detta förhindrar inte data som samlas in från Office 365 till Log Analytics dock. Följ anvisningarna nedan för att avbryta prenumerationen från Office 365 och stoppa insamling av data.
+Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort en hanteringslösning för](solutions.md#remove-a-monitoring-solution). Detta förhindrar inte data som samlas in från Office 365 i Azure Monitor dock. Följ anvisningarna nedan för att avbryta prenumerationen från Office 365 och stoppa insamling av data.
 
 1. Spara följande skript som *office365_unsubscribe.ps1*.
 
@@ -479,9 +479,12 @@ Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort 
 Office 365-lösningen inte hämta data från någon av de [Log Analytics-agenter](../platform/agent-data-sources.md).  Den hämtar data direkt från Office 365.
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
-Det kan ta några timmar innan data inledningsvis samlas in. När den börjar samla in, Office 365 skickar en [webhook-meddelande](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) med detaljerade data till Log Analytics varje gång en post skapas. Den här posten finns i Log Analytics inom ett par minuter efter mottagandet.
+Det kan ta några timmar innan data inledningsvis samlas in. När den börjar samla in, Office 365 skickar en [webhook-meddelande](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) med detaljerade data till Azure Monitor varje gång en post skapas. Den här posten är tillgängliga i Azure Monitor inom ett par minuter efter mottagandet.
 
 ## <a name="using-the-solution"></a>Använda lösningen
+
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 När du lägger till Office 365-lösningen i Log Analytics-arbetsytan i **Office 365** läggs panelen på instrumentpanelen. Den här panelen visar antal och en grafisk representation av antalet datorer i din miljö och deras uppdateringskompatibilitet.<br><br>
 ![Sammanfattningspanel för Office 365](media/solution-office-365/tile.png)  
 
@@ -494,16 +497,16 @@ Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn visar 
 | Kolumn | Beskrivning |
 |:--|:--|
 | Åtgärder | Innehåller information om de aktiva användarna från alla övervakade Office 365-prenumerationer. Du kommer även att kunna se antalet aktiviteter som sker över tid.
-| Utbyte | Visar fördelningen av Exchange Server-aktiviteter, till exempel Lägg till postlåda behörighet eller Set-postlåda. |
+| Exchange | Visar fördelningen av Exchange Server-aktiviteter, till exempel Lägg till postlåda behörighet eller Set-postlåda. |
 | SharePoint | Visar de översta aktiviteterna att användarna kan utföra för SharePoint-dokument. När du går nedåt från den här panelen visar sidan Sök efter information om dessa aktiviteter, till exempel måldokumentet och platsen för den här aktiviteten. Till exempel för en fil åt händelse, du kommer att kunna se dokumentet som används, associerade kontonamn och IP-adress. |
 | Azure Active Directory | Innehåller översta användaraktiviteter, till exempel återställa användarlösenord och inloggningsförsök. När du detaljnivån, kommer du att kunna se information om dessa aktiviteter som resultat. Det här är mest användbart om du vill övervaka misstänkta aktiviteter på Azure Active Directory. |
 
 
 
 
-## <a name="log-analytics-records"></a>Log Analytics-poster
+## <a name="azure-monitor-log-records"></a>Azure Monitor-loggposter
 
-Alla poster som skapats i Log Analytics-arbetsytan med hjälp av Office 365-lösningen har en **typ** av **OfficeActivity**.  Den **OfficeWorkload** egenskapen avgör vilka Office 365-tjänst som posten refererar till - Exchange, AzureActiveDirectory, SharePoint eller OneDrive.  Den **RecordType** egenskap anger vilken typ av åtgärd.  Egenskaperna varierar för varje åtgärdstyp av och visas i tabellerna nedan.
+Alla poster som skapats i Log Analytics-arbetsyta i Azure Monitor med hjälp av Office 365-lösningen har en **typ** av **OfficeActivity**.  Den **OfficeWorkload** egenskapen avgör vilka Office 365-tjänst som posten refererar till - Exchange, AzureActiveDirectory, SharePoint eller OneDrive.  Den **RecordType** egenskap anger vilken typ av åtgärd.  Egenskaperna varierar för varje åtgärdstyp av och visas i tabellerna nedan.
 
 ### <a name="common-properties"></a>Gemensamma egenskaper
 Följande egenskaper är gemensamma för alla Office 365-poster.
@@ -512,8 +515,8 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
-| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Utbyte<br>SharePoint|
-| Operation | Namnet på användarens eller administratörens aktivitet.  |
+| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
+| Åtgärd | Namnet på användarens eller administratörens aktivitet.  |
 | OrganizationId | GUID för organisationens Office 365-klient. Det här värdet kommer alltid att samma för din organisation, oavsett Office 365-tjänst där det inträffar. |
 | RecordType | Typ av åtgärder som utförs. |
 | ResultStatus | Anger om åtgärden (anges i egenskapen Operation) lyckades eller inte. Möjliga värden är Succeeded eller PartiallySucceeded misslyckades. Värdet är för administratörsaktivitet för Exchange, antingen SANT eller FALSKT. |
@@ -541,7 +544,7 @@ Dessa poster skapas när en Active Directory-användare försöker logga in.
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
 | Program | Programmet som utlöser händelsen konto inloggning, till exempel Office 15. |
-| Klient | Information om klienten enhet, enhetens operativsystem och enhetens webbläsare som användes för den händelsens konto logga in. |
+| Client | Information om klienten enhet, enhetens operativsystem och enhetens webbläsare som användes för den händelsens konto logga in. |
 | LoginStatus | Den här egenskapen är direkt från OrgIdLogon.LoginStatus. Mappningen av olika intressanta inloggningsfel kan göras av avisering algoritmer. |
 | UserDomain | Klient ID-Information (TII). | 
 
@@ -583,7 +586,7 @@ Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Utbyte |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Anger om cmdleten kördes av en användare i din organisation, av Microsoft datacenter-personal eller ett tjänstkonto för datacenter eller genom en delegerad administratör. Värdet falskt anger att cmdleten kördes av någon i din organisation. Värdet True anger att cmdleten kördes av datacenter personal, ett tjänstkonto för datacenter eller en delegerad administratör. |
 | ModifiedObjectResolvedName |  Det här är användarvänligt namn på det objekt som har ändrats av cmdlet: en. Detta loggas endast om cmdleten ändrar objektet. |
@@ -597,7 +600,7 @@ Dessa poster skapas när ändringar eller tillägg görs till Exchange-postlådo
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Utbyte |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Information om e-postklienten som användes för att utföra åtgärden, till exempel en webbläsarversion, Outlook-version och information om mobila enheter. |
 | Client_IPAddress | IP-adressen för den enhet som användes när åtgärden har loggats. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
@@ -619,7 +622,7 @@ Dessa poster skapas när en postlåda granskningspost skapas.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Utbyte |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
 | Objekt | Representerar det objektet som åtgärden utfördes | 
 | SendAsUserMailboxGuid | Exchange-GUID för postlådan som användes för att skicka e-post. |
@@ -633,7 +636,7 @@ Dessa poster skapas när ändringar eller tillägg som görs till Exchange-grupp
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Utbyte |
+| OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Information om varje objekt i gruppen. |
 | CrossMailboxOperations | Anger om åtgärden involverad mer än en postlåda. |
@@ -697,7 +700,7 @@ Dessa poster skapas som svar på filåtgärder i SharePoint.
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 | --- | --- |
 |Uppräkning av alla åtgärder på Office 365-prenumerationen |OfficeActivity &#124; sammanfatta antal() efter åtgärd |
 |Användningen av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ ”sharepoint” &#124; sammanfatta antal() efter SiteUrl | Sortera efter antal asc|
@@ -708,6 +711,6 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd loggsökningar i [Log Analytics](../log-query/log-query-overview.md) för att visa detaljerad uppdateringsinformation.
+* Använd [logga frågor i Azure Monitor](../log-query/log-query-overview.md) att visa detaljerad uppdateringsinformation.
 * [Skapa dina egna instrumentpaneler](../learn/tutorial-logs-dashboards.md) att visa dina favorit Office 365-sökfrågor.
 * [Skapa aviseringar](../platform/alerts-overview.md) för att proaktivt aviseras om viktiga Office 365-aktiviteter.  

@@ -1,0 +1,124 @@
+---
+title: Azure SQL Database köpa modeller | Microsoft Docs
+description: Läs mer om den inköpsmodellen modeller som är tillgängliga databaser i Azure SQL Database-tjänsten.
+services: sql-database
+ms.service: sql-database
+ms.subservice: service
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
+manager: craigg
+ms.date: 02/08/2019
+ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56008435"
+---
+# <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
+
+Azure SQL Database kan du enkelt köpa helt hanterad PaaS-databasmotor som passar ditt behov av prestanda och kostnader. Beroende på distributionsmodell för Azure SQL Database, kan du välja den inköpsmodellen som passar dina behov:
+
+- [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) (rekommenderas) som gör det möjligt för dig att välja den exakta mängden lagringskapacitet och compute att du behöver för din arbetsbelastning.
+- [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) där du kan välja paketeras beräknings- och paket belastningsutjämnade för vanliga arbetsbelastningar.
+
+Olika inköpschef modeller är tillgängliga i Azure SQL Database-distributionsmodeller:
+
+- Den [enkel databas](sql-database-single-databases-manage.md) och [elastisk pool](sql-database-elastic-pool.md) distributionsalternativ i [Azure SQL Database](sql-database-technical-overview.md) erbjuder både den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
+- Den [hanterad instans](sql-database-managed-instance.md) distributionsalternativ i Azure SQL Database erbjuder endast de [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
+
+> [!IMPORTANT]
+> Den [hyperskala tjänstnivå (förhandsversion)](sql-database-service-tier-hyperscale.md) finns i offentlig förhandsversion endast för enskilda databaser med hjälp av vCore köpa modellen.
+
+Följande tabell och diagrammet Jämför och kontrastera dessa två inköpschef modeller.
+
+|**Inköpsmodell**|**Beskrivning**|**Bäst för**|
+|---|---|---|
+|DTU-baserad modell|Den här modellen är baserad på ett paketerat mått av beräkning, lagring och IO-resurser. Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [vad är dtu: er och edtu: er?](sql-database-purchase-models.md#dtu-based-purchasing-model).|Bäst för kunder som vill ha enkel, förkonfigurerade alternativ.|
+|vCore-baserad modell|Den här modellen kan du välja oberoende beräknings- och lagringsresurser. Den vCore-baserade inköpsmodellen kan du använda [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) att få kostnadsbesparingar.|Bäst för kunder som värde flexibilitet, kontroll och transparens.|
+||||  
+
+![Prismodell](./media/sql-database-service-tiers/pricing-model.png)
+
+## <a name="compute-costs"></a>Beräkna kostnader
+
+Beräkningskostnaden Visar total beräknings-kapacitet som tillhandahålls för programmet. På affärsnivå kritiska-allokera vi automatiskt minst 3 repliker. För att återspegla den här ytterligare tilldelning av beräkningsresurser är priset i den vCore-baserade inköpsmodellen cirka 2.7 x högre på kritiska-affärsnivå än på tjänstnivån generell användning. Av samma anledning visar högre lagringspris per GB på kritiska-affärsnivå hög i/o och låg fördröjning av SSD-lagring. På samma gång är kostnaden för lagring av säkerhetskopior inte skillnaden mellan dessa två tjänstnivåer eftersom i båda fallen använder vi en klass standardlagring.
+
+## <a name="storage-costs"></a>Lagringskostnader
+
+Olika typer av lagring faktureras på olika sätt. För lagring av data debiteras du för den etablerade lagring baserat på den maximala storleken för databas eller pool du väljer. Kostnaden ändras inte om inte du minska eller öka den högsta. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans och allokeras dynamiskt. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen. Det tillkommer ingen ytterligare avgift för lagringsenhet för säkerhetskopior för upp till 100 procent av ditt totala etablerade serverutrymme. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras i GB per månad. Om du till exempel har en databaslagringsstorlek på 100 GB får du 100 GB säkerhetskopiering utan extra kostnad. Men om säkerhetskopieringen är på 110 GB får du betala för de extra 10 GB.
+
+Du debiteras för lagring av säkerhetskopior för en enkel databas, på en proportionell beräkning för den lagring som har tilldelats till säkerhetskopior av databasen minus på databasens storlek. Du debiteras för lagring av säkerhetskopior för en elastisk pool, på en proportionell beräkning för den lagring som har tilldelats till säkerhetskopior av databasen på alla databaser i poolen minus den maximala datastorleken för den elastiska poolen. Varje ökning av databasens storlek eller elastisk pool eller ökning av transaktioner, kräver mer lagringsutrymme och därför ökar din faktura för lagring av säkerhetskopior.  Om du ökar den maximala datastorleken kan den här nya är dras av från Faktureras säkerhetskopieringslagring storlek.
+
+## <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
+
+En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara och fysiska egenskaper av maskinvara (till exempel antal kärnor, minne, lagringsstorlek). Den vCore-baserade inköpsmodellen ger dig flexibilitet, kontroll, transparens av enskild resursförbrukning och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du välja beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. I den vCore-baserade inköpsmodellen, kan du välja mellan [generella](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) och [affärskritisk](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tjänstnivåer för [enkla databaser](sql-database-single-database-scale.md), [ elastiska pooler](sql-database-elastic-pool.md), och [hanterade instanser](sql-database-managed-instance.md). För enskilda databaser du kan också välja den [hyperskala tjänstnivå (förhandsversion)](sql-database-service-tier-hyperscale.md).
+
+Den vCore-baserade inköpsmodellen kan du välja beräknings- och lagringsresurser, matcha lokala prestanda och optimera priset oberoende av varandra. I den vCore-baserade inköpsmodellen, kunder som betalar för:
+
+- Compute (tjänstnivå + antalet virtuella kärnor och mängden minne + maskinvarusystem)
+- Typ och mängden lagringsutrymme för data och loggfiler
+- Backup storage (RA-GRS)
+
+> [!IMPORTANT]
+> Beräknings-, IOs, data och logglagring debiteras per databas eller elastisk pool. Lagring för säkerhetskopior debiteras per varje databas. Läs mer om avgifter för hanterad instans, [hanterade instanser](sql-database-managed-instance.md).
+> **Region begränsningar:** Den aktuella listan över regioner som stöds finns i [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i den region som inte stöds för närvarande kan du [skicka supportförfrågan via Azure-portalen](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
+.
+
+Om din databas eller elastisk pool förbrukar mer än 300 dtu: er, kan konvertera till den vCore-baserade inköpsmodellen minska dina kostnader. Om du vill konvertera kan konvertera du med hjälp av ditt API föredrar eller med hjälp av Azure-portalen utan avbrott. Konvertering är inte obligatoriskt och görs inte automatiskt. Om den DTU-baserade inköpsmodellen uppfyller dina krav på prestanda och företag, bör du fortsätta använda den. Om du vill konvertera från den DTU-baserade inköpsmodellen till den vCore-baserade inköpsmodellen, väljer du beräkningsstorleken med hjälp av följande tumregel: 
+
+- Varje 100 dtu: er i Standard-nivån kräver minst 1 vCore i nivån generell användning
+- Varje 125 DTU på premiumnivån kräver minst 1 vCore i nivån affärskritisk
+
+## <a name="dtu-based-purchasing-model"></a>DTU-baserade inköpsmodellen
+
+Database Transaction Unit (DTU) representerar ett blandat mått på processor, minne, läser och skriver. DTU-baserade inköpsmodellen erbjuder en uppsättning förkonfigurerade paket av beräkningsresurser och inkluderat lagringsutrymme för att driva olika nivåer av programprestanda. Kunder som föredrar enkelheten med ett förkonfigurerade paket och fasta betalningar varje månad, kanske den DTU-baserade modellen passar deras behov. I DTU-baserade inköpsmodellen kunderna kan välja mellan **grundläggande**, **standard**, och **premium** tjänstnivåer för både [enkla databaser](sql-database-single-database-scale.md) och [elastiska pooler](sql-database-elastic-pool.md). Den här inköpsmodell är inte tillgänglig i [hanterade instanser](sql-database-managed-instance.md).
+
+### <a name="database-transaction-units-dtus"></a>Databastransaktionsenheter (dtu: er)
+
+För en enkel databas på en specifik compute storlek i en [tjänstnivå](sql-database-single-database-scale.md), Microsoft garanterar en viss nivå av resurser för den här databasen (oberoende av någon annan databas i Azure-molnet), vilket ger en förutsägbar säkerhetsnivå prestanda. Mängden resurser beräknas som ett antal Databastransaktionsenheter eller dtu: er och är ett paketerat mått av beräkning, lagring och IO-resurser. Förhållandet mellan här resursernas fördelning har ursprungligen bestämts av en [OLTP-benchmarkarbetsbelastning](sql-database-benchmark-overview.md), utformade för att representera verkliga OLTP-arbetsbelastningar. När din arbetsbelastning överstiger mängden av någon av dessa resurser, är ditt dataflöde begränsade - resulterande långsammare prestanda och tidsgränser. De resurser som används av din arbetsbelastning inverkar inte resurserna som är tillgängliga för andra SQL-databaser i Azure-molnet och de resurser som används av andra arbetsbelastningar inverkar inte resurserna som är tillgängliga för din SQL-databas.
+
+![avgränsningsruta](./media/sql-database-what-is-a-dtu/bounding-box.png)
+
+Dtu: er som är mest användbara för att förstå den relativa mängden resurser mellan tjänstnivåerna och Azure SQL-databaser på olika instansstorlekarna. Till exempel motsvarar fördubbling av dtu: erna genom att öka beräkningsstorleken för en databas fördubbling av uppsättningen resurser som är tillgängliga för databasen. En premium P11-databas med 1 750 DTU:er erbjuder exempelvis 350 gånger mer DTU-beräkningskraft än en Basic-databas med 5 DTU:er.  
+
+Om du vill få bättre insikt i resursförbrukning (DTU) för din arbetsbelastning kan använda [fråga prestandainsikter](sql-database-query-performance.md) till:
+
+- Identifiera de viktigaste frågorna med CPU/varaktighet/körning antalet som potentiellt kan anpassas för bättre prestanda. Till exempel en i/o-intensiva fråga kan dra nytta av användningen av [InMemory-optimeringstekniker](sql-database-in-memory.md) för att bättre utnyttja det tillgängliga minnet på en viss tjänstnivån och beräkna storleken.
+- Granska nedåt i detaljerna för en fråga kan visa text och historik över resursanvändningen.
+- Rekommendationer som visar åtgärder som utförs av för åtkomst av prestandajustering [SQL Database Advisor](sql-database-advisor.md).
+
+### <a name="elastic-database-transaction-units-edtus"></a>Elastiska Databastransaktionsenheter (edtu: er)
+
+Snarare än ger en dedikerad uppsättning resurser (dtu: er) som inte behövs kanske alltid för en SQL-databas som alltid är tillgänglig, kan du placera databaser i en [elastisk pool](sql-database-elastic-pool.md) på en SQL Database-server som delar en pool av resurser mellan dessa databaser. De delade resurserna i en elastisk pool mäts som elastiska Databastransaktionsenheter eller edtu: er. Elastiska pooler erbjuder en enkel kostnadseffektiv lösning för att hantera prestandamål för flera databaser med mycket varierande och oförutsägbara användningsmönster. En elastisk pool garanterar resurser inte kan användas av en databas i poolen, även att se till att varje databas i poolen alltid har en minimal mängd nödvändiga resurser som är tillgängliga.
+
+En pool tilldelas ett bestämt antal edtu: er till ett fast pris. Inom den elastiska poolen har de enskilda databaserna flexibiliteten att skalas automatiskt inom konfigurerade parametrar. En databas under tyngre belastning förbrukar fler edtu: er för att möta efterfrågan. Databaser under ljusare laster förbrukar färre edtu: er. Databaser med utan belastning förbrukar inga edtu: er. Genom att etablera resurser för hela poolen, snarare än per databas, blir hanteringsuppgifter förenklade, vilket ger en förutsägbar budget för poolen.
+
+Ytterligare eDTU:er kan läggas till i en befintlig pool utan avbrott för databasen och utan att databaserna i den elastiska poolen påverkas. Om eDTU:er sedan inte längre behövs, kan de tas bort från en befintlig pool när som helst. Du kan lägga till eller ta bort databaser i poolen eller begränsa antalet edtu: er en databas kan använda vid hög belastning för att reservera edtu: er för andra databaser. Om en databas förutsägbart underutnyttjar resurser, som du kan flytta från poolen och konfigurera den som en enkel databas med en förutsägbara mängd resurser som krävs.
+
+### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Bestämma antalet dtu: er som krävs för en arbetsbelastning
+
+Om du vill migrera en befintlig lokal- eller SQL Server VM-arbetsbelastning till Azure SQL Database, som du kan använda den [DTU-Kalkylatorn](http://dtucalculator.azurewebsites.net/) för att beräkna ungefär hur många Dtu: er. Du kan använda för en befintlig Azure SQL Database-arbetsbelastning [fråga prestandainsikt](sql-database-query-performance.md) att förstå databasens resursförbrukning (dtu: er) för att få bättre insikt för att optimera din arbetsbelastning. Du kan också använda den [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV visa resursförbrukning för den senaste timmen. Du kan också katalogvyn [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) visar resursförbrukning för de senaste 14 dagarna, men med lägre tillförlitlighet med medelvärden på fem minuter.
+
+### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Arbetsbelastningar som har nytta av en elastisk pool med resurser
+
+Pooler lämpar sig för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av ett medelvärde för låg användning med relativt ovanliga användningstoppar. SQL Database utvärderar automatiskt den historiska resursanvändningen för databaser på en befintlig SQL Database-server och rekommenderar lämplig poolkonfiguration på Azure Portal. Mer information finns i [När ska jag använda en elastisk pool?](sql-database-elastic-pool.md)
+
+## <a name="purchase-model-frequently-asked-questions-faq"></a>Inköpsmodell vanliga frågor (och svar FAQ)
+
+### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Måste jag ta mitt program offline för att konvertera från en DTU-baserad databas till en vCore-baserad tjänstenivå
+
+De nya tjänstenivåerna erbjuder en enkel konverteringsmetod online som liknar den befintliga processen att uppgradera databaser från tjänstenivån Standard till Premium och vice versa. Den här konverteringen kan inledas med Azure portal, PowerShell, Azure CLI, T-SQL eller REST API. Se [Hantera enkla databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
+
+### <a name="can-i-convert-a-database-from-a-service-tier-using-the-vcore-based-purchase-to-a-service-tier-using-the-dtu-based-purchasing-model"></a>Jag kan byta en databas från en tjänstnivå med hjälp av det vCore-baserade inköpet till en tjänstnivå med hjälp av den DTU-baserade inköpsmodellen
+
+Ja, kan du enkelt konvertera din databas till stöds prestanda ändamålet med hjälp av Azure portal, PowerShell, Azure CLI, T-SQL eller REST API. Se [Hantera enkla databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+- VCore-baserade inköpsmodellen Se [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md)
+- DTU-baserade inköpsmodellen Se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md).

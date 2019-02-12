@@ -1,6 +1,6 @@
 ---
-title: Fungerar Azure Log Analytics | Microsoft Docs
-description: Den här artikeln beskriver hur du använder functions för att anropa en fråga från en annan fråga i Log Analytics.
+title: Funktioner i Azure Monitor loggfrågor | Microsoft Docs
+description: Den här artikeln beskriver hur du använder functions för att anropa en fråga från en annan loggfråga i Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 8f2855ed56d298ec4c6abee02dd59ce9471f0d2e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882851"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005105"
 ---
-# <a name="using-functions-in-azure-monitor-log-analytics"></a>Med hjälp av funktioner i Azure Monitor Log Analytics
+# <a name="using-functions-in-azure-monitor-log-queries"></a>Med hjälp av funktioner i Azure Monitor log-frågor
 
 > [!NOTE]
 > Bör du genomföra [Kom igång med Analytics-portalen](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
@@ -28,11 +28,11 @@ ms.locfileid: "52882851"
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 
-Om du vill använda en Log Analytics-fråga med en annan fråga kan du spara den som en funktion. Det gör att du kan förenkla komplexa frågor genom att dela upp dem i delar och att du kan återanvända gemensam kod med flera frågor.
+Om du vill använda en loggfråga med en annan fråga kan du spara den som en funktion. Det gör att du kan förenkla komplexa frågor genom att dela upp dem i delar och att du kan återanvända gemensam kod med flera frågor.
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
-Skapa en funktion i Azure portal genom att klicka på **spara** och sedan tillhandahålla informationen i följande tabell.
+Skapa en funktion i log analytics i Azure portal genom att klicka på **spara** och sedan tillhandahålla informationen i följande tabell.
 
 | Inställning | Beskrivning |
 |:---|:---|
@@ -42,10 +42,10 @@ Skapa en funktion i Azure portal genom att klicka på **spara** och sedan tillha
 | Kategori       | En kategori för att organisera sparade frågor och funktioner i **frågeutforskaren**. |
 
 > [!NOTE]
-> En funktion i Log Analytics får inte innehålla en annan funktion.
+> En funktion i Azure Monitor får inte innehålla en annan funktion.
 
 > [!NOTE]
-> Det är möjligt i Log Analytics-frågor, men för närvarande inte för Application Insights frågor att spara en funktion.
+> Det är möjligt i Azure Monitor log-frågor, men för närvarande inte för Application Insights frågor att spara en funktion.
 
 
 
@@ -69,7 +69,7 @@ security_updates_last_day | where Title contains "SQL"
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda Log Analytics-frågespråket:
+Se andra lektioner för att skriva Azure Monitor log-frågor:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)

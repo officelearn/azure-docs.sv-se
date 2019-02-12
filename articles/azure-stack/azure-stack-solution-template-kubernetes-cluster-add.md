@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 707cd7e72245ce47289c0a744d7103c713acecb9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765491"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997110"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Lägg till Kubernetes i Azure Stack Marketplace
 
@@ -65,15 +65,15 @@ Skapa en plan, ett erbjudande och en prenumeration för Kubernetes Marketplace-o
 
 Om du använder Active Directory Federation Services (AD FS) för identity management-tjänsten, behöver du skapa ett tjänstobjekt för användare som distribuerar ett Kubernetes-kluster.
 
-1. Skapa och exportera ett certifikat som ska användas för att skapa tjänsten huvudnamn. Följande kodfragmentet nedan visar hur du skapar ett självsignerat certifikat. 
+1. Skapa och exportera ett självsignerat certifikat som används för att skapa tjänsten huvudnamn. 
 
     - Du behöver följande typer av information:
 
        | Värde | Beskrivning |
        | ---   | ---         |
-       | Lösenord | Lösenordet för certifikatet. |
-       | Lokala certifikatsökväg | Sökvägen och namnet på certifikatet. Exempel: `path\certfilename.pfx` |
-       | Certifikatnamn | Namnet på certifikatet. |
+       | Lösenord | Ange ett nytt lösenord för certifikatet. |
+       | Lokala certifikatsökväg | Ange sökvägen och namnet på certifikatet. Exempel: `c:\certfilename.pfx` |
+       | Certifikatnamn | Ange namnet på certifikatet. |
        | Plats för certifikatarkiv |  Till exempel, `Cert:\LocalMachine\My` |
 
     - Öppna PowerShell med en upphöjd kommandotolk. Kör följande skript med parametrar uppdateras till dina värden:
@@ -82,8 +82,7 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
-        $certificateName = "<certificate name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certificateName = "CN=<certificate name>"
         $certStoreLocation="<certificate store location>"
         
         $params = @{
@@ -105,24 +104,33 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Skapa tjänstens huvudnamn med certifikat.
+2.  Anteckna den nya certifikat-ID som visas i din PowerShell-session `1C2ED76081405F14747DC3B5F76BB1D83227D824`. ID: T används när du skapar tjänstens huvudnamn.
+
+    ```PowerShell  
+    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
+    ```
+
+3. Skapa tjänstens huvudnamn med certifikat.
 
     - Du behöver följande typer av information:
 
        | Värde | Beskrivning                     |
        | ---   | ---                             |
        | ERCS IP | I ASDK Privilegierade slutpunkten är normalt `AzS-ERCS01`. |
-       | Programnamn | Ett kort namn för tjänstobjektet program. |
-       | Plats för certifikatarkiv | Sökvägen på datorn där du har sparat certifikatet. Exempel: `Cert:\LocalMachine\My\<someuid>` |
+       | Programnamn | Ange ett kort namn för programmet tjänstens huvudnamn. |
+       | Plats för certifikatarkiv | Sökvägen på datorn där du har sparat certifikatet. Detta anges av lagringsplatsen och certifikat-ID som genereras i det första steget. Exempel: `Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
-    - Öppna PowerShell med en upphöjd kommandotolk. Kör följande skript med parametrar uppdateras till dina värden:
+       När du uppmanas, Använd följande autentiseringsuppgifter för att ansluta till slutpunkten för behörighet. 
+        - Användarnamn: Ange CloudAdmin-konto i formatet <Azure Stack domain>\cloudadmin. (Användarnamnet är azurestack\cloudadmin för ASDK,.)
+        - Lösenord: Ange samma lösenord som angavs under installationen för AzureStackAdmin domänadministratörskontot.
+
+    - Kör följande skript med parametrar uppdateras till dina värden:
 
         ```PowerShell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
-        $certStoreLocation="<certificate store location>"
+        $certStoreLocation="<certificate location>"
         
         # Get certificate information
         $cert = Get-Item $certStoreLocation
@@ -189,7 +197,7 @@ Lägg till följande Ubuntu Server bild Marketplace:
 
 1. Välj **+ Lägg till från Azure**.
 
-1. Ange `UbuntuServer`.
+1. Ange `Ubuntu Server`.
 
 1. Välj den senaste versionen av servern. Kontrollera den fullständiga versionen och se till att du har den senaste versionen:
     - **Publisher**: Canonical

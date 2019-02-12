@@ -1,6 +1,6 @@
 ---
-title: Kopplingar i Azure Log Analytics-frågor | Microsoft Docs
-description: Den här artikeln innehåller en lektion med kopplingar i Log Analytics-frågespråket.
+title: Kopplingar i Azure Monitor loggfrågor | Microsoft Docs
+description: Den här artikeln innehåller en lektion med kopplingar i Azure Monitor log-frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c1f578c11fff963ee4bec47bd3737cd224b14720
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882929"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004663"
 ---
-# <a name="joins-in-log-analytics-queries"></a>Kopplingar i Log Analytics-frågor
+# <a name="joins-in-azure-monitor-log-queries"></a>Kopplingar i Azure Monitor log-frågor
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Analytics-portalen](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
+> Bör du genomföra [Kom igång med Azure Monitor log analytics](get-started-portal.md) och [loggfrågor i Azure Monitor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -105,7 +105,7 @@ Tänk på följande för optimala prestanda:
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda Log Analytics-frågespråket:
+Se andra lektioner för att använda Azure Monitor log-frågor:
 
 - [Strängåtgärder](string-operations.md)
 - [Aggregeringsfunktioner](aggregations.md)

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ada3210a59e0c3044551bee54b0a705b4b513594
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254442"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005156"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Koda en tillgång med Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -30,6 +30,7 @@ ms.locfileid: "51254442"
 >
 
 ## <a name="overview"></a>Översikt
+
 Om du vill leverera digital video via Internet, måste du komprimera mediet. Digitala videofiler är stora och kan vara för stort för att leverera via Internet eller för kundernas enheter att kunna visas korrekt. Kodning är processen för att komprimera video och ljud så att dina kunder kan visa dina media.
 
 Kodningsjobb är en av de vanligaste bearbetningsuppgifterna i Azure Media Services. Du skapar kodningsjobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda Media Services inbyggda kodaren (Media Encoder Standard). Du kan också använda en kodare som tillhandahålls av Media Services partner. Kodare från tredje part är tillgängliga via Azure Marketplace. Du kan ange information om kodning uppgifter med hjälp av förinställda strängarna som definierats för kodaren eller genom att använda förinställda konfigurationsfiler. Vilka typer av förinställningar som är tillgängliga finns i [uppgift förinställningar för Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
@@ -54,6 +55,7 @@ Innan du börjar refererar till mediebearbetare bör du kontrollera att du har r
 Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Skapa ett jobb med en enda kodningsjobb
+
 > [!NOTE]
 > Följande gäller när du arbetar med Media Services REST-API:
 >

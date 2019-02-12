@@ -4,23 +4,23 @@ description: Det här avsnittet visar hur du redigera ansikten med Azure media a
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 910cc246aa19e19b109fc660682c6b2dc239cbb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "33789385"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004901"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Redigera ansikten med Azure Media Analytics
+# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Redigera ansikten med Azure Media Analytics (äldre)
 ## <a name="overview"></a>Översikt
 **Azure Media Redactor** är en [Azure Media Analytics](media-services-analytics-overview.md) mediebearbetare (MP) som erbjuder skalbara ansiktsredigering i molnet. Ansiktsredigering kan du ändra din video för att kunna oskärpa ansikten för valda individer. Du kanske vill använda tjänsten ansiktsredigering i offentliga säkerhet samt nyhetsmediescenarier. Några minuter med material som innehåller flera ansikten kan ta timmar att redigera manuellt, men med den här tjänsten ansikte ansiktsredigering processen tar bara några få enkla steg. Mer information finns i [detta](https://azure.microsoft.com/blog/azure-media-redactor/) blogg.
 
@@ -52,7 +52,7 @@ Den **analysera** pass två gånger arbetsflödets tar en video som indata och p
 | Fas | Filnamn | Anteckningar |
 | --- | --- | --- |
 | Indatatillgången |foo.bar |Video i WMV, MPV eller MP4-format |
-| Ange config |Jobbkonfigurationen förinställning |{'version':'1.0 ', 'alternativ ”: {'mode': 'Analysera'}} |
+| Ange config |Jobbkonfigurationen förinställning |{'version':'1.0', 'options': {'mode':'analyze'}} |
 | Utdatatillgången |foo_annotations.json |Anteckningens data av ansikte platser i JSON-format. Detta kan redigeras av användaren för att ändra suddar ut avgränsar rutorna. Se exemplet nedan. |
 | Utdatatillgången |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Beskurna jpg för var och en har identifierats ansikte, där siffran indikerar labelId av de står inför |
 
@@ -135,7 +135,7 @@ Exempel foo_IDList.txt
 
 ## <a name="blur-types"></a>Oskärpa typer
 
-I den **kombineras** eller **Redact** läge, 5 olika oskärpa lägen som du kan välja bland via konfigurationen av JSON-indata: **låg**, **Med**, **Hög**, **Box**, och **svart**. Som standard **Med** används.
+I den **kombineras** eller **Redact** läge, 5 olika oskärpa lägen som du kan välja bland via den inkommande JSON-konfigurationen: **Låg**, **Med**, **hög**, **Box**, och **svart**. Som standard **Med** används.
 
 Du hittar exempel på vilka oskärpa nedan.
 
@@ -371,7 +371,7 @@ namespace FaceRedaction
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Översikt över Analytics för Azure Media Services](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Medieanalys-demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885804"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002017"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Använda övervakningsdata från Azure
 
 I Azure-plattformen samman vi övervakningsdata i en enda plats med Azure Monitor pipeline, men praktiskt taget bekräftar att idag är inte alla övervakningsdata är tillgängliga i denna pipeline ännu. I den här artikeln ska vi sammanfattar de olika sätt som du kan via programmering komma åt övervakningsdata från Azure-tjänster.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="options-for-data-consumption"></a>Alternativ för dataförbrukning
 
@@ -40,7 +42,7 @@ I Azure-plattformen samman vi övervakningsdata i en enda plats med Azure Monito
 | Azure Monitor-måttaviseringar | Meddelanden | [Se listan här](metrics-supported.md) | <ul><li>**Webhook:** [Azure måttaviseringar](alerts-webhooks.md)</li></ul> |
 | Azure Monitor Activity-Log-aviseringar | Meddelanden | Alla Azure-tjänster | <ul><li>**Webhook:** Azure-aktivitetsloggen-aviseringar</li></ul> |
 | Meddelanden om autoskalning | Meddelanden | [Se listan här](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Automatisk skalning meddelande webhook-nyttolasten schema](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Logga sökfråga aviseringar | Meddelanden | Log Analytics | <ul><li>**Webhook:** [Webhook-åtgärd för loggaviseringsregler](alerts-log-webhook.md)</li></ul> |
+| Logga sökfråga aviseringar | Meddelanden | Azure Monitor-loggar | <ul><li>**Webhook:** [Webhook-åtgärd för loggaviseringsregler](alerts-log-webhook.md)</li></ul> |
 | Måttaviseringar för Application Insights | Meddelanden | Application Insights | <ul><li>**Webhook:** [Aviseringar för Application Insights](../../azure-monitor/app/alerts.md)</li></ul> |
 | Webbtester med Application Insights | Meddelanden | Application Insights | <ul><li>**Webhook:** [Aviseringar för Application Insights](../../azure-monitor/app/alerts.md)</li></ul> |
 

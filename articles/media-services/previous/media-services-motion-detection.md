@@ -4,21 +4,21 @@ description: Rörelseidentifiering för Azure Media-mediebearbetare (MP) gör de
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26090067923c468b7102ac5b7bb78b9d7b7960bb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820979"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995620"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Identifiera rörelser med Azure Media Analytics
 ## <a name="overview"></a>Översikt
@@ -103,7 +103,7 @@ I följande tabell beskriver elementen i JSON-filen för utdata.
 | Varaktighet |Längden på händelsen i ”ticken”. |
 | Intervall |Intervall för varje post i händelsen i ”ticken”. |
 | Händelser |Händelsen i varje fragment innehåller rörelse identifieras inom den varaktigheten. |
-| Typ |I den aktuella versionen är det alltid ”2” för allmän rörelse. Den här etiketten ger Video-API: er flexibiliteten att kategorisera rörelser i framtida versioner. |
+| Type |I den aktuella versionen är det alltid ”2” för allmän rörelse. Den här etiketten ger Video-API: er flexibiliteten att kategorisera rörelser i framtida versioner. |
 | RegionID |Enligt beskrivningen ovan, är det här alltid 0 i den här versionen. Den här etiketten kan Video-API att hitta rörelse i olika regioner i framtida versioner. |
 | Regioner |Refererar till området i din video där du bryr dig om rörelse. <br/><br/>-”id” representerar området region – i den här versionen finns bara en, ID 0. <br/>-”type” representerar formen på den region som intresserar dig för rörelse. För närvarande stöds ”rektangel” och ”polygon”.<br/> Om du har angett ”rektangel” regionen har dimensioner i X, Y, bredd och höjd. X- och Y-koordinaterna representerar de övre vänstra XY-koordinaterna för regionen i en normaliserad skala på 0,0 till 1,0. Bredd och höjd representerar storleken på regionen i en normaliserad skala på 0,0 till 1,0. I den aktuella versionen fasta X, Y, bredd och höjd alltid på 0, 0 och 1, 1. <br/>Om du har angett ”polygon” har regionen dimensioner i punkter. <br/> |
 | Fragment |Metadata är segmentvis upp i olika segment som kallas fragment. Varje fragment innehåller en start, varaktighet, intervallnummer och händelser. Ett fragment med inga händelser anger att ingen rörelse identifierades under den starttid och varaktighet. |

@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230632"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994109"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Åtkomst till Azure Media Services-API med Azure AD-autentisering
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Åtkomst till Azure Media Services-API med Azure AD-autentisering  
  
 Azure Media Services-API är ett RESTful-API. Du kan använda den för att utföra åtgärder på media resurser med hjälp av ett REST-API eller genom att använda tillgängliga klient-SDK: er. Azure Media Services erbjuder en Media Services-klient SDK för Microsoft .NET. Om du vill ha behörighet att komma åt Media Services-resurser och Media Services-API, måste du först autentiseras. 
 
@@ -138,7 +138,7 @@ Om du inte använder SDK för Media Services .NET-klient, måste du manuellt ska
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Undantag ”: fjärrservern returnerade ett fel: (401) Ej behörig”.
+Undantag: ”Fjärrservern returnerade ett fel: (401) Ej behörig ”.
 
 Lösning: För Media Services REST-begäran ska lyckas måste den anropande användaren vara en deltagare eller ägare roll i Media Services-kontot som försöker komma åt. Mer information finns i den [åtkomstkontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control) avsnittet.
 

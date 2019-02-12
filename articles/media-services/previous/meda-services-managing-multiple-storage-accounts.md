@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: e103124b2b0e720517106f9b4453ee8a76688eca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b538e1b2d37c92e1712da517ab5f3c46f5e2c3a3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977226"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992199"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts-legacy"></a>Hantera Media Services-tillgångar över flera lagringskonton (äldre)
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Hantera Media Services-tillgångar över flera lagringskonton  
 
 Du kan koppla flera lagringskonton till ett enda Media Services-konto. Möjlighet att ansluta flera lagringskonton till ett Media Services-konto ger följande fördelar:
 

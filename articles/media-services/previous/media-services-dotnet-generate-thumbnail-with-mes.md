@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249355"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995143"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET 
 
 Du kan använda Media Encoder Standard för att generera en eller flera miniatyrer från din indatavideo i [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), eller [BMP](https://en.wikipedia.org/wiki/BMP_file_format) filer. Du kan skicka uppgifter som producerar endast bilder eller du kan kombinera miniatyrbilder med kodning. Den här artikeln innehåller några exempel XML och JSON miniatyrbildens förinställningar för sådana scenarier. I slutet av artikeln finns en [exempelkoden](#code_sample) som visar hur du använder Media Services .NET SDK för att åstadkomma kodning.
 
@@ -415,7 +415,7 @@ I följande kodexempel använder Media Services .NET SDK för att utföra följa
 * Ange indatatillgången som ska kodas.
 * Skapa en utdata-tillgång som innehåller den kodade tillgången.
 * Lägg till en händelsehanterare för att kontrollera jobbförloppet för.
-* Skicka jobbet.
+* Skicka in jobbet.
 
 Se den [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md) artikeln för information om hur du ställer in din utvecklingsmiljö.
 
@@ -551,15 +551,15 @@ Följande gäller:
 * Användningen av explicita tidsstämplar för Start/steg/intervall förutsätter att Indatakällan är minst 1 minut.
 * JPG/Png/BmpImage element har Start, steg, och vara strängattribut – dessa kan tolkas som:
   
-  * Bildrutenummer om de är icke-negativa heltal, till exempel ”Start”: ”120”
-  * Relativt källa varaktighet om det uttrycks som %-suffix, till exempel ”Start”: ”15%”, eller
-  * Tidsstämpel om det uttrycks som: mm: ss... format. Till exempel ”Start” ”: 00: 01:00”
+  * Bildrutenummer om de är icke-negativa heltal, till exempel ”Start”: "120",
+  * Relativt till källängd om det uttrycks som %-suffix, till exempel ”Start”: ”15%”, ELLER
+  * Tidsstämpel om det uttrycks som: mm: ss... format. Till exempel ”starta”: "00:01:00"
     
     Du kan blanda och matcha beteckningar som du finns.
     
-    Dessutom Start även stöd för ett särskilt makro: {bästa}, som försöker bestämma första ”intressanta” bildruta anteckningens innehåll: (steg och intervallet ignoreras när Start är inställd på {bästa})
-  * Standard: Starta: {bästa}
-* Utdataformat måste anges uttryckligen för varje bildformat: Jpg/Png/BmpFormat. När det finns, matchar MES JpgVideo till JpgFormat och så vidare. OutputFormat introducerar en ny bild-codec visst makro: {Index}, som måste vara presentera (en gång och bara en gång) för bild-utdataformat.
+    Dessutom Start även stöd för ett särskilt makro: {bästa}, som försöker bestämma första ”intressanta” bildruta anteckningens innehåll: (Steg och intervallet ignoreras när Start är inställd på {bästa})
+  * Standard: Start:{Best}
+* Utdataformat måste anges uttryckligen för varje bild-format: JPG/Png/BmpFormat. När det finns, matchar MES JpgVideo till JpgFormat och så vidare. OutputFormat introducerar en ny bild-codec visst makro: {Index}, som måste vara presentera (en gång och bara en gång) för bild-utdataformat.
 
 ## <a name="next-steps"></a>Nästa steg
 

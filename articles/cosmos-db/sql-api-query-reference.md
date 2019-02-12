@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 457f64b9ae9101628df5347c921bfa057a7cb754
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475201"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991437"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>SQL-Språkreferens för Azure Cosmos DB 
 
@@ -493,7 +493,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**Aritmetiska**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Tillägg.<br /><br /> Subtraktion.<br /><br /> Multiplikation.<br /><br /> Division.<br /><br /> Modulering.|  
 |**Bitvis**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Logiskt eller.<br /><br /> Binärt AND.<br /><br /> Bitvis XOR.<br /><br /> Vänsterskift.<br /><br /> Högerskift.<br /><br /> Noll fyllning högerskift.|  
-|**Logiska**|**OCH**<br /><br /> **OR**|Logisk konjunktion. Returnerar **SANT** om båda argumenten är **SANT**, returnerar **FALSKT** annars.<br /><br /> Logisk konjunktion. Returnerar **SANT** om båda argumenten är **SANT**, returnerar **FALSKT** annars.|  
+|**Logiska**|**OCH**<br /><br /> **OR**|Logisk konjunktion. Returnerar **SANT** om båda argumenten är **SANT**, returnerar **FALSKT** annars.<br /><br /> Logisk disjunktion. Returnerar **SANT** om alla argument är **SANT**, returnerar **FALSKT** annars.|  
 |**Jämförelse**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Är lika med. Returnerar **SANT** om argument är lika med, returnerar **FALSKT** annars.<br /><br /> Inte lika med. Returnerar **SANT** om argumenten inte är lika med, returnerar **FALSKT** annars.<br /><br /> Större än. Returnerar **SANT** om det första argumentet är större än det andra returnerar **FALSKT** annars.<br /><br /> Större än eller lika med. Returnerar **SANT** om det första argumentet är större än eller lika med den andra mallen, returnerar **FALSKT** annars.<br /><br /> Mindre än. Returnerar **SANT** om det första argumentet är mindre än en sekund, avkastningen **FALSKT** annars.<br /><br /> Mindre än eller lika med. Returnerar **SANT** om det första argumentet är mindre än eller lika med den andra mallen, returnerar **FALSKT** annars.<br /><br /> Slå samman. Returnerar det andra argumentet om det första argumentet är en **odefinierat** värde.|  
 |**Sträng**|**&#124;&#124;**|Sammanfogning. Returnerar en sammansättning av båda argumenten.|  
   
@@ -620,7 +620,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|apostrof (')|U+0027|  
 |\\"|citattecken (”)|U+0022|  
-|\\\|omvänd solidus (\\)|U + 005C|  
+|\\\ |omvänd solidus (\\)|U + 005C|  
 |\\/|solidus (/)|U + 002F|  
 |\b|BACKSTEG|U + 0008|  
 |\f|formuläret feed|U + 000C|  

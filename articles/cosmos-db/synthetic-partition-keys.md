@@ -1,23 +1,23 @@
 ---
 title: Skapa en syntetisk partitionsnyckel i Azure Cosmos DB för att distribuera dina data och arbetsbelastningen jämnt.
-description: Lär dig hur du använder syntetiska partitionsnycklar i Azure Cosmos DB-behållare
+description: Lär dig att använda syntetiska partitionsnycklar i Azure Cosmos-behållare
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: mjbrown
-ms.openlocfilehash: 987bfe023e7355a2780af57dc5e5cac3129a5ca1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8becfe375f2e887348729cf1d76820fc41156d2a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454156"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997133"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Skapa en syntetisk partitionsnyckel
 
-Det är en bra idé att ha en partitionsnyckel med många distinkta värden, till exempel hundratals eller tusentals. Målet är att distribuera dina data och arbetsbelastningen jämnt över de objekt som är associerade med de här partitionsnyckelvärdena. Om sådan egenskap inte finns i dina data, kan en syntetisk partitionsnyckel skapas. I följande avsnitt beskrivs flera grundläggande tekniker för att generera en syntetisk partitionsnyckel för behållaren.
+Det är en bra idé att ha en partitionsnyckel med många olika värden, till exempel hundratals eller tusentals. Målet är att distribuera dina data och arbetsbelastningen jämnt över de objekt som är associerade med de här partitionsnyckelvärdena. Om sådan egenskap inte finns i dina data, kan du skapa en syntetisk partitionsnyckel. I följande avsnitt beskrivs flera grundläggande tekniker för att generera en syntetisk partitionsnyckel för behållaren.
 
-## <a name="concatenating-multiple-properties-of-an-item"></a>Sammanfoga flera egenskaper för ett objekt
+## <a name="concatenate-multiple-properties-of-an-item"></a>Sammanfoga flera egenskaper för ett objekt
 
 Du kan utforma en partitionsnyckel genom att sammanfoga flera värden i en enda artificiella `partitionKey` egenskapen. De här nycklarna kallas syntetiska nycklar. Tänk dig följande exempel dokument:
 
@@ -28,7 +28,7 @@ Du kan utforma en partitionsnyckel genom att sammanfoga flera värden i en enda 
 }
 ```
 
-För tidigare dokumentet är ett alternativ att ange /deviceId eller /date som partitionsnyckel, om du vill partitionera din behållare baserat på enhets-ID eller datum. Ett annat alternativ är att sammanfoga två gånger i ett syntetiskt `partitionKey` egenskap som används som partitionsnyckel.
+För tidigare dokumentet är ett alternativ att ange /deviceId eller /date som partitionsnyckel. Använd det här alternativet om du vill partitionera din behållare baserat på enhets-ID eller datum. Ett annat alternativ är att sammanfoga två gånger i ett syntetiskt `partitionKey` egenskap som används som partitionsnyckel.
 
 ```JavaScript
 {
@@ -38,27 +38,27 @@ För tidigare dokumentet är ett alternativ att ange /deviceId eller /date som p
 }
 ```
 
-I realtid scenarier, du har tusentals dokument i en databas, så du bör definiera klientsidan logik för att sammanfoga värden och infoga syntetiska nyckeln i dokumenten i stället för att lägga till nyckeln syntetiska och manuellt.
+Du kan ha tusentals dokument i en databas i realtid scenarier. I stället för att lägga till nyckeln syntetiska manuellt definiera klientsidan logik för att sammanfoga värden och infoga syntetiska nyckeln i dokumenten.
 
-## <a name="using-a-partition-key-with-random-suffix"></a>Om du använder en partitionsnyckel med slumpmässiga suffix
+## <a name="use-a-partition-key-with-a-random-suffix"></a>Använda en partitionsnyckel med ett slumpmässigt suffix
 
-En annan möjlig strategi att fördela arbetsbelastningen jämnare är att lägga till ett slumptal i slutet av partitionsnyckelvärdet. Fördela objekt i det här sättet kan du utföra parallell skrivåtgärder över partitioner.
+En annan möjlig strategi att fördela arbetsbelastningen jämnare är att lägga till ett slumptal i slutet av partitionsnyckelvärdet. När du distribuerar objekt i det här sättet kan du utföra parallella skrivåtgärder över partitioner.
 
-Om en partitionsnyckel representerar ett datum, kan du välja ett slumptal mellan 1 och 400 och sammanfoga som suffix i datumet. Den här metoden leder partitionsnyckelvärdena som 2018-08-09.1, 2018-08-09.2, och så vidare, via 2018-08-09.400. Eftersom du randomisering Partitionsnyckeln fördelade skrivåtgärder för behållaren varje dag jämnt över flera partitioner. Den här metoden resulterar i bättre parallellitet och övergripande högre dataflöde.
+Ett exempel är om en partitionsnyckel representerar ett datum. Du kan välja ett slumptal mellan 1 och 400 och sammanfoga som suffix i datumet. Den här metoden leder partitionsnyckelvärdena som 2018-08-09.1, 2018-08-09.2, och så vidare, via 2018-08-09.400. Eftersom du slumpgenerera Partitionsnyckeln fördelade skrivåtgärder för behållaren varje dag jämnt över flera partitioner. Den här metoden resulterar i bättre parallellitet och övergripande högre dataflöde.
 
-## <a name="using-a-partition-key-with-pre-calculated-suffixes"></a>Om du använder en partitionsnyckel med förberäknade suffix 
+## <a name="use-a-partition-key-with-precalculated-suffixes"></a>Använda en partitionsnyckel med förberäknade suffix 
 
-Även om randomisering strategi kan avsevärt förbättra genomströmning för skrivning, är det svårt att läsa ett specifikt objekt eftersom du inte vet suffix-värde som används när du skriver artikeln. Du kan använda förberäknade suffix-strategi för att göra det lättare att läsa enskilda objekt. Använd ett tal som beräknar baserat på något som du vill fråga i stället för att distribuera objekt mellan partitioner med hjälp av ett slumptal.
+Randomizing strategin kan förbättra genomströmning för skrivning, men det är svårt att läsa ett specifikt objekt. Du vet inte suffix-värde som används när du skriver artikeln. Använda förberäknade suffix strategin för att göra det lättare att läsa enskilda objekt. Ange ett tal som beräknas baserat på något som du vill fråga i stället för att distribuera objekt mellan partitioner med hjälp av ett slumptal.
 
-Överväg att i föregående exempel, där en behållare använder ett datum i Partitionsnyckeln. Nu antar vi att varje objekt har en tillgänglig VIN (Vehicle-identifieringsnummer)-attributet och om du ofta köra frågor för att hitta objekt av VIN, dessutom hittills. Innan ditt program skriver objektet till behållaren, kan den beräkna ett hash-suffix baserat på VIN och lägger till dem i partitionen viktiga datum. Beräkningen kan generera ett tal mellan 1 och 400 som är jämnt fördelade, vilket liknar de resultat som skapas av metoden slumpmässiga strategi. Partitionsnyckelvärdet kommer sedan att det datum som sammanfogas med det beräknade värdet.
+Överväg att i föregående exempel, där en behållare använder ett datum i Partitionsnyckeln. Anta nu att varje objekt har en tillgänglig fordonets identifieringsnummer (VIN)-attributet. Anta vidare att du ofta kör frågor för att hitta objekt av VIN, förutom datum. Innan ditt program skriver objektet till behållaren, kan den beräkna ett hash-suffix baserat på VIN och lägger till dem i partitionen viktiga datum. Beräkningen kan generera ett tal mellan 1 och 400 som är jämnt fördelat. Resultatet liknar de resultat som skapas av metoden slumpmässiga strategi. Partitionsnyckelvärdet är sedan det datum som sammanfogas med det beräknade värdet.
 
-Med den här strategin är skrivningar jämnt fördelade över partitionsnyckelvärdena och över partitioner. Du kan enkelt läsa en viss artikel och datum, eftersom du kan beräkna partitionsnyckelvärdet för ett specifikt Vehicle-ID-nummer. Fördelen med den här metoden är att du slipper skapa en enda frekvent partitionsnyckel (den partitionsnyckel som tar alla arbetsbelastningar). 
+Med den här strategin är skrivningar jämnt fördelade över partitionsnyckelvärdena och över partitioner. Du kan enkelt läsa en viss artikel och datum eftersom du kan beräkna partitionsnyckelvärdet för ett specifikt Vehicle-ID-nummer. Fördelen med den här metoden är att du slipper skapa en enda frekvent partitionsnyckel. En frekvent partitionsnyckel är Partitionsnyckeln som tar alla arbetsbelastningar. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan läsa mer om begreppet partitionering i följande artiklar:
 
-* Läs mer om [logiska partitioner](partition-data.md)
-* Läs mer om [etablering dataflöde på Cosmos-behållare och databaser](set-throughput.md)
-* Lär dig [hur du etablera dataflöde för en Cosmos-behållare](how-to-provision-container-throughput.md)
-* Lär dig [hur du etablera dataflöde för en Cosmos-databas](how-to-provision-database-throughput.md)
+* Läs mer om [logiska partitioner](partition-data.md).
+* Mer information om hur du [etablera dataflöde för Azure Cosmos-behållare och databaser](set-throughput.md).
+* Lär dig hur du [etablera dataflöde på en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
+* Lär dig hur du [etablera dataflöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).

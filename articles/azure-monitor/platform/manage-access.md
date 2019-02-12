@@ -1,6 +1,6 @@
 ---
-title: Hantera arbetsytor i Azure Log Analytics och OMS-portalen | Microsoft-dokument
-description: Du kan hantera arbetsytor i Azure Log Analytics och OMS-portalen med hjälp av olika administrativa uppgifter för användare, konton, arbetsytor och Azure-konton.
+title: Hantera Log Analytics-arbetsytor i Azure Monitor | Microsoft Docs
+description: Du kan hantera Log Analytics-arbetsytor i Azure Monitor med en rad olika administrativa uppgifter på användare, konton, arbetsytor och Azure-konton.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656761"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005378"
 ---
-# <a name="manage-workspaces"></a>Hantera arbetsytor
-
-Du hanterar åtkomsten till Log Analytics genom att utföra olika administrativa uppgifter relaterade till arbetsytor. Den här artikeln innehåller råd och procedurer för att hantera arbetsytor. En arbetsyta är i grunden en container som innehåller kontoinformation och enkel konfigurationsinformation för kontot. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
+# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>Hantera Log Analytics-arbetsytor i Azure Monitor
+Azure Monitor-butiker logga data över en Log Analytics-arbetsyta som är i grunden en behållare som innehåller data och konfigurationsinformation. För att hantera åtkomst för att logga data måste utföra du olika administrativa uppgifter relaterade till arbetsytor. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
 
 För att skapa en arbetsyta måste du:
 
@@ -32,11 +31,11 @@ För att skapa en arbetsyta måste du:
 4. Välja en geografisk plats.
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Bestämma antalet arbetsytor du behöver
-En arbetsyta är en Azure-resurs och en container där data samlas in, aggregeras, analyseras och presenteras på Azure Portal.
+En Log Analytics-arbetsyta är en Azure-resurs och är en behållare där data samlas in, aggregeras, analyseras och presenteras i Azure Monitor.
 
-Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta, med möjlighet att snabbt göra förfrågningar i alla. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
+Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta, med möjlighet att enkelt söka i dem. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
 
-För närvarande tillhandahåller en arbetsyta:
+Tillhandahåller en Log Analytics-arbetsyta:
 
 * En geografisk plats för lagring av data
 * Dataisolering att definiera olika användare behörighet
@@ -44,7 +43,7 @@ För närvarande tillhandahåller en arbetsyta:
 
 Från förbrukning synsätt rekommenderar vi att du skapar så få arbetsytor som möjligt. Det gör administration och fråga upplevelse för enklare och snabbare. Men baserat på föregående egenskaper kan du behöva skapa flera arbetsytor om:
 
-* Du är ett globalt företag och data behöver lagras i vissa områden för datasuveränitet eller kompatibilitetsskäl.
+* Du är ett globalt företag och du behöver logga data som lagras i vissa områden för datasuveränitet eller kompatibilitetsskäl i data.
 * Du använder Azure och du vill undvika kostnader för överföring av utgående data genom att ha en arbetsyta i samma region som de Azure-resurser som den hanterar.
 * Du vill fördela tillägg till olika avdelningar eller affärsgrupper baserat på deras användning genom att skapa en arbetsyta för varje avdelning eller affärsgrupp i sin egen Azure-prenumeration.
 * Du är leverantör av hanterade tjänster och behöver Log Analytics-data för varje kund du hanterar isolerade från andra kunders data.
@@ -55,16 +54,14 @@ När du använder Windows-agenter för att samla in data måste du [konfigurera 
 Om du använder System Center Operations Manager kan varje hanteringsgrupp för Operations Manager endast anslutas till en arbetsyta. Du kan installera Microsoft Monitoring Agent på datorer som hanteras av Operations Manager och låta agenten rapporten till både Operations Manager och en annan Log Analytics-arbetsyta.
 
 ## <a name="workspace-information"></a>Arbetsyteinformation
+När du analyserar data i Log Analytics-arbetsytan i den **Azure Monitor** menyn i Azure-portalen, som du skapar och hanterar arbetsytor i den **Log Analytics-arbetsytor** menyn.
+ 
 
-Du kan visa information om din arbetsyta på Azure Portal. 
-
-1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com).
-
-2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.  
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och klicka på **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics** arbetsytor.  
 
     ![Azure Portal](media/manage-access/azure-portal-01.png)  
 
-3. Välj en arbetsyta i fönstret Log Analytics-prenumerationer.
+3. Välj din arbetsyta i listan.
 
 4. Sidan för arbetsytan visar information om att komma igång, konfiguration och länkar till ytterligare information.  
 
@@ -84,10 +81,10 @@ Följande aktiviteter kräver även Azure-behörigheter:
 | Skapa en arbetsyta i Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Hantera åtkomst till Log Analytics med Azure-behörighet
+### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>Hantera åtkomst till Log Analytics-arbetsyta med hjälp av Azure-behörigheter
 Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../../role-based-access-control/role-assignments-portal.md).
 
-Azure har två inbyggda användarroller för Log Analytics:
+Azure har två inbyggda användarroller för Log Analytics-arbetsytor:
 - Log Analytics Reader
 - Log Analytics Contributor
 
@@ -149,5 +146,4 @@ Vi rekommenderar att du utför tilldelningar på resursnivå (arbetsyta) för at
 ## <a name="next-steps"></a>Nästa steg
 * Se [översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) samla in data från datorer i ditt datacenter eller andra moln.
 * Om du vill konfigurera datainsamling från virtuella Azure-datorer läser du [Samla in data om Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
-* [Lägg till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md) för att lägga till funktioner och samla in data.
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/04/2018
+ms.date: 02/08/2019
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: f6d4fcf5e6ec8029bb0e7c303849fdceef5bace7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1672eb2ef0db36c9b30ca444fa4224eb1afbe828
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012096"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998492"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Haivision KB livekodaren för att skicka en direktsänd dataström med enkel bithastighet
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Haivision KB livekodaren för att skicka en direktsänd dataström med enkel bithastighet  
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
@@ -62,7 +62,7 @@ Video:
 -   Profil: Hög (nivå 4.0)
 -   Med flera bithastigheter: 5000 kbit/s
 -   Bildrutan: 2 sekunder (60 ramar)
--   RAM-pris: 30
+-   Bildfrekvens: 30
 
 Ljud:
 -   Codec: AAC (LC)
@@ -72,17 +72,17 @@ Ljud:
 ## <a name="configuration-steps"></a>Konfigurationssteg
 1.  Logga in till användargränssnittet Haivision KB.
 2.  Klicka på den **menyknappen** i kanalen kontrollcenter och välj **Lägg till kanal**  
-    ![Skärmbild som visar 2017-08-14 i 9.15.09 AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
+    ![Skärmbild 2017-08-14 i 9.15.09 AM](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  Skriv den **Kanalnamn** i namnet på fältet och klicka på Nästa.  
-    ![Skärmbild som visar 2017-08-14 i 9.19.07 AM.png](./media/media-services-configure-kb-live-encoder/step3.png)
+    ![Skärmbild 2017-08-14 i 9.19.07 AM](./media/media-services-configure-kb-live-encoder/step3.png)
 4.  Välj den **kanal Indatakällan** från den **Indatakällan** listrutan och klicka på Nästa.
-    ![Skärmbild som visar 2017-08-14 i 9.20.44 AM.png](./media/media-services-configure-kb-live-encoder/step4.png)
+    ![Skärmbild 2017-08-14 i 9.20.44 AM](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  Från den **Encoder mallen** listrutan Välj **H264-720-AAC-192** och klicka på Nästa.
-    ![Skärmbild som visar 2017-08-14 i 9.23.15 AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
+    ![Skärmbild 2017-08-14 i 9.23.15 AM](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  Från den **Välj nya utdata** listrutan Välj **RTMP** och klicka på Nästa.  
-    ![Skärmbild som visar 2017-08-14 i 9.27.51 AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
+    ![Skärmbild 2017-08-14 i 9.27.51 AM](./media/media-services-configure-kb-live-encoder/step6.png)
 7.  Från den **kanal utdata** och fylla i informationen om Azure stream. Klistra in den **RTMP** länk från den första kanal i den **Server** området. I den **Utdatanamnet** området Skriv namnet på kanalen. Använd mallen RTMPStreamName_ % video_bitrate % för att namnge dataströmmen i området för mallen för Stream-namn.
-    ![Skärmbild som visar 2017-08-14 i 9.33.17 AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
+    ![Skärmbild 2017-08-14 i 9.33.17 AM](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  Klicka på Nästa och sedan klickar du på klar.
 9.  Klicka på den **spela upp** att starta encoder-kanalen.  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 1bada751ffac45b36faad6e978567233901adc7d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 285f4f4aad18943399511cbcac711933f23f7cb2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700323"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004805"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kvoter och begränsningar i Azure Media Services v3
 
@@ -48,7 +48,7 @@ Den här artikeln beskrivs kvoter och begränsningar i Azure Media Services v3.
 
 Alla jobbposter i ditt konto som är äldre än 90 dagar tas automatiskt bort, även om det totala antalet poster är lägre än den maximala kvoten. 
 
-<sup>3</sup> när du använder en anpassad [Streaming princip](https://docs.microsoft.com/rest/api/media/streamingpolicies), bör du utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din StreamingLocators när samma krypteringen alternativ och protokoll krävs. Du bör inte skapa en ny princip för strömning för varje Strömningspositionerare.
+<sup>3</sup> när du använder en anpassad [Streaming princip](https://docs.microsoft.com/rest/api/media/streamingpolicies), bör du utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din StreamingLocators när samma krypteringen alternativ och protokoll krävs. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.
 
 <sup>4</sup> storage-konton måste komma från samma Azure-prenumeration.
 

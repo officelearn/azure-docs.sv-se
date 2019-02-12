@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f367d6e1b1c545bcad0faf030a56fdec2ffafca2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811748"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989073"
 ---
-# <a name="implement-failover-streaming-with-azure-media-services"></a>Implementera redundans strömning med Azure Media Services
+# <a name="implement-failover-streaming-with-media-services-legacy"></a>Implementera redundans strömning med Media Services (äldre)
 
 Den här genomgången visar hur du kopierar innehållet (blobbar) från en tillgång till en annan för att hantera redundans för strömning på begäran. Det här scenariot är användbart om du vill ställa in Azure Content Delivery Network för att växla över mellan två datacenter i händelse av ett strömavbrott i ett datacenter. Den här genomgången använder Azure Media Services SDK, Azure Media Services REST-API och Azure Storage SDK för att demonstrera följande uppgifter:
 

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: ce7892401b2b04565a00c33c5301b9c0cd05d5f5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: 8127abf19c31b8a50079f416e73c98efebfd0983
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732761"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999427"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database-hanterad instans
 
@@ -47,7 +47,7 @@ Om det finns några rapporterade blockeringsproblem som inte tas bort med altern
 - Om du kräver direkt åtkomst till operativsystemet eller filsystem, till exempel att installera från tredje part eller anpassade agenter på samma virtuella dator med SQL Server.
 - Om du har strikta beroende på funktioner som fortfarande inte stöds, till exempel FileStream / filetable-objekt, PolyBase och transaktioner över flera instanser.
 - Om absolut måste du hålla sig i en specifik version av SQL Server (2012, till exempel).
-- Om dina beräkningskrav är mycket lägre den hantera instansen kan i offentlig förhandsversion (1 vCore, till exempel) och konsolidering av databasen inte är acceptabel.
+- Om dina beräkningskrav är mycket lägre kan den hantera instansen (1 vCore, till exempel) och konsolidering av databasen inte är acceptabel.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Distribuera till en optimal storlek hanterad instans
 

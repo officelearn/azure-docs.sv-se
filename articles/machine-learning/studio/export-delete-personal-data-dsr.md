@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: d2276eb11ce904b485440a6ce91981846a980dbc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462196"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994967"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportera och ta bort i produkten användardata från Azure Machine Learning Studio
 
@@ -53,7 +53,7 @@ Det finns tre typer av konton i Machine Learning Studio. Vilken typ av konto som
     - Du kan exportera personliga och kundens data via Användargränssnittet, REST API: er eller PowerShell-paketet
     - Du kan ta bort dina data i Azure-portalen.
 
-## <a name="delete-workspace-data-in-studio"></a>Ta bort arbetsytedata i Studio 
+## <a name="delete"></a>Ta bort arbetsytedata i Studio 
 
 ### <a name="delete-individual-assets"></a>Ta bort enskilda tillgångar
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Log Analytics-frågespråket | Microsoft Docs
-description: Referenser till resurser för att lära dig hur du skriver frågor i Log Analytics.
+title: Azure Monitor-loggfrågor | Microsoft Docs
+description: Referenser till resurser för att lära dig hur du skriver loggfrågor i Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,55 +11,57 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: 32e64ce7772d562ea34a0d74afbd737be27d247d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968876"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989261"
 ---
-# <a name="log-analytics-query-language"></a>Logga Analytics-frågespråket
-Log Analytics tillhandahåller Logginsamling och analys för Azure Monitor. Den bygger på Azure Data Explorer och använder en version av samma frågespråk. Den [språkdokumentation för Azure Data Explorer fråga](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Log Analytics-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Log Analytics-implementering för språket.
+# <a name="azure-monitor-log-queries"></a>Azure Monitor log-frågor
+Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågor använder en version av samma frågespråk. Den [språkdokumentation för Azure Data Explorer fråga](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Azure Monitor log-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Azure Monitor-implementering för språket.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
-- [Kom igång med Log Analytics i Azure-portalen](get-started-portal.md) är en lektion för att skriva frågor och arbeta med resultat i Azure-portalen.
--  [Kom igång med frågor i Log Analytics](get-started-queries.md) är en lektion för att skriva frågor med Log Analytics-data.
+- [Kom igång med Azure Monitor log analytics](get-started-portal.md) är en lektion för att skriva frågor och arbeta med resultat i Azure-portalen.
+- [Kom igång med Azure Monitor log-frågor](get-started-queries.md) är en lektion för att skriva frågor med Azure Monitor-loggdata.
 
 ## <a name="concepts"></a>Begrepp
-- [Analysera Log Analytics-data i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) ger en kort översikt över log frågar och beskriver hur Log Analytics-data är strukturerad.
-- [Visa och analysera data i Log Analytics](../../azure-monitor/log-query/portals.md) förklarar portalerna där du skapar och kör Log Analytics-frågor.
+- [Analysera loggdata i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) ger en kort översikt över log frågar och beskriver hur Azure Monitor-loggdata är strukturerad.
+- [Visa och analysera loggdata i Azure Monitor](../../azure-monitor/log-query/portals.md) förklarar portalerna där du skapar och kör loggfrågor.
 
 ## <a name="reference"></a>Referens
 
 - [Frågespråksreferens](/azure/kusto/query) är klar Språkreferens för frågespråket i Datautforskaren.
-- [Logga Analytics query language skillnader](data-explorer-difference.md) beskriver skillnaderna mellan versioner av frågespråket i Datautforskaren.
-- [Standardegenskaper i Log Analytics-poster](../../azure-monitor/platform/log-standard-properties.md) beskriver egenskaper som är standard för alla Log Analytics-data.
-- [Utföra mellan resurser loggsökningar i Log Analytics](../../azure-monitor/log-query/cross-workspace-query.md) beskriver hur du skriver frågor som använder data från flera Log Analytics-arbetsytor och Application Insights-program.
+- [Azure Monitor log-fråga språkskillnader](data-explorer-difference.md) beskriver skillnaderna mellan versioner av frågespråket i Datautforskaren.
+- [Standardegenskaper i Azure Monitor loggposter](../../azure-monitor/platform/log-standard-properties.md) beskriver egenskaper som är standard för alla Azure Monitor-loggdata.
+- [Utföra loggfrågor mellan resurser i Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) beskriver hur du skriver loggfrågor som använder data från flera Log Analytics-arbetsytor och Application Insights-program.
 
 
 ## <a name="examples"></a>Exempel
 
-- [Logga Analytics-fråga exempel](examples.md) innehåller exempel på frågor med Log Analytics-data.
+- [Azure Monitor log-fråga exempel](examples.md) innehåller exempel på frågor med hjälp av Azure Monitor-loggdata.
 
 
 
 ## <a name="lessons"></a>Lektioner
 
-- [Arbeta med strängar i Log Analytics-frågor](string-operations.md) beskriver hur du arbetar med.
-- [Arbeta med datum-tid-värdena i Log Analytics-frågor](datetime-operations.md) beskriver hur du arbetar med datum och tid. 
-- [Aggregeringar i Log Analytics-frågor](aggregations.md) och [avancerade aggregeringar i Log Analytics-frågor](advanced-aggregations.md) beskrivs hur du sammanställer och sammanfattar data.
-- [Kopplingar i Log Analytics-frågor](joins.md) beskriver hur du ansluter till data från flera tabeller.
-- [Arbeta med JSON och datastrukturer i Log Analytics-frågor](json-data-structures.md) beskriver hur du parsa json-data.
-- [Skriva avancerade frågor i Log Analytics](advanced-query-writing.md) beskrivs strategier för att skapa komplexa frågor och återanvända kod.
-- [Skapar diagram och diagram från Log Analytics-frågor](charts.md) beskriver hur du visualisera data från en fråga.
+- [Arbeta med strängar i Azure Monitor loggfrågor](string-operations.md) beskriver hur du arbetar med.
+- [Arbeta med datum-tid-värdena i Azure Monitor loggfrågor](datetime-operations.md) beskriver hur du arbetar med datum och tid. 
+- [Aggregeringar i Azure Monitor logga frågor](aggregations.md) och [avancerade aggregeringar i Azure Monitor loggfrågor](advanced-aggregations.md) beskrivs hur du sammanställer och sammanfattar data.
+- [Kopplingar i Azure Monitor loggfrågor](joins.md) beskriver hur du ansluter till data från flera tabeller.
+- [Arbeta med JSON och datastrukturer i Azure Monitor loggfrågor](json-data-structures.md) beskriver hur du parsa json-data.
+- [Skriva avancerade logga frågor i Azure Monitor](advanced-query-writing.md) beskrivs strategier för att skapa komplexa frågor och återanvända kod.
+- [Skapar diagram och diagram från Azure Monitor loggfrågor](charts.md) beskriver hur du visualisera data från en loggfråga.
 
 ## <a name="cheatsheets"></a>Översiktsblad
 
--  [SQL till Log Analytics Lathund till frågespråket](sql-cheatsheet.md) hjälper användare som redan är bekant med SQL.
--  [Splunk till Log Analytics Lathund till frågespråket](sql-cheatsheet.md) hjälper användare som redan är bekant med Splunk.
+-  [SQL Azure Monitor log-frågan](sql-cheatsheet.md) hjälper användare som redan är bekant med SQL.
+-  [Splunk till Azure Monitor loggfråga](sql-cheatsheet.md) hjälper användare som redan är bekant med Splunk.
  
 ## <a name="next-steps"></a>Nästa steg
 

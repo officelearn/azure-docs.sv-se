@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: cf86fafc1fcb0ffd6513abc9d02da16d1f00f22b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: MT
+ms.openlocfilehash: 45905b5180ac248394e52b1d03a034acc47e8dbc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978967"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993604"
 ---
 # <a name="azure-stack-1901-update"></a>Uppdatering av Azure Stack 1901
 
@@ -68,6 +68,35 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 Den här uppdateringen innehåller följande nya funktioner och förbättringar för Azure Stack:
 
 - Hanterade avbildningar på Azure Stack-Aktivera disk du att skapa en hanterad avbildning-objekt på en generaliserad virtuell dator (både ohanterade och hanterade) som kan bara skapa hanterade virtuella datorer framöver. Mer information finns i [Azure Stack Managed Disks](user/azure-stack-managed-disk-considerations.md#managed-images).
+
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         Felkorrigering – `Import-AzureRmContext` rekonstrukci sparade token korrekt.  
+   * **AzureRm.Resources**  
+         Felkorrigering – `Get-AzureRmResource` till fråga skiftläge insensitively efter resurstyp.  
+   * **Azure.Storage**  
+         Insamling av AzureRm-modulen innehåller nu stöd för redan publicerade versionen 4.5.0 den **api-versionen 2017-07-29**.  
+   * **AzureRm.Storage**  
+         Insamling av AzureRm-modulen innehåller nu stöd för redan publicerade versionen 5.0.4 den **api-versionen 2017-10-01**.  
+   * **AzureRm.Compute**  
+         Enkel parameter har lagts till som anger i `New-AzureRMVM` och `NewAzureRMVMSS`, `-ImageName` parametern har stöd för att ange användare avbildningar.  
+   * **AzureRm.Insights**  
+         Insamling av AzureRm-modulen innehåller nu stöd för redan publicerade versionen 5.1.5 den **api-versionen 2018-01-01** för mått, definitioner av mätvärden för resurstyper.
+
+- **AzureStack 1.7.0** detta en viktig ändring versionen. Information om de senaste ändringarna i https://aka.ms/azspshmigration170
+   * **Azs.Backup.Admin modul**  
+         Icke-bakåtkompatibel ändring: Backup ändras till certifikatsbaserad Krypteringsläge. Stöd för symmetriska nycklar är inaktuellt.  
+   * **Azs.Fabric.Admin modul**  
+         `Get-AzsInfrastructureVolume` är inaktuell. Använd den nya cmdleten `Get-AzsVolume`.  
+         `Get-AzsStorageSystem` är inaktuell.  Använd cmdleten nya nya `Get-AzsStorageSubSystem`.  
+         `Get-AzsStoragePool` är inaktuell. Den `StorageSubSystem` objektet innehåller egenskapen kapacitet.  
+   * **Azs.Compute.Admin Module**  
+         Felkorrigering – `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Anropa `ConvertTo-PlatformImageObject` endast i rätt väg.  
+         BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Anropa ConvertTo-VmExtensionObject endast i rätt väg.  
+   * **Azs.Storage.Admin Module**  
+         Felkorrigering – nya lagringskvoten använder standardvärdena om inget anges.
+
+Referens för de uppdaterade modulerna finns [Azure Stack-modulreferens](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
 
 ## <a name="fixed-issues"></a>Åtgärdade problem
 

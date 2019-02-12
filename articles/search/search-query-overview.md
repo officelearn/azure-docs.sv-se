@@ -9,16 +9,29 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.custom: seodec2018
-ms.openlocfilehash: 9b682b9cd17c174363dcd04707a11075e30cc8e1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214835"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005054"
 ---
-# <a name="query-types-and-composition-in-azure-search"></a>Frågetyper och sammansättning i Azure Search
+# <a name="how-to-compose-a-query-in-azure-search"></a>Hur du skriver en fråga i Azure Search
 
-I Azure Search är en fråga en fullständig specifikation av en fram och åter igen. Parametrar ger matchningsvillkor för att söka efter dokument i ett index, köra instruktioner för motor- och direktiv för att forma svaret. Mer exakt, kan du ange vilka fält som omfattade, hur du söker efter, vilka fält som ska gå tillbaka till sorterings- eller filter och så vidare. Angivet används körs en fråga mot alla sökbara fält som en fullständig text search-åtgärd returnerar en inte har poängsatts resultatuppsättningen i valfri ordning.
+I Azure Search är en fråga en fullständig specifikation av en fram och åter igen. Parametrar på begäran ger matchningsvillkor för att söka efter dokument i ett index, köra instruktioner för motor- och direktiv för att forma svaret. 
+
+En fråga är en omfattande konstruktion som specificerar vilka fält som omfattade, hur du söker efter, vilka fält som ska gå tillbaka till sorterings- eller filter och så vidare. Angivet används körs en fråga mot alla sökbara fält som en fullständig text search-åtgärd returnerar en inte har poängsatts resultatuppsättningen i valfri ordning.
+
+### <a name="apis-and-tools-for-testing"></a>API: er och verktyg för testning
+
+I följande tabell visas de API: er och verktyg-baserade metoderna för att skicka frågor.
+
+| Metod | Beskrivning |
+|-------------|-------------|
+| [Sökutforskaren (portal)](search-explorer.md) | Innehåller ett sökfält och alternativ för val av index och api-versionen. Resultaten returneras som JSON-dokument. <br/>[Läs mer.](search-get-started-portal.md#query-index) | 
+| [Postman eller andra HTTP-testverktyg](search-fiddler.md) | Beskriver hur du ställer in en HTTP-frågehuvudet och brödtext för att skicka frågor till Azure Search.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient som kan användas för att fråga en Azure Search-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Söka efter dokument (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET eller POST-metoder i ett index med hjälp av frågeparametrar för ytterligare indata.  |
 
 ## <a name="a-first-look-at-query-requests"></a>En första titt på frågebegäranden
 
@@ -52,7 +65,7 @@ Om du vill köra den här frågan använder [Sök explorer och fastigheter demo 
 
 Du kan klistra in den här frågesträngen i sökfältet i Utforskaren: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-### <a name="how-query-operations-are-enabled-by-the-index"></a>Hur frågeåtgärder aktiveras av indexet
+## <a name="how-query-operations-are-enabled-by-the-index"></a>Hur frågeåtgärder aktiveras av indexet
 
 Design för indexet och fråga design är nära sammanlänkade i Azure Search. En grundläggande fakta veta direkt är att den *indexschema*, bestämmer vilken typ av fråga som du kan skapa med attribut på varje fält. 
 
@@ -148,17 +161,6 @@ Om du vill att Azure Search ska returnera resultaten ordnade efter ett annat vä
 
 ### <a name="hit-highlighting"></a>Träffmarkering
 I Azure Search betonar exakt den del av sökresultatet som matchar sökfrågan är ett enkelt sätt med hjälp av den **`highlight`**, **`highlightPreTag`**, och **`highlightPostTag`** parametrar. Du kan ange vilka *sökbara* fält vars matchade text ska framhävas samt ange de exakta strängtaggarna som ska läggas till i början och slutet av den matchade texten som Azure Search returnerar.
-
-## <a name="apis-and-tools-for-testing"></a>API: er och verktyg för testning
-
-I följande tabell visas de API: er och verktyg-baserade metoderna för att skicka frågor.
-
-| Metod | Beskrivning |
-|-------------|-------------|
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient som kan användas för att fråga en Azure Search-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Söka efter dokument (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET eller POST-metoder i ett index med hjälp av frågeparametrar för ytterligare indata.  |
-| [Fiddler eller Postman andra HTTP-testverktyg](search-fiddler.md) | Beskriver hur du ställer in en huvudet i begäran och brödtext för att skicka frågor till Azure Search.  |
-| [Sökutforskaren i Azure-portalen](search-explorer.md) | Innehåller ett sökfält och alternativ för val av index och api-versionen. Resultaten returneras som JSON-dokument. <br/>[Läs mer.](search-get-started-portal.md#query-index) | 
 
 ## <a name="see-also"></a>Se också
 

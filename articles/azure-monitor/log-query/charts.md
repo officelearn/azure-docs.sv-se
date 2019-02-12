@@ -1,6 +1,6 @@
 ---
-title: Skapar diagram och diagram från Azure Log Analytics-frågor | Microsoft Docs
-description: Beskriver olika visualiseringar i Azure Log Analytics för att visa dina data på olika sätt.
+title: Skapar diagram och diagram från Azure Monitor loggfrågor | Microsoft Docs
+description: Beskriver olika visualiseringar i Azure Monitor för att visa dina loggdata på olika sätt.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 049e50f5800194c4126003f7e5ff7ae60b3de768
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186233"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993009"
 ---
-# <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Skapar diagram och diagram från Log Analytics-frågor
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Skapar diagram och diagram från Azure Monitor log-frågor
 
 > [!NOTE]
-> Bör du genomföra [avancerade aggregeringar i Log Analytics-frågor](advanced-aggregations.md) innan du slutför den här lektionen.
+> Bör du genomföra [avancerade aggregeringar i Azure Monitor loggfrågor](advanced-aggregations.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Den här artikeln beskrivs olika visualiseringar i Azure Log Analytics för att visa dina data på olika sätt.
+Den här artikeln beskrivs olika visualiseringar i Azure Monitor för att visa dina loggdata på olika sätt.
 
 ## <a name="charting-the-results"></a>Diagram resultaten
 Starta genom att granska hur många datorer som finns under den senaste timmen per operativsystem:
@@ -93,7 +93,7 @@ Du kan växla mellan genom att välja listrutan med kolumnnamnet.
 ![Stapeldiagram AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda Log Analytics-frågespråket:
+Se andra lektioner för att använda den [Datautforskaren frågespråk](/azure/kusto/query/) logga data med Azure Monitor:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)

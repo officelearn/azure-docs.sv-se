@@ -4,7 +4,7 @@ description: Mer information om hur till licensiering Microsoft® Smooth Streami
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: xpouyat
-ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243904"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000088"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licensiering Microsoft® jämn direktuppspelning Klientportningskit
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licensiering Microsoft® jämn direktuppspelning Klientportningskit 
 ## <a name="overview"></a>Översikt
 Microsoft Smooth Streaming-klienten porta Kit (**SSPK** för kort) är en Smooth Streaming-klientimplementeringen som är optimerad för att hjälpa embedded enhetstillverkare, kabel och mobila operatörer, innehåll tjänstleverantörer, luren tillverkare, oberoende programvaruleverantörer (ISV), och lösningsleverantörer skapa produkter och tjänster för direktuppspelning med anpassningsbar innehåll i Smooth Streaming-format. SSPK är en enhet och plattformsoberoende implementering av Smooth Streaming-klient som kan överföras av licenstagaren till alla enheter och plattformar. 
 
@@ -78,14 +78,14 @@ Den [SSPK Distribution portal](https://microsoft.sharepoint.com/teams/SSPKDOWNLO
 Tiden och slutlig SSPK licenstagare kan skicka in tekniska frågor till [ smoothpk@microsoft.com ](mailto:smoothpk@microsoft.com).
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft Smooth Streaming-klient tillfälliga produkten avtal licenstagare
-* Adroit företag lösningar, Inc
+* Adroit Business Solutions, Inc
 * Avancerade Digital sändning SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret verksamma ämnet
 * Albis Technologies Ltd.
 * Alticast Corporation
-* Amazon digitala tjänster, Inc.
-* Arion teknik, Inc.
-* AVC Multimedia programvara Co., Ltd.
+* Amazon Digital Services, Inc.
+* Arion Technology, Inc.
+* AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
 * EchoStar köpa Corporation
 * Enseo, Inc.
@@ -94,19 +94,19 @@ Tiden och slutlig SSPK licenstagare kan skicka in tekniska frågor till [ smooth
 * Infomir GMBH
 * Irdeto USA Inc.
 * iWEDIA S.A. 
-* Liberty globala tjänster BV
+* Liberty Global Services BV
 * MediaTek Inc.
 * MStar Co, Ltd
-* NINTENDO Co., Ltd.
+* Nintendo Co., Ltd.
 * OpenTV, Inc.
 * T.ex Digital begränsad
-* Av Changhong Electric Co., Ltd.
+* Sichuan Changhong Electric Co., Ltd
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL teknik (Huizhou) för Electronics Co., Ltd.
+* TCL Technology Electronics (Huizhou) Co., Ltd.
 * Översta Victory investeringar, Ltd.
-* Vestel Elektronik Sanayi stött Ticaret verksamma ämnet
+* Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
 
@@ -114,44 +114,44 @@ Tiden och slutlig SSPK licenstagare kan skicka in tekniska frågor till [ smooth
 * Avancerade Digital sändning SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret verksamma ämnet
 * Albis Technologies Ltd.
-* Amazon digitala tjänster, Inc.
-* AmTRAN teknik Co., Ltd.
+* Amazon Digital Services, Inc.
+* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Arion teknik, Inc.
+* Arion Technology, Inc.
 * ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
 * Brittiska Sky Broadcasting begränsad
-* CastPal teknik Inc., Shenzhen
+* CastPal Technology Inc., Shenzhen
 * Compal Electronics, Inc.
-* Dongguan Digital AV teknik Corp., Ltd.
+* Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar köpa Corporation
 * Enseo, Inc.
 * Filmflex filmer begränsad
 * Fluendo S.A.
-* Gibson innovationer begränsad
+* Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co., Ltd.
-* Hon Hai Precision bransch Co., Ltd.
+* Homecast Co., Ltd
+* Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
-* NINTENDO Co., Ltd.
+* Nintendo Co., Ltd.
 * Orange SA
 * T.ex Digital begränsad
-* Sagemcom bredband SAS
-* Shenzhen Coship Electronics CO., Ltd.
-* Shenzhen Jiuzhou Electric Co., Ltd.
-* Shenzhen Skyworth Digital teknik Co., Ltd.
-* Av Changhong Electric Co., Ltd.
-* Skardin industriella Corp.
+* Sagemcom Broadband SAS
+* Shenzhen Coship Electronics CO., LTD
+* Shenzhen Jiuzhou Electric Co., Ltd
+* Shenzhen Skyworth Digital Technology Co., Ltd
+* Sichuan Changhong Electric Co., Ltd.
+* Skardin Industrial Corp.
 * Sky Deutschland Fernsehen GmbH & Co. KG
 * SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
 * Begränsad TCL utländskt nummer marknadsföring (Offshore kommersiell Macao)
-* SAS-Technicolor leverans teknik
-* Tongfang globala Ltd.
+* Technicolor Delivery Technologies, SAS
+* Tongfang Global Ltd.
 * Översta Victory investeringar, Ltd.
 * Toshiba livsstil produkter och tjänster Corporation
 * Universal Media Corporation /Slovakia/ s.r.o.

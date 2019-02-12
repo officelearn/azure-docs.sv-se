@@ -7,14 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: 137d8e1c1477d5b9c88cecc39316d62a79a4cab8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873936"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997387"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Så här skyddar du DNS-zoner och poster
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 DNS-zoner och poster är viktiga resurser. Tar bort en DNS-zon eller bara en enda DNS-post kan resultera i ett totalt tjänstavbrott.  Det är därför viktigt att kritiska DNS-zoner och poster skyddas mot obehöriga eller oavsiktliga ändringar.
 
@@ -38,7 +40,7 @@ Behörigheter kan också vara [beviljas med Azure PowerShell](../role-based-acce
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
 Motsvarande kommando är också [tillgängliga via Azure CLI](../role-based-access-control/role-assignments-cli.md):
@@ -62,7 +64,7 @@ Behörigheter kan också vara [beviljas med Azure PowerShell](../role-based-acce
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
 Motsvarande kommando är också [tillgängliga via Azure CLI](../role-based-access-control/role-assignments-cli.md):
@@ -84,7 +86,7 @@ Vi kan gå ett steg längre. Överväg att e-administratören för Contoso Corpo
 
 ```azurepowershell
 # Grant permissions to a specific record set
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
 Motsvarande kommando är också [tillgängliga via Azure CLI](../role-based-access-control/role-assignments-cli.md):
@@ -140,7 +142,7 @@ Anpassade Rolldefinitioner kan för närvarande inte definieras via Azure portal
 
 ```azurepowershell
 # Create new role definition based on input file
-New-AzureRmRoleDefinition -InputFile <file path>
+New-AzRoleDefinition -InputFile <file path>
 ```
 
 Det kan även skapas via Azure CLI:
@@ -172,7 +174,7 @@ Zon på servernivå resource Lås kan även skapas via Azure PowerShell:
 
 ```azurepowershell
 # Lock a DNS zone
-New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
+New-AzResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
 ```
 
 Konfigurera Azure resurslås stöds inte för närvarande via Azure CLI.
@@ -188,7 +190,7 @@ Uppsättning av poster på resurslås för närvarande kan bara konfigureras med
 
 ```azurepowershell
 # Lock a DNS record set
-New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
 ```
 
 ### <a name="protecting-against-zone-deletion"></a>Skydd mot borttagning av zon
@@ -203,7 +205,7 @@ Följande PowerShell-kommando skapar ett CanNotDelete-Lås mot SOA-posten för d
 
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Ett annat sätt att förhindra oavsiktlig zon borttagning är genom att använda en anpassad roll så operatorn och tjänstkonton som används för att hantera zonerna har inte ta bort behörigheter för zonen. Du kan framtvinga en tvåstegsverifiering borttagning, första beviljad zon ta bort behörigheter (vid zon omfattning att förhindra att ta bort zonen fel) och andra för att ta bort zonen när du behöver ta bort en zon.

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241160"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993885"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Metodtips för infrastruktur Backup-tjänsten
 
@@ -43,9 +43,18 @@ Universal Naming Convention (UNC)-sträng för sökvägen måste använda ett fu
 
 ### <a name="encryption"></a>Kryptering
 
+#### <a name="version-1901-and-newer"></a>Version 1901 och nyare
+
+Krypteringscertifikatet används för att kryptera säkerhetskopierade data som exporteras till extern lagring. Certifikatet kan vara ett självsignerat certifikat eftersom certifikatet används endast att transportera nycklar. New-SelfSignedCertificate finns mer information om hur du skapar ett certifikat.  
+Nyckeln måste lagras på en säker plats (till exempel global Azure Key Vault-certifikat). CER-format för certifikatet används för att kryptera data. PFX-format måste användas vid distribution av återställning av Azure Stack för att dekryptera säkerhetskopierade data.
+
+![Lagrade certifikatet på en säker plats.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>1811 och äldre
+
 Krypteringsnyckeln används för att kryptera säkerhetskopierade data som exporteras till extern lagring. Nyckeln genereras som en del av [aktiverar säkerhetskopiering för Azure Stack med PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
-Nyckeln måste lagras på en säker plats (till exempel offentliga Azure Key Vault-hemlighet). Den här nyckeln måste användas under omdistribution av Azure Stack. 
+Nyckeln måste lagras på en säker plats (till exempel global Azure Key Vault-hemlighet). Den här nyckeln måste användas under omdistribution av Azure Stack. 
 
 ![Lagrade nyckeln en säker plats.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -74,7 +83,7 @@ Region: nyc
 
 MASBackup mappen är där Azure Stack lagrar säkerhetskopierade data. Du bör inte använda den här mappen för att lagra dina egna data. OEM bör inte använda den här mappen för att lagra alla säkerhetskopierade data antingen. 
 
-Bör du också lagra säkerhetskopierade data för komponenter under mappen region. Varje nätverksväxlar, maskinvara livscykel värd (HLH) och så vidare kan lagras i en egen undermapp. Exempel:
+Bör du också lagra säkerhetskopierade data för komponenter under mappen region. Varje nätverksväxlar, maskinvara livscykel värddator (HLH) och så vidare kan lagras i en egen undermapp. Exempel:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -95,6 +104,6 @@ Följande aviseringar som stöds av systemet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska referensmaterial för den [infrastruktur Backup-tjänsten](azure-stack-backup-reference.md).
+Granska referensmaterial för den [infrastruktur Backup-tjänsten](azure-stack-backup-reference.md)
 
-Aktivera den [infrastruktur säkerhetskopieringstjänsten](azure-stack-backup-enable-backup-console.md).
+Aktivera den [säkerhetskopieringstjänsten för infrastruktur](azure-stack-backup-enable-backup-console.md)

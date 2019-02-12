@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856391"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005003"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor för virtuella datorer (förhandsversion)?
 
@@ -41,7 +41,7 @@ Funktionerna är uppdelade i tre perspektiv:
 >[!NOTE]
 >För närvarande kan erbjuds funktionen hälsotillstånd endast för virtuella Azure-datorer och VM-skalningsuppsättning uppsättningar. Funktioner för prestanda och kartan har stöd för både virtuella Azure-datorer och virtuella datorer som finns i din miljö eller annan molnleverantör.
 
-Integrering med Log Analytics ger kraftfulla aggregering och filtrering och den kan analysera datatrender över tid. Sådana omfattande arbetsbelastningsövervakning uppnås inte med Azure Monitor, Service Map eller Log Analytics enbart.  
+Integrering med Azure Monitor-loggarna ger kraftfulla aggregering och filtrering och den kan analysera datatrender över tid. Sådana omfattande arbetsbelastningsövervakning uppnås inte med Azure Monitor eller Service Map enbart.  
 
 Du kan visa dessa data i en enda virtuell dator från den virtuella datorn direkt eller du kan använda Azure Monitor för att leverera en sammansatt vy av dina virtuella datorer. Den här vyn är baserad på varje funktion perspektiv:
 

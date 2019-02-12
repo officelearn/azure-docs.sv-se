@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159748"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005462"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Media Services operations REST API-översikt
+# <a name="media-services-operations-rest-api-overview"></a>Media Services operations REST API-översikt 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 Den **Media Services Operations REST** API används för att skapa jobb, tillgångar, Live Channels och andra resurser i ett Media Services-konto. Mer information finns i [Media Services Operations REST API-referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
@@ -55,7 +55,7 @@ Följande gäller när du använder REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standard HTTP-begäranshuvuden som stöds av Media Services
 Det finns en uppsättning nödvändiga rubriker som du måste inkludera i din begäran för varje anrop till Media Services, och också en uppsättning valfria huvuden kan du inkludera. I tabellen nedan visas rubrikerna som krävs:
 
-| Huvud | Typ | Värde |
+| Huvud | Type | Värde |
 | --- | --- | --- |
 | Auktorisering |Ägar |Ägar är de enda godkända auktoriseringsmekanism. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (eller den senaste versionen)|
@@ -69,24 +69,24 @@ Det finns en uppsättning nödvändiga rubriker som du måste inkludera i din be
 
 Följande är en uppsättning valfria rubriker:
 
-| Huvud | Typ | Värde |
+| Huvud | Type | Värde |
 | --- | --- | --- |
 | Date |RFC 1123 datum |Tidsstämpel för begäran |
-| Godkänn |Innehållstyp |Den begärda innehållstypen för svar som följande:<p> -application/json; odata = verbose<p> -application/atom + xml<p> Svaren kan ha en annan innehållstyp, till exempel en blob-fetch där ett lyckat svar innehåller blob-dataströmmen som skickas. |
-| Acceptera-kodning |Gzip, deflate |GZIP och DEFLATE kodning, när så är tillämpligt. Obs! Media Services kan ignorera den här rubriken och returnera okomprimerade data för stora resurser. |
-| Acceptera språk |”SV”, ”es” och så vidare. |Anger önskat språk för svaret. |
-| Acceptera teckenuppsättningen |Teckenuppsättningen typen like ”UTF-8” |Standardvärdet är UTF-8. |
-| HTTP-X-metod |HTTP-metod |Tillåter klienter eller brandväggar som inte har stöd för HTTP-metoder som PUT- eller DELETE för att använda dessa metoder, dirigering via en GET-anrop. |
+| Godkänn |Innehållstyp |Den begärda innehållstypen för svar som följande:<p> -application/json;odata=verbose<p> -application/atom + xml<p> Svaren kan ha en annan innehållstyp, till exempel en blob-fetch där ett lyckat svar innehåller blob-dataströmmen som skickas. |
+| Accept-Encoding |Gzip, deflate |GZIP och DEFLATE kodning, när så är tillämpligt. Obs! Media Services kan ignorera den här rubriken och returnera okomprimerade data för stora resurser. |
+| Accept-Language |”SV”, ”es” och så vidare. |Anger önskat språk för svaret. |
+| Accept-Charset |Teckenuppsättningen typen like ”UTF-8” |Standardvärdet är UTF-8. |
+| X-HTTP-Method |HTTP-metod |Tillåter klienter eller brandväggar som inte har stöd för HTTP-metoder som PUT- eller DELETE för att använda dessa metoder, dirigering via en GET-anrop. |
 | Content-Type |Innehållstyp |Innehållstypen för begärandetexten i PUT eller POST-begäranden. |
-| Client-request-id |Sträng |En anropare definierat värde som identifierar den angivna förfrågan. Om det här värdet inkluderas i svarsmeddelandet som ett sätt att matcha begäran. <p><p>**Viktigt**<p>Värden ska vara begränsad till 2096b (2k). |
+| client-request-id |String |En anropare definierat värde som identifierar den angivna förfrågan. Om det här värdet inkluderas i svarsmeddelandet som ett sätt att matcha begäran. <p><p>**Viktigt**<p>Värden ska vara begränsad till 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>HTTP-svarshuvuden stöds av Media Services
 Följande är en uppsättning rubriker som kan returneras till dig beroende på den resurs som du begär och du försöker att utföra åtgärden.
 
-| Huvud | Typ | Värde |
+| Huvud | Type | Värde |
 | --- | --- | --- |
-| id för förfrågan |Sträng |En unik identifierare för den aktuella åtgärden på tjänsten som genereras. |
-| Client-request-id |Sträng |En identifierare som angetts av anroparen i den ursprungliga begäran om sådan finns. |
+| request-id |String |En unik identifierare för den aktuella åtgärden på tjänsten som genereras. |
+| client-request-id |String |En identifierare som angetts av anroparen i den ursprungliga begäran om sådan finns. |
 | Date |RFC 1123 datum |Datum och tid då begäran bearbetades. |
 | Content-Type |Varierar |Innehållstypen för svarstexten. |
 | Content-Encoding |Varierar |Gzip eller deflate efter behov. |

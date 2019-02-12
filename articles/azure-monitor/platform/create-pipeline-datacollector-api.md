@@ -1,6 +1,6 @@
 ---
-title: Skapa en datapipeline med Azure Log Analytics Data Collector API | Microsoft Docs
-description: Du kan använda Log Analytics HTTP Data Collector API för att lägga till POST JSON-data i Log Analytics-databasen från alla klienter som kan anropa REST-API. Den här artikeln beskriver hur du överför data som lagras i filer på ett automatiserat sätt.
+title: Skapa en datapipeline med Azure Azure Monitor Data Collector API | Microsoft Docs
+description: Du kan använda Azure Monitor HTTP Data Collector API för att lägga till POST JSON-data till Log Analytics-arbetsytan från valfri klient som kan anropa REST-API. Den här artikeln beskriver hur du överför data som lagras i filer på ett automatiserat sätt.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 94d026ce1d055d18a615919df6ed5021b15bf108
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186080"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003864"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Skapa en datapipeline med Data Collector API
 
-Den [Log Analytics Data Collector API](../../azure-monitor/platform/data-collector-api.md) kan du importera anpassade data till Log Analytics. De enda kraven är att data att JSON-formaterade och dela upp till 30 MB eller mindre segment. Det här är en helt flexibla mekanism som kan anslutas till på många sätt: från data som skickas direkt från ditt program, till oneoff adhoc överför. Den här artikeln beskriver vissa startpunkter för ett vanligt scenario: behovet av att ladda upp data som lagras i filer på basis av regelbundna, automatiserade. Medan pipelinen visas här kan inte de flesta högpresterande eller annars optimerade, som den är avsedd att fungera som en startpunkt för att skapa en pipeline för produktion på egen hand.
+Den [Azure Monitor Data Collector API](data-collector-api.md) kan du importera den anpassade loggdata till en Log Analytics-arbetsyta i Azure Monitor. De enda kraven är att data att JSON-formaterade och dela upp till 30 MB eller mindre segment. Det här är en helt flexibla mekanism som kan anslutas till på många sätt: från data som skickas direkt från ditt program, till oneoff adhoc överför. Den här artikeln beskriver vissa startpunkter för ett vanligt scenario: behovet av att ladda upp data som lagras i filer på basis av regelbundna, automatiserade. Medan pipelinen visas här kan inte de flesta högpresterande eller annars optimerade, som den är avsedd att fungera som en startpunkt för att skapa en pipeline för produktion på egen hand.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Exempel-problem
 Under resten av den här artikeln ska vi granska data om sidvisningar i Application Insights. I vår hypotetiska scenario som vi vill att korrelera geografisk information som samlas in som standard av Application Insights SDK till anpassade data som innehåller befolkningen i alla länder i världen, med målet att identifiera där ska vi ägna mest pengar. 
@@ -42,13 +44,13 @@ Den här artikeln inte beskriver hur du skapar data eller [överföra den till e
 
 1. En process som identifierar att nya data har överförts.  Vårt exempel använder en [Azure Logic App](../../logic-apps/logic-apps-overview.md), som har en utlösare för att identifiera nya data som överförs till en blob.
 
-2. En processor läser dessa nya data och konverterar den till JSON, det format som krävs av Log Analytics.  I det här exemplet använder vi en [Azure Function](../../azure-functions/functions-overview.md) som ett enkelt, kostnadseffektivt sätt att köra vår kod för bearbetning. Funktionen har startats av samma Logikapp som vi använde för att identifiera en nya data.
+2. En processor läser dessa nya data och konverterar den till JSON, formatet som krävs av Azure Monitor i det här exemplet, använder vi en [Azure Function](../../azure-functions/functions-overview.md) som ett enkelt, kostnadseffektivt sätt att köra vår kod för bearbetning. Funktionen har startats av samma Logikapp som vi använde för att identifiera en nya data.
 
-3. Slutligen när JSON-objekt är tillgängliga kan skickas till Log Analytics. Samma Logikappen skickar data till Log Analytics med hjälp av den inbyggda i datainsamlare Log Analytics-aktivitet.
+3. Slutligen när JSON-objekt är tillgängliga kan skickas till Azure Monitor. Samma Logikappen skickar data till Azure Monitor med den inbyggda datainsamlare Log Analytics-aktivitet.
 
 Även om detaljerade installationen av blob-lagring, Logikapp eller ett Azure-funktion inte beskrivs i den här artikeln, finns detaljerade instruktioner på den specifika produkter sidor.
 
-För att övervaka denna pipeline, vi kan använda Application Insights för att övervaka vårt Azure-funktion [information här](../../azure-functions/functions-monitoring.md), och Log Analytics för att övervaka vårt Logikapp [information här](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+För att övervaka denna pipeline, vi kan använda Application Insights för att övervaka vårt Azure-funktion [information här](../../azure-functions/functions-monitoring.md), och Azure Monitor för att övervaka vårt Logikapp [information här](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
 
 ## <a name="setting-up-the-pipeline"></a>Att konfigurera pipelinen
 Om du vill ange pipelinen, se till att du har din blob-behållare som har skapats och konfigurerats. På samma sätt kan du se till att där du vill skicka data till Log Analytics-arbetsytan har skapats.
@@ -136,10 +138,10 @@ Nu måste vi gå tillbaka och ändra Logikappen vi igång med att skapa tidigare
 ![Logic Apps arbetsflöde komplett exempel](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
 ## <a name="testing-the-pipeline"></a>Testa pipeline
-Nu kan du ladda upp en ny fil till blob som tidigare har konfigurerat och har den övervakas av din Logikapp. Du bör snart, finns i en ny instans av Logikappen sätter igång, anropa till din Azure-funktion och sedan skicka data till Log Analytics. 
+Nu kan du ladda upp en ny fil till blob som tidigare har konfigurerat och har den övervakas av din Logikapp. Du bör snart, finns i en ny instans av Logikappen sätter igång, kalla in till din Azure-funktion och sedan skicka data till Azure Monitor. 
 
 >[!NOTE]
->Det kan ta upp till 30 minuter innan data visas i Log Analytics första gången du skickar en ny datatyp.
+>Det kan ta upp till 30 minuter innan data visas i Azure Monitor första gången du skickar en ny datatyp.
 
 
 ## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Korrelering med andra data i Log Analytics och Application Insights
@@ -163,7 +165,7 @@ Den här artikeln visas en fungerande prototyp, logiken bakom som kan tillämpas
 
 * Lägg till felhantering och logik för omprövning i din Logikapp och fungerar.
 * Lägg till logik för att säkerställa att 30MB/enskild Log Analytics inmatning API-anrop gränsen inte överskrids. Dela upp data i mindre segment om det behövs.
-* Konfigurera en princip för Rensa på blob storage. När har skickats till Log Analytics, såvida inte du vill hålla rådata som är tillgängliga för arkivering, finns det ingen anledning att fortsätta lagring av den. 
+* Konfigurera en princip för Rensa på blob storage. När du har skickats till Log Analytics-arbetsytan om du vill hålla rådata som är tillgängliga för arkivering, finns det ingen anledning att fortsätta lagring av den. 
 * Kontrollera övervakning är aktiverad över fullständig pipeline, lägger till punkter för spårning och aviseringar efter behov.
 * Utnyttja källkontroll för att hantera koden för din funktion och en Logikapp.
 * Se till att en princip för hantering av rätt ändra följs, så att om schemat ändras funktionen och Logic Apps ändras.
@@ -171,4 +173,4 @@ Den här artikeln visas en fungerande prototyp, logiken bakom som kan tillämpas
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om den [Data Collector API](../../azure-monitor/platform/data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.
+Läs mer om den [Data Collector API](data-collector-api.md) att skriva data till Log Analytics-arbetsytan från valfri REST API-klient.

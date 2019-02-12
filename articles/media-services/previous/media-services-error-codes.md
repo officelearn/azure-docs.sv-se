@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d485195b868b6cbca587c736ac02663491742cdb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d700423ea966cab3b0f546d21d4d2f5ca5208971
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236882"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990521"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services-felkoder
 När du använder Microsoft Azure Media Services får du HTTP-felkoder från tjänsten beroende på problem, till exempel autentiseringstoken upphör att gälla för åtgärder som inte stöds i Media Services. Följande är en lista över **HTTP-felkoder** som kan returneras av Media Services och möjliga orsaker för dessa.  

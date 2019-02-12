@@ -3,21 +3,23 @@ title: Kom igång med Azure DevTest Labs
 description: Den här artikeln innehåller primära scnearios med Azure DevTest Labs och två allmänna sökvägar för att börja använda tjänsten i din organisation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: spelluru
+author: christianreddington
 manager: femila
+editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 02/11/2019
+ms.author: chredd
+ms.reviewer: anthdela,juselph
+ms.openlocfilehash: dfb73778a9d30ba50e69bff6414381235ad8b1d1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876544"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005241"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Kom igång med Azure DevTest Labs
 När du vill utforska DevTest Labs, det finns två allmänna framåt – Proof of Concept vs skala distributionen. 
@@ -62,4 +64,4 @@ Ett labb i Azure DevTest Labs fungerar som en bra behållare för tillfälliga a
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se nästa artikel i den här serien: [skala upp distributionen DevTest Labs](devtest-lab-guidance-scale.md)
+Se nästa artikel i den här serien: [Skala upp distributionen DevTest Labs](devtest-lab-guidance-scale.md)

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 208526b745a117c9ee14bab21f8a5ce05accd1fe
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382228"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997194"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt - Docker
 
@@ -54,6 +54,8 @@ set PCS
 Kommandot visar de miljövariabler som anges av den **start.cmd** skript.
 
 Se till att Docker körs på den lokala datorn.
+> [!NOTE]
+> Docker måste köras [Linux-behållare](https://docs.docker.com/docker-for-windows/) om den körs på Windows.
 
 Mikrotjänster som körs i lokala Docker-behållare behöver åtkomst till Azure-molntjänster. Du kan testa internet-anslutning av din Docker-miljö med följande kommando för att pinga en internet-adress i en behållare:
 
@@ -66,6 +68,9 @@ Om du vill köra solution accelerator, navigera till den **services\\skript\\lok
 ```cmd/sh
 docker-compose up
 ```
+
+> [!NOTE] 
+> Se till att du [dela en lokal enhet](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) med Docker innan du kör `docker-compose up`.
 
 Första gången du kör det här kommandot hämtar Docker mikrotjänst-avbildningar från Docker hub att skapa behållare lokalt. På följande körningar kör Docker behållarna omedelbart.
 

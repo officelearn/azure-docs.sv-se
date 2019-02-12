@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885855"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002018"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -40,7 +40,9 @@ Här följer några av de saker som du kan göra med diagnostikloggar:
 
 * Sparar dem till en [ **Lagringskonto** ](../../azure-monitor/platform/archive-diagnostic-logs.md) för granskning eller manuell granskning. Du kan ange kvarhållning tid (i dagar) med **resursdiagnostikinställningar**.
 * [Stream att **Händelsehubbar** ](diagnostic-logs-stream-event-hubs.md) för inmatning av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
-* Analysera dem med [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md), där data skrivs direkt till Log Analytics och behöver inte först skriva data till lagring.  
+* Analysera dem med [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md), där data skrivs direkt till Azure Monitor och behöver inte först skriva data till lagring.  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Du kan använda ett lagringskonto eller Event Hubs-namnområde som inte är i samma prenumeration som det genererar loggar. Den användare som konfigurerar inställningen måste ha lämplig RBAC-åtkomst till båda prenumerationerna.
 
@@ -56,7 +58,7 @@ Du kan använda ett lagringskonto eller Event Hubs-namnområde som inte är i sa
 
 Resursdiagnostikloggar är konfigurerade med resursdiagnostikinställningar. Klient-diagnostikloggar är konfigurerade med en diagnostikinställning för klienten. **Diagnostikinställningar** för en kontroll av tjänsten:
 
-* Diagnostikloggar och mått mottagna (Storage-konto, Händelsehubbar och/eller Log Analytics).
+* Diagnostikloggar och mått mottagna (Storage-konto, Händelsehubbar och/eller Azure Monitor).
 * Vilka loggkategorier skickas och om måttdata skickas också.
 * Hur länge varje loggkategori ska behållas i ett lagringskonto
     - En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
@@ -235,5 +237,4 @@ Att lägga till en diagnostikinställning öppnar vyn diagnostikinställningar, 
 
 * [Stream resursdiagnostikloggar till **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
 * [Ändra resursdiagnostikinställningar med hjälp av Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/)
-* [Analysera loggar från Azure storage med Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [Analysera loggar från Azure storage med Azure Monitor](collect-azure-metrics-logs.md)

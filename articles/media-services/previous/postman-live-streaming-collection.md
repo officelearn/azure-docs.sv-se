@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6e931e8c3696b53724d7893100bb1749856f04f9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98c687b620aea484a4ced1385d7a2301db55ce79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976360"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998458"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations-legacy"></a>Importera en Postman-samling med Live Streaming åtgärder (äldre)
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importera en Postman-samling med Live Streaming-åtgärder 
 
 Den här artikeln innehåller en definition av den **Postman** samling som innehåller grupperade HTTP-begäranden anropet **Live Streaming** Azure Media Services REST API: er. Information om hur du konfigurerar **Postman** så att den kan användas för att anropa Media Services REST API: er, se [konfigurera Postman för Media Services REST API-anrop](media-rest-apis-with-postman.md) självstudien.
 

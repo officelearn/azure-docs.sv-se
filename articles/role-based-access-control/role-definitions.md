@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ecfcfd5026f310a617f81af42483c29d89385288
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700731"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991369"
 ---
 # <a name="understand-role-definitions"></a>Förstå rolldefinitioner
 
@@ -147,7 +147,7 @@ Storage Blob Data-deltagare (förhandsgranskning)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Eftersom Alice har ett jokertecken (`*`) åtgärden en prenumerationsomfånget ärver behörigheter ned för att aktivera henne att utföra alla hanteringsåtgärder. Alice kan dock utföra dataåtgärder. Exempel: som standard Alice kan inte läsa blobarna i en behållare, men hon kan läsa, skriva och ta bort behållare.
+Eftersom Alice har ett jokertecken (`*`) åtgärden en prenumerationsomfånget ärver behörigheter ned för att aktivera henne att utföra alla hanteringsåtgärder. Alice kan läsa, skriva och ta bort behållare. Alice kan inte utföra dataåtgärder utan att utföra ytterligare steg. Som standard kan till exempel Alice läsa blobarna i en behållare. Om du vill läsa blobarna måste Alice hämta åtkomstnycklar för lagring och använda dem för att komma åt blobarna.
 
 Bobs behörigheter är begränsade till bara den `Actions` och `DataActions` anges i den [Storage Blob Data-deltagare (förhandsgranskning)](built-in-roles.md#storage-blob-data-contributor-preview) roll. Baserat på vilken roll, kan Bob utföra både hantering och åtgärder. Till exempel Bob kan läsa, skriva och ta bort behållare i det angivna lagringskontot och han kan också läsa, skriva och ta bort blobar.
 

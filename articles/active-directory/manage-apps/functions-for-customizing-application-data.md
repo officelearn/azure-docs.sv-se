@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: c97fd915e9022171125c7c0f687413e433f82871
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d601425ee5641c1bb07c47dcc0f9a1d94ff3dc87
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983852"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990385"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -37,7 +37,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 * För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i strängen är måste den föregås symbolen omvänt snedstreck (\). Exempel: ”Företagsnamn: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lista över funktioner
-[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätt](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Växel](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
+[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätt](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Dela](#split) &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [växel](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Lägg till
@@ -128,7 +128,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 * När **oldValue** och **ersättningsvärde** tillhandahålls:
   
-  * Ersätter alla förekomster av **oldValue** i den **källa** med *ersättningsvärde**
+  * Ersätter alla förekomster av oldValue i källan med ersättningsvärde
 * När **oldValue** och **mall** tillhandahålls:
   
   * Ersätter alla förekomster av den **oldValue** i den **mall** med den **källa** värde
@@ -183,6 +183,19 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **[appRoleAssignments]** |Krävs |Sträng |**[appRoleAssignments]**  objekt. |
 
 - - -
+### <a name="split"></a>Delat
+**Funktionen:**<br> Dela (källa, avgränsare)
+
+**Beskrivning:**<br> Delar upp en sträng i en mulit enkelvärdesattribut matris med hjälp av tecknet angiven avgränsare.
+
+**Parametrar:**<br> 
+
+| Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
+| --- | --- | --- | --- |
+| **Källa** |Krävs |Sträng |**källan** värde att uppdatera. |
+| **delimiter** |Krävs |String |Anger vilket tecken som används för att dela upp strängen (exempel: ””,) |
+
+- - -
 ### <a name="stripspaces"></a>StripSpaces
 **Funktionen:**<br> StripSpaces(source)
 
@@ -219,7 +232,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
+| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
 | **kultur** |Valfri |String |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
 
 - - -
@@ -282,8 +295,18 @@ NormalizeDiacritics([givenName])
 * **INDATA** (givenName): "Zoë"
 * **OUTPUT**:  ”Zoe”
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Utdatadatum som en sträng i ett visst format
+### <a name="split-a-string-into-a-multi-valued-array"></a>Dela upp en sträng i en matris med flera värden
+Du behöver ta en kommaavgränsad lista med strängar och dela upp dem i en matris som kan anslutas till ett attribut med flera värden som Salesforce's PermissionSets attribut. I det här exemplet har en lista över behörighetsuppsättningar fyllts i extensionAttribute5 i Azure AD.
 
+**Uttryck:** <br>
+Dela ([extensionAttribute5] ””,)
+
+**Exempel indata/utdata:** <br>
+
+* **INDATA** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **UTDATA**: [”PermissionSetOne”, ”PermissionSetTwo”]
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Utdatadatum som en sträng i ett visst format
 Du vill skicka datum till ett SaaS-program i ett visst format. <br>
 Exempelvis kan du formatera datum för ServiceNow.
 
@@ -302,7 +325,6 @@ Du behöver definiera tidszonen för användaren baserat på delstatskod som lag
 Om delstatskod inte matchar någon av de fördefinierade alternativ, använder du standardvärdet ”Australien/Sydney”.
 
 **Uttryck:** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **Exempel indata/utdata:**
@@ -310,8 +332,19 @@ Om delstatskod inte matchar någon av de fördefinierade alternativ, använder d
 * **INDATA** (tillstånd): "QLD"
 * **OUTPUT**: ”Australien/Brisbane”
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Konvertera genererade userPrincipalName (UPN) värdet till gemener
+### <a name="replace-characters-using-a-regular-expression"></a>Ersätt tecken med ett reguljärt uttryck
+Du behöver hitta tecken som matchar ett reguljärt uttryck värde och ta bort dem.
 
+**Uttryck:** <br>
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**Exempel indata/utdata:**
+
+* **INPUT** (mailNickname: "john_doe72"
+* **OUTPUT**: "72"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Konvertera genererade userPrincipalName (UPN) värdet till gemener
 I exemplet nedan UPN-värdet genereras genom att sammanfoga källfälten PreferredFirstName och PreferredLastName och ToLower-funktionen fungerar på genererade strängen att konvertera alla tecken till gemener. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -323,7 +356,6 @@ I exemplet nedan UPN-värdet genereras genom att sammanfoga källfälten Preferr
 * **OUTPUT**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generera unikt värde för attributet userPrincipalName (UPN)
-
 Baserat på användarens förnamn, mellannamn och efternamn, måste du generera ett värde för UPN-attributet och Sök efter dess unikhet i målkatalogen AD innan tilldelas värdet till UPN-attributet.
 
 **Uttryck:** <br>
@@ -349,4 +381,3 @@ Baserat på användarens förnamn, mellannamn och efternamn, måste du generera 
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md)
 * [Kontoetableringsmeddelanden](user-provisioning.md)
 * [Lista över guider om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
-

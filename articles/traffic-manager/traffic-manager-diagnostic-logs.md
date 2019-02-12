@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: abdc50d6d3d27ab7611994089345a997afc72cae
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d4d4420e2d38b1418a08ad1ca51dd0f75f3fe7b9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082534"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001110"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Aktivera Diagnostisk loggning i Azure Traffic Manager
 
@@ -26,29 +26,31 @@ Diagnostikloggar för Azure Traffic Manager kan ge insikter i beteendet för Tra
 
 ## <a name="enable-diagnostic-logging"></a>Aktivera diagnostikloggning
 
-Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste den *AzureRM* PowerShell-modulen, 6.13.1 eller senare. Du kan köra `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också behöva köra `Login-AzureRmAccount` att logga in på Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste du Azure PowerShell-modulen 1.0.0 eller senare. Du kan köra `Get-Module -ListAvailable Az` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också behöva köra `Login-AzAccount` att logga in på Azure.
 
 1. **Hämta Traffic Manager-profilen:**
 
-    Om du vill aktivera Diagnostisk loggning, behöver du ID för en Traffic Manager-profil. Hämta Traffic Manager-profilen som du vill aktivera Diagnostisk loggning för med [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile). Utdata innehåller information för Traffic Manager-profil-ID.
+    Om du vill aktivera Diagnostisk loggning, behöver du ID för en Traffic Manager-profil. Hämta Traffic Manager-profilen som du vill aktivera Diagnostisk loggning för med [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). Utdata innehåller information för Traffic Manager-profil-ID.
 
     ```azurepowershell-interactive
-    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
 2. **Aktivera Diagnostisk loggning för Traffic Manager-profilen:**
 
-    Aktivera Diagnostisk loggning för Traffic Manager-profil med hjälp av ID som hämtades i föregående steg med [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). Följande kommando lagrar utförliga loggar för Traffic Manager-profilen till en angiven Azure Storage-konto. 
+    Aktivera Diagnostisk loggning för Traffic Manager-profil med hjälp av ID som hämtades i föregående steg med [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/set-azdiagnosticsetting?view=latest). Följande kommando lagrar utförliga loggar för Traffic Manager-profilen till en angiven Azure Storage-konto. 
 
       ```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Kontrollera inställningarna för diagnostik:**
 
-      Kontrollera diagnostikinställningar för Traffic Manager-profil med [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). Följande kommando visar de kategorier som har loggats för en resurs.
+      Kontrollera diagnostikinställningar för Traffic Manager-profil med [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/get-azdiagnosticsetting?view=latest). Följande kommando visar de kategorier som har loggats för en resurs.
 
      ```azurepowershell-interactive
-     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
       Kontrollera att alla logga kategorier som har associerats med Traffic Manager profilen resurs visas som aktiverat. Kontrollera också att lagringskontot är rätt inställd.
 
@@ -70,8 +72,8 @@ I följande tabell innehåller loggarna schema specifika till resursen i Azure T
 |||||
 |----|----|---|---|
 |**Fältnamn**|**Fälttyp**|**Definition**|**Exempel**|
-|EndpointName|Sträng|Namnet på Traffic Manager-slutpunkten vars hälsostatus registreras.|*myPrimaryEndpoint*|
-|Status|Sträng|Traffic Manager-slutpunkt som har avlästes hälsostatus. Status kan antingen vara **upp** eller **ned**.|**Upp**|
+|EndpointName|String|Namnet på Traffic Manager-slutpunkten vars hälsostatus registreras.|*myPrimaryEndpoint*|
+|Status|String|Traffic Manager-slutpunkt som har avlästes hälsostatus. Status kan antingen vara **upp** eller **ned**.|**Upp**|
 |||||
 
 ## <a name="next-steps"></a>Nästa steg

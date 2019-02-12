@@ -3,21 +3,23 @@ title: Styrning i Azure DevTest Labs-infrastruktur
 description: Den här artikeln innehåller riktlinjer för styrning i Azure DevTest Labs-infrastruktur.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: spelluru
+author: christianreddington
 manager: femila
+editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 4bab3413b3e3cfcf1972b6cf721120d95851f7cd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/11/2019
+ms.author: chredd
+ms.reviewer: anthdela,juselph
+ms.openlocfilehash: e0813fd1c543f883dfb4deee630be54bd7e383b9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498207"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994514"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Styrning av infrastruktur för Azure DevTest Labs - programmigreringen och integration
 När din miljö för utveckling/test lab har upprättats, måste du tänka på följande frågor:

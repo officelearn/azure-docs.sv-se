@@ -1,5 +1,5 @@
 ---
-title: Optimera din Active Directory-miljö med Azure Log Analytics | Microsoft Docs
+title: Optimera din Active Directory-miljö med Azure Monitor | Microsoft Docs
 description: Du kan använda Active Directory Health Check-lösningen för att utvärdera risker och bedöm hälsotillståndet i dina miljöer med regelbundna intervall.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193016"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999036"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimera din Active Directory-miljö med kontroll av Active Directory hälsotillstånd lösningen i Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimera din Active Directory-miljö med lösningen för kontroll av Active Directory Health i Azure Monitor
 
 ![AD-hälsokontroll symbol](./media/ad-assessment/ad-assessment-symbol.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Du kan använda Active Directory Health Check-lösningen för att utvärdera risker och bedöm hälsotillståndet i servermiljöer med regelbundna intervall. Den här artikeln hjälper dig att installera och använda lösningen så att du kan vidta åtgärder för potentiella problem.
 
@@ -40,22 +42,22 @@ När du har lagt till lösningen och en kontroll är slutförd, sammanfattande i
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Kontroll av Active Directory Health-lösning kräver en version som stöds av .NET Framework 4.5.2 eller ovan som installerats på alla datorer som har den Microsoft Monitoring Agent (MMA) installerat.  MMA-agenten används av System Center 2016 – Operations Manager och Operations Manager 2012 R2 och Log Analytics-tjänsten.
+* Kontroll av Active Directory Health-lösning kräver en version som stöds av .NET Framework 4.5.2 eller ovan som installerats på alla datorer som har den Microsoft Monitoring Agent (MMA) installerat.  MMA-agenten används av System Center 2016 – Operations Manager och Operations Manager 2012 R2 och Azure Monitor.
 * Lösningen har stöd för domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
 * En Log Analytics-arbetsyta för att lägga till Active Directory Health Check-lösningen från Azure marketplace i Azure-portalen.  Det krävs ingen ytterligare konfiguration.
 
   > [!NOTE]
-  > När du har lagt till lösningen, läggs filen AdvisorAssessment.exe till servrar med agenter. Konfigurationsdata läsa och sedan skickas till Log Analytics-tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data.
+  > När du har lagt till lösningen, läggs filen AdvisorAssessment.exe till servrar med agenter. Konfigurationsdata läsa och sedan skickas till Azure Monitor i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data.
   >
   >
 
-Om du vill utföra hälsokontroll mot domänkontrollanter som är medlemmar i domänen som ska utvärderas kräver de en agent och en anslutning till Log Analytics med någon av följande metoder:
+Om du vill utföra hälsokontroll mot domänkontrollanter som är medlemmar i domänen som ska utvärderas kräver de en agent och en anslutning till Azure Monitor med någon av följande metoder:
 
 1. Installera den [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) om domänkontrollanten inte redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
-2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Log Analytics-tjänsten, domänkontrollanten kan ha flera värdar med Log Analytics för att samla in data och vidarebefordra dem till den tjänsten och fortfarande att övervakas av Operations Manager.  
+2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Azure Monitor, kan domänkontrollanten ha flera värdar med Azure Monitor för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
 3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) när du har aktiverat lösningen i din arbetsyta.  
 
-Agenten på domänkontrollanten vilka rapporter till en Operations Manager-hanteringsgrupp, samlar in data, vidarebefordrar till dess tilldelade hanteringsserver och sedan skickas direkt från en hanteringsserver till Log Analytics-tjänsten.  Data skrivs inte till Operations Manager-databaserna.  
+Agenten på domänkontrollanten vilka rapporter till en Operations Manager-hanteringsgrupp, samlar in data, vidarebefordrar till dess tilldelade hanteringsserver och sedan skickas direkt från en hanteringsserver till Azure Monitor.  Data skrivs inte till Operations Manager-databaserna.  
 
 ## <a name="active-directory-health-check-data-collection-details"></a>Active Directory-hälsokontroll data samling information
 
@@ -73,7 +75,7 @@ Kontroll av Active Directory hälsotillstånd samlar in data från följande kä
 - File Replication Service (NTFRS) API: et
 - Anpassad C#-kod
 
-Data som samlas in på domänkontrollanten och vidarebefordras till logganalys var sjunde dag.  
+Data som samlas in på domänkontrollanten och vidarebefordras till Azure Monitor var sjunde dag.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Förstå hur rekommendationer är prioriterade
 Varje rekommendation ges ett värde-värde som identifierar den relativa prioriteten för rekommendationen. Endast de 10 viktigaste rekommendationerna visas.
@@ -107,30 +109,33 @@ När den har installerats kan du visa sammanfattning av rekommendationer med hj�
 Visa de sammanfattade efterlevnad utvärderingarna för din infrastruktur och sedan gå till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
-3. Klicka på den **översikt** panelen för Log Analytics-arbetsytan i Azure-portalen.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 4. På den **översikt** klickar du på den **kontroll av Active Directory hälsotillstånd** panelen.
 5. På den **hälsokontrollen** granskar den sammanfattande informationen i något av bladen fokus område och klicka sedan på ett om du vill visa rekommendationer för den fokusområde.
 6. På någon av sidorna fokus området, kan du visa prioriterade rekommendationer för din miljö. Klicka på en rekommendation under **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Bild av hälsokontroll rekommendationer](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Du kan vidta korrigerande åtgärder som föreslås i **föreslagna åtgärder**. När objektet har utförts, senare utvärderingar poster som rekommenderade åtgärder som utförts och din kompatibilitetspoäng ökar. Korrigerad objekt visas som **skickas objekt**.
 
 ## <a name="ignore-recommendations"></a>Ignorera rekommendationer
-Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analytics använder för att förhindra rekommendationer visas i din utvärdering av resultaten.
+Om du har synpunkter som du vill ignorera kan du skapa en textfil som Azure Monitor använder för att förhindra rekommendationer visas i din utvärdering av resultaten.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Att identifiera rekommendationer som kommer att ignoreras
-1. I Azure-portalen på sidan Log Analytics-arbetsyta för din valda arbetsyta klickar du på den **Loggsökning** panelen.
-2. Använd följande fråga för att lista över rekommendationer som har misslyckats för datorer i din miljö.
+[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
-    Här är en skärmbild som visar loggsökningsfrågan:<br><br> ![misslyckade rekommendationer](./media/ad-assessment/ad-failed-recommendations.png)
+Använd följande fråga för att lista över rekommendationer som har misslyckats för datorer i din miljö.
 
-3. Välj rekommendationer som du vill ignorera. Du använder värdena för RecommendationId i nästa procedur.
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
+
+Här är en skärmbild som visar log-frågan:<br><br> ![misslyckade rekommendationer](media/ad-assessment/ad-failed-recommendations.png)
+
+Välj rekommendationer som du vill ignorera. Du använder värdena för RecommendationId i nästa procedur.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Du skapar och använder en IgnoreRecommendations.txt textfil
 1. Skapa en fil med namnet IgnoreRecommendations.txt.
-2. Klistra in eller ange varje RecommendationId för varje rekommendation som du vill Log Analytics för att ignorera på separata rader och sedan spara och stäng filen.
-3. Placera filen i följande mapp på varje dator där du vill att Log Analytics för att ignorera rekommendationer.
+2. Klistra in eller ange varje RecommendationId för varje rekommendation som du vill att Azure Monitor för att ignorera på separata rader och sedan spara och stäng filen.
+3. Placera filen i följande mapp på varje dator där du vill att Azure Monitor för att ignorera rekommendationer.
    * På datorer med Microsoft Monitoring Agent (anslutet direkt eller via Operations Manager) - *SystemDrive*: \Program\Microsoft Monitoring Agent\Agent
    * På hanteringsservern för Operations Manager 2012 R2 - *SystemDrive*: \Program\Microsoft System Center 2012 R2\Operations Manager\Server
    * På hanteringsservern för Operations Manager 2016 - *SystemDrive*: \Program\Microsoft System Center 2016\Operations Manager\Server
@@ -138,7 +143,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Kontrollera att rekommendationer ignoreras
 I nästa schemalagda hälsotillstånd kontroll körs som standard var sjunde dag, de angivna rekommendationerna markeras *ignoreras* och kommer inte att visas på instrumentpanelen.
 
-1. Du kan använda följande Loggsökning frågor för att lista alla ignorerade rekommendationer.
+1. Du kan använda följande loggfrågor för att lista alla ignorerade rekommendationer.
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
@@ -177,11 +182,11 @@ I nästa schemalagda hälsotillstånd kontroll körs som standard var sjunde dag
 
 *Varför visas endast de översta 10 rekommendationerna?*
 
-* Istället för att ge dig en fullständig överväldigande förteckning av uppgifter, rekommenderar vi att du kan fokusera på adressering prioriterade rekommendationer först. När du har gått dem blir ytterligare rekommendationer tillgängliga. Om du vill se en detaljerad lista kan visa du alla rekommendationer med hjälp av Loggsökning.
+* Istället för att ge dig en fullständig överväldigande förteckning av uppgifter, rekommenderar vi att du kan fokusera på adressering prioriterade rekommendationer först. När du har gått dem blir ytterligare rekommendationer tillgängliga. Om du vill se en detaljerad lista kan du visa alla rekommendationer med hjälp av en loggfråga.
 
 *Finns det ett sätt att ignorera en rekommendation?*
 
 * Ja, se [Ignorera rekommendationer](#ignore-recommendations) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](../../azure-monitor/log-query/log-query-overview.md) och lär dig att analysera detaljerad AD-hälsokontroll data och rekommendationer.
+* Använd [loggfrågor i Azure Monitor](../log-query/log-query-overview.md) och lär dig att analysera detaljerad AD-hälsokontroll data och rekommendationer.

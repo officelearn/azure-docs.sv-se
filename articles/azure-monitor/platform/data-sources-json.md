@@ -1,6 +1,6 @@
 ---
 title: Samla in anpassade JSON-data i Azure Monitor | Microsoft Docs
-description: Anpassade JSON-datakällor kan samlas in i Log Analytics med Log Analytics-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON, till exempel curl eller någon av Fluentds över 300 plugin-program. Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
+description: Anpassade JSON-datakällor kan samlas in i Azure Monitor med Log Analytics-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON, till exempel curl eller någon av Fluentds över 300 plugin-program. Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 36f914109d8d3879d23511cb37055d20db4d670c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8b03d6838e9d942da766e0c7aa4c2c2e161a6b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105227"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990129"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Samla in anpassade JSON-datakällor med Log Analytics-agenten för Linux i Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Anpassade JSON-datakällor kan samlas in i [Log Analytics](data-collection.md) med Log Analytics-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som [curl](https://curl.haxx.se/) eller någon av [Fluentds över 300 plugin-program](http://www.fluentd.org/plugins/all). Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
+Anpassade JSON-datakällor kan samlas in i [Azure Monitor](data-collection.md) med Log Analytics-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som [curl](https://curl.haxx.se/) eller någon av [Fluentds över 300 plugin-program](http://www.fluentd.org/plugins/all). Den här artikeln beskrivs den konfiguration som krävs för den här Datasamlingen.
 
 
 > [!NOTE]
@@ -33,7 +33,7 @@ Anpassade JSON-datakällor kan samlas in i [Log Analytics](data-collection.md) m
 
 ### <a name="configure-input-plugin"></a>Konfigurera inkommande plugin-programmet
 
-Om du vill samla in JSON-data i Log Analytics, lägger du till `oms.api.` i början av en FluentD-tagg i en indata-plugin-programmet.
+Om du vill samla in JSON-data i Azure Monitor, lägger du till `oms.api.` i början av en FluentD-tagg i en indata-plugin-programmet.
 
 Till exempel följande är en separat konfigurationsfil `exec-json.conf` i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Här används plugin-programmet FluentD `exec` att köra ett curl-kommando med 30 sekunders mellanrum.  Utdata från det här kommandot samlas in av plugin-programmet för JSON-utdata.
 
@@ -87,9 +87,9 @@ Starta om Log Analytics-agenten för Linux-tjänsten med följande kommando.
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Resultat
-Data kommer att samlas in i Log Analytics med en typ av post för `<FLUENTD_TAG>_CL`.
+Data kommer att samlas in i Azure Monitor med en typ av post för `<FLUENTD_TAG>_CL`.
 
-Till exempel anpassade taggar `tag oms.api.tomcat` i Log Analytics med en typ av post för `tomcat_CL`.  Du kan hämta alla poster i den här typen med följande loggfråga.
+Till exempel anpassade taggar `tag oms.api.tomcat` i Azure Monitor med en typ av post för `tomcat_CL`.  Du kan hämta alla poster i den här typen med följande loggfråga.
 
     Type=tomcat_CL
 
@@ -106,4 +106,4 @@ Kapslad JSON-data källor som stöds, men indexeras baserat på överordnad fäl
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logga frågor](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 

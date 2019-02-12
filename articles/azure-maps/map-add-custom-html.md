@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231742"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993750"
 ---
 # <a name="add-html-markers-to-the-map"></a>Lägga till HTML-markeringar på kartan
 
@@ -68,20 +68,11 @@ Det här exemplet visar hur du gör en HTML-markör fyrkantiga. Stöd för HTML-
 
 ## <a name="add-mouse-events-to-html-markers"></a>Lägga till mushändelser i HTML-markeringar
 
-De här exemplen visar hur du lägger till mushändelser till en HTML-markör genom att lägga till JavaScript standardhändelser HTML-innehåll för markören. 
-
-Om den `htmlContent` för markören är ett DOM-element (div, img...) kan du lägga till händelser direkt till. 
+De här exemplen visar hur du lägger till musen och dra händelser till en HTML-markör.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Att lägga till mushändelser i HTML-markeringar' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>att lägga till mushändelser i HTML-markeringar</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-Om den `htmlContent` är en sträng (dvs.) liknande standard), du kan skapa en DOM-element och lägga till strängen som innerHTML till den och sedan lägger du till DOM-element som htmlContent. Om den `htmlContent` är en mallbaserad sträng, behöver du Sök/Ersätt `{text}` och `{color}` värdena i strängen först.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Lägger till mushändelser standard HTML markör' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>att lägga till mushändelser till standard HTML markör</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg

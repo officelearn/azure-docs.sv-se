@@ -1,6 +1,6 @@
 ---
-title: SQL till Azure Log Analytics Lathund till frågespråket | Microsoft Docs
-description: Vanliga funktioner ska användas för olika scenarier i Log Analytics-frågor.
+title: SQL till Azure Monitor log-facit för frågan | Microsoft Docs
+description: Hjälp för användare som är bekanta med SQL i att skriva loggfrågor i Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 35438644842d5280bd789efa135805ba9943cb8b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183055"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993677"
 ---
-# <a name="sql-to-log-analytics-query-language-cheat-sheet"></a>SQL till Log Analytics Lathund till frågespråket 
+# <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL till Azure Monitor log-facit för fråga 
 
-Tabellen nedan hjälper användare som är bekanta med SQL för att lära dig frågespråket i Log Analytics. Ta en titt på T-SQL-kommando för att lösa vanliga scenarier och motsvarande använda Log Analytics.
+Tabellen nedan hjälper användare som är bekanta med SQL för att lära dig frågespråket i Datautforskaren för att skriva loggfrågor i Azure Monitor. Ta en titt på T-SQL-kommando för att lösa vanliga scenarier och motsvarande i en Azure Monitor log-fråga.
 
-## <a name="sql-to-log-analytics"></a>SQL till Log Analytics
+## <a name="sql-to-azure-monitor"></a>SQL till Azure Monitor
 
-Beskrivning                             |SQL-fråga                                                                                          |Azure Log Analytics-fråga
+Beskrivning                             |SQL-fråga                                                                                          |Azure Monitor log-fråga
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Välj alla data från en tabell            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Markera specifika kolumner från en tabell    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -50,4 +50,4 @@ Slå ihop                                    |`SELECT * FROM dependencies JOIN e
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Gå igenom en lektion den [skriva frågor i Log Analytics](get-started-queries.md).
+- Gå igenom en lektion den [skriva loggfrågor i Azure Monitor](get-started-queries.md).

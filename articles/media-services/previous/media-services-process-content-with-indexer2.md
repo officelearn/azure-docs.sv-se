@@ -1,59 +1,59 @@
 ---
-title: Indexering mediefiler med Azure Media Indexer 2 Preview | Microsoft Docs
-description: Azure Media Indexer gör det möjligt att göra innehåll för mediefiler sökbara och för att generera en fulltext betyg för stängd textning och nyckelord. Det här avsnittet visar hur du använder Media Indexer 2 Preview.
+title: Indexera mediefiler med Azure Media Indexer 2 Preview | Microsoft Docs
+description: Azure Media Indexer kan du göra innehållet i mediefiler sökbart och att generera en fulltextavskrift för dold textning och nyckelord. Det här avsnittet visar hur du använder Media Indexer 2 Preview.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae06f397fd0ed3f1a1b5ebbdc418abc02789fe91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790246"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000923"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexering mediefiler med Azure Media Indexer 2 förhandsgranskning
+# <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexera mediefiler med Azure Media Indexer 2 förhandsgranskning
 ## <a name="overview"></a>Översikt
-Den **Azure Media Indexer 2 Preview** medieprocessor (HP) kan du göra mediefiler och innehåll sökbara samt generera stängd textning spår. Jämfört med den tidigare versionen av [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** utför snabbare indexering och erbjuder större språkstöd. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (Mandarin, förenklad), portugisiska, arabiska, ryska och japanska.
+Den **förhandsversion av Azure Media Indexer 2** mediebearbetare (MP) kan du göra mediefiler och innehåll sökbart samt generera dold textning spår. Jämfört med den tidigare versionen av [Azure Media Indexer](media-services-index-content.md), **förhandsversion av Azure Media Indexer 2** utför snabbare indexering och erbjuder större språkstöd. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (Mandarin, förenklad), portugisiska, arabiska, ryska och japanska.
 
-Den **Azure Media Indexer 2 Preview** MP är för närvarande under förhandsgranskning.
+Den **förhandsversion av Azure Media Indexer 2** MP förhandsvisas just nu.
 
-Den här artikeln visar hur du skapar indexering jobb med **Azure Media Indexer 2 Preview**.
+Den här artikeln visar hur du skapar indexerade jobb med **förhandsversion av Azure Media Indexer 2**.
 
 > [!NOTE]
 > Följande gäller:
 > 
 > Indexerare 2 stöds inte i Azure Kina och Azure Government.
 > 
-> När indexering av innehåll, se till att använda mediefiler med tydliga tal (utan bakgrundsmusik, ljud, effekter eller mikrofon hiss). Några exempel på rätt innehåll är: registreras möten, Föreläsningar och presentationer. Följande innehåll är inte lämpliga för indexering: filmer, TV-program, allt med blandade ljud och visuella effekter dåligt registreras innehåll med bakgrundsljud (hiss).
+> Vid indexering av innehåll, se till att använda mediefiler med tydliga tal (utan bakgrundsmusik, buller, effekter eller mikrofon hiss). Några exempel på rätt innehåll är: registreras möten, Föreläsningar och presentationer. Följande innehåll är kanske inte lämpligt för indexering: filmer, TV-program, allt med blandad ljud och visuella effekter, registreras dåligt innehåll med bakgrundsljud (hiss).
 > 
 > 
 
-Den här artikeln innehåller information om **Azure Media Indexer 2 Preview** och visar hur du använder det med Media Services SDK för .NET
+Den här artikeln innehåller information om **förhandsversion av Azure Media Indexer 2** och visar hur du använder det med Media Services SDK för .NET
 
 ## <a name="input-and-output-files"></a>Inkommande och utgående filer
 ### <a name="input-files"></a>Inkommande filer
-Ljud-eller
+Ljud-eller video
 
 ### <a name="output-files"></a>Utdatafiler
-En indexering jobb kan generera textning filer i följande format:  
+Ett indexeringsjobb kan generera filer med dold textning i följande format:  
 
-* **SAMISKA**
+* **SAMI**
 * **TTML**
 * **WebVTT**
 
-Stängd beskrivning (CC) filer i dessa format kan användas för att göra det tillgängligt för personer med funktionshinder hörsel ljud- och bildfiler.
+Stängd textning (kopia) filer i formaten som kan användas för att göra det tillgängligt för personer med funktionshinder höra ljud- och bildfiler.
 
-## <a name="task-configuration-preset"></a>Uppgiftskonfigurationen (förinställda)
-Skapar en indexering när uppgiften med **Azure Media Indexer 2 Preview**, måste du ange en konfiguration förinställning.
+## <a name="task-configuration-preset"></a>Uppgiftskonfiguration (förinställning)
+Skapa en indexering när uppgiften med **förhandsversion av Azure Media Indexer 2**, måste du ange en förinställning för konfiguration.
 
 Följande JSON anger tillgängliga parametrar.
 
@@ -74,7 +74,7 @@ Följande JSON anger tillgängliga parametrar.
 ```
 
 ## <a name="supported-languages"></a>Språk som stöds
-Azure Media Indexer 2 Preview stöder tal till text för följande språk (när du anger språknamnet i uppgiftskonfigurationen, Använd 4-teckenkod inom parentes som visas nedan):
+Azure Media Indexer 2 Preview stöder tal till text för följande språk (när du anger språkets namn i uppgiftskonfigurationen, Använd 4-teckenkod omges av hakparenteser enligt nedan):
 
 * Engelska [EnUs]
 * Spanska [Spanien]
@@ -83,22 +83,22 @@ Azure Media Indexer 2 Preview stöder tal till text för följande språk (när 
 * Tyska [DeDe]
 * Italienska [ItIt]
 * Portugisiska [Brasilien]
-* Arabiska (egyptiska) [ArEg]
+* Arabiska (egyptiskt) [ArEg]
 * Japanska [JaJp]
 * Ryska [RuRu]
 * Brittisk engelska [EnGb]
-* Spanska (Mexiko) [EsMx] 
+* Spanska (Mexiko) [EsMx] 
 
 ## <a name="supported-file-types"></a>Filtyper som stöds
 
-Information om filtyper som stöds finns i [stöds codec-formaten](media-services-media-encoder-standard-formats.md#input-containerfile-formats) avsnitt.
+Information om filtyper som stöds finns i den [codec/format som stöds](media-services-media-encoder-standard-formats.md#input-containerfile-formats) avsnittet.
 
-## <a name="net-sample-code"></a>Exempelkod för .NET
+## <a name="net-sample-code"></a>.NET-exempelkod
 
 Följande program visar hur du:
 
 1. Skapa en tillgång och överför en mediefil till tillgången.
-2. Skapa ett jobb med en indexering uppgift baserat på en konfigurationsfil som innehåller följande json-förinställda:
+2. Skapa ett jobb med en indexering uppgift baserat på en konfigurationsfil som innehåller följande json-förinställningen:
 
     ```json
             {
@@ -299,7 +299,7 @@ namespace IndexContent
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Medieanalys-demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

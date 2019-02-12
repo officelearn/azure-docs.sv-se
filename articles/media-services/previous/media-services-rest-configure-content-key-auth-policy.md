@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: bb24fcddf9218db491e8c2e486e29446d5d9c0ed
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 25aeb1f0f82be2ad575164d78106fd799d59c96d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365629"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003641"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dynamisk kryptering: Konfigurera en auktoriseringsprincip för innehållsnyckeln
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy-legacy"></a>Dynamisk kryptering: Konfigurera en auktoriseringsprincip för innehållsnyckeln (äldre)
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Översikt
@@ -63,7 +63,7 @@ Mer information finns i följande artiklar:
 
 I följande exempel skapar en öppen auktoriseringsprincip och lägger till det att innehållsnyckeln.
 
-#### <a id="ContentKeyAuthorizationPolicies"></a>Skapa ContentKeyAuthorizationPolicies
+#### <a id="ContentKeyAuthorizationPolicies"></a>Create ContentKeyAuthorizationPolicies
 Begäran:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -99,7 +99,7 @@ Svar:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-#### <a id="ContentKeyAuthorizationPolicyOptions"></a>Skapa ContentKeyAuthorizationPolicyOptions
+#### <a id="ContentKeyAuthorizationPolicyOptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Begäran:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -235,10 +235,10 @@ När du konfigurerar den tokenbegränsade principen måste du ange primär verif
 
 I följande exempel skapar en auktoriseringsprincip med en token begränsning. I det här exemplet måste klienten presentera en token som innehåller signeringsnyckeln (VerificationKey) och en tokenutfärdare krävs anspråk.
 
-### <a name="create-contentkeyauthorizationpolicies"></a>Skapa ContentKeyAuthorizationPolicies
+### <a name="create-contentkeyauthorizationpolicies"></a>Create ContentKeyAuthorizationPolicies
 Skapa en princip för tokenbegränsningar som visas i avsnittet ”[skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)”.
 
-### <a name="create-contentkeyauthorizationpolicyoptions"></a>Skapa ContentKeyAuthorizationPolicyOptions
+### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Begäran:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -290,7 +290,7 @@ När du skyddar ditt innehåll med PlayReady är en av de saker som du måste an
 
 I följande exempel skapar en öppen auktoriseringsprincip och lägger till det att innehållsnyckeln.
 
-#### <a id="ContentKeyAuthorizationPolicies2"></a>Skapa ContentKeyAuthorizationPolicies
+#### <a id="ContentKeyAuthorizationPolicies2"></a>Create ContentKeyAuthorizationPolicies
 Begäran:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -327,7 +327,7 @@ Svar:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:cc3c64a8-e2fc-4e09-bf60-ac954251a387","Name":"Deliver Common Content Key"}
 
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Skapa ContentKeyAuthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Begäran:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -372,10 +372,10 @@ Lägg till AuthorizationPolicy ContentKey, vilket visas i avsnittet ”[lägga t
 ### <a name="token-restriction"></a>Tokenbegränsningar
 Om du vill konfigurera alternativet tokenbegränsningar som du behöver använda en XML för att beskriva den token behörighetskraven. Konfigurationen av tokenbegränsningar XML måste uppfylla det XML-schema som visas i avsnittet ”[Token begränsning av schemat](#schema)”.
 
-#### <a name="create-contentkeyauthorizationpolicies"></a>Skapa ContentKeyAuthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a>Create ContentKeyAuthorizationPolicies
 Skapa ContentKeyAuthorizationPolicies, som visas i avsnittet ”[skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies2)”.
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Skapa ContentKeyAuthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Begäran:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1

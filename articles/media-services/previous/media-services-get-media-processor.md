@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 64e353bbb83c7696960fc1d2e478478afbc94241
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0a8cb1178ec70d4e50f2a45834f9592c4708c5af
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249245"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998645"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Så här: hämta en Media Processor-instans
+# <a name="how-to-get-a-media-processor-instance"></a>Anvisningar: Hämta en Medieprocessor-instans
 > [!div class="op_single_selector"]
 > * [NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -40,7 +40,7 @@ Följande avsnitt innehåller en lista över mediebearbetare:
 
 ## <a name="get-media-processor"></a>Hämta Mediebearbetare
 
-Följande metod som visar hur du hämtar en media processorinstans. Kodexemplet förutsätter användning av en modul på servernivå variabel med namnet **_context** referera serverkontext enligt beskrivningen i avsnittet [så här: ansluta till Media Services programmässigt](media-services-use-aad-auth-to-access-ams-api.md).
+Följande metod som visar hur du hämtar en media processorinstans. Kodexemplet förutsätter användning av en modul på servernivå variabel med namnet **_context** referera serverkontext enligt beskrivningen i avsnittet [så här: Ansluta till Media Services programmässigt](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

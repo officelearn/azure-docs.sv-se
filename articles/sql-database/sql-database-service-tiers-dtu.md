@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database-servicenivåerna - DTU | Microsoft Docs
-description: Läs om tjänstnivåer för en enskild och databaser i en pool att tillhandahålla compute storlekar och lagringsstorlekar.
+title: Azure SQL Database-servicenivåerna - DTU-baserad inköpsmodell | Microsoft Docs
+description: Läs om tjänstnivåer i DTU-baserad inköpsmodell för enkel och delade databaser att tillhandahålla beräknings- och storlekar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,22 +11,22 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6319deb36088317cb289134b7068720e97cb10b7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507662"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993613"
 ---
-# <a name="dtu-based-service-tiers"></a>DTU-baserade tjänstnivåer
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i DTU-baserad inköpsmodell
 
-DTU-baserade tjänstnivåer särskiljs med hjälp av olika storlekar med en fast mängd lagringsutrymme, fast kvarhållningsperiod för säkerhetskopior och fast pris. Alla tjänstnivåer ger flexibilitet för att ändra instansstorlekarna utan avbrott. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
+Tjänstnivåer i DTU-baserad inköpsmodell särskiljs med hjälp av olika storlekar med en fast mängd lagringsutrymme, fast kvarhållningsperiod för säkerhetskopior och fast pris. Alla tjänstnivåer i DTU-baserad inköpsmodell ger flexibilitet för att ändra instansstorlekarna utan avbrott. Enkla databaser och elastiska pooler faktureras per timme baserat på tjänstnivå och beräkningsstorleken.
 
 > [!IMPORTANT]
-> SQL Database Managed Instance är stöder för närvarande i förhandsversionen inte en DTU-baserade inköpsmodellen. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> SQL Database-hanterad instans stöder inte en DTU-baserade inköpsmodellen. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > [!NOTE]
-> Läs om hur vCore-baserade tjänstnivåer [vCore-baserade tjänstnivåer](sql-database-service-tiers-vcore.md). Information om hur man skiljer DTU-baserade tjänstnivåer och vCore-baserade tjänstnivåer finns i [Azure SQL Database köpa modeller](sql-database-service-tiers.md).
+> Läs om hur vCore-baserade tjänstnivåer [vCore-baserade tjänstnivåer](sql-database-service-tiers-vcore.md). Information om hur man skiljer DTU-baserade tjänstnivåer och vCore-baserade tjänstnivåer finns i [Azure SQL Database köpa modeller](sql-database-purchase-models.md).
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>Jämför de DTU-baserade tjänstnivåerna
 
@@ -34,8 +34,8 @@ Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
-|Målarbetsbelastning|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion||
-|SLA för drifttid|99,99 %|99,99 %|99,99 %|Ej tillämpligt i förhandsversionen|
+|Målarbetsbelastning|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion|
+|SLA för drifttid|99,99 %|99,99 %|99,99 %|
 |Kvarhållning av säkerhetskopior|7 dagar|35 dagar|35 dagar|
 |Processor|Låg|Låg, medel, hög|Medel, hög|
 |I/o-genomströmning (ungefärlig) |2.5 IOPS per DTU| 2.5 IOPS per DTU | 48 IOPS per DTU|
@@ -49,12 +49,12 @@ Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Enkel databas DTU och Lagringsgränser
 
-Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [DTU-baserade inköpsmodellen](sql-database-service-tiers.md#dtu-based-purchasing-model)?
+Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [DTU-baserade inköpsmodellen](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
 | Lagringsstorlek | 2 GB | 1 TB | 4 TB  |
-| Maximala dtu: er | 5 | 3000 | 4000 | |
+| Maximala dtu: er | 5 | 3000 | 4000 | 
 ||||||
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda 
 ||||||
 
 > [!IMPORTANT]
-> Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom följande: USA, västra centrala, Kina, östra, centrala USDoDCentral, Tyskland, USDoDEast USA-förvaltad region sydväst, nordöstra USGov Iowa, Tyskland, Kina, norra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mer än 1 TB av lagringsutrymmet på premiumnivån är nu tillgänglig i alla regioner förutom följande: USA, västra centrala, Kina, östra, centrala USDoDCentral, Tyskland, USDoDEast USA-förvaltad region sydväst, nordöstra USGov Iowa, Tyskland, Kina, norra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
@@ -88,7 +88,7 @@ Prestandamått och dess metoder beskrivs i detalj nedan.
 
 ### <a name="benchmark-summary"></a>Benchmark-översikt
 
-ASDB mäter prestanda för en blandning av grundläggande databasåtgärder som förekommer oftast i online transaktionsbearbetning (OLTP) arbetsbelastningar. Även om prestandamått är utformad med molnbaserad databehandling i åtanke, databasschemat, ifyllnad av data och transaktioner som har utformats för att vara brett representativ för de grundläggande delarna som används mest i OLTP-arbetsbelastningar.
+Benchmark mäter prestanda för en blandning av grundläggande databasåtgärder som förekommer oftast i online transaktionsbearbetning (OLTP) arbetsbelastningar. Även om prestandamått är utformad med molnbaserad databehandling i åtanke, databasschemat, ifyllnad av data och transaktioner som har utformats för att vara brett representativ för de grundläggande delarna som används mest i OLTP-arbetsbelastningar.
 
 ### <a name="schema"></a>Schema
 

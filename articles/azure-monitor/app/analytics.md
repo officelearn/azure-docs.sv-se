@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/08/2018
+ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120894"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004527"
 ---
 # <a name="analytics-in-application-insights"></a>Analys i Application Insights
-Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](../../azure-monitor/app/app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera din Apps data genom att öppna Analytics från din app [översiktsbladet](../../azure-monitor/app/app-insights-dashboards.md).
+Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs.
+Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera din Apps data genom att öppna Analytics från din app [översiktsbladet](app-insights-dashboards.md).
 
 ![Öppna portal.azure.com, öppna Application Insights-resursen och klicka på Analytics.](./media/analytics/001.png)
 
@@ -28,6 +29,12 @@ Du kan också använda den [Analytics playground](https://go.microsoft.com/fwlin
 <br>
 <br>
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+## <a name="relation-to-azure-monitor-logs"></a>Relation till Azure Monitor-loggar
+Application Insights analytics baseras på [Azure Data Explorer](/azure/data-explorer) som Azure Monitor-loggar och använder också den [Datautforskaren frågespråk](/azure/kusto/query). Den använder samma [log analytics-portalen](../log-query/get-started-portal.md) som Azure Monitor-loggar, även om dess data lagras i en separat partition.
+
+Du kan inte direkt åtkomst till data i en Log Analytics-arbetsyta från Application Insights analytics och inte heller kan du direkt åtkomst till programdata från log analytics. För att fråga båda uppsättningar data tillsammans att skriva en [frågan i log analytics](../log-query/log-query-overview.md) och användning i [app() uttryck](../log-query/app-expression.md) att komma åt programmet data.
+
 
 ## <a name="query-data-in-analytics"></a>Fråga efter data i Analytics
 En typisk frågan börjar med ett tabellnamn följt av en serie *operatörer* avgränsade med `|`.

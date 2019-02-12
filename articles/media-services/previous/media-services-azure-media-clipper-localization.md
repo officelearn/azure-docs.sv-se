@@ -6,17 +6,18 @@ keywords: Clip, underklipp, kodning, media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 227a312839950652924e75f0bafb474ce7bac588
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: def72c1bb42d083c38640f7c6165c305a5820c75
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448677"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003286"
 ---
-# <a name="configure-localization"></a>Konfigurera lokalisering
+# <a name="configure-localization-legacy"></a>Konfigurera lokalisering (äldre)
+
 Azure Media Clipper finns på 18 språk. Om du vill ange widget-språk, måste du definiera den `language` parametern under initieringen. Skicka i kod-strängen önskat språk i listan nedan:
 - Kinesiska (förenklad): zh-hans
 - Kinesiska (traditionell): zh-hant

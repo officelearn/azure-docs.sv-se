@@ -1,6 +1,6 @@
 ---
-title: App() uttryck i Azure Log Analytics-fråga | Microsoft Docs
-description: App-uttryck används i en Log Analytics-fråga för att hämta data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration.
+title: App() uttryck i Azure Monitor loggfrågor | Microsoft Docs
+description: App-uttryck används i en Azure Monitor log-fråga för att hämta data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104668"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998543"
 ---
-# <a name="app-expression-in-log-analytics-query"></a>App() uttryck i Log Analytics-fråga
+# <a name="app-expression-in-azure-monitor-query"></a>App() uttryck i Azure Monitor-fråga
 
-Den `app` uttryck används i en Log Analytics-fråga för att hämta data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Detta är användbart att inkludera programdata i en Log Analytics-fråga och för att köra frågor mot data över flera program i en Application Insights-fråga.
+Den `app` uttryck används i en Azure Monitor-fråga för att hämta data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Detta är användbart att inkludera programdata i en Azure Monitor log-fråga och för att köra frågor mot data över flera program i en Application Insights-fråga.
 
 
 
@@ -78,5 +78,6 @@ union
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se den [arbetsytan uttryck](workspace-expression.md) att referera till Log Analytics-arbetsyta.
-- Läs om hur [Log Analytics-data](../../azure-monitor/log-query/log-query-overview.md) lagras.
+- Se den [arbetsytan uttryck](workspace-expression.md) att referera till en Log Analytics-arbetsyta.
+- Läs om hur [Azure Monitor data](../../azure-monitor/log-query/log-query-overview.md) lagras.
+- Få åtkomst till fullständig dokumentation för den [Datautforskaren frågespråk](/azure/kusto/query/).

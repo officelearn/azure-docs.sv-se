@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c81701dff8d7eebf08aa6b16c61e6915a905c729
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 767e64d4d53702ede7b55edc747366ab3d32ae4d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172722"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996107"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Om anpassning av användargränssnitt i Azure Active Directory B2C
 
@@ -24,17 +24,19 @@ Möjligheten att varumärken och anpassa användargränssnittet (UI) som använd
 Beroende på dina behov när det gäller dessa upplevelser kan anpassa du Användargränssnittet för ditt program på olika sätt. Exempel:
 
 - Om du använder [användarflöden](active-directory-b2c-reference-policies.md) för att ange lösenord för registrering eller inloggning, Återställ eller profilredigering upplevelser i ditt program, använder du den [Azure portal för att anpassa Användargränssnittet](tutorial-customize-ui.md).
+- Om du använder ett användarflöde i v2 kan du använda en [sidan layoutmall](#page-layout-templates) att ändra utseendet på användaren flow sidorna utan ytterligare anpassning. Du kan till exempel använda en blå Ocean eller bakgrundsbild grå tema på alla sidor i ditt användarflöde.
 - Om ger ut, dess tillhörande sidan för lösenordsåterställning och verifiering via e-post, använder anpassning likadant som används för en [Azure AD-inloggningssida](../active-directory/fundamentals/customize-branding.md).
 - Om kunder försöker redigera sin profil innan de loggar in, omdirigeras de till en sida som du anpassa med hjälp av samma steg som används för att anpassa inloggningssidan för Azure AD.
 - Om du använder [anpassade principer](active-directory-b2c-overview-custom.md) att ange lösenord för registrering eller inloggning, återställa eller -profilredigering i ditt program, som du använder [principfiler anpassa Användargränssnittet](active-directory-b2c-ui-customization-custom.md).
 - Om du vill ange dynamiskt innehåll baserat på en kunds beslut kan du använda [anpassade principer som kan ändra sidan innehåll](active-directory-b2c-ui-customization-custom-dynamic.md) beroende på en parameter som ska skickas som en frågesträng. Till exempel ändras bakgrundsbilden på sidan för Azure AD B2C registrering eller inloggning, baserat på en parameter som du skickar från dina webb- och mobilprogram.
+- Du kan aktivera JavaScript-kod på klientsidan i din Azure AD B2C [användarflöden](user-flow-javascript-overview.md) eller [anpassade principer](page-contract.md).
 
 Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Vid körning laddas innehåll från en URL som du anger i en användarflödet eller princip. Du kan ange olika URL: er för olika sidor. När innehållet har lästs in från din URL, sammanfogningen görs med ett HTML-avsnitt infogas från Azure AD B2C och sedan visas för kunden.
 
-Innan du börjar bör du granska följande riktlinjer:
+När du använder egna HTML och CSS-filer för att anpassa Användargränssnittet kan du granska följande riktlinjer innan du börjar:
 
 - Azure AD B2C sammanfogar HTML-innehåll i sidorna. Inte kopiera och försök att ändra standardinnehållet som Azure AD B2C tillhandahåller. Det är bäst att skapa HTML-innehåll från grunden och använda standardinnehållet som referens.
-- Av säkerhetsskäl tillåts du inte inkludera JavaScript i ditt innehåll.
+- JavaScript ingår nu i ditt anpassade innehåll.
 - Versioner av webbläsare som stöds är: 
     - Internet Explorer 11, 10 och Microsoft Edge
     - Begränsat stöd för Internet Explorer 9 och 8
@@ -42,9 +44,23 @@ Innan du börjar bör du granska följande riktlinjer:
     - Mozilla Firefox 38.0 och senare
 - Kontrollera att du inte inkluderar formuläret taggar i din HTML eftersom den stör POST-åtgärder som genererats av inmatade HTML från Azure AD B2C.
 
+## <a name="page-layout-templates"></a>Mallar för layout
+
+Du kan välja en fördefinierad mall som ger en bättre inblick för standardsidor och fungerar som en bra grund för dina egna anpassning för v2 användarflöden.
+
+I den vänstra menyn under **anpassa**väljer **sidan layouter**. Välj sedan **mall (förhandsversion)**.
+
+![Välj en mall för layout](media/customize-ui-overview/template.png)
+
+Välj en mall i listan. Till exempel den **hav blå** mallen gäller följande layout för sidorna användaren flödet:
+
+![Havet blå mall](media/customize-ui-overview/ocean-blue.png)
+
+När du väljer en mall, det har markerats som tillämpas på alla sidor i ditt användarflöde och URI: N för varje sida visas i den **anpassad sida URI** fält.
+
 ## <a name="where-do-i-store-ui-content"></a>Var lagrar Användargränssnittet innehåll?
 
-Du kan vara värd för innehåll var som helst, t.ex på Användargränssnittet [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md), webbservrar, CDN, AWS S3, eller dela filsystem. Det viktiga är att du förvarar innehållet på en offentligt tillgänglig HTTPS-slutpunkt med CORS aktiverat. Du måste använda en absolut URL när du anger den i ditt innehåll.
+När du använder en egen HTML och CSS-filer för att anpassa Användargränssnittet, du kan vara värd för innehåll var som helst, t.ex på Användargränssnittet [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md), webbservrar, CDN, AWS S3, eller dela filsystem. Det viktiga är att du förvarar innehållet på en offentligt tillgänglig HTTPS-slutpunkt med CORS aktiverat. Du måste använda en absolut URL när du anger den i ditt innehåll.
 
 ## <a name="how-do-i-get-started"></a>Hur kommer jag igång?
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018723"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998628"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway översikt över hälsoövervakning
 
@@ -27,7 +27,7 @@ Förutom att använda standard hälsoövervakning för avsökning kan anpassa du
 
 En application gateway konfigureras automatiskt en standard-hälsoavsökning när du inte konfigurerar någon konfiguration för anpassad avsökning. Beteendet övervakning fungerar genom att göra en HTTP-begäran till IP-adresser som har konfigurerats för backend poolen. För standard-avsökningar om serverdelens http-inställningar har konfigurerats för HTTPS, använder avsökningen HTTPS samt för att kontrollera hälsotillståndet för serverdelen.
 
-Till exempel: du konfigurerar din application gateway om du vill använda backendservrar A, B och C för att ta emot HTTP-trafik på port 80. Standard hälsoövervakning testar tre servrar med 30 sekunders mellanrum för ett felfritt HTTP-svar. En felfri HTTP-svar har en [statuskod](https://msdn.microsoft.com/library/aa287675.aspx) mellan 200 och 399.
+Exempel: Du kan konfigurera din application gateway om du vill använda backendservrar A, B och C för att ta emot HTTP-trafik på port 80. Standard hälsoövervakning testar tre servrar med 30 sekunders mellanrum för ett felfritt HTTP-svar. En felfri HTTP-svar har en [statuskod](https://msdn.microsoft.com/library/aa287675.aspx) mellan 200 och 399.
 
 Om kontrollen för standard-avsökningen misslyckas Server A application gateway tas den bort från dess backend-poolen och nätverkstrafik slutar flöda till den här servern. Standard-avsökningen fortsätter ändå att söka efter servern en med 30 sekunders mellanrum. När server A svarar har en begäran från en standard-hälsoavsökning, läggs det tillbaka som felfria till backend poolen och trafik börjar flöda till servern igen.
 
@@ -44,7 +44,7 @@ Matchar de villkor som kan anges med hjälp av den `New-AzureRmApplicationGatewa
 
 Exempel:
 
-```
+```powershell
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
@@ -56,7 +56,7 @@ När de matchar de villkor som anges, den kan kopplas för att avsöka konfigura
 | --- | --- | --- |
 | Avsökningswebbadress |http://127.0.0.1:\<port\>/ |URL-sökväg |
 | Intervall |30 |Hur lång tid i sekunder som ska förflyta innan nästa hälsoavsökningen skickas.|
-| Timeout |30 |Hur lång tid i sekunder application gateway probe svar inväntas innan du markerar avsökningen som skadad. Om en avsökning returnerar felfri, markeras direkt motsvarande serverdelen som felfritt.|
+| Time-out |30 |Hur lång tid i sekunder application gateway probe svar inväntas innan du markerar avsökningen som skadad. Om en avsökning returnerar felfri, markeras direkt motsvarande serverdelen som felfritt.|
 | Tröskelvärde för ej felfri |3 |Styr hur många avsökningar för att skicka om det uppstår ett fel av regelbundna hälsoavsökningen. Dessa ytterligare hälsotillståndsavsökningar skickas i snabb följd att fastställa hälsotillståndet för serverdelen snabbt och väntar inte tills avsökningsintervallet. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 > [!NOTE]
@@ -85,7 +85,7 @@ Följande tabell innehåller definitioner för egenskaperna för en anpassad hä
 | Värd |Värdnamn för att skicka avsökningen. Gäller endast när flera platser har konfigurerats på Application Gateway, annars använda ”127.0.0.1”. Det här värdet skiljer sig från den virtuella datorns värdnamn. |
 | Sökväg |Relativa sökvägen för avsökningen. Giltig sökväg som börjar med ”/”. |
 | Intervall |Avsökningsintervall i sekunder. Det här värdet är tidsintervallet mellan två på varandra följande avsökningar. |
-| Timeout |Avsökning tidsgräns i sekunder. Om ett giltigt svar inte tas emot inom denna tidsgräns, markeras avsökningen som misslyckat.  |
+| Time-out |Avsökning tidsgräns i sekunder. Om ett giltigt svar inte tas emot inom denna tidsgräns, markeras avsökningen som misslyckat.  |
 | Tröskelvärde för ej felfri |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 > [!IMPORTANT]

@@ -1,5 +1,5 @@
 ---
-title: Sök i resurser med Azure Log Analytics | Microsoft Docs
+title: Fråga över resurser med Azure Monitor | Microsoft Docs
 description: Den här artikeln beskrivs hur du kan fråga mot resurser från flera arbetsytor och App Insights i din prenumeration.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 42191b21faec7bb1929a12e6bc1a724d269acb1d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298882"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998963"
 ---
-# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Utföra mellan resurser loggsökningar i Log Analytics  
+# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra loggfrågor mellan resurser i Azure Monitor  
 
-Tidigare med Azure Log Analytics kunde du endast analysera data inifrån den aktuella arbetsytan och det begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration.  Dessutom kan du bara söka efter objekt för telemetri som samlas in från dina webbaserade program med Application Insights direkt i Application Insights eller från Visual Studio.  Detta också gjort det en utmaning att internt analysera operativa och programdata tillsammans.   
+Tidigare med Azure Monitor, kunde du endast analysera data inifrån den aktuella arbetsytan och det begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration.  Dessutom kan du bara söka efter objekt för telemetri som samlas in från dina webbaserade program med Application Insights direkt i Application Insights eller från Visual Studio.  Detta också gjort det en utmaning att internt analysera operativa och programdata tillsammans.   
 
-Nu kan du fråga inte bara över flera Log Analytics-arbetsytor, utan också data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Det ger en systemomfattande överblick över dina data.  Du kan bara utföra dessa typer av frågor i [Log Analytics](portals.md#log-analytics-page). Antalet resurser (Log Analytics-arbetsytor och Application Insights-app) som ska inkluderas i en enskild fråga är begränsad till 100. 
+Nu kan du fråga inte bara över flera Log Analytics-arbetsytor, utan också data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Det ger en systemomfattande överblick över dina data.  Du kan bara utföra dessa typer av frågor i [Log Analytics](portals.md). Antalet resurser (Log Analytics-arbetsytor och Application Insights-app) som ska inkluderas i en enskild fråga är begränsad till 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Fråga över Log Analytics-arbetsytor och från Application Insights
 Om du vill referera till en annan arbetsyta i frågan, använda den [ *arbetsytan* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) identifierare, och för en app från Application Insights, använder du den [ *app* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)identifierare.  
@@ -101,9 +101,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Använda mellan resurser frågan för flera resurser
-När du använder frågor mellan resurser för att korrelera data från flera Log Analytics och Application Insights-resurser, kan frågan bli komplicerad och svår att underhålla. Du bör använda [funktioner i Log Analytics](../../azure-monitor/log-query/functions.md) att separera frågelogiken från omfånget för frågan-resurser, vilket förenklar frågestrukturen. I följande exempel visar hur du kan övervaka flera Application Insights-resurser och visualisera antal misslyckade begäranden per programnamn. 
+När du använder frågor mellan resurser för att korrelera data från flera Log Analytics-arbetsytor och Application Insights-resurser, kan frågan bli komplicerad och svår att underhålla. Du bör använda [funktioner i Azure Monitor logga frågor](functions.md) att separera frågelogiken från omfånget för frågan-resurser, vilket förenklar frågestrukturen. I följande exempel visar hur du kan övervaka flera Application Insights-resurser och visualisera antal misslyckade begäranden per programnamn. 
 
-Skapa en fråga som detta som refererar till omfattningen för Application Insights-resurser. Den `withsource= SourceApp` kommando lägger till en kolumn som anger namnet på programmet som skickas i loggen. [Spara frågan som funktionen](../../azure-monitor/log-query/functions.md#create-a-function) med alias _applicationsScoping_.
+Skapa en fråga som detta som refererar till omfattningen för Application Insights-resurser. Den `withsource= SourceApp` kommando lägger till en kolumn som anger namnet på programmet som skickas i loggen. [Spara frågan som funktionen](functions.md#create-a-function) med alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -131,4 +131,5 @@ applicationsScoping
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska den [Log Analytics logga sökreferens](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) att visa alla fråga Syntaxalternativ som är tillgängliga i Log Analytics.    
+- Granska [analysera loggdata i Azure Monitor](log-query-overview.md) för en översikt över loggfrågor och hur Azure Monitor-loggdata är strukturerad.
+- Granska [loggfrågor i Azure Monitor](query-language.md) att visa alla resurser för Azure Monitor log-frågor.

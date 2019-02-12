@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: c979d6eccd5c185d89252302b40fdd674e3c5916
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 48c471e17fb28843bf61f1591faafc119eb8dec8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657509"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002347"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Hur du använder Key Vault mjuk borttagning med PowerShell
 
@@ -23,14 +23,16 @@ Azure Key Vault mjuk borttagning med funktionen kan återställning av borttagna
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Azure PowerShell 4.0.0 eller senare - om du inte redan det här installationsprogrammet, installera Azure PowerShell och koppla den till din Azure-prenumeration, i [hur du installerar och konfigurerar du Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Azure PowerShell 1.0.0 eller senare - om du inte redan det här installationsprogrammet, installera Azure PowerShell och koppla den till din Azure-prenumeration, i [hur du installerar och konfigurerar du Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
 >[!NOTE]
 > Det finns en inaktuell version av våra Key Vault PowerShell-utdata formatering filen som **kan** att läsas in i din miljö i stället för att rätt version. Vi att en uppdaterad version av PowerShell som innehåller nödvändiga korrigeringen för formatering av utdata och uppdaterar det här avsnittet vid den tidpunkten. Den aktuella lösningen bör du stöter på problemet formatering är:
-> - Använd följande fråga om du märker du inte ser mjuk borttagning aktiverat egenskapen som beskrivs i det här avsnittet: `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+> - Använd följande fråga om du märker du inte ser mjuk borttagning aktiverat egenskapen som beskrivs i det här avsnittet: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 
 
-Key Vault specifika refernece information för PowerShell finns i [Azure Key Vault PowerShell-referens](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+Key Vault specifik referensinformation för PowerShell, se [Azure Key Vault PowerShell-referens](/powershell/module/az.keyvault).
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
@@ -56,9 +58,9 @@ Du aktiverar ”mjuk borttagning” att tillåta återställning av borttagna ke
 Aktivera mjuk borttagning för ett befintligt nyckelvalv med namnet ContosoVault på följande sätt. 
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
 ### <a name="new-key-vault"></a>Nytt nyckelvalv
@@ -66,7 +68,7 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Prope
 Att aktivera mjuk borttagning för ett nytt nyckelvalv görs vid tidpunkten för skapandet genom att aktivera mjuk borttagning flagga för att lägga till din skapa-kommando.
 
 ```powershell
-New-AzureRmKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
+New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
 ```
 
 ### <a name="verify-soft-delete-enablement"></a>Kontrollera aktivering för mjuk borttagning
@@ -74,7 +76,7 @@ New-AzureRmKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Locatio
 Kontrollera att ett nyckelvalv har aktivera mjuk borttagning med den *visa* kommandot och leta efter den ”ej permanent ta bort aktiverad”? attribut:
 
 ```powershell
-Get-AzureRmKeyVault -VaultName "ContosoVault"
+Get-AzKeyVault -VaultName "ContosoVault"
 ```
 
 ## <a name="deleting-a-soft-delete-protected-key-vault"></a>Tar bort en mjuk borttagning skyddade nyckelvalv
@@ -85,7 +87,7 @@ Kommandot för att ta bort ett nyckelvalv ändringar i beteende, beroende på om
 >Om du kör följande kommando för ett nyckelvalv som inte har aktiverat mjuk borttagning, ska du ta bort det här nyckelvalvet och allt dess innehåll med inga alternativ för återställning!
 
 ```powershell
-Remove-AzureRmKeyVault -VaultName 'ContosoVault'
+Remove-AzKeyVault -VaultName 'ContosoVault'
 ```
 
 ### <a name="how-soft-delete-protects-your-key-vaults"></a>Hur mjuk borttagning skyddar dina nyckelvalv
@@ -99,7 +101,7 @@ Aktiverad med mjuk borttagning:
 Du kan visa tillståndet deleted nyckelvalv, som är associerade med din prenumeration med hjälp av följande kommando:
 
 ```powershell
-PS C:\> Get-AzureRmKeyVault -InRemovedState 
+PS C:\> Get-AzKeyVault -InRemovedState 
 ```
 
 - *ID* kan användas för att identifiera resursen när återställa eller rensa. 
@@ -111,7 +113,7 @@ PS C:\> Get-AzureRmKeyVault -InRemovedState
 Om du vill återställa ett nyckelvalv måste ange du nyckelvalvsnamn, resursgrupp och plats. Notera platsen och resursgruppen för det borttagna nyckelvalvet som du behöver dem för återställningen.
 
 ```powershell
-Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
+Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
 ```
 
 När ett nyckelvalv återställs skapas en ny resurs med key vault ursprungliga resurs-ID. Om den ursprungliga resursgruppen tas bort, måste en skapas med samma namn innan du försöker återställning.
@@ -121,7 +123,7 @@ När ett nyckelvalv återställs skapas en ny resurs med key vault ursprungliga 
 Följande kommando tar bort nyckeln 'ContosoFirstKey' i key vault med namnet ”ContosoVault” som har aktiverat mjuk borttagning:
 
 ```powershell
-Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
+Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
 Med nyckelvalvet som aktiverats för mjuk borttagning, visas en borttagen nyckel fortfarande att tas bort, såvida inte du uttryckligen ange borttagna nycklar. De flesta åtgärder på en nyckel i tillståndet deleted misslyckas förutom lista, återställa, rensa en nyckel som har tagits bort. 
@@ -129,7 +131,7 @@ Med nyckelvalvet som aktiverats för mjuk borttagning, visas en borttagen nyckel
 Följande kommando visar till exempel har tagits bort nycklar i nyckelvalvet 'ContosoVault':
 
 ```powershell
-Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
+Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
 ```
 
 ### <a name="transition-state"></a>Övergångstillstånd 
@@ -145,7 +147,7 @@ Precis som nyckelvalv, en borttagna nyckeln eller hemligheten certifikat, finns 
 För att återställa en ej permanent borttagna nyckel:
 
 ```powershell
-Undo-AzureKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
+Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
 Att permanent ta bort (även kallat Rensa) en ej permanent borttagna nyckel:
@@ -154,7 +156,7 @@ Att permanent ta bort (även kallat Rensa) en ej permanent borttagna nyckel:
 > Rensa en nyckel tar permanent bort den och kommer inte att återställa! 
 
 ```powershell
-Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
+Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
 Den **återställa** och **Rensa** åtgärder har sina egna behörigheter som är associerade i en åtkomstprincip för nyckelvalvet. För en användare eller tjänstens huvudnamn för att kunna köra en **återställa** eller **Rensa** åtgärd, de måste ha behörigheten respektive för den här nyckeln eller hemligheten. Som standard **Rensa** inte läggs till en nyckelvalvets åtkomstprincip, när genvägen till ”alla” används för att ge alla behörigheter. Du måste uttryckligen beviljar **Rensa** behörighet. 
@@ -164,7 +166,7 @@ Den **återställa** och **Rensa** åtgärder har sina egna behörigheter som ä
 Följande kommando ger user@contoso.com behörighet att använda flera åtgärder med nycklar i *ContosoVault* inklusive **Rensa**:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
+Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
 ```
 
 >[!NOTE] 
@@ -176,17 +178,17 @@ T.ex. nycklar, som hemligheter hanteras med sina egna kommandon:
 
 - Ta bort en hemlighet med namnet SQLPassword: 
 ```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
 ```
 
 - Lista över alla borttagna hemligheter i key vault: 
 ```powershell
-Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
+Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
 ```
 
 - Återställa en hemlighet i tillståndet deleted: 
 ```powershell
-Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 ```
 
 - Rensa en hemlighet i Borttaget tillstånd: 
@@ -195,7 +197,7 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   > Rensa en hemlighet tar permanent bort den och kommer inte att återställa!
 
   ```powershell
-  Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
 ## <a name="purging-a-soft-delete-protected-key-vault"></a>Rensa en mjuk borttagning skyddade nyckelvalv
@@ -204,19 +206,19 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 > Rensa key vault eller något av de ingående objekten tas bort permanent den, vilket innebär att den inte kan återställas!
 
 Rensa funktion används för att ta bort ett nyckelvalv-objekt eller en hel nyckelvalv, som tidigare togs bort för mjuk permanent. Som visas i föregående avsnitt, kan objekt som lagras i ett nyckelvalv med mjuk borttagning funktionen är aktiverad, gå igenom olika tillstånd:
-
 - **Aktiva**: före borttagningen.
 - **Ej permanent borttagna**: efter borttagningen kan visas och återställas till aktivt läge.
 - **Permanent bort**: efter att rensa, kunde inte återställas.
+
 
 Detsamma gäller för nyckelvalvet. För att permanent ta bort ej permanent borttagna nyckelvalvet och dess innehåll, måste du ta bort själva nyckelvalvet.
 
 ### <a name="purging-a-key-vault"></a>Rensa ett nyckelvalv
 
-När ett nyckelvalv tas bort tas hela dess innehåll bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett ej permanent borttagna nyckelvalvet, använda den `Remove-AzureRmKeyVault` med alternativet `-InRemovedState` och genom att ange platsen för borttagna nyckelvalvet med den `-Location location` argumentet. Du kan hitta platsen för ett borttaget valv med hjälp av kommandot `Get-AzureRmKeyVault -InRemovedState`.
+När ett nyckelvalv tas bort tas hela dess innehåll bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett ej permanent borttagna nyckelvalvet, använda den `Remove-AzKeyVault` med alternativet `-InRemovedState` och genom att ange platsen för borttagna nyckelvalvet med den `-Location location` argumentet. Du kan hitta platsen för ett borttaget valv med hjälp av kommandot `Get-AzKeyVault -InRemovedState`.
 
 ```powershell
-Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus
+Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 ```
 
 ### <a name="purge-permissions-required"></a>Rensa behörigheter som krävs

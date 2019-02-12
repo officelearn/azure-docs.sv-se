@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729514"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001893"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database-hotidentifiering
 
@@ -77,7 +77,7 @@ Klicka på **Threat varning** för att starta Azure Security Center-aviseringar 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [hotidentifiering i fristående och pooldatabaser](sql-database-threat-detection.md).
+- Läs mer om [hotidentifiering i enkel och delade databaser](sql-database-threat-detection.md).
 - Läs mer om [hotidentifiering i hanterade instansen](sql-database-managed-instance-threat-detection.md).
 - Läs mer om [avancerade datasäkerhet](sql-database-advanced-data-security.md).
 - Läs mer om [Azure SQL Database-granskning](sql-database-auditing.md)

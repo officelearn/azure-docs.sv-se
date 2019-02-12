@@ -1,6 +1,6 @@
 ---
-title: Arbeta med strängar i Azure Log Analytics-frågor | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att skriva frågor i Log Analytics Analytics-portalen.
+title: Arbeta med strängar i Azure Monitor loggfrågor | Microsoft Docs
+description: Beskriver hur du redigerar, jämföra, söka i och utföra en mängd andra åtgärder i strängar i Azure Monitor log-frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 729d98dda1ae0a1410a15ee1e40c670ca211d864
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186250"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995415"
 ---
-# <a name="working-with-strings-in-log-analytics-queries"></a>Arbeta med strängar i Log Analytics-frågor
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor log-frågor
 
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Analytics-portalen](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan den här kursen.
+> Bör du genomföra [Kom igång med Azure Monitor log analytics](get-started-portal.md) och [komma igång med Azure Monitor loggfrågor](get-started-queries.md) innan den här kursen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Den här artikeln beskriver hur du redigerar, jämföra, söka i och utföra en mängd andra åtgärder i strängar. 
+Den här artikeln beskriver hur du redigerar, jämföra, söka i och utföra en mängd andra åtgärder i strängar.
 
 Varje tecken i en sträng har ett indextal enligt dess plats. Det första tecknet är vid index 0, nästa tecken är 1 och så att ett. Olika strängfunktioner använda indextal som visas i följande avsnitt. Många av i följande exempel används den **skriva ut** kommandot för att demonstrera manipulering av sträng utan att använda en särskild datakälla.
 
@@ -66,7 +66,7 @@ Operator       |Beskrivning                         |Skiftlägeskänsligt|Exempe
 `hassuffix`    |Right hand sida är en term suffix i vänstra hand sida         |Nej            |`"North America" hassuffix "ica"`
 `!hassuffix`   |Right hand sida inte är en term suffix i vänstra hand sida     |Nej            |”” Nordamerika ”! hassuffix” americ ”
 `hassuffix_cs`    |Right hand sida är en term suffix i vänstra hand sida         |Ja            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Right hand sida inte är en term suffix i vänstra hand sida     |Ja            |”” Nordamerika ”! hassuffix_cs” icA ”
+`!hassuffix_cs`   |Right hand sida inte är en term suffix i vänstra hand sida     |Ja            |`"North America" !hassuffix_cs "icA"
 `contains`     |Right hand sida som utförs som en efterföljande av vänstra hand sida  |Nej            |`"FabriKam" contains "BRik"`
 `!contains`    |Right hand sida inträffar inte i vänstra hand sida           |Nej            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Right hand sida som utförs som en efterföljande av vänstra hand sida  |Ja           |`"FabriKam" contains_cs "Kam"`

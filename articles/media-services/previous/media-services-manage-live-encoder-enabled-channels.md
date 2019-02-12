@@ -1,6 +1,6 @@
 ---
 title: Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter | Microsoft Docs
-description: 'Det här avsnittet beskriver hur du konfigurerar en kanal som tar emot en direktsänd dataström med enkel bithastighet från en lokala kodare och utför sedan live encoding till ström med anpassningsbar bithastighet med Media Services. Dataströmmen kan sedan levereras till klienten uppspelning program via en eller flera-slutpunkter för direktuppspelning, med någon av följande protokoll för anpassningsbar strömning: HLS, Smooth Stream MPEG DASH.'
+description: 'Det här avsnittet beskriver hur du konfigurerar en kanal som tar emot en direktsänd dataström med enkel bithastighet från en lokala kodare och utför sedan live encoding till ström med anpassningsbar bithastighet med Media Services. Dataströmmen kan sedan levereras till klienten uppspelning program via en eller flera-slutpunkter för direktuppspelning, med någon av följande protokoll för anpassningsbar strömning: HLS, Smooth Stream, MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682664"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003354"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -80,7 +80,7 @@ Från och med den 25 januari 2016 Media Services distribueras en uppdatering som
 Tröskeln under en oanvända är praktiskt taget 12 timmar, men kan ändras.
 
 ## <a name="live-encoding-workflow"></a>Live Encoding-arbetsflöde
-Följande diagram visar en live arbetsflöde där en kanal tar emot en enda bithastighet i något av följande protokoll: RTMP eller Smooth Streaming; den kodar sedan strömma till en dataström med multibithastighet. 
+Följande diagram representerar en live arbetsflöde där en kanal tar emot en enda bithastighet i något av följande protokoll: RTMP eller Smooth Streaming; den kodar sedan strömma till en dataström med multibithastighet. 
 
 ![Live-arbetsflöde][live-overview]
 
@@ -136,7 +136,7 @@ Om den **typ av kodare** är inställd på **Standard**, giltiga alternativ är:
 * Videoströmmen bör ha ett genomsnittligt bithastighet under 15 Mbit/s
 * Ljudströmmen bör ha ett genomsnittligt bithastighet nedan 1 Mbit/s
 * Nedan följer koder som stöds:
-* MPEG-4 AVC / H.264-Video
+* MPEG-4 AVC / H.264 Video
 * Baslinje, Main, hög profil (8-bitars 4:2:0)
 * Hög 10-profil (10-bitars 4:2:0)
 * Hög 422-profil (10-bitars 4:2:2)

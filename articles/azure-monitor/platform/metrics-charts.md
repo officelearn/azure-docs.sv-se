@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor metrics explorer
-description: Lär dig mer om nya funktioner i Azure Monitor Metrics Explorer
+description: Lär dig mer om nya funktioner i Azure Monitor metrics explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827456"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991335"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
+# <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
 
-Azure Monitor Metrics Explorer är en komponent i Microsoft Azure-portalen som tillåter ritning diagram, visuellt korrelera trender och undersöka toppar och dalar mått '. Metrics Explorer är ett viktigt startpunkt för att undersöka olika prestanda och tillgänglighetsproblem med dina program och infrastruktur i Azure eller övervakas av Azure Monitor-tjänster.
+Azure Monitor metrics explorer är en komponent i Microsoft Azure-portalen som tillåter ritområdet diagram, visuellt korrelera trender och undersöka toppar och dalar mått '. Måttutforskaren är en viktig startpunkt för att undersöka olika prestanda och tillgänglighetsproblem med dina program och infrastruktur i Azure eller övervakas av Azure Monitor-tjänster.
 
 ## <a name="metrics-in-azure"></a>Mått i Azure
 
-Mått i Microsoft Azure är serien med mätvärden och antal som samlas in och lagras över tid. Det finns mått för standard (eller ”plattformen”) och anpassade mått. Standardmått tillhandahålls till dig av själva Azure-plattformen. Standardmått visas statistik för hälsa och användning av dina Azure-resurser. Medan anpassade mått som ska skickas till Azure genom att dina program med den [Application Insights API för anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Anpassade mått lagras i Application Insights-resurser tillsammans med andra program specifika mått.
+[Mått i Azure Monitor](data-collection.md#metrics) är serie mätvärden och antal som samlas in och lagras över tid. Det finns mått för standard (eller ”plattformen”) och anpassade mått. Standardmått tillhandahålls till dig av själva Azure-plattformen. Standardmått visas statistik för hälsa och användning av dina Azure-resurser. Medan anpassade mått som ska skickas till Azure genom att dina program med den [Application Insights API för anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Anpassade mått lagras i Application Insights-resurser tillsammans med andra program specifika mått.
 
 ## <a name="create-a-new-chart"></a>Skapa ett nytt diagram
 
@@ -52,7 +52,7 @@ Mått i Microsoft Azure är serien med mätvärden och antal som samlas in och l
 7. Genom att klicka på **Lägg till mått** och upprepa steg 3 – 6, du kan lägga till fler mått på samma diagram.
 
    > [!NOTE]
-   > Du normalt vill inte ha mått med olika enheter (d.v.s. ”millisekunder” och ”kilobyte”) eller med betydligt olika skala på ett diagram. Överväg istället att använda flera diagram. Klicka på knappen Lägg till diagram för att skapa flera diagram i Metrics Explorer.
+   > Du normalt vill inte ha mått med olika enheter (d.v.s. ”millisekunder” och ”kilobyte”) eller med betydligt olika skala på ett diagram. Överväg istället att använda flera diagram. Klicka på knappen Lägg till diagram för att skapa flera diagram i metrics explorer.
 
 ## <a name="apply-filters-to-charts"></a>Använda filter diagram
 

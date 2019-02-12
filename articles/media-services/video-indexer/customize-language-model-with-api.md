@@ -7,14 +7,14 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 95334ac326b346da23f17d3a9d494120235abace
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5f77857c82846fe9c3d2ad4f5f82572d18401691
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285370"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003609"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassa en språkmodell med API: er för Video Indexer
 
@@ -56,7 +56,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 |location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
 |accountId|sträng|Ja|Globalt unik identifierare för kontot|
 |accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-|%{ModelName/|sträng|Ja|Namn för språkmodellen|
+|modelName|sträng|Ja|Namn för språkmodellen|
 |language|sträng|Ja|Språket i språkmodellen. <br/>Den **språk** parametern måste anges språket i BCP-47 formatet ”språk tagg-regioner” (t.ex.: ”en-US”). Språk som stöds är engelska (en-US), tyska (de-DE), spanska (es-SP), arabiska (ar-t.ex.), franska (fr-FR), Hindi (Hej-HI), italienska (it-IT), japanska (ja-JP), portugisiska (pt-BR), ryska (ru-RU) och kinesiska (zh-CN).  |
 
 ### <a name="request-body"></a>Begärandetext
@@ -235,7 +235,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |accountID|sträng|Ja|Globalt unik identifierare för kontot|
 |modelId|sträng|Ja|Språk modell-id (genereras när språkmodellen skapas)|
 |accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-|%{ModelName/|sträng|Nej|Nytt namn som du kan ge modellen|
+|modelName|sträng|Nej|Nytt namn som du kan ge modellen|
 |aktivera|boolesk|Nej|Välj om alla filer under den här modellen är aktiverad (SANT) eller inaktiverad (FALSKT)|
 
 ### <a name="request-body"></a>Begärandetext

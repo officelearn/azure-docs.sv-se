@@ -4,7 +4,7 @@ description: 'Det här avsnittet visar hur du konfigurerar Wirecast livekodaren 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/09/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138964"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998577"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Wirecast-kodare för att skicka en direktsänd dataström med enkel bithastighet
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Wirecast-kodare för att skicka en direktsänd dataström med enkel bithastighet 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -78,7 +78,7 @@ I den här självstudien används följande utdatainställningar för. Resten av
 * Profil: Hög (nivå 4.0)
 * Med flera bithastigheter: 5000 kbit/s
 * Bildrutan: 2 sekunder (60 sekunder)
-* RAM-pris: 30
+* Bildfrekvens: 30
 
 **Ljud**:
 
@@ -106,13 +106,13 @@ I den här självstudien används följande utdatainställningar för. Resten av
    * Kodaren: MainConcept H.264
    * Bildrutor per sekund: 30
    * Genomsnittlig bithastighet: 5000 kbits/sek (kan justeras utifrån nätverksbegränsningar)
-   * Profil: Main
-   * Viktiga ramens var: 60 bildrutor
+   * Profil: Huvud
+   * Viktiga ramens varje: 60 bildrutor
 
     **Ljud**
 
-   * Target bithastighet: 192 kbits/sek
-   * Samplingshastighet: 44 100 kHz
+   * Bithastighet för mål: 192 kbits/sek
+   * Samplingshastighet: 44.100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Tryck på **Spara**.

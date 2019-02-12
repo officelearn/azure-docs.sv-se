@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883780"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002124"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -83,7 +83,7 @@ Du kan filtrera din aktivitetslogg av de här fälten i Azure-portalen:
 
 När du har definierat en uppsättning filter kan fästa du en fråga till instrumentpanelen i Azure att alltid hålla ett öga på specifika händelser.
 
-För ännu mer kraft du kan klicka på den **loggar** ikon som visar aktivitetsloggdata i den [Log Analytics Activity Log Analytics-lösningen](../../azure-monitor/platform/collect-activity-logs.md). Bladet aktivitetslogg erbjuder en grundläggande filter/Bläddra-miljö på loggar, men Log Analytics kan du pivotera, fråga och visualisera dina data på ett mer kraftfulla sätt.
+För ännu mer kraft du kan klicka på den **loggar** ikon som visar aktivitetsloggdata i den [samla in och analysera aktivitetsloggar lösning](../../azure-monitor/platform/collect-activity-logs.md). Bladet aktivitetslogg erbjuder en grundläggande filter/Bläddra-upplevelse på loggar, men Azure Monitor-loggar funktionen kan du pivotera, fråga och visualisera dina data på ett mer kraftfullt sätt.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportera aktivitetslogg till en Loggprofil
 En **Loggprofil** styr hur din aktivitetslogg exporteras. Med en logg-profil kan konfigurera du:
@@ -142,7 +142,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
-| Namn |Ja |Namnet på din loggprofil. |
+| Name |Ja |Namnet på din loggprofil. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto som aktivitetsloggen ska sparas. |
 | serviceBusRuleId |Nej |Service Bus regel-ID för Service Bus-namnområde som du vill ha händelsehubbar som skapats i. Är en sträng med det här formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Plats |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. |

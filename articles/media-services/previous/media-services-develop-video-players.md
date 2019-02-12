@@ -2,7 +2,7 @@
 title: Utveckla videospelarprogram
 description: Avsnittet innehåller länkar till Spelarramverk och plugin-program som du kan använda för att utveckla egna klientprogram som kan använda strömmande media från Media Services.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237051"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004850"
 ---
 # <a name="develop-video-player-applications"></a>Utveckla videospelarprogram
 ## <a name="overview"></a>Översikt
@@ -53,7 +53,7 @@ Du kan också använda någon av följande SDK: erna:
 * [XBOX Video programutveckling](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>Reklam
-Azure Media Services har stöd för ad-insättning via Windows Media Platform: Spelarramverk. Spelarramverk med stöd för ad är tillgängliga för Windows 8, Silverlight, Windows Phone 8 och iOS-enheter. Varje player framework innehåller exempelkod som visar hur du implementerar en player-program. Det finns tre olika typer av annonser som du kan lägga till i dina media:
+Azure Media Services har stöd för ad-insättning via Windows Media-plattform: Spelarramverk. Spelarramverk med stöd för ad är tillgängliga för Windows 8, Silverlight, Windows Phone 8 och iOS-enheter. Varje player framework innehåller exempelkod som visar hur du implementerar en player-program. Det finns tre olika typer av annonser som du kan lägga till i dina media:
 
 Linjär – fullständig ramens annonser som pausar huvudsakliga videon
 
@@ -61,7 +61,7 @@ Icke-linjära – överlägget annonser som visas när huvudsakliga videon spela
 
 Tillhörande – annonser som visas utanför spelaren
 
-Annonser kan placeras när som helst i tidslinjen för den huvudsakliga video. Du måste meddela spelaren när du vill spela upp ad och vilka annonser att spela upp. Detta görs med hjälp av en uppsättning XML-baserade standardfiler: Video Ad Service-mall (VAST), Digital Video flera Ad spellistan (VMAP), Media abstrakt ordningsföljd mallen (MAST) och Digital Video Player Ad Interface Definition (VPAID). STORA filer ange vilka annonser att visa. VMAP anger när du vill spela upp olika annonser och innehålla stora XML. MAST filer är ett annat sätt att sekvens annonser som även kan innehålla stora XML. VPAID filer definierar ett gränssnitt mellan videospelaren och ad eller ad-servern. Mer information finns i [Infoga annonser](https://msdn.microsoft.com/library/dn387398.aspx).
+Annonser kan placeras när som helst i tidslinjen för den huvudsakliga video. Du måste meddela spelaren när du vill spela upp ad och vilka annonser att spela upp. Detta görs med hjälp av en uppsättning XML-baserade standardfiler: Video Ad Tjänstmallen (VAST), Digital Video flera Ad spellistan (VMAP), Media abstrahera sekvensering mallen (MAST) och digitala videospelaren Ad gränssnittsdefinitionen (VPAID). STORA filer ange vilka annonser att visa. VMAP anger när du vill spela upp olika annonser och innehålla stora XML. MAST filer är ett annat sätt att sekvens annonser som även kan innehålla stora XML. VPAID filer definierar ett gränssnitt mellan videospelaren och ad eller ad-servern. Mer information finns i [Infoga annonser](https://msdn.microsoft.com/library/dn387398.aspx).
 
 Läs om hur textning och annonser stöd i Live direktuppspelning videor [stöds textning och Ad-insättning standarder](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 

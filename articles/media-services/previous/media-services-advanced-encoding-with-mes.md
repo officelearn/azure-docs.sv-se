@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250775"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998713"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Utföra avancerade encoding genom att anpassa MES-förinställningar 
 
@@ -238,15 +238,15 @@ Följande gäller:
 * Användningen av explicita tidsstämplar för Start/steg/intervall förutsätter att Indatakällan är minst 1 minut.
 * JPG/Png/BmpImage element har Start, steg, och vara strängattribut – dessa kan tolkas som:
 
-  * Bildrutenummer om de är icke-negativa heltal, till exempel ”Start”: ”120”
-  * Relativt källa varaktighet om det uttrycks som %-suffix, till exempel ”Start”: ”15%”, eller
-  * Tidsstämpel om det uttrycks som: mm: ss... Formatera, till exempel ”Start” ”: 00: 01:00”
+  * Bildrutenummer om de är icke-negativa heltal, till exempel ”Start”: "120",
+  * Relativt till källängd om det uttrycks som %-suffix, till exempel ”Start”: ”15%”, ELLER
+  * Tidsstämpel om det uttrycks som: mm: ss... format, till exempel ”Start”: "00:01:00"
 
     Du kan blanda och matcha beteckningar som du finns.
 
-    Dessutom Start även stöd för ett särskilt makro: {bästa}, som försöker bestämma första ”intressanta” bildruta anteckningens innehåll: (steg och intervallet ignoreras när Start är inställd på {bästa})
-  * Standard: Starta: {bästa}
-* Utdataformat måste anges uttryckligen för varje bildformat: Jpg/Png/BmpFormat. När det finns, matchar MES JpgVideo till JpgFormat och så vidare. OutputFormat introducerar en ny bild-codec visst makro: {Index}, som måste vara presentera (en gång och bara en gång) för bild-utdataformat.
+    Dessutom Start även stöd för ett särskilt makro: {bästa}, som försöker bestämma första ”intressanta” bildruta anteckningens innehåll: (Steg och intervallet ignoreras när Start är inställd på {bästa})
+  * Standard: Start:{Best}
+* Utdataformat måste anges uttryckligen för varje bild-format: JPG/Png/BmpFormat. När det finns, matchar MES JpgVideo till JpgFormat och så vidare. OutputFormat introducerar en ny bild-codec visst makro: {Index}, som måste vara presentera (en gång och bara en gång) för bild-utdataformat.
 
 ## <a id="trim_video"></a>Beskär video (urklippet)
 Det här avsnittet berättar om hur du ändrar encoder förinställningar för att klippa ut eller trimma indatavideon där indata är en s.k. mezzaninfil eller på begäran-fil. Kodaren kan också användas för att klippa ut eller trimma en tillgång som avbildas eller arkiveras från en direktsänd dataström – information för detta finns i [den här bloggen](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
@@ -752,7 +752,7 @@ Du kan inaktivera den automatiskt ta bort sammanflätning. Det här alternativet
 
 
 ## <a id="audio_only"></a>Enbart ljud förinställningar
-Det här avsnittet beskrivs två ljuddata MES-förinställningar: AAC ljud- och AAC god kvalitet ljud.
+Det här avsnittet beskrivs två ljuddata MES-förinställningar: AAC-ljud- och AAC god kvalitet ljud.
 
 ### <a name="aac-audio"></a>AAC-ljud
     {

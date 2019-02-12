@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 0c574aab722cdce91cd5a2569c14c4f1710483ed
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/08/2019
+ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965230"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995078"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Skapa läsbara sekundära databaser med aktiv geo-replikering
 
@@ -102,7 +102,7 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 - **Konfigurerbara beräkningsstorleken för den sekundära databasen**
 
-  Både den primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt den sekundära databasen skapas med samma beräkningsstorleken (dtu: er eller v-kärnor) som primär. En sekundär med lägre beräkningsstorleken finns det risk för en ökad replikeringsfördröjning potentiella otillgängliga för sekundärt och därmed riskerar betydande dataförlust efter en redundansväxling. Resultatet blir publicerade Återställningspunktmålet = 5 SEK kan inte garanteras. Andra risken är att efter en redundansväxling programmets prestanda påverkas på grund av brist på beräkningskapaciteten för den nya primärt förrän den har uppgraderats till en högre beräkningsstorleken. Tiden för uppgraderingen beror på databasens storlek. Dessutom kan för närvarande sådana uppgradering kräver att både den primära och sekundära databaser är online och därför kan inte slutföras förrän driftstörningarna har minimerats. Om du vill skapa sekundärt med lägre beräkningsstorleken ger på logg-i/o procent diagrammet i Azure-portalen en bra sätt att beräkna minimal beräkningsstorleken för den sekundära som krävs för att upprätthålla belastningen för replikering. Exempel: om din primära databas är P6 (1000 DTU) och dess loggen IO-procent är 50% sekundär måste vara minst P4 (500 DTU). Du kan också hämta log-i/o-data med hjälp av [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasen vyer.  Mer information om SQL Database-storlekar finns i [vad är SQL Database-servicenivåerna](sql-database-service-tiers.md).
+  Både den primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt den sekundära databasen skapas med samma beräkningsstorleken (dtu: er eller v-kärnor) som primär. En sekundär med lägre beräkningsstorleken finns det risk för en ökad replikeringsfördröjning potentiella otillgängliga för sekundärt och därmed riskerar betydande dataförlust efter en redundansväxling. Resultatet blir publicerade Återställningspunktmålet = 5 SEK kan inte garanteras. Andra risken är att efter en redundansväxling programmets prestanda påverkas på grund av brist på beräkningskapaciteten för den nya primärt förrän den har uppgraderats till en högre beräkningsstorleken. Tiden för uppgraderingen beror på databasens storlek. Dessutom kan för närvarande sådana uppgradering kräver att både den primära och sekundära databaser är online och därför kan inte slutföras förrän driftstörningarna har minimerats. Om du vill skapa sekundärt med lägre beräkningsstorleken ger på logg-i/o procent diagrammet i Azure-portalen en bra sätt att beräkna minimal beräkningsstorleken för den sekundära som krävs för att upprätthålla belastningen för replikering. Exempel: om din primära databas är P6 (1000 DTU) och dess loggen IO-procent är 50% sekundär måste vara minst P4 (500 DTU). Du kan också hämta log-i/o-data med hjälp av [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasen vyer.  Mer information om SQL Database-storlekar finns i [vad är SQL Database-servicenivåerna](sql-database-purchase-models.md).
 
 - **Användarstyrd redundans och återställning efter fel**
 
@@ -130,7 +130,7 @@ Kontinuerlig kopiering använder en asynkron replikeringsmekanism på grund av d
 
 Enligt beskrivningen tidigare kan aktiv geo-replikering också hanteras via programmering med hjälp av Azure PowerShell och REST-API. I följande tabeller beskrivs uppsättningen kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning API: er för Azure Resource Manager för hantering, inklusive den [Azure SQL Database REST API: et](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview). Dessa API: er kräver användning av resursgrupper och stöder rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [rollbaserad åtkomstkontroll i](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: Hantera redundans för fristående och databaser i en pool
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Hantera redundans för enkel och delade databaser
 
 > [!IMPORTANT]
 > De här Transact-SQL-kommandon bara gäller aktiv geo-replikering och gäller inte för redundansgrupper. Därför måste gäller de även inte för hanterade instanser eftersom de endast stöder redundansgrupper.
@@ -146,7 +146,7 @@ Enligt beskrivningen tidigare kan aktiv geo-replikering också hanteras via prog
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |Gör så att programmet ska vänta tills alla genomförda transaktioner replikeras och bekräftas av den aktiva sekundära databasen. |
 |  | |
 
-### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: Hantera redundans för fristående och databaser i en pool
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Hantera redundans för enkel och delade databaser
 
 | Cmdlet | Beskrivning |
 | --- | --- |
@@ -160,7 +160,7 @@ Enligt beskrivningen tidigare kan aktiv geo-replikering också hanteras via prog
 > [!IMPORTANT]
 > Exempel på skript, se [konfigurera och redundansväxla en enskild databas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) och [konfigurera och redundansväxla en databas i pool med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>REST-API: Hantera redundans för fristående och databaser i en pool
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST-API: Hantera redundans för enkel och delade databaser
 
 | API | Beskrivning |
 | --- | --- |

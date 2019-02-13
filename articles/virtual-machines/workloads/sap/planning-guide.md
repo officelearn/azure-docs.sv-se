@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f336f6fdb5cde638fe62d1410a9f993492be21ed
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747568"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118300"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -961,7 +961,7 @@ I det här fallet vill vi att ladda upp en virtuell Hårddisk, med eller utan et
 * Logga in på din prenumeration med *az-inloggning*
 * Välj din prenumeration med *az-kontogrupper--subscription `<subscription name or id`>*
 * Ladda upp den virtuella Hårddisken med *az storage blob uppladdning* -finns i [med hjälp av Azure CLI med Azure Storage][storage-azure-cli]
-* (Valfritt) Skapa en hanterad Disk från den virtuella Hårddisken med *az disk skapa* -finns i https://docs.microsoft.com/cli/azure/disk#az_disk_create
+* (Valfritt) Skapa en hanterad Disk från den virtuella Hårddisken med *az disk skapa* -finns i https://docs.microsoft.com/cli/azure/disk
 * Skapa en ny virtuell dator att ange den överförda virtuella Hårddisken eller hanterad Disk som OS-disk med *az vm skapa* och parametern *– koppla-os-disk*
 * Lägga till en datadisk till en ny virtuell dator med *az vm disk attach* och parametern *– ny*
 
@@ -990,7 +990,7 @@ Ladda upp en befintlig virtuell dator eller virtuell Hårddisk från det lokala 
 * Logga in på din prenumeration med *az-inloggning*
 * Välj din prenumeration med *az-kontogrupper--subscription `<subscription name or id`>*
 * Ladda upp den virtuella Hårddisken med *az storage blob uppladdning* -finns i [med hjälp av Azure CLI med Azure Storage][storage-azure-cli]
-* (Valfritt) Skapa en avbildning av hanterad Disk från den virtuella Hårddisken med *az bild skapa* -finns i https://docs.microsoft.com/cli/azure/image#az_image_create
+* (Valfritt) Skapa en avbildning av hanterad Disk från den virtuella Hårddisken med *az bild skapa* -finns i https://docs.microsoft.com/cli/azure/image
 * Skapa en ny virtuell dator anger att den överförda virtuella Hårddisken eller hanterade diskavbildning OS-disken med *az vm skapa* och parametern *--bild*
 
 **Mall**

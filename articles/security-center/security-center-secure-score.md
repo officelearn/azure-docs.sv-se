@@ -4,7 +4,7 @@ description: " Prioritera dina säkerhetsrekommendationer som använder säker p
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: monhaber
-ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 22791fc43ff17d56e1f51e7f7737a10109f47c59
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425901"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104779"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Förbättra dina säker poäng i Azure Security Center
 
@@ -80,7 +80,7 @@ Rekommendationen visar vilka hot arbetsbelastningen utsätts för om åtgärdsst
 
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln visar dig hur du kan förbättra din säkerhet hållning med hjälp av **säker poäng** i Azure Security Center. Mer information om Security Center finns:
+Den här artikeln visar dig hur du kan förbättra din säkerhet hållning med hjälp av **säker poäng** i Azure Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Här kan du läsa om hur du övervakar dina Azure-resursers hälsa.

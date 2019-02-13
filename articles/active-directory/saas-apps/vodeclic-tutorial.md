@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 14dc205857a6a067421fbb51dbbbf0c35c556e0e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d3dcd39d58089b202d9e9d61cfc5d25e12ff7a6b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150605"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Självstudier: Azure Active Directory-integrering med Vodeclic
 
@@ -87,10 +88,10 @@ I Vodeclic, ger värdet **användarnamn** samma värde som **användarnamn** i A
 Om du vill konfigurera och testa Azure AD enkel inloggning med Vodeclic, utför du följande byggblock:
 
 1. [Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) vill tillåta att användarna använda den här funktionen.
-1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
+1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning för Azure AD med Britta Simon.
 1. [Skapa en testanvändare Vodeclic](#create-a-vodeclic-test-user) har en motsvarighet för Britta Simon i Vodeclic som är länkad till en Azure AD-representation av användaren.
-1. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. [Testa enkel inloggning](#test-single-sign-on) att kontrollera om konfigurationen fungerar.
+1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) så att Britta Simon kan använda enkel inloggning i Azure AD.
+1. [Testa enkel inloggning](#test-single-sign-on) för att verifiera huruvida konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 

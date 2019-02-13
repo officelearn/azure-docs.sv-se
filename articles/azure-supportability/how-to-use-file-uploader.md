@@ -4,7 +4,7 @@ description: Beskriver riktlinjer när du använder Microsoft Azure ny supportbe
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: ''
 editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 015d5bcdb7ab4e4e666471163bb027c74c9bb377
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 949d6b00b4e04921ea745dd4efa1b8a58c49f534
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418032"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108440"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure ny supportförfrågan filöverföring verktyget riktlinjer
 När du [skapa en supportbegäran](https://portal.azure.com/#create/Microsoft.Support), verktyget Filöverföring kan hjälpa dig att enkelt ladda upp diagnostiska filer eller andra filer som du tycker är relevant till incidenten.  
@@ -41,30 +41,30 @@ Följ dessa riktlinjer när du använder verktyget filöverföring:
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | .dat  | .hwl        | .odx  | .RAR     | .tdb       | .xlam   |
-| finns på schemanivån          | .db   | ICS        | .oft  | .RDL     | .tdf       | .xlr    |
-| .abc        | .DMP  | ini        | .old  | .RDLC    | .text      | .xls    |
-| ADM        | .do_  | .java       | One  | .re_     | .thmx      | .xlsb   |
-| .aspx       | .doc  | .jpg        | OSD  | .reg     | .TIF       | .xlsm   |
-| . ATF        | .docm | .LDF        | . UT  | .Ta bort  | .trc       | .xlsx   |
-| .b          | .docx | .letterhead | .p1   | .ren     | .TTD       | xlt    |
-| .ba_        | .dotm | .lnk        | .pcap | .Rename  | .tx_       | .xltx   |
-| .bak        | .dotx | .lo_        | .pdb  | .RFT     | .txt       | .XML    |
+| .a          | .db   | .ics        | .oft  | .rdl     | .tdf       | .xlr    |
+| .abc        | .DMP  | .ini        | .old  | .rdlc    | .text      | .xls    |
+| .adm        | .do_  | .java       | One  | .re_     | .thmx      | .xlsb   |
+| .aspx       | .doc  | .jpg        | .osd  | .reg     | .tif       | .xlsm   |
+| .ATF        | .docm | .LDF        | .OUT  | .remove  | .trc       | .xlsx   |
+| .b          | .docx | .letterhead | .p1   | .ren     | .TTD       | .xlt    |
+| .ba_        | .dotm | .lnk        | .pcap | .rename  | .tx_       | .xltx   |
+| .bak        | .dotx | .lo_        | .pdb  | .rft     | .txt       | .xml    |
 | .bat        | .dtsx | .log        | .pdf  | .rpt     | .uccapilog | .xmla   |
-| blg        | .EDS  | .lpk        | .piz  | .RTE     | .uccplog   | .XPS    |
-| .CA_        | .emf  | manifest   | .pmls | .RTF     | .udcx skulle hämtas      | XSD    |
-| . CAB-FIL        | .eml  | .master     | .png  | .run     | .vb_       | XSN    |
+| .blg        | .eds  | .lpk        | .piz  | .rte     | .uccplog   | .xps    |
+| .CA_        | .emf  | .manifest   | .pmls | .RTF     | .udcx skulle hämtas      | .xsd    |
+| .CAB        | .eml  | .master     | .png  | .run     | .vb_       | .xsn    |
 | .cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | .xxx    |
-| .catx       | .ERR  | .mof        | ppt  | .sql     | .vcf       | .z_     |
-| . CFG        | etl  | .mp3        | .pptm | .sqlplan | .vsd       | .z01    |
-| .Compressed | .evt  | MPG        | .pptx | .stp     | .wdb       | .z02    |
-| . Config     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
-| .cpk        | . T.EX.   | .msg        | .psf  |   -       | .wma       | .zi_    |
+| .catx       | .err  | .mof        | .ppt  | .sql     | .vcf       | .z_     |
+| .CFG        | .etl  | .mp3        | .pptm | .sqlplan | .vsd       | .z01    |
+| .compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
+| .Config     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
+| .cpk        | .EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
 | .cpp        | .ex_  | .msi        | .pst  |  -        | .wmv       | .zip    |
-| .CS         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
-| . CSV        | .FRD  | .msu        | -      |-          | .wps       | .zipp   |
+| .cs         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
+| .CSV        | .FRD  | .msu        | -      |-          | .wps       | .zipp   |
 | .cvr        | .gif  | .nfo        | -      |-          | .wpt       | .Zipped |
-| -            | .GUID | -            | -      | -         | .WSDL      | .zippy  |
-| -            | .GZ   | -            | -      | -         | WSP       | .zipx   |
+| -            | .guid | -            | -      | -         | .wsdl      | .zippy  |
+| -            | .gz   | -            | -      | -         | .wsp       | .zipx   |
 | -            | -      | -            | -      | -         | .wtl       | .zit    |
 | -            | -      | -            | -      | -         |     -       | .zix    |
 | -            | -      | -            | -      | -         |  -          | .zzz    |

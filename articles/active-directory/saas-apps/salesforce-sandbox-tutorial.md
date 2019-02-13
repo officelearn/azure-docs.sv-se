@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: b04e4a83862cdec26e0432eb7d8b3419e36d5a7a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: feb6cebca0fe165315215813eb939dc2d5d120cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176428"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Självstudier: Azure Active Directory-integrering med Salesforce Sandbox
 
@@ -119,7 +120,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
    
     ![Konfigurera länk för enkel inloggning](./media/salesforce-sandbox-tutorial/tutorial_general_302.png)
 
-5. På den **SAML grundkonfiguration** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+5. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera programmet i **IDP**-initierat läge:
 
     a. Klicka på **Ladda upp metadatafil**.
 

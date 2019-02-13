@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 984c5ceab0115d464633094d20deb35761eb80f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c0973001cda4a817ab464f825ad50deb52019f65
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178655"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Självstudier: Azure Active Directory-integrering med EBSCO
 
@@ -117,7 +118,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
      
     > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [EBSCO klienten supportteamet](mailto:sso@ebsco.com) att hämta värdet. 
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EBSCO klienten supportteamet](mailto:sso@ebsco.com) att hämta värdet. 
 
     o **unika element:**  
 

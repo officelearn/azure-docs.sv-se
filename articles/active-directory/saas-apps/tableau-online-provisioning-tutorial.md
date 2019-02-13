@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera Tableau Online för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera Tableau Online för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Tableau Online.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345870"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194877"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Tableau Online för automatisk användaretablering
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Tableau Online för automatisk användaretablering
 
 Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Tableau Online och Azure Active Directory (AD Azure) att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Tableau Online.
 
@@ -117,7 +118,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
     *   Den **domän** för Tableau Online konto kan kopieras från den här delen av URL: en: ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
 
-    *   Den **Innehållswebbadress** för Tableau Online konto kan kopieras från det här avsnittet och har ett värde som definierats under installation av kontot. I det här exemplet är värdet ”contoso”: ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+    *   Den **Innehållswebbadress** för Tableau Online konto kan kopieras från det här avsnittet och har ett värde som definierats under installation av kontot. Värdet är ”contoso” i det här exemplet: ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
         > Din **domän** kan skilja sig från den som visas här. 

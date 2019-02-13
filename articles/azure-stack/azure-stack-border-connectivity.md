@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 3681d583760be2ca537559e334c2facdeeb373db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 988150d93f7bc33cf122828b41316bec73534de9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240394"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164812"
 ---
 # <a name="border-connectivity"></a>Kantlinje anslutning 
 Nätverksplanering integration är en viktig nödvändig komponent för lyckad distribution av integrerade Azure Stack-system, åtgärden och hantering. Planera för kantlinje anslutning börjar genom att välja huruvida du använder dynamisk routning med BGP (border gateway protocol) eller inte. Detta kräver att tilldela en 16-bitars BGP autonomt systemnummer (offentliga eller privata) eller med statisk routning, där en statisk standardväg tilldelas till enheter kantlinje.

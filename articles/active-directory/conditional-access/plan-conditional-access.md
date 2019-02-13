@@ -12,14 +12,15 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1d43c7943eedcfdf839303a6a55d7727a8483441
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081032"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175820"
 ---
-# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Hur: Planera distributionen av villkorlig åtkomst i Azure Active Directory
+# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instruktioner: Planera distributionen av villkorlig åtkomst i Azure Active Directory
 
 Planera distributionen av villkorlig åtkomst är viktigt att se till att du få strategin kräver åtkomst för appar och resurser i din organisation. Du bör spenderar det mesta av din tid under planeringsfasen i distributionen för att utforma olika principer som du behöver för att bevilja eller neka åtkomst till dina användare på de villkor som du väljer. Det här dokumentet beskrivs de steg som du bör vidta för att implementera säkra och effektiva villkorliga åtkomstprinciper. Innan du börjar måste du kontrollera att du förstår hur [villkorlig åtkomst](overview.md) fungerar och när du ska använda.
 

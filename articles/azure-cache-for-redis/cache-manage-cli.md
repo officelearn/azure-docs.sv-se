@@ -3,7 +3,7 @@ title: Hantera Azure Cache för Redis med hjälp av Azure klassiskt CLI | Micros
 description: Lär dig hur du installerar Azure klassiska CLI på valfri plattform, använda den för att ansluta till ditt Azure-konto och skapa och hantera en Azure Cache för Redis från klassiskt CLI.
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: wesmc
-ms.openlocfilehash: 9b9ad2f4fd3b0ccf928dcec58b7c55778bcbdc95
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.author: yegu
+ms.openlocfilehash: 7ad60291b0e16b658856b47c013a3f5b207832da
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558710"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109410"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Hur du skapar och hanterar Azure Cache för Redis med hjälp av den klassiska Azure CLI
 > [!div class="op_single_selector"]
@@ -46,16 +46,16 @@ Följande egenskaper som används när du skapar och uppdaterar Azure Cache för
 
 | Egenskap  | Växel | Beskrivning |
 | --- | --- | --- |
-| namn |-n, – namn |Namnet på Azure Cache för Redis. |
-| Resursgrupp |-g,--resursgrupp |Namnet på resursgruppen. |
+| namn |-n, --name |Namnet på Azure Cache för Redis. |
+| Resursgrupp |-g, --resource-group |Namnet på resursgruppen. |
 | location |l-,--plats |Plats för att skapa cache. |
-| storlek |z-,--storlek |Storleken på cacheminnet för Azure Redis. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| sku |-x-,--sku |Redis-SKU. Bör vara något av: [Basic, Standard, Premium] |
-| enableNonSslPort |e-,--aktivera icke-ssl-port |EnableNonSslPort-egenskapen för Azure Cache för Redis. Lägg till den här flaggan om du vill aktivera icke-SSL-porten för din cachelagring |
-| Redis-konfiguration |c-,--redis-konfiguration |Redis-konfiguration. Ange en JSON-formaterad sträng med konfigurationsnycklar och värden här. Format ”: {” ”:” ””, ””: ”}” |
-| Redis-konfiguration |f-,--redis-konfigurationsfil |Redis-konfiguration. Ange sökvägen till en fil som innehåller konfigurationsnycklar och värden här. Formatet för posten fil: {””: ”” ”,” ”:”} |
+| storlek |-z, --size |Storleken på cacheminnet för Azure Redis. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| sku |-x, --sku |Redis SKU. Bör vara något av: [Basic, Standard, Premium] |
+| EnableNonSslPort |-e, --enable-non-ssl-port |EnableNonSslPort-egenskapen för Azure Cache för Redis. Lägg till den här flaggan om du vill aktivera icke-SSL-porten för din cachelagring |
+| Redis-konfiguration |-c, --redis-configuration |Redis-konfiguration. Ange en JSON-formaterad sträng med konfigurationsnycklar och värden här. Format:"{"":"","":""}" |
+| Redis-konfiguration |-f, --redis-configuration-file |Redis-konfiguration. Ange sökvägen till en fil som innehåller konfigurationsnycklar och värden här. Format for the file entry: {"":"","":""} |
 | Shardantal |r-,--shardantal |Antal fragment för att skapa på Premium-kluster Cache med klustring. |
-| Virtual Network |v-,--virtuellt nätverk |När du är värd för ditt cacheminne i ett virtuellt nätverk, anger exakta ARM resurs-ID för det virtuella nätverket för att distribuera Azure Cache för Redis-i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Virtual Network |-v, --virtual-network |När du är värd för ditt cacheminne i ett virtuellt nätverk, anger exakta ARM resurs-ID för det virtuella nätverket för att distribuera Azure Cache för Redis-i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Nyckeltyp |-t,--key-typ |Typen av nyckel att förnya. Giltiga värden: [primär, sekundär] |
 | StaticIP |-p, – statisk ip < statisk ip > |När du har ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om du inte är något valt från undernätet. |
 | Undernät |t,--undernät <subnet> |När du har ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du kan distribuera cacheminnet. |

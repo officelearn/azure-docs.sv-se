@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0903756ba7df34e7dba20301d45cbd4b6cc4d5ea
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992525"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109766"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Regionala avbrott är inte ovanligt och Azure Cosmos DB gör att din databas är
 
 ## <a name="building-highly-available-applications"></a>Att skapa program med hög tillgänglighet
 
-- Konfigurera Cosmos-konto för att omfatta minst två regioner med flera – Skriv-regioner för att säkerställa hög skrivning och lästillgänglighet. Den här konfigurationen tillhandahåller tillgänglighet, lägsta svarstid och skalbarhet för både läsningar och skrivningar uppbackat av serviceavtal. Mer information finns i så här [konfigurera Cosmos-konto med flera Skriv-regioner](tutorial-global-distribution-sql-api.md).
+- Konfigurera Cosmos-konto för att omfatta minst två regioner med flera – Skriv-regioner för att säkerställa hög skrivning och lästillgänglighet. Den här konfigurationen tillhandahåller tillgänglighet, lägsta svarstid och skalbarhet för både läsningar och skrivningar uppbackat av serviceavtal. Mer information finns i så här [konfigurera Cosmos-konto med flera Skriv-regioner](tutorial-global-distribution-sql-api.md). För att konfigurera multimaster i dina program, se [så här konfigurerar du multimaster](how-to-multi-master.md).
 
 - För flera regioner Cosmos-konton som är konfigurerade med en enda skrivregionen, [aktivera automatisk redundans med hjälp av Azure CLI eller Azure-portalen](how-to-manage-database-account.md#automatic-failover). När du har aktiverat automatisk redundans när det finns ett regionalt haveri redundansväxlas Cosmos DB automatiskt ditt konto.  
 
@@ -86,3 +86,4 @@ Därefter kan du lära dig om att skala dataflöde i följande artikel:
 * [Skala globalt etablerat dataflöde](scaling-throughput.md)
 * [Global distribution – under huven](global-dist-under-the-hood.md)
 * [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md)
+* [Så här konfigurerar du multimaster i dina program](how-to-multi-master.md)

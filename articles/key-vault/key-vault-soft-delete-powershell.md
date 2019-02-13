@@ -2,17 +2,17 @@
 title: Azure Key Vault - hur du använder mjuk borttagning med PowerShell
 description: Använda fallet exempel för mjuk borttagning med PowerShell-kodstycken
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: 48c471e17fb28843bf61f1591faafc119eb8dec8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 70437403d3b78b7f8b9eef921c933a68793450da
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002347"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113591"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Hur du använder Key Vault mjuk borttagning med PowerShell
 
@@ -236,5 +236,5 @@ Visa en lista över objekt som borttaget nyckelvalv visar även när de är sche
 ## <a name="other-resources"></a>Andra resurser
 
 - En översikt över funktionen för mjuk borttagning för Key Vault finns i [Azure Key Vault mjuk borttagning översikt](key-vault-ovw-soft-delete.md).
-- En allmän översikt över Azure Key Vault fungerar, se [Kom igång med Azure Key Vault](key-vault-get-started.md).
+- En allmän översikt över Azure Key Vault fungerar, se [vad är Azure Key Vault?](key-vault-overview.md).
 

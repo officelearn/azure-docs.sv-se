@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en uppsättning Metodtips för Azure 
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391230"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114713"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric-säkerhetsmetoder
 Det är snabbt, enkelt och kostnadseffektivt att distribuera ett program på Azure. Läs igenom vår lista över viktiga och rekommenderade Metodtips för att implementera säkra kluster i ditt program innan du distribuerar ditt molnprogram i produktionen.
@@ -173,7 +173,7 @@ Det finns två grundläggande stegen för att ställa in ett nyckelvalv:
 
     Nyckelvalvet måste aktiveras för distribution. Compute-resursprovidern kan sedan hämta certifikaten från valvet och installera dem på VM-instanser.
 
-Läs mer om hur du konfigurerar ett nyckelvalv i [Kom igång med Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+Läs mer om hur du konfigurerar ett nyckelvalv i [vad är Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## <a name="assign-users-to-roles"></a>Tilldela användare till roller
 När du har skapat de program som ska representera klustret kan tilldela dina användare till roller som stöds av Service Fabric: skrivskyddade och administratör. Du kan tilldela dessa roller med hjälp av Azure portal.

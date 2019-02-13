@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ebb8917ffadf11ecf8e2e89a67508be3dee7ef5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d649877796160957b9314fba4c5c92b052ec744a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150351"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Självstudier: Azure Active Directory-integrering med rad fungerar
 

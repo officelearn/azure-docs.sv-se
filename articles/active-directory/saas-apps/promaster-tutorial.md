@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med ProMaster (genom Inlogik) | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med ProMaster (genom Inlogik) | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ProMaster (genom Inlogik).
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 218f0c8a49d99c611219a43cc4b51214e4087012
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017662"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205247"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Självstudier: Azure Active Directory-integration med ProMaster (genom Inlogik)
+# <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Självstudier: Azure Active Directory-integrering med ProMaster (genom Inlogik)
 
 I den här självstudien får du lära dig hur du integrerar ProMaster (genom Inlogik) med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera ProMaster (genom Inlogik) med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till ProMaster (genom Inlogik).
 - Du kan aktivera användarna att automatiskt få loggat in på ProMaster (genom Inlogik) (enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med ProMaster (genom Inlogik), behö
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -70,7 +71,7 @@ Om du vill konfigurera integreringen av ProMaster (genom Inlogik) till Azure AD,
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -78,7 +79,7 @@ Om du vill konfigurera integreringen av ProMaster (genom Inlogik) till Azure AD,
 
     ![ProMaster (genom Inlogik) i resultatlistan](./media/promaster-tutorial/tutorial_promaster_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ProMaster (genom Inlogik) baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -86,13 +87,13 @@ För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med ProMaster (genom Inlogik), måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare ProMaster (genom Inlogik)](#create-a-promaster-by-inlogik-test-user)**  – du har en motsvarighet för Britta Simon i ProMaster (genom Inlogik) som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för ProMaster (genom Inlogik).
 
@@ -100,7 +101,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **ProMaster (genom Inlogik)** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
@@ -139,17 +140,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [ProMaster (genom Inlogik) klient-supportteamet](mailto:michael.boldiston@inlogik.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [ProMaster (genom Inlogik) klient-supportteamet](mailto:michael.boldiston@inlogik.com) att hämta dessa värden.
 
 5. På den **SAML-signeringscertifikat** klickar du på co-knappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
-    ![Länk för hämtning av certifikat](./media/promaster-tutorial/tutorial_promaster_certificate.png)
+    ![Länk för nedladdning av certifikatet](./media/promaster-tutorial/tutorial_promaster_certificate.png)
 
 6. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/promaster-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/promaster-tutorial/tutorial_general_400.png)
 
-7. Att konfigurera enkel inloggning på **ProMaster (genom Inlogik)** sida, som du behöver skicka den **Appfederationsmetadata** till [ProMaster (genom Inlogik) supportteamet](mailto:michael.boldiston@inlogik.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Att konfigurera enkel inloggning på **ProMaster (genom Inlogik)** sida, som du behöver skicka den **Appfederationsmetadata** till [ProMaster (genom Inlogik) supportteamet](mailto:michael.boldiston@inlogik.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -222,7 +223,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på panelen ProMaster (genom Inlogik) i åtkomstpanelen du bör få automatiskt loggat in på programmets ProMaster (genom Inlogik).
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

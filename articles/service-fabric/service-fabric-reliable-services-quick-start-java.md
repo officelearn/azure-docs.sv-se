@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 84a495274ffadfe816ced21cd095f7a5e18d7f89
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0b044b15b41e2d74f08c4bc989e22b6a19949445
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199552"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170932"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
 > [!div class="op_single_selector"]
@@ -28,9 +28,7 @@ ms.locfileid: "54199552"
 >
 >
 
-Den här artikeln förklarar grunderna i Azure Service Fabric Reliable Services och vägleder dig genom att skapa och distribuera en enkel och tillförlitlig tjänst-App skriven i Java. Den här Microsoft Virtual Academy-video visar också hur du skapar en tillståndslös och tillförlitlig tjänst: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Den här artikeln förklarar grunderna i Azure Service Fabric Reliable Services och vägleder dig genom att skapa och distribuera en enkel och tillförlitlig tjänst-App skriven i Java. 
 
 ## <a name="installation-and-setup"></a>Installations- och
 Innan du börjar bör du kontrollera att du har Service Fabric-utvecklingsmiljö på din dator.
@@ -96,7 +94,7 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="implement-the-service"></a>Implementera tjänsten
 
-Öppna **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Den här klassen definierar tjänsttypen och kan köra valfri kod. Tjänst-API: et tillhandahåller två ställen för din kod:
+Open **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Den här klassen definierar tjänsttypen och kan köra valfri kod. Tjänst-API: et tillhandahåller två ställen för din kod:
 
 * En kunskapsuppsättning metoden, kallas `runAsync()`, där du kan börja köra alla arbetsbelastningar, inklusive tidskrävande beräkning av arbetsbelastningar.
 

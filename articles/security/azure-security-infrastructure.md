@@ -4,7 +4,7 @@ description: Artikeln beskriver hur Microsoft arbetar för att skydda våra Azur
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 9385c6ea8d2a04e9a8595a22e6e2ff7638394b41
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172980"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104783"
 ---
 # <a name="azure-infrastructure-security"></a>Säkerhet för Azure-infrastrukturen
 Microsoft Azure körs på datacenter som hanteras och drivs av Microsoft. Dessa geografiskt utspridda datacenter som är kompatibel med branschstandard, t.ex ISO/IEC 27001: 2013 och SP NIST 800-53, gällande säkerhet och tillförlitlighet. Datacenter hanteras, övervakas och administreras av Microsofts driftpersonal. Driftpersonalen har års erfarenhet av att leverera världens största onlinetjänster med 24 x 7 affärskontinuitet.
 
 Den här artikelserien innehåller information om vad Microsoft gör för att skydda Azure-infrastrukturen. Artiklar-adress:
 
-- [fysisk säkerhet](azure-physical-security.md)
+- [Fysisk säkerhet](azure-physical-security.md)
 - [Tillgänglighet](azure-infrastructure-availability.md)
 - [Komponenter och gränser](azure-infrastructure-components.md)
 - [Nätverksarkitektur](azure-infrastructure-network.md)

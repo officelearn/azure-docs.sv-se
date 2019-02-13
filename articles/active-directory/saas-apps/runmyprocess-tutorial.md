@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 4060e385fabe10490c6ccfe77a4f67e705a1d0d0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dfef1371b7ac61712c0f70efd48c0e791c4c729d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158799"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>Självstudier: Azure Active Directory-integrering med RunMyProcess
 
@@ -200,7 +201,7 @@ För att aktivera Azure AD-användare att logga in på RunMyProcess, måste de e
 
 1. I den **användarinställningar** avsnittet, utför följande steg:
    
-    ![Profilen](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "profil") 
+    ![Profil](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profil") 
   
     a. Typen i **namn** och **e** av en giltig Azure AD-konto som du vill etablera till relaterade textrutor. 
 

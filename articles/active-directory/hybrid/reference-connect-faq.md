@@ -14,12 +14,13 @@ ms.topic: reference
 ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f15556596063a09f68f024346e9fbe08663436c9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497816"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194979"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -155,7 +156,7 @@ Om du vill kontrollera vilken version av Azure AD Connect är installerat på di
 ![Azure AD Connect-version på Kontrollpanelen](./media/reference-connect-faq/faq1.png)
 
 **F: Hur uppgraderar jag till den senaste versionen av Azure AD Connect?**  
-Läs hur du uppgraderar till den senaste versionen i [Azure AD Connect: Uppgradera från en tidigare version till senast](how-to-upgrade-previous-version.md). 
+Läs hur du uppgraderar till den senaste versionen i [Azure AD Connect: Uppgradera från en tidigare version till den senaste](how-to-upgrade-previous-version.md). 
 
 **F: Vi redan uppgraderats till den senaste versionen av Azure AD Connect förra året. Måste jag uppgradera igen?**  
 Azure AD Connect-teamet gör frekventa uppdateringar till tjänsten. Om du vill dra nytta av felkorrigeringar och säkerhetsuppdateringar samt nya funktioner, är det viktigt att servern är uppdaterad med den senaste versionen. Om du aktiverar automatisk uppgradering uppdateras din programvaruversion automatiskt. Versionshistorik för Azure AD Connect finns i [Azure AD Connect: Versionshistorik](reference-connect-version-history.md).

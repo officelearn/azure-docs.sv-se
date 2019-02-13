@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en uppsättning Metodtips för Identi
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 64d940552f2790c08e8087f279990d0a6c595bac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245749"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112113"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomstkontroll säkerhetsmetoder
 
@@ -61,11 +61,11 @@ I följande avsnitt listas Metodtips för identitets- och säkerhet med hjälp a
 I en [hybrididentitet](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario rekommenderar vi att du integrera dina lokala och molnbaserade kataloger. Integrering gör det möjligt för IT-teamet och hantera konton från en enda plats, oavsett var ett konto har skapats. Integrering hjälper även användarna att bli mer produktiva genom att tillhandahålla en gemensam identitet för åtkomst till både i molnet och lokala resurser.
 
 
-**Bästa praxis**: integrera dina lokala kataloger med Azure AD.  
+**Bästa praxis**: Integrera dina lokala kataloger med Azure AD.  
 **Information om**: Använd [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md) att synkronisera din lokala katalog med din molnkatalog.
 
-**Bästa praxis**: aktivera lösenordshashsynkronisering.  
-**Information om**: synkronisering av lösenordshash är en funktion som används för att synkronisera hashvärden av användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans.
+**Bästa praxis**: Aktivera synkronisering av lösenordshash.  
+**Information om**: Synkronisering av lösenordshash är en funktion som används för att synkronisera hashvärden av användarlösenord från en lokal Active Directory-instans för en molnbaserad Azure AD-instans.
 
 Även om du vill använda federation med Active Directory Federation Services (AD FS) eller andra identitetsleverantörer, kan du också ställa in synkronisering av lösenordshash som en säkerhetskopia om dina lokala servrar misslyckas eller bli tillfälligt otillgängliga. Detta gör det möjligt för användare att logga in på tjänsten med hjälp av samma lösenord som de använder för att logga in på sina lokala Active Directory-instans. Det gör också Identity Protection att identifiera avslöjade autentiseringsuppgifter genom att jämföra dessa hashvärden för lösenord med lösenord som är kända för äventyras, om en användare har använt sitt samma e-postadress och lösenord för andra tjänster som inte är anslutna till Azure AD.
 
@@ -92,18 +92,18 @@ Användare kan komma åt din organisations resurser med hjälp av en mängd olik
 
 För att jämna ut säkerhet och produktivitet, måste du tänka på hur en resurs används innan du kan fatta ett beslut för kontroll av åtkomst. Med villkorsstyrd åtkoms i Azure AD kan du uppfylla det här kravet. Du kan göra automatiserade besluten om åtkomstkontroll för att komma åt dina appar i molnet som baseras på villkor med villkorlig åtkomst.
 
-**Bästa praxis**: hantera och styra åtkomsten till företagets resurser.  
+**Bästa praxis**: Hantera och styr åtkomsten till företagets resurser.  
 **Information om**: Konfigurera Azure AD [villkorlig åtkomst](../active-directory/active-directory-conditional-access-azure-portal.md) baserat på en grupp, plats och programmets känslighet för SaaS-appar och Azure AD-anslutna appar.
 
 ## <a name="enable-password-management"></a>Aktivera lösenordshantering
 
 Om du har flera klienter eller om du vill att användarna kan [återställa sina egna lösenord](../active-directory/active-directory-passwords-update-your-own-password.md), är det viktigt att du använder lämpliga säkerhetsprinciper för att förhindra missbruk.
 
-**Bästa praxis**: Konfigurera lösenord för självbetjäning självbetjäning (SSPR) för dina användare.  
-**Information om**: använda Azure AD [lösenordsåterställning via självbetjäning](../active-directory-b2c/active-directory-b2c-reference-sspr.md) funktionen.
+**Bästa praxis**: Konfigurera lösenordsåterställning via självbetjäning (SSPR) för dina användare.  
+**Information om**: Använda Azure AD [lösenordsåterställning via självbetjäning](../active-directory-b2c/active-directory-b2c-reference-sspr.md) funktionen.
 
-**Bästa praxis**: övervaka hur eller om SSPR som verkligen används.  
-**Information om**: övervaka användare som registrerar med hjälp av Azure AD [lösenord återställer registreringen aktivitetsrapporten](../active-directory/active-directory-passwords-get-insights.md). Rapporteringsfunktionen som Azure AD tillhandahåller kan du besvara frågor med hjälp av fördefinierade rapporter. Om du har korrekt licens, kan du också skapa egna frågor.
+**Bästa praxis**: Övervaka hur eller om SSPR som verkligen används.  
+**Information om**: Övervaka användare som registrerar med hjälp av Azure AD [lösenord återställer registreringen aktivitetsrapporten](../active-directory/active-directory-passwords-get-insights.md). Rapporteringsfunktionen som Azure AD tillhandahåller kan du besvara frågor med hjälp av fördefinierade rapporter. Om du har korrekt licens, kan du också skapa egna frågor.
 
 ## <a name="enforce-multi-factor-verification-for-users"></a>Framtvinga multifaktorverifiering för användare
 
@@ -113,16 +113,16 @@ Det finns flera alternativ för att kräva tvåstegsverifiering. Det bästa alte
 
 Följande är alternativ och fördelar för att aktivera tvåstegsverifiering:
 
-**Alternativ 1**: [aktivera Multi-Factor Authentication genom att ändra användarens tillstånd](../active-directory/authentication/howto-mfa-userstates.md).   
-**Förmånen**: det här är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Med den här metoden kräver att användare utför en tvåstegsverifiering varje gång de loggar in och åsidosättningar principer för villkorlig åtkomst.
+**Alternativ 1**: [Aktivera Multi-Factor Authentication genom att ändra användarens tillstånd](../active-directory/authentication/howto-mfa-userstates.md).   
+**Förmånen**: Det här är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Med den här metoden kräver att användare utför en tvåstegsverifiering varje gång de loggar in och åsidosättningar principer för villkorlig åtkomst.
 
-**Alternativ 2**: [aktivera Multi-Factor Authentication med principen för villkorlig åtkomst](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
-**Förmånen**: det här alternativet kan du fråga efter tvåstegsverifiering vissa villkor med hjälp av [villkorlig åtkomst](../active-directory/active-directory-conditional-access-azure-portal.md). Särskilda villkor kan vara användare logga in från olika platser, ej betrodda enheter eller program som du anser vara riskfyllda. Definiera särskilda villkor där du kräver tvåstegsverifiering kan du undvika konstant fråga om dina användare, vilket kan vara en otrevlig användarupplevelse.
+**Alternativ 2**: [Aktivera Multi-Factor Authentication med principen för villkorlig åtkomst](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Förmånen**: Det här alternativet kan du fråga efter tvåstegsverifiering vissa villkor med hjälp av [villkorlig åtkomst](../active-directory/active-directory-conditional-access-azure-portal.md). Särskilda villkor kan vara användare logga in från olika platser, ej betrodda enheter eller program som du anser vara riskfyllda. Definiera särskilda villkor där du kräver tvåstegsverifiering kan du undvika konstant fråga om dina användare, vilket kan vara en otrevlig användarupplevelse.
 
 Det här är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. När en princip för villkorlig åtkomst fungerar endast för Azure Multi-Factor Authentication i molnet och är en premiumfunktion i Azure AD. Du hittar mer information om den här metoden i [distribuera molnbaserade Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Alternativ 3**: aktivera Multi-Factor Authentication med principer för villkorlig åtkomst genom att utvärdera risken för användare och logga in för [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
-**Förmånen**: det här alternativet kan du:
+**Alternativ 3**: Aktivera Multi-Factor Authentication med principer för villkorlig åtkomst genom att utvärdera risken för användare och logga in för [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
+**Förmånen**: Det här alternativet kan du:
 
 - Identifiera potentiella sårbarheter som påverkar organisationens identiteter.
 - Konfigurera automatiska svar till identifierade misstänkta åtgärder som är relaterade till din organisations identiteter.
@@ -151,11 +151,11 @@ Vi rekommenderar att du utvecklar och följer en översikt över för att skydda
 
 Följande sammanfattar de rekommenderade metoder som finns i [referensmaterialet för att skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD](../active-directory/users-groups-roles/directory-admin-roles-secure.md):
 
-**Bästa praxis**: hantera, kontrollera och övervaka åtkomst till Privilegierade konton.   
-**Information om**: aktivera [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md). När du har aktiverat Privileged Identity Management kan du ett meddelande om e-postmeddelanden för privilegierad åtkomst rollen ändringar. Dessa meddelanden ge en tidig varning när ytterligare användare läggs till i mycket Privilegierade roller i din katalog.
+**Bästa praxis**: Hantera, kontrollera och övervaka åtkomst till Privilegierade konton.   
+**Information om**: Aktivera [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md). När du har aktiverat Privileged Identity Management kan du ett meddelande om e-postmeddelanden för privilegierad åtkomst rollen ändringar. Dessa meddelanden ge en tidig varning när ytterligare användare läggs till i mycket Privilegierade roller i din katalog.
 
-**Bästa praxis**: identifiera och klassificera konton som är mycket Privilegierade roller.   
-**Information om**: efter att aktivera Azure AD Privileged Identity Management, visa användare som ingår i den globala administratören privilegierad rolladministratör och andra mycket Privilegierade roller. Ta bort alla konton som inte längre behövs i de här rollerna och kategorisera de återstående konton som tilldelas till administrativa roller:
+**Bästa praxis**: Identifiera och klassificera konton som är mycket Privilegierade roller.   
+**Information om**: Visa användare som ingår i den globala administratören privilegierad rolladministratör och andra mycket Privilegierade roller efter att aktivera Azure AD Privileged Identity Management. Ta bort alla konton som inte längre behövs i de här rollerna och kategorisera de återstående konton som tilldelas till administrativa roller:
 
 - Individuellt tilldelas till administrativa användare och kan användas för icke-administrativa syften (till exempel personliga e-post)
 - Individuellt tilldelade till administrativa användare och avsedda för administrativa syften
@@ -170,16 +170,16 @@ Följande sammanfattar de rekommenderade metoder som finns i [referensmaterialet
 - Begränsa användare till att endast utföra på sina privilegier JIT.
 - Tilldela roller för en förkortad varaktighet tryggt att privilegier återkallas automatiskt.
 
-**Bästa praxis**: definiera minst två konton för åtkomst vid akutfall.   
-**Information om**: nödfall åtkomstkonton hjälper organisationer att begränsa privilegierad åtkomst i en befintlig Azure Active Directory-miljö. Dessa konton är mycket Privilegierade och tilldelas inte till enskilda individer. För åtkomst vid akutfall är begränsade till scenarier där normala administrativa konton inte kan användas. Organisationer måste begränsa användningen av nödfall konton endast nödvändiga lång tid.
+**Bästa praxis**: Definiera minst två konton för åtkomst vid akutfall.   
+**Information om**: För åtkomst vid akutfall hjälpa organisationer begränsa privilegierad åtkomst i en befintlig Azure Active Directory-miljö. Dessa konton är mycket Privilegierade och tilldelas inte till enskilda individer. För åtkomst vid akutfall är begränsade till scenarier där normala administrativa konton inte kan användas. Organisationer måste begränsa användningen av nödfall konton endast nödvändiga lång tid.
 
 Utvärdera de konton som är tilldelade eller berättigad för rollen som global administratör. Om du inte ser några endast molnbaserade konton med hjälp av den `*.onmicrosoft.com` domän (avsett för åtkomst vid akutfall), skapa dem. Mer information finns i hantera åtkomst vid akutfall administrativa konton i Azure AD.
 
-**Bästa praxis**: aktivera Multi-Factor Authentication och registrera alla andra högt privilegierade enanvändarläge icke-federerade administratörskonton.  
-**Information om**: Kräv Azure Multi-Factor Authentication vid inloggning för alla enskilda användare som tilldelas permanent till en eller flera av Azure AD-administratörsroller: global administratör, privilegierad rolladministratör, Exchange Online-administratör och administratör för SharePoint Online. Använd guiden för att aktivera [Multifaktorautentisering för dina administratörskonton](../active-directory/authentication/howto-mfa-userstates.md) och se till att alla användare har [registrerad](https://aka.ms/mfasetup).
+**Bästa praxis**: Aktivera Multi-Factor Authentication och registrera alla andra med hög behörighetsnivå enanvändarläge icke-federerade administratörskonton.  
+**Information om**: Kräv Azure Multi-Factor Authentication vid inloggning för alla enskilda användare som tilldelas permanent till en eller flera av Azure AD-administratörsroller: global administratör, privilegierad rolladministratör, administratör i Exchange Online och SharePoint Online administratör. Använd guiden för att aktivera [Multifaktorautentisering för dina administratörskonton](../active-directory/authentication/howto-mfa-userstates.md) och se till att alla användare har [registrerad](https://aka.ms/mfasetup).
 
-**Bästa praxis**: vidta åtgärder för att undvika de mest använda angripna tekniker.  
-**Information om**: [identifiera Microsoft-konton i administrativa roller som måste stängas för att arbets- eller skolkonton](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+**Bästa praxis**: Vidta åtgärder för att minimera de mest använda angripna teknikerna.  
+**Information om**: [Identifiera Microsoft-konton i administrativa roller som måste stängas för att arbets- eller skolkonton](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
 [Se till att separata användarkonton och e-post vidarebefordran för globala administratörskonton](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
 
@@ -218,7 +218,7 @@ Organisationer som inte styr hur resurser skapas är svårare att användare som
 
 En aktiv identitet övervakningen kan snabbt identifiera misstänkt beteende och utlösa en avisering för vidare studier. I följande tabell visas två Azure AD-funktioner som hjälper organisationer att övervaka deras identiteter:
 
-**Bästa praxis**: har en metod för att identifiera:
+**Bästa praxis**: Har en metod för att identifiera:
 
 - Försöker logga in [utan spåras](../active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md).
 - [Brute force](../active-directory/active-directory-reporting-sign-ins-after-multiple-failures.md) attacker mot ett visst konto.
@@ -226,9 +226,9 @@ En aktiv identitet övervakningen kan snabbt identifiera misstänkt beteende och
 - Inloggningar från [enheter](../active-directory/active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
 - Misstänkta IP-adresser.
 
-**Information om**: Använd Azure AD Premium [avvikelseidentifiering rapporter](../active-directory/active-directory-view-access-usage-reports.md). Har processer och procedurer på plats för IT-administratörer kan köra dessa rapporter dagligen eller på begäran (vanligtvis i ett scenario med incidenthantering).
+**Information om**: Använda Azure AD Premium [avvikelseidentifiering rapporter](../active-directory/active-directory-view-access-usage-reports.md). Har processer och procedurer på plats för IT-administratörer kan köra dessa rapporter dagligen eller på begäran (vanligtvis i ett scenario med incidenthantering).
 
-**Bästa praxis**: har en aktiv övervakningssystemet som meddelar dig för risker och kan justera risknivå (hög, medel eller låg) för ditt företags behov.   
+**Bästa praxis**: Ha en aktiv övervakningssystemet som meddelar dig om riskerna och kan justera risknivå (hög, medel eller låg) för ditt företags behov.   
 **Information om**: Använd [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md), som flaggar aktuellt risker på sin egen instrumentpanel och skickar daglig sammanfattning av meddelanden via e-post. För att skydda din organisations identiteter, kan du konfigurera riskbaserade principer som automatiskt svarar på identifierade problem när en angiven risknivå har uppnåtts.
 
 Organisationer som inte aktivt övervakar sina identitetssystem finns risken att användarens autentiseringsuppgifter har komprometterats. Organisationer kan inte utan kännedom att misstänkta aktiviteter som äger rum via dessa autentiseringsuppgifter kan minimera den här typen av hot.

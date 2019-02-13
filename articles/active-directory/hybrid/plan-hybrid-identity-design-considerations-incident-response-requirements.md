@@ -16,12 +16,13 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 2b10dc9fd96a1e4c06fbd153a2f1dc4e92e58906
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491867"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161501"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Fastställa kraven på incidentsvar för din hybrididentitetslösning
 Stora eller medelstora organisationer troligen har en [svar på säkerhetsincidenter](https://technet.microsoft.com/library/cc700825.aspx) hjälp IT vidta åtgärder i enlighet med detta till nivå för incident. Hanteringssystem för identitet är en viktig komponent i processen för incidenthantering eftersom den kan användas för att identifiera vem som utförde en specifik åtgärd mot målet. Hybrididentitetslösning måste kunna tillhandahålla funktioner för övervakning och rapportering som kan utnyttjas av IT-avdelningen att vidta åtgärder för att identifiera och minimera potentiella hot. I en typisk incidentåtgärdsplan har du följande faser som en del av planen:
@@ -51,7 +52,7 @@ Hanteringssystem för identitet ska hjälpa IT-administratörer att identifiera 
 * Behöver företaget att granska användarens åtkomst och åtgärden?
 * Behöver företaget att veta när en användare återställa sina lösenord?
 
-## <a name="policy-enforcement"></a>Principframtvingande
+## <a name="policy-enforcement"></a>Policyframtvingande
 Under skada och minskad risk-fas är det viktigt att snabbt minska verkliga och potentiella effekterna av en attack. Åtgärden som du kommer att utföras kan nu göra skillnaden mellan en mindre och en större. Det exakta svaret beror på din organisation och typen av angrepp som kan uppstå. Om den inledande utvärderingen avslutat att ett konto har komprometterats, måste du framtvinga för att blockera det här kontot. Det är bara ett exempel där hanteringssystem för identitet ska användas. Använd frågorna nedan för att hjälpa dig att utforma din hybrididentitetslösning samtidigt som man tänker på hur principer tillämpas för att reagera på en pågående incident:
 
 * Har företaget principer på plats att blockera användare från åtkomst till nätverket om det behövs?

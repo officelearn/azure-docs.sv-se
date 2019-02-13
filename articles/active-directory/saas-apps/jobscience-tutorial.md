@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 4df4338cddaf7c80f6fc1ad817773778bcee2087
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8199f106c234e216a0982dc9e51413ccf30ae93a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194091"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199535"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Självstudier: Azure Active Directory-integrering med Jobscience
 
@@ -115,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Få ut värde [Jobscience klienten supportteamet](https://www.jobscience.com/support) eller från SSO-profil skapas som beskrivs senare i självstudien. 
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Få ut värde [Jobscience klienten supportteamet](https://www.jobscience.com/support) eller från SSO-profil skapas som beskrivs senare i självstudien. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -145,7 +146,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Klicka på webbplatsen Jobscience företagets **säkerhetskontroller**, och klicka sedan på **inställningar för enkel inloggning**.
     
-    ![Säkerhetskontroller](./media/jobscience-tutorial/ic784364.png "säkerhetskontroller")
+    ![Säkerhetskontroller](./media/jobscience-tutorial/ic784364.png "Säkerhetskontroller")
 
 1. I den **inställningar för enkel inloggning** avsnittet, utför följande steg:
     
@@ -159,7 +160,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     ![SAML enkel inloggning inställningen](./media/jobscience-tutorial/ic784365.png "SAML enkel inloggning för inställningen")
     
-    a. I den **namn** textrutan anger du ett namn för din konfiguration.
+    a. I textrutan **Namn** skriver du ett namn för konfigurationen.
 
     b. I **utfärdare** textrutan klistra in värdet för **SAML entitets-ID**, som du har kopierat från Azure-portalen.
 
@@ -191,7 +192,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Att hämta SP initiera enkelinloggning för inloggnings-URL-Klicka på den **Single Sign On inställningar** i den **säkerhetskontroller** menyn avsnittet.
 
-    ![Säkerhetskontroller](./media/jobscience-tutorial/ic784368.png "säkerhetskontroller")
+    ![Säkerhetskontroller](./media/jobscience-tutorial/ic784368.png "Säkerhetskontroller")
     
     Klicka på SSO-profilen som du har skapat i ovanstående steg. Den här sidan visar enkelinloggning på URL: en för ditt företag (till exempel [ https://companyname.my.salesforce.com?so=companyid ](https://companyname.my.salesforce.com?so=companyid).    
 

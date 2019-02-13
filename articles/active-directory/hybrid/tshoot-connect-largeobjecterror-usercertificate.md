@@ -16,12 +16,13 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e0d5e466da8804e89ffecd38dd2db6e37a3cb334
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663646"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217361"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synkronisering: Hantera LargeObject-fel som orsakats av userCertificate-attributet
 
@@ -41,7 +42,7 @@ Använd någon av följande metoder för att hämta listan med objekt i din klie
 ## <a name="mitigation-options"></a>Alternativ för lösning
 Tills LargeObject-fel har åtgärdats, kan andra attributändringar till samma objekt inte exporteras till Azure AD. Lös felet, kan du överväga följande alternativ:
 
- * Uppgradera Azure AD Connect för att skapa 1.1.524.0 eller efter. Skapa 1.1.524.0, out-of-box-synkroniseringen regler har uppdaterats för att inte exportera attribut userCertificate- och userSMIMECertificate om attribut har fler än 15 värden i Azure AD Connect. Mer information om hur du uppgraderar Azure AD Connect finns artikeln [Azure AD Connect: Uppgradera från en tidigare version till senast](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Uppgradera Azure AD Connect för att skapa 1.1.524.0 eller efter. Skapa 1.1.524.0, out-of-box-synkroniseringen regler har uppdaterats för att inte exportera attribut userCertificate- och userSMIMECertificate om attribut har fler än 15 värden i Azure AD Connect. Mer information om hur du uppgraderar Azure AD Connect finns artikeln [Azure AD Connect: Uppgradera från en tidigare version till den senaste](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  * Implementera en **utgående synkroniseringsregel** i Azure AD Connect som exporterar en **null-värde i stället för de faktiska värdena för objekt med mer än 15 certifikatvärden**. Det här alternativet är lämpligt om du inte behöver något av värdena för certifikat som ska exporteras till Azure AD för objekt med mer än 15 värden. Information om hur du implementerar den här regeln för synkronisering, i nästa avsnitt [implementera synkroniseringsregel för att begränsa export av userCertificate-attributet](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 

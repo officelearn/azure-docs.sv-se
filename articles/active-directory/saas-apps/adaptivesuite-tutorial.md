@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med anpassningsbar Insights | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med anpassningsbar insikter | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och anpassningsbar insikter.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430297"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166529"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Självstudier: Azure Active Directory-integration med anpassningsbar insikter
+# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Självstudier: Azure Active Directory-integrering med anpassningsbar insikter
 
 Lär dig hur du integrerar anpassningsbar insikter med Azure Active Directory (AD Azure) i den här självstudien.
 
@@ -29,7 +30,7 @@ Integrera anpassningsbar insikter med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har tillgång till anpassningsbara insikter.
 - Du kan aktivera användarna att automatiskt få loggat in på anpassningsbar insikter (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med anpassningsbar insikter, behöve
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -67,7 +68,7 @@ Om du vill konfigurera integreringen av anpassningsbar insikter om Azure AD, som
 
     ![image](./media/adaptivesuite-tutorial/a_select_app.png)
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![image](./media/adaptivesuite-tutorial/a_new_app.png)
 
@@ -75,7 +76,7 @@ Om du vill konfigurera integreringen av anpassningsbar insikter om Azure AD, som
 
      ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med anpassningsbar insikter utifrån en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med anpassningsbar Insights, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en anpassningsbar insikter testanvändare](#create-an-adaptive-insights-test-user)**  – du har en motsvarighet för Britta Simon i anpassningsbar insikter som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för anpassningsbar insikter.
 
@@ -103,7 +104,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![image](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
 
-3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **SAML grundkonfiguration** dialogrutan.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
     ![image](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
 
@@ -113,12 +114,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **identifierare (entitets-ID)** textrutan anger du ett URL med hjälp av följande mönster: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     >[!NOTE]
     > Du kan hämta identifierare (entitets-ID) och svars-URL-värden från de anpassningsbara insikter **SAML SSO-inställningar** sidan.
  
-5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned den **certifikat (Base64)** och spara den på din dator.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **Certifikat (Base64)** och spara det på datorn.
 
     ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
 
@@ -126,9 +127,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     Observera att URL: en kan stå följande:
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Azure Ad-ID
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
@@ -138,7 +139,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 8. Gå till **Admin**.
 
-    ![Administratören](./media/adaptivesuite-tutorial/IC805644.png "Admin")
+    ![Admin](./media/adaptivesuite-tutorial/IC805644.png "Admin")
 
 9. I den **användare och roller** klickar du på **hantera inställningar för SAML SSO**.
 
@@ -174,23 +175,23 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![image](./media/adaptivesuite-tutorial/d_users_and_groups.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
     ![image](./media/adaptivesuite-tutorial/d_adduser.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+3. Genomför följande steg i Användaregenskaper.
 
     ![image](./media/adaptivesuite-tutorial/d_userproperties.png)
 
-    a. I den **namn** ange **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -201,16 +202,16 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 Om du vill aktivera Azure AD-användare att logga in på anpassningsbar insikter, måste de etableras till anpassningsbar insikter. När det gäller anpassningsbar insikter är etablering en manuell aktivitet.
 
-**Utför följande steg för att konfigurera användaretablering:** 
+**Utför följande steg för att konfigurera användarförsörjning:** 
 
 1. Logga in på din **anpassningsbar insikter** företagets plats som administratör.
 2. Gå till **Admin**.
 
-   ![Administratören](./media/adaptivesuite-tutorial/IC805644.png "Admin")
+   ![Admin](./media/adaptivesuite-tutorial/IC805644.png "Admin")
 
 3. I den **användare och roller** klickar du på **Lägg till användare**.
 
-   ![Lägg till användare](./media/adaptivesuite-tutorial/IC805648.png "lägga till användare")
+   ![Lägg till användare](./media/adaptivesuite-tutorial/IC805648.png "Lägg till användare")
    
 4. I den **ny användare** avsnittet, utför följande steg:
 
@@ -220,7 +221,7 @@ Om du vill aktivera Azure AD-användare att logga in på anpassningsbar insikter
 
    b. Välj en **rollen**.
 
-   c. Klicka på **skicka**.
+   c. Klicka på **Skicka**.
 
 >[!NOTE]
 >Du kan använda anpassningsbar insikter användaren-konto skapas verktyg från någon annan eller API: er som tillhandahålls av anpassningsbar insikter att etablera AAD-användarkonton.
@@ -238,7 +239,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
 
-3. I menyn till vänster väljer **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![image](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
 
@@ -246,9 +247,9 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/adaptivesuite-tutorial/d_assign_user.png)
 
-4. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
+4. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-5. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
+5. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751420"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200504"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -167,10 +167,14 @@ Windows Server Failover Clustering stöds av Azure File Sync för ”filserver f
 > Azure File Sync-agenten måste installeras på varje nod i ett redundanskluster för synkronisering ska fungera korrekt.
 
 ### <a name="data-deduplication"></a>Datadeduplicering
-För volymer som inte har molnlagringsnivåer aktiverad, stöder Azure File Sync Windows Server-Datadeduplicering håller på att aktiveras på volymen. Vi stöder för närvarande inte samverkan mellan Azure File Sync med molnlagringsnivåer aktiverad och Datadeduplicering.
+**Agentversion 5.0.2.0**   
+Datadeduplicering stöds på volymer med molnlagringsnivåer aktiverade på Windows Server 2016 och Windows Server 2019. Aktivera deduplicering på en volym med molnlagringsnivåer aktiverad kan du Cachelagra flera filer på plats utan att behöva etablera mer lagringsutrymme.
+
+**Windows Server 2012 R2 eller äldre agentversionerna**  
+För volymer som inte har molnlagringsnivåer aktiverad, stöder Azure File Sync Windows Server-Datadeduplicering håller på att aktiveras på volymen.
 
 ### <a name="distributed-file-system-dfs"></a>Distribuerat filsystem (DFS)
-Azure File Sync har stöd för interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R) från och med [Azure File Sync-agenten 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+Azure File Sync har stöd för interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R).
 
 **DFS Namespaces (DFS-N)**: Azure File Sync stöds fullt ut på DFS-N-servrar. Du kan installera Azure File Sync-agenten på en eller flera DFS-N-medlemmar att synkronisera data mellan slutpunkterna för server och molnslutpunkten. Mer information finns i [översikt över DFS-namnområden](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  

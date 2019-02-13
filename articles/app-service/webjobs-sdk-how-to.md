@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: glenga
-ms.openlocfilehash: b51bf448d49647bbe03529bfe8b184a2fbaf946a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ab502c25a632977065e55d2eeafd684203636b14
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005564"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109919"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -36,7 +36,7 @@ Den här artikeln innehåller råd om hur du skriver kod för [Azure WebJobs SDK
 
 Den här artikeln förutsätter att du har läst och slutfört uppgifterna i [Kom igång med WebJobs SDK](webjobs-sdk-get-started.md).
 
-## <a name="webhobs-host"></a>WebHobs värden
+## <a name="webjobs-host"></a>WebJobs-värd
 
 Värden är en körningsbehållare för funktioner.  Den lyssnar efter utlösare och-anrop. I version 3.x värden är en implementering av `IHost`, och i version 2.x som du använder den `JobHost` objekt. Du skapar en värdinstans i din kod och skriva kod för att anpassa sitt beteende.
 

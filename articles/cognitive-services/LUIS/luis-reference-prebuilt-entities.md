@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 60acd381015a513873c4c414d6f1d9f3adc54b84
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 880c825ab8923dbdf17277a51378b6f4b624e091
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870324"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179904"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kulturen i LUIS-modellen
 
@@ -34,6 +34,7 @@ Språkförståelse (LUIS) tillhandahåller förskapade entiteter. När en entite
 |Koreanska|[ko-KR](#korean-entity-support)|
 |Portugisiska|[pt-BR (Brasilien)](#portuguese-brazil-entity-support)|
 |Spanska|[es-ES (Spanien)](#spanish-spain-entity-support), [es-MX (Mexiko)](#spanish-mexico-entity-support)|
+|Turkiska|[Turkiska](#turkish-entity-support)|
 
 ## <a name="chinese-entity-support"></a>Stöd för kinesiska entitet
 
@@ -51,7 +52,7 @@ Följande enheter stöds:
 [Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>rankine<br>delisle<br>Celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
@@ -169,7 +170,7 @@ Följande enheter stöds:
 ------|:------:|
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>dag   |    ✔   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>dollar<br>bråkdelar enhet (ex: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>DateRange<br>time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>DateRange<br>time<br>timerange   |    -   | 
 [Dimensionen](luis-reference-prebuilt-dimension.md):<br>volym<br>området<br>vikt<br>information (t.ex.: bitars/byte)<br>längden (ex: mätaren)<br>hastighet (ex: mil per timme)  |    ✔   | 
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -190,7 +191,7 @@ Följande enheter stöds:
 ------|:------:|
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>dag   |    ✔   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>dollar<br>bråkdelar enhet (ex: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>DateRange<br>time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>DateRange<br>time<br>timerange   |    -   | 
 [Dimensionen](luis-reference-prebuilt-dimension.md):<br>volym<br>området<br>vikt<br>information (t.ex.: bitars/byte)<br>längden (ex: mätaren)<br>hastighet (ex: mil per timme)  |    ✔   | 
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -290,6 +291,32 @@ Följande enheter stöds:
 Se information på [inaktuell fördefinierade entiteter](luis-reference-prebuilt-deprecated.md)
 
 KeyPhrase är inte tillgänglig i alla subkulturer av portugisiska (Brasilien) - ```pt-BR```.
+
+## <a name="turkish-entity-support"></a>Stöd för turkiska entitet
+
+Följande enheter stöds:
+
+|Fördefinierade entitet|```tr-tr``` |
+------|:------:|
+[Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>dag   |    -   |
+[Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>dollar<br>bråkdelar enhet (ex: penny)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>DateRange<br>time<br>timerange   |    -   | 
+[Dimensionen](luis-reference-prebuilt-dimension.md):<br>volym<br>området<br>vikt<br>information (t.ex.: bitars/byte)<br>längden (ex: mätaren)<br>hastighet (ex: mil per timme)  |    -   | 
+[E-post](luis-reference-prebuilt-email.md)   |    -   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
+[Nummer](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Procent](luis-reference-prebuilt-percentage.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>rankine<br>delisle<br>Celsius   |    -   | 
+[URL](luis-reference-prebuilt-url.md)   |    -   |
+
+Se information på [inaktuell fördefinierade entiteter](luis-reference-prebuilt-deprecated.md)
+
+KeyPhrase är inte tillgänglig.
+
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Bidra till fördefinierade entitet kulturer
 Fördefinierade entiteter har utvecklats i identifierare fulltext open source-projektet. [Bidra](https://github.com/Microsoft/Recognizers-Text) i projektet. Det här projektet innehåller exempel på valuta per kultur. 

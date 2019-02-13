@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt över viktigaste Azure s
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5d8c9ae52152df6a0e016c12234afe4ae780b251
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694276"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115444"
 ---
 # <a name="azure-storage-security-overview"></a>Säkerhetsöversikt för Azure Storage
 
@@ -128,5 +128,4 @@ Azure Disk Encryption används [Azure Key Vault](https://azure.microsoft.com/ser
 
 Läs mer
 
-* [Vad är Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)

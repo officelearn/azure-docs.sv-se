@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314379"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109505"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight (förhandsversion)
 
@@ -39,7 +39,7 @@ Du kan använda Azure portal eller Azure CLI för att på ett säkert sätt rote
 
    HDInsight har endast stöd för Azure Key Vault. Om du har ditt eget nyckelvalv kan importera du dina nycklar i Azure Key Vault. Kom ihåg att nycklarna måste ha ”mjuk borttagning” och ”gör inte rensa” aktiverat. ”Mjuk borttagning” och ”rensa inte” funktionerna är tillgängliga via REST, .NET / C#, PowerShell och Azure CLI-gränssnitt.
 
-   Så här skapar du ett nytt nyckelvalv i [Azure Key Vault](../../key-vault/key-vault-get-started.md) Snabbstart. Mer information om att importera befintliga nycklar finns [om nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md).
+   Så här skapar du ett nytt nyckelvalv i [Azure Key Vault](../../key-vault/key-vault-overview.md) Snabbstart. Mer information om att importera befintliga nycklar finns [om nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md).
 
    Om du vill skapa en ny nyckel, Välj **generera/importera** från den **nycklar** menyn under **inställningar**.
 
@@ -120,4 +120,4 @@ Du kan använda Azure portal eller Azure CLI för att på ett säkert sätt rote
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om Azure Key Vault, [vad är Azure Key Vault](../../key-vault/key-vault-whatis.md)?
-* Kom igång med Azure Key Vault, se [komma igång med Azure Key Vault](../../key-vault/key-vault-get-started.md).
+* Kom igång med Azure Key Vault, se [komma igång med Azure Key Vault](../../key-vault/key-vault-overview.md).

@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: e2ec1b7ad6d1489836937d30b89d0f0f681a9bfa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819594"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193398"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry roller och behörigheter
 
 Azure Container Registry-tjänsten stöder en uppsättning Azure-roller som kan ger olika nivåer av behörigheter till ett Azure container registry. Använd Azure [rollbaserad åtkomstkontroll](../role-based-access-control/index.yml) (RBAC) för att tilldela specifika behörigheter till användare eller tjänsthuvudnamn som måste interagera med ett register.
 
-| Rollbehörighet /       | Access Resource Manager| Skapa/ta bort registret | [Push-överför avbildningen](#push-image) | [Hämta avbildning](#pull-image) | Ändra principer |   [Logga avbildningar](#sign-images)  |
+| Rollbehörighet /       | [Access Resource Manager](#access-resource-manager)| [Skapa/ta bort registret](#create-and-delete-registry) | [Push-överför avbildningen](#push-image) | [Hämta avbildning](#pull-image) | [Ändra principer](#change-policies) |   [Logga avbildningar](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- |
 | Ägare | X | X | X | X | X |  |  
 | Deltagare | X | X | X | X | X |  |  
@@ -45,19 +45,19 @@ För verktyg som Visual Studio Code [Docker-tillägg](https://code.visualstudio.
 
 ## <a name="access-resource-manager"></a>Access Resource Manager
 
-Azure Resource Manager-åtkomst krävs för Azure-portalen och [Azure CLI](/cli/azure/). Till exempel för att hämta en lista över register med hjälp av den `az acr list` kommandot, du behöver den här behörigheten ange. 
+Azure Resource Manager-åtkomst krävs för den Azure-portalen och registret med den [Azure CLI](/cli/azure/). Till exempel för att hämta en lista över register med hjälp av den `az acr list` kommandot, du behöver den här behörigheten ange. 
 
-## <a name="createdelete-registry"></a>Skapa/ta bort registret
+## <a name="create-and-delete-registry"></a>Skapa och ta bort registret
 
 Möjligheten att skapa och ta bort Azure-behållarregister.
 
 ## <a name="push-image"></a>Push-överför avbildningen
 
-Möjligheten att `docker push` en avbildning, eller skicka en annan artefakt som stöds, till ett register. Kräver [autentisering](container-registry-authentication.md) med registret med behöriga identitet. 
+Möjligheten att `docker push` en avbildning, eller skicka en annan [stöds artefakt](container-registry-image-formats.md) , till exempel ett Helm-diagram till ett register. Kräver [autentisering](container-registry-authentication.md) med registret med behöriga identitet. 
 
 ## <a name="pull-image"></a>Hämta avbildning
 
-Möjligheten att `docker pull` en icke-i karantän bild eller för att hämta en annan stöds artefakt från ett register. Kräver [autentisering](container-registry-authentication.md) med registret med behöriga identitet.
+Möjligheten att `docker pull` en icke-i karantän bild eller för att hämta en annan [stöds artefakt](container-registry-image-formats.md) , till exempel ett Helm-diagram från ett register. Kräver [autentisering](container-registry-authentication.md) med registret med behöriga identitet.
 
 ## <a name="change-policies"></a>Ändra principer
 

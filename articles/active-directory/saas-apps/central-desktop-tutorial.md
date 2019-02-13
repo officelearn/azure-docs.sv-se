@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: bc8aec25d6493d87393a45549fb89f978c469912
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d389a9675f7d4de56a03026c0d392b9988f6b0da
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179165"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Självstudier: Azure Active Directory-integrering med Central Desktop
 
@@ -86,10 +87,10 @@ I Central Desktop ger **användarnamn** samma värde som **användarnamn** i Azu
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Central Desktop, måste du utföra följande byggblock:
 
-1. [Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) vill tillåta att användarna använda den här funktionen.
-1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
+1. [Konfigurera enkel inloggning i Azure AD](#configure-azure-ad-single-sign-on) så att användarna kan använda den här funktionen.
+1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning för Azure AD med Britta Simon.
 1. [Skapa en Central Desktop testanvändare](#create-a-central-desktop-test-user) har en motsvarighet för Britta Simon i Central Desktop som är länkad till en Azure AD-representation av användaren.
-1. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) så att Britta Simon kan använda enkel inloggning i Azure AD.
 1. [Testa enkel inloggning](#test-single-sign-on) att kontrollera att konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD

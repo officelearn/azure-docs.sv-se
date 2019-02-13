@@ -15,12 +15,13 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0f5d8a18f32cdd0cfe850ba90e283d8cea4ccb00
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b6b8587313a4e98bfefa6489d9698052d312a6d3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162180"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194554"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Vanliga frågor om Azure Active Directory-rapporter
 
@@ -100,7 +101,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: Hur många poster som jag kan hämta från Azure-portalen?**
 
-**A:** Du kan hämta upp till 5 000 poster från Azure-portalen. Posterna sorteras efter *senaste* och som standard, du får de senaste 5 000 poster.
+**A:** Du kan ladda ned upp till 5 000 poster från Azure-portalen. Posterna sorteras efter *senaste* och som standard, du får de senaste 5 000 poster.
 
 ---
 

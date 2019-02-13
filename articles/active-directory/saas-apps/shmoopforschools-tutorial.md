@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 90d4cb3c5da37e8de63a95e65670cfd9e3098453
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 095aff293b23f4589dce9f71890b5e9bfd8636d4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178434"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Självstudier: Azure Active Directory-integrering med Shmoop för skolor
 
@@ -84,10 +85,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vilken användaren 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Shmoop för skolor, utför du följande byggblock:
 
-1. [Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) vill tillåta att användarna använda den här funktionen.
-2. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
+1. [Konfigurera enkel inloggning i Azure AD](#configure-azure-ad-single-sign-on) så att användarna kan använda den här funktionen.
+2. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning för Azure AD med Britta Simon.
 3. [Skapa en testanvändare Shmoop för skolor](#create-a-shmoop-for-schools-test-user) har en motsvarighet för Britta Simon i Shmoop för skolor som är länkad till en Azure AD-representation av användaren.
-4. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
+4. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) så att Britta Simon kan använda enkel inloggning i Azure AD.
 5. [Testa enkel inloggning](#test-single-sign-on) att kontrollera att konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -115,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare. Kontakta den [Shmoop för skolor klienten supportteamet](mailto:support@shmoop.com) att hämta dessa värden. 
  
-4. Shmoop för skolor programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** på sidan för program-integrering. Följande skärmbild visar hur du konfigurerar intyg:
+4. Shmoop för skolor programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. Följande skärmbild visar hur du konfigurerar intyg:
 
     ![Konfigurera enkel inloggning](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
@@ -223,7 +224,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
 
 När du väljer den **Shmoop för skolor** panelen i åtkomstpanelen, du bör få loggas in automatiskt programmets Shmoop för skolor.
 

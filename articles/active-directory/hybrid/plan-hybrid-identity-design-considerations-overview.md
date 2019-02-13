@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 646c929c3f20f50a52cc8bd29d06522aa608b683
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489843"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167872"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory Hybrid Identity designöverväganden
 Konsument-baserade enheter proliferating företagets världen och molnbaserade program för programvara som tjänst (SaaS) är lätta att införa. Därför kan underhålla kontroll över användarnas programåtkomst på interna datacenter och plattformar en utmaning.  

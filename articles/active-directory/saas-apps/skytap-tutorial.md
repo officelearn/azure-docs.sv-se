@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 6466e40fca954d41a32424c55b8ee465fb7ad7ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ec6d34ec82d5239af653e69532703a931f9cb12a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195719"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Självstudier: Azure Active Directory-integrering med Skytap
 
@@ -121,7 +122,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     d. I den **Vidarebefordransstatus** textrutan anger du ett URL med hjälp av följande mönster: `https://pingone.com/1.0/<custom ID>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, inloggnings-URL och Vidarebefordransstatus. Kontakta [Skytap klienten supportteamet](mailto:support@skytap.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk identifierare, inloggnings-URL och vidarebefordransstatus. Kontakta [Skytap klienten supportteamet](mailto:support@skytap.com) att hämta dessa värden. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 

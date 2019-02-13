@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ec78c7dc3ac3ce9747a09218e1e35068c60b894
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 73beb4ba039db65c20886566f887db39fd233164
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187733"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Självstudier: Azure Active Directory-integrering med Huddle
 
@@ -150,7 +151,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | |
 
     > [!NOTE]
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Huddle klienten supportteamet](https://huddle.zendesk.com) att hämta det här värdet.
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Huddle klienten supportteamet](https://huddle.zendesk.com) att hämta det här värdet.
 
 6. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned rätt certifikat som uppfyller dina krav och spara den på din dator.
 
@@ -212,7 +213,7 @@ Om du vill aktivera Azure AD-användare att logga in på Huddle, måste de etabl
 
     b. Typen i **e-postadress** av en giltig Azure AD-konto som du vill etablera i att **RETUR e-postadress för personer som du vill bjuda in** textrutan.
 
-    c. Klicka på **bjuda in**.
+    c. Klicka på **Bjud in**.
 
     >[!NOTE]
     > Azure AD-kontoinnehavare får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktiv.

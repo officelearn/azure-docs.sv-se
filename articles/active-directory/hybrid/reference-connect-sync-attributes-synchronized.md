@@ -15,12 +15,13 @@ ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38ae2ebccdb5164a582ebe78f7c85175747d085f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fb7010ec16592fea2f530329916e00056ca03a70
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493362"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176398"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut som synkroniseras till Azure Active Directory
 Det här avsnittet listas de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -166,7 +167,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| rubrik |X |X | | |
+| title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licensuppgifter. |
 | userCertificate |X |X | | |
@@ -249,7 +250,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| rubrik |X |X | | |
+| title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licensuppgifter. |
@@ -300,7 +301,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| rubrik |X |X | | |
+| title |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licensuppgifter. |
 | userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 | wWWHomePage |X |X | | |
@@ -369,7 +370,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | St |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| rubrik |X |X | | |
+| title |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licensuppgifter. |
 | userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 

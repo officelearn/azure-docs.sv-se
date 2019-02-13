@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d4dba956ecd88683b124d4faf997a5fde6603727
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1d0e8f8526d866c308be8684546397f282dcce51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184791"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Självstudier: Azure Active Directory-integrering med vxMaintain
 
@@ -65,7 +66,7 @@ Om du vill lägga till vxMaintain från galleriet, gör du följande:
 
     ![Azure Active Directory-knappen][1]
 
-1. Välj **företagsprogram** > **alla program**.
+1. Välj **Företagsprogram** > **Alla program**.
 
     ![Fönstret ”program”][2]
     
@@ -187,7 +188,7 @@ I det här avsnittet ska aktivera du testanvändare Britta Simon att använda en
 
 1. I den **användare och grupper** i dialogrutan den **användare** väljer **Britta Simon**, och välj sedan den **Välj** knappen.
 
-1. I den **Lägg till tilldelning** dialogrutan **tilldela**.
+1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
     
 ### <a name="test-your-azure-ad-single-sign-on"></a>Testa din Azure AD enkel inloggning
 

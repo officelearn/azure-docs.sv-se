@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 1e593d66e7f293a5e84200eff0980b1cdf6d55dd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2d3b3702ca2daad002bde1b4e64bf9d43a03028d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203138"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180444"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Självstudier: Azure Active Directory-integrering med Workrite
 
@@ -113,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=<uniqueid>`
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Workrite klienten supportteamet](mailto:support@workrite.co.uk) att hämta det här värdet.
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Workrite klienten supportteamet](mailto:support@workrite.co.uk) att hämta det här värdet.
 
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 

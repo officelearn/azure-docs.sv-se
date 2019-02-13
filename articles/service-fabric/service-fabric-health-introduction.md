@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194295"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193772"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
 Azure Service Fabric introducerar en hälsomodellen som tillhandahåller omfattande, flexibel och utökningsbar hälsotillstånd utvärdering och rapportering. Modellen tillåter nära realtid övervakning av statusen för klustret och de tjänster som körs i den. Du kan enkelt hämta hälsoinformation och korrigera potentiella problem innan de spridas vidare och orsaka avbrott i stora. I den vanliga modellen tjänster skicka rapporter baserat på deras lokala vyer och att informationen sammanställs för att ge en övergripande-klusternivå vy.
 
 Service Fabric-komponenter använder den här omfattande hälsomodellen för att rapportera enheternas aktuella status. Du kan använda samma metod för rapporten hälsa från dina program. Om du investerar i hög kvalitet tillståndsrapportering som samlar in dina anpassade villkor kan du identifiera och åtgärda problem för programmet som körs på ett enkelt sätt.
-
-Följande Microsoft Virtual Academy-video beskrivs också hälsomodellen Service Fabric och hur de används: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > Vi igång undersystemet hälsotillstånd för att åtgärda ett behov av övervakade uppgraderingar. Service Fabric tillhandahåller övervakade program- och uppgraderingar som ser till att full tillgänglighet, utan avbrott och minimal att ingen åtgärd från användaren. Uppgraderingen kontrollerar hälsotillstånd baserat på konfigurerade uppgradera principer för att uppnå dessa mål. En uppgradering Fortsätt bara om hälsotillstånd respekterar önskade trösklar. I annat fall är uppgraderingen antingen automatiskt återtagits eller pausas för att ge administratörer en chans att åtgärda problemen. Läs mer om programuppgraderingar i [i den här artikeln](service-fabric-application-upgrade.md).

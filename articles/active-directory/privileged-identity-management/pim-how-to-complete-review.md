@@ -13,12 +13,13 @@ ms.subservice: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: fc4dcc22cf22f70fcf441c3c8a54aeda2ffd7588
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bea4f649b40298de15b8352fc8eb522da87dead5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189689"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190355"
 ---
 # <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM
 Privilegierade rolladministratörer kan granska privilegierad åtkomst när en [åtkomstgranskning har startats](pim-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) skickas automatiskt ett e-postmeddelande som uppmanar användarna att granska åtkomsten. Om en användare inte fått ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en åtkomstgranskning](pim-how-to-perform-security-review.md).

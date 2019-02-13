@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239680"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164030"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack administration grunder
-Det finns flera saker du behöver veta om du inte har använt Azure Stack-administration. Den här vägledningen ger en översikt över din roll som Azure Stack-operatör och vad du behöver att be användarna för dem att snabbt blir mer produktiv.
+Det finns flera saker du behöver veta om du inte har använt Azure Stack-administration. Den här artikeln innehåller en översikt över din roll som Azure Stack-operatör och vad du behöver att be användarna för dem att snabbt blir mer produktiv.
 
 ## <a name="understand-the-builds"></a>Förstå versionerna
 
 ### <a name="integrated-systems"></a>Integrerade system
 
-Om du använder ett integrerat Azure Stack-system distribueras uppdaterade versioner av Azure Stack via paket. Du kan importera dessa paket och använda dem med hjälp av panelen uppdateringar i administratörsportalen.
+Om du använder ett integrerat Azure Stack-system distribueras uppdaterade versioner av Azure Stack via paket. Du kan importera dessa paket och använda dem med hjälp av panelen uppdateringar i administratörsportalen. Det går inte för att uppdatera ASDK installationer. 
  
 ### <a name="development-kit"></a>Development kit
 

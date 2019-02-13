@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: fb6f492f465f6570afea911dfca8a92d4ed3dc7c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001417"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177452"
 ---
-# <a name="media-services-development-with-net-legacy"></a>Media Services-utveckling med .NET (äldre)
+# <a name="media-services-development-with-net"></a>Media Services-utveckling med .NET 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 Den här artikeln beskriver hur du börja utveckla Media Services-program med hjälp av .NET.

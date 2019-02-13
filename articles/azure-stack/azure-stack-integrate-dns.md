@@ -6,17 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 13525fffb7e6720fe81759876ffd0fe71559279c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252327"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182858"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integrering med Azure Stack datacenter - DNS
 För att kunna komma åt Azure Stack-slutpunkter (**portal**, **adminportal**, **management**, **adminmanagement**osv.)  från utanför Azure Stack måste du integrera Azure Stack-DNS-tjänster med DNS-servrar som är värdar för DNS-zoner som du vill använda i Azure Stack.
@@ -114,9 +114,9 @@ Med hjälp av exempelvärden FQDN: er för DNS-är servrar:
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-Den här informationen skapas också i slutet av alla Azure Stack-distributioner i en fil med namnet `AzureStackStampDeploymentInfo.json`. Den här filen finns i den `C:\CloudDeployment\logs` mappen för den virtuella datorn för distribution. Om du inte vet vilka värden som har använts för distributionen av Azure Stack får du värdena för härifrån.
+Den här informationen skapas också i slutet av alla Azure Stack-distributioner i en fil med namnet `AzureStackStampInformation.json`. Den här filen finns i den `C:\CloudDeployment\logs` mappen för den virtuella datorn för distribution. Om du inte vet vilka värden som har använts för distributionen av Azure Stack får du värdena för härifrån.
 
-Om den virtuella datorn för distribution är inte längre tillgänglig eller inte är tillgänglig, kan du hämta värdena genom att ansluta till privilegierad slutpunkt och köra den `Get-AzureStackInfo` PowerShell-cmdlet. Mer information finns i [privilegierad slutpunkt](azure-stack-privileged-endpoint.md).
+Om den virtuella datorn för distribution är inte längre tillgänglig eller inte är tillgänglig, kan du hämta värdena genom att ansluta till privilegierad slutpunkt och köra den `Get-AzureStackStampInformation` PowerShell-cmdlet. Mer information finns i [privilegierad slutpunkt](azure-stack-privileged-endpoint.md).
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Konfigurera villkorlig vidarebefordran i Azure Stack
 

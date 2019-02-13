@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 10a333e8521c781a223c767660ae6acaa1286929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251834"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184915"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack-kapacitetsplanering
 När du utvärderar en Azure Stack-lösning finns maskinvara konfigurationsalternativ som har en direkt inverkan på den totala kapaciteten i Azure Stack-molnet. Det här är de klassiska val av CPU, minne densitet, lagringskonfiguration, och övergripande lösningen skala eller antalet servrar. Till skillnad från en traditionell virtualiseringslösning gäller inte det enkla aritmetiskt av dessa komponenter för att fastställa användbar kapacitet. Den första orsaken till detta är att Azure Stack har byggts för att vara värd för infrastruktur eller hantering av komponenterna i själva lösningen. Den andra orsaken är att några av lösningens kapaciteten är reserverad till stöd för återhämtning; uppdatering av lösningens programvara på ett sätt att minimera störningar för klienternas arbetsbelastningar.

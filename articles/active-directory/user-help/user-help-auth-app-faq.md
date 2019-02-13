@@ -12,18 +12,19 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 9bafd8b4ce5bc467aee86d690eccb5bf93dd6358
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 84a1fd3efb9eac30e70fea9622716a54769369e7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773746"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184133"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator-appen vanliga frågor och svar
 
 Den här artikeln innehåller vanliga frågor och svar om Microsoft Authenticator-appen. Om du inte hittar svar på din fråga, går du till den [Microsoft Authenticator-appen forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
-Microsoft Authenticator-appen ersätts Azure Authenticator-appen och är den rekommenderade appen när du använder Azure Multi-Factor Authentication. Microsoft Authenticator-appen är tillgänglig för [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) och [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+Microsoft Authenticator-appen ersätts Azure Authenticator-appen och är den rekommenderade appen när du använder Azure Multi-Factor Authentication. Microsoft Authenticator-appen finns för [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) och [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 |Fråga|Lösning|

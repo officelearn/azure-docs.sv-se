@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Manabi Pocket | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Manabi Pocket | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Manabi Pocket.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0116cac7d0e44efee0112d57aedd4f5ee02833b3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3f5dd7012d280580dca76e50290bc2de4322d55c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430723"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198430"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Självstudier: Azure Active Directory-integration med Manabi Pocket
+# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Självstudier: Azure Active Directory-integrering med Manabi Pocket
 
 I den här självstudien får du lära dig hur du integrerar Manabi Pocket med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera Manabi Pocket med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Manabi Pocket.
 - Du kan aktivera användarna att automatiskt få loggat in på Manabi Pocket (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Manabi Pocket, behöver du följ
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -59,7 +60,7 @@ För att konfigurera integrering av Manabi Pocket i Azure AD, som du behöver l�
 
 **Utför följande steg för att lägga till Manabi Pocket från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -67,7 +68,7 @@ För att konfigurera integrering av Manabi Pocket i Azure AD, som du behöver l�
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -75,7 +76,7 @@ För att konfigurera integrering av Manabi Pocket i Azure AD, som du behöver l�
 
     ![Manabi Pocket i resultatlistan](./media/manabipocket-tutorial/tutorial_manabipocket_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Manabi Pocket utifrån en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Manabi Pocket, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare Manabi Pocket](#create-a-manabi-pocket-test-user)**  – du har en motsvarighet för Britta Simon i Manabi Pocket som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Manabi Pocket.
 
@@ -97,7 +98,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Manabi Pocket** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
@@ -109,10 +110,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **inloggnings-URL** textrutan anger du URL: `https://ed-cl.com/`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
-    > ID-värde är inte verkliga. Uppdatera det här värdet med det faktiska ID: T. Kontakta [Manabi Pocket klienten supportteamet](mailto:info-ed-cl@ntt.com) att hämta det här värdet.
+    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med det faktiska ID: T. Kontakta [Manabi Pocket klienten supportteamet](mailto:info-ed-cl@ntt.com) att hämta det här värdet.
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -120,9 +121,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/manabipocket-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **Manabi Pocket** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Manabi Pocket supportteamet](mailto:info-ed-cl@ntt.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Manabi Pocket** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Manabi Pocket supportteamet](mailto:info-ed-cl@ntt.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -158,7 +159,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-manabi-pocket-test-user"></a>Skapa en Manabi Pocket testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Manabi Pocket. Arbeta med [Manabi Pocket supportteamet](mailto:info-ed-cl@ntt.com) att lägga till användare i Manabi Pocket-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Manabi Pocket. Arbeta med [Manabi Pocket supportteamet](mailto:info-ed-cl@ntt.com) att lägga till användare i Manabi Pocket-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

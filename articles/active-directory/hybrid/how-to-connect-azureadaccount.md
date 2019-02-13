@@ -16,12 +16,13 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c542ba1c105d2fcdb74d5f8b1af1ecddade65a20
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488749"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196366"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect-synkronisering: Så här hanterar du Azure AD-tjänstkontot
 Tjänstkontot som används av Azure AD-anslutningen ska vara service kostnadsfritt. Om du behöver återställa autentiseringsuppgifterna är det här avsnittet för dig. Till exempel om en Global administratör har av misstag återställa lösenordet för kontot med hjälp av PowerShell.

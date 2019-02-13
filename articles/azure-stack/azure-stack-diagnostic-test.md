@@ -10,22 +10,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 82a691c0e0b6280a168605d56ee628d81f10823f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eca66bc2e737b0f9a9954cad21a446e82d753f84
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245658"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203819"
 ---
 # <a name="validate-azure-stack-system-state"></a>Verifiera Azure Stack-system-tillstånd
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Som Azure Stack-operatör är det viktigt att ha möjlighet att veta hälsotillstånd och status för ditt system på begäran. Verktyget för Azure Stack-validering (**Test-AzureStack**) är en PowerShell-cmdlet som du kan köra en serie tester i systemet för att identifiera fel. Du kommer vanligtvis bli ombedd att köra det här verktyget den [privilegierad slutpunkt (program)](azure-stack-privileged-endpoint.md) när du kontaktar Microsofts kundsupport tjänster (CSS) med ett problem. Med systemomfattande hälsotillstånd och statusinformation till hands, CSS samla in och analysera detaljerade loggar kan fokusera på området där felet uppstod och arbetar med att lösa problemet.
+Som Azure Stack-operatör är det viktigt att kunna fastställa hälsotillstånd och status för ditt system på begäran. Verktyget för Azure Stack-validering (**Test-AzureStack**) är en PowerShell-cmdlet som du kan köra en serie tester i systemet för att identifiera fel. Du kommer vanligtvis bli ombedd att köra det här verktyget den [privilegierad slutpunkt (program)](azure-stack-privileged-endpoint.md) när du kontaktar Microsofts kundsupport tjänster (CSS) med ett problem. Med systemomfattande hälsotillstånd och statusinformation till hands, CSS samla in och analysera detaljerade loggar kan fokusera på området där felet uppstod och arbetar med att lösa problemet.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Kör verktyget verifiering och komma åt resultaten
 
@@ -93,7 +93,6 @@ Låg inverkan känslighetsgrad arbetar med en infrastrukturnivå och ger informa
 
 Utöver infrastrukturen testerna ovan har du också möjlighet att köra cloud scenariot tester för att kontrollera funktioner för infrastrukturkomponenter. Molnautentiseringsuppgifter krävs för att köra dessa tester som de inkluderar resursdistributionen. 
     > [!NOTE]
-    >
     > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
 Följande scenarier för molnet testas av verktyget verifiering:

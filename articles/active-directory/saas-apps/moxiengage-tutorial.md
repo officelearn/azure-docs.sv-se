@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 07f2893e799be44ed7b5f78fb6cd80b8cfb2a240
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4030d115bc085f500f5782df3d507cef928adba7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189025"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199620"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Självstudier: Azure Active Directory-integrering med Moxi engagera
 
@@ -115,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Moxi engagera klienten supportteamet](mailto:support@moxiworks.com) att hämta det här värdet. 
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Moxi engagera klienten supportteamet](mailto:support@moxiworks.com) att hämta det här värdet. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 

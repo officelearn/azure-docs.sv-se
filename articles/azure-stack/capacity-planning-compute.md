@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: e756b48003ebfaff98271d93a3d8f0231571b5f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242441"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160919"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack compute-kapacitetsplanering
 Den [VM-storlekar som stöds på Azure Stack](./user/azure-stack-vm-sizes.md) är en delmängd av de som stöds på Azure. Azure tillämpar resursbegränsningar längs många vektorer att undvika överförbrukning av resurser (server lokalt och tjänstnivå). Klient-upplevelser blir lidande när andra klienter overconsume resurser utan att införa vissa begränsningar på klientförbrukningen. Det finns bandbredd caps på plats på Azure Stack som matchar Azure begränsningar för nätverk utgående data från den virtuella datorn. För lagringsresurser, har IOPs Lagringsgränser implementerats på Azure Stack för att undvika grundläggande överförbrukning av resurser av klienter för lagringsåtkomst.  

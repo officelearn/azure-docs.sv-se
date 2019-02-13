@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: e691913daabb832b2a3b51dac5d4a5b0e1f53871
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509583"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165087"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Omtrimning av en Azure Machine Learning Studio-modell
 Som en del av processen för driftsättning av machine learning-modeller i Azure Machine Learning, är din modell tränas och sparas. Du sedan använda den för att skapa en förutsägbar webbtjänst. Webbtjänsten kan sedan användas i webbplatser, instrumentpaneler och mobila appar. 
@@ -63,8 +63,6 @@ Om du har distribuerat en klassiska webbtjänst:
 * Skapa en ny slutpunkt på förutsägbar webbtjänst
 * Hämta KORRIGERA URL: en och kod
 * Använda KORRIGERA URL: en så att den pekar på ny slutpunkt på retrained modellen 
-
-En genomgång av det föregående steg finns i [Omtrimma en klassisk webbtjänst](retrain-a-classic-web-service.md).
 
 Om du stöter på problem med träna en klassisk webbtjänst, se [felsöka omtrimning av en klassisk webbtjänst för Azure Machine Learning](troubleshooting-retraining-models.md).
 

@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ed32cbabe5f80e131f467a87378eda8912b9a65e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496269"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173410"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
 Den här artikeln förklarar konfigurationsregler för out-of-box. Det dokument som reglerna och hur de här reglerna påverkar konfigurationen. Vi går också igenom standardkonfigurationen för Azure AD Connect-synkronisering. Målet är att läsaren förstår hur Konfigurationsmodell, med namnet deklarativ etablering fungerar i ett verkliga exempel. Den här artikeln förutsätter att du redan har installerat och konfigurera Azure AD Connect-synkronisering med hjälp av installationsguiden.

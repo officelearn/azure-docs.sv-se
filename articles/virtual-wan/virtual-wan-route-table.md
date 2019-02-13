@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 45e5c43cf5eb8df1df5b26ffae50d2881bb086e4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190178"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115206"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Skapa en virtuell hubb routningstabellen för att styra trafik till en virtuell nätverksinstallation
 
@@ -36,7 +36,7 @@ Kontrollera att du har uppfyllt följande villkor:
 
 1. Du har en virtuell nätverksinstallation (NVA) är en programvara från tredje part som tillhandahålls vanligtvis från Azure Marketplace (länk) i ett virtuellt nätverk.
 2. Du har en privat IP-adress som tilldelats nätverksgränssnittet NVA. 
-3. Kan inte distribueras till NVA i den virtuella hubben. Den måste distribueras i ett separat virtuellt nätverk. I den här artikeln kallas det virtuella nätverket DMZ VNet.
+3. Kan inte distribueras till NVA i den virtuella hubben. Den måste distribueras i ett separat virtuellt nätverk. I den här artikeln kallas NVA VNet DMZ VNet.
 4. DMZ VNet kan ha en eller flera virtuella nätverk som är anslutna till den. I den här artikeln kallas det här virtuella nätverket indirekt eker VNet. Dessa virtuella nätverk kan anslutas till DMZ VNet med VNet-peering.
 5. Kontrollera att du har redan skapat på 2 virtuella nätverk. Dessa ska användas som virtuella ekernätverken. I den här artikeln är adressutrymmen för virtuellt nätverk eker 10.0.2.0/24 och 10.0.3.0/24. Om du behöver information om hur du skapar ett virtuellt nätverk finns i [skapa ett virtuellt nätverk med hjälp av PowerShell](../virtual-network/quick-create-powershell.md).
 6. Se till att det finns inga virtuella nätverksgatewayer i alla virtuella nätverk.

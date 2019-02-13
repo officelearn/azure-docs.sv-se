@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en allmän beskrivning av Microsoft A
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186484"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118147"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Azure information systemkomponenter och gränser
 Den här artikeln innehåller en allmän beskrivning av Azure-arkitektur och hantering. Azure systemmiljön består av följande nätverk:
@@ -54,9 +54,9 @@ Operativsystem-teamet innehåller bilder, i form av virtuella hårddiskar, distr
 
 Det finns tre typer av fabric-hanterade operativsystemavbildningar:
 
-- Värden: Ett anpassat operativsystem som körs på värd virtuella datorer.
-- Inbyggd: Ett operativsystem som körs på klienter (till exempel Azure Storage). Det här operativsystemet har inte någon hypervisor-programmet.
-- Gäst: Ett gästoperativsystem som körs på virtuella gästdatorer.
+- Värd: Ett anpassat operativsystem som körs på värd virtuella datorer.
+- Interna: Ett operativsystem som körs på klienter (till exempel Azure Storage). Det här operativsystemet har inte någon hypervisor-programmet.
+- Guest: Ett gästoperativsystem som körs på virtuella gästdatorer.
 
 Värden och den inbyggda FC-hanterade operativsystem är avsedd för användning i molnet och är inte tillgängliga för allmänheten.
 
@@ -80,8 +80,8 @@ Service-team är:
 - Azure Active Directory
 - Azure Compute
 - Azure Net
-- Tekniker för molntjänster
-- ISSD: säkerhet
+- Cloud Engineering Services
+- ISSD: Säkerhet
 - Multifactor Authentication
 - SQL Database
 - Storage

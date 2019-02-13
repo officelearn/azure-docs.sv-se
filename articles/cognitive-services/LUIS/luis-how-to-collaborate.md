@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 4ccf703ffde0d4a5a0961135e81259519b0a0e41
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878977"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167604"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Så här hanterar du författare och medarbetare 
 
@@ -44,14 +44,13 @@ Medan LUIS inte stöder för närvarande överlåtelse av äganderätt, du kan e
 
 ## <a name="azure-active-directory-resources"></a>Azure Active Directory-resurser
 
-Om du använder Azure Active Directory (AD Azure) i din organisation, måste LUIS behörighet att komma åt-information om dina användare när de vill använda LUIS. Resurser som kräver att LUIS är minimal. 
+Om du använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) i din organisation, Språkförståelse (LUIS) behöver behörighet för att information om användarnas åtkomst när de vill använda LUIS. Resurser som kräver att LUIS är minimal. 
 
 Du kan se den detaljerade beskrivningen när du försöker registrera dig med ett konto som har administratörens godkännande eller inte kräver administratörens godkännande, till exempel administratörens godkännande:
 
-* Kan du logga in i appen med ditt organisationskonto och tillåter appen att läsa din profil. Tillåter även appen att läsa grundläggande företagsinformation.
-* Tillåter appen att visa och uppdatera dina data, även om du inte använder appen.
+* Kan du logga in i appen med ditt organisationskonto och tillåter appen att läsa din profil. Tillåter även appen att läsa grundläggande företagsinformation. Detta ger LUIS behörighet att läsa grundläggande profilinformation data, till exempel användar-ID, e-post, namn
+* Tillåter appen att visa och uppdatera dina data, även om du inte använder appen. Behörighet krävs för att uppdatera åtkomsttoken för användaren.
 
-Den första behörigheten ger LUIS behörighet att läsa grundläggande profilinformation data, till exempel användar-ID, e-post, namn. Andra behörighet krävs för att uppdatera åtkomsttoken för användaren.
 
 ## <a name="azure-active-directory-tenant-user"></a>Användare med Azure Active Directory-klient
 
@@ -59,11 +58,8 @@ LUIS använder standard medgivande flödet för Azure Active Directory (AD Azure
 
 Innehavaradministration bör arbeta direkt med användare som behöver åtkomst till använda LUIS i Azure AD. 
 
-Först användaren loggar in på LUIS och ser popup-fönstret behöva godkännande av administratören. Användaren kontaktar administratör innan du fortsätter. 
-
-Därefter innehavaradministration loggar in på LUIS och ser en dialogruta för medgivande-flödet. Det här är i dialogrutan som administratören behöver ge tillstånd för användaren. När administratören godkänner behörigheten, kan användaren fortsätta med LUIS.
-
-Om innehavaradministration inte kommer att logga in på LUIS måste administratören kan komma åt [medgivande](https://account.activedirectory.windowsazure.com/r#/applications) för LUIS. 
+* Först användaren loggar in på LUIS och ser popup-fönstret behöva godkännande av administratören. Användaren kontaktar administratör innan du fortsätter. 
+* Därefter innehavaradministration loggar in på LUIS och ser en dialogruta för medgivande-flödet. Det här är i dialogrutan som administratören behöver ge tillstånd för användaren. När administratören godkänner behörigheten, kan användaren fortsätta med LUIS. Om administratör inte kommer att logga in till LUIS kan administratören kan komma åt [godkänna](https://account.activedirectory.windowsazure.com/r#/applications) för LUIS, som visas i följande skärmbild. Lägg märke till listan filtreras för objekt som innehåller namnet `LUIS`.
 
 ![Azure active directory-behörighet genom appens webbplats](./media/luis-how-to-collaborate/tenant-permissions.png)
 

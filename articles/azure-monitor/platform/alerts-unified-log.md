@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 70f53ed06daad8adf10ef5a88f0672f86d6a8b48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004136"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106418"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
 Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](../platform/alerts-overview.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
@@ -99,14 +99,28 @@ Tänk dig ett scenario där du vill ha en avisering om en dator har överskridit
 - **Fråga:** Perf | där ObjectName == ”Processor” och CounterName == ”% processortid” | Sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 5m), dator<br>
 - **Tidsperiod:** 30 minuter<br>
 - **Aviseringsfrekvens:** fem minuter<br>
-- **Samlat värde:** Större än 90<br>
+- **Alert Logic - villkoret & tröskel:** Större än 90<br>
+- **Gruppfältet (aggregering-on):** Dator
 - **Utlös aviseringen baserat på:** Totalt antal dataintrång är större än 2<br>
 
-Frågan skapar ett genomsnittligt värde för varje dator med 5 minuters mellanrum.  Den här frågan skulle köras var femte minut för data som samlas in under de föregående 30 minuterna.  Exempeldata visas nedan för tre datorer.
+Frågan skapar ett genomsnittligt värde för varje dator med 5 minuters mellanrum.  Den här frågan skulle köras var femte minut för data som samlas in under de föregående 30 minuterna. Eftersom gruppfältet (aggregering-on) valt är kolumner ”dator” - AggregatedValue delas för olika värden för ”dator” och genomsnittliga processoranvändningen för varje dator bestäms efter en tid lagerplats på 5 minuter.  Exemplet frågeresultat för (säga) tre datorer blir enligt nedan.
+
+
+|TimeGenerated [UTC] |Dator  |AggregatedValue  |
+|---------|---------|---------|
+|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+Om frågeresultat ska ritas, skulle den visas som.
 
 ![Exemplet frågeresultat](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-I det här exemplet skulle separata aviseringar skapas för srv02 och srv03 eftersom de brott mot tröskelvärdet 90% tre gånger under tidsperioden.  Om den **Utlös aviseringen baserat på:** ändrades till **sidordning** och sedan skapas en avisering bara för srv03 eftersom den har brutit mot tröskelvärdet för tre på varandra följande prover.
+I det här exemplet vi kan se i lagerplatser av 5 minuter för var och en av de tre datorerna - genomsnittlig processoranvändning som beräknats för 5 minuter. Tröskelvärdet på 90 överträds av srv01 bara en gång på 1:25 bin. Däremot srv02 överskrider tröskelvärdet 90 vid 1:10, 1:15 och 1:25 lagerplatser; medan srv03 överskrider tröskelvärdet 90 vid 1:10, 1:15, 1:20 och 1:30. Eftersom aviseringen är konfigurerad för att utlösaren baserat på totalt antal överträdelser är större än två, ser vi att srv02 och srv03 endast uppfyller kriterierna. Därför skapas separata aviseringar för srv02 och srv03 eftersom de brott mot tröskelvärdet 90% två gånger över flera tid lagerplatser.  Om den *Utlös aviseringen baserat på:* parametern konfigurerades i stället för *kontinuerlig överträdelser* alternativ, och sedan skulle att utlösa en avisering **endast** för srv03 eftersom den har brutit mot den tröskelvärdet för tre på varandra följande lagerplatser från 1:10 för 1:20. Och **inte** för srv02, eftersom den intrång tröskelvärdet för två på varandra följande lagerplatser från 1:10 för 1:15.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Sök loggvarningsregel - den utlösts och tillstånd
 

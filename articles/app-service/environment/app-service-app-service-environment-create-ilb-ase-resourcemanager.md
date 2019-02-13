@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156688"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107386"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Skapa en ILB ASE med hjälp av Azure Resource Manager-mallar
 
 > [!NOTE] 
 > Den här artikeln handlar om App Service Environment v1. Det finns en nyare version av App Service Environment som är enklare att använda och körs på kraftfullare infrastruktur. Mer information om den nya versionen början med den [introduktion till App Service Environment](intro.md).
 >
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 App Service-miljöer kan skapas med en intern adress för virtuellt nätverk i stället för en offentlig VIP.  Den här interna adressen tillhandahålls av en Azure komponent som kallas den interna belastningsutjämnaren (ILB).  En ILB ASE kan skapas med hjälp av Azure portal.  Det kan även skapas med hjälp av automation via Azure Resource Manager-mallar.  Den här artikeln beskriver stegen och syntax som krävs för att skapa en ILB ASE med Azure Resource Manager-mallar.
@@ -51,7 +53,7 @@ När den *azuredeploy.parameters.json* fil har fyllts i för en ILB ASE, ILB ASE
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 När du har Azure Resource Manager mallen skickas det tar några timmar innan ILB ASE som ska skapas.  När den har skapats, visas ILB ASE i UX-portalen i listan över App Service-miljöer för den prenumeration som utlöste distributionen.
 
@@ -124,7 +126,7 @@ När den *azuredeploy.parameters.json* fil har fyllts i, SSL-standardcertifikate
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 När du har Azure Resource Manager mallen skickas det tar ungefär 40 minuter per ASE klientdelen för att tillämpa ändringen.  Till exempel med en standard storlek ASE med hjälp av två klientdelar, tar mallen ungefär en timme och 20 minuter för att slutföra.  När mallen körs inte ASE skalas.  
 

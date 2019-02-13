@@ -15,12 +15,13 @@ ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3b9c998351432a591ece0a61d60256aea89a6f8f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b2a8ef3d0ff602ce4580755db0ada97fcf7cdbbc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180899"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208239"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Utför en åtkomstgranskning av min Azure-resursroller i PIM
 Privileged Identity Management (PIM) för Azure-resurser förenklar hur företag hantera privilegierad åtkomst till resurser i Azure. 

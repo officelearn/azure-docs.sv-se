@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Leapsome | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Leapsome | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Leapsome.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37549cc76e1490b0758de8e296523b0e70c98dbf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824018"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191239"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Självstudier: Azure Active Directory-integration med Leapsome
+# <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Självstudier: Azure Active Directory-integrering med Leapsome
 
 I den här självstudien får du lära dig hur du integrerar Leapsome med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera Leapsome med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Leapsome.
 - Du kan aktivera användarna att automatiskt få loggat in på Leapsome (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Leapsome, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -67,7 +68,7 @@ För att konfigurera integrering av Leapsome i Azure AD, som du behöver lägga 
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -75,7 +76,7 @@ För att konfigurera integrering av Leapsome i Azure AD, som du behöver lägga 
 
     ![Leapsome i resultatlistan](./media/leapsome-tutorial/tutorial_leapsome_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Leapsome baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Leapsome, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare Leapsome](#create-a-leapsome-test-user)**  – du har en motsvarighet för Britta Simon i Leapsome som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Leapsome program.
 
@@ -97,7 +98,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Leapsome** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -109,28 +110,28 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **identifierare** textrutan anger du ett URL: `https://www.leapsome.com`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
 
 1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Leapsome domän och URL: er med enkel inloggning för information](./media/leapsome-tutorial/tutorial_leapsome_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/login`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/login`
      
     > [!NOTE] 
     > Föregående svars-URL och inloggnings-URL-värdet är inte verkliga värdet. Uppdaterar du dem med de faktiska värdena som förklaras senare under kursen.
 
-1. Leapsome program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel.
+1. Leapsome program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. Följande skärmbild visar ett exempel.
     
     ![Konfigurera enkel inloggning](./media/leapsome-tutorial/tutorial_Leapsome_attribute.png)
 
 1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
     
-    | Attributnamn | Attributvärde | Namnrymd |
+    | Attributnamn | Attributvärde | Namnområde |
     | ---------------| --------------- | --------- |   
-    | Förnamn | User.givenName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Efternamn | User.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | rubrik | User.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | förnamn | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | bild | Webbadressen till medarbetarens bild | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
@@ -142,7 +143,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/leapsome-tutorial/tutorial_attribute_05.png)
     
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
     
     c. Från den **värdet** anger attributvärdet som visas för den raden.
 
@@ -152,11 +153,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/leapsome-tutorial/tutorial_leapsome_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/leapsome-tutorial/tutorial_leapsome_certificate.png) 
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/leapsome-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/leapsome-tutorial/tutorial_general_400.png)
     
 1. På den **Leapsome Configuration** klickar du på **konfigurera Leapsome** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 

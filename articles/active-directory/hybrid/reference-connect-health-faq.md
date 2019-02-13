@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 744344c9427604f46c3f428d8dfcd279d8f2ffba
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486342"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167617"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (Azure AD) Connect Health. Avsnittet täcker frågor om hur du använder tjänsten, inklusive fakturering modellen, funktioner, begränsningar och support.

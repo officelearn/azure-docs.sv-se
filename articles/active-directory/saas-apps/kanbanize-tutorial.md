@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Kanbanize | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Kanbanize | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kanbanize.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 746eaadcdb9a588087367c4c70237922cf0f14bf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059601"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199694"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Självstudier: Azure Active Directory-integration med Kanbanize
+# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Självstudier: Azure Active Directory-integrering med Kanbanize
 
 I den här självstudien får du lära dig hur du integrerar Kanbanize med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera Kanbanize med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Kanbanize.
 - Du kan aktivera användarna att automatiskt få loggat in på Kanbanize (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Kanbanize, behöver du följande
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -59,7 +60,7 @@ För att konfigurera integrering av Kanbanize i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till Kanbanize från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -67,7 +68,7 @@ För att konfigurera integrering av Kanbanize i Azure AD, som du behöver lägga
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -75,7 +76,7 @@ För att konfigurera integrering av Kanbanize i Azure AD, som du behöver lägga
 
     ![Kanbanize i resultatlistan](./media/kanbanize-tutorial/tutorial_kanbanize_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Kanbanize baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Kanbanize, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare Kanbanize](#create-a-kanbanize-test-user)**  – du har en motsvarighet för Britta Simon i Kanbanize som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Kanbanize program.
 
@@ -97,7 +98,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Kanbanize** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -107,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Kanbanize domän och URL: er med enkel inloggning för information](./media/kanbanize-tutorial/tutorial_kanbanize_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.kanbanize.com/`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.kanbanize.com/`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.kanbanize.com/saml/acs`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.kanbanize.com/saml/acs`
 
     c. Kontrollera **visa avancerade URL-inställningar**.
 
@@ -118,19 +119,19 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     e. Om du vill konfigurera programmet i **SP** har initierat läge, **inloggnings-URL** textrutan skriver du en URL med hjälp av följande mönster: `https://<subdomain>.kanbanize.com`
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Kanbanize klienten supportteamet](mailto:support@ms.kanbanize.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Kanbanize klienten supportteamet](mailto:support@ms.kanbanize.com) att hämta dessa värden. 
 
-5. Kanbanize program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel för detta. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men Kanbanize förväntar sig detta mappas med användarens e-postadress. Som du kan använda **user.mail** attribut i listan eller använder rätt attribut-värde baserat på din organisationskonfiguration
+5. Kanbanize program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel på detta. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men Kanbanize förväntar sig detta mappas med användarens e-postadress. Som du kan använda **user.mail** attribut i listan eller använder rätt attribut-värde baserat på din organisationskonfiguration
     
     ![Konfigurera enkel inloggning](./media/kanbanize-tutorial/tutorial_Kanbanize_attribute.png)
 
 6. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/kanbanize-tutorial/tutorial_kanbanize_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/kanbanize-tutorial/tutorial_kanbanize_certificate.png) 
 
 7. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/kanbanize-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/kanbanize-tutorial/tutorial_general_400.png)
     
 8. På den **Kanbanize Configuration** klickar du på **konfigurera Kanbanize** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
@@ -168,7 +169,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!Note]
     > Du kan hämta dessa värden genom att kombinera värdena för namnområde och namn för respektive attributet från avsnittet användaren attribut i Azure-portalen.
 
-    g. I anteckningar, öppna Base64-kodade certifikatet som du laddade ned från Azure-portalen, kopiera innehållet (utan start- och markörer) och klistra in den i den **Idp X.509-certifikat** box.
+    g. I anteckningar, öppna Base64-kodade certifikatet som du laddade ned från Azure-portalen, kopiera innehållet (utan start- och markörer) och klistra in den i den **Idp X.509-certifikat** box.
 
     h. Kontrollera **aktivera logga in med både enkel inloggning och Kanbanize**.
     
@@ -208,10 +209,10 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-kanbanize-test-user"></a>Skapa en Kanbanize testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Kanbanize. Kanbanize stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Kanbanize om det inte finns ännu.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Kanbanize. Kanbanize stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Kanbanize om det inte finns ännu.
 
 >[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [Kanbanize klienten supportteamet](mailto:support@ms.kanbanize.com).
+>Om du vill skapa en användare manuellt kan du kontakta [Kanbanize klienten supportteamet](mailto:support@ms.kanbanize.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

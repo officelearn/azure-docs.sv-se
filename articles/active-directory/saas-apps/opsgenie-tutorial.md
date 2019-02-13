@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 52d976761ad5962f09f40565cfa04ae78386d1ca
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9858fc38698ae2c5bd272a3494bcf02bce2d8e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192401"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Självstudier: Azure Active Directory-integrering med OpsGenie
 
@@ -193,7 +194,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 1. Klicka på **Lägg till användare**.
 
-1. På den **Lägg till användare** dialogrutan utför följande steg:
+1. I dialogrutan **Lägg till användare** utför du följande steg:
    
    ![Inställningar för OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    

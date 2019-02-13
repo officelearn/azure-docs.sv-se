@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 0081946ff62e42e1fb601b135c7102dd83e84fe3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7c09947e6d34c5314e8ed4bc2744f07b199278a6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158918"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Självstudier: Azure Active Directory-integrering med SD-element
 
@@ -232,7 +233,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
    
     a. I den **e** textrutan Ange e-postadress för användaren som **brittasimon@contoso.com**.
    
-    b. I den **Förnamn** textrutan Ange först namnet på användaren som **Britta**.
+    b. I textrutan **Förnamn** skriver du förnamnet på användaren som **Britta**.
    
     c. I den **efternamn** textrutan Ange efternamn för användaren som **Simon**.
    

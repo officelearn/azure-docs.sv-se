@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ebca3060e902c0a45619c2bd64240537cd95308d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b43e496323da75dfc63f889283257fac41f48abf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811859"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117739"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrera ditt IoT Central-program
 
@@ -141,15 +141,15 @@ Följ dessa steg för att slutföra denna självbetjäningsprocess:
 
 ## <a name="export-data"></a>Exportera data
 
-Du kan aktivera **löpande dataexport** att exportera mått, enheter och enhetsdata för mallar till Azure Blob storage-kontot. Läs mer om [hur du exporterar dina data](#howto-export-data).
+Du kan aktivera **löpande dataexport** att exportera mått, enheter och enhetsdata för mallar till Azure Blob storage-kontot. Mer information om hur du [exportera dina data](#export-data).
 
 ## <a name="manage-device-connection"></a>Hantera enhetsanslutning
 
-Anslut enheter i stor skala i ditt program som använder nycklar och certifikat här. Läs mer om [ansluta enheter](#concepts-connectivity).
+Anslut enheter i stor skala i ditt program som använder nycklar och certifikat här. Läs mer om [ansluta enheter](/azure/iot-central/concepts-connectivity-experimental?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## <a name="use-access-tokens"></a>Använd åtkomsttoken
 
-Generera åtkomsttoken för att använda dem i utvecklarverktyg. Det finns för närvarande en utvecklarverktyget tillgängliga som är i IoT Central-Utforskaren för att övervaka meddelanden från enheten och ändringar i inställningarna och propreties. Läs mer om den [IoT Central explorer](#howto-use-iotc-explorer). 
+Generera åtkomsttoken för att använda dem i utvecklarverktyg. Det finns för närvarande en utvecklarverktyget tillgängliga som är i IoT Central-Utforskaren för att övervaka meddelanden från enheten och ändringar i inställningarna och propreties. Läs mer om IoT Central-explorer. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Använd Azure SDK för kontrollplanåtgärder
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b2d4acb3a717f51d0ff15868dea917806b5b604
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 70adbcd8c25b3acb4408447070d3b0397d258847
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181970"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Självstudier: Azure Active Directory-integrering med Veritas Enterprise Vault.cloud SSO
 
@@ -131,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | Asien och stillahavsområdet| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Veritas Enterprise Vault.cloud SSO Client supportteamet](https://www.veritas.com/support/.html) att hämta det här värdet. 
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Veritas Enterprise Vault.cloud SSO Client supportteamet](https://www.veritas.com/support/.html) att hämta det här värdet. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 

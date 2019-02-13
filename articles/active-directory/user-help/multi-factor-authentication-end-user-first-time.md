@@ -13,12 +13,13 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: 9fd7a3c03c72a63f4163f85ac41248e200397206
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770728"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165628"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
 Tvåstegsverifiering är ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in. Om du läser den här artikeln fick du förmodligen ett e-postmeddelande från din arbets- eller skolkonto administratör om Multi-Factor Authentication. Eller kanske du försökte logga in och fick ett meddelande som ber dig att ställa in ytterligare säkerhetsverifiering. Om så är fallet, **du inte logga in förrän du har slutfört den automatiska registreringen**.
@@ -41,7 +42,7 @@ Den första frågan i registreringen är hur du vill att vi ska kontakta dig. Ta
 
 | Kontaktmetod | Beskrivning |
 | --- | --- |
-| [Mobilapp](#use-a-mobile-app-as-the-contact-method) |- **Få meddelanden för verifiering.** Det här alternativet skickar ett meddelande till autentiseringsappen på din smartphone eller surfplatta. Visa meddelandet och, om det är tillförlitligt väljer **autentisera** i appen. Ditt arbete eller din skola kan kräva att du anger en PIN-kod innan du autentiserar dig.<br>- **Använd Verifieringskod.** I det här läget genererar authenticator-appen en Verifieringskod som uppdaterar med 30 sekunders mellanrum. Ange den mest aktuella autentiseringskoden i i inloggningsgränssnittet.<br>Microsoft Authenticator-appen är tillgänglig för [Android](https://go.microsoft.com/fwlink/?linkid=866594) och [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
+| [Mobilapp](#use-a-mobile-app-as-the-contact-method) |- **Få meddelanden för verifiering.** Det här alternativet skickar ett meddelande till autentiseringsappen på din smartphone eller surfplatta. Visa meddelandet och, om det är tillförlitligt väljer **autentisera** i appen. Ditt arbete eller din skola kan kräva att du anger en PIN-kod innan du autentiserar dig.<br>- **Använd Verifieringskod.** I det här läget genererar authenticator-appen en Verifieringskod som uppdaterar med 30 sekunders mellanrum. Ange den mest aktuella autentiseringskoden i i inloggningsgränssnittet.<br>Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594) och [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
 | [Mobiltelefonsamtal eller textmeddelande](#use-your-mobile-phone-as-the-contact-method) |- **Telefonsamtal** placerar ett automatiserat röstsamtal till telefonnumret som du anger. Besvara samtalet och tryck på # tangenten för att autentisera.<br>- **SMS: et** slutar ett SMS med verifieringskoden. Följande fråga i texten, svara på SMS: et eller ange verifieringskoden som visas i i inloggningsgränssnittet. |
 | [Telefonsamtal till arbete](#use-your-office-phone-as-the-contact-method) |Placerar ett automatiserat röstsamtal till telefonnumret som du anger. Besvara samtalet och trycka på #-tangenten för att autentisera. |
 

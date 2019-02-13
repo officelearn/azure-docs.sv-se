@@ -13,18 +13,29 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 61bbc65c543801b0f783d01dfb803f47dbcf8a07
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d6e8d943d14cfddc260ba502e724543c6dc9cf4f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215307"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110344"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
 Azure App Service i Linux kan Java-utvecklare för att snabbt bygga, distribuera och skala sina Tomcat eller Java Standard Edition (SE) paketeras webbprogram på en helt hanterad tjänst för Linux-baserade. Distribuera program med Maven-plugin-program från kommandoraden eller i redigerare som IntelliJ, Eclipse eller Visual Studio Code.
 
 Den här guiden innehåller viktiga begrepp och instruktioner för Java-utvecklare med i App Service för Linux. Om du aldrig har använt Azure App Service för Linux bör du läsa den [Java-quickstart](quickstart-java.md) första. Allmänna frågor om hur du använder App Service för Linux som inte är specifika för Java-utveckling besvaras inom den [App Service Linux vanliga frågor och svar](app-service-linux-faq.md).
+
+## <a name="deploying-your-app"></a>Distribuera din app
+
+Du kan använda Maven-pluginprogrammet för att distribuera WAR- och .jar-filer. Se [den här dokumentationen](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) mer information om Maven-pluginprogrammet. 
+
+Om du inte använder Maven, beror din distributionsmetod på din Arkivtyp:
+
+- Distribuera WAR-filerna till Tomcat genom att använda den `/api/wardeploy/` slutpunkt för att publicera arkivfilen. Mer information om detta API finns i [den här dokumentationen](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#deploy-war-file).
+- Om du vill distribuera .jar-filerna på Java SE-avbildningar, använda den `/api/zipdeploy/` slutpunkten för Kudu-webbplatsen. Mer information om detta API finns i [den här dokumentationen](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#rest).
+
+Distribuera inte din WAR eller .jar med FTP. FTP-verktyg är utformad för att ladda upp startskript, beroenden eller andra runtime-filer. Det är inte att föredra för att distribuera webbappar.
 
 ## <a name="logging-and-debugging-apps"></a>Loggning och felsökning av appar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 8a2a1b70290f48b3189bfae2f67dd19c5ef4c9f2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093265"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203717"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -62,17 +62,6 @@ Om du vill ansluta till ett Service Fabric-kluster, behöver du hanteringsslutpu
 Du kan styra klientåtkomst till ditt Service Fabric-kluster med certifikat eller med hjälp av Azure Active Directory (AAD).
 
 Om du försöker ansluta till ett säkert kluster blir sedan beroende på klustrets konfiguration du ombedd att ange ett klientcertifikat eller logga in med AAD.
-
-## <a name="video-tutorial"></a>Videosjälvstudie
-
-Titta på följande Microsoft Virtual Academy-video om du vill veta hur du använder Service Fabric Explorer:
-
-> [!NOTE]
-> Den här videon visar Service Fabric Explorer finns i ett Service Fabric-kluster, inte skrivbordsversionen.
->
->
-
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Förstå Service Fabric Explorer-layout
 Du kan navigera genom Service Fabric Explorer med hjälp av trädvyn till vänster. Instrumentpanelen för klustret innehåller en översikt över klustret, inklusive en sammanfattning av program- och nodhälsan i roten för trädet.

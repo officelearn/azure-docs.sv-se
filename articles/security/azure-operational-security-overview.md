@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt över Azure driftsäkerh
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 478228ccb12fbfe3ca527bf4d16af05735b7ba92
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238547"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116481"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure driftsäkerhet
 
@@ -139,15 +139,15 @@ Network Watcher förenklar övervakning och diagnos av din Azure-nätverk. Du ka
 
 Network Watcher har för närvarande följande funktioner:
 
-- [Topologi](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): ger en överblick över de olika anslutningarna och associationer mellan nätverksresurser i en resursgrupp.
-- [Variabla infångade paket](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): samlar in paketdata till och från en virtuell dator. Avancerade alternativ för filtrering och finjusterade kontroller, till exempel möjligheten att ange tid- och storleksbegränsningar, ger flexibilitet. Paketdata kan lagras i en blob store eller på den lokala disken i CAP-format.
-- [Kontrollera IP-flöde](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): kontrollerar om ett paket tillåts eller nekas baserat på 5-tuppel paket parametrar för flödesinformation (mål-IP, käll-IP, målport, källport och protokoll). Om en säkerhetsgrupp nekar paketet, returneras regel och grupp som nekade paketet.
+- [Topologi](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): Ger en överblick över de olika anslutningarna och associationer mellan nätverksresurser i en resursgrupp.
+- [Variabla infångade paket](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Samlar in paketdata till och från en virtuell dator. Avancerade alternativ för filtrering och finjusterade kontroller, till exempel möjligheten att ange tid- och storleksbegränsningar, ger flexibilitet. Paketdata kan lagras i en blob store eller på den lokala disken i CAP-format.
+- [Kontrollera IP-flöde](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Kontrollerar om ett paket tillåts eller nekas baserat på 5-tuppel paket parametrar för flödesinformation (mål-IP, käll-IP, målport, källport och protokoll). Om en säkerhetsgrupp nekar paketet, returneras regel och grupp som nekade paketet.
 - [Nästa hopp](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Anger nästa hopp för paket som vidarebefordras i Azure nätverksinfrastruktur, så du kan diagnostisera eventuella felkonfigurerad användardefinierade vägar.
-- [Säkerhetsgruppvy](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): hämtar de effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator.
-- [NSG-flödesloggar för nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview): gör det möjligt att samla in loggar som rör trafik som tillåts eller nekas av säkerhetsregler i gruppen. Flödet har definierats av information om 5-tuppel: käll-IP, mål-IP, källport, målport och protokoll.
-- [Virtuell nätverksgateway och anslutning felsökning](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): ger möjlighet att felsöka virtuella nätverksgatewayer och anslutningar.
-- [Nätverks-prenumerationsbegränsningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): gör att du kan visa nätverksresursanvändning mot gränser.
-- [Diagnostikloggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): tillhandahåller ett fönster för att aktivera eller inaktivera diagnostikloggar för nätverksresurser i en resursgrupp.
+- [Säkerhetsgruppvy](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Hämtar de effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator.
+- [NSG-flödesloggar för nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview): Kan du samla in loggar som rör trafik som tillåts eller nekas av säkerhetsregler i gruppen. Flödet har definierats av information om 5-tuppel: käll-IP, mål-IP, källport, målport och protokoll.
+- [Virtuell nätverksgateway och anslutning felsökning](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Ger möjlighet att felsöka virtuella nätverksgatewayer och anslutningar.
+- [Nätverks-prenumerationsbegränsningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Kan du visa nätverksresursanvändning mot gränser.
+- [Diagnostikloggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Tillhandahåller ett fönster för att aktivera eller inaktivera diagnostikloggar för nätverksresurser i en resursgrupp.
 
 Mer information finns i [konfigurera Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 

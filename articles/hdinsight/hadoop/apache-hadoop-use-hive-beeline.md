@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3470caec801c5be54f04fc09a5da734a973f0c82
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962170"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201728"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline klienten med Apache Hive
 
@@ -280,10 +280,7 @@ Mer information om andra sätt du kan arbeta med Hadoop i HDInsight finns i föl
 * [Använda Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
 * [Använda MapReduce med Apache Hadoop i HDInsight](hdinsight-use-mapreduce.md)
 
-Om du använder Tez med Hive finns i följande dokument:
-
-* [Använda Apache Tez-Användargränssnittet på Windows-baserade HDInsight](../hdinsight-debug-tez-ui.md)
-* [Använd Apache Ambari Tez-vyn på Linux-baserat HDInsight](../hdinsight-debug-ambari-tez-view.md)
+Om du använder Tez med Hive, se följande dokument: [Använd Apache Ambari Tez-vyn på Linux-baserade HDInsight](../hdinsight-debug-ambari-tez-view.md).
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

@@ -14,26 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 58db410fe5a6c2b081507eae2ccad3a258ec0864
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 226fea2df2b4a5d6dd428c1d28d8c09f47bca7de
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427598"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162296"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Så att du vill lära dig om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort utsatt område för dock och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp, programmeringsmodeller, programmets hela livscykel, testning, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande innehållslistan, men länka till översikt och komma igång artiklar för alla områden i Service Fabric. 
 
 ## <a name="core-concepts"></a>Huvudkoncept
 [Service Fabric-terminologi](service-fabric-technical-overview.md), [programmodell](service-fabric-application-model.md), och [programmeringsmodeller som stöds](service-fabric-choose-framework.md) ger mer begrepp och beskrivningar, men här är grunderna.
-
-<table><tr><th>Huvudkoncept</th><th>Designtillfället</th><th>Körtid</th></tr>
-<tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
-<img src="./media/service-fabric-content-roadmap/CoreConceptsVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965"><img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">
-<img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td></tr>
-</table>
 
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Utforma tid: programtyp, typ av tjänst, programpaket och manifest, servicepaket och manifest
 Programtyp är namn/version som tilldelats till en samling av tjänsttyper. Det här är definierat i en *ApplicationManifest.xml* -fil som är inbäddad i ett paket för programkatalogen. Programpaketet kopieras sedan till Service Fabric-klustrets avbildningsarkiv. Du kan sedan skapa en namngiven programmet från den här programtypen som körs i klustret. 
@@ -106,10 +98,6 @@ Som med andra plattformar, ett program i Service Fabric vanligtvis går igenom f
 
 Hela appens livstid kan hanteras med [PowerShell-cmdletar](/powershell/module/ServiceFabric/), [CLI-kommandon](service-fabric-sfctl.md), [C# API: er](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API: er](/java/api/overview/azure/servicefabric), och [ REST API: er](/rest/api/servicefabric/). Du kan också ställa in pipelines för kontinuerlig integrering/kontinuerlig distribution med hjälp av verktyg som [Azure Pipelines](service-fabric-set-up-continuous-integration.md) eller [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
-Följande Microsoft Virtual Academy videoklipp beskriver hur du hanterar livscykeln för din: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
-
 ## <a name="test-applications-and-services"></a>Testa program och tjänster
 Om du vill skapa verkligen molnskala tjänster, är det viktigt att kontrollera att dina program och tjänster klarar verkliga fel. Fault Analysis Service har utformats för att testa tjänster som bygger på Service Fabric. Med den [Fault Analysis Service](service-fabric-testability-overview.md), du kan medföra meningsfulla fel och köra fullständig testscenarier mot dina program. Dessa fel och scenarier utöva och validera ett stort antal tillstånd och övergångar som en tjänst får under hela dess livslängd i en kontrollerad, säker och konsekvent sätt.
 
@@ -129,10 +117,6 @@ Om du vill skapa verkligen molnskala tjänster, är det viktigt att kontrollera 
 Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. Kluster kan skalas upp till tusentals datorer. En dator eller virtuell dator som ingår i ett kluster kallas för en nod i klustret. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel placeringsegenskaper. Varje dator eller virtuell dator har en autostarttjänst `FabricHost.exe`, som börjar köras vid start och startar sedan två körbara filer: Fabric.exe och FabricGateway.exe. Dessa två körbara filer som utgör noden. För att testa scenarier, du kan ha flera noder i en enskild dator eller virtuell dator genom att köra flera instanser av `Fabric.exe` och `FabricGateway.exe`.
 
 Service Fabric-kluster kan skapas på virtuella eller fysiska datorer som kör Windows Server eller Linux. Du kan distribuera och köra Service Fabric-program i alla miljöer där du har en uppsättning med Windows Server eller Linux-datorer som är sammankopplade: lokalt, på Microsoft Azure eller hos någon annan molnleverantör.
-
-I följande Microsoft Virtual Academy-video beskrivs Service Fabric-kluster: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
-<img src="./media/service-fabric-content-roadmap/ClusterOverview.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="clusters-on-azure"></a>Kluster i Azure
 Service Fabric-kluster som körs på Azure tillhandahåller integrering med andra Azure-funktioner och tjänster, vilket gör åtgärder och hantering av klustret enklare och mer tillförlitlig. Ett kluster är en Azure Resource Manager-resurs, så att du kan utforma kluster som andra resurser i Azure. Resource Manager tillhandahåller också enkel hantering av alla resurser som används av klustret som en enda enhet. Kluster på Azure är integrerade med Azure-diagnostik och Log Analytics. Klustertyper som noden är [VM-skalningsuppsättningar](/azure/virtual-machine-scale-sets/index), så funktion för automatisk skalning är inbyggd i.
@@ -187,10 +171,6 @@ Service Fabric finns flera sätt att [visa hälsorapporter](service-fabric-view-
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) eller andra visualiseringsverktyg för.
 * Hälsoförfrågningar (via [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) och [Java FabricClient APIs](/java/api/system.fabric), eller [REST API: er](/rest/api/servicefabric)).
 * Allmänna frågor som returnerar en lista över entiteter som har health som en av egenskaperna (via PowerShell, CLI, API: er eller REST).
-
-Följande Microsoft Virtual Academy-video beskrivs hälsomodellen för Service Fabric och hur de används: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 [Övervakning och diagnostik](service-fabric-diagnostics-overview.md) är viktiga för att utveckla, testa och distribuera program och tjänster i alla miljöer. Service Fabric lösningar fungerar bäst när du planerar och implementerar övervakning och diagnostik som hjälper att se till att program och tjänster fungerar som förväntat i en lokal utvecklingsmiljö eller i produktion.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 676adb05178097c1802c0ff5b3a5da1bbb7b188c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 94482666d0db3157b0c18c0b47f9937457172521
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978382"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116005"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagringstypen för en hanterad disk
 
@@ -33,7 +33,7 @@ Azure Managed Disks finns tre alternativ för typ av lagring: [Premium SSD](../w
 
 * Eftersom konverteringen kräver en omstart av den virtuella datorn (VM), bör du schemalägga migreringen av din disklagring under en schemalagd underhållstid. 
 * Om du använder en ohanterad disk först [konvertera den till en hanterad disk](convert-unmanaged-to-managed-disks.md) så att du kan växla mellan lagringstyper. 
-* Exemplen i den här artikeln kräver Azure PowerShell-Modulversion 6.0.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-az-ps) (Installera Azure PowerShell-modul). Kör [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) att skapa en anslutning till Azure.
+* Exemplen i den här artikeln kräver Azure PowerShell-Modulversion 6.0.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Kör [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) att skapa en anslutning till Azure.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Konvertera alla hanterade diskar på en virtuell dator från standard till premium

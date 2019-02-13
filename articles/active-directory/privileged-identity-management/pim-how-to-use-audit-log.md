@@ -13,12 +13,13 @@ ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a4dbce678d5d3eac106363e958636810ea9040bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180219"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200555"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Visa granskningshistorik för Azure AD-katalogroller i PIM
 Du kan använda granskningshistoriken Privileged Identity Management (PIM) för att se alla användartilldelningar och aktiveringar inom en viss tidsperiod för alla Privilegierade roller. Om du vill visa fullständig granskningshistorik för aktiviteten i din klient, inklusive administratören, slutanvändare och synkroniseringsåtgärden, kan du använda den [rapporter för åtkomst och användning av Azure Active Directory.](../reports-monitoring/overview-reports.md)

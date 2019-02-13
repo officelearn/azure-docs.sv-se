@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820138"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176245"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverkskoncept för program i Azure Kubernetes Service (AKS)
 
@@ -102,9 +102,17 @@ En annan vanlig funktion för ingång är SSL/TLS-avslutning. I stora webbprogra
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 
-En säkerhet grupp filter nätverkstrafik för virtuella datorer, till exempel AKS-noder. När du skapar tjänster, till exempel en LoadBalancer konfigurerar Azure-plattformen automatiskt alla regler för nätverkssäkerhetsgrupper som krävs. Inte manuellt konfigurera regler för nätverkssäkerhetsgrupper för att filtrera trafik för poddar i ett AKS-kluster. Definiera alla nödvändiga portar och vidarebefordran som en del av Kubernetes Service-manifest och låt Azure-plattformen skapa eller uppdatera lämpliga regler.
+En nätverkssäkerhetsgrupp filtrerar trafik för virtuella datorer, till exempel AKS-noder. När du skapar tjänster, till exempel en LoadBalancer konfigurerar Azure-plattformen automatiskt alla regler för nätverkssäkerhetsgrupper som krävs. Inte manuellt konfigurera regler för nätverkssäkerhetsgrupper för att filtrera trafik för poddar i ett AKS-kluster. Definiera alla nödvändiga portar och vidarebefordran som en del av Kubernetes Service-manifest och låt Azure-plattformen skapa eller uppdatera lämpliga regler. Du kan också använda principer för nätverk, enligt beskrivningen i nästa avsnitt, den automatiskt tillämpa filter trafikregler på poddar.
 
 Nätverkssäkerhetsgrupp finns regler för trafik som SSH som standard. Det är dessa standardregler för klusterhantering och felsöka åtkomst. Ta bort dessa standardregler kan orsaka problem med hantering av AKS och delar upp servicenivåmål (SLO).
+
+## <a name="network-policies"></a>Nätverksprinciper
+
+Som standard kan alla poddar i ett AKS-kluster skicka och ta emot trafik utan begränsningar. För ökad säkerhet kan du definiera regler som styr flödet av trafik. Serverdelsprogrammen exponeras ofta bara till nödvändiga frontend-tjänster eller databaskomponenter är endast tillgängliga på nivån för program som ansluter till dem.
+
+Nätverksprincip är en Kubernetes-funktion som låter dig styra trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Nätverkssäkerhetsgrupper är mer för AKS-noder inte poddar. Användningen av principer för nätverk är ett mer passande och molnbaserade sätt att styra flödet av trafik. Då poddar skapas dynamiskt i ett AKS-kluster, kan de nödvändiga nätverksprinciperna tillämpas automatiskt.
+
+Mer information finns i [skydda trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)][use-network-policies].
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -139,3 +147,4 @@ Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[use-network-policies]: use-network-policies.md

@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt över viktigaste Azure s
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 5e024161b55db9662aa288a4d3ff6a7c2b7e6266
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 15ac70891f23d95709d1998bca1ce29ad735cb87
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969693"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109086"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Säkerhetsöversikt för Azure virtuella datorer
 
@@ -47,16 +47,16 @@ Microsoft Antimalware för Azure är en enskild agent-lösning för program och 
 
 När du distribuerar och aktivera Microsoft Antimalware för Azure finns följande huvudfunktioner:
 
-* **Realtidsskydd**: övervakar aktiviteten i Cloud Services och på virtuella datorer för att identifiera och blockera körning av skadlig kod.
-* **Schemalagd genomsökning**: utför regelbundet riktade genomsökning för att identifiera skadlig kod, däribland program som körs aktivt.
-* **Korrigering av skadlig kod**: automatiskt agerar på identifierad skadlig kod, till exempel ta bort eller placera det i karantän skadliga filer och rensar skadliga registerposter.
-* **Signaturuppdateringar**: installerar automatiskt de senaste signaturerna (virusdefinitioner av) för att säkerställa att skyddet är uppdaterad på en förbestämd frekvens.
-* **Motoruppdateringar mot skadlig kod**: uppdaterar automatiskt Microsoft Antimalware för Azure-motorn.
-* **Uppdateringar för program mot skadlig kod plattform**: uppdaterar automatiskt Microsoft Antimalware för Azure-plattformen.
-* **Aktivt skydd**: rapporter telemetri metadata till Azure om identifierade hot och misstänkta resurser för att säkerställa snabba svar. Gör i realtid synkron signatur leverans via Microsoft Active Protection System (MAPS).
-* **Exempel reporting**: ger och rapporterar exempel till Microsoft Antimalware för Azure-tjänsten för att förfina tjänsten och aktivera felsökning.
-* **Undantag**: gör att program och administratörer kan konfigurera vissa filer, processer, och enheter så de utesluts från skyddet och sökning efter prestanda och andra orsaker.
-* **Händelseinsamling för program mot skadlig kod**: registrerar tjänstehälsa för program mot skadlig kod, misstänkta aktiviteter och åtgärder som vidtagits i händelseloggen för operativsystemet och samlar in dem i Azure storage-kontot.
+* **Realtidsskydd**: Övervakar aktiviteten i Cloud Services och på virtuella datorer för att identifiera och blockera körning av skadlig kod.
+* **Schemalagd genomsökning**: Utför regelbundet riktade genomsökning för att identifiera skadlig kod, däribland program som körs aktivt.
+* **Korrigering av skadlig kod**: Vidtar automatiskt åtgärder på identifierad skadlig kod, till exempel ta bort eller placera det i karantän skadliga filer och rensar skadliga registerposter.
+* **Signaturuppdateringar**: Installerar automatiskt de senaste signaturerna (virusdefinitioner av) för att säkerställa att skyddet är uppdaterad på en förbestämd frekvens.
+* **Motoruppdateringar mot skadlig kod**: Uppdateras automatiskt Microsoft Antimalware för Azure-motorn.
+* **Uppdateringar för program mot skadlig kod plattform**: Uppdateras automatiskt Microsoft Antimalware för Azure-plattformen.
+* **Aktivt skydd**: Rapporterar telemetri metadata till Azure om identifierade hot och misstänkta resurser för att säkerställa snabba svar. Gör i realtid synkron signatur leverans via Microsoft Active Protection System (MAPS).
+* **Exempel reporting**: Ger och rapporterar exempel till Microsoft Antimalware för Azure-tjänsten för att förfina tjänsten och aktivera felsökning.
+* **Undantag**: Gör att program och administratörer för att konfigurera vissa filer, processer och enheter så de utesluts från skyddet och sökning efter prestanda och andra orsaker.
+* **Händelseinsamling för program mot skadlig kod**: Registrerar tjänstehälsa för program mot skadlig kod, misstänkta aktiviteter och åtgärder som vidtagits i händelseloggen för operativsystemet och samlar in dem i Azure storage-kontot.
 
 Mer information om program mot skadlig kod för att skydda dina virtuella datorer:
 
@@ -90,8 +90,7 @@ Med Key Vault kan du lagra dina nycklar i HSM:er (Hardware Security Modules) som
 
 Läs mer:
 
-* [Vad är Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
 * [Azure Key Vault-bloggen](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>VM-diskkryptering
@@ -121,9 +120,9 @@ En viktig del av din organisations BCDR-strategi är att räkna ut hur att före
 Site Recovery:
 
 * **Förenklar din BCDR-strategi**: Site Recovery gör det enkelt att hantera replikering, redundans och återställning av flera arbetsbelastningar och appar från en enda plats. Site Recovery dirigerar replikering och redundans men inte komma åt dina programdata eller har ingen information om den.
-* **Tillhandahåller flexibel replikering**: genom att använda Site Recovery kan du replikera arbetsbelastningar som körs på Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows/Linux-servrar.
-* **Har stöd för redundans och återställning**: Site Recovery erbjuder redundanstestning för att stödja tester av haveriberedskap utan att påverka produktionsmiljöer. Du kan också köra planerade redundansväxlingar utan någon dataförlust för förväntade driftsavbrott, eller oplanerade redundansväxlingar med minimal dataförlust (beroende på replikeringsfrekvens) för oväntade haverier. Efter en redundansväxling, kan du växla tillbaka till dina primära platser. Site Recovery tillhandahåller återställningsplaner som kan innehålla skript och Azure Automation Runbook-rutiner så att du kan anpassa redundans och återställning av program med flera nivåer.
-* **Eliminerar sekundära Datacenter**: du kan replikera till en sekundär lokal plats eller till Azure. Använda Azure som mål för haveriberedskap slipper du kostnaderna och komplexiteten med att underhålla en sekundär plats. Replikerade data lagras i Azure Storage.
+* **Tillhandahåller flexibel replikering**: Genom att använda Site Recovery kan replikera du arbetsbelastningar som körs på Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows/Linux-servrar.
+* **Har stöd för redundans och återställning**: Site Recovery tillhandahåller redundanstestning för att stödja tester av haveriberedskap utan att påverka produktionsmiljöer. Du kan också köra planerade redundansväxlingar utan någon dataförlust för förväntade driftsavbrott, eller oplanerade redundansväxlingar med minimal dataförlust (beroende på replikeringsfrekvens) för oväntade haverier. Efter en redundansväxling, kan du växla tillbaka till dina primära platser. Site Recovery tillhandahåller återställningsplaner som kan innehålla skript och Azure Automation Runbook-rutiner så att du kan anpassa redundans och återställning av program med flera nivåer.
+* **Eliminerar sekundära Datacenter**: Du kan replikera till en sekundär lokal plats eller till Azure. Använda Azure som mål för haveriberedskap slipper du kostnaderna och komplexiteten med att underhålla en sekundär plats. Replikerade data lagras i Azure Storage.
 * **Integrerar med befintlig BCDR-teknik**: Site Recovery fungerar med andra program BCDR-funktioner. Du kan exempelvis använda Site Recovery för att skydda serverdelen för SQL Server för företagets arbetsbelastningar. Detta omfattar inbyggt stöd för SQL Server Always On att hantera redundans för Tillgänglighetsgrupper.
 
 Läs mer:
@@ -165,7 +164,7 @@ Azure Virtual Machines är certifierat för FISMA, FedRAMP, HIPAA, PCI DSS Level
 
 Läs mer:
 
-* [Microsoft Säkerhetscenter: efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance)
+* [Microsoft Trust Center: efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Tillförlitliga molnet: Microsoft Azure-säkerhet, sekretess och efterlevnad](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## <a name="confidential-computing"></a>Konfidentiellt databehandling

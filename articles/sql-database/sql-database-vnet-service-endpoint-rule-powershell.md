@@ -1,5 +1,5 @@
 ---
-title: PowerShell för tjänstslutpunkter i virtuella nätverk och regler i Azure SQL | Microsoft Docs
+title: PowerShell för slutpunkter för virtuellt nätverk och regler för enkel och delade databaser i Azure SQL | Microsoft Docs
 description: Innehåller PowerShell-skript för att skapa och hantera virtuella slutpunkter för Azure SQL Database och SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/11/2019
+ms.openlocfilehash: b30240620e3a8d3dea1849e895ec021c96fc11c6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566303"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117620"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Skapa en virtuell tjänstslutpunkt och VNet-regel för SQL
 
-Både Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) stöder virtuella tjänstslutpunkter.
+*Virtuella Nätverksregler* är en säkerhetsfunktion för brandväggen som styr om databasservern för enskilda databaser och elastisk pool i Azure [SQL Database](sql-database-technical-overview.md) eller för dina databaser i [SQL-Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från specifika undernät i virtuella nätverk.
 
-> [!NOTE]
-> Den här artikeln gäller för Azure SQL-server och att både SQL Database och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln har *inte* avser **Azure SQL Database Managed Instance** eftersom du inte har en slutpunkt som är associerade med ett undernät för hanterad instans.
+> [!IMPORTANT]
+> Den här artikeln gäller för Azure SQL-server och att både SQL Database och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln har *inte* avser en **hanterad instans** distribution i Azure SQL Database eftersom den inte har en slutpunkt som är associerade med den.
 
 Den här artikeln innehåller och beskriver ett PowerShell-skript som utför följande åtgärder:
 

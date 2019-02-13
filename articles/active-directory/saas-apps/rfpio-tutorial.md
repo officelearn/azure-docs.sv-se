@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3af5c3d5d92dea804221b2285d4fa5b9cedae665
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815701"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Självstudier: Azure Active Directory-integrering med RFPIO
 
@@ -272,7 +273,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
 
 När du klickar på panelen RFPIO i åtkomstpanelen du bör få automatiskt loggat in på ditt RFPIO program.
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).

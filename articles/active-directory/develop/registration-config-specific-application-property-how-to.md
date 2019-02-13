@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096831"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173206"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Hur du fyller i specifika fält för ett egenutvecklat program
 
@@ -40,7 +41,7 @@ Den här artikeln ger en kort beskrivning av alla tillgängliga fält i registre
 
 | Fält            | Beskrivning                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | Namnet på programmet. Den bör ha minst fyra tecken.                |
+| Namn             | Namnet på programmet. Den bör ha minst fyra tecken.                |
 | Programtyp | **Webbapp/webb API**: Ett program som motsvarar ett webbprogram, ett webb-API eller båda 
 | |**Interna**: Ett program som kan installeras på en användares enhet eller dator           |
 | Inloggnings-URL      | URL: en där användare kan logga in använder dina program                                  |

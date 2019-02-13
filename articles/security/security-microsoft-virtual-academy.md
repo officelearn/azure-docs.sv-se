@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en granskad uppsättning Azure-säker
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: f1d7da18-bfd1-4338-abbb-2c558fb780f9
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f06c8ec60831314dad30673fec4d2ea5901e11b6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248086"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115223"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Azure-säkerhetskurser från Microsoft Virtual Academy
 Microsoft Virtual Academy erbjuder kostnadsfria, online-utbildningar för utvecklare, IT och Datapersonal och studenter Läs den senaste tekniken, öka deras kunskaper och utveckla sina karriärer.

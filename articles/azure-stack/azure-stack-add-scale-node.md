@@ -12,23 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247654"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172407"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Lägga till ytterligare skalning enhet noder i Azure Stack
 
-Azure Stack-operatörer kan öka den totala kapaciteten i en befintlig enhet för skala genom att lägga till en ytterligare fysisk dator. Den fysiska datorn kallas också en scale unit-nod. Varje ny skala enhet nod som du lägger till måste vara homogen i CPU-typ, minne, och disknumret och storleken på noderna som redan finns i skalningsenheten.
-
-> [!NOTE]  
-Du måste köra Azure Stack 1807 eller senare att lägga till ytterligare skalning enhet noder.
+Azure Stack-operatörer kan öka den totala kapaciteten i en befintlig enhet för skala genom att lägga till en ytterligare fysisk dator. Den fysiska datorn kallas också en scale unit-nod. Varje ny skala enhet nod som du lägger till måste vara homogena i CPU-typ, minne, och disknumret och storleken på noderna som redan finns i skalningsenheten.
 
 Om du vill lägga till en nod för skala enhet, fungerar i Azure Stack och kör verktyg från utrustning tillverkaren (OEM). OEM-verktyg körs på maskinvara livscykel värden (HLH) för att se till att den nya fysiska datorn matchar firmware samma nivå som befintliga noderna.
 

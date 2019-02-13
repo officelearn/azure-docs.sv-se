@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3fd91ef17415e2c6ebb735fdedb098f8aa319d8c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246491"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207423"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Återställa från oåterkallelig dataförlust
 
 *Gäller för: Integrerade Azure Stack-system.*
 
-Azure Stack kör Azure-tjänster i ditt datacenter. Azure Stack kan köras i miljöer som är så litet som fyra noder som är installerad i ett enda rack. Däremot körs Azure på fler än 40 regioner i flera datacenter och flera zoner i varje region. Användarresurser som kan sträcka sig över flera servrar, rack, Datacenter och regioner. Med Azure Stack har du för närvarande endast möjlighet att distribuera hela molnet till ett enda rack. Detta visar molnet för risk för katastrofer i ditt datacenter eller fel som beror på större produktbuggar. När en katastrof inträffar, frånkopplas Azure Stack-instans. Alla data som är potentiellt oåterkalleligt.
+Azure Stack Azure-tjänster som körs i ditt datacenter och kan köras i miljöer som är så litet som fyra noder som är installerad i ett enda rack. Däremot körs Azure på fler än 40 regioner i flera datacenter och flera zoner i varje region. Användarresurser som kan sträcka sig över flera servrar, rack, Datacenter och regioner. Med Azure Stack har du för närvarande endast möjlighet att distribuera hela molnet till ett enda rack. Detta visar molnet för risk för katastrofer i ditt datacenter eller fel som beror på större produktbuggar. När en katastrof inträffar, frånkopplas Azure Stack-instans. Alla data som är potentiellt oåterkalleligt.
 
 Beroende på de grundläggande orsakerna till förlust av data, kan du behöva reparera en enda infrastruktur-tjänst eller återställa en hel Azure Stack-instans. Du kan även behöva återställa till annan maskinvara på samma plats eller på en annan plats.
 

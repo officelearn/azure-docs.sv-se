@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 28c0ddbb735de041497b6705759d03c881b7e87e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 54aab6e9718b5a4a55cf2a3f9c472e9e02a53ea7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494365"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191086"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect och federation
 Azure Active Directory (Azure AD) Connect kan du konfigurera federation med en lokal Active Directory Federation Services (AD FS) och Azure AD. Med federation inloggning, kan du ge användare att logga in på Azure AD-baserade tjänster med sina lokala lösenord – och på företagets nätverk, utan att behöva ange sina lösenord igen. Du kan distribuera en ny installation av AD FS med hjälp av alternativet federation med AD FS, eller du kan ange en befintlig installation i en Windows Server 2012 R2-servergrupp.

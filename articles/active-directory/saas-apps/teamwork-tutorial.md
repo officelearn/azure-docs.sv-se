@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 7775c8ae92ebf6015f12bdebf0934752a5240f0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1d3b9cd5fd359d0b75bfc08242a0b36a8647bff0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172416"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Självstudier: Azure Active Directory-integrering med Teamwork.com
 
@@ -120,7 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://eu.teamwork.com/saml`|
 
     > [!NOTE] 
-    > Den här inloggnings-URL-värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Teamwork.com supportteamet](mailto:support@teamwork.com) att hämta det här värdet. 
+    > Den här inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Teamwork.com supportteamet](mailto:support@teamwork.com) att hämta det här värdet. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 

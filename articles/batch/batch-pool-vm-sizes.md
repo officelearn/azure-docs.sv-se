@@ -12,24 +12,24 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191725"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186015"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för beräkningsnoder i en Azure Batch-pool
 
-När du väljer en nodstorlek för en Azure Batch-pool kan välja du bland nästan alla storlekarna som tillgängliga i Azure. Azure erbjuder flera olika storlekar för Linux- och Windows-datorer för olika arbetsbelastningar. 
+När du väljer en nodstorlek för en Azure Batch-pool kan välja du bland nästan alla storlekarna som tillgängliga i Azure. Azure erbjuder flera olika storlekar för Linux- och Windows-datorer för olika arbetsbelastningar.
 
 Det finns några undantag och begränsningar med att välja en VM-storlek:
+
 * Vissa VM-serier eller storlekar för Virtuella datorer stöds inte i Batch. 
 * Vissa VM-storlekar är begränsade och måste aktiveras specifikt innan de kan tilldelas.
-
 
 ## <a name="supported-vm-families-and-sizes"></a>Stöds VM-familjer och storlekar
 
@@ -42,16 +42,16 @@ Batch-pooler i den virtuella datorkonfigurationen stöder alla VM-storlekar ([Li
 | Basic A-serien | Basic_A0 (A0) |
 | A-serien | Standard_A0 |
 | B-serien | Alla |
-| DC-serien | Alla | 
+| DC-serien | Alla |
 | Extreme minnesoptimerade | Alla |
-| HB-serien<sup>1</sup> | Alla | 
+| HB-serien<sup>1</sup> | Alla |
 | HC-serien<sup>1</sup> | Alla |
 | Lsv2-serien | Alla |
-| NDv2-serien<sup>1</sup> | Alla |
-| NVv2-serien<sup>1</sup> | Alla |
+| NDv2-series<sup>1</sup> | Alla |
+| NVv2-serien | Alla |
 | SAP HANA | Alla |
 
-<sup>1</sup> stöds för närvarande inte, men kommer att stödjas i framtiden.
+<sup>1</sup> kan användas av Batch-konton i användarprenumerationsläge; användarprenumerationsläget Batch-kontot måste ha core kvoten som angetts. Se [konfiguration för användarprenumerationsläget](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) för mer information.
 
 Storlek på följande Virtuella datorer stöds endast för lågprioriterade virtuella noder:
 
@@ -74,6 +74,7 @@ Batch-pooler i Cloud Service-konfigurationen har stöd för alla [VM-storlekar f
 ## <a name="restricted-vm-families"></a>Begränsad VM-serier
 
 Följande VM-familjer kan fördelas i Batch-pooler, men du måste begära en specifik kvot (se [i den här artikeln](batch-quota-limit.md#increase-a-quota)):
+
 * NCv2-serien
 * NCv3-serien
 * ND-serien
@@ -82,7 +83,7 @@ Dessa storlekar kan endast användas i pooler i konfigurationen av virtuella dat
 
 ## <a name="size-considerations"></a>Storlek-överväganden
 
-* **Programkrav** -Överväg egenskaperna och kraven för programmet som ska köras på noderna. Det är lämpligt att ha i åtanke när du väljer den lämpligaste och mest kostnadseffektiva nodstorleken huruvida programmet är flertrådat och hur mycket minne det förbrukar. För flera instanser [MPI arbetsbelastningar](batch-mpi.md) eller CUDA-program, Överväg att specialiserade [HPC](../virtual-machines/linux/sizes-hpc.md) eller [GPU-aktiverade](../virtual-machines/linux/sizes-gpu.md) respektive Virtuella datorer. (Se [använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pooler](batch-pool-compute-intensive-sizes.md).) 
+* **Programkrav** -Överväg egenskaperna och kraven för programmet som ska köras på noderna. Det är lämpligt att ha i åtanke när du väljer den lämpligaste och mest kostnadseffektiva nodstorleken huruvida programmet är flertrådat och hur mycket minne det förbrukar. För flera instanser [MPI arbetsbelastningar](batch-mpi.md) eller CUDA-program, Överväg att specialiserade [HPC](../virtual-machines/linux/sizes-hpc.md) eller [GPU-aktiverade](../virtual-machines/linux/sizes-gpu.md) respektive Virtuella datorer. (Se [använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pooler](batch-pool-compute-intensive-sizes.md).)
 
 * **Aktiviteter per nod** – det är vanligt att välja en nodstorlek under antagandet en aktivitet körs på en nod i taget. Det kan dock vara bra att ha flera aktiviteter (och därmed flera programinstanser) [köras parallellt](batch-parallel-node-tasks.md) på datornoder under jobbkörningen. I det här fallet är det vanligt att välja en flerkärniga nodstorlek för utökade behovet av att köra åtgärder parallellt.
 
@@ -97,6 +98,4 @@ Dessa storlekar kan endast användas i pooler i konfigurationen av virtuella dat
 ## <a name="next-steps"></a>Nästa steg
 
 * En detaljerad översikt över Batch finns [utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
-* Information om hur du använder beräkningsintensiva VM-storlekar finns i [använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pooler](batch-pool-compute-intensive-sizes.md). 
-
-
+* Information om hur du använder beräkningsintensiva VM-storlekar finns i [använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pooler](batch-pool-compute-intensive-sizes.md).

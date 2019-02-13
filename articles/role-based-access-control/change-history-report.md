@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692778"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117656"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Visa aktivitetsloggar för RBAC ändringar
 
@@ -55,7 +55,7 @@ Läs mer om aktivitetsloggar [visa händelser i aktivitetsloggen](/azure/azure-r
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-Du kan visa aktivitetsloggar med Azure PowerShell på [Get-AzLog](/powershell/module/az.insights/get-azlog) kommando.
+Du kan visa aktivitetsloggar med Azure PowerShell på [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog) kommando.
 
 Det här kommandot visar alla tilldelningsändringarna för rollen i en prenumeration under de senaste sju dagarna:
 

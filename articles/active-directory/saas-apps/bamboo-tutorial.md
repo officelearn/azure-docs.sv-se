@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 027f5a9f02a0580fce61091e8be9ece9069fb34f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5353cc921d4fc07770737bb70d02361fa0e5f438
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156190"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198447"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Självstudier: Azure Active Directory-integrering med SAML SSO för bambu resolution GmbH
 
@@ -141,33 +142,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Samlsingle](./media/bamboo-tutorial/tutorial_bamboo_samlsingle.png)
 
-1. På den **konfigurationssidan för SAML SIngleSignOn plugin-programmet**, klickar du på **lägga till idp**. 
+1. På **konfigurationssidan för SAML SIngleSignOn-plugin-programmet** klickar du på **Lägg till IdP**. 
 
-    ![Den lägger till idp](./media/bamboo-tutorial/tutorial_bamboo_addidp.png)
+    ![Lägg till IdP](./media/bamboo-tutorial/tutorial_bamboo_addidp.png)
 
-1. På den **väljer SAML-identitetsprovider** kan utföra följande steg:
+1. På sidan **Välj din SAML-identitetsprovider** utför du följande steg:
 
     ![Identitetsprovidern](./media/bamboo-tutorial/tutorial_bamboo_identityprovider.png)
 
-    a. Välj **Idp typ** som **AZURE AD**.
+    a. Välj **IdP-typ** as **AZURE AD**.
 
-    b. I den **namn** textrutan skriver du namnet.
+    b. I textrutan **Namn** skriver du namnet.
 
-    c. I den **beskrivning** textrutan anger du beskrivningen.
+    c. I textrutan **Beskrivning** skriver du beskrivningen.
 
     d. Klicka på **Nästa**.
 
 1. På den **identitet providerkonfigurationen** klickar du på **nästa**.
 
-    ![Identity-config](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
+    ![Identitetskonfigurationen](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
 
 1.  På den **importera SAML Idp Metadata** , klickar du på **Läs in fil** att ladda upp den **XML-METADATA för** fil som du har hämtat från Azure-portalen.
 
-    ![Idpmetadata](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
+    ![IdP-metadata](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
 
 1. Klicka på **Nästa**.
 
-1. Klicka på **Spara inställningar**.
+1. Klicka **Spara inställningar**.
 
     ![Spara](./media/bamboo-tutorial/tutorial_bamboo_save.png)
     

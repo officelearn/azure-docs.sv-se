@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0865227a05d5cb25a44114fc053f61b8f70ffb94
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100099"
+ms.locfileid: "56115716"
 ---
 # <a name="azure-stack-1901-update"></a>Uppdatering av Azure Stack 1901
 
@@ -89,7 +89,7 @@ Den här uppdateringen innehåller följande nya funktioner och förbättringar 
          Icke-bakåtkompatibel ändring: Backup ändras till certifikatsbaserad Krypteringsläge. Stöd för symmetriska nycklar är inaktuellt.  
    * **Azs.Fabric.Admin modul**  
          `Get-AzsInfrastructureVolume` är inaktuell. Använd den nya cmdleten `Get-AzsVolume`.  
-         `Get-AzsStorageSystem` är inaktuell.  Använd cmdleten nya nya `Get-AzsStorageSubSystem`.  
+         `Get-AzsStorageSystem` är inaktuell.  Använd den nya cmdleten `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` är inaktuell. Den `StorageSubSystem` objektet innehåller egenskapen kapacitet.  
    * **Azs.Compute.Admin Module**  
          Felkorrigering – `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Anropa `ConvertTo-PlatformImageObject` endast i rätt väg.  
@@ -134,7 +134,7 @@ Referens för de uppdaterade modulerna finns [Azure Stack-modulreferens](https:/
 - Ett problem har åtgärdats när du ställer in värdet för Managed Disks kvoter under [compute kvottyper](azure-stack-quota-types.md#compute-quota-types) till 0, det motsvarar att standardvärdet 2 048 GiB. Kvotvärdet noll respekteras nu.
 
 <!-- 2724873 - IS --> 
-- Ett problem har åtgärdats när du använder PowerShell-cmdlets **Start AzsScaleUnitNode** eller **Stop-AzsScaleunitNode** att hantera skalningsenheter, där det första försöket att starta eller stoppa skalningsenheten misslyckas.
+- Ett problem har åtgärdats när du använder PowerShell-cmdlets **Start AzsScaleUnitNode** eller **Stop-AzsScaleUnitNode** att hantera skalningsenheter, där det första försöket att starta eller stoppa skalningsenheten misslyckas.
 
 <!-- 2724961- IS ASDK --> 
 - Ett problem som du registrerade har åtgärdats i **Microsoft.Insight** resursprovidern i prenumerationsinställningarna för och skapat en virtuell Windows-dator med Guest OS diagnostiska aktiverat, men CPU-procent diagrammet på översiktssidan för virtuell dator inte visat mätvärden. Data korrekt visas nu.

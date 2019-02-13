@@ -13,14 +13,16 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fbf94d0430685ea5791aaaa83669a730986e665c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770222"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111313"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visa distributionsåtgärder med Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Du kan visa åtgärderna för en distribution via Azure portal. Du kanske är mest intresserad visa åtgärderna när du har fått ett fel under distributionen så att den här artikeln handlar om hur du visar åtgärder som har misslyckats. Portalen tillhandahåller ett gränssnitt som gör det möjligt att enkelt hitta felen och fastställa eventuella korrigeringar.
 
@@ -68,13 +70,13 @@ Visa distributionsåtgärder, använda följande steg:
   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-1. Hämta Korrelations-ID med:
+2. Hämta Korrelations-ID med:
 
   ```powershell
   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Varje distributionen omfattar flera åtgärder. Varje åtgärd representerar ett steg i distributionsprocessen. För att identifiera vad som gick fel med en distribution, måste vanligtvis du se information om distributionsåtgärder. Du kan se statusen för åtgärder med **Get-AzResourceGroupDeploymentOperation**.
+3. Varje distributionen omfattar flera åtgärder. Varje åtgärd representerar ett steg i distributionsprocessen. För att identifiera vad som gick fel med en distribution, måste vanligtvis du se information om distributionsåtgärder. Du kan se statusen för åtgärder med **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -92,7 +94,7 @@ Visa distributionsåtgärder, använda följande steg:
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-1. Om du vill ha mer information om misslyckade åtgärder, hämta egenskaperna för åtgärder med **misslyckades** tillstånd.
+4. Om du vill ha mer information om misslyckade åtgärder, hämta egenskaperna för åtgärder med **misslyckades** tillstånd.
 
   ```powershell
   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -115,7 +117,7 @@ Visa distributionsåtgärder, använda följande steg:
   ```
 
     Observera serviceRequestId och spårnings-ID för åtgärden. ServiceRequestId kan vara användbart när du arbetar med teknisk support att felsöka en distribution. Du använder trackingId i nästa steg för att fokusera på en viss åtgärd.
-1. Om du vill ha statusmeddelande för en viss misslyckad åtgärd, använder du följande kommando:
+5. Om du vill ha statusmeddelande för en viss misslyckad åtgärd, använder du följande kommando:
 
   ```powershell
   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -128,7 +130,7 @@ Visa distributionsåtgärder, använda följande steg:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-1. Varje distributionsåtgärd i Azure inkluderar innehåll för begäran och svar. Innehållet i begäran är vad du skickas till Azure under distributionen (till exempel skapa en virtuell dator, OS-disk och andra resurser). Svarsinnehållet är vad Azure skickas tillbaka från din begäran om distribution. Under distributionen kan du använda **DeploymentDebugLogLevel** parametern för att ange att begäran/svar eller bevaras i loggen. 
+6. Varje distributionsåtgärd i Azure inkluderar innehåll för begäran och svar. Innehållet i begäran är vad du skickas till Azure under distributionen (till exempel skapa en virtuell dator, OS-disk och andra resurser). Svarsinnehållet är vad Azure skickas tillbaka från din begäran om distribution. Under distributionen kan du använda **DeploymentDebugLogLevel** parametern för att ange att begäran/svar eller bevaras i loggen. 
 
   Du får den här informationen från loggen och spara den lokalt genom att använda följande PowerShell-kommandon:
 
@@ -146,13 +148,13 @@ Visa distributionsåtgärder, använda följande steg:
   az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-1. En av de returnerade värdena är den **correlationId**. Det här värdet används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support att felsöka en distribution.
+2. En av de returnerade värdena är den **correlationId**. Det här värdet används för att spåra relaterade händelser och kan vara användbart när du arbetar med teknisk support att felsöka en distribution.
 
   ```azurecli
   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-1. Visa åtgärderna för en distribution, använda:
+3. Visa åtgärderna för en distribution, använda:
 
   ```azurecli
   az group deployment operation list -g ExampleGroup -n ExampleDeployment

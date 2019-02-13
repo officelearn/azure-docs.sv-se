@@ -8,30 +8,32 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/06/2018
-ms.openlocfilehash: 31f3cf9bd8f83c5da32569ed370de1ed35299749
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 02/12/2019
+ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062391"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176211"
 ---
-# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps via en integration service-miljö (ISE)
+# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
 > [!NOTE]
-> Den här funktionen är i *privat förhandsgranskning*. Att begära åtkomst, [skapa din begäran om att ansluta till här](https://aka.ms/iseprivatepreview).
+> Den här funktionen är i *privat förhandsgranskning*. Att ansluta till den privata förhandsgranskningen [skapandeförfrågan här](https://aka.ms/iseprivatepreview).
 
-För scenarier där dina logic apps och integrationskonton behöver åtkomst till en [Azure-nätverk](../virtual-network/virtual-networks-overview.md), skapa en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en privat och isolerad miljö som använder dedikerade lagring och andra resurser åtskilda från den offentliga eller ”global” Logic Apps-tjänsten. Den här separationen minskar också påverkas som andra Azure-klienter kan ha på din apps prestanda. Din ISE *in* till till din Azure-nätverk, som sedan distribuerar Logic Apps-tjänsten till ditt virtuella nätverk. När du skapar ett logic app eller varje konto, Välj den här ISE som deras plats. Ditt logic app eller varje konto kan sedan direkt åtkomst till resurser, till exempel virtuella datorer (VM), servrar, system och tjänster i ditt virtuella nätverk. 
+För scenarier där dina logic apps och integrationskonton behöver åtkomst till en [Azure-nätverk](../virtual-network/virtual-networks-overview.md), skapa en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en privat och isolerad miljö som använder dedikerade lagring och andra resurser åtskilda från den offentliga eller ”global” Logic Apps-tjänsten. Den här separationen minskar också påverkas som andra Azure-klienter kan ha på din apps prestanda. Din ISE *in* till till din Azure-nätverk, som sedan distribuerar Logic Apps-tjänsten till ditt virtuella nätverk. När du skapar ett logic app eller varje konto, Välj den här ISE som deras plats. Ditt logic app eller varje konto kan sedan direkt åtkomst till resurser, till exempel virtuella datorer (VM), servrar, system och tjänster i ditt virtuella nätverk.
 
 ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
 Den här artikeln visar hur du utför dessa uppgifter:
 
+* Konfigurera portar på Azure-nätverk så att trafik kan skickas genom din integration service-environment (ISE) i alla undernät i det virtuella nätverket.
+
 * Konfigurera behörigheter på Azure-nätverk så att den privata Logic Apps-instansen kan komma åt det virtuella nätverket.
 
-* Skapa din integration service-environment (ISE). 
+* Skapa din integration service-environment (ISE).
 
-* Skapa en logikapp som kan köras i din ISE. 
+* Skapa en logikapp som kan köras i din ISE.
 
 * Skapa ett integrationskonto för logikappar i din ISE.
 
@@ -39,16 +41,40 @@ Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-res
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
   > [!IMPORTANT]
   > Logic apps, inbyggda åtgärder och kopplingar som körs i din ISE kan du använda en annan prisplanen inte förbrukningsbaserad prisplanen. Mer information finns i [Logic Apps-priser](../logic-apps/logic-apps-pricing.md).
 
-* En [Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du lära dig hur du [skapa en Azure-nätverk](../virtual-network/quick-create-portal.md). 
+* En [Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du lära dig hur du [skapa en Azure-nätverk](../virtual-network/quick-create-portal.md). Du måste också undernät i det virtuella nätverket för att distribuera din ISE. Du kan skapa de här undernäten i förväg eller vänta tills du har skapat din ISE där du kan skapa undernät på samma gång. Dessutom [se till att det virtuella nätverket tillgängliggör dessa portar](#ports) så att din ISE fungerar och är tillgänglig.
 
-* Ge dina logikappar direkt åtkomst till Azure-nätverk, [konfigurera rollbaserad åtkomstkontroll (RBAC) behörigheter](#vnet-access) så att Logic Apps-tjänsten har behörigheter för åtkomst till ditt virtuella nätverk. 
+* Ge dina logikappar direkt åtkomst till Azure-nätverk, [konfigurera rollbaserad åtkomstkontroll (RBAC) Nätverksbehörigheter](#vnet-access) så att Logic Apps-tjänsten har behörigheter för åtkomst till ditt virtuella nätverk.
+
+* Att använda en eller flera anpassade DNS-servrar för att distribuera Azure-nätverk, [Konfigurera servrarna följa dessa riktlinjer](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) innan du distribuerar din ISE till det virtuella nätverket. I annat fall behöva varje gång du ändrar din DNS-server du också starta om din ISE som är en funktion som är tillgängliga i offentlig förhandsversion i ISE.
 
 * Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+<a name="ports"></a>
+
+## <a name="set-up-network-ports"></a>Konfigurera nätverksportar
+
+För att fungera korrekt och håll tillgänglig, måste din integration service-environment (ISE) ha specifika portar som är tillgängliga i det virtuella nätverket. Annars, om något av de här portarna är inte tillgänglig, du kan förlora åtkomst till din ISE som kan sluta fungera. När du använder en ISE i ett virtuellt nätverk ett vanligt installationsproblem har en eller flera blockerade portar. Den koppling som du använder kan också ha en egen portkraven för anslutningar mellan dina ISE och målsystemet. Till exempel om du kommunicera med en FTP-system med hjälp av FTP-anslutningen kontrollerar du den port som du använder på att FTP-system, till exempel port 21 för att skicka kommandon och är tillgänglig.
+
+För att styra inkommande och utgående trafik över det virtuella nätverkets undernät där du distribuerar din ISE kan du ställa in [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) för dessa undernät genom att lära dig [så här filtrerar nätverkstrafik mellan undernät](../virtual-network/tutorial-filter-network-traffic.md). Dessa tabeller beskrivs portarna i ditt virtuella nätverk som använder din ISE och där de portarna som får användas. En asterisk (*) representerar alla trafikkällor. Den [servicetagg](../virtual-network/security-overview.md#service-tags) representerar en grupp med IP-adressprefix som syfte att minska komplexiteten när du skapar säkerhetsregler.
+
+| Syfte | Riktning | Källport <br>Målport | Källtjänsttagg <br>Måltjänsttagg |
+|---------|-----------|---------------------------------|-----------------------------------------------|
+| Kommunikation till Azure Logic Apps <br>Kommunikation från Azure Logic Apps | Inkommande <br>Utgående | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
+| Azure Active Directory | Utgående | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
+| Beroende av Azure Storage | Utgående | * <br>80 & 443 | VIRTUAL_NETWORK <br>Storage |
+| Anslutningshanteringen | Utgående | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
+| Publicera diagnostikloggar och mått | Utgående | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
+| Logikappdesigner – dynamiska egenskaper <br>Logikappens körningshistorik <br>Connector-distribution <br>Slutpunkten för begäran-utlösare | Inkommande | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| Service Management-appberoendet | Inkommande | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
+| API Management - hanteringsslutpunkt | Inkommande | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
+| Beroende från loggen till Event Hub-principen och övervakningsagent | Utgående | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |
+| Få åtkomst till Azure Cache för Redis-instanser mellan Rollinstanser | Inkommande <br>Utgående | * <br>6381-6383 | VIRTUAL_NETWORK <br>VIRTUAL_NETWORK |
+|||||
 
 <a name="vnet-access"></a>
 
@@ -56,27 +82,27 @@ Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-res
 
 När du skapar en integration service-miljö (ISE) kan du välja ett Azure-nätverk var du *mata in* din miljö. Men innan du kan välja ett virtuellt nätverk för din miljö måste ställa du in behörigheter för rollbaserad åtkomstkontroll (RBAC) i det virtuella nätverket. Om du vill konfigurera behörigheter att tilldela dessa specifika roller till Azure Logic Apps-tjänsten:
 
-1. I den [Azure-portalen](https://portal.azure.com), hitta och välj ditt virtuella nätverk. 
+1. I den [Azure-portalen](https://portal.azure.com), hitta och välj ditt virtuella nätverk.
 
-1. I det virtuella nätverket menyn väljer **åtkomstkontroll (IAM)**. 
+1. I det virtuella nätverket menyn väljer **åtkomstkontroll (IAM)**.
 
-1. Under **åtkomstkontroll (IAM)**, Välj **Lägg till rolltilldelning**. 
+1. Under **åtkomstkontroll (IAM)**, Välj **Lägg till rolltilldelning**.
 
    ![Lägg till roller](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
 
-1. På den **Lägg till rolltilldelning** fönstret lägga till rollen krävs i Azure Logic Apps-tjänsten enligt beskrivningen. 
+1. På den **Lägg till rolltilldelning** fönstret lägga till rollen krävs i Azure Logic Apps-tjänsten enligt beskrivningen.
 
-   1. Under **rollen**väljer **Nätverksdeltagare**. 
-   
+   1. Under **rollen**väljer **Nätverksdeltagare**.
+
    1. Under **tilldela åtkomst till**väljer **Azure AD-användare, grupp eller tjänstens huvudnamn**.
 
-   1. Under **Välj**, ange **Azure Logic Apps**. 
+   1. Under **Välj**, ange **Azure Logic Apps**.
 
-   1. När listan visas, väljer **Azure Logic Apps**. 
+   1. När listan visas, väljer **Azure Logic Apps**.
 
       > [!TIP]
-      > Om du inte hittar den här tjänsten kan du ange Logic Apps-tjänsten app-ID: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` 
-   
+      > Om du inte hittar den här tjänsten kan du ange Logic Apps-tjänsten app-ID: `7cd684f4-8a78-49b0-91ec-6a35d38739ba`
+
    1. När du är klar väljer du **Spara**.
 
    Exempel:
@@ -106,15 +132,15 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
    ![Ange information om miljön](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Egenskap  | Krävs | Värde | Beskrivning |
+   | Egenskap  | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumeration för din miljö | 
+   | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumeration för din miljö |
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Azure-resursgrupp där du vill skapa en miljö |
-   | **Namn på integreringstjänstmiljö** | Ja | <*miljö-name*> | Namn för att ge din miljö | 
-   | **Plats** | Ja | <*Azure-datacenterregion*> | Azure-datacenterregion var du vill distribuera din miljö | 
-   | **Ytterligare kapacitet** | Ja | 0, 1, 2, 3 | Antalet enheter för den här ISE-resursen | 
-   | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Azure-nätverket där du vill att mata in din miljö så att logic apps i denna miljö kan komma åt det virtuella nätverket. Om du inte har ett nätverk kan du skapa en här. <p>**Viktiga**: Du kan *endast* utföra den här inmatning när du skapar din ISE. Men innan du kan skapa den här relationen, se till att du redan [konfigurera rollbaserad åtkomstkontroll i ditt virtuella nätverk för Azure Logic Apps](#vnet-access). | 
-   | **Undernät** | Ja | <*undernät resurslistan*> | En ISE kräver fyra *tom* undernät för att skapa resurser i din miljö. Se till dessa undernät *inte delegerad* till alla tjänster. Du *kan inte ändra* undernätsadresserna när du har skapat din miljö. <p><p>Att skapa varje undernät, [att följa stegen i den här tabellen](#create-subnet). Varje undernät måste uppfylla följande kriterier: <p>-Måste vara tom. <br>-Använder ett namn som inte börjar med ett tal eller ett bindestreck. <br>-Använder den [Classless Inter-Domain Routing CIDR-format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och en klass B-adressutrymmet. <br>-Innehåller minst en `/27` i adressutrymmet så undernätet hämtar minst 32 adresser. Läs om hur du beräknar antalet adresser i [IPv4 CIDR-block som](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Exempel: <p>- `10.0.0.0/24` har 256 adresser eftersom 2<sup>(32-24)</sup> är 2<sup>8</sup> eller 256. <br>- `10.0.0.0/27` har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32. <br>- `10.0.0.0/28` har bara 16 adresser eftersom 2<sup>(32-28)</sup> är 2<sup>4</sup> eller 16. |
+   | **Namn på integreringstjänstmiljö** | Ja | <*environment-name*> | Namn för att ge din miljö |
+   | **Plats** | Ja | <*Azure-datacenter-region*> | Azure-datacenterregion var du vill distribuera din miljö |
+   | **Ytterligare kapacitet** | Ja | 0, 1, 2, 3 | Antalet enheter för den här ISE-resursen |
+   | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Azure-nätverket där du vill att mata in din miljö så att logic apps i denna miljö kan komma åt det virtuella nätverket. Om du inte har ett nätverk kan du skapa en här. <p>**Viktiga**: Du kan *endast* utföra den här inmatning när du skapar din ISE. Men innan du kan skapa den här relationen, se till att du redan [konfigurera rollbaserad åtkomstkontroll i ditt virtuella nätverk för Azure Logic Apps](#vnet-access). |
+   | **Undernät** | Ja | <*subnet-resource-list*> | En ISE kräver fyra *tom* undernät för att skapa resurser i din miljö. Se till dessa undernät *inte delegerad* till alla tjänster. Du *kan inte ändra* undernätsadresserna när du har skapat din miljö. <p><p>Att skapa varje undernät, [att följa stegen i den här tabellen](#create-subnet). Varje undernät måste uppfylla följande kriterier: <p>-Måste vara tom. <br>-Använder ett namn som inte börjar med ett tal eller ett bindestreck. <br>-Använder den [Classless Inter-Domain Routing CIDR-format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och en klass B-adressutrymmet. <br>-Innehåller minst en `/27` i adressutrymmet så undernätet hämtar minst 32 adresser. Läs om hur du beräknar antalet adresser i [IPv4 CIDR-block som](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Exempel: <p>- `10.0.0.0/24` har 256 adresser eftersom 2<sup>(32-24)</sup> är 2<sup>8</sup> eller 256. <br>- `10.0.0.0/27` har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32. <br>- `10.0.0.0/28` har bara 16 adresser eftersom 2<sup>(32-28)</sup> är 2<sup>4</sup> eller 16. |
    |||||
 
    <a name="create-subnet"></a>

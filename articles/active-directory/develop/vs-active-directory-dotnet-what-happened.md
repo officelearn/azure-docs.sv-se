@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: cc14f170a748f91289bbc644d5a9bef10697ce34
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cd57eadc2c42c17343eee6d813072866e8ea09e3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427377"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196220"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Vad hände med mitt MVC-projekt (Visual Studio Azure Active Directory ansluten service)?
 
@@ -33,7 +34,7 @@ Information om hur du arbetar med anslutna tjänsten finns i [komma igång](vs-a
 
 Påverkar projektreferenserna filen *.NET) och `packages.config` (NuGet referenser).
 
-| Typ | Referens |
+| Type | Referens |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -48,7 +49,7 @@ Påverkar projektreferenserna filen *.NET) och `packages.config` (NuGet referens
 
 Ytterligare referenser om du har valt den **läsa katalogdata** alternativet:
 
-| Typ | Referens |
+| Type | Referens |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 endast) |
@@ -57,12 +58,12 @@ Ytterligare referenser om du har valt den **läsa katalogdata** alternativet:
 | .NET; NuGet | Microsoft.Data.OData |
 | .NET; NuGet | Microsoft.Data.Services.Client |
 | .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
-| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (Visual Studio 2015 endast) |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (Visual Studio 2015 only) |
 | .NET; NuGet | System.Spatial |
 
 I följande referenser tas bort (ASP.NET 4-projekt, som i Visual Studio 2015):
 
-| Typ | Referens |
+| Type | Referens |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

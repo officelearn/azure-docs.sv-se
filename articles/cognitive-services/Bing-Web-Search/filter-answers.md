@@ -9,18 +9,18 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 945f89633060df7f57aa937be392149340acc21d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856010"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199501"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrera de svar som Sök-svaret innehåller  
 
-När du frågar webben returnerar Bing allt innehåll som tror är relevant för sökningen. Om sökfrågan ”färdas + dinghies”, kan svaret innehålla följande svar:
+När du frågar webben returnerar Bing alla relevant innehåll som hittas för sökningen. Om sökfrågan ”färdas + dinghies”, kan svaret innehålla följande svar:
 
 ```json
 {
@@ -44,8 +44,16 @@ När du frågar webben returnerar Bing allt innehåll som tror är relevant för
     }
 }    
 ```
+Du kan filtrera vilka typer av innehåll som du får (till exempel bilder, videor och nyheter) med hjälp av den [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) frågeparameter. Om Bing hittar relevant innehåll för de angivna svar, returneras. Svar-filtret är en kommaavgränsad lista med svar. 
 
-Om du är intresserad av specifika typer av innehåll som bilder, videor och nyheter, kan du begära endast svaren med hjälp av den [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) frågeparameter. Om Bing hittar relevant innehåll för de angivna svar, returnerar Bing den. Svar-filtret är en kommaavgränsad lista med svar. Följande visar hur du använder `responseFilter` att begäran bilder, videor och nyheter för avseglingen dinghies. När du kodar frågesträngen ändra kommatecken till %2 C.  
+Om du vill exkludera vissa typer av innehåll som bilder, från svaret kan du lägga till en `-` tecknet i början av den `responseFilter` värde. Du kan avgränsa exkluderade typer med ett kommatecken (`,`). Exempel:
+
+```
+&responseFilter=-images,-videos
+```
+
+
+Följande visar hur du använder `responseFilter` att begäran bilder, videor och nyheter för avseglingen dinghies. När du kodar frågesträngen ändra kommatecken till %2 C.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -57,7 +65,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Nedan visas svaret på den tidigare frågan. Som du kan se kunde inte Bing hitta relevant video och nyheter resultat, så att svaret inte lägga till dem.
+Nedan visas svaret på den tidigare frågan. Eftersom Bing inte gick att hitta relevant video och Nyhetsresultat, innehålla inte svaret dem.
 
 ```json
 {
@@ -80,12 +88,6 @@ Nedan visas svaret på den tidigare frågan. Som du kan se kunde inte Bing hitta
         }
     }
 }
-```
-
-Om du vill undanta specifika typer av innehåll som bilder, från svaret som kan du utesluta dem med bindestreck (minus) prefix till responseFilter-värdet. Separata exkluderade filtyper med kommatecken:
-
-```
-&responseFilter=-images,-videos
 ```
 
 Även om Bing inte returnerade video och nyheter resultaten i föregående svar, innebär det inte att video och nyheter innehåll inte finns. Det innebär helt enkelt att sidan inte inkluderar dem. Men om du [sidan](./paging-webpages.md) via fler resultat de efterföljande sidorna skulle förmodligen inkludera. Även om du anropar den [Bing](../bing-video-search/search-the-web.md) och [nyheter Search API](../bing-news-search/search-the-web.md) slutpunkter direkt, svaret skulle sannolikt innehålla resultat.

@@ -16,12 +16,12 @@ ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: c9f6ad48f6c2e3b2ed60833f0cba111cc96a8a54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b48977cb2d8aa56c48b276475ac5205456022d99
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240768"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118538"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -89,7 +89,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![Behållaren Linux av CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Behållaren Linux av CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Behållaren Linux är en modern och minimal Linux-distribution, vilket ger ett enkelt sätt att köra behållare, hantera kluster och smidigt uppdatera servrar – alla komponenter som möjliggör compute. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu-servern är världens mest populära Linux för molnmiljöer. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux är en av de mest populära Linux-distributionerna. | credativ |
-| ![CentOS-baserade 6,9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 6,9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic)  |
+| ![CentOS-baserade 6,9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 6.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased65) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic)  |
 | ![CentOS-baserade 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic)  |
 | ![CentOS-baserad 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic) |
 | ![CentOS-baserade 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic) |

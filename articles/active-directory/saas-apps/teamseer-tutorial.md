@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 282e95dab879cef064c4a5fd9d478a20eb861bc8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a6ad70fd2aefdd0a8e626d22c0b95d83aaaf5f4c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172127"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Självstudier: Azure Active Directory-integrering med TeamSeer
 
@@ -214,7 +215,7 @@ Om du vill aktivera Azure AD-användare att logga in på TeamSeer, måste de var
 
 1. I den **användarinformation** avsnittet, utför följande steg:
    
-    ![Information om användare](./media/teamseer-tutorial/ic789641.png "användarinformation")
+    ![Användarinformation](./media/teamseer-tutorial/ic789641.png "Användarinformation")
 
     a. Skriv den **Förnamn**, **efternamn**, **användarnamn (e-postadress)** för ett giltigt AAD-konto som du vill etablera i till relaterade textrutor.
   

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 20d469348838b0dd9ef6089f8a0b040e7cb0b6be
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f5d30bae699a69bed893e36e24b6f8370db4f8b1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187971"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Självstudier: Azure Active Directory-integrering med Intacct
 
@@ -119,7 +120,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://www.intacct.com/ia/acct/sso_response.phtml` |
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska svars-URL. Kontakta [Intacct supportteamet](https://us.intacct.com/support) att hämta det här värdet.
+    > Det här värdet är inte verkligt. Uppdatera det här värdet med faktiska svars-URL. Kontakta [Intacct supportteamet](https://us.intacct.com/support) att hämta det här värdet.
 
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
@@ -253,7 +254,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
 
 När du klickar på panelen Intacct i åtkomstpanelen, bör det vara loggas in automatiskt till Intacct programmet.
 

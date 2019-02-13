@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c1847d268d7776fba2892257bf0992d0e17a727f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 64edf2aa47211c1d2a598417a7b2edc00f260075
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152067"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Självstudier: Azure Active Directory-integrering med ScaleX Enterprise
 
@@ -123,7 +124,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan skriver du värdet med följande mönster: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Detta är inte de verkliga värden. Uppdatera dessa värden med faktiska identifierare, svars-URL eller inloggnings-URL. Kontakta [ScaleX Enterprise Client supportteamet](https://info.rescale.com/contact_sales) att hämta dessa värden. 
+    > Det här är inte de verkliga värdena. Uppdatera dessa värden med faktiska identifierare, svars-URL eller inloggnings-URL. Kontakta [ScaleX Enterprise Client supportteamet](https://info.rescale.com/contact_sales) att hämta dessa värden. 
 
 1. Programmets ScaleX förväntar sig SAML-intyg i ett visst format, som kräver att du vill ändra anpassade attributmappningar i SAML-tokenattribut konfigurationen. Klicka på **visa och redigera alla andra användarattribut** kryssrutan för att öppna anpassat attribut inställningar.
 

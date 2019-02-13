@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: ff068be02d5cf37edbb9b3573e1d980529f2e566
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773743"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173950"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Manuellt lägga till ett konto i appen
 Om din kamera inte att samla in QR-koden kan du manuellt lägga till din kontoinformation till Microsoft Authenticator-appen för verifiering av två faktorer. Detta fungerar för arbets- eller skolkonton och icke-Microsoft-konton.

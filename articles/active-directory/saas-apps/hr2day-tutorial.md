@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 7d77d72264580e4cde83f6cbb9f83bf7030d941e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e932fd59fb888d73fb2ad9aee3f440b4aca3e662
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820053"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Självstudier: Azure Active Directory-integrering med HR2day av Merces
 
@@ -241,7 +242,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 1. Klicka på den **Välj** knappen.
 
-1. I den **Lägg till tilldelning** dialogrutan **tilldela**.
+1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

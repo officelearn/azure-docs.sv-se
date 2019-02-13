@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.openlocfilehash: 28c945223d225d7e91df1041bcbe02ee87b93c6a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 75940f9c3c8022c5445eb998b133a156dacde9b5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475065"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106876"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Globala data-distribution med Azure Cosmos DB – översikt
 
@@ -22,6 +22,8 @@ Azure Cosmos DB är en globalt distribuerad databastjänst som har utformats fö
 Du kan konfigurera databaserna och globalt distribuerad och vara tillgängligt i alla Azure-regioner. Om du vill minska svarstiden, placera data närmare till där användarna finns. Välja regionerna som krävs beror på global räckvidden för ditt program och var dina användare finns. Azure Cosmos DB replikerar data i ditt konto transparent till alla regioner som är associerat med ditt konto. Det ger en enskild systemavbildning av globalt distribuerade Azure Cosmos-databasen och behållare som ditt program kan läsa och skriva till lokalt. 
 
 Med Azure Cosmos DB kan du lägga till eller ta bort de regioner som är associerade med ditt konto när som helst. Ditt program behöver inte pausas eller omdistribueras om du vill lägga till eller ta bort en region. Det fortsätter att ha hög tillgänglighet när som helst på grund av multihoming funktionerna som tillhandahåller tjänsten.
+
+![Topologi för distribution med hög tillgänglighet](./media/distribute-data-globally/deployment-topology.png)
 
 ## <a name="key-benefits-of-global-distribution"></a>Viktiga fördelar med global distribution
 
@@ -50,6 +52,7 @@ Många program dra nytta av prestandaförbättringar som levereras med möjlighe
 Läs mer om global distribution i följande artiklar:
 
 * [Global distribution – under huven](global-dist-under-the-hood.md)
+* [Så här konfigurerar du multimaster i dina program](how-to-multi-master.md)
 * [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Lägg till eller ta bort regioner från ditt Azure Cosmos DB-konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Skapa principen för en anpassad konfliktlösning för SQL-API-konton](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

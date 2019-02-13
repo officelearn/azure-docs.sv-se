@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a14b0f2b01a0566a47cbcb02ee4315adcba9a90f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467466"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200810"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -29,7 +29,7 @@ Du kan visa registrerad server hälsotillstånd, Servertillstånd slutpunkt (syn
 
 ### <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
 
-Om du vill visa registrerade servern och server slutpunktshälsa, går du till Storage Sync-tjänsten i Azure-portalen. Registrerad server health kan visas på bladet registrerade servrar. Serverhälsa slutpunkt kan visas på bladet synkronisera grupper.
+Om du vill visa registrerad server hälsotillstånd, Servertillstånd för slutpunkten och mått, går du till Storage Sync-tjänsten i Azure-portalen. Registrerad server health kan visas på bladet registrerade servrar. Serverhälsa slutpunkt kan visas på bladet synkronisera grupper.
 
 Registered Server Health
 - Om tillståndet registrerad server är Online, kan servern kommunicera med tjänsten.
@@ -38,6 +38,23 @@ Registered Server Health
 Serverhälsa-slutpunkt
 - Serverhälsa för slutpunkten i portalen är baserad på Synkronisera händelser som loggas i händelseloggen telemetri på servern (ID 9102 och 9302). Om synkroniseringssession misslyckas på grund av ett tillfälligt fel (till exempel fel som har avbrutits), kan fortfarande synkronisera visar felfria i portalen så länge som den aktuella synkroniseringssessionen är framsteg (händelse-ID 9302 används för att avgöra om filer som används). Se följande dokumentation för mer information: [Synkronisera hälsotillstånd](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [synkronisera förloppet](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Om portalen visar ett synkroniseringsfel på grund av att synkronisera inte önskade förlopp, kontrollerar du den [Felsökningsdokumentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) anvisningar.
+
+Mått
+- Följande mått kan visas i den Lagringssynkroniseringstjänst-portalen:
+
+  | Måttnamn | Beskrivning | Portalen blade(s) | 
+  |-|-|-|
+  | Byte som har synkroniserats | Storleken på data som överförs (uppladdning och nedladdning) | Synkroniseringsgruppen, Server-slutpunkt |
+  | Lagringsnivåer återkallande i molnet | Storleken på data som har återkallats | Registrerade servrar |
+  | Filer som inte synkroniseras | Antal filer som inte kan synkronisera | Server-slutpunkt |
+  | Filer som har synkroniserats | Antal filer överförs (uppladdning och nedladdning) | Synkroniseringsgruppen, Server-slutpunkt |
+  | Serverpulsslag | Antal pulsslag togs emot från servern | Registrerade servrar |
+
+- Mer information finns i [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor) avsnittet. 
+
+  > [!Note]  
+  > Diagrammen i den Lagringssynkroniseringstjänst portalen har ett tidsintervall på 24 timmar. Använd Azure Monitor för att visa olika tidsintervall eller dimensioner.
+
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
@@ -52,7 +69,7 @@ Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
 | Byte som har synkroniserats | Storleken på data som överförs (uppladdning och nedladdning).<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
 | Lagringsnivåer återkallande i molnet | Storlek på data som har återkallats.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Servernamn |
 | Filer som inte synkroniseras | Antal filer som inte kan synkroniseras.<br><br>Enhet: Antal<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
-| Filer som har synkroniserats | Antal filer som laddats upp och ned.<br><br>Enhet: Antal<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
+| Filer som har synkroniserats | Antal filer överförs (uppladdning och nedladdning).<br><br>Enhet: Antal<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
 | Serverpulsslag | Antal pulsslag togs emot från servern.<br><br>Enhet: Antal<br>Mängdtyp: Maximal<br>Tillämpliga dimension: Servernamn |
 | Synkronisera session resultat | Synkronisera session resultatet (1 = synkronisering session; 0 = misslyckade synkroniseringssessionen)<br><br>Enhet: Antal<br>Aggregeringstyper: Maximal<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
 

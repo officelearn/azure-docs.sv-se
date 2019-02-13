@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a9b11b5d5e70e72a90683d4952b7d34f0303960
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 57838d5f5a49045138ce9adbdcf7855aeab783e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163610"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172123"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Självstudier: Azure Active Directory-integrering med O.C. Tanner - AppreciateHub
 
@@ -115,7 +116,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     a. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<companyname>.octanner.net/sp/ACS.saml2`
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska svars-URL. Kontakta [O.C. Turesson - AppreciateHub supportteamet](mailto:sso@octanner.com) att hämta det här värdet.
+    > Det här värdet är inte verkligt. Uppdatera det här värdet med faktiska svars-URL. Kontakta [O.C. Turesson - AppreciateHub supportteamet](mailto:sso@octanner.com) att hämta det här värdet.
 
     b. Öppna metadatafilen med hjälp av följande länk: [ https://fed.appreciatehub.com/fed/sp/metadata ](https://fed.appreciatehub.com/fed/sp/metadata).
    

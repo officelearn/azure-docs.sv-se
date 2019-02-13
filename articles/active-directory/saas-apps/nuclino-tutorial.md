@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Nuclino | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Nuclino | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Nuclino.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a5346b98de48b1a2f8928c3c2bf30730588e9c1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 655ac490e528680f779eeca54899a022ddf3b89a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43146168"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189569"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Självstudier: Azure Active Directory-integration med Nuclino
+# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Självstudier: Azure Active Directory-integrering med Nuclino
 
 I den här självstudien får du lära dig hur du integrerar Nuclino med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera Nuclino med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Nuclino.
 - Du kan aktivera användarna att automatiskt få loggat in på Nuclino (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Nuclino, behöver du följande o
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -69,7 +70,7 @@ För att konfigurera integrering av Nuclino i Azure AD, som du behöver lägga t
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -77,7 +78,7 @@ För att konfigurera integrering av Nuclino i Azure AD, som du behöver lägga t
 
     ![Nuclino i resultatlistan](./media/nuclino-tutorial/tutorial_nuclino_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Nuclino baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -85,13 +86,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Nuclino, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare Nuclino](#create-a-nuclino-test-user)**  – du har en motsvarighet för Britta Simon i Nuclino som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Nuclino program.
 
@@ -99,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Nuclino** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
@@ -109,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Nuclino domän och URL: er med enkel inloggning för information](./media/nuclino-tutorial/tutorial_nuclino_url1.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL från den **autentisering** som beskrivs senare i den här självstudien.
@@ -120,12 +121,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Nuclino domän och URL: er med enkel inloggning för information](./media/nuclino-tutorial/tutorial_nuclino_url2.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://app.nuclino.com/<UNIQUE-ID>/login`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://app.nuclino.com/<UNIQUE-ID>/login`
 
     > [!NOTE]
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Nuclino klienten supportteamet](mailto:contact@nuclino.com) att hämta det här värdet.
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Nuclino klienten supportteamet](mailto:contact@nuclino.com) att hämta det här värdet.
 
-5. Nuclino program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
+5. Nuclino program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel på detta.
 
     ![Konfigurera enkel inloggning](./media/Nuclino-tutorial/tutorial_attribute.png)
 
@@ -133,8 +134,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     | Attributnamn | Attributvärde |
     | ---------------| --------------- |
-    | Förnamn | User.givenName |
-    | Efternamn | User.surname |
+    | first_name | user.givenname |
+    | last_name | user.surname |
 
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -150,11 +151,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 7. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/nuclino-tutorial/tutorial_nuclino_certificate.png)
+    ![Länk för nedladdning av certifikatet](./media/nuclino-tutorial/tutorial_nuclino_certificate.png)
 
 8. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/nuclino-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/nuclino-tutorial/tutorial_general_400.png)
 
 9. På den **Nuclino Configuration** klickar du på **konfigurera Nuclino** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
@@ -188,9 +189,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     e. I den **entitets-ID** textrutan klistra in den **SAML entitets-ID** värde som du har kopierat från Azure-portalen.
 
-    f. Öppna din hämtade **Certificate(Base64)** -filen i anteckningar. Kopiera innehållet i den till Urklipp och klistra in den till den **offentligt certifikat** textrutan.
+    f. Öppna den nedladdade **Certificate(Base64)**-filen i Anteckningar. Kopiera innehållet i den till Urklipp och klistra in den till den **offentligt certifikat** textrutan.
 
-    g. Klicka på **spara ändringar**.
+    g. Klicka på **SPARA ÄNDRINGAR** för att spara ändringarna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -226,10 +227,10 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="create-a-nuclino-test-user"></a>Skapa en Nuclino testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Nuclino. Nuclino stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Nuclino om det inte finns ännu.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Nuclino. Nuclino stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Nuclino om det inte finns ännu.
 
 > [!Note]
-> Om du vill skapa en användare manuellt kan du kontakta [Nuclino supportteamet](mailto:contact@nuclino.com).
+> Om du vill skapa en användare manuellt kan du kontakta [Nuclino supportteamet](mailto:contact@nuclino.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 503e52266c1c6be71e60a751c40ef0a54f0d9b12
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181902"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112504"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Felsöka ogiltig nätverkskonfiguration för din hanterade domän
 Den här artikeln hjälper dig att felsöka och lösa nätverksrelaterade konfigurationsfel som resulterar i följande varningsmeddelande:
@@ -36,7 +36,7 @@ Ogiltig NSG-konfigurationer är den vanligaste orsaken för nätverksfel för Az
 2. Välj Nätverkssäkerhetsgrupp kopplad till undernätet där den hanterade domänen aktiveras från tabellen.
 3. Under **inställningar** i den vänstra panelen klickar du på **ingående säkerhetsregler**
 4. Granska reglerna på plats och identifiera vilka regler blockerar åtkomst till [dessa portar](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
-5. Redigera NSG: N för att säkerställa efterlevnad genom att antingen ta bort regeln, lägger till en regel eller skapa en ny NSG helt och hållet. Steg för att [lägga till en regel](#add-a-rule-to-a-network-security-group-using-the-azure-portal) eller [skapa en ny, kompatibla NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) är nedan
+5. Redigera NSG: N för att säkerställa efterlevnad genom att antingen ta bort regeln, lägger till en regel eller skapa en ny NSG helt och hållet. Steg för att [lägga till en regel](#add-a-rule-to-a-network-security-group-using-the-azure-portal) eller skapa en ny, kompatibla NSG är lägre än
 
 ## <a name="sample-nsg"></a>Exemplet NSG
 I följande tabell visar ett exempel NSG som skulle skydda din hanterade domän samtidigt som Microsoft för att övervaka, hantera och uppdatera informationen.

@@ -4,7 +4,7 @@ description: Lär dig hur du kan använda instrumentpanelen för Security Center
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 5b50e9fea8edd9d73a1d382ae4135edb4e4241ec
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967835"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114067"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Övervakning och bearbetning av säkerhetshändelser i Azure Security Center
 Instrumentpanelen för händelser innehåller en översikt av antalet säkerhetshändelser som samlas in över tid och en lista över viktiga händelser som kan kräva din uppmärksamhet.  
@@ -123,7 +123,7 @@ I den här artikeln beskrivs hur du använder instrumentpanelen för Security Ce
 - [Förstå log söker i Log Analytics](../log-analytics/log-analytics-log-search-new.md) – beskriver hur du använder loggsökningar i Log Analytics och tillhandahåller begrepp som du bör känna till innan du skapar en loggsökning
 - [Log Analytics Sök referens](../log-analytics/log-analytics-search-reference.md) – Lär dig att skriva egna händelsefrågor med hjälp av frågespråket i loggen
 
-Mer information om Security Center finns:
+I följande avsnitt kan du lära dig mer om Security Center:
 
 - [Översikt över Security Center](security-center-intro.md) – beskriver Security Center viktiga funktioner
 

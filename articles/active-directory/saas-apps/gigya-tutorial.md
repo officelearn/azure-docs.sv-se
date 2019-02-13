@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: a4141dc5a4d7be663e382e5aadb80d42a653f807
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2ab947e17569f809ed4532c99dad7350b6b6814a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179268"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Självstudier: Azure Active Directory-integrering med Gigya
 
@@ -141,7 +142,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     ![SAML-konfiguration](./media/gigya-tutorial/ic789533.png "SAML-konfiguration")
    
-    a. I den **namn** textrutan anger du ett namn för din konfiguration.
+    a. I textrutan **Namn** skriver du ett namn för konfigurationen.
    
     b. I **utfärdare** textrutan klistra in värdet för **SAML entitets-ID** som du har kopierat från Azure-portalen. 
    

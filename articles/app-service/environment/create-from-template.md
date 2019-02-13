@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277479"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109902"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Skapa en ASE med en Azure Resource Manager-mall
 
 ## <a name="overview"></a>Översikt
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure App Service-miljöer (ase) kan skapas med en internet-tillgänglig slutpunkt eller en slutpunkt på en intern adress i en Azure-nätverk (VNet). När du skapade med en intern slutpunkt, tillhandahålls att slutpunkten av en Azure-komponent som kallas en intern belastningsutjämnare (ILB). Ase: N på en intern IP-adress kallas för en ILB ASE. ASE med en offentlig slutpunkt kallas för en extern ASE. 
 
 En ASE kan skapas med hjälp av Azure-portalen eller en Azure Resource Manager-mall. Den här artikeln beskriver stegen och syntax som du behöver skapa en extern ASE eller ILB ASE med Resource Manager-mallar. Läs hur du skapar en ase-miljö i Azure-portalen i [gör en extern ASE] [ MakeExternalASE] eller [gör en ILB ASE][MakeILBASE].
@@ -60,7 +63,7 @@ Efter den *azuredeploy.parameters.json* fil är ifyllt, skapa ASE med hjälp av 
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Det tar ungefär en timme för ASE som ska skapas. Sedan ASE som visas i portalen i listan med ase-miljöer för den prenumeration som utlöste distributionen.
@@ -146,7 +149,7 @@ Efter den *azuredeploy.parameters.json* fil är ifyllt, konfigurera standard-SSL
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Det tar ungefär 40 minuter per ASE klientdel att tillämpa ändringen. För en standardstorlek ASE som använder två klientdelar, tar mallen exempelvis cirka en timme och 20 minuter för att slutföra. När mallen körs skala inte ASE.  
@@ -156,7 +159,7 @@ När mallen är klar kan appar på ILB ASE nås via HTTPS. Anslutningarna är sk
 Utvecklare kan dock precis som appar som körs på den offentliga multitenant-tjänsten, konfigurera anpassade värdnamn för enskilda appar. De kan också konfigurera unika SNI SSL-certifikatbindningar för enskilda appar.
 
 ## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
-App Service-miljö finns i två versioner: ASEv1 och ASEv2. Informationen ovan baserades på ASEv2. Det här avsnittet visar skillnaderna mellan ASEv1 och ASEv2.
+App Service-miljön finns i två versioner: ASEv1 och ASEv2. Informationen ovan baserades på ASEv2. Det här avsnittet visar skillnaderna mellan ASEv1 och ASEv2.
 
 I ASEv1 måste hantera du alla resurser manuellt. Det omfattar klientdelar, arbetare och IP-adresser som används för IP-baserad SSL. Innan du kan skala ut App Service-planen, måste du skala ut arbetarpoolen som du vill ha den.
 

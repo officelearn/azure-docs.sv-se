@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera Cisco Spark för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera Cisco Spark för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Cisco Spark.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: aafbde6907e59be3b0ff1d5807ffe4a7d2fffaa4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346120"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211214"
 ---
-# <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Cisco Spark för automatisk användaretablering
+# <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Cisco Spark för automatisk användaretablering
 
 
 Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Cisco Spark och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare till Cisco Spark.
@@ -42,7 +43,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 > [!NOTE]
 > Azure AD etablering integration förlitar sig på den [Cisco Spark webbtjänsten](https://developer.webex.com/getting-started.html), som är tillgängliga för Cisco Spark-team.
 
-## <a name="adding-cisco-spark-from-the-gallery"></a>Att lägga till Cisco Spark från galleriet
+## <a name="adding-cisco-spark-from-the-gallery"></a>Lägga till Cisco Spark från galleriet
 Du måste lägga till Cisco Spark från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Cisco Spark för automatisk användaretablering med Azure AD.
 
 **Utför följande steg för att lägga till Cisco Spark från Azure AD-programgalleriet:**

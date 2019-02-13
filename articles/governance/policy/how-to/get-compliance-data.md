@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766434"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114118"
 ---
 # <a name="getting-compliance-data"></a>Hämta data för efterlevnad
 
@@ -428,11 +428,11 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-Om du har en [Log Analytics](../../../log-analytics/log-analytics-overview.md) arbetsyta med den `AzureActivity` lösning som är kopplad till din prenumeration, du kan också visa inkompatibilitet resultaten från utvärderingscykel med hjälp av enkla frågor i Datautforskaren i Azure och `AzureActivity` tabell. Aviseringar kan konfigureras om du vill titta för icke-kompatibilitet med information i Log Analytics.
+Om du har en [Log Analytics-arbetsyta](../../../log-analytics/log-analytics-overview.md) med den `AzureActivity` lösning som är kopplad till din prenumeration, du kan också visa inkompatibilitet resultaten från utvärderingscykel med hjälp av enkla frågor i Datautforskaren i Azure och `AzureActivity` tabell. Aviseringar kan konfigureras om du vill titta för icke-kompatibilitet med information i Azure Monitor-loggar.
 
-![Principefterlevnad använda Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
+![Efterlevnaden med Azure Monitor-loggar](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,7 +4,7 @@ description: I det här dokumentet får du hjälp med att verifiera säkerhetsav
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2c0bb2a68eaaa8183463efbdc2848567ab67d1b9
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 009f5fe7243b8ce597c2be9f9c6874cdb56d103c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619752"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108553"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Aviseringsverifiering i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
@@ -32,7 +32,7 @@ När Security Center-agenten är installerad på datorn följer du stegen nedan 
 
 1. Kopiera en körbar fil (till exempel calc.exe) till datorns skrivbord eller en annan katalog som är lätt att hitta.
 2. Byt namn på filen till **ASC_AlertTest_662jfi039N.exe**.
-3. Öppna kommandotolken och kör den här filen med ett argument (bara ett falskt argumentnamnet), exempelvis: *ASC_AlertTest_662jfi039N.exe -foo*
+3. Öppna Kommandotolken och kör den här filen med ett argument (bara ett falskt argumentnamnet), till exempel: *ASC_AlertTest_662jfi039N.exe -foo*
 4. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. Där bör du hitta en avisering liknande denna:
 
     ![Aviseringsverifiering](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)

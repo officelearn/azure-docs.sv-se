@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: banders
-ms.openlocfilehash: 3ce6d37a1c9e3ebe1e1cd4546a70717674488b91
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d3bdcc267c55434a71c915f7d4e575d47522986b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100523"
+ms.locfileid: "56110582"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
 
 Du måste ha rätt administratörsroll för att hantera åtkomst till Azure-resurser. Azure har ett auktoriseringssystem som kallas rollbaserad åtkomstkontroll (RBAC) med flera inbyggda roller som du kan välja bland. Du kan tilldela dessa roller med olika omfång, till exempel hanteringsgruppen, prenumeration eller resursgrupp.
 
-Microsoft rekommenderar att du hanterar åtkomst till resurser med hjälp av RBAC. Om du är som fortfarande använder den klassiska distributionsmodellen, måste du använda en klassisk prenumerationsadministratör. Mer information finns i [Azure Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md) och [Azure klassiska prenumerationsadministratörer](../role-based-access-control/classic-administrators.md).
+Microsoft rekommenderar att du hanterar åtkomst till resurser med hjälp av RBAC. Om du fortfarande använder den klassiska distributionsmodellen, ska du dock behöva använda en klassisk prenumerationsadministratör. Mer information finns i [Azure Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md) och [Azure klassiska prenumerationsadministratörer](../role-based-access-control/classic-administrators.md).
 
 Den här artikeln beskrivs hur lägga till eller ändra administratörsrollen för en användare med RBAC prenumerationsområde.
 

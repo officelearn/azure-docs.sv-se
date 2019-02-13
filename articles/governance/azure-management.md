@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f417338205b17c8b949156a6d5a60ef609458fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 504436060a71847641635b12baa63c79c77251e6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088144"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112225"
 ---
 # <a name="management-in-azure"></a>Hantering i Azure
 
@@ -24,7 +24,7 @@ Följande diagram visar de olika hanteringsområdena som krävs för att underh�
 
 ![Management-områden](../monitoring/media/management-overview/management-capabilities.png)
 
-Ingen enskild Azure-tjänst uppfyller kraven för ett visst område. I stället realiseras var och en av flera tjänster arbetar ihop. Vissa tjänster, till exempel Application Insights tillhandahåller riktade övervakningsfunktioner för webbprogram. Andra, lagrar som Log Analytics hanteringsdata för andra tjänster. Den här funktionen kan du analysera data av olika typer som samlas in av olika tjänster.
+Ingen enskild Azure-tjänst uppfyller kraven för ett visst område. I stället realiseras var och en av flera tjänster arbetar ihop. Vissa tjänster, till exempel Application Insights tillhandahåller riktade övervakningsfunktioner för webbprogram. Andra, lagrar som Azure Monitor-loggar hanteringsdata för andra tjänster. Den här funktionen kan du analysera data av olika typer som samlas in av olika tjänster.
 
 Följande avsnitt beskriver i korta ordalag de olika hanteringsområdena och tillhandahåller länkar till detaljerat innehåll om de viktigaste Azure-tjänsterna.
 

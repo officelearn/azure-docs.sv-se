@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: 0935952011bf4cbcae9bf2e9ac218a9fc3be47ad
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 837effaa2b699d51a420609415396a11a0d9892c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497663"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113217"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>Distribuera en privat Resource Manager-mall med SAS-token och Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 När mallen finns i ett lagringskonto, kan du begränsa åtkomsten till mallen och ange en token för delad åtkomst (signatur) under distributionen. Det här avsnittet beskriver hur du använder Azure PowerShell med Resource Manager-mallar för att ange en SAS-token under distributionen. 
 
@@ -45,8 +47,8 @@ New-AzStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Ty
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # create a container and upload template
-New-AzureStorageContainer -Name templates -Permission Off
-Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
+New-AzStorageContainer -Name templates -Permission Off
+Set-AzStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
 ```
 
 ## <a name="provide-sas-token-during-deployment"></a>Ange SAS-token under distributionen
@@ -56,7 +58,7 @@ Generera en SAS-token för att distribuera en privat mall i ett lagringskonto, o
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # get the URI with the SAS token
-$templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
+$templateuri = New-AzStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment

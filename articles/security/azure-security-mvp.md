@@ -4,7 +4,7 @@ description: Artikeln innehåller en översikt över Azure Security bidrag områ
 services: security
 documentationcenter: na
 author: barclayn
-manager: Mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 34f4bdf0-7332-4c4a-b186-05263da700cf
 ms.service: security
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 5329dcaeb20087412a693d3ebef935fafd6a2b7d
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d6da4dbe9322ab38591a84ff5b075992d9495f1b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246049"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111262"
 ---
-# <a name="azure-security-mvp-program"></a>Azure-säkerhet MVP-Program
+# <a name="azure-security-mvp-program"></a>Azure Security MVP Program
 
 Microsoft Most Valuable Professionals (MVP) är community-ledare som har har visat mån engagemang för att hjälpa andra. MVP: er kan andra för att få ut det mesta av sin erfarenhet av Microsoft-tekniker. De delar sin passion och verklig kunskap teknisk expertis med communityn och Microsoft.
 

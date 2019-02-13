@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 334e1efd805e484f686cab9e88ab594cee8a6229
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e81ff0f1d92fcf644287fd0cf417a245581bfeb7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187376"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210942"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Självstudier: Azure Active Directory-integrering med Soonr arbetsplats
 
@@ -142,7 +143,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 1. Att konfigurera enkel inloggning på **Soonr arbetsplats** sida, som du behöver skicka de hämtade **XML-Metadata för**, **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** att [Soonr arbetsplats supportteamet](https://awp.autotask.net/help/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
     >[!Note]
-    >Om du behöver hjälp med att konfigurera Autotask arbetsplats finns [den här sidan](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) att få hjälp med ditt arbetsplats-konto.
+    >Om du behöver hjälp med att konfigurera Autotask Workplace läser du [den här sidan](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) för att få hjälp med ditt Workplace-konto.
 
 > [!TIP]
 > Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)

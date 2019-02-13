@@ -4,7 +4,7 @@ description: Använd den här anvisningen för att hjälpa dig att börja arbeta
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 10e60076fe527e6e773e966ccdae52a7fe99c4b2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997216"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106128"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckelgranskning och -
 
@@ -38,7 +38,7 @@ Den här artikeln beskriver:
 - Den visar hur du övervakar granskningsloggar för nyckelvalvet och skapar varningar när oväntade begäranden som görs.
 
 > [!NOTE]
-> Den här självstudien är inte avsedd att förklarar i detalj installationen av ditt nyckelvalv. Den här informationen finns i [Komma igång med Azure Key Vault](key-vault-get-started.md). Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [hantera Key Vault med CLI](key-vault-manage-with-cli2.md).
+> Den här självstudien är inte avsedd att förklarar i detalj installationen av ditt nyckelvalv. Den här information finns i [vad är Azure Key Vault?](key-vault-overview.md). Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [hantera Key Vault med CLI](key-vault-manage-with-cli2.md).
 >
 >
 

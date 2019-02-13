@@ -4,7 +4,7 @@ description: I det här dokumentet beskrivs hur du hanterar och åtgärdar säke
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340637"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112928"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
 Det här dokumentet beskriver hur du använder Azure Security Center för att hantera och svara på säkerhetsvarningar.
@@ -51,7 +51,7 @@ Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)
 
 Längst ned på sidan visas information om de olika aviseringarna. Du kan sortera listan genom att klicka på den kolumn som du vill sortera efter. Här följer en förklaring av de olika kolumnerna:
 
-* **Beskrivning av**: En kort förklaring av aviseringen.
+* **Beskrivning**: En kort förklaring av aviseringen.
 * **Antal**: En lista över alla aviseringar för den här specifika typen som har identifierats på en viss dag.
 * **Identifierade av**: Den tjänst som utlöste aviseringen.
 * **Datum**: Det datum då händelsen inträffade.

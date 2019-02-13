@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: a5e3fbc3369f19af8d93e23d669a4449ab3d414c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 48aa634ad28236564223c1a78a2e190cd2a0e668
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980592"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107472"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
@@ -87,7 +87,7 @@ Följ dessa steg för att generalisera den virtuella Windows-datorn:
 Skapa en avbildning direkt från den virtuella datorn ser du till att avbildningen innehåller alla diskar som är associerade med den virtuella datorn, inklusive OS-disken och eventuella datadiskar. Det här exemplet visar hur du skapar en hanterad avbildning från en virtuell dator som använder hanterade diskar.
 
 
-Innan du börjar måste du se till att du har den senaste versionen av AzureRM.Compute PowerShell-modulen, som måste vara version 5.7.0-installationsprogram eller senare. Om du vill ta reda på vilken version du kör `Get-Module -ListAvailable AzureRM.Compute` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/azurerm/install-az-ps). Om du kör PowerShell lokalt, kör `Connect-AzAccount` att skapa en anslutning till Azure.
+Innan du börjar måste du se till att du har den senaste versionen av AzureRM.Compute PowerShell-modulen, som måste vara version 5.7.0-installationsprogram eller senare. Om du vill ta reda på vilken version du kör `Get-Module -ListAvailable AzureRM.Compute` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps). Om du kör PowerShell lokalt, kör `Connect-AzAccount` att skapa en anslutning till Azure.
 
 
 > [!NOTE]

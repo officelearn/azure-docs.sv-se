@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med SmartLPA | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med SmartLPA | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SmartLPA.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jeedes
-ms.openlocfilehash: eedec7de74f3bdd7ae43d1b1eb0decd5fe83ebf6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 01d8a52d18bb3b6317f843eb6c30061e730ee3ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076499"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161093"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Självstudier: Azure Active Directory-integration med SmartLPA
+# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Självstudier: Azure Active Directory-integrering med SmartLPA
 
 I den här självstudien får du lära dig hur du integrerar SmartLPA med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera SmartLPA med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till SmartLPA.
 - Du kan aktivera användarna att automatiskt få loggat in på SmartLPA (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med SmartLPA, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -59,7 +60,7 @@ För att konfigurera integrering av SmartLPA i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till SmartLPA från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -67,7 +68,7 @@ För att konfigurera integrering av SmartLPA i Azure AD, som du behöver lägga 
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -75,7 +76,7 @@ För att konfigurera integrering av SmartLPA i Azure AD, som du behöver lägga 
 
     ![SmartLPA i resultatlistan](./media/smartlpa-tutorial/tutorial_smartlpa_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SmartLPA baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med SmartLPA, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare SmartLPA](#create-a-smartlpa-test-user)**  – du har en motsvarighet för Britta Simon i SmartLPA som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt SmartLPA program.
 
@@ -97,7 +98,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **SmartLPA** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -107,26 +108,26 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![SmartLPA domän och URL: er med enkel inloggning för information](./media/smartlpa-tutorial/tutorial_smartlpa_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<TENANTNAME>.smartlpa.com/`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<TENANTNAME>.smartlpa.com/`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [SmartLPA klienten supportteamet](mailto:support@smartlpa.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [SmartLPA klienten supportteamet](mailto:support@smartlpa.com) att hämta dessa värden.
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/smartlpa-tutorial/tutorial_smartlpa_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/smartlpa-tutorial/tutorial_smartlpa_certificate.png) 
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/smartlpa-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/smartlpa-tutorial/tutorial_general_400.png)
 
 6. På den **SmartLPA Configuration** klickar du på **konfigurera SmartLPA** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![SmartLPA konfiguration](./media/smartlpa-tutorial/tutorial_smartlpa_configure.png) 
 
-7. Att konfigurera enkel inloggning på **SmartLPA** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [SmartLPA supportteamet](mailto:support@smartlpa.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Att konfigurera enkel inloggning på **SmartLPA** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [SmartLPA supportteamet](mailto:support@smartlpa.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -162,7 +163,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-smartlpa-test-user"></a>Skapa en SmartLPA testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i SmartLPA. Arbeta med [SmartLPA supportteamet](mailto:support@smartlpa.com) att lägga till användare i SmartLPA-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i SmartLPA. Arbeta med [SmartLPA supportteamet](mailto:support@smartlpa.com) att lägga till användare i SmartLPA-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

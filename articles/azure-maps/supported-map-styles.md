@@ -3,20 +3,20 @@ title: Koppla format som stöds i Azure Maps | Microsoft Docs
 description: Koppla format som stöds av Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/02/2018
+ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923b9fef75fa610ee817a86ce0b4d6b322153f01
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888468"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113439"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Koppla format som stöds av Azure Maps
-Azure maps stöder flera olika inbyggda Koppla format som beskrivs nedan.
+Azure Maps stöder flera olika inbyggda Koppla format som beskrivs nedan.
 
 ## <a name="road"></a>Väg
 En **väg** kartan är en standard karta som visar vägar, naturliga och konstgjorda funktioner tillsammans med etiketterna för dessa funktioner.
@@ -56,7 +56,16 @@ Den här kartan format är en kombination av vägar och etiketter som aktivitete
 ## <a name="night"></a>natten
 **natten** är en mörk version av formatet vägkarta med färgade vägar och symboler.
 
-![natten](./media/supported-map-styles/night.PNG)
+![natten](./media/supported-map-styles/night.png)
 
 **Tillämpliga API: er:**
-* JS kartkontroll 
+* JS kartkontroll
+
+## <a name="roadshadedrelief"></a>road_shaded_relief
+**väg skuggas befrielse** är en huvudsakliga Azure Maps-stil slutfördes med konturer på Jordens.
+
+![skuggade befrielse](./media/supported-map-styles/shaded-relief.png)
+
+**Tillämpliga API: er:**
+* JS kartkontroll
+* [Panelen tjänstkarta](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e9a99fcbe161e0b6cdabf1363ab3121a77869df7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024866"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111330"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Använd mallar för att skapa Azure Data Factory-entiteter
 > [!NOTE]
@@ -236,7 +236,7 @@ Bästa metoder för Parameterisera Se [bästa praxis för att skapa Azure Resour
 * Inställningarna varierar beroende på miljö (exempel: utveckling, testning och produktion)
 * Hemligheter (till exempel lösenord)
 
-Om du behöver att hämta hemligheter från [Azure Key Vault](../../key-vault/key-vault-get-started.md) när du distribuerar Azure Data Factory-entiteter med hjälp av mallar, ange den **nyckelvalv** och **hemligt namn** enligt den följande exempel:
+Om du behöver att hämta hemligheter från [Azure Key Vault](../../key-vault/key-vault-overview.md) när du distribuerar Azure Data Factory-entiteter med hjälp av mallar, ange den **nyckelvalv** och **hemligt namn** enligt den följande exempel:
 
 ```JSON
 "parameters": {

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: bb9277a9e8f5e8bacb6b7aab7b9a5b411c86edbd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3d7fd9b3e7ab8e5f193fd3b34a804b9ed0780d66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967725"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105696"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Omvandla data med hjälp av Databricks i Azure Data Factory
 
@@ -89,13 +89,13 @@ För att den här mallen enkelt skapar inte mallen en schemalagd utlösare. Du k
 
     1.  **Mottagare** – för att kopiera data till.
 
-        Välj ett lagringskonto som skapats i den [förutsättning 1](#prerequisite), i sink länkad tjänst.
+        Välj ett lagringskonto som skapats i förutsättning 1, i mottagare länkade tjänsten.
 
         ![7](media/solution-template-Databricks-notebook/Databricks-tutorial-image07.png)
 
     1.  **Databricks** – för att ansluta till Databricks-kluster
 
-        Skapa en länkad tjänst med åtkomstnyckel som genererats i Databricks [nödvändiga 2.c](#prerequisite). Om du har en *interaktiva kluster*, du kan välja som. (Det här exemplet används den *nya jobbklustret* alternativet.)
+        Skapa en länkad Databricks-tjänst med åtkomstnyckel som genererats i nödvändiga 2.c. Om du har en *interaktiva kluster*, du kan välja som. (Det här exemplet används den *nya jobbklustret* alternativet.)
 
         ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
 

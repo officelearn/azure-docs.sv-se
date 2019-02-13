@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e4e935a9c78950517623acdf8196d51793fff18a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 879a91d7007057e577631e157dae71f1566acab6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462468"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118232"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Växla API till inställningar för Loggaviseringar
 
@@ -30,6 +30,7 @@ Det finns flera fördelar med att skapa och hantera aviseringar med hjälp av [s
 
 - Möjligheten att [mellan arbetsytan loggsökning](../log-query/cross-workspace-query.md) i Varningsregler och span in externa resurser som Log Analytics-arbetsytor eller även Application Insights-appar
 - När flera fält används för att gruppen i fråga, med hjälp av [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) användaren kan ange vilka fält som ska aggregering på Azure-portalen
+- Loggaviseringar som skapats med hjälp av [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) kan period definierat upp till 48 timmar och av hämtningsdata under längre tid än tidigare
 - Skapa aviseringsregler i en bild som en enskild resurs utan att behöva skapa tre nivåer av resurser som med [äldre Log Analytics avisering API](api-alerts.md)
 - Enkel programmeringsgränssnitt för alla varianter av frågebaserade aviseringar i Azure – nya [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) kan användas för att hantera regler för Log Analytics som Application Insights
 - Alla nya logga avisering funktioner och framtida utveckling blir tillgängliga via den nya [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
@@ -57,6 +58,13 @@ Med begäran brödtext som innehåller den nedan JSON.
 }
 ```
 
+API: et kan även nås från en PowerShell-kommandoraden med [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Som på bilden nedan i exemplet PUT-anrop med ARMclient verktyget för att växla alla aviseringsregler som är associerade med specifika Log Analytics-arbetsytan.
+
+```PowerShell
+$switchJSON = {'scheduledQueryRulesEnabled': 'true'}
+armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
+```
+
 Om växeln för alla Varningsregler i Log Analytics-arbetsytan att använda nya [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) är lyckas följande svar visas.
 
 ```json
@@ -70,6 +78,12 @@ Användarna kan också kontrollera aktuell status för Log Analytics-arbetsytan 
 
 ```
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+```
+
+Att köra ovanstående i med hjälp av PowerShell från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient) verktyget, se exemplet nedan.
+
+```PowerShell
+armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
 Om den angivna Log Analytics-arbetsytan har växlats till använda [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) svaret JSON blir enligt nedan.

@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt över Azure Service Fabr
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 629b6fba9ced5fa2ccf22f473fe25c87d1cc4818
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436818"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116228"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Säkerhetsöversikt för Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Service Fabric hanterar utmaningarna i att utveckla och hantera molnprogram. Utvecklare och administratörer kan undvika komplicerade infrastrukturproblem och fokusera på att implementera verksamhetskritiska och krävande arbetsbelastningar som är skalbara och tillförlitliga.
@@ -47,8 +47,8 @@ Du konfigurerar klient-till-nod-säkerhet med hjälp av identiteter för kliente
 
 Service Fabric stöder två typer av åtkomstkontroll för klienter som är anslutna till ett Service Fabric-kluster:
 
--   **Administratören**: fullständig åtkomst till funktioner för hantering, inklusive Läs-och skrivbehörighet.
--   **Användaren**: endast läsbehörighet till funktioner för hantering (till exempel frågefunktioner) och möjligheten att lösa program och tjänster.
+-   **Administratör**: Fullständig åtkomst till funktioner för hantering, inklusive Läs-och skrivbehörighet.
+-   **Användaren**: Endast läsbehörighet till funktioner för hantering (till exempel frågefunktioner) och möjligheten att lösa program och tjänster.
 
 Klusteradministratörer kan begränsa åtkomsten till vissa typer av klusteråtgärder med hjälp av åtkomstkontroll. På så sätt blir klustret säkrare.
 
@@ -83,11 +83,11 @@ Från ett säkerhetsperspektiv är de huvudsakliga målen med övervakning och d
 
 Arbetsflöde för övervakning och diagnostik består av tre steg:
 
-1.  **Händelsegenerering**: händelsegenerering inkluderar händelser (loggar, spårningar, anpassade händelser) på både infrastrukturnivå (kluster) och program/tjänst-nivå. Läs mer om [infrastrukturnivå händelser](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) och [händelser på programnivå](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) att förstå vad som tillhandahålls och hur du lägger till ytterligare instrumentation.
+1.  **Händelsegenerering**: Händelsegenerering inkluderar händelser (loggar, spårningar, anpassade händelser) på både infrastrukturnivå (kluster) och program/tjänst-nivå. Läs mer om [infrastrukturnivå händelser](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) och [händelser på programnivå](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) att förstå vad som tillhandahålls och hur du lägger till ytterligare instrumentation.
 
-2.  **Händelsen aggregering**: händelser som genereras behöver samlas in och sammanställs innan de kan visas. Bör du vanligtvis använda [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (liknar agentbaserad Logginsamling) eller [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (pågående Logginsamling).
+2.  **Händelsen aggregering**: Händelser som genereras måste samlas in och sammanställs innan de kan visas. Bör du vanligtvis använda [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (liknar agentbaserad Logginsamling) eller [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (pågående Logginsamling).
 
-3.  **Analysis**: händelser måste vara visualiserade och är tillgänglig i vissa format, för analys och visning. Det finns flera plattformar för analys och visualisering av data för övervakning och diagnostik. Vi rekommenderar att [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) och [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) eftersom de kan integreras även med Service Fabric.
+3.  **Analysis**: Händelser måste vara visualiserade och är tillgänglig i vissa format, för analys och visning. Det finns flera plattformar för analys och visualisering av data för övervakning och diagnostik. Vi rekommenderar att [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) och [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) eftersom de kan integreras även med Service Fabric.
 
 Du kan också använda [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) att övervaka många av de Azure-resurser som Service Fabric-kluster har skapats.
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: d49c16741f581b2ad09dc173e8380fdf77391dbe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: deb8eacb1e9c55feba6b356eedc61ba57c3a6566
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299069"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110328"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importera en certifikatfil till en behållare som körs på Service Fabric
 
-Du kan skydda dina behållartjänster genom att ange ett certifikat. Service Fabric tillhandahåller en mekanism för tjänster i en behållare för att få åtkomst till ett certifikat som installeras på noderna i ett Windows- eller Linux-kluster (version 5.7 eller högre). Certifikatet måste installeras i LocalMachine på alla noder i klustret. Certifikatinformationen har angetts i manifestet under den `ContainerHostPolicies` tagg som i följande fragment visas:
+Du kan skydda dina behållartjänster genom att ange ett certifikat. Service Fabric tillhandahåller en mekanism för tjänster i en behållare för att få åtkomst till ett certifikat som installeras på noderna i ett Windows- eller Linux-kluster (version 5.7 eller högre). Certifikatet måste installeras i certifikatarkivet under LocalMachine på alla noder i klustret. Den privata nyckeln som motsvarar certifikatet måste vara tillgängliga, tillgänglig och -på Windows - kan exporteras. Certifikatinformationen har angetts i manifestet under den `ContainerHostPolicies` tagg som i följande fragment visas:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,7 +31,7 @@ Du kan skydda dina behållartjänster genom att ange ett certifikat. Service Fab
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Windows-kluster, när programmet startas, körningen läser certifikat och genererar en PFX-filen och lösenordet för varje certifikat. Det här PFX-filen och lösenordet är tillgängliga i behållaren med hjälp av följande miljövariabler: 
+För Windows-kluster, när programmet startas, exporterar körningen varje refererade certifikatet och dess motsvarande privata nyckel till en PFX-fil som skyddas med ett slumpmässigt genererat lösenord. Filerna PFX och lösenord, är tillgängliga i behållaren med hjälp av följande miljövariabler: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password

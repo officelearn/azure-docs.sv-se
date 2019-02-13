@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med min Award punkter upp Sub/Top-teamet | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med min Award punkter upp Sub/Top-teamet | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mina Award punkter upp Sub/Top-teamet.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ed1c12768eed0265f65388984a5859b8f0630b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247762"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210738"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Självstudier: Azure Active Directory-integration med min Award punkter upp Sub/Top-teamet
+# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Självstudier: Azure Active Directory-integrering med min Award punkter upp Sub/Top-teamet
 
 I den här självstudien får lära du att integrera Mina Award punkter upp Sub/Top-teamet med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera Mina Award punkter upp Sub/Top-teamet med Azure AD ger dig följande f
 
 - Du kan styra i Azure AD som har åtkomst till min Award punkter upp Sub/Top-teamet.
 - Du kan aktivera användarna att automatiskt få loggat in på min Award punkter upp Sub/Top-teamet (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med min Award punkter upp Sub/Top-te
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -70,7 +71,7 @@ För att konfigurera integrering av Mina Award punkter upp Sub/Top-teamet i Azur
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -78,7 +79,7 @@ För att konfigurera integrering av Mina Award punkter upp Sub/Top-teamet i Azur
 
     ![Min Award punkter upp Sub/Top-teamet i resultatlistan](./media/myawardpoints-tutorial/tutorial_myawardpoints_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med min Award punkter upp Sub/Top-teamet baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -86,13 +87,13 @@ För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med min Award punkter upp Sub/Top-teamet, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare i Mina Award punkter upp Sub/Top-teamet](#create-a-my-award-points-top-subtop-team-test-user)**  – du har en motsvarighet för Britta Simon i Mina Award punkter upp Sub/Top-teamet som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för min Award punkter upp Sub/Top-teamet.
 
@@ -100,7 +101,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 1. I Azure-portalen på den **Mina Award punkter upp Sub/Top-teamet** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
@@ -110,7 +111,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Min Award punkter upp Sub/upp Team domän och URL: er med enkel inloggning för information](./media/myawardpoints-tutorial/tutorial_myawardpoints_url.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
     > Du får den `<SAMLENTITYID>` värdet i senare steg i den här självstudien.
@@ -121,11 +122,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/myawardpoints-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
 6. I den **min Award punkter upp Sub/upp Team konfiguration** väljer **Konfigurera mina Award punkter upp Sub/Top-teamet** att öppna fönstret Konfigurera inloggning. Kopiera SAML entitets-ID från den **Snabbreferens** avsnittet och lägger till SAML entitets-ID-värdet med URL: en i stället för inloggning `<SAMLENTITYID>` i den **Mina Award punkter upp Sub/upp Team domän och URL: er** avsnitt i Azure-portalen.
 
-7. Att konfigurera enkel inloggning på **Mina Award punkter upp Sub/Top-teamet** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Mina Award punkter upp Sub/Top-teamet supportteamet](mailto:myawardpoints@biworldwide.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Att konfigurera enkel inloggning på **Mina Award punkter upp Sub/Top-teamet** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Mina Award punkter upp Sub/Top-teamet supportteamet](mailto:myawardpoints@biworldwide.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -161,7 +162,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>Skapa en testanvändare i Mina Award punkter upp Sub/Top-teamet
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Mina Award punkter upp Sub/Top-teamet. Arbeta med [Mina Award punkter upp Sub/Top-teamet supportteamet](mailto:myawardpoints@biworldwide.com) att lägga till användare i min Award punkter upp Sub/Top-teamet-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Mina Award punkter upp Sub/Top-teamet. Arbeta med [Mina Award punkter upp Sub/Top-teamet supportteamet](mailto:myawardpoints@biworldwide.com) att lägga till användare i min Award punkter upp Sub/Top-teamet-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

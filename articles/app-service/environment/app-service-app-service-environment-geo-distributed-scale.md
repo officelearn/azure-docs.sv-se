@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273875"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113710"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Geodistribuerad skalning med App Service Environment
 ## <a name="overview"></a>Översikt
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Programscenarier som kräver mycket hög skala kan överskrida resurskapacitet beräknings vara tillgängliga för en distribution av en app.  Rösta program är sportevenemang och TV underhållning händelser alla exempel på scenarier som kräver mycket hög skala. Hög skala kraven kan uppfyllas genom att vågrätt skala ut appar, med flera appdistributioner görs inom en enda region, samt i regioner, för att hantera extrem belastning.
 
 App Service Environment är en perfekt plattform för horisontell skalbarhet.  När en App Service Environment configuration har markerats som har stöd för ett känt begäran-pris, kan utvecklare distribuera ytterligare App Service-miljöer i ”kakmall” sätt att uppnå en önskad högsta belastning kapacitet.
@@ -52,9 +55,9 @@ Innan du bygga ut en distribuerad app-fotavtryck hjälper det för att ha några
 ## <a name="setting-up-the-traffic-manager-profile"></a>Konfigurera Traffic Manager-profilen
 När flera instanser av en app distribueras på flera App Service-miljöer, kan instanser för enskilda appar registreras med Traffic Manager.  Exempelappen en Traffic Manager profilen krävs för *skalbar ase demo.trafficmanager.net* som kan dirigera kunderna till någon av följande distribuerade appen instanser:
 
-* **webfrontend1.fe1ase.p.azurewebsites.NET:**  En instans av exempelappen som distribuerats på den första App Service Environment.
-* **webfrontend2.fe2ase.p.azurewebsites.NET:**  En instans av exempelappen distribueras på andra App Service Environment.
-* **webfrontend3.fe3ase.p.azurewebsites.NET:**  En instans av exempelappen som distribuerats på tredje App Service Environment.
+* **webfrontend1.fe1ase.p.azurewebsites.net:**  En instans av exempelappen som distribuerats på den första App Service Environment.
+* **webfrontend2.fe2ase.p.azurewebsites.net:**  En instans av exempelappen distribueras på andra App Service Environment.
+* **webfrontend3.fe3ase.p.azurewebsites.net:**  En instans av exempelappen som distribuerats på tredje App Service Environment.
 
 Det enklaste sättet att registrera flera Azure App Service-slutpunkter kan alla som körs i den **samma** Azure-region, är med Powershell [support för Azure Resource Manager Traffic Manager] [ ARMTrafficManager].  
 
@@ -68,13 +71,13 @@ Den *TrafficRoutingMethod* parametern definierar principen Traffic Manager anvä
 
 Med den profil som skapats läggs varje app-instansen till profilen som en intern Azure-slutpunkt.  Koden nedan hämtar en referens till varje klientdel webbapp och lägger sedan till varje app som en Traffic Manager-slutpunkt med hjälp av den *TargetResourceId* parametern.
 
-    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    $webapp1 = Get-AzWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    $webapp2 = Get-AzWebApp -Name webfrontend2
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    $webapp3 = Get-AzWebApp -Name webfrontend3
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile

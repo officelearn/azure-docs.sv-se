@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/20/2018
 ms.author: ryanwi
-ms.openlocfilehash: d96da4cc53299d978f8f69acb6a92d957c4f693e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fae345530a28bc7fdb875570546b125b13a79310
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697576"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104040"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Vanliga undantag och fel när du arbetar med FabricClient APIs
 Den [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) API: er gör att kluster- och programhantering administratörer kan utföra administrativa uppgifter på en Service Fabric-program, tjänst eller -kluster. Till exempel programdistribution, uppgradering och borttagning av hälsokontrollen ett kluster eller testa en tjänst. Programutvecklare och klusteradministratörer kan använda FabricClient APIs för att utveckla verktyg för att hantera Service Fabric-kluster och program.
@@ -31,7 +31,7 @@ Det finns många olika typer av åtgärder som kan utföras med hjälp av Fabric
 | [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception) |Den [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) objektet är en stängd. Avyttra den [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) objekt du använder och skapa en instans av en ny [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) objekt. |
 | [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |Tidsgränsen nåddes för åtgärden. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) returneras när åtgärden tar mer än MaxOperationTimeout att slutföra. |
 | [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception) |Det gick inte att åtkomstkontrollen för åtgärden. E_ACCESSDENIED returneras. |
-| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |Ett körningsfel inträffade under åtgärden. Någon av metoderna FabricClient orsaka potentiellt [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception), [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception_ErrorCode) egenskapen anger den exakta orsaken för undantaget. Felkoder definieras i den [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) uppräkning. |
+| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |Ett körningsfel inträffade under åtgärden. Någon av metoderna FabricClient orsaka potentiellt [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception), [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception.ErrorCode) egenskapen anger den exakta orsaken för undantaget. Felkoder definieras i den [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) uppräkning. |
 | [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |Åtgärden misslyckades på grund av ett tillfälligt fel villkor av något slag. Exempelvis kan en åtgärd misslyckas om ett kvorum av repliker inte kan tillfälligt nås. Tillfälliga undantag motsvarar misslyckade åtgärder som kan skickas på nytt. |
 
 Några vanliga [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) fel som kan returneras i en [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception):

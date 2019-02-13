@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247807"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211452"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob storage livscykel (förhandsversion)
 
@@ -37,7 +37,7 @@ Principen för livscykelhantering är tillgängligt med både generell användni
 Funktionen för hantering av livscykeln är kostnadsfritt i förhandsversionen. Kunderna debiteras den vanliga åtgärd kostnaden för den [lista Blobar](https://docs.microsoft.com/rest/api/storageservices/list-blobs) och [ange Blobnivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-anrop. Mer information om priser finns i [blockblobpriserna](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Registrera dig för förhandsversion 
-Om du vill registrera i offentlig förhandsversion, måste du ansöka om att registrera den här funktionen till din prenumeration. Begäranden godkänns vanligtvis inom två veckor. Vid godkännande är alla befintliga och nya GPv2 eller Blob storage-konton i följande regioner funktionen: Västra USA 2, USA, västra centrala, USA, östra 2 och Västeuropa. Preview stöder endast blockblob. Precis som med de flesta förhandsversioner bör inte du använda den här funktionen för produktionsarbetsbelastningar tills den når GA.
+Om du vill registrera i offentlig förhandsversion, måste du ansöka om att registrera den här funktionen till din prenumeration. Begäranden godkänns vanligtvis inom 72 timmar. Vid godkännande är alla befintliga och nya GPv2 eller Blob storage-konton i följande regioner funktionen: Västra USA 2, USA, västra centrala, USA, östra 2 och Västeuropa. Preview stöder endast blockblob. Precis som med de flesta förhandsversioner bör inte du använda den här funktionen för produktionsarbetsbelastningar tills den når GA.
 
 Kör följande PowerShell eller CLI-kommandon för att skicka en begäran.
 
@@ -136,7 +136,7 @@ Varje regel i principen kräver tre parametrar:
 
 | Parameternamn | Parametertyp | Anteckningar |
 |----------------|----------------|-------|
-| Name           | Sträng | Ett regelnamn kan innehålla valfria kombinationer av alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt. Det måste vara unika inom en princip. |
+| Namn           | String | Ett regelnamn kan innehålla valfria kombinationer av alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt. Det måste vara unika inom en princip. |
 | typ           | Ett uppräkningsvärde | Det giltiga värdet för förhandsversionen är `Lifecycle`. |
 | definition     | Ett objekt som definierar regeln för livscykel | Varje definition består av ett filter och en åtgärd. |
 

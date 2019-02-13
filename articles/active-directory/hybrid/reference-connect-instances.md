@@ -15,12 +15,13 @@ ms.topic: reference
 ms.date: 06/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0a3cbb352774fa319ad8ea6ad77f0cf089f75ab7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ca481d50efb99d6e36c66388192e9f27cd66bf45
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489605"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217198"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Att tänka på för instanser
 Azure AD Connect används oftast med världsomfattande instans av Azure AD och Office 365. Men det finns även andra instanser och de har olika krav för URL: er och andra saker.

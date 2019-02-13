@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4481bcf7a794423f98f45e4a21a139dbe4c32b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691175"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210789"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Integrerade Azure-frånkopplade distribution planeringsbeslut för Azure Stack-system
-När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan sedan slutföra din Azure Stack-distributionsbeslut.
+När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan slutföra din Azure Stack-distributionsbeslut.
 
-Du kan distribuera och använda Azure Stack utan en anslutning till internet. Men med en frånkopplad distribution är du begränsad till en AD FS-Identitetslagret och kapacitetsbaserad faktureringsmodell. Eftersom flera innehavare kräver användning av Azure AD, stöds inte flera innehavare för frånkopplade distributioner. 
+Du kan distribuera och använda Azure Stack utan en anslutning till internet. Men med en frånkopplad distribution är du begränsad till en AD FS-Identitetslagret och kapacitetsbaserad faktureringsmodell. Eftersom flera innehavare kräver användning av Azure Active Directory (AD Azure), stöds inte flera innehavare för frånkopplade distributioner. 
 
 Välj det här alternativet om du:
 - Har säkerhets- eller andra begränsningar som kräver att du kan distribuera Azure Stack i en miljö som inte är ansluten till Internet.
@@ -34,9 +34,9 @@ Välj det här alternativet om du:
 - Om du vill använda Azure Stack som en privat molnlösning som har distribuerats till företagets intranät och inte är intresserad av hybridscenarier.
 
 > [!TIP]
-> Ibland kan kallas den här typen av miljö även ett ”ubåt scenario”.
+> Ibland kan den här typen av miljö också kallas en *ubåt scenariot*.
 
-En frånkopplad distribution strikt innebär inte att du senare inte kan ansluta din Azure Stack-instans till Azure för hybridscenarion klient-VM. Det innebär att du inte har anslutning till Azure under distributionen eller du inte vill använda Azure Active Directory som ditt identitetsarkiv.
+En frånkopplad distribution hindrar dig inte från att ansluta senare Azure Stack-instans till Azure för hybridscenarion klient-VM. Det innebär att du inte har anslutning till Azure under distributionen eller du inte vill använda Azure AD som din identitet store.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funktioner som är försämrad eller inte tillgänglig i frånkopplade distributioner 
 Azure Stack har utformats för att fungerar bäst när du är ansluten till Azure, så det är viktigt att Observera att det finns vissa egenskaper och funktioner som är försämrad eller delvis är tillgängligt i frånkopplat läge. 

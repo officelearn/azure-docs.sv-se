@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: eee58708d6aec717d0f79f5c79a0c879b52d56a5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9682611467311f06d60f6f393ebd7788f95f7f12
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176377"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177877"
 ---
 # <a name="what-is-the-myapps-portal"></a>Vad är MyApps-portalen?
 
@@ -49,7 +50,7 @@ Du kan använda alla aktiva eller verifierat domännamn som har konfigurerats i 
 
 Distribuera URL: en för alla användare som loggar in till program som är integrerade med Azure AD.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 För att nå MyApps-portalen, måste du autentiseras via ett arbets- eller skolkonto konto i Azure AD. Du kan autentiseras till Azure AD direkt. Du kan också om en organisation har konfigurerat federation med hjälp av Active Directory Federation Services (AD FS) eller andra tekniker, kan du autentiseras av Windows Server Active Directory.
 

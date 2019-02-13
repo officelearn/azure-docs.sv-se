@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: geetha
-ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 004d35290d7bfa365d2e1d0ea605c14b03ffb4a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810005"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114764"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup
 Den här artikeln handlar om stegen för att säkerhetskopiera och återställa virtuella datorer (VM) med hjälp av Azure Backup. Den innehåller också information om scenarier som stöds, nödvändiga komponenter och felsökningssteg för fel.
@@ -138,6 +138,6 @@ Om du vill återställa en krypterad virtuell dator, återställa diskar genom a
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
 |Backup | Felkod: UserErrorKeyVaultPermissionsNotConfigured<br><br>Felmeddelande: Azure Backup-tjänsten har inte tillräcklig behörighet till Key Vault för säkerhetskopiering krypterade virtuella datorer. | Säkerhetskopiering ska tillhandahållas behörigheterna genom att följa den [stegen i föregående avsnitt](#provide-permissions-to-azure-backup). Du kan också följa stegen i avsnittet ”Aktivera skydd” i artikeln för PowerShell [Använd PowerShell för att säkerhetskopiera och återställa virtuella datorer](backup-azure-vms-automation.md#enable-protection). |  
-| Återställ | Du kan inte återställa den här krypterade virtuella datorn eftersom det nyckelvalv som är associerade med den här virtuella datorn inte finns. |Skapa ett nyckelvalv med hjälp av [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md). Se [återställa en key vault-nyckeln och en hemlighet med hjälp av Azure Backup](backup-azure-restore-key-secret.md) att återställa en nyckel och en hemlighet, om de inte finns. |
+| Återställ | Du kan inte återställa den här krypterade virtuella datorn eftersom det nyckelvalv som är associerade med den här virtuella datorn inte finns. |Skapa ett nyckelvalv med hjälp av [vad är Azure Key Vault?](../key-vault/key-vault-overview.md). Se [återställa en key vault-nyckeln och en hemlighet med hjälp av Azure Backup](backup-azure-restore-key-secret.md) att återställa en nyckel och en hemlighet, om de inte finns. |
 | Återställ | Felkod: UserErrorKeyVaultKeyDoesNotExist<br><br> Felmeddelande: Du kan inte återställa den här krypterade virtuella datorn eftersom nyckeln som är associerade med den här virtuella datorn inte finns. |Se [återställa en key vault-nyckeln och en hemlighet med hjälp av Azure Backup](backup-azure-restore-key-secret.md) att återställa en nyckel och en hemlighet, om de inte finns. |
 | Återställ | Felkod: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Felmeddelande: Säkerhetskopieringstjänsten har inte åtkomstbehörighet till resurser i din prenumeration. |Som tidigare nämnts, Återställ diskar först genom att följa stegen i avsnittet ”återställa säkerhetskopierade diskar” i [väljer en konfiguration för återställning av virtuell dator](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Använd PowerShell för att [skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

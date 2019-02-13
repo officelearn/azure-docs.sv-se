@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 69a0bde58a365ff124bc41b6039c606cb38f71fe
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768553"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168155"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack-VM-uppdatering och hantering
 Du kan använda följande funktioner i Azure Automation-lösningen för att hantera Windows- och Linux-datorer som distribueras med hjälp av Azure Stack:
@@ -38,7 +38,7 @@ Du kan använda följande funktioner i Azure Automation-lösningen för att hant
 ## <a name="prerequisites"></a>Förutsättningar
 Flera förutsättningar måste vara uppfyllda innan du använder dessa funktioner för att uppdatera och hantera virtuella datorer i Azure Stack. Dessa inkluderar steg som måste vidtas i Azure portal samt Azure Stack-administrationsportalen.
 
-### <a name="in-the-azure-portal"></a>I Azure portal
+### <a name="in-the-azure-portal"></a>I Azure-portalen
 För att använda inventering, ändringsspårning och uppdatering av Azure automation-funktioner för virtuella datorer i Azure Stack, måste du först aktivera dessa lösningar i Azure.
 
 > [!TIP]
@@ -100,4 +100,4 @@ De virtuella datorer i Azure Stack ingår nu i schemalagda uppdateringsdistribut
 Om du har ett stort antal virtuella datorer i Azure Stack kan du använda [Azure Resource Manager-mallen](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) att enkelt distribuera lösningen på virtuella datorer. Mallen distribuerar tillägget Microsoft Monitoring Agent till en befintlig Azure Stack VM och lägger till den till en befintlig Azure LogAnalytics arbetsyta.
  
 ## <a name="next-steps"></a>Nästa steg
-[Optimera prestanda för SQL Server](azure-stack-sql-server-vm-considerations.md)
+[Optimera prestanda för SQL Server-VM](azure-stack-sql-server-vm-considerations.md)

@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2019
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: fb33f6006a1456669facd8baf80161ab115f2689
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 77a806d328a6dbac0e57c9d99e06debbb25e88b8
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995093"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108389"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor-namngivning och terminologi ändringar
 Viktiga ändringar har gjorts till Azure Monitor nyligen med olika tjänster som konsolideras för att underlätta övervakning för Azure-kunder. Den här artikeln beskriver de senaste namn och terminologi ändringar i Azure Monitor-dokumentationen.
@@ -26,18 +26,15 @@ Viktiga ändringar har gjorts till Azure Monitor nyligen med olika tjänster som
 Efter konsolideringen av olika tjänster under Azure Monitor tar vi nästa steg genom att ändra terminologi i dokumentationen för att bättre beskriva Azure Monitor-tjänsten och dess olika komponenter. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Azure Monitor log data är fortfarande lagras i Log Analytics-arbetsytan och fortfarande samlas in och analyseras av samma Log Analytics-tjänsten, men ändrar vi termen _Log Analytics_ på många platser till _Azure Monitor-loggar_ . Detta bättre motsvarar dess roll i Azure Monitor och ger bättre konsekvens [mått i Azure Monitor](platform/data-collection.md).
+Azure Monitor log data är fortfarande lagras i Log Analytics-arbetsytan och fortfarande samlas in och analyseras av samma Log Analytics-tjänsten, men ändrar vi termen _Log Analytics_ på många platser till _Azure Monitor-loggar_ . Den här termen bättre motsvarar dess roll i Azure Monitor och ger bättre konsekvens [mått i Azure Monitor](platform/data-collection.md).
 
-Termen _logganalys_ nu gäller främst för sidan i Azure portal som används för att skriva och köra frågor och analysera loggdata. Det är den funktionella motsvarigheten till [måttutforskaren](platform/metrics-charts.md) som är sidan i Azure portal som används för att analysera måttdata.
+Termen _logganalys_ nu gäller främst för sidan i Azure portal som används för att skriva och köra frågor och analysera loggdata. Det är den funktionella motsvarigheten till [måttutforskaren](platform/metrics-charts.md), vilket är sidan i Azure portal som används för att analysera måttdata.
 
 ### <a name="log-analytics-workspaces"></a>Log Analytics-arbetsytor
 [Arbetsytor](platform/manage-access.md) som håller loggdata i Azure Monitor kallas fortfarande Log Analytics-arbetsytor. Den **Log Analytics** sidan på Azure portal har bytt namn till **Log Analytics-arbetsytor** och är där du [skapa nya arbetsytor](learn/quick-create-workspace.md) och konfigurera datakällor. Analysera dina loggar och andra övervakningsdata i **Azure Monitor** och konfigurera din arbetsyta i **Log Analytics-arbetsytor**.
 
-### <a name="log-query-language"></a>Log-frågespråk
-Azure Monitor använder Datautforskaren frågespråk för loggfrågor. Innan Azure Data Explorer gavs ut som det här språket kallas Kusto eller frågespråket i Azure Monitor. Vi nu refererar till den med samma namn som Data Explorer för att säkerställa att de använder samma språk. Det finns mindre skillnader med Azure Monitor-smak för språket som beskrivs i [Azure Monitor log-fråga språkskillnader](log-query/data-explorer-difference.md).
-
 ### <a name="management-solutions"></a>Hanteringslösningar
-[Lösningar för hantering av](insights/solutions.md) har bytt namn till _övervakningslösningar_ som bättre beskriver deras funktioner.
+[Lösningar för hantering av](insights/solutions.md) har bytt namn till _övervakningslösningar_, vilket bättre beskriver deras funktioner.
 
 
 ## <a name="august-2018---consolidation-of-monitoring-services-into-azure-monitor"></a>Augusti 2018 - konsolidering av övervakningstjänster i Azure Monitor

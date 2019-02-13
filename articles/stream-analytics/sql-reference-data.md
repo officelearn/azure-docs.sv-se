@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d79e423dd617a498aee09cff6b774bbe90eeaa83
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701833"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118028"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Använd referensdata från en SQL-databas för Azure Stream Analytics-jobb (förhandsversion)
 
@@ -154,7 +154,7 @@ När du använder deltafråga [temporala tabeller i Azure SQL Database](../sql-d
 
 **Kommer jag att ha ytterligare kostnader med hjälp av SQL-referensindata i Azure Stream Analytics?**
 
-Det finns inga fler [kostnad per enhet för strömning](https://azure.microsoft.com/pricing/details/stream-analytics/) i Stream Analytics-jobb. Stream Analytics-jobb måste dock ha en associerad Azure storage-konto. Stream Analytics-jobbet frågar SQL DB (under jobbet startar och uppdateringsintervall) att hämta referensdatauppsättning och Arkiv som ögonblicksbild i lagringskontot. Lagring av de här ögonblicksbilderna tillkommer ytterligare kostnader som beskrivs i den [prissättningssidan](https://azure.microsoft.compricing/details/storage/) för Azure storage-konto.
+Det finns inga fler [kostnad per enhet för strömning](https://azure.microsoft.com/pricing/details/stream-analytics/) i Stream Analytics-jobb. Stream Analytics-jobb måste dock ha en associerad Azure storage-konto. Stream Analytics-jobbet frågar SQL DB (under jobbet startar och uppdateringsintervall) att hämta referensdatauppsättning och Arkiv som ögonblicksbild i lagringskontot. Lagring av de här ögonblicksbilderna tillkommer ytterligare kostnader som beskrivs i den [prissättningssidan](https://azure.microsoft.com/pricing/details/storage/) för Azure storage-konto.
 
 **Hur vet jag referens data ögonblicksbild som efterfrågas från SQL DB och används i Azure Stream Analytics-jobbet?**
 

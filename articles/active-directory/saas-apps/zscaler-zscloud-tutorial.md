@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: c3eb96c15991c3b470164bf504c68fbc266e69a8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c70d58669fe6351c67a54c282ee1310fb52ed50a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193425"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Självstudier: Azure Active Directory-integrering med Zscaler ZSCloud
 
@@ -168,7 +169,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. Klicka på **Konfigurera SAML**.
 
-11. På den **redigera SAML** och utför följande steg: och klicka på Spara.  
+11. I fönstret **Redigera SAML** utför du följande steg och klickar på Spara.  
             
     ![Hantera användare och autentisering](./media/zscaler-zscloud-tutorial/ic800208.png "Hantera användare och autentisering")
     
@@ -197,35 +198,35 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. Klicka på **Aktivera**.
 
 ## <a name="configuring-proxy-settings"></a>Konfigurera proxyinställningar
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Konfigurera proxyinställningarna i Internet Explorer
+### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>För att konfigurera proxyinställningar i Internet Explorer
 
 1. Starta **Internet Explorer**.
 
-1. Välj **Internetalternativ** från den **verktyg** meny för att öppna den **Internetalternativ** dialogrutan.   
+1. Välj **Internetalternativ** i menyn **Verktyg** för att öppna dialogrutan **Internetalternativ**.   
     
-     ![Internetalternativ](./media/zscaler-zscloud-tutorial/ic769492.png "Internet-alternativ")
+     ![Internetalternativ](./media/zscaler-zscloud-tutorial/ic769492.png "Internetalternativ")
 
-1. Klicka på den **anslutningar** fliken.   
+1. Klicka på fliken **Anslutningar**.   
   
-     ![Anslutningar](./media/zscaler-zscloud-tutorial/ic769493.png "anslutningar")
+     ![Anslutningar](./media/zscaler-zscloud-tutorial/ic769493.png "Anslutningar")
 
-1. Klicka på **LAN-inställningar** att öppna den **LAN-inställningar** dialogrutan.
+1. Klicka på **LAN-inställningar** för att öppna dialogrutan **LAN-inställningar**.
 
-1. Utför följande steg i avsnittet Proxy server:   
+1. I avsnittet Proxyserver utför du följande steg:   
    
-    ![Proxyserver](./media/zscaler-zscloud-tutorial/ic769494.png "proxyserver")
+    ![Proxyserver](./media/zscaler-zscloud-tutorial/ic769494.png "Proxyserver")
 
-    a. Välj **använder en proxyserver för ditt lokala nätverk**.
+    a. Välj **Use a proxy server for your LAN** (Använd en proxyserver för ditt lokala nätverk).
 
     b. Ange i textrutan adress **gateway. Zscaler ZSCloud.net**.
 
-    c. Ange i textrutan Port **80**.
+    c. I textrutan Port skriver du **80**.
 
-    d. Välj **Använd ingen proxyserver för lokala adresser**.
+    d. Välj **Bypass proxy server for local addresses** (Kringgå proxyservern för lokala adresser).
 
-    e. Klicka på **OK** att Stäng den **inställningar för lokalt nätverk (LAN)** dialogrutan.
+    e. Klicka på **OK** för att stänga dialogrutan **Local Area Network (LAN) Settings** (Inställningar för lokalt nätverk (LAN)).
 
-1. Klicka på **OK** att Stäng den **Internetalternativ** dialogrutan.
+1. Klicka på **OK** för att stänga dialogrutan **Internetalternativ**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
@@ -278,15 +279,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][203]
 
-5. I den **användare och grupper** dialogrutan användaren som **Britta Simon** i listan och klicka sedan på den **Välj** längst ned på skärmen.
+5. I dialogrutan **Användare och grupper** väljer du användaren **Britta Simon** i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
     ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
 
-6. Från den **Välj roll** dialogrutan Välj en lämplig användarroll i listan och klicka sedan på den **Välj** längst ned på skärmen.
+6. I dialogrutan **Välj roll** väljer du lämplig användarroll i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
     ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
 
-7. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
+7. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
 
     ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
 

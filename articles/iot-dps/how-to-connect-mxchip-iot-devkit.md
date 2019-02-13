@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 513d4e51ced798f5fe49e2e1e59fcc8ec02d9c2c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 07614147189732223f972c1f66bb6562280d3f39
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699201"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118368"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Använd Azure IoT Hub Device Provisioning-tjänsten Automatisk etablering för att registrera MXChip IoT DevKit med IoT Hub
 
@@ -30,7 +30,7 @@ Den [MXChip IoT DevKit](https://aka.ms/iot-devkit) är en allt-i-ett Arduino-kom
 
 För att slutföra stegen i den här självstudien måste du först göra följande uppgifter:
 
-* Förbereda din DevKit genom att följa stegen i [ansluta IoT DevKit AZ3166 på Azure IoT Hub i molnet](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md).
+* Förbereda din DevKit genom att följa stegen i [ansluta IoT DevKit AZ3166 på Azure IoT Hub i molnet](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 * Uppgradera till den senaste inbyggda programvaran (1.3.0 eller senare) med den [DevKit för uppdatering av inbyggd programvara](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) självstudien.
 * Skapa och länka en IoT-hubb med en Device Provisioning-tjänstinstans genom att följa stegen i [konfigurera IoT Hub Device Provisioning-tjänsten med Azure portal](/azure/iot-dps/quick-setup-auto-provision).
 

@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt över Azure-databasen s�
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584782"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116328"
 ---
 # <a name="azure-database-security-overview"></a>Översikt över Azure database-säkerhet
 
@@ -110,11 +110,11 @@ Dataskydd börjar med att styra åtkomst till dina data. Datacentret som är vä
 
 Azure SQL Database-tjänsten är bara tillgänglig via TCP-port 1433. Se till att klientdatorns brandvägg tillåter utgående TCP-kommunikation på TCP-port 1433 för att komma åt en SQL-databas från datorn. Om inkommande anslutningar inte krävs för andra program, blockera dem på TCP-port 1433.
 
-#### <a name="authentication"></a>Autentisering
+#### <a name="authentication"></a>Authentication
 
 Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. SQL Database stöder två typer av autentisering:
 
--   **SQL Server-autentisering**: ett enskilt inloggningskonto skapas när en logisk SQL-instans skapas, kallas SQL Database-prenumerationskonto. Det här kontot ansluter med hjälp av [SQL Server-autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (användarnamn och lösenord). Kontot är administratör på den logiska server-instansen och på alla användardatabaser kopplade till denna instans. Behörigheterna för prenumerationskontot kan inte begränsas. Endast ett av dessa konton kan finnas.
+-   **SQL Server-autentisering**: Ett enskilt inloggningskonto skapas när en logisk SQL-instans skapas, med namnet SQL Database-prenumerationskonto. Det här kontot ansluter med hjälp av [SQL Server-autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (användarnamn och lösenord). Kontot är administratör på den logiska server-instansen och på alla användardatabaser kopplade till denna instans. Behörigheterna för prenumerationskontot kan inte begränsas. Endast ett av dessa konton kan finnas.
 -   **Azure Active Directory-autentisering**: [Azure AD-autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) är en mekanism för att ansluta till Azure SQL Database och Azure SQL Data Warehouse med hjälp av identiteter i Azure AD. Du kan använda den för att centralt hantera identiteter för databasanvändare.
 
 ![Azure AD-autentisering med SQL Database](./media/azure-databse-security-overview/azure-database-fig2.png)
@@ -176,8 +176,8 @@ Du kan använda SQL Database auditing till att:
 
 Det finns två metoder för granskning:
 
--   **Blobbgranskning**: loggarna skrivs till Azure Blob storage. Det här är en metod för senare granskning. Det ger högre prestanda, stöder högre kornighet på objektnivå granskning och kostnadseffektivt alternativ mer.
--   **Tabellgranskning**: loggarna skrivs till Azure Table storage.
+-   **Blobbgranskning**: Loggarna skrivs till Azure Blob Storage. Det här är en metod för senare granskning. Det ger högre prestanda, stöder högre kornighet på objektnivå granskning och kostnadseffektivt alternativ mer.
+-   **Tabellgranskning**: Loggarna skrivs till Azure Table storage.
 
 ### <a name="threat-detection"></a>Hotidentifiering
 
@@ -189,7 +189,7 @@ SQL avancerade Threat Protection (ATP) tillhandahåller en uppsättning avancera
 
 - [Dataidentifiering och klassificering](../sql-database/sql-database-data-discovery-and-classification.md)
 - [Utvärdering av säkerhetsrisker](../sql-database/sql-vulnerability-assessment.md)  
-- [Identifiering av hot](../sql-database/sql-database-threat-detection.md)
+- [Hotidentifiering](../sql-database/sql-database-threat-detection.md)
 
 [Azure Database for PostgreSQL Advanced Threat Protection](../postgresql/concepts-data-access-and-security-threat-protection.md) ger ett nytt lager av säkerhet som gör det möjligt att upptäcka och svara på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar om avvikande aktiviteter. Användarna får en avisering när misstänkta databasaktiviteter, potentiella sårbarheter, samt och avvikande mönster för åtkomst och frågor. Avancerat skydd för Azure Database for PostgreSQL integrerar aviseringar med Azure Security Center. Typ av aviseringar är:
 
@@ -214,7 +214,7 @@ SQL avancerade Threat Protection (ATP) tillhandahåller en uppsättning avancera
 
 Security Center stöder rollbaserad åtkomst.
 
-## <a name="sql-information-protection"></a>SQL-informationsskydd
+## <a name="sql-information-protection"></a>SQL Information Protection
 
 [SQL-informationsskydd](../sql-database/sql-database-data-discovery-and-classification.md) automatiskt identifierar och klassificerar potentiellt känsliga data, tillhandahåller en mekanism för etikettering för beständigt taggar känsliga data med klassificering attribut och ger en detaljerad instrumentpanel som visar klassificering tillståndet för databasen.  
 

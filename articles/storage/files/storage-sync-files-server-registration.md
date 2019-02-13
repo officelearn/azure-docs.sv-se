@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478074"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165339"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -165,7 +165,10 @@ Eftersom Azure File Sync sällan är den enda tjänsten som körs i datacentret,
 > Ange begränsningar för lågt påverkar prestandan för Azure File Sync-synkronisering och återkallande.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Ange begränsningar för Azure File Sync-nätverk
-Du kan begränsa nätverksanvändning av Azure File Sync med hjälp av den `StorageSyncNetworkLimit` cmdletar. 
+Du kan begränsa nätverksanvändning av Azure File Sync med hjälp av den `StorageSyncNetworkLimit` cmdletar.
+
+> [!Note]  
+> Begränsningar för nätverk visas inte när en nivåindelad fil nås eller cmdleten Invoke-StorageSyncFileRecall används.
 
 Du kan till exempel skapa en ny begränsning för att säkerställa att Azure File Sync inte använder mer än 10 Mbit/s mellan 09: 00 och 17: 00 (17:00 h) under arbetsveckan: 
 

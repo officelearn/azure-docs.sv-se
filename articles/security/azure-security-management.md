@@ -4,7 +4,7 @@ description: Den här artikeln beskriver hur du ökar säkerheten för fjärrhan
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: c2b7935cc110b2ad05f4af2773158c2e1b658d4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242015"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117932"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -117,7 +117,7 @@ En  fjärrskrivbordsgateway  är en principbaserad RDP-proxytjänst som tillämp
 ## <a name="security-guidelines"></a>Riktlinjer för säkerhet
 Vanligtvis kan du se till att administratörsdatorerna är säkra att använda med molnet på ungefär samma sätt som för övriga lokala datorer. Det handlar till exempel om att minimera byggnadsbehörigheterna och de restriktiva behörigheterna. Vissa unika aspekter av molnhantering liknar mer företagshantering via fjärranslutning eller utanför IP-nätverket. Det gäller bland annat att använda och granska autentiseringsuppgifter, fjärråtkomst med ökad säkerhet och hotidentifiering och -svar.
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 Du kan använda inloggningsbegränsningar för Azure om du vill begränsa källans IP-adresser från åtkomst till administrativa verktyg och granska förfrågningar. Du kan hjälpa Azure att identifiera hanteringsklienter (datorer och/eller program) genom att konfigurera både SMAPI (via kundutvecklade verktyg som Windows PowerShell-cmdlets) och Azure Portal så att de kräver hanteringscertifikat på klientsidan, förutom SSL-certifikat, för att installeras. Vi rekommenderar också att administratörsåtkomst kräver multifaktorautentisering.
 
 Vissa program eller tjänster som du distribuerar i Azure kan ha sina egna autentiseringsmekanismer för både slutanvändare och administratörer, medan andra utnyttjar Azure AD fullt ut. Beroende på om du federerar autentiseringsuppgifter via AD FS (Active Directory Federation Services), via katalogsynkronisering eller genom underhåll av användarkonton enbart i molnet kan du med hjälp av [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (del av Azure AD Premium) hantera identitetslivscykler mellan resurserna.

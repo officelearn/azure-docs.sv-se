@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt över Microsoft Azure da
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994410"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117909"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data kryptering vid vila
 
@@ -244,7 +244,7 @@ Alla kunder med Azure-infrastruktur som en tjänst (IaaS)-funktioner kan uppnå 
 Alla Azure Storage-tjänster (Blob storage, Queue storage, Table storage och Azure Files) stöder serversidan kryptering i vila, med vissa tjänster som stöder Kundhanterade nycklar och client side encryption.  
 
 - Serversidan: Alla Azure-lagringstjänster Aktivera kryptering för serversidan som standard med hjälp av tjänsten-hanterade nycklar som är transparent för programmet. Mer information finns i [Azure Storage Service Encryption för vilande Data](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage och Azure Files stöder även RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
-- Klientsidan: Azure Blobs, tabeller och köer stöder client side encryption. När du använder client side encryption kan kunder kryptera data och ladda upp data som en krypterad blob. Nyckelhantering görs av kunden. Mer information finns i [Client Side Encryption och Azure Key Vault för Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- Client-side: Azure Blobs, tabeller och köer stöder client side encryption. När du använder client side encryption kan kunder kryptera data och ladda upp data som en krypterad blob. Nyckelhantering görs av kunden. Mer information finns i [Client Side Encryption och Azure Key Vault för Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
@@ -260,12 +260,12 @@ Klientsidan kryptering av data som Azure SQL Database stöds via den [Always Enc
 |                                  | **Med hjälp av Tjänsthanterad nyckel för serversidan**     | **Serversidan med Kundhanterade i Key Vault**             | **Klientsidan med hjälp av hanteras med klientprogram**      |
 | **Lagring och databaser**        |                    |                    |                    |                    |
 | Disk (IaaS)                      | -                  | Ja, RSA 2048-bitars  | -                  |
-| SQLServer (IaaS)                | Ja                | Ja, RSA 2048-bitars  | Ja                |
+| SQL Server (IaaS)                | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Azure SQL (databas/Data Warehouse) | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Azure SQL (Database Managed Instance) | Ja                | Förhandsgranskning, RSA 2048-bitars  | Ja                |
 | Azure Storage (Block/Sidblob) | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Azure Storage (filer)            | Ja                | Ja, RSA 2048-bitars  | -                  |
-| Azure Storage (tabeller, köer)   | Ja                | -                  | Ja                |
+| Azure Storage (Tables, Queues)   | Ja                | -                  | Ja                |
 | Cosmos DB (dokumentdatabas)          | Ja                | -                  | -                  |
 | StorSimple                       | Ja                | -                  | Ja                |
 | Backup                           | -                  | -                  | Ja                |

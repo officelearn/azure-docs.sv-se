@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d3102a269d41fded112b0704c28ca2cf5df71a6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101204"
+ms.locfileid: "56106977"
 ---
 # <a name="handling-review-feedback"></a>Hantering av granska feedback
 
@@ -71,7 +71,7 @@ Använd följande procedur för att granska problem som beskrivs i pull-begäran
 4. Klicka på varje kommentarsnod i det vänstra trädet att navigera till kommentar i kontexten för den omgivande kod.  Åtgärda källkoden i ditt team-projektet för att åtgärda problemet som beskrivs av kommentaren.
 
 > [!Note]
-> Du kan inte redigera ditt erbjudande tekniska resurser inom den granska gruppens Azure DevOps-miljö.  Detta är en skrivskyddad miljö för inneslutna källkoden för utgivare.  Du kan dock lämna svar på kommentarer till förmån för Microsoft-teamet för granskning.
+> Du kan inte redigera ditt erbjudande tekniska resurser inom teamet granska Azure DevOps-miljö.  Detta är en skrivskyddad miljö för inneslutna källkoden för utgivare.  Du kan dock lämna svar på kommentarer till förmån för Microsoft-teamet för granskning.
 
    I följande exempel har utgivaren granskat korrigerad och besvarade första problemet.
 

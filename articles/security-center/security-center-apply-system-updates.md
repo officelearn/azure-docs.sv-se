@@ -4,7 +4,7 @@ description: Det här dokumentet visar hur du implementerar Azure Security Cente
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f3c055d55da06e6410520084a1c96baa78b91496
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341720"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105135"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Tillämpa systemuppdateringar i Azure Security Center
 Azure Security Center övervakar dagliga Windows och Linux-datorer (VM) och datorer efter saknade uppdateringar av operativsystemet. Security Center hämtar en lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har konfigurerats på en Windows-dator. Security Center söker också efter de senaste uppdateringarna i Linux-system. Om en virtuell dator eller en dator saknar en systemuppdatering, rekommenderar Security Center att du tillämpar systemuppdateringar.

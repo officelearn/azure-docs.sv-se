@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468877"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116856"
 ---
-# <a name="choose-the-right-consistency-level"></a>Välj rätt konsekvensnivå 
+# <a name="choose-the-right-consistency-level"></a>Välja rätt konsekvensnivå 
 
 Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. De flesta kommersiellt distribuerade databaser Ställ utvecklare kan välja mellan två extrem konsekvensmodeller: stark konsekvens och slutlig konsekvens. Azure Cosmos DB kan utvecklare välja mellan fem väldefinierade konsekvensmodeller: stark, begränsad föråldring, session, enhetligt prefix och slutlig. Var och en av dessa konsekvensmodeller är väldefinierade, intuitivt och kan användas för den specifika verkliga scenarier. Var och en av de fem konsekvensmodeller ger [tillgänglighet och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande serviceavtal. Följande enkla överväganden hjälper dig att fatta rätt beslut i många vanliga scenarier.
 
@@ -33,6 +33,8 @@ Tänk på följande om ditt program har skapats med hjälp av Cosmos DB SQL API 
 - Om du behöver mindre strikta konsekvensgarantier än de som tillhandahålls av sessionskonsekvens rekommenderas att du använder konsekvent prefix konsekvensnivå.
 
 - Om du behöver högsta möjliga tillgänglighet och lägsta svarstid kan sedan använda slutlig konsekvensnivå.
+
+- Om du behöver ännu högre tillförlitlighet utan att offra prestanda kan skapa du en anpassad konsekvensnivå på programnivå. Mer information finns i [anvisningar implementera anpassade synkronisering i dina program](how-to-custom-synchronization.md).
 
 ## <a name="cassandra-mongodb-and-gremlin-api"></a>Cassandra, MongoDB och Gremlin-API
 

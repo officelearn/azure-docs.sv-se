@@ -14,12 +14,13 @@ ms.subservice: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 19c1e5bfdd7a510a52e23cc3f216a6b0c4448ce7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 87c92387c14cd0b82ec26acb411609c794c2601e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155229"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171272"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Tilldela Azure-resursroller i PIM
 
@@ -80,7 +81,7 @@ Följ dessa steg om du vill göra en användare som är berättigade till en Azu
 
     PIM för Azure-resurser tillhandahåller två distinkta tilldelningstyperna:
 
-    - **Berättigade** tilldelningar kräver medlem i rollen att utföra en åtgärd för att använda rollen. Åtgärder kan innehålla utför en kontroll av multifaktorautentisering (MFA), vilket ger en motivering eller begära godkännande från utnämnda godkännare.
+    - **Berättigade** tilldelningar kräver medlem i rollen att utföra en åtgärd för att använda rollen. Det kan vara åtgärder som att utföra en kontroll av multifaktorautentisering (MFA), ange en affärsmotivering eller begära godkännande från utnämnda godkännare.
 
     - **Aktiva** tilldelningar inte kräver medlemmen som ska utföra alla åtgärder för att använda rollen. Medlemmar som är tilldelad som aktiv har de behörigheter som tilldelats rollen hela tiden.
 

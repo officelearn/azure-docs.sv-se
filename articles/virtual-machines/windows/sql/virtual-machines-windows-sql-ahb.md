@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/14/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: deae35565c1da2f38ad9d3482ab686ef6314c9d2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8526716b299d26d8d70c9c5e5cdace34e188d019
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982224"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111075"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Så här ändrar du så att licensieringsmodellen för en SQL Server-dator i Azure
 Den här artikeln beskriver hur du ändrar så att licensieringsmodellen för en SQL Server-dator i Azure med hjälp av den nya SQL-VM-resursprovidern - **Microsoft.SqlVirtualMachine**. Det finns två licensiering modeller för en virtuell dator (VM) som är värd för SQL Server – betala per användning, och Använd din egen licens (BYOL). Och nu, med hjälp av PowerShell eller Azure CLI, kan du ändra vilken licensieringsmodell som använder SQL Server-dator. 
@@ -111,7 +111,7 @@ $SqlVm | Set-AzResource -Force
 ```
 
   >[!NOTE]
-  > Om du vill växla mellan licenser, måste du använda den nya SQL-VM-resursprovidern. Det här felet kan uppstå om du försöker köra dessa kommandon innan du registrerar din SQL Server-dator med den nya providern: `Get-AzResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` Om du ser det här felet kan du [registrera SQL Server-dator med nya resursprovidern](#register-existing-SQL-vm-with-new-resource-provider). 
+  > Om du vill växla mellan licenser, måste du använda den nya SQL-VM-resursprovidern. Det här felet kan uppstå om du försöker köra dessa kommandon innan du registrerar din SQL Server-dator med den nya providern: `Get-AzResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` Om du ser det här felet kan registrera din SQL Server-VM med ny resursprovider. 
 
  
 

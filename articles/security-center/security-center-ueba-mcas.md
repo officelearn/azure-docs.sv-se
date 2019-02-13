@@ -4,7 +4,7 @@ description: " Identifiera hot och skadlig genom att integrera Microsoft Cloud A
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2a747bdd8de41283b9cba1e40e2652aa826e9c60
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044458"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108020"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA för Azure-resurser och användare 
 
@@ -36,7 +36,7 @@ Azure Security Center partner med Microsoft Cloud App Security för att få avis
 - En giltig aktiverat [Microsoft Cloud App Security-licens](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security)
 - [Security Center Standard-nivån](https://azure.microsoft.com/pricing/details/security-center/)
  
-## <a name="threat-detection-alerts"></a>Aviseringar för identifiering av hot
+## <a name="threat-detection-alerts"></a>Hotidentifieringsaviseringar
 
 Security Center har stöd för Cloud App Security aviseringarna för avvikelseidentifiering, till exempel:
 
@@ -62,7 +62,7 @@ Dessa aviseringar är aktiverade som standard, men du kan inaktivera dem:
    ![Varning för hot](./media/security-center-ueba-mcas/security-center-mcas-optout.png)
 
 > [!NOTE]
-> Det finns en inledande inlärningsperiod på sju dagar under vilka inte alla avvikelser identifiering av aviseringar har aktiverats. Efter det jämförs varje session med aktiviteten, när användarna var aktiva, IP-adresser, enheter, etc. som identifierats under den senaste månaden och riskpoängen för dessa aktiviteter. Dessa identifieringar är en del av de machine learning avvikelseidentifieringsmotorn de profiler för din miljö och utlöser aviseringar med avseende på en baslinje har lärt dig på din organisations aktivitet. Dessa identifieringar kan du även använda machine learning-algoritmer som utformats för att profilera de användare och logga in mönster för att minska antalet falska positiva identifieringar.
+> Det finns en inledande inlärningsperiod på sju dagar under vilka inte alla avvikelser identifiering av aviseringar har aktiverats. Efter denna period jämförs varje session med aktiviteten, när användarna var aktiva, IP-adresser, enheter, etc. som identifierats under den senaste månaden och riskpoängen för dessa aktiviteter. Dessa identifieringar är en del av de machine learning avvikelseidentifieringsmotorn de profiler för din miljö och utlöser aviseringar med avseende på en baslinje har lärt dig på din organisations aktivitet. Dessa identifieringar kan du även använda machine learning-algoritmer som utformats för att profilera de användare och logga in mönster för att minska antalet falska positiva identifieringar.
 >
   
 ## <a name="next-steps"></a>Nästa steg

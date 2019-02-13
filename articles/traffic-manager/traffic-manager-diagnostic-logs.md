@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: d4d4420e2d38b1418a08ad1ca51dd0f75f3fe7b9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001110"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106469"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Aktivera Diagnostisk loggning i Azure Traffic Manager
 
@@ -40,14 +40,14 @@ Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powersh
 
 2. **Aktivera Diagnostisk loggning för Traffic Manager-profilen:**
 
-    Aktivera Diagnostisk loggning för Traffic Manager-profil med hjälp av ID som hämtades i föregående steg med [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/set-azdiagnosticsetting?view=latest). Följande kommando lagrar utförliga loggar för Traffic Manager-profilen till en angiven Azure Storage-konto. 
+    Aktivera Diagnostisk loggning för Traffic Manager-profil med hjälp av ID som hämtades i föregående steg med [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Följande kommando lagrar utförliga loggar för Traffic Manager-profilen till en angiven Azure Storage-konto. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Kontrollera inställningarna för diagnostik:**
 
-      Kontrollera diagnostikinställningar för Traffic Manager-profil med [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/get-azdiagnosticsetting?view=latest). Följande kommando visar de kategorier som har loggats för en resurs.
+      Kontrollera diagnostikinställningar för Traffic Manager-profil med [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). Följande kommando visar de kategorier som har loggats för en resurs.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>

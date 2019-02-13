@@ -13,12 +13,13 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 309e686d563798c34d2ab40af0ac1a6e6368b4e7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f8d5ecd33f0bc67b6e0ec2e559a8475da490369e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509124"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210670"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -97,7 +98,7 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | sipProxyAddress |Någon strängvärde eller *null* |(user.sipProxyAddress - eq ”value”) |
 | state |Någon strängvärde eller *null* |(user.state - eq ”value”) |
 | streetAddress |Någon strängvärde eller *null* |(user.streetAddress - eq ”value”) |
-| Efternamn |Någon strängvärde eller *null* |(user.surname - eq ”value”) |
+| surname |Någon strängvärde eller *null* |(user.surname - eq ”value”) |
 | telephoneNumber |Någon strängvärde eller *null* |(user.telephoneNumber - eq ”value”) |
 | usageLocation |Två bokstäver landskod |(user.usageLocation -eq "US") |
 | userPrincipalName |ett värde |(user.userPrincipalName -eq "alias@domain") |

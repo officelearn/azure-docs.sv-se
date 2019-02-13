@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977755"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117284"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter-integrering – publicera slutpunkter
 
@@ -66,7 +66,7 @@ Intern infrastruktur för virtuella IP-adresser inte visas eftersom de inte krä
 Azure Stack stöder endast transparent proxy-servrar. I en distribution där en transparent proxy överordnade länkar till en traditionell proxyserver måste du tillåta följande portar och URL: er för utgående kommunikation:
 
 > [!Note]  
-> Azure Stack stöder inte användning av Express Route för att nå Azure-tjänster som anges i tabellen nedan.
+> Azure Stack har inte stöd för att använda ExpressRoute för att nå de Azure-tjänster som anges i tabellen nedan.
 
 |Syfte|Mål-URL|Protokoll|Portar|Källnätverk|
 |---------|---------|---------|---------|---------|
@@ -75,7 +75,7 @@ Azure Stack stöder endast transparent proxy-servrar. I en distribution där en 
 |Patch & Update|https://&#42;.azureedge.net|HTTPS|443|Offentliga VIP - /27|
 |Registrering|https://management.azure.com|HTTPS|443|Offentliga VIP - /27|
 |Användning|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Offentliga VIP - /27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Offentliga VIP - /27<br>Infrastruktur för offentliga nätverk|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Offentliga VIP - /27<br>Infrastruktur för offentliga nätverk|
 |NTP|(IP för NTP-server för distribution)|UDP|123|Offentliga VIP - /27|
 |DNS|(IP-DNS-server för distribution)|TCP<br>UDP|53|Offentliga VIP - /27|
 |LISTAN ÖVER ÅTERKALLADE CERTIFIKAT|(URL under CRL-distributionspunkter på ditt certifikat)|HTTP|80|Offentliga VIP - /27|

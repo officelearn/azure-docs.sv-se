@@ -4,7 +4,7 @@ description: Läs mer om molnbaserad databehandling tjänster som omfattar ett b
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405981"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111296"
 ---
 # <a name="azure-network-security"></a>Azure-nätverkssäkerhet
 
@@ -88,11 +88,11 @@ Azure-nätverk är som om den virtuella nätverk du använder lokalt med dina eg
 
 Du kan ansluta virtuella nätverk till varandra, så att resurser som är anslutna till något virtuellt nätverk kan kommunicera med varandra över virtuella nätverk. Du kan använda ett eller båda av följande alternativ för att ansluta virtuella nätverk till varandra:
 
-- **Peering:** kan resurser som är anslutna till olika virtuella Azure-nätverk inom samma Azure-plats att kommunicera med varandra. Nätverksbandbredd och svarstid i det virtuella nätverket är samma som om resurserna som var anslutna till samma virtuella nätverk. Mer information om peering [peerkoppling av virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering:** Gör det möjligt för resurser som är anslutna till olika virtuella Azure-nätverk inom samma Azure-plats att kommunicera med varandra. Nätverksbandbredd och svarstid i det virtuella nätverket är samma som om resurserna som var anslutna till samma virtuella nätverk. Mer information om peering [peerkoppling av virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
-- **VNet-till-VNet-anslutning:** kan resurser som är anslutna till olika Azure virtuellt nätverk inom samma eller olika Azure platser. Bandbredden är begränsad mellan virtuella nätverk till skillnad från peering, eftersom trafiken måste flöda via Azure VPN Gateway.
+- **VNet-till-VNet-anslutning:** Gör det möjligt för resurser som är anslutna till olika virtuella Azure-nätverket i samma eller olika Azure platser. Bandbredden är begränsad mellan virtuella nätverk till skillnad från peering, eftersom trafiken måste flöda via Azure VPN Gateway.
 
 ![VNet-till-VNet-anslutning](media/azure-network-security/azure-network-security-fig-4.png)
 
@@ -151,9 +151,9 @@ Du kan ansluta flera Azure-resurser till ett virtuellt nätverk, till exempel vi
 
 Du kan ansluta virtuella nätverk till varandra, så att resurser som är anslutna till något virtuellt nätverk kan kommunicera med varandra över virtuella nätverk. Du kan använda ett eller båda av följande alternativ för att ansluta virtuella nätverk till varandra:
 
-- **Peering:** kan resurser som är anslutna till olika virtuella Azure-nätverk inom samma Azure-plats att kommunicera med varandra. Nätverksbandbredd och svarstid för de virtuella nätverken är samma som om resurserna som var anslutna till samma VNet.To mer information om peering, Läs den [peerkoppling av virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering:** Gör det möjligt för resurser som är anslutna till olika virtuella Azure-nätverk inom samma Azure-plats att kommunicera med varandra. Nätverksbandbredd och svarstid för de virtuella nätverken är samma som om resurserna som var anslutna till samma VNet.To mer information om peering, Läs den [peerkoppling av virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-- **VNet-till-VNet-anslutning:** kan resurser som är anslutna till olika Azure virtuellt nätverk inom samma eller olika Azure platser. Bandbredden är begränsad mellan virtuella nätverk till skillnad från peering, eftersom trafiken måste flöda via Azure VPN Gateway. Mer information om hur du ansluter virtuella nätverk med en VNet-till-VNet-anslutning. Mer information finns i [konfigurera en VNet-till-VNet-anslutning](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
+- **VNet-till-VNet-anslutning:** Gör det möjligt för resurser som är anslutna till olika virtuella Azure-nätverket i samma eller olika Azure platser. Bandbredden är begränsad mellan virtuella nätverk till skillnad från peering, eftersom trafiken måste flöda via Azure VPN Gateway. Mer information om hur du ansluter virtuella nätverk med en VNet-till-VNet-anslutning. Mer information finns i [konfigurera en VNet-till-VNet-anslutning](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 **Lokala anslutningsmöjligheter**
 
@@ -161,9 +161,9 @@ Virtuella nätverk kan anslutas till [lokala](https://docs.microsoft.com/azure/v
 
 Du kan ansluta ditt lokala nätverk till ett virtuellt nätverk med hjälp av följande alternativ:
 
-- **Punkt-till-plats virtuellt privat nätverk (VPN):** upprättas mellan en enda dator som är ansluten till nätverket och det virtuella nätverket. Den här anslutningstypen är bra om du precis har börjat med Azure, eller för utvecklare, eftersom det krävs få eller inga ändringar i ditt befintliga nätverk. Anslutningen använder SSTP-protokollet för att tillhandahålla krypterad kommunikation via Internet mellan datorn och det virtuella nätverket. Svarstiden för en punkt-till-plats-VPN är oförutsägbar eftersom trafiken passerar via Internet.
+- **Punkt-till-plats virtuellt privat nätverk (VPN):** Upprättas mellan en enda dator som är ansluten till nätverket och det virtuella nätverket. Den här anslutningstypen är bra om du precis har börjat med Azure, eller för utvecklare, eftersom det krävs få eller inga ändringar i ditt befintliga nätverk. Anslutningen använder SSTP-protokollet för att tillhandahålla krypterad kommunikation via Internet mellan datorn och det virtuella nätverket. Svarstiden för en punkt-till-plats-VPN är oförutsägbar eftersom trafiken passerar via Internet.
 
-- **Plats-till-plats-VPN:** upprättas mellan VPN-enheten och Azure VPN Gateway. Den här anslutningstypen kan alla lokala resurser som tillåter du att få åtkomst till ett virtuellt nätverk. Anslutningen är en IPsec/IKE VPN som tillhandahåller krypterad kommunikation via Internet mellan din lokala enhet och Azure VPN-gatewayen. Svarstiden för en plats-till-plats-anslutning är oförutsägbar eftersom trafiken passerar via Internet.
+- **Plats-till-plats-VPN:** Upprättas mellan VPN-enheten och Azure VPN Gateway. Den här anslutningstypen kan alla lokala resurser som tillåter du att få åtkomst till ett virtuellt nätverk. Anslutningen är en IPsec/IKE VPN som tillhandahåller krypterad kommunikation via Internet mellan din lokala enhet och Azure VPN-gatewayen. Svarstiden för en plats-till-plats-anslutning är oförutsägbar eftersom trafiken passerar via Internet.
 
 - **Azure ExpressRoute:** Upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafiken sker inte via Internet. Svarstiden för en ExpressRoute-anslutning är förutsägbara eftersom trafiken inte via Internet. Mer information om alla tidigare anslutningsalternativ den [anslutningstopologi](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -173,9 +173,9 @@ Virtuell dator och Cloud Services-rollinstanser [nätverkstrafik](https://docs.m
 
 Du kan filtrera nätverkstrafik mellan undernät med ett eller båda av följande alternativ:
 
-- **Nätverkssäkerhetsgrupper (NSG):** varje NSG kan innehålla flera inkommande och utgående säkerhetsregler som gör det möjligt att filtrera trafik genom att källans och målets IP-adress, port och protokoll. Du kan använda en NSG för varje nätverkskort på en virtuell dator. Du kan också använda en NSG till undernätet för ett nätverkskort eller andra Azure-resursen är ansluten till. Mer information om Nätverkssäkerhetsgrupper i [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- **Nätverkssäkerhetsgrupper (NSG):** Varje NSG kan innehålla flera inkommande och utgående säkerhetsregler som gör det möjligt att filtrera trafik av källa och mål-IP-adress, port och protokoll. Du kan använda en NSG för varje nätverkskort på en virtuell dator. Du kan också använda en NSG till undernätet för ett nätverkskort eller andra Azure-resursen är ansluten till. Mer information om Nätverkssäkerhetsgrupper i [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
-- **Virtuella nätverksinstallationer:** en virtuell nätverksinstallation är en virtuell dator som kör program som utför en nätverksfunktion, till exempel en brandvägg. Visa en lista med tillgängliga nva: er i Azure Marketplace. Nva: er är också tillgängliga som tillhandahåller WAN-optimering och andra funktioner för trafik. Nva används vanligtvis med en användardefinierad eller BGP-vägar. Du kan också använda en NVA för att filtrera trafik mellan virtuella nätverk.
+- **Virtuella nätverksinstallationer:** En virtuell nätverksinstallation är en virtuell dator som kör program som utför en nätverksfunktion, till exempel en brandvägg. Visa en lista med tillgängliga nva: er i Azure Marketplace. Nva: er är också tillgängliga som tillhandahåller WAN-optimering och andra funktioner för trafik. Nva används vanligtvis med en användardefinierad eller BGP-vägar. Du kan också använda en NVA för att filtrera trafik mellan virtuella nätverk.
 
 **Routning**
 
@@ -183,11 +183,11 @@ Du kan också åsidosätta Azures standard routning genom att konfigurera dina e
 
 Azure skapar routningstabeller som gör att resurser som är anslutna till alla undernät i alla VNet kan kommunicera med varandra, som standard. Du kan implementera ett eller båda av följande alternativ för att åsidosätta de standardvägar som Azure skapar:
 
-- **Användardefinierade vägar:** du kan skapa anpassade routningstabeller med vägar som styr vart trafik dirigeras till för varje undernät. Mer information om användardefinierade vägar finns i [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+- **Användardefinierade vägar:** Du kan skapa anpassade routningstabeller med vägar som styr vart trafik dirigeras för varje undernät. Mer information om användardefinierade vägar finns i [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-- **BGP-vägar:** om du ansluter ditt virtuella nätverk till ditt lokala nätverk med hjälp av en Azure VPN Gateway eller ExpressRoute-anslutning kan du sprida BGP-vägar till dina virtuella nätverk.
+- **BGP-vägar:** Om du ansluter ditt virtuella nätverk till ditt lokala nätverk som använder en Azure VPN Gateway eller ExpressRoute-anslutning kan du sprida BGP-vägar till dina virtuella nätverk.
 
-### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Hybrid Internetanslutning: ansluta till ett lokalt nätverk
+### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Hybrid Internetanslutning: Ansluta till ett lokalt nätverk
 Du kan ansluta ditt lokala nätverk till ett virtuellt nätverk med hjälp av följande alternativ:
 
 -   Internetanslutning
@@ -282,13 +282,13 @@ Det innebär att du kan styra åtkomsten mellan en enskild virtuell dator och en
 
 En NSG innehåller vissa inbyggda regler som du bör känna till. Dessa är:
 
--   **Tillåt all trafik i ett specifikt virtuellt nätverk:** alla virtuella datorer på samma Azure Virtual Network kan kommunicera med varandra.
+-   **Tillåt all trafik i ett specifikt virtuellt nätverk:** Alla virtuella datorer i samma Azure Virtual Network kan kommunicera med varandra.
 
 -   **Tillåt Azure belastningsutjämning för inkommande:** den här regeln tillåter trafik från alla källadress till alla måladresser för Azure load balancer.
 
 -   **Neka alla inkommande:** den här regeln blockerar all trafik som källa från Internet som du uttryckligen tillåts.
 
--   **Tillåt all trafik utgående till Internet:** den här regeln kan virtuella datorer initiera anslutningar till Internet. Om du inte vill att dessa anslutningar som initieras, måste du skapa en regel för att blockera anslutningarna eller framtvinga Tvingad tunneltrafik.
+-   **Tillåt all trafik utgående till Internet:** Den här regeln kan virtuella datorer initierar anslutningar till Internet. Om du inte vill att dessa anslutningar som initieras, måste du skapa en regel för att blockera anslutningarna eller framtvinga Tvingad tunneltrafik.
 
 #### <a name="system-routes-and-user-defined-routes"></a>Systemvägar och användardefinierade vägar
 
@@ -320,11 +320,11 @@ I följande avsnitt visas den aktuella begränsningen Routning och vägar för e
 
 -   Varje virtuellt nätverksundernät har en inbyggd, system-routningstabell. Routningstabellen system har följande tre grupper av vägar:
 
- -  **Lokala virtuella nätverket vägar:** direkt till målets virtuella datorer i samma virtuella nätverk
+ -  **Lokala virtuella nätverket vägar:** Direkt till målets virtuella datorer i samma virtuella nätverk
 
- - **På lokala vägar:** till Azure VPN-gateway
+ - **På lokala vägar:** Till Azure VPN-gateway
 
- -  **Standardvägen:** direkt till Internet. Ignoreras paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna.
+ -  **Standardvägen:** Direkt till Internet. Ignoreras paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna.
 
 -   Med lanseringen av användardefinierade vägar kan du skapa en routningstabell för att lägga till en standardväg och sedan associera routningstabellen till ditt VNet-undernät för att aktivera Tvingad tunneltrafik på dessa undernät.
 
@@ -645,9 +645,9 @@ Följande mått har stöd för Application Gateway:
 
 Följande loggar stöds för [nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
-- **NetworkSecurityGroupEvent:** innehåller poster för vilka NSG-regler tillämpas på virtuella datorer och instans regler som baseras på MAC-adress. Status för de här reglerna som samlas in var 60: e sekund.
+- **NetworkSecurityGroupEvent:** Innehåller poster för vilka NSG reglerna tillämpas på virtuella datorer och instansroller som baseras på MAC-adress. Status för de här reglerna som samlas in var 60: e sekund.
 
-- **NetworkSecurityGroupRuleCounter:** innehåller poster för hur många gånger varje NSG-regel används för att neka eller tillåta trafik.
+- **NetworkSecurityGroupRuleCounter:** Innehåller poster för hur många gånger varje NSG-regel används för att neka eller tillåta trafik.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om säkerhet genom att läsa några av våra djupgående säkerhetsfrågor:

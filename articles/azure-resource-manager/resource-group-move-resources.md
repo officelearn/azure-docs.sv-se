@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 59322e303824d3a0db89e9e1252476d52106ba56
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991352"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108780"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -28,7 +28,7 @@ Både källgruppen och målgruppen är låsta vid flytt. Skriv- och borttagnings
 En resurs flyttas bara flyttar det till en ny resursgrupp. Flyttåtgärden kan inte ändra platsen för resursen. Den nya resursgruppen kan ha en annan plats, men som ändra inte platsen för resursen.
 
 > [!NOTE]
-> Den här artikeln beskrivs hur du flyttar resurser i ett befintligt Azure-konto erbjudande. Om du vill ändra ditt Azure-konto erbjudande (t.ex uppgraderar från kostnadsfritt till betala per användning) måste konvertera din prenumeration.
+> Den här artikeln beskriver hur du flytta resurser mellan befintliga Azure-prenumerationer. Om du verkligen vill uppgradera din Azure-prenumeration (till exempel byta från kostnadsfritt till betala per användning) måste konvertera din prenumeration.
 > * Om du vill uppgradera en kostnadsfri utvärderingsversion, [uppgradera din kostnadsfria utvärderingsversion eller en Microsoft Imagine Azure-prenumeration till betala per användning](..//billing/billing-upgrade-azure-subscription.md).
 > * Om du vill ändra en betala per användning-konto, se [ändra din betala per användning för Azure-prenumeration till ett annat erbjudande](../billing/billing-how-to-switch-azure-offer.md).
 > * Om du inte kan konvertera prenumerationen, [skapa en Azure-supportbegäran](../azure-supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
@@ -102,7 +102,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Portalen instrumentpaneler
 * Powerbi – både Power BI Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - Basic SKU offentlig IP-adress kan flyttas. Standard-SKU offentlig IP-adress kan inte flyttas.
-* Recovery Services-valv – registrera dig i en [privat förhandsgranskning](#recovery-services-limitations).
+* Recovery Services-valv – registrera dig i en [förhandsversion](#recovery-services-limitations).
 * Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Scheduler
 * Sök - du kan inte flytta flera Sök efter resurser i olika regioner i en enda åtgärd. I stället flyttar du dem i separata åtgärder.

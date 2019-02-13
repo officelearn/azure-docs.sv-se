@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: fe15a1aa0d284913c77d62e254b8827d9d60c850
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 744d18b39ffc696d0973628c60687c6b70fbcaad
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188243"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Självstudier: Azure Active Directory-integrering med plattare filer
 
@@ -202,7 +203,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 1. Klicka på **Lägg till användare**. 
 
-1. På den **Lägg till användare** dialogrutan utför följande steg:
+1. I dialogrutan **Lägg till användare** utför du följande steg:
    
     ![Skapa en plattare filer användare](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
 

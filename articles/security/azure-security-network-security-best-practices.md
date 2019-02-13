@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en uppsättning Metodtips för säker
 services: security
 documentationcenter: na
 author: TomShinder
-manager: mbaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: TomSh
-ms.openlocfilehash: d89972ff0f7e3035fa20f8d9ee2863b68fa52e9f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 86246d3d580737837ec07ccdc89ed82914cde209
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124073"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118419"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure-nätverk säkerhetsmetoder
 Du kan ansluta [virtuella Azure-datorer (VM)](https://azure.microsoft.com/services/virtual-machines/) och till andra nätverksenheter genom att placera dem på [virtuella Azure-nätverk](https://azure.microsoft.com/documentation/services/virtual-network/). Det vill säga kan du ansluta virtuella nätverkskort till ett virtuellt nätverk till att tillåta TCP/IP-baserad kommunikation mellan nätverk-aktiverade enheter. Virtuella datorer är anslutna till en Azure-nätverk kan ansluta till enheter på samma virtuella nätverk, olika virtuella nätverk, internet eller dina egna lokala nätverk.
@@ -43,10 +43,10 @@ Azure-nätverk liknar ett lokalt nätverk i ditt lokala nätverk. Tanken bakom A
 
 Metodtips för logiskt segmentera undernät är:
 
-**Bästa praxis**: segmentera större adressutrymmet i undernät.   
+**Bästa praxis**: Segmentera större adressutrymmet i undernät.   
 **Information om**: Använd [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-baserade undernät principer för att skapa dina undernät.
 
-**Bästa praxis**: skapa åtkomstkontroll för nätverk mellan undernät. Routning mellan undernät sker automatiskt och du behöver inte konfigurera routningstabeller manuellt. Som standard finns inga åtkomstkontroller för nätverk mellan undernät som du skapar på Azure-nätverket.   
+**Bästa praxis**: Skapa åtkomstkontroll för nätverk mellan undernät. Routning mellan undernät sker automatiskt och du behöver inte konfigurera routningstabeller manuellt. Som standard finns inga åtkomstkontroller för nätverk mellan undernät som du skapar på Azure-nätverket.   
 **Information om**: Använd en [nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md) (NSG). NSG: er är enkla, tillståndskänsliga paketinspektion enheter som använder den 5-tuppeln (käll-IP, källport, mål-IP, målport, och layer 4-protokollet) metod, skapa tillåta/neka regler för nätverkstrafik. Du tillåter eller nekar trafik till och från en enskild IP-adress, till och från flera IP-adresser, eller till och från hela undernät.
 
 När du använder NSG: er för network access control mellan undernät, kan du placera resurser som tillhör samma säkerhetszon eller roll i sina egna undernät.
@@ -84,7 +84,7 @@ Azure funktioner för nätverkssäkerhet kan leverera bättre säkerhet än vad 
 * Programkontroll
 * Nätverksbaserade avvikelseidentifiering
 * Webbfiltrering
-* Antivirusprogram
+* Antivirus
 * Botnet-skydd
 
 För att hitta tillgängliga Azure-nätverk säkerhetsenheter, går du till den [Azure Marketplace](https://azure.microsoft.com/marketplace/) och Sök efter ”säkerhet” och ”nätverkssäkerhet”.
@@ -103,7 +103,7 @@ Många organisationer har valt hybrid IT-vägen. I hybrid-IT finns några av fö
 
 I hybrid IT-scenariot finns vanligtvis någon typ av anslutning mellan olika platser. Anslutning mellan olika platser gör det möjligt för företag att ansluta sina lokala nätverk till Azure-nätverk. Det finns två olika platser anslutningslösningar:
 
-* **Plats-till-plats VPN**: det är en betrodda och tillförlitliga etablerad teknik, men anslutningen sker över internet. Bandbredd är begränsad till högst 200 Mbit/s. Plats-till-plats-VPN är en önskvärt alternativet i vissa scenarier och beskrivs ytterligare i avsnittet [inaktivera RDP/SSH-åtkomst till virtuella datorer](#disable-rdpssh-access-to-virtual-machines).
+* **Plats-till-plats VPN**: Det är en betrodda och tillförlitliga etablerad teknik, men anslutningen sker över internet. Bandbredd är begränsad till högst 200 Mbit/s. Plats-till-plats-VPN är en önskvärt alternativet i vissa scenarier och beskrivs ytterligare i avsnittet [inaktivera RDP/SSH-åtkomst till virtuella datorer](#disable-rdpssh-access-to-virtual-machines).
 * **Azure ExpressRoute**: Vi rekommenderar att du använder [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) för dina korsanslutningar. ExpressRoute är en dedikerad WAN länken mellan din lokala plats eller en värdbaserade Exchange-provider. Eftersom detta är en telco-anslutning kan överföras inte via internet i dina data och därför visas inte för de potentiella riskerna för internet-kommunikation.
 
 ## <a name="optimize-uptime-and-performance"></a>Optimera drifttid och prestanda
@@ -115,7 +115,7 @@ Den här distributionen av trafiken ökar tillgängligheten eftersom om en av we
 
 Vi rekommenderar att du använder att Utjämning av nätverksbelastning varje gång som du kan och som passar dina tjänster. Följande är scenarier på både Azure-nätverk-nivå och global nivå, tillsammans med belastningsutjämning alternativ för var och en.
 
-**Scenariot**: du har ett program som:
+**Scenario**: Du har ett program som:
 
 - Kräver begäranden från samma användare/klientsession för att nå samma virtuella dator för serverdelen. Exempel på detta shopping appar med shoppingvagnar och e-postwebbservrar.
 - Accepterar endast en säker anslutning, så okrypterad kommunikation till servern inte är en acceptabel.
@@ -123,22 +123,22 @@ Vi rekommenderar att du använder att Utjämning av nätverksbelastning varje g�
 
 **Alternativ för belastningsutjämning**: Använd [Azure Application Gateway](../application-gateway/application-gateway-introduction.md), en belastningsutjämnare för HTTP-webb-trafik. Application Gateway stöder slutpunkt till slutpunkt SSL-kryptering och [SSL-avslutning](../application-gateway/application-gateway-introduction.md) på gatewayen. Sedan kan webbservrar webbservrarna från kryptering och avkryptering och trafik som passerar okrypterade till backend-servrarna.
 
-**Scenariot**: du behöver läsa in belastningsutjämna inkommande anslutningar från internet bland dina servrar som finns i ett Azure-nätverk. Scenarier är när du:
+**Scenario**: Du behöver läsa in belastningsutjämna inkommande anslutningar från internet bland dina servrar som finns i ett Azure-nätverk. Scenarier är när du:
 
 - Ha tillståndslösa program som accepterar inkommande begäranden från internet.
 - Inte kräver fästsessioner eller SSL-avlastning. Fästsessioner är en metod som används med belastningsutjämning i programmet, för att uppnå server-tillhörighet.
 
-**Alternativ för belastningsutjämning**: använda Azure portal för att [skapa en extern belastningsutjämnare](../load-balancer/quickstart-create-basic-load-balancer-portal.md) som sprider förfrågningar mellan flera virtuella datorer för att ge högre tillgänglighet.
+**Alternativ för belastningsutjämning**: Använda Azure portal för att [skapa en extern belastningsutjämnare](../load-balancer/quickstart-create-basic-load-balancer-portal.md) som sprider förfrågningar mellan flera virtuella datorer för att ge högre tillgänglighet.
 
-**Scenariot**: du behöver läsa in saldo anslutningar från virtuella datorer som inte är på internet. I de flesta fall initieras de anslutningar som är godkända för belastningsutjämning av enheter i Azure-nätverk, till exempel SQL Server-instanser eller interna servrar.   
-**Alternativ för belastningsutjämning**: använda Azure portal för att [skapa en intern belastningsutjämnare](../load-balancer/quickstart-create-basic-load-balancer-powershell.md) som sprider förfrågningar mellan flera virtuella datorer för att ge högre tillgänglighet.
+**Scenario**: Du måste läsa in saldo anslutningar från virtuella datorer som inte finns på internet. I de flesta fall initieras de anslutningar som är godkända för belastningsutjämning av enheter i Azure-nätverk, till exempel SQL Server-instanser eller interna servrar.   
+**Alternativ för belastningsutjämning**: Använda Azure portal för att [skapa en intern belastningsutjämnare](../load-balancer/quickstart-create-basic-load-balancer-powershell.md) som sprider förfrågningar mellan flera virtuella datorer för att ge högre tillgänglighet.
 
-**Scenariot**: du behöver globala belastningsutjämning eftersom du:
+**Scenario**: Du behöver globala belastningsutjämning eftersom du:
 
 - Ha en molnlösning som distribueras över flera regioner och kräver den högsta möjliga drifttid (tillgänglighet) möjligt.
 - Måste den högsta möjliga drifttid möjligt att se till att tjänsten är tillgänglig även om ett helt datacenter blir otillgänglig.
 
-**Alternativ för belastningsutjämning**: Använd Azure Traffic Manager. Traffic Manager gör det möjligt att läsa in saldo anslutningar till dina tjänster baserat på användarens plats.
+**Alternativ för belastningsutjämning**: Använda Azure Traffic Manager. Traffic Manager gör det möjligt att läsa in saldo anslutningar till dina tjänster baserat på användarens plats.
 
 Till exempel om användaren gör en begäran till din tjänst från EU, dirigeras anslutningen till dina tjänster som finns i ett datacenter för Europa. Den här delen av Traffic Manager globala läsa in belastningsutjämning bidrar till att förbättra prestanda eftersom ansluter till det närmaste datacentret är snabbare än att ansluta till datacenter som är långt borta.
 
@@ -149,15 +149,15 @@ Potentiella säkerhetsproblem med hjälp av dessa protokoll via internet är att
 
 Vi rekommenderar att du inaktiverar direkt RDP och SSH-åtkomst till din Azure-datorer från internet. När direkt RDP och SSH-åtkomst från internet har inaktiverats kan ha du andra alternativ som du kan använda för att få åtkomst till dessa virtuella datorer för fjärrhantering.
 
-**Scenariot**: aktivera en enskild användare kan ansluta till ett Azure-nätverk via internet.   
-**Alternativet**: [punkt-till-plats VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) är en annan term för en VPN-klient/server-anslutning för fjärråtkomst. När punkt-till-plats-anslutning har upprättats kan använda användaren RDP eller SSH för att ansluta till virtuella datorer som finns på Azure-nätverket som användaren är anslutna via punkt-till-plats-VPN. Detta förutsätter att användaren har behörighet att nå de virtuella datorer.
+**Scenario**: Aktivera en enskild användare kan ansluta till ett Azure-nätverk via internet.   
+**Alternativet**: [Punkt-till-plats VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) är en annan term för en VPN-klient/server-anslutning för fjärråtkomst. När punkt-till-plats-anslutning har upprättats kan använda användaren RDP eller SSH för att ansluta till virtuella datorer som finns på Azure-nätverket som användaren är anslutna via punkt-till-plats-VPN. Detta förutsätter att användaren har behörighet att nå de virtuella datorer.
 
 Punkt-till-plats-VPN är säkrare än direkt RDP eller SSH-anslutningar eftersom användaren måste autentisera två gånger innan du ansluter till en virtuell dator. Först måste användaren behöver för att autentisera (och auktoriseras) att upprätta en punkt-till-plats VPN-anslutning. Dessutom användaren behöver för att autentisera (och auktoriseras) att upprätta RDP eller SSH-session.
 
-**Scenariot**: användarna i ditt lokala nätverk kan ansluta till virtuella datorer på Azure-nätverk.   
-**Alternativet**: A [plats-till-plats VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) ansluter hela nätverket till ett annat nätverk via internet. Du kan använda en plats-till-plats-VPN för att ansluta ditt lokala nätverk till ett Azure-nätverk. Användare i ditt lokala nätverk ansluta med hjälp av RDP eller SSH-protokollet via plats-till-plats VPN-anslutning. Du behöver för att direkt RDP eller SSH-åtkomst via internet.
+**Scenario**: Användarna i ditt lokala nätverk kan ansluta till virtuella datorer på Azure-nätverk.   
+**Alternativet**: En [plats-till-plats VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) ansluter hela nätverket till ett annat nätverk via internet. Du kan använda en plats-till-plats-VPN för att ansluta ditt lokala nätverk till ett Azure-nätverk. Användare i ditt lokala nätverk ansluta med hjälp av RDP eller SSH-protokollet via plats-till-plats VPN-anslutning. Du behöver för att direkt RDP eller SSH-åtkomst via internet.
 
-**Scenariot**: använda en dedikerad WAN-länken för att tillhandahålla liknande funktioner som plats-till-plats-VPN.   
+**Scenario**: Använda en dedikerad WAN-länken för att ge liknande funktioner som plats-till-plats-VPN.   
 **Alternativet**: Använd [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Den innehåller liknande funktioner som plats-till-plats-VPN. De viktigaste skillnaderna är:
 
 - Dedikerad WAN-länken via inte internet.
@@ -168,12 +168,12 @@ Använda tjänstslutpunkter i virtuella nätverk för att utöka ditt privata ad
 
 Tjänstslutpunkter har följande fördelar:
 
-- **Förbättrad säkerhets för dina Azure-tjänstresurser**: Med tjänstslutpunkter kan Azure-tjänstresurser skyddas i ditt virtuella nätverk. Skydda tjänstresurser i ett virtuellt nätverk ger förbättrad säkerhet genom att helt ta bort den offentliga Internetåtkomsten till resurser, så att endast trafik från ditt virtuella nätverk.
-- **Optimal routning för Azure-tjänsttrafik från ditt virtuella nätverk**: alla vägar i ditt virtuella nätverk som tvingar Internettrafik till dina lokala och/eller virtuella enheter, kallas Tvingad tunneltrafik, också tvinga Azure-tjänsttrafiken att ta samma väg som Internettrafiken. Med tjänstslutpunkter får du optimal routning för Azure-trafiken.
+- **Förbättrad säkerhet för dina Azure-tjänstresurser**: Med tjänstslutpunkter kan Azure-tjänstresurser skyddas på ditt virtuella nätverk. Skydda tjänstresurser i ett virtuellt nätverk ger förbättrad säkerhet genom att helt ta bort den offentliga Internetåtkomsten till resurser, så att endast trafik från ditt virtuella nätverk.
+- **Optimal routning för Azure-tjänsttrafik från ditt virtuella nätverk**: Alla vägar i ditt virtuella nätverk som tvingar Internettrafik till dina lokala och/eller virtuella enheter, kallas Tvingad tunneltrafik, kan också tvinga Azure-tjänsttrafiken att ta samma väg som Internettrafiken. Med tjänstslutpunkter får du optimal routning för Azure-trafiken.
 
   Slutpunkter tar alltid tjänsttrafiken direkt från ditt virtuella nätverk till tjänsten i Azure-stamnätverket. Om du behåller trafiken i Azure-stamnätverket kan du fortsätta granska och övervaka utgående Internettrafiken från dina virtuella nätverk, via Tvingad tunneltrafik, utan att påverka tjänsttrafiken. Läs mer om [användardefinierade vägar och Tvingad tunneltrafik](../virtual-network/virtual-networks-udr-overview.md).
 
-- **Enkelt att konfigurera och lägre administrationskostnader**: du behöver inte längre reserverade, offentliga IP-adresser i ditt virtuella nätverk för att skydda Azure-resurser via en IP-brandvägg. Det behövs inga NAT- eller gatewayenheter för att konfigurera tjänstslutpunkterna. Tjänstslutpunkter konfigureras via ett enkelt klick på ett undernät. Det finns inga ytterligare kostnader för att underhålla slutpunkterna.
+- **Enkelt att konfigurera med mindre hanteringskostnader**: Du behöver inte längre reserverade, offentliga IP-adresser i ditt virtuella nätverk för att skydda Azure-resurser via en IP-brandvägg. Det behövs inga NAT- eller gatewayenheter för att konfigurera tjänstslutpunkterna. Tjänstslutpunkter konfigureras via ett enkelt klick på ett undernät. Det finns inga ytterligare kostnader för att underhålla slutpunkterna.
 
 Läs mer om tjänstslutpunkter och Azure-tjänster och regioner som tjänstslutpunkter är tillgängliga för i [tjänstslutpunkter i virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md).
 

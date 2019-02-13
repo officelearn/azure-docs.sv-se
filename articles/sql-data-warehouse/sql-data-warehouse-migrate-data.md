@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 11d41f9839456020ab65f11661c21f1e679cd76f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 77e4500b20be844dfad31db284a9c77ad7ec6bb7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770660"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118130"
 ---
 # <a name="migrate-your-data"></a>Migrera dina Data
 Data kan flyttas från olika källor i SQL Data Warehouse med en mängd verktyg.  ADF kopia och SSIS bcp kan alla användas för att uppnå det här målet. Som mängden data ökar bör du dock tänka bryta ned data migreringsprocessen i steg. Detta får du möjlighet att optimera varje steg både för prestanda och flexibilitet i fokus att säkerställa en smidig datamigrering.
@@ -29,7 +29,7 @@ Om dina data börjar i flata filer så behöver du först överföra den till Az
 
 PolyBase erbjuder även en högpresterande alternativ för inläsning av data. Som betyder dock med två verktyg i stället för en. Om du behöver för bästa prestanda och Använd sedan PolyBase. Om du vill att en enda verktyget upplevelse (och data är inte enorma) är ADF ditt svar.
 
-Följ [den här självstudien]( /articles/data-factory/load-azure-sql-data-warehouse.md) att lära dig hur du använder ADF för att läsa in data i ditt informationslager.
+Följ [den här självstudien](../data-factory/load-azure-sql-data-warehouse.md) att lära dig hur du använder ADF för att läsa in data i ditt informationslager.
 
 ## <a name="integration-services"></a>Integrationstjänster
 Integration Services (SSIS) är ett kraftfullt och flexibelt extrahera transformera och inläsning (ETL) som stöder komplexa arbetsflöden, Dataomvandling och flera alternativ för inläsning av data. Använda SSIS för att helt enkelt överföra data till Azure eller som en del av en bredare migrering.

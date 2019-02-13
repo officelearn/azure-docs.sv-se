@@ -1,5 +1,5 @@
 ---
-title: Tjänstslutpunkter i virtuella nätverk och regler för Azure SQL Database och SQL Data Warehouse | Microsoft Docs
+title: VNet-slutpunkter och regler för enkel och delade databaser i Azure SQL | Microsoft Docs
 description: Markera ett undernät som en tjänstslutpunkt för virtuellt nätverk. Sedan slutpunkten som en virtuell nätverksregel i åtkomstkontrollistan din Azure SQL Database. Du SQL-databasen sedan godkänner kommunikation från alla virtuella datorer och andra noder i undernät.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453935"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118385"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för databasservrar
 
-*Virtuella Nätverksregler* är en säkerhetsfunktion för brandväggen som styr om din Azure [SQL Database](sql-database-technical-overview.md) eller [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) servern tar emot meddelanden som skickas från specifika undernät i virtuella nätverk. Den här artikeln förklarar varför funktionen virtuellt nätverk regeln ibland är det bästa alternativet för att tillåta kommunikation till din Azure SQL Database och SQL Data Warehouse på ett säkert sätt.
+*Virtuella Nätverksregler* är en säkerhetsfunktion för brandväggen som styr om databasservern för enskilda databaser och elastisk pool i Azure [SQL Database](sql-database-technical-overview.md) eller för dina databaser i [SQL-Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från specifika undernät i virtuella nätverk. Den här artikeln förklarar varför funktionen virtuellt nätverk regeln ibland är det bästa alternativet för att tillåta kommunikation till din Azure SQL Database och SQL Data Warehouse på ett säkert sätt.
 
 > [!IMPORTANT]
-> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln har *inte* avser **Azure SQL Database Managed Instance**.
+> Den här artikeln gäller för Azure SQL-server och att både SQL Database och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln har *inte* avser en **hanterad instans** distribution i Azure SQL Database eftersom den inte har en slutpunkt som är associerade med den.
 
 Skapa en virtuell nätverksregel det måste du först ta en [tjänstslutpunkt för virtuellt nätverk] [ vm-virtual-network-service-endpoints-overview-649d] för regeln för att referera till.
 

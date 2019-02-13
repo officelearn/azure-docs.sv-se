@@ -4,7 +4,7 @@ description: Lär dig mer om olika alternativ för kryptering i Azure
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035104"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114662"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
@@ -50,11 +50,11 @@ Med client side encryption leverantörer av molntjänster har inte åtkomst till
 
 De tre modellerna server side encryption erbjuder olika nyckelhantering egenskaper, som du kan välja baserat på dina krav:
 
-- **Service-hanterade nycklar**: innehåller en kombination av kontroll och bekvämlighet med låg belastning.
+- **Service-hanterade nycklar**: Innehåller en kombination av kontroll och bekvämlighet med låg belastning.
 
-- **Kundhanterade nycklar**: ger dig kontroll över nycklar, inklusive stöd för Bring Your Own nycklar (BYOK), eller kan du generera nya.
+- **Kundhanterade nycklar**: Ger dig kontroll över nycklar, inklusive stöd för Bring Your Own nycklar (BYOK), eller kan du generera nya.
 
-- **Service-hanterade nycklar i kund-kontrollerade maskinvara**: hjälper dig att hantera nycklar i centrallagret upphovsrättsskyddad utanför Microsoft kontroll. Denna variabel kallas värd Your Own Key (HYOK). Men konfigurationen är komplexa och de flesta Azure services stöder inte den här modellen.
+- **Service-hanterade nycklar i kund-kontrollerade maskinvara**: Gör det möjligt för dig att hantera nycklar i centrallagret upphovsrättsskyddad utanför Microsoft kontroll. Denna variabel kallas värd Your Own Key (HYOK). Men konfigurationen är komplexa och de flesta Azure services stöder inte den här modellen.
 
 ### <a name="azure-disk-encryption"></a>Azure-diskkryptering
 
@@ -78,7 +78,7 @@ Om du vill lära dig mer om och ladda ned Azure Storage-klientbiblioteket för .
 
 När du använder client side encryption med Key Vault kan krypteras dina data med en enstaka symmetriska innehåll kryptering nyckel (CEK) som genereras av SDK för Azure Storage-klient. CEK är krypterat med en nyckel kryptering nyckel (KEK), vilket kan vara antingen en symmetrisk nyckel eller ett asymmetriskt nyckelpar. Du kan hantera den lokalt eller lagra den i Key Vault. Krypterade data överförs sedan till Azure Storage.
 
-Om du vill veta mer om kryptering på klientsidan med Key Vault och kom igång med anvisningar Se [Självstudier: kryptera och dekryptera blobbar i Azure Storage med hjälp av Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
+Om du vill veta mer om kryptering på klientsidan med Key Vault och kom igång med anvisningar Se [självstudien: Kryptera och dekryptera blobbar i Azure Storage med hjälp av Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Slutligen kan kan du också använda Azure Storage-klientbiblioteket för Java att utföra client side encryption innan du överför data till Azure Storage och för att dekryptera data när du laddar ned till klienten. Det här biblioteket stöder även integrering med [Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar i storage-konto.
 

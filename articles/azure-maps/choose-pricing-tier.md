@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 56f9226f1bee630895725eb0b3806e294e9a5b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063241"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218150"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välja rätt prisnivå i Azure Maps
 
@@ -34,15 +34,14 @@ S0 och S1 prisnivåer hantera olika mängder data dataflöde. Innan du väljer e
 | Rendering                                  |        ✓           |     ✓    |
 | Trafik                                 |        ✓           |     ✓    |
 | Tidszoner                              |        ✓           |     ✓    |
-| * Bilder plus hybridbilder (förhandsversion)  |        ✓           |     ✓    |
-| * Vägen intervallet (förhandsversion)                  |        ✓           |     ✓    |
-| * IP 2 plats (förhandsversion)                |        ✓           |     ✓    |
-| * Polygoner från sökning (förhandsversion)         |        ✓           |     ✓    |
-| * Batch geokodning (förhandsversion)              |        ✓           |     ✓    |
-| * Batch-routning (förhandsversion)                |        ✓           |     ✓    |
-| * Matris routning (förhandsversion)               |        ✓           |     ✓    |
+| Bilder plus hybridbilder    |            |     ✓    |
+| Väg intervall                    |                   |     ✓    |
+| IP-2-plats (förhandsversion)                |        ✓           |     ✓    |
+| Polygoner från sökning          |                   |     ✓    |
+| Batch-geokodning (förhandsversion)              |                   |     ✓    |
+| Batch-routning (förhandsversion)                |                   |     ✓    |
+| Matrisen routning (förhandsversion)               |                   |     ✓    |
 
-\* Åtkomst till dessa funktioner från S0 prisnivån upphör att gälla efter 4 februari 2019.
 
 Dessa ytterligare datapunkter är värda att överväga:
 * Vilken typ av enterprise har du?

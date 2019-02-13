@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 60c4b22fb34a66a0ff68db26030be0e0ea3c0066
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470256"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113778"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Systemkrav för Azure Data Box Edge (förhandsversion)
 
@@ -47,13 +47,15 @@ Systemkraven för Data Box Edge är:
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="port-configuration-for-data-box-edge"></a>Portkonfiguration för Data Box Edge
+## <a name="networking-port-requirements"></a>Port nätverkskrav
+
+### <a name="port-requirements-for-data-box-edge"></a>Krav på nätverksportar för Data Box Edge
 
 I följande tabell visas de portar som måste öppnas i brandväggen att tillåta SMB, i molnet eller hanteringstrafik. I den här tabellen *i* eller *inkommande* avser riktningen från vilka inkommande begäranden för klientåtkomst till din enhet. *Ut* eller *utgående* refererar till den riktning som din Data Box Edge-enhet skickar data externt, utöver distributionen, till exempel utgående till internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-## <a name="port-configuration-for-iot-edge"></a>Portkonfiguration för IoT Edge
+### <a name="port-requirements-for-iot-edge"></a>Krav på nätverksportar för IoT Edge
 
 Azure IoT Edge kan utgående kommunikation från en lokal Edge-enhet till Azure-molnet med IoT Hub-protokoll som stöds. Inkommande kommunikation är endast krävs för specifika scenarier där Azure IoT Hub måste push-teknik meddelanden för Azure IoT Edge-enhet (till exempel molnet till Device messaging).
 
@@ -80,25 +82,14 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 ### <a name="url-patterns-for-gateway-feature"></a>URL-mönster för gateway-funktionen
 
-|    URL-mönster                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Komponenten eller funktioner                                                                           |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure Data Box Edge service<br>Azure Service Bus<br>Autentiseringstjänsten                           |
-|    http://\*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                                |    Enhetsaktivering                                                                                    |
-|    http://crl.microsoft.com/pki/\*<br>http://www.microsoft.com/pki/\*                                                                                                                                                                                                                                                                                                                                                                                                  |    Återkallade certifikat                                                                               |
-|    https://\*.core.windows.net/\*<br>https://\*.data.microsoft.com<br>http://\*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                            |    Azure storage-konton och övervakning                                                                |
-|    http://windowsupdate.microsoft.com<br>http://\*.windowsupdate.microsoft.com<br>https://\*.windowsupdate.microsoft.com<br>http://\*.update.microsoft.com<br>https://\*.update.microsoft.com<br>http://\*.windowsupdate.com<br>http://download.microsoft.com<br>http://\*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://\*.ws.microsoft.com<br>https://\*.ws.microsoft.com<br>http://\*.mp.microsoft.com |    Microsoft Update-servrar                                                                             |
-|    http://\*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                                          |    Akamai CDN                                                                                           |
-|    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Supportpaket                                                                                      |
-|    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Telemetritjänsten i Windows, finns i uppdateringen för customer experience och diagnostiktelemetri      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ### <a name="url-patterns-for-compute-feature"></a>URL-mönster för compute-funktion
 
 | URL-mönster                      | Komponenten eller funktioner                     |   |
 |----------------------------------|---------------------------------------------|---|
 | `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft behållarregister (krävs)               |   |
-| https://\*.azurecr.io                     | Personliga och 3 part behållarregister (valfritt) |   |
+| https://\*.azurecr.io                     | Personliga och tredje parts behållarregister (valfritt) |   |
 | https://\*.azure-devices.net              | IoT Hub-åtkomst (krävs)                             |   |
 
 ## <a name="internet-bandwidth"></a>Internetbandbredd
@@ -107,4 +98,4 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 ## <a name="next-step"></a>Nästa steg
 
-* [Distribuera din Azure Data Box-Edge](data-box-Edge-deploy-prep.md)
+- [Distribuera din Azure Data Box-Edge](data-box-Edge-deploy-prep.md)

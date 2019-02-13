@@ -3,7 +3,7 @@ title: Övervakningsalternativ – Azure dedikerad HSM | Microsoft Docs
 description: Översikt över Azure dedikerad HSM alternativ för övervakning och övervakning ansvarsområden
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: b577c2c68512c6e7e36f80b75245d9db4f839d9e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 76a50c483b9246e3e2f9df97d5287f3e2fbd9897
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085697"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104626"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>Azure dedikerad HSM-övervakning
 

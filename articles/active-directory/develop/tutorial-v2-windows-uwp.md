@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4f7d4e586dcb90153fb4d037c9c9821cd3ea3182
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097069"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176721"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph API från en Universal Windows Platform-program (XAML)
 
@@ -360,7 +361,7 @@ Du också se grundläggande information om den token som anskaffats `AcquireToke
 |**Namn** |Användarens fullständiga namn|Användaren förnamn och efternamn.|
 |**Användarnamn** |<span>user@domain.com</span> |Användarnamnet som identifierar användaren.|
 |**Token upphör att gälla** |DateTime |Den tid när token upphör att gälla. MSAL förlänger utgångsdatumet genom att förnya token efter behov.|
-|**Åtkomsttoken** |Sträng |Token strängen som skickas till HTTP-begäranden som kräver en *auktoriseringsrubrik*.|
+|**Åtkomsttoken** |String |Token strängen som skickas till HTTP-begäranden som kräver en *auktoriseringsrubrik*.|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>Se vad ingår i åtkomsttoken (valfritt)
 Du kan också kopiera värdet i **åtkomsttoken** och klistra in den i https://jwt.ms att avkoda den och se en lista över anspråk.

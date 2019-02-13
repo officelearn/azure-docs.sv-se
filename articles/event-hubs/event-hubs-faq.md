@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bcbb249c6cb3c886b94f8ad68dd668cb8858ac77
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354609"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162653"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
 
@@ -183,7 +183,7 @@ En lista över alla Event Hubs-kvoter finns i [kvoter](event-hubs-quotas.md).
 ## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Varför kan jag inte att skapa ett namnområde efter tas bort från en annan prenumeration? 
-När du tar bort ett namnområde från en prenumeration kan du vänta i 4 timmar innan du återskapa den med samma namn i en annan prenumeration. 
+När du tar bort ett namnområde från en prenumeration kan du vänta i 4 timmar innan du återskapa den med samma namn i en annan prenumeration. I annat fall kan du få följande felmeddelande visas: `Namespace already exists`. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Vilka är några av undantagen som genereras av Event Hubs och föreslagna åtgärder?
 

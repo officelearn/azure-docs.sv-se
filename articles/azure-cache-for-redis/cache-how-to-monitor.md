@@ -3,7 +3,7 @@ title: Så här övervakar du Azure Cache för Redis | Microsoft Docs
 description: Lär dig att övervaka hälsotillstånd och prestanda din Azure-Cache för Redis-instanser
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: wesmc
-ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 3884d45eadb6ea373a511442c024d1d368f0b80a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105125"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115172"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Så här övervakar du Azure Cache för Redis
 Azure Cache för Redis använder [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) tillhandahåller flera alternativ för övervakning av cache-instanser. Du kan visa mått, fästa måttdiagram på startsidan, anpassa intervallet datum och tid för övervakning av diagram, lägga till och ta bort mått från diagrammen och ställa in aviseringar när vissa villkor är uppfyllda. Dessa verktyg kan du övervaka hälsotillståndet för din Azure-Cache för Redis-instanser och hjälper dig att hantera dina cachelagring program.
@@ -67,7 +67,7 @@ Konfigurera ett lagringskonto för cache-mått:
 
 1. Klicka på **diagnostik** från den **resursmenyn** i den **Azure Cache för Redis** bladet.
 2. Klicka på **på**.
-3. Kontrollera **arkivet till ett lagringskonto**.
+3. Markera **Arkivera till ett lagringskonto**.
 4. Välj lagringskonto som ska lagra cache-mått.
 5. Kontrollera den **1 minut** kryssrutan och ange en **Kvarhållning (dagar)** princip. Om du inte vill tillämpa någon bevarandeprincip och behålla data permanent genom att ange **Kvarhållning (dagar)** till **0**.
 6. Klicka på **Spara**.

@@ -4,7 +4,7 @@ description: Lär dig hur Azure Security Center använder Log Analytics-sökning
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 19aed3d3da1250e6ad47bf9266f2e57aa255156a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c02a9f61a4a8b88f8b6c4d861f1a6cbe904ad70d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963787"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110548"
 ---
 # <a name="azure-security-center-search"></a>Sök i Azure Security Center
 Azure Security Center använder [Log Analytics Sök](../log-analytics/log-analytics-log-searches.md) att hämta och analysera dina säkerhetsdata. Log Analytics tillhandahåller en frågesyntax för att snabbt hämta och konsolidera data. Du kan använda Log Analytics-sökningen för att skapa frågor och analysera insamlade data från Security Center.
@@ -59,7 +59,7 @@ I den här artikeln lärde du dig att komma åt Sök i Security Center. Security
 - [Hitta data med loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md) – självstudie om hur du använder loggsökning
 - [Log Analytics Sök referens](../log-analytics/log-analytics-search-reference.md) – beskriver frågespråket i Log Analytics
 
-Mer information om Security Center finns:
+I följande avsnitt kan du lära dig mer om Security Center:
 
 - [Översikt över Security Center](security-center-intro.md) – beskriver Security Center viktiga funktioner
 

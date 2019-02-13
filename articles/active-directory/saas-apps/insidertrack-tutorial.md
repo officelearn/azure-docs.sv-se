@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: e23949ac4957325c3949312dad61071a1f527789
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 28ea99f7e672339e45730e80294455931573d62a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191116"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Självstudier: Azure Active Directory-integrering med Insider-spår
 
@@ -113,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<companyname>/InsiderTrack.Portal.<companyname>/Sso/`
 
     > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Insider spåra klienten supportteamet](https://cytecsolutions.com/contact/) att hämta det här värdet.
+    > Inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Insider spåra klienten supportteamet](https://cytecsolutions.com/contact/) att hämta det här värdet.
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 

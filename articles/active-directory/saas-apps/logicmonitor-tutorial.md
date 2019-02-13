@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: e8cf814399661c62d38b0d95a0074a2d36c9b4b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f3b6476fcedf849fb3305517ecfdcf29d07f545c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187648"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181549"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Självstudier: Azure Active Directory-integrering med LogicMonitor
 
@@ -131,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Logga in på din **LogicMonitor** företagets plats som administratör.
 
-1. Klicka på menyn längst upp **inställningar**.
+1. På menyn längst upp klickar du på **Inställningar**.
    
     ![Inställningar](./media/logicmonitor-tutorial/ic790052.png "Inställningar")
 

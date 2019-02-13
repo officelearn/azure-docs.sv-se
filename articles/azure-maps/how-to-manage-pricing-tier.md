@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f08f4cc74c37ccbbcab071b82f67f912e9fd9fd1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b87fa166f82e4302b5430064d41c293731c60470
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065332"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107709"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Hantera prisnivån för ditt Azure Maps-konto
 
@@ -34,7 +34,7 @@ När du har skapat ditt Azure Maps-konto kan du uppgradera eller nedgradera pris
 ![Ändra en prisnivå](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 
 > [!NOTE]
-> Du behöver att generera nya prenumerationsnycklar om du uppgraderar eller nedgraderar prisnivån för ditt Azure Maps-konto.
+> Du behöver att generera nya prenumerationsnycklar eller klient-ID (för Azure AD-autentisering) om du uppgraderar eller nedgraderar prisnivån för ditt Azure Maps-konto.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,18 +4,18 @@ title: Konfigurera Azure Key Vault-brandväggar och virtuella nätverk – Azure
 description: Stegvisa instruktioner för att konfigurera Key Vault-brandväggar och virtuella nätverk
 services: key-vault
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: caf649c51346f63aa05d8f2d460e2870493b1587
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4b3225dd25fee2859a36f98add51fcf612a45c83
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991624"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108899"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Azure Key Vault-brandväggar och virtuella nätverk
 

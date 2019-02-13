@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: cc72fb39bf62915be10493a780538121f26ca835
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002279"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213216"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(INAKTUELL) Skydda Docker-behållare i Azure Container Service
 
@@ -58,11 +58,11 @@ Varje orkestrering som är tillgänglig i Azure Container Service har sina egna 
 
 Ytterligare orkestreringsspecifik säkerhetsinformation finns i följande resurser:
 
-* **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/) (Säkerhetsrekommendationer för Kubernetes-distributioner)
+* **Kubernetes**: [Rekommenderade säkerhetsmetoder för Kubernetes-distribution](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
-* **DC/OS**: [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/) (Skydda ditt kluster)
+* **DC/OS**: [Skydda ditt kluster](http://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster)
 
-* **Docker Swarm**: [Docker Security](https://www.docker.com/docker-security) (Säkerhet i Docker)
+* **Docker Swarm**: [Docker-säkerhet](https://www.docker.com/docker-security)
 
 ## <a name="next-steps"></a>Nästa steg
 

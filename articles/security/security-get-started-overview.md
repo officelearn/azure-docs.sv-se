@@ -1,10 +1,10 @@
 ---
-title: Översikt över säkerheten i Azure | Microsoft Docs
-description: Säkerhetsinformation för Microsoft Azure-webbplats på Azure.com är en teknisk svar på dina Azure säkerhetsfrågor.
+title: Översikt över Azure-säkerhet | Microsoft Docs
+description: Säkerhetsinformation för Microsoft Azure-plats på Azure.com är din plats för teknisk svar på dina frågor i Azure-säkerhet.
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2fd82e9f-7072-4548-a888-82bd7e9c729c
 ms.service: security
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1b89679d88e3e4ce9912da81faebfccfcf23096f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752188"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110293"
 ---
 # <a name="azure-security-overview"></a>Översikt över Azure-säkerhet
 
-Säkerhetsinformation för Microsoft Azure-webbplats på Azure.com är en teknisk svar på dina Azure säkerhetsfrågor. Om du är intresserad av Azure efterlevnad och hur Azure skyddar sin egen infrastruktur, finns det [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+Säkerhetsinformation för Microsoft Azure-plats på Azure.com är din plats för teknisk svar på dina frågor i Azure-säkerhet. Om du är intresserad av efterlevnad i Azure och hur Azure skyddar sin egen infrastruktur kan du gå till den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
-Vi vet att säkerhet är ett jobb i molnet och det är viktigt att du hitta korrekt och rimlig information om säkerheten i Azure. Ett av de bästa skälen att använda Azure för dina program och tjänster är att dra nytta av en mängd säkerhetsverktyg och funktioner som är tillgängliga. Dessa verktyg och funktioner för att göra det möjligt att skapa säkra lösningar för säkra Azure-plattformen.
+Vi vet att säkerhet är ett jobb i molnet och hur viktigt det är att du hitta korrekt och snabb information om Azure-säkerhet. En av de bästa skälen att använda Azure för dina program och tjänster är att dra nytta av en mängd olika säkerhetsverktyg och funktioner som är tillgängliga. Dessa verktyg och funktioner för att göra det möjligt att skapa säkra lösningar för säkra Azure-plattformen.
 
-Den här sidan och den här platsen kommer att utvecklas som nya Azure-tjänster är online och att befintliga tjänster uppdateras. Förbättra ständigt våra erbjudanden för säkerhet och vi delar de tekniska detaljerna för dessa förbättringar här. Vi rekommenderar att du gå tillbaka till den här platsen regelbundet och nyheter!
+Den här sidan och den här platsen kommer att utvecklas när nya Azure-tjänster är online och befintliga tjänster uppdateras. Hela tiden förbättra våra produkter för säkerhet och vi kommer att dela de tekniska detaljerna för dessa förbättringar här. Vi rekommenderar att du återgår till den här platsen regelbundet och se vad som är nytt!
 
-## <a name="using-the-azure-security-information-site"></a>Använda Azure Security Information webbplatsen
+## <a name="using-the-azure-security-information-site"></a>Med hjälp av Azure-säkerhet Information plats
 
-När du tittar på vänster sida av sidan finns en uppsättning kategorier av säkerhetsfrågor. Klicka eller tryck på avsnittet om du vill se artiklar som vi har för den kategorin.
+När du tittar på vänster sida på sidan visas en uppsättning kategorier av säkerhetsfrågor. Klicka eller tryck i avsnittet om du vill se i artiklar som vi har för den kategorin.
 
-Varje kategori innehåller en översikt översiktsartikel. Målet med översikt översiktsartikeln är att ge dig en översikt över Azure har att erbjuda vad gäller säkerhet för den kategorin. Översikt över artiklarna hjälper dig att förstå produkter, tjänster och funktioner som är tillgängliga i Azure som du kan använda för att förbättra säkerheten för dina distributioner. Dessa artiklar översikt innehåller flera länkar till tekniska innehållet så att du kan lära dig mer om avsnitten och hur de används.
+Varje kategori har en översikt översiktsartikel. Målet med översikt översiktsartikeln är att ge dig en sammanfattning av vad Azure har att erbjuda när det gäller säkerhet för den kategorin. Översikt översiktsartiklar hjälper dig att förstå de produkter, tjänster och funktioner som är tillgängliga i Azure som du kan använda för att förbättra säkerheten hos dina distributioner. Dessa översiktsartiklar innehåller ett antal länkar till tekniska innehållet så att du kan lära dig mer om avsnitten och hur du implementerar dem.
 
 Säkerhetsinformation för Azure-plats-adresser för närvarande följande kategorier:
 
@@ -45,12 +45,12 @@ Säkerhetsinformation för Azure-plats-adresser för närvarande följande kateg
 * Säkerhetshantering och övervakning
 * Identitetshantering
 * PaaS-tjänster
-* Branschen specifika
+* Specifika bransch
 * Arkitektur
 
 > [!NOTE]
-> Alla artiklar som vi har säkerhetsinformation för Azure-webbplatsen visas i navigeringsfältet till vänster på sidan. Om du vill se alla artiklar klicka eller tryck på **finns mer** längst ned i kategorilistan.
+> Alla artiklar som vi har på webbplatsen Azure säkerhetsinformation visas i navigeringsfönstret till vänster på sidan. Om du vill se alla artiklar, klicka eller tryck på **se mer** längst ned i kategorilistan över.
 >
 >
 
-Vi vill indata! Om det finns kategorier du vill lägga till, för oss berätta! Om det finns artiklar som ska läggas till en befintlig kategori, låt oss veta att för! Du kan använda kommentarer nedan eller skriva till oss på [ azsecinfosite@microsoft.com ](mailto:azsecinfosite@microsoft.com) och vi kommer införliva rekommendationerna i våra planer.
+Vi vill ha kommentarer från dig! Om det finns kategorier du vill lägga till, för oss berätta! Om det finns artiklar som ska läggas till en befintlig kategori, berätta för oss som för! Du kan använda avsnittet Kommentarer nedan eller skriva till oss på [ azsecinfosite@microsoft.com ](mailto:azsecinfosite@microsoft.com) och vi kommer att finnas rekommendationer i våra planer.

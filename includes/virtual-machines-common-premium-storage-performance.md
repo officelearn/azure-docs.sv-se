@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55757509"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213213"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Design för hög prestanda
 
@@ -63,7 +63,7 @@ Det är därför viktigt att fastställa optimal dataflöde och IOPS-värden som
 
 ## <a name="latency"></a>Svarstid
 
-Svarstiden är den tid det tar ett program för att ta emot en begäran, skicka den till storage-diskar och skicka svar till klienten. Det här är ett viktigt mått på ett programs prestanda förutom IOPS och dataflöden. Svarstiden för en premium-lagringsdisk är den tid det tar att hämta information för en begäran och kommunicera tillbaka till programmet. Premium Storage erbjuder genomgående korta svarstider. Om du aktiverar cachelagring på premium-lagringsdiskar ReadOnly-värden, får du mycket kortare svarstider för läsning. Vi diskuterar diskcachelagring i detalj i senare avsnitt på *optimera programprestanda*.
+Svarstiden är den tid det tar ett program för att ta emot en begäran, skicka den till storage-diskar och skicka svar till klienten. Det här är ett viktigt mått på ett programs prestanda förutom IOPS och dataflöden. Svarstiden för en premium-lagringsdisk är den tid det tar att hämta information för en begäran och kommunicera tillbaka till programmet. Premium Storage erbjuder genomgående korta svarstider. Premium-diskar är utformad att ge ensiffrig svarstid för de flesta i/o-åtgärder. Om du aktiverar cachelagring på premium-lagringsdiskar ReadOnly-värden, får du mycket kortare svarstider för läsning. Vi diskuterar diskcachelagring i detalj i senare avsnitt på *optimera programprestanda*.
 
 När du optimerar ditt program kan få högre IOPS och dataflöde, påverkar svarstiden för programmet. Utvärdera alltid svarstiden för programmet för att undvika oväntade fördröjningar beteende efter justering om programmets prestanda.
 
@@ -304,7 +304,7 @@ När en hög skalbarhet som virtuell dator är ansluten med flera premium storag
 
 På Windows, kan du använda lagringsutrymmen till stripe diskar tillsammans. Du måste konfigurera en kolumn för varje disk i en pool. I annat fall kan prestandan stripe-volym vara lägre än förväntat pga en ojämn fördelning av trafik för diskarna.
 
-Viktigt: Använda Server Manager UI kan ange du det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter mer än 8 diskar, kan du använda PowerShell för att skapa volymen. Med hjälp av PowerShell, kan du ange antalet kolumner lika med antalet diskar. Exempel: om det finns 16 diskar i en enda stripe-uppsättning; Ange 16 kolumner i den *NumberOfColumns* -parametern för den *New-VirtualDisk* PowerShell-cmdlet.
+Viktigt! Använda Server Manager UI kan ange du det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter mer än 8 diskar, kan du använda PowerShell för att skapa volymen. Med hjälp av PowerShell, kan du ange antalet kolumner lika med antalet diskar. Exempel: om det finns 16 diskar i en enda stripe-uppsättning; Ange 16 kolumner i den *NumberOfColumns* -parametern för den *New-VirtualDisk* PowerShell-cmdlet.
 
 På Linux, använder du verktyget MDADM till stripe diskar tillsammans. Detaljerade anvisningar på striping diskar på Linux finns [konfigurera programvaru-RAID på Linux](../articles/virtual-machines/linux/configure-raid.md).
 

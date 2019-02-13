@@ -4,17 +4,17 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: mikeray
-ms.openlocfilehash: f9a45da2703518000aa464da067c5cf71a198fd4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3dc799ecc75589279c8d1c73062a8f2157761330
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984978"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213214"
 ---
 ## <a name="start-your-powershell-session"></a>Starta din PowerShell-session
  
 
-Kör den [ **Connect-Az Account** ](https://docs.microsoft.com/powershell/module/az.accounts/connect-azmaccount) cmdlet och du kommer att visas en skärm att ange dina autentiseringsuppgifter. Använd samma autentiseringsuppgifter som du använder för att logga in på Azure Portal.
+Kör den [ **Connect-Az Account** ](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet och du kommer att visas en skärm att ange dina autentiseringsuppgifter. Använd samma autentiseringsuppgifter som du använder för att logga in på Azure Portal.
 
 ```powershell
 Connect-AzAccount

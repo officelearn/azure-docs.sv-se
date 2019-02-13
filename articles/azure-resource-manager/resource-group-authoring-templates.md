@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: cdc48cf278fdd68bacf74c2d6d762c8d731949e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745597"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111579"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 
@@ -217,7 +217,7 @@ Du kan skapa egna funktioner i din mall. Dessa funktioner är tillgängliga för
 När du definierar en user-funktionen, finns det vissa begränsningar:
 
 * Funktionen kan inte komma åt variabler.
-* Funktionen har inte åtkomst till mallparametrarna. Det vill säga den [parametrar funktionen](resource-group-template-functions-deployment.md#parameters) är begränsad till funktionsparametrar.
+* Funktionen kan bara använda parametrar som definieras i funktionen. När du använder den [parametrar funktionen](resource-group-template-functions-deployment.md#parameters) i en användardefinierad funktion är du begränsad till parametrarna för funktionen.
 * Funktionen kan inte anropa andra användardefinierade funktioner.
 * Funktionen kan inte använda den [refererar till funktionen](resource-group-template-functions-resource.md#reference).
 * Funktionens parametrar kan inte ha standardvärden.
@@ -298,9 +298,23 @@ I Outputs-avsnittet anger du värden som returneras från distributionen. Du kan
 
 Mer information finns i [matar ut Azure Resource Manager-mallar](resource-manager-templates-outputs.md).
 
-## <a name="comments"></a>Kommentarer
+<a id="comments" />
 
-Du har några alternativ för att lägga till kommentarer i mallen.
+## <a name="comments-and-metadata"></a>Kommentarer och metadata
+
+Du har några alternativ för att lägga till kommentarer och metadata i mallen.
+
+Du kan lägga till en `metadata` nästan var som helst i din mall. Resource Manager ignorerar objektet, men JSON-redigerare kan varna dig att egenskapen är inte giltig. Definiera egenskaper som du behöver i objektet.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 För **parametrar**, lägga till en `metadata` objekt med en `description` egenskapen.
 
@@ -342,18 +356,6 @@ För **resurser**, lägga till en `comments` element eller ett metadataobjekt. I
     "properties": {}
   }
 ]
-```
-
-Du kan lägga till en `metadata` nästan var som helst i din mall. Resource Manager ignorerar objektet, men JSON-redigerare kan varna dig att egenskapen är inte giltig. Definiera egenskaper som du behöver i objektet.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 För **matar ut**, lägga till ett metadataobjekt i värdet.

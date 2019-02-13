@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 19be60a7a2767b8ea2185e1336b3155143260fb6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 534a373024556db86d0553b68ce3f847ff085486
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180772"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Självstudier: Azure Active Directory-integrering med Optimizely
 
@@ -219,7 +220,7 @@ I det här avsnittet skapar du en användare som kallas Britta Simon i Optimizel
    
     ![Skapa en Azure AD-användare för testning](./media/optimizely-tutorial/create_aaduser_10.png)
 
-3. Fyll i e-postadressen och tilldela dem en roll. Klicka på **bjuda in**.
+3. Fyll i e-postadressen och tilldela dem en roll. Klicka på **Bjud in**.
 
     ![Skapa en Azure AD-användare för testning](./media/optimizely-tutorial/create_aaduser_11.png)
 

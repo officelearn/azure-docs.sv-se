@@ -4,7 +4,7 @@ description: Lär dig hur du använder identitets- och åtkomstfunktionerna i Az
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012079"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105560"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (förhandsversion)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
@@ -47,7 +47,7 @@ Se [rekommendationer](security-center-identity-access.md#recommendations) för e
 ## <a name="monitoring-security-health"></a>Övervakning av säkerhetshälsa
 Du kan övervaka dina resursers säkerhetstillstånd på den **Security Center – översikt** instrumentpanelen. Den **resurser** avsnittet är en indikator för hälsotillstånd som visar allvarlighetsgrader för varje resurstyp.
 
-Du kan visa en lista över alla problem genom att välja **rekommendationer**. Under **resurser**, du kan visa en lista över problem som är specifika för beräkning och appar, datasäkerhet, nätverk, eller identitet och åtkomst. Mer information om hur du utför rekommendationerna finns i [utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
+Du kan visa en lista över alla problem genom att välja **rekommendationer**. Under **resurser**, du kan visa en lista över problem som är specifika för beräkning och appar, datasäkerhet, nätverk, eller identitet och åtkomst. Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
 
 En fullständig lista över rekommendationer för identitets- och se [rekommendationer](security-center-identity-access.md#recommendations).
 
@@ -118,7 +118,7 @@ Använd tabellen nedan som referens för att förstå de tillgängliga rekommend
 |Prenumeration|20|Ta bort inaktuella konton med ägarbehörigheter från prenumerationen|Ta bort inaktuella konton med ägarbehörigheter från dina prenumerationer.|
 |Prenumeration|5|Ta bort inaktuella konton från prenumerationen|Ta bort inaktuella konton från dina prenumerationer för att aktivera åtkomst till endast användare. |
 |Prenumeration|5|Ange mer än en ägare av din prenumeration|Ange mer än en prenumerationsägare för att du har administratörsåtkomst.|
-|Prenumeration|5|Ange upp till 3 ägare av din prenumeration|Ange färre än 3 prenumerationsägare för att minska risken för intrång genom en komprometterad ägare.|
+|Prenumeration|5|Tilldela upp till 3 ägare för din prenumeration|Ange färre än 3 prenumerationsägare för att minska risken för intrång genom en komprometterad ägare.|
 |Nyckelvalv|5|Aktivera diagnostikloggar i Key Vault|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Prenumeration|15|Ta bort externa konton med läsbehörigheter från prenumerationen|Ta bort externa konton med läsprivilegier från din prenumeration för att förhindra oövervakad åtkomst.|
 |Prenumeration|1|Ange säkerhetskontaktinformation|Ange kontaktinformation för säkerhet för var och en av dina prenumerationer. Kontaktinformation är ett e-postadress och telefonnummer tal. Informationen används för att kontakta dig om vårt säkerhetsteam skulle upptäcka att dina resurser äventyras|

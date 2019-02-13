@@ -4,7 +4,7 @@ description: " Den här artikeln hjälper dig att förstå arkitekturen för pro
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 4f2d9386-bda3-4ec8-8b1a-cd0c11242ffc
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 78746324c240e0a1bfab81ca1e45f231909328c0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661198"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108084"
 ---
 # <a name="application-architecture-on-azure"></a>Programarkitektur på Azure
 Om du vill att skydda din molnbaserade lösningar på Microsoft Azure, utgör arkitektoniska grundläggande är viktigt. Arkitekter, designers och implementerare dra nytta av stora kunskaper om arkitektur för program och tjänster. Den här grundläggande kunskapen hjälper dig att förstå alla komponenter i dina molnbaserade lösningar och gör det lättare att integrera säkerhet i alla aspekter av din design och implementering.

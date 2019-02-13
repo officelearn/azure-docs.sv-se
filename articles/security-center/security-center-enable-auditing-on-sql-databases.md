@@ -4,7 +4,7 @@ description: Det här dokumentet visar hur du implementerar Azure Security Cente
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 224b6755-2b36-4ecd-9af8-139a198e0df1
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3de11b88f0bbf10cc0f1716cc0cefd128797cd5f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1108265101f37433860d0112e4e80aee0002ab5c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341583"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111585"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>Aktivera granskning och hotidentifiering på SQL-databaser i Azure Security Center
 Azure Security Center rekommenderar att du aktiverar granskning och hotidentifiering för alla SQL-databaser om granskning och hotidentifiering inte redan är aktiverad. Granskning och identifiering kan hjälpa dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.

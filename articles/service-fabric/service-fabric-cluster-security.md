@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240604"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109325"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Säkerhetsscenarier för Service Fabric-kluster
 Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktionsarbetsbelastningar i klustret. Även om det är möjligt att skapa ett oskyddat kluster om klustret exponerar hanteringsslutpunkter till det offentliga internet, kan anonyma användare ansluta till den. Oskyddade kluster stöds inte för produktionsarbetsbelastningar. 
@@ -78,14 +78,14 @@ För Azure-kluster för nod-till-nod-säkerhet rekommenderar vi att du använder
 Om du har Windows Server 2012 R2 och Windows Active Directory, fristående Windows Server-kluster kan rekommenderar vi att du använder Windows-säkerhet med grupphanterade tjänstkonton. Annars kan du använda Windows-säkerhet med Windows-konton.
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan använda åtkomstkontroll för att begränsa åtkomsten till vissa klusteråtgärder för olika grupper av användare. Detta hjälper att skydda klustret. Två typer av åtkomstkontroll stöds för klienter som ansluter till ett kluster: administratörsrollen och användarrollen.
+Du kan använda åtkomstkontroll för att begränsa åtkomsten till vissa klusteråtgärder för olika grupper av användare. Detta hjälper att skydda klustret. Två typer av access control har stöd för klienter som ansluter till ett kluster: Administratörsrollen och användarrollen.
 
 Användare som har tilldelats rollen administratör har fullständig åtkomst till funktioner för hantering, inklusive läsa och skriva funktioner. Användare som har tilldelats rollen, som standard har bara läsbehörighet till funktioner för hantering (till exempel frågefunktioner). De kan också lösa program och tjänster.
 
 Ange administratörs- och klienten roller när du skapar klustret. Tilldela roller genom att tillhandahålla separata identiteter (till exempel genom att använda certifikat eller Azure AD) för varje rolltyp. Mer information om standardinställningar för åtkomstkontroll och hur du ändrar standardinställningarna finns i [rollbaserad åtkomstkontroll för Service Fabric-klienter](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509-certifikat och Service Fabric
-Digitala X.509-certifikat används ofta att autentisera klienter och servrar. De används också för att kryptera och digitalt signera meddelanden. Service Fabric använder X.509-certifikat för att skydda ett kluster och säkerhetsfunktioner för programmet. Läs mer om X.509 digitala certifikat, [arbeta med certifikat](https://msdn.microsoft.com/library/ms731899.aspx). Du använder [Key Vault](../key-vault/key-vault-get-started.md) att hantera certifikat för Service Fabric-kluster i Azure.
+Digitala X.509-certifikat används ofta att autentisera klienter och servrar. De används också för att kryptera och digitalt signera meddelanden. Service Fabric använder X.509-certifikat för att skydda ett kluster och säkerhetsfunktioner för programmet. Läs mer om X.509 digitala certifikat, [arbeta med certifikat](https://msdn.microsoft.com/library/ms731899.aspx). Du använder [Key Vault](../key-vault/key-vault-overview.md) att hantera certifikat för Service Fabric-kluster i Azure.
 
 Några viktiga saker att tänka på:
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 2e986e26f22e41e1cbf7b8d1c1af694522a01d06
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821583"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169980"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -253,11 +253,11 @@ Tvingad tunneltrafik är en användardefinierad konfiguration där all trafik fr
 >
 > Om du inte använder nätverkssäkerhetsgrupper eller användardefinierade vägar Kontrollera trafik, kan du ignorera det här avsnittet.
 
-Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, måste du tillåta trafik från azuretjänsterna för hälso- och nå HDInsight. Du måste även tillåta trafik mellan virtuella datorer i undernätet. Använd följande steg för att hitta IP-adresser som måste tillåtas:
+Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azuretjänsterna för hälso- och nå HDInsight-kluster på port 443. Du måste även tillåta trafik mellan virtuella datorer i undernätet. Använd följande steg för att hitta IP-adresser som måste tillåtas:
 
 1. Du måste alltid tillåta trafik från följande IP-adresser:
 
-    | IP-adress | Tillåtna port | Riktning |
+    | Källans IP-adress | Målport | Riktning |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | Inkommande |
     | 23.99.5.239 | 443 | Inkommande |
@@ -269,7 +269,7 @@ Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, m�
     > [!IMPORTANT]  
     > Om du använder den Azure-region inte visas kan sedan bara använda fyra IP-adresser från steg 1.
 
-    | Land/region | Region | Tillåtna IP-adresser | Tillåtna port | Riktning |
+    | Land/region | Region | Tillåtna käll-IP-adresser | Tillåtna målport | Riktning |
     | ---- | ---- | ---- | ---- | ----- |
     | Asien | Östasien | 23.102.235.122</br>52.175.38.134 | 443 | Inkommande |
     | &nbsp; | Sydostasien | 13.76.245.160</br>13.76.136.249 | 443 | Inkommande |
@@ -306,15 +306,13 @@ Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, m�
 
 Mer information finns i den [styra nätverkstrafiken](#networktraffic) avsnittet.
 
+Tillåta trafik från vilken källa som helst i det virtuella nätverket att nå ovan adresser som ”Desitnation IP-adresser” för utgående NSG-regler.
+
+Om du använder användardefinierade routes(UDRs), bör du ange en väg och tillåta utgående trafik från det virtuella nätverket till IP-adresserna som ovan med nästa hopp inställd på ”Internet”.
+    
 ## <a id="hdinsight-ports"></a> Portar som krävs
 
-Om du tänker använda en **brandväggen** för att skydda det virtuella nätverket och få åtkomst till klustret på vissa portar, bör du tillåta trafik på portar som krävs för ditt scenario. Som standard behöver du inte godkänna dessa portar:
-
-* 53
-* 443
-* 1433
-* 11000-11999
-* 14000-14999
+Om du tänker använda en **brandväggen** och få åtkomst till klustret från utanför på vissa portar måste du kanske att tillåta trafik på dessa portar som krävs för ditt scenario. Som standard krävs ingen särskild lista över tillåtna portar så länge azure management-trafiken som beskrivs i föregående avsnitt tillåts att nå klustret på port 443.
 
 En lista över portar för specifika tjänster finns i den [portar som används av Apache Hadoop-tjänster på HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentet.
 

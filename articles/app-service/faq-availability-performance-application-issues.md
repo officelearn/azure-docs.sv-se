@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721571"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108746"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar för programprestanda för Web Apps i Azure
 
@@ -43,7 +43,7 @@ Din app i vissa scenarier med hög minnesförbrukning kan verkligen kräva mer d
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Hur jag för att automatisera App Service-webbappar med hjälp av PowerShell?
 
-Du kan använda PowerShell-cmdletar för att hantera och underhålla App Service web apps. I vårt blogginlägg [automatisera webbappar som körs i Azure App Service med hjälp av PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), beskriver vi hur du använder Azure Resource Manager-baserade PowerShell-cmdletar för att automatisera vanliga uppgifter. Det här blogginlägget har även exempelkod för olika hanteringsuppgifter för web apps. Beskrivningar och syntax för alla App Service web apps-cmdletar finns i [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
+Du kan använda PowerShell-cmdletar för att hantera och underhålla App Service web apps. I vårt blogginlägg [automatisera webbappar som körs i Azure App Service med hjälp av PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), beskriver vi hur du använder Azure Resource Manager-baserade PowerShell-cmdletar för att automatisera vanliga uppgifter. Det här blogginlägget har även exempelkod för olika hanteringsuppgifter för web apps. Beskrivningar och syntax för alla App Service web apps-cmdletar finns i [Az.Websites](/powershell/module/az.websites).
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>Hur gör jag för att visa händelseloggar för min webbapp?
 

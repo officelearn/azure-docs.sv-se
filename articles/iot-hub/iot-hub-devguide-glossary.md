@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320098"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817395"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -82,7 +82,7 @@ Du kan använda anslutningssträngar i din kod för att kapsla in informationen 
 Du kan skapa anpassade [slutpunkter](iot-hub-devguide-endpoints.md) på en IoT-hubb för att leverera meddelanden som skickas av en [routningsregel](#routing-rules). Anpassade slutpunkter ansluta direkt till en händelsehubb, en Service Bus-kö eller ett Service Bus-ämne.
 
 ## <a name="custom-gateway"></a>Anpassade gateway
-Möjliggör en gateway-anslutning för enheter som inte kan ansluta direkt till [IoT Hub](#iot-hub). Du kan använda [Azure IoT Edge](#azure-iot-edge) kan skapa anpassade gateways som implementerar anpassad logik för att hantera meddelanden, anpassade protokoll konverteringar och annan bearbetning på gränsen.
+Möjliggör en gateway-anslutning för enheter som inte kan ansluta direkt till [IoT Hub](#iot-hub). Du kan använda Azure IoT Edge kan skapa anpassade gateways som implementerar anpassad logik för att hantera meddelanden, anpassade protokoll konverteringar och annan bearbetning på gränsen.
 
 ## <a name="data-point-message"></a>Datapunkt meddelande
 En datapunkt meddelandet är ett [enhet till moln](#device-to-cloud) meddelande som innehåller [telemetri](#telemetry) data, till exempel vindhastighet eller temperatur.
@@ -224,7 +224,7 @@ Du hanterar med hjälp av en återförsöksprincip [tillfälliga fel](/azure/arc
 Du konfigurerar [routningsregler](iot-hub-devguide-messages-read-custom.md) i IoT-hubben att routa enhet-till-moln-meddelanden till en [inbyggd slutpunkt](#built-in-endpoints) eller [anpassade slutpunkter](#custom-endpoints) för bearbetning av lösningens backend-servrar .
 
 ## <a name="sasl-plain"></a>SASL OFORMATERAD
-SASL OFORMATERAD är ett protokoll som den [AMQP](#advanced-message-queue-protocol) protokoll som används för att överföra säkerhetstoken.
+SASL OFORMATERAD är ett protokoll som AMQP-protokollet som används för att överföra säkerhetstoken.
 
 ## <a name="service-rest-api"></a>Tjänsten REST API
 Du kan använda den [Service REST API](https://docs.microsoft.com/rest/api/iothub/service) från lösningen serverdel för att hantera dina enheter. API: et kan du hämta och uppdatera [enhetstvillingen](#device-twin) egenskaper, anropa [direkta metoder](#direct-method), och schema [jobb](#job). Normalt bör du använda en av de högre nivå [service SDK: er](#azure-iot-service-sdks) som visas i IoT Hub-självstudier.
@@ -251,7 +251,7 @@ I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), Systemege
 I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), taggar är enhetsmetadata lagras och hämtas av serverdelen i lösningen i form av ett JSON-dokument. Taggar visas inte för appar på en enhet.
 
 ## <a name="telemetry"></a>Telemetri
-Enheter som samlar in telemetridata, till exempel vindhastighet eller temperatur, och använda [datapunkt meddelanden](#data-point-messages) att skicka telemetri till en IoT-hubb.
+Enheter samla in telemetridata, till exempel vindhastighet eller temperatur, och använder datapunkt meddelanden för att skicka telemetri till en IoT-hubb.
 
 ## <a name="token-service"></a>Token-tjänsten
 Du kan använda en token tjänst för att implementera en autentiseringsmekanism för dina enheter. Den använder en IoT-hubb [delad åtkomstprincip](#shared-access-policy) med **DeviceConnect** behörighet att skapa *enhet-omfattande* token. Dessa token kan en enhet ansluter till IoT hub. En enhet använder en anpassad autentiseringsmetod för att autentisera med tjänsten token. Om enheten autentiserar har, utfärdar tokentjänsten som en SAS-token för enheten du använder för att få åtkomst till din IoT-hubb.

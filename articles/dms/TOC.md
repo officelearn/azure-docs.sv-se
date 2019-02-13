@@ -11,6 +11,7 @@
 ## [Migrera SQL Server till Azure SQL DB online](tutorial-sql-server-azure-sql-online.md)
 ## [Migrera SQL Server till Azure SQL DB Managed Instance offline](tutorial-sql-server-to-managed-instance.md)
 ## [Migrera SQL Server till Azure SQL DB Managed Instance online](tutorial-sql-server-managed-instance-online.md)
+## [Migrera RDS SQL Server till Azure SQL DB eller hanterad Azure SQL DB-instans online](tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md)
 ## [Migrera MySQL till Azure DB för MySQL online](tutorial-mysql-azure-mysql-online.md)
 ## [Migrera PostgreSQL till Azure DB för PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
 ## [Migrera MongoDB till Azure Cosmos DB Mongo-API offline](tutorial-mongodb-cosmos-db.md)

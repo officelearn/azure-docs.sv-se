@@ -55,22 +55,55 @@
 ### [Sidan med granskningshistorik](./cloud-partner-portal/portal-tour/cpp-history-page.md)
 ### [Sidan med insikter](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
+
 ## Portalhantering
 ### [Kontoregistrering i Dev Center](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [Privata SKU:er](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [Riktlinjer för SEO](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [Hantera utgivarprofil](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ### [Hantera användare](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+
+
+## Verksamhetsstyrning
+### [Riktlinjer för SEO](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [GDPR-efterlevnad](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+### [Privata SKU:er](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+<!--  Under development: 
+### Pricing considerations
+#### Simplified currency pricing
+#### Information on taxes and price
+#### Export-import pricing
+-->
+
+### Hantera leads
+#### [Konfigurera kundleads](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+#### [Azure Table](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+#### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+#### [HTTPS-slutpunkt](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+#### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+#### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
+
+### Säljarinsikter
+#### [Komma igång](./cloud-partner-portal-orig/si-getting-started.md)
+#### [Nyheter](./cloud-partner-portal-orig/si-changes.md)
+#### [Webbanalys](./cloud-partner-portal-orig/web-analytics.md)
+#### [Definitioner](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
+#### [Vanliga frågor och svar om Insights](./cloud-partner-portal-orig/si-faqs.md)
+
 
 ## [Marketplace-erbjudanden](./cloud-partner-portal/cpp-marketplace-offers.md)
-
 ### [Hantera erbjudanden](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Skapa erbjudande](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
 #### [Publicera erbjudande](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Visa erbjudandestatus](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Uppdatera erbjudande](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Ta bort erbjudande](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
+
+### Test Drive
+#### [Vad är Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
+#### [Azure Resource Manager Test Drive](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
+#### [Värdbaserad Test Drive](./cloud-partner-portal-orig/hosted-test-drive.md)
+#### [Logikappen Test Drive](./cloud-partner-portal-orig/logic-app-test-drive.md)
+#### [Omvandla exempel för Test Drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
+#### [Marknadsföring och regelverk](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
 ### [Erbjudande för Azure-program](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Förutsättningar](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
@@ -82,6 +115,7 @@
 ##### [fliken Stöd](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
 #### [Skapa tekniska tillgångar](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 #### [Publicera ett erbjudande för Azure-program](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+#### [Hantera feedback från granskning](./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md)
 #### [Uppdatera befintligt erbjudande](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
 ### [Konsulttjänster](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
@@ -195,29 +229,6 @@
 #### [Publicera erbjudande för VM](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 #### [Uppdatera befintligt erbjudande](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-
-## Test Drive
-### [Vad är Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
-### [Azure Resource Manager Test Drive](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-### [Värdbaserad Test Drive](./cloud-partner-portal-orig/hosted-test-drive.md)
-### [Logikappen Test Drive](./cloud-partner-portal-orig/logic-app-test-drive.md)
-### [Omvandla exempel för Test Drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-### [Marknadsföring och regelverk](./cloud-partner-portal-orig/marketing-and-best-practices.md)
-
-## Hantera leads
-### [Konfigurera kundleads](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure Table](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS-slutpunkt](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
-## Säljarinsikter
-### [Komma igång](./cloud-partner-portal-orig/si-getting-started.md)
-### [Nyheter](./cloud-partner-portal-orig/si-changes.md)
-### [Webbanalys](./cloud-partner-portal-orig/web-analytics.md)
-### [Definitioner](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
-### [Vanliga frågor och svar om Insights](./cloud-partner-portal-orig/si-faqs.md)
 
 ## API-referens
 ### [Översikt](./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md)

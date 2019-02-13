@@ -4,227 +4,203 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 8cb31a4c-9309-469b-93ac-daf0d3c7a3e6
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/05/2017
+ms.topic: tutorial
+ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 352af25d90e674d1dbe960932e3aeb97055f875b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 3386b5be67c5f40def4aa54c4334c12f375af5dd
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184503"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Självstudier: Azure Active Directory-integrering med EthicsPoint Incident Management (EPIM)
 
-I den här självstudien får du lära dig hur du integrerar EthicsPoint Incident Management (EPIM) med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera EthicsPoint Incident Management (EPIM) med Azure Active Directory (AD Azure).
+Integreringen av EthicsPoint Incident Management (EPIM) med Azure AD medför följande fördelar:
 
-Integrera EthicsPoint Incident Management (EPIM) med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till EthicsPoint Incident Management (EPIM).
+* Du kan göra så att dina användare automatiskt loggas in på EthicsPoint Incident Management (EPIM) (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till EthicsPoint Incident Management (EPIM)
-- Du kan aktivera användarna att automatiskt få loggat in till EthicsPoint Incident Management (EPIM) (enkel inloggning) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Du behöver följande för att konfigurera Azure AD-integrering med EthicsPoint Incident Management (EPIM):
 
-Om du vill konfigurera Azure AD-integrering med EthicsPoint Incident Management (EPIM), behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En EthicsPoint Incident Management (EPIM) enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* EthicsPoint Incident Management (EPIM)-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till EthicsPoint Incident Management (EPIM) från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-ethicspoint-incident-management-epim-from-the-gallery"></a>Att lägga till EthicsPoint Incident Management (EPIM) från galleriet
-För att konfigurera integrering av EthicsPoint Incident Management (EPIM) till Azure AD, som du behöver lägga till EthicsPoint Incident Management (EPIM) från galleriet i din lista över hanterade SaaS-appar.
+* EthicsPoint Incident Management (EPIM) har stöd för **SP**-initierad enkel inloggning
+
+## <a name="adding-ethicspoint-incident-management-epim-from-the-gallery"></a>Lägga till EthicsPoint Incident Management (EPIM) från galleriet
+
+För att konfigurera integrering av EthicsPoint Incident Management (EPIM) i Azure AD behöver du lägga till EthicsPoint Incident Management (EPIM) från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till EthicsPoint Incident Management (EPIM) från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Appar][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **EthicsPoint Incident Management (EPIM)**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/ethicspoint-incident-management-tutorial/tutorial_ethicspoint_search.png)
+4. I sökrutan skriver du **EthicsPoint Incident Management (EPIM)**, väljer **EthicsPoint Incident Management (EPIM)** från resultatpanelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **EthicsPoint Incident Management (EPIM)**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![EthicsPoint Incident Management (EPIM) i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/ethicspoint-incident-management-tutorial/tutorial_ethicspoint_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med EthicsPoint Incident Management (EPIM) baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med EthicsPoint Incident Management (EPIM) baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i EthicsPoint Incident Management (EPIM) upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i EthicsPoint Incident Management (EPIM) till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i EthicsPoint Incident Management (EPIM) upprättas.
+För att kunna konfigurera och testa enkel inloggning i Azure AD med EthicsPoint Incident Management (EPIM) behöver du slutföra följande byggstenar:
 
-I EthicsPoint Incident Management (EPIM), tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för EthicsPoint Incident Management (EPIM)](#configure-ethicspoint-incident-management-epim-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa EthicsPoint Incident Management (EPIM)-testanvändare](#create-ethicspoint-incident-management-epim-test-user)** – för att ha en motsvarighet till Britta Simon i EthicsPoint Incident Management (EPIM) som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med EthicsPoint Incident Management (EPIM), måste du utföra följande byggblock:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare EthicsPoint Incident Management (EPIM)](#creating-a-ethicspoint-incident-management-epim-test-user)**  – du har en motsvarighet för Britta Simon i EthicsPoint Incident Management (EPIM) och som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med EthicsPoint Incident Management (EPIM):
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för EthicsPoint Incident Management (EPIM).
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **EthicsPoint Incident Management (EPIM)** och väljer **Enkel inloggning**.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med EthicsPoint Incident Management (EPIM):**
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. I Azure-portalen på den **EthicsPoint Incident Management (EPIM)** program integration-sidan klickar du på **enkel inloggning**.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/ethicspoint-incident-management-tutorial/tutorial_ethicspoint_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-1. På den **EthicsPoint Incident Management (EPIM)-domän och URL: er** avsnittet, utför följande steg:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/ethicspoint-incident-management-tutorial/tutorial_ethicspoint_url.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
+    ![Information om enkel inloggning med EthicsPoint Incident Management (EPIM)-domän och -URL:er](common/sp-identifier-reply.png)
+
+    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
     | |
     |--|
     | `https://<companyname>.navexglobal.com`|
     | `https://<companyname>.ethicspointvp.com`|
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.navexglobal.com/adfs/services/trust`
+    b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://<companyname>.navexglobal.com/adfs/services/trust`
 
-    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<servername>.navexglobal.com/adfs/ls/`
+    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<servername>.navexglobal.com/adfs/ls/`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL, identifierare och inloggnings-URL. Kontakta [EthicsPoint Incident Management (EPIM) klient-supportteamet](https://www.navexglobal.com/company/contact-us) att hämta dessa värden. 
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [kundsupporten för EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Konfigurera enkel inloggning](./media/ethicspoint-incident-management-tutorial/tutorial_ethicspoint_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. Klicka på knappen **Spara**.
+6. I avsnittet **Konfigurera EthicsPoint Incident Management (EPIM)** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Konfigurera enkel inloggning](./media/ethicspoint-incident-management-tutorial/tutorial_general_400.png)
-    
-1. Att konfigurera enkel inloggning på **EthicsPoint Incident Management (EPIM)** sida, som du behöver skicka de hämtade **XML-Metadata för** till [EthicsPoint Incident Management (EPIM) support-teamet ](https://www.navexglobal.com/company/contact-us).
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Inloggnings-URL
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-ethicspoint-incident-management-epim-single-sign-on"></a>Konfigurera enkel inloggning för EthicsPoint Incident Management (EPIM)
+
+För att konfigurera enkel inloggning på **EthicsPoint Incident Management (EPIM)**-sidan behöver du skicka nedladdad **federationsmetadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/ethicspoint-incident-management-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/ethicspoint-incident-management-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/ethicspoint-incident-management-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/ethicspoint-incident-management-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-ethicspoint-incident-management-epim-test-user"></a>Skapa en testanvändare EthicsPoint Incident Management (EPIM)
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i EthicsPoint Incident Management (EPIM). Kontakta [EthicsPoint Incident Management (EPIM) supportteamet](https://www.navexglobal.com/company/contact-us) att lägga till användare i EthicsPoint Incident Management (EPIM)-plattformen.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till EthicsPoint Incident Management (EPIM).
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att ge åtkomst till EthicsPoint Incident Management (EPIM).
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **EthicsPoint Incident Management (EPIM)**.
 
-![Tilldela användare][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon till EthicsPoint Incident Management (EPIM), utför du följande steg:**
+2. I programlistan väljer du **EthicsPoint Incident Management (EPIM)**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken för EthicsPoint Incident Management (EPIM) i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **EthicsPoint Incident Management (EPIM)**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Konfigurera enkel inloggning](./media/ethicspoint-incident-management-tutorial/tutorial_ethicspoint_app.png) 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Tilldela användare][202] 
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-ethicspoint-incident-management-epim-test-user"></a>Skapa testanvändare för EthicsPoint Incident Management (EPIM)
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet skapar du en användare med namnet Britta Simon i EthicsPoint Incident Management (EPIM). Kontakta  [supportteamet för EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us) och lägg till användarna på EthicsPoint Incident Management (EPIM)-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-När du klickar på panelen EthicsPoint Incident Management (EPIM) i åtkomstpanelen du bör få automatiskt loggat in på programmets EthicsPoint Incident Management (EPIM).
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på EthicsPoint Incident Management (EPIM)-panelen på åtkomstpanelen bör du automatiskt loggas in i EthicsPoint Incident Management (EPIM) som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/ethicspoint-incident-management-tutorial/tutorial_general_01.png
-[2]: ./media/ethicspoint-incident-management-tutorial/tutorial_general_02.png
-[3]: ./media/ethicspoint-incident-management-tutorial/tutorial_general_03.png
-[4]: ./media/ethicspoint-incident-management-tutorial/tutorial_general_04.png
-
-[100]: ./media/ethicspoint-incident-management-tutorial/tutorial_general_100.png
-
-[200]: ./media/ethicspoint-incident-management-tutorial/tutorial_general_200.png
-[201]: ./media/ethicspoint-incident-management-tutorial/tutorial_general_201.png
-[202]: ./media/ethicspoint-incident-management-tutorial/tutorial_general_202.png
-[203]: ./media/ethicspoint-incident-management-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

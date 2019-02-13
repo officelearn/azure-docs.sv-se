@@ -1,5 +1,5 @@
 items:
-- name: Dokumentation om SQL DB
+- name: Dokumentation om SQL Database
   href: index.yml
 - name: SQL Database Service
   items:
@@ -67,23 +67,23 @@ items:
   expanded: true
 - name: Självstudier
   items:
-  - name: Utforma Azure SQL Database
+  - name: Utforma en databas i SQL Database
     items:
     - name: Utforma en databas med hjälp av SQL Server Management Studio
       href: sql-database-design-first-database.md
     - name: Utforma en databas med hjälp av .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Migrera till Azure SQL Database
+  - name: Migrera till SQL Database
     items:
     - name: Migrera till en enkel databas/pooldatabas med DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrera till en hanterad instans med DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Säkerhet i Azure SQL Database
+  - name: Säkerhet i SQL Database
     items:
-    - name: Säkerhet för enkel databas
+    - name: Säkerhet för enkla databaser och pooldatabaser
       href: sql-database-security-tutorial.md
-    - name: Säkerhet för hanterad instans med Azure AD-inloggningar
+    - name: Säkerhet för hanterad instans
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implementera en geo-distribuerad databas
     href: sql-database-implement-geo-distributed-database.md
@@ -104,10 +104,10 @@ items:
   - name: Inköpsmodeller
     items:
     - name: Översikt
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: vCore-baserad modell
       href: sql-database-service-tiers-vcore.md
-    - name: DTU-modell
+    - name: Tjänstnivåer för DTU
       href: sql-database-service-tiers-dtu.md
     - name: Förskottsbetalning för reserverad kapacitet
       href: sql-database-reserved-capacity.md
@@ -351,8 +351,8 @@ items:
     items:
     - name: Översikt
       href: sql-database-howto-single-database.md
-    - name: Migrera till SQL Database
-      href: sql-database-cloud-migrate.md
+    - name: Migrera till en enkel databas/pooldatabas
+      href: sql-database-single-database-migrate.md
     - name: Hantera SQL-databas efter migrering
       href: sql-database-manage-after-migration.md
     - name: Konfigurera replikering
@@ -421,7 +421,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: Fråga mellan tabeller med olika scheman
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Elastic Database-jobb
+    - name: Elastiska jobb
       items:
       - name: Skapa och hantera (PowerShell)
         href: elastic-jobs-powershell.md
@@ -459,7 +459,7 @@ items:
       href: sql-database-managed-instance-connect-app.md
   - name: Läs in och flytta data
     items:
-    - name: Kopiera en databas inom Azure
+    - name: Kopiera en databas i Azure
       href: sql-database-copy.md
     - name: Importera en databas från en BACPAC-fil
       href: sql-database-import.md
@@ -605,9 +605,9 @@ items:
             href: saas-tenancy-cross-tenant-reporting.md
           - name: Klientorganisationsanalys
             items:
-            - name: Med SQL DB
+            - name: Med SQL Database
               href: saas-tenancy-tenant-analytics.md
-            - name: Med SQL DW
+            - name: Med SQL Data Warehouse
               href: saas-tenancy-tenant-analytics-adf.md
         - name: Haveriberedskap med hjälp av geo-återställning
           href: saas-dbpertenant-dr-geo-restore.md
@@ -714,9 +714,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Avinstallera elastiskt jobb (inaktuellt)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9b11a1bd8cc68aabc8881636d5fcdfe5cbaec034
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: bf8a32ede6ce782bc0ff5ac58cd12ba70283289e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960555"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100048"

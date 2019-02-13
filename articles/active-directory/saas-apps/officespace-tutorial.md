@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f31579746dc315381d501eb4559a81db329b0158
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2d1c48c10d2c58e5cb2ffd7df296390bfaf765bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203767"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Självstudier: Azure Active Directory-integrering med OfficeSpace programvara
 
@@ -126,7 +127,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | Attributnamn | Attributvärde |
     | --- | --- |    
     | e-post | user.mail |
-    | namn | User.DisplayName |
+    | namn | user.displayname |
     | first_name | user.givenname |
     | last_name | user.surname |
 

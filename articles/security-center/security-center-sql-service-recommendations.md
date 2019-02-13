@@ -4,7 +4,7 @@ description: Det här dokumentet behandlar rekommendationer i Azure Security Cen
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: f6267bd2d97dabd71c007bcb8112936093124f74
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d6121a0255b809deccb3c70d56585bab76935900
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267036"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110361"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Skydda Azure SQL-tjänst och data i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs.  Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM), nätverk, SQL och data och program.
@@ -53,7 +53,7 @@ Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning
 
 |Resurstyp|Säkerhetspoäng|Rekommendation|Beskrivning|
 |----|----|----|----|
-|Lagringskonto|20|Kräv säker överföring till storage-konto|Säker överföring är ett alternativ som tvingar ditt storage-konto för att acceptera begäranden endast från säkra anslutningar (HTTPS). Använda HTTPS säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
+|Lagringskonto|20|Kräv säker överföring till lagringskonto|Säker överföring är ett alternativ som tvingar ditt storage-konto för att acceptera begäranden endast från säkra anslutningar (HTTPS). Använda HTTPS säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
 |Redis|20|Aktivera endast säkra anslutningar till din Azure Cache för Redis|Aktivera endast anslutningar via SSL till Azure Cache för Redis. Användning av säkra anslutningar säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
 |SQL|15|Aktivera Transparent datakryptering på SQL-databaser|Aktivera transparent datakryptering för att skydda vilande data och uppfylla efterlevnadskraven.|
 |SQL|15|Aktivera granskning på SQL-servrar|Aktivera granskning för Azure SQL-servrar. (Endast azure SQL-tjänsten. Omfattar inte SQL som körs på dina virtuella datorer.)|
@@ -62,10 +62,10 @@ Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning
 |Data lake store|15|Aktivera kryptering i vila för Data Lake Store|Aktivera transparent datakryptering att skydda data i vila i ditt Data Lake Store. Vilande kryptering är transparent, vilket innebär att data före beständig lagring, krypteras automatiskt Data Lake Store och dekrypterar data för hämtning. Du behöver göra några ändringar i program och tjänster som interagerar med Data Lake Store för kryptering. Kryptering i vila minimerar risken för dataförlust från fysiska stöld och bidrar även till att uppfylla efterlevnadskrav.|
 |Data lake analytics|5|Aktivera diagnostikloggar i Data Lake Analytics|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Data lake store|5|Aktivera diagnostikloggar i Azure Data Lake Store|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
-|SQL|30|Åtgärda sårbarheter på SQL-databaser|Sårbarhetsbedömning för SQL söker igenom din databas för säkerhetsrisker och visar alla avvikelser från regelverk som felkonfigurationer, onödigt generösa behörigheter och oskyddade känsliga data. Åtgärda sårbarheter upptäcktes kan förbättra din säkerhet datasekretesstandarder för databasen.|
-|SQL|20|Etablera en Azure AD-administratör för SQLServer|Etablera en Azure AD-administratör för SQL-servern om du vill aktivera Azure AD-autentisering. Azure AD-autentisering möjliggör förenklad behörighetshantering och centraliserad Identitetshantering för databasanvändare och andra Microsoft-tjänster.|
-|Lagringskonto|15|Inaktivera obegränsad nätverksåtkomst till storage-konto|Granska obegränsad nätverksåtkomst i brandväggsinställningarna för storage-konto. Konfigurera i stället Nätverksregler så att endast program från tillåtna nätverk har åtkomst till lagringskontot. Om du vill tillåta anslutningar från specifika Internet eller en lokal klienter beviljas åtkomst till trafik från specifika Azure-nätverk eller till offentliga Internet-IP-adressintervall.|
-|Lagringskonto|1||Migrera storage-konton till nya AzureRM-resurser|Använd den nya Azure Resource Manager v2 för storage-konton att tillhandahålla förbättringar av säkerhet som: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering.|
+|SQL|30|Åtgärda sårbarheter i SQL-databaser|Sårbarhetsbedömning för SQL söker igenom din databas för säkerhetsrisker och visar alla avvikelser från regelverk som felkonfigurationer, onödigt generösa behörigheter och oskyddade känsliga data. Åtgärda sårbarheter upptäcktes kan förbättra din säkerhet datasekretesstandarder för databasen.|
+|SQL|20|Etablera en Azure AD-administratör för SQL Server|Etablera en Azure AD-administratör för SQL-servern om du vill aktivera Azure AD-autentisering. Azure AD-autentisering möjliggör förenklad behörighetshantering och centraliserad Identitetshantering för databasanvändare och andra Microsoft-tjänster.|
+|Lagringskonto|15|Inaktivera obegränsad nätverksåtkomst till lagringskonto|Granska obegränsad nätverksåtkomst i brandväggsinställningarna för storage-konto. Konfigurera i stället Nätverksregler så att endast program från tillåtna nätverk har åtkomst till lagringskontot. Om du vill tillåta anslutningar från specifika Internet eller en lokal klienter beviljas åtkomst till trafik från specifika Azure-nätverk eller till offentliga Internet-IP-adressintervall.|
+|Lagringskonto|1||Migrera lagringskonton till nya AzureRM-resurser|Använd den nya Azure Resource Manager v2 för storage-konton att tillhandahålla förbättringar av säkerhet som: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering.|
 
 
 

@@ -4,7 +4,7 @@ description: Läs mer om Azure Storage security metoder för att skydda din PaaS
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451875"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108933"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Metodtips för att skydda PaaS-webb- och mobilprogram med Azure Storage
 I den här artikeln diskuterar vi en samling med Azure Storage rekommenderade säkerhetsmetoder för att skydda din plattform som tjänst (PaaS) webbprogram och mobilappar. Dessa metodtips härleds från vår erfarenhet av Azure och erfarenheter från kunder som dig själv.
 
 Azure gör det möjligt att distribuera och använda lagring på sätt inte enkelt kan ske på plats. Med Azure storage kan nå du hög skalbarhet och tillgänglighet med relativt besvär. Azure Storage inte bara är grunden för Windows och Linux Azure-datorer, kan den också stödja stora distribuerade program.
 
-Azure Storage tillhandahåller följande fyra tjänster: Blob storage, Table storage, Queue storage och File storage. Mer information finns i [introduktion till Microsoft Azure Storage](../storage/storage-introduction.md).
+Azure Storage tillhandahåller följande fyra tjänster: BLOB storage, Table storage, Queue storage och File storage. Mer information finns i [introduktion till Microsoft Azure Storage](../storage/storage-introduction.md).
 
 Den [säkerhetsguiden för Azure Storage](../storage/common/storage-security-guide.md) är en bra källa för detaljerad information om Azure Storage och säkerhet. Denna bästa praxis-artikel-adresser på hög nivå några av de begrepp som finns i säkerhetshandboken och länkar till säkerhetshandboken till, samt andra källor, mer information.
 

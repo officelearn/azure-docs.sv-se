@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 55d84256f408e80600308ede22dbaa903b070d90
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266101"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Självstudier: Azure Active Directory-integrering med sås Labs - Mobile- och webb-testning
 
@@ -29,7 +30,7 @@ Integrera sås Labs - Mobile- och Web testning med Azure AD ger dig följande f�
 
 - Du kan styra i Azure AD som har åtkomst till sås Labs - Mobile- och Web testning.
 - Du kan aktivera användarna att automatiskt få loggat in på sås Labs - Mobile- och Web testning (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med sås Labs - Mobile- och webb-tes
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -59,7 +60,7 @@ Om du vill konfigurera integreringen av sås Labs - Mobile- och Web testning i A
 
 **Utför följande steg för att lägga till sås Labs - Mobile- och Web testning från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -67,7 +68,7 @@ Om du vill konfigurera integreringen av sås Labs - Mobile- och Web testning i A
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -75,7 +76,7 @@ Om du vill konfigurera integreringen av sås Labs - Mobile- och Web testning i A
 
     ![Sås Labs - Mobile- och Web testning i resultatlistan](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med sås Labs, Mobile och Web testning baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med sås Labs - Mobile- och webb-testning, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en sås Labs - Mobile- och Web testning testanvändare](#create-a-sauce-labs---mobile-and-web-testing-test-user)**  – du har en motsvarighet för Britta Simon i sås Labs - Mobile- och Web testning som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din sås Labs - Mobile och testa program.
 
@@ -97,7 +98,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **sås Labs - Mobile- och Web testning** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
@@ -113,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_400.png)
 
 6. I ett annat webbläsarfönster, loggar du in dina sås labb - Mobilappar och webbprogram testa företagets plats som administratör.
 
@@ -173,9 +174,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
   
 ### <a name="create-a-sauce-labs---mobile-and-web-testing-test-user"></a>Skapa en sås Labs - Mobile- och Web testning testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i sås Labs - Mobile- och Web testning. Sås Labs - Mobile och Web testning stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt sås Labs - Mobile- och Web testa om det inte finns ännu.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i sås Labs - Mobile- och Web testning. Sås Labs - Mobile och Web testning stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt sås Labs - Mobile- och Web testa om det inte finns ännu.
 >[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [sås Labs - Mobile- och Web testning supportteam](mailto:support@saucelabs.com).
+>Om du vill skapa en användare manuellt kan du kontakta [sås Labs - Mobile- och Web testning supportteam](mailto:support@saucelabs.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

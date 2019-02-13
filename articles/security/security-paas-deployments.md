@@ -4,7 +4,7 @@ description: " Förstå fördelarna med PaaS jämfört med andra tjänstmodeller
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: techlake
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488415"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117808"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -111,7 +111,7 @@ I följande tabell visar en lista över STRIDE hot och ger vissa exempel åtgär
 
 | Hot | Egenskapen för säkerhet | Möjliga lösningar i Azure-plattformen |
 | --- | --- | --- |
-| Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
+| Förfalskning | Authentication | Kräv HTTPS-anslutningar. |
 | Tampering | Integritet | Verifiera SSL-certifikat. |
 | Repudiation | Oavvislighet | Aktivera Azure [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänsten certifikat](https://docs.microsoft.com/rest/api/appservice/certificates). |

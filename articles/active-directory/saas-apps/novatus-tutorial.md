@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 73b382d41a072eb5f59ad6e32323930f1336c316
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1b58e1d2fc13543c80899c61c8532ab8a93a3b63
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172365"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207168"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Självstudier: Azure Active Directory-integrering med Novatus
 
@@ -115,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
      I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://sso.novatuscontracts.com/<companyname>`
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Novatus klienten supportteamet](mailto:jvinci@novatusinc.com) att hämta det här värdet. 
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Novatus klienten supportteamet](mailto:jvinci@novatusinc.com) att hämta det här värdet. 
  
 
 

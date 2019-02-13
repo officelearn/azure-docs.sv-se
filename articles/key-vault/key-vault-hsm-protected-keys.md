@@ -4,7 +4,7 @@ description: Använd den här artikeln hjälper dig att planera för, generera o
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 928ed383c08dd87cb003d1f729bc3fecce0c6935
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76943c89cd4c0a283dc36a2a0d28c907cef0ad28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999240"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114696"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför HSM-skyddade nycklar för Azure Key Vault
 
@@ -32,7 +32,7 @@ Den här funktionen är inte tillgänglig för Azure Kina.
 
 > [!NOTE]
 > Läs mer om Azure Key Vault [vad är Azure Key Vault?](key-vault-whatis.md)  
-> En introduktionskurs som innefattar att skapa key vault för HSM-skyddade nycklar, se [Kom igång med Azure Key Vault](key-vault-get-started.md).
+> En introduktionskurs som innefattar att skapa key vault för HSM-skyddade nycklar, se [vad är Azure Key Vault?](key-vault-overview.md).
 
 Mer information om generera och överföra en HSM-skyddad nyckel via Internet:
 
@@ -62,7 +62,7 @@ I tabellen nedan finns en lista över förutsättningar för att ta med din egen
 | En prenumeration på Azure |Om du vill skapa ett Azure Key Vault behöver du en Azure-prenumeration: [Registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) |
 | Azure Key Vault Premium-tjänstnivån för HSM-skyddade nycklar |Mer information om tjänstnivåer och funktioner för Azure Key Vault finns i den [priser för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) webbplats. |
 | Thales HSM, smartkort och hjälpprogram |Du måste ha åtkomst till en maskinvarusäkerhetsmodul och grundläggande operativa kunskaper om Thales HSM: er. Se [maskinvarusäkerhetsmodul](https://www.thales-esecurity.com/msrms/buy) lista över kompatibla modeller eller för att köpa en HSM om du inte har något. |
-| Följande maskinvara och programvara:<ol><li>Ett offline x64 arbetsstation med minst Windows-operativsystemet Windows 7 och Thales nShield-programvara som är minst version 11.50.<br/><br/>Om den här arbetsstationen kör Windows 7, måste du [installera Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>En arbetsstation som är ansluten till Internet med en minsta Windows-operativsystemet Windows 7 och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **lägsta version 1.1.0** installerad.</li><li>En USB-enhet eller annan bärbar lagringsenhet som har minst 16 MB ledigt utrymme.</li></ol> |Av säkerhetsskäl rekommenderar vi att den första arbetsstationen inte är ansluten till ett nätverk. Men är den här rekommendationen inte programmässigt tvingande.<br/><br/>I instruktionerna som följer arbetsstationen den här till som den frånkopplade arbetsstationen.</p></blockquote><br/>Dessutom, om din klientnyckel är avsedd för ett produktionsnätverk, rekommenderar vi att du använder en andra, separat arbetsstation för att hämta verktygen och överföra klientnyckeln. Men i testsyfte kan du använda samma arbetsstation som den första.<br/><br/>I instruktionerna som följer kallas den här andra arbetsstationen den Internetanslutna arbetsstationen.</p></blockquote><br/> |
+| Följande maskinvara och programvara:<ol><li>Ett offline x64 arbetsstation med minst Windows-operativsystemet Windows 7 och Thales nShield-programvara som är minst version 11.50.<br/><br/>Om den här arbetsstationen kör Windows 7, måste du [installera Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>En arbetsstation som är ansluten till Internet med en minsta Windows-operativsystemet Windows 7 och [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **lägsta version 1.1.0** installerad.</li><li>En USB-enhet eller annan bärbar lagringsenhet som har minst 16 MB ledigt utrymme.</li></ol> |Av säkerhetsskäl rekommenderar vi att den första arbetsstationen inte är ansluten till ett nätverk. Men är den här rekommendationen inte programmässigt tvingande.<br/><br/>I instruktionerna som följer arbetsstationen den här till som den frånkopplade arbetsstationen.</p></blockquote><br/>Dessutom, om din klientnyckel är avsedd för ett produktionsnätverk, rekommenderar vi att du använder en andra, separat arbetsstation för att hämta verktygen och överföra klientnyckeln. Men i testsyfte kan du använda samma arbetsstation som den första.<br/><br/>I instruktionerna som följer kallas den här andra arbetsstationen den Internetanslutna arbetsstationen.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generera och överför din nyckel till Azure Key Vault HSM
 
@@ -503,4 +503,4 @@ Om överföringen lyckas visas visas egenskaperna för den nyckel som du just la
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu använda den här HSM-skyddad nyckel i ditt nyckelvalv. Mer information finns i den **om du vill använda en maskinvarusäkerhetsmodul (HSM)** i avsnittet den [komma igång med Azure Key Vault](key-vault-get-started.md) självstudien.
+Du kan nu använda den här HSM-skyddad nyckel i ditt nyckelvalv. Mer information finns i den **om du vill använda en maskinvarusäkerhetsmodul (HSM)** i avsnittet den [komma igång med Azure Key Vault](key-vault-overview.md) självstudien.

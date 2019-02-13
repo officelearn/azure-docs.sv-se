@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b6abfa24d790554de239171ffef1899cdc135d26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f1cb99799e3aa5c0b37643112f8644d1aabfd666
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996261"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108100"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera Transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 
@@ -29,8 +29,8 @@ Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault fö
 - (Rekommenderas men valfria) Ha en maskinvarusäkerhetsmodul (HSM) eller lokal nyckel lagra för att skapa en lokal kopia av nyckelmaterial TDE-skydd.
 - Du måste ha Azure PowerShell-version 4.2.0 eller senare installerat och körs. 
 - Skapa en Azure Key Vault och en nyckel som ska användas för TDE.
-   - [PowerShell-instruktioner från Key Vault](../key-vault/key-vault-get-started.md)
-   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-get-started.md#HSM)
+   - [PowerShell-instruktioner från Key Vault](../key-vault/key-vault-overview.md)
+   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
  - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
    - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [Så här använder du Key Vault mjuk borttagning med PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
@@ -196,7 +196,7 @@ Kontrollera följande om ett problem inträffar:
 - Kommandoradsgränssnitt 2.0 eller senare. Om du vill installera den senaste versionen och ansluter till din Azure-prenumeration, se [installerar och konfigurerar Azure plattformsoberoende kommandoradsgränssnitt 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 - Skapa en Azure Key Vault och en nyckel som ska användas för TDE.
    - [Hantera Nyckelvalv med hjälp av CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
-   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-get-started.md#HSM)
+   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
  - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
    - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [Så här använder du Key Vault mjuk borttagning med CLI](../key-vault/key-vault-soft-delete-cli.md) 

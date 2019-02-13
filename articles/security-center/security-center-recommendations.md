@@ -4,7 +4,7 @@ description: Det här dokumentet vägleder dig genom hur rekommendationerna i Az
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: f8d87137bb405df566a8115bd17dc10af8ffc441
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a5ca8efd43244825eef412cf3c05c8df20094112
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539409"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109547"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig genom hur du använder rekommendationer i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
@@ -56,7 +56,7 @@ Du kan filtrera rekommendationer. Om du vill filtrera rekommendationer, Välj **
 Rekommendationerna visas i tabellformat där varje rad motsvarar en viss rekommendation. Kolumner i den här tabellen är:
 
 * **BESKRIVNING AV**: Förklarar rekommendationen och vad som behöver göras för att åtgärda detta.
-* **RESURSEN**: Visar en lista över de resurser som den här rekommendationen gäller.
+* **RESOURCE**: Visar en lista över de resurser som den här rekommendationen gäller.
 * **TILLSTÅND**: Beskriver det aktuella tillståndet för rekommendationen:
   * **Öppna**: Rekommendationen har inte utförts än.
   * **Pågår**: Rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.

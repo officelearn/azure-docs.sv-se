@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 37feab857f5a8c95b2e47491256c290020615d2d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 62927e78b8f1a771de74c0f9215a7bd946a46672
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177992"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199603"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Självstudier: Azure Active Directory-integrering med Bonusly
 
@@ -210,7 +211,7 @@ För att aktivera Azure AD-användare att logga in på Bonusly, måste de etable
    
     ![Lägg till användare](./media/bonus-tutorial/ic781044.png "Lägg till användare")
 
-1. På den **Lägg till användare** dialogrutan utför följande steg:
+1. I dialogrutan **Lägg till användare** utför du följande steg:
    
     ![Lägg till användare](./media/bonus-tutorial/ic781045.png "Lägg till användare")  
 

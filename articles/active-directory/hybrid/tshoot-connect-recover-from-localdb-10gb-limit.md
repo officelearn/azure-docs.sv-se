@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08e1beb199287db1d030d5ad9357cbd20f1eb859
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5e0942f028752b1e3db89802ee889eac7157815d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168651"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205621"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från LocalDB med en gräns på 10 GB
 Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller steg för återställning.
@@ -100,7 +101,7 @@ Det här steget är att minska sannolikheten för att köra i gräns på 10 GB-p
 ## <a name="long-term-solution--migrate-to-full-sql"></a>Långsiktiga lösningen – migrera till fullständig SQL
 Problemet är i allmänhet är vägledande 10 GB databasstorleken är inte längre räcker för Azure AD Connect att synkronisera din lokala Active Directory till Azure AD. Vi rekommenderar att du istället använda den fullständiga versionen av SQLServer. Du kan inte direkt ersätta en LocalDB i en befintlig Azure AD Connect-distribution med den fullständiga SQL-versionens databas. Istället måste du distribuera en ny Azure AD Connect-server med den fullständiga versionen av SQL. Vi rekommenderar att du gör en swingmigrering med den nya Azure AD Connect-servern (med SQL DB) distribuerad som en mellanlagringsserver bredvid den befintliga Azure AD Connect-servern (med LocalDB). 
 * Instruktioner för hur du konfigurerar fjärr-SQL med Azure AD Connect finns i artikeln [Anpassad installation av Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-* Mer information om swingmigrering för Azure AD Connect-uppgradering finns i artikeln [Azure AD Connect: Uppgradera från en tidigare version till senast](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
+* Information om swingmigrering för Azure AD Connect-uppgradering finns i artikeln [Azure AD Connect: Uppgradera från en tidigare version till den senaste](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

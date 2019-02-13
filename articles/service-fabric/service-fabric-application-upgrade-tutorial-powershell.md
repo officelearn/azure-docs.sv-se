@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e11ac55afe41231fcbc3aabb3ef54b46108eb49c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515326"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185867"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Uppgradering av Service Fabric-programmet med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -34,9 +34,7 @@ De vanligaste och rekommenderade metoden för uppgraderingen är övervakade lö
 
 En uppgradering av övervakade programmet kan utföras med hjälp av den hanterade interna API: er, PowerShell, Azure CLI, Java eller REST. Anvisningar om hur du utför en uppgradering med Visual Studio finns i [uppgradering av program med Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Med Service Fabric övervakas löpande uppgraderingar, kan programadministratören konfigurera utvärderingen hälsoprincip som Service Fabric använder för att avgöra om programmet är felfri. Dessutom kan konfigurera administratören åtgärden som ska vidtas när hälsotillståndet utvärderingen misslyckas (till exempel göra en automatisk återställning.) Det här avsnittet beskriver en övervakade uppgradering för en av SDK-prov som använder PowerShell. I följande Microsoft Virtual Academy-video vägleder dig genom en appuppgradering: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
-<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
+Med Service Fabric övervakas löpande uppgraderingar, kan programadministratören konfigurera utvärderingen hälsoprincip som Service Fabric använder för att avgöra om programmet är felfri. Dessutom kan konfigurera administratören åtgärden som ska vidtas när hälsotillståndet utvärderingen misslyckas (till exempel göra en automatisk återställning.) Det här avsnittet beskriver en övervakade uppgradering för en av SDK-prov som använder PowerShell. 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Steg 1: Skapa och distribuera exemplet visuella objekt
 Skapa och publicera programmet genom att högerklicka på programprojektet, **VisualObjectsApplication,** och välja den **publicera** kommando.  Mer information finns i [självstudier för uppgradering av Service Fabric-program](service-fabric-application-upgrade-tutorial.md).  Du kan också använda PowerShell för att distribuera ditt program.
@@ -76,7 +74,7 @@ Nu den *ApplicationManifest.xml* fil (finns under den **VisualObjects** projekte
 
 Nu kan skapa projektet genom att välja bara **ActorService** -projektet och sedan högerklicka och välja den **skapa** alternativet i Visual Studio. Om du väljer **återskapa alla**, bör du uppdatera versionerna för alla projekt, eftersom koden skulle ha ändrats. Nu ska vi paketera det uppdaterade programmet genom att högerklicka på ***VisualObjectsApplication***, välja den Service Fabric-menyn och sedan välja **paketet**. Den här åtgärden skapar ett programpaket som kan distribueras.  Uppdaterade programmet är redo att distribueras.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Steg 3: Bestäm på hälsoprinciper och Uppgraderingsparametrar
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Steg 3:  Besluta om hälsoprinciper och Uppgraderingsparametrar
 Bekanta dig med den [programuppgraderingsparametrar](service-fabric-application-upgrade-parameters.md) och [uppgraderingsprocessen](service-fabric-application-upgrade.md) att få en god förståelse av de olika Uppgraderingsparametrar, tidsgränser och hälsotillstånd villkor tillämpas. Den här genomgången leverantörsutvärdering för service health är inställt på standardvärdet (och rekommenderas) värden, vilket innebär att alla tjänster och instanser ska vara *felfri* efter uppgraderingen.  
 
 Men vi öka den *HealthCheckStableDuration* till 180 sekunder (så att tjänsterna fungerar felfritt för minst 120 sekunder innan uppgraderingen fortsätter till nästa uppdateringsdomän).  Nu ska vi också ange den *UpgradeDomainTimeout* vara 1200 sekunder och *UpgradeTimeout* vara 3000 sekunder.

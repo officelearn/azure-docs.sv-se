@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med join.me | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med join.me | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och join.me.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: dc393b8701bd72ea7f9de543de33116ea3cb5653
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f61520994bdeeab75b6d26731dee9af15b4ccda6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871742"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209548"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Självstudier: Azure Active Directory-integration med join.me
+# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Självstudier: Azure Active Directory-integrering med join.me
 
 I den här självstudien får du lära dig hur du integrerar join.me med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera join.me med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till join.me.
 - Du kan aktivera användarna att automatiskt få loggat in på join.me (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med join.me, behöver du följande o
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -67,7 +68,7 @@ För att konfigurera integrering av join.me i Azure AD, som du behöver lägga t
 
     ![image](./media/joinme-tutorial/a_select_app.png)
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![image](./media/joinme-tutorial/a_new_app.png)
 
@@ -75,7 +76,7 @@ För att konfigurera integrering av join.me i Azure AD, som du behöver lägga t
 
      ![image](./media/joinme-tutorial/tutorial_joinme_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med join.me baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med join.me, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare join.me](#create-a-joinme-test-user)**  – du har en motsvarighet för Britta Simon i join.me som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt join.me program.
 
@@ -107,11 +108,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![image](./media/joinme-tutorial/b1_b2_saml_sso.png)
 
-4. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **SAML grundkonfiguration** dialogrutan.
+4. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
     ![image](./media/joinme-tutorial/b1-domains_and_urlsedit.png)
 
-5. På den **SAML grundkonfiguration** avsnittet användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
+5. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
 
      ![image](./media/joinme-tutorial/tutorial_joinme_url.png)
  
@@ -119,27 +120,27 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![image](./media/joinme-tutorial/certificatebase64.png) 
 
-7. Att konfigurera enkel inloggning på **join.me** sida, som du behöver skicka den **Appfederationsmetadata** som du har kopierat från Azure portal för att [join.me supportteamet](https://help.join.me/s/?language). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Att konfigurera enkel inloggning på **join.me** sida, som du behöver skicka den **Appfederationsmetadata** som du har kopierat från Azure portal för att [join.me supportteamet](https://help.join.me/s/?language). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![image](./media/joinme-tutorial/d_users_and_groups.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
     ![image](./media/joinme-tutorial/d_adduser.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+3. Genomför följande steg i Användaregenskaper.
 
     ![image](./media/joinme-tutorial/d_userproperties.png)
 
-    a. I den **namn** ange **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -148,7 +149,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
   
 ### <a name="create-a-joinme-test-user"></a>Skapa en join.me testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i join.me. Arbeta med [join.me supportteamet](https://help.join.me/s/?language) att lägga till användare i join.me-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i join.me. Arbeta med [join.me supportteamet](https://help.join.me/s/?language) att lägga till användare i join.me-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -162,7 +163,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/joinme-tutorial/tutorial_joinme_app.png)
 
-3. I menyn till vänster väljer **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![image](./media/joinme-tutorial/d_leftpaneusers.png)
 
@@ -170,9 +171,9 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/joinme-tutorial/d_assign_user.png)
 
-4. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
+4. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-5. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
+5. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

@@ -4,7 +4,7 @@ description: Det här dokumentet visar hur du kan lägga till kontaktuppgifter i
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3c2da9830a8ddbce842d959ba086bf4eb30d5fdb
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54258772"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107947"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Ange säkerhetskontaktuppgifter i Azure Security Center
 Azure Security Center rekommenderar att du anger kontaktuppgifter för din Azure-prenumeration om du inte redan har gjort. Den här informationen används av Microsoft för att kontakta dig om Microsoft Security Response Center (MRSC) upptäcker att en obehörig part har kommit åt dina kunddata. MSRC utför väljer säkerhetsövervakning för Azure-nätverk och infrastruktur och tar emot threat intelligence och missbruk klagomål från tredje part.

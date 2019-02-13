@@ -4,7 +4,7 @@ description: Det här dokumentet visar hur du implementerar Azure Security Cente
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a951e60b417167f2e1566efb689ea0f2d4e65374
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344150"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111432"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
 Azure Security Center analyserar dagligen operativsystemet (OS) på dina virtuella datorer (VM) och en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommendera säkerhetsreglerna för konfiguration och den rekommenderar konfigurationsändringar för att åtgärda dessa sårbarheter.
@@ -50,7 +50,7 @@ Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommenda
   Den nedre delen av instrumentpanelen visas alla misslyckade regler för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering. Listan innehåller följande element:
 
   - **CCEID**: Den unika identifieraren CCE för regeln. Security Center använder Common Configuration Enumeration (CCE) för att tilldela unika identifierare till konfigurationsregler.
-  - **Namn på**: Namnet på den misslyckade regeln.
+  - **Namn**: Namnet på den misslyckade regeln.
   - **Regeltyp**: Den *registernyckeln*, *säkerhetsprincip*, *granskningsprincip*, eller *IIS* regeltyp.
   - **Nej. VM: ar och datorer**: Det totala antalet virtuella datorer och datorer som misslyckade regeln gäller för.
   - **Regeln allvarlighetsgrad**: Värdet för CCE *kritisk*, *viktigt*, eller *varning*.
@@ -66,7 +66,7 @@ Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommenda
 
    I den detaljerade vyn visas följande information:
 
-   - **Namn på**: Namnet på regeln.
+   - **Namn**: Namnet på regeln.
    - **CCIED**: Den unika identifieraren CCE för regeln.
    - **OS-version**: OS-versionen av den virtuella datorn eller datorn.
    - **Regeln allvarlighetsgrad**: Värdet för CCE *kritisk*, *viktigt*, eller *varning*.

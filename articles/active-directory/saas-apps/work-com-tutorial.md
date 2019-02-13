@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 836c9e0dd15da9b117c26cd05fc723607141b059
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1e5d097afa3af111a7de8341b90d8c6c05ac0347
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194720"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Självstudier: Azure Active Directory-integrering med Work.com
 
@@ -115,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `http://<companyname>.my.salesforce.com`
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Work.com klienten supportteamet](https://help.salesforce.com/articleView?id=000159855&type=3) att hämta det här värdet. 
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Work.com klienten supportteamet](https://help.salesforce.com/articleView?id=000159855&type=3) att hämta det här värdet. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -164,7 +165,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     ![SAML enkel inloggning inställningen](./media/work-com-tutorial/ic794114.png "SAML enkel inloggning för inställningen")
     
-    a. I den **namn** textrutan anger du ett namn för din konfiguration.  
+    a. I textrutan **Namn** skriver du ett namn för konfigurationen.  
        
     > [!NOTE]
     > Att tillhandahålla ett värde för **namn** automatiskt fylla i **API-namn** textrutan.

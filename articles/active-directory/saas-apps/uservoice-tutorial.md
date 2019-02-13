@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: a2b8faaf3ee7d8f5dfca35f860dbd003f9e6072b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94e077e07796fc111c35b6571459a5e316096ebc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194346"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Självstudier: Azure Active Directory-integrering med UserVoice
 
@@ -216,7 +217,7 @@ Om du vill aktivera Azure AD-användare att logga in till UserVoice, måste de e
    
     a. I textrutan för e-postmeddelanden, skriver du e-postadressen för det konto som du vill etablera och klicka sedan på **Lägg till**.
    
-    b. Klicka på **bjuda in**.
+    b. Klicka på **Bjud in**.
 
 > [!NOTE]
 > Du kan använda alla andra UserVoice användare konto verktyg för att skapa eller API: er som tillhandahålls av UserVoice att etablera AAD-användarkonton.

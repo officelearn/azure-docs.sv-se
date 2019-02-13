@@ -17,12 +17,13 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: affdad71c9c97f13c015b35f1c67ee79f2473442
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a9396fbc470f25e3cf6fad883ab525af1f96e96a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075218"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188757"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Anpassa anspråk som utfärdats i SAML-token för företagsprogram
 
@@ -61,7 +62,7 @@ Välj önskad källa för den `NameIdentifier` (eller NameID) anspråk. Du kan v
 | Namn | Beskrivning |
 |------|-------------|
 | E-post | E-postadressen för användaren |
-| userprincipalName | Användarens huvudnamn (UPN) för användaren |
+| userprincipalName | Användarens User Principal Name (UPN). |
 | onpremisessamaccount | SAM-kontonamn som har synkroniserats från den lokala Azure AD |
 | objectID | Objekt-ID för användaren i Azure AD |
 | EmployeeID | EmployeeID för användaren |

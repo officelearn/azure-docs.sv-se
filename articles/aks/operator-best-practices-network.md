@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699133"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175463"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för nätverksanslutning och säkerhet i Azure Kubernetes Service (AKS)
 
@@ -120,6 +120,34 @@ En brandvägg för webbaserade program (WAF) ger ett extra säkerhetslager genom
 
 Load balancer eller ingående resurser fortsätter att köras i AKS-klustret att ytterligare förfina fördelning av trafik. App Gateway kan hanteras centralt som en ingress-kontrollant med en resursdefinition. Du kommer igång [skapa en Application Gateway Ingress-kontrollant][app-gateway-ingress].
 
+## <a name="control-traffic-flow-with-network-policies"></a>Kontrollera trafikflödet med nätverksprinciper
+
+**Bästa praxis riktlinjer** -använda nätverksprinciper för att tillåta eller neka trafik till poddar. Som standard tillåts all trafik mellan poddar i ett kluster. Definiera regler som begränsar pod kommunikation för förbättrad säkerhet.
+
+Nätverksprincip är en Kubernetes-funktion som låter dig styra trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Användning av nätverksprinciper ger ett molnbaserade sätt att styra flödet av trafik. Då poddar skapas dynamiskt i ett AKS-kluster, kan de nödvändiga nätverksprinciperna tillämpas automatiskt. Använd inte Azure nätverkssäkerhetsgrupper för att kontrollera pod-pod-trafik, använda nätverksprinciper.
+
+Om du vill använda principen för nätverk, måste funktionen aktiveras när du skapar ett AKS-kluster. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster. Planera framåt och se till att du aktiverar nätverksprincip i kluster och använda dem vid behov.
+
+En princip skapas som en Kubernetes-resurs med hjälp av en YAML-manifestet. Principerna tillämpas på definierade poddar och regler för inkommande eller utgående definiera hur trafiken kan flöda. I följande exempel gäller en princip för poddar med den *app: serverdel* etiketten tillämpas. Regel för inkommande sedan tillåter endast trafik från poddar med den *app: frontend* etikett:
+
+```yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+```
+
+Kom igång med principer, se [skydda trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)][use-network-policies].
+
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Anslut säkert till noderna genom en skyddsmiljö-värd
 
 **Bästa praxis riktlinjer** -exponera inte fjärranslutningar till AKS-noder. Skapa en skyddsmiljö-värd eller hoppa ruta i ett virtuellt nätverk för hantering. Använd skyddsmiljö-värd för att dirigera trafik på ett säkert sätt i AKS-klustret till uppgifter för fjärrhantering.
@@ -155,5 +183,6 @@ Den här artikeln fokuserar på nätverksanslutning och säkerhet. Läs mer om g
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
+[use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md

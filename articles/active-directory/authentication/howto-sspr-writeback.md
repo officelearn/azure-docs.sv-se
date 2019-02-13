@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 6c495bc496202bccfc47633527fbd84a200be059
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4543352fc87216458aa247f5eea0c8ff5980d0e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080386"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209344"
 ---
 # <a name="how-to-configure-password-writeback"></a>Så här gör du: Konfigurera tillbakaskrivning av lösenord
 
@@ -36,7 +37,7 @@ Vanliga uppgifter för felsökning för tillbakaskrivning av lösenord finns i a
 > [!WARNING]
 > Tillbakaskrivning av lösenord att sluta fungera för kunder som använder Azure AD Connect-versioner 1.0.8641.0 och äldre när den [Azure Access Control service (ACS) är ur bruk 7 November 2018](../develop/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre inte längre att tillåta tillbakaskrivning av lösenord vid den tidpunkten eftersom de använder ACS för den funktionen.
 >
-> Om du vill undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version finns i artikeln [Azure AD Connect: Uppgradera från en tidigare version till senast](../hybrid/how-to-upgrade-previous-version.md)
+> Om du vill undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version finns i artikeln [Azure AD Connect: Uppgradera från en tidigare version till den senaste](../hybrid/how-to-upgrade-previous-version.md)
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord

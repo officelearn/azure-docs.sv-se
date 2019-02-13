@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 03e15532d04a4c62796aad884c5e344688814672
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633971"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209242"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -204,11 +204,7 @@ Dessa instruktioner utför följande åtgärder:
 
 Den [Apache Hive i Tez designdokument](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) innehåller information om alternativ för implementering och justering konfigurationer.
 
-För att underlätta felsökning jobb kördes med Tez, HDInsight innehåller följande web UIs så att du kan visa information om Tez-jobb:
-
-* [Använd Apache Ambari Tez-vyn på Linux-baserat HDInsight](../hdinsight-debug-ambari-tez-view.md)
-
-* [Använda Apache Tez-Användargränssnittet på Windows-baserade HDInsight](../hdinsight-debug-tez-ui.md)
+För att underlätta felsökning jobb kördes med Tez, HDInsight innehåller följande webbgränssnittet där du kan visa information om Tez-jobb: [Använd Apache Ambari Tez-vyn på Linux-baserade HDInsight](../hdinsight-debug-ambari-tez-view.md).
 
 ### <a name="low-latency-analytical-processing-llap"></a>Låg latens Analytical Processing (LLAP)
 

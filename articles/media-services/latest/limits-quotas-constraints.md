@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 285f4f4aad18943399511cbcac711933f23f7cb2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004805"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190967"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kvoter och begränsningar i Azure Media Services v3
 
@@ -37,7 +37,7 @@ Den här artikeln beskrivs kvoter och begränsningar i Azure Media Services v3.
 | Media Services-konton för en enskild prenumeration | 25 (fast) |
 | Live-utdata i körningstillstånd per LiveEvent |3|
 | Lagringskonton | 100<sup>(4)</sup> (fast) |
-| Slutpunkter för direktuppspelning i körningstillstånd per Media Services-konto|2|
+| Slutpunkter för direktuppspelning (stoppas eller köra) per Media Services-konto|2|
 | Principer för direktuppspelning | 100 <sup>(3)</sup> |
 | Transformeringar per Media Services-konto | 100 (fast)|
 | Unikt Streaming positionerare som är associerad med en tillgång i taget | 100<sup>(5)</sup> (fast) |

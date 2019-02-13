@@ -14,21 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: e7939b8d7a6a64519ac8239591c37e06ced56599
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890526"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217215"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Livscykeln för Service Fabric
 Som med andra plattformar, ett program på Azure Service Fabric vanligtvis går igenom följande faser: design, utveckling, testning, distribution, uppgradera, underhållet och borttagningen. Service Fabric erbjuder förstklassig support för hela programlivscykeln för molnprogram, från utveckling till distribution, daglig hantering och underhåll till eventuell inaktivering. Tjänstmodellen gör det möjligt för flera olika roller att delta oberoende av varandra i programmets hela livscykel. Den här artikeln innehåller en översikt över API: er och hur de används av de olika rollerna i hela faserna i livscykeln för Service Fabric-program.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
-
-Följande Microsoft Virtual Academy videoklipp beskriver hur du hanterar livscykeln för din: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ## <a name="service-model-roles"></a>Service model-roller
 Service model-roller är:

@@ -13,12 +13,13 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2545e85ff466ed7455161eb725b824da465457bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810209"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177341"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Inloggning med Azure Multi-Factor Authentication
 > [!NOTE]
@@ -68,7 +69,7 @@ Om du använder Microsoft Authenticator-appen för att hämta verifieringskoder,
 1. Logga in på ett program eller tjänst, till exempel Office 365 med ditt användarnamn och lösenord.
 2. Microsoft uppmanar dig en Verifieringskod.
 
-  ![Ange Verifieringskod](./media/multi-factor-authentication-end-user-signin/verify3.png)
+  ![Ange verifieringskod](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Öppna Microsoft Authenticator-appen på telefonen och ange koden i rutan där du loggar in.
 

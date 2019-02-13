@@ -4,7 +4,7 @@ description: De olika versionerna av Azure Key Vault
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e8622dcc-59a3-4f4b-9f63-cd2232515a65
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 7671452e8b5226d3c3779bbe86e23b8cffe1a769
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d74bf8603e3d5a394935994bc61fa0e96905ed25
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079059"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115037"
 ---
 # <a name="key-vault-versions"></a>Key Vault-versioner
 
@@ -26,7 +26,7 @@ ms.locfileid: "54079059"
 
 Sommar 2017 – Lagringskontonycklar funktionen har lagts till enklare integrering med Azure Storage. Se översiktsavsnittet om du vill veta mer [översikt över hanterade Lagringskontonycklar](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
 
-## <a name="2016-10-01---soft-delete"></a>2016-10-01-mjuk borttagning
+## <a name="2016-10-01---soft-delete"></a>2016-10-01 - Soft-delete
 
 Sommar 2017 - funktionen för mjuk borttagning har lagts till för bättre dataskydd av ditt nyckelvalv och nyckelvalvet objekt. Se översiktsavsnittet om du vill veta mer [översikt över mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
 
@@ -64,7 +64,7 @@ Följande uppgifter har uppdaterats:
 - Uppdatera en hemlighet - lagt till taggar som valfri information.
 - Ändra maxstorleken för hemligheter från 10 K till 25 kB. Se, [om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md).
 
-## <a name="2014-12-08-preview"></a>2014-12-08-förhandsversion
+## <a name="2014-12-08-preview"></a>2014-12-08-preview
 
 Första preview version 2014-12-08-preview, meddelat den 8 januari 2015.
 

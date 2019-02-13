@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Konfigurera Samanage för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera Samanage för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Samanage.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d620701bc8590bee746be35f69b0da890c359601
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322438"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205366"
 ---
-# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Samanage för automatisk användaretablering
+# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Samanage för automatisk användaretablering
 
 Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Samanage och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Samanage.
 
@@ -39,7 +40,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 > [!NOTE]
 > Azure AD etablering integration förlitar sig på den [Samanage Rest API](https://www.samanage.com/api/), som är tillgängliga för Samanage utvecklare för konton med professionella paketet.
 
-## <a name="adding-samanage-from-the-gallery"></a>Att lägga till Samanage från galleriet
+## <a name="adding-samanage-from-the-gallery"></a>Lägga till Samanage från galleriet
 Du måste lägga till Samanage från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Samanage för automatisk användarförsörjning med Azure AD.
 
 **Utför följande steg för att lägga till Samanage från Azure AD-programgalleriet:**

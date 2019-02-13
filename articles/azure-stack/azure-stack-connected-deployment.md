@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a39ab2eb6d08f478ed68aed2bc753e5225185fe3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243189"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175395"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Integrerade Azure-ansluten distribution planeringsbeslut för Azure Stack-system
-När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan sedan slutföra din Azure Stack-distributionsbeslut.
+När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan slutföra din Azure Stack-distributionsbeslut.
 
 Distribuera Azure Stack är ansluten till Azure innebär att du kan ha Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) för din identitet butik. Du kan också välja från antingen faktureringsmodell: betalning som du-användning eller kapacitetsbaserad. En ansluten distribution är standardalternativet eftersom kan kunderna få ut maximalt av Azure Stack, särskilt för hybridmolnscenarierna som omfattar både Azure och Azure Stack. 
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847823"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210602"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
@@ -83,6 +83,9 @@ Precis som med andra tjänster på Azure tillämpar Service Bus en uppsättning 
 Service Bus-meddelandetjänster (köer och ämnen/prenumerationer) gör att programmet kan skicka meddelanden med storleken upp till 256 KB (standard-nivån) eller 1 MB (premium-nivån). Om du arbetar med meddelanden är större än 1 MB använder den anspråk mönster som beskrivs i [det här blogginlägget](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Felsökning
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Varför kan jag inte att skapa ett namnområde efter tas bort från en annan prenumeration? 
+När du tar bort ett namnområde från en prenumeration kan du vänta i 4 timmar innan du återskapa den med samma namn i en annan prenumeration. I annat fall kan du få följande felmeddelande visas: `Namespace already exists`. 
+
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Vilka är några av undantagen som genereras av Azure Service Bus-API: er och föreslagna åtgärder?
 En lista över möjliga Service Bus-undantag finns i [undantag översikt][Exceptions overview].
 

@@ -16,12 +16,13 @@ ms.date: 06/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ac32e332b0e805c2261a47a3d8656160f977507e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488603"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204786"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Fastställa identitetskrav för för din hybrididentitetslösning
 Det första steget i utforma en hybrididentitetslösning är att avgöra kraven för organisationen som kommer att utnyttja den här lösningen.  Hybrididentitet startas som en stödjande roll (stöds alla andra molnlösningar genom att tillhandahålla autentisering) och på att tillhandahålla nya och intressanta funktioner att låsa upp nya arbetsbelastningar för användare.  Dessa arbetsbelastningar eller tjänster som du vill använda för dina användare styr kraven för hybrid identity utformningen.  Dessa tjänster och arbetsbelastningar behöver använda hybrididentitet både lokalt och i molnet.  

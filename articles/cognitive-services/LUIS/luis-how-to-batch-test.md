@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: fddd54e7c4e88b85f6e6fa8f7319661db96e9524
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877549"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116906"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testa med en uppsättning exempel yttranden batch
 
- Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. Datauppsättningar som används för att testa batch får inte innehålla exempel yttranden i avsikter eller yttranden togs emot från slutpunkten för förutsägelse runtime. 
+ Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. Datauppsättningar som används för att testa batch får inte innehålla exempel yttranden i avsikter eller yttranden som togs emot från slutpunkten för förutsägelse runtime. 
 
 <a name="batch-testing"></a>
 

@@ -1,6 +1,6 @@
 ---
 title: Ansluta och kommunicera med tjänster i Azure Service Fabric | Microsoft Docs
-description: Lär dig hur du löser ansluta och kommunicera med tjänster i Service Fabric.
+description: Lär dig att lösa, ansluta och kommunicera med tjänster i Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,99 +14,90 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 2b6fd2373a9cd0b376a6c8729d5952c5fc48ddf8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f11d680330a43dd49b3c36c864f50b9dc869d172
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205594"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211860"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Ansluta och kommunicera med tjänster i Service Fabric
-I Service Fabric körs en tjänst någonstans i ett Service Fabric-kluster, vanligtvis fördelade på flera virtuella datorer. Den kan flyttas från en plats till en annan, antingen av tjänstens ägare eller automatiskt av Service Fabric. Tjänster är inte statiskt knutna till en viss dator eller en adress.
+I Service Fabric körs en tjänst någonstans i ett Service Fabric-kluster, vanligtvis fördelade på flera virtuella datorer. Det kan flyttas från en plats till en annan, antingen av tjänstens ägare eller automatiskt av Service Fabric. Tjänster är inte statiskt knutna till en viss dator eller en adress.
 
-Ett Service Fabric-program består normalt av många olika tjänster, där varje tjänst utför en särskild aktivitet. Dessa tjänster kan kommunicera med varandra för att bilda en fullständig funktion, till exempel återgivning olika delar av ett webbprogram. Det finns också klientprogram som kan ansluta till och kommunicera med tjänster. Det här dokumentet beskrivs hur du ställer in kommunikation med och mellan dina tjänster i Service Fabric.
+Ett Service Fabric-program består normalt av många olika tjänster, där varje tjänst utför en särskild aktivitet. De här tjänsterna kan kommunicera med varandra för att bilda en fullständig funktion, till exempel rendering olika delar av ett webbprogram. Det finns också klientprogram som ansluter till och kommunicera med tjänster. Det här dokumentet beskriver hur du konfigurerar kommunikationen med och mellan dina tjänster i Service Fabric.
 
-Den här Microsoft Virtual Academy videon beskrivs också kommunikation: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
-<img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+## <a name="bring-your-own-protocol"></a>Ta med ditt eget protokoll
+Service Fabric hjälper till att hantera livscykeln för dina tjänster men det gör inte beslut om vad dina tjänster gör. Detta omfattar kommunikation. När din tjänst öppnas av Service Fabric, som är din tjänsts möjlighet att ställa in en slutpunkt för inkommande begäranden, med hjälp av de protokoll eller kommunikation stack som du vill. Tjänsten kommer att lyssna på en normal **IP:port** -adress med adresseringsschema, till exempel en URI. Flera instanser av tjänsten eller repliker kan dela en värdprocess, i vilket fall måste de antingen att använda olika portar eller använda en delning av port mekanism, till exempel http.sys kernel-drivrutinen i Windows. I båda fallen varje tjänstinstans eller replik i en värdprocess måste vara unikt adresserbara.
 
-## <a name="bring-your-own-protocol"></a>Ta med egna protokoll
-Service Fabric hjälper dig att hantera livscykeln för dina tjänster, men det gör inte beslut om dina tjänster gör. Detta omfattar kommunikation. När tjänsten har öppnats av Service Fabric, som är din tjänst möjlighet att ställa in en slutpunkt för inkommande begäranden som använder oavsett protokoll eller kommunikation stack som du vill. Tjänsten kommer att lyssna på en normal **IP:port** med adresseringsschema, till exempel en URI-adress. Flera instanser av tjänsten eller repliker kan dela en värdprocess, då de antingen måste använda olika portar eller använda en delning av port mekanism, till exempel http.sys kernel-drivrutinen i Windows. I båda fallen måste varje instans av tjänsten eller replik i en värdprocess måste vara unikt adresserbara.
-
-![slutpunkter][1]
+![Tjänsteslutpunkter][1]
 
 ## <a name="service-discovery-and-resolution"></a>Identifiering och lösning
-I ett distribuerat system, kan tjänster flytta från en dator till en annan över tid. Detta kan inträffa av olika skäl, inklusive resurser, uppgraderingar, redundans och skalbara. Det innebär att tjänsten slutpunkts-adresser ändras när tjänsten flyttas till noder med olika IP-adresser och öppnas på olika portar om tjänsten använder en dynamiskt vald port.
+I ett distribuerat system kan tjänster flytta från en dator till en annan över tid. Detta kan inträffa av olika anledningar, inklusive resurser, uppgraderingar, växling vid fel eller skala ut. Det innebär att tjänstens slutpunktsadresser ändras när tjänsten flyttas till noder med olika IP-adresser och öppnas på olika portar om tjänsten använder dynamiskt valda portar.
 
 ![Distribution av tjänster][7]
 
-Service Fabric är en tjänst för identifiering och lösning som kallas Naming Service. Tjänsten Naming upprätthåller en tabell som mappar namngivna instanser av tjänsten till slutpunkts-adresser som de lyssna på. Alla instanser för tjänsten i Service Fabric har unika namn som visas i form av URI: er, till exempel `"fabric:/MyApplication/MyService"`. Namnet på tjänsten ändras inte under livslängden för tjänsten, är det bara slutpunkts-adresser som kan ändras när tjänsterna flytta. Detta är detsamma som webbplatser som har konstant URL: er men där IP-adress kan ändras. Och liknar DNS på webben, som matchar IP-adresser för webbplats-URL: er, Service Fabric har ett register som mappar tjänstnamn till deras slutpunktsadress.
+Service Fabric tillhandahåller en tjänst för identifiering och lösning som kallas namngivning av tjänsten. Namngivningstjänsten upprätthåller en tabell som mappar med namnet tjänstinstanser att slutpunktsadresser de lyssna på. Alla namngivna tjänstinstanser i Service Fabric har unika namn som visas som URI: er, till exempel `"fabric:/MyApplication/MyService"`. Namnet på tjänsten ändras inte under livslängden för tjänsten, är det bara slutpunktsadresser kan ändras när tjänsterna flytta. Det här är detsamma som webbplatser som har konstant URL: er men där IP-adressen kan ändras. Och liknar DNS på webben, som matchar webbplatsadresser IP-adresser, Service Fabric har en registrator som mappar tjänstnamn till sina slutpunktsadress.
 
-![slutpunkter][2]
+![Tjänsteslutpunkter][2]
 
-Lösa och ansluta till tjänster omfattar följande steg i en slinga:
+Lösa och ansluta till tjänster omfattar följande steg körs i en slinga:
 
-* **Lös**: hämta den slutpunkt som har publicerat en tjänst från Naming Service.
-* **Ansluta**: ansluta till tjänsten via oavsett protokoll använder på denna slutpunkt.
-* **Försök**: ett anslutningsförsök misslyckas av olika orsaker, för om tjänsten har flyttats sedan den senast slutpunktsadressen löstes. I så fall den föregående lösa och ansluta steg måste göras och den här cykeln upprepas tills anslutningen lyckas.
+* **Lösa**: Hämta den slutpunkt som en tjänst har publicerat från Naming-tjänsten.
+* **Ansluta**: Ansluta till tjänsten via de protokoll som används på slutpunkten.
+* **Försök**: Ett anslutningsförsök misslyckas av olika orsaker, för exempel om tjänsten har flyttats sedan senast slutpunktsadressen löstes. I så fall kan det föregående lösa och ansluta steg måste göras, och den här cykeln upprepas tills anslutningen lyckas.
 
-## <a name="connecting-to-other-services"></a>Ansluter till andra tjänster
-Tjänster vanligtvis ansluta till varandra i ett kluster kan komma åt direkt slutpunkter av andra tjänster eftersom noder i ett kluster finns i samma lokala nätverk. Om du vill göra är enklare att ansluta olika tjänster, Service Fabric ger ytterligare tjänster som använder Naming Service. En DNS-tjänst och en omvänd proxy-tjänst.
+## <a name="connecting-to-other-services"></a>Ansluta till andra tjänster
+Tjänster som ansluter till varandra i ett kluster Allmänt kan direkt åtkomst till slutpunkterna för andra tjänster eftersom noderna i ett kluster i samma lokala nätverk. Om du vill göra är enklare att ansluta mellan tjänster, Service Fabric tillhandahåller ytterligare tjänster som använder Naming-tjänsten. En DNS-tjänst och en omvänd proxy-tjänst.
 
 
 ### <a name="dns-service"></a>DNS-tjänst
-Eftersom många tjänster, särskilt av tjänster kan ha ett befintligt URL-namn, att kunna lösa dessa med hjälp av standard-DNS-protokollet (i stället för protokollet Naming Service) är mycket praktiskt, särskilt i programmet ”lyfta och flytta” scenarier. Detta är exakt det DNS-tjänsten. På så sätt kan du mappa DNS-namn till ett namn och därför matcha IP-adresser för slutpunkt. 
+Eftersom många tjänster, särskilt container services, kan ha ett befintligt URL-namn, att kunna lösa dessa med hjälp av standard-DNS-protokollet (i stället för protokollet Namngivningstjänsten) är mycket praktiskt, särskilt i program ”lift and shift”-scenarier. Detta är exakt det DNS-tjänsten. Det kan du mappa DNS-namn till ett tjänstnamn och kan därför matcha IP-adresser för slutpunkt. 
 
-I följande diagram visas matchar DNS-namn till tjänstnamn som sedan kan matchas med namngivningstjänst att returnera slutpunkts-adresser för att ansluta till DNS-tjänsten som körs i Service Fabric-klustret. DNS-namn för tjänsten tillhandahålls vid tidpunkten för skapandet. 
+I följande diagram visas mappar DNS-namn till tjänstnamn som sedan kan matchas med Namngivningstjänsten för att returnera slutpunktsadresser att ansluta till med hjälp av DNS-tjänsten som körs i Service Fabric-kluster. DNS-namn för tjänsten tillhandahålls vid tidpunkten för skapandet. 
 
-![slutpunkter][9]
+![Tjänsteslutpunkter][9]
 
-För mer information om hur du använder DNS-tjänsten finns [DNS-tjänsten i Azure Service Fabric](service-fabric-dnsservice.md) artikel.
+För mer information om hur du använder DNS-tjänsten finns i [DNS-tjänsten i Azure Service Fabric](service-fabric-dnsservice.md) artikeln.
 
-### <a name="reverse-proxy-service"></a>Tjänsten omvänd proxy
-Omvänd proxy adresser tjänster i klustret som exponerar http-slutpunkter, inklusive HTTPS. Omvänd proxy avsevärt förenklar anropa andra tjänster och deras metoder genom att ha ett specifikt URI-format och hanterar lösas, ansluta, försök steg som krävs för en tjänst att kommunicera med en annan med att använda. Med andra ord döljer namngivningstjänst från dig vid anrop av andra tjänster genom att göra detta så enkelt som anropar en URL.
+### <a name="reverse-proxy-service"></a>Omvänd proxy-tjänst
+Omvänd proxy löser tjänster i klustret som exponerar HTTP-slutpunkter, inklusive HTTPS. Omvänd proxy avsevärt förenklar anropa andra tjänster och deras metoder genom att använda ett specifikt URI-format och hanterar Lös, ansluta, försök steg som krävs för en tjänst att kommunicera med en annan med hjälp av tjänsten Naming. Med andra ord döljer namngivningstjänst från dig vid anrop av andra tjänster genom att göra det lika enkelt som att anropa en URL.
 
-![slutpunkter][10]
+![Tjänsteslutpunkter][10]
 
-Mer information om hur du använder omvänd proxy-tjänst finns [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md) artikel.
+Mer information om hur du använder omvänd proxy-tjänsten finns [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md) artikeln.
 
 ## <a name="connections-from-external-clients"></a>Anslutningar från externa klienter
-Tjänster vanligtvis ansluta till varandra i ett kluster kan komma åt direkt slutpunkter av andra tjänster eftersom noder i ett kluster finns i samma lokala nätverk. I vissa miljöer med kan ett kluster dock finnas bakom en belastningsutjämnare som skickar externa ingång trafik via en begränsad uppsättning portar. I dessa fall tjänster kan kommunicera med varandra och matcha adresser med att använda fortfarande, men måste du vidta ytterligare åtgärder för att tillåta externa klienter att ansluta till tjänster.
+Tjänster som ansluter till varandra i ett kluster Allmänt kan direkt åtkomst till slutpunkterna för andra tjänster eftersom noderna i ett kluster i samma lokala nätverk. I vissa miljöer kan kan ett kluster dock finnas bakom en belastningsutjämnare som dirigerar externa inkommande trafik via en begränsad uppsättning portar. I dessa fall kan tjänster fortfarande kan kommunicera med varandra och matcha adresser med hjälp av tjänsten namngivning, men ytterligare åtgärder måste vidtas för att tillåta externa klienter att ansluta till tjänster.
 
 ## <a name="service-fabric-in-azure"></a>Service Fabric i Azure
-Ett Service Fabric-kluster i Azure är placerad bakom en belastningsutjämnare i Azure. Alla externa trafik till klustret måste gå via belastningsutjämnaren. Belastningsutjämnaren kommer automatiskt att vidarebefordra trafik inkommande på en viss port till ett slumpmässigt *nod* som har samma port öppna. Azure belastningsutjämnare bara medveten om portar som är öppna på de *noder*, öppnar du portar genom att individuella inte känner *services*.
+Service Fabric-kluster i Azure är placerad bakom en belastningsutjämnare för Azure. All extern trafik till klustret måste klara via belastningsutjämnaren. Belastningsutjämnaren automatiskt vidarebefordrar trafik inkommande på en viss port till ett slumpmässigt *noden* som har samma port öppna. Azure Load Balancer endast vet om portar öppna på de *noder*, den inte vet om portar öppna av enskilda *services*.
 
-![Azure belastningsutjämnare och Service Fabric-topologi][3]
+![Azure Load Balancer och Service Fabric-topologi][3]
 
 Till exempel för att kunna acceptera extern trafik på port **80**, konfigureras följande saker:
 
-1. Skriv en tjänst som lyssnar på port 80. Konfigurera port 80 i tjänstens ServiceManifest.xml och öppna en lyssnare i tjänsten, till exempel en egen värdbaserade webbserver.
+1. Skriv en tjänst som lyssnar på port 80. Konfigurera port 80 i tjänstens ServiceManifest.xml och öppna en lyssnare i tjänsten, till exempel en lokal webbserver.
 
-    ```xml
-    <Resources>
-        <Endpoints>
-            <Endpoint Name="WebEndpoint" Protocol="http" Port="80" />
-        </Endpoints>
-    </Resources>
+    ```xml    <Resources> <Endpoints> <Endpoint Name="WebEndpoint" Protocol="http" Port="80" /> </Endpoints> </Resources>
     ```
     ```csharp
-        class HttpCommunicationListener : ICommunicationListener
+        class HttpCommunicationListener : ICommunicationListener
         {
             ...
 
             public Task<string> OpenAsync(CancellationToken cancellationToken)
             {
-                EndpointResourceDescription endpoint =
+                EndpointResourceDescription endpoint =
                     serviceContext.CodePackageActivationContext.GetEndpoint("WebEndpoint");
 
-                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
+                string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
 
-                this.httpListener = new HttpListener();
+                this.httpListener = new HttpListener();
                 this.httpListener.Prefixes.Add(uriPrefix);
                 this.httpListener.Start();
 
-                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-                return Task.FromResult(publishUri);
+                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+                return Task.FromResult(publishUri);
             }
 
             ...
@@ -118,7 +109,7 @@ Till exempel för att kunna acceptera extern trafik på port **80**, konfigurera
 
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
-                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
 
             ...
@@ -160,30 +151,30 @@ Till exempel för att kunna acceptera extern trafik på port **80**, konfigurera
             ...
         }
     ```
-2. Skapa ett Service Fabric-kluster i Azure och ange port **80** som en anpassad endpoint-port för nodtypen som är värd för tjänsten. Om du har mer än en nodtyp kan du skapa en *placering begränsningen* på tjänsten så att den kan bara köras på nodtypen som har anpassade endpoint porten öppnas.
+2. Skapa ett Service Fabric-kluster i Azure och ange port **80** som en anpassad slutpunkt-port för nodtypen som är värd för tjänsten. Om du har mer än en nodtyp, du kan ställa in en *placering begränsningen* på tjänsten för att kontrollera att den körs bara på vilken nod som har den anpassade slutpunktsport öppnas.
 
     ![Öppna en port på en nodtyp][4]
-3. När klustret har skapats kan du konfigurera Azure belastningsutjämnare i klusterresursgrupp att vidarebefordra trafik på port 80. När du skapar ett kluster via Azure portal, ställs detta in automatiskt för varje anpassad endpoint-port som har konfigurerats.
+3. När klustret har skapats kan du konfigurera Azure Load Balancer i klustrets resursgrupp att vidarebefordra trafik på port 80. När du skapar ett kluster via Azure-portalen kan ställs detta in automatiskt för varje anpassad slutpunkt-port som har konfigurerats.
 
-    ![Vidarebefordra trafik i Azure belastningsutjämnare][5]
-4. Azure belastningsutjämnare använder en avsökning för att avgöra om att skicka trafik till en viss nod eller inte. Avsökningen söker regelbundet en slutpunkt på varje nod för att avgöra om noden svarar. Om det inte går att ta emot ett svar efter ett visst antal gånger avsökningen, stoppar belastningsutjämnaren skickar trafik till noden. När du skapar ett kluster via Azure portal, konfigureras automatiskt en avsökning för varje anpassad endpoint-port som har konfigurerats.
+    ![Vidarebefordra trafik i Azure Load Balancer][5]
+4. Azure Load Balancer använder en avsökning för att avgöra om att skicka trafik till en viss nod eller inte. Avsökningen söker regelbundet en slutpunkt på varje nod för att avgöra huruvida noden svarar. Om det inte går att få ett svar efter det konfigurerade antalet gånger avsökningen, slutar belastningsutjämnaren att skicka trafik till noden. När du skapar ett kluster via Azure-portalen måste konfigureras automatiskt en avsökning för varje anpassad slutpunkt-port som har konfigurerats.
 
-    ![Vidarebefordra trafik i Azure belastningsutjämnare][8]
+    ![Vidarebefordra trafik i Azure Load Balancer][8]
 
-Det är viktigt att komma ihåg att Azure belastningsutjämnare och avsökningen bara känna av *noder*, inte den *tjänster* körs på noderna. Azure belastningsutjämnare kommer alltid att skicka trafik till noder som svarar avsökningen, så måste vara försiktig så att tjänster är tillgängliga på de noder som är kunna svara avsökningen.
+Det är viktigt att komma ihåg att Azure Load Balancer och avsökningen känner bara till den *noder*, inte den *services* körs på noderna. Azure Load Balancer kommer alltid att skicka trafik till noder som svarar på avsökningen, så måste du vara noggrann så tjänster är tillgängliga på de noder som kommer svara på avsökningen.
 
-## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: Inbyggda API kommunikationsalternativ
-Reliable Services framework levereras med flera fördefinierade kommunikationsalternativ. Beslutet om vilka en fungerar bäst för dig beror på valet av programmeringsmiljö, kommunikation framework och programmeringsspråk som dina tjänster har skrivits i.
+## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: Alternativ för inbyggd kommunikation API
+Reliable Services-ramverk levereras med flera alternativ för kommunikation från färdiga. Beslutet om vilka något som fungerar bäst för dig är beroende av valet av programmeringsmiljö ramen för kommunikation och det programmeringsspråk som dina tjänster är skrivna i.
 
-* **Inget specifikt protokoll:** om du inte har ett visst val av kommunikation framework, men du vill få något dig snabbt, så det bästa alternativet för du [remoting service](service-fabric-reliable-services-communication-remoting.md), vilket gör att strikt typkontroll RPC-anrop för Reliable Services och Reliable Actors. Detta är det enklaste och snabbaste sättet att komma igång med service-kommunikation. Tjänsten fjärrkommunikation hanterar lösning av postadresser, anslutning, försök igen och felhantering. Detta är tillgängligt för både C# och Java-program.
-* **HTTP**: för språkoberoende kommunikation HTTP innehåller en branschstandardiserad val med verktyg och HTTP-servrar som är tillgängliga på många olika språk, alla stöds inte av Service Fabric. Tjänster kan använda alla tillgängliga, till exempel HTTP stack [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md) för C#-program. Klienter som skrivits i C# kan utnyttja den `ICommunicationClient` och `ServicePartitionClient` klasser, medan Java, Använd den `CommunicationClient` och `FabricServicePartitionClient` klasser, [för tjänsten upplösning, HTTP-anslutningar och försök igen slingor](service-fabric-reliable-services-communication.md).
-* **WCF**: Om du har befintliga kod som använder WCF som din kommunikation framework, så du kan använda den `WcfCommunicationListener` för serversidan och `WcfCommunicationClient` och `ServicePartitionClient` klasser för klienten. Detta men är bara tillgängligt för C#-program på Windows-baserade kluster. Mer information finns i den här artikeln [WCF-baserad implementering av kommunikation stacken](service-fabric-reliable-services-communication-wcf.md).
+* **Ingen specifik protokoll:**  Om du inte har ett visst val av kommunikation framework, men du vill hämta något upp och snabbt, så är perfekt alternativ för dig [fjärrtjänst](service-fabric-reliable-services-communication-remoting.md), vilket gör att starkt typifierade RPC-anrop för Reliable Services och Reliable Actors. Det här är det enklaste och snabbaste sättet att komma igång med tjänst-kommunikation. Fjärrtjänst hanterar lösning av postadresser, anslutning, försök igen och felhantering. Det här är tillgänglig för både C# och Java-program.
+* **HTTP**: För språkoberoende kommunikation ger HTTP ett branschstandard val med verktygen och HTTP-servrar som är tillgängliga i många olika språk, bibehållet stöd från Service Fabric. Tjänster kan använda valfri HTTP-stack som är tillgängliga, däribland [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md) för C# program. Klienter som skrivits i C# kan dra nytta av den `ICommunicationClient` och `ServicePartitionClient` klasserna, medan för Java, använder den `CommunicationClient` och `FabricServicePartitionClient` klasser, [för tjänst-lösning, HTTP-anslutningar och försök igen slingor](service-fabric-reliable-services-communication.md).
+* **WCF**: Om du har befintlig kod som använder WCF som din kommunikation framework så kan du använda den `WcfCommunicationListener` för serversidan och `WcfCommunicationClient` och `ServicePartitionClient` klasser för klienten. Detta men är bara tillgängligt för C# program på Windows-baserade kluster. Mer information finns i den här artikeln [WCF-baserad implementering av kommunikationsstack](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Med hjälp av anpassade protokoll och andra ramverk för kommunikation
-Tjänster kan använda alla protokoll eller ramverk för kommunikation, om det är ett anpassat protokoll för binära via TCP-sockets eller händelser via strömning via [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) eller [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Service Fabric ger kommunikation API: er som du ansluter din kommunikation stacken, medan allt arbete att upptäcka och ansluta representeras från dig. Se den här artikeln om den [tillförlitlig kommunikation modell](service-fabric-reliable-services-communication.md) för mer information.
+Tjänster kan använda alla protokoll eller ramverk för kommunikation, oavsett om det är ett anpassat protokoll för binära via TCP-sockets eller direktuppspelning av händelser via [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) eller [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Service Fabric tillhandahåller kommunikation API: er som du ansluter din kommunikationsstack till, medan allt arbete att upptäcka och ansluta har abstraherats från dig. Se den här artikeln den [tillförlitlig tjänst modell](service-fabric-reliable-services-communication.md) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om begrepp och API: er som är tillgängliga i den [Reliable Services kommunikation modellen](service-fabric-reliable-services-communication.md), sedan komma igång snabbt med [remoting service](service-fabric-reliable-services-communication-remoting.md) eller gå på djupet att lära dig hur du skriver ett meddelande lyssnaren med [Web API med OWIN som värd för automatisk](service-fabric-reliable-services-communication-webapi.md).
+Mer information om begrepp och API: erna i den [Reliable Services modell](service-fabric-reliable-services-communication.md), Kom sedan igång snabbt med [fjärrtjänst](service-fabric-reliable-services-communication-remoting.md) eller gå på djupet för att lära dig hur du skriver ett meddelande lyssnaren med [webb-API med OWIN lokal värd](service-fabric-reliable-services-communication-webapi.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png
 [2]: ./media/service-fabric-connect-and-communicate-with-services/namingservice.png

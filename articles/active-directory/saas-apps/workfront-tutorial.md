@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: bdb132deec61ff3d373b4c520a7c35d363818f6d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1815e56b54dc36e152336a79dec802c63541b7f6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189501"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Självstudier: Azure Active Directory-integrering med Workfront
 
@@ -204,7 +205,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
    
     c. I den **e-postadress** textrutan skriver Britta Simon e-postadress i Azure Active Directory.
    
-    d. Klicka på **Person till**.
+    d. Klicka på **Lägg till person**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

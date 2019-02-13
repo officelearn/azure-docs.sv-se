@@ -4,7 +4,7 @@ description: Det här dokumentet belyser rekommendationer i Security Center som 
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: 411fc025f5a25e961f69f5e6f66a9f6d115689a7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8dcaa9b98292e66d81daf3d115159b0c0c1124af
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487751"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106740"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -66,7 +66,7 @@ Varje rekommendation har en uppsättning åtgärder som du kan utföra när du h
 
 **Tillämpa systemuppdateringar** innehåller en sammanfattning av viktiga uppdateringar i diagramformat, en för Windows och en för Linux. Den andra delen har en tabell med följande information:
 
-- **NAMN PÅ**: Namnet på uppdateringen som saknas.
+- **NAMN**: Namnet på uppdateringen som saknas.
 - **ANTAL VM: ar och datorer**: Totalt antal virtuella datorer och datorer som saknar denna uppdatering.
 - **UPPDATERA ALLVARLIGHETSGRAD**: Visas hur viktig rekommendationen:
 

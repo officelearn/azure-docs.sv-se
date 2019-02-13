@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0c7e0e539ca884739f5bf633946a4704d29b132b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448236"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112605"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) konfigurera [nyare måttaviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Resource Manager-mallar kan du programmässigt ställa in aviseringar på ett konsekvent och reproducerbara sätt i alla dina miljöer. Nyare måttaviseringar finns för närvarande på [den här uppsättningen resurstyper](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resource Manager-mall som angetts för måttavisering fungerar inte för resurstypen: Microsoft.OperationalInsights/workspaces; stöd för mått från Log Analytics finns i förhandsversion. Användare som vill använda förhandsversionsfunktionerna med resursmall kan kontakta [Feedback för Azure-aviseringar](mailto:azurealertsfeedback@microsoft.com)
+> Resursmall för att skapa måttaviseringar för resurstypen: Azure Log Analytics-arbetsyta (d.v.s.) `Microsoft.OperationalInsights/workspaces`, kräver ytterligare åtgärder. Mer information finns i artikeln på [mått aviseringar för loggar - resursmall](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 De grundläggande stegen är följande:
 

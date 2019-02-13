@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 3a80e3a95252b60dd39ad4ce20878922aeee5730
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246890"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165038"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Lägg till värdservrar för MySQL-resursprovider
 
-Du kan ha en MySQL-instans på en virtuell dator (VM) i [Azure Stack](azure-stack-poc.md), eller på en virtuell dator utanför Azure Stack-miljön, så länge MySQL-resursprovider kan ansluta till instansen.
+Du kan ha en MySQL som är värd för server-instans på en virtuell dator (VM) i [Azure Stack](azure-stack-poc.md), eller på en virtuell dator utanför Azure Stack-miljön, så länge MySQL-resursprovider kan ansluta till instansen.
 
 > [!NOTE]
-> MySQL-databaser ska skapas på MySQL resource provider-servern. MySQL-resursprovider ska skapas i standard-providerprenumeration medan MySQL värdservrar ska skapas i en fakturerbar, användarprenumeration. Resource provider-servern bör inte användas till att värden användardatabaser.
+> MySQL-resursprovider ska skapas i standard-providerprenumeration medan MySQL värdservrar ska skapas i fakturerbara, användarprenumerationer. Resource provider-servern bör inte användas till att värden användardatabaser.
 
 MySQL-version 5.6, 5.7 och 8.0 kan användas för värdbaserade servrar. MySQL RP stöder inte caching_sha2_password autentisering; som kommer att läggas till i nästa version. MySQL 8.0 servrar måste konfigureras för att använda mysql_native_password. MariaDB stöds också.
 

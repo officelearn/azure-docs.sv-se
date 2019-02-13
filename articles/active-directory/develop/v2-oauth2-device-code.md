@@ -17,12 +17,13 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: df45ec1478314e0d60f2c66a42a48801f1ce0643
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093095"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170202"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0- och kodflöde för OAuth 2.0-enhet
 
@@ -72,13 +73,13 @@ Ett lyckat svar är ett JSON-objekt som innehåller informationen som krävs fö
 
 | Parameter | Format | Beskrivning |
 | ---              | --- | --- |
-|`device_code`     |Sträng| En lång sträng som används för att verifiera sessionen mellan klienten och auktoriseringsservern.  Detta används av klienten för att begära åtkomsttoken från auktoriseringsservern. |
-|`user_code`       |Sträng| En kort sträng som visas för användaren, används för att identifiera session på en sekundär enhet.|
+|`device_code`     |String| En lång sträng som används för att verifiera sessionen mellan klienten och auktoriseringsservern.  Detta används av klienten för att begära åtkomsttoken från auktoriseringsservern. |
+|`user_code`       |String| En kort sträng som visas för användaren, används för att identifiera session på en sekundär enhet.|
 |`verification_uri`|URI| URI: N som användaren bör gå till med den `user_code` för att kunna logga in. |
 |`verification_uri_complete`|URI| En URI-kombinera den `user_code` och `verification_uri`, som används för bilder överföring för användaren (till exempel via Bluetooth till en enhet eller via en QR-kod).  |
 |`expires_in`      |int| Antalet sekunder innan den `device_code` och `user_code` upphör att gälla. |
 |`interval`        |int| Hur många sekunder som klienten ska vänta mellan avsökningen begäranden. |
-| `message`        |Sträng| En läsbara sträng med instruktioner för användaren.  Detta kan lokaliseras genom att inkludera en **frågeparameter** i begäran i formatet `?mkt=xx-XX`, fylla i lämplig kultur språkkoden. |
+| `message`        |String| En läsbara sträng med instruktioner för användaren.  Detta kan lokaliseras genom att inkludera en **frågeparameter** i begäran i formatet `?mkt=xx-XX`, fylla i lämplig kultur språkkoden. |
 
 ## <a name="authenticating-the-user"></a>Autentisering av användaren
 
@@ -130,7 +131,7 @@ Ett lyckat svar för token kommer att se ut:
 
 | Parameter | Format | Beskrivning |
 | --------- | ------ | ----------- |
-|`token_type` | Sträng| Alltid ”Ägarautentisering. |
+|`token_type` | String| Alltid ”Ägarautentisering. |
 |`scope` | Avgränsade med blanksteg strängar | Om en åtkomsttoken returnerades listas detta scope åtkomsttoken är giltig för. |
 |`expires_in`| int | Antalet sekunder innan den inkluderade åtkomst-token är giltig för. |
 |`access_token`| Täckande sträng | Utfärdats för den [scope](v2-permissions-and-consent.md) som begärdes.  |

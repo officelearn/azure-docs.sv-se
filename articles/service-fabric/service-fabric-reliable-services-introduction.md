@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 37f956606075cb21075d6f50bb53e04075936997
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: bc4e4c9137003dad9cfd96772b7ebe231cd6eace
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999041"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171731"
 ---
 # <a name="reliable-services-overview"></a>Översikt över Reliable Services
 Azure Service Fabric förenklar skriva och hantera tillståndslösa och tillståndskänsliga Reliable Services. Det här avsnittet innehåller:
@@ -45,12 +45,6 @@ Reliable Services får du en enkel, kraftfull och översta programmeringsmodell 
 * En enkel modell för att köra din egen kod som ser ut som programmeringsmodeller som du brukade. Koden har en väldefinierad startpunkt och lätthanterade livscykel.
 * En modulär modell. Använda transport av föredrar, till exempel HTTP med [webb-API](service-fabric-reliable-services-communication-webapi.md), WebSockets, anpassade TCP-protokoll eller något annat. Reliable Services tillhandahåller några bra alternativ för out-of the box som du kan använda eller du kan ange dina egna.
 * För tillståndskänsliga tjänster programmeringsmodellen Reliable Services kan du konsekvent och tillförlitligt lagra din delstat i din tjänst med hjälp av [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Tillförlitliga samlingar är en enkel uppsättning med hög tillgänglighet och tillförlitlighet klasser som är välkända för alla som har använt C# samlingar. Traditionellt har tjänster som krävs för externa system för tillståndshantering av tillförlitliga. Med Reliable Collections kan du lagra din delstat bredvid din databearbetning med samma hög tillgänglighet och tillförlitlighet som har du kommit till förväntar dig från med hög tillgänglighet externa butiker. Den här modellen förbättrar också svarstid eftersom du samplacera beräknings- och tillstånd som den behöver för att fungera.
-
-Titta på denna Microsoft Virtual Academy-video för en översikt över Reliable services: <center>
-<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
-<img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
-</a>
-</center>
 
 ## <a name="what-makes-reliable-services-different"></a>Vad gör Reliable Services olika?
 Reliable Services i Service Fabric skiljer sig från tjänster som du har skrivit innan. Service Fabric tillhandahåller tillförlitlighet, tillgänglighet, konsekvens och skalbarhet.

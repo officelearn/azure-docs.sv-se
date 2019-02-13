@@ -2,17 +2,17 @@
 title: Azure Key Vault - hur du använder mjuk borttagning med CLI
 description: Använda fallet exempel för mjuk borttagning med CLI-kodstycken
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663952"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116731"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Hur du använder Key Vault mjuk borttagning med CLI
 
@@ -226,5 +226,5 @@ Visa en lista över objekt som borttaget nyckelvalv visar även när de är sche
 ## <a name="other-resources"></a>Andra resurser
 
 - En översikt över funktionen för mjuk borttagning för Key Vault finns i [Azure Key Vault mjuk borttagning översikt](key-vault-ovw-soft-delete.md).
-- En allmän översikt över Azure Key Vault fungerar, se [Kom igång med Azure Key Vault](key-vault-get-started.md).
+- En allmän översikt över Azure Key Vault fungerar, se [vad är Azure Key Vault?](key-vault-overview.md).
 

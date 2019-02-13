@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 7fa0ec222a8e08c5dda74dba0fe437062bb3f433
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2e0f14ed72ae1609d4d6605e4a53e88b8fe33f28
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156317"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Självstudier: Azure Active Directory-integrering med Lynda.com
 
@@ -115,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.lynda.com/Shibboleth.sso/InCommon?providerId=<url>&target=<url> `
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Lynda.com klienten supportteamet](https://www.linkedin.com/help/lynda/ask) att hämta dessa värden. 
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Lynda.com klienten supportteamet](https://www.linkedin.com/help/lynda/ask) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 03cacda1aa405cb2d0ded579c8ddb5f6011ce3bb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994945"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113795"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(INAKTUELL) DC/OS-agentpooler för Azure Container Service
 
@@ -23,11 +23,11 @@ ms.locfileid: "52994945"
 DC/OS-kluster i Azure Container Service innehåller agentnoder i två pooler, poolen offentliga och privata poolen. Ett program kan bara distribueras till antingen poolen, påverkar tillgängligheten mellan datorer i container service. Datorerna kan exponerade mot internet (offentlig) eller behöll intern (privat). Den här artikeln ger en kort översikt över varför det är offentliga och privata pooler.
 
 
-* **Privata agenter**: privata agentnoder kör via ett icke-dirigerbara nätverk. Det här nätverket är endast tillgänglig från zonen admin eller via offentlig zon edge-routern. Som standard startar DC/OS-appar på privata agentnoder. 
+* **Privata agenter**: Privata agentnoder kör via ett icke-dirigerbara nätverk. Det här nätverket är endast tillgänglig från zonen admin eller via offentlig zon edge-routern. Som standard startar DC/OS-appar på privata agentnoder. 
 
-* **Offentliga agenter**: offentliga agentnoder kör DC/OS-appar och tjänster via ett allmänt tillgängligt nätverk. 
+* **Offentliga agenter**: Offentliga agentnoder kör DC/OS-appar och tjänster via ett allmänt tillgängligt nätverk. 
 
-Mer information om DC/OS-nätverkssäkerhet finns i den [DC/OS-dokumentationen](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
+Mer information om DC/OS-nätverkssäkerhet finns i den [DC/OS-dokumentationen](https://docs.mesosphere.com/).
 
 ## <a name="deploy-agent-pools"></a>Distribuera agentpooler
 

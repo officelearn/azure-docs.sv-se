@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 93203e82e71b66243818cac52f9ec431e85ba18f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4595202aa60a2b8888487d505aa8981c6f45bd8d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169254"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189029"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Självstudier: Azure Active Directory-integrering med Mixpanel
 
@@ -197,7 +198,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
    
     ![Mixpanel inställningar](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
-1. Klicka på **bjuda in**. 
+1. Klicka på **Bjud in**. 
 
 > [!Note]
 > Användaren får ett e-postmeddelande för att konfigurera profilen.

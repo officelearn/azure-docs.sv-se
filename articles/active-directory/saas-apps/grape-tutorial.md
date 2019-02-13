@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med gr Pe | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med gr Pe | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och tona Pe.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e642cba3354f4f8589e44d975c0cecf5692c5b5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 02df0a5d13aeb90049383f61d743e8a11e93fc79
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431651"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188537"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Självstudier: Azure Active Directory-integration med gr Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Självstudier: Azure Active Directory-integrering med gr Pe
 
 Lär dig hur du integrerar gr Pe med Azure Active Directory (AD Azure) i den här självstudien.
 
@@ -29,7 +30,7 @@ Integrera gr Pe med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till gr Pe.
 - Du kan aktivera användarna att automatiskt få loggat in på gr-Pe (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med gr Pe, behöver du följande obj
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -67,7 +68,7 @@ För att konfigurera integrering av gr Pe i Azure AD, som du behöver lägga til
 
     ![image](./media/grape-tutorial/a_select_app.png)
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![image](./media/grape-tutorial/a_new_app.png)
 
@@ -75,7 +76,7 @@ För att konfigurera integrering av gr Pe i Azure AD, som du behöver lägga til
 
      ![image](./media/grape-tutorial/tutorial_grape_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med gr-Pe baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med gr Pe, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare gr Pe](#create-a-gra-pe-test-user)**  – du har en motsvarighet för Britta Simon i l-Pe som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt gr Pe-program.
 
@@ -103,51 +104,51 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![image](./media/grape-tutorial/b1_b2_saml_sso.png)
 
-3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **SAML grundkonfiguration** dialogrutan.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
     ![image](./media/grape-tutorial/b1-domains_and_urlsedit.png)
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
     I den **inloggnings-URL** anger en URL som:  `https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
 
     ![image](./media/grape-tutorial/tutorial_grape_url.png)
 
-5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned den **certifikat (Base64)** och spara den på din dator.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **Certifikat (Base64)** och spara det på datorn.
 
     ![image](./media/grape-tutorial/tutorial_grape_certficate.png)
 
 6. På den **konfigurera gr Pe** avsnittet, kopiera den lämpliga URL enligt dina behov.
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Azure AD-ID
+    b. Microsoft Azure Active Directory-identifierare
 
     c. Utloggnings-URL
 
     ![image](./media/grape-tutorial/d1_samlsonfigure.png) 
 
-7. Att konfigurera enkel inloggning på **gr Pe** sida, som du behöver skicka de hämtade **certifikat (Base64)** och kopierade **utloggnings-URL för inloggnings-URL, Azure AD-ID,** till [ Gr Pe supportteamet](https://www.toppantravel.com/inquiry/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Att konfigurera enkel inloggning på **gr Pe** sida, som du behöver skicka de hämtade **certifikat (Base64)** och kopierade **utloggnings-URL för inloggnings-URL, Azure AD-ID,** till [ Gr Pe supportteamet](https://www.toppantravel.com/inquiry/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![image](./media/grape-tutorial/d_users_and_groups.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
     ![image](./media/grape-tutorial/d_adduser.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+3. Genomför följande steg i Användaregenskaper.
 
     ![image](./media/grape-tutorial/d_userproperties.png)
 
-    a. I den **namn** ange **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -156,7 +157,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-gra-pe-test-user"></a>Skapa en Tona-Pe testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i gr Pe. Arbeta med [gr Pe supportteamet](https://www.toppantravel.com/inquiry/) att lägga till användare i gr Pe-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i gr Pe. Arbeta med [gr Pe supportteamet](https://www.toppantravel.com/inquiry/) att lägga till användare i gr Pe-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -170,7 +171,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/grape-tutorial/tutorial_grape_app.png)
 
-3. I menyn till vänster väljer **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![image](./media/grape-tutorial/d_leftpaneusers.png)
 
@@ -178,9 +179,9 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/grape-tutorial/d_assign_user.png)
 
-4. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
+4. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-5. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
+5. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

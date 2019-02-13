@@ -12,30 +12,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246450"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207151"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrering med Azure Stack-brandväggen
-Du rekommenderas att du använder en brandväggsenhet för att säkra Azure Stack. Även om brandväggar kan hjälpa dig med distribuerade denial of service DDOS-attacker, intrångsidentifiering och innehållsgranskning, kan de också blir en flaskhals för dataflöde för Azure storage-tjänster som blobbar, tabeller och köer.
+Du rekommenderas att du använder en brandväggsenhet för att säkra Azure Stack. Brandväggar kan skydda mot distribuerade denial-of-service (DDOS) attacker, intrångsidentifiering och innehållsgranskning. De kan dock också blir en flaskhals för dataflöde för Azure storage-tjänster som blobbar, tabeller och köer.
 
-Baserat på identitetsmodellen Azure Active Directory (AD Azure) eller Windows Server Active Directory Federation Services (AD FS), kan du behöva publicera AD FS-slutpunkten. Om en frånkopplad distributionsläget används, måste du publicera den AD FS-slutpunkten. Mer information finns i den [datacenter integration identitet artikeln](azure-stack-integrate-identity.md).
+ Om en frånkopplad distributionsläget används, måste du publicera den AD FS-slutpunkten. Mer information finns i den [datacenter integration identitet artikeln](azure-stack-integrate-identity.md).
 
-Azure Resource Manager (administratör), administratörsportalen och slutpunkter för Key Vault (administratör) kräver inte externa publicering nödvändigtvis. Till exempel en tjänstleverantör, kan du minska risken för angrepp och administrera Azure Stack från endast i ditt nätverk och inte från internet.
+Azure Resource Manager (administratör), administratörsportalen och slutpunkter för Key Vault (administratör) kräver inte externa publicering nödvändigtvis. En tjänstleverantör, kan du begränsa risken för angrepp genom att administrera Azure Stack från endast i ditt nätverk och inte från internet.
 
-För företag, kan det externa nätverket vara befintliga företagets nätverk. I ett sådant scenario, måste du publicera dessa slutpunkter för att köra Azure Stack från företagsnätverket.
+För företag, kan det externa nätverket vara befintliga företagets nätverk. I det här scenariot måste du publicera slutpunkter för att köra Azure Stack från företagsnätverket.
 
 ### <a name="network-address-translation"></a>Network Address Translation
-Network Address Translation (NAT) är den rekommenderade metoden att tillåta en distribution av virtuell dator (DVM) för att få åtkomst till de externa resurserna och internet under distributionen av samt de nödfall Recovery konsolen (ERCS) virtuella datorerna eller privilegierad slutpunkt (program) under registrering och felsökning.
+Network Address Translation (NAT) är den rekommenderade metoden för att tillåta distribution av virtuell dator (DVM) för att få åtkomst till externa resurser och internet under distributionen av samt de nödfall Recovery konsolen (ERCS) virtuella datorerna eller privilegierad slutpunkt (program) under registrering och felsökning.
 
-NAT kan också vara ett alternativ till offentliga IP-adresser på det externa nätverket eller offentliga virtuella IP-adresser. Det rekommenderas dock inte eftersom det begränsar klient användarupplevelsen och ökar komplexiteten. De två alternativen är en 1:1-NAT som fortfarande kräver en offentlig IP per användare IP-adresser på poolen eller många: En användare kan använda 1 NAT som kräver en NAT-regel per användare VIP som innehåller kopplingar till alla portar.
+NAT kan också vara ett alternativ till offentliga IP-adresser på det externa nätverket eller offentliga virtuella IP-adresser. Det rekommenderas dock inte eftersom det begränsar klient användarupplevelsen och ökar komplexiteten. Ett alternativ är en en-till-en NAT-enhet som fortfarande kräver en offentlig IP per användare IP i poolen. Ett annat alternativ är en många-till en NAT-enhet som kräver en NAT-regel per användare VIP för alla portar som en användare kan använda.
 
 Några av nackdelarna med att använda NAT för offentlig VIP-adress är:
 - NAT lägger till användning vid hantering av brandväggsregler eftersom användare styra sina egna slutpunkter och sina egna publiceringsregler i stacken programvarudefinierade nätverk (SDN). Användare måste kontakta Azure Stack-operatör att få sina VIP som har publicerats och för att uppdatera listan över portar.
@@ -48,7 +48,7 @@ För närvarande rekommenderar vi att inaktivera SSL-dekryptering på alla Azure
 ## <a name="edge-firewall-scenario"></a>Edge-brandväggen scenario
 I en edge-distribution med Azure Stack direkt bakom edge-routern eller brandväggen. I dessa scenarier stöds för brandväggen för att vara högre än kantlinje (1-Scenario) där det har stöd för både aktiv-aktiv och aktivt-passivt brandväggskonfigurationer eller fungerar som kantlinje enheten (Scenario 2) där det endast har stöd för aktiv-aktiv brandvägg förlita dig på lika med kostnaden Multi sökväg (ECMP) med BGP eller statisk routning för redundans-konfiguration.
 
-Vanligtvis har offentliga dirigerbara IP-adresser angetts för den offentliga VIP-poolen från det externa nätverket vid tidpunkten för distribution. I ett scenario för edge rekommenderas inte att använda offentliga dirigerbara IP-adresser på ett annat nätverk av säkerhetsskäl. Det här scenariot kan en användare att uppleva fullständig lokal kontrollerad molnupplevelse som i ett offentligt moln som Azure.  
+Offentliga dirigerbara IP-adresser har angetts för den offentliga VIP-poolen från det externa nätverket vid tidpunkten för distribution. I ett scenario för edge rekommenderas inte att använda offentliga dirigerbara IP-adresser på ett annat nätverk av säkerhetsskäl. Det här scenariot kan en användare att uppleva fullständig lokal kontrollerad molnupplevelse som i ett offentligt moln som Azure.  
 
 ![Brandväggen exempel på Azure Stack edge](./media/azure-stack-firewall/firewallScenarios.png)
 

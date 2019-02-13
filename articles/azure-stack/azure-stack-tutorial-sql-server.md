@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aba9014e74b8ba0cd1b528cf570d3651950c6d5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240819"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207066"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Självstudie: tillgängliggöra SQL-databaser till Azure Stack-användare
 
@@ -35,7 +35,7 @@ Som administratör för Azure Stack-molnet kan du skapa erbjudanden som använda
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>Distribuera SQL Server-resursprovider
 
-Distributionsprocessen beskrivs i detalj i de [Använd SQL-databaser på Azure Stack-artikeln](azure-stack-sql-resource-provider-deploy.md), och består av följande huvudsakliga steg:
+Distributionsprocessen beskrivs i detalj i de [använder SQL-databaser på Azure Stack-artikeln](azure-stack-sql-resource-provider-deploy.md), och består av följande huvudsakliga steg:
 
 1. [Distribuera SQL-resursprovider](azure-stack-sql-resource-provider-deploy.md).
 2. [Kontrollera distributionen](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).

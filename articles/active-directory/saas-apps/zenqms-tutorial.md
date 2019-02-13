@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med ZenQMS | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med ZenQMS | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ZenQMS.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 57a8c698133b2b5516a1f5d352f28148afe6f3d2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9804dee56e9f099654359e7c336f706cedbd1f7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447396"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204873"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Självstudier: Azure Active Directory-integration med ZenQMS
+# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Självstudier: Azure Active Directory-integrering med ZenQMS
 
 I den här självstudien får du lära dig hur du integrerar ZenQMS med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera ZenQMS med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till ZenQMS.
 - Du kan aktivera användarna att automatiskt få loggat in på ZenQMS (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med ZenQMS, behöver du följande ob
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -70,7 +71,7 @@ För att konfigurera integrering av ZenQMS i Azure AD, som du behöver lägga ti
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -78,7 +79,7 @@ För att konfigurera integrering av ZenQMS i Azure AD, som du behöver lägga ti
 
     ![ZenQMS i resultatlistan](./media/zenqms-tutorial/tutorial_zenqms_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ZenQMS baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -86,13 +87,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med ZenQMS, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare ZenQMS](#create-a-zenqms-test-user)**  – du har en motsvarighet för Britta Simon i ZenQMS som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt ZenQMS program.
 
@@ -100,7 +101,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **ZenQMS** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
@@ -110,15 +111,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![ZenQMS domän och URL: er med enkel inloggning för information](./media/zenqms-tutorial/tutorial_zenqms_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `urn:zenqms:<INSTANCE>`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `urn:zenqms:<INSTANCE>`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<INSTANCE>.zenqms.com/SAML/AssertionConsumerService`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<INSTANCE>.zenqms.com/SAML/AssertionConsumerService`
 
 4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![ZenQMS domän och URL: er med enkel inloggning för information](./media/zenqms-tutorial/tutorial_zenqms_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
     | |
     |-|-|
     | `https://<INSTANCE>.zenqms.com/<ID>`|
@@ -126,17 +127,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [ZenQMS klienten supportteamet](mailto:help@zenqms.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [ZenQMS klienten supportteamet](mailto:help@zenqms.com) att hämta dessa värden.
 
 5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
-    ![Länk för hämtning av certifikat](./media/zenqms-tutorial/tutorial_zenqms_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/zenqms-tutorial/tutorial_zenqms_certificate.png) 
 
 6. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/zenqms-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/zenqms-tutorial/tutorial_general_400.png)
 
-7. Att konfigurera enkel inloggning på **ZenQMS** sida, som du behöver skicka den **Appfederationsmetadata** till [ZenQMS supportteam](mailto:help@zenqms.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Att konfigurera enkel inloggning på **ZenQMS** sida, som du behöver skicka den **Appfederationsmetadata** till [ZenQMS supportteam](mailto:help@zenqms.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -172,7 +173,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="create-a-zenqms-test-user"></a>Skapa en ZenQMS testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i ZenQMS. Arbeta med [ZenQMS supportteam](mailto:help@zenqms.com) att lägga till användare i ZenQMS-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i ZenQMS. Arbeta med [ZenQMS supportteam](mailto:help@zenqms.com) att lägga till användare i ZenQMS-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

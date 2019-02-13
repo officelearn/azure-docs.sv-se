@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 3d97f84ba7809ba54fe7a5670fc1602f1ed6e180
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: dd4622e0359476f47a0ac939d59a2571e34a0a46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100897"
+ms.locfileid: "56112707"
 ---
 # <a name="read-nsg-flow-logs"></a>Läs NSG-flödesloggar
 
@@ -185,6 +185,6 @@ Det här scenariot är ett exempel på hur du läser posterna i NSG-flödeslogga
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [Använd Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Använd Grafana](network-watcher-nsg-grafana.md), och [Använd Graylog](network-watcher-nsg-graylog.md) mer information om olika sätt att visa NSG-flödesloggar. En öppen källkod Azure Function-metod för att förbrukar blobarna direkt och sänder till olika log analytics-kunder finns här: [Azure Network Watcher NSG Flödesloggarna Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+Besök [Använd Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Använd Grafana](network-watcher-nsg-grafana.md), och [Använd Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) mer information om olika sätt att visa NSG-flödesloggar. En öppen källkod Azure Function-metod för att förbrukar blobarna direkt och sänder till olika log analytics-kunder finns här: [Azure Network Watcher NSG Flödesloggarna Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
 Om du vill veta finns mer om storage-blobbar: [Azure Functions Blob storage-bindningar](../azure-functions/functions-bindings-storage-blob.md)

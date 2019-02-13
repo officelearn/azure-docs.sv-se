@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 1aa092391f51d84a5219076ea3c63352718c2f3a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9f7c02fb395464c1b682a3cfb71cc072a807ef88
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173861"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Självstudier: Azure Active Directory-integrering med UserEcho
 
@@ -226,7 +227,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
     
     b.  I textrutan **E-post** skriver du e-postadressen för användaren: Brittasimon@contoso.com.
     
-    c. Klicka på **bjuda in**.
+    c. Klicka på **Bjud in**.
 
 En inbjudan skickas till Britta, vilket gör det möjligt för henne att börja använda UserEcho. 
 

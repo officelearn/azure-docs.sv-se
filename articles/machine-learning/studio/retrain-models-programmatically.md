@@ -10,20 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: fe7825922d9333d058d9a33d5643850c368d3457
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 474355088a339741b8dd1917fb354d55df4990f6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511402"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189199"
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Programmatisk omtrimning av Azure Machine Learning Studio-modeller
 I den här genomgången får du lära dig hur du programmässigt omtrimning av en Azure Machine Learning Studio web service med hjälp av C# och Machine Learning Batch Execution service.
 
-När du har modellkomponenten modellen visar följande genomgångar hur du uppdaterar modellen i din förutsägbar webbtjänst:
-
-* Om du har distribuerat en klassisk webbtjänst i Machine Learning Web Services-portalen finns i [Omtrimma en klassisk webbtjänst](retrain-a-classic-web-service.md). 
-* Om du har distribuerat en ny webbtjänst finns i [omtrimning av en ny webbtjänst med hjälp av Machine Learning Management-cmdletar](retrain-new-web-service-using-powershell.md).
+När du har modellkomponenten modellen, se [omtrimning av en ny webbtjänst med hjälp av Machine Learning Management-cmdletar](retrain-new-web-service-using-powershell.md) att se hur du uppdaterar modellen i din förutsägbar webbtjänst:
 
 En översikt över omtränings processen, se [träna en Maskininlärningsmodell](retrain-machine-learning-model.md).
 
@@ -165,9 +162,8 @@ Granska resultaten för att avgöra om den nyligen tränade modellen utför till
 Kopiera den *BaseLocation*, *RelativeLocation*, och *SasBlobToken* från utdataresultat som, ska du använda dem under omtränings.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har distribuerat förutsägbar webbtjänst genom att klicka på **distribuera webbtjänsten [klassisk]**, se [Omtrimma en klassisk webbtjänst](retrain-a-classic-web-service.md).
 
-Om du har distribuerat förutsägbar webbtjänst genom att klicka på **distribuera webbtjänsten [nyhet]**, se [omtrimning av en ny webbtjänst med hjälp av Machine Learning Management-cmdletar](retrain-new-web-service-using-powershell.md).
+ [Omtrimma en ny webbtjänst med hjälp av Machine Learning Management-cmdletar](retrain-new-web-service-using-powershell.md).
 
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 

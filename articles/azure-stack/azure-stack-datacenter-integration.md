@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251885"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207542"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Överväganden för datacenter-integrering för integrerade Azure Stack-system
-Om du är intresserad av i ett integrerat Azure Stack-system, bör du förstå några av stora planeringsöverväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden för att fatta viktiga infrastruktur för din Azure Stack-system med flera noder. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM som de distribuerar Azure Stack till ditt datacenter.  
+Om du är intresserad av i ett integrerat Azure Stack-system, bör du förstå viktiga överväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden för att fatta viktiga infrastruktur för din Azure Stack-system med flera noder. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM som de distribuerar Azure Stack till ditt datacenter.  
 
 > [!NOTE]
 > Azure Stack-system med flera noder kan endast köpas från auktoriserade maskinvarutillverkare. 
@@ -53,8 +53,6 @@ När en högre nivå av åtkomst krävs för att felsöka problem som inte är l
 
 ### <a name="choose-identity-provider"></a>Välj identitetsprovider
 Du behöver tänka på vilken identitetsleverantör som du vill använda för Azure Stack-distribution, Azure AD eller AD FS. Du kan inte byta identitetsleverantörer efter distributionen utan omdistribution av hela systemet. Om du inte äger Azure AD-kontot och använder ett konto som du fått av din Molntjänstleverantör, och om du vill byta providern och använda en annan Azure AD-konto, nu behöver du kontakta leverantören för att distribuera lösningen f eller på dina kostnader.
-
-
 
 Valfri identity-providern har inte någon bäring på virtuella maskiner, identitetssystem och konton som de använder, oavsett om de kan ansluta till en Active Directory-domän, osv. Det här är separat.
 
@@ -88,9 +86,9 @@ Du måste tänka på hur du vill planera namnområdet Azure Stack, särskilt reg
 
 I följande tabell sammanfattas dessa domän namngivning beslut.
 
-| Name | Beskrivning | 
+| Namn | Beskrivning | 
 | -------- | ------------- | 
-|Regionsnamn | Namnet på din första Azure Stack-region. Det här namnet används som en del av det fullständiga Domännamnet för de offentliga virtuella IP-adresser (VIP) som hanteras av Azure Stack. Normalt är områdesnamnet en identifierare för fysisk plats, till exempel en datacenterplats.<br><br>Region-namnet måste bestå av endast bokstäver och siffror mellan 0 – 9. Inga specialtecken som ”-” eller ”#” och så vidare tillåts.| 
+|Regionnamn | Namnet på din första Azure Stack-region. Det här namnet används som en del av det fullständiga Domännamnet för de offentliga virtuella IP-adresser (VIP) som hanteras av Azure Stack. Normalt är områdesnamnet en identifierare för fysisk plats, till exempel en datacenterplats.<br><br>Region-namnet måste bestå av endast bokstäver och siffror mellan 0 – 9. Inga specialtecken som ”-” eller ”#” och så vidare tillåts.| 
 | Externt domännamn | Namnet på zonen System DNS (Domain Name) för slutpunkter med utåtriktade virtuella IP-adresser. Används i det fullständiga Domännamnet för de här offentliga virtuella IP-adresser. | 
 | Domännamn för privat (internt) | Namnet på domänen (och interna DNS-zon) skapade på Azure Stack för infrastrukturhantering. 
 | | |
@@ -110,9 +108,9 @@ Mer information om vilka PKI certifikat krävs för att distribuera Azure Stack 
 
 
 ## <a name="time-synchronization"></a>Tidssynkronisering
-Du måste välja en viss tid servern med används för att synkronisera Azure Stack.  Tid symbolization är viktigt att Azure Stack och dess infrastruktur-roller som används för att generera Kerberos-biljetter som används för att autentisera interna tjänster med varandra.
+Du måste välja en viss tid servern med används för att synkronisera Azure Stack.  Tidssynkronisering är viktigt att Azure Stack och dess infrastrukturroller som används för att generera Kerberos-biljetter som används för att autentisera interna tjänster med varandra.
 
-Du måste ange en IP-adress för synkroniseringsserver tid även om de flesta av komponenterna i infrastrukturen kan matcha URL: en, några stöder bara IP-adresser. Om du är med frånkopplade, måste du ange en tid-server i företagsnätverket som du är säker kan nås från nätverkets infrastruktur i Azure Stack.
+Du måste ange en IP-adress för synkroniseringsserver tid även om de flesta av komponenterna i infrastrukturen kan matcha URL: en, några stöder bara IP-adresser. Om du använder det frånkopplade distributionsalternativet, måste du ange en tid-server i företagsnätverket som du är säker kan nås från nätverkets infrastruktur i Azure Stack.
 
 ## <a name="connect-azure-stack-to-azure"></a>Ansluta Azure Stack till Azure
 

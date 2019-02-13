@@ -12,14 +12,15 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241679"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209752"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Så här: anpassa anspråk som släpps i token för en viss app i en klient (förhandsversion)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Anvisningar: Anpassa anspråk som släpps i token för en viss app i en klient (förhandsversion)
 
 > [!NOTE]
 > Den här funktionen ersätter och ersätter den [anspråk anpassning](active-directory-saml-claims-customization.md) erbjuds via portalen idag. På samma program, om du har ändrat anspråk med hjälp av portalen förutom Graph/PowerShell-metoden som beskrivs i det här dokumentet har tokens som utfärdats för att programmet kommer att ignorera konfigurationen i portalen. Konfigurationer som görs via metoderna som beskrivs i det här dokumentet visas inte i portalen.
@@ -68,7 +69,7 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 |app_res|
 |appctx|
 |appctxsender|
-|AppID|
+|appid|
 |appidacr|
 |försäkran|
 |at_hash|
@@ -80,7 +81,7 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 |azpacr|
 |c_hash|
 |ca_enf|
-|kopia|
+|cc|
 |cert_token_use|
 |client_id|
 |cloud_graph_host_name|
@@ -89,9 +90,9 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 |Kod|
 |kontroller|
 |credential_keys|
-|CSR|
+|csr|
 |csr_type|
-|DeviceID|
+|deviceid|
 |dns_names|
 |domain_dns_name|
 |domain_netbios_name|
@@ -122,7 +123,7 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 |instans|
 |ipaddr|
 |isbrowserhostedapp|
-|ISS|
+|iss|
 |jwk|
 |key_id|
 |key_type|
@@ -133,10 +134,10 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |nameid|
-|NBF|
+|nbf|
 |netbios_name|
 |nonce|
-|OID|
+|oid|
 |on_prem_id|
 |onprem_sam_account_name|
 |onprem_sid|
@@ -159,13 +160,13 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 |roll|
 |roles|
 |omfång|
-|SCP|
+|scp|
 |SID|
 |signatur|
 |signin_state|
 |src1|
 |src2|
-|Sub|
+|sub|
 |tbid|
 |tenant_display_name|
 |tenant_region_scope|
@@ -177,7 +178,7 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 |UPN|
 |user_setting_sync_url|
 |användarnamn|
-|uti:|
+|uti|
 |ver|
 |verified_primary_email|
 |verified_secondary_email|
@@ -241,11 +242,11 @@ Använd egenskaperna för en princip för Anspråksmappning för att styra vilka
 
 ### <a name="include-basic-claim-set"></a>Innehåller grundläggande anspråksuppsättningen
 
-**Sträng:** IncludeBasicClaimSet
+**sträng:** IncludeBasicClaimSet
 
-**Datatyp:** booleskt värde (True eller False)
+**Datatyp:** Booleskt värde (True eller False)
 
-**Sammanfattning:** den här egenskapen anger om den grundläggande anspråksuppsättningen ingår i token som påverkas av den här principen. 
+**Sammanfattning:** Den här egenskapen anger om den grundläggande anspråksuppsättningen ingår i token som påverkas av den här principen. 
 
 - Om värdet är True, alla anspråk i den grundläggande anspråksuppsättningen genereras i token som påverkas av principen. 
 - Om inställt på False, anspråk i den grundläggande anspråksuppsättningen inte är i token, om de inte enskilt läggs i egenskapen anspråk schemat för samma princip.
@@ -255,49 +256,49 @@ Använd egenskaperna för en princip för Anspråksmappning för att styra vilka
 
 ### <a name="claims-schema"></a>Anspråk schema
 
-**Sträng:** ClaimsSchema
+**sträng:** ClaimsSchema
 
 **Datatyp:** JSON-blob med en eller flera anspråk schemat poster
 
-**Sammanfattning:** den här egenskapen definierar vilka anspråk finns i de token som påverkas av principen, förutom att den grundläggande anspråksuppsättningen och kärnan anspråksuppsättningen.
+**Sammanfattning:** Den här egenskapen definierar vilka anspråk finns i de token som påverkas av principen, förutom den grundläggande anspråksuppsättningen och anspråksuppsättningen core.
 För varje anspråk schemat post definieras i den här egenskapen, krävs viss information. Anger var data kommer från (**värdet** eller **käll-/ ID par**), och som anspråksdata genereras som (**anspråk typ**).
 
 ### <a name="claim-schema-entry-elements"></a>Anspråk schemaelement post
 
-**Värde:** elementet värde definierar ett statiskt värde som data som ska genereras i anspråket.
+**Värde:** Elementet värde definierar ett statiskt värde som data som ska genereras i anspråket.
 
-**Käll-/ ID-par:** Source och ID-element definiera där data i anspråket kommer från. 
+**Källa/ID par:** Käll- och ID-element definiera där data i anspråket kommer från. 
 
 Ange käll-elementet till någon av följande värden: 
 
-- ”användare”: data i anspråket är en egenskap på användarobjektet. 
-- ”program”: data i anspråket är en egenskap för programmet (klient) tjänstens huvudnamn. 
-- ”resurser”: data i anspråket är en egenskap för resursen tjänstens huvudnamn.
-- ”målgrupp”: data i anspråket är en egenskap för tjänstens huvudnamn som är målgruppen för token (när det gäller antingen klient- eller resursen, tjänstens huvudnamn).
-- ”company”: data i anspråket är en egenskap på resursen klientens företagets objekt.
-- ”omvandling”: data i anspråket är från anspråkstransformering (se avsnittet ”omvandling av anspråk” senare i den här artikeln).
+- ”användare”: Data i anspråket är en egenskap på användarobjektet. 
+- ”program”: Data i anspråket är en egenskap för programmet (klient) tjänstens huvudnamn. 
+- ”resurser”: Data i anspråket är en egenskap på resurs-tjänstens huvudnamn.
+- ”målgrupp”: Data i anspråket är en egenskap för tjänstens huvudnamn som är målgruppen för token (när det gäller antingen klient- eller resursen, tjänstens huvudnamn).
+- ”företag”: Data i anspråket är en egenskap på resursen klientens företagets objekt.
+- ”omvandling”: Data i anspråket är från anspråkstransformering (se avsnittet ”omvandling av anspråk” senare i den här artikeln).
 
 Om källan är omvandling, den **TransformationID** elementet måste finnas med i den här anspråksdefinitionen.
 
 ID-element som identifierar vilken egenskap på källan innehåller värdet för anspråket. I följande tabell visas värdena för ID som är giltig för varje värde i källan.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: Giltig ID-värden per källa
+#### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: Giltiga värden för ID per källa
 
 |Källa|ID|Beskrivning|
 |-----|-----|-----|
-|Användare|Efternamn|Produktfamilj|
-|Användare|givenName|Förnamn|
-|Användare|DisplayName|Visningsnamn|
+|Användare|surname|Produktfamilj|
+|Användare|givenname|Förnamn|
+|Användare|displayname (visningsnamn)|Visningsnamn|
 |Användare|objekt-ID|ObjectId|
 |Användare|e-post|E-postadress|
-|Användare|userPrincipalName|User Principal Name|
-|Användare|Avdelning|Avdelning|
+|Användare|userprincipalname|User Principal Name|
+|Användare|avdelning|Avdelning|
 |Användare|onpremisessamaccountname|På lokala Sam-kontonamn|
-|Användare|NetBIOS-namn|NetBios-namn|
+|Användare|netbiosname|NetBios-namn|
 |Användare|DNS-domännamn|DNS-domännamn|
 |Användare|onpremisesecurityidentifier|lokala säkerhetsidentifierare|
 |Användare|Företagsnamn|Organisationens namn|
-|Användare|streetAddress|Gatuadress|
+|Användare|streetaddress|Gatuadress|
 |Användare|Postnummer|Postnummer|
 |Användare|preferredlanguange|Önskat språk|
 |Användare|onpremisesuserprincipalname|lokala UPN|
@@ -324,16 +325,16 @@ ID-element som identifierar vilken egenskap på källan innehåller värdet för
 |Användare|jobtitle|Befattning|
 |Användare|EmployeeID|Anställnings-ID|
 |Användare|facsimiletelephonenumber|Telefonnummer för fax|
-|program, resurs, målgrupp|DisplayName|Visningsnamn|
+|program, resurs, målgrupp|displayname (visningsnamn)|Visningsnamn|
 |program, resurs, målgrupp|objekt|ObjectId|
-|program, resurs, målgrupp|tags|Tjänstens huvudnamn tagg|
+|program, resurs, målgrupp|tags|Service Principal Tag|
 |Företag|tenantcountry|Klientens land/region|
 
 **TransformationID:** TransformationID-element måste anges bara om käll-elementet är inställt på ”omvandling”.
 
 - Det här elementet måste matcha ID-element i posten transformering i den **ClaimsTransformation** egenskap som definierar hur data för det här anspråket ska skapas.
 
-**Typ av anspråk:** den **JwtClaimType** och **SamlClaimType** element definierar vilka anspråk anspråk schemat transaktionen refererar till.
+**Typ av anspråk:** Den **JwtClaimType** och **SamlClaimType** element definierar vilka anspråk anspråk schemat transaktionen refererar till.
 
 - JwtClaimType måste innehålla namnet på anspråk som ska skickas i JWTs.
 - SamlClaimType måste innehålla URI för anspråket som ska skickas i SAML-tokens.
@@ -343,15 +344,15 @@ ID-element som identifierar vilken egenskap på källan innehåller värdet för
 
 ### <a name="claims-transformation"></a>Anspråkstransformering
 
-**Sträng:** ClaimsTransformation
+**sträng:** ClaimsTransformation
 
 **Datatyp:** JSON-blob med en eller flera poster för omvandling 
 
-**Sammanfattning:** använder den här egenskapen till att tillämpa vanliga transformationer källdata, att generera utdata för anspråk som angetts i schemat för anspråk.
+**Sammanfattning:** Använd den här egenskapen för att använda vanliga omformningar källdata, att generera utdata för anspråk som angetts i schemat för anspråk.
 
-**ID:** använda ID-element för att referera till den här omvandlingen posten i posten TransformationID anspråk schemat. Det här värdet måste vara unikt för varje transformering transaktion i den här principen.
+**ID:** Använda ID-element för att referera till den här omvandlingen posten i posten TransformationID anspråk schemat. Det här värdet måste vara unikt för varje transformering transaktion i den här principen.
 
-**TransformationMethod:** TransformationMethod-element som identifierar vilka åtgärden utförs för att generera data för anspråket.
+**TransformationMethod:** Elementet TransformationMethod identifierar vilka åtgärden utförs för att generera data för anspråket.
 
 Baserat på vilken metod som valts, förväntas en uppsättning indata och utdata. Definiera indata och utdata genom att använda den **InputClaims**, **indataparametrar** och **OutputClaims** element.
 
@@ -362,31 +363,31 @@ Baserat på vilken metod som valts, förväntas en uppsättning indata och utdat
 |Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplingar kan du ange strängar med hjälp av en avgränsare mellan. Till exempel: sträng1 ”:foo@bar.com”, sträng2: ”sandlåda”, avgränsare ”:”. resulterar i outputClaim ”:foo@bar.com.sandbox”|
 |ExtractMailPrefix|e-post|outputClaim|Extraherar den lokala delen av en e-postadress. Till exempel: e-post ”:foo@bar.com” resulterar i outputClaim: ”foo”. Om ingen \@ logga finns sedan ursprungliga Indatasträngen returneras skick.|
 
-**InputClaims:** använder ett InputClaims-element för att skicka data från en post för anspråk schemat till en omvandling. Den har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
+**InputClaims:** Använd ett InputClaims-element för att skicka data från en post för anspråk schemat till en omvandling. Den har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** är kopplad till ID-element för registerposten anspråk schemat för att hitta lämplig inkommande anspråk. 
 - **TransformationClaimType** används för att ge ett unikt namn för denna indata. Det här namnet måste matcha en av de förväntade indata för metoden omvandling.
 
-**Indataparametrar:** använda ett indataparametrar element för att skicka ett konstant värde till en omvandling. Den har två attribut: **värdet** och **ID**.
+**Indataparametrar:** Använda ett indataparametrar-element för att skicka ett konstant värde till en omvandling. Den har två attribut: **Värdet** och **ID**.
 
 - **Värdet** är det faktiska konstanta värdet som ska skickas.
 - **ID** används för att ge ett unikt namn för indata. Namnet måste matcha en av de förväntade indata för metoden omvandling.
 
-**OutputClaims:** använder ett OutputClaims-element för att lagra data som genereras av en omvandling och koppla dem till en post för anspråk schemat. Den har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
+**OutputClaims:** Använd en OutputClaims-elementet för att lagra data som genereras av en omvandling och koppla dem till en post för anspråk schemat. Den har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** med ID för posten anspråk schemat ska hitta lämpliga utdata-anspråket.
 - **TransformationClaimType** används för att ge ett unikt namn till utdata. Namnet måste matcha en av de förväntade utdata för metoden omvandling.
 
 ### <a name="exceptions-and-restrictions"></a>Undantag och begränsningar
 
-**SAML NameID- och UPN:** attribut som du använder källbaserad NameID- och UPN-värden och anspråksomvandlingar som tillåts är begränsade. Se tabellerna 5 och 6 för att visa de tillåtna värdena.
+**SAML NameID- och UPN:** De attribut som du använder källbaserad NameID- och UPN-värden och anspråksomvandlingar som tillåts är begränsade. Se tabellerna 5 och 6 för att visa de tillåtna värdena.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: Attribut användas som en datakälla för SAML NameID
 
 |Källa|ID|Beskrivning|
 |-----|-----|-----|
 |Användare|e-post|E-postadress|
-|Användare|userPrincipalName|User Principal Name|
+|Användare|userprincipalname|User Principal Name|
 |Användare|onpremisessamaccountname|På lokala Sam-kontonamn|
 |Användare|EmployeeID|Anställnings-ID|
 |Användare|extensionattribute1|Tilläggsattribut 1|

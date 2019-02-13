@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b59efe3faa00a172e5948f18b06337eedd2a1f6b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 286af8b927f488acaf2877e753f6e4689c4b000f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184809"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Självstudier: Azure Active Directory-integrering med QPrism
 
@@ -83,11 +84,11 @@ För att etablera den här relationen i QPrism, tilldela värdet för den **anv�
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med QPrism, utför du följande byggblock:
 
-1. [Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) vill tillåta att användarna använda den här funktionen.
-1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
+1. [Konfigurera enkel inloggning i Azure AD](#configure-azure-ad-single-sign-on) så att användarna kan använda den här funktionen.
+1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning för Azure AD med Britta Simon.
 1. [Skapa en testanvändare QPrism](#create-a-qprism-test-user) har en motsvarighet för Britta Simon i QPrism som är kopplad till Azure AD-representation av användaren.
-1. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. [Testa enkel inloggning](#test-single-sign-on) att kontrollera om konfigurationen fungerar.
+1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) så att Britta Simon kan använda enkel inloggning i Azure AD.
+1. [Testa enkel inloggning](#test-single-sign-on) för att verifiera huruvida konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -190,7 +191,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
 
 I åtkomstpanelen, när du väljer panelen QPrism bör du få automatiskt loggat in på ditt QPrism program.
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 

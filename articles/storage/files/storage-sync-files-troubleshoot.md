@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752100"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194247"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -70,7 +70,7 @@ Reset-StorageSyncServer
 Det här problemet uppstår när den **förbättrad säkerhet i Internet Explorer** principen är aktiverad under registreringen av servern. Mer information om hur du inaktiverar korrekt i **förbättrad säkerhet i Internet Explorer** princip, se [förbereda Windows Server som ska användas med Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) och [så här distribuerar du Azure File Synkronisera](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Synkronisera grupphantering
-<a id="cloud-endpoint-using-share"></a>**Molnslutpunkten misslyckas med felet: ”Den angivna Azure-filresursen är redan används av en annan CloudEndpoint”**  
+<a id="cloud-endpoint-using-share"></a>**Molnslutpunkten misslyckas med felet: ”Angiven Azure FileShare används redan av en annan CloudEndpoint”**  
 Det här problemet uppstår om Azure-filresursen används redan av en annan slutpunkt i molnet. 
 
 Om du ser det här meddelandet och Azure-filresursen är för närvarande inte används av en slutpunkt i molnet, gör du följande för att ta bort Azure File Sync-metadata i Azure-filresursen:
@@ -145,7 +145,7 @@ Server hälsostatus för slutpunkter för ”ingen aktivitet” innebär Servers
 
 En serverslutpunkt kan inte logga synkronisering av följande skäl:
 
-- Servern har en aktiv VSS-synkroniseringssessionen (SnapshotSync). När en VSS-synkroniseringssessionen är aktiv för en serverslutpunkt kan inte andra serverslutpunkter på samma volym starta start synkroniseringssession tills VSS-synkroniseringssessionen har slutförts.
+- Agentversion 4.3.0.0 eller äldre är installerad och att servern har en aktiv VSS-synkroniseringssessionen (SnapshotSync). När en VSS-synkroniseringssessionen är aktiv för en serverslutpunkt kan inte andra serverslutpunkter på samma volym starta start synkroniseringssession tills VSS-synkroniseringssessionen har slutförts. Lös problemet genom att installera agentversion 5.0.2.0 eller senare som har stöd för flera serverslutpunkter synkronisera på en volym när en VSS synkroniseras session är aktiv.
 
     Du kan kontrollera den aktuella synkroniseringsaktivitet på en server [hur jag för att övervaka förloppet för aktuella synkroniseringssession?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
@@ -538,7 +538,7 @@ Det här felet beror på att det finns ändringar på Azure-filresursen direkt o
 | **Felsträng** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Reparation krävs** | Ja |
 
-I fall där det finns många per fil synkroniseringsfel, synkroniseringssessioner får börja misslyckas. Om du vill felsöka det här tillståndet kan se [felsökning per synkroniseringsfel för filen eller katalogen]().
+I fall där det finns många per fil synkroniseringsfel, synkroniseringssessioner får börja misslyckas. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser.

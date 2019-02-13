@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620548"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106145"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
@@ -46,8 +46,8 @@ Om det här är första gången du skapar ett service fabric-kluster eller distr
 #### <a name="cluster-and-server-certificate-required"></a>Klustret och server-certifikat (krävs)
 Detta certifikat krävs för att skydda ett kluster och förhindra obehörig åtkomst till den. Den tillhandahåller Klustersäkerhet i ett par olika sätt:
 
-* **Autentisering för klustret:** autentiserar kommunikation från nod till nod för klustret federation. Endast de noder som kan bevisa sin identitet med det här certifikatet kan ansluta till klustret.
-* **Server-autentisering:** autentiserar slutpunkterna för klusterhantering i en Hanteringsklient så att hanteringsklienten vet att det pratar med verkligt kluster. Det här certifikatet ger också SSL för HTTPS-hanterings-API och för Service Fabric Explorer över HTTPS.
+* **Autentisering för klustret:** Autentiserar kommunikation från nod till nod för klustret federation. Endast de noder som kan bevisa sin identitet med det här certifikatet kan ansluta till klustret.
+* **Server-autentisering:** Autentiserar slutpunkterna för klusterhantering i en Hanteringsklient så att hanteringsklienten vet att det pratar med verkligt kluster. Det här certifikatet ger också SSL för HTTPS-hanterings-API och för Service Fabric Explorer över HTTPS.
 
 Certifikatet måste uppfylla följande krav för att du har följande syften:
 
@@ -216,7 +216,7 @@ Nu har du ett säkert kluster som använder certifikat för hantering av autenti
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
-[key-vault-get-started]: ../key-vault/key-vault-get-started.md
+[key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

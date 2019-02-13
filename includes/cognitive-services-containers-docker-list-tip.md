@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/24/2019
-ms.openlocfilehash: 11583682eec18a39c0b1ecb1f4c2449c6ece3f4b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/11/2019
+ms.openlocfilehash: e481e22fce4033d5d1d31609c87e7d633be9cb88
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984916"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102524"
 ---
 > [!TIP]
 > Du kan använda den [docker-avbildningar](https://docs.docker.com/engine/reference/commandline/images/) kommando för att lista din hämtade behållaravbildningar. Till exempel visar följande kommando ID, databasen och taggen för varje hämtade behållaravbildningen, formaterad som en tabell:
@@ -17,6 +17,6 @@ ms.locfileid: "55984916"
 >  ```
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
+>  IMAGE ID            REPOSITORY              TAG
+>  ebbee78a6baa       <container-name>         latest
 >  ``` 

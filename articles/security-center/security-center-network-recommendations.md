@@ -4,7 +4,7 @@ description: Det här dokumentet behandlar rekommendationer i Azure Security Cen
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c44e000a60e4391faf38cb275f35ec512e19aea3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101693"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118011"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Skydda dina nätverksresurser i Azure Security Center
 Azure Security Center analyserar kontinuerligt säkerhetsläget hos dina Azure-resurser för Metodtips för nätverkssäkerhet. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera de kontrollfunktioner som behövs för att förstärka och skydda dina resurser.

@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279969"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213225"
 ---
 >[!NOTE]
 >För resurser som inte är fasta kan du be om att öka kvoterna genom att skapa ett supportärende. Försök **inte** få högre gränser genom att skapa ytterligare Azure Media Services-konton.
@@ -27,7 +27,7 @@ ms.locfileid: "52279969"
 | Livekanaler per AMS-konto |5|
 | Program i stoppat tillstånd per kanal |50|
 | Program i körningstillstånd per kanal |3|
-| Strömmande slutpunkter i körningstillstånd per AMS-konto|2|
+| Slutpunkter för direktuppspelning (stoppas eller köra) per Media Services-konto|2|
 | Strömningsenheter per slutpunkt för direktuppspelning |10 |
 | Lagringskonton | 1 000<sup>(5)</sup> (fast) |
 | Principer | 1 000 000<sup>(6)</sup> |

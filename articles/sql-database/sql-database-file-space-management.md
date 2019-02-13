@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database utrymme filhantering | Microsoft Docs
-description: Den här sidan beskriver hur du hanterar filutrymme med Azure SQL Database och innehåller kodexempel att avgöra om du behöver krympa en databas samt hur du utför en databas för att minska åtgärden.
+title: Azure SQL Database enkel/pooler databaser filen hantering av adressutrymme | Microsoft Docs
+description: Den här sidan beskriver hur du hanterar filutrymme med enkel och delade databaser i Azure SQL Database och innehåller kodexempel att avgöra om du behöver krympa en enda eller en databas i pool samt hur du utför en databas för att minska åtgärden.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,21 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: cf73708682a8434ffabaff101d6d6928671af4b6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/11/2019
+ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003728"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110157"
 ---
-# <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Hantera utrymmet för enkel och delade databaser i Azure SQL Database
 
-Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
+Den här artikeln beskrivs olika typer av lagringsutrymme för enkel och delade databaser i Azure SQL Database och steg som kan vidtas när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
+
+> [!NOTE]
+> Den här artikeln gäller inte för det hanterade instansen distributionsalternativet i Azure SQL Database.
 
 ## <a name="overview"></a>Översikt
 
-I Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Den här situationen kan uppstå när mängden utnyttjat utrymme ökar och data därefter raderas. Anledningen är allokerade utrymmet inte frigörs automatiskt när data tas bort.
+Med enkel och delade databaser i Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Den här situationen kan uppstå när mängden utnyttjat utrymme ökar och data därefter raderas. Anledningen är allokerade utrymmet inte frigörs automatiskt när data tas bort.
 
 I följande scenarier kan det vara nödvändigt att övervaka användningen av filutrymmet och att krympa datafiler:
 
@@ -47,7 +50,7 @@ Dock följande API: er också mäta storleken på disken för databaser och elas
 
 ### <a name="shrinking-data-files"></a>Minska storleken på datafiler
 
-SQL DB-tjänsten Komprimera inte automatiskt filer för att frigöra oanvänt allokerade utrymme på grund av den möjliga inverkan på prestanda för databasen.  Kunder kan dock minska datafiler via självbetjäning i taget de önskar genom att följa stegen som beskrivs i [frigöra oanvänt allokerat utrymme](#reclaim-unused-allocated-space). 
+SQL Database-tjänsten Komprimera inte automatiskt filer för att frigöra oanvänt allokerade utrymme på grund av den möjliga inverkan på prestanda för databasen.  Kunder kan dock minska datafiler via självbetjäning i taget de önskar genom att följa stegen som beskrivs i [frigöra oanvänt allokerat utrymme](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > Till skillnad från datafiler och SQL Database-tjänsten automatiskt minskar storleken på loggfiler eftersom åtgärden inte påverkar databasprestanda. 
@@ -68,9 +71,9 @@ Följande diagram illustrerar förhållandet mellan de olika typerna av lagrings
 
 ![utrymme lagringstyper och relationer](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-database-for-storage-space-information"></a>Fråga en databas för information om diskutrymme
+## <a name="query-a-single-database-for-storage-space-information"></a>Fråga en enkel databas för information om diskutrymme
 
-Följande frågor kan användas för att fastställa storage utrymme kvantiteter för en databas.  
+Följande frågor kan användas för att fastställa storage utrymme kvantiteter för en enskild databas.  
 
 ### <a name="database-data-space-used"></a>Databasutrymme data som används
 
@@ -144,7 +147,7 @@ ORDER BY end_time DESC
 
 Resultatet av frågan för att fastställa det tilldelade utrymmet för varje databas i poolen kan läggas till tillsammans att fastställa det totala utrymmet som allokerats för den elastiska poolen. Det tilldelade utrymmet för elastisk pool får inte överskrida den maximala storleken för elastisk pool.  
 
-PowerShell-skriptet kräver SQL Server PowerShell-modulen – Se [ladda ned PowerShell-modulen](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) att installera.
+PowerShell-skriptet kräver SQL Server PowerShell-modulen – Se [ladda ned PowerShell-modulen](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) att installera.
 
 ```powershell
 # Resource group name
@@ -225,7 +228,7 @@ Mer information om det här kommandot finns i [SHRINKDATABASE](https://docs.micr
 
 ### <a name="auto-shrink"></a>Automatisk förminskas
 
-Du kan också kan automatiskt förminskas aktiveras för en databas.  Automatisk förminskas minskar filen komplex och påverkar mindre databasprestanda än SHRINKDATABASE eller SHRINKFILE.  Automatisk förminskas kan vara särskilt användbart för att hantera elastiska pooler med många databaser.  Automatisk förminskas kan dock vara mindre effektiva i frigöra utrymme än SHRINKDATABASE och SHRINKFILE.
+Du kan också kan automatiskt förminskas aktiveras för en databas.  Automatisk förminskas minskar filen komplex och mindre påverkar databasprestanda än `SHRINKDATABASE` eller `SHRINKFILE`.  Automatisk förminskas kan vara särskilt användbart för att hantera elastiska pooler med många databaser.  Automatisk förminskas kan dock vara mindre effektiva i frigöra utrymme än `SHRINKDATABASE` och `SHRINKFILE`.
 Ändra namnet på databasen i följande kommando om du vill aktivera automatisk förminskas.
 
 

@@ -11,15 +11,16 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: f0f0e32ccbb8fdac934f81e2f90132f63a91f069
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 714a78c436b7071717e2df12c2a65999920f8c63
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892124"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192140"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Lägg till icke-Microsoft-konton
-Lägga till dina icke-Microsoft-konton, till exempel för Google, Facebook och GitHub till Microsoft Authenticator-appen för verifiering av två faktorer. Microsoft Authenticator-appen fungerar med alla appar som använder två faktorer verifiering och ett konto som har stöd för tidsbaserade engångslösenord (TOTP)-standarder.
+Lägga till dina icke-Microsoft-konton, till exempel för Google, Facebook och GitHub till Microsoft Authenticator-appen för verifiering av två faktorer. Microsoft Authenticator-appen fungerar med alla appar som använder tvåfaktorsverifiering och alla konton som har stöd för tidsbaserade engångslösenord (TOTP).
 
 >[!Important]
 >Innan du kan lägga till ditt konto, måste du hämta och installera Microsoft Authenticator-appen. Om du inte har gjort det ännu, följer du stegen i den [ladda ned och installera appen](user-help-auth-app-download-install.md) artikeln.

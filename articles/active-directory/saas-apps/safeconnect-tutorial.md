@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med SafeConnect | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med SafeConnect | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SafeConnect.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: f011b9ef7229ba1e588e488be8b4fc5b098ee5ac
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40025092"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183810"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Självstudier: Azure Active Directory-integration med SafeConnect
+# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Självstudier: Azure Active Directory-integrering med SafeConnect
 
 I den här självstudien får du lära dig hur du integrerar SafeConnect med Azure Active Directory (AD Azure).
 
@@ -29,7 +30,7 @@ Integrera SafeConnect med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till SafeConnect.
 - Du kan aktivera användarna att automatiskt få loggat in på SafeConnect (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med SafeConnect, behöver du följan
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -59,7 +60,7 @@ För att konfigurera integrering av SafeConnect i Azure AD, som du behöver läg
 
 **Utför följande steg för att lägga till SafeConnect från galleriet:**
 
-1. I den ** [Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -67,7 +68,7 @@ För att konfigurera integrering av SafeConnect i Azure AD, som du behöver läg
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -75,7 +76,7 @@ För att konfigurera integrering av SafeConnect i Azure AD, som du behöver läg
 
     ![SafeConnect i resultatlistan](./media/safeconnect-tutorial/tutorial_safeconnect_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SafeConnect baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med SafeConnect, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) ** – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) ** – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare SafeConnect](#create-a-safeconnect-test-user) ** – du har en motsvarighet för Britta Simon i SafeConnect som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) ** – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on) ** – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+3. **[Skapa en testanvändare SafeConnect](#create-a-safeconnect-test-user)**  – du har en motsvarighet för Britta Simon i SafeConnect som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt SafeConnect program.
 
@@ -97,7 +98,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **SafeConnect** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -107,7 +108,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![SafeConnect domän och URL: er med enkel inloggning för information](./media/safeconnect-tutorial/tutorial_safeconnect_url.png)
 
-     I den **inloggnings-URL** textrutan anger du ett URL: `https://portal.myweblogon.com:8443/saml/login`
+     I rutan **Inloggnings-URL** anger du en URL: `https://portal.myweblogon.com:8443/saml/login`
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -115,9 +116,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/safeconnect-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/safeconnect-tutorial/tutorial_general_400.png)
 
-6. Att konfigurera enkel inloggning på **SafeConnect** sida, som du behöver skicka de hämtade **XML-Metadata för** till [SafeConnect supportteamet](mailto:support@impulse.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+6. Att konfigurera enkel inloggning på **SafeConnect** sida, som du behöver skicka de hämtade **XML-Metadata för** till [SafeConnect supportteamet](mailto:support@impulse.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -153,7 +154,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-safeconnect-test-user"></a>Skapa en SafeConnect testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i SafeConnect. Arbeta med [SafeConnect supportteamet](mailto:support@impulse.com) att lägga till användare i SafeConnect-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i SafeConnect. Arbeta med [SafeConnect supportteamet](mailto:support@impulse.com) att lägga till användare i SafeConnect-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

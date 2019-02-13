@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312983"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Självstudier: Azure Active Directory-integrering med Workspot kontroll
 
@@ -29,7 +30,7 @@ Integrera Workspot kontroll med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Workspot kontroll.
 - Du kan aktivera användarna att automatiskt få loggat in på Workspot kontroll (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Workspot kontroll, behöver du f
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -67,7 +68,7 @@ Om du vill konfigurera integreringen av Workspot kontroll till Azure AD, som du 
 
     ![image](./media/workspotcontrol-tutorial/a_select_app.png)
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![image](./media/workspotcontrol-tutorial/a_new_app.png)
 
@@ -75,7 +76,7 @@ Om du vill konfigurera integreringen av Workspot kontroll till Azure AD, som du 
 
      ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Workspot kontroll baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarande 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Workspot kontroll, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare Workspot kontroll](#create-a-workspot-control-test-user)**  – du har en motsvarighet för Britta Simon Workspot kontrollen som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Workspot kontroll.
 
@@ -103,7 +104,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![image](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
 
-3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **SAML grundkonfiguration** dialogrutan.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
     ![image](./media/workspotcontrol-tutorial/b1-domains_and_urlsedit.png)
 
@@ -111,20 +112,20 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
 
-    a. I den **identifierare** text skriver en URL med hjälp av följande mönster: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
 
-    b. I den **svars-URL** text skriver en URL med hjälp av följande mönster: `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
 
-    c. Klicka på **ange ytterligare webbadresser** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+    c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
      ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
 
-    I den **inloggnings-URL** text skriver en URL med hjälp av följande mönster:  `https://<INSTANCENAME>-saml.workspot.com/`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<INSTANCENAME>-saml.workspot.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, svars-URL och inloggnings-URL: en. Kontakta [Workspot kontroll klienten supportteamet](mailto:support@workspot.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Workspot kontroll klienten supportteamet](mailto:support@workspot.com) att hämta dessa värden. 
 
-5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned den **certifikat (Base64)** och spara den på din dator.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **Certifikat (Base64)** och spara det på datorn.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_certficate.png) 
 
@@ -132,9 +133,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     Observera att URL: en kan stå följande:
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Azure Ad-ID
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
@@ -142,7 +143,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 7. I ett annat webbläsarfönster, logga in på Workspot kontroll som en administratör.
 
-8. I verktygsfältet högst upp på sidan, klickar du på **installationsprogrammet**, gå sedan till **SAML**.
+8. I verktygsfältet högst upp på sidan, klickar du på **installationsprogrammet**, gå sedan till **SAML**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. I den **entitets-ID** textrutan klistra in värdet för **Azure Ad-identifierare** som du har kopierat från Azure-portalen.   
+    a. I den **entitets-ID** textrutan klistra in värdet för **Azure Ad-identifierare** som du har kopierat från Azure-portalen.   
 
     b.In den **tjänst-URL för inloggning** textrutan klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
 
@@ -162,23 +163,23 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![image](./media/workspotcontrol-tutorial/d_users_and_groups.png)
 
-2. Välj **ny användare** överst på skärmen.
+2. Välj **Ny användare** överst på skärmen.
 
     ![image](./media/workspotcontrol-tutorial/d_adduser.png)
 
-3. Utför följande steg i egenskaperna för användaren.
+3. Genomför följande steg i Användaregenskaper.
 
     ![image](./media/workspotcontrol-tutorial/d_userproperties.png)
 
-    a. I den **namn** ange **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -193,7 +194,7 @@ Om du vill aktivera Azure AD-användare att logga in på Workspot kontroll, mås
 
 1. Logga in på Workspot kontroll som en administratör.
 
-2. I verktygsfältet högst upp på sidan, klickar du på **användare**, gå sedan till **Lägg till användare**.
+2. I verktygsfältet högst upp på sidan, klickar du på **användare**, gå sedan till **Lägg till användare**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
@@ -201,17 +202,17 @@ Om du vill aktivera Azure AD-användare att logga in på Workspot kontroll, mås
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
 
-    a. I **Förnamn** text, ange först namnet på användaren som **Britta**.
+    a. I textrutan **Förnamn** anger du förnamnet på användaren som **Britta**.
 
-    b. I **efternamn** text anger efternamn för användaren som **simon**.
+    b. I textrutan **Efternamn** anger du efternamnet på användaren som **simon**.
 
-    c. I **e-post** text, ange den e-postadressen för användaren som **Brittasimon@contoso.com**.
+    c. I textrutan **E-post** anger du användarens e-postadress, som **Brittasimon@contoso.com**.
 
     d. Välj en lämplig användarroll från den **rollen** listrutan.
 
     e. Välj önskad användargrupp från den **grupp** listrutan.
 
-    f. Klicka på **lägga till användare**.
+    f. Klicka på **Lägg till användare**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -225,7 +226,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_app.png)
 
-3. I menyn till vänster väljer **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![image](./media/workspotcontrol-tutorial/d_leftpaneusers.png)
 
@@ -233,9 +234,9 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![image](./media/workspotcontrol-tutorial/d_assign_user.png)
 
-4. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
+4. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-5. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
+5. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

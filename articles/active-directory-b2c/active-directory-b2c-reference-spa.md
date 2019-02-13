@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7342849af63ef2f153a89418fbf87f60bd4c4833
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183296"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104846"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Ensidesapp logga in med hjälp av OAuth 2.0 implicit flöde
 
@@ -30,7 +30,7 @@ Stöd för dessa program, Azure Active Directory B2C (Azure AD B2C) använder de
 Azure AD B2C utökar OAuth 2.0 standard implicit flöde som är högre än enkel autentisering och auktorisering. Azure AD B2C introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med principparametern kan du använda OAuth 2.0 att lägga till principer till din app, till exempel registrering, inloggning, och profilera management användarflöden. I den här artikeln har visar vi hur du använder implicit flöde och Azure AD för att implementera var och en av dessa upplevelser i dina enkelsidigt program. För att hjälpa dig att komma igång, ta en titt på våra [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) och [Microsoft.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) exempel.
 
 I exemplet HTTP-begäranden i den här artikeln använder vi vår exempel Azure AD B2C-katalog **fabrikamb2c.onmicrosoft.com**. Vi kan också använda vår egen exemplet och flöden. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med dina egna värden.
-Lär dig hur du [hämta din egen Azure AD B2C-katalog, program och användare flöden](#use-your-own-b2c-tenant).
+Lär dig hur du [hämta din egen Azure AD B2C-katalog, program och användare flöden](#use-your-own-azure-ad-b2c-tenant).
 
 
 ## <a name="protocol-diagram"></a>Protokollet diagram

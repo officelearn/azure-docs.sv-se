@@ -17,12 +17,13 @@ ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cfc1ba6250a2d246c2dcf9a0128097b64896732d
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098518"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204430"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Behörigheter och godkännande i Azure Active Directory v2.0-slutpunkten
 
@@ -58,13 +59,13 @@ I OAuth 2.0, kallas dessa typer av behörigheter *scope*. De även ofta bara kal
 * Skriva till en användares kalender genom att använda `Calendars.ReadWrite`
 * Skicka e-post som en användare med hjälp av `Mail.Send`
 
-En app begär oftast behörigheterna genom att ange omfång i begäranden till v2.0 tillåta slutpunkt. Vissa behörigheter med hög behörighet kan dock bara beviljas genom administratörens godkännande och allmänt begärt/beviljas med hjälp av den [administratör medgivande endpoint](v2-permissions-and-consent.md#admin-restricted-scopes). Fortsätt att läsa om du vill veta mer.
+En app begär oftast behörigheterna genom att ange omfång i begäranden till v2.0 tillåta slutpunkt. Vissa behörigheter med hög behörighet kan dock bara beviljas genom administratörens godkännande och allmänt begärt/beviljas med hjälp av den [administratör medgivande endpoint](v2-permissions-and-consent.md#admin-restricted-permissions). Fortsätt att läsa om du vill veta mer.
 
 ## <a name="permission-types"></a>Behörighetstyper
 
 Microsoft identity-plattformen stöder två typer av behörigheter: **delegerade behörigheter** och **programbehörigheter**.
 
-* **Delegerade behörigheter** som används av appar som har en inloggad användare finns. För dessa appar kan användaren eller administratören godkänner behörigheter att app-begäranden och appen är delegerad behörighet att agera som den inloggade användaren att göra anrop till målresursen. Vissa delegerade behörigheter kan vara godkänts av icke-administratörer, men vissa högre privilegier behörigheter kräver [administratörens godkännande](v2-permissions-and-consent.md#admin-restricted-scopes). Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegerade behörigheter** som används av appar som har en inloggad användare finns. För dessa appar kan användaren eller administratören godkänner behörigheter att app-begäranden och appen är delegerad behörighet att agera som den inloggade användaren att göra anrop till målresursen. Vissa delegerade behörigheter kan vara godkänts av icke-administratörer, men vissa högre privilegier behörigheter kräver [administratörens godkännande](v2-permissions-and-consent.md#admin-restricted-permissions). Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
 * **Programbehörigheter** som används av appar som körs utan en inloggad användare finns, till exempel appar som körs som Bakgrundstjänster eller daemon.  Behörigheter för programmet kan bara vara [samtyckt av en administratör](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 

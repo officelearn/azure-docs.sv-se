@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: e07f893296ec20e8c722fc977f93a38a797fe5c9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6576366df214304bb30c46fa65a4bc8bc783cedf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490064"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Självstudier: Azure Active Directory-katalogintegrering med iProva
 
@@ -229,13 +230,13 @@ I det här avsnittet skapar du en testanvändare i Azure-portalen med namnet Bri
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till iProva.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att bevilja åtkomst till iProva.
 
 1. I Azure-portalen väljer du **Företagsprogram** > **Alla program** > **iProva**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan väljer du **iProva**.
+2. Välj **iProva** i programlistan.
 
     ![Länken för iProva i programlistan](common/all-applications.png)
 

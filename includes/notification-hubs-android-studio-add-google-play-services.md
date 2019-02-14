@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bc920493b32d500602a5b683c098d23aff855150
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fb27386881e89cd9056d0efccb7d3c301867bd83
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823298"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965995"
 ---
 1. Öppna **Android Studio**, välj **Verktyg** på menyn och välj **SDK Manager**. 
 2. Välj målversionen av det Android-SDK som används i projektet och välj **Visa paketinformation**. 
@@ -29,7 +29,7 @@ ms.locfileid: "55823298"
 4. Välj **OK** för att stänga dialogrutan **Inställningar för nya projekt**.  
 5. Öppna filen `build.gradle` i katalogen **app** och lägg till följande rad under `dependencies`. 
 
-    ```text
+    ```gradle
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
 5. Välj ikonen **Synkronisera nu** i verktygsfältet.

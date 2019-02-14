@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615248"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213215"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(INAKTUELL) Vanliga frågor och svar om Container Service
 
@@ -85,7 +85,7 @@ Du hittar vanliga URL:er för ditt kluster i Azure Portal, Azure Resource Explor
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Hur uppgraderar jag orchestratorn efter distributionen?
 
-Azure Container Service innehåller för närvarande inget verktyg för uppgradering av den orchestrator-version du har distribuerat i klustret. Om Container Service har stöd för en senare version så kan du distribuera ett nytt kluster. Ett annat alternativ är att använda orchestrator-specifika verktyg till att uppgradera ett kluster på plats, om några sådana verktyg är tillgängliga. Läs exempelvis artikeln om [uppgradering av DC/OS](https://dcos.io/docs/1.8/administration/upgrading/).
+Azure Container Service innehåller för närvarande inget verktyg för uppgradering av den orchestrator-version du har distribuerat i klustret. Om Container Service har stöd för en senare version så kan du distribuera ett nytt kluster. Ett annat alternativ är att använda orchestrator-specifika verktyg till att uppgradera ett kluster på plats, om några sådana verktyg är tillgängliga. Läs exempelvis artikeln om [uppgradering av DC/OS](http://docs.mesosphere.com/1.12/installing/production/upgrading).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Var hittar jag SSH-anslutningssträngen till mitt kluster?
 

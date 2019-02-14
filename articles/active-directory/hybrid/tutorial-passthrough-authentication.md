@@ -10,12 +10,13 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a56edba483b1ba045d801681b85d755a510606cd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6c813685a89f3d18b01ab75d710df54f8d1e1338
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493719"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187754"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Självstudier:  Integrera en enskild AD-skog med hjälp av direktautentisering (PTA)
 
@@ -225,7 +226,7 @@ Nu är det dags att ladda ned och installera Azure AD Connect.  När det har ins
 6. På skärmen Användarinloggning väljer du **Direktautentisering** och **Aktivera enkel inloggning** och klickar på **Nästa**.</br>
 ![PTA](media/tutorial-passthrough-authentication/pta1.png)</b>
 7. På skärmen Anslut till Azure AD anger du användarnamnet och lösenordet för den globala administratör som vi skapade ovan och klickar på **Nästa**.
-2. På skärmen Anslut dina kataloger klickar du på **Lägg till katalog**.  Välj sedan **Skapa nytt AD-konto**. Ange användarnamnet contoso\Administrator och lösenordet och klicka på **OK**.
+2. På skärmen Anslut dina kataloger klickar du på **Lägg till katalog**.  Välj sedan **Skapa nytt AD-konto** och ange användarnamnet och lösenordet contoso\Administrator och klicka på **OK**.
 3. Klicka på **Nästa**.
 4. På skärmen för Azure AD-inloggningskonfiguration väljer du **Fortsätt utan att matcha alla UPN-suffix till verifierade domäner** och klickar på **Nästa.**
 5. På skärmen Domän- och organisationsenhetsfiltrering klickar du på **Nästa**.

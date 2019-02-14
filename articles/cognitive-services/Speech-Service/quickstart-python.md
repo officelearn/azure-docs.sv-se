@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av Speech SDK för Python. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
 author: chlandsi
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2a0ef42a2904b661b0076c9e84700ce61e3a7248
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 43ae1339b2b6880656c68957a3d4ed2d2f13b559
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746830"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859550"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Snabbstart: Taligenkänning med Speech SDK för Python
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du använder taltjänsten via Speech SDK för Python
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En Azure-prenumerationsnyckel för taltjänsten. [Skaffa en kostnadsfritt](get-started.md).
+* En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en kostnadsfritt](get-started.md).
 * [Python 3.5](https://www.python.org/downloads/) eller senare, 64-bitars.
 * Python Speech SDK-paketet är tillgängligt för dessa operativsystem: 
     * Windows: x64.

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e377cf749119c23d37bb4db8ab78abb1ce8c82ae
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751097"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS)
 
@@ -140,9 +141,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Amazo
 
     `https://signin.aws.amazon.com/saml#2`
 
-    ![Information om enkel inloggning med Amazon Web Services (AWS)-domän och -URL:er](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_identifier.png)
+    ![Information om enkel inloggning med Amazon Web Services (AWS)-domäner och -URL:er](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_identifier.png)
 
-6. Amazon Web Services (AWS)-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+6. Amazon Web Services (AWS)-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
     ![image](common/edit-attribute.png)
 
@@ -417,7 +418,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 2. I listan över program skriver och väljer du **Amazon Web Services (AWS)**.
 
-    ![Länken för Amazon Web Services (AWS) i programlistan](common/all-applications.png)
+    ![Amazon Web Services (AWS)-länk i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -447,7 +448,7 @@ När du klickar på Amazon Web Services (AWS)-panelen i åtkomstpanelen bör du 
 
  * I avsnittet **Etablering** visar underavsnittet **Mappningar** meddelandet ”Läser in...” och visar aldrig attributmappningarna. Det enda arbetsflöde för etablering som stöds i dag är import av roller från AWS till Azure AD för val under användar-/grupptilldelning. Attributmappningarna för det här är förinställda och kan inte konfigureras.
  
- * Avsnittet **Etablering** stöder endast inmatning av en uppsättning autentiseringsuppgifter för en AWS-klientorganisation i taget. Alla importerade roller skrivs till egenskapen appRoles för Azure AD [servicePrincipal-objektet](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) för AWS-klientorganisationen. Flera AWS-klientorganisationer (som representeras av servicePrincipals) kan läggas till i Azure AD från galleriet för etablering, men det finns ett känt problem med att det inte går att automatiskt skriva alla importerade roller från flera AWS-servicePrincipals som används för etablering till den enskilda servicePrincipal som används för enkel inloggning. Som en tillfällig lösning kan [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) användas för att extrahera alla appRoles som importeras till varje AWS-servicePrincipal där etablering har konfigurerats. De här rollsträngarna kan därefter läggas till i den AWS-servicePrincipal där enkel inloggning har konfigurerats.
+ * Avsnittet **Etablering** stöder endast inmatning av en uppsättning autentiseringsuppgifter för en AWS-klientorganisation i taget. Alla importerade roller skrivs till egenskapen appRoles för Azure AD [servicePrincipal-objektet](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) för AWS-klientorganisationen. Flera AWS-klientorganisationer (som representeras av servicePrincipals) kan läggas till i Azure AD från galleriet för etablering, men det finns ett känt problem med att det inte går att automatiskt skriva alla importerade roller från flera AWS-servicePrincipals som används för etablering till den enskilda servicePrincipal som används för enkel inloggning. Som en tillfällig lösning kan [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) användas för att extrahera alla appRoles som importeras till varje AWS-servicePrincipal där etablering har konfigurerats. De här rollsträngarna kan därefter läggas till i den AWS-servicePrincipal där enkel inloggning har konfigurerats.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

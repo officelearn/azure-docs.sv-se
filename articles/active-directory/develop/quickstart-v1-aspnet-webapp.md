@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816279"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185324"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -229,7 +230,7 @@ Det här alternativet är ett vanligt scenario för affärsapplikationer.
 Om du vill att programmet endast ska godkänna inloggningar från konton som tillhör en viss Azure AD-instans (inklusive *gästkonton* för den instansen) följer du dessa steg:
 
 1. Ersätt parametern `Tenant` i *web.config* från `Common` med organisationens klientnamn, t.ex. *contoso.onmicrosoft.com*.
-1. Ändra argumentet `ValidateIssuer` i [*OWIN-startklassen*](#configure-the-authentication-pipeline) till `true`.
+1. Ändra argumentet `ValidateIssuer` i [*OWIN-startklassen*](#step-4-configure-the-authentication-pipeline) till `true`.
 
 Följ dessa steg om du endast vill tillåta användare från en lista med specifika organisationer:
 

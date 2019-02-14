@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: I den här genomgången beskrivs Unity-exempelscenen för Project Acoustics, inklusive distribution till skrivbord och VR.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ecd19ec343b2744a70456fd1d3ad226856768d71
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174269"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880719"
 ---
 # <a name="unity-sample-walkthrough"></a>Genomgång av Unity-exempel
 Det här är en genomgång av exemplet Project Acoustics. Mer information om vad Project Acoustics är finns i [Introduktion till Project Acoustics](what-is-acoustics.md). Om du vill ha hjälp med att lägga till paketet Project Acoustics till ett befintligt Unity-projekt använder du [guiden Komma igång](getting-started.md).

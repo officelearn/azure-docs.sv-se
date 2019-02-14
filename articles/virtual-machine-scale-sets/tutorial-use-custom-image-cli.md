@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755211"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118402"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudier: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här självstudiekursen får du lära du dig att:
@@ -88,6 +88,7 @@ exit
 Den virtuella källdatorn är nu anpassad med Nginx-webbservern som är installerad. Nu ska vi skapa den anpassade virtuella datoravbildningen för att använda med en skalningsuppsättning.
 
 Om du vill skapa en avbildning måste den virtuella datorn frigöras. Frigör den virtuella datorn med [az vm deallocate](/cli//azure/vm). Slutligen anger du tillståndet för den virtuella datorn som det generaliserats med [az vm generalize](/cli//azure/vm) så att Azure-plattformen vet att den virtuella datorn är redo för användning i en anpassad avbildning. Du kan bara skapa en avbildning från en generaliserad virtuell dator:
+
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM

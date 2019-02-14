@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: 9467197715d79527699eac0acf9c23f204b0e639
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d2de4a4be8838cf696d2d3ed6589e8f154a6ca05
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814919"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959859"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Självstudier: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging
 
@@ -91,14 +91,14 @@ Din meddelandehubb har nu konfigurerats för att fungera med Firebase Cloud Mess
 
 1. Lägg till följande rader i avsnittet för **beroenden** i filen `Build.Gradle` för **appen**.
 
-    ```text
+    ```gradle
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
 2. Lägg till följande lagringsplats efter avsnittet **beroenden**.
 
-    ```text
+    ```gradle
     repositories {
         maven {
             url "http://dl.bintray.com/microsoftazuremobile/SDK"
@@ -110,13 +110,13 @@ Din meddelandehubb har nu konfigurerats för att fungera med Firebase Cloud Mess
 
 1. I `Build.Gradle`-filen för **appen** lägger du till följande rader i avsnittet **beroenden** om de inte redan finns. 
 
-    ```text
+    ```gradle
     implementation 'com.google.firebase:firebase-core:16.0.0'
     ```
 
 2. Lägg till följande plugin-program i slutet av filen om det inte redan finns. 
 
-    ```text
+    ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632984"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984825"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda du en anpassad Docker-avbildning för Web App for Containers
 
@@ -59,7 +59,7 @@ cd docker-django-webapp-linux
 
 På Git-lagringsplatsen tar du en titt på _Dockerfile_. Den här filen beskriver Python-miljön som krävs för att köra programmet. Dessutom konfigurerar avbildningen en [SSH](https://www.ssh.com/ssh/protocol/)-server för säker kommunikation mellan containern och värden.
 
-```docker
+```Dockerfile
 FROM python:3.4
 
 RUN mkdir /code
@@ -254,7 +254,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="test-the-web-app"></a>Testa webbappen
 
-Verifiera att webbappen fungerar genom att bläddra till den (`http://<app_name>azurewebsites.net`). 
+Verifiera att webbappen fungerar genom att bläddra till den (`http://<app_name>.azurewebsites.net`). 
 
 ![Testa webbappens portkonfiguration](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -280,7 +280,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För att
 
 * En [RUN](https://docs.docker.com/engine/reference/builder/#run)-instruction som anropar `apt-get` och sedan ställer in lösenordet för rotkontot på `"Docker!"`.
 
-    ```docker
+    ```Dockerfile
     ENV SSH_PASSWD "root:Docker!"
     RUN apt-get update \
             && apt-get install -y --no-install-recommends dialog \
@@ -294,7 +294,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För att
 
 * En [COPY](https://docs.docker.com/engine/reference/builder/#copy)-instruktion som instruerar Docker-motorn att kopiera filen [sshd_config](https://man.openbsd.org/sshd_config) till katalogen */etc/ssh/*. Konfigurationsfilen ska baseras på filen [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
@@ -305,7 +305,7 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För att
 
 * En [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose)-instruktion som exponerar port 2222 i containern. Trots att rotlösenordet är känt går det inte att nå port 2222 från internet. Det är en intern port som endast är åtkomlig via containrar inom ett privat virtuellt nätverks nätverksbrygga. Efter det kopierar kommandona SSH-konfigurationsinformationen och startar `ssh`-tjänsten.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 8000 2222
     ```
 

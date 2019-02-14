@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 262bbf64fcfce8fe2d2f6ba2fca7f68204ed6bef
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458184"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201770"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Självstudier: Azure Active Directory-integrering med Acadia
 
@@ -35,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver följande saker för att konfigurera Azure AD-integrering med Acadia:
+För att konfigurera Azure AD-integrering med Acadia behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Acadia-prenumeration med enkel inloggning aktiverat
@@ -103,7 +104,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ac
 
 4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    ![Acadia-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Information om enkel inloggning med Acadia-domäner och -URL:er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 
@@ -111,7 +112,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ac
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Acadia-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![Information om enkel inloggning med Acadia-domäner och -URL:er](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
@@ -171,7 +172,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 2. I programlistan väljer du **Acadia**.
 
-    ![Länken för Acadia i programlistan](common/all-applications.png)
+    ![Acadia-länk i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 

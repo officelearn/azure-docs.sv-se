@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Utforska en grundläggande Windows-app för att känna igen känslor som uttrycks i ansikten på en bild.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: tutorial
 ms.date: 01/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1609b210d47c30d3934b6e61dc9ec0bd7257f8db
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 953111a65aecc05ce03bd58212494e1f251e5f16
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208234"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234041"
 ---
 # <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Självstudier: Känsloigenkänning i ett ansikte på en bild.
 

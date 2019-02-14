@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: I den här självstudien extraherar du data med jobbnamn via maskininlärning ur ett yttrande med hjälp av en enkel entitet. Om du vill öka noggrannheten i extraheringen lägger du till en fraslista med villkor som är specifika för den enkla entiteten.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 53e975719b911a27667afc8565bd86261f927068
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820988"
+ms.locfileid: "55867247"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Självstudier: Extrahera namn med en enkel entitet och en fraslista
 

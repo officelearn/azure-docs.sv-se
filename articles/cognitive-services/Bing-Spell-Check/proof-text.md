@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: API för Bing-stavningskontroll använder maskininlärning och statistisk maskinöversättning för kontextbaserad stavningskontroll.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a8f5e029966f074add34a7017f42158070b872d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149779"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864017"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Vad är API för Bing-stavningskontroll?
 

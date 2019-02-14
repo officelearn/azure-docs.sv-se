@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Introduktion till förhandsgranskning av projekt-URL.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 2e974acb1a7583fbd1a961eda4daa3732fbeff7c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865343"
 ---
 # <a name="what-is-project-url-preview"></a>Vad är förhandsversion av projekt-URL?
 Slutpunkten för URL-förhandsgranskningen tar en URL-frågeparameter och returnerar ett JSON-svar med namnet på målresursen, en kort beskrivning och en länk till en bild som ska visas i en förhandsgranskning. Svaret innehåller även flaggan [isFamilyFriendly](url-preview-reference.md#query-parameters), som anger huruvida URL:en innehåller innehåll för vuxna eller piratkopierat eller annat olagligt innehåll. 

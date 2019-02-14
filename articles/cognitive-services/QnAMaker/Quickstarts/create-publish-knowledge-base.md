@@ -3,18 +3,18 @@ title: Skapa, träna och publicera kunskapsbas – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. QnA Maker-kunskapsbasen i det här exemplet skapas med en enkel webbsida för vanliga frågor för att besvara frågor om återställning av BitLocker-nycklar.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 41a8f11f817ec550ef3423d85eb107796bdd1b28
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216956"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877005"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Skapa, träna och publicera en QnA Maker-kunskapsbas
 

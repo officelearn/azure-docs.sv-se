@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten översätter du text från ett språk till ett annat med hjälp av Translator Text API med Python på mindre än 10 minuter.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: f995c727f46957d663cb6a6a32ac1d4313c71e8f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 10839354339d7d4f39a041a9b0f11f3afa3845ef
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697160"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876475"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Snabbstart: Använda Translator Text API för att översätta en sträng med hjälp av Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Den globala Translator Text-slutpunkten har angetts som `base_url`. `path` anger `translate`-vägen och identifierar att vi vill nå version 3 av API:et.
+Den globala slutpunkten för Translator Text anges som `base_url`. `path` anger `translate`-vägen och identifierar att vi vill nå version 3 av API:et.
 
 `params` används till att ange utdataspråken. I det här exemplet översätter vi från engelska till italienska och tyska: `it` och `de`.
 

@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 7438480d046be6242829060ce8ee936dd1cfb588
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f7160dae15feb70e2893c1ce4375dfaf83b7d252
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818854"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Självstudier: Azure Active Directory-integrering med Talent Palette
 
 I den här självstudien lär du dig hur du integrerar Talent Palette med Azure Active Directory (Azure AD).
-Integreringen av Talent Palette med Azure AD medför följande fördelar:
+När du integrerar Talent Palette med Azure AD får du följande fördelar:
 
-* Du kan i Azure AD styra vem som har åtkomst till Talent Palette.
+* Du kan styra i Azure AD vilka som har åtkomst till Talent Palette.
 * Du kan göra så att dina användare automatiskt loggas in på Talent Palette (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
@@ -35,10 +36,10 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med Talent Palette behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Talent Palette behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Talent Palette-prenumeration med enkel inloggning aktiverat
+* Prenumeration aktiverad för enkel inloggning med Talent Palette
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -51,7 +52,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att kunna konfigurera integreringen av Talent Palette i Azure AD måste du lägga till Talent Palette från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Talent Palette från galleriet:**
+**Gör följande för att lägga till Talent Palette från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
@@ -65,7 +66,7 @@ För att kunna konfigurera integreringen av Talent Palette i Azure AD måste du 
 
     ![Knappen Nytt program](common/add_new_app.png)
 
-4. I sökrutan skriver du **Talent Palette**, väljer **Talent Palette** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+4. Skriv **Talent Palette** i sökrutan, välj **Talent Palette** i resultatpanelen och klick sedan på knappen **Lägg till** för att lägga till programmet.
 
      ![Talent Palette i resultatlistan](common/search_new_app.png)
 
@@ -103,13 +104,13 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Talent Pal
 
 4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    ![Information om enkel inloggning med Talent Palette-domäner och -URL:er](common/both_replyurl.png)
+    ![Information om domän och URL:er för enkel inloggning med Talent Palette](common/both_replyurl.png)
 
     I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning med Talent Palette-domäner och -URL:er](common/both_signonurl.png)
+    ![Information om domän och URL:er för enkel inloggning med Talent Palette](common/both_signonurl.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://talent-p.net/saml/sso/<tenantID>`
 
@@ -120,7 +121,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Talent Pal
 
     ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-7. I avsnittet **Konfigurera Talent Palette** kopierar du lämpliga URL:er enligt dina behov.
+7. I avsnittet för att **konfigurera Talent Palette** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy_configuration_urls.png)
 
@@ -161,7 +162,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Talent Palette.
+I det här avsnittet gör du så att Britta Simon kan använda enkel inloggning med Azure genom att tilldela åtkomst till Talent Palette.
 
 1. I Azure-portalen väljer du **Företagsprogram**, väljer **Alla program** och sedan **Talent Palette**.
 

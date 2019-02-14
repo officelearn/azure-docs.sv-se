@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du använda Azure ansikts-REST API med Node.js för att identifiera ansikten i en bild.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 3b0eefb7471061e7e3547898b2edf02ed0f94ccf
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9b30e9da523e564f531ec8e9cebe5b16653e579f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210088"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858883"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snabbstart: Identifiera ansikten i en bild med Ansikts-REST API och Node.js
 

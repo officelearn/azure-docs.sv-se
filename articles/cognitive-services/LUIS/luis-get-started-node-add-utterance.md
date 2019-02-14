@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: I den här Node.js-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/17/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccb076615b9db7010deb216febbde5b8d64eb6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2a8bed2b07934bf178ea338e074ec8e239ee646
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206859"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874846"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>Snabbstart: Ändra modell med hjälp av Node.js
 

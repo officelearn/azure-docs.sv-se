@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden med SDK för videosökning i Bing för C#.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: 820c6a57a4a8266b68c5a245c2c2cf316aa071a9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f94db7a29827a80307f4a081d93744c5edc59edb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569271"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867791"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>Snabbstart: Utför en videosökning med SDK för videosökning i Bing för C#
 
@@ -84,9 +84,9 @@ När du installerar [[SDK-paketet för NuGet-videosökning]](https://www.nuget.o
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensideswebbapp](../tutorial-bing-video-search-single-page-app.md)
+> [Skapa en webbapp med en sida](../tutorial-bing-video-search-single-page-app.md)
 
 ## <a name="see-also"></a>Se även 
 
-* [Vad är API:et för videosökning i Bing?](../overview.md)
+* [Vad är API för videosökning i Bing?](../overview.md)
 * [Exempel med Cognitive Services SDK för .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

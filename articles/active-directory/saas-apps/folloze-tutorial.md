@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 78752c7a3c47c8a61b179998533dbe9081c0a5ff
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 664a96569664460a25956c2688d999890c95801e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810320"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Självstudier: Azure Active Directory-integrering med Folloze
 
 I den här självstudien får du lära dig hur du integrerar Folloze med Azure Active Directory (AD Azure).
-Integreringen av Folloze med Azure AD medför följande fördelar:
+Integrering av Folloze med Azure AD ger dig följande fördelar:
 
-* Du kan i Azure AD styra vem som har åtkomst till Folloze.
+* Du kan styra i Azure AD vilka som har åtkomst till Folloze.
 * Du kan göra så att dina användare automatiskt loggas in på Folloze (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
@@ -35,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med Folloze behöver du följande:
+För att konfigurera Azure AD-integrering med Folloze behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Folloze-prenumeration med enkel inloggning aktiverat
@@ -51,7 +52,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integreringen av Folloze till Azure AD behöver du lägga till Folloze från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Folloze från galleriet:**
+**Lägg till Folloze från galleriet genom att utföra följande steg:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,7 +66,7 @@ För att konfigurera integreringen av Folloze till Azure AD behöver du lägga t
 
     ![Knappen Nytt program](common/add_new_app.png)
 
-4. I sökrutan skriver du **Folloze**, väljer **Folloze** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Folloze**, väljer **Folloze** från resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
      ![Folloze i resultatlistan](common/search_new_app.png)
 
@@ -103,7 +104,7 @@ Konfigurera enkel inloggning med Azure AD med Folloze genom att utföra följand
 
 4. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
 
-    ![Information om enkel inloggning med Folloze-domäner och -URL:er](common/preintegrated.png)
+    ![Information om enkel inloggning med Folloze-domän och URL:er](common/preintegrated.png)
 
 5. Folloze-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
@@ -179,7 +180,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Folloze.
+I det här avsnittet gör du så att Britta Simon kan använda enkel inloggning med Azure genom att bevilja åtkomst till Folloze.
 
 1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Folloze**.
 

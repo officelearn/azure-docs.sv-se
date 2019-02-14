@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten till att skicka sökbegäranden om video med hjälp av SDK för videosökning i Bing för Java.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: 95112a4161c6a0c21b7e4a834658e5e7f130a8c3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569276"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55885029"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Snabbstart: Utföra en videosökning med SDK för videosökning i Bing för Java
 
@@ -86,7 +86,7 @@ Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera 
         //...
         ```
     
-    2. I `applyCredentialsFilter()` anropar du `builder.addNetworkInterceptor()`. Skapa ett nytt `Interceptor`-objekt och åsidosätt dess `intercept()`-metod för att ta ett `Chain`-avbrottsobjekt.
+    2. I `applyCredentialsFilter()` anropar du `builder.addNetworkInterceptor()`. Skapa ett nytt `Interceptor`-objekt och åsidosätt dess `intercept()`-metod för att ta emot ett `Chain`-avbrottsobjekt.
 
         ```java
         //...
@@ -100,7 +100,7 @@ Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera 
         ///...
         ```
 
-    3. I funktionen `intercept` skapar du variabler för din begäran. Använd `Request.Builder()` för att bygga din begäran. Lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken och returnera `chain.proceed()` i begärandeobjektet.
+    3. Skapa variabler för din begäran i funktionen `intercept`. Använd `Request.Builder()` till att bygga din begäran. Lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken och returnera `chain.proceed()` i begärandeobjektet.
             
         ```java
         //...

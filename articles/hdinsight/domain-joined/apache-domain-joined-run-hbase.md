@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: d87248f778c6c39cc64b1cc4725cd61d029ce040
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664748"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893246"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudier: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
@@ -45,7 +45,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
 
-Läs avsnittet om hur du [skapar ett HDInsight-kluster med Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster) för att se hur du skapar domänanvändarna **sales_user1** och **marketing_user1**. I ett produktionsscenario kommer domänanvändarna från din Active Directory-klientorganisation.
+Läs avsnittet om hur du [skapar ett HDInsight-kluster med Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) för att se hur du skapar domänanvändarna **sales_user1** och **marketing_user1**. I ett produktionsscenario kommer domänanvändarna från din Active Directory-klientorganisation.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Skapa HBase-tabeller och importera exempeldata
 

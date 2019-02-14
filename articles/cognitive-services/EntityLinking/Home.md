@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Lär dig hur du använder API:t för intelligent tjänst för entitetslänkningsuppgifter.
 services: cognitive-services
 author: DavidLiCIG
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: entity-linking-intelligence
 ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: fa2e480cd2c46e6092f4b0421adca63542e54d1b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4faeccb30e936177dfa993e912f597c44f8fac60
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224640"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869780"
 ---
 # <a name="what-is-the-entity-linking-intelligence-service-api"></a>Vad är API:et för intelligent tjänst för entitetslänkning?
 

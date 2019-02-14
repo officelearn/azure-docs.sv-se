@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 02/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 184030f4db68f10028f5178b5eff370202b1e487
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6a12ef422211a77299ece00c5333a6c9f10c9427
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757519"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247178"
 ---
 Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-All åtkomst till Azure Storage sker via ett lagringskonto. För den här snabbstarten skapar du ett lagringskonto med hjälp av [Azure-portalen](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM), Azure PowerShell eller Azure CLI. Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../articles/storage/common/storage-quickstart-create-account.md).
+All åtkomst till Azure Storage sker via ett lagringskonto. För den här snabbstarten skapar du ett lagringskonto med hjälp av [Azure-portalen](https://portal.azure.com/), Azure PowerShell eller Azure CLI. Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../articles/storage/common/storage-quickstart-create-account.md).

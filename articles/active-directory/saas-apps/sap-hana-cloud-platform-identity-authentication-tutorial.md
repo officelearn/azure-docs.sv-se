@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b5b664581a1f3da367f74318cfb6bf5564e5b39
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d8e14d54ca30c0e46d3bef0202784a35493663ef
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472889"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Självstudier: Azure Active Directory-integrering med SAP Cloud Platform Identity Authentication
 
@@ -89,10 +90,10 @@ För att konfigurera integrering av SAP Cloud Platform Identity Authentication m
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning Azure AD med [programnamn] baserat på en testanvändare med namnet **Britta Simon**.
+I det här avsnittet konfigurerar och testar du enkel inloggning Azure AD med [programnamn] baserat på en testanvändare som kallas **Britta Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i [Programnamn] upprättas.
 
-Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för [Programnamn]:
+För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] behöver du utföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för SAP Cloud Platform Identity Authentication](#configure-sap-cloud-platform-identity-authentication-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
@@ -105,7 +106,7 @@ Du behöver slutföra följande byggstenar för att konfigurera och testa enkel 
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning med Azure AD för [Programnamn]:
+Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra följande steg:
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **SAP Cloud Platform Identity Authentication** och väljer **Enkel inloggning**.
 

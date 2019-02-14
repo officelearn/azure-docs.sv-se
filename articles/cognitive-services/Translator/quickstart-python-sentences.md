@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att fastställa meningslängder (i antal tecken) med hjälp av Python och Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: ad5af3e43e1419246d1692c5028cb2453b04516c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1fdee0d8c73c4cdd60bbe4a3520583588bfc385b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696155"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861110"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Snabbstart: Använda Translator Text API för att fastställa meningslängd med hjälp av Python
 

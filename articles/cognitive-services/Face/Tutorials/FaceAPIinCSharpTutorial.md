@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du en Windows-app som använder Ansiktsigenkänning till att identifiera och rama in ansikten i en bild.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 79b467e55ec381d851d064d5f78cbdb91c9cf837
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ff3063193fa2a8f71f441aa64c8835fd7528ff4e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221189"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882632"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Självstudier: Skapa en WPF-app för att visa ansiktsinformation i en bild
 

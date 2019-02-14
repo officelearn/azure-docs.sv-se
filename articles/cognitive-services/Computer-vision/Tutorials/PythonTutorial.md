@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Lär dig att använda API för visuellt innehåll med Python med hjälp av Jupyter-anteckningsböcker. Visualisera dina resultat med hjälp av populära bibliotek.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 3d3cc6138e6823fad11db5b6bd8edbb2d7398d00
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: afb937f1be780c35ef44023acfedeb38a6b6a877
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225695"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875078"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Självstudier: API för visuellt innehåll – Python
 

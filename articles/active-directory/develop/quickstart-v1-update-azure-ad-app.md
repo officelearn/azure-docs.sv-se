@@ -16,12 +16,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819101"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191743"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Snabbstart: Uppdatera ett program i Azure Active Directory
 
@@ -144,7 +145,7 @@ Mer information om begrepp gällande programmanifest i allmänhet finns i [Azure
 
 Som vi nämnde tidigare kan du utöver att komma åt och göra API:er tillgängliga för dina egna program även registrera ditt klientprogram för att komma åt API:er som görs tillgängliga av Microsoft-resurser. Microsoft Graph API, som kallas ”Microsoft Graph” i portalens resurs-/API-lista, är tillgängligt för alla program som är registrerade med Azure AD. Om du registrerar ditt klientprogram i en klientorganisation som innehåller konton som har registrerats för en Office 365–prenumeration kan du även komma åt de omfång som görs tillgängliga av de olika Office 365-resurserna.
 
-En fullständig beskrivning av omfång som görs tillgängliga av Microsoft Graph API finns i artikeln [Behörighetsreferens för Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
+En fullständig beskrivning av omfång som görs tillgängliga av Microsoft Graph API finns i artikeln [Behörighetsreferens för Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
 > [!NOTE]
 > På grund av en aktuell begränsning kan interna klientprogram endast anropa Azure AD Graph API om de använder behörigheten ”Access your organization's directory” (Komma åt din organisations katalog). Den här begränsningen gäller inte för webbprogram.

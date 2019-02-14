@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du extrahera tryckt text från en bild med hjälp av API för visuellt innehåll med Python.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c089e3c69cf92fadc8613a2fe24303a84153e39d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 21be01219f412d190fe3a8d4b03ac0789f9deda9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209017"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881383"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Extrahera tryckt text (OCR) med hjälp av REST-API:et och Python i Visuellt innehåll
 

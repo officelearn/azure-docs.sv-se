@@ -13,14 +13,16 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3aadeb92fccc2baa445bce73e3d3111168aeecf6
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490285"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107828"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Självstudier: Flytta Azure-resurser till ny resursgrupp eller prenumeration
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Lär dig hur du flyttar en Azure-resurs från en resursgrupp till en annan resursgrupp. Du kan också flytta Azure-resurser från en Azure-prenumeration till en annan Azure-prenumeration. I den här självstudien använder du en Resource Manager-mall för att distribuera två resursgrupper och ett lagringskonto. Du flytta lagringskontot från en resursgrupp till en annan.
 

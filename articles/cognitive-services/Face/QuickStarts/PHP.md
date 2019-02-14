@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten identifierar du ansikten med hjälp av Ansikts-API:et med PHP.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 63484f4dcb47aeecbb33c84b7924b2a7e471d3cd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c75745452ee819dbda75f7420c93a5629cef4e08
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223425"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860398"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med REST API och PHP
 
@@ -29,7 +29,7 @@ Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nyckl
 
 Använd metoden [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Ansiktsigenkänning) för att identifiera ansikten i en bild och returnera ansiktsattribut som:
 
-* Ansikts-ID: Unikt ID som används i flera Ansikts-API-scenarier.
+* Ansikts-ID: Unikt ID som används i flera scenarier med Ansikts-API.
 * Ansiktsrektangel: Vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
 * Landmärken: En matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
 * Ansiktsattribut som ålder, kön, leendeintensitet, huvudställning och ansiktsbehåring.

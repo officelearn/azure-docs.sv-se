@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i Java-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: aahi
-ms.openlocfilehash: f73856d77c2d3c6d8d4006d4654d2aa836c6c4cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 420a0769af85d050f2786b65eb929a24d8b9da5d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158221"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874166"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Snabbstart: Använda SDK för Webbsökning i Bing för Java
 

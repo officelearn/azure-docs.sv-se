@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Använd API:t Entitetssökning i Bing till att extrahera och söka efter entiteter och platser från sökfrågor.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: b1d46d125d390f8612c5708e1964e0626acde343
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e78cc86a91e229b5d4d4aead5709da2f694ecac1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757852"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895371"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Söka efter entiteter med entitets-API:t i Bing
 
@@ -174,7 +174,7 @@ När du visar entitetsinformationen (namn, beskrivning och bild) måste du även
 
 ## <a name="find-places"></a>Söka efter platser
 
-Fältet `places` är ett [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer)-objekt som innehåller en lista med [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place)-objekt (mer information finns i [Etitetstyper](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)). Listan innehåller en eller flera lokala entiteter som uppfyller begäran.
+Fältet `places` är ett [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)-objekt som innehåller en lista med [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place)-objekt (mer information finns i [Etitetstyper](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)). Listan innehåller en eller flera lokala entiteter som uppfyller begäran.
 
 Platser omfattar restauranger, hotell och lokala företag. Fältet [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) innehåller tips som identifierar den lokala entitetens typ. Listan innehåller en lista över tips såsom plats, lokalt företag och restaurang. Varje efterföljande tips i matrisen begränsar entitetens typ. En lista över möjliga typer finns i [Entitetstyper](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för stavningskontroll i Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: 3371ed7689ad089559a5874fb89f14962194194d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d3c273c7e5774e4f6d5b6984b77ff76bfb041343
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203245"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873180"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>Snabbstart för API:et för stavningskontroll i Bing med Ruby 
 

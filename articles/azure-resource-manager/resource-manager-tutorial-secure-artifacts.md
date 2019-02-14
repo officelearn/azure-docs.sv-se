@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c83865835dfff4013072757c8f40a8d8fc83deaa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8be7a3d862e7b496a4e3b3077e4c53018bf97bb8
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493257"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233327"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Självstudie: Skydda artefakter i Azure Resource Manager-malldistributioner
 
@@ -195,10 +195,11 @@ Uppdatera värdet för följande två element:
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Mer information om distributionsproceduren finns i avsnittet [Distribuera mallen](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template). Använd följande PowerShell-distributionsskript i stället:
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
@@ -208,7 +209,7 @@ $artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS
 $bacpacFileName = Read-Host -Prompt "Enter the BACPAC file name"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `

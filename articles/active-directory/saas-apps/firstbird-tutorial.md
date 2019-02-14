@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d11674632599afa190237b2a4a516d7cce6e2150
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 849a7544995650d5e2b733d9787c96c3dab217c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810252"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190984"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Självstudier: Azure Active Directory-integrering med Firstbird
 
 I den här självstudien får du lära dig hur du integrerar Firstbird med Azure Active Directory (AD Azure).
-Integreringen av Firstbird med Azure AD medför följande fördelar:
+Genom att integrera Firstbird med Azure AD får du följande fördelar:
 
-* Du kan i Azure AD styra vem som har åtkomst till Firstbird.
+* Du kan styra i Azure AD vilka som har åtkomst till Firstbird.
 * Du kan göra så att dina användare automatiskt loggas in på Firstbird (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
@@ -35,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med Firstbird behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Firstbird behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Firstbird-prenumeration med enkel inloggning aktiverat
@@ -51,7 +52,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integrering av Firstbird till Azure AD behöver du först lägga till Firstbird från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Firstbird från galleriet:**
+**Lägg till Firstbird från galleriet genom att utföra följande steg:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -103,7 +104,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning med Firstbird-domäner och -URL:er](common/idp_intiated.png)
+    ![Information om enkel inloggning för Firstbird-domän och URL:er](common/idp_intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<company-domain>.auth.1brd.com/saml/sp`
 
@@ -111,7 +112,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning med Firstbird-domäner och -URL:er](common/metadata_upload_additional_signon.png)
+    ![Information om enkel inloggning för Firstbird-domän och URL:er](common/metadata_upload_additional_signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<company-domain>.1brd.com/login`
 
@@ -188,7 +189,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Firstbird.
+I det här avsnittet gör du så att Britta Simon kan använda enkel inloggning med Azure genom att bevilja åtkomst till Firstbird.
 
 1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Firstbird**.
 

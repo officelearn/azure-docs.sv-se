@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för entitetssökning i Bing med hjälp av Java och få ett JSON-svar.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5adf40648118f8eb6c33df80ba3e30208f1b2059
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ba8d1fa44ca3eacf4c8feeede18b594dfe72ea37
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813406"
+ms.locfileid: "55884128"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Snabbstart: Skicka en sökbegäran till REST API för Entitetssökning i Bing med Java
 
@@ -25,7 +25,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
+* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Gson-biblioteket](https://github.com/google/gson)
 
 

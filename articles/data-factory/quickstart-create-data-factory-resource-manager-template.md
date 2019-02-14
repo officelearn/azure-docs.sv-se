@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 279588e63000883d60b159f56e8c0b4686dee5b4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: bb6c3281ffc434bd31f901b2b7f6e540f893ca76
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888787"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001910"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudier: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Aktuell version](quickstart-create-data-factory-resource-manager-template.md)
@@ -32,9 +33,11 @@ I den här snabbstarten får du se hur du skapar en Azure Data Factory med en Az
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
 Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
+
 Se [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) om du vill lära dig mer om Azure Resource Manager-mallar i allmänhet.
 
 Följande avsnitt innehåller den fullständiga Resource Manager-mallen för att definiera Data Factory-entiteter så att du snabbt kan gå igenom självstudien och testa mallen. Om du vill förstå hur varje Data Factory-entitet definieras kan du läsa avsnittet [Data Factory-entiteter i mallen](#data-factory-entities-in-the-template).
@@ -42,6 +45,7 @@ Följande avsnitt innehåller den fullständiga Resource Manager-mallen för att
 Mer information om JSON-syntaxen och JSON-egenskaperna för Data Factory-resurser i en mall finns i [Microsoft.DataFactory-resurstyper](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>Data Factory JSON
+
 Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial** med följande innehåll:
 
 ```json
@@ -265,6 +269,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
 ```
 
 ## <a name="parameters-json"></a>JSON-parametrar
+
 Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller parametrar för Azure Resource Manager-mallen.
 
 > [!IMPORTANT]
@@ -319,6 +324,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller 
 > Du kan ha separata JSON-filer med parametrar för utveckling, testning och produktionsmiljöer som du kan använda med samma Data Factory JSON-mall. Genom att använda ett Power Shell-skript kan du automatisera distributionen av Data Factory-entiteter i dessa miljöer.
 
 ## <a name="deploy-data-factory-entities"></a>Distribuera Data Factory-entiteter
+
 Kör följande kommando i PowerShell för att distribuera Data Factory-entiteter med hjälp av Resource Manager-mallen som du skapade tidigare i den här snabbstarten.
 
 ```PowerShell
@@ -327,7 +333,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 Du ser utdata som liknar följande exempel:
 
-```
+```console
 DeploymentName          : MyARMDeployment
 ResourceGroupName       : ADFTutorialResourceGroup
 ProvisioningState       : Succeeded
@@ -369,7 +375,7 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-1. Skapa en variabel som innehåller namnet på datafabriken. Ange samma namn som du angav i filen ADFTutorialARM-Parameters.json.
+2. Skapa en variabel som innehåller namnet på datafabriken. Ange samma namn som du angav i filen ADFTutorialARM-Parameters.json.
 
     ```powershell
     $dataFactoryName = "<yourdatafactoryname>"
@@ -404,7 +410,7 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
     
     Här är exempel på utdata:
     
-    ```
+    ```console
     Confirm
     Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
@@ -418,7 +424,7 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
     
     Här är exempel på utdata:
     
-    ```
+    ```console
     TriggerName       : ArmTemplateTestTrigger
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : ARMFactory1128
@@ -427,31 +433,37 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
     ```
 
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
+
 1. När du har loggat in på [Azure-portalen](https://portal.azure.com/) klickar du på **Alla tjänster**, söker med nyckelordet som **data fa** och väljer **Datafabriker**.
 
     ![Bläddra igenom datafabriksmenyerna](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
+
 2. På sidan **Datafabriker** klickar du på datafabriken som du skapade. Om det behövs kan du filtrera listan med namnet på datafabriken.
 
     ![Välja datafabrik](media/quickstart-create-data-factory-resource-manager-template/select-data-factory.png)
+
 3. På sidan Datafabrik klickar du på panelen **Övervaka och hantera**.
 
     ![Övervaka och hantera panel](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
+
 4. **Dataintegrationsprogrammet** ska öppnas i en separat flik i webbläsaren. Om övervakningsfliken inte är aktiv växlar du till **övervakningsfliken**. Lägg märke till att pipelinen som kördes utlöstes av en **Scheduler-utlösare**.
 
     ![Övervaka pipelinekörning](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)
 
     > [!IMPORTANT]
     > Du ser att pipelines endast körs vid hel timme (till exempel: 04.00, 05.00, 06.00 osv.). Klicka på **Uppdatera** i verktygsfältet för att uppdatera listan när tiden når nästa timma.
+
 5. Klicka på länken i kolumnerna **Åtgärder**.
 
     ![Länk för pipelineåtgärder](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
+
 6. Du ser att aktiviteten som körs är associerad med pipelinekörningen. I den här snabbstarten har pipelinen endast en aktivitet av typen: Kopiera. Därför kan du se en körning för den aktiviteten.
 
     ![Aktivitetskörningar](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-1. Klicka på länken under **utdatakolumnen**. Du ser utdata från kopieringsåtgärden i ett **utdatafönster**. Klicka på maximeringsknappen om du vill visa fullständiga utdata. Du kan stänga det maximerade utdatafönstret eller stänga det.
+7. Klicka på länken under **utdatakolumnen**. Du ser utdata från kopieringsåtgärden i ett **utdatafönster**. Klicka på maximeringsknappen om du vill visa fullständiga utdata. Du kan stänga det maximerade utdatafönstret eller stänga det.
 
     ![Utdatafönster](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
-7. Stoppa utlösaren när du ser en lyckad/misslyckad körning. Utlösaren kör pipelinen en gång i timmen. Pipelinen kopierar samma fil från indatamappen till utdatamappen för varje körning. Kör följande kommando i PowerShell-fönstret om du vill stoppa utlösaren.
+8. Stoppa utlösaren när du ser en lyckad/misslyckad körning. Utlösaren kör pipelinen en gång i timmen. Pipelinen kopierar samma fil från indatamappen till utdatamappen för varje körning. Kör följande kommando i PowerShell-fönstret om du vill stoppa utlösaren.
     
     ```powershell
     Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
@@ -460,6 +472,7 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## <a name="data-factory-entities-in-the-template"></a> JSON-definitioner för entiteter
+
 Följande Data Factory-entiteter har definierats i JSON-mallen:
 
 - [Länkad Azure Storage-tjänst](#azure-storage-linked-service)
@@ -469,6 +482,7 @@ Följande Data Factory-entiteter har definierats i JSON-mallen:
 - [Utlösare](#trigger)
 
 #### <a name="azure-storage-linked-service"></a>Länkad Azure-lagringstjänst
+
 AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du har skapat en container och överfört data till det här lagringskontot som en del av förhandskraven. Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet. Se [Länkad Azure Storage-tjänst](connector-azure-blob-storage.md#linked-service-properties) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure Storage-tjänst.
 
 ```json
@@ -495,6 +509,7 @@ AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du
 connectionString använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variablerna azureStorageLinkedService och dataFactoryName, som definierats i mallen.
 
 #### <a name="azure-blob-input-dataset"></a>Indatauppsättning för Azure-blobb
+
 Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Du anger namnen på blobcontainer, mapp och fil som innehåller indata i Azure-blobuppsättningsdefinitionen. Se [Egenskaper för Azure-blobbdatauppsättning](connector-azure-blob-storage.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning.
 
 ```json
@@ -518,10 +533,10 @@ Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory
         }
     }
 },
-
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Utdatauppsättning för Azure-blob
+
 Du anger namnet på mappen i Azure Blob Storage som innehåller kopierade data från indatamappen. Se [Egenskaper för Azure-blobbdatauppsättning](connector-azure-blob-storage.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning.
 
 ```json
@@ -548,6 +563,7 @@ Du anger namnet på mappen i Azure Blob Storage som innehåller kopierade data f
 ```
 
 #### <a name="data-pipeline"></a>Datapipeline
+
 Du definierar en pipeline som kopierar data från Azure-blobdatamängden till Azure Blob-datamängden. Se [Pipeline-JSON](concepts-pipelines-activities.md#pipeline-json) för beskrivningar av JSON-element som används för att definiera en pipeline i det här exemplet.
 
 ```json
@@ -587,6 +603,7 @@ Du definierar en pipeline som kopierar data från Azure-blobdatamängden till Az
 ```
 
 #### <a name="trigger"></a>Utlösare
+
 Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuerade utlösaren har stoppats. Starta utlösaren med cmdleten **Start-AzureRmDataFactoryV2Trigger**. Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
@@ -624,6 +641,7 @@ Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuer
 ```
 
 ## <a name="reuse-the-template"></a>Återanvända mallen
+
 I självstudien skapade du en mall för att definiera Data Factory-entiteter och en mall för att skicka värden för parametrar. Om du vill använda samma mall för att distribuera Data Factory-entiteter till olika miljöer skapar du en parameterfil för varje miljö och använder den när du distribuerar till den miljön.
 
 Exempel:
@@ -635,9 +653,11 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
+
 Observera att det första kommandot använder parameterfilen för utvecklingsmiljön, det andra för testmiljön och det tredje för produktionsmiljön.
 
 Du kan även återanvända mallen för att utföra upprepade uppgifter. Skapa till exempel många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage. I det här scenariot använder du samma mall i samma miljö (utvecklings-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Gå igenom [självstudiekurserna](tutorial-copy-data-dot-net.md) om du vill lära dig hur du använder Data Factory i fler scenarier.

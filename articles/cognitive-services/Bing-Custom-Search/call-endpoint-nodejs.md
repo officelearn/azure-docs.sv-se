@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Använd den här snabbstarten till att börja begära sökresultat från instansen av anpassad Bing-sökning med hjälp av Node.js
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: a4a0140e8dcb8fccf7ac6699132a7dc44eacb175
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 81746f1c1516bd59cbfb917dcaefa00195558d05
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163270"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875458"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Snabbstart: Anropa slutpunkten för anpassad Bing-sökning med hjälp av Node.js
 

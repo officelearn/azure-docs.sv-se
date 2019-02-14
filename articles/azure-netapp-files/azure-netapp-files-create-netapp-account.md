@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 47b9d25f8db2241bb578528780e28f43d56371e5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413191"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963088"
 ---
 # <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
 Genom att skapa ett NetApp-konto kan du konfigurera en kapacitetspool och sedan skapa en volym. Du använder bladet Azure NetApp-filer för att skapa ett nytt NetApp-konto.
@@ -31,8 +31,8 @@ Du måste ha registrerat din prenumeration för att använda NetApp-resursprovid
 
 ## <a name="steps"></a>Steg 
 
-1. Leta upp URL:en för Azure-portalen för förhandsversionen i din inbjudan till förhandsversionen och logga in på portalen. 
-2.  Gå till bladet Azure NetApp-filer genom att använda någon av följande metoder:  
+1. Logga in på Azure Portal. 
+2. Gå till bladet Azure NetApp-filer genom att använda någon av följande metoder:  
   * Sök efter **Azure NetApp Files** i sökrutan på Azure Portal.  
   * Klicka på **Alla tjänster** i navigeringen och filtrera sedan på Azure NetApp Files.  
 
@@ -50,7 +50,6 @@ Du måste ha registrerat din prenumeration för att använda NetApp-resursprovid
     Använd en befintlig resursgrupp eller skapa en ny.
   * **Plats**  
     Välj en region för kontot och dess underordnade resurser.  
-    Azure NetApp Files-tjänsten stöds för närvarande endast i regionen Östra USA.  
 
     ![Nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 

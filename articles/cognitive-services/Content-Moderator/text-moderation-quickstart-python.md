@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Så här analyserar du textinnehåll för olika stötande material med SDK för Content Moderator för Python
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 7952ea9a83e6a2a7689bfdf34e39c7862a6daf73
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 20920a04c5b85c9eede7d7b249dd6e0548308240
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217925"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883414"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i Python
 

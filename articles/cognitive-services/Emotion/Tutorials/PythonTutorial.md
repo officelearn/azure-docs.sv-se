@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Använ en Jupyter Notebook för att lära dig hur du använder Känslo-API med Python. Visualisera dina resultat med hjälp av populära bibliotek.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: tutorial
 ms.date: 05/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: ea96495fb9fa453f7c7f9d6a870291329d2793b2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9e03e5d534fa741def2010a21120edc3d7169964
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220543"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237475"
 ---
 # <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>Självstudier: Använda Känslo-API med Jupyter Notebook och Python.
 

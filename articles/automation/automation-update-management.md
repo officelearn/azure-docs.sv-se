@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/28/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94171da3c60de3efc4e2a234494816899c3d2f05
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511861"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246042"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -600,6 +600,13 @@ Uppdateringshantering kan dock fortfarande att rapportera den datorn som icke-ko
 
 Distribuera uppdateringar med klassificeringen fungerar inte på CentOS direkt ur lådan. För att korrekt distribuera uppdateringar för CentOS, Välj alla klassificeringar för att se till att uppdateringar tillämpas. För SUSE, att välja *endast* andra uppdateringar som klassificeringen resultera i att vissa uppdateringar installeras även om säkerhetsuppdateringar rör zypper (package manager) eller dess beroenden krävs först. Det här beteendet är en begränsning av zypper. I vissa fall kan behöva du köra distributionen av uppdateringen. Du kan kontrollera genom att kontrollera update-loggen.
 
+## <a name="remove-a-vm-for-update-management"></a>Ta bort en virtuell dator för hantering av uppdateringar
+
+Ta bort en virtuell dator från hantering av uppdateringar:
+
+* I Log Analytics-arbetsytan, ta bort den virtuella datorn från den sparade sökningen för Omfattningskonfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar finns under **Allmänt** i din arbetsyta.
+* Ta bort den [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+  
 ## <a name="troubleshoot"></a>Felsöka
 
 Läs hur du felsöker din uppdateringshantering i [felsökning uppdateringshantering](troubleshoot/update-management.md)

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 56d79ce236dac4659bd863b645cc6780752091da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865370"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245923"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskapsbas med hjälp av export-import
 
@@ -56,7 +56,7 @@ Migrera en kunskapsbas kräver exportera från en kunskapsbas och sedan importer
     Nu kan alla kunskapsbas innehållet - frågor, svar och metadata, tillsammans med namnen på källfilerna och URL: er, importeras till nya kunskapsbasen. 
 
 ## <a name="chat-logs-and-alterations"></a>Chattloggarna och ändringar
-Ändringar (synonymer) importeras inte automatiskt. Använd den [V2 API: er](https://aka.ms/qnamaker-v2-apis) att exportera ändringar från den gamla kunskapen och [V4-API: er](https://aka.ms/qnamaker-v4-apis) att flytta ändringar i nya knowledge base.
+Skiftlägeskänsliga ändringar (synonymer) importeras inte automatiskt. Använd den [V2 API: er](https://aka.ms/qnamaker-v2-apis) att exportera ändringar från den gamla kunskapen och [V4-API: er](https://aka.ms/qnamaker-v4-apis) att flytta ändringar i nya knowledge base.
 
 Det går inte att migrera chattloggarna, eftersom nya kunskapsbasen använder Application Insights för att lagra chattloggarna. 
 

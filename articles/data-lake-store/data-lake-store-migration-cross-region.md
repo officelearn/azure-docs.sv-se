@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 0d27ae79ab2c14cc5fd5ca81b8b7f089e7fa294e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126232"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233056"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrera Azure Data Lake Storage Gen1 över regioner
 
@@ -46,7 +46,7 @@ Annan viktig information att tänka på när du planerar din migrering är:
 
 * **Bandbreddsavgifter**. [Bandbreddsavgifter](https://azure.microsoft.com/pricing/details/bandwidth/) gäller eftersom data överförs utanför en Azure-region.
 
-* **ACL: er på dina data**. Skydda dina data i det nya området genom att använda ACL: er för filer och mappar. Mer information finns i [skydda data som lagrats i Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). Vi rekommenderar att du använder migrering för att uppdatera och justera dina ACL: er. Du kanske vill använda inställningarna som liknar de aktuella inställningarna. Du kan visa ACL: er som tillämpas på alla filer med hjälp av Azure-portalen [PowerShell-cmdletar](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), eller SDK: er.  
+* **ACL: er på dina data**. Skydda dina data i det nya området genom att använda ACL: er för filer och mappar. Mer information finns i [skydda data som lagrats i Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). Vi rekommenderar att du använder migrering för att uppdatera och justera dina ACL: er. Du kanske vill använda inställningarna som liknar de aktuella inställningarna. Du kan visa ACL: er som tillämpas på alla filer med hjälp av Azure-portalen [PowerShell-cmdletar](/powershell/module/az.datalakestore/get-azdatalakestoreitempermission), eller SDK: er.  
 
 * **Platsen för Analystjänster**. För bästa prestanda bör dina Analystjänster som Azure Data Lake Analytics eller Azure HDInsight, vara i samma region som dina data.  
 

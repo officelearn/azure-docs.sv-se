@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8d99a52b500377e02af339588fe7155e26cf588c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548603"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233399"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Löpande distribution för Azure Functions
 Azure Functions gör det enkelt att distribuera funktionsappen med kontinuerlig integrering för App Service. Functions kan integreras med BitBucket, Dropbox, GitHub och Azure DevOps. På så sätt kan ett arbetsflöde där Funktionskoden uppdaterar genom att använda en av dessa integrerade tjänster utlösaren distribution till Azure. Om du är nybörjare på Azure Functions, börja med [översikt över Azure Functions](functions-overview.md).
@@ -29,7 +29,7 @@ Kontinuerlig distribution är ett bra alternativ för projekt där flera och oft
 * [Lokal Git-lagringsplats](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps-tjänsterna](https://www.visualstudio.com/team-services/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
 Distributioner är konfigurerade på basis av per funktion app. När kontinuerlig distribution har aktiverats, att Funktionskoden i portalen har angetts till *skrivskyddad*.
 
@@ -93,9 +93,9 @@ När du har befintliga funktioner som du har skapat och underhålls i portalen, 
 > [!NOTE]
 > När du konfigurerar kontinuerlig integrering, kommer du inte längre att kunna redigera källfilerna i Functions-portalen.
 
-- [Hur: Konfigurera autentiseringsuppgifter för distribution](#credentials)
-- [Hur: Ladda ned filer med FTP](#downftp)
-- [Hur: Ladda ned filer med hjälp av den lokala Git-lagringsplatsen](#downgit)
+- [Anvisningar: Konfigurera autentiseringsuppgifter för distribution](#credentials)
+- [Anvisningar: Ladda ned filer med FTP](#downftp)
+- [Anvisningar: Ladda ned filer med hjälp av den lokala Git-lagringsplatsen](#downgit)
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>Anvisningar: Konfigurera autentiseringsuppgifter för distribution

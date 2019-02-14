@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: 30d9de5653db385760155d533ad747c3cf6d2400
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960359"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235503"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Hantera Log Analytics med hjälp av Azure Resource Manager-mallar
 Du kan använda [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md) du skapar och konfigurerar Log Analytics-arbetsytor. Exempel på de uppgifter du kan utföra med mallar:
@@ -56,7 +56,7 @@ Följande parametrar anger ett standardvärde:
 
 > [!NOTE]
 >Skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt att den nya prissättningsmodellen från April 2018, är det enda giltiga Log Analytics prisnivån **PerGB2018**.  
->Om du kanske har några prenumerationer i (pre-April 2018 prismodellen) [https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], kan du ange den **fristående** prisnivå, och detta lyckas för båda prenumerationen på pre-April 2018 prismodellen och prenumerationer i de nya priserna. För arbetsytor i prenumerationer som har antagit den nya proicing modellen prisnivån anges till **PerGB2018**. 
+>Om du kanske har några prenumerationer i (pre-April 2018 prismodellen) [https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], kan du ange den **fristående** prisnivå, och detta lyckas för båda prenumerationen på pre-April 2018 prismodellen och prenumerationer i de nya priserna. För arbetsytor i prenumerationer som har antagit den nya proicing modellen prisnivån anges till **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Skapa och distribuera mall
 

@@ -1,52 +1,50 @@
 ---
-title: Azure SQL Data Warehouse viktig December 2018 | Microsoft Docs
+title: Azure SQL Data Warehouse viktig information | Microsoft Docs
 description: Viktig information för Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
-manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/12/2018
-ms.author: mausher
-ms.reviewer: twounder
-ms.openlocfilehash: 8e82e352ebea4634b1b99864245adcf606352657
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/09/2019
+author: mlee3gsd
+ms.author: anumjs
+ms.reviewer: jrasnick
+manager: craigg
+ms.openlocfilehash: 51932ebf7d5bdc6830098ce7136a3eee7255ffe1
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469353"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245515"
 ---
-# <a name="whats-new-in-azure-sql-data-warehouse-version---100101060"></a>Vad är nytt i Azure SQL Data Warehouse-version - 10.0.10106.0?
-Azure SQL Data Warehouse (SQL DW) förbättrar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i SQL DW version 10.0.10106.0.
+# <a name="azure-sql-data-warehouse-release-notes"></a>Viktig information om Azure SQL Data Warehouse
+Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de senaste versionerna av [SQL Server på Azure virtual machines](sql-data-warehouse-overview-what-is.md). Artikeln innehåller också viktiga uppdateringar av innehållet som inte är direclty relaterade till versionen men publicerats i samma tidsram. Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates)
 
-## <a name="query-restartability---ctas-and-insertselect"></a>Fråga Restartability - CTAS och infoga/välja
-I sällsynta fall (det vill säga återkommande problem med nätverksanslutning, nodfel) frågor kan köras i Azure SQL DW misslyckas. Kör längre instruktioner, till exempel [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) och infoga-Välj operations exponeras mer för det här potentiella problemet. Med den här versionen implementerar Azure SQL DW logik för omprövning för CTAS och INSERT SELECT-instruktioner (utöver SELECT-instruktioner som tidigare meddelats), vilket gör att systemet för att hantera dessa tillfälliga problem transparent och hindra frågor misslyckas. Antal nya försök och listan över tillfälliga fel hanteras är system som har konfigurerats.
+## <a name="sql-data-warehouse-version-100101060-january"></a>SQL Data Warehouse Version 10.0.10106.0 (januari)
 
-## <a name="return-order-by-optimization"></a>Returnera Order By-optimering
-VÄLJ... ORDER BY-frågor får en prestandaökning i den här versionen.  Motorn för körning av fråga skulle tidigare, ordna resultaten på varje beräkningsnod och strömma dem till control-noden som skulle sedan Sammanfoga resultatet. Med den här förbättringen compute alla noder i stället skicka resultaten till en enda beräkningsnod som sedan slår ihop dem och returnerar sorterade resultat för användaren via Beräkningsnoden.  Det ger betydande prestandafördelar när frågeresultatet innehåller ett stort antal rader.
+### <a name="service-improvements"></a>Förbättringar av tjänsten
 
-## <a name="data-movement-enhancements-for-partitionmove-and-broadcastmove"></a>Förbättringar för flytt av data för PartitionMove och BroadcastMove
-I Azure SQL Data Warehouse Gen2 data movement steg av typen ShuffleMove utnyttja omedelbar data movement metoder som beskrivs i den [prestanda förbättringar här blogg](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/).  Med den här versionen drivs förflyttning datatyper PartitionMove och BroadcastMove nu också av samma rörelsetekniker för omedelbar data.  Användarfrågor som använder dessa typer av data movement steg visas en prestandaökning.  Några ändringar i koden krävs för att dra nytta av dessa prestandavinster.
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+| **Fråga Restartability - CTAS och infoga/välja** | I sällsynta fall (det vill säga återkommande problem med nätverksanslutning, nodfel) kan frågan körs i Azure SQL DW misslyckas. Kör längre instruktioner, till exempel [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) och infoga-Välj operations exponeras mer för det här potentiella problemet. Med den här versionen implementerar Azure SQL DW logik för omprövning för CTAS och INSERT SELECT-uttryck, förutom SELECT-instruktioner som tidigare meddelats. Ändringarna att tjänsten kan hantera tillfälliga problem transparent och förhindra att frågorna misslyckas. Antal nya försök och listan över tillfälliga fel hanteras är system som har konfigurerats.|
+|**Returnera Order By-optimering**|VÄLJ... ORDER BY-frågor får en prestandaökning i den här versionen.   Nu kan beräkningsresurser alla noder skickar resultaten till en enda beräkningsnod som sammanfogar och sorterar resultatet som returneras till användaren via Beräkningsnoden.  Sammanslagning via en enda beräkning noden leder till betydande prestandafördelar när frågeresultatet innehåller ett stort antal rader. Motorn för körning av fråga skulle tidigare, ordna resultaten på varje beräkningsnod och strömma dem till control-noden som skulle sedan Sammanfoga resultatet.|
+|**Förbättringar för flytt av data för PartitionMove och BroadcastMove**|I Azure SQL Data Warehouse Gen2, data movement steg av typen ShuffleMove, använder du omedelbar data movement metoder som beskrivs i den [prestanda förbättringar blogg](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/). Med den här versionen drivs förflyttning datatyper PartitionMove och BroadcastMove nu också av samma rörelsetekniker för omedelbar data. Användarfrågor som använder dessa typer av data movement steg körs med förbättrad prestanda. Några ändringar i koden krävs för att dra nytta av dessa prestandaförbättringar.|
+
+### <a name="documentation-improvements"></a>Dokumentation om förbättringar
+
+| Dokumentation om förbättringar | Information |
+| --- | --- |
+|inga | |
+| | |
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett SQL Data Warehouse][create a SQL Data Warehouse]. Om du är nybörjare på Azure kan du upptäcka det [Azure-ordlistan] [ Azure glossary] till hjälp när du lär dig hur ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
+[skapar ett SQL Data Warehouse](./create-data-warehouse-portal.md)
 
-* [Kundernas framgångsberättelser]
-* [Bloggar]
-* [Funktionsbegäranden]
-* [Videoklipp]
-* [Customer Advisory Team-bloggar]
-* [Stack Overflow-forum]
-* [Twitter]
-
-
-[Bloggar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Customer Advisory Team-bloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Kundernas framgångsberättelser]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
-[Funktionsbegäranden]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
+## <a name="more-information"></a>Mer information
+- [-Bloggen – Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+- [Customer Advisory Team-bloggar](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [Kundernas framgångsberättelser](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
+- [Stack Overflow-forum](http://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Twitter](https://twitter.com/hashtag/SQLDW)
+- [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- [Azure-ordlistan](../azure-glossary-cloud-terminology.md)

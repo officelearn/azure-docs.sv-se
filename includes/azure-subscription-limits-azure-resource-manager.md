@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4cc115d068736f61f9edb4ec609ac592607e7fa0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458894"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247185"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "49458894"
 
 <sup>2</sup>Detta gäller både Standard- och Premium-lagringskonton. Om du behöver mer än 200 lagringskonton skickar du en begäran via [Azure-supporten](https://azure.microsoft.com/support/faq/). Azure Storage-teamet granskar ditt affärsfall och kan godkänna upp till 250 lagringskonton.
 
-<sup>3</sup>Du kan använda ett obegränsat antal taggar per prenumeration. Antalet taggar per resurs eller resursgrupp är begränsat till 15. Resource Manager returnerar endast en [lista med unika taggnamn och taggvärden](/rest/api/resources/tags#Tags_List) i prenumerationen om antalet taggar är 10 000 eller mindre. Dock kan du fortfarande söka efter en resurs baserat på taggar om antalet överstiger 10 000.  
+<sup>3</sup>Du kan använda ett obegränsat antal taggar per prenumeration. Antalet taggar per resurs eller resursgrupp är begränsat till 15. Resource Manager returnerar endast en [lista med unika taggnamn och taggvärden](/rest/api/resources/tags) i prenumerationen om antalet taggar är 10 000 eller mindre. Dock kan du fortfarande söka efter en resurs baserat på taggar om antalet överstiger 10 000.  
 
 <sup>4</sup>Dessa funktioner krävs inte längre med Azure-resursgrupper och Azure Resource Manager.
 

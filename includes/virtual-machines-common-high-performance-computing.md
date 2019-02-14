@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a1a6b31c1500c51dbbc32683d9e0e911b60dcae4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440411"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247177"
 ---
 Organisationer har storskaliga behov. Dessa Big Compute-arbetsbelastningar omfattar teknisk design och analys, finansiella risker, bildrendering, komplex modellering, Monte Carlo-simuleringar och mycket mer. 
 
@@ -25,12 +25,12 @@ Använd Azure-molnet för att effektivt köra beräkningsintensiva Linux och Win
     * Konfigurera din egen klustermiljö i Azure virtual machines eller [VM-skalningsuppsättningar](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
     * Lyfta och skifta ett lokalt kluster, eller distribuera ett nytt kluster i Azure för ytterligare kapacitet. 
     * Använda Azure Resource Manager-mallar för att distribuera ledande [arbetsbelastning chefer](#workload-managers), infrastruktur, och [program](#hpc-applications). 
-    * Välj [HPC och GPU VM-storlekar](#hpc-and-gpu-sizes) som omfattar specialiserad maskinvara och nätverksanslutningar för MPI- eller GPU-arbetsbelastningar. 
+    * Välj [HPC och GPU VM-storlekar](#hpc-and-gpu-vm-sizes) som omfattar specialiserad maskinvara och nätverksanslutningar för MPI- eller GPU-arbetsbelastningar. 
     * Lägg till [högpresterande lagring](#hpc-storage) för I/O-intensiva arbetsbelastningar.
 * **Hybridlösningar**
     * Utöka din lokala lösning för att avlasta (”burst”) tunga arbetsbelastningar till Azure-infrastrukturen
-    * Använda molnet databearbetning på begäran med din befintliga [arbetsbelastning manager](#workload-manager).
-    * Dra nytta av [HPC och GPU VM-storlekar](#hpc-and-gpu-sizes) för MPI- eller GPU-arbetsbelastningar.
+    * Använda molnet databearbetning på begäran med din befintliga [arbetsbelastning manager](#workload-managers).
+    * Dra nytta av [HPC och GPU VM-storlekar](#hpc-and-gpu-vm-sizes) för MPI- eller GPU-arbetsbelastningar.
 * **Big Compute-lösningar som en tjänst**
     * Utveckla anpassade Big Compute-lösningar och arbetsflöden med hjälp av [Azure CycleCloud](#azure-cyclecloud), [Azure Batch](#azure-batch), och relaterade [Azure-tjänster](#related-azure-services).
     * Kör Azure-aktiverade tekniker och simulering lösningar från leverantörer som [Altair](http://www.altair.com/), [skala om](https://www.rescale.com/azure/), och [Cycle Computing](https://cyclecomputing.com/) (nu [ansluten med Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).

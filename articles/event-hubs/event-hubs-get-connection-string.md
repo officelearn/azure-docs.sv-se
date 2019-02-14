@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535283"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238155"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Hämta en anslutningssträng för Event Hubs
 
@@ -51,13 +51,16 @@ Du kan lägga till en ny SAS-princip och hämta anslutningssträngen eller anvä
 ![Hämta anslutningssträngen för Händelsehubbar](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Hämta anslutningssträngen med Azure PowerShell
-Du kan använda Get-AzureRmEventHubNamespaceKey för att hämta anslutningssträngen för specifika principregeln namnet som visas nedan:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Du kan använda Get-AzEventHubNamespaceKey för att hämta anslutningssträngen för specifika principregeln namnet som visas nedan:
 
 ```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
-Referera till [Azure Event Hubs PowerShell-modulen](https://docs.microsoft.com/powershell/module/azurerm.eventhub/get-azurermeventhubkey) för mer information.
+Referera till [Azure Event Hubs PowerShell-modulen](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) för mer information.
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Hämta anslutningssträngen med Azure CLI
 Du kan använda följande för att hämta anslutningssträngen för namnområdet:

@@ -3,23 +3,22 @@ title: Dirigera implementering av Azure DevTest Labs
 description: Den här artikeln innehåller riktlinjer för dirigera implementering av Azure DevTest Labs i din organisation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: christianreddington
+author: spelluru
 manager: femila
-editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2019
-ms.author: chredd
-ms.reviewer: anthdela,juselph
-ms.openlocfilehash: 1e657260eeb36dc813f856ab172882a396324450
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004442"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242999"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Dirigera implementeringen av Azure DevTest Labs
 Den här artikeln innehåller en rekommenderad metod för snabb utveckling och implementering av Azure DevTest Labs. Följande bild visar den övergripande processen som vägledning när du får flexibilitet för att stödja olika branschspecifika krav och scenarier.

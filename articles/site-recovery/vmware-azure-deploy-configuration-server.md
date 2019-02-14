@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 4a8ab770eef1c8d95ea2fb6340480089ded0218b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863150"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235894"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -130,38 +130,42 @@ Se till att IP-adressen för konfigurationsservern inte ändras när konfigurati
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-1. Kan jag använda den virtuella datorn, där konfigurationsservern installeras för olika syften?
+1. Hur lång tid är licensen som tillhandahålls på konfigurationsservern som distribueras via OVF är giltig? Vad händer om jag inte återaktivera licensen?
+
+    Licensen som medföljer mallen för OVA är en licens för utvärdering som är giltig i 180 dagar. Innan certifikatet går ut måste du aktivera licensen. Annars kan detta leda till frekventa avstängning av konfigurationsservern och därmed orsaka hinderance replikering aktiviteter.
+
+2. Kan jag använda den virtuella datorn, där konfigurationsservern installeras för olika syften?
 
     **Inte**, rekommenderar vi att du använder den virtuella datorn för uteslutande av konfigurationsservern. Se till att du följer de specifikationer som nämns i [krav](#prerequisites) för effektiv hantering av katastrofåterställning.
-2. Kan jag byta valvet redan registrerad på konfigurationsservern med ett nyligen skapade valv?
+3. Kan jag byta valvet redan registrerad på konfigurationsservern med ett nyligen skapade valv?
 
     **Inte**, när ett valv har registrerats med konfigurationsservern är den inte kan ändras.
-3. Kan jag använda samma konfigurationsserver för att skydda både fysiska och virtuella datorer?
+4. Kan jag använda samma konfigurationsserver för att skydda både fysiska och virtuella datorer?
 
     **Ja**, samma konfigurationsserver kan användas för att replikera fysiska och virtuella datorer. Dock fysisk dator kan att växlas tillbaka endast till en VMware-VM.
-4. Vad är syftet med en konfigurationsserver och var används den?
+5. Vad är syftet med en konfigurationsserver och var används den?
 
     Referera till [arkitektur för Azure-replikering för VMware till](vmware-azure-architecture.md) mer information om konfigurationsservern och dess funktioner.
-5. Var hittar jag den senaste versionen av konfigurationsservern
+6. Var hittar jag den senaste versionen av konfigurationsservern
 
     Anvisningar om att uppgradera konfigurationsservern via portalen finns i [uppgradera konfigurationsservern](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Mer instruktioner om hur du uppgraderar alla Site Recovery-komponenter [här](https://aka.ms/asr_how_to_upgrade).
-6. Var kan jag hämta lösenfrasen för konfigurationsservern?
+7. Var kan jag hämta lösenfrasen för konfigurationsservern?
 
     Referera till [i den här artikeln](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) att hämta lösenfrasen.
-7. Kan jag ändra lösenfrasen?
+8. Kan jag ändra lösenfrasen?
 
     **Inte**, du är **du inte ändra lösenfrasen** av konfigurationsservern. Ändring i lösenfras bryter replikering av skyddade datorer och leder till kritiskt hälsotillstånd.
-8. Var kan jag hämta valv registreringsnycklar?
+9. Var kan jag hämta valv registreringsnycklar?
 
     I den **Recovery Services-valv**, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**. Välj i servrar, **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
-9. Kan jag klona en befintlig Configuration Server och använda det för dirigering av replikering?
+10. Kan jag klona en befintlig Configuration Server och använda det för dirigering av replikering?
 
     **Inte**, användning av klonade konfigurationsservern komponent stöds inte.
 
-10. Kan jag ändra IP-Adressen för konfigurationsservern?
+11. Kan jag ändra IP-Adressen för konfigurationsservern?
 
     **Inte**, rekommenderas att inte ändra IP-adressen för en konfigurationsserver. Se till att alla IP-adresser tilldelade till konfigurationsservern är STATISKA IP-adresser och inte DHCP IP-adresser.
-11. Kan jag konfigurera konfigurationsservern på Azure?
+12. Kan jag konfigurera konfigurationsservern på Azure?
 
     Du rekommenderas att ställa in konfigurationsservern på en lokal miljö med direct rad med för att se med v Center- och minimera svarstider för överföring av data. Du kan skapa schemalagda säkerhetskopieringar av konfigurationsservern för [återställning efter fel syften](vmware-azure-manage-configuration-server.md#failback-requirements).
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: db7ac84b5ce1f3ee2558bbc5ce14332aecd578c7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860651"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232900"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Webbsökning i Bing struktur och svaret svarstyper  
 
@@ -42,7 +42,7 @@ Webbsökning i Bing returnerar vanligtvis en delmängd av svaren. Exempel: om fr
 
 ## <a name="webpages-answer"></a>Webbsidor svar
 
-Den [webbsidor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) svaret innehåller en lista med länkar till webbsidor som webbsökning i Bing fastställt var relevanta för frågan. Varje [webbsida](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) i listan innehåller sidans namn, url, visa URL, kort beskrivning av innehållet och det datum då Bing att hitta innehållet.
+Den [webbsidor](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) svaret innehåller en lista med länkar till webbsidor som webbsökning i Bing fastställt var relevanta för frågan. Varje [webbsida](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) i listan innehåller: sidans namn, url, visa URL, en kort beskrivning av innehållet och det datum som Bing att hitta innehållet.
 
 ```json
 {
@@ -91,7 +91,7 @@ Den [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-im
 }, ...
 ```
 
-Beroende på användarens enhet kan visas du vanligtvis en delmängd av miniatyrbilder med ett alternativ för användare att visa de återstående avbildningarna.
+Beroende på användarens enhet skulle du normalt visar en delmängd av miniatyrbilder, med ett alternativ för användaren att [Bläddra igenom](paging-webpages.md) återstående avbildningar.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -314,7 +314,7 @@ Ett matematiska uttryck kan innehålla följande funktioner:
 
 |Symbol|Beskrivning|
 |------------|-----------------|
-|Sqrt|Kvadratrot|
+|Sortera|Kvadratrot|
 |Sin [x], Cos [x], Tan [x]<br />Csc[x], Sec[x], Cot[x]|Trigonometrifunktioner (med argument i radianer)|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Inverterade trigonometrifunktioner (ger resultat i radianer)|
 |EXP [x] E ^ x|Exponential-funktionen|
@@ -428,6 +428,48 @@ Om Bing avgör att användaren kan ha avsedd att söka efter något annat, svare
     }]
 }, ...
 ```
+
+Nedan visas hur Bing använder stavning förslag.
+
+![Bing stavning förslag exempel](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## <a name="response-headers"></a>Svarshuvud
+
+Svar från Bing Web Search API kan innehålla följande huvuden:
+
+|||
+|-|-|
+|`X-MSEdge-ClientID`|Unikt ID som Bing har tilldelat till användaren|
+|`BingAPIs-Market`|På marknaden som användes för att uppfylla begäran|
+|`BingAPIs-TraceId`|Loggposten på Bing API-servern för den här förfrågan (för stöd)|
+
+Det är särskilt viktigt att bevara klient-ID och lämna tillbaka med efterföljande förfrågningar. När du gör detta sökningen använder de senaste kontexten i rangordning sökresultat och också ge en konsekvent användarupplevelse.
+
+Men när du anropar API för webbsökning i Bing från JavaScript kanske i webbläsaren inbyggda säkerhetsfunktioner (CORS) hindrar dig från att komma åt värdena för dessa rubriker.
+
+För att få åtkomst till rubrikerna du Bing Web Search API-begäran via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
+
+Det är enkelt att installera en proxy för CORS så att våra [självstudieappen](tutorial-bing-web-search-single-page-app.md) att komma åt valfria klientcertifikat-huvuden. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Ange sedan följande kommando i Kommandotolken.
+
+    npm install -g cors-proxy-server
+
+Sedan ändra Bing Web Search API-slutpunkten i HTML-filen:
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+
+Slutligen startar du CORS-proxyn med följande kommando:
+
+    cors-proxy-server
+
+Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
+
+## <a name="response-headers-in-production"></a>Svarshuvuden i produktion
+
+CORS-proxy-metoden som beskrivs i föregående svar är lämplig för utveckling, testning och utbildning.
+
+I en produktionsmiljö bör du ha ett skript på servern på samma domän som den webbsida som använder Bing Web Search API. Det här skriptet ska göra API-anrop på begäran från JavaScript-webbsida och skicka alla resultat, inklusive rubriker, tillbaka till klienten. Eftersom de två resurserna (sidan eller skript) dela ett ursprung, CORS används inte och de särskilda rubrikerna är tillgängliga för JavaScript på webbsidan.
+
+Den här metoden skyddar även din API-nyckel från exponeringen för allmänheten, eftersom endast serverskriptet måste den. Skriptet kan använda en annan metod för att se till att begäran har behörighet.
 
 Nedan visas hur Bing använder stavning förslag.
 

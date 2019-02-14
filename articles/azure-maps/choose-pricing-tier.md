@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 56f9226f1bee630895725eb0b3806e294e9a5b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218150"
+ms.locfileid: "56234688"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välja rätt prisnivå i Azure Maps
 
@@ -30,17 +30,21 @@ S0 och S1 prisnivåer hantera olika mängder data dataflöde. Innan du väljer e
 | Funktion                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Search                                  |        ✓           |     ✓    |
-| Routning                                 |        ✓           |     ✓    |
-| Rendering                                  |        ✓           |     ✓    |
-| Trafik                                 |        ✓           |     ✓    |
-| Tidszoner                              |        ✓           |     ✓    |
-| Bilder plus hybridbilder    |            |     ✓    |
-| Väg intervall                    |                   |     ✓    |
-| IP-2-plats (förhandsversion)                |        ✓           |     ✓    |
-| Polygoner från sökning          |                   |     ✓    |
 | Batch-geokodning (förhandsversion)              |                   |     ✓    |
+| Polygoner från sökning          |                   |     ✓    |
+| Routning                                 |        ✓           |     ✓    |
+| Väg intervall                    |                   |     ✓    |
 | Batch-routning (förhandsversion)                |                   |     ✓    |
 | Matrisen routning (förhandsversion)               |                   |     ✓    |
+| Rendering                                  |        ✓           |     ✓    |
+| Bilder plus hybridbilder    |            |     ✓    |
+| Trafik                                 |        ✓           |     ✓    |
+| Tidszoner                              |        ✓           |     ✓    |
+| Geoplats (förhandsversion)                |        ✓           |     ✓    |
+| Data (förhandsversion)               |                   |     ✓    |
+| Avstånds (förhandsversion)               |                   |     ✓    |
+| Geofencing (förhandsversion)               |                   |     ✓    |
+
 
 
 Dessa ytterligare datapunkter är värda att överväga:

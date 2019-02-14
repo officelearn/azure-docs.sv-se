@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: d3ed1078f1f334a5732befa49cbdc5043767ad2c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2e30f3bb40e23e5b0b1951759bdff3a9f02cc9d5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978688"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236071"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -40,7 +40,7 @@ DSCForLinux tillägg publiceras och stöds av Microsoft. OMI och DSC-agenten ins
 
 ### <a name="operating-system"></a>Operativsystem
 
-DSC-Linux-tillägget har stöd för alla de [på Azure-godkända Linux-distributioner](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) utom:
+DSC-Linux-tillägget har stöd för alla de [på Azure-godkända Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) utom:
 
 | Distribution | Version |
 |---|---|

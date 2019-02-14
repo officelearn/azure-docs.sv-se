@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766020"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237679"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Skapa en enhetlig flera Azure Monitor Application Insights-resurser 
 Den här artikeln beskriver hur du fråga efter och visa alla dina Application Insights log programdata på samma plats, även om de finns i olika Azure-prenumerationer, som en ersättning för utfasningen av Application Insights-anslutningsprogram. Antalet resurser Application Insights-resurser som ska inkluderas i en enskild fråga är begränsad till 100.  
@@ -32,7 +32,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Skapa en funktion med hjälp av union-operator med listan över program och sedan spara frågan som funktionen med alias *applicationsScoping*.  
+Skapa en funktion med hjälp av union-operator med listan över program och spara frågan i din arbetsyta som funktionen med alias *applicationsScoping*.  
 
 ```
 union withsource=SourceApp 
@@ -45,7 +45,7 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->Du kan ändra de listade programmen när som helst genom att gå till Query explorer i loggar portal och redigera funktionen, eller med hjälp av den `SavedSearch` PowerShell-cmdlet. Den `withsource= SourceApp` kommando lägger till en kolumn till resultatet som betecknar programmet som skickas i loggen. 
+>Du kan ändra de listade programmen när som helst i portalen genom att gå till Query explorer i din arbetsyta och välja funktionen för att redigera och spara sedan eller med hjälp av den `SavedSearch` PowerShell-cmdlet. Den `withsource= SourceApp` kommando lägger till en kolumn till resultatet som betecknar programmet som skickas i loggen. 
 >
 >Frågan använder Application Insights-schema, även om frågan körs i arbetsytan eftersom applicationsScoping-funktionen returnerar Application Insights-datastruktur. 
 >

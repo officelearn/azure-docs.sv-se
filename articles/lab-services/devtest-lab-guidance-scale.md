@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: ed6c21762fed331e2f11378ec9b6d91cba9bec11
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251146"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244887"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Skala upp din Azure DevTest Labs-infrastruktur
 Innan du implementerar DevTest Labs på företagsnivå, finns det flera viktiga punkter. Förstå dessa beslutspunkter på hög nivå hjälper en organisation med designbeslut i framtiden. Men ska de här punkterna inte lämna en organisation från att starta ett konceptbevis. De tre översta områdena för den inledande planeringen av skala upp är:
@@ -66,4 +67,4 @@ Ett funktionstest av DevTest Labs har tre primära roller med definierade ansvar
 - **DevTest Labs-användare** – The DevTest Labs-användare kan skapa och använda virtuella datorer i labbet. Dessa personer har vissa minimal administrativa rättigheter på virtuella datorer som de skapar (Starta/Stoppa/delete/konfigurera sina virtuella datorer). Användarna kan inte hantera virtuella datorer av andra användare.
 
 ## <a name="next-steps"></a>Nästa steg
-Se nästa artikel i den här serien: [dirigera implementeringen av Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+Se nästa artikel i den här serien: [Dirigera implementeringen av Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

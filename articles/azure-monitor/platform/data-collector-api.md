@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 918cfb36c3afb9fc5c9a3f2c25b7c14b04354db1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d2bf55129465a607fdc3bce3bd1735642c64e428
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002233"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237934"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka data till Azure Monitor med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Azure Monitor från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Azure Monitor.  Exempel tillhandahålls för PowerShell, C# och Python.
@@ -173,6 +173,8 @@ Det finns vissa begränsningar kring data som skickats till samlingen övervakni
 * Högst 30 MB per post till Azure Monitor Data Collector API. Det här är en storleksgräns för ett enskilt inlägg. Om data från en enda bokför som överskrider 30 MB, bör du dela upp data till mindre storlek segment och skicka dem samtidigt.
 * Högst 32 KB-gränsen för fältvärden. Om fältets värde är större än 32 KB trunkeras data.
 * Rekommenderade maximala antalet fält för en viss typ är 50. Det här är en praktisk gräns från en användbarhet och Sök upplevelse perspektiv.  
+* En tabell i en Log Analytics-arbetsyta har endast stöd för upp till 500 kolumner (kallas ett fält i den här artikeln). 
+* Det maximala antalet tecken för kolumnnamnet är 500.
 
 ## <a name="return-codes"></a>Returkoder
 HTTP-statuskod 200 innebär att förfrågan har tagits emot för bearbetning. Detta anger att åtgärden har slutförts.

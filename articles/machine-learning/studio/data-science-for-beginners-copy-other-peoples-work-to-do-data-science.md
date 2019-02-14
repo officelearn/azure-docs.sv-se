@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493005"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56241452"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiera andras arbete för att göra datavetenskap
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Datavetenskap för nybörjare-serien
@@ -52,7 +52,7 @@ En av affärshemligheter för datavetenskap får andra personer att göra arbete
 
 Microsoft har en molnbaserad tjänst som kallas [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) när är du Välkommen att testa kostnadsfritt. Den ger dig en arbetsyta där du kan experimentera med olika machine learning-algoritmer, och när du har fått din lösning som genereras, kan du starta den som en webbtjänst.
 
-En del av den här tjänsten är något som kallas den  **[Azure AI-galleriet](https://gallery.cortanaintelligence.com/)**. Den innehåller resurser, till exempel en samling med Azure Machine Learning-experiment eller modeller som personer har skapat och bidragit så att andra kan använda. Dessa experiment som är ett bra sätt att utnyttja ansedda och hårda arbete med att komma igång på dina egna lösningar. Alla är Välkommen till Bläddra igenom den.
+En del av den här tjänsten är något som kallas den  **[Azure AI-galleriet](https://gallery.azure.ai/)**. Den innehåller resurser, till exempel en samling med Azure Machine Learning-experiment eller modeller som personer har skapat och bidragit så att andra kan använda. Dessa experiment som är ett bra sätt att utnyttja ansedda och hårda arbete med att komma igång på dina egna lösningar. Alla är Välkommen till Bläddra igenom den.
 
 ![Azure AI-galleriet](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -82,11 +82,11 @@ Jag kan klicka på den och så kommer jag rätten till **Azure Machine Learning 
 Nu har en startpunkt och. Jag kan byta ut sina data för mitt eget och gör mitt eget mindre justeringar av modellen. Detta ger mig nystartat körs, och det kan jag skapa på verk som tillhör människor som verkligen vet vad de gör.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Hitta experiment som visar machine learning-teknik
-Det finns andra experiment i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com) som har skrivits specifikt för att ge instruktioner exempel för personer som är nya för datavetenskap. Det finns till exempel ett experiment i galleriet som visar hur du hanterar värden som saknas ([metoder för att hantera värden som saknas](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Den vägleder dig genom 15 olika sätt att byta ut tomma värden och pratar om fördelarna med varje metod och när du använder den.
+Det finns andra experiment i den [Azure AI-galleriet](https://gallery.azure.ai) som har skrivits specifikt för att ge instruktioner exempel för personer som är nya för datavetenskap. Det finns till exempel ett experiment i galleriet som visar hur du hanterar värden som saknas ([metoder för att hantera värden som saknas](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1)). Den vägleder dig genom 15 olika sätt att byta ut tomma värden och pratar om fördelarna med varje metod och när du använder den.
 
 ![Galleriet experiment öppna i Machine Learning Studio - metoder för värden som saknas](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Azure AI-galleriet](https://gallery.cortanaintelligence.com) är en plats för att hitta fungerande experiment som du kan använda som en startpunkt för dina egna lösningar.
+[Azure AI-galleriet](https://gallery.azure.ai) är en plats för att hitta fungerande experiment som du kan använda som en startpunkt för dina egna lösningar.
 
 Glöm inte att checka ut andra videor i ”Data datavetenskap för nybörjare” från Microsoft Azure Machine Learning.
 

@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5c51fe4e3d8b432e80a2d437c299b33af557d936
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732931"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245821"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Skapa, redigera eller utöka JSON för logic app-definitioner i Azure Logic Apps
 
-När du skapar enterprise lösningar för dataintegrering med automatiserade arbetsflöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md), de underliggande logikappsdefinitioner använda enkel och deklarativ JavaScript Object Notation (JSON) tillsammans med den [ Workflow Definition Language (WDL) schemat](../logic-apps/logic-apps-workflow-definition-language.md) för sina beskrivning och verifiering. Dessa format gör logic app-definitioner enklare att läsa och förstå utan att känna till kunskaper om kod. När du vill automatisera skapa och distribuera logikappar kan du inkludera logikappsdefinitioner som [Azure-resurser](../azure-resource-manager/resource-group-overview.md) inuti [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-overview.md#template-deployment). Att skapa, hantera och distribuera logic apps kan du använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), eller [Azure Logic Apps REST API: er](https://docs.microsoft.com/rest/api/logic/).
+När du skapar enterprise lösningar för dataintegrering med automatiserade arbetsflöden i [Azure Logic Apps](../logic-apps/logic-apps-overview.md), de underliggande logikappsdefinitioner använda enkel och deklarativ JavaScript Object Notation (JSON) tillsammans med den [ Workflow Definition Language (WDL) schemat](../logic-apps/logic-apps-workflow-definition-language.md) för sina beskrivning och verifiering. Dessa format gör logic app-definitioner enklare att läsa och förstå utan att känna till kunskaper om kod. När du vill automatisera skapa och distribuera logikappar kan du inkludera logikappsdefinitioner som [Azure-resurser](../azure-resource-manager/resource-group-overview.md) inuti [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-overview.md#template-deployment). Att skapa, hantera och distribuera logic apps kan du använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), eller [Azure Logic Apps REST API: er](https://docs.microsoft.com/rest/api/logic/).
 
 Öppna Redigeraren för kodvy när du arbetar i Azure portal eller i Visual Studio för att fungera med logikappsdefinitioner i JSON, eller kopiera definitionen till valfri redigerare som du vill. Om du är nybörjare till logic apps, granska [hur du skapar din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

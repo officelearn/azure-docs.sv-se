@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817630"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242823"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -34,6 +34,10 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 
 Mer information finns i [riktlinjer för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="february-2019"></a>Februari 2019
+
+Media Services v3 är nu upported i Azure nationella moln. Inte alla funktioner är tillgängliga i alla moln ännu. Mer information finns i [moln och regioner där Azure Media Services v3 finns](azure-clouds-regions.md).
+
 ## <a name="january-2019"></a>Januari 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard och MPI-filer 
@@ -46,7 +50,7 @@ Du bör inte ändra eller ta bort filen MPI eller ta alla beroenden i din tjäns
 
 Uppdateringar från GA-versionen av V3-API: et innehåller:
        
-* Den **PresentationTimeRange** egenskaper är inte längre behövs för **AssetFilters** och **AccountFilters**. 
+* Den **PresentationTimeRange** egenskaper är inte längre behövs för **tillgången filter** och **kontofilter**. 
 * Fråga efter alternativ för $top och $skip **jobb** och **omvandlar** har tagits bort och $orderby har lagts till. Som en del av att lägga till de nya funktionerna i skrivordning, upptäcktes att alternativen $top och $skip hade av misstag gjorts tillgänglig tidigare även om de inte har implementerats.
 * Uppräkning utökningsbarhet har återaktiverats. Den här funktionen har aktiverats i förhandsgranskningsversionerna av SDK och inaktiverades av misstag i GA-versionen.
 * Två fördefinierade strömmande principer har bytt namn. **SecureStreaming** är nu **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** är nu **Predefined_MultiDrmStreaming**.
@@ -67,7 +71,7 @@ Modulen CLI 2.0 är nu tillgängligt för [Azure Media Services v3 GA](https://d
 - [AZ ams live-utdata](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [AZ ams-slutpunkt för direktuppspelning](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [AZ ams-strömningspositionerare](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [AZ ams-konto mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) – kan du hantera Mediereserverade enheter
+- [AZ ams-konto mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) – kan du hantera Mediereserverade enheter. Mer information finns i [skala Mediereserverade enheter](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nya funktioner och ändringar
 
@@ -141,7 +145,7 @@ Följande uppdateringar för live encoding introduceras:
 - Förbättrad RTMP support (ökad stabilitet och mer käll-kodare stöder).
 - RTMPS säker mata in.
 
-    När du skapar en LiveEvent kan du nu hämta 4 infognings-URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS. 
+    När du skapar en direktsänd händelse kan du nu hämta 4 infognings-URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS. 
 - 24 timmars transkodning stöd. 
 - Förbättrat stöd för ad-signalering i RTMP via SCTE35.
 
@@ -149,7 +153,7 @@ Följande uppdateringar för live encoding introduceras:
 
 Du kan se följande Event Grid stöd förbättringar:
 
-- Azure EventGrid-integrering för enklare utveckling med Logic Apps och Azure Functions. 
+- Azure Event Grid-integration för enklare utveckling med Logic Apps och Azure Functions. 
 - Prenumerera på händelser på kodning och Live Channels.
 
 ### <a name="cmaf-support"></a>CMAF support
@@ -179,11 +183,11 @@ Om du har skapat tillgångar eller kontofilter mellan 09/28 och 10/12 med Media 
 Följande funktioner finns i .net SDK:
 
 * **Omvandlar** och **jobb** att koda eller analysera medieinnehåll. Exempel finns i [Stream filer](stream-files-tutorial-with-api.md) och [analysera](analyze-videos-tutorial-with-api.md).
-* **StreamingLocators** för att publicera och strömning av innehåll till slutanvändarens enheter
-* **StreamingPolicies** och **ContentKeyPolicies** konfigurera viktiga leverans- och content protection (DRM) när du levererar innehåll.
-* **LiveEvents** och **LiveOutputs** att konfigurera för inmatning och arkivering av liveuppspelningsinnehåll.
+* **Positionerare för direktuppspelning** för att publicera och strömning av innehåll till slutanvändarens enheter
+* **Principer för direktuppspelning** och **innehåll nyckel principer** konfigurera viktiga leverans- och content protection (DRM) när du levererar innehåll.
+* **Live-händelser** och **Live utdata** att konfigurera för inmatning och arkivering av liveuppspelningsinnehåll.
 * **Tillgångar** att lagra och publicera medieinnehåll i Azure Storage. 
-* **Strömningsslutpunkter** du konfigurerar och skalar dynamisk paketering, kryptering och strömning för både live och på begäran medieinnehåll.
+* **Slutpunkter för direktuppspelning** du konfigurerar och skalar dynamisk paketering, kryptering och strömning för både live och på begäran medieinnehåll.
 
 ### <a name="known-issues"></a>Kända problem
 

@@ -3,21 +3,21 @@ title: Hantera autentisering i Azure Maps | Microsoft Docs
 description: Du kan använda Azure-portalen för att hantera autentisering i Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/09/2018
+ms.date: 02/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: db0450ab8b765ec158201c6db149a7de7d135b98
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 68c3c8ac39f5803e01ee1038ec85ddb96ac80b30
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56143909"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242693"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
-När du har skapat ett Azure Maps-konto skapas tre GUID för Azure Active Directory (AD Azure) eller autentisering med delad nyckel.
+När du har skapat ett Azure Maps-konto skapas klient-ID och nycklar för Azure Active Directory (AD Azure) eller autentisering med delad nyckel.
 
 Du kan hitta information om din autentisering genom att navigera till den **autentisering** sidan **inställningar** i Azure-portalen. Navigera till ditt konto. Välj sedan **autentisering** på menyn.
 
@@ -35,7 +35,7 @@ Om du vill visa information om din autentisering, navigera till den **autentiser
 
 När en Azure Maps-konto har skapats, krävs en länk mellan din Azure AD-klient och Azure Maps Azure-resurs. 
 
-1. Gå till AAD-bladet och skapa en Appregistrering med ett namn och logga in URL: en som öppnas startsidan för webbappen / API som ”https://localhost/”. Om du redan har en registrerad app kan du gå vidare till steg 2.
+1. Gå till Azure AD-bladet och skapa en Appregistrering med ett namn och logga in URL: en som öppnas startsidan för webbappen / API som ”https://localhost/”. Om du redan har en registrerad app kan du gå vidare till steg 2.
 
     ![Appregistrering](./media/how-to-manage-authentication/app-registration.png)
 
@@ -51,11 +51,11 @@ När en Azure Maps-konto har skapats, krävs en länk mellan din Azure AD-klient
 
 4. Följ steg en eller b, beroende på implementering av autentisering.
 
-    1. Om programmet är avsikten är att använda token användarautentisering med vår Azure Maps Web SDK, måste du aktivera den `oauthEnableImplicitFlow` genom att ange den till true i avsnittet manifestet i detalj för appens registreringssida. 
+    1. Om programmet är avsikten är att använda token användarautentisering med vår Azure Maps Web SDK, måste du aktivera den `oauthEnableImplicitFlow` genom att ange den till true i avsnittet manifestet i detalj för appens registreringssida.
     
        ![Appmanifestet](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. Om programmet använder servern/programmet autentiseringen går till den **nycklar** -bladet i appregistreringen och antingen skapa ett lösenord eller ladda upp ett offentligt nyckelcertifikat till registreringen. Om du skapar ett lösenord när du **spara**, kopiera lösenordet för senare, och lagra den på ett säkert sätt kan du använda detta för att hämta token från AAD. 
+    2. Om programmet använder servern/programmet autentiseringen går till den **nycklar** bladet i appregistreringen samt skapa ett lösenord eller ladda upp ett offentligt nyckelcertifikat till registreringen. Om du skapar ett lösenord när du **spara**kopiera lösenordet för senare, och lagra den på ett säkert sätt kan du använda det här för att hämta token från Azure AD.
 
        ![Appnycklar](./media/how-to-manage-authentication/app-keys.png)
 
@@ -94,8 +94,7 @@ När din app har registrerats och som är associerade med Azure Maps, kan du beg
 
 * Om programmet är avsikten är att använda token användarautentisering med vår Azure Maps Web SDK (webb), måste du konfigurera din html-sida med Azure Maps klient-ID och Azure AD App-ID.
 
-
-* För program med servern/programmet autentisering måste begära en token från Azure AD-inloggningsslutpunkt https://login.microsoftonline.com med klient-ID för Azure Maps, Azure AD App-ID och Azure AD-App registrering av lösenord eller certifikat.
+* För program med servern/programmet autentisering måste begära en token från Azure AD-inloggningsslutpunkt `https://login.microsoftonline.com` med resurs-ID för Azure AD `https://atlas.microsoft.com/`, klient-ID för Azure Maps, Azure AD App-ID och Azure AD-App registrering av lösenord eller certifikat.
 
 Läs mer på begäran om åtkomsttoken från Azure AD för användare och tjänsthuvudnamn [autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 

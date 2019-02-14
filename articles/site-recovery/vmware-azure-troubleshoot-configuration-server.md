@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435982"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245736"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka problem med konfigurationen av servern
 
@@ -60,7 +60,7 @@ Det här felet uppstår när tjänsten inte kan läsa data från transportanslut
 
 ## <a name="vcenter-discovery-failures"></a>vCenter-identifiering av fel
 
-Se till att den vCenter-servern har lagts till proxyinställningar för kringgå listan för att lösa vCenter Identifieringsfel. Att utföra den här aktiviteten
+Lös vCenter Identifieringsfel genom att lägga till vCenter-servern att kringgå listan proxy-inställningar. 
 
 - Ladda ned PsExec-verktyg från [här](https://aka.ms/PsExec) åtkomst till innehåll för användare av systemet.
 - Öppna Internet Explorer i systemet användarinnehåll genom att köra följande kommandorad psexec -s -i ”%programfiles%\Internet Explorer\iexplore.exe”
@@ -80,6 +80,11 @@ Om du vill undvika det här felet, se till att det tiden på systemklockan inte 
 
 Det går inte att skapa ett certifikat som krävs för att autentisera Site Recovery. Kör installationsprogrammet igen när du har kontrollerat att du kör installationen som lokal administratör.
 
+## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Det gick inte att aktivera Windows-licens från utvärdering av Standard-Server till Server Standard
+
+1. Som en del av distribution av konfigurationsserver via OVF används en licens för utvärdering, vilket är giltig i 180 dagar. Du måste aktivera den här licensen innan det upphör. Annars kan detta leda till frekventa avstängning av konfigurationsservern och därmed orsaka hinderance replikering aktiviteter.
+2. Om det inte går att aktivera Windows-licens kan nå ut till [Windows supportteam](https://aka.ms/Windows_Support) att lösa problemet.
+
 ## <a name="register-source-machine-with-configuration-server"></a>Registrera källdatorn med konfigurationsservern
 
 ### <a name="if-the-source-machine-runs-windows"></a>Om källdatorn kör Windows
@@ -89,7 +94,7 @@ Kör följande kommando på källdatorn:
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
-  ```
+```
 
 Inställning | Information
 --- | ---
@@ -112,3 +117,140 @@ Användning | CD /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -
 -i | Obligatorisk parameter. Anger IP-adressen för konfigurationsservern. Använd en giltig IP-adress.
 -P |  Obligatorisk. Den fullständiga sökvägen för filen där lösenfrasen har sparats. Använd en befintlig mapp.
 
+## <a name="unable-to-configure-the-configuration-server"></a>Det går inte att konfigurera konfigurationsservern
+
+Om du installerar andra program än konfigurationsservern på den virtuella datorn måste kanske du inte att konfigurera Huvudmålet. 
+
+Konfigurationsservern måste vara ingen enskild server och använder den som en delad server inte stöds. 
+
+Mer information finns i konfigurationen vanliga frågor och svar i [distribuera en konfigurationsserver](vmware-azure-deploy-configuration-server.md#faq). 
+
+## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>Ta bort inaktuella poster för skyddade objekt från configuration server-databas 
+
+Använd följande steg för att ta bort inaktuella skyddad dator på konfigurationsservern. 
+ 
+1. Att fastställa källdatorn och IP-adressen för inaktuell post: 
+
+    1. Öppna MYSQL-kommandorad i administratörsläge. 
+    2. Kör följande kommandon. 
+   
+        ```
+        mysql> use svsdb1;
+        mysql> select id as hostid, name, ipaddress, ostype as operatingsystem, from_unixtime(lasthostupdatetime) as heartbeat from hosts where name!='InMageProfiler'\G;
+        ```
+
+        Det här returnerar listan över registrerade datorer och deras IP-adresser och senaste pulsslag. Hitta den värd som har inaktuella replikering par.
+
+2. Öppna en upphöjd kommandotolk och navigera till C:\ProgramData\ASR\home\svsystems\bin. 
+4. Ta bort registrerade värdar information och inaktuella informationen från konfigurationsservern genom att köra följande kommando med hjälp av källdatorn och IP-adressen för inaktuell post. 
+   
+    `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
+ 
+    Om du har en källa server inmatning av ”OnPrem-VM01” med en IP-adress för adressen 10.0.0.4 sedan använda följande kommando i stället.
+ 
+    `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
+ 
+5. Starta om följande tjänster på källdatorn för att registrera om med konfigurationsservern. 
+ 
+    - InMage Scout Application Service
+    - InMage Scout VX Agent - Sentinel/Outpost
+
+## <a name="upgrade-fails-when-the-services-fail-to-stop"></a>Uppgraderingen misslyckas när tjänsterna inte att stoppa
+
+Det går inte att uppgraderingen av configuration server vid vissa tjänster inte stoppar. 
+
+Du kan identifiera problemet genom att gå till C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile på konfigurationsservern. Om du hittar följande fel kan du använda stegen nedan för att lösa problemet: 
+
+    2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+    2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+    2018-06-28 14:28:12.944   Stopping svagents service.
+    2018-06-28 14:31:32.949   Unable to stop svagents service.
+    2018-06-28 14:31:32.949   Stopping svagents service.
+    2018-06-28 14:34:52.960   Unable to stop svagents service.
+    2018-06-28 14:34:52.960   Stopping svagents service.
+    2018-06-28 14:38:12.971   Unable to stop svagents service.
+    2018-06-28 14:38:12.971   Rolling back the install changes.
+    2018-06-28 14:38:12.971   Upgrade has failed.
+
+Att lösa problemet:
+
+Stoppa följande tjänster:
+
+- cxprocessserver
+- InMage Scout VX Agent – Sentinel/Outpost, 
+- Microsoft Azure Recovery Services Agent, 
+- Microsoft Azure Site Recovery Service, 
+- tmansvc
+  
+Om du vill uppdatera configuration server kör den [enhetligt installationsprogram](service-updates-how-to.md#links-to-currently-supported-update-rollups) igen.
+
+## <a name="azure-active-directory-application-creation-failure"></a>Azure Active Directory application fel vid skapande
+
+Du har inte behörighet att skapa ett program i Azure Active Directory (AAD) med hjälp av den [Open Virtualization program (OVA)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
+) mall.
+
+Lös problemet genom att logga in till Azure-portalen och gör något av följande:
+
+- Begära rollen programutvecklare i AAD. Läs mer på rollen programutvecklare [behörigheter för administratör i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+- Kontrollera att den **användare kan skapa program** flagga har angetts till *SANT* i AAD. Mer information finns i [Gör så här: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+
+## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Process server/Master Target kan inte kommunicera med konfigurationsservern 
+
+Processervern (PS) och huvudmål (MT) moduler kan inte kommunicera med konfigurationsservern (CS) och deras status visas som inte är ansluten på Azure-portalen.
+
+Detta är vanligtvis på grund av ett fel med port 443. Använd följande steg för att avblockera porten och aktivera kommunikation med Konfigurationsservern igen.
+
+**Kontrollera att MARS-agenten som anropas av Master Target-agent**
+
+Kontrollera att Master Target-agenten kan skapa en TCP-session för Konfigurationsserverns IP-adress, leta efter en spårning som liknar följande i Master Target-agentloggar:
+
+TCP <Replace IP with CS IP here>:52739 <Replace IP with CS IP here>:443 SYN_SENT 
+
+TCP 192.168.1.40:52739 192.168.1.40:443 SYN_SENT / / Ersätt IP-Adressen med CS IP-adress här
+
+Om du hittar spårningar liknar följande i MT-agentloggarna, rapporterar MT-agenten fel på port 443:
+
+    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+ 
+Det här felet kan uppstå när andra program också använder port 443 eller på grund av en brandväggsinställning som blockerar porten.
+
+Att lösa problemet:
+
+- Kontrollera att port 443 inte blockeras av brandväggen.
+- Om porten inte kan nås på grund av ett annat program via den porten, stoppa och avinstallera appen.
+  - Konfigurera en ny ren CS om stoppar appen inte är möjligt.
+- Starta om konfigurationsservern.
+- Starta om IIS-tjänsten.
+
+### <a name="configuration-server-is-not-connected-due-to-incorrect-uuid-entries"></a>Konfigurationsservern är inte ansluten på grund av felaktigt UUID-poster
+
+Det här felet kan inträffa när det finns flera server (CS) instans UUID konfigurationsposter i databasen. Problemet uppstår ofta när du klonar konfigurationsservern VM.
+
+Att lösa problemet:
+
+1. Ta bort föråldrade/gamla CS VM från vCenter. Mer information finns i [ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md).
+2. Logga in på konfigurationsservern VM och ansluta till MySQL svsdb1-databasen. 
+3. Kör följande fråga:
+
+    > [!IMPORTANT]
+    >
+    > Kontrollera att du anger vilka UUID klonade konfigurationsservern eller inaktuell post för konfigurationsservern som inte längre används för att skydda virtuella datorer. Ange ett felaktigt UUID resulterar i att förlora informationen för alla befintliga skyddade objekt.
+   
+    ```
+        MySQL> use svsdb1;
+        MySQL> delete from infrastructurevms where infrastructurevmid='<Stale CS VM UUID>';
+        MySQL> commit; 
+    ```
+4. Uppdatera portalsidan.
+
+## <a name="an-infinite-sign-in-loop-occurs-when-entering-your-credentials"></a>En oändlig inloggning loop inträffar när du anger dina inloggningsuppgifter
+
+När du har angett rätt användarnamn och lösenord på konfigurationsservern OVF, Azure inloggning fortsätter att fråga efter rätt autentiseringsuppgifter.
+
+Det här problemet kan inträffa när systemklockan är felaktig.
+
+Att lösa problemet:
+
+Ange rätt tid på datorn och försök logga in. 
+ 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: cdc48cf278fdd68bacf74c2d6d762c8d731949e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 509c9cbe3a4c2f930c9fdfda186d78118dbe4b80
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111579"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237858"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 
@@ -46,7 +46,7 @@ I sin enklaste struktur har en mall följande element:
 | parameters |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
 | Variabler |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
 | functions |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
-| resurser |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp. |
+| resurser |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
 | utdata |Nej |Värden som returneras efter distributionen. |
 
 Varje element har egenskaper som du kan ange. I följande exempel visas den fullständiga syntaxen för en mall:

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 790aba3f523cadce97caa4c5c044276c349e6045
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: f4e537bb6aa3b9bc4555f7eefb3cac6acd579b64
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769312"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233973"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Bibliotek för Java bulk executor: Hämtningsinformation
 
@@ -37,6 +37,6 @@ ms.locfileid: "55769312"
 |**Hämta SDK**|[Maven 3.](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**BulkExecutor biblioteket i GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **API-dokumentation**| [.NET API-referensdokumentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
-|**Kom igång**|Komma igång med bulk executor biblioteket Java SDK] (bulk-executor-java.md)|
+|**Kom igång**|[Komma igång med bulk executor biblioteket Java SDK](bulk-executor-java.md)|
 |**Lägsta stödda körningar**|[Java Development Kit (JDK 7 +)](https://aka.ms/azure-jdks)|
 

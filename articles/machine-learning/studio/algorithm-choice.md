@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: ee2ea608fb2a53563340b76ea916160231b27dca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978433"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244801"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 
@@ -41,7 +41,7 @@ Läsa sökvägen och algoritmen etiketterna i diagrammet som ”för  *&lt;sökv
 Ibland är ingen av dem en perfekt passning. De är avsedda att vara regeln av USB-rekommendationer, så oroa dig inte om den är exakt.
 Flera datatekniker som jag pratade med dessa som det enda säkra sättet att hitta den allra bästa algoritmen är att försöka dem alla.
 
-Här är ett exempel från den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Här är ett exempel från den [Azure AI-galleriet](http://gallery.azure.ai/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > För att ladda ned en enkel att förstå informationsgrafiken översikt över grunderna i machine learning att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning, [Machine learning-grunder med algoritmexempel](basics-infographic-with-algorithm-examples.md).

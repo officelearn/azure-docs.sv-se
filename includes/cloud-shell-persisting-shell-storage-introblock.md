@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886298"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247175"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Spara filer i Azure Cloud Shell
 Cloudshell använder Azure File storage för att spara filer mellan sessioner. På första start uppmanas Cloud Shell du att associera en ny eller befintlig filresurs för att spara filer mellan sessioner.
@@ -40,7 +40,7 @@ Du kan koppla befintliga resurser med hjälp av avancerade alternativet. När du
 När storage installationsprogrammet uppmaning visas väljer du **visa avancerade inställningar** att visa ytterligare alternativ. Alternativ fylls i automatiskt storage filter för lokalt redundant lagring (LRS), geo-redundant lagring (GRS) och konton för zonredundant lagring (ZRS). 
 
 > [!NOTE]
-> Med GRS- eller ZRS rekommenderas-konton för ytterligare återhämtning för filresursen säkerhetskopiering. Vilken typ av redundans beror på dina mål och pris inställningar. [Mer information om replikeringsalternativen för Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
+> Med GRS- eller ZRS rekommenderas-konton för ytterligare återhämtning för filresursen säkerhetskopiering. Vilken typ av redundans beror på dina mål och pris inställningar. [Mer information om replikeringsalternativen för Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
 ![Inställningen i resursen](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

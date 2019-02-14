@@ -9,18 +9,18 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: b01de55003f620363ed27b95a2bd27bc39fdee3a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991222"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237373"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Anpassa en varumärken modell i Video Indexer
 
 Video Indexer stöder varumärke identifiering från tal- och visual text under indexering och omindexering av video-och ljudinnehåll. Funktionen för identifiering av varumärke identifierar omnämnanden av produkter, tjänster och företag som föreslås av Bings varumärken databas. Till exempel identifierar om Microsoft nämns i en video- eller ljudinnehåll innehåll eller om den visas i visual text i en video, Video Indexer den som ett varumärke i innehållet. Varumärken åt från andra villkor med kontext.
 
-Varumärke identifiering är användbart i en mängd olika affärsscenarier, till exempel innehållet Arkiv och identifiering, sammanhangsberoende reklam, analys av sociala medier, återförsäljnings tävla analys och många fler. Video Indexer varumärke identifiering kan du index varumärke omnämnanden i tal- och visual text med Bings varumärken databasen samt med anpassning genom att skapa en anpassad modell märken för varje Video Indexer-konto. Funktionen för anpassade modellen varumärken kan du välja huruvida Video Indexer identifierar varumärken från Bing varumärken databas, undanta vissa varumärken inte har identifierats (skapa en lista med blockerade användare av i stort sett), och är varumärken som ska vara en del av din modell som inte kanske är i Bings varumärken databasen (skapa en lista för tillåten av i stort sett).
+Varumärke identifiering är användbart i en mängd olika affärsscenarier, till exempel innehållet Arkiv och identifiering, sammanhangsberoende reklam, analys av sociala medier, återförsäljnings tävla analys och många fler. Video Indexer varumärke identifiering kan du index varumärke omnämnanden i tal- och visual text med Bings varumärken databasen samt med anpassning genom att skapa en anpassad modell märken för varje Video Indexer-konto. Funktionen för anpassade modellen varumärken kan du välja huruvida Video Indexer identifierar varumärken från Bing varumärken databas, undanta vissa varumärken inte har identifierats (skapa en lista med blockerade användare av i stort sett), och är varumärken som ska vara en del av din modell som inte kanske är i Bings varumärken databasen (skapa en lista för tillåten av i stort sett). Anpassade varumärken modellen som du skapar kommer bara är tillgänglig i det konto som du skapade modellen.
 
 ## <a name="out-of-the-box-detection-example"></a>Slut på exempel med identifiering
 

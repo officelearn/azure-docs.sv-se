@@ -10,17 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: de809ef1455e4c8c4c2284c2139e962f1829770b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 55cf124baf7614813620602212856cc586b721df
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510178"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244342"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-När du skapar en ny arbetsyta i Azure Machine Learning, med ett antal provdatauppsättningar och experiment som standard. Många av dessa exempel på datauppsättningar som används av exemplet modeller i den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/). Andra finns med exempel på olika typer av data som vanligtvis används i machine learning.
+När du skapar en ny arbetsyta i Azure Machine Learning, med ett antal provdatauppsättningar och experiment som standard. Många av dessa exempel på datauppsättningar som används av exemplet modeller i den [Azure AI-galleriet](http://gallery.azure.ai/). Andra finns med exempel på olika typer av data som vanligtvis används i machine learning.
 
 Vissa av dessa datauppsättningar är tillgängliga i Azure Blob storage. Följande tabell innehåller en direktlänk för dessa datauppsättningar. Du kan använda dessa datauppsättningar i dina experiment med hjälp av den [importdata] [ import-data] modulen.
 

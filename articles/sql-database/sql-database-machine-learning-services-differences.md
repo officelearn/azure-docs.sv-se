@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 01/31/2019
-ms.openlocfilehash: adc303e9b375aaa6f37e9e79ea5434675c75523d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824260"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237492"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Viktiga skillnader mellan Machine Learning-tjänster i Azure SQL Database och SQL Server
 
@@ -25,7 +25,7 @@ Funktionerna i Machine Learning Services (med R) i Azure SQL Database liknar [SQ
 
 ## <a name="language-support"></a>Stöd för språk
 
-SQL Server har stöd för R och Python via den [utökningsbarhet framework](https://docs.microsoft.com/en-us/sql/advanced-analytics/concepts/extensibility-framework). SQL Database stöder inte båda språken. De viktigaste skillnaderna är:
+SQL Server har stöd för R och Python via den [utökningsbarhet framework](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). SQL Database stöder inte båda språken. De viktigaste skillnaderna är:
 
 - R är det enda språket som stöds i SQL-databas. Det finns inget stöd för Python just nu.
 - R-versionen är 3.4.4.

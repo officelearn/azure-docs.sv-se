@@ -10,14 +10,14 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: d37d5cb2b89b82bd9741dee0946b3a77d456b22a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405760"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243118"
 ---
-# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Översikt: B2B företagsscenarier integrering i Azure Logic Apps med Enterprise-Integrationspaket
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Översikt: B2B-integrering för företagsscenarier i Azure Logic Apps med Enterprise-Integrationspaket
 
 Du kan aktivera scenarion för enterprise-integration med Microsofts molnbaserade lösning, Enterprise-Integrationspaketet för business-to-business (B2B) arbetsflöden och sömlös kommunikation med Azure Logic Apps. Organisationer kan utbyta meddelanden elektroniskt, även om de använder olika protokoll och format. Paketet omvandlar olika format till ett format som organisationers system kan tolka och bearbeta. Organisationer kan utbyta meddelanden via vanliga protokoll, inklusive [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), och [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Du kan även skydda meddelanden med både kryptering och digitala signaturer.
 
@@ -33,7 +33,7 @@ Enterprise-Integrationspaketet är arkitektoniskt sett likadant utifrån ”inte
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>Hur du kommer igång med enterprise-integration?
 
-Du kan skapa och hantera B2B-appar med Enterprise-Integrationspaketet via Logic App Designer i den **Azure-portalen**. Du kan också hantera dina logikappar med [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "Logic apps PowerShell").
+Du kan skapa och hantera B2B-appar med Enterprise-Integrationspaketet via Logic App Designer i den **Azure-portalen**. Du kan också hantera dina logikappar med [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
 
 Här är de övergripande stegen som du måste vidta innan du kan skapa appar i Azure portal:
 

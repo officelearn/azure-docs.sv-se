@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 43b482324f0244baf52edbb8989a56dd12833331
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 98cad0873c4ba687948dc404abc19655319bdc36
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104501"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232275"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Använda Azure Import/Export-tjänsten för offlinekopia av data till Azure Data Lake Storage Gen1
 I den här artikeln får du veta hur du kopierar enorma datamängder (> 200 GB) i Azure Data Lake Storage Gen1 med offlinekopia metoder som de [tjänsten Azure Import/Export](../storage/common/storage-import-export-service.md). Filen används som exempel i den här artikeln är mer specifikt 339,420,860,416 byte eller cirka 319 GB på disken. Vi kan kalla den här filen 319GB.tsv.
@@ -190,21 +190,24 @@ I det här avsnittet ger vi dig med JSON-definitioner som du kan använda för a
 Mer information finns i [flytta data från Azure Storage blob till Azure Data Lake Storage Gen1 med Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>Rekonstruera datafiler i Azure Data Lake Storage Gen1
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Vi igång med en fil som 319 GB och avbrutits ner den till filer som är mindre storlek så att det kunde överföras med hjälp av Azure Import/Export-tjänsten. Nu när data är i Azure Data Lake Storage Gen1 kan rekonstruera vi filen till sin ursprungliga storlek. Du kan använda följande Azure PowerShell-cmdletar för att göra detta.
 
 ```
 # Login to our account
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # List your subscriptions
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # Switch to the subscription you want to work with
-Set-AzureRmContext -SubscriptionId
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+Set-AzContext -SubscriptionId
+Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
-Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
+Join-AzDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

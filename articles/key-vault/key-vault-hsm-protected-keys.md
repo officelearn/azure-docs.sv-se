@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 76943c89cd4c0a283dc36a2a0d28c907cef0ad28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cc7d9a8e0d2689be4a8beb5d42c43b9e18157472
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114696"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238121"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför HSM-skyddade nycklar för Azure Key Vault
 
@@ -246,7 +246,6 @@ Kopiera BYOK-verktygspaketet från USB-enhet eller annan bärbar lagringsenhet o
 
 För den här tredje steget, gör du följande procedurer på den frånkopplade arbetsstationen. För att slutföra det här steget måste din HSM vara i läget för initiering. 
 
-
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Steg 3.1: Ändra HSM-läge till ”I”
 
 Om du använder Thales nShield Edge, för att ändra läget: 1. Du kan använda knappen läge för att markera läget som krävs. 2. Inom några sekunder, tryck och håll Rensa-knapp för några sekunder. Om läget ändras kan det nya läget LED slutar blinka och fortsätter att lysa. Status-LED kan flash oregelbundet under några sekunder och sedan blinkar regelbundet när enheten är klar. I annat fall enheten finns kvar i det aktuella läget med det aktuella läget LED tänd.
@@ -256,13 +255,13 @@ Om du använder Thales nShield Edge, för att ändra läget: 1. Du kan använda 
 Starta en kommandotolk och kör programmet Thales ny värld.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 Det här programmet skapar en **Säkerhetsvärlden** i % NFAST_KMDATA%\local\world, vilket motsvarar mappen C:\ProgramData\nCipher\Key Management Data\local. Du kan använda olika värden för kvorumet men i vårt exempel uppmanas du att ange tre tomma kort och PIN-koder för vart och ett. Därefter ger två valfria kort fullständig åtkomst till säkerhetsvärlden. Dessa kort blir den **Administratörskortsuppsättningen** för den nya säkerhetsvärlden.
 
 > [!NOTE]
-> Om din HSM har stöd för nyare kod suite DLf3072s256mRijndael, du kan ersätta--chiffersvit = DLf1024s160mRijndael med--chiffersvit = DLf3072s256mRijndael
+> Om din HSM inte har stöd för nyare kod suite DLf3072s256mRijndael, du kan ersätta--chiffersvit = DLf3072s256mRijndael med--chiffersvit = DLf1024s160mRijndael
 
 Gör något av följande:
 

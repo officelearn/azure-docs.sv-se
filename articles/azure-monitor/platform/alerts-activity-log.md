@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 17a7b0e0ee76490ef43fb869260dceef83cbd124
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984502"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234245"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -224,7 +224,7 @@ Om du vill skapa en ny aktivitetsloggsaviseringsregel att använda i den här or
 
 Att hämta en enda aktivitet log varningsregel resurs, Azure CLI-kommando [az monitor-aktivitetsloggen alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
 ) kan användas. Och för att visa alla aktivitet varningsregel loggresurs i en resursgrupp, använda [az monitor-aktivitetsloggen Aviseringslista](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Aktivitet log varningsregel resurser kan tas bort med hjälp av Azure CLI-kommando [az monitor-aktivitetsloggen borttagning](https://docs.microsoft.com/en-us/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
+Aktivitet log varningsregel resurser kan tas bort med hjälp av Azure CLI-kommando [az monitor-aktivitetsloggen borttagning](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## <a name="next-steps"></a>Nästa steg
 

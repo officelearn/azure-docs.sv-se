@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 2/7/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: fb4add1194f7fe6d10859f76f244f027b35ad92d
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 83c9a0baa4d853c8afcb5afe1c4e5cc4ed1e0073
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960589"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235232"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -31,8 +31,6 @@ Data replikeras till Azure-lagring under replikering, och du behöver inte betal
 - **Haveriberedskap**: Du kan ställa in fullständig haveriberedskap. I det här scenariot kan replikera du lokala virtuella VMware-datorer till Azure storage. Sedan, om den lokala infrastrukturen inte är tillgänglig kan du växla över till Azure. När du redundansväxlar, skapas virtuella Azure-datorer med hjälp av replikerade data. Du kan komma åt appar och arbetsbelastningar på Azure Virtual Machines tills ditt datacenter på plats är tillgänglig igen. Sedan kan du växla tillbaka från Azure till din lokala plats.
 - **Migrering**: Du kan använda Site Recovery för att migrera lokala virtuella VMware-datorer till Azure. I det här scenariot replikera du lokala virtuella VMware-datorer till Azure storage. Sedan kan växla du över från den lokala till Azure. Efter redundansväxlingen är dina appar och arbetsbelastningar tillgängliga och körs på virtuella Azure-datorer.
 
-
-
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>Vad behöver jag i Azure?
 Du behöver en Azure-prenumeration, Recovery Services-valvet, ett lagringskonto och ett virtuellt nätverk. Valvet, lagringskontot och nätverket måste vara i samma region.
@@ -44,7 +42,33 @@ Du behöver ett LRS eller GRS-lagringskonto. Vi rekommenderar GRS så att dina d
 Om du är administratör för prenumerationen har Replikeringsbehörighet som du behöver. Om du inte behöver du behörighet att skapa en Azure-dator i resursgruppen och virtuellt nätverk som du anger när du konfigurerar Site Recovery och behörighet att skriva till det valda lagringskontot. [Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Kan jag använda gäst-OS server-licens i Azure?
-Ja, Microsoft Software Assurance-kunder kan använda Azure Hybrid-förmånen för att spara på licenskostnaden för **datorer med Windows Server** som migreras till Azure, eller att använda Azure för haveriberedskap.
+Ja, Microsoft Software Assurance-kunder kan använda [Azure Hybrid-förmånen](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) att spara på licenskostnaden för **datorer med Windows Server** som migreras till Azure, eller att använda Azure för haveriberedskap.
+
+## <a name="pricing"></a>Prissättning
+
+### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>Hur hanteras licensiering avgifter vid replikering efter redundans?
+
+Se vanliga frågor och svar om licensiering [här](https://aka.ms/asr_pricing_FAQ) för mer information.
+
+### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Hur kan jag för att beräkna ungefärliga avgifter vid användning av Site Recovery?
+
+Du kan använda [priskalkylator](https://aka.ms/asr_pricing_calculator) uppskatta kostnader när du använder Azure Site Recovery. För detaljerad uppskattning på kostnader och köra distributionskapacitetsplaneraren (https://aka.ms/siterecovery_deployment_planner) och analysera den [kostnad rapporten kostnadsuppskattning](https://aka.ms/asr_DP_costreport).
+
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Jag har använt Azure Site Recovery i över en månad. Får jag ändå de första 31 dagarna kostnadsfritt för varje skyddad instans?
+
+Ja, det spelar ingen roll hur länge du har använt Azure Site Recovery. Varje skyddad instans är fri från Azure Site Recovery-avgifter under de första 31 dagarna. Om du till exempel har skyddat 10 instanser under de senaste 6 månaderna och ansluter en 11:e instans till Azure Site Recovery debiteras inga Azure Site Recovery-avgifter för den 11:e instansen under de första 31 dagarna. De första 10 instanserna debiteras även fortsättningsvis Azure Site Recovery-avgifter, eftersom de har skyddats i mer än 31 dagar.
+
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Förekommer det några andra avgifter för Azure under de första 31 dagarna?
+
+Ja, även om Azure Site Recovery är kostnadsfritt under de första 31 dagarna för en skyddad instans kan du komma att debiteras för Azure Storage, lagringstransaktioner och dataöverföring. En återställd virtuell dator kan också debiteras för Azure-beräkningsavgifter.
+
+### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Vilka avgifter debiteras vid användning av Azure Site Recovery?
+
+Se våra [vanliga frågor och svar på kostnaderna](https://aka.ms/asr_pricing_FAQ) detaljerad information.
+
+### <a name="is-there-a-cost-associated-to-perform-dr-drillstest-failover"></a>Kostar det om du vill utföra DR-test/redundanstest?
+
+Det finns ingen separat kostnad för DR-test. Det är beräkningsavgifter när den virtuella datorn har skapats efter testa redundans.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Uppgradera Azure Site Recovery-komponenter
 
@@ -87,8 +111,12 @@ Data replikeras till Azure storage. När du kör en redundansväxling skapar Sit
 
 ## <a name="replication"></a>Replikering
 
-### <a name="what-apps-can-i-replicate"></a>Vilka appar kan jag replikera?
+### <a name="what-applications-can-i-replicate"></a>Vilka program kan jag replikera?
 Du kan replikera en app eller arbetsbelastning som körs på en VMware-VM som uppfyller [replikeringskraven](vmware-physical-azure-support-matrix.md##replicated-machines). Site Recovery har stöd för Programmedveten replikering så att appar kan växlas över och återställde till en intelligent tillstånd. Site Recovery kan integreras med Microsoft-program som SharePoint, Exchange, Dynamics, SQL Server och Active Directory och har ett nära samarbete med ledande leverantörer, som Oracle, SAP, IBM och Red Hat. [Lär dig mer](site-recovery-workload.md) om arbetsbelastningsskydd.
+
+### <a name="can-i-protect-a-virtual-machine-that-has-docker-disk-configuration"></a>Kan jag skydda en virtuell dator som har Docker diskkonfigurationen?
+
+Nej, detta är ett scenario som inte stöds.
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>Kan jag replikera till Azure med ett plats-till-plats-VPN?
 Site Recovery replikerar data från en lokal plats till Azure storage via en offentlig slutpunkt eller med offentlig peering i ExpressRoute. Replikering via ett plats-till-plats VPN-nätverk stöds inte.
@@ -96,11 +124,13 @@ Site Recovery replikerar data från en lokal plats till Azure storage via en off
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Kan jag replikera till Azure med ExpressRoute?
 Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recovery replikerar data till ett Azure Storage-konto via en offentlig slutpunkt. Du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) eller [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) använder ExpressRoute under Site Recovery-replikering. Microsoft-peering är den rekommenderade routningsdomän för replikering. Se till att den [nätverk krav](vmware-azure-configuration-server-requirements.md#network-requirements) uppfylls också för replikering. När virtuella datorer som redundansväxlar till Azure-nätverk, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
+### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Hur kan jag ändra storage-konto när datorn är skyddad?
+
+Storage-konto kan bara uppgraderas till premium. Om du vill använda ett annat lagringskonto måste du inaktivera replikeringen av källdatorn och återaktivera skyddet med nya storage-konto. Förutom detta finns det en något annat sätt att ändra storage-konto när skyddsinställningarna är aktiverade.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan inte replikera via VPN?
 
 När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna för ett Azure Storage-konto och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte.
-
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Vilka är kraven för replikerade virtuella datorer?
 

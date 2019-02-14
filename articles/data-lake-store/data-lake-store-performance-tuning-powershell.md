@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: fff26406b036edeb48371b89f7e585160ddc58e0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123325"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235610"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Prestandajusteringsvägledning för att använda PowerShell med Azure Data Lake Storage Gen1
 
 Den här artikeln innehåller de egenskaper som kan ställa in för att få bättre prestanda när du använder PowerShell för att arbeta med Azure Data Lake Storage Gen1:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="performance-related-properties"></a>Prestanda-relaterade egenskaper
 
@@ -33,13 +35,13 @@ Den här artikeln innehåller de egenskaper som kan ställa in för att få bät
 
 Det här kommandot laddar ned filer från Data Lake Storage Gen1 till användarens lokala enhet med 20 trådar per fil och 100 samtidiga filer.
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## <a name="how-do-i-determine-the-value-for-these-properties"></a>Hur tar jag reda på värdet för dessa egenskaper?
 
 Nästa fråga som du kanske är att avgöra vilket värde som ska ange för prestandarelaterade-egenskaper. Här är några riktlinjer som du kan använda.
 
-* **Steg 1: Fastställ det totala antalet trådar** – Du ska börja med att beräkna det totala antalet trådar som ska användas. Som en generell riktlinje bör du använda sex trådar för varje fysisk kärna.
+* **Steg 1: Fastställa det totala trådantalet** – börja med att beräkna det totala trådantalet att använda. Som en generell riktlinje bör du använda sex trådar för varje fysisk kärna.
 
         Total thread count = total physical cores * 6
 
@@ -50,7 +52,7 @@ Nästa fråga som du kanske är att avgöra vilket värde som ska ange för pres
         Total thread count = 16 cores * 6 = 96 threads
 
 
-* **Steg 2: Beräkna PerFileThreadCount** – Vi beräknar vår PerFileThreadCount baserat på filernas storlek. För filer som är mindre än 2,5 GB finns ingen anledning att ändra den här parametern eftersom standardvärdet 10 är tillräckligt. För filer som är större än 2,5 GB, bör du använda 10 trådar som bas för de första 2,5 GB och lägga till 1 tråd för varje ytterligare ökning 256 MB i storlek. Om du kopierar en mapp med många olika filstorlekar bör du överväga att gruppera dem enligt liknande filstorlekar. Olika stora filstorlekar kan orsaka bristfälliga prestanda. Om du inte kan gruppera liknande filstorlekar ska du ställa in PerFileThreadCount baserat på den största filstorleken.
+* **Steg 2: Beräkna PerFileThreadCount** – vi beräknar vår PerFileThreadCount baserat på storleken på filerna. För filer som är mindre än 2,5 GB finns ingen anledning att ändra den här parametern eftersom standardvärdet 10 är tillräckligt. För filer som är större än 2,5 GB, bör du använda 10 trådar som bas för de första 2,5 GB och lägga till 1 tråd för varje ytterligare ökning 256 MB i storlek. Om du kopierar en mapp med många olika filstorlekar bör du överväga att gruppera dem enligt liknande filstorlekar. Olika stora filstorlekar kan orsaka bristfälliga prestanda. Om du inte kan gruppera liknande filstorlekar ska du ställa in PerFileThreadCount baserat på den största filstorleken.
 
         PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
 
@@ -84,13 +86,13 @@ Du kan fortsätta att finjustera inställningarna genom att ändra **PerFileThre
 
 ### <a name="limitation"></a>Begränsning
 
-* **Antalet filer är mindre än ConcurrentFileCount**: Om antalet filer som du laddar upp är mindre än **ConcurrentFileCount** du har beräknat ska du minska **ConcurrentFileCount** så att det motsvarar antalet filer. Du kan använda eventuella återstående trådar för att öka **PerFileThreadCount**.
+* **Antalet filer som är mindre än ConcurrentFileCount**: Om antalet filer som du laddar upp är mindre än den **ConcurrentFileCount** att du har beräknat och sedan ska du minska **ConcurrentFileCount** ska vara lika med antalet filer. Du kan använda eventuella återstående trådar för att öka **PerFileThreadCount**.
 
-* **För många trådar**: Om du ökar antalet trådar för mycket utan att öka klusterstorleken riskerar du att prestanda försämras. Det kan uppstå konkurrensproblem när du växlar innehåll på processorn.
+* **För många trådar**: Om du ökar trådantalet för mycket utan att öka klusterstorleken riskerar försämrade prestanda. Det kan uppstå konkurrensproblem när du växlar innehåll på processorn.
 
 * **Otillräcklig samtidighet**: Om samtidigheten inte är tillräcklig kan klustret vara för litet. Du kan öka antalet noder i klustret, vilket ger dig större samtidighet.
 
-* **Begränsningsfel**: Om konkurrensen är för hög kan det leda till begränsningsfel. Om du råkar ut för begränsningsfel ska du antingen minska samtidigheten eller kontakta oss.
+* **Begränsningsfel**: Du kan se begränsningsfel om konkurrensen är för högt. Om du råkar ut för begränsningsfel ska du antingen minska samtidigheten eller kontakta oss.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Använda Azure Data Lake Storage Gen1 för stordatakrav](data-lake-store-data-scenarios.md) 

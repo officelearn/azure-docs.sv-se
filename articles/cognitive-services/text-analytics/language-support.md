@@ -3,19 +3,19 @@ title: Stöd för språk - API för textanalys
 titleSuffix: Azure Cognitive Services
 description: 'En lista med naturligt språk som stöds av API för textanalys. Den här artikeln beskriver vilka språk som stöds för varje åtgärd: attitydanalys, extrahering av diskussionsämne, språkidentifiering och igenkänning av entiteter.'
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 421d891ea6c580cfbdd7cfc40755b43e1d4b207e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: a9f48c8cef8d977469bb6c583d0bc363e334f693
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871293"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245328"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Stöd för språk och din region för Textanalys
 

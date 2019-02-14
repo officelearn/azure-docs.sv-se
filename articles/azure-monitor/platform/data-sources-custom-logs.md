@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 7a25686ffa80b831e5d459a8795595a00f869fda
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997600"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234806"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
 Datakälla för anpassade loggar i Azure Monitor kan du samla in händelser från textfiler på både Windows och Linux-datorer. Många program logga information till textfiler i stället för standardtjänster loggning, till exempel Windows händelselogg eller Syslog. När samlats in, kan du parsa data till enskilda fält i dina frågor eller extrahera data vid insamling av enskilda fält.
@@ -43,7 +43,11 @@ Loggfiler ska samlas in måste matcha följande kriterier.
 >
 
 >[!NOTE]
-> Du kan skapa upp till 500 anpassade loggar per Log Analytics-arbetsytan. 
+> En Log Analytics-arbetsyta har stöd för följande begränsningar:
+> 
+> * Endast 500 anpassade loggar kan skapas.
+> * En tabell har endast stöd för upp till 500 kolumner. 
+> * Det maximala antalet tecken för kolumnnamnet är 500. 
 >
 
 ## <a name="defining-a-custom-log"></a>Definiera en anpassad logg

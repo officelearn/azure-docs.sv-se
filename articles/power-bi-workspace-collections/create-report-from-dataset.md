@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 78834f1f12d2c748cb885e437496f2acf11b69ee
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170427"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232795"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Skapa en ny rapport från en datauppsättning i Power BI-Arbetsytesamlingar
 
@@ -40,13 +40,13 @@ Den *PowerBIToken klass* kräver att du installerar den [Power BI Core NuGut pak
 
 **Installation av NuGet-paketet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **C#-kod**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -65,15 +65,16 @@ Skapa konfiguration ska anges för att skapa en ny rapport. Detta ska inkludera 
 
 **Installation av NuGet-paketet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **JavaScript-kod**
 
-```
+```html
 <div id="reportContainer"></div>
-  
+
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -85,6 +86,7 @@ var embedCreateConfiguration = {
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
+</script>
 ```
 
 Anropa *powerbi.createReport()* gör en tom arbetsyta i redigeringsläge visas inom den *div* element.
@@ -95,7 +97,7 @@ Anropa *powerbi.createReport()* gör en tom arbetsyta i redigeringsläge visas i
 
 Rapporten skapas inte förrän du anropar den **Spara som** igen. Detta kan göras från Arkiv-menyn eller JavaScript.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -116,9 +118,9 @@ Rapporten skapas inte förrän du anropar den **Spara som** igen. Detta kan gör
 
 För att kunna interagera med den nya rapporten som du behöver för att bädda in den på samma sätt som programmet bäddar in en vanlig rapport, vilket innebär att en ny token utfärdas specifikt för den nya rapporten och sedan anropa metoden Bädda in.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -130,13 +132,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatisera spara och läsa in av en ny rapport med händelsen ”sparade”
 
 För att automatisera processen med ”Spara som” och sedan läsa in den nya rapporten du använda händelsens ”sparade”. Den här händelsen utlöses när spara åtgärden har slutförts och den returnerar ett Json-objekt som innehåller den nya reportId, rapportnamn, gamla reportId (om det finns) och om åtgärden Spara eller spara.
 
-```
+```json
 {
   "reportObjectId": "5dac7a4a-4452-46b3-99f6-a25915e0fe54",
   "reportName": "newReport",
@@ -147,9 +150,9 @@ För att automatisera processen med ”Spara som” och sedan läsa in den nya r
 
 För att automatisera processen kan du lyssna på händelsen ”sparade”, ta nya reportId, skapa en ny token och bädda in den nya rapporten med den.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -192,6 +195,7 @@ var embedCreateConfiguration = {
    // report.off removes a given event handler if it exists.
    report.off("saved");
     });
+</script>
 ```
 
 ## <a name="see-also"></a>Se också

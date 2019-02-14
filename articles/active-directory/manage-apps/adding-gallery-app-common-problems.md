@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6d47f22b4c7b29457de18593e38548aa818205a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205638"
+ms.locfileid: "56237883"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problem med att lägga till en Azure AD-galleriprogram
 
@@ -28,13 +28,13 @@ Den här artikeln hjälper dig att förstå de vanliga problem personer står in
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Jag klickade på knappen ”Lägg till” och tog lång tid att visas för mitt program
 
-Under vissa omständigheter kan det ta 1 – 2 minuter (och ibland längre) för ett program ska visas när du lägger till den till din katalog. Även om detta inte är normal prestanda du kan se programmet tillägget håller på att skapas genom att klicka på den **meddelanden** ikonen (klockan) i övre högra hörnet av den [Azure-portalen](https://portal.azure.com/) och söka för en **pågår** eller **slutförd** meddelande som är märkt **skapa program.**
+Under vissa omständigheter kan det ta 1 – 2 minuter (och ibland längre) för ett program ska visas när du lägger till den till din katalog. Även om detta inte är normal prestanda du kan se programmet tillägget håller på att skapas genom att klicka på den **meddelanden** ikonen (klockan) i övre högra hörnet av den [Azure-portalen](https://portal.azure.com/) och söka för en **pågår** eller **slutförd** meddelande som är märkt **lägga till program.**
 
 Om programmet aldrig har lagt till, eller om det uppstår ett fel när du klickar på den **Lägg till** knappen, visas en **meddelande** i en **fel** tillstånd. Om du vill ha mer information om felet för att lära dig mer att eller dela med en supporttekniker kan du se mer information om felet genom att följa stegen i den [hur du visar information om ett Portalmeddelande om](#how-to-see-the-details-of-a-portal-notification) avsnittet.
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Jag klickade på knappen ”Lägg till” och förekommer inte mitt program
 
-Ibland, på grund av tillfälliga problem nätverksproblem eller en bugg lägger till ett program misslyckas. Du ser det här inträffar när du klickar på den **meddelanden** ikonen (klockan) uppe till höger i Azure-portalen och du ser en ikon med rött (!) bredvid ditt **skapa program** meddelande. Detta anger att ett fel uppstod när du skapar programmet.
+Ibland, på grund av tillfälliga problem, nätverksproblem eller en bugg misslyckas lägga till ett program. Du ser det här inträffar när du klickar på den **meddelanden** ikonen (klockan) uppe till höger i Azure-portalen och du ser en ikon med rött (!) bredvid ditt **lägga till program** meddelande. Detta anger att ett fel uppstod när du skapar programmet.
 
 Om det uppstår ett fel när du klickar på den **Lägg till** knappen, visas en **meddelande** i en **fel** tillstånd. Om du vill ha mer information om felet för att lära dig mer att eller dela med en supporttekniker kan du se mer information om felet genom att följa stegen i den [hur du visar information om ett Portalmeddelande om](#how-to-see-the-details-of-a-portal-notification) avsnittet.
 
@@ -48,7 +48,7 @@ Utöver detta är den [dokumentbibliotek för Azure AD-program](https://docs.mic
 
 Du kan se information om alla portal-meddelande genom att följa stegen nedan:
 
-1.  Klicka på den **meddelanden** ikonen (klockan) uppe till höger på Azure Portal
+1.  Välj den **meddelanden** ikonen (klockan) uppe till höger på Azure Portal
 
 2.  Välj något meddelande i en **fel** tillstånd (de med ett rött (!) bredvid dem).
 
@@ -61,7 +61,7 @@ Du kan se information om alla portal-meddelande genom att följa stegen nedan:
 
 5.  Om du fortfarande behöver hjälp kan du också dela information med en supporttekniker eller produktgruppen för att få hjälp med problemet.
 
-6.  Klicka på den **kopia** **ikonen** till höger om den **kopiera fel** textrutan att kopiera alla meddelandeinformation att dela med en support eller produkt grupp-tekniker
+6.  Klicka på den **kopia** **ikonen** till höger om den **kopiera fel** textrutan att kopiera alla meddelandeinformation att dela med en support eller produkt grupp-tekniker.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Få hjälp genom att skicka information om meddelande till en supporttekniker
 

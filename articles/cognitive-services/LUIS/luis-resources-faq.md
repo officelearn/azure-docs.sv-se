@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 1f13c5220eee19b6cf8b56e4b55922acc1b2c6b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b8bcdc57996e04b613a2196cb505c3f59edb953
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865037"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237288"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
 
@@ -59,6 +59,15 @@ Lägg till olika värden som exempel yttranden med intentionen eller Lägg till 
 
 Cortana färdiga appar tagits bort 2017. De stöds inte längre.
 
+### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Hur jag för att överföra ägarskapet för en LUIS-app?
+Exportera en LUIS-app för att överföra en LUIS-app till Azure-prenumeration, och importera det med ett nytt konto. Uppdatera LUIS-app-ID i klientprogram som anropar den. Den nya appen kan returnera något annorlunda LUIS poäng från den ursprungliga appen.
+
+## <a name="luis-collaborating"></a>LUIS samarbeta
+
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Hur jag för att ge medarbetare åtkomst till LUIS med Azure Active Directory (AD Azure) eller rollbaserad åtkomstkontroll (RBAC)?
+
+Se [resurser i Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) och [Azure Active Directory-klientanvändare](luis-how-to-collaborate.md#azure-active-directory-tenant-user) och lär dig att ge medarbetare åtkomst. 
+
 ## <a name="luis-endpoint"></a>LUIS-slutpunkt
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Min endpoint-frågan returnerade ett oväntat resultat. Vad ska jag göra?
@@ -67,7 +76,7 @@ Oväntad fråga förutsagda resultaten som baseras på tillståndet för den pub
 
 Korrigera modellen börjar med [aktiv inlärning](luis-how-to-review-endoint-utt.md).
 
-Du kan ta bort icke-deterministisk utbildning genom att uppdatera den [application version inställningar API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) för att kunna använda alla träningsdata. 
+Du kan ta bort icke-deterministisk utbildning genom att uppdatera den [application version inställningar API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) för att kunna använda alla träningsdata.
 
 Granska den [bästa praxis](luis-concept-best-practices.md) andra tips. 
 
@@ -152,10 +161,23 @@ Varje LUIS-app har redigering/starter-nyckel i listan över slutpunkten bekväml
 
 Om din app fanns innan LUIS var allmänt tillgänglig (GA), tilldelas LUIS endpoint nycklar i din prenumeration automatiskt. Detta gjordes för att underlätta GA-migrering. Alla nya LUIS endpoint nycklar i Azure-portalen är _inte_ automatiskt tilldela det till LUIS.
 
-## <a name="app-management"></a>Apphantering
+## <a name="key-management"></a>Nyckelhantering
 
-### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Hur jag för att överföra ägarskapet för en LUIS-app?
-Exportera en LUIS-app för att överföra en LUIS-app till Azure-prenumeration, och importera det med ett nytt konto. Uppdatera LUIS-app-ID i klientprogram som anropar den. Den nya appen kan returnera något annorlunda LUIS poäng från den ursprungliga appen.
+### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Hur vet jag vilken nyckel som jag behöver, där jag får den, och hur jag använda det? 
+
+Se [redigering och fråga förutsägelse endpoint nycklar i LUIS](luis-concept-keys.md) vill veta mer om skillnaderna mellan de [redigering nyckel](luis-how-to-account-settings.md) och [förutsägelse slutpunktsnyckeln](luis-how-to-azure-subscription.md). 
+
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Jag får ett felmeddelande om att vara slut på kvot. Hur jag för att åtgärda det? 
+
+Se, [hur du löser ut av kvoten fel när nyckeln överskrider prisnivå nivå användning](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) vill veta mer.
+
+### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Jag vill hantera fler endpoint-frågor. Hur gör jag det? 
+
+Se, [hur du löser ut av kvoten fel när nyckeln överskrider prisnivå nivå användning](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) vill veta mer.
+
+
+
+## <a name="app-management"></a>Apphantering
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Hur jag för att hämta en logg över användare yttranden?
 Som standard loggar LUIS-appen yttranden från användare. Om du vill hämta en logg över yttranden som användarna skickar till LUIS-appen, går du till **Mina appar**, och välj appen. I verktygsfältet sammanhangsberoende väljer **exportera Endpoint loggar**. Loggen formateras som en fil med kommaavgränsade värden (CSV).

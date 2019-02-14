@@ -4,12 +4,12 @@ ms.service: azure-powershell
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: sewhee
-ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b93722147959881dfbffbb47b7a3e4b140044525
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572806"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247180"
 ---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>Konfigurera PowerShell för Resource Manager-mallar
 Innan du kan använda Azure PowerShell med Resource Manager, måste du har rätt Windows PowerShell och Azure PowerShell-versioner.
@@ -63,5 +63,5 @@ Du kan ange den aktuella Azure-prenumerationen genom att köra följande kommand
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Läs mer om Azure-prenumerationer och konton, [så här: ansluta till din prenumeration](/powershell/azureps-cmdlets-docs#step-3-connect).
+Läs mer om Azure-prenumerationer och konton [så här: Ansluta till din prenumeration](/powershell/azureps-cmdlets-docs).
 

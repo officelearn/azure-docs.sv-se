@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820444"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236982"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -253,3 +253,6 @@ För att manuellt ta bort återställningen pekar du samlingen som inte tas bort
 
 5. Klicka på **ta bort**, för att rensa samlingen med återställningspunkter.
 6. Försök att säkerhetskopiera igen.
+
+> [!NOTE]
+ >Om resursen (RP-samling) har stor antalet återställningspunkter, tar bort den från portalen kan timeout och misslyckas. Det här är ett känt CRP-problem, där alla återställningspunkter inte tas bort inom den stipulerade tiden och åtgärden timeout; borttagningen lyckas men vanligtvis efter 2 eller 3 försök.

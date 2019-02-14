@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: 8a5832433d1d8c81c22c828ec4659c10951f680a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103640"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234075"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Använda virtuella nätverksslutpunkter med Azure Service Bus
 
@@ -29,7 +29,7 @@ Resultatet är en privata och isolerade relation mellan de arbetsbelastningar so
 >[!WARNING]
 > Genom att implementera integrering av virtuella nätverk kan du förhindra andra Azure-tjänster från att interagera med Service Bus.
 >
-> Betrodda Microsoft-tjänster inte stöds när virtuella nätverk som implementeras och görs tillgänglig snart.
+> Betrodda Microsoft-tjänster inte stöds när virtuella nätverk har implementerats.
 >
 > Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan är **inte** uttömmande)-
 > - Azure Monitor

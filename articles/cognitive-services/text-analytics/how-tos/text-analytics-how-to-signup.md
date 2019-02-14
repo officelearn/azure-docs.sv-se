@@ -1,21 +1,21 @@
 ---
 title: Registrera dig för API för textanalys
 titleSuffix: Azure Cognitive Services
-description: Instruktioner för att registrera sig för att använda textanalys och arbeta inom gränserna.
+description: Anvisningar för att registrera sig och använda Text Analytics-tjänsten.
 services: cognitive-services
-author: HeidiSteen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: 8471befc72ce72d81212385994cbd2d1e7cb91f9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 355a144597ce384725d92e64d4a5e4909b18c3d7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882309"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246110"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>Hur du registrerar dig för API för textanalys
 

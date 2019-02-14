@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/13/2019
 ms.author: diberry
-ms.openlocfilehash: e307f258f4bf4c6aec6a0932f0787ef56f2b0d46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859308"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243424"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
 Använd appredigeringsprocessen för att skapa LUIS-appen. 
@@ -59,6 +59,12 @@ Om ordförråd mellan två avsikter är samma, kombinera avsikten och Använd en
 
 ”Boka en flygning” och ”boka ett hotell” använder samma vokabulär ”boken en”. Det här formatet är samma bör det vara samma avsikten med andra ord. flygning och hotell som extraherade entiteter. 
 
+Mer information:
+* Begrepp: [Begrepp om avsikter i LUIS-appen](luis-concept-intent.md)
+* Självstudier: [Skapa LUIS-app för att fastställa användarens avsikter](luis-quickstart-intents-only.md)
+* Anvisningar: [Lägg till avsikter att fastställa användarens avsikt är att yttranden](luis-how-to-add-intents.md)
+
+
 ## <a name="do-find-sweet-spot-for-intents"></a>Hitta söta plats för avsikter
 Använd förutsägelsedata från LUIS för att avgöra om dina avsikter överlappar. Överlappande avsikter ihop LUIS. Resultatet är att upp bedömning avsikt ligger för nära ett annat syfte. Eftersom LUIS inte använder exakt samma sökväg-informationen för att träna varje gång har ett intent som överlappande chansen som första eller andra i utbildning. Vill du den uttryck poängen för varje avsikt att vara längre ifrån varandra, så att den här andra/Vänd vertikalt inte upprättas. Bra skillnad för avsikter resulterar i förväntade främsta syftet varje gång. 
  
@@ -67,6 +73,9 @@ Håll en separat uppsättning yttranden som inte används som [exempel yttranden
 
 Utvecklare bör ha tre uppsättningar av data. Först är exempel talade för att bygga modellen. Andra är för att testa modellen vid slutpunkten. Tredje är blinda testdata som används i [batch testning](luis-how-to-batch-test.md). Den här senaste uppsättningen inte används i utbildning för programmet och inte heller skickas på slutpunkten.  
 
+Mer information:
+* Begrepp: [Redigering för LUIS-appen](luis-concept-app-iteration.md)
+
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Lägg till frasen listor och mönster i senare iterationer
 [Fras listor](luis-concept-feature.md) kan du definiera ordlistor av ord som rör din appdomän. Startvärdesklassen din frasen lista med några få ord och Använd sedan funktionen Föreslå så LUIS vet om flera ord i en viss terminologi till din app. Lägg inte till alla ord vokabulär eftersom den frasen inte är en exakt matchning. 
 
@@ -74,11 +83,22 @@ Hur användarna yttranden från slutpunkten, liknar varandra, kan avslöja möns
 
 Användningsmönstret [valfria syntax](luis-concept-patterns.md) för skiljetecken så skiljetecken kan ignoreras. Använd den [explicit lista](luis-concept-patterns.md#explicit-lists) att kompensera för pattern.any syntax problem. 
 
-Använd inte dessa metoder innan din app har tagit emot endpoint begäranden eftersom som snedställer förtroende.  
+Gäller inte dessa metoder innan din app har tagit emot förfrågningar för slutpunkten. Du bör förstå hur appen fungerar innan du lägger till frasen listor och mönster. När du förstår hur din app fungerar utan dessa lägger du till de här funktionerna eftersom de gäller för din app. 
+
+Det finns inget om man lägger till dem i början av modelldesignen men det är lättare att se hur varje funktion ändras resultat om du lägger till dem när du har använt appen med verklig trafik. 
+
+Du behöver inte lägga till de här funktionerna med varje iteration eller ändra funktionerna med varje version. 
+
+Mer information:
+* Begrepp: [Redigering för LUIS-appen](luis-concept-app-iteration.md)
+* Begrepp: [Fras funktioner i din LUIS-app](luis-concept-feature.md)
+* Begrepp: [Mönster förbättra prognosens noggrannhet](luis-concept-patterns.md)
+* Så här gör du: [Använd frasen visar att boost signaler med ordlistan](luis-how-to-add-features.md)
+* Så här gör du: [Hur du lägger till mönster för att förbättra förutsägelsefunktionen](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Belastningsutjämnas alla avsikter din yttranden
 
-För LUIS måste till förutsägelser vara korrekt, hur många exempel yttranden i varje avsikt (förutom ingen avsikt), vara relativt lika. 
+Mängden exempel yttranden i varje avsikt (förutom ingen avsikt), måste vara lika med relativt för LUIS förutsägelser vara korrekt. 
 
 Om du har en avsikt med 100 exempel yttranden och syftet med 20 exempel yttranden har avsikten 100-uttryck en högre andel förutsägelse.  
 
@@ -86,9 +106,17 @@ Om du har en avsikt med 100 exempel yttranden och syftet med 20 exempel yttrande
 
 Den här är reserven avsikt, anges allt utanför ditt program. Lägg till en exempel-uttryck på Ingen avsiktshantering för varje 10 exempel yttranden i resten av LUIS-appen.
 
+Mer information:
+* Begrepp: [Förstå vad bra yttranden är avsedda för LUIS-app](luis-concept-utterance.md)
+
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Utnyttja funktionen Föreslå för aktiv inlärning
 
 Använd [aktiv inlärning](luis-how-to-review-endoint-utt.md)'s **granska endpoint yttranden** regelbundet, i stället för att lägga till fler exempel yttranden avsikter. Eftersom appen ständigt tar emot endpoint yttranden, den här listan växer och ändra.
+
+Mer information:
+* Begrepp: [Begrepp för att aktivera aktiv inlärning genom att granska endpoint yttranden](luis-concept-review-endpoint-utterances.md)
+* Självstudier: [Självstudier: Åtgärda osäker förutsägelser genom att granska endpoint yttranden](luis-tutorial-review-endpoint-utterances.md)
+* Så här gör du: [Granska endpoint yttranden LUIS-portalen](luis-how-to-review-endoint-utt.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Att övervaka prestanda för din app
 
@@ -133,6 +161,11 @@ Lägg till 10 eller 15 yttranden innan utbildnings- och publicering. Där du kan
 ## <a name="do-use-versions-for-each-app-iteration"></a>Använd versioner för varje iteration av appen
 
 Varje redigering cykel ska vara i en ny [version](luis-concept-version.md), klonade från en befintlig version. LUIS har ingen gräns för versioner. Ett versionsnamn används som en del av API-väg så det är viktigt att välja tecken tillåts i en URL, samt att hålla inom 10 teckenantalet för en version. Utveckla en strategi för version namn om du vill behålla dina versioner ordnade. 
+
+Mer information:
+* Begrepp: [Förstå hur och när du använder en LUIS-version](luis-concept-version.md)
+* Så här gör du: [Använda versioner för att redigera och testa utan att påverka mellanlagring eller produktion appar](luis-how-to-manage-versions.md)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

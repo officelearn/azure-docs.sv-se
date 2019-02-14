@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273516"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232611"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda virtuella nätverksslutpunkter med Azure Event Hubs
 
@@ -29,13 +29,13 @@ Resultatet är en privata och isolerade relation mellan de arbetsbelastningar so
 >[!WARNING]
 > Implementera integrering av virtuella nätverk kan det förhindra att interagera med Händelsehubbar andra Azure-tjänster.
 >
-> Betrodda Microsoft-tjänster inte stöds när virtuella nätverk som implementeras och görs tillgänglig snart.
+> Betrodda Microsoft-tjänster inte stöds när virtuella nätverk har implementerats.
 >
 > Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan är **inte** uttömmande)-
 > - Azure Monitor
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
-> - Azure IoT Hub vägar
+> - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 > - Azure-datautforskaren
 >
@@ -44,7 +44,7 @@ Resultatet är en privata och isolerade relation mellan de arbetsbelastningar so
 > - Azure Functions
 
 > [!IMPORTANT]
-> Virtuella nätverk stöds i **standard** och **dedikerade** nivåerna för Event Hubs. Det stöds inte på basic-nivå.
+> Virtuella nätverk stöds på **standardnivå** och **dedikerade** nivåer för Event Hubs. De stöds inte på grundläggande nivå.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade scenarier som använder VNet-integrering 
 

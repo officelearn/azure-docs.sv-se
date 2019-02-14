@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: fa2ae313ab18d6e474f1dd0953a3b0a0d094c7c3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111823"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244937"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Säkra B2B-meddelanden med certifikat
 
@@ -30,6 +30,8 @@ Du kan använda dessa certifikat i dina appar för enterprise-integration:
 * [Offentliga certifikat](https://en.wikipedia.org/wiki/Public_key_certificate), som du måste köpa från en offentligt internet [certifikatutfärdare (CA)](https://en.wikipedia.org/wiki/Certificate_authority) men som inte behöver några nycklar. 
 
 * Privata certifikat eller [ *självsignerade certifikat*](https://en.wikipedia.org/wiki/Self-signed_certificate), som du skapar och skicka dig själv men kräver även privata nycklar. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upload-a-public-certificate"></a>Ladda upp ett offentligt certifikat
 
@@ -60,18 +62,18 @@ Du använder en *offentligt certifikat* i logic apps som har B2B-funktioner mås
 
 ## <a name="upload-a-private-certificate"></a>Ladda upp ett privat certifikat
 
-Du använder en *privata certifikat* i logic apps som har B2B-funktioner måste du först överför certifikatet till ditt integrationskonto. Du måste också ha en privat nyckel som du först lägga till [Azure Key Vault](../key-vault/key-vault-overview.md). 
+Du använder en *privata certifikat* i logic apps som har B2B-funktioner måste du först överför certifikatet till ditt integrationskonto. Du måste också ha en privat nyckel som du först lägga till [Azure Key Vault](../key-vault/key-vault-get-started.md). 
 
 När du har definierat egenskaperna i den [avtal](logic-apps-enterprise-integration-agreements.md) att du skapar kan certifikatet användas för att skydda dina B2B-meddelanden.
 
 > [!NOTE]
 > Privata certifikat, se till att du lägger till ett motsvarande offentliga certifikat som visas i den [AS2-avtal](logic-apps-enterprise-integration-as2.md) **skicka och ta emot** inställningar för signering och kryptering av meddelanden.
 
-1. [Lägg till din privata nyckel till Azure Key Vault](../key-vault/quick-create-cli.md#add-a-secret-to-key-vault) och ger en **nyckelnamn**.
+1. [Lägg till din privata nyckel till Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) och ger en **nyckelnamn**.
    
-2. Auktorisera Azure Logic Apps för att utföra åtgärder på Azure Key Vault. Använda PowerShell-kommando för att bevilja åtkomst till Logic Apps-tjänstobjektet [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), till exempel:
+2. Auktorisera Azure Logic Apps för att utföra åtgärder på Azure Key Vault. Använda PowerShell-kommando för att bevilja åtkomst till Logic Apps-tjänstobjektet [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), till exempel:
 
-   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
 3. Logga in på [Azure Portal](https://portal.azure.com). Välj på Azure-huvudmenyn **alla resurser**. Ange namnet på ditt integrering i sökrutan och markera integrationskontot som du vill.

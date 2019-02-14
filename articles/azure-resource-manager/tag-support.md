@@ -4,17 +4,19 @@ description: Visar vilka Azure-resurstyper stöder taggar. Innehåller informati
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509923"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246059"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-using-tags.md).
+
+För att få samma data som en fil med kommaavgränsade värden kan hämta [taggen support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Resurstyp | Har stöd för taggar |
@@ -1123,13 +1125,14 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 | servers/communicationLinks | Nej | 
 | servrar/databaser | Ja (Se kommentaren nedan) | 
 | servers/encryptionProtector | Nej | 
+| servrar/firewallRules | Nej | 
 | servrar/nycklar | Nej | 
 | servrar/restorableDroppedDatabases | Nej | 
 | servrar/serviceobjectives | Nej | 
 | servers/tdeCertificates | Nej | 
 
 > [!NOTE]
-> Huvudservern databasen har inte stöd för taggar, men andra databaser har stöd för taggar.
+> Huvudservern databasen har inte stöd för taggar, men andra databaser, inklusive Data Warehouse-databaser har stöd för taggar.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

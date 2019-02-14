@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732319"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234756"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -133,7 +133,7 @@ Aktivera reparation manager-tjänsten:
 
 3. Uppdatera din klustermanifestet med dessa ändringar, med hjälp av den uppdaterade klustermanifestet [skapar ett nytt kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) eller [uppgradera klusterkonfigurationen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). När klustret är i gång med uppdaterade klustermanifestet, kan du nu se reparera manager system-tjänsten körs i klustret, som kallas `fabric:/System/RepairManagerService`under system services-avsnittet i Service Fabric explorer.
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>Inaktivera automatisk uppdatering för Windows på alla noder
+### <a name="configure-windows-updates-for-all-nodes"></a>Konfigurera Windows-uppdateringar för alla noder
 
 Automatiska uppdateringar för Windows kan leda till förlust av tillgängligheten eftersom flera klusternoder kan starta om på samma gång. Patch orchestration appen, försöker som standard inaktivera den automatiska uppdateringen för Windows på varje klusternod. Om inställningarna hanteras av en administratör eller en Grupprincip, rekommenderar vi dock att Windows Update-princip att ”meddela innan hämta” uttryckligen.
 

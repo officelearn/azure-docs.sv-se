@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/06/2018
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19a771d75cd1f2a2a18a3a4c42fcc34e55afb111
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5ab50bd5a2b5b1b0e63060986d4336774be7875b
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438855"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245872"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Börja använda en Azure Automation-runbook med en webhook
 
@@ -29,16 +29,16 @@ I följande tabell beskrivs de egenskaper som du måste konfigurera för en webh
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Namn |Du kan ange ett namn som du vill använda för en webhook eftersom detta inte är exponerad klienten. Den används endast för dig för att identifiera runbook i Azure Automation. <br> Som bästa praxis bör du ge webhooken ett namn som är relaterade till den klient som använder den. |
+| Namn |Du kan ange ett namn som du vill använda för en webhook eftersom detta inte är exponerade för klienten. Den används endast för dig för att identifiera runbook i Azure Automation. <br> Som bästa praxis bör du ge webhooken ett namn som är relaterade till den klient som använder den. |
 | URL |URL: en för webhooken är den unika adress som en klient anropar med en HTTP POST att starta runbooken länkad till webhooken. Det genereras automatiskt när du skapar webhooken. Du kan inte ange en anpassad URL. <br> <br> URL: en innehåller en säkerhetstoken som gör att runbook anropas av en tredjeparts-system utan ytterligare autentisering. Den ska därför behandlas som ett lösenord. Av säkerhetsskäl kan du bara se URL: en i Azure-portalen när webhooken skapas. Observera att URL: en på en säker plats för framtida användning. |
-| Upphörandedatum |Varje webhook om du har ett förfallodatum vid vilken tidpunkt den kan inte längre användas som ett certifikat. Den här förfallodatum kan ändras när webhooken skapas så länge webhooken inte har upphört att gälla. |
-| Enabled |En webhook aktiveras som standard när den skapas. Om du ställer in det på inaktiverad är ingen klient kan använda den. Du kan ange den **aktiverad** egenskapen när du skapar webhooken eller när som helst när den har skapats. |
+| Upphörandedatum |Varje webhook om du har ett förfallodatum vid vilken tidpunkt den kan inte längre användas som ett certifikat. Den här förfallodatum kan ändras när webhooken skapas så länge webhooken inte har gått ut. |
+| Enabled |En webhook aktiveras som standard när den skapas. Om du ställer in det på inaktiverad, så ingen klient kan använda den. Du kan ange den **aktiverad** egenskapen när du skapar webhooken eller när som helst när den har skapats. |
 
 ### <a name="parameters"></a>Parametrar
 
 En webhook kan definiera värden för runbookparametrar som används när runbook startas av den webhooken. Webhooken måste innehålla värden för alla obligatoriska parametrar för runbook och kan innehålla värden för valfria parametrar. Ett parametervärde som konfigurerats för att en webhook kan ändras även när du har skapat webhooken. Flera webhooks som är länkad till en enda runbook kan använda olika parametervärden.
 
-När en klient startar en runbook med en webhook, kan inte det åsidosätta de parametervärden som definierats i webhooken. Om du vill ta emot data från klienten, runbook kan acceptera en enda parameter med namnet **$WebhookData** av typen [objekt] som innehåller data som klienten lägger till i POST-begäran.
+När en klient startar en runbook med en webhook, kan inte det åsidosätta de parametervärden som definierats i webhooken. Om du vill ta emot data från klienten, runbook kan acceptera en enda parameter med namnet **$WebhookData**. Den här parametern är av typen [objekt] som innehåller data som klienten lägger till i POST-begäran.
 
 ![Webhookdata-egenskaper](media/automation-webhooks/webhook-data-properties.png)
 
@@ -50,7 +50,7 @@ Den **$WebhookData** objekt har följande egenskaper:
 | RequestHeader |Hash-tabell som innehåller huvuden inkommande POST-begäran. |
 | RequestBody |Innehållet i den inkommande POST-begäran. Detta bevarar all formatering, till exempel sträng, JSON, XML, eller formuläret kodade data. Runbooken måste vara skrivna för att arbeta med dataformat som förväntas. |
 
-Ingen konfiguration krävs för att stödja webhookens den **$WebhookData** parameter och en runbook inte krävs för att acceptera den. Om runbook inte definierar parametern ignoreras någon information om begäran som skickats från klienten.
+Ingen konfiguration krävs för att stödja webhookens den **$WebhookData** parameter och runbook är inte nödvändigt att godkänna. Om runbook inte definierar parametern, ignoreras någon information om begäran som skickats från klienten.
 
 Om du anger ett värde för $WebhookData när du skapar webhooken, att värde åsidosätts när webhooken startar runbook med data från klienten POST-begäran, även om klienten inte innehåller några data i begärandetexten. Om du startar en runbook som har $WebhookData med hjälp av en annan metod än en webhook, kan du ange ett värde för $Webhookdata som känns igen av runbook. Det här värdet ska vara ett objekt med samma [egenskaper](#details-of-a-webhook) som $Webhookdata så att runbooken fungerar korrekt med det som om den fungerade med faktiska WebhookData som skickas av en webhook.
 
@@ -124,9 +124,9 @@ Klienten kan inte fastställa när runbook-jobbet har slutförts eller deras slu
 
 ## <a name="renew-webhook"></a>Förnya en webhook
 
-När den har skapats av en webhook har en giltighetstid på ett år. När det aktuella året tid webhooken automatiskt upphör att gäller. När en webhook har upphört att gälla den kan inte aktiveras igen, måste tas bort och återskapas. Om en webhook inte har nått dess förfallotid kan utökas.
+När en webhook har skapats, har en giltighetstid på ett år. När det aktuella året tid webhooken automatiskt upphör att gäller. När en webhook har upphört att gälla kan inte aktiveras, måste tas bort och återskapas. Om en webhook inte har nått dess förfallotid, kan den utökas.
 
-Navigera till en runbook som innehåller webhooken om du vill utöka en webhook. Välj **Webhooks** under **resurser**. Klicka på webhooken som du vill utöka, öppnas den **Webhook** sidan.  Välj ett nytt utgångsdatum och tid och klicka på **spara**.
+Navigera till en runbook som innehåller webhooken om du vill utöka en webhook. Välj **Webhooks** under **resurser**. Klicka på webhooken som du vill utöka, den här åtgärden öppnar den **Webhook** sidan.  Välj ett nytt utgångsdatum och tid och klicka på **spara**.
 
 ## <a name="sample-runbook"></a>Exempel-runbook
 
@@ -189,7 +189,7 @@ else {
 
 I följande exempel använder Windows PowerShell för att starta en runbook med en webhook. Alla språk som kan skicka en HTTP-begäran kan använda en webhook; Windows PowerShell används här som ett exempel.
 
-Runbook förväntar sig en lista över virtuella datorer som har formaterats i JSON i brödtexten i begäran. Runbook validerar också att rubrikerna som innehåller ett specifikt definierat meddelandet för att verifiera webhook anroparen är giltig.
+Runbook förväntar sig en lista över virtuella datorer som har formaterats i JSON i brödtexten i begäran. Runbook validerar också att rubrikerna som innehåller ett definierat meddelandet för att verifiera webhook anroparen är giltig.
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -200,11 +200,11 @@ $vms  = @(
         )
 $body = ConvertTo-Json -InputObject $vms
 $header = @{ message="StartedbyContoso"}
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
+$response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
-I följande exempel visas brödtexten i begäran som är tillgänglig för runbooken i den **RequestBody** egenskapen för **WebhookData**. Detta formateras som JSON eftersom det var det format som ingick i brödtexten i begäran.
+I följande exempel visas brödtexten i begäran som är tillgänglig för runbooken i den **RequestBody** egenskapen för **WebhookData**. Det här värdet formateras som JSON eftersom det var det format som ingick i brödtexten i begäran.
 
 ```json
 [

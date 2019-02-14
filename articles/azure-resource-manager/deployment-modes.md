@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: ba7ac806a74cd0b378c39eb3873e7d64435bcf4f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105662"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233607"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-distributionslägen
 
 När du distribuerar dina resurser kan ange du att distributionen är en inkrementell uppdatering eller en fullständig uppdatering.  Den viktigaste skillnaden mellan dessa två lägena är hur Resource Manager hanterar befintliga resurser i resursgruppen som inte är i mallen. Standardläget är inkrementell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Endast på rotnivå mallar stöder fullständig Distributionsläge. För [länkad eller kapslade mallar](resource-group-linked-templates.md), måste du använda inkrementella läge. 
 
 ## <a name="incremental-and-complete-deployments"></a>Inkrementella och fullständiga distributioner
 
@@ -63,8 +63,6 @@ När de distribueras i **fullständig** läge, resurs C har tagits bort. Resursg
 
 ## <a name="set-deployment-mode"></a>Inställning för distribution
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Ange Distributionsläge när du distribuerar med PowerShell och den `Mode` parametern.
 
 ```azurepowershell-interactive
@@ -86,7 +84,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-När du använder en [länkade eller kapslad mall](resource-group-linked-templates.md), måste du ställa in den `mode` egenskap `Incremental`. Endast på rotnivå mallar stöder fullständig Distributionsläge.
+I följande exempel visas en länkad mall stegvis distribution-läge:
 
 ```json
 "resources": [

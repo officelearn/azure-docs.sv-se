@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439110"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243611"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
@@ -34,7 +34,7 @@ Utgående regler kan du styra:
 - vilka virtuella datorer ska översättas till som offentliga IP-adresser. 
 - hur [utgående SNAT portar](load-balancer-outbound-connections.md#snat) ska allokeras.
 - vilka protokoll som används för att ge utgående översättning för.
-- vilka varaktighet för utgående anslutningstimeout för inaktivitet.
+- vilka varaktighet för utgående anslutningstimeout för inaktivitet (4-120 minuter).
 - Om du vill skicka en TCP-återställning för timeout för inaktivitet (i allmänt tillgänglig förhandsversion). 
 
 Utgående regler Expandera [scenario 2](load-balancer-outbound-connections.md#lb) i beskrivs i den [utgående anslutningar](load-balancer-outbound-connections.md) artikeln och scenario-prioritet förblir som – är.
@@ -90,7 +90,7 @@ Du kan återgå till [automatisk SNAT-porttilldelning baserat på backend-poolst
 
 ### <a name="idletimeout"></a> Timeout för inaktivitet kontroll utgående flöde
 
-Utgående regler ger en konfigurationsparameter för kontroll av tidsgränsen för inaktivitet utgående flödet och matcha den mot programmets behov.  Utgående inaktiv tidsgränser som standard 4 minuter.  Parametern accepterar ett värde mellan 4 och 66 till specifikt antalet minuter innan tidsgränsen för inaktivitet för flöden som matchar den här viss regel.
+Utgående regler ger en konfigurationsparameter för kontroll av tidsgränsen för inaktivitet utgående flödet och matcha den mot programmets behov.  Utgående inaktiv tidsgränser som standard 4 minuter.  Parametern accepterar ett värde mellan 4 och 120 till specifikt antalet minuter innan tidsgränsen för inaktivitet för flöden som matchar den här viss regel.
 
 Använd följande parameter och ange utgående tidsgränsen för inaktivitet till 1 timme:
 
@@ -205,7 +205,7 @@ När du använder en intern Standard Load Balancer, är utgående NAT inte tillg
 ## <a name="limitations"></a>Begränsningar
 
 - Det maximala antalet användbara tillfälliga portar per frontend IP-adress är 51,200.
-- En uppsättning konfigurerbara utgående tidsgränsen för inaktivitet är 4 till 66 minuter (240 4000 sekunder).
+- En uppsättning konfigurerbara utgående tidsgränsen för inaktivitet är 4 till 120 minuter (240 7200 sekunder).
 - Belastningsutjämnaren har inte stöd för ICMP för utgående NAT.
 - Portalen kan inte användas för att konfigurera eller visa utgående regler.  Använd mallar, REST API, Az CLI 2.0 eller PowerShell i stället.
 - Utgående regler kan endast tillämpas på den primära nätverkskortet och den primära IP-konfigurationen.

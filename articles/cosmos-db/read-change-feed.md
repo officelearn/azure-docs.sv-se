@@ -1,17 +1,17 @@
 ---
 title: Åtkomst till ändringen feed i Azure Cosmos DB Azure Cosmos DB
 description: Den här artikeln beskrivs olika alternativ som är tillgängliga för att läsa och komma åt ändringsflödet i Azure Cosmos DB Azure Cosmos DB.
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: ef7fde987eff2235b59feab5481fe3dc71edd859
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.author: rimman
+ms.openlocfilehash: 459ed4b6f16d3cfe5bb792be7f063a1253a3006e
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040001"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242047"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läsa Azure Cosmos DB-ändringsflödet
 

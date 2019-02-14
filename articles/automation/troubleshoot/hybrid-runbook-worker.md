@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ec099e0f210fc267a0a34f76136a517e0ae6ccc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744525"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234549"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Felsöka Hybrid Runbook Worker
 
@@ -187,6 +187,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>Scenario: Du kan inte lägga till en Hybrid Runbook Worker
+
+#### <a name="issue"></a>Problem
+
+Du får ett felmeddelande när du försöker lägga till en Hybrid Runbook Worker med hjälp av den `Add-HybridRunbookWorker` cmdlet.
+
+```
+Machine is already registered to a different account
+```
+
+#### <a name="cause"></a>Orsak
+
+Detta kan bero på om datorn har redan registrerats med ett annat Automation-konto eller om du försöker lägga till Hybrid Runbook Worker igen när du tar bort meddelandet från en dator.
+
+#### <a name="resolution"></a>Lösning
+
+Lös problemet genom att ta bort följande registernyckel och försök på `Add-HybridRunbookWorker` cmdleten igen:
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>Nästa steg
 

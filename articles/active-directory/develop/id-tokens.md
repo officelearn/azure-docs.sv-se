@@ -17,24 +17,24 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de9db7abe17fc41907582ec32d3e916d0536e543
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175118"
+ms.locfileid: "56234434"
 ---
 # <a name="id-tokens"></a>ID-tokens
 
-`id_tokens` skickas till klientprogrammet som en del av en [OpenID Connect](v1-protocols-openid-connect-code.md) flöde. De kan skickas längs sida eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren. 
+`id_tokens` skickas till klientprogrammet som en del av en [OpenID Connect](v1-protocols-openid-connect-code.md) flöde. De kan skickas längs sida eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren.
 
 ## <a name="using-the-idtoken"></a>Med hjälp av id_token
 
-ID-token som ska användas för att verifiera att en användare är den som de påstår sig vara och få ytterligare användbar information om dem – det ska inte användas för auktorisering i stället för en [åtkomsttoken](access-tokens.md). De anspråk som den innehåller kan användas för UX i ditt program, uppdatering av en databas och åtkomst till klientprogrammet. 
+ID-token som ska användas för att verifiera att en användare är den som de påstår sig vara och få ytterligare användbar information om dem – det ska inte användas för auktorisering i stället för en [åtkomsttoken](access-tokens.md). De anspråk som den innehåller kan användas för UX i ditt program, uppdatering av en databas och åtkomst till klientprogrammet.
 
 ## <a name="claims-in-an-idtoken"></a>Anspråk i en id_token
 
-`id_tokens` för ett Microsoft-identitet är [JWTs](https://tools.ietf.org/html/rfc7519), vilket innebär att de består av en rubrik, nyttolast och signatur del. Du kan använda huvud och nyttolast för att kontrollera att token, medan nyttolasten innehåller information om användaren som begärs av klienten. Om inget annat anges visas alla anspråk som visas här i både v1.0 och v2.0-token.
+`id_tokens` för ett Microsoft-identitet är [JWTs](https://tools.ietf.org/html/rfc7519), vilket innebär att de består av en rubrik, nyttolast och signatur del. Du kan använda rubrik och signaturen för att kontrollera att token, medan nyttolasten innehåller information om användaren som begärs av klienten. Om inget annat anges visas alla anspråk som visas här i både v1.0 och v2.0-token.
 
 ### <a name="v10"></a>V1.0
 

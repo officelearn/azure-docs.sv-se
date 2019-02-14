@@ -15,12 +15,12 @@ ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427c8b35f66b9b17d3da917b632d41cba5ddc99f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171527"
+ms.locfileid: "56238070"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använda portalen för att skapa en Azure AD-program och tjänstens huvudnamn som kan komma åt resurser
 
@@ -137,7 +137,7 @@ Du måste ha tillräcklig behörighet för att registrera ett program med Azure 
 
    ![Visa app-registreringar](./media/howto-create-service-principal-portal/view-app-registrations.png)
 
-Om inställningen appregistreringar anges till **nr**, endast [globala administratörer](../users-groups-roles/directory-assign-admin-roles.md) kan registrera appar. Om ditt konto har tilldelats till rollen, men appinställningen för registreringen är begränsat till administratörer, kan du be din administratör att antingen tilldela dig till rollen som global administratör eller så att användarna kan registrera appar.
+Om inställningen appregistreringar anges till **nr**, endast användare med administratörsroller registrera dessa typer av program. Se [tillgängliga roller](../users-groups-roles/directory-assign-admin-roles.md#available-roles) och [rollbehörighet](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) vill veta mer om tillgängliga administratörsroller och särskilda behörigheter i Azure AD som har angetts för varje roll. Om ditt konto har tilldelats till rollen, men appinställningen för registreringen är begränsat till administratörer, be din administratör att antingen tilldela dig till någon av rollerna Administratör, som kan skapa och hantera alla aspekter av appregistreringar eller för att ge användare registrera appar.
 
 ### <a name="check-azure-subscription-permissions"></a>Kontrollera behörigheter för Azure-prenumeration
 

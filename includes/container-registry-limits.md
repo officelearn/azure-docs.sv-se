@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 08/30/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 4021d1ac5a0b3d9d9bf19e9fb7f74952f2471c30
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: fe1227d91c0d039a94e5b9a3046b879f4f17355a
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "49458876"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247170"
 ---
 | Resurs | Basic | Standard | Premium |
 |---|---|---|---|---|
-| Storage<sup>1</sup> | 10 giB | 100 giB| 500 giB |
-| Maximal bildstorlek lager | 20 giB | 20 giB | 50 giB |
+| Storage<sup>1</sup> | 10 GiB | 100 giB| 500 giB |
+| Maximal bildstorlek lager | 20 GiB | 20 GiB | 50 giB |
 | ReadOps per minut<sup>2, 3</sup> | 1,000 | 3 000 | 10 000 |
 | WriteOps per minut<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Ladda ned bandbredd Mbit/s<sup>2</sup> | 30 | 60 | 100 |

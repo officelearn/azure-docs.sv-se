@@ -13,17 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 4276a557d760811efc2b024ebb55555b918c62f7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1935286d94b0d72a59fc5d478705e23a7f7425e9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976614"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236614"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Ändra tillgänglighetsuppsättning för en virtuell Windows-dator
 Följande steg beskriver hur du ändrar tillgänglighetsuppsättning för en virtuell dator med Azure PowerShell. En virtuell dator kan bara läggas till en tillgänglighetsuppsättning när den skapas. Du kan ändra tillgängligheten ange måste du ta bort och återskapa den virtuella datorn. 
+
+Den här artikeln senast har testats på 2/12/2019 med hjälp av den [Azure Cloud Shell](https://shell.azure.com/powershell) och [Az PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.2.0 eller senare.
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -83,11 +85,20 @@ Följande skript innehåller ett exempel på samla in informationen som krävs, 
        -CreateOption Attach
     }
     
-# Add NIC(s)
-    foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {
-        Add-AzVMNetworkInterface `
-           -VM $newVM `
-           -Id $nic.Id
+# Add NIC(s) and keep the same NIC as primary
+    foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {    
+    if ($nic.Primary -eq "True")
+        {
+            Add-AzVMNetworkInterface `
+            -VM $newVM `
+            -Id $nic.Id -Primary
+            }
+        else
+            {
+              Add-AzVMNetworkInterface `
+              -VM $newVM `
+              -Id $nic.Id 
+                }
     }
 
 # Recreate the VM

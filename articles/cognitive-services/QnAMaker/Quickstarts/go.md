@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: bd3dfc9b2b0b169ebb27909812256dbee91e1dec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f16909a9504b2868c1eecf849b9a1fd537cd6048
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883975"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244266"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Hur du använder REST-API för QnA Maker med Go 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overvi
 - [Ta bort en kunskapsbas.](#Delete)
 - [Hämta de aktuella slutpunktsnycklarna.](#GetKeys)
 - [Återskapa de aktuella slutpunktsnycklarna.](#PutKeys)
-- [Hämta den aktuella uppsättningen med ordvariationer.](#GetAlterations)
-- [Ersätta den aktuella uppsättningen med ordvariationer.](#PutAlterations)
+- [Hämta den aktuella uppsättningen skiftlägeskänsliga word förändras.](#GetAlterations)
+- [Ersätt den aktuella uppsättningen skiftlägeskänsliga word förändras.](#PutAlterations)
 
 ## <a name="prerequisites"></a>Förutsättningar
 

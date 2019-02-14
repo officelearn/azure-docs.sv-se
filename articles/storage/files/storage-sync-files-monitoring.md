@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a14b0f2b01a0566a47cbcb02ee4315adcba9a90f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5a0d02768b0fbd23e33d13c5e5c3fe84a41cdc52
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200810"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243662"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -48,7 +48,7 @@ Mått
   | Lagringsnivåer återkallande i molnet | Storleken på data som har återkallats | Registrerade servrar |
   | Filer som inte synkroniseras | Antal filer som inte kan synkronisera | Server-slutpunkt |
   | Filer som har synkroniserats | Antal filer överförs (uppladdning och nedladdning) | Synkroniseringsgruppen, Server-slutpunkt |
-  | Serverpulsslag | Antal pulsslag togs emot från servern | Registrerade servrar |
+  | Onlinestatus för Server | Antal pulsslag togs emot från servern | Registrerade servrar |
 
 - Mer information finns i [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor) avsnittet. 
 
@@ -70,7 +70,7 @@ Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
 | Lagringsnivåer återkallande i molnet | Storlek på data som har återkallats.<br><br>Enhet: Byte<br>Mängdtyp: Summa<br>Tillämpliga dimension: Servernamn |
 | Filer som inte synkroniseras | Antal filer som inte kan synkroniseras.<br><br>Enhet: Antal<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
 | Filer som har synkroniserats | Antal filer överförs (uppladdning och nedladdning).<br><br>Enhet: Antal<br>Mängdtyp: Summa<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
-| Serverpulsslag | Antal pulsslag togs emot från servern.<br><br>Enhet: Antal<br>Mängdtyp: Maximal<br>Tillämpliga dimension: Servernamn |
+| Onlinestatus för Server | Antal pulsslag togs emot från servern.<br><br>Enhet: Antal<br>Mängdtyp: Maximal<br>Tillämpliga dimension: Servernamn |
 | Synkronisera session resultat | Synkronisera session resultatet (1 = synkronisering session; 0 = misslyckade synkroniseringssessionen)<br><br>Enhet: Antal<br>Aggregeringstyper: Maximal<br>Tillämpliga mått: Server-slutpunkt namn, riktning, synkronisera Synkroniseringsgruppsnamn |
 
 ## <a name="windows-server"></a>Windows Server

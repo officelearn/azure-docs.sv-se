@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/23/2019
+ms.date: 02/13/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8807f3dd888e3bf53e58ec896f824e6ecbf6273b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163367"
+ms.locfileid: "56234296"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -191,7 +191,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS90016 | MissingRequiredClaim - The access token isn't valid. Det nödvändiga anspråket saknas. |
 | AADSTS90019 | MissingTenantRealm – Azure AD kunde inte fastställa klient-ID från begäran. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - formatet huvudnamn är inte giltigt eller uppfyller inte den förväntade `name[/host][@realm]` format. Huvudnamnet krävs, värden och sfär är valfria och kan anges till null. |
-| AADSTS90023 | InvalidRequest |
+| AADSTS90023 | InvalidRequest - autentiseringstjänstens begäran är inte giltig. |
 | AADSTS90024 | RequestBudgetExceededError - ett tillfälligt fel har uppstått. Försök igen. |
 | AADSTS90033 | MsodsServiceUnavailable - Microsoft Online Directory Service (MSODS) är inte tillgänglig. |
 | AADSTS90036 | MsodsServiceUnretryableFailure – en oväntad, icke-återförsöksbar fel från WCF-tjänst som tillhandahålls genom MSODS har uppstått. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet. |

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 56884f2299df35c1565804a92fc404b6ed9e2f9a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185017"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243496"
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om hur du bestämmer hur du integrerar Azure Stack bäst i din befintliga nätverksmiljö för Azure Stack nätverk infrastruktur. 
@@ -67,9 +67,6 @@ Den här /24 (254 värd IP-adresser) nätverk är privat till Azure Stack-region
 
 ### <a name="azure-stack-infrastructure-network"></a>Nätverket för Azure Stack-infrastruktur
 Det/24 nätverk som är dedikerad till interna Azure Stack-komponenter så att de kan kommunicera och utbyta data med varandra. Det här undernätet kräver dirigerbara IP-adresser, men förblir privata till lösningen med hjälp av åtkomstkontrollistor (ACL). Det är inte förväntas att dirigeras utanför kantlinje växlar utom ett mindre intervall som är samma storlek som en/27 nätverk som används av några av dessa tjänster när de behöver komma åt externa resurser och/eller internet. 
-
-### <a name="public-infrastructure-network"></a>Infrastruktur för offentliga nätverk
-Detta/27 nätverket är liten mellan Azure Stack-infrastruktur-undernätet som nämnts tidigare, kräver inte offentliga IP-adresser, men det kräver Internetåtkomst via en NAT eller Transparent Proxy. Det här nätverket ska allokeras för nödadministration Recovery konsolen System (ERCS), ERCS VM kräver Internetåtkomst under registreringen till Azure och under infrastruktur för säkerhetskopiering. ERCS VM ska vara dirigerbara till nätverket i felsökningssyfte.
 
 ### <a name="public-vip-network"></a>Offentliga VIP-nätverk
 Den offentliga VIP-nätverket har tilldelats nätverksstyrenheten i Azure Stack. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. Dessa 32 IP-adresser annonseras på växeln routningstabell, som en väg som är tillgängliga via BGP. Det här nätverket innehåller externt-tillgängliga eller offentliga IP-adresser. Azure Stack-infrastruktur reserverar de första 31 adresserna från den här offentliga VIP-nätverk medan resten används av virtuella klientdatorer. Nätverket storleken på det här undernätet kan variera mellan minst /26 (64 värdar) till högst /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.

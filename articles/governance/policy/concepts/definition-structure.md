@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 14c5a9a5d9e3bd71ca1fdaf3545af3e74b3973c2
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100658"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237425"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -94,7 +94,7 @@ Parametrar fungerar på samma sätt som när du skapar principer. Du kan återan
 
 En parameter har följande egenskaper som används i principdefinitionen:
 
-- **Namn på**: Namnet på parametern. Används av den `parameters` distribution funktion i principregeln. Mer information finns i [med hjälp av ett parametervärde](#using-a-parameter-value).
+- **name**: Namnet på parametern. Används av den `parameters` distribution funktion i principregeln. Mer information finns i [med hjälp av ett parametervärde](#using-a-parameter-value).
 - `type`: Anger om parametern är en **sträng** eller en **matris**.
 - `metadata`: Definierar subegenskaper som främst används av Azure-portalen för att visa användarvänliga information:
   - `description`: Förklaring av vad parametern används för. Kan användas för att ge exempel på de godkända värdena.
@@ -208,7 +208,7 @@ Du kan kapsla logiska operatorer. I följande exempel visas en **inte** åtgärd
 
 ### <a name="conditions"></a>Villkor
 
-Ett villkor utvärderas om en **fältet** uppfyller vissa villkor. Villkor som stöds är:
+Ett villkor utvärderas om en **fältet** eller **värdet** accessor uppfyller vissa villkor. Villkor som stöds är:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -252,7 +252,53 @@ Följande fält stöds:
   - Den här syntaxen hakparentes stöder taggnamn som har en period.
   - Där **\<tagName\>** är namnet på taggen för att verifiera villkoret för.
   - Exempel: `tags[Acct.CostCenter]` där **Acct.CostCenter** är namnet på taggen.
+
 - Egenskapen alias – en lista i [alias](#aliases).
+
+### <a name="value"></a>Värde
+
+Villkor kan även skapas med hjälp av **värdet**. **värdet** kontrollerar villkor mot [parametrar](#parameters), [stöds Mallfunktioner](#policy-functions), eller litteraler.
+**värdet** paras ihop med alla stöds [villkor](#conditions).
+
+#### <a name="value-examples"></a>Värdet exempel
+
+Den här principen regelexempel använder **värdet** att jämföra resultatet av den `resourceGroup()` funktionen och den returnerade **namn** egenskap till en **som** villkor för `*netrg`. Regeln nekar en resurs inte av den `Microsoft.Network/*` **typ** i valfri resursgrupp vars namn slutar med `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Den här principen regelexempel använder **värdet** att kontrollera om resultatet av flera kapslade funktioner **är lika med** `true`. Regeln nekar alla resurser som inte har minst tre taggar.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>Verkan
 
@@ -295,12 +341,15 @@ Mer information om varje effekt ordningen för utvärdering, egenskaper och exem
 
 ### <a name="policy-functions"></a>Princip fungerar
 
-Flera [Resource Manager-Mallfunktioner](../../../azure-resource-manager/resource-group-template-functions.md) är tillgängliga för användning i en regel. De funktioner som stöds för närvarande är:
+Förutom följande distribution och resursfunktioner, alla [Resource Manager-Mallfunktioner](../../../azure-resource-manager/resource-group-template-functions.md) är tillgängliga för användning i en regel:
 
-- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [ResourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [prenumeration](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- list*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 Dessutom kan den `field` funktionen är tillgänglig för hanteringsprincipregler (MPR). `field` används främst med **AuditIfNotExists** och **DeployIfNotExists** till referensfält på resursen som utvärderas. Ett exempel på den här användningen visas på den [DeployIfNotExists exempel](effects.md#deployifnotexists-example).
 

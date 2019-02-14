@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 9a12940f08a11b66a0d09937d5ab8fab7304734f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 892ea129a57e77c59f37b305b96b42aa85dba32b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754344"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232715"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Växla mellan att visa och redigera läge för rapporter i Power BI-Arbetsytesamlingar
 
@@ -30,7 +30,7 @@ Du behöver skapa en åtkomsttoken som gör att du kan både se och redigera en 
 > [!NOTE]
 > På så sätt kan du redigera och spara ändringarna i en befintlig rapport. Om du vill även funktionen stödja **Spara som**, måste du ange ytterligare behörighet. Mer information finns i [scope](app-token-flow.md#scopes).
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -46,9 +46,10 @@ Du måste ange behörigheter och en viewMode om du vill se spara knappen i redig
 
 Till exempel i JavaScript:
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -74,6 +75,7 @@ Till exempel i JavaScript:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 Detta anger om du vill bädda in rapporten i visningsläge utifrån **viewMode** anges till **modeller. ViewMode.View**.
@@ -82,7 +84,7 @@ Detta anger om du vill bädda in rapporten i visningsläge utifrån **viewMode**
 
 Du kan använda följande JavaScript för att växla till läget, om du är i redigeringsläget.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
@@ -98,7 +100,7 @@ report.switchMode("view");
 
 Du kan använda följande JavaScript för att växla till redigeringsläget, om du är i läge.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 

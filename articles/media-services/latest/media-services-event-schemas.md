@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/24/2018
+ms.date: 02/11/2019
 ms.author: juliako
-ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789237"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243993"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-scheman för Media Services-händelser
 
@@ -24,15 +24,13 @@ Den här artikeln innehåller scheman och egenskaper för Media Services-händel
 
 En lista över exempel på skript och självstudier finns i [medietjänster händelsekälla](../../event-grid/event-sources.md#azure-subscriptions).
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
-
-### <a name="job-related-event-types"></a>Jobbet relaterade händelsetyper
+## <a name="job-related-event-types"></a>Jobbet relaterade händelsetyper
 
 Media Services genererar den **jobbet** relaterade händelsetyper som beskrivs nedan. Det finns två kategorier för de **jobbet** relaterade händelser: ”Övervakning jobbets status ändras” och ”övervakning jobbets utdata status ändras”. 
 
 Du kan registrera dig för alla händelser genom att prenumerera på händelsen JobStateChange. Eller så kan du prenumerera på specifika händelser endast (till exempel sluttillstånd som JobErrored, JobFinished och JobCanceled). 
 
-#### <a name="monitoring-job-state-changes"></a>Övervakning jobbets status ändras
+### <a name="monitoring-job-state-changes"></a>Övervakning av tillståndsändringar för jobbet
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
@@ -44,7 +42,9 @@ Du kan registrera dig för alla händelser genom att prenumerera på händelsen 
 | Microsoft.Media.JobCanceled| Få en händelse när jobbet övergår till avbrutna tillstånd. Det här är ett slutgiltigt tillstånd som innehåller utdata för jobbet.|
 | Microsoft.Media.JobErrored| Få en händelse när jobbet övergår till feltillstånd. Det här är ett slutgiltigt tillstånd som innehåller utdata för jobbet.|
 
-#### <a name="monitoring-job-output-state-changes"></a>Övervakning jobbets utdata status ändras
+[Schemat exempel](#event-schema-examples) följer.
+
+### <a name="monitoring-job-output-state-changes"></a>Tillståndsändringar för övervakning jobbutdata
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
@@ -56,11 +56,13 @@ Du kan registrera dig för alla händelser genom att prenumerera på händelsen 
 | Microsoft.Media.JobOutputCanceled| Få en händelse när jobbet utdata övergår till har avbrutits tillstånd.|
 | Microsoft.Media.JobOutputErrored| Få en händelse när jobbutdata övergår till feltillstånd.|
 
-### <a name="live-event-types"></a>Typer av Live-händelse
+[Schemat exempel](#event-schema-examples) följer.
+
+## <a name="live-event-types"></a>Typer av Live-händelse
 
 Media Services genererar även den **Live** händelsetyper som beskrivs nedan. Det finns två kategorier för de **Live** händelser: stream på händelser och spåra på händelser. 
 
-#### <a name="stream-level-events"></a>Stream-på händelser
+### <a name="stream-level-events"></a>Stream-på händelser
 
 Stream-nivå händelser aktiveras per stream eller anslutning. Varje händelse har en `StreamId` parameter som identifierar anslutning eller stream. Varje stream eller anslutningen har en eller flera spårar av olika typer. En anslutning från en kodare kan till exempel ha ett ljudspår och fyra video spår. Händelsetyper stream är:
 
@@ -70,7 +72,9 @@ Stream-nivå händelser aktiveras per stream eller anslutning. Varje händelse h
 | Microsoft.Media.LiveEventEncoderConnected | Kodaren upprättar anslutningen med live-händelse. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Kodaren kopplar från. |
 
-#### <a name="track-level-events"></a>Spåra på händelser
+[Schemat exempel](#event-schema-examples) följer.
+
+### <a name="track-level-events"></a>Spåra på händelser
 
 Spåra på händelser aktiveras per spår. Spåra händelsetyper är:
 
@@ -83,7 +87,9 @@ Spåra på händelser aktiveras per spår. Spåra händelsetyper är:
 | Microsoft.Media.LiveEventIngestHeartbeat | Publicerade var 20: e sekund för varje spår när direktsändningen körs. Tillhandahåller mata in hälsoöversikt. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media-server identifierar avbrott i den inkommande kursen. |
 
-## <a name="event-schemas-and-properties"></a>Händelsescheman och egenskaper
+[Schemat exempel](#event-schema-examples) följer.
+
+## <a name="event-schema-examples"></a>Exempel för Event-schema
 
 ### <a name="jobstatechange"></a>JobStateChange
 
@@ -274,11 +280,11 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| StreamId | sträng | Identifierare för stream eller anslutning. Kodaren eller kunden är ansvarig för att lägga till detta ID i URL: en inmatning. |  
-| IngestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |  
+| streamId | sträng | Identifierare för stream eller anslutning. Kodaren eller kunden är ansvarig för att lägga till detta ID i URL: en inmatning. |  
+| ingestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |  
 | EncoderIp | sträng | IP-Adressen för kodaren. |
-| EncoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
-| Resultatkod | sträng | Orsaken till anslutningen avvisades. Resultatkoderna visas i följande tabell. |
+| encoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
+| resultCode | sträng | Orsaken till anslutningen avvisades. Resultatkoderna visas i följande tabell. |
 
 Resultatkoderna är:
 
@@ -321,10 +327,10 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| StreamId | sträng | Identifierare för stream eller anslutning. Kodaren eller kunden ansvarar för att tillhandahålla detta ID i URL: en för inmatning. |
-| IngestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |
+| streamId | sträng | Identifierare för stream eller anslutning. Kodaren eller kunden ansvarar för att tillhandahålla detta ID i URL: en för inmatning. |
+| ingestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |
 | EncoderIp | sträng | IP-Adressen för kodaren. |
-| EncoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
+| encoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -355,11 +361,11 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| StreamId | sträng | Identifierare för stream eller anslutning. Kodaren eller kunden är ansvarig för att lägga till detta ID i URL: en inmatning. |  
-| IngestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |  
+| streamId | sträng | Identifierare för stream eller anslutning. Kodaren eller kunden är ansvarig för att lägga till detta ID i URL: en inmatning. |  
+| ingestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |  
 | EncoderIp | sträng | IP-Adressen för kodaren. |
-| EncoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
-| Resultatkod | sträng | Orsaken till kodaren kopplar från. Det kan vara korrekt koppla från eller från ett fel. Resultatkoderna visas i följande tabell. |
+| encoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
+| resultCode | sträng | Orsaken till kodaren kopplar från. Det kan vara korrekt koppla från eller från ett fel. Resultatkoderna visas i följande tabell. |
 
 Resultatkoder för fel är:
 
@@ -412,12 +418,12 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| TrackType | sträng | Typ av spåret (ljud / Video). |
+| trackType | sträng | Typ av spåret (ljud / Video). |
 | TrackName | sträng | Namnet på kursen. |
 | Bithastighet | heltal | Bithastighet av kursen. |
 | tidsstämpel | sträng | Tidsstämpel datagruppen släppts. |
 | tidsskalan | sträng | Tidsskalan för tidsstämpeln. |
-| Resultatkod | sträng | Orsaken till i listrutan för data-segmentet. **FragmentDrop_OverlapTimestamp** eller **FragmentDrop_NonIncreasingTimestamp**. |
+| resultCode | sträng | Orsaken till i listrutan för data-segmentet. **FragmentDrop_OverlapTimestamp** eller **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -452,12 +458,12 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| TrackType | sträng | Typ av spåret (ljud / Video). |
+| trackType | sträng | Typ av spåret (ljud / Video). |
 | TrackName | sträng | Namnet på spåret (antingen tillhandahållna av kodaren eller, i händelse av RTMP genererar i *TrackType_Bitrate* format). |
 | Bithastighet | heltal | Bithastighet av kursen. |
-| IngestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |
+| ingestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |
 | EncoderIp | sträng  | IP-Adressen för kodaren. |
-| EncoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
+| encoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
 | tidsstämpel | sträng | Första tidsstämpel datagruppen som tagits emot. |
 | tidsskalan | sträng | Tidsskalan där timestamp representeras. |
 
@@ -491,12 +497,12 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| MinLastTimestamp | sträng | Minst senaste tidsstämplar bland alla spår (ljud eller video). |
-| TypeOfTrackWithMinLastTimestamp | sträng | Typ av spåra (ljud eller video) med minsta senaste tidsstämpel. |
-| MaxLastTimestamp | sträng | Högst alla tidsstämplar bland alla spår (ljud eller video). |
-| TypeOfTrackWithMaxLastTimestamp | sträng | Typ av spåra (ljud eller video) med maximalt senaste tidsstämpel. |
-| TimescaleOfMinLastTimestamp| sträng | Hämtar tidsskalan ”MinLastTimestamp” visas.|
-| TimescaleOfMaxLastTimestamp| sträng | Hämtar tidsskalan ”MaxLastTimestamp” visas.|
+| minLastTimestamp | sträng | Minst senaste tidsstämplar bland alla spår (ljud eller video). |
+| typeOfTrackWithMinLastTimestamp | sträng | Typ av spåra (ljud eller video) med minsta senaste tidsstämpel. |
+| maxLastTimestamp | sträng | Högst alla tidsstämplar bland alla spår (ljud eller video). |
+| typeOfTrackWithMaxLastTimestamp | sträng | Typ av spåra (ljud eller video) med maximalt senaste tidsstämpel. |
+| timescaleOfMinLastTimestamp| sträng | Hämtar tidsskalan ”MinLastTimestamp” visas.|
+| timescaleOfMaxLastTimestamp| sträng | Hämtar tidsskalan ”MaxLastTimestamp” visas.|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -527,10 +533,10 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| FirstTimestamp | sträng | Tidsstämpel som togs emot för en av spår/kvalitetsnivå av typen video. |
+| firstTimestamp | sträng | Tidsstämpel som togs emot för en av spår/kvalitetsnivå av typen video. |
 | FirstDuration | sträng | Varaktighet datagruppen med första tidsstämpel. |
-| SecondTimestamp | sträng  | Tidsstämpel som togs emot för vissa andra spåra/kvalitetsnivå av typen video. |
-| SecondDuration | sträng | Varaktighet datagruppen med andra tidsstämpel. |
+| secondTimestamp | sträng  | Tidsstämpel som togs emot för vissa andra spåra/kvalitetsnivå av typen video. |
+| secondDuration | sträng | Varaktighet datagruppen med andra tidsstämpel. |
 | tidsskalan | sträng | Tidsskalan tidsstämplar och varaktighet.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
@@ -569,16 +575,16 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| TrackType | sträng | Typ av spåret (ljud / Video). |
+| trackType | sträng | Typ av spåret (ljud / Video). |
 | TrackName | sträng | Namnet på spåret (antingen tillhandahållna av kodaren eller, i händelse av RTMP genererar i *TrackType_Bitrate* format). |
 | Bithastighet | heltal | Bithastighet av kursen. |
-| IncomingBitrate | heltal | Beräknad bithastighet baserat på datasegment som kommer från kodaren. |
-| LastTimestamp | sträng | Senaste tidsstämpel togs emot för ett spår i senaste 20 sekunder. |
+| incomingBitrate | heltal | Beräknad bithastighet baserat på datasegment som kommer från kodaren. |
+| lastTimestamp | sträng | Senaste tidsstämpel togs emot för ett spår i senaste 20 sekunder. |
 | tidsskalan | sträng | Tidsskalan där tidsstämplar uttrycks. |
-| OverlapCount | heltal | Antal datasegment hade överlappas tidsstämplar i senaste 20 sekunder. |
+| overlapCount | heltal | Antal datasegment hade överlappas tidsstämplar i senaste 20 sekunder. |
 | DiscontinuityCount | heltal | Antal avbrott som observerats under de senaste 20 sekunder. |
 | NonIncreasingCount | heltal | Antal datasegment med tidsstämplar som tidigare har tagits emot senaste 20 sekunder. |
-| UnexpectedBitrate | Bool | Om förväntade och faktiska bithastighet skiljer sig åt i mer än tillåtna gränsen på senaste 20 sekunder. Det är SANT om och bara om, incomingBitrate > = 2 * bithastighet eller incomingBitrate < = bithastighet/2 eller IncomingBitrate = 0. |
+| unexpectedBitrate | Bool | Om förväntade och faktiska bithastighet skiljer sig åt i mer än tillåtna gränsen på senaste 20 sekunder. Det är SANT om och bara om, incomingBitrate > = 2 * bithastighet eller incomingBitrate < = bithastighet/2 eller IncomingBitrate = 0. |
 | state | sträng | Status för live-händelse. |
 | felfri | Bool | Anger om mata in är felfri baserat på antalet och flaggor. Felfri är SANT om overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
@@ -613,12 +619,12 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| TrackType | sträng | Typ av spåret (ljud / Video). |
+| trackType | sträng | Typ av spåret (ljud / Video). |
 | TrackName | sträng | Namnet på spåret (antingen tillhandahållna av kodaren eller, i händelse av RTMP genererar i *TrackType_Bitrate* format). |
 | Bithastighet | heltal | Bithastighet av kursen. |
-| PreviousTimestamp | sträng | Tidsstämpel för det föregående fragmentet. |
-| NewTimestamp | sträng | Tidsstämpel för det aktuella fragmentet. |
-| DiscontinuityGap | sträng | Mellanrummet mellan ovan två tidsstämplar. |
+| previousTimestamp | sträng | Tidsstämpel för det föregående fragmentet. |
+| newTimestamp | sträng | Tidsstämpel för det aktuella fragmentet. |
+| discontinuityGap | sträng | Mellanrummet mellan ovan två tidsstämplar. |
 | tidsskalan | sträng | Tidsskalan i vilka både tidsstämpel och avbrott mellanrum representeras. |
 
 ### <a name="common-event-properties"></a>Gemensamma händelseegenskaper

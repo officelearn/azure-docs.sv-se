@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428247"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236013"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
 
@@ -26,7 +26,7 @@ För en runbook som ska användas som ett skript före eller efter måste runboo
 
 ## <a name="using-a-prepost-script"></a>Med ett före/efter-skript
 
-Att använda ett skript före och/eller post i en Uppdateringsdistribution kan bara starta genom att skapa en Uppdateringsdistribution. Välj **förskript + Post skript (förhandsversion)**. Då öppnas det **Välj förskript och efterskript** sidan.  
+Använda en i förväg och eller publicera skript i en Uppdateringsdistribution kan du börja med att skapa en Uppdateringsdistribution. Välj **förskript + Post skript (förhandsversion)**. Den här åtgärden öppnar den **Välj förskript och efterskript** sidan.  
 
 ![Välj skript](./media/pre-post-scripts/select-scripts.png)
 
@@ -42,17 +42,19 @@ Den **valda objekt** avsnittet visar nu både dina skript som valts och är på 
 
 Konfigurera din distribution.
 
-När distributionen av uppdateringen är klar går du till **uppdateringsdistributioner** vill visa resultatet. Som du kan se status för förskript och efterskript är angivna.
+När distributionen av uppdateringen är klar går du till **uppdateringsdistributioner** vill visa resultatet. Som du kan se status för förskript och efterskript tillhandahålls.
 
 ![Uppdatera resultat](./media/pre-post-scripts/update-results.png)
 
-Genom att klicka på uppdateringsdistributionen kör du finns ytterligare information före och efter-skript. Det finns en länk till skriptkälla vid tidpunkten för körningen.
+Genom att klicka i uppdateringsdistributionen kör, får du ytterligare information före och efter-skript. Det finns en länk till skriptkälla vid tidpunkten för körningen.
 
 ![Distribution Körningsresultat](./media/pre-post-scripts/deployment-run.png)
 
 ## <a name="passing-parameters"></a>Skicka parametrar
 
-När du konfigurerar som före och efter-skript som du bara kan skicka parametrar schemaläggning av en runbook. Parametrar definieras vid tidpunkten för uppdatering distributionen skapas. Utöver standard runbook-parametrarna erbjuds en extra parameter. Den här parametern är **SoftwareUpdateConfigurationRunContext**. Den här parametern är en JSON-sträng, och om du definierar parametern i skriptet före eller efter det skickas automatiskt av uppdateringsdistributionen. Parametern innehåller information om distributionen av uppdateringen som är en delmängd av information som returneras av den [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) i följande tabell visar de egenskaper som anges i variabeln:
+När du konfigurerar före och efter skript, du kan skicka parametrar precis som schemaläggning av en runbook. Parametrar definieras vid tidpunkten för uppdatering distributionen skapas. Skript före och efter kräver att parametrarna är av typen `String`. Om du behöver en annan objekttyp kan du skicka den till en annan typ med `[System.Convert]` eller hantera den med din egen logik.
+
+Utöver standard runbook-parametrarna erbjuds en extra parameter. Den här parametern är **SoftwareUpdateConfigurationRunContext**. Den här parametern är en JSON-sträng, och om du definierar parametern i skriptet före eller efter det skickas automatiskt av uppdateringsdistributionen. Parametern innehåller information om distributionen av uppdateringen, vilket är en delmängd av information som returneras av den [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) i följande tabell visar de egenskaper som anges i variabeln:
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext properties
 
@@ -70,7 +72,7 @@ När du konfigurerar som före och efter-skript som du bara kan skicka parametra
 |azureVirtualMachines     | En lista över resourceIds för virtuella Azure-datorer i uppdateringsdistributionen        |
 |nonAzureComputerNames|En lista med icke-Azure-datorer FQDN i uppdateringsdistributionen|
 
-Följande är ett exempel på en JSON-sträng som skickas till den **SoftwareUpdateConfigurationRunContext** parameter:
+I följande exempel är en JSON-sträng som skickas till den **SoftwareUpdateConfigurationRunContext** parameter:
 
 ```json
 "SoftwareUpdateConfigurationRunContext":{
@@ -119,7 +121,7 @@ Eller du kan söka efter dem av deras skriptets namn som visas i listan nedan:
 > [!IMPORTANT]
 > När du har importerat runbooks måste du **publicera** dem innan de kan användas. För att göra som hitta runbook i Automation-kontot, Välj **redigera**, och klicka på **publicera**.
 
-Exemplen är alla baserade på den grundläggande mall som definieras i följande exempel. Den här mallen kan användas för att skapa egna runbooks ska användas med skript före och efter. Den nödvändiga logiken för autentisering med Azure samt hantering av den `SoftwareUpdateConfigurationRunContext` parametern ingår.
+Exemplen är alla baserade på den grundläggande mall som definieras i följande exempel. Den här mallen kan användas för att skapa egna runbooks ska användas med skript före och efter. Den nödvändiga logiken för autentisering med Azure och hantering av den `SoftwareUpdateConfigurationRunContext` parametern ingår.
 
 ```powershell
 <# 
@@ -174,14 +176,14 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-non-azure-machines"></a>Interagera med icke-Azure-datorer
 
-Före och efter aktiviteter körs i Azure-kontext och har inte åtkomst till icke-Azure-datorer. För att kunna interagera med icke-Azure-datorer måste du ha följande:
+Före och efter aktiviteter körs i Azure-kontext och har inte åtkomst till icke-Azure-datorer. För att interagera med icke-Azure-datorer, måste du ha följande objekt:
 
 * Ett kör som-konto
 * Hybrid Runbook Worker installerad på datorn
 * En runbook som du vill köra lokalt
 * Överordnad runbook
 
-För att interagera med körts icke-Azure-datorerna som en överordnad runbook har i Azure-kontext. Denna runbook anropar en underordnad runbook med den [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Du måste ange den `-RunOn` parametern och ange namnet på den Hybrid Runbook Worker för att skriptet ska köras på.
+För att interagera med icke-Azure-datorer, körs en överordnad runbook i Azure-kontext. Denna runbook anropar en underordnad runbook med den [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Du måste ange den `-RunOn` parametern och ange namnet på den Hybrid Runbook Worker för att skriptet ska köras på.
 
 ```powershell
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'

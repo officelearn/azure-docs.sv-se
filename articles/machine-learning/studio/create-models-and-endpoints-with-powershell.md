@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492835"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244306"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Använd PowerShell för att skapa Studio modeller och slutpunkter för webbtjänster från ett experiment
 
@@ -35,7 +35,7 @@ Som tur är kan du kan göra detta med hjälp av den [Azure Machine Learning ret
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Konfigurera träningsexperimentet
-Använd exempel [träningsexperiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) som finns i den [Cortana Intelligence-galleriet](http://gallery.cortanaintelligence.com). Öppna det här experimentet i din [Azure Machine Learning Studio](https://studio.azureml.net) arbetsyta.
+Använd exempel [träningsexperiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) som finns i den [Cortana Intelligence-galleriet](http://gallery.azure.ai). Öppna det här experimentet i din [Azure Machine Learning Studio](https://studio.azureml.net) arbetsyta.
 
 > [!NOTE]
 > För att kunna följa med i det här exemplet, kan du använda en standardarbetsytan i stället för en kostnadsfri arbetsyta. Du skapar en slutpunkt för varje kund - totalt 10 slutpunkter - och som kräver en standardarbetsytan eftersom en kostnadsfri arbetsyta är begränsat till 3 slutpunkter. Om du bara har en kostnadsfri arbetsyta bara ändra skripten så att endast th platser.
@@ -63,7 +63,7 @@ Nu ska du distribuera bedömning av webbtjänsten.
 Gör detta genom att klicka på **konfigurera Web Service** under arbetsytan och välj **förutsägande webbtjänsten**. Detta skapar en arbetsflödesbaserad experiment.
 Du måste göra några mindre justeringar gör att den fungerar som en webbtjänst. Ta bort etikettkolumnen ”cnt” från indata och begränsa utdata till endast instans-id och motsvarande förutsägelsevärdet.
 
-Du kan spara arbetet, kan du öppna den [förutsägelseexperiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) i galleriet som redan har förberetts.
+Du kan spara arbetet, kan du öppna den [förutsägelseexperiment](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) i galleriet som redan har förberetts.
 
 Om du vill distribuera webbtjänsten kör förutsägbart experiment, och klicka sedan på den **distribuera webbtjänsten** knappen under arbetsytan. Namnge tjänsten bedömnings web ”cykel hyra bedömning”.
 

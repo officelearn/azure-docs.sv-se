@@ -3,19 +3,19 @@ title: Anropa API:t för textanalys
 titlesuffix: Azure Cognitive Services
 description: Lär dig hur du anropar den REST API för textanalys.
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 60aa51e4dac796e034b7b0506be0e205951226de
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870783"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244036"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Hur du anropar den REST API för textanalys
 
@@ -30,9 +30,7 @@ Kom ihåg att Text Analytics är tillståndslösa så att det finns inga datatil
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API för textanalys**. 
-
-Du måste ha den [slutpunkt och åtkomstnyckel](text-analytics-how-to-access-key.md) som genererades när du registrerar dig för Cognitive Services. 
+Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API för textanalys, och [slutpunkt och åtkomstnyckel](text-analytics-how-to-access-key.md) som genererades när du registrerar dig för Cognitive Services. 
 
 <a name="json-schema"></a>
 

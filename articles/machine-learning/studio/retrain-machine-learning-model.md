@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: e691913daabb832b2a3b51dac5d4a5b0e1f53871
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165087"
+ms.locfileid: "56236268"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Omtrimning av en Azure Machine Learning Studio-modell
 Som en del av processen för driftsättning av machine learning-modeller i Azure Machine Learning, är din modell tränas och sparas. Du sedan använda den för att skapa en förutsägbar webbtjänst. Webbtjänsten kan sedan användas i webbplatser, instrumentpaneler och mobila appar. 
@@ -53,8 +53,6 @@ Träna om webbtjänsten:
 * Distribuera omtränings webbtjänsten
 * Använd Batch Execution Service-kod för att träna modellen
 
-En genomgång av det föregående steg finns i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
-
 > [!NOTE] 
 > Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
 
@@ -74,8 +72,6 @@ Om du har distribuerat en ny webbtjänst:
 * Uppdatera referensen till den `ilearner` blob i JSON
 * Importera JSON till en Web Service Definition
 * Uppdatera webbtjänsten med nya Web Service Definition
-
-En genomgång av det föregående steg finns i [omtrimning av en ny webbtjänst med hjälp av Machine Learning Management PowerShell-cmdletar](retrain-new-web-service-using-powershell.md).
 
 Processen för att konfigurera retraining för en klassisk webbtjänst omfattar följande steg:
 

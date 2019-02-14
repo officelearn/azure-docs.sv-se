@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 69dd9374f32dbea7ab6f11beec0204ac26e299bc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 92e5fb782eed3344a55178d6ba74dfd6d7b8cafd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104456"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235922"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -31,7 +31,9 @@ När du använder länkade mallar kan skapa du en Huvudmall som tar emot paramet
 
 En självstudiekurs finns i [självstudie: Skapa länkade Azure Resource Manager-mallar](./resource-manager-tutorial-create-linked-templates.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> För länkade eller kapslade mallar, kan du bara använda [stegvis](deployment-modes.md) distributionsläget.
+>
 
 ## <a name="link-or-nest-a-template"></a>Länka eller kapsla en mall
 
@@ -52,8 +54,6 @@ Om du vill länka till en annan mall, lägger du till en **distributioner** resu
 ```
 
 Egenskaper som du anger för distribution av resursen varierar beroende på om du länkar till en extern mall eller kapsla en mall för infogad i mallen huvudsakliga.
-
-För båda länkade och kapslade mallar du kan bara använda [stegvis](deployment-modes.md) distributionsläget.
 
 ### <a name="nested-template"></a>Kapslad mall
 

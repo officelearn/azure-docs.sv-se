@@ -25,6 +25,8 @@ items:
     href: quickstart-create-data-factory-rest-api.md
   - name: Skapa datafabrik – Resource Manager-mall
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Skapa ett dataflöde
+    href: data-flow-create.md
   expanded: true
 - name: Självstudier
   items:
@@ -408,6 +410,42 @@ items:
       href: control-flow-wait-activity.md
     - name: Webbaktivitet
       href: control-flow-web-activity.md
+  - name: Dataflödesomvandlingar
+    items:
+    - name: Aggregera
+      href: data-flow-aggregate.md
+    - name: Villkorsstyrd delning
+      href: data-flow-conditional-split.md
+    - name: Härledd kolumn
+      href: data-flow-derived-column.md
+    - name: Finns
+      href: data-flow-exists.md
+    - name: Filter
+      href: data-flow-filter.md
+    - name: Slå ihop
+      href: data-flow-join.md
+    - name: Sökning
+      href: data-flow-lookup.md
+    - name: Ny gren
+      href: data-flow-new-branch.md
+    - name: Pivotera
+      href: data-flow-pivot.md
+    - name: Välj
+      href: data-flow-select.md
+    - name: Kanalmottagare
+      href: data-flow-sink.md
+    - name: Sortera
+      href: data-flow-sort.md
+    - name: Källa
+      href: data-flow-source.md
+    - name: Surrogatnyckel
+      href: data-flow-surrogate-key.md
+    - name: Union
+      href: data-flow-union.md
+    - name: Normalisera
+      href: data-flow-unpivot.md
+    - name: Fönster
+      href: data-flow-window.md
   - name: Parameterisera
     items:
     - name: Parameterisera länkade tjänster
@@ -528,9 +566,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Supportalternativ
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 535abc50cd27693da90aaaddcfdf8950d6abc59d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ee5cd120a8f1ecb8a1f685c1fa2332a9d9c5dd1
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174426"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270427"

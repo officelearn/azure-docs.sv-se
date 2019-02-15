@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c337f147eaebc376c7953e7f585b5b9f6a10f94
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f4b66f79e415be8f9598a0e6f5c875d8a2597514
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471692"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300031"
 documentType: LandingData
 title: Dokumentation om Azure Machine Learning-tjänsten
 metadata:
@@ -22,12 +22,17 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att utveckla, träna, testa, distribuera, hantera och spåra maskininlärningsmodeller. Den här tjänsten har fullständigt stöd för tekniker med öppen källkod som till exempel Scikit-learn, Tensorflow, Pytorch och andra Python-baserade ramverk. Lär dig hur du använder den här tjänsten för dina arbetsflöden för maskininlärning med hjälp av våra snabbstarter och självstudier.
+  description: Azure Machine Learning Service tillhandahåller en molnbaserad miljö som du kan använda för att skapa, träna och distribuera maskininlärningsmodeller. Använd automatiserad maskininlärning för att identifiera algoritmer och justera hyperparametrar snabbare. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och Azure DevOps för maskininlärning. Använd alla dessa funktioner från din Python-miljö med hjälp av tjänst-SDK:er och ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn. Lär dig hur med våra snabbstarter och självstudier.
 sections:
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: Börja med att skapa en arbetsyta för tjänsten och resurser <a href="quickstart-get-started">i Azure-portalen</a> eller <a href="quickstart-create-workspace-with-python">i Python</a>.
+    text: 'Om du vill använda den här tjänsten behöver du en arbetsyta och associerade resurser.  Kom igång:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="quickstart-get-started">Använd snabbstarten i Microsoft Azure-portalen</a> för att hämta arbetsytan och köra ett experiment utan att installera något.
+    - html: <a href="quickstart-create-workspace-with-python">Använd Python-snabbstarten</a> för att installera den huvudsakliga SDK:n, skapa en arbetsyta och köra ett experiment i en lokal notebook-server.
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -35,7 +40,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Träna</a> och <a href="tutorial-deploy-models-with-aml">distribuera</a> avbildningsklassificeringsmodeller (<b>serie i två delar</b>).<br>&nbsp;
+    - html: <a href="tutorial-train-models-with-aml">Träna</a> och <a href="tutorial-deploy-models-with-aml">distribuera</a> avbildningsklassificeringsmodeller (<b>serie i två delar</b>).
     - html: <a href="tutorial-data-prep">Förbereda data</a> och <a href="tutorial-auto-train-models">använda automatiserad maskininlärning</a> för att träna och justera regressionsmodeller (<b>serie i två delar</b>).
 - title: Exempel
   items:

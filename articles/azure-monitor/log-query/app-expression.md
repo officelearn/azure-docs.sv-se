@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0abe2c869a05d359f692db105eb647f9e6a69df8
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998543"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266432"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>App() uttryck i Azure Monitor-fråga
 
@@ -80,4 +80,4 @@ union
 
 - Se den [arbetsytan uttryck](workspace-expression.md) att referera till en Log Analytics-arbetsyta.
 - Läs om hur [Azure Monitor data](../../azure-monitor/log-query/log-query-overview.md) lagras.
-- Få åtkomst till fullständig dokumentation för den [Datautforskaren frågespråk](/azure/kusto/query/).
+- Få åtkomst till fullständig dokumentation för den [Kusto-frågespråket](/azure/kusto/query/).

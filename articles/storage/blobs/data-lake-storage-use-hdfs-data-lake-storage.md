@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 649fe5ebadf69a90b4794fcaf4519ea5bcc0c4a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874199"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269748"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Med hjälp av HDFS-CLI med Data Lake Storage Gen2
 
@@ -26,17 +26,37 @@ HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslut
 >[!IMPORTANT]
 >HDInsight-kluster debiteringen börjar när ett kluster har skapats och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används. Information om hur du tar bort ett kluster finns i vår [artikeln på ämnet](../../hdinsight/hdinsight-delete-cluster.md). Data som lagras i ett lagringskonto med Data Lake Storage Gen2 aktiverat kvarstår dock även efter ett HDInsight-klustret tas bort.
 
+### <a name="create-a-file-system"></a>Skapa ett filsystem
+
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+
+* Ersätt den `<file-system-name>` med det namn som du vill ge ditt filsystem.
+
+* Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
+
 ### <a name="get-a-list-of-files-or-directories"></a>Hämta en lista över filer eller kataloger
 
-    hdfs dfs -ls <args>
+    hdfs dfs -ls <path>
+
+Ersätt den `<path>` med URI: N för filsystemet eller filens systemmapp.
+
+Exempel: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ### <a name="create-a-directory"></a>Skapa en katalog
 
-    hdfs dfs -mkdir [-p] <paths>
+    hdfs dfs -mkdir [-p] <path>
 
-### <a name="delete-a-file-or-a-directory"></a>Ta bort en fil eller katalog
+Ersätt den `<path>` med rot filsystemets namn eller en mapp i ditt filsystem.
 
-    hdfs dfs -rm [-skipTrash] URI [URI ...]
+Exempel: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+### <a name="delete-a-file-or-directory"></a>Ta bort en fil eller katalog
+
+    hdfs dfs -rm <path>
+
+Ersätt den `<path>` med URI för filen eller mappen som du vill ta bort.
+
+Exempel: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ### <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Använd HDFS-CLI med ett HDInsight Hadoop-kluster på Linux
 
@@ -52,11 +72,15 @@ hdfs dfs -mkdir /samplefolder
 ```
 Anslutningssträngen kan hittas på den ”SSH- och logga in” på bladet för HDInsight-kluster i Azure-portalen. SSH-autentiseringsuppgifter angavs vid tidpunkten för klustret skapas.
 
-Mer information om HDFS CLI finns i den [officiella dokumentationen](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) och [Guide för HDFS-behörigheter](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). Läs mer om ACL: er i Databricks i den [hemligheter CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli). 
+Mer information om HDFS CLI finns i den [officiella dokumentationen](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) och [Guide för HDFS-behörigheter](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). Läs mer om ACL: er i Databricks i den [hemligheter CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli).
 
 ## <a name="hdfs-cli-with-azure-databricks"></a>HDFS CLI med Azure Databricks
 
 Databricks ger en enkel att använda CLI som bygger på Databricks REST API. Projekt för öppen källkod finns på [GitHub](https://github.com/databricks/databricks-cli). Nedan visas vanliga kommandon.
+
+### <a name="create-a-file-system"></a>Skapa ett filsystem
+
+Här placerar du riktlinjerna.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Hämta en lista över filer eller kataloger
 

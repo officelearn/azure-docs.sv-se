@@ -10,16 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6442facf680c934d976e7fa8008f2f3c3551045f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244801"
+ms.locfileid: "56268112"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 
 Besvara frågan ”vad maskininlärningsalgoritmen ska jag använda”? är alltid ”det beror på”. Det beror på storleken, kvalitet och typen av uppgift. Det beror på vad du vill göra med svaret. Det beror på hur matematiska av algoritmen har översatts till anvisningar för den dator som du använder. Och det beror på hur lång tid som du har. Även de mest erfarna dataexperter kan inte se bästa utförs innan du försöker dem med vilken algoritm.
+
+Machine Learning Studio tillhandahåller avancerade algoritmer som skalbara förstärkta beslutsträd, Bayesian Recommendation-system, djupa neurala nätverk och beslutsdjungler utvecklade av Microsoft Research. Skalbara maskininlärningspaket med öppen källkod, som Vowpal Wabbit, ingår också. Machine Learning Studio stöder maskininlärningsalgoritmer för multiklass-baserad och binär klassificering, regression och kluster. Se en fullständig lista över [Machine Learning-moduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index).
+Dokumentationen innehåller information om varje algoritm och hur du ställer in parametrar för att optimera algoritmen för din användning.  
+
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Lathund för Machine Learning-algoritm
 

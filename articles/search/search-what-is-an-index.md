@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 77f4b597ad4b87db7e720dd57191c6b192a4c93b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd5f58a03ffd054e79f1ff4ea6d61c33c06b6e7c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000959"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268557"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Skapa ett grundläggande index i Azure Search
 
@@ -23,6 +23,12 @@ I Azure Search, en *index* är ett beständigt Arkiv med *dokument* och andra ko
 När du lägger till eller ladda upp ett index skapas Azure Search fysiska strukturer som baseras på schemat som du anger. Om ett fält i indexet har markerats som sökbara, till exempel skapas ett vägar i inverterad index för det fältet. Senare, när du lägger till eller ladda upp dokument eller skickar sökfrågor till Azure Search skickar du begäranden till ett specifikt index i din söktjänst. Läser in fälten med dokumentvärden kallas *indexering* eller dataintag.
 
 Du kan skapa ett index i portalen [REST API](search-create-index-rest-api.md), eller [.NET SDK](search-create-index-dotnet.md).
+
+## <a name="recommended-workflow"></a>Rekommenderat arbetsflöde
+
+Eftersom fysiska strukturer skapas under indexering, behöver du [ta bort och återskapa index](search-howto-reindex.md) när du gör större ändringar till en befintlig fältdefinition. Det innebär att under utvecklingen, bör du planera på ofta behöver. Kan du arbeta med en delmängd av dina data så återskapar gå snabbare. 
+
+Koden i stället för att portalen indexering rekommenderas. Om du förlitar dig på portalen för indexdefinitionen, måste du fylla i indexdefinitionen på varje återskapning. Alternativt kan du med ett verktyg som [Postman och REST API](search-fiddler.md) är användbara för proof-of-concept testning när utvecklingsprojekt är fortfarande under tidiga faser. Du kan ändra inkrementella en Indexdefinition i begärandetexten, skickar en begäran till din tjänst att återskapa ett index med en uppdaterade schemat.
 
 ## <a name="components-of-an-index"></a>Komponenter i ett index
 
@@ -133,8 +139,20 @@ Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns h
 
 Mer detaljerad information om [indexattributen i Azure Search finns här](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
+## <a name="storage-implications-of-index-attributes"></a>Storage effekterna av indexattribut
+
+De attribut som du väljer påverka lagring. Skärmbilden nedan är en illustration av index storage mönster som härrör från olika kombinationer av attribut. Indexet baseras på den [inbyggda realestate-exemplet](search-get-started-portal.md) datakällan, vilket kan du indexera och fråga i portalen.
+
+Filtrera och sortera operations-fråga på exakta matchningar så att dokument som lagras intakta. Sökbara fält möjliggör fulltext- och fuzzy-sökning. Vägar i inverterad index skapas för sökbara fält och fylls med principfilerna villkor. Markera ett fält påverkar som ett hämtningsbart inte märkbar Indexstorlek.
+
+![Index-storlek baserat på val av attributet](./media/search-what-is-an-index/realestate-index-size.png "Index-storlek baserat på val av attribut")
+
+Lagringsimplementering anses en implementeringsdetalj för Azure Search och kan ändras utan föregående meddelande. Det finns ingen garanti att aktuella beteendet behålls i framtiden.
+
 ## <a name="suggesters"></a>Förslag på alternativ
-En förslagsställare är en del av det schema som definierar vilka fält i ett index används för att stödja Komplettera automatiskt eller frågeifyllningsförslag frågor i sökningar. Partiell söksträngar skickas vanligtvis till förslag (Azure Search Service REST API) när användaren skriver en sökfråga och API: et returnerar en mängd med föreslagna fraserna. En förslagsställare som du definierar i indexet avgör vilka fält som används för att skapa frågeifyllningsförslag sökvillkor. Mer information finns i [lägga till förslagsställare](index-add-suggesters.md) konfigurationsinformation.
+En förslagsställare är en del av det schema som definierar vilka fält i ett index används för att stödja Komplettera automatiskt eller frågeifyllningsförslag frågor i sökningar. Partiell söksträngar skickas vanligtvis till förslag (Azure Search Service REST API) när användaren skriver en sökfråga och API: et returnerar en mängd med föreslagna fraserna. 
+
+En förslagsställare som du definierar i indexet avgör vilka fält som används för att skapa frågeifyllningsförslag sökvillkor. Mer information finns i [lägga till förslagsställare](index-add-suggesters.md) konfigurationsinformation.
 
 ## <a name="scoring-profiles"></a>Poängprofiler
 

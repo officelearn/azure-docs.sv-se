@@ -2,21 +2,21 @@
 title: Skapa anpassade felsidor för Azure Application Gateway
 description: Den här artikeln visar hur du skapar anpassade felsidor för Application Gateway.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2f76347105743538e9fc1d7588ecb949f2675696
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071297"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301612"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Skapa anpassade felsidor för Application Gateway
 
-Application Gateway kan du skapa anpassade felsidor i stället för den standard-felsidor. Du kan använda din egen anpassning och layout med hjälp av en anpassad felsida.
+Med Application Gateway kan du skapa anpassade felsidor i stället för att visa standardmässiga felsidor. Du kan använda din egen varumärkesanpassning och layout med hjälp av en anpassad felsida.
 
 Du kan till exempel definiera egna underhållssidan om ditt webbprogram inte går att nå. Du kan också skapa en sida för obehörig åtkomst om en obehörig begäran har skickats till ett webbprogram.
 
@@ -34,6 +34,7 @@ Anpassade felsidor kan definieras på global nivå och den lyssnare:
 - **Båda** -den anpassade felsidan som definierats på nivån lyssnare åsidosätter en uppsättning på global nivå.
 
 Om du vill skapa en anpassad felsida, måste du ha:
+
 - en HTTP-statuskod i svaret.
 - motsvarande plats för felsidan. 
 - en offentligt tillgänglig Azure storage-blob för platsen.
@@ -59,5 +60,19 @@ När du har angett en felsida application gateway hämtar den från lagringsplat
 4. Ange en offentligt tillgänglig blob-URL för en viss felkod status och klicka på **spara**. Application Gateway har konfigurerats med den anpassade felsidan.
 
    ![Felkoder för Application Gateway](media/custom-error/ag-error-codes.png)
+
+## <a name="azure-powershell-configuration"></a>Azure PowerShell-konfiguration
+
+Du kan använda Azure PowerShell för att konfigurera en anpassad felsida. Till exempel en global anpassad felsida:
+
+`$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Eller en lyssnare på felsidan:
+
+`$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Mer information finns i [Lägg till AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) och [Lägg till AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+
 ## <a name="next-steps"></a>Nästa steg
+
 Läs om hur Application Gateway-diagnostik [backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).

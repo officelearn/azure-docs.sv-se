@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 94c7b5c81785c3d6fba31396f5812a1308817e33
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115716"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301119"
 ---
 # <a name="azure-stack-1901-update"></a>Uppdatering av Azure Stack 1901
 
@@ -199,7 +199,9 @@ Referens för de uppdaterade modulerna finns [Azure Stack-modulreferens](https:/
            "autoUpgradeMinorVersion": "true"
    ```
 
-- Det finns en ny beräkningen för korrekt planera kapacitet för Azure Stack. Vi har angett begränsningar på det totala antalet virtuella datorer som kan distribueras i Azure Stack, så alla våra interna tjänster uppfylla skalan där kunderna köra. Gränsen är 60 virtuella datorer per värd, med högst 700 för hela stämpel (om 60 per värd gränsen har nåtts). Mer information finns i den [ny capacity planner-version](http://aka.ms/azstackcapacityplanner).
+- Det finns en ny beräkningen för korrekt planera kapacitet för Azure Stack. Med 1901-uppdateringen finns nu en gräns för det totala antalet virtuella datorer som kan skapas.  Den här gränsen är avsedd att vara tillfällig att undvika lösning instabilitet. Källan till problemet stabilitet på högre antal virtuella datorer behandlas men en specifik tidslinje för reparation ännu inte har fastställts. Med 1901-uppdateringen finns nu en per server gräns på 60 virtuella datorer med en komplett lösning högst 700.  Till exempel vore ett 8 Azure Stack VM gränsen 480 (8 * 60).  För en server med 12 till 16 Azure Stack-lösningen är gränsen 700. Den här gränsen har skapats och all beräkningskraft kapacitetsöverväganden Tänk till exempel återhämtning reservera och CPU virtuella till fysiska förhållande som en operatör vill behålla på stämpeln. Mer information finns i den nya versionen av capacity planner.  
+I händelse av att VM scale gränsen har uppnåtts, skulle följande felkoder returneras som ett resultat: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - Compute-API-versionen har ökat till 2017-12-01.
 

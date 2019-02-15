@@ -1,5 +1,5 @@
 ---
-title: 'Implementera CI/CD för Azure Stream Analytics med hjälp av REST API: er'
+title: 'Implementera CI/CD för Azure Stream Analytics på IoT Edge med hjälp av REST API: er'
 description: 'Lär dig hur du implementerar en kontinuerlig integrering och distributionspipeline för Azure Stream Analytics med hjälp av REST API: er.'
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: f22a4c4d0159efa2ac42d15ff6afdadc2d6755d0
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 40beb620e037061b189762a51e3c29d0fd251b27
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215056"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268507"
 ---
-# <a name="implement-cicd-for-stream-analytics-using-apis"></a>Implementera CI/CD för Stream Analytics med hjälp av API: er
+# <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementera CI/CD för Stream Analytics på IoT Edge med API: er
 
 Du kan aktivera kontinuerlig integrering och distribution för Azure Stream Analytics-jobb med hjälp av REST API: er. Den här artikeln innehåller exempel på vilka API: er ska användas och hur de används. REST API: er stöds inte på Azure Cloud Shell.
 

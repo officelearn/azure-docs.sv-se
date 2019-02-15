@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164625"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301765"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Kontrollera och att bevilja åtkomst till databasen till SQL Database och SQL Data Warehouse
 
@@ -84,9 +84,9 @@ Förutom de administrativa roller på servernivå som diskuterats, erbjuder SQL 
 
 ### <a name="database-creators"></a>Databasskapare
 
-En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här rollen kan skapa nya databaser. För att använda den här rollen skapar du en användare i `master`-databasen och lägger sedan till användaren i **dbmanager**-databasrollen. För att skapa en databas måste användaren vara en användare som är baserad på SQL Server-inloggning i huvuddatabasen eller en oberoende databasanvändare som är baserad på en Azure Active Directory-användare.
+En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här rollen kan skapa nya databaser. För att använda den här rollen skapar du en användare i `master`-databasen och lägger sedan till användaren i **dbmanager**-databasrollen. Om du vill skapa en databas, måste användaren vara en användare baserat på en SQL Server-inloggning i den `master` databas eller oberoende databasanvändare baserat på en Azure Active Directory-användare.
 
-1. Anslut till huvuddatabasen med ett administratörskonto.
+1. Med ett administratörskonto, ansluta till den `master` databas.
 2. Skapa en SQL Server-autentiseringsinloggning med hjälp av den [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instruktionen. Exempel på instruktion:
 
    ```sql
@@ -98,7 +98,7 @@ En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här
 
    För att förbättra prestandan cachelagras inloggningar (huvudnamn på servernivå) tillfälligt på databasnivån. Information om hur du uppdaterar autentiseringscache finns i [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. Skapa en användare i huvuddatabasen med hjälp av instruktionen [SKAPA ANVÄNDARE](https://msdn.microsoft.com/library/ms173463.aspx). Användaren kan vara en Azure Active Directory-autentiserad oberoende databasanvändare (om du har konfigurerat din miljö för Azure AD-autentisering), eller en SQL Server-autentiserad oberoende databasanvändare, eller en SQL Server-autentiserad användare baserad på en SQL Server-autentiserad inloggning (skapad i föregående steg.) Exempel på instruktioner:
+3. I den `master` databasen, skapa en användare med hjälp av den [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) instruktionen. Användaren kan vara en Azure Active Directory-autentiserad oberoende databasanvändare (om du har konfigurerat din miljö för Azure AD-autentisering), eller en SQL Server-autentiserad oberoende databasanvändare, eller en SQL Server-autentiserad användare baserad på en SQL Server-autentiserad inloggning (skapad i föregående steg.) Exempel på instruktioner:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -106,7 +106,7 @@ En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Lägg till den nya användaren till **dbmanager**-databasrollen med hjälp av instruktionen [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Exempel på instruktioner:
+4. Lägg till den nya användaren till den **dbmanager** databasrollen i `master` med hjälp av den [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) instruktionen. Exempel på instruktioner:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -118,7 +118,7 @@ En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här
 
 5. Vid behov konfigurerar du en brandväggsregel så att den nya användaren kan ansluta. (Den nya användaren kan omfattas av en befintlig brandväggsregel.)
 
-Nu kan användaren ansluta till huvuddatabasen och kan skapa nya databaser. Det konto som skapar databasen blir ägare till databasen.
+Nu användaren kan ansluta till den `master` databasen och kan skapa nya databaser. Det konto som skapar databasen blir ägare till databasen.
 
 ### <a name="login-managers"></a>Inloggningshanterare
 
@@ -141,11 +141,19 @@ Initialt kan endast en av administratörerna eller ägaren av databasen skapa an
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Om du vill ge ytterligare användare fullständig behörighet till databasen, gör dem till medlemmar i den fasta databasrollen **db_owner** med hjälp av `ALTER ROLE`-instruktionen.
+För att ge ytterligare användare fullständig kontroll över databasen, blir medlem i den **db_owner** fasta databasrollen.
+
+Azure SQL Database används den `ALTER ROLE` instruktionen.
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+Azure SQL Data Warehouse används [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > Det är en vanlig orsak till att skapa en databasanvändare baserat på en SQL Database-server-inloggning för användare som behöver åtkomst till flera databaser. Eftersom innehöll databasanvändare är enskilda enheter, varje databas upprätthåller sin egen användar- och ett eget lösenord. Detta kan orsaka omkostnader som användaren måste du komma ihåg varje lösenord för varje databas, och det kan bli ohållbara när behöva ändra flera lösenord för många databaser. Men när du använder SQL Server-inloggningar och hög tillgänglighet (aktiv geo-replikering och redundansgrupper), måste SQL Server-inloggningar anges manuellt på varje server. I annat fall kommer databasanvändaren inte längre att mappas till server-inloggning efter en redundans inträffar och kan inte komma åt databasen efter redundans. Mer information om hur du konfigurerar inloggningar för geo-replikering finns i [konfigurera och hantera Azure SQL Database-säkerhet för geo-återställning eller redundans](sql-database-geo-replication-security-config.md).

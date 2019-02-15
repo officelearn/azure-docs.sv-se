@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994895"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269864"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Kom igång med Azure Monitor log-frågor
 
@@ -43,7 +43,7 @@ Logga in frågor i den här självstudien lär du dig att skriva Azure LMonitor.
 Frågor kan börja med antingen ett tabellnamn eller *search* kommando. Du bör börja med ett tabellnamn eftersom den definierar en tydlig omfattning för frågan och förbättrar både frågeprestanda och relevans resultat.
 
 > [!NOTE]
-> Data Explorer frågespråk som används av Azure Monitor är skiftlägeskänsligt. Nyckelord är vanligen skrivna gemener. När du använder namn på tabeller eller kolumner i en fråga, se till att ha rätt skiftläge, som visas i fönstret schemat.
+> Kusto-frågespråk som används av Azure Monitor är skiftlägeskänsligt. Nyckelord är vanligen skrivna gemener. När du använder namn på tabeller eller kolumner i en fråga, se till att ha rätt skiftläge, som visas i fönstret schemat.
 
 ### <a name="table-based-queries"></a>Tabell-baserade frågor
 Azure Monitor organiserar loggdata i tabeller, var och en består av flera kolumner. Alla tabeller och kolumner som visas i fönstret schemat i Log Analytics i Analytics-portalen. Identifiera en tabell att du är intresserad av och sedan ta en titt på en del data:

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2cf9a98a2f27c9088266a976118acdb56f8a65d7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969003"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300830"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiskt skapa och använda en permanent volym med Azure Files i Azure Kubernetes Service (AKS)
 
@@ -26,32 +26,20 @@ Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du beh
 
 Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-class"></a>Skapa en storage-klass
 
-När du skapar en Azure Files-resurs som en Kubernetes-volym dynamiskt, alla lagringskonton kan användas så länge som den är i AKS **noden** resursgrupp. Den här gruppen är som har den *MC_* prefix som har skapats genom att etablera resurser för AKS-klustret. Hämta resursgruppens namn med den [az aks show] [ az-aks-show] kommando.
+En lagringsklass används för att definiera hur en Azure-filresurs har skapats. Ett lagringskonto skapas automatiskt i den *_MC* resursgrupp för användning med klassen lagring för de Azure-filresurserna. Välj av följande [Azure lagringsredundans] [ storage-skus] för *skuName*:
 
-```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Använd den [az storage-konto skapar] [ az-storage-account-create] kommando för att skapa lagringskontot.
-
-Uppdatera `--resource-group` med namnet på resursgruppen som samlats in i det sista steget och `--name` till ett valfritt namn. Ange ditt eget unika lagringskontonamn:
-
-```azurecli
-az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --sku Standard_LRS
-```
+* *Standard_LRS* -standard lokalt redundant lagring (LRS)
+* *Standard_GRS* -standard geo-redundant lagring (GRS)
+* *Standard_RAGRS* -standard-geo-redundant lagring med läsbehörighet (RA-GRS)
 
 > [!NOTE]
 > Azure-filer för närvarande endast fungerar med standardlagring. Om du använder premiumlagring volymen inte går att etablera.
 
-## <a name="create-a-storage-class"></a>Skapa en storage-klass
+Mer information om Kubernetes lagringsklasser för Azure Files finns i [Kubernetes lagringsklasser][kubernetes-storage-classes].
 
-En lagringsklass används för att definiera hur en Azure-filresurs har skapats. Ett lagringskonto kan anges i-klassen. Om ett lagringskonto anges en *skuName* och *plats* måste anges, och alla lagringskonton i den associerade resursgruppen utvärderas efter en matchning. Mer information om Kubernetes lagringsklasser för Azure Files finns i [Kubernetes lagringsklasser][kubernetes-storage-classes].
-
-Skapa en fil med namnet `azure-file-sc.yaml` och kopiera i följande exempel manifestet. Uppdatera den *storageAccount* värdet med namnet på ditt lagringskonto som skapades i föregående steg. Mer information om *mountOptions*, finns i den [monteringsalternativ] [ mount-options] avsnittet.
+Skapa en fil med namnet `azure-file-sc.yaml` och kopiera i följande exempel manifestet. Mer information om *mountOptions*, finns i den [monteringsalternativ] [ mount-options] avsnittet.
 
 ```yaml
 kind: StorageClass
@@ -66,7 +54,6 @@ mountOptions:
   - gid=1000
 parameters:
   skuName: Standard_LRS
-  storageAccount: mystorageaccount
 ```
 
 Skapa klassen lagring med den [kubectl gäller] [ kubectl-apply] kommando:
@@ -214,9 +201,9 @@ Standard *fileMode* och *dirMode* värden skiljer sig åt mellan Kubernetes-vers
 | version | värde |
 | ---- | ---- |
 | V1.6.x, v1.7.x | 0777 |
-| V1.8.0 v1.8.5 | 0700 |
+| v1.8.0-v1.8.5 | 0700 |
 | V1.8.6 eller senare | 0755 |
-| V1.9.0 | 0700 |
+| v1.9.0 | 0700 |
 | V1.9.1 eller senare | 0755 |
 
 Om du använder ett kluster av version 1.8.5 återställning eller större och vilket dynamiskt skapar permanent volym med en lagringsklass, monteringsalternativ kan anges på storage class-objektet. I följande exempel anges *0777*:
@@ -295,3 +282,4 @@ Läs mer om Kubernetes beständiga volymer med Azure Files.
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[storage-skus]: ../storage/common/storage-redundancy.md

@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: bdd512972f1a684a3b76ae0323bbadd87bf0d659
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9ea9cc116a13aac2dca9edf8ba86c933310b5198
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238325"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269645"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
-Azure Stream Analytics har inbyggd maskininlärning baserat avvikelseidentifiering funktioner som kan användas för att övervaka två oftast förekommande avvikelser: temporär och permanent. Med den **AnomalyDetection_SpikeAndDip** och **AnomalyDetection_ChangePoint** funktion, kan du utföra avvikelseidentifiering direkt i ditt Stream Analytics-jobb.
+Tillgängliga i både i molnet och Azure IoT Edge, Azure Stream Analytics erbjuder inbyggda baserat avvikelseidentifiering funktioner som kan användas för att övervaka två oftast förekommande avvikelser för maskininlärning: temporär och permanent. Med den **AnomalyDetection_SpikeAndDip** och **AnomalyDetection_ChangePoint** funktion, kan du utföra avvikelseidentifiering direkt i ditt Stream Analytics-jobb.
 
 Machine learning-modeller förutsätter en enhetligt provade tidsserie. Om tidsserien inte uniform, kan du infoga ett aggregering steg med ett rullande fönster innan du anropar avvikelseidentifiering.
 
@@ -36,13 +36,14 @@ Luckor i tidsserien kan vara ett resultat av modellen inte ta emot händelser vi
 
 ## <a name="spike-and-dip"></a>Topp- och dip
 
-Tillfällig avvikelser i en time series händelseströmmen är känt som toppar och dalar. Toppar och dalar kan övervakas med operatorn Maskininlärningsbaserade **AnomalyDetection_SpikeAndDip**.
+Tillfällig avvikelser i en time series händelseströmmen är känt som toppar och dalar. Toppar och dalar kan övervakas med operatorn Maskininlärningsbaserade [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+).
 
 ![Exempel på topp- och dip-avvikelseidentifiering](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
 I samma skjutfönster, om en andra topp är mindre än den första som är den beräknade poängen för mindre topp förmodligen inte betydande tillräckligt jämfört med poäng för den första topp inom konfidensnivån har angetts. Du kan försök minska modellens förtroende på inställningen för att fånga upp sådana avvikelser. Om du börjar få för många aviseringar, kan du använda ett högre konfidensintervall.
 
-Följande exempelfråga förutsätter en enhetlig inkommande andel 1 händelse per sekund på en 2 minut skjutfönster med en historik över händelser på 120. Sista SELECT-instruktionen extraherar och visar blobens poäng och avvikelseidentifiering status med en konfidensnivå på 95%.
+Följande exempelfråga förutsätter en enhetlig inkommande sats för en händelse per sekund i en glidande femminutersperiod i 2 med en historik över händelser på 120. Sista SELECT-instruktionen extraherar och visar blobens poäng och avvikelseidentifiering status med en konfidensnivå på 95%.
 
 ```SQL
 WITH AnomalyDetectionStep AS
@@ -67,9 +68,9 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Ändra återställningspunkt
 
-Beständiga avvikelser i en time series händelseströmmen är ändringar i distributionen av värden i händelseströmmen, som ändras och trender. I Stream Analytics sådana avvikelserna identifieras med hjälp av den Maskininlärningsbaserade **AnomalyDetection_ChangePoint** operator.
+Beständiga avvikelser i en time series händelseströmmen är ändringar i distributionen av värden i händelseströmmen, som ändras och trender. I Stream Analytics sådana avvikelserna identifieras med hjälp av den Maskininlärningsbaserade [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) operator.
 
-Permanenta ändringar räcker mycket längre än toppar och dalar och kan tyda på kritiska händelser. Permanenta ändringar vanligtvis inte är väl synlig för blotta ögat, men kan identifieras med den **AnomalyDetection_ChangePoint** operator.
+Permanenta ändringar räcker mycket längre än toppar och dalar och kan tyda på kritiska händelser. Permanenta ändringar visas inte vanligtvis för blotta ögat, men kan identifieras med den **AnomalyDetection_ChangePoint** operator.
 
 Följande bild är ett exempel på en nivå ändring:
 
@@ -79,7 +80,7 @@ Följande bild är ett exempel på en trend ändring:
 
 ![Exempel på trend ändra avvikelseidentifiering](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-trend-change.png)
 
-Följande exempelfråga förutsätter en enhetlig inkommande andel 1 händelse per sekund i en 20 minuter lång skjutfönster med en historikstorlek på 1200-händelser. Sista SELECT-instruktionen extraherar och visar blobens poäng och avvikelseidentifiering status med en konfidensnivå på 80%.
+Följande exempelfråga förutsätter en enhetlig inkommande sats för en händelse per sekund i ett skjutfönster på 20 minuter med en historikstorlek på 1200-händelser. Sista SELECT-instruktionen extraherar och visar blobens poäng och avvikelseidentifiering status med en konfidensnivå på 80%.
 
 ```SQL
 WITH AnomalyDetectionStep AS

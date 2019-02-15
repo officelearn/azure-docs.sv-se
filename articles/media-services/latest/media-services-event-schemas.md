@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243993"
+ms.locfileid: "56268795"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-scheman för Media Services-händelser
 
@@ -42,7 +42,7 @@ Du kan registrera dig för alla händelser genom att prenumerera på händelsen 
 | Microsoft.Media.JobCanceled| Få en händelse när jobbet övergår till avbrutna tillstånd. Det här är ett slutgiltigt tillstånd som innehåller utdata för jobbet.|
 | Microsoft.Media.JobErrored| Få en händelse när jobbet övergår till feltillstånd. Det här är ett slutgiltigt tillstånd som innehåller utdata för jobbet.|
 
-[Schemat exempel](#event-schema-examples) följer.
+Se [schemat exempel](#event-schema-examples) fram.
 
 ### <a name="monitoring-job-output-state-changes"></a>Tillståndsändringar för övervakning jobbutdata
 
@@ -56,7 +56,15 @@ Du kan registrera dig för alla händelser genom att prenumerera på händelsen 
 | Microsoft.Media.JobOutputCanceled| Få en händelse när jobbet utdata övergår till har avbrutits tillstånd.|
 | Microsoft.Media.JobOutputErrored| Få en händelse när jobbutdata övergår till feltillstånd.|
 
-[Schemat exempel](#event-schema-examples) följer.
+Se [schemat exempel](#event-schema-examples) fram.
+
+### <a name="monitoring-job-output-progress"></a>Förlopp för övervakning jobbutdata
+
+| Händelsetyp | Beskrivning |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputProgress| Den här händelsen visar jobbet bearbetningsförlopp från 0% till 100%. Tjänsten försöker skicka en händelse om det har förekommit 5% eller större ökning av värdet för pågående eller så har mer än 30 sekunder sedan den senaste händelsen (pulsslag). Värdet för pågående är inte säkert att starta på 0% eller för att nå 100% eller är det säkert att öka med ett jämnt över tid. Den här händelsen ska inte användas för att fastställa att bearbetningen har slutförts – i stället bör du använda tillståndsändringshändelser.|
+
+Se [schemat exempel](#event-schema-examples) fram.
 
 ## <a name="live-event-types"></a>Typer av Live-händelse
 
@@ -72,7 +80,7 @@ Stream-nivå händelser aktiveras per stream eller anslutning. Varje händelse h
 | Microsoft.Media.LiveEventEncoderConnected | Kodaren upprättar anslutningen med live-händelse. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Kodaren kopplar från. |
 
-[Schemat exempel](#event-schema-examples) följer.
+Se [schemat exempel](#event-schema-examples) fram.
 
 ### <a name="track-level-events"></a>Spåra på händelser
 
@@ -87,7 +95,7 @@ Spåra på händelser aktiveras per spår. Spåra händelsetyper är:
 | Microsoft.Media.LiveEventIngestHeartbeat | Publicerade var 20: e sekund för varje spår när direktsändningen körs. Tillhandahåller mata in hälsoöversikt. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media-server identifierar avbrott i den inkommande kursen. |
 
-[Schemat exempel](#event-schema-examples) följer.
+Se [schemat exempel](#event-schema-examples) fram.
 
 ## <a name="event-schema-examples"></a>Exempel för Event-schema
 
@@ -245,6 +253,29 @@ För varje JobOutput i tillståndsändring ut exempel schemat ungefär så här:
       "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+### <a name="joboutputprogress"></a>JobOutputProgress
+
+Exempel schemat ser ut ungefär så här:
+
+ ```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "eventType": "Microsoft.Media.JobOutputProgress",
+  "eventTime": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
   },
   "dataVersion": "1.0",
   "metadataVersion": "1"

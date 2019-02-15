@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0073427028d20ab969b8d0135b1c831d7fdf8c73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b821c5cfa0dd9ea605d0d0a73e0b98a64a7502b7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191981"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268659"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Starta och stoppa Azure Stack Development Kit (ASDK)
 Det rekommenderas inte att starta om värddatorn ASDK. I stället bör du följa procedurerna i den här artikeln för att stänga av och starta om tjänsterna ASDK korrekt. 
@@ -29,7 +29,7 @@ Det rekommenderas inte att starta om värddatorn ASDK. I stället bör du följa
 ## <a name="stop-azure-stack"></a>Stoppa Azure Stack 
 Använd följande PowerShell-kommandon för att stänga av Azure Stack-tjänster och värddatorn ASDK korrekt:
 
-1. Logga in som AzureStack\CloudAdmin på värddatorn ASDK.
+1. Logga in som AzureStack\AzureStackAdmin på värddatorn ASDK.
 2. Öppna PowerShell som administratör (inte PowerShell ISE).
 3. Kör följande kommandon för att upprätta en session för privilegierad slutpunkt (program): 
 
@@ -49,7 +49,7 @@ ASDK tjänster ska startas automatiskt när värddatorn har startats. Men varier
 Oavsett hur ASDK stängdes, använder du följande steg för att kontrollera att alla Azure Stack-tjänster som är igång och fullt fungerande när värddatorn är påslagen: 
 
 1. Slå på värddatorn ASDK. 
-2. Logga in som AzureStack\CloudAdmin på värddatorn ASDK.
+2. Logga in som AzureStack\AzureStackAdmin på värddatorn ASDK.
 3. Öppna PowerShell som administratör (inte PowerShell ISE).
 4. Kör följande kommandon för att upprätta en session för privilegierad slutpunkt (program):
 
@@ -68,7 +68,7 @@ Läs mer om rekommenderade procedurerna för att korrekt stänger och startar om
 ## <a name="troubleshoot-startup-and-shutdown"></a>Felsöka start och avstängning 
 Utför dessa steg om Azure Stack-tjänster har inte startar inom två timmar efter power på värddatorn ASDK:
 
-1. Logga in som AzureStack\CloudAdmin på värddatorn ASDK.
+1. Logga in som AzureStack\AzureStackAdmin på värddatorn ASDK.
 2. Öppna PowerShell som administratör (inte PowerShell ISE).
 3. Kör följande kommandon för att upprätta en session för privilegierad slutpunkt (program):
 

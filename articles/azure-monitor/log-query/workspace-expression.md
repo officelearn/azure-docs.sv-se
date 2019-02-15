@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 933d37f576d0b8507d2311a3e31e34182a0a2e69
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993007"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269843"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Workspace() uttryck i Azure Monitor log-fråga
 
@@ -73,4 +73,4 @@ union
 
 - Se den [app uttryck](app-expression.md) att referera till en Application Insights-app.
 - Läs om hur [Azure Monitor data](log-query-overview.md) lagras.
-- Få åtkomst till fullständig dokumentation för den [Datautforskaren frågespråk](/azure/kusto/query/).
+- Få åtkomst till fullständig dokumentation för den [Kusto-frågespråket](/azure/kusto/query/).

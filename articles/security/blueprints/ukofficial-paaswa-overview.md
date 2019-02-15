@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700986"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301808"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
 
@@ -29,10 +29,10 @@ Den här skissen har granskats av den Storbritannien nationella Cyberhot Securit
 
 Arkitekturen använder Azure [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) komponenter för att leverera en miljö som gör att kunderna slipper du kostnaderna och besväret med att köpa programvarulicenser för att hantera underliggande programinfrastruktur och middleware eller utvecklingsverktygen och andra resurser. Kunderna hantera program och tjänster som de utvecklar fokusera på att leverera affärsvärde, även om Microsoft Azure hanterar andra Azure-resurser, till exempel virtuella datorer, lagring och nätverk, placera flera av de [divisionen av ansvar](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) för infrastrukturhantering in på Azure-plattformen. [Azure App Services](https://azure.microsoft.com/services/app-service/) ger automatisk skalning, hög tillgänglighet, har stöd för Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps eller valfri Git-lagringsplats som standardtjänster. Med hjälp av App Services, kan utvecklare koncentrera dig på att leverera värde utan att behöva hantera infrastrukturen. Det är möjligt att bygg nya webbprogram i Java, PHP, Node.js, Python, HTML eller C# eller också migrera befintliga molnet eller på lokala webbprogram till Azure App Services, (även om omfattande förfallodatum noggrannhet och testningen bekräfta prestanda krävs).
 
-Den här skissen fokuserar på etablering av en säker grund [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) webbaserat gränssnitt för offentliga och även bakåt office-användare. Det här designscenariot skissen tar hänsyn till användningen av Azure värdbaserade webbaserade tjänster där en offentlig användare kan på ett säkert sätt skicka, visa och hantera känsliga data. också att en backend office eller government-operator på ett säkert sätt kan bearbeta känsliga data som offentliga användaren har skickat. Användningsområden för det här scenariot kan omfatta:
+Den här skissen fokuserar på etablering av en säker grund [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) webbaserat gränssnitt för offentliga och BackOffice-användare. Det här designscenariot skissen tar hänsyn till användningen av Azure värdbaserade webbaserade tjänster där en offentlig användare kan på ett säkert sätt skicka, visa och hantera känsliga data. också att en backend office eller government-operator på ett säkert sätt kan bearbeta känsliga data som offentliga användaren har skickat. Användningsområden för det här scenariot kan omfatta:
 
 - En användare skickar en deklarationen, med en government operator bearbetning av bidrag;
-- En användare som begär en tjänst via ett webbaserat program med en BackOffice-användare verifierar och leverera tjänsten; eller
+- En användare som begär en tjänst via ett webbaserat program med en användare för BackOffice-validering och leverera tjänsten; eller
 - En användare som vill ha och visa den offentliga domänen hjälpinformation om en tjänst för myndigheter.
 
 Med hjälp av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mallar och Azure Command Line Interface skript skissen distribuerar en miljö som är knutet till de Storbritannien nationella Cyberhot Security Center (NCSC) 14 [Molnsäkerhetsprinciper](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) och Center för Internetsäkerhet (CIS) [kritiskt säkerhetskontroller](https://www.cisecurity.org/critical-controls.cfm). NCSC rekommenderar sina Molnsäkerhetsprinciper används av kunder för att utvärdera säkerhetsegenskaperna för tjänsten och för att förstå divisionen av ansvar mellan kunden och leverantören. Microsoft har tillhandahållit information mot alla dessa principer för att bättre förstå delningen av ansvarsområden. Den här arkitekturen och motsvarande Azure Resource Manager-mallar stöds av Microsoft-faktabladet [14 molnet säkerhetskontroller för Storbritannien cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Den här arkitekturen har granskats av NCSC och överensstämmer med den Storbritannien NCSC 14 Molnsäkerhetsprinciper, vilket gör att organisationer inom offentlig sektor snabb åtkomst till sina möjligheter att uppfylla efterlevnad skyldigheter med molnbaserade tjänster globalt och i Storbritannien på den Microsoft Azure-molnet. Den här mallen distribuerar infrastrukturen för arbetsbelastningen. Programkod och stöd för affärsnivå och programvara för nivå måste installeras och konfigureras av kunder. Distribution av detaljerade instruktioner finns [här](https://aka.ms/ukofficial-paaswa-repo/).
@@ -43,7 +43,7 @@ Om du vill distribuera den här skissen, krävs en Azure-prenumeration. Om du in
 
 ## <a name="architecture-and-components"></a>Arkitektur och komponenter
 
-Denna skiss tillhandahåller ett webbprogram som värd-lösning i en miljö för Azure-molnet som har stöd för Storbritannien officiella arbetsbelastningar. Arkitekturen ger en säker miljö som utnyttjar Azure-plattformen som en tjänstfunktioner. I miljön, två App Service-webbappar som är distribuerade (en för offentliga användare) och en för BackOffice användare, med en API-App-nivå att tillhandahålla företagstjänster för klientdelen. En Azure SQL Database distribueras som en hanterad relationsdatabas för programmet. Anslutningen till dessa komponenter från utanför plattformen och mellan dessa komponenter är krypterad via TLS 1.2 ska se till att data i transport sekretess med åtkomst som autentiseras av Azure Active Directory.
+Denna skiss tillhandahåller ett webbprogram som värd-lösning i en miljö för Azure-molnet som har stöd för Storbritannien officiella arbetsbelastningar. Arkitekturen ger en säker miljö som utnyttjar Azure-plattformen som en tjänstfunktioner. I miljön, två App Service-webbappar som är distribuerade (en för offentliga användare) och en för BackOffice-användare, med en API-App-nivå att tillhandahålla företagstjänster för klientdelen. En Azure SQL Database distribueras som en hanterad relationsdatabas för programmet. Anslutningen till dessa komponenter från utanför plattformen och mellan dessa komponenter är krypterad via TLS 1.2 ska se till att data i transport sekretess med åtkomst som autentiseras av Azure Active Directory.
 
 ![PaaS Webbprogramsvärden för Storbritannien officiella arbetsbelastningar referens för Arkitekturdiagram](images/ukofficial-paaswa-architecture.png?raw=true "PaaS Webbprogramsvärden för Arkitekturdiagram för Storbritannien officiella arbetsbelastningar referens")
 
@@ -182,7 +182,7 @@ Detaljerad information om hur du skyddar Azure Storage finns i den [säkerhetsgu
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utökningsbar tjänst Application Performance Management (APM) för webbutvecklare på flera plattformar. Används för att övervaka live webbprogram det automatiskt ska identifiera prestandaavvikelser, analysera prestanda och diagnostisera problem och förstå hur användarna samverkar med appen. Application Insights kan distribueras på plattformar, inklusive .NET, Node.js och J2EE, finns lokalt eller i molnet. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utökningsbar tjänst Application Performance Management (APM) för webbutvecklare på flera plattformar. Används för att övervaka live webbprogram det automatiskt ska identifiera prestandaavvikelser, analysera prestanda och diagnostisera problem och förstå hur användarna samverkar med appen. Application Insights kan distribueras på plattformar, inklusive .NET, Node.js och Java EE finns lokalt eller i molnet. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg.
 
 #### <a name="application-insights-in-this-blueprint"></a>Application Insights i den här skissen
 
@@ -232,7 +232,7 @@ Tre metoder har angetts för distribution; En enkel ”express” [Azure CLI 2](
 1.  Klona eller ladda ned [detta](https://aka.ms/ukofficial-paaswa-repo) GitHub-lagringsplatsen till den lokala arbetsstationen.
 2.  Granska [metod 1: Azure CLI-2 (Express-version)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) och kör angivna kommandon.
 3.  Granska [metoden 1a: Azure CLI-2 (Konfigurera distribution via skriptargument)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) och kör angivna kommandon
-4.  Granska [metod 2: Processen för distribution av Azure Portal](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) och kör kommandon för listan
+4.  Granska [metod 2: Azure-portalen distributionsprocessen](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) och kör kommandon för listan
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
 

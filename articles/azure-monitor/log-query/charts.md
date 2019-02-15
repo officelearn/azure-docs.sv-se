@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 07d0866bd697587da170a00e8077a57035989d32
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993009"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269424"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Skapar diagram och diagram från Azure Monitor log-frågor
 
@@ -93,7 +93,7 @@ Du kan växla mellan genom att välja listrutan med kolumnnamnet.
 ![Stapeldiagram AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda den [Datautforskaren frågespråk](/azure/kusto/query/) logga data med Azure Monitor:
+Se andra lektioner för att använda den [Kusto-frågespråket](/azure/kusto/query/) logga data med Azure Monitor:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)

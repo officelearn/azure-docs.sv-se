@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004527"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268608"
 ---
 # <a name="analytics-in-application-insights"></a>Analys i Application Insights
 Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs.
@@ -31,7 +31,7 @@ Du kan också använda den [Analytics playground](https://go.microsoft.com/fwlin
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Relation till Azure Monitor-loggar
-Application Insights analytics baseras på [Azure Data Explorer](/azure/data-explorer) som Azure Monitor-loggar och använder också den [Datautforskaren frågespråk](/azure/kusto/query). Den använder samma [log analytics-portalen](../log-query/get-started-portal.md) som Azure Monitor-loggar, även om dess data lagras i en separat partition.
+Application Insights analytics baseras på [Azure Data Explorer](/azure/data-explorer) som Azure Monitor-loggar och använder också den [Kusto-frågespråket](/azure/kusto/query). Den använder samma [log analytics-portalen](../log-query/get-started-portal.md) som Azure Monitor-loggar, även om dess data lagras i en separat partition.
 
 Du kan inte direkt åtkomst till data i en Log Analytics-arbetsyta från Application Insights analytics och inte heller kan du direkt åtkomst till programdata från log analytics. För att fråga båda uppsättningar data tillsammans att skriva en [frågan i log analytics](../log-query/log-query-overview.md) och användning i [app() uttryck](../log-query/app-expression.md) att komma åt programmet data.
 

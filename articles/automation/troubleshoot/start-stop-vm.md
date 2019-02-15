@@ -6,17 +6,66 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef2a782a19dd319de346f14d6189759d0a26686c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666760"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270007"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Felsöka den Starta/stoppa virtuella datorer utanför timmar lösning
+
+## <a name="deployment-failure"></a>Scenario: Starta/Stoppa VM-lösning som inte går att distribuera korrekt
+
+### <a name="issue"></a>Problem
+
+När du distribuerar den [Starta/stoppa virtuella datorer utanför timmar lösningen](../automation-solution-vm-management.md), visas något av följande fel:
+
+```
+Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
+```
+
+```
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.OperationsManagement'.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.Insights'.
+```
+
+```
+The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
+```
+
+### <a name="cause"></a>Orsak
+
+Distributioner kan misslyckas på grund av något av följande orsaker:
+
+1. Det finns redan ett Automation-konto med samma namn i den region som valts.
+2. En princip är på plats som inte tillåter distributionen av lösningen Starta/stoppa virtuella datorer.
+3. Den `Microsoft.OperationsManagement`, `Microsoft.Insights`, eller `Microsoft.Automation` resurstyper som inte är registrerade.
+4. Log Analytics-arbetsytan har ett lås på den.
+
+### <a name="resolution"></a>Lösning
+
+Granska följande lista innehåller tänkbara lösningar på ditt problem eller platser att söka:
+
+1. Automation-konton måste vara unika inom en Azure-region, även om de finns i olika resursgrupper. Kontrollera ditt befintliga Automation-konton i målregionen.
+2. En befintlig princip som förhindrar att en resurs som krävs för lösningen Starta/Stoppa virtuell dator som ska distribueras. Gå till din principtilldelningar i Azure-portalen och kontrollera om det finns en principtilldelning som inte tillåter distributionen av den här resursen. Mer information om detta finns [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+3. Prenumerationen måste vara registrerad till följande namnrymder för Azure-resurs för att distribuera lösningen Starta/Stoppa virtuell dator:
+    * `Microsoft.OperationsManagement`
+    * `Microsoft.Insights`
+    * `Microsoft.Automation`
+
+   Se, [åtgärda fel för registreringen av resursprovidern](../../azure-resource-manager/resource-manager-register-provider-errors.md) mer information om fel vid registreringen av providers.
+4. Om du har ett lås på Log Analytics-arbetsytan, gå till din arbetsyta i Azure-portalen och ta bort eventuella lås på resursen.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: Det gick inte att starta/stoppa alla virtuella datorer
 

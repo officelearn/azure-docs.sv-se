@@ -1,7 +1,7 @@
 ---
 title: Lägg till anpassade analysverktyg – Azure Search
 description: Ändra text tokenizers och tecknet filter som används i Azure Search-fulltextsökningsfrågor.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,22 +19,24 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 150510ec09744b1350a93bde4e2a4dcb141867c0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008288"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302088"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Lägga till anpassade analysverktyg i ett Azure Search-index
 
-En *anpassat analysverktyg* är en användardefinierade kombination av tokenizer och valfritt filter som används för att anpassa textbearbetning i sökmotorn. Du kan till exempel skapa ett anpassat analysverktyg med en *char filter* att ta bort HTML-kod innan Textinmatningar är tokeniserad.
+En *anpassat analysverktyg* är en viss typ av [text analyzer](search-analyzers.md) som består av en användardefinierad kombination av befintliga tokenizer och valfritt filter. Du kan anpassa textbearbetning i sökmotorn att uppnå specifika resultat genom att kombinera tokenizers och filter på nya sätt. Du kan till exempel skapa ett anpassat analysverktyg med en *char filter* att ta bort HTML-kod innan Textinmatningar är tokeniserad.
+
+ Du kan definiera flera anpassade analysverktyg varierar kombination av filter, men varje fält kan bara använda en analyzer för indexering analys och en för search-analys. En illustration av hur en kund analyzer ser ut finns i [anpassad analyzer exempel](search-analyzers.md#Example1).
 
 ## <a name="overview"></a>Översikt
 
- Rollen för en [motorn för fulltextsökning](search-lucene-query-architecture.md), enkelt uttryckt är att bearbeta och lagra dokument på ett sätt som gör det möjligt för effektiva frågor och hämtning av filer. På hög nivå handlar allt om att extrahera viktiga ord från dokument, placera dem i ett index och sedan använda indexet för att hitta dokument som matchar ord i en viss fråga. Processen med att extrahera ord från dokument och sökfrågor kallas lexikal analys. Komponenter som utför lexikal analys kallas analysverktyg.
+ Rollen för en [motorn för fulltextsökning](search-lucene-query-architecture.md), enkelt uttryckt är att bearbeta och lagra dokument på ett sätt som gör det möjligt för effektiva frågor och hämtning av filer. På hög nivå handlar allt om att extrahera viktiga ord från dokument, placera dem i ett index och sedan använda indexet för att hitta dokument som matchar ord i en viss fråga. Extrahera ord från dokument och sökfrågor kallas *lexikal analys*. Komponenter som utför lexikal analys kallas *analysverktyg*.
 
- I Azure Search som du kan välja mellan en uppsättning fördefinierade oberoende språkanalysverktyg i den [analysverktyg](#AnalyzerTable) tabell och språk specifika analysverktyg som anges i [språkanalysverktyg &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). Du har också möjlighet att ange dina egna anpassade analysverktyg.  
+ I Azure Search kan du välja från en uppsättning fördefinierade språkoberoende analysverktyg i den [analysverktyg](#AnalyzerTable) tabell eller språkspecifika analysverktyg som anges i [språkanalysverktyg &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). Du har också möjlighet att ange dina egna anpassade analysverktyg.  
 
  Ett anpassat analysverktyg låter dig ta kontroll över att konvertera text till vara och sökbara token. Det är en användardefinierad konfiguration som består av en enda fördefinierade tokenizer, ett eller flera token filter och en eller flera char-filter. Tokenizer ansvarar för att dela upp text i token och token filtren för att ändra token som skickas från tokenizer. Char-filter används för att förbereda indatatexten innan den bearbetas av tokenizer. Char-filter kan till exempel ersätta vissa tecken och symboler.
 
@@ -50,22 +52,13 @@ En *anpassat analysverktyg* är en användardefinierade kombination av tokenizer
 
 -   ASCII-standardvikning. Lägg till Standard ASCII vikning filter för att normalisera diakritiska tecken som ö eller ê i sökvillkor.  
 
- Du kan definiera flera anpassade analysverktyg varierar kombination av filter, men varje fält kan bara använda en analyzer för indexering analys och en för search-analys.  
-
- Den här sidan innehåller en lista över stöds analysverktyg, tokenizers, token filter och char-filter. Du kan också hitta en beskrivning av ändringar i indexdefinitionen med ett användningsexempel på. Mer bakgrundsinformation om den underliggande tekniken som används i Azure Search-implementeringen, finns [Analysis-sammanfattning av paketet (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Exempel på analyzer konfigurationer finns [analysverktyg i Azure Search > exempel](https://docs.microsoft.com/azure/search/search-analyzers#examples).
-
-
-## <a name="default-analyzer"></a>Standard analyzer  
-
-Som standard sökbara fält i Azure Search har analyserats med den [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) som delar upp text i element som följer den [”Unicode Text segmentering”](https://unicode.org/reports/tr29/) regler. Dessutom konverterar standard analysatorn alla tecken till deras gemen form. Både indexerade dokumenten och sökvillkoren kan du gå igenom analysen under indexering och frågebearbetning.  
-
- Den används automatiskt på alla sökbara fält såvida du inte uttryckligen åsidosätter den med en annan analyzer i fältdefinitionen. Alternativa analysverktyg kan vara ett anpassat analysverktyg eller en annan fördefinierade analyzer i listan över tillgängliga [analysverktyg](#AnalyzerTable) nedan.
+ Den här sidan innehåller en lista över stöds analysverktyg, tokenizers, token filter och char-filter. Du kan också hitta en beskrivning av ändringar i indexdefinitionen med ett användningsexempel på. Mer bakgrundsinformation om den underliggande tekniken som används i Azure Search-implementeringen, finns [Analysis-sammanfattning av paketet (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Exempel på analyzer konfigurationer finns [lägga till analysverktyg i Azure Search](search-analyzers.md#examples).
 
 ## <a name="validation-rules"></a>Valideringsregler  
  Namnen på analysverktyg, tokenizers, token filter och char filter måste vara unikt och får inte vara samma som något av de fördefinierade analysverktyg, tokenizers, token filter eller char filter. Se den [Egenskapsreferens](#PropertyReference) för namn redan används.
 
-## <a name="create-a-custom-analyzer"></a>Skapa ett anpassat analysverktyg
- Du kan definiera anpassade analysverktyg vid tidpunkten för skapandet av index. Syntaxen för att ange ett anpassat analysverktyg beskrivs i det här avsnittet. Du kan också bekanta dig med syntaxen genom att granska exempel definitioner i [analysverktyg i Azure Search](https://docs.microsoft.com/azure/search/search-analyzers#examples).  
+## <a name="create-custom-analyzers"></a>Skapa anpassade analysverktyg
+ Du kan definiera anpassade analysverktyg vid tidpunkten för skapandet av index. Syntaxen för att ange ett anpassat analysverktyg beskrivs i det här avsnittet. Du kan också bekanta dig med syntaxen genom att granska exempel definitioner i [lägga till analysverktyg i Azure Search](search-analyzers.md#examples).  
 
  En analyzer definition innehåller ett namn, en typ, ett eller flera char-filter, högst en tokenizer och ett eller flera token filter för efter tokenisering bearbetning. Char-filter tillämpas innan tokenisering. Token filter och char-filter tillämpas från vänster till höger.
 
@@ -148,12 +141,13 @@ Analyzer-definitionen är en del av det största indexet. Se [Create Index-API](
 Definitioner för char-filter, tokenizers och token filter har lagts till indexet endast om du bygger anpassade alternativ. Du använder ett befintligt filter eller tokenizer som – är, ange den efter namn i analyzer-definitionen.
 
 <a name="Testing custom analyzers"></a>
-## <a name="test-a-custom-analyzer"></a>Testa ett anpassat analysverktyg
+
+## <a name="test-custom-analyzers"></a>Testa anpassade analysverktyg
 
 Du kan använda den **Test Analyzer åtgärden** i den [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) att se hur en analyzer delar angivna text i token.
 
 **Förfrågan**
-~~~~
+```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
     api-key: [admin key]
@@ -162,9 +156,9 @@ Du kan använda den **Test Analyzer åtgärden** i den [REST API](https://docs.m
      "analyzer":"my_analyzer",
      "text": "Vis-à-vis means Opposite"
   }
-~~~~
+```
 **Svar**
-~~~~
+```
   {
     "tokens": [
       {
@@ -193,21 +187,21 @@ Du kan använda den **Test Analyzer åtgärden** i den [REST API](https://docs.m
       }
     ]
   }
- ~~~~
+```
 
- ## <a name="update-a-custom-analyzer"></a>Uppdatera ett anpassat analysverktyg
+ ## <a name="update-custom-analyzers"></a>Uppdatera anpassade analysverktyg
 
 När en analyzer, en tokenizer, ett token filter eller ett char-filter har definierats kan ändras inte. Nya värden kan läggas till ett befintligt index endast om den `allowIndexDowntime` är inställd på true i begäran om uppdatering index:
 
-~~~~
+```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
-~~~~
+```
 
 Den här åtgärden tar ditt index offline för minst ett par sekunder, och din indexerings- och begäranden att misslyckas. Prestanda- och skrivbehörighet tillgängligheten för indexet kan skrivas i flera minuter efter att indexet är uppdaterade eller längre för mycket stora index, men dessa effekter är tillfälliga och så småningom lösa på egen hand.
 
  <a name="ReferenceIndexAttributes"></a>
 
-## <a name="index-attribute-reference"></a>Index referens
+## <a name="analyzer-reference"></a>Analyzer-referens
 
 I tabellerna nedan lista konfigurationsegenskaper för analysverktyg, tokenizers, token filter och char filterområdet för en Indexdefinition. Strukturen för en analyzer, tokenizer eller filter i ditt index består av dessa attribut. Värdet tilldelningsinformation finns i den [Egenskapsreferens](#PropertyReference).
 
@@ -289,7 +283,7 @@ Det här avsnittet innehåller de giltiga värdena för attribut som anges i def
 |[Stanna](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|Delar upp text på inte är bokstäver, gäller de små och stoppord token filter.<br /><br /> **Alternativ**<br /><br /> stoppord (typ: Strängmatrisen) – en lista över stoppord. Standardvärdet är en fördefinierad lista för engelska. |  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html)|(typen gäller endast när alternativ är tillgängliga) |En analyzer som använder blanksteg tokenizer. Token som är längre än 255 tecken delas.|  
 
- <sup>1</sup> analyzer typer har alltid ett prefix i kod med ”#Microsoft.Azure.Search” så att ”PatternAnalyzer” faktiskt anges som ”#Microsoft.Azure.Search.PatternAnalyzer”. Vi har tagit bort prefixet kortfattat, men prefix krävs i din kod. 
+ <sup>1</sup> analyzer typer har alltid ett prefix i kod med ”#Microsoft.Azure.Search” så att ”PatternAnalyzer” faktiskt anges som ”#Microsoft.Azure.Search.PatternAnalyzer”. Vi har tagit bort prefixet kortfattat, men prefixet som krävs i din kod. 
  
 Analyzer_type tillhandahålls endast för analysverktyg som kan anpassas. Om det finns inga alternativ så är fallet med nyckelordet analyzer, finns det inga associerade #Microsoft.Azure.Search-typen.
 
@@ -390,5 +384,5 @@ I tabellen nedan länkas token filtren som implementeras med hjälp av Apache Lu
 
 ## <a name="see-also"></a>Se också  
  [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Analysverktyg i Azure Search > exempel](https://docs.microsoft.com/azure/search/search-analyzers#examples)    
+ [Analysverktyg i Azure Search > exempel](search-analyzers.md#examples)    
  [Skapa Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

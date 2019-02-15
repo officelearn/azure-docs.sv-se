@@ -12,12 +12,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 4/16/2018
 ms.author: victorh
-ms.openlocfilehash: 15a86410e8ca853c2ca2431cb9a62de628972703
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320109"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302049"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista med web application firewall tillhandahållna CRS-regelgrupper och -regler
 
@@ -27,10 +27,15 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">Allmänt</p>
 
-### <a name="crs911"></a> <p x-ms-format-detection="none">BEGÄRAN-911-METODEN-TVINGANDE</p>
+|RuleId|Beskrivning|
+|---|---|
+|200004|Möjliga Multipart oöverträffad gräns.|
 
-|regel-ID|Beskrivning|
+### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+
+|RuleId|Beskrivning|
 |---|---|
 |911011|Regeln 911011|
 |911012|Regeln 911012|
@@ -43,9 +48,9 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |911018|Regeln 911018|
 
 
-### <a name="crs913"></a> <p x-ms-format-detection="none">BEGÄRAN 913-SKANNER-IDENTIFIERING</p>
+### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |913011|Regeln 913011|
 |913012|Regeln 913012|
@@ -61,9 +66,9 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |913017|Regeln 913017|
 |913018|Regeln 913018|
 
-### <a name="crs920"></a> <p x-ms-format-detection="none">BEGÄRAN-920-PROTOCOL-TVINGANDE</p>
+### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |920011|Regeln 920011|
 |920012|Regeln 920012|
@@ -115,9 +120,9 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |920274|Ogiltigt tecken i begärandehuvuden (utanför strikt set)|
 |920460|Regeln 920460|
 
-### <a name="crs921"></a> <p x-ms-format-detection="none">BEGÄRAN-921-PROTOCOL-ATTACK</p>
+### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |921011|Regeln 921011|
 |921012|Regeln 921012|
@@ -138,9 +143,9 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |921017|Regeln 921017|
 |921018|Regeln 921018|
 
-### <a name="crs930"></a> <p x-ms-format-detection="none">BEGÄRAN-930-PROGRAM-ATTACK-LFI</p>
+### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |930011|Regeln 930011|
 |930012|Regeln 930012|
@@ -155,9 +160,9 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |930017|Regeln 930017|
 |930018|Regeln 930018|
 
-### <a name="crs931"></a> <p x-ms-format-detection="none">BEGÄRAN-931-PROGRAM-ATTACK-RFI</p>
+### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |931011|Regeln 931011|
 |931012|Regeln 931012|
@@ -172,9 +177,9 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |931017|Regeln 931017|
 |931018|Regeln 931018|
 
-### <a name="crs932"></a> <p x-ms-format-detection="none">BEGÄRAN-932-PROGRAM-ATTACK-M</p>
+### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |932011|Regeln 932011|
 |932012|Regeln 932012|
@@ -191,9 +196,9 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |932017|Regeln 932017|
 |932018|Regeln 932018|
 
-### <a name="crs933"></a> <p x-ms-format-detection="none">BEGÄRAN-933-PROGRAM-ATTACK – PHP</p>
+### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |933011|Regeln 933011|
 |933012|Regeln 933012|
@@ -215,9 +220,9 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |933017|Regeln 933017|
 |933018|Regeln 933018|
 
-### <a name="crs941"></a> <p x-ms-format-detection="none">BEGÄRAN-941-PROGRAM-ATTACK-XSS</p>
+### <a name="crs941"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |941011|Regeln 941011|
 |941012|Regeln 941012|
@@ -239,6 +244,8 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |941290|IE XSS filter - Attack upptäcktes.|
 |941300|IE XSS filter - Attack upptäcktes.|
 |941310|US-ASCII felaktig kodning XSS Filter - Attack upptäcktes.|
+|941330|IE XSS filter - Attack upptäcktes.|
+|941340|IE XSS filter - Attack upptäcktes.|
 |941350|UTF-7 kodning IE XSS - Attack upptäcktes.|
 |941013|Regeln 941013|
 |941014|Regeln 941014|
@@ -248,27 +255,38 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 |941017|Regeln 941017|
 |941018|Regeln 941018|
 
-### <a name="crs942"></a> <p x-ms-format-detection="none">BEGÄRAN-942-PROGRAM-ATTACK-SQLI</p>
+### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |942011|Regeln 942011|
 |942012|Regeln 942012|
 |942100|SQL-inmatning attacker har identifierats via libinjection|
+|942110|SQL-angrepp: Vanliga inmatning testning har identifierats|
+|942130|SQL-angrepp: SQL Tautology Detected.|
 |942140|SQL-angrepp = vanliga DB-namn som har identifierats|
 |942160|Identifierar hemlig sqli tester med hjälp av sleep() eller benchmark().|
 |942170|Identifierar SQL-inmatning för prestandamått och viloläge försöker, inklusive villkorlig|
+|942190|Identifierar MSSQL kodkörning och informationsinsamling försök|
+|942200|Identifierar MySQL kommentar- / utrymme dolts inmatningar och backtick Avslut|
 |942230|Upptäcker om villkorlig SQL-inmatning|
+|942260|Identifierar grundläggande SQL-autentisering kringgå försöker 2/3|
 |942270|Söker efter grundläggande sql-inmatning. Vanliga attack sträng för mysql oracle och andra.|
 |942290|Söker efter grundläggande MongoDB SQL injection försök|
+|942300|Identifierar MySQL kommentarer, villkor och ch (a) r-inmatningar|
 |942320|Identifierar MySQL och PostgreSQL lagrad procedur eller funktion inmatningar|
+|942330|Identifierar klassiska SQL injection probings 1/2|
+|942340|Identifierar grundläggande SQL-autentisering kringgå försöker 3/3|
 |942350|Identifierar MySQL UDF-inmatning och andra manipulering av datastruktur/försöker|
+|942360|Identifierar sammanlänkad grundläggande SQL-inmatning och SQLLFI försök|
+|942370|Identifierar klassiska SQL injection probings 2/2|
 |942013|Regeln 942013|
 |942014|Regeln 942014|
 |942150|SQL-angrepp|
 |942410|SQL-angrepp|
-|942440|SQL-kommentar sekvens har identifierats.|
-|942450|SQL hexadecimal kodning identifieras|
+|942430|Begränsade Avvikelseidentifiering för SQL-tecknet (argument): antal specialtecken har överskridits (12)|
+|942440|SQL Comment Sequence Detected.|
+|942450|SQL Hex Encoding Identified|
 |942015|Regeln 942015|
 |942016|Regeln 942016|
 |942251|Identifierar HAVING-inmatningar|
@@ -278,7 +296,7 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |943011|Regeln 943011|
 |943012|Regeln 943012|
@@ -296,7 +314,7 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |960911|Ogiltig HTTP-begäran-rad|
 |981227|Apache fel = ogiltig URI i begäran.|
@@ -322,7 +340,7 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs21"></a> crs_21_protocol_anomalies
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |960008|Begäran saknar en värdrubrik|
 |960007|Tom värdhuvud|
@@ -335,7 +353,7 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |960209|Argumentnamnet är för långt|
 |960208|Argumentvärdet är för långt|
@@ -346,7 +364,7 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |960032|Metoden tillåts inte av en princip|
 |960010|Innehållstyp för begäran tillåts inte av princip|
@@ -356,7 +374,7 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs35"></a> crs_35_bad_robots
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |990002|Begäran anger en Säkerhetsskanner genomsöks platsen|
 |990901|Begäran anger en Säkerhetsskanner genomsöks platsen|
@@ -365,13 +383,13 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs40"></a> crs_40_generic_attacks
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |960024|Avisering för identifiering av meta tecknet Avvikelseidentifiering - repetitiva icke-alfanumeriska tecken|
 |950008|Inmatning av odokumenterade ColdFusion taggar|
 |950010|LDAP-angrepp|
 |950011|SSI inmatning Attack|
-|950018|Universal PDF XSS Webbadress hittades.|
+|950018|Universal PDF XSS URL Detected.|
 |950019|E-post-angrepp|
 |950012|HTTP-begäran som Kommandoinmatning Attack.|
 |950910|HTTP-svar uppdelningen av Attack|
@@ -394,10 +412,10 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
-|981231|SQL-kommentar sekvens har identifierats.|
-|981260|SQL hexadecimal kodning identifieras|
+|981231|SQL Comment Sequence Detected.|
+|981260|SQL Hex Encoding Identified|
 |981320|SQL-angrepp = vanliga DB-namn som har identifierats|
 |981300|Regeln 981300|
 |981301|Regeln 981301|
@@ -431,7 +449,7 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs41xss"></a> crs_41_xss_attacks
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |973336|XSS Filter - kategori 1 = skriptet taggen vektor|
 |973338|XSS Filter - kategori 3 = Javascript-URI-vektor|
@@ -536,13 +554,13 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |950103|Path Traversal Attack|
 
 ### <a name="crs45"></a> crs_45_trojans
 
-|regel-ID|Beskrivning|
+|RuleId|Beskrivning|
 |---|---|
 |950110|Bakdörrsåtkomst|
 |950921|Bakdörrsåtkomst|
@@ -550,6 +568,6 @@ Följande tabeller är regelgrupper och -regler som är tillgängliga när du an
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att inaktivera WAF-regler genom att besöka: [anpassa WAF-regler](application-gateway-customize-waf-rules-portal.md)
+Lär dig hur du inaktiverar WAF-regler genom att besöka: [Anpassa WAF-regler](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

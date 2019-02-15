@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0ff2fbf8ddfdd191c72cfdb36a9462076f8dec5b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657305"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301578"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Asynkrona meddelandemönster och hög tillgänglighet
 
@@ -62,77 +62,10 @@ Andra komponenter i Azure kan ibland ha problem med tjänsten. Till exempel när
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Service Bus-fel på ett enda undersystem
 Med alla program kan omständigheter orsaka en intern komponenten i Service Bus blir inkonsekventa. När Service Bus upptäcker att detta, samlar in data från program som gör det enklare att diagnostisera vad som hände. När data har samlats in startas programmet i ett försök att returnera den till ett konsekvent tillstånd. Den här processen sker ganska snabbt och resultatet i en entitet som ser ut att vara otillgänglig för upp till ett par minuter, även om de typiska stopptider är mycket kortare.
 
-I dessa fall kan klientprogrammet genererar en [System.TimeoutException] [ System.TimeoutException] eller [MessagingException] [ MessagingException] undantag. Service Bus innehåller en lösning för det här problemet i form av logik för omprövning av automatiserade klienten. När försök under perioden är slut och meddelandet skickas inte, du kan utforska med andra funktioner som [ihop namnområden][paired namespaces]. Kopplade namnområden har andra upplysningar som beskrivs i den här artikeln.
-
-### <a name="failure-of-service-bus-within-an-azure-datacenter"></a>Fel i Service Bus i ett Azure-datacenter
-En trolig orsak för ett fel i ett Azure-datacenter är en misslyckad uppgradering distribution av Service Bus eller ett beroende system. Eftersom plattformen har mognadslagrats har sannolikheten för den här typen av fel minskat. Ett datacenterfel kan också inträffa av skäl som inkluderar följande:
-
-* Elektriska avbrott (strömförsörjning och generera power försvinner).
-* Anslutningen (internet radbrytning mellan klienter och Azure).
-
-I båda fallen kan en fysisk eller syntetiska katastrof som orsakade problemet. Du kan undvika detta och se till att du kan fortfarande skicka meddelanden, du kan använda [ihop namnområden] [ paired namespaces] meddelanden ska skickas till en annan plats medan den primära platsen görs felfri igen. Mer information finns i [bästa praxis för isolering av program mot Service Bus-avbrott och katastrofer][Best practices for insulating applications against Service Bus outages and disasters].
-
-## <a name="paired-namespaces"></a>Kopplade namnområden
-Den [ihop namnområden] [ paired namespaces] funktionen stöder scenarier där en Service Bus-entiteten eller distribution inom ett datacenter blir otillgänglig. Medan den här händelsen inträffar sällan, måste distribuerade system fortfarande förberedas för att hantera sämsta användningsfall. Den här händelsen inträffar normalt eftersom vissa element som Service Bus är beroende av upplever ett kortsiktiga problem. Om du vill upprätthålla tillgänglighet under ett avbrott, kan Service Bus-användare använda två separata namnområden noggrannhet på olika datacenter, som värd för sina enheter för meddelanden. Resten av det här avsnittet använder följande termer:
-
-* Primärt namnområde: Det namnområde som samverkar för skicka och ta emot för dina program.
-* Sekundärt namnområde: Det namnområde som fungerar som en reserv till det primära namnområdet. Programlogiken interagerar inte med det här namnområdet.
-* Intervall för redundans: Hur lång tid att godkänna normala fel innan programmet växlar från det primära namnområdet till det sekundära namnområdet.
-
-Länkad namnområden support *skicka tillgänglighet*. Skicka tillgänglighet bevarar möjligheten att skicka meddelanden. För att använda Skicka tillgänglighet, måste programmet uppfylla följande krav:
-
-1. Meddelanden tas bara emot från det primära namnområdet.
-2. Skicka meddelanden till en given kö eller ämne tas emot i fel ordning.
-3. Meddelanden i en session tas emot i fel ordning. Det här är en paus från normal drift av sessioner. Det innebär att ditt program använder logiskt gruppmeddelanden-sessioner.
-4. Sessionstillstånd underhålls bara på det primära namnområdet.
-5. Den primära kön kan anslutas och börja ta emot meddelanden innan den sekundära kön skickar alla meddelanden till den primära kön.
-
-I följande avsnitt beskrivs de API: er, hur API: er implementeras och visar exempelkod som använder funktionen. Observera att faktureringen effekter som är associerade med den här funktionen.
-
-### <a name="the-messagingfactorypairnamespaceasync-api"></a>MessagingFactory.PairNamespaceAsync API
-Kopplade namnområden funktionen inkluderar den [PairNamespaceAsync] [ PairNamespaceAsync] metoden på den [Microsoft.ServiceBus.Messaging.MessagingFactory] [ Microsoft.ServiceBus.Messaging.MessagingFactory] klass:
-
-```csharp
-public Task PairNamespaceAsync(PairedNamespaceOptions options);
-```
-
-När uppgiften slutförs, namnområde kopplingen är också klar och redo att agera på för alla [MessageReceiver][MessageReceiver], [QueueClient] [ QueueClient] , eller [TopicClient] [ TopicClient] skapats med den [MessagingFactory] [ MessagingFactory] instans. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] [ Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] är basklass för de olika typerna av parkoppling som är tillgängliga med en [MessagingFactory] [ MessagingFactory] objekt. För närvarande den enda härledda klassen är en med namnet [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], som implementerar skicka tillgänglighetskrav. [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] har en uppsättning konstruktorer som bygger på varandra. Du kan titta på konstruktorn med de flesta parametrar, för att förstå beteendet för andra konstruktorer.
-
-```csharp
-public SendAvailabilityPairedNamespaceOptions(
-    NamespaceManager secondaryNamespaceManager,
-    MessagingFactory messagingFactory,
-    int backlogQueueCount,
-    TimeSpan failoverInterval,
-    bool enableSyphon)
-```
-
-Dessa parametrar har följande:
-
-* *secondaryNamespaceManager*: Ett initierat [NamespaceManager] [ NamespaceManager] instansen för det sekundära namnområdet som den [PairNamespaceAsync] [ PairNamespaceAsync] metod kan använda för att ange Konfigurera det sekundära namnområdet. Namespace manager används för att erhålla en lista över köer i namnområdet och för att kontrollera att nödvändiga eftersläpning köer finns. Om dessa köer inte finns, skapas de. [NamespaceManager] [ NamespaceManager] kräver möjligheten att skapa en token med den **hantera** anspråk.
-* *messagingFactory*: Den [MessagingFactory] [ MessagingFactory] instansen för det sekundära namnområdet. Den [MessagingFactory] [ MessagingFactory] objektet används för att skicka och, om den [EnableSyphon] [ EnableSyphon] är inställd på **SANT**, ta emot meddelanden från köer med kvarvarande uppgifter.
-* *backlogQueueCount*: Antalet köer för att skapa. Det här värdet måste vara minst 1. När du skickar meddelanden till eftersläpningen, väljs en av dessa köer slumpmässigt. Om du ställer in värdet till 1 kan endast en kö skulle användas. När detta sker och en för eftersläpning i kön genererar fel, klienten har inte möjlighet att prova en annan för eftersläpning i kö och kan misslyckas med att skicka meddelandet. Vi rekommenderar att ange värdet till vissa större värde och standard värdet till 10. Du kan ändra detta till ett högre eller lägre värde beroende på hur mycket data ditt program skickar per dag. Varje eftersläpning kö kan innehålla upp till 5 GB av meddelanden.
-* *failoverInterval*: Hur lång tid under vilken du kan acceptera fel på det primära namnområdet innan du växlar en enskild person till det sekundära namnområdet. Redundansväxlingar sker regelbundet en entitet av entiteten. Entiteter i en enda namnrymd som ofta live på olika noder i Service Bus. Ett fel i en entitet innebär inte ett fel i en annan. Du kan ange ett värde [System.TimeSpan.Zero] [ System.TimeSpan.Zero] att redundansväxla till sekundärt omedelbart efter din första och icke tillfälliga fel. Fel som utlöser redundans timern finns några [MessagingException] [ MessagingException] där den [IsTransient] [ IsTransient] egenskapen är false eller till en [ System.TimeoutException][System.TimeoutException]. Andra undantag, till exempel [UnauthorizedAccessException] [ UnauthorizedAccessException] inte orsakar redundans så att de anger att klienten är felaktigt konfigurerad. En [ServerBusyException] [ ServerBusyException] har inte orsak redundans eftersom rätt mönster är att vänta 10 sekunder sedan skicka meddelandet igen.
-* *enableSyphon*: Anger att den här specifika parkoppling bör också syphon meddelanden från det sekundära namnområdet tillbaka till det primära namnområdet. I allmänhet program som skickar meddelanden ska ange ett värde och **FALSKT**; program som tar emot meddelanden ska ange ett värde och **SANT**. Anledningen är att ofta, det finns färre meddelande mottagare än avsändare. Beroende på antalet mottagare, kan du ha en enda programinstans som hanterar syphon uppgifter. Med hjälp av många mottagare har fakturering konsekvenser för varje för eftersläpning i kö.
-
-För att använda koden, skapar du en primär [MessagingFactory] [ MessagingFactory] instans, en sekundär [MessagingFactory] [ MessagingFactory] instans, en sekundär [ NamespaceManager] [ NamespaceManager] instansen och en [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instans. Anropet kan vara så enkla som följande:
-
-```csharp
-SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
-primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
-```
-
-När uppgiften returneras av den [PairNamespaceAsync] [ PairNamespaceAsync] metoden har slutförts, allt har installerats och klart att användas. Innan aktiviteten returneras, kan du inte har slutfört allt arbete som bakgrund krävs för att kopplingen ska fungera direkt. Du bör därför inte börja skicka meddelanden tills uppgiften returnerar. Eventuella fel, till exempel felaktiga autentiseringsuppgifter eller inte gick att skapa köer för eftersläpning i utlöses dessa undantag när uppgiften har slutförts. När aktiviteten returnerar, kontrollera att köer har hittades eller skapats genom att undersöka den [BacklogQueueCount] [ BacklogQueueCount] egenskapen på din [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instans. För den föregående kod, som åtgärden visas på följande sätt:
-
-```csharp
-if (sendAvailabilityOptions.BacklogQueueCount < 1)
-{
-    // Handle case where no queues were created.
-}
-```
+I dessa fall kan klientprogrammet genererar en [System.TimeoutException] [ System.TimeoutException] eller [MessagingException] [ MessagingException] undantag. Service Bus innehåller en lösning för det här problemet i form av logik för omprövning av automatiserade klienten. När försök under perioden är slut och meddelandet skickas inte, du kan utforska med annan anges i artikeln om [hantera avbrott och katastrofer][handling outages and disasters].
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna för asynkrona meddelanden i Service Bus, Läs mer om [ihop namnområden][paired namespaces].
+Nu när du har lärt dig grunderna för asynkrona meddelanden i Service Bus, Läs mer om [hantera avbrott och katastrofer][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -152,4 +85,4 @@ Nu när du har lärt dig grunderna för asynkrona meddelanden i Service Bus, Lä
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
 [BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
-[paired namespaces]: service-bus-paired-namespaces.md
+[handling outages and disasters]: service-bus-outages-disasters.md

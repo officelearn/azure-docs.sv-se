@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83ee548befdc7ef0a4e7ed2d4b4e61b42a217f12
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247076"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267157"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Felsökning av Azure Machine Learning-tjänsten AKS och ACI-distributioner
 
@@ -196,12 +196,15 @@ $ docker run -p 8000:5001 <image_id>
 Ofta, i den `init()` funktionen i bedömningsskriptet, `Model.get_model_path()` funktionen anropas för att hitta en modellfil eller en mapp med modellfiler i behållaren. Det här är ofta en felkälla om modellfilen eller mappen inte kan hittas. Det enklaste sättet att felsöka det här felet är att köra den nedan Python-kod i behållaren shell:
 
 ```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
 Detta skulle skriva ut den lokala sökvägen (relativt till `/var/azureml-app`) i behållaren där dina bedömningsskriptet förväntar sig att hitta modellfilen eller mappen. Därefter kan du kontrollera om filen eller mappen är verkligen där det förväntas vara.
 
+Ange loggningsnivån till felsökning kan ge orsak ytterligare information som loggas, vilket kan vara användbart i identifiera felet.
 
 ## <a name="function-fails-runinputdata"></a>Funktionen misslyckas: run(input_data)
 Om tjänsten har distribuerats, men den kraschar när du publicerar data till bedömnings-slutpunkten, du kan lägga till fel vid identifiering av instruktionen i din `run(input_data)` så att den returnerar detaljerat felmeddelande i stället. Exempel:

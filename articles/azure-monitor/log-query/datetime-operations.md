@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8350524e51d8ced45586d085fe1b49274aa6db9d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999257"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269987"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Arbeta med datum-tid-värdena i Azure Monitor log-frågor
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver hur du arbetar med datum och tid-data i Azure Monito
 
 
 ## <a name="date-time-basics"></a>Datum tid grunderna
-Frågespråket i Data Explorer har två huvudsakliga datatyper som är associerade med datum och tid: datetime och tidsintervallet. Alla datum uttrycks i UTC. Finns stöd för flera datum/tid-format är att föredra ISO8601-format. 
+Kusto-frågespråk har två huvudsakliga datatyper som är associerade med datum och tid: datetime och tidsintervallet. Alla datum uttrycks i UTC. Finns stöd för flera datum/tid-format är att föredra ISO8601-format. 
 
 Tidsintervallen uttrycks som ett decimaltal följt av en tidsenhet:
 
@@ -45,7 +45,7 @@ Tidsintervallen uttrycks som ett decimaltal följt av en tidsenhet:
 |databehandlingsnoder | databehandlingsnoder  |
 |skalstreck        | nanosekunder   |
 
-Datum och tid kan skapas med instruktionsvideor en sträng med hjälp av den `todatetime` operator. Till exempel för att granska de virtuella datorn pulsslag skickas i en viss tidsperiod, kan du använda den [mellan operatorn](/azure/kusto/query/betweenoperator) vilket är praktiskt att ange ett tidsintervall...
+Datum och tid kan skapas med instruktionsvideor en sträng med hjälp av den `todatetime` operator. Till exempel för att granska de virtuella datorn pulsslag skickas i en viss tidsperiod, använda den `between` operator för att ange ett tidsintervall.
 
 ```Kusto
 Heartbeat
@@ -82,7 +82,7 @@ Heartbeat
 ```
 
 ## <a name="converting-time-units"></a>Konvertera tidsenheter
-Det kan vara praktiskt att uttrycka en datetime eller timespan i en tidsenhet än standardvärdet. Exempel: Anta att du granskar felhändelser från de senaste 30 minuterna och behöver en beräknad kolumn som visar hur länge sedan händelsen har inträffat:
+Du kanske vill att uttrycka en datetime eller timespan i en tidsenhet än standardvärdet. Till exempel om du granskar felhändelser från de senaste 30 minuterna och behöver en beräknad kolumn som visar hur länge sedan händelsen har inträffat:
 
 ```Kusto
 Event
@@ -91,7 +91,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-Du kan se den _timeAgo_ kolumnen innehåller värden som: ”00:09:31.5118992”, vilket innebär att de är formaterade som hh:mm:ss.fffffff. Om du vill formatera dessa värden till den _numver_ minuter sedan starttiden helt enkelt dela detta värde med ”1 minut”:
+Den `timeAgo` kolumnen innehåller värden som: ”00:09:31.5118992”, vilket innebär att de är formaterade som hh:mm:ss.fffffff. Om du vill formatera dessa värden till den `numver` minuter sedan starttiden dela detta värde med ”1 minut”:
 
 ```Kusto
 Event
@@ -103,7 +103,7 @@ Event
 
 
 ## <a name="aggregations-and-bucketing-by-time-intervals"></a>Aggregeringar och bucket tidsintervall
-Ett annat vanligt scenario är behovet av att få statistik över en viss tidsperiod i ett visst tidsintervall. För detta, en `bin` operatorn kan användas som en del av en summarize-sats.
+Ett annat vanligt scenario är behovet av att få statistik över en viss tidsperiod i ett visst tidsintervall. Det här scenariot kan en `bin` operatorn kan användas som en del av en summarize-sats.
 
 Använd följande fråga för att få antalet händelser som inträffat var femte minut under de senaste halvtimme:
 
@@ -113,7 +113,7 @@ Event
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
 ```
 
-Detta resulterar i följande tabell:  
+Den här frågan resulterar i följande tabell:  
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
@@ -131,7 +131,7 @@ Event
 | summarize events_count=count() by startofday(TimeGenerated) 
 ```
 
-Detta ger följande resultat:
+Den här frågan ger följande resultat:
 
 |tidsstämpel|count_|
 |--|--|
@@ -139,11 +139,11 @@ Detta ger följande resultat:
 |2018-07-29T00:00:00.000|12,315|
 |2018-07-30T00:00:00.000|16,847|
 |2018-07-31T00:00:00.000|12,616|
-|2018-08-01T00:00:00.000|5,416  |
+|2018-08-01T00:00:00.000|5,416|
 
 
 ## <a name="time-zones"></a>Tidszoner
-Eftersom alla datum/tid-värden uttrycks i UTC, är det ofta bra att konvertera dessa till den lokala tidszonen. Till exempel använda den här beräkningen för att konvertera UTC till PST gånger:
+Eftersom alla datum/tid-värden uttrycks i UTC, är det ofta bra att konvertera dessa värden till den lokala tidszonen. Till exempel använda den här beräkningen för att konvertera UTC till PST gånger:
 
 ```Kusto
 Event
@@ -158,10 +158,10 @@ Event
 | Avrunda värdet till diskretiseringsstorlek | [bin](/azure/kusto/query/binfunction) |
 | Hämta ett visst datum eller tid | [sedan](/azure/kusto/query/agofunction) [nu](/azure/kusto/query/nowfunction)   |
 | Hämta en del av värde | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dag i månaden](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| Hämta ett datum i förhållande till värde  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| Hämta ett värde för relativt datum  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda den [Datautforskaren frågespråk](/azure/kusto/query/) logga data med Azure Monitor:
+Se andra lektioner för att använda den [Kusto-frågespråket](/azure/kusto/query/) logga data med Azure Monitor:
 
 - [Strängåtgärder](string-operations.md)
 - [Aggregeringsfunktioner](aggregations.md)

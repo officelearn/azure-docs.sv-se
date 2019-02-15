@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261510"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268880"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
@@ -40,7 +40,7 @@ Du kan övervaka aviseringar eller visa hanteringsdata om Recovery Services-valv
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Från listan över valv, klickar du på ett valv för att öppna dess **översikt** instrumentpanelen. 
+4. Från listan över valv, klickar du på ett valv för att öppna dess **översikt** instrumentpanelen.
 
     ![instrumentpanelen för Recovery services-valvet](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -75,7 +75,7 @@ För att komma åt menyn aviseringar för säkerhetskopiering på menyn Recovery
 
 ![Säkerhetskopieringsaviseringar](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-Aviseringsrapport för säkerhetskopiering visas aviseringar för valvet. 
+Aviseringsrapport för säkerhetskopiering visas aviseringar för valvet.
 
 ![Säkerhetskopieringsaviseringar](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -124,7 +124,7 @@ Som standard all information förutom **tidpunkt för senaste förekomst**, visa
 
 ### <a name="change-the-filter-in-alerts-report"></a>Ändra filtret i rapporten för aviseringar
 
-Använd den **Filter** menyn för att ändra allvarlighetsgrad, Status, starttid och sluttid för aviseringar. 
+Använd den **Filter** menyn för att ändra allvarlighetsgrad, Status, starttid och sluttid för aviseringar.
 
 > [!NOTE]
 > Redigera säkerhetskopiering aviseringar ändras filter inte aviseringar kritiskt eller varning i valvet instrumentpanel.
@@ -184,7 +184,7 @@ Klicka för att visa ytterligare information om jobb som **pågår** eller **mis
 
 Den **säkerhetskopieringsjobb** menyn visar information om objekt typ, åtgärden, Status, starttid och varaktighet.  
 
-Klicka för att öppna menyn säkerhetskopieringsjobb på valvet huvudmenyn **säkerhetskopieringsjobb**. 
+Klicka för att öppna menyn säkerhetskopieringsjobb på valvet huvudmenyn **säkerhetskopieringsjobb**.
 
 ![Säkerhetskopiera objekt från inställningar](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -263,17 +263,14 @@ Backup Storage-panelen på instrumentpanelen visar förbrukad lagring i Azure. L
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**Q1. Hur lång tid tar det för Azure backup-agenten jobbstatusen återspeglas i portalen?**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hur lång tid tar det för Azure backup-agenten jobbstatusen återspeglas i portalen?
+Azure-portalen kan ta upp till 15 minuter att återspegla jobbstatusen Azure backup-agenten.
 
-S1. Azure-portalen kan ta upp till 15 minuter att återspegla jobbstatusen Azure backup-agenten.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>När ett säkerhetskopieringsjobb misslyckas, hur lång tid tar det för att utlösa en avisering?
+En avisering genereras i 20 minuter för Azure Säkerhetskopieringsfel.
 
-**Q2. När ett säkerhetskopieringsjobb misslyckas, hur lång tid tar det för att utlösa en avisering?**
-
-S2. En avisering genereras i 20 minuter för Azure Säkerhetskopieringsfel.
-
-**KVARTAL 3. Finns det fall där inte ett e-postmeddelande skickas om aviseringarna är inställda?**
-
-S3. Ja. I följande situationer skickas inte meddelanden.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Finns det fall där inte ett e-postmeddelande skickas om aviseringarna är inställda?
+Ja. I följande situationer skickas inte meddelanden.
 
 * Om meddelanden har konfigurerats för varje timme och en avisering skickas ut och löses inom en timme
 * När ett jobb har avbrutits

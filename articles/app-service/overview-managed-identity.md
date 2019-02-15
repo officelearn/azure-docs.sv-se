@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 68f640f6962802c45ca369786c4e5d0d4f785fa6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105085"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300592"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Hur du använder hanterade identiteter för App Service och Azure Functions
 
@@ -280,8 +280,8 @@ Läs mer om Microsoft.Azure.Services.AppAuthentication och vilka åtgärder som 
 
 En app med en hanterad identitet har två miljövariabler som definieras:
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT - URL: en till den lokala token-tjänsten.
+- MSI_SECRET – en rubrik som används för att minska serversidan begäran attacker med förfalskning (SSRF). Värdet roteras av plattformen.
 
 Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. För att få en token för en resurs kan du göra en HTTP GET-begäran i den här slutpunkten, inklusive följande parametrar:
 
@@ -289,7 +289,7 @@ Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. För att f�
 > |-----|-----|-----|
 > |resurs|Söka i data|AAD resurs-URI för resursen för som en token ska hämtas. Detta kan vara någon av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) eller någon annan resurs URI.|
 > |API-versionen|Söka i data|Versionen av token API: et som ska användas. ”2017-09-01” är för närvarande den enda versionen som stöds.|
-> |hemlighet|Huvud|Värdet för miljövariabeln MSI_SECRET.|
+> |hemlighet|Huvud|Värdet för miljövariabeln MSI_SECRET. Den här rubriken används för att minska serversidan begäran attacker med förfalskning (SSRF).|
 > |clientid|Söka i data|(Valfritt) ID för Användartilldelad identitet som ska användas. Om det utelämnas används systemtilldelad identitet.|
 
 En lyckad svar med 200 OK innehåller en JSON-texten med följande egenskaper:

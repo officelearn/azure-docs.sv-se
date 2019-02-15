@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 52b42e964e7abe207064aff49f7f8f27f8476ef4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 52653252df3efd3e12fa974ed82cd2557eee93d0
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092850"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301255"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
 
@@ -52,11 +52,11 @@ Alias poster ta bort komplexiteten som är associerade med det här scenariot. D
 
 ### <a name="update-dns-zones-automatically-when-application-ips-change"></a>Uppdatera DNS-zoner automatiskt när programmet IP-adresser ändras
 
-Det här scenariot liknar föregående. Kanske ett program har flyttats, eller den underliggande virtuella datorn har startats om. En aliaspost uppdaterar sedan automatiskt när IP-adressen ändras för den underliggande offentliga IP-adressresursen. Dirigera användare till ett annat program som har den gamla IP-adressen för att undvika potentiella säkerhetsrisker.
+Det här scenariot liknar föregående. Kanske ett program har flyttats, eller den underliggande virtuella datorn har startats om. En aliaspost uppdaterar sedan automatiskt när IP-adressen ändras för den underliggande offentliga IP-adressresursen. På så sätt undviker potentiella säkerhetsriskerna med att dirigera användarna till ett annat program som har den gamla IP-adressen.
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Värdprogram för Utjämning av nätverksbelastning i basdomänen
 
-DNS-protokollet förhindrar tilldelningen av något annat än en A eller AAAA-post på zonens apex. Ett exempel är contoso.com. Den här begränsningen utgör ett problem för programägare som har belastningsutjämnade program bakom Traffic Manager. Det inte går att den pekar på Traffic Manager-profilen från zonen apex posten. Programägare måste därför använda en lösning. En omdirigering på programnivå omdirigera från basdomänen till en annan domän. Ett exempel är en omdirigering från contoso.com till www.contoso.com. Den här ordningen anger en enskild felpunkt för funktionen omdirigering.
+DNS-protokollet förhindrar tilldelningen av något annat än en A eller AAAA-post på zonens apex. Ett exempel kan vara contoso.com. Den här begränsningen utgör ett problem för programägare som har belastningsutjämnade program bakom Traffic Manager. Det inte går att den pekar på Traffic Manager-profilen från zonen apex posten. Programägare måste därför använda en lösning. En omdirigering på programnivå omdirigera från basdomänen till en annan domän. Ett exempel är en omdirigering från contoso.com till www.contoso.com. Den här ordningen anger en enskild felpunkt för funktionen omdirigering.
 
 Det här problemet finns inte längre med alias poster. Nu kan programägare peka deras zon apex-poster på en Traffic Manager-profil som har externa slutpunkter. Programägare kan peka på samma Traffic Manager-profilen som används för andra domäner i sina DNS-zonen. Till exempel kan contoso.com och www.contoso.com peka på samma Traffic Manager-profilen. Detta är fallet så länge Traffic Manager-profilen har endast externa slutpunkter som har konfigurerats.
 
@@ -64,6 +64,6 @@ Det här problemet finns inte längre med alias poster. Nu kan programägare pek
 
 Om du vill veta mer om alias poster, finns i följande artiklar:
 
-- [Självstudie: Konfigurera en aliaspost för att referera till en Azure offentlig IP-adress](tutorial-alias-pip.md)
-- [Självstudie: Konfigurera en aliaspost för att stödja apex-domännamn med Traffic Manager](tutorial-alias-tm.md)
+- [Självstudier: Konfigurera en aliaspost för att referera till en Azure offentlig IP-adress](tutorial-alias-pip.md)
+- [Självstudier: Konfigurera en aliaspost för att stödja apex-domännamn med Traffic Manager](tutorial-alias-tm.md)
 - [Vanliga frågor och svar om DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)

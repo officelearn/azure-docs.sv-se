@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 703f27dab6ca6252647ecb37d17d0f4faf045097
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234549"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268694"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Felsöka Hybrid Runbook Worker
 
@@ -204,7 +204,7 @@ Detta kan bero på om datorn har redan registrerats med ett annat Automation-kon
 
 #### <a name="resolution"></a>Lösning
 
-Lös problemet genom att ta bort följande registernyckel och försök på `Add-HybridRunbookWorker` cmdleten igen:
+Lös problemet genom att ta bort följande registernyckel och starta om den `HealthService` och försök på `Add-HybridRunbookWorker` cmdleten igen:
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 118e32994ed6471c52726e826ecfd42620bd3a91
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994905"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269594"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Hantera säkerhetskopiering av virtuella Azure-datorer
 
@@ -142,7 +142,7 @@ Om du vill sluta skydda en virtuell dator, tillfrågas du om du vill behålla å
 
 Det finns en kostnad som är associerade med att lämna kvar återställningspunkterna i lagring. Fördelen med att lämna kvar återställningspunkterna är dock kan du återställa den virtuella datorn senare, om så önskas. Information om kostnaden för att lämna kvar återställningspunkterna finns i den [prisinformation](https://azure.microsoft.com/pricing/details/backup/). Om du väljer att ta bort alla återställningspunkter kan återställa du inte den virtuella datorn.
 
-Återställningspunkten kommer att bevaras alltid tills Säkerhetskopieringsobjekt är återaktivera skyddet med en bevarandeprincip eller StopProtection med ta borttagningsdata. Vid återaktiveringen av skyddet avgör den nya principen som är komma associerad kvarhållning av återställningspunkter. På samma sätt du om du tar bort en datakälla utan att behöva genomföra stoppa säkerhetskopiering, nya säkerhetskopior börjar misslyckas och gamla återställningspunkterna upphör att gälla enligt kvarhållningsprincip men en senaste återställningspunkten behålls alltid tills du genomför stoppa säkerhetskopiering med ta bort data.
+Återställningspunkten kommer att bevaras alltid tills Säkerhetskopieringsobjekt är återaktivera skyddet med en bevarandeprincip eller StopProtection med ta borttagningsdata. Vid återaktiveringen av skyddet avgör den nya principen som är komma associerad kvarhållning av återställningspunkter. På samma sätt du om du tar bort en datakälla utan att stoppa säkerhetskopieringen börjar nya säkerhetskopior att misslyckas och gamla återställningspunkter upphör att gälla enligt bevarandeprincipen, men den senaste återställningspunkten behålls alltid tills du stoppar säkerhetskopieringen och tar bort data.
 
 Sluta skydda en virtuell dator:
 
@@ -216,4 +216,6 @@ Att ta bort säkerhetskopierade data på en virtuell dator med den *säkerhetsko
     Ett meddelande får du reda på dina säkerhetskopierade data har tagits bort.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du skapar en virtuell dator från en återställningspunkt igen [återställa virtuella Azure-datorer](backup-azure-arm-restore-vms.md). Om du behöver information om hur du skyddar dina virtuella datorer, se [första titt: Säkerhetskopiera virtuella datorer till Recovery Services-valvet](backup-azure-vms-first-look-arm.md). Information om övervakning av händelser finns i [övervaka varningar vid säkerhetskopiering av Azure virtuella datorer](backup-azure-monitor-vms.md).
+* Mer information om hur du skapar en virtuell dator från en återställningspunkt igen [återställa virtuella Azure-datorer](backup-azure-arm-restore-vms.md).
+* Om du behöver information om hur du skyddar dina virtuella datorer, se [första titt: Säkerhetskopiera virtuella datorer till Recovery Services-valvet](backup-azure-vms-first-look-arm.md).
+* Information om övervakning av händelser finns i [övervaka varningar vid säkerhetskopiering av Azure virtuella datorer](backup-azure-monitor-vms.md).

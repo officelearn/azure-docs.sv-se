@@ -1,7 +1,7 @@
 ---
 title: Lägga till språkanalysverktyg – Azure Search
 description: Flerspråkig lexikal textanalys för icke-engelska frågor och index i Azure Search.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,20 +19,20 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b5c562994c169a8c5d51ee31a9606c5c40162603
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bb7fbdeea9c19b8a6fabe06687261296110b4064
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008337"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301816"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Lägga till språkanalysverktyg till ett Azure Search-index
 
-En *språkanalysverktyg* är en viss komponent i en [motorn för fulltextsökning](https://docs.microsoft.com/azure/search/search-lucene-query-architecture) som utför lexikal analys med språkliga reglerna för språket som mål. Varje sökbara fält har en `analyzer` egenskapen. Om ditt index innehåller översatta strängar, till exempel olika fält för text på engelska och kinesiska, kan du ange språkanalysverktyg på varje fält för att få åtkomst till avancerade språkliga funktioner i dessa analysverktyg.  
+En *språkanalysverktyg* är en viss typ av [text analyzer](search-analyzers.md) som utför lexikal analys med språkliga reglerna för språket som mål. Varje sökbara fält har en **analyzer** egenskapen. Om ditt index innehåller översatta strängar, till exempel olika fält för text på engelska och kinesiska, kan du ange språkanalysverktyg på varje fält för att få åtkomst till avancerade språkliga funktioner i dessa analysverktyg.  
 
 Azure Search har stöd för 35 analysverktyg som backas upp av Lucene och 50 analysverktyg som backas upp av egna Microsoft naturligt språk videoteknik som används i Office och Bing.
 
-## <a name="compare-language-analyzer-types"></a>Jämför analyzer-språktyper 
+## <a name="comparing-analyzers"></a>Jämföra analysverktyg
 
 Vissa utvecklare kanske föredrar Lucene mer bekanta, enkla, open source-lösningen. Lucene språkanalysverktyg är snabbare, men Microsoft analysverktyg har avancerade funktioner, till exempel lemmatisering, word decompounding (på språk som tyska, danska, nederländska, svenska, norska, estniska, Slutför, ungerska, slovakiska) och entitet igenkänning av (URL: er, e-postmeddelanden, datum, siffror). Du bör om möjligt köra jämförelser av både Microsoft och Lucene analysverktyg för att bestämma vilken som passar bättre. 
 
@@ -49,15 +49,17 @@ Standard-analysatorn är Standard Lucene, vilket fungerar bra för engelska, men
  > [!Tip]
  > Den [Sökanalysverktyg](https://alice.unearth.ai/) innehåller sida-vid-sida-jämförelse av resultat som skapas av analysverktyget från Lucene Lucenes engelska analyzer och Microsofts engelska naturligt språk processor. För varje sökinmatning anger du visas resultaten från varje analyzer i intilliggande fönster.
 
-## <a name="analyzer-configuration"></a>Configuration Analyzer
+## <a name="configuring-analyzers"></a>Konfigurera analysverktyg
 
-För varje fält i indexdefinitionen, kan du ange den `analyzer` egenskapen till ett analyzer-namn som anger vilka språk och leverantör. Samma analysatorn tillämpas när indexering och sökning för det fältet. Du kan till exempel ha olika fält för engelska, franska och spanska hotell beskrivningar som finnas sida vid sida i samma index.  
+Språkanalysverktyg används som – är. För varje fält i indexdefinitionen, kan du ange den **analyzer** egenskapen till ett analyzer-namn som anger vilka språk och leverantör. Samma analysatorn tillämpas när indexering och sökning för det fältet. Du kan till exempel ha olika fält för engelska, franska och spanska hotell beskrivningar som finnas sida vid sida i samma index.  
 
 Använd den **searchFields** frågeparameter för att ange vilket språkspecifika fält om du vill söka mot i dina frågor. Du kan granska frågan exempel som innehåller egenskapen analyzer i söka efter dokument. 
 
 Läs mer om egenskaper för frågeindex [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Mer information om analys i Azure Search finns [analysverktyg i Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
-## <a name="analyzer-list"></a>Analyzer-lista  
+<a name="language-analyzer-list"></a>
+
+## <a name="language-analyzer-list"></a>Språklista analyzer 
  Nedan visas en lista över språk som stöds tillsammans med Lucene och Microsoft analyzer-namn.  
 
 |Språk|Microsoft Analyzer Name|Lucene Analyzer namn|  

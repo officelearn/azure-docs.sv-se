@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812794"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268846"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -121,7 +121,7 @@ En lokal nätverksgateway kan utbyta vägar med en virtuell nätverksgateway i A
 
 När du skickar vägar till Azure med hjälp av BGP läggs en separat väg till i routningstabellen för alla undernät i ett virtuellt nätverk för varje annonserat prefix. Vägen läggs till med *Virtuell nätverksgateway* angiven som källa och nästa hopptyp. 
 
-Du kan inaktivera BGP-spridning av vägar för ett undernät med hjälp av en egenskap för en routningstabell. När du byter vägar i Azure med hjälp av BGP läggs inte vägarna till i routningstabellen för undernäten där BGP-spridning är inaktiverad. Anslutningar via VPN uppnås med hjälp av [anpassade vägar](#custom-routes) där nästa hopp har typen *Virtual network gateway* (gateway för virtuellt nätverk). Mer information finns i [Så här inaktiverar du BGP-spridning av vägar](manage-route-table.md#create-a-route-table).
+ER och spridning för VPN-Gateway kan inaktiveras på ett undernät med en egenskap för en routningstabell. När du byter vägar i Azure med hjälp av BGP läggs inte vägarna till i routningstabellen för undernäten där BGP-spridning är inaktiverad. Anslutningar via VPN uppnås med hjälp av [anpassade vägar](#custom-routes) där nästa hopp har typen *Virtual network gateway* (gateway för virtuellt nätverk). Mer information finns i [Så här inaktiverar du BGP-spridning av vägar](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Hur Azure väljer en väg
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 2f401290a4a9150d27685c06c2d4cd9dc2f06f0d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bbae6d4b727f3e3dc51bd57e8badbc6e87814a51
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730296"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267894"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importera dina utbildningsdata till Azure Machine Learning Studio från olika datakällor
 
@@ -77,6 +77,29 @@ Alla moduler som format än datatabell konverterar data till datatabellen tyst v
 
 Om det behövs kan du konvertera data tabellformat tillbaka till CSV, TVS, ARFF eller SVMLight format med hjälp av andra moduler för konvertering.
 Titta i den **Format datakonvertering** avsnittet på modulpaletten för moduler som utför dessa funktioner.
+
+## <a name="data-capacities"></a>Datakapaciteter
+
+Modulerna i Machine Learning Studio stöder datauppsättningar på upp till 10 GB med kompakta numeriska data för vanliga användningsfall. Om en modul hämtar indata från mer än ett ställe är värdet 10 GB summan av alla indata. Du kan ta prov på större datauppsättningar med frågor från Hive eller Azure SQL Database eller använda inlärning med antal Förbearbeta innan du importerar data.  
+
+Följande typer av data kan expanderas till större datauppsättningar under funktionsnormalisering och är begränsade till mindre än 10 GB:
+
+* Utspridda
+* Kategoriska
+* Strängar
+* Binära data
+
+Följande moduler är begränsade till datauppsättningar som är mindre än 10 GB:
+
+* Moduler för rekommenderare
+* Modulen SMOTE (Synthetic Minority Oversampling Technique)
+* Skriptmoduler: R, Python, SQL
+* Moduler där den utgående datastorleken kan vara större än den inkommande datastorleken, till exempel kopplings- eller funktions-hashning
+* Korsvalidering, hyperparametrar för justeringsmodeller, ordningstalsregression och ”en eller alla”-multiklasser, om antalet iterationer är mycket stort
+
+För datauppsättningar som är större än ett par GB, ladda upp data till Azure Storage eller Azure SQL Database eller använda Azure HDInsight i stället för att ladda upp direkt från en lokal fil.
+
+Du kan hitta information om avbildningsdata i den [bildimport](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) modulreferens.
 
 ## <a name="import-from-a-local-file"></a>Importera från en lokal fil
 

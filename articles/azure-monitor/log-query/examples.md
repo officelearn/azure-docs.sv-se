@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Azure Monitor log-fråga-exempel | Microsoft Docs
-description: Exempel på loggfrågor i Azure Monitor med Datautforskaren frågespråket.
+title: Azure Monitor log-fråga-exempel | Microsoft Docs
+description: Exempel på loggfrågor i Azure Monitor med Kusto-frågespråk.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c161a2fd8d1be670435d2b1a749749cea7d82bcf
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993205"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268455"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor log-fråga-exempel
-Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md) med hjälp av den [Datautforskaren frågespråk](https://docs.microsoft.com/azure/kusto/query/) att hämta olika typer av loggdata från Azure Monitor. Olika metoder för att konsolidera och analysera data, så du kan använda de här exemplen för att identifiera olika strategier som du kan använda för dina egna behov.  
+Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md) med hjälp av den [Kusto-frågespråket](/azure/kusto/query/) att hämta olika typer av loggdata från Azure Monitor. Olika metoder för att konsolidera och analysera data, så du kan använda de här exemplen för att identifiera olika strategier som du kan använda för dina egna behov.  
 
 Se den [Kusto-Språkreferens](https://docs.microsoft.com/azure/kusto/query/) mer information om andra nyckelord som används i exemplen. Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du inte har använt Azure Monitor.
 

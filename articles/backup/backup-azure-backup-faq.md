@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0c52a10aa806962ee54fe6058f236ea9bd86414b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300739"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268353"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -31,7 +31,7 @@ Du kan registrera upp till 1 000 virtuella Azure-datorer per valv. Om du använd
 Server-data som du vill återställa tillsammans bör använda samma lösenfras när du konfigurerar säkerhetskopiering. Om du vill isolera återställning till en specifik server eller servrar kan du använda en lösenfras för den server eller endast servrar. HR-servrarna kan till exempel använda en krypteringslösenfras, redovisningsservrarna en annan och lagringsservrar en tredje.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Kan jag flytta mitt valv mellan prenumerationer?
-Nej. Valvet skapas på prenumerationsnivå och kan inte tilldelas till en annan prenumeration.
+Ja. Att flytta ett Recovery Services-valv finns det [artikel](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Kan jag flytta säkerhetskopieringsdata till ett annat valv?
 Nej. Säkerhetskopierade data lagras i ett valv kan inte flyttas till ett annat valv.
@@ -148,7 +148,6 @@ Nej. Alla data som har överförts till valvet innan säkerhetskopieringen avbr�
 Om du avbryter ett säkerhetskopieringsjobb för en virtuella Azure-dator ignoreras alla överförda data. Nästa säkerhetskopieringsjobb överför inkrementella data från det senaste lyckade säkerhetskopieringsjobbet.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Varför är mängden data som överförs till Recovery Services-valvet mindre än de data som valts för säkerhetskopiering?
-
  Data som säkerhetskopieras från Azure Backup Agent, DPM, och Azure Backup Server komprimeras och krypteras innan de överförs. Vid komprimering och kryptering används kan data i valvet är 30 – 40% mindre.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Kan jag ta bort enskilda filer från en återställningspunkt i valvet?
@@ -156,8 +155,8 @@ Azure Backup stöder inte, inte ta bort eller rensa enskilda objekt från lagrad
 
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Om jag avbryter ett säkerhetskopieringsjobb när den har startat överförda säkerhetskopieringsdata raderas?
-
 Nej. Alla data som har överförts till valvet innan säkerhetskopieringen var avbröts finns kvar i valvet.
+
 - Azure Backup använder en kontrollpunktsmekanism för att då och då lägga till kontrollpunkter till säkerhetskopierade data under säkerhetskopieringen.
 - Eftersom det finns kontrollpunkter i säkerhetskopian kan nästa säkerhetskopiering validera filernas integritet.
 - Nästa säkerhetskopieringsjobb är en inkrementell säkerhetskopiering mot tidigare säkerhetskopierade data. Vid inkrementella säkerhetskopieringar överförs bara nya eller ändrade data, vilket innebär att bandbredden utnyttjas bättre.
@@ -177,7 +176,7 @@ Nej. Bevarandeprinciper kan bara användas med säkerhetskopieringspunkter. Den 
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>Tar det längre tid att återställa en äldre datapunkt om en säkerhetskopia sparas under en längre tid? <br/>
-Nej. Det tar lika lång tid att återställa den äldsta och den senaste punkten. Varje återställningspunkt beter sig som en fullständig punkt.
+Nej. Är det dags att återställa den äldsta och den senaste punkten. Varje återställningspunkt beter sig som en fullständig punkt.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Om varje återställningspunkt fungerar som en fullständig punkt, påverkas i så fall den totalt fakturerbara lagringen av säkerhetskopior?
 Typiska produkter för långsiktiga kvarhållningspunkter lagrar säkerhetskopierade data som fullständiga punkter.
@@ -203,7 +202,7 @@ Nej. Recovery är kostnadsfritt och du debiteras inte för den utgående trafike
 När en ny princip tillämpas följs schemat för och kvarhållningen av den nya principen.
 
 - Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen.
-- - Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas sedan bort.
+- Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas sedan bort.
 
 ## <a name="encryption"></a>Kryptering
 

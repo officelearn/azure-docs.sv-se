@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c59ef72f6e836b9cdf6899d917701555fc5e1988
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989261"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268778"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor log-frågor
-Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågor använder en version av samma frågespråk. Den [språkdokumentation för Azure Data Explorer fråga](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Azure Monitor log-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Azure Monitor-implementering för språket.
+Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågor använder en version av samma Kusto-frågespråket. Den [språkdokumentation för Azure Data Explorer fråga](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Azure Monitor log-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Azure Monitor-implementering för språket.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,8 +36,8 @@ Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågo
 
 ## <a name="reference"></a>Referens
 
-- [Frågespråksreferens](/azure/kusto/query) är klar Språkreferens för frågespråket i Datautforskaren.
-- [Azure Monitor log-fråga språkskillnader](data-explorer-difference.md) beskriver skillnaderna mellan versioner av frågespråket i Datautforskaren.
+- [Frågespråksreferens](/azure/kusto/query) är klar Språkreferens för Kusto-frågespråket.
+- [Azure Monitor log-fråga språkskillnader](data-explorer-difference.md) beskriver skillnaderna mellan versioner av Kusto-frågespråket.
 - [Standardegenskaper i Azure Monitor loggposter](../../azure-monitor/platform/log-standard-properties.md) beskriver egenskaper som är standard för alla Azure Monitor-loggdata.
 - [Utföra loggfrågor mellan resurser i Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) beskriver hur du skriver loggfrågor som använder data från flera Log Analytics-arbetsytor och Application Insights-program.
 
@@ -65,4 +65,4 @@ Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågo
  
 ## <a name="next-steps"></a>Nästa steg
 
-- Få åtkomst till den fullständiga [referensdokumentation för frågespråket i Data Explorer](/azure/kusto/query/).
+- Få åtkomst till den fullständiga [referensdokumentation för det Kusto-frågespråket](/azure/kusto/query/).

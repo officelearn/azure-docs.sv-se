@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3f7579324e1218cc2e2c3594889db776da6e529
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c1258ab619b165553c55481ad67d663be65ac832
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56143858"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269611"
 ---
 # <a name="how-to-use-azure-maps-android-sdk"></a>Hur du använder Android SDK för Azure Maps
 
@@ -45,7 +45,7 @@ Se [Android Studio-dokumentation](https://developer.android.com/studio/intro/) m
 
 ## <a name="set-up-a-virtual-device"></a>Konfigurera en virtuell enhet
 
-Android Studio kan du konfigurera en virtuell Android-enhet på datorn. Som kan hjälpa dig för att testa ditt program när du utvecklar. Att konfigurera en virtuell enhet klickar du på Android Virtual Device (AVD) Manager-ikonen längst upp till höger på skärmen projekt. Klicka sedan på den **Skapa virtuell enhet** knappen. Du kan också få till manager via Verktyg > Android > AVD-hanteraren i verktygsfältet. Från den **telefoner** kategori, väljer **Nexus 5 X** och klicka på **nästa**.
+Android Studio kan du konfigurera en virtuell Android-enhet på datorn. Som kan hjälpa dig för att testa ditt program när du utvecklar. Du ställer in en virtuell enhet klickar du på Android Virtual Device (AVD) Manager-ikonen längst upp till höger på skärmen projekt. Klicka sedan på den **Skapa virtuell enhet** knappen. Du kan också få till manager via **Verktyg > Android > AVD Manager** i verktygsfältet. Från den **telefoner** kategori, väljer **Nexus 5 X** och klicka på **nästa**.
 
 Läs mer om hur du konfigurerar en AVD i den [Android Studio-dokumentation](https://developer.android.com/studio/run/managing-avds).
 
@@ -55,7 +55,7 @@ Läs mer om hur du konfigurerar en AVD i den [Android Studio-dokumentation](http
 
 Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidare för att skapa ditt program. 
 
-1. Lägg till följande till den **allprojects**, databaser genom att blockera i din **build.gradle** fil.
+1. Lägg till följande till den **alla projekt**, databaser genom att blockera i din **build.gradle** fil.
 
     ```
     maven {
@@ -79,7 +79,7 @@ Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidar
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Konfigurera behörigheter genom att lägga till följande till din AndroidManifest.xml
+3. Konfigurera behörigheter genom att lägga till följande till din **AndroidManifest.xml**
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidar
     </manifest>
     ```
 
-4. Redigera **res > layout > activity_main.xml**, så det se ut som nedan XML-filen:
+4. Redigera **res > layout > activity_main.xml**, så att det ser ut som nedan XML-filen:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -187,7 +187,7 @@ Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidar
 
 ## <a name="import-classes"></a>Importera klasser
 
-När du har slutfört stegen ovan, är förmodligen får du varningar från Android Studio på en del av texten i koden. Att hantera detta behöver du importera några av de klasser som refereras i `MainActivity.java`.
+När du har slutfört stegen ovan, är förmodligen får du varningar från Android Studio på en del av texten i koden. För att lösa dessa varningar, importera de klasser som refereras i `MainActivity.java`.
 
 Du kan importera de här klasserna automatiskt genom att trycka på `Alt` + `Enter`(`Option` + `Return` på Mac). 
 
@@ -288,6 +288,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Kör ditt program och du bör se en markör på kartan som den som visas nedan.
+Köra ditt program och du bör se en markör på kartan som den som visas nedan.
 
 ![Android kartan PIN-kod](./media/how-to-use-android-map-control-library/android-map-pin.png)

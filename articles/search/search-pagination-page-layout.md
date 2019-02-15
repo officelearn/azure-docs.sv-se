@@ -1,30 +1,31 @@
 ---
-title: Så här objekt i en sökresultatsida – Azure Search
-description: Sidbrytning i Azure Search, en värdbaserad molnsöktjänst på Microsoft Azure.
+title: Hur du arbetar med sökresultat – Azure Search
+description: Strukturera och sortera sökresultat, hämta ett dokumentantal och lägga till innehållsnavigering sökresultat i Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
-ms.devlang: rest-api
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2016
+ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f36dbb72e2518f7e3a27ef3aadec85312d751c2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8cf65f0ed3ecd5c9a86d6adcdd5defd930522f85
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309352"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301561"
 ---
-# <a name="how-to-page-search-results-in-azure-search"></a>Arbeta med sökresultatsidor i Azure Search
-Den här artikeln innehåller råd om hur du använder Azure Search Service REST API för att implementera standardelement på en sökresultatsida, till exempel totala antalet, hämta dokument, sorteringsordningar och navigering.
+# <a name="how-to-work-with-search-results-in-azure-search"></a>Hur du arbetar med sökning resulterar i Azure Search
+Den här artikeln innehåller råd om hur du implementerar standardelement på en sökresultatsida, till exempel totala antalet, hämta dokument, sorteringsordningar och navigering. Sidan-relaterade alternativ som bidrar data eller information till dina sökresultat anges via den [Dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) begäranden som skickas till din Azure Search-tjänst. 
 
-I varje fall som nämns nedan sidan-relaterade alternativ som bidrar data eller information till dina sökresultatsidan anges via den [Dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) begäranden som skickas till din Azure Search-tjänst. Förfrågningar innehålla en GET-command, sökväg, och frågeparametrar som informerar tjänsten vad som efterfrågas och hur du formulera svaret.
+Förfrågningar innehålla en GET-command, sökväg, och frågeparametrar som informerar tjänsten vad som efterfrågas och hur du formulera svaret i REST-API. I .NET-SDK motsvarande API: et är [DocumentSearchResult klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+
+Kodexempel är ett webbgränssnitt för klientdelen som du hittar här: [New York City jobb demoappen](http://azjobsdemo.azurewebsites.net/) och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> En giltig begäran innehåller ett antal element, till exempel en tjänstens URL och en sökväg, HTTP-verb `api-version`och så vidare. Av utrymmesskäl trimmas vi exemplen för att fokusera på just den syntax som är relevant för sidbrytning. Finns det [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice) dokumentationen för mer information om begäran-syntax.
-> 
+> En giltig begäran innehåller ett antal element, till exempel en tjänstens URL och en sökväg, HTTP-verb `api-version`och så vidare. Av utrymmesskäl trimmas vi exemplen för att fokusera på just den syntax som är relevant för sidbrytning. Mer information om syntax som begäran finns i [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice). > 
 > 
 
 ## <a name="total-hits-and-page-counts"></a>Totalt antal träffar och Sidräkningar
@@ -32,7 +33,7 @@ Visar det totala antalet resultat som returnerats från en fråga och returnerar
 
 ![][1]
 
-I Azure Search kan du använda den `$count`, `$top`, och `$skip` parametrar för att returnera dessa värden. I följande exempel visas en exempelförfrågan för totalt antal träffar, returneras som `@OData.count`:
+I Azure Search kan du använda den `$count`, `$top`, och `$skip` parametrar för att returnera dessa värden. I följande exempel visas en exempelförfrågan för totalt antal träffar i ett index som kallas ”onlineCatalog” returneras som `@OData.count`:
 
         GET /indexes/onlineCatalog/docs?$count=true
 
@@ -70,7 +71,7 @@ Sorteringsordningar ofta som standard relevans, men det är vanligt att göra al
 
  ![][3]
 
-I Azure Search sortering baseras på den `$orderby` uttryck för alla fält som indexeras som `"Sortable": true.`
+I Azure Search sortering baseras på den `$orderby` uttryck för alla fält som indexeras som `"Sortable": true.` en `$orderby` -satsen är en OData-uttrycket. Information om syntaxen finns i [OData-uttryckssyntax för filter och order by-satser](query-odata-filter-orderby-syntax.md).
 
 Relevans är associerad med poängprofiler. Du kan använda standard bedömning som förlitar sig på textanalys av och statistik för att rangordnas ordning alla resultat med högre poäng gå till dokument med mer eller starkare matchningar på en sökterm.
 
@@ -83,7 +84,7 @@ Skapar du en metod som accepterar det valda sorteringsalternativet som indata oc
  ![][5]
 
 > [!NOTE]
-> Även standard poängsättningen räcker för många scenarier, rekommenderar vi basera relevans på en anpassad bedömningsprofilen i stället. En anpassad bedömningsprofilen ger dig ett sätt att öka objekt som är bättre för din verksamhet. Se [lägga till en bedömningsprofil](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) för mer information. 
+> Även standard poängsättningen räcker för många scenarier, rekommenderar vi basera relevans på en anpassad bedömningsprofilen i stället. En anpassad bedömningsprofilen ger dig ett sätt att öka objekt som är bättre för din verksamhet. Se [lägga till bedömningsprofiler](index-add-scoring-profiles.md) för mer information. 
 > 
 > 
 
@@ -91,7 +92,7 @@ Skapar du en metod som accepterar det valda sorteringsalternativet som indata oc
 Söknavigering är vanligt på en resultatsida som ofta finns på sidan eller längst upp på en sida. I Azure Search ger aspektbaserad navigering självriktad sökning baserat på fördefinierade filter. Se [Aspektbaserad navigering i Azure Search](search-faceted-navigation.md) mer information.
 
 ## <a name="filters-at-the-page-level"></a>Filter på sidnivå
-Om en lösningsdesign ingår dedicerade söksidor för specifika typer av innehåll (till exempel ett onlinebutiker program som har avdelningar som visas överst på sidan), kan du infoga ett filteruttryck tillsammans med en **onClick**händelse att öppna en sida i en filtrerad tillstånd. 
+Om en lösningsdesign ingår dedicerade söksidor för specifika typer av innehåll (till exempel ett onlinebutiker program som har avdelningar som visas överst på sidan), kan du infoga ett [filteruttryck](search-filters.md) tillsammans med en **onClick** händelse att öppna en sida i en filtrerad tillstånd. 
 
 Du kan skicka ett filter med eller utan ett sökuttryck. Följande begäran kommer till exempel filtrera på varumärke, returnerar endast de dokument som matchar den.
 

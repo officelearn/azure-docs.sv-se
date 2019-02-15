@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c9e143a4127807bfffa879103fca42d2d27e71
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993677"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268336"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL till Azure Monitor log-facit för fråga 
 
-Tabellen nedan hjälper användare som är bekanta med SQL för att lära dig frågespråket i Datautforskaren för att skriva loggfrågor i Azure Monitor. Ta en titt på T-SQL-kommando för att lösa vanliga scenarier och motsvarande i en Azure Monitor log-fråga.
+Tabellen nedan hjälper användare som är bekanta med SQL för att lära dig Kusto-frågespråk för att skriva loggfrågor i Azure Monitor. Ta en titt på T-SQL-kommando för att lösa vanliga scenarier och motsvarande i en Azure Monitor log-fråga.
 
 ## <a name="sql-to-azure-monitor"></a>SQL till Azure Monitor
 

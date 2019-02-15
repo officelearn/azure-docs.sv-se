@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094537"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300269"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -41,7 +41,7 @@ Application Insights-tjänsten lagrar och analyserar telemetri. Om du vill se an
 
 Du kan ha data som exporterats från Application Insights-tjänsten, till exempel att en databas eller externa verktyg. Du kan ange varje verktyg med en särskild nyckel som hämtas från tjänsten. Nyckeln kan återkallas om det behövs. 
 
-Application Insights SDK: er är tillgängliga för flera typer av program: webbtjänster som finns i dina egna J2EE eller ASP.NET-servrar eller i Azure webbklienter – det vill säga den kod som körs på en webbsida; skrivbordsappar och tjänster. appar för enheter, till exempel Windows Phone, iOS och Android. Alla skicka telemetri till samma tjänst.
+Application Insights SDK: er är tillgängliga för flera typer av program: webbtjänster som finns i dina egna Java EE eller ASP.NET-servrar eller i Azure webbklienter – det vill säga den kod som körs på en webbsida; skrivbordsappar och tjänster. appar för enheter, till exempel Windows Phone, iOS och Android. Alla skicka telemetri till samma tjänst.
 
 ## <a name="what-data-does-it-collect"></a>Vilka data samlar det?
 ### <a name="how-is-the-data-is-collected"></a>Vad är data som samlas in?
@@ -51,7 +51,7 @@ Det finns tre datakällor:
   
   * Varje SDK har ett antal [moduler](../../azure-monitor/app/configuration-with-applicationinsights-config.md), som använda olika metoder för att samla in olika typer av telemetri.
   * Du kan använda dess API för att skicka din egen telemetri, förutom modulerna som standard om du installerar SDK under utveckling. Den här anpassad telemetri kan innehålla information du vill skicka.
-* I vissa webbservrar finns också agenter som körs tillsammans med appen och skicka telemetri om processor, minne och användandet av nätverket. Till exempel virtuella Azure-datorer, Docker-värdar och [J2EE-servrar](../../azure-monitor/app/java-agent.md) kan ha dessa agenter.
+* I vissa webbservrar finns också agenter som körs tillsammans med appen och skicka telemetri om processor, minne och användandet av nätverket. Till exempel virtuella Azure-datorer, Docker-värdar och [Java EE-servrar](../../azure-monitor/app/java-agent.md) kan ha dessa agenter.
 * [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) är processer som körs av Microsoft som skickar begäranden till webbappen med jämna mellanrum. Resultatet skickas till Application Insights-tjänsten.
 
 ### <a name="what-kinds-of-data-are-collected"></a>Vilka typer av data som samlas in?

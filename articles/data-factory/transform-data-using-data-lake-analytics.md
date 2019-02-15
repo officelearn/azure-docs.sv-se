@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016502"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268109"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-usql-activity.md)
 > * [Aktuell version](transform-data-using-data-lake-analytics.md)
 
@@ -37,7 +37,7 @@ Följande tabell innehåller beskrivningar av de allmänna egenskaper som använ
 | Egenskap                  | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **typ**                 | Type-egenskapen ska anges till: **AzureDataLakeAnalytics**. | Ja                                      |
-| **Kontonamn**          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
+| **accountName**          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nej                                       |
 | **Prenumerations-ID**       | Azure-prenumerations-ID                    | Nej                                       |
 | **resourceGroupName**    | Azure-resursgruppsnamn                | Nej                                       |
@@ -131,7 +131,7 @@ I följande tabell beskrivs namn och beskrivningar för egenskaper som är speci
 | runtimeVersion      | Runtime-versionen av U-SQL-motor som ska användas. | Nej       |
 | compilationMode     | <p>Kompileringsläge för U-SQL. Måste vara ett av följande värden: **Semantisk:** Endast utföra semantiska kontroller och nödvändiga hälsokontroller **fullständig:** Utföra fullständig kompileringen, inklusive syntaxkontrollen, optimering, kodgenerering, osv., **SingleBox:** Utföra fullständig kompileringen med TargetType inställningen om du vill SingleBox. Om du inte anger ett värde för den här egenskapen anger servern optimala kompileringsläge. | Nej |
 
-Data Factory skickar Se [SearchLogProcessing.txt skriptet Definition](#sample-u-sql-script) för skript-definition. 
+Se [SearchLogProcessing.txt](#sample-u-sql-script) för skript-definition. 
 
 ## <a name="sample-u-sql-script"></a>Exempelskript för U-SQL
 

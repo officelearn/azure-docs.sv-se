@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: spelluru
-ms.openlocfilehash: ddda9ef2b9bb716f7cdd33aa8fe9233f6c7d8e82
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 2903228a3257abe9c454c6e0720a1e228b905290
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749008"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300048"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Ange en resursgrupp för labbet virtuella datorer i Azure DevTest Labs
 Som labbägare kan konfigurera du dina virtuella datorer för testlabbet skapas i en specifik resursgrupp. Använd den här funktionen så att du inte når resursen gruppgränser på din Azure-prenumeration. Den här funktionen kan du konsolidera alla labbresurser inom en enda resursgrupp. Det förenklar också spåra dessa resurser och tillämpa [principer](../governance/policy/overview.md) kan hantera dem på resursgruppsnivå.
@@ -32,7 +32,7 @@ Nu ska vi gå igenom vilka alternativ som finns som labbägare när du använder
 - Du kan ange en **ny resursgrupp** namn för alla virtuella datorer.
 - Du kan fortsätta med den befintliga funktionen, det vill säga en resursgrupp skapas för varje virtuell dator i labbet.
  
-Den här inställningen gäller för nya virtuella datorer som skapas i labbet. De äldre virtuella datorer i labbet som har skapats i sina egna resursgrupper fortsätta att påverkas. Men kan du migrera de virtuella datorerna från deras enskilda resursgrupper till vanliga resursgruppen så att alla dina virtuella datorer för testlabbet finns i en gemensam resursgrupp. Mer information finns i [flytta resurser till en ny resursgrupp](../azure-resource-manager/resource-group-move-resources.md). Miljöer som skapats i labbet ska fortsätta vara i sina egna resursgrupper.
+Den här inställningen gäller för nya virtuella datorer som skapas i labbet. De äldre virtuella datorer i labbet som har skapats i sina egna resursgrupper fortsätta att påverkas. Miljöer som skapats i labbet ska fortsätta vara i sina egna resursgrupper.
 
 ### <a name="how-to-use-this-api"></a>Hur du använder den här API:
 - Använd API-versionen **2018_10_15_preview** när du använder detta API. 

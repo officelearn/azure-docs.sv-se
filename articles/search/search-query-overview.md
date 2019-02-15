@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005054"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300883"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Hur du skriver en fråga i Azure Search
 
@@ -22,14 +22,14 @@ I Azure Search är en fråga en fullständig specifikation av en fram och åter 
 
 En fråga är en omfattande konstruktion som specificerar vilka fält som omfattade, hur du söker efter, vilka fält som ska gå tillbaka till sorterings- eller filter och så vidare. Angivet används körs en fråga mot alla sökbara fält som en fullständig text search-åtgärd returnerar en inte har poängsatts resultatuppsättningen i valfri ordning.
 
-### <a name="apis-and-tools-for-testing"></a>API: er och verktyg för testning
+## <a name="apis-and-tools-for-testing"></a>API: er och verktyg för testning
 
 I följande tabell visas de API: er och verktyg-baserade metoderna för att skicka frågor.
 
 | Metod | Beskrivning |
 |-------------|-------------|
 | [Sökutforskaren (portal)](search-explorer.md) | Innehåller ett sökfält och alternativ för val av index och api-versionen. Resultaten returneras som JSON-dokument. <br/>[Läs mer.](search-get-started-portal.md#query-index) | 
-| [Postman eller andra HTTP-testverktyg](search-fiddler.md) | Beskriver hur du ställer in en HTTP-frågehuvudet och brödtext för att skicka frågor till Azure Search.  |
+| [Postman eller Fiddler](search-fiddler.md) | Testverktyg för webb-är ett utmärkt alternativ för att utforma REST-anrop. REST API har stöd för varje möjlig åtgärd i Azure Search. I den här artikeln lär du dig hur du ställer in en HTTP-frågehuvudet och brödtext för att skicka begäranden till Azure Search.  |
 | [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient som kan användas för att fråga en Azure Search-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Söka efter dokument (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET eller POST-metoder i ett index med hjälp av frågeparametrar för ytterligare indata.  |
 
@@ -76,7 +76,7 @@ Indexattribut i ett fält ange tillåtna åtgärder – om ett fält är *sökba
 Skärmbilden ovan är en lista över indexattribut för fastigheter. Du kan visa hela indexschemat i portalen. Läs mer om indexattribut [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Vissa frågefunktioner aktiveras index hela snarare än på basis av per fält. Funktionerna omfattar: [synonymen mappar](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), [förslagsställare konstruktioner (för automatisk komplettering och automatiska förslag)](https://docs.microsoft.com/rest/api/searchservice/suggesters), [bedömning logik för rangordning av resultat](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
+> Vissa frågefunktioner aktiveras index hela snarare än på basis av per fält. Funktionerna omfattar: [synonymen mappar](search-synonyms.md), [anpassade analysverktyg](index-add-custom-analyzers.md), [förslagsställare konstruktioner (för automatisk komplettering och automatiska förslag)](index-add-suggesters.md), [bedömning logik för rangordning av resultat](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Element i en fråga
 
@@ -94,9 +94,9 @@ Alla andra search-parametrar är valfria. En fullständig lista över attribut f
 
 ## <a name="choose-a-parser-simple--full"></a>Välj en parser: enkel | fullständig
 
-Azure Search finns på Apache Lucene och ger dig ett val mellan två fråga Parser för hantering av vanliga och specialiserade frågor. Begäranden som använder enkel parsern formuleras med hjälp av den [enkla frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search), valda som standard för vilken hastighet och effektivitet i fri form textfrågor. Den här syntaxen stöder ett antal vanliga sökoperatorer som AND-, eller inte, frasen, suffix och prioritetsoperatorer.
+Azure Search finns på Apache Lucene och ger dig ett val mellan två fråga Parser för hantering av vanliga och specialiserade frågor. Begäranden som använder enkel parsern formuleras med hjälp av den [enkla frågesyntaxen](query-simple-syntax.md), valda som standard för vilken hastighet och effektivitet i fri form textfrågor. Den här syntaxen stöder ett antal vanliga sökoperatorer som AND-, eller inte, frasen, suffix och prioritetsoperatorer.
 
-Den [fullständig Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), aktiverat när du lägger till `queryType=full` på begäran, visar det mycket antagen och uttrycksfulla frågespråket som utvecklats som en del av [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Fullständig syntax utökar enkel syntax. Alla frågor som du skriver för enkel syntax körs under den fullständiga Lucene-parsern. 
+Den [fullständig Lucene-frågesyntax](query-Lucene-syntax.md#bkmk_syntax), aktiverat när du lägger till `queryType=full` på begäran, visar det mycket antagen och uttrycksfulla frågespråket som utvecklats som en del av [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Fullständig syntax utökar enkel syntax. Alla frågor som du skriver för enkel syntax körs under den fullständiga Lucene-parsern. 
 
 I följande exempel visas punkten: samma fråga, men med olika queryType inställningar, ger olika resultat. I den första frågan i `^3` behandlas som en del av söktermen.
 
@@ -118,16 +118,16 @@ Azure Search har stöd för ett brett utbud av frågetyper.
 
 | Frågetyp | Användning | Mer information och exempel |
 |------------|--------|-------------------------------|
-| Fri form textsökning | Sökparameter och antingen parser| Fulltextsökning söker igenom en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig en sökmotor som Google eller Bing fungerar. Exemplet i inledningen är fulltextsökning.<br/><br/>Fulltextsökning genomgår textanalys med analysverktyget från Lucene (som standard) till gemena alla villkor, ta bort stoppord som ”och”. Du kan åsidosätta standardinställningen med [icke-engelska analysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support#analyzer-list) eller [specialiserade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) som ändrar textanalys. Ett exempel är [nyckelordet](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar allt i ett fält som en enskild token. Detta är användbart för data som postnummer, ID: n och vissa produktnamn. | 
-| Filtrerade sökning | [OData-filteruttryck](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) och antingen parser | Filterfrågor utvärderar ett booleskt uttryck över alla *filtrerbara* fält i ett index. Till skillnad från sökning matchar en filterfråga det exakta innehållet i ett fält, inklusive skiftlägeskänslighet på strängfält. En annan skillnaden är att filterfrågor uttrycks i OData-syntax. <br/>[Uttryck-filter, exempel](search-query-simple-examples.md#example-3-filter-queries) |
+| Fri form textsökning | Sökparameter och antingen parser| Fulltextsökning söker igenom en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig en sökmotor som Google eller Bing fungerar. Exemplet i inledningen är fulltextsökning.<br/><br/>Fulltextsökning genomgår textanalys med analysverktyget från Lucene (som standard) till gemena alla villkor, ta bort stoppord som ”och”. Du kan åsidosätta standardinställningen med [icke-engelska analysverktyg](index-add-language-analyzers.md#language-analyzer-list) eller [specialiserade språkoberoende analysverktyg](index-add-custom-analyzers.md#AnalyzerTable) som ändrar textanalys. Ett exempel är [nyckelordet](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar allt i ett fält som en enskild token. Detta är användbart för data som postnummer, ID: n och vissa produktnamn. | 
+| Filtrerade sökning | [OData-filteruttryck](query-odata-filter-orderby-syntax.md) och antingen parser | Filterfrågor utvärderar ett booleskt uttryck över alla *filtrerbara* fält i ett index. Till skillnad från sökning matchar en filterfråga det exakta innehållet i ett fält, inklusive skiftlägeskänslighet på strängfält. En annan skillnaden är att filterfrågor uttrycks i OData-syntax. <br/>[Uttryck-filter, exempel](search-query-simple-examples.md#example-3-filter-queries) |
 | Geo-sökning | [Typ av Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) på fältet och filteruttrycket antingen parser | Koordinaterna som lagras i ett fält med en Edm.GeographyPoint är används för ”hitta en nära mig” eller kartbaserade Genomsök kontroller. <br/>[Exempel på GEO-sökning](search-query-simple-examples.md#example-5-geo-search)|
 | Sök efter intervall | filteruttrycket och enkel parser | I Azure Search skapas intervallfrågor med hjälp av Filterparametern. <br/>[Intervallet filter, exempel](search-query-simple-examples.md#example-4-range-filters) | 
-| [Trafik fältet filtrering](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields) | Sökparameter och fullständig parser | Skapa ett sammansatt frågeuttryck som riktar in sig på ett fält. <br/>[Trafik fältet filtrering exempel](search-query-lucene-examples.md#example-2-intra-field-filtering) |
-| [Fuzzy-sökning](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy) | Sökparameter och fullständig parser | Matchningar på villkor att ha en liknande konstruktion eller stavning. <br/>[Fuzzy-sökning-exempel](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [närhetssökning](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity) | Sökparameter och fullständig parser | Söker efter termer som är nära varandra i ett dokument. <br/>[Närhet search-exempel](search-query-lucene-examples.md#example-4-proximity-search) |
-| [termförstärkning](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost) | Sökparameter och fullständig parser | Rangordnar ett dokument som är högre om den innehåller förbättrat termen, i förhållande till andra inte stöds. <br/>[Termen boosting-exempel](search-query-lucene-examples.md#example-5-term-boosting) |
-| [sökning med reguljära uttryck](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex) | Sökparameter och fullständig parser | Matchingar baserat på innehållet i ett reguljärt uttryck. <br/>[Reguljärt uttryck exempel](search-query-lucene-examples.md#example-6-regex) |
-|  [sökning med jokertecken eller prefix](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard) | Sökparameter och fullständig parser | Matchar baserat på ett prefix och tilde (`~`) eller valfritt tecken (`?`). <br/>[Jokertecken search-exempel](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [Trafik fältet filtrering](query-lucene-syntax.md#bkmk_fields) | Sökparameter och fullständig parser | Skapa ett sammansatt frågeuttryck som riktar in sig på ett fält. <br/>[Trafik fältet filtrering exempel](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [Fuzzy-sökning](query-lucene-syntax.md#bkmk_fuzzy) | Sökparameter och fullständig parser | Matchningar på villkor att ha en liknande konstruktion eller stavning. <br/>[Fuzzy-sökning-exempel](search-query-lucene-examples.md#example-3-fuzzy-search) |
+| [närhetssökning](query-lucene-syntax.md#bkmk_proximity) | Sökparameter och fullständig parser | Söker efter termer som är nära varandra i ett dokument. <br/>[Närhet search-exempel](search-query-lucene-examples.md#example-4-proximity-search) |
+| [termförstärkning](query-lucene-syntax.md#bkmk_termboost) | Sökparameter och fullständig parser | Rangordnar ett dokument som är högre om den innehåller förbättrat termen, i förhållande till andra inte stöds. <br/>[Termen boosting-exempel](search-query-lucene-examples.md#example-5-term-boosting) |
+| [sökning med reguljära uttryck](query-lucene-syntax.md#bkmk_regex) | Sökparameter och fullständig parser | Matchingar baserat på innehållet i ett reguljärt uttryck. <br/>[Reguljärt uttryck exempel](search-query-lucene-examples.md#example-6-regex) |
+|  [sökning med jokertecken eller prefix](query-lucene-syntax.md#bkmk_wildcard) | Sökparameter och fullständig parser | Matchar baserat på ett prefix och tilde (`~`) eller valfritt tecken (`?`). <br/>[Jokertecken search-exempel](search-query-lucene-examples.md#example-7-wildcard-search) |
 
 ## <a name="manage-search-results"></a>Hantera sökresultat 
 
@@ -156,7 +156,7 @@ Mer information om hur du använder sidindelning för sökresultat finns i artik
 ### <a name="ordering-results"></a>Ordna resultaten
 När du får resultat från en sökfråga kan du begära att Azure Search visar resultaten ordnade efter värden i ett visst fält. Som standard ordnar Azure Search sökresultaten baserat på rangordningen för varje dokuments sökpoäng, som härleds från [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Om du vill att Azure Search ska returnera resultaten ordnade efter ett annat värde än sökpoängen kan du använda den **`orderby`** sökparametern. Du kan ange värdet för den **`orderby`** parametern att inkludera fältnamn och anrop till den [  **`geo.distance()` funktionen** ](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) för geospatiala värden. Varje uttryck kan åtföljas av `asc` att ange att resultaten har begärt i stigande ordning, och **`desc`** att ange att resultaten har begärt i fallande ordning. Standardinställningen är stigande ordning.
+Om du vill att Azure Search ska returnera resultaten ordnade efter ett annat värde än sökpoängen kan du använda den **`orderby`** sökparametern. Du kan ange värdet för den **`orderby`** parametern att inkludera fältnamn och anrop till den [  **`geo.distance()` funktionen** ](query-odata-filter-orderby-syntax.md) för geospatiala värden. Varje uttryck kan åtföljas av `asc` att ange att resultaten har begärt i stigande ordning, och **`desc`** att ange att resultaten har begärt i fallande ordning. Standardinställningen är stigande ordning.
 
 
 ### <a name="hit-highlighting"></a>Träffmarkering

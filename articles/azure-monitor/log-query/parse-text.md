@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002239"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268200"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa textdata i Azure Monitor-loggar
 Vissa loggdata som samlas in av Azure Monitor innehåller flera typer av information i en enskild egenskap. Dela dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel loggpost med flera värden i en enskild egenskap. Du kan söka genom att skapa olika egenskaper för de olika värdena och sammanställda på var och en.
@@ -63,7 +63,7 @@ Nackdelar med att den här metoden är följande:
 Se [skapa anpassade fält i Azure Monitor](../platform/custom-fields.md) mer information om parsning data eftersom den har samlats in. Detta skapar anpassade egenskaper i den tabell som kan användas av frågor, precis som någon annan egenskap.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Dela upp data från frågan med mönster
-När de data du vill parsa kan identifieras genom ett mönster som upprepas över poster, du kan använda olika operatorer i den [Datautforskaren frågespråk](/azure/kusto/query/) att extrahera viss typ av data till en eller flera nya egenskaper.
+När de data du vill parsa kan identifieras genom ett mönster som upprepas över poster, du kan använda olika operatorer i den [Kusto-frågespråket](/azure/kusto/query/) att extrahera viss typ av data till en eller flera nya egenskaper.
 
 ### <a name="simple-text-patterns"></a>Enkel textmönster
 
@@ -139,7 +139,7 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>Parsa fördefinierade strukturer i en fråga
-Om dina data är formaterad med en känd struktur, du kan använda en av funktionerna i den [Datautforskaren frågespråk](/azure/kusto/query/) för parsning av fördefinierade strukturer:
+Om dina data är formaterad med en känd struktur, du kan använda en av funktionerna i den [Kusto-frågespråket](/azure/kusto/query/) för parsning av fördefinierade strukturer:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

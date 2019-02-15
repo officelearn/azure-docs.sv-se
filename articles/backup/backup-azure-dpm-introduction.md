@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bb13e507e7992f4cd4d767a7a18850739b8dccf2
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301075"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270206"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhetskopiering av arbetsbelastningar till Azure med System Center DPM
 
-Den här artikeln beskriver hur du förbereder för System Center Data Protection Manager (DPM) säkerhetskopieringar till Azure med Azure Backup-tjänsten. 
+Den här artikeln beskriver hur du förbereder för System Center Data Protection Manager (DPM) säkerhetskopieringar till Azure med Azure Backup-tjänsten.
 
 Artikeln innehåller:
 
@@ -25,7 +25,7 @@ Artikeln innehåller:
 - Förutsättningar och begränsningar för användning av Azure Backup med DPM.
 - Steg för att förbereda Azure, inklusive hur du konfigurerar ett Recovery Services-Backup-valv och du kan också ändra typen för Azure storage för valvet.
 - Steg för att förbereda DPM-servern, inklusive hämtar valvet autentiseringsuppgifter, installera Azure Backup-agenten och registrera DPM-servern i valvet.
-- Felsökningstips för vanliga fel. 
+- Felsökningstips för vanliga fel.
 
 
 ## <a name="why-back-up-dpm-to-azure"></a>Varför säkerhetskopiera DPM till Azure?
@@ -42,11 +42,11 @@ Företagets fördelar med att säkerhetskopiera DPM-servrar till Azure är:
 
 ## <a name="prerequisites-and-limitations"></a>Krav och begränsningar
 
-**Inställning** | **Krav** 
+**Inställning** | **Krav**
 --- | ---
 DPM på en Azure virtuell dator | System Center 2012 R2 med DPM 2012 R2 Samlad uppdatering 3 eller senare.
-DPM på en fysisk server | System Center 2012 SP1 eller senare. System Center 2012 R2. 
-DPM på en Hyper-V-dator | System Center 2012 SP1 eller senare. System Center 2012 R2. 
+DPM på en fysisk server | System Center 2012 SP1 eller senare. System Center 2012 R2.
+DPM på en Hyper-V-dator | System Center 2012 SP1 eller senare. System Center 2012 R2.
 DPM på en virtuell VMware-dator | System Center 2012 R2 med Samlad uppdatering 5 eller senare.
 Komponenter | DPM-servern bör ha Windows PowerShell och .net Framework 4.5 installerat.
 Appar som stöds | [Läs mer om](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) vad som kan säkerhetskopieras av DPM.
@@ -54,7 +54,7 @@ Filtyper som stöds | Dessa filtyper kan säkerhetskopieras med Azure Backup: Kr
 Filtyper som inte stöds | Servrar i skiftlägeskänsliga filsystem; hårda länkar (ignoreras); referenspunkt (ignoreras); krypterade och komprimerade (ignoreras); krypterade och utspridda (ignoreras); Komprimerad dataström; parsa dataströmmen.
 Lokal lagring | Varje dator som du vill säkerhetskopiera måste ha lokala ledigt lagringsutrymme som är minst 5% av storleken på de data som säkerhetskopieras.  Till exempel kräver säkerhetskopiera 100 GB data minst 5 GB ledigt utrymme i den tillfälliga platsen.
 Valvet lagring | Det finns ingen gräns för mängden data som du kan säkerhetskopiera till ett Azure Backup-valv, men storleken på en datakälla (till exempel en virtuell dator eller en databas) får inte överskrida 54400 GB.
-Azure Backup-agent | Om DPM körs på System Center 2012 SP1 kan du installera Samlad 2 eller senare för DPM SP1. Detta krävs för installation av agent.<br/><br/> Den här artikeln beskriver hur du distribuerar den senaste versionen av Azure Backup-agenten, även känt som Microsoft Azure Recovery Service MARS-agenten. Om du har en tidigare version som har distribuerats kan du uppdatera till den senaste versionen för att säkerställa att säkerhetskopieringen fungerar som förväntat. 
+Azure Backup-agent | Om DPM körs på System Center 2012 SP1 kan du installera Samlad 2 eller senare för DPM SP1. Detta krävs för installation av agent.<br/><br/> Den här artikeln beskriver hur du distribuerar den senaste versionen av Azure Backup-agenten, även känt som Microsoft Azure Recovery Service MARS-agenten. Om du har en tidigare version som har distribuerats kan du uppdatera till den senaste versionen för att säkerställa att säkerhetskopieringen fungerar som förväntat.
 
 
 Innan du börjar bör behöver du ett Azure-konto med Azure Backup-funktionen aktiverad. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Läs mer om [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -85,14 +85,14 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ## <a name="download-vault-credentials"></a>Ladda ned autentiseringsuppgifter för valvet
 
-Du kan använda autentiseringsuppgifterna för valvet när du registrerar DPM-servern i valvet. 
+Du kan använda autentiseringsuppgifterna för valvet när du registrerar DPM-servern i valvet.
 
 - Valvautentiseringsfilen är ett certifikat som genereras av portalen för varje säkerhetskopieringsvalv.
 - Portalen överför sedan den offentliga nyckeln till Access Control Service (ACS).
 - Under registreringsarbetsflödet datorn görs certifikatets privata nyckel tillgänglig för användaren som autentiserar datorn.
 - Azure Backup-tjänsten skickar data till identifierat valv baserat på vilken autentisering.
 
- ### <a name="best-practices-for-vault-credentials"></a>Metodtips för valvautentiseringsuppgifter
+### <a name="best-practices-for-vault-credentials"></a>Metodtips för valvautentiseringsuppgifter
 
 Om du vill hämta autentiseringsuppgifterna hämta du valvautentiseringsfilen via en säker kanal från Azure portal:
 
@@ -102,7 +102,7 @@ Om du vill hämta autentiseringsuppgifterna hämta du valvautentiseringsfilen vi
     - Dock krypteras säkerhetskopierade data med en lösenfras som hör till kunden, så att befintliga säkerhetskopierade data komprometteras.
 - Kontrollera att filen sparas på en plats som kan nås från DPM-servern. Om den är lagrad i en resurs/SMB i filen, söka efter åtkomstbehörigheterna.
 - Valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Du kan ladda ned nya valvautentiseringsuppgifter så många gånger som behövs. Dock kan endast senaste valvautentiseringsfilen användas under registreringsarbetsflödet.
-- Azure Backup-tjänsten är inte medveten om certifikatets privata nyckel och den privata nyckeln är inte tillgänglig i portalen eller tjänsten. 
+- Azure Backup-tjänsten är inte medveten om certifikatets privata nyckel och den privata nyckeln är inte tillgänglig i portalen eller tjänsten.
 
 Hämta valvautentiseringsfilen till en lokal dator på följande sätt:
 
@@ -121,7 +121,7 @@ Hämta valvautentiseringsfilen till en lokal dator på följande sätt:
 
 ## <a name="install-the-backup-agent"></a>Installera säkerhetskopieringsagenten
 
-Alla datorer som backas upp av Azure Backup måste ha Backup-agenten (kallas även Microsoft Azure Recovery Service (MARS)-agent) installerad på den. Installera agenten på DPM-servern enligt följande:
+Alla virtuella datorer som backas upp av Azure Backup måste ha Backup-agenten (kallas även Microsoft Azure Recovery Service (MARS)-agent) installerad på den. Installera agenten på DPM-servern enligt följande:
 
 1. Öppna det valv som du vill registrera DPM-servern.
 2. I **inställningar**, klickar du på **egenskaper**.
@@ -132,7 +132,7 @@ Alla datorer som backas upp av Azure Backup måste ha Backup-agenten (kallas äv
     ![Ladda ned](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 
-4. När du hämtat, kör du MARSAgentInstaller.exe. installera agenten på DPM-datorn. 
+4. När du hämtat, kör du MARSAgentInstaller.exe. installera agenten på DPM-datorn.
 5. Välj en installationsmappen och cachemappen för agenten. Det lediga utrymmet för cache-platsen måste vara minst 5% av säkerhetskopierade data.
 6. Om du använder en proxyserver för att ansluta till internet, i den **proxykonfiguration** anger proxy-serverinformation. Om du använder en autentiserad proxyserver måste du ange användarinformation för namn och lösenord i den här skärmen.
 7. Azure Backup-agenten installeras .NET Framework 4.5 och Windows PowerShell (om de inte är installerat) att slutföra installationen.
@@ -151,7 +151,7 @@ Alla datorer som backas upp av Azure Backup måste ha Backup-agenten (kallas äv
 
     ![Autentiseringsuppgifterna för valvet](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
-10. I **begränsning**, du kan välja att bandbreddsbegränsning för säkerhetskopior. Du kan ange begränsningarna hastighet för ange arbetstid och dagar. 
+10. I **begränsning**, du kan välja att bandbreddsbegränsning för säkerhetskopior. Du kan ange begränsningarna hastighet för ange arbetstid och dagar.
 
     ![Begränsningsinställning](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
 
@@ -168,12 +168,12 @@ Alla datorer som backas upp av Azure Backup måste ha Backup-agenten (kallas äv
     - Lösenfrasen används för att kryptera säkerhetskopiorna till molnet.
     - Ange minst 16 tecken.
     - Spara filen på en säker plats krävs för återställning.
-    
+
     ![Kryptering](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
     > Du äger den krypterade lösenfrasen och Microsoft har inte insyn i den.
-    > Om lösenfrasen går förlorat; Microsoft kan hjälpa dig att återställa säkerhetskopierade data. 
+    > Om lösenfrasen går förlorat; Microsoft kan hjälpa dig att återställa säkerhetskopierade data.
 
 13. Klicka på **registrera** att registrera DPM-servern i valvet.  
 

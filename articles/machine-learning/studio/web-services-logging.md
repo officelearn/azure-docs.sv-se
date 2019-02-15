@@ -1,6 +1,6 @@
 ---
 title: Web service - loggning i Azure Machine Learning Studio | Microsoft Docs
-description: 'Lär dig hur du aktiverar loggning för Machine Learning-webbtjänster. Loggning ger ytterligare information för felsökning av API: erna.'
+description: 'Lär dig hur du aktiverar loggning för Machine Learning Studio-webbtjänster. Loggning ger ytterligare information för felsökning av API: erna.'
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 80a5ec64a2afd2367acaedd6e44ffe1a21e9c622
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474400"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270113"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Aktivera loggning för Azure Machine Learning Studio-webbtjänster
-Det här dokumentet innehåller information om funktionen loggning för Machine Learning web services. Loggning ger ytterligare information, utöver just en felkod och ett meddelande som kan hjälpa dig att felsöka dina anrop till API: er för Machine Learning.  
+Det här dokumentet innehåller information om funktionen loggning av Machine Learning Studio-webbtjänster. Loggning ger ytterligare information, utöver just en felkod och ett meddelande som kan hjälpa dig att felsöka dina anrop till API: er för Machine Learning Studio.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Så här aktiverar du loggning för en webbtjänst
 
-Du aktiverar loggning från den [Azure Machine Learning Web Services](https://services.azureml.net) portal. 
+Du aktiverar loggning från den [Azure Machine Learning Studio-webbtjänster](https://services.azureml.net) portal. 
 
-1. Logga in på Azure Machine Learning Web Services-portalen på [ https://services.azureml.net ](https://services.azureml.net). För en klassisk webbtjänst, du kan också få till portalen genom att klicka på **avanmäla för Web** på sidan Machine Learning-webbtjänster i Machine Learning Studio.
+1. Logga in på portalen för Azure Machine Learning Studio-webbtjänster på [ https://services.azureml.net ](https://services.azureml.net). För en klassisk webbtjänst, du kan också få till portalen genom att klicka på **avanmäla för Web** på sidan Machine Learning Studio-webbtjänster i Machine Learning Studio.
 
    ![Nya tjänster webbupplevelse länk](./media/web-services-logging/new-web-services-experience-link.png)
 

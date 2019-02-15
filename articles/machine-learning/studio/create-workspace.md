@@ -1,5 +1,5 @@
 ---
-title: Skapa en arbetsyta
+title: Skapa en Machine Learning Studio-arbetsyta
 titleSuffix: Azure Machine Learning Studio
 description: Du måste ha en Machine Learning Studio-arbetsyta om du vill använda Azure Machine Learning Studio. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
 services: machine-learning
@@ -10,24 +10,23 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 16c67c217c8ef33a360fd479a45317d6c42af494
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bcd5b377f00ad43ff727c581471aad3ac651bdbb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486325"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270121"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Skapa och dela en Azure Machine Learning Studio-arbetsyta
 
 Du måste ha en Machine Learning Studio-arbetsyta om du vill använda Azure Machine Learning Studio. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
 
+## <a name="create-a-studio-workspace"></a>Skapa en Studio-arbetsyta
 
-
-### <a name="to-create-a-workspace"></a>Skapa en arbetsyta
 1. Logga in på [Azure-portalen](https://portal.azure.com/)
 
     > [!NOTE]
-    > Du måste vara administratör för Azure-prenumeration för att logga in och skapa en arbetsyta. 
+    > Du måste vara administratör för Azure-prenumeration för att logga in och skapa en Studio-arbetsyta. 
     >
     > 
 
@@ -40,9 +39,13 @@ Du måste ha en Machine Learning Studio-arbetsyta om du vill använda Azure Mach
     - Den *Arbetsytenamn* kan vara upp till 260 tecken, inte slutar med ett blanksteg. Namnet får inte innehålla följande tecken: `< > * % & : \ ? + /`
     - Den *webbtjänstplan* du väljer (eller skapa), tillsammans med den associerade *prisnivån* du väljer, används om du distribuerar webbtjänster från den här arbetsytan.
 
-    ![Skapa en ny arbetsyta](./media/create-workspace/create-new-workspace.png)
+    ![Skapa en ny Studio-arbetsyta](./media/create-workspace/create-new-workspace.png)
 
 5. Klicka på **Skapa**.
+
+> [!NOTE]
+> Machine Learning Studio är beroende av ett Azure storage-konto som du anger för att spara mellanliggande data när arbetsflödet körs. När arbetsytan skapas, om lagringskontot tas bort, eller om åtkomstnycklarna ändras, arbetsytan slutar att fungera och alla experiment på arbetsytan misslyckas.
+Om du råkar ta bort lagringskontot, återskapar lagringskontot med samma namn i samma region som det borttagna lagringskontot och synkroniserar du om åtkomstnyckeln. Om du har ändrat åtkomstnycklarna för lagringskontot synkroniserar du om åtkomstnycklarna på arbetsytan med hjälp av Azure Portal.
 
 När arbetsytan har distribuerats kan öppna du den i Machine Learning Studio.
 
@@ -56,12 +59,12 @@ När arbetsytan har distribuerats kan öppna du den i Machine Learning Studio.
 
     ![Öppna experiment](./media/create-workspace/my-experiments.png)
 
-Information om hur du hanterar din arbetsyta finns i [hantera en Azure Machine Learning-arbetsyta](manage-workspace.md).
-Om du stöter på problem med att skapa din arbetsyta kan se [felsökningsguide för: Skapa och ansluta till en Machine Learning-arbetsyta](troubleshooting-creating-ml-workspace.md).
+Information om hur du hanterar din Studio-arbetsyta finns i [hantera en Azure Machine Learning Studio-arbetsyta](manage-workspace.md).
+Om du stöter på problem med att skapa din arbetsyta kan se [felsökningsguide för: Skapa och ansluta till en Machine Learning Studio-arbetsyta](troubleshooting-creating-ml-workspace.md).
 
 
-## <a name="sharing-an-azure-machine-learning-workspace"></a>Dela en Azure Machine Learning-arbetsyta
-När en Machine Learning arbetsytan har skapats, du kan bjuda in användare till din arbetsyta dela åtkomst till din arbetsyta och alla dess experiment, datauppsättningar, anteckningsböcker, osv. Du kan lägga till användare i en av två roller:
+## <a name="share-an-azure-machine-learning-studio-workspace"></a>Dela en Azure Machine Learning Studio-arbetsyta
+När en Machine Learning Studio arbetsytan har skapats, du kan bjuda in användare till din arbetsyta dela åtkomst till din arbetsyta och alla dess experiment, datauppsättningar, anteckningsböcker, osv. Du kan lägga till användare i en av två roller:
 
 * **Användaren** – en arbetsyta-användare kan skapa, öppna, ändra och ta bort experiment, datauppsättningar, etc. på arbetsytan.
 * **Ägare** – en ägare kan bjuda in och ta bort användare i arbetsytan, utöver vad en användare kan göra.
@@ -71,7 +74,7 @@ När en Machine Learning arbetsytan har skapats, du kan bjuda in användare till
 > 
 > 
 
-### <a name="to-share-a-workspace"></a>Dela en arbetsyta
+### <a name="to-share-a-studio-workspace"></a>Dela en Studio-arbetsyta
 
 1. Logga in på Machine Learning Studio på [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 

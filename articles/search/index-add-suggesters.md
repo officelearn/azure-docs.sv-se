@@ -1,7 +1,7 @@
 ---
 title: Lägg till förslagsställare till ett Azure Search-index
 description: Gör det möjligt för fält för frågeifyllningsförslag fråga åtgärder, där föreslagna frågor består av texten från fält i ett Azure Search-index.
-ms.date: 01/31/2019
+ms.date: 02/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 35025d69865aa6890e1cd921e31ac6c26c015789
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008414"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269934"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Lägg till förslagsställare till ett Azure Search-index
 
@@ -34,9 +34,12 @@ En **förslagsställare** är en Azure Search-konstruktion som stöder den ”s�
 
 Du kan bara ha en **förslagsställare** resurs för varje index (mer specifikt en **förslagsställare** i den **förslagsställare** samling).
 
-Du kan skapa en **förslagsställare** när som helst, men påverkan på ditt index varierar beroende på fälten. Nya fält läggs till en förslagsställare som en del av samma uppdatering är minst påverkar eftersom inga index återskapning krävs. Att lägga till befintliga fält, men ändrar fältdefinition, vilket kräver återskapa indexet.
+## <a name="creating-a-suggester"></a>Skapa en förslagsställare 
 
-## <a name="usage"></a>Användning  
+Du kan skapa en **förslagsställare** när som helst, men påverkan på ditt index varierar beroende på fälten. 
+
++ Nya fält läggs till en förslagsställare som en del av samma uppdatering är minst påverkar eftersom inga index återskapning krävs.
++ Befintliga fält lagts till i en förslagsställare, men ändrar fältdefinition, vilket kräver återskapa indexet.
 
  **Förslagsställare** fungerar bäst när de används för att föreslå specifika dokument i stället för formulärdata termer eller fraser. Bästa kandidat fälten är rubriker, namn och andra relativt korta fraser som kan identifiera ett objekt. Mindre effektiva är återkommande fält, till exempel kategorier och taggar, eller mycket långa fält, till exempel beskrivningar eller kommentarer fält.  
 

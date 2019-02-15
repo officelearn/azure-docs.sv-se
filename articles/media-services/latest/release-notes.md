@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 71e88c06dcfe935f712af473c7f496d9165107a7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242823"
+ms.locfileid: "56267554"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -37,6 +37,8 @@ Mer information finns i [riktlinjer för att flytta från Media Services v2 till
 ## <a name="february-2019"></a>Februari 2019
 
 Media Services v3 är nu upported i Azure nationella moln. Inte alla funktioner är tillgängliga i alla moln ännu. Mer information finns i [moln och regioner där Azure Media Services v3 finns](azure-clouds-regions.md).
+
+[Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) händelse har lagts till i Azure Event Grid-scheman för Media Services.
 
 ## <a name="january-2019"></a>Januari 2019
 

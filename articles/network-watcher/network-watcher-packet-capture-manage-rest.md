@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a429bfae001cad044da9ef729c021c8128cbfefe
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: c773aae4fa4e530b563c1ae084bf05b8b5c5c12f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090018"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299827"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Hantera infångade paket med Azure Network Watcher med Azure REST API
 
@@ -38,7 +38,7 @@ Den här artikeln tar dig igenom de olika administrativa uppgifter som är tillg
 - [**Fråga status för ett infångat paket**](#query-packet-capture-status)
 - [**Starta ett infångat paket**](#start-packet-capture)
 - [**Stoppa ett infångat paket**](#stop-packet-capture)
-- [**ta bort ett infångat paket**](#delete-packet-capture)
+- [**Ta bort ett infångat paket**](#delete-packet-capture)
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -210,11 +210,12 @@ Följande svar är ett exempel på en typisk svaret som returneras när du fråg
 
 ```json
 {
-    "name": "vm1PacketCapture",     "id": "/subscriptions/{guid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatche rName}/packetCaptures/{packetCaptureName}",
-   "captureStartTime" : "9/7/2016 12:35:24PM",
-   "packetCaptureStatus" : "Stopped",
-   "stopReason" : "TimeExceeded"
-   "packetCaptureError" : [ ]
+    "name": "vm1PacketCapture",
+    "id": "/subscriptions/{guid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}",
+    "captureStartTime" : "9/7/2016 12:35:24PM",
+    "packetCaptureStatus" : "Stopped",
+    "stopReason" : "TimeExceeded",
+    "packetCaptureError" : [ ]
 }
 ```
 

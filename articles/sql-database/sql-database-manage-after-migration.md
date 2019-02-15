@@ -1,5 +1,5 @@
 ---
-title: Hantera efter migrering – Azure SQL Database | Microsoft Docs
+title: Hantera databaser för enkel och grupperade efter migrering – Azure SQL Database | Microsoft Docs
 description: Lär dig mer om att hantera din databas efter migrering till Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,31 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/13/2019
+ms.openlocfilehash: 8c0c4ac6ce09ce92851b532b226dadfd8b9f7e18
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099742"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270444"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera din enda och delade databaser i Azure SQL Database
 
-Flytta från den traditionella självhantering, lokal kontrollerad miljö till en PaaS-miljö kan verka lite överväldigande först. Som apputvecklare eller DBA, skulle du vill veta de viktigaste funktionerna i plattformen som kan hjälpa dig att hålla ditt program som är tillgängliga, prestanda, säker och flexibel - alltid. Den här artikeln är att göra just. Artikeln kortfattat ordnar resurser och ger dig vägledning om hur du bäst använder de viktigaste funktionerna i SQL-databas för att hantera och att programmet effektivt och få bästa resultat i molnet. Vanliga målgruppen för den här artikeln är de som:
+Flytta från den traditionella självhantering, lokal kontrollerad miljö till en PaaS-miljö kan verka lite överväldigande först. Som apputvecklare eller DBA, skulle du vill veta de viktigaste funktionerna i plattformen som kan hjälpa dig att hålla ditt program som är tillgängliga, prestanda, säker och flexibel - alltid. Den här artikeln är att göra just. Artikeln kortfattat ordnar resurser och ger dig vägledning om hur du bäst använder de viktigaste funktionerna i SQL-databas med enkel och delade databaser för att hantera och att programmet effektivt och få bästa resultat i molnet. Vanliga målgruppen för den här artikeln är de som:
 
-- Utvärderar migrering av associerade program till Azure SQL DB – modernisera dina program.
+- Utvärderar migrering av associerade program till Azure SQL Database – modernisera dina program.
 - Håller på att migrera associerade program – pågående Migreringsscenario.
 - Nyligen har slutförts migreringen till Azure SQL DB – ny DBA i molnet.
 
-Den här artikeln beskriver några av de grundläggande egenskaperna för Azure SQL DB som en plattform som du lätt kan använda. De är följande:
+Den här artikeln beskriver några av de grundläggande egenskaperna i Azure SQL Database som en plattform som du lätt kan använda när du arbetar med enskilda databaser och databaser i pooler i elastiska pooler. De är följande:
 
 - Företag affärskontinuitet och haveriberedskap recovery (BCDR)
 - Säkerhet och efterlevnad
 - Intelligent database-övervakning och underhåll
 - Dataförflyttning
+
+> [!NOTE]
+> Den här artikeln gäller följande distributionsalternativ i Azure SQL Database: enkel databaser och elastiska pooler. Den gäller inte för hanterad instans-alternativ för distribution i SQL-databas.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR)
 

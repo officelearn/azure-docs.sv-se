@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: faeba611dfc55307f8f855ee45a1a8d37603f2f5
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0c7f248023a97bdad09c2c51e9e9a28073def086
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117392"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300133"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
-Application Insights övervakar webbappen som körs. Det finns information om fel och problem med prestanda och hjälper dig att analysera hur kunder använder din app. Den fungerar för appar som körs på flera olika plattformar (ASP.NET, J2EE, Node.js,...) och är värd för antingen i molnet eller lokalt. 
+Application Insights övervakar webbappen som körs. Det finns information om fel och problem med prestanda och hjälper dig att analysera hur kunder använder din app. Den fungerar för appar som körs på flera olika plattformar (ASP.NET, Java EE, Node.js,...) och är värd för antingen i molnet eller lokalt. 
 
 ![Aspekter av komplexiteten med att leverera webbappar](./media/devops/010.png)
 

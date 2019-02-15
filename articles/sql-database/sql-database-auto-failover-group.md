@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004255"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301935"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -60,14 +60,18 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
   SQL Database-server eller hanterad instans som är värd för de sekundära databaserna i redundansgruppen. Sekundärt får inte vara i samma region som primärt.
 
-- **Lägga till databaser till redundansgruppen på en SQL Database-server**
+- **Att lägga till enskilda databaser i redundansgruppen**
 
-  Du kan placera flera enskilda databaser eller databaser i en elastisk pool på samma SQL Database-server i samma redundansgruppen. Om du lägger till en enskild databas i redundansgruppen skapas automatiskt en sekundär databas med hjälp av samma version och beräkning storlek. Om den primära databasen är i en elastisk pool, skapas automatiskt sekundärt i den elastiska poolen med samma namn. Om du lägger till en databas som redan har en sekundär databas i den sekundära servern ärvs att geo-replikering av gruppen. När du lägger till en databas som redan har en sekundär databas på en server som inte är en del av redundansgruppen skapas en ny sekundär i den sekundära servern.
+  Du kan placera flera enskilda databaser på samma SQL Database-server i samma redundansgruppen. Om du lägger till en enskild databas i redundansgruppen skapas automatiskt en sekundär databas med hjälp av samma version och beräkning storlek på den sekundära servern.  Du har angett den här servern i redundansgruppen har skapats. Om du lägger till en databas som redan har en sekundär databas i den sekundära servern ärvs länken geo-replikering av gruppen. När du lägger till en databas som redan har en sekundär databas på en server som inte är en del av redundansgruppen skapas en ny sekundär i den sekundära servern.
   
 > [!IMPORTANT]
   > I en hanterad instans replikeras alla användardatabaser. Du kan inte välja en delmängd av användardatabaser för replikering i redundansgruppen.
 
-- **Redundans skrivskyddad lyssnare**
+- **Lägga till databaser i elastiska poolen till redundansgrupp**
+
+  Du kan placera alla eller flera databaser inom en elastisk pool i samma redundansgruppen. Om den primära databasen är i en elastisk pool, skapas automatiskt sekundärt i den elastiska poolen med samma namn (sekundära pool). Du måste se till att den sekundära servern innehåller en elastisk pool med samma namn som exakt och tillräckligt med ledigt kapacitet som värd för de sekundära databaser som skapas av redundansgruppen. Om du lägger till en databas i poolen som redan har en sekundär databas i poolen för sekundär ärvs geo-replikering länken av gruppen. När du lägger till en databas som redan har en sekundär databas på en server som inte är en del av redundansgruppen skapas en ny sekundär i sekundära poolen.
+  
+  - **Redundans skrivskyddad lyssnare**
 
   En DNS CNAME-post formaterat som pekar på den aktuella primära URL: en. Tillåter Läs-och SQL-program kan transparent återansluta till den primära databasen när primärt ändras efter redundans.
 

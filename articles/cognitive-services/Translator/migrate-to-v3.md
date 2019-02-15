@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 98d2d3a54ff2f0c4ef326f8aae26e5ba8845d603
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 04d7bfcf0527b490bc18f6d85977d899823d5e69
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882361"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301884"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 till V3-migrering
 
@@ -41,19 +41,19 @@ Följande lista över V2 och V3 metoder identifierar V3-metoder och API: er som 
 
 | V2 API-metoden   | V3 API-kompatibilitet |
 |:----------- |:-------------|
-| Translate     | [Översätt](reference/v3-0-translate.md)          |
-| TranslateArray      | [Översätt](reference/v3-0-translate.md)        |
-| GetLanguageNames      | [Språk](reference/v3-0-languages.md)         |
-| GetLanguagesForTranslate     | [Språk](reference/v3-0-languages.md)       |
-| GetLanguagesForSpeak      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Speak     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detect     | [Detect](reference/v3-0-detect.md)         |
-| DetectArray     | [Detect](reference/v3-0-detect.md)         |
-| AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
-| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
-| GetTranslations      | Funktionen stöds inte längre         |
-| GetTranslationsArray      | Funktionen stöds inte längre         |
+| `Translate`     | [Översätt](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Översätt](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [Språk](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Språk](reference/v3-0-languages.md)       |
+| `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `Detect`     | [Detect](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
+| `AddTranslation`     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| `AddTranslationArray`    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
+| `GetTranslations`      | Funktionen stöds inte längre         |
+| `GetTranslationsArray`      | Funktionen stöds inte längre         |
 
 ## <a name="move-to-json-format"></a>Flytta till JSON-format
 
@@ -75,12 +75,12 @@ Microsoft Translator V3 debiteras på samma sätt som V2 har prissätts; per tec
 
 | V3-metod   | Tecken som räknas för fakturering |
 |:----------- |:-------------|
-| Languages     | Inga tecken som har skickats, ingen räknas, utan kostnad.          |
-| Translate     | Antal baseras på hur många tecken har skickats för översättning och hur många språk tecknen översätts till. 50 tecken har skickats och 5 språk som begärs blir 50 x 5.           |
-| Transliterate     | Antalet tecken som skickats för transkriberingsspråk räknas.         |
-| Dictionary lookup & example     | Antalet tecken som skickats för ordlista Sök- och räknas.         |
-| BreakSentence     | Ingen extra kostnad.       |
-| Detect     | Ingen extra kostnad.      |
+| `Languages`     | Inga tecken som har skickats, ingen räknas, utan kostnad.          |
+| `Translate`     | Antal baseras på hur många tecken har skickats för översättning och hur många språk tecknen översätts till. 50 tecken har skickats och 5 språk som begärs blir 50 x 5.           |
+| `Transliterate`     | Antalet tecken som skickats för transkriberingsspråk räknas.         |
+| `Dictionary lookup & example`     | Antalet tecken som skickats för ordlista Sök- och räknas.         |
+| `BreakSentence`     | Ingen extra kostnad.       |
+| `Detect`     | Ingen extra kostnad.      |
 
 ## <a name="v3-end-points"></a>V3-slutpunkter
 
@@ -88,22 +88,21 @@ Global
 
 * api.cognitive.microsofttranslator.com
 
-
 ## <a name="v3-api-text-translations-methods"></a>V3 API text översättningar-metoder
 
-[Språk](reference/v3-0-languages.md)
+[`Languages`](reference/v3-0-languages.md)
 
-[Översätt](reference/v3-0-translate.md)
+[`Translate`](reference/v3-0-translate.md)
 
-[Transkribera](reference/v3-0-transliterate.md)
+[`Transliterate`](reference/v3-0-transliterate.md)
 
-[BreakSentence](reference/v3-0-break-sentence.md)
+[`BreakSentence`](reference/v3-0-break-sentence.md)
 
-[Detect](reference/v3-0-detect.md)
+[`Detect`](reference/v3-0-detect.md)
 
-[Ordlista/sökning](reference/v3-0-dictionary-lookup.md)
+[`Dictionary/lookup`](reference/v3-0-dictionary-lookup.md)
 
-[Ordlista/exempel](reference/v3-0-dictionary-examples.md)
+[`Dictionary/example`](reference/v3-0-dictionary-examples.md)
 
 ## <a name="compatibility-and-customization"></a>Kompatibilitet och anpassning
 
@@ -132,7 +131,6 @@ Du använder Version 3 av API för textöversättning om du använder api.cognit
 * Du använder Version 2 av API för textöversättning om du använder api.microsofttranslator.com-slutpunkten.
 
 Ingen version av Translator API skapar en post för dina översättningar. Dina översättningar delas aldrig med vem som helst. Mer information om den [Translator Nej-spårning](http://www.aka.ms/NoTrace) webbsidan.
-
 
 ## <a name="links"></a>Länkar
 

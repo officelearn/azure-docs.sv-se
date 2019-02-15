@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1383c59ca88400868f83d30d04d9b0e5f5401282
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896000"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268965"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -400,7 +400,7 @@ Det rekommenderade sättet att skicka begärandetelemetri om är dock där begä
 
 ## <a name="operation-context"></a>Åtgärdskontexten
 
-Du kan jämföra telemetri objekt tillsammans genom att associera dem med åtgärden kontext. Modulen standard spårning av förfrågningar sker för undantag och andra händelser som sänds när en HTTP-begäran bearbetas. I [Search](../../azure-monitor/app/diagnostic-search.md) och [Analytics](analytics.md), hittar du enkelt eventuella händelser som är kopplat till begäran med hjälp av dess åtgärd Id.
+Du kan jämföra telemetri objekt tillsammans genom att associera dem med åtgärden kontext. Modulen standard spårning av förfrågningar sker för undantag och andra händelser som sänds när en HTTP-begäran bearbetas. I [Search](../../azure-monitor/app/diagnostic-search.md) och [Analytics](analytics.md), hittar du enkelt eventuella händelser som är kopplat till begäran med hjälp av dess åtgärds-ID.
 
 Se [telemetrikorrelation i Application Insights](../../azure-monitor/app/correlation.md) för mer information om korrelation.
 
@@ -508,7 +508,7 @@ catch (ex)
 SDK: erna fånga undantag som många automatiskt, så du behöver alltid att anropa TrackException uttryckligen.
 
 * ASP.NET: [Skriva kod för att fånga undantag från](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [Undantag som fångas automatiskt](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* Java EE: [Undantag som fångas automatiskt](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Undantag fångas automatiskt. Om du vill inaktivera automatisk insamling till en rad i kodfragmentet som du infogar i dina webbsidor:
 
 ```javascript
@@ -732,7 +732,7 @@ Thread.sleep(5000);
 telemetry.flush();
 ```
 
-Observera att funktionen är asynkron för den [server telemetri kanal](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+Funktionen är asynkron för den [server telemetri kanal](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 Vi rekommenderar ska flush() metoden användas i aktiviteten avstängning av programmet.
 
@@ -1141,7 +1141,7 @@ Om du ställer in några av värdena själv, Överväg att ta bort den aktuella 
 
 * **Komponenten**: Appen och dess version.
 * **Enheten**: Data om den enhet där appen körs. (I web apps, detta är den server eller en klientenhet som telemetri som skickas från.)
-* **InstrumentationKey**: Application Insights-resurs i Azure var telemetrin visas. Den har vanligtvis hämtats från ApplicationInsights.config.
+* **InstrumentationKey**: Application Insights-resurs i Azure där telemetrin visas. Den har vanligtvis hämtats från ApplicationInsights.config.
 * **Plats**: Enhetens geografiska plats.
 * **Åtgärden**: I web apps, den aktuella HTTP-begäran. I andra typer av appar, kan du ange Gruppera händelser tillsammans.
   * **ID**: Ett genererat värde kopplat till olika händelser, så att när du undersöker en händelse i Diagnostiksökning kan du hitta relaterade objekt.

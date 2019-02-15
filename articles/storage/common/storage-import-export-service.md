@@ -5,21 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e2c770625cf92e0db269d14d2f63dc0c896cbe9c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453391"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267520"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
 
 Azure Import/Export-tjänsten används för att importera stora mängder data på ett säkert sätt till Azure Blob storage och Azure Files genom att skicka diskenheter till en Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure Blob storage till diskenheter och leverera till dina lokala platser. Data från en eller flera diskenheter kan importeras till Azure Blob storage eller Azure Files. 
 
-Ange du egna enheter och överföra data med Azure Import/Export-tjänsten. Du kan också använda diskenheter som tillhandahålls av Microsoft. 
+Ange dina egna enheter och överföra data med Azure Import/Export-tjänsten. Du kan också använda diskenheter som tillhandahålls av Microsoft. 
 
 Om du vill överföra data med hjälp av diskenheter som tillhandahålls av Microsoft, kan du använda [Azure Data Box-Disk](../../databox/data-box-disk-overview.md) att importera data till Azure. Microsoft levereras upp till 5 krypterad disk SSD (solid-state drive) med en total kapacitet 40 TB per beställning till ditt datacenter till ett regionalt flygbolag. Du kan snabbt konfigurera diskenheter, kopiera data till enheter via en USB 3.0-anslutning och leverera diskenheter tillbaka till Azure. Mer information går du till [översikt över Azure Data Box-Disk](../../databox/data-box-disk-overview.md).
 
@@ -29,7 +29,7 @@ Om du vill överföra data med hjälp av diskenheter som tillhandahålls av Micr
 
 * **Migrering av data till molnet**: Flytta stora mängder data till Azure snabbt och kostnadseffektivt sätt.
 * **Distribution av innehåll**: Skicka snabbt data till dina kundplatser.
-* **Backup**: Ta säkerhetskopior av dina lokala data och lagra dem i Azure Storage.
+* **säkerhetskopiering**: Ta säkerhetskopior av dina lokala data och lagra dem i Azure Storage.
 * **Dataåterställning**: Återställa stora mängder data som lagras i storage och levereras till din lokala plats.
 
 ## <a name="importexport-components"></a>Import/Export-komponenter

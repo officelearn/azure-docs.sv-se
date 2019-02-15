@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e3f60c3b0578647e68109a21ba7d57b083bea11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184541"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Självstudier: Azure Active Directory-integrering med Workday
 
@@ -113,7 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Workday domän och URL: er med enkel inloggning för information](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. I den **identifierare** textrutan anger du ett URL: `https://www.workday.com`
 
@@ -166,7 +166,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     >[!NOTE]
     > Värdet för attributet miljö är kopplad till värdet för klient-URL:  
-    >-Om domännamnet för Workday klient-URL börjar med impl till exempel: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), **miljö** attributet måste anges till implementering.  
+    >-Om domännamnet för Workday klient-URL börjar med impl till exempel: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), **miljö** attributet måste anges till implementering.  
     >-Om domännamnet startas med något annat, måste du kontakta [Workday klienten supportteamet](https://www.workday.com/en-us/partners-services/services/support.html) att hämta den matchande **miljö** värde.
 
 12. I den **SAML installationsprogrammet** avsnittet, utför följande steg:

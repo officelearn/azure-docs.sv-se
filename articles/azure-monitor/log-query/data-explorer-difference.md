@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor log-fråga språkskillnader | Microsoft Docs
-description: Referensinformation för Datautforskaren frågespråk som används av Azure Monitor. Innehåller ytterligare element som är specifika för Azure Monitor och element som inte stöds i Azure Monitor log-frågor.
+description: Referensinformation för Kusto-frågespråk som används av Azure Monitor. Innehåller ytterligare element som är specifika för Azure Monitor och element som inte stöds i Azure Monitor log-frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.openlocfilehash: 9c58796fa19ffb6d38582c809f7bb6ca948bd92c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003644"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266738"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor log-fråga språkskillnader
 
-Medan [loggar i Azure Monitor](log-query-overview.md) bygger på [Azure Data Explorer](/azure/data-explorer) och använder den [samma frågespråket](/azure/kusto/query), versionen av språket har några skillnader. Den här artikeln identifierar element som skiljer sig mellan versionen av det språk som används för Datautforskaren och den version som används för Azure Monitor log-frågor.
+Medan [loggar i Azure Monitor](log-query-overview.md) bygger på [Azure Data Explorer](/azure/data-explorer) och använder samma [Kusto-frågespråket](/azure/kusto/query), versionen av språket har några skillnader. Den här artikeln identifierar element som skiljer sig mellan versionen av det språk som används för Datautforskaren och den version som används för Azure Monitor log-frågor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="data-explorer-elements-not-supported-in-azure-monitor"></a>Data Explorer-element som inte stöds i Azure Monitor
-I följande avsnitt beskrivs element i Data Explorer frågespråk som inte stöds av Azure Monitor.
+## <a name="kql-elements-not-supported-in-azure-monitor"></a>KQL element som inte stöds i Azure Monitor
+I följande avsnitt beskrivs element i Kusto-frågespråk som inte stöds av Azure Monitor.
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Uttryck som inte stöds i Azure Monitor
 
@@ -64,4 +64,4 @@ Följande operatorer stöd för specifika funktioner i Azure Monitor och är int
 ## <a name="next-steps"></a>Nästa steg
 
 - Hämta referenser till olika [resurser för att skriva Azure Monitor logga frågor](query-language.md).
-- Få åtkomst till den fullständiga [referensdokumentation för Datautforskaren frågespråk](/azure/kusto/query/).
+- Få åtkomst till den fullständiga [referensdokumentation för Kusto-frågespråket](/azure/kusto/query/).

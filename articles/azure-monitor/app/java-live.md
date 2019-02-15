@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5d0866bdd96a1b0f626c369cfd646f6249a4da54
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dbc16718358f86b02c6970ec42c4bc0ff68a951d
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121387"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301051"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights för Java-webbappar som redan är live
 
-Om du har ett webbprogram som redan körs på din J2EE-server kan du börja övervaka den med [Application Insights](../../azure-monitor/app/app-insights-overview.md) utan att behöva göra ändringar i koden eller kompilera om ditt projekt. Med det här alternativet får du information om HTTP-begäranden som skickas till din server, ohanterade undantag och prestandaräknare.
+Om du har ett webbprogram som redan körs på din Java EE-server kan du börja övervaka den med [Application Insights](../../azure-monitor/app/app-insights-overview.md) utan att behöva göra ändringar i koden eller kompilera om ditt projekt. Med det här alternativet får du information om HTTP-begäranden som skickas till din server, ohanterade undantag och prestandaräknare.
 
 Du behöver en prenumeration på [Microsoft Azure](https://azure.com).
 

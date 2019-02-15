@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 065319987b6ec8d1dd5cbbb10198e5a4e470543e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: bcb62b311426c7582202ced3714d01c429118ab5
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886837"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268421"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -104,7 +104,7 @@ public void ConfigureServices(IServiceCollection services)
 
 - **Inkommande konfiguration**
 
-  - J2EE-appar, lägger du till följande för att den `<TelemetryModules>` tagg i ApplicationInsights.xml:
+  - Lägg till följande till för Java EE-appar i `<TelemetryModules>` tagg i ApplicationInsights.xml:
 
     ```xml
     <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>

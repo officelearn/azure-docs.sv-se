@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: bee143f7e814884eda3c5dc9017895a8431e76aa
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8e30edcc7a600088693de57264665f5ffff3842a
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890560"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300745"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Lägga till Linux-avbildningar i Azure Stack
 
@@ -36,9 +36,9 @@ Observera att det finns frekventa uppdateringar till dessa bilder, så kontrolle
 
 ## <a name="prepare-your-own-image"></a>Förbereda en egen avbildning
 
-Om möjligt hämta avbildningar via Marketplace-hantering som har förberetts och testats för Azure Stack. 
- 
-Azure Linux Agent (kallas vanligtvis `WALinuxAgent` eller `walinuxagent`) krävs, och inte alla versioner av agenten fungerar i Azure Stack. Du bör använda version 2.2.20 eller senare om du skapar en egen avbildning. Observera att [cloud-init](https://cloud-init.io/) stöds inte på Azure Stack just nu.
+Om möjligt hämta avbildningar via Marketplace-hantering som har förberetts och testats för Azure Stack.
+
+Azure Linux-agent (kallas vanligtvis `WALinuxAgent` eller `walinuxagent`) är obligatoriska och inte alla versioner av agentarbetet på Azure Stack. Du bör använda version 2.2.20 eller senare om du skapar en egen avbildning. Observera att [cloud-init](https://cloud-init.io/) stöds inte på Azure Stack just nu.
 
 Du kan förbereda din egen Linux-avbildning med följande anvisningar:
 
@@ -48,9 +48,8 @@ Du kan förbereda din egen Linux-avbildning med följande anvisningar:
 * [SLES & openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-    
 ## <a name="add-your-image-to-the-marketplace"></a>Lägg till din avbildning på Marketplace
- 
+
 Följ [lägga till bilden i Marketplace](azure-stack-add-vm-image.md). Se till att den `OSType` parametern är inställd på `Linux`.
 
 När du har lagt till bilden i Marketplace, ett Marketplace-objekt skapas och användare kan distribuera en Linux-dator.

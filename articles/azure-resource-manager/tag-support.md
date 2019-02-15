@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246059"
+ms.locfileid: "56270404"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-using-tags.md).
@@ -1132,7 +1132,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | servers/tdeCertificates | Nej | 
 
 > [!NOTE]
-> Huvudservern databasen har inte stöd för taggar, men andra databaser, inklusive Data Warehouse-databaser har stöd för taggar.
+> Huvudservern databasen har inte stöd för taggar, men andra databaser, bland annat Azure SQL Data Warehouse-databaser, stöd för taggar. Azure SQL Data Warehouse-databaser måste vara i aktiva (inte pausad) tillstånd.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002296"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269968"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analysera loggdata i Azure Monitor
 
-Loggdata som samlas in av Azure Monitor lagras i en Log Analytics-arbetsyta som är baserad på [Azure Data Explorer](/azure/data-explorer). Den samlar in telemetri från olika källor och använder den [frågespråket från Datautforskaren](/azure/kusto/query) att hämta och analysera data.
+Loggdata som samlas in av Azure Monitor lagras i en Log Analytics-arbetsyta som är baserad på [Azure Data Explorer](/azure/data-explorer). Den samlar in telemetri från olika källor och använder den [Kusto-frågespråket](/azure/kusto/query) används av Data Explorer för att hämta och analysera data.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -47,7 +47,7 @@ Olika sätt som du ska använda loggfrågor i Azure Monitor är följande:
 ![Loggsökningar](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Skriv en fråga
-Azure Monitor använder [en version av Data Explorer frågespråk](get-started-queries.md) att hämta och analysera loggdata i en mängd olika sätt.  Du börjar vanligtvis med grundläggande frågor och sedan vidare om du vill använda mer avancerade funktionerna när behoven blir mer komplexa.
+Azure Monitor använder [en version av det Kusto-frågespråket](get-started-queries.md) att hämta och analysera loggdata i en mängd olika sätt.  Du börjar vanligtvis med grundläggande frågor och sedan vidare om du vill använda mer avancerade funktionerna när behoven blir mer komplexa.
 
 Den grundläggande strukturen i en fråga är en källtabellen följt av en serie operatörer avgränsade med ett vertikaltecken `|`.  Du kan länka samman flera operatorer för att förfina data och utföra avancerade funktioner.
 

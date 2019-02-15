@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 32c47233946dacf4e80a9ff3ba25388e1231d7c9
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469506"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301068"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -28,7 +28,7 @@ Certifikatfel orsakas av en av de två följande situationer:
 1. Appen är ansluten via en ”transparent proxy”, vilket innebär att en server (till exempel företagsservern) avlyssnar HTTPS-trafik, dekrypterar den och sedan krypterar den med hjälp av ett självsignerat certifikat.
 2. Du kör ett program som infogar ett självsignerat SSL-certifikat till HTTPS-meddelanden som visas. Exempel på program som att mata in certifikat innehåller programvara som antivirus och nätverket trafik-kontroll.
 
-När Storage Explorer ser ett självsignerat signerade eller ej betrodda certifikat kan inte längre veta om det mottagna meddelandet HTTPS har ändrats. Om du har en kopia av det självsignerade certifikatet kan du instruera Lagringsutforskaren förtroende genom att göra följande:
+När Storage Explorer ser ett självsignerat eller ej betrodda certifikat, kan den inte längre veta om det mottagna meddelandet HTTPS har ändrats. Om du har en kopia av det självsignerade certifikatet kan du instruera Lagringsutforskaren förtroende genom att göra följande:
 
 1. Hämta en Base64-kodad X.509 (.cer) kopia av certifikatet
 2. Klicka på **redigera** > **SSL-certifikat** > **Importera certifikat**, och Använd filväljaren för att hitta, markera och öppna CER-filen
@@ -53,6 +53,18 @@ Om du är osäker på var certifikaten som kommer från, kan du dessa steg för 
 Om du inte hittar något självsignerat certifikat med föregående steg kan du kontakta oss med verktyget feedback för mer hjälp. Du kan också välja att starta Lagringsutforskaren från kommandoraden med den `--ignore-certificate-errors` flaggan. När startas med den här flaggan ignorerar Lagringsutforskaren certifikatfel.
 
 ## <a name="sign-in-issues"></a>Inloggningsproblem
+
+### <a name="blank-sign-in-dialog"></a>Tom logga i dialogrutan
+Tom logga i dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra en omdirigering som inte stöds av Electron. Du kan försöka att använda enheten kod Flow för att logga in för att lösa problemet. Det gör du på följande sätt:
+1. ”Gå till experimentella” -> ”använda kod Enhetsinloggning”.
+2. Öppna dialogrutan Anslut (antingen via ikonen plugin på den vänstra vertikalstreck eller ”Lägg till konto” på panelen konto).
+3. Välj vilken miljö som du vill logga in på.
+4. Klicka på ”signera” i knappen.
+5. Följ anvisningarna på nästa panel.
+
+Om du vill har problem med att logga in på kontot du använda eftersom din standardwebbläsare redan är inloggad på ett annat konto som du kan antingen:
+1. Manuellt kopiera länken och koden i en privat session i webbläsaren.
+2. Manuellt kopiera länken och koden i en annan webbläsare.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Återautentisering slinga eller UPN-ändring
 Om du är i en loop omautentisering eller har ändrats UPN-namnet för ett av dina konton, kan du prova följande:
@@ -90,7 +102,7 @@ Om ingen av dessa metoder fungerar [öppna ett ärende på GitHub](https://githu
 Om det inte går att hämta dina prenumerationer när du har loggat in kan du prova följande metoder för felsökning:
 
 * Kontrollera att ditt konto har åtkomst till de prenumerationer som du förväntar dig. Du kan kontrollera att du har åtkomst genom att logga in portalen för Azure-miljö du vill använda.
-* Se till att du har loggat in med rätt Azure-miljö (Azure, Azure Kina, Azure Germany, Azure US Government eller anpassad miljö).
+* Se till att du har loggat in med rätt Azure miljö (Azure, Azure Kina 21Vianet, Azure Germany, Azure US Government eller anpassad miljö).
 * Om du är bakom en proxyserver, se till att du har konfigurerat Storage Explorer-proxyservern korrekt.
 * Försök att ta bort och lägga till kontot igen.
 * Om det finns en ”mer information”-länk, titta och se vilka felmeddelanden rapporteras för klienter som misslyckas. Om du är osäker på hur de felmeddelanden du se sedan gärna [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
@@ -116,7 +128,7 @@ Kontrollera först att du har angett följande stämmer:
 * Proxy-URL och portnummer
 * Användarnamn och lösenord om det behövs av proxyn
 
-Observera att Lagringsutforskaren inte stöder PAC-fil för att konfigurera proxy-inställningar.
+Observera att Lagringsutforskaren inte stöder filer för automatisk konfiguration av proxy för att konfigurera proxy-inställningar.
 
 ### <a name="common-solutions"></a>Vanliga lösningar
 

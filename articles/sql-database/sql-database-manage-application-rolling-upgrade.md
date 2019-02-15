@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 50f6f114a4d90f48218f751e1649e8694e664491
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/13/2019
+ms.openlocfilehash: 748a9f4d7c2ec47a2ed9470789a4443bffdc0eba
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295754"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301748"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Hantera löpande uppgraderingar av molnprogram med SQL Database aktiv geo-replikering
 
@@ -47,7 +47,7 @@ Programmet är redo för den faktiska uppgraderingen när förberedelsesteg har 
 
 1. Ange den primära databasen till skrivskyddat läge (3). Det här läget kommer garanterar att produktionsplatsen för webbprogram (V1) förblir skrivskyddat läge under uppgraderingen, vilket gör dataavvikelser mellan databasinstanser V1 och V2.  
 2. Koppla från den sekundära databasen med hjälp av planerad avslutning-läget (4). Den skapar en helt synkroniserad oberoende kopia av den primära databasen. Den här databasen kommer att uppgraderas.
-3. Aktivera den primära databasen till läs-/ skrivläge och kör uppgraderingsskriptet (5).
+3. Aktivera den sekundära databasen till läs-/ skrivläge och kör uppgraderingsskriptet (5).
 
 ![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 

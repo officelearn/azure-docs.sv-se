@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5a16edcb702db21b357c437b920e870a65fb155a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237425"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270172"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -341,7 +341,7 @@ Mer information om varje effekt ordningen för utvärdering, egenskaper och exem
 
 ### <a name="policy-functions"></a>Princip fungerar
 
-Förutom följande distribution och resursfunktioner, alla [Resource Manager-Mallfunktioner](../../../azure-resource-manager/resource-group-template-functions.md) är tillgängliga för användning i en regel:
+Alla [Resource Manager-Mallfunktioner](../../../azure-resource-manager/resource-group-template-functions.md) är tillgängliga för användning i en regel, förutom följande funktioner:
 
 - copyIndex()
 - deployment()

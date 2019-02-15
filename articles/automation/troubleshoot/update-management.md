@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 01f72b8d41c1a973c7d187f519a43ce62929a23e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359365"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270274"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
@@ -43,7 +43,11 @@ Det här felet kan orsakas av följande orsaker:
 #### <a name="resolution"></a>Lösning
 
 1. Besök, [nätverksplanering](../automation-hybrid-runbook-worker.md#network-planning) att lära dig om vilka adresser och portar måste vara tillgängliga för hantering av uppdateringar ska fungera.
-2. Om med sysprep-avbildningen en klonade avbildningen först och installerar MMA-agenten i efterhand.
+2. Om du använder en klonade avbildningen:
+   1. I Log Analytics-arbetsytan, ta bort den virtuella datorn från den sparade sökningen för Omfattningskonfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar finns under **Allmänt** i din arbetsyta.
+   2. Kör `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   3. Kör `Restart-Service HealthService` att starta om den `HealthService`. Detta kommer att återskapa nyckeln och generera en ny UUID.
+   4. Om det inte fungerar, sysprep avbildningen första och installerar MMA-agenten i efterhand.
 
 ### <a name="multi-tenant"></a>Scenario: Felmeddelandet länkade prenumerationen när du skapar en uppdateringsdistribution för datorer i en annan Azure-klient.
 

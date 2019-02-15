@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f0c9c06e953df16199acda5f821fdac35b86f07f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477564"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268863"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)
 
@@ -31,7 +31,7 @@ Den virtuella datorn för datavetenskap för Linux är en Ubuntu-baserad VM-avbi
   * [Caffe2](https://github.com/caffe2/caffe2): En plattformsoberoende version av Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Verktyget för programvara från Microsoft Research för djupinlärning
   * [H2O](https://www.h2o.ai/): En öppen källkod stordataplattform och grafiskt användargränssnitt
-  * [Keras](https://keras.io/): Ett övergripande neural network API i Python för Theano och TensorFlow
+  * [Keras](https://keras.io/): Ett övergripande neural network API i Python för TensorFlow, Microsoft Cognitive Toolkit och Theano
   * [MXNet](http://mxnet.io/): En flexibla, effektiva deep learning-biblioteket med många språkbindningar
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): Ett grafiskt system som förenklar vanliga uppgifter för djupinlärning
   * [PyTorch](http://pytorch.org/): Ett övergripande Python-bibliotek med stöd för dynamisk nätverk
@@ -177,7 +177,7 @@ Vissa exempel bärbara datorer är tillgängliga i JupyterHub.
 H2O är en snabb, i minnet och distribuerade maskininlärning och förutsägande analyser. En Python-paketet har installerats i rot- och py35 Anaconda-miljöer. Ett R-paket installeras även. Starta H2O från kommandoraden genom att köra `java -jar /dsvm/tools/h2o/current/h2o.jar`; det finns olika [kommandoradsalternativ](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) som du kan vilja konfigurera. Flow-Webbgränssnittet kan nås genom att bläddra till http://localhost:54321 att komma igång. Exempelanteckningsböcker är också tillgängliga i JupyterHub.
 
 #### <a name="keras"></a>Keras
-Keras är ett övergripande neurala nätverk API i Python som klarar köra överst TensorFlow-eller Theano. Det är tillgängligt i rot- och py35 Python. 
+Keras är ett övergripande neurala nätverk API i Python som klarar köra överst TensorFlow, Microsoft Cognitive Toolkit eller Theano. Det är tillgängligt i rot- och py35 Python. 
 
 #### <a name="mxnet"></a>MXNet
 MXNet är ett ramverk för djupinlärning som utformats för både effektivitet och flexibilitet. Den har R och Python-bindningar på DSVM. Exempelanteckningsböcker som ingår i JupyterHub och exempelkod är tillgänglig i /dsvm/samples/mxnet.

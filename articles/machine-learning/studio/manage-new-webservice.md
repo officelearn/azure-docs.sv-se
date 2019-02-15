@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: c682bca1f3d4f0e2659ed107a2b15e4e4e28b0d9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0ffa917aa6bcfb642cd672d0a51a70b13f041635
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492495"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267571"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Hantera en webbtjänst med hjälp av Azure Machine Learning Studio Web Services-portalen
 Du kan hantera dina Machine Learning nya och klassiska webbtjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande teknik, har du lite olika hanteringsfunktioner för var och en av dem.
@@ -28,7 +28,8 @@ I Machine Learning Web Services-portalen kan du:
 * Skapa, ta bort eller uppdatera fakturering planer (nyhet).
 * Lägga till och ta bort slutpunkter (klassisk)
 
-
+>[!NOTE]
+>Du kan också hantera klassiska webbtjänster i [Machine Learning Studio](http://studio.azureml.net) på den **webbtjänster** fliken.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Behörigheter för att hantera nya Resources Manager-baserade webbtjänster
 

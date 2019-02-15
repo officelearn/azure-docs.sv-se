@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993426"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270155"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor-arbetsböcker
 
@@ -77,7 +77,7 @@ Fråga avsnitt är mycket flexibel och kan användas för att besvara frågor so
 
 * Hur många undantag webbplatsen throw under samma tidsperiod som en nedgång i användningen?
 * Vad var distributionen av sidans belastning för användare som visar några sidan?
-* Hur många användare visas en uppsättning sidor på webbplatsen, men inte en annan uppsättning sidor? Detta kan vara användbar för att förstå om du har kluster av användare som använder olika delmängder av webbplatsens funktioner (Använd den `join` operator med den `kind=leftanti` modifieraren i frågespråket i Data Explorer).
+* Hur många användare visas en uppsättning sidor på webbplatsen, men inte en annan uppsättning sidor? Detta kan vara användbar för att förstå om du har kluster av användare som använder olika delmängder av webbplatsens funktioner (Använd den `join` operator med den `kind=leftanti` modifieraren i den [Kusto-frågespråket](/azure/kusto/query/)).
 
 Du också är inte endast begränsad till frågor från kontexten för programmet som du startade arbetsboken från. Du kan fråga över flera Application Insights övervakas appar samt Log Analytics-arbetsytor som du har åtkomstbehörighet till dessa resurser.
 

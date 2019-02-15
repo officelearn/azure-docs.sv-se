@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 37eb8ca3c25268dd7923087439a8fbf0fd1f168b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005428"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269917"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Avancerade aggregeringar i Azure Monitor log-frågor
 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se andra lektioner för att använda den [Datautforskaren frågespråk](/azure/kusto/query/) logga data med Azure Monitor:
+Se andra lektioner för att använda den [Kusto-frågespråket](/azure/kusto/query/) logga data med Azure Monitor:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)

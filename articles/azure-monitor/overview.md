@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002006"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270376"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -42,7 +42,7 @@ För många Azure-resurser visas data som samlas in av Azure Monitor direkt i si
 
 Loggdata som samlas in av Azure Monitor kan analyseras med [frågor](log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med [logganalys](log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [avisering regler för](platform/alerts-overview.md).
 
-Azure Monitor använder en version av den [Datautforskaren frågespråk](/azure/kusto/query/) som är lämplig för enkel logg frågar men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](log-query/get-started-queries.md).  Viss vägledning erbjuds användare som redan är bekanta med [SQL](log-query/sql-cheatsheet.md) och [Splunk](log-query/splunk-cheatsheet.md).
+Azure Monitor använder en version av den [Kusto-frågespråket](/azure/kusto/query/) används av Azure Data Explorer som är lämpliga för enkel logg frågar men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](log-query/get-started-queries.md).  Viss vägledning erbjuds användare som redan är bekanta med [SQL](log-query/sql-cheatsheet.md) och [Splunk](log-query/splunk-cheatsheet.md).
 
 ![Logs](media/overview/logs.png)
 

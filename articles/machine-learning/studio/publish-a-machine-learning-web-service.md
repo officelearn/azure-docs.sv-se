@@ -10,21 +10,32 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 8e9d41131228c2399277e59a6d0edd78efda307b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 67d0ef88072985141c05d9da77377e5d4228a669
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999121"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270325"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuera en Azure Machine Learning Studio-webbtjänst
-Azure Machine Learning kan du skapa, testa och distribuera förutsägande Analyslösningar.
 
-Detta görs från en återställningspunkt-för-översikt, i tre steg:
+Azure Machine Learning Studio kan du skapa och testa en lösning för förutsägande analys. Du kan sedan distribuera lösningen som en webbtjänst.
 
-* **[Skapa ett träningsexperiment]**  -Azure Machine Learning Studio är en gemensam visual utvecklingsmiljö som används för att träna och testa en modell för förutsägelseanalys med hjälp av träningsdata som du anger.
+Machine Learning Studio-webbtjänster är ett gränssnitt mellan ett program och en arbetsflödesbaserad poängmodell i Machine Learning Studio. Ett externt program kan kommunicera med en Machine Learning Studio arbetsflödesbaserad poängmodell i realtid. Ett anrop till en Machine Learning Studio-webbtjänst returnerar förutsägelser till ett externt program. Om du vill göra ett anrop till en webbtjänst skickar du en API-nyckel som skapades när du distribuerade webbtjänsten. En Machine Learning Studio-webbtjänst baseras på REST, ett populärt arkitekturval för programmeringsprojekt.
+
+Azure Machine Learning Studio har två typer av webbtjänster:
+
+* Request-Response Service (RR): Med låg fördröjning, mycket skalbar tjänst som poängsätter en enda post.
+* Batch Execution Service (BES): En asynkron tjänst som poängsätter en batch med dataposter.
+
+Indata för BES är som de indata som används av RRS. Den största skillnaden är att BES läser ett block med poster från olika källor, till exempel Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (hive-fråga) och HTTP-källor.
+
+
+Från en återställningspunkt-för-översikt, kan du distribuera din modell i tre steg:
+
+* **[Skapa ett träningsexperiment]**  -i Studio som du kan träna och testa en modell för förutsägelseanalys med hjälp av träningsdata som du anger med hjälp av en stor mängd inbyggda machine learning-algoritmer.
 * **[Konvertera den till ett förutsägbart experiment]**  -när modellen har tränats med befintliga data och du är redo att använda den för att rangordna nya data kan du förbereda och effektivisera experimentet för förutsägelser.
-* **[Distribuera den som en webbtjänst]**  – du kan distribuera dina förutsägelseexperiment som en [Ny] eller [klassiska] Azure-webbtjänst. Användare kan skicka data till din modell och ta emot din modell förutsägelser.
+* **[Distribuera den som en webbtjänst]**  – du kan distribuera dina förutsägelseexperiment som en *klassiska* eller *New* (Resource Manager-baserad) webbtjänst med Azure. Användare kan skicka data till din modell och ta emot din modell förutsägelser.
 
 
 
@@ -34,7 +45,7 @@ För att träna en modell för förutsägelseanalys använda du Azure Machine Le
 Processen för att skapa och hantera utbildning experiment beskrivs mer i detalj någon annanstans. Mer information finns i dessa artiklar:
 
 * [Skapa ett enkelt experiment i Azure Machine Learning Studio](create-experiment.md)
-* [Utveckla en förutsägande lösning med Azure Machine Learning](tutorial-part1-credit-risk.md)
+* [Utveckla en förutsägande lösning med Azure Machine Learning Studio](tutorial-part1-credit-risk.md)
 * [Importera dina utbildningsdata till Azure Machine Learning Studio](import-data.md)
 * [Hantera iterationer av experiment i Azure Machine Learning Studio](manage-experiment-iterations.md)
 
@@ -58,12 +69,12 @@ Du kan distribuera förutsägbart experiment som en ny webbtjänst eller som en 
 ### <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Distribuera förutsägelseexperiment som en ny webbtjänst
 Nu när förutsägbart experiment har förberetts, kan du distribuera den som en ny Azure webbtjänst. Med hjälp av webbtjänsten användare kan skicka data till din modell och modellen returnerar dess förutsägelser.
 
-För att distribuera din förutsägelseexperiment, klickar du på **kör** längst ned på arbetsytan för experimentet. När experimentet har körts, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [Ny]**.  Då öppnas Distributionssidan i Machine Learning-webbtjänst-portalen.
+För att distribuera din förutsägelseexperiment, klickar du på **kör** längst ned på arbetsytan för experimentet. När experimentet har körts, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [Ny]**.  Distributionssidan av Machine Learning Studio-webbtjänsten portalen öppnas.
 
 > [!NOTE] 
 > Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
 
-#### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Machine Learning-webbtjänst portal distribuera Experiment sidan
+#### <a name="machine-learning-studio-web-service-portal-deploy-experiment-page"></a>Machine Learning Studio-webbtjänst portal distribuera Experiment sidan
 Ange ett namn för webbtjänsten på sidan distribuera Experiment.
 Välj en prisplanen. Om du har ett existerande prisplan kan du välja den, måste annars du skapa en ny prisplan för tjänsten.
 
@@ -105,7 +116,7 @@ På den **CONFIGURATION** kan du kan ändra beskrivningen, rubrik, uppdatera nyc
 När du har distribuerat webbtjänsten, kan du:
 
 * **Åtkomst** det via webb-API-tjänsten.
-* **Hantera** den via Azure Machine Learning web services-portalen.
+* **Hantera** den via Azure Machine Learning Studio web services-portalen.
 * **Uppdatera** det om din modell ändras.
 
 #### <a name="access-your-new-web-service"></a>Få åtkomst till din nya webbtjänst
@@ -113,10 +124,10 @@ När du distribuerar din webbtjänst från Machine Learning Studio kan du skicka
 
 Den **förbruka** sidan innehåller all information du behöver att få åtkomst till webbtjänsten. Till exempel har API-nyckel angetts för att tillåta auktoriserad åtkomst till tjänsten.
 
-Mer information om åtkomst till en Machine Learning-webbtjänst finns i [hur du använder en Azure Machine Learning-webbtjänst](consume-web-services.md).
+Mer information om åtkomst till en Machine Learning Studio-webbtjänst finns i [hur man använder en Azure Machine Learning Studio Web-tjänst](consume-web-services.md).
 
 #### <a name="manage-your-new-web-service"></a>Hantera din nya webbtjänst
-Du kan hantera din nya tjänster Machine Learning Web Services-webbportal. Från den [huvudsakliga portalsidan](https://services.azureml-test.net/), klickar du på **webbtjänster**. Du kan ta bort eller kopiera en tjänst från sidan web services. Om du vill övervaka en specifik tjänst klickar du på tjänsten och klicka sedan på **instrumentpanelen**. Om du vill övervaka batch-jobb som är associerade med webbtjänsten klickar du på **Batch Request Log**.
+Du kan hantera din nya tjänster Machine Learning Studio Web Services-webbportal. Från den [huvudsakliga portalsidan](https://services.azureml-test.net/), klickar du på **webbtjänster**. Du kan ta bort eller kopiera en tjänst från sidan web services. Om du vill övervaka en specifik tjänst klickar du på tjänsten och klicka sedan på **instrumentpanelen**. Om du vill övervaka batch-jobb som är associerade med webbtjänsten klickar du på **Batch Request Log**.
 
 ### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Distribuera förutsägelseexperiment som en klassisk webbtjänst
 
@@ -128,11 +139,11 @@ För att distribuera din förutsägelseexperiment, klickar du på **kör** läng
 
 #### <a name="test-your-classic-web-service"></a>Testa din klassisk webbtjänst
 
-Du kan testa webbtjänsten i Machine Learning Web Services portal eller i Machine Learning Studio.
+Du kan testa webbtjänsten i Machine Learning Studio Web Services portal eller i Machine Learning Studio.
 
 Om du vill testa webbtjänsten svar på begäran, klickar du på den **testa** knappen i instrumentpanelen för webbtjänsten. En dialogruta visas, uppmanas du ange indata för tjänsten. Det här är de kolumner som förväntas av bedömnings experimentet. Ange en uppsättning data och klicka sedan på **OK**. Resultat som genererats av webbtjänsten visas längst ned i instrumentpanelen.
 
-Du kan klicka på den **testa** förhandsversion länk för att testa din tjänst i portalen Azure Machine Learning-webbtjänster som visas tidigare i det nya web service-avsnittet.
+Du kan klicka på den **testa** förhandsversion länk för att testa din tjänst i portalen Azure Machine Learning Studio-webbtjänster som visas tidigare i det nya web service-avsnittet.
 
 Om du vill testa Batch Execution Service, klickar du på **testa** förhandsversion länk. På sidan Batch test klickar du på Bläddra under dina indata och välj en CSV-fil med lämpliga exempelvärden. Om du inte har en CSV-fil och du har skapat din förutsägbart experiment med Machine Learning Studio, kan du hämta datauppsättningen för din förutsägelseexperiment och använda den.
 
@@ -142,7 +153,7 @@ På den **CONFIGURATION** kan du kan ändra visningsnamnet för tjänsten och en
 
 Du kan ange en beskrivning för indata, utdata och web tjänstparametrar genom att ange en sträng för varje kolumn under **INMATNINGSSCHEMAT**, **UTDATASCHEMA**, och **Web SERVICE PARAMETERN**. Dessa beskrivningar som används i exemplet code-dokumentation för webbtjänsten.
 
-Du kan aktivera loggning för att diagnostisera eventuella fel som du ser när din webbtjänst används. Mer information finns i [aktivera loggning för Machine Learning web services](web-services-logging.md).
+Du kan aktivera loggning för att diagnostisera eventuella fel som du ser när din webbtjänst används. Mer information finns i [aktivera loggning för Machine Learning Studio-webbtjänster](web-services-logging.md).
 
 ![Konfigurera webbtjänsten](./media/publish-a-machine-learning-web-service/figure-4.png)
 
@@ -153,15 +164,15 @@ När du distribuerar din webbtjänst från Machine Learning Studio kan du skicka
 
 Instrumentpanelen innehåller all information du behöver att få åtkomst till webbtjänsten. Till exempel API-nyckel har angetts för att tillåta auktoriserad åtkomst till tjänsten och API-hjälpsidor som hjälper du börjar skriva kod.
 
-Mer information om åtkomst till en Machine Learning-webbtjänst finns i [hur du använder en Azure Machine Learning-webbtjänst](consume-web-services.md).
+Mer information om åtkomst till en Machine Learning Studio-webbtjänst finns i [hur man använder en Azure Machine Learning Studio Web-tjänst](consume-web-services.md).
 
 #### <a name="manage-your-classic-web-service"></a>Hantera din klassisk webbtjänst
 Det finns olika åtgärder du kan utföra att övervaka en webbtjänst. Du kan uppdatera och ta bort den. Du kan också lägga till ytterligare slutpunkter till en klassisk webbtjänst förutom standardslutpunkten som skapas när du distribuerar den.
 
-Mer information finns i [hantera en Azure Machine Learning-arbetsyta](manage-workspace.md) och [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md).
+Mer information finns i [hantera en Azure Machine Learning Studio-arbetsyta](manage-workspace.md) och [hantera en webbtjänst med hjälp av Azure Machine Learning Studio-webbtjänster portal](manage-new-webservice.md).
 
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
+For more information on how to manage Azure Machine Learning Studio web service endpoints using the REST API, see **Azure Machine Learning Studio web service endpoints**.
 -->
 
 ## <a name="update-the-web-service"></a>Uppdatera webbtjänsten
@@ -173,17 +184,24 @@ Eftersom du har distribuerat det här experimentet innan du kan tillfrågas du o
 
 > [!NOTE]
 > Om du har gjort ändringar i konfigurationen i ursprungliga webbtjänsten, till exempel måste att ange ett nytt namn eller beskrivning, du ange dessa värden igen.
-> 
-> 
 
-Ett alternativ för att uppdatera din webbtjänst är att träna modellen programmässigt. Mer information finns i [Träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
+Ett alternativ för att uppdatera din webbtjänst är att träna modellen programmässigt. Mer information finns i [träna om Machine Learning Studio-modeller via programmering](retrain-models-programmatically.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Mer teknisk information om hur distributionen fungerar finns i [hur en Machine Learning Studio modellen utvecklas från ett experiment till en produktionsslutpunkt webbtjänst](model-progression-experiment-to-web-service.md).
+
+* Mer information om hur du förbereder din modell, för att distribuera finns [hur du förbereder din modell för distribution i Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
+
+* Du kan använda REST-API:et och komma åt webbtjänsten på flera sätt. Se [hur du använder en Azure Machine Learning Studio-webbtjänst](consume-web-services.md).
+
 
 <!-- internal links -->
 [Skapa ett träningsexperiment]: #create-a-training-experiment
 [Konvertera den till ett förutsägbart experiment]: #convert-the-training-experiment-to-a-predictive-experiment
 [Distribuera den som en webbtjänst]: #deploy-it-as-a-web-service
 [Ny]: #deploy-the-predictive-experiment-as-a-new-web-service
-[klassiska]: #deploy-the-predictive-experiment-as-a-classic-web-service
+[classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

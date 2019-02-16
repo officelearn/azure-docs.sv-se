@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: e983ae549664abf46de256e987e09191a2a44c0f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728528"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327382"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att göra från kommandoraden eller från portalen att skapa en Linux-dator (VM). Den här självstudien Lär dig att se till att du har konfigurerat den för att optimera prestanda på Microsoft Azure-plattformen. Det här avsnittet använder en dator med Ubuntu Server, men du kan också skapa Linux virtuell dator med hjälp av [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ Det här avsnittet förutsätter att du redan har ett aktivt Azure-prenumeration
 När du skapar en Linux VM i Azure har två diskar som är kopplade till den. **/ dev/sda** är din OS-disk, **/dev/sdb** din temporär disk.  Använd inte den huvudsakliga OS-disken (**/dev/sda**) för något annat än operativsystemet som det är optimerat för snabb VM boot-tid och ger inte bra prestanda för dina arbetsbelastningar. Du vill koppla en eller flera diskar till den virtuella datorn ska hämta beständiga och optimerad lagring för dina data. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Att lägga till diskar för storlek och mål
-Baserat på virtuella datorstorlek, kan du lägga till upp till 16 ytterligare diskar på en A-serien, 32 diskar på en D-serien och 64 diskar på en G-serien machine - varje upp till 1 TB i storlek. Du kan lägga till extra diskar som behövs per dina utrymme och IOps-krav. Varje disk har ett mål för prestanda på 500 IOps för Standard-lagring och upp till 5000 IOps per disk för Premium Storage.  Läs mer om Premium-lagringsdiskar, [Premium Storage: Lagring med höga prestanda för virtuella Azure-datorer](../windows/premium-storage.md)
+Baserat på virtuella datorstorlek, kan du lägga till upp till 16 ytterligare diskar på en A-serien, 32 diskar på en D-serien och 64 diskar på en G-serien machine - varje upp till 1 TB i storlek. Du kan lägga till extra diskar som behövs per dina utrymme och IOps-krav. Varje disk har ett mål för prestanda på 500 IOps för Standard-lagring och upp till 5000 IOps per disk för Premium Storage.
 
 Att uppnå högsta IOps på Premium-lagringsdiskar där cacheinställningarna har ställts in på antingen **ReadOnly** eller **ingen**, måste du inaktivera **hinder** vid montering filsystem i Linux. Du behöver inte hinder eftersom skrivningar till Premium-lagringsresurs som backas upp diskar finns under cacheinställningarna.
 
@@ -131,9 +131,8 @@ Om dina arbetsbelastningar kräver fler IOps än en enskild disk kan ge kan beh�
 ## <a name="next-steps"></a>Nästa steg
 Kom ihåg att med alla optimering diskussioner som du behöver utföra tester före och efter varje ändring att mäta effekten ändringen har.  Optimering är en steg-för-steg-process som har olika resultat på olika datorer i din miljö.  Vad som fungerar för en konfiguration kanske inte fungerar för andra.
 
-Vissa användbara länkar till ytterligare resurser: 
+Vissa användbara länkar till ytterligare resurser:
 
-* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](premium-storage.md)
 * [Användarhandbok för Azure Linux-Agent](../extensions/agent-linux.md)
 * [Optimera MySQL-prestandan på virtuella Azure Linux-datorer](classic/optimize-mysql.md)
 * [Konfigurera programvaru-RAID på Linux](configure-raid.md)

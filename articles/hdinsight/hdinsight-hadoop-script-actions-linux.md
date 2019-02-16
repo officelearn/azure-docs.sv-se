@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9711e9bf94619b8cd003972d74f3bca4c45894bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498037"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312094"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptåtgärdsutveckling med HDInsight
 
@@ -142,7 +142,7 @@ Du behöver inte ange filsystemet för de flesta åtgärder. Till exempel följa
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-I det här exemplet på `hdfs` kommando använder transparent standardklusterlagringen. För vissa åtgärder, kan du behöva ange URI: N. Till exempel `adl:///example/jars` för lagring av Data Lake eller `wasb:///example/jars` för Azure Storage.
+I det här exemplet på `hdfs` kommando använder transparent standardklusterlagringen. För vissa åtgärder, kan du behöva ange URI: N. Till exempel `adl:///example/jars` för Data Lake Storage Gen1 eller `wasb:///example/jars` för Azure Storage.
 
 ### <a name="bPS7"></a>Skriva information till STDOUT- och STDERR
 

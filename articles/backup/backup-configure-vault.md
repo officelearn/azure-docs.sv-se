@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382750"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310583"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen
 Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klienten) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.
@@ -72,7 +72,7 @@ Första gången du skapar ett Recovery Services-valv bestämmer du hur lagringen
 
     ![Välj det nya valvet i listan över Recovery Services-valv](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    När du väljer valvet, Recovery Services-valv bladet valvinformation och **översikt** bladet (*som har namnet på valvet överst*) valvet information bladet öppet.
+    När du väljer valvet, Recovery Services-valv bladet valvinformation och **översikt** bladet (*som har namnet på valvet överst*) och bladet med valvinformation öppen.
 
     ![Visa lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

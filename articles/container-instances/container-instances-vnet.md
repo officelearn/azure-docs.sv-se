@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077479"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313491"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållarinstanser till en Azure-nätverk
 
@@ -35,6 +35,7 @@ Vissa begränsningar gäller när du distribuerar behållargrupper till ett virt
 
 * För att distribuera grupper med behållare till ett undernät måste får inte undernätet innehålla några andra typer av resurser. Ta bort alla befintliga resurser från ett befintligt undernät innan du distribuerar behållargrupper till den, eller skapa ett nytt undernät.
 * Behållargrupper som distribueras till ett virtuellt nätverk stöder för närvarande inte offentliga IP-adresser eller DNS-namnetiketter.
+* Du kan inte använda en [hanterad identitet](container-instances-managed-identity.md) i en behållargrupp som distribueras till ett virtuellt nätverk.
 * På grund av de ytterligare nätverksresurser som ingår är distribuera en behållargrupp till ett virtuellt nätverk vanligtvis något långsammare än att distribuera en behållarinstans som standard.
 
 ## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
@@ -253,7 +254,7 @@ appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-### <a name="delete-container-instances"></a>Ta bort behållarinstanser
+### <a name="delete-container-instances"></a>Ta bort containerinstanser
 
 När du är klar du arbetar med behållarinstanserna skapade, ta bort dem med följande kommandon:
 

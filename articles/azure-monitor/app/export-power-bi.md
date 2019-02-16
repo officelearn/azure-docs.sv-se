@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262599"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312999"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
 [Power BI](https://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -26,7 +26,7 @@ Det finns tre metoder för att exportera Application Insights-data till Power BI
 
 * [**Exportera analysfrågor**](#export-analytics-queries). Det här är den bästa metoden. Skriva någon fråga som du vill och exportera den till Power BI. Du kan placera den här frågan på en instrumentpanel, tillsammans med andra data.
 * [**Löpande export och Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Den här metoden är användbar om du vill lagra dina data under långa tidsperioder. Om du inte har ett krav för kvarhållning av utökade data kan du använda metoden export analytics fråga. Löpande export och Stream Analytics omfattar mer arbete att ställa in och kostnader för ytterligare lagringsutrymme.
-* [**Power BI nätverkskort**](#power-pi-adapter). Uppsättningen diagram är fördefinierad, men du kan lägga till egna frågor från andra källor.
+* **Power BI nätverkskort**. Uppsättningen diagram är fördefinierad, men du kan lägga till egna frågor från andra källor.
 
 > [!NOTE]
 > Power BI-kortet är nu **inaktuell**. Fördefinierade diagram för den här lösningen är ifyllda av statiska inte går att redigera frågor. Du har inte möjlighet att redigera dessa frågor och beroende på vissa egenskaper hos dina data är det möjligt för anslutning till Power BI ska lyckas, men inga data har fyllts i. Detta beror på exkluderingsvillkor som anges i hårdkodad frågan. Även om den här lösningen kan fortfarande fungera för vissa kunder, på grund av bristande flexibiliteten i kortet den rekommenderade lösningen är att använda den [ **exportera analysfråga** ](#export-analytics-queries) funktioner.

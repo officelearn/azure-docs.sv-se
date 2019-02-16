@@ -8,24 +8,24 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/24/2017
 ms.author: kasinh
-ms.openlocfilehash: 830bf8603a495d1f2708f73cf090695f1b7a7c48
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f90650cc058697e4bf9e4a0710ada213fe3d9a1f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493940"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310839"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
 Använd informationen i följande tabeller för att felsöka fel som uppstår när du använder Azure Backup Server.
 
-## <a name="invalid-vault-credentials-provided"></a>Ogiltiga valvautentiseringsuppgifter har angetts 
+## <a name="invalid-vault-credentials-provided"></a>Ogiltiga valvautentiseringsuppgifter har angetts
 
 Lös problemet genom att följa [de här felsökningsstegen](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
-## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>Agentåtgärden misslyckades på grund av ett kommunikationsfel med DPM agent coordinator-tjänsten på servern 
+## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>Agentåtgärden misslyckades på grund av ett kommunikationsfel med DPM agent coordinator-tjänsten på servern
 
-Lös problemet genom att följa [de här felsökningsstegen](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues). 
+Lös problemet genom att följa [de här felsökningsstegen](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Det gick inte att uppdatera metadata för registret
 
@@ -34,7 +34,7 @@ Lös problemet genom att följa [de här felsökningsstegen](https://docs.micros
 
 
 
-## <a name="installation-issues"></a>Problem med installationen
+## <a name="installation-issues"></a>Installationsproblem
 
 | Åtgärd | Felinformation | Lösning |
 |-----------|---------------|------------|
@@ -56,7 +56,7 @@ Lös problemet genom att följa [de här felsökningsstegen](https://docs.micros
 | Konfigurera skyddsgrupper | DPM kunde inte räkna upp PROGRAMKOMPONENTEN på den skyddade datorn (skyddat datornamn). | Välj **uppdatera** på skärmen Konfigurera skydd grupp Användargränssnittet på relevanta datasource/komponentnivå. |
 | Konfigurera skyddsgrupper | Det gick inte att konfigurera skydd | Om den skyddade servern är en SQLServer, kontrollerar du att sysadmin-rollbehörighet har skickats till system-kontot (NTAuthority\System) på den skyddade datorn enligt beskrivningen i [i den här artikeln](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx).
 | Konfigurera skyddsgrupper | Det finns inte tillräckligt med ledigt utrymme i lagringspoolen för den här skyddsgruppen. | De diskar som läggs till i lagringspoolen [får inte innehålla en partition](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). Ta bort alla befintliga volymer på diskarna. Lägg sedan till dem i lagringspoolen.|
-| Ändring av |Det gick inte att ändra säkerhetskopieringsprincipen. Fel: Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x29834]. Försök igen efter en stund har överskridits. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak:**<br/>Det här felet uppstår under tre villkor: när säkerhetsinställningar har aktiverats vid försök att minska kvarhållningsintervallet under de lägsta värdena som angetts tidigare och när du har en version. (Stöds inte versioner är de under Microsoft Azure Backup Server version 2.0.9052 och Azure Backup Server uppdatering 1.) <br/>**Rekommenderad åtgärd:**<br/> Fortsätt med princip-relaterade uppdateringar genom att ange kvarhållningsperioden ovan minsta Kvarhållningsintervall angiven tidsperiod. (Lägsta kvarhållningsperioden är sju dagar för varje dag, fyra veckor för veckovisa, tre veckor för varje månad eller ett år för varje år.) <br><br>Du kan också rekommenderas en annan metod är att uppdatera backup-agenten och Azure Backup Server för att utnyttja alla säkerhetsuppdateringar. |
+| Ändring av |Det gick inte att ändra säkerhetskopieringsprincipen. Fel: Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x29834]. Försök igen efter en stund har överskridits. Kontakta Microsoft-supporten om problemet kvarstår. | **Orsak:**<br/>Det här felet uppstår under tre villkor: när säkerhetsinställningar har aktiverats vid försök att minska kvarhållningsintervallet under de lägsta värdena som angetts tidigare och när du har en version. (Stöds inte versioner är de under Microsoft Azure Backup Server version 2.0.9052 och Azure Backup Server uppdatering 1.) <br/>**Rekommenderad åtgärd:**<br/> Fortsätt med princip-relaterade uppdateringar genom att ange kvarhållningsperioden ovan minsta Kvarhållningsintervall angiven tidsperiod. (Lägsta kvarhållningsperioden är sju dagar för varje dag, fyra veckor för veckovisa, tre veckor för varje månad eller ett år för varje år.) <br><br>Du kan också rekommenderas en annan metod är att uppdatera backup-agenten och Azure Backup Server för att utnyttja alla säkerhetsuppdateringar. |
 
 ## <a name="backup"></a>Backup
 | Åtgärd | Felinformation | Lösning |
@@ -71,6 +71,11 @@ Lös problemet genom att följa [de här felsökningsstegen](https://docs.micros
 | Backup | Alternativet för att skydda igen en VMware VM på en ny Microsoft Azure Backup Server visas inte som är tillgängliga att lägga till. | Egenskaper för VMware riktas mot en gammal, Tillbakadragna instans av Microsoft Azure Backup Server. Gör så här för att lösa problemet:<br><ol><li>I VCenter (SC-VMM-motsvarighet), går du till den **sammanfattning** fliken och sedan till **anpassade attribut**.</li>  <li>Ta bort det gamla Microsoft Azure Backup Server-namnet från den **DPMServer** värde.</li>  <li>Gå tillbaka till den nya Microsoft Azure Backup-servern och ändra sida  När du har valt den **uppdatera** knapp, den virtuella datorn visas med en kryssruta som kan läggas till skydd.</li></ol> |
 | Backup | Fel vid åtkomst till filer/delade mappar | Försök att ändra antivirus inställningarna enligt förslaget i TechNet-artikeln [köra antivirusprogram på DPM-servern](https://technet.microsoft.com/library/hh757911.aspx).|
 | Backup | Det gick inte att online jobben att skapa återställningspunkter för VMware VM. Det uppstod ett fel från VMware vid försök att hämta information om ChangeTracking. Felkod - FileFaultFault (ID 33621) |  <ol><li> Återställa CTK på VMware för de berörda virtuella datorerna.</li> <li>Kontrollera oberoende disken inte är på plats på VMware.</li> <li>Stoppa skyddet för de berörda virtuella datorerna och skydda igen med den **uppdatera** knappen. </li><li>Kör en kopia för de berörda virtuella datorerna.</li></ol>|
+
+## <a name="restore"></a>Återställ
+| Åtgärd | Felinformation | Lösning |
+| --- | --- | --- |
+| Återställ | **Felkod**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Felmeddelande**: De angivna valvautentiseringsuppgifterna skiljer sig från det valv som servern är registrerad | **Orsak**: Det här problemet uppstår när du försöker återställa filer till en annan server från den ursprungliga servern med hjälp av extern DPM återställningsalternativ och om servern som återställs och den ursprungliga servern från där data är säkerhetskopieras inte är associerade med samma Recovery Service-valv.<br/> <br/>**Lösning** att lösa problemet genom att kontrollera både den ursprungliga och alternativ servern som är registrerade på samma valv.|
 
 
 ## <a name="change-passphrase"></a>Ändra lösenfras

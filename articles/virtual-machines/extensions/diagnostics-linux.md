@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387054"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313542"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-Diagnostiktillägget för att övervaka mått och loggar
 
@@ -316,9 +316,9 @@ typ | Identifierar den faktiska leverantören av måttet.
 klass | Identifierar det specifika måttet i leverantörens namnområde tillsammans med ”räknaren”.
 räknare | Identifierar det specifika måttet i leverantörens namnområde tillsammans med ”class”.
 counterSpecifier | Identifierar det specifika måttet i ett namnområde för Azure-mått.
-villkor | (valfritt) Väljer en specifik instans av objektet som måttet gäller eller väljer aggregering i alla instanser av objektet. Mer information finns i den [ `builtin` måttdefinitioner](#metrics-supported-by-builtin).
+villkor | (valfritt) Väljer en specifik instans av objektet som måttet gäller eller väljer aggregering i alla instanser av objektet. Mer information finns i den `builtin` definitioner av mått.
 sampleRate | ÄR 8601 intervall som anger den hastighet som raw-exempel för det här måttet har samlats in. Om inte har angetts samling intervallet anges av värdet för [sampleRateInSeconds](#ladcfg). Kortaste stöds samplingsfrekvensen är 15 sekunder (PT15S).
-enhet | Bör vara något av de här strängarna: ”Antal”, ”byte”, ”sekunder”, ”procent”, ”CountPerSecond”, ”BytesPerSecond”, ”Millisekunds”. Definierar enheten för måttet. Konsumenter av insamlade data förväntar sig värdena insamlade data för att matcha den här enheten. LAD ignorerar det här fältet.
+enhet | Bör vara något av de här strängarna: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Definierar enheten för måttet. Konsumenter av insamlade data förväntar sig värdena insamlade data för att matcha den här enheten. LAD ignorerar det här fältet.
 displayName | Etiketten (på det språk som anges av de associera nationella inställningarna) som ska kopplas till dessa data i Azure-mått. LAD ignorerar det här fältet.
 
 CounterSpecifier är ett valfritt ID. Konsumenter av mätvärden, som Azure portal diagram och aviseringar funktion, använda counterSpecifier som ”nyckeln” som identifierar ett mått eller en instans av ett mått. För `builtin` mätvärden, rekommenderar vi du använder counterSpecifier värden som börjar med `/builtin/`. Om du kan samla in en specifik instans av ett mått, rekommenderar vi du bifoga identifierare för instansen till counterSpecifier-värde. Några exempel:
@@ -357,7 +357,7 @@ Samlingen syslogEventConfiguration har en post för varje syslog-funktion av int
 
 Element | Värde
 ------- | -----
-mottagare | En kommaavgränsad lista över namnen på de mottagare som enskilda logghändelser publiceras. Alla logghändelser matchar begränsningarna i syslogEventConfiguration publiceras till varje listad mottagare. Exempel: ”EHforsyslog”
+mottagare | En kommaavgränsad lista över namnen på de mottagare som enskilda logghändelser publiceras. Alla logghändelser matchar begränsningarna i syslogEventConfiguration publiceras till varje listad mottagare. Exempel: "EHforsyslog"
 funktionen %{facilityname/ | Namn på en syslog-resurs (till exempel ”LOG\_användare” eller ”LOG\_LOCAL0”). Se avsnittet ”anläggning” i den [syslog man sidan](http://man7.org/linux/man-pages/man3/syslog.3.html) för en fullständig lista.
 minSeverity | En syslog-allvarlighetsgrad (till exempel ”LOG\_ERR” eller ”LOG\_information”). Se avsnittet ”nivå” i den [syslog man sidan](http://man7.org/linux/man-pages/man3/syslog.3.html) för en fullständig lista. Tillägget samlar in händelser som skickas till funktionen vid eller över den angivna nivån.
 

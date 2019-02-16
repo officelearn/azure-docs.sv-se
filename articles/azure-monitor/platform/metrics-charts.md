@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991335"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310951"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
 
@@ -100,20 +100,6 @@ Du kan dela ett mått med dimensionen att visualisera hur olika segment av mått
    > [!NOTE]
    > Använd både filtrera och dela på samma dimension för att dölja segment som är inte relevant för ditt scenario och göra det lättare att läsa diagram.
 
-### <a name="new-alert-rule"></a>Ny aviseringsregel
-
-Du kan också använda de kriterier som du har angett för att visualisera dina mått som grund för den underliggande logiken för ett mått baserade varningsregeln. 
-
-Om du klickar på **ny varningsregel**
-
-![Knapp för ny varningsregel markerat i rött](./media/metrics-charts/015.png)
-
-Du kommer att tas till fönstret varningsregel skapas med de underliggande måttet dimensionerna från ditt diagram ifylld i förväg för att göra det enklare att skapa anpassade aviseringsregler.
-
-![Skapa aviseringsregel](./media/metrics-charts/016.png)
-
-Titta i den här [artikeln](alerts-metric.md) mer information om hur du konfigurerar aviseringar för mått.
-
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Lås gränserna för y-axeln i diagrammet
 
 Låsning intervallet för y-axeln blir viktigt när diagrammet visar mindre variationer av större värden. 
@@ -138,6 +124,20 @@ Att fästa ett diagram som är konfigurerade på en instrumentpanel:
 När du har konfigurerat schemat klickar du på den **diagram åtgärder** menyn i högra viktigaste hörnet i diagrammet och klicka på **fäst på instrumentpanelen**.
 
 ![mått-avbildning](./media/metrics-charts/00013.png)
+
+## <a name="create-alert-rules"></a>Skapa aviseringsregler
+
+Du kan använda de kriterier som du har angett för att visualisera dina mått som grund för ett mått baserade varningsregeln. Ny aviseringsregel tas din målresursen, mått, dela och filterdimensioner från ditt diagram. Du kommer att kunna ändra inställningarna senare i fönstret Skapa en aviseringsregel.
+
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Klicka för att skapa en ny varningsregel **ny aviseringsregel**
+
+![Knapp för ny varningsregel markerat i rött](./media/metrics-charts/015.png)
+
+Du kommer att tas till fönstret varningsregel skapas med de underliggande måttet dimensionerna från ditt diagram ifylld i förväg för att göra det enklare att skapa anpassade aviseringsregler.
+
+![Skapa aviseringsregel](./media/metrics-charts/016.png)
+
+Titta i den här [artikeln](alerts-metric.md) mer information om hur du konfigurerar aviseringar för mått.
 
 ## <a name="troubleshooting"></a>Felsökning
 

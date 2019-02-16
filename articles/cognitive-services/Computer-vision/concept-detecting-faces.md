@@ -8,23 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 81e846c6ffc0361b7154c962dbc047b9e5ae55e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1056b8be113d56342aea8f83d5325737f7ecb93b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872993"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308459"
 ---
 # <a name="face-detection-with-computer-vision"></a>Ansiktsigenkänning med visuellt innehåll
 
-Visuellt identifierar ansikten i bilder och genererar den ålder, kön och rektangel för varje identifierad ansikte. Visuellt innehåll tillhandahåller en delmängd av de funktioner som finns i [Ansiktsigenkänning](/azure/cognitive-services/face/) och du kan använda tjänsten för ansiktsigenkänning för mer detaljerad analys, till exempel identifiering av ansikten och posering.  
+Visuellt innehåll kan identifiera ansikten i en bild och generera ålder, kön och rektangel för varje identifierad ansikte. 
+
+> [!NOTE]
+> Den här funktionen är även erbjuds av Azure [ansikte](/azure/cognitive-services/face/) service. Se detta alternativ för mer detaljerad analys, inklusive ansiktsidentifiering för ansiktsigenkänning och utgöra identifiering. 
 
 ## <a name="face-detection-examples"></a>Exempel för identifiering av ansikte
 
-Det första exemplet visar JSON-svaret som returnerades av visuellt innehåll för en avbildning som innehåller ett enda mänskliga ansikte.
+I följande exempel visas JSON-svaret som returnerades av visuellt innehåll för en avbildning som innehåller ett enda mänskliga ansikte.
 
 ![Visuellt innehåll analyserar kvinnoansikte på tak](./Images/woman_roof_face.png)
 
@@ -51,7 +54,7 @@ Det första exemplet visar JSON-svaret som returnerades av visuellt innehåll f�
 }
 ```
 
-Det andra exemplet visar den JSON-svar returneras för en avbildning som innehåller flera ansikten.
+I nästa exempel visas JSON-svar returneras för en avbildning som innehåller flera ansikten.
 
 ![Visuellt innehåll analyserar Family foto ansikte](./Images/family_photo_face.png)
 
@@ -110,4 +113,4 @@ Det andra exemplet visar den JSON-svar returneras för en avbildning som innehå
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp [identifierar domänspecifika innehåll](concept-detecting-domain-content.md).
+Se den [analysera bild](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) referensdokumentation mer information om hur du använder funktionen för identifiering av ansikte.

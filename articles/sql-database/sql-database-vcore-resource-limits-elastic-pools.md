@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 1040c2018e7e18ed2d2bb401dd0052c6851fa544
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270478"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328681"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resursgränser för elastiska pooler när gränserna vCore-baserade inköpschef modell
 
@@ -59,7 +59,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lässkalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-\* De maximala aktuella arbetare (begäranden) för alla enskilda databaser, se [enkel databas resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md)
+\* De maximala samtidiga arbetare (begäranden) för alla enskilda databaser, se [enkel database-resursgränser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen använder Gen5 och dess max vCore per databas är till exempel 2, så är de maximala samtidiga arbetarna är 200.  Om max vCore per databas är 0,5, är de maximala samtidiga arbetarna 50 eftersom det finns högst 100 samtidiga arbetare per vcore på Gen5.  För andra max vCore-inställningarna per databas som är mindre 1 virtuell kärna eller mindre antal max samtidiga arbetare är på samma sätt skala.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Tjänstnivå för allmänna ändamål: Generation 4-beräkningsplattformen (del 2)
 
@@ -85,7 +85,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lässkalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-\* De maximala aktuella arbetare (begäranden) för alla enskilda databaser, se [enkel databas resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md)
+\* De maximala samtidiga arbetare (begäranden) för alla enskilda databaser, se [enkel database-resursgränser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen använder Gen5 och dess max vCore per databas är till exempel 2, så är de maximala samtidiga arbetarna är 200.  Om max vCore per databas är 0,5, är de maximala samtidiga arbetarna 50 eftersom det finns högst 100 samtidiga arbetare per vcore på Gen5.  För andra max vCore-inställningarna per databas som är mindre 1 virtuell kärna eller mindre antal max samtidiga arbetare är på samma sätt skala.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Tjänstnivå för allmänna ändamål: Generation 5-beräkningsplattformen (del 1)
 
@@ -111,7 +111,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lässkalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-\* De maximala aktuella arbetare (begäranden) för alla enskilda databaser, se [enkel databas resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md)
+\* De maximala samtidiga arbetare (begäranden) för alla enskilda databaser, se [enkel database-resursgränser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen använder Gen5 och dess max vCore per databas är till exempel 2, så är de maximala samtidiga arbetarna är 200.  Om max vCore per databas är 0,5, är de maximala samtidiga arbetarna 50 eftersom det finns högst 100 samtidiga arbetare per vcore på Gen5.  För andra max vCore-inställningarna per databas som är mindre 1 virtuell kärna eller mindre antal max samtidiga arbetare är på samma sätt skala.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Tjänstnivå för allmänna ändamål: Generation 5-beräkningsplattformen (del 2)
 
@@ -136,7 +136,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lässkalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-\* De maximala aktuella arbetare (begäranden) för alla enskilda databaser, se [enkel databas resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md)
+\* De maximala samtidiga arbetare (begäranden) för alla enskilda databaser, se [enkel database-resursgränser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen använder Gen5 och dess max vCore per databas är till exempel 2, så är de maximala samtidiga arbetarna är 200.  Om max vCore per databas är 0,5, är de maximala samtidiga arbetarna 50 eftersom det finns högst 100 samtidiga arbetare per vcore på Gen5.  För andra max vCore-inställningarna per databas som är mindre 1 virtuell kärna eller mindre antal max samtidiga arbetare är på samma sätt skala.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Kritiska-affärsnivå: Lagringsstorlekar och storlekar
 
@@ -164,7 +164,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-\* De maximala aktuella arbetare (begäranden) för alla enskilda databaser, se [enkel databas resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md)
+\* De maximala samtidiga arbetare (begäranden) för alla enskilda databaser, se [enkel database-resursgränser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen använder Gen5 och dess max vCore per databas är till exempel 2, så är de maximala samtidiga arbetarna är 200.  Om max vCore per databas är 0,5, är de maximala samtidiga arbetarna 50 eftersom det finns högst 100 samtidiga arbetare per vcore på Gen5.  För andra max vCore-inställningarna per databas som är mindre 1 virtuell kärna eller mindre antal max samtidiga arbetare är på samma sätt skala.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Kritiska-affärsnivå: Generation 4-beräkningsplattformen (del 2)
 
@@ -190,7 +190,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-\* De maximala aktuella arbetare (begäranden) för alla enskilda databaser, se [enkel databas resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md)
+\* De maximala samtidiga arbetare (begäranden) för alla enskilda databaser, se [enkel database-resursgränser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen använder Gen5 och dess max vCore per databas är till exempel 2, så är de maximala samtidiga arbetarna är 200.  Om max vCore per databas är 0,5, är de maximala samtidiga arbetarna 50 eftersom det finns högst 100 samtidiga arbetare per vcore på Gen5.  För andra max vCore-inställningarna per databas som är mindre 1 virtuell kärna eller mindre antal max samtidiga arbetare är på samma sätt skala.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Kritiska-affärsnivå: Generation 5-beräkningsplattformen (del 1)
 
@@ -216,7 +216,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-\* De maximala aktuella arbetare (begäranden) för alla enskilda databaser, se [enkel databas resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md)
+\* De maximala samtidiga arbetare (begäranden) för alla enskilda databaser, se [enkel database-resursgränser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen använder Gen5 och dess max vCore per databas är till exempel 2, så är de maximala samtidiga arbetarna är 200.  Om max vCore per databas är 0,5, är de maximala samtidiga arbetarna 50 eftersom det finns högst 100 samtidiga arbetare per vcore på Gen5.  För andra max vCore-inställningarna per databas som är mindre 1 virtuell kärna eller mindre antal max samtidiga arbetare är på samma sätt skala.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Kritiska-affärsnivå: Generation 5-beräkningsplattformen (del 2)
 
@@ -242,7 +242,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
-\* De maximala aktuella arbetare (begäranden) för alla enskilda databaser, se [enkel databas resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md)
+\* De maximala samtidiga arbetare (begäranden) för alla enskilda databaser, se [enkel database-resursgränser](sql-database-vcore-resource-limits-single-databases.md). Om den elastiska poolen använder Gen5 och dess max vCore per databas är till exempel 2, så är de maximala samtidiga arbetarna är 200.  Om max vCore per databas är 0,5, är de maximala samtidiga arbetarna 50 eftersom det finns högst 100 samtidiga arbetare per vcore på Gen5.  För andra max vCore-inställningarna per databas som är mindre 1 virtuell kärna eller mindre antal max samtidiga arbetare är på samma sätt skala.
 
 Om alla virtuella kärnor för en elastisk pool är upptagen, får varje databas i poolen lika mycket av beräkningsresurser för att bearbeta frågor. SQL Database-tjänsten tillhandahåller rättvis resursdelning mellan databaser genom att tilldela lika mycket beräkningstid till dem. Elastisk pool resursen rättvis resursdelning är utöver den mängd resurser som annars att garantera att varje databas när den vCore-min per databas har angetts till ett annat värde än noll.
 

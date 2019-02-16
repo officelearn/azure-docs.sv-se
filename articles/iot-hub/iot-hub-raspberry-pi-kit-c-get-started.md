@@ -1,21 +1,19 @@
 ---
-title: Raspberry Pi till molnet (C) – Anslut Raspberry Pi till Azure IoT Hub | Microsoft Docs
-description: Lär dig hur du konfigurerar och ansluter Raspberry Pi till Azure IoT Hub för Raspberry Pi att skicka data till Azure-molnplattformen i den här självstudien.
+title: Anslut Raspberry Pi till Azure IoT Hub med C | Microsoft Docs
+description: Lär dig hur du konfigurerar och ansluter Raspberry Pi till Azure IoT Hub för Raspberry Pi att skicka data till Azure-molnplattformen
 author: rangv
-manager: ''
-keywords: Azure iot raspberry pi, raspberry pi iot-hubb, raspberry pi skicka data till molnet, raspberry pi till molnet
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: c8b254656dcd94fd846336e9c9de3ca823691904
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1e96029b75c8168189dacdc420117e82387228d9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053508"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327259"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Anslut Raspberry Pi till Azure IoT Hub (C)
 
@@ -29,7 +27,7 @@ Har inte ett kit ännu? Försök [Raspberry Pi onlinesimulator](iot-hub-raspberr
 
 * Skapa en IoT-hubb.
 * Registrera en enhet för Pi i din IoT-hubb.
-* Konfigurera Raspberry Pi.
+* Setup Raspberry Pi.
 * Kör ett exempelprogram på Pi att skicka sensordata till din IoT-hubb.
 
 Anslut Raspberry Pi till en IoT-hubb som du skapar. Sedan kör du ett exempelprogram på Pi för att samla in temperatur och fuktighet data från en BME280 sensor. Slutligen kan skicka du sensordata till din IoT hub.
@@ -125,7 +123,7 @@ För sensor PIN-koder, använder du följande koaxialkabel:
 | LED jord (PIN-kod 6G)         | JORD (PIN-kod 6)            | Svarta kabeln   |
 | VDD (PIN-kod 18F)            | 3, 3v PWR (PIN-kod 17)      | Vit-kabel   |
 | JORD (PIN-kod 20F)            | JORD (PIN-kod 20)           | Svarta kabeln   |
-| SCK (PIN-kod 21F)            | SPI0 SCLK (PIN-kod 23)     | Orange kabel  |
+| SCK (PIN-kod 21F)            | SPI0 SCLK (Pin 23)     | Orange kabel  |
 | SDO (PIN-kod 22F)            | SPI0 MISO (PIN-kod 21)     | Gul-kabel  |
 | SDI (PIN-kod 23F)            | SPI0 MOSI (PIN-kod 19)     | Grön-kabel   |
 | CS (PIN-kod 24F)             | SPI0 CS (PIN-kod 24)       | Blå kabeln    |

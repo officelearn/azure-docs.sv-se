@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0793f572e043248af409e65cca4fd854f1371900
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880897"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313083"
 ---
 # <a name="detect-color-schemes-in-images"></a>Identifiera färgscheman i bilder
 
-Visuellt innehåll extraherar färger från en avbildning. Färgerna analyseras sedan i tre olika kontexter: dominerande förgrundsfärgen dominerande bakgrundsfärgen och dominanta färger för avbildningen som helhet. De grupperas i 12 dominanta accentfärger. Dessa accentfärger är svarta, blå, brown, grå, grön, orange, rosa, lila, röd, mörkturkos, vit och gul. Visuellt innehåll analyserar de färger som extraheras från en avbildning för att returnera en accentfärg som representerar den mest levande färgen för bilden till användarna genom en kombination av dominanta färger och mättnad. Beroende på färgerna i en bild returneras enkel svartvit eller accentfärger i hexadecimal-färgkoder. Visuellt också returnerar ett booleskt värde som anger om en bild är svart och vit.
+Visuellt innehåll analyserar färgerna i en bild som tillhandahåller tre olika attribut: dominerande förgrundsfärgen, dominerande bakgrundsfärgen och uppsättning dominanta färger för avbildningen som helhet. Returnerade färger som tillhör uppsättningen: svart, blå, brown, grå, grön, orange, rosa, lila, röd, mörkturkos, vit och gul. 
+
+Visuellt innehåll extraherar också en accentfärg som representerar den mest levande färgen i bilden, baserat på en kombination av dominanta färger och mättnad. Accentfärg returneras som en hexadecimal färgkod i HTML. 
+
+Visuellt innehåll returnerar också ett booleskt värde som anger om en bild är Svartvit.
 
 ## <a name="color-scheme-detection-examples"></a>Färgschema identifiering exempel
 
-I följande exempel visas JSON-svaret som returnerades av visuellt innehåll när du söker efter färgschema på bilden. I det här fallet på bilden är inte en svart och vit avbildning, men dominanta färger för förgrunden och bakgrunden är svarta och dominanta färger för avbildningen som helhet är svart och vit.
+I följande exempel visas JSON-svaret som returnerades av visuellt innehåll när du söker efter färgschema på bilden. I det här fallet på bilden är inte en svart och bild, men dominerande förgrunds- och bakgrundsfärger är svarta och dominanta färger för avbildningen som helhet är svart och vit.
 
 ![Berg utomhus](./Images/mountain_vista.png)
 
@@ -48,7 +52,7 @@ I följande exempel visas JSON-svaret som returnerades av visuellt innehåll nä
 
 ### <a name="dominant-color-examples"></a>Dominant färg exempel
 
-I följande tabell beskrivs dominerande förgrund, bakgrund och bildfärger för varje exempelbild som returneras av visuellt innehåll.
+I följande tabell visas den returnerade förgrund, bakgrund och avbildning färger för varje exempelbild.
 
 | Bild | Dominanta färger |
 |-------|-----------------|
@@ -57,7 +61,7 @@ I följande tabell beskrivs dominerande förgrund, bakgrund och bildfärger för
 
 ### <a name="accent-color-examples"></a>Accent färg exempel
 
- I följande tabell beskrivs accentfärg, som ett hexadecimalt HTML-färgvärde, för varje exempelbild som returneras av visuellt innehåll.
+ I följande tabell visas de returnerade accentfärg som ett hexadecimalt HTML-färgvärde, för varje exempelbild.
 
 | Bild | Accentfärg |
 |-------|--------------|
@@ -67,7 +71,7 @@ I följande tabell beskrivs dominerande förgrund, bakgrund och bildfärger för
 
 ### <a name="black--white-detection-examples"></a>Svart och vit-exempel
 
-I följande tabell anger om varje exempelbild är svart och vit som returneras av visuellt innehåll.
+I följande tabell visas datorn Vision svart och utvärdering i exempelbilderna.
 
 | Bild | Svartvit? |
 |-------|----------------|

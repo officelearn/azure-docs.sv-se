@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742396"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312295"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
@@ -38,6 +38,9 @@ Tillägg till routning för HTTP-program kan aktiveras med Azure CLI när du dis
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
+
+> [!TIP]
+> Om du vill aktivera flera tillägg kan du ange dem som en kommaavgränsad lista. Till exempel använda formatet om du vill aktivera övervakning och routning av HTTP-program, `--enable-addons http_application_routing,monitoring`.
 
 Du kan också aktivera HTTP-routning på en befintlig AKS-kluster med den [az aks enable-tillägg] [ az-aks-enable-addons] kommando. Om du vill aktivera HTTP-routning i ett befintligt kluster, lägger du till den `--addons` parametern och ange *http_application_routing* som visas i följande exempel:
 

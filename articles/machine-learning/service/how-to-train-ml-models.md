@@ -9,29 +9,29 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 2/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 005854a51916d36bbad56f1296f17fa687020359
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 58dd96b079dda50faa17a52782a79db83a0141bd
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251409"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330077"
 ---
-# <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
+# <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av kostnadsuppskattning
 
-Utbildning machine learning-modeller, särskilt djupa neurala nätverk är ofta en tid - och beräkningsintensiva uppgift. När du är klar skriver utbildning-skriptet och körs på en liten delmängd av data på din lokala dator, vill du förmodligen att skala upp din arbetsbelastning.
+Med Azure Machine Learning kan du enkelt skicka dina utbildningsskript till [olika beräkningsmål](how-to-set-up-training-targets.md#compute-targets-for-training)med hjälp av [RunConfiguration objekt](how-to-set-up-training-targets.md#whats-a-run-configuration) och [ScriptRunConfig objektet](how-to-set-up-training-targets.md#submit). Mönstret ger stor flexibilitet och maximalt kontroll.
 
-För att underlätta utbildning, ger Python SDK för Azure Machine Learning en övergripande abstraktion klassen kostnadsuppskattning, vilket gör att användare kan enkelt skapa sina modeller i Azure-ekosystemet. Du kan skapa och använda en [ `Estimator` objektet](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka någon kod för utbildning som du vill köra på fjärranslutna beräkning, oavsett om det är en nod kör eller distribuerade utbildning i ett GPU-kluster. För PyTorch och TensorFlow-jobb, ger Azure Machine Learning också respektive anpassad `PyTorch` och `TensorFlow` estimators att förenkla med hjälp av de här ramverken.
+För att underlätta deep learning modellträning, Azure Machine Learning Python SDK tillhandahåller en alternativ på högre nivå abstraktion klassen kostnadsuppskattning, som tillåter användare att enkelt konstruktion som kör konfigurationer. Du kan skapa och använda en allmän [kostnadsuppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) att skicka inlärningsskript med valfritt learning-ramverk som du väljer (till exempel scikit-Läs) du vill köra på alla beräkningsmål, oavsett om det är den lokala datorn, en enskild virtuell dator i Azure eller en GPU kluster i Azure. För PyTorch, TensorFlow och Chainer uppgifter, Azure Machine Learning ger också respektive [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators att förenkla med hjälp av dessa ramverk.
 
 ## <a name="train-with-an-estimator"></a>Träna med en kostnadsuppskattning
 
 När du har skapat din [arbetsytan](concept-azure-machine-learning-architecture.md#workspace) och Ställ in din [utvecklingsmiljö](how-to-configure-environment.md), träna en modell i Azure Machine Learning omfattar följande steg:  
-1. Skapa en [remote beräkningsmål](how-to-set-up-training-targets.md)
-2. Ladda upp din [träningsdata](how-to-access-data.md) (valfritt)
+1. Skapa en [remote beräkningsmål](how-to-set-up-training-targets.md) (Observera att du kan också använda lokal dator som beräkningsmål)
+2. Ladda upp din [träningsdata](how-to-access-data.md) till datalagret (valfritt)
 3. Skapa din [inlärningsskript](tutorial-train-models-with-aml.md#create-a-training-script)
 4. Skapa en `Estimator` objekt
-5. Skicka jobbet utbildning
+5. Skicka kostnadsuppskattning till ett experiment objekt under arbetsytan
 
 Den här artikeln handlar om steg 4 – 5. Steg 1 – 3, finns i den [träna en modellsjälvstudie](tutorial-train-models-with-aml.md) ett exempel.
 
@@ -60,7 +60,7 @@ Parameter | Beskrivning
 --|--
 `source_directory`| Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från din lokala dator till den fjärranslutna beräkningen 
 `script_params`| Ordlista att ange kommandoradsargument för att dina utbildningsskript `entry_script`, i form av < kommandoradsargumentet, värde > par
-`compute_target`| Remote beräkningsmål som utbildning skriptet ska köras på, i det här fallet en Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kluster
+`compute_target`| Remote beräkningsmål som utbildning skriptet ska köras på, i det här fallet en Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) klustret. (Observera att även om AmlCompute kluster är vanliga mål, det är också möjligt att välja andra beräkning måltyper, till exempel virtuella datorer i Azure eller till och med lokala datorn.)
 `entry_script`| FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av, bör finnas i den här mappen
 `conda_packages`| Lista över Python-paket installeras via conda som krävs för dina utbildningsskript.  
 Konstruktorn har en annan parameter med namnet `pip_packages` som du använder för eventuella pip-paket som behövs
@@ -69,7 +69,7 @@ Nu när du har skapat din `Estimator` objekt, skicka utbildningsjobbet som ska k
 
 ```Python
 run = experiment.submit(sk_est)
-print(run.get_details().status)
+print(run.get_portal_url())
 ```
 
 > [!IMPORTANT]
@@ -77,7 +77,7 @@ print(run.get_details().status)
 >
 > Skapa artefakter vid träning (till exempel modellfiler kontrollpunkter, filer eller ritade bilder) skriva dem till den `./outputs` mapp.
 >
-> På samma sätt kan du skriva loggar från utbildning kör till den `./logs` mapp. Använda Azure Machine Learning [TensorBoard integrering](https://aka.ms/aml-notebook-tb) se till att du skriver TensorBoard loggarna till den här mappen. När din körning pågår, kommer du att kunna starta TensorBoard och strömma dessa loggar.  Senare, kan du också återställa loggarna från någon av dina tidigare körningar.
+> På samma sätt du kan skriva loggar från utbildning kör till den `./logs` mapp. Använda Azure Machine Learning [TensorBoard integrering](https://aka.ms/aml-notebook-tb) se till att du skriver TensorBoard loggarna till den här mappen. När din körning pågår, kommer du att kunna starta TensorBoard och strömma dessa loggar.  Senare, kan du också återställa loggarna från någon av dina tidigare körningar.
 >
 > Till exempel för att hämta en fil som skrivs till den *matar ut* mappen till den lokala datorn efter remote utbildning kör: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
@@ -87,42 +87,46 @@ Det finns två ytterligare scenarier som du kan utföra med den `Estimator`:
 * Med en anpassad dockeravbildning
 * Distribuerad utbildning i ett kluster med flera noder
 
-Följande kod visar hur du utför distribuerad utbildning för ett CNTK-modellen. Dessutom istället för att använda standard Azure Machine Learning-avbildningar, det förutsätter att du använder en egen anpassad docker-avbildning för utbildning.
+Följande kod visar hur du utför distribuerad utbildning för en Keras-modell. Dessutom kan i stället för standard Azure Machine Learning-avbildningar, anger en anpassad docker-avbildning från Docker Hub `continuumio/miniconda` för utbildning.
 
 Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#amlcompute) objektet `compute_target`. Du skapar kostnadsuppskattning på följande sätt:
 
 ```Python
 from azureml.train.estimator import Estimator
 
-estimator = Estimator(source_directory='./my-cntk-proj',
+estimator = Estimator(source_directory='./my-keras-proj',
                       compute_target=compute_target,
                       entry_script='train.py',
                       node_count=2,
                       process_count_per_node=1,
                       distributed_backend='mpi',     
-                      pip_packages=['cntk==2.5.1'],
-                      custom_docker_base_image='microsoft/mmlspark:0.12')
+                      conda_packages=['tensorflow', 'keras'],
+                      custom_docker_base_image='continuumio/miniconda')
 ```
 
 Koden ovan visar följande nya parametrar till den `Estimator` konstruktorn:
 
 Parameter | Beskrivning | Standard
 --|--|--
-`custom_docker_base_image`| Namnet på avbildningen som du vill använda. Ange endast-avbildningarna i offentliga docker-databaser (i det här fallet Docker Hub). Om du vill använda en avbildning från ett privat docker-lagringsplats, Använd konstruktorn `environment_definition` parameter i stället | `None`
+`custom_docker_base_image`| Namnet på avbildningen som du vill använda. Ange endast-avbildningarna i offentliga docker-databaser (i det här fallet Docker Hub). Om du vill använda en avbildning från ett privat docker-lagringsplats, Använd konstruktorn `environment_definition` parameter i stället. [Se exempel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Antalet noder som ska användas för utbildning-jobbet. | `1`
 `process_count_per_node`| Antal processer (eller ”anställda”) för att köra på varje nod. I sådana fall kan du använda den `2` GPU: er tillgängliga på varje nod.| `1`
 `distributed_backend`| Serverdelen för att starta distribuerade utbildning som kostnadsuppskattning erbjuder via MPI.  Att utföra parallella eller distribuerade utbildning (t.ex. `node_count`> 1 eller `process_count_per_node`> 1 eller båda), ange `distributed_backend='mpi'`. MPI-implementering som används av AML [öppna MPI](https://www.open-mpi.org/).| `None`
 
 Slutligen skicka utbildningsjobbet:
 ```Python
-run = experiment.submit(cntk_est)
+run = experiment.submit(estimator)
+print(run.get_portal_url())
 ```
 
 ## <a name="examples"></a>Exempel
-För en bärbar dator som tränar en modell för sklearn, se:
+En bärbar dator som visar grunderna i mönstret för kostnadsuppskattning, finns här:
+* [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
+
+För en bärbar dator som tränar en scikit-Läs modellen använder kostnadsuppskattning, se:
 * [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Notebooks på distribuerade djupinlärning, finns här:
+Anteckningsböcker på utbildning modeller med ramverk för djup inlärning specifika estimators finns här:
 * [How-to-use-azureml/Training-with-Deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99fa8cbc211469185f2503718c84bc1b12db44c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56c992b1cc0e8f1d9743ff8226ab48852afc1168
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178234"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313134"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Hur du konfigurerar federerad enkel inloggning för en icke-galleriprogram
 
@@ -29,13 +29,13 @@ Konfigurera enkel inloggning för en icke-galleriprogram *utan att skriva kod*, 
 ## <a name="overview-of-steps-required"></a>Översikt över steg som krävs
 Nedan visas en översikt över de steg som krävs för att konfigurera federerad enkel inloggning med SAML 2.0 för ett program som inte är ett galleriprogram (t.ex. anpassade).
 
--   [Konfigurera programmets metadatavärden i Azure AD (inloggning URL, identifierare svars-URL)](#_Configuring_single_sign-on)
+-   Konfigurera programmets metadatavärden i Azure AD (inloggning URL, identifierare svars-URL)
 
 -   [Välj användaridentifierare och Lägg till användarattribut ska skickas till programmet](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Hämta Azure AD-metadata och certifikat](#download-the-azure-ad-metadata-or-certificate)
 
--   [Konfigurera Azure AD-metadatavärdena i programmet (inloggning URL, utfärdare, utloggnings-URL och certifikatet)](#_Configuring_single_sign-on)
+-   Konfigurera Azure AD-metadatavärdena i programmet (inloggning URL, utfärdare, utloggnings-URL och certifikatet)
 
 -   Tilldela användare till programmet
 

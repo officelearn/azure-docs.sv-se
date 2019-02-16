@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260388"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313576"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -148,7 +148,7 @@ För att utföra alla typer av transaktioner via styrning DApp, behöver du anv�
 När du har installerat MetaMask, navigerar du till styrning DApp i webbläsaren.  Du kan hitta URL: en i bekräftelsemeddelandet distribution eller via Azure-portalen i utdata för distribution.  Om du inte har en i webbläsaren wallet installerad du kommer inte att kunna utföra några åtgärder. Du kommer dock fortfarande att kunna läsa administratör tillstånd.  
 
 #### <a name="becoming-an-admin"></a>Bli en administratör
-Om du är den första medlemmen som distribuerats i nätverket, sedan du blir automatiskt en administratör och paritet noderna visas som systemhälsoverifierare.  Om du ansluter till nätverket, kommer du behöva hämta röstade en administratör med majoritet (större än 50%) av den befintliga administratören ange.  Om du väljer att inte bli administratör sedan dina noder fortfarande synkronisera och validera blockchain; de kommer dock inte deltar i block skapandeprocessen. Starta röstande processen för att bli administratör, klicka på __Nominate__ och ange ditt Ethereum-adress och alias.
+Om du är den första medlemmen som distribuerats i nätverket, sedan du blir automatiskt en administratör och paritet noderna visas som systemhälsoverifierare.  Om du ansluter till nätverket, behöver du hämta röstade en administratör med majoritet (större än 50%) av den befintliga uppsättningen av administratören.  Om du väljer att inte bli administratör sedan dina noder fortfarande synkronisera och validera blockchain; de kommer dock inte deltar i block skapandeprocessen. Starta röstande processen för att bli administratör, klicka på __Nominate__ och ange ditt Ethereum-adress och alias.
 
 ![Nominera](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
@@ -359,7 +359,7 @@ Med hjälp av den offentliga IP-baserad distributionen är den här första steg
 
     -  Välj samma antal verifieraren noder som resten av medlemmarna i nätverket för att se till att fair representation
 
-    -  Använd samma Ethereum-adress som har angetts i den [föregående steg](#step-1-add-the-new-admin)
+    -  Använd samma Ethereum-adress som angavs i föregående steg
 
     -  Skicka in den angivna *Consortium Data Url* på den *Ethereum inställningar* fliken
 

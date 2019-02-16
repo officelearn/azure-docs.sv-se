@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 31e02cd931b3c9ab2cc55a540841969488c0c5f7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 132909931291daf3aefddd5e1a44273050d98e06
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997500"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326178"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Lägga till autentisering i en Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -35,7 +35,7 @@ Du måste slutföra kursen [skapa en Xamarin.iOS-app]. Om du inte använder serv
 
 Säker autentisering måste du definiera en ny URL-schema för din app. På så sätt kan autentiseringssystem att omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder vi URL-schema _appname_ i hela. Du kan dock använda alla URL-schema som du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på serversidan:
 
-1. Välj din App Service i [Azure-portalen].
+1. I den [Azure-portalen](https://portal.azure.com/), Välj din App Service.
 
 2. Klicka på den **autentisering / auktorisering** menyalternativ.
 
@@ -48,9 +48,9 @@ Säker autentisering måste du definiera en ny URL-schema för din app. På så 
 ## <a name="restrict-permissions-to-authenticated-users"></a>Begränsa behörighet för autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. Kör klientprojektet i Visual Studio eller Xamarin Studio på en enhet eller emulator. Kontrollera att ett ohanterat undantag med en statuskod 401 (obehörig) aktiveras när appen startar. Felet loggas i konsolen för felsökning. Du bör därför se felet i utdatafönstret i Visual Studio.
+* Kör klientprojektet i Visual Studio eller Xamarin Studio på en enhet eller emulator. Kontrollera att ett ohanterat undantag med en statuskod 401 (obehörig) aktiveras när appen startar. Felet loggas i konsolen för felsökning. Du bör därför se felet i utdatafönstret i Visual Studio.
 
-&nbsp;&nbsp;Den här obehörig felet inträffar eftersom appen försöker få åtkomst till din mobilappsserverdel som oautentiserade användare. Den *TodoItem* tabell nu kräver autentisering.
+    Den här obehörig felet inträffar eftersom appen försöker få åtkomst till din mobilappsserverdel som oautentiserade användare. Den *TodoItem* tabell nu kräver autentisering.
 
 Därefter uppdaterar du klientappen till begär resurser från serverdelen för Mobilappen med en autentiserad användare.
 
@@ -58,67 +58,82 @@ Därefter uppdaterar du klientappen till begär resurser från serverdelen för 
 I det här avsnittet ska du ändra appen om du vill visa en inloggningsskärm innan den visas data. När appen startar kommer inte att ansluta till din App Service och visas inte några data. När först gången som utför användaren uppdatering-gest inloggningsskärmen visas. efter genomförd inloggning visas listan över att göra-objekt.
 
 1. Öppna filen i klientprojektet **QSTodoService.cs** och Lägg till följande med instruktionen och `MobileServiceUser` med accessor till QSTodoService-klassen:
- 
-        using UIKit;
-       
-        // Logged in user
-        private MobileServiceUser user;
-        public MobileServiceUser User { get { return user; } }
+
+    ```csharp
+    using UIKit;
+
+    // Logged in user
+    private MobileServiceUser user;
+    public MobileServiceUser User { get { return user; } }
+    ```
+
 2. Lägg till ny metod som heter **autentisera** till **QSTodoService** med följande definition:
 
-        public async Task Authenticate(UIViewController view)
+    ```csharp
+    public async Task Authenticate(UIViewController view)
+    {
+        try
         {
-            try
-            {
-                AppDelegate.ResumeWithURL = url => url.Scheme == "zumoe2etestapp" && client.ResumeWithURL(url);
-                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-            }
+            AppDelegate.ResumeWithURL = url => url.Scheme == "{url_scheme_of_your_app}" && client.ResumeWithURL(url);
+            user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
         }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+        }
+    }
+    ```
 
-    >[AZURE.NOTE] Om du använder en identitetsprovider än ett Facebook, ändrar du värdet som skickas till **LoginAsync** ovan till något av följande: _MicrosoftAccount_, _Twitter_,  _Google_, eller _WindowsAzureActiveDirectory_.
+    > [!NOTE]
+    > Om du använder en identitetsprovider än ett Facebook, ändrar du värdet som skickas till **LoginAsync** ovan till något av följande: _MicrosoftAccount_, _Twitter_, _Google_, eller _WindowsAzureActiveDirectory_.
 
 3. Öppna **QSTodoListViewController.cs**. Ändra metoddefinitionen av **ViewDidLoad** tar bort anropet till **RefreshAsync()** mot slutet:
-   
-        public override async void ViewDidLoad ()
-        {
-            base.ViewDidLoad ();
-   
-            todoService = QSTodoService.DefaultService;
-            await todoService.InitializeStoreAsync();
-   
-            RefreshControl.ValueChanged += async (sender, e) => {
-                await RefreshAsync();
-            }
-   
-            // Comment out the call to RefreshAsync
-            // await RefreshAsync();
+
+    ```csharp
+    public override async void ViewDidLoad ()
+    {
+        base.ViewDidLoad ();
+
+        todoService = QSTodoService.DefaultService;
+        await todoService.InitializeStoreAsync();
+
+        RefreshControl.ValueChanged += async (sender, e) => {
+            await RefreshAsync();
         }
+
+        // Comment out the call to RefreshAsync
+        // await RefreshAsync();
+    }
+    ```
+
 4. Ändra metoden **RefreshAsync** att autentisera om det **användaren** -egenskapen är null. Lägg till följande kod högst upp på metoddefinitionen:
-   
-        // start of RefreshAsync method
+
+    ```csharp
+    // start of RefreshAsync method
+    if (todoService.User == null) {
+        await QSTodoService.DefaultService.Authenticate(this);
         if (todoService.User == null) {
-            await QSTodoService.DefaultService.Authenticate(this);
-            if (todoService.User == null) {
-                Console.WriteLine("couldn't login!!");
-                return;
-            }
+            Console.WriteLine("couldn't login!!");
+            return;
         }
-        // rest of RefreshAsync method
+    }
+    // rest of RefreshAsync method
+    ```
+
 5. Öppna **AppDelegate.cs**, lägger du till följande metod:
 
-        public static Func<NSUrl, bool> ResumeWithURL;
+    ```csharp
+    public static Func<NSUrl, bool> ResumeWithURL;
 
-        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
-        {
-            return ResumeWithURL != null && ResumeWithURL(url);
-        }
+    public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+    {
+        return ResumeWithURL != null && ResumeWithURL(url);
+    }
+    ```
+
 6. Öppna **Info.plist** filen, gå till **URL typer** i den **Avancerat** avsnittet. Nu konfigurera den **identifierare** och **URL-scheman** av din URL-typ och klicka på **Lägg till URL-typen**. **URL-scheman** bör vara samma som din {url_scheme_of_your_app}.
 7. I Visual Studio, som är anslutna till Mac-värd eller Visual Studio för Mac, kör klientprojektet riktar in sig på en enhet eller emulator. Kontrollera att appen visar inga data.
-   
+
     Utför gesten uppdatering genom att dra nedåt i listan med objekt, vilket leder till inloggningsskärmen visas. När du har angett giltiga autentiseringsuppgifter, visas listan över att göra-objekt och du kan göra uppdateringar till data.
 
 <!-- URLs. -->

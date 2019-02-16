@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: f05935f73f385b076741d2e856af8316a74e9d2f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 68378342769618c2b0e1096fbf5a2d28d0cb4b0e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042503"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309904"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -30,7 +30,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
 1. **Anslutningsprincip: Använd direkt anslutningsläge**
 
-    Hur en klient ansluter till Azure Cosmos DB har stor betydelse för prestanda, särskilt när det gäller observerade klientens svarstid. Det finns två viktiga konfigurationsinställningar för att konfigurera klientens princip – anslutningen *läge* och [anslutning *protokollet*](#connection-protocol).  Det finns två tillgängliga lägen:
+    Hur en klient ansluter till Azure Cosmos DB har stor betydelse för prestanda, särskilt när det gäller observerade klientens svarstid. Det finns två viktiga konfigurationsinställningar för att konfigurera klientens princip – anslutningen *läge* och anslutningen *protokollet*.  Det finns två tillgängliga lägen:
 
    * Gateway-läge (standard)
       
@@ -47,9 +47,9 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
     |Anslutningsläge  |Protokoll som stöds  |Stödda SDK: erna  |API/Service-port  |
     |---------|---------|---------|---------|
-    |Gateway  |   HTTPS    |  Alla SDK: er    |   SQL(443) Mongo (10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
     |Direkt    |    HTTPS     |  .NET och Java SDK    |    SQL(443)   |
-    |Direkt    |     TCP    |  .NET SDK    | Portar i intervallet 20 10 000 000 |
+    |Direkt    |     TCP    |  .Net SDK    | Portar i intervallet 20 10 000 000 |
 
     Azure Cosmos DB erbjuder en enkel och öppna RESTful-programmeringsmiljö via HTTPS. Dessutom finns det en effektiv TCP-protokollet som är också RESTful i sin modell och är tillgänglig via SDK för .NET-klient. Använda SSL för den inledande autentiseringen och kryptering trafik direkt TCP- och HTTPS. Använda TCP-protokollet när det är möjligt för bästa prestanda.
 

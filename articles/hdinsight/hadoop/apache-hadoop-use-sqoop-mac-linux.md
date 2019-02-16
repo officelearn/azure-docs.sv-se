@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: cf4895220c19e029952d5bf76aa9baa41250f692
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635706"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309352"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Använd Apache Sqoop för att importera och exportera data mellan Apache Hadoop på HDInsight och SQL Database
 
@@ -105,7 +105,7 @@ GO
     Fält i datamängden avgränsas med ett tabbtecken och linjerna avslutas med ett tecken för ny rad.
 
     > [!IMPORTANT]  
-    > Den `wasb:///` sökvägen fungerar med kluster som använder Azure Storage som standardklusterlagringen. För kluster som använder Azure Data Lake Storage kan du använda `adl:///` i stället.
+    > Den `wasb:///` sökvägen fungerar med kluster som använder Azure Storage som standardklusterlagringen. För kluster som använder Azure Data Lake Storage Gen1 kan använda `adl:///` i stället.
 
 2. När importen har slutförts, använder du följande kommando för att visa data i den nya katalogen:
 

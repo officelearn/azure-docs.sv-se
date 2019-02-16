@@ -10,21 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 2903228a3257abe9c454c6e0720a1e228b905290
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300048"
+ms.locfileid: "56312983"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Ange en resursgrupp för labbet virtuella datorer i Azure DevTest Labs
-Som labbägare kan konfigurera du dina virtuella datorer för testlabbet skapas i en specifik resursgrupp. Använd den här funktionen så att du inte når resursen gruppgränser på din Azure-prenumeration. Den här funktionen kan du konsolidera alla labbresurser inom en enda resursgrupp. Det förenklar också spåra dessa resurser och tillämpa [principer](../governance/policy/overview.md) kan hantera dem på resursgruppsnivå.
+Som labbägare kan konfigurera du dina virtuella datorer för testlabbet skapas i en specifik resursgrupp. Den här funktionen hjälper dig att i följande scenarier: 
+
+- Har färre resursgrupper som skapats av labs i din prenumeration.
+- Har dina labb fungera inom en fast uppsättning resursgrupper som konfigureras av dig
+- Undvika begränsningar och godkännanden som krävs för att skapa resursgrupper i Azure-prenumerationen.
+- Konsolidera alla labbresurser inom en enskild resursgrupp för att förenkla spåra dessa resurser och tillämpa [principer](../governance/policy/overview.md) kan hantera dem på resursgruppsnivå.
 
 Med den här funktionen kan använda du ett skript för att ange en ny eller en befintlig resursgrupp i Azure-prenumerationen för ditt labb virtuella datorer. DevTest Labs stöder för närvarande den här funktionen via ett API. 
 
-## <a name="api-to-configure-a-resource-group-for-labs-vms"></a>API för att konfigurera en resursgrupp för labb virtuella datorer
+## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>API för att konfigurera en resursgrupp för virtuella datorer för testlabbet
 Nu ska vi gå igenom vilka alternativ som finns som labbägare när du använder den här API: 
 
 - Du kan välja den **övningen resursgrupp** för alla virtuella datorer.
@@ -86,7 +91,7 @@ Om du använder Azure Resource Manager-mall för att skapa ett labb, använder d
                 "labStorageType": "Premium",
                 "premiumDataDisks": "Disabled",
                 "provisioningState": "Succeeded",
-                "uniqueIdentifier": "6e6f668f-992b-435c-bac3-d328b745cd25"
+                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
             },
             "dependsOn": []
         },

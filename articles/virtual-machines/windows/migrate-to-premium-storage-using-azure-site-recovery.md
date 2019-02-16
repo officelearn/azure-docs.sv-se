@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 6db263dcfc3195c9b2ab3afe7587845a4632fd1b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7c422d560341e51fad582439117533b7d9cd4c8
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456535"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327671"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med hjälp av Azure Site Recovery
 
-[Azure Premium Storage](premium-storage.md) ger höga prestanda och låg latens disksupport för virtuella datorer (VM) som kör I/O-intensiva arbetsbelastningar. Den här guiden hjälper dig att migrera dina VM-diskar från ett standardlagringskonto till ett premium storage-konto med hjälp av [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+[Azure premium SSD](disks-types.md) leverera diskar för höga prestanda och låg fördröjning som stöd för virtuella datorer (VM) som kör I/O-intensiva arbetsbelastningar. Den här guiden hjälper dig att migrera dina VM-diskar från ett standardlagringskonto till ett premium storage-konto med hjälp av [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery är en Azure-tjänst som bidrar till din strategi för affärskontinuitet och haveriberedskap genom att samordna replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt datacenter. Vid avbrott på den primära platsen så växlar du över till den sekundära platsen att hålla program och arbetsbelastningar som är tillgängliga. Du växlar tillbaka till den primära platsen när den återgår till normal drift. 
 
@@ -222,7 +222,6 @@ Se även följande resurser för att lära dig mer om Azure Storage och Azure Vi
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på Azure virtuella datorer](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

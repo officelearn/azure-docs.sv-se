@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edd011509c9129e95bcf7ea49f5a84e17fffd176
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694592"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310558"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Konfigurera ett anpassat domännamn för ditt Azure storage-konto
 
@@ -56,7 +56,7 @@ Den andra metoden använder också CNAME-poster. Om du vill undvika avbrott, men
 
 Mappa din anpassade domän till en blobbslutpunkt kan orsaka en kort tids driftstopp medan du registrerar domänen i den [Azure-portalen](https://portal.azure.com). Om domänen har för närvarande stöd för ett program med ett servicenivåavtal (SLA) som kräver avbrottstid, använder du Azure *asverify* underdomän som en mellanliggande registreringssteget. Det här steget säkerställer att användare kan komma åt din domän under tiden DNS-mappningen utförs.
 
-Den mellanliggande metoden beskrivs i [registrera en anpassad domän med hjälp av den *asverify* underdomän](#register-a-custom-domain-using-the-asverify-subdomain).
+Den mellanliggande metoden beskrivs i registrerar du en anpassad domän med hjälp av den *asverify* underdomänen.
 
 ## <a name="register-a-custom-domain"></a>Registrera en anpassad domän
 Registrera domänen med hjälp av proceduren i det här avsnittet om följande gäller:
@@ -65,7 +65,7 @@ Registrera domänen med hjälp av proceduren i det här avsnittet om följande g
 
 Du kan använda Azure DNS för att konfigurera ett anpassat DNS-namn för din Azure Blob-butik. Mer information finns i [Använda Azure DNS för att skapa inställningar för anpassad domän för en Azure-tjänst](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
-Om din anpassade domän stöder för närvarande ett program som inte kan ha några driftstopp, använder du proceduren i [registrera en anpassad domän med hjälp av den *asverify* underdomän](#register-a-custom-domain-using-the-asverify-subdomain).
+Om din anpassade domän stöder för närvarande ett program som inte kan ha några driftstopp, använda proceduren i registrera en anpassad domän med hjälp av den *asverify* underdomänen.
 
 Om du vill konfigurera ett anpassat domännamn, skapar du en ny CNAME-post i DNS. CNAME-post anger ett alias för ett domännamn. I vårt exempel mappar den adressen för din anpassade domän till Blob storage-slutpunkt för ditt lagringskonto.
 

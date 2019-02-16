@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bb3c2a9cfc1bccf4656be83c6babbe9c7ec139fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745358"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329856"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business en på Azure-datorer
 Det här dokumentet innehåller riktlinjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen är inte en ersättning för dokumentationen för installation av ett företag för SAP. Dokumentationen bör omfatta grundläggande riktlinjer för planering och distribution för Azure-infrastrukturen att köra Business One program på.
@@ -119,7 +119,7 @@ De här dokumenten bör hjälpa dig att besluta om valet av lagringstyper och ko
 
 I princip bör du:
 
-- Använd [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) över [Azure standardlagring](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
+- Använd Premium SSD över standardhårddiskar. Mer information om tillgängliga disktyper, finns i vår artikel [Välj en disktyp av](../../windows/disks-types.md)
 - Använda Azure Managed disks över ohanterade diskar
 - Se till att du har tillräckligt med IOPS och i/o-dataflöde som konfigurerats med diskkonfigurationen
 - Kombinera/hana/data och /hana/log volym för att få en effektiv lagringskonfiguration för kostnad
@@ -138,7 +138,6 @@ Ungefärlig storleksberäkningar för DBMS-sida för SQL Server är:
 | upp till 150 | 32 | 128 GB | D32s_v3, E32s_v3 |
 
 Den storlek som anges ovan bör ge en uppfattning om att börja med. Det kan vara att du behöver mer eller mindre resurser, vilket innebär en anpassning på azure är enkelt. En ändring mellan VM-typer är möjligt med bara en omstart av den virtuella datorn.
-
 
 #### <a name="sap-hana-as-dbms"></a>SAP HANA som DBMS
 Med SAP HANA som DBMS de följande avsnitten du bör följa överväganden för dokumentet [SAP HANA på Azure handboken](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).

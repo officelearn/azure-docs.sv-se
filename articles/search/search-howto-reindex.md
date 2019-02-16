@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1d9dffe9d311674aeb043fcc4c35110775f420af
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 907ab5cd3272a3d3f64dcfd7c9628a609f4db2f4
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300813"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327654"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Återskapar ett Azure Search-index
 
@@ -29,22 +29,23 @@ Till skillnad från behöver som kopplar ett index *datauppdatering* körs som e
 | Tillstånd | Beskrivning |
 |-----------|-------------|
 | Ändra en fältdefinition | Ändra en fältets namn, datatyp eller specifika [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index) (sökbar, filtrerbar, sorterbar, fasettbar) kräver återskapning av en fullständig. |
-| Att lägga till en analyzer till ett fält | [Analysverktyg](search-analyzers.md) definieras i ett index och sedan tilldelas fält. Du kan lägga till en analyzer till ett index när som helst, men du kan endast tilldela en analyzer när fältet har skapats. Detta gäller för både den **analyzer** och **indexAnalyzer** egenskaper. Den **searchAnalyzer** egenskapen är ett undantag.
+| Att lägga till en analyzer till ett fält | [Analysverktyg](search-analyzers.md) definieras i ett index och sedan tilldelas fält. Du kan lägga till en ny analyzer till ett index när som helst, men du kan bara *tilldela* en analyzer när fältet har skapats. Detta gäller för både den **analyzer** och **indexAnalyzer** egenskaper. Den **searchAnalyzer** egenskapen är ett undantag. |
+| Uppdatera eller ta bort en analyzer-konstruktion | Du kan inte ta bort eller ändra befintliga analysis-komponenter (analyzer, tokenizer, token filter eller char filter) såvida inte du återskapa hela indexet. |
 | Att lägga till ett fält i en förslagsställare | Om det finns redan ett fält och du vill lägga till den i en [förslagsställare](index-add-suggesters.md) konstruera, måste du återskapa indexet. |
-| Tar bort ett fält | Du måste återskapa indexet för att ta bort alla spår av ett fält fysiskt. När en omedelbar återskapning inte är praktiskt, ändra programkod för att inaktivera åtkomst till fältet ”borttagen” i de flesta utvecklare. Fysiskt, förblir fältdefinition och innehåll i indexet tills nästa återskapandet, med hjälp av ett schema som utesluter fältet i fråga. |
+| Tar bort ett fält | Du måste återskapa indexet för att ta bort alla spår av ett fält fysiskt. När en omedelbar återskapning inte är praktiskt att kan du ändra koden om du vill inaktivera åtkomst till fältet ”borttagen”. Fysiskt, förblir fältdefinition och innehåll i indexet tills nästa återskapandet, med hjälp av ett schema som utesluter fältet i fråga. |
 | Växla nivåer | Om du behöver mer kapacitet, finns det ingen uppgradering på plats. En ny tjänst skapas på den nya kapacitet punkten och index skapas från början på den nya tjänsten. |
 
-Alla andra ändringar kan göras utan att påverka befintliga fysiska strukturer. Mer specifikt kan följande ändringar gör *inte* indikerar en återskapning av ett index:
+Alla andra ändringar kan göras utan att påverka befintliga fysiska strukturer. Mer specifikt kan följande ändringar gör *inte* kräver en återskapning av ett index:
 
 + Lägg till ett nytt fält
-+ Ange den **hämtningsbara** attributet på ett befintligt fält
++ Ange den **hämtningsbar** attributet på ett befintligt fält
 + Ange en **searchAnalyzer** på ett befintligt fält
-+ Lägga till, uppdatera eller ta bort en analyzer-konstruktion i ett index
++ Lägg till en ny analyzer-konstruktion i ett index
 + Lägga till, uppdatera eller ta bort bedömningsprofiler
 + Lägga till, uppdatera eller ta bort CORS-inställningar
 + Lägga till, uppdatera eller ta bort synonymMaps
 
-När du lägger till ett nytt fält, ges befintliga indexerade dokumenten ett null-värde för det nya fältet. Vid en framtida datauppdatering Ersätt värden från externa källdata null-värden har lagts till av Azure Search.
+När du lägger till ett nytt fält, ges befintliga indexerade dokumenten ett null-värde för det nya fältet. Vid en framtida datauppdatering Ersätt värden från externa källdata null-värden har lagts till av Azure Search. Mer information om hur du uppdaterar indexera innehåll finns i [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## <a name="partial-or-incremental-indexing"></a>Partiell eller inkrementell indexering
 

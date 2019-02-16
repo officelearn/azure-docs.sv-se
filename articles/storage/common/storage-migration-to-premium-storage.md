@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 36889fc6cb8dbec77136dc8cea08416e51837243
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564841"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330587"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
 
@@ -32,7 +32,7 @@ Syftet med den här guiden är att hjälpa nya användare i Azure Premium Storag
 Du kan migrera virtuella datorer från andra plattformar till Azure Premium Storage, eller så kan du migrera befintliga virtuella Azure-datorer från standardlagring till Premium Storage. Den här guiden beskriver steg för båda två scenarier. Följ stegen som anges i avsnittet relevanta beroende på ditt scenario.
 
 > [!NOTE]
-> Du hittar en översikt över funktioner och priser för Premium Storage i Premium Storage: [Lagring med höga prestanda för Azure-Datorbelastningar](../../virtual-machines/windows/premium-storage.md). Vi rekommenderar att du migrerar alla virtuella diskar som kräver hög IOPS till Azure Premium Storage för bästa prestanda för ditt program. Om disken inte kräver hög IOPS, kan du begränsa kostnaderna genom att i Standard-lagring som lagrar data för virtuell dator-disk på hårddiskar (HDD) i stället för SSD-enheter.
+> Du hittar en översikt över funktioner och priser för premium SSD: er i: [Välj en disktyp för virtuella IaaS-datorer](../../virtual-machines/windows/disks-types.md#premium-ssd). Vi rekommenderar att du migrerar alla virtuella diskar som kräver hög IOPS till Azure Premium Storage för bästa prestanda för ditt program. Om disken inte kräver hög IOPS, kan du begränsa kostnaderna genom att i Standard-lagring som lagrar data för virtuell dator-disk på hårddiskar (HDD) i stället för SSD-enheter.
 >
 
 Du har slutfört migreringen i sin helhet kan kräva ytterligare åtgärder både före och efter stegen i den här guiden. Exempel är Konfigurera virtuella nätverk eller slutpunkter eller genom att göra ändringar i koden själva programmet som kan kräva att vissa avbrott i ditt program. De här åtgärderna är unika för varje program och bör du genomföra dem tillsammans med stegen i den här guiden för att göra fullständiga övergången till Premium Storage så smidig som möjligt.
@@ -69,7 +69,7 @@ Premium Storage-konton har följande skalbarhetsmål utöver den [skalbarhet fö
 |:--- |:--- |
 | Kapacitet för disk: 35TB<br />Kapacitet för ögonblicksbilder: 10 TB |Upp till 50 Gigabit per sekund för inkommande och utgående |
 
-Mer information om specifikationer för Premium Storage, Kolla in [skalbarhets- och prestandamål när du använder Premiumlagring](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
+Mer information om specifikationer för Premium Storage, Kolla in [skalbarhets- och prestandamål i Azure Storage](storage-scalability-targets.md#premium-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Disk-principen för cachelagring
 Som standard disken Cachelagringsprincip är *skrivskyddad* för alla Premium datadiskar, och *skrivskyddad* för Premium operativsystemets disk som är kopplade till den virtuella datorn. Den här inställningen rekommenderas för att uppnå optimala prestanda för ditt programs IOs. Inaktivera diskcachelagring så att du kan få bättre prestanda för hög eller lässkyddad datadiskar (till exempel loggfiler för SQL Server). Inställningar för cachelagring för befintliga datadiskar kan uppdateras med hjälp av [Azure-portalen](https://portal.azure.com) eller *- HostCaching* -parametern för den *Set-AzureDataDisk* cmdlet.
@@ -748,7 +748,7 @@ Din nuvarande konfiguration av virtuell dator kan anpassas specifikt för att fu
 2. Logga in på den virtuella datorn och kopiera data från den aktuella volymen till den nya disken som mappar till volymen. Gör detta för alla aktuella volymer som behöver för att mappa till en ny disk.
 3. Sedan ändra programinställningarna att växla till nya diskar och koppla från de gamla volymerna.
 
-Justera programmet för bättre prestanda för diskar finns i [optimera programprestanda](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
+Justering program för bättre prestanda för diskar finns i avsnittet optimera program prestanda i vår [designa för höga prestanda](../../virtual-machines/windows/premium-storage-performance.md) artikeln.
 
 ### <a name="application-migrations"></a>Migrering
 Databaser och andra avancerade program kan kräva särskilda åtgärder som definierats av program-providern för migreringen. Läs programdokumentationen för respektive. T.ex. vanligtvis databaser kan migreras med säkerhetskopiering och återställning.
@@ -765,7 +765,7 @@ Se även följande resurser för att lära dig mer om Azure Storage och Azure Vi
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](../../virtual-machines/windows/premium-storage.md)
+* [Välj en disktyp för virtuella IaaS-datorer](../../virtual-machines/windows/disks-types.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

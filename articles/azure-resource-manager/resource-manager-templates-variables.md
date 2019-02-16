@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 50feca90d375d6afd3b04afe019ad9f9025f19dc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712754"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308589"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Variables-avsnittet av Azure Resource Manager-mallar
 I avsnittet variables kan skapa du värden som kan användas i hela din mall. Du behöver inte definiera variabler, men de förenkla ofta din mall genom att minska komplexa uttryck.
@@ -58,9 +58,7 @@ I föregående exempel visade ett sätt att definiera en variabel. Du kan använ
             {
                 "name": "<name-of-array-property>",
                 "count": <number-of-iterations>,
-                "input": {
-                    <properties-to-repeat>
-                }
+                "input": <object-or-value-to-repeat>
             }
         ]
     },
@@ -68,9 +66,7 @@ I föregående exempel visade ett sätt att definiera en variabel. Du kan använ
         {
             "name": "<variable-array-name>",
             "count": <number-of-iterations>,
-            "input": {
-                <properties-to-repeat>
-            }
+            "input": <object-or-value-to-repeat>
         }
     ]
 }
@@ -117,38 +113,45 @@ Du kan hämta de aktuella inställningarna med:
 
 ## <a name="use-copy-element-in-variable-definition"></a>Använd kopieringselement i variabeldefinitionen
 
-Du kan använda den **kopia** syntaxen för att skapa en variabel med en matris med flera element. Du kan ange ett antal för antalet element. Varje element innehåller egenskaperna i den **inkommande** objekt. Du kan använda kopia antingen i en variabel eller för att skapa variabeln. När du definiera en variabel och Använd **kopia** inom den variabeln som du skapar ett objekt som har en matrisegenskap. När du använder **kopia** på den översta nivån och definiera en eller flera variabler i den skapar du en eller flera matriser. Båda metoderna visas i följande exempel:
+Du kan skapa flera instanser av en variabel med det `copy` -egenskapen i variables-avsnittet. Du skapar en matris med element som skapas från värdet i den `input` egenskapen. Du kan använda den `copy` egenskap i en variabel eller på den översta nivån av variables-avsnittet. När du använder `copyIndex` i en variabel iteration måste du ange namnet på iterationen.
+
+I följande exempel visas hur du använder kopiera:
 
 ```json
 "variables": {
-    "disk-array-on-object": {
-        "copy": [
-            {
-                "name": "disks",
-                "count": 3,
-                "input": {
-                    "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-                    "diskSizeGB": "1",
-                    "diskIndex": "[copyIndex('disks')]"
-                }
-            }
-        ]
-    },
+  "disk-array-on-object": {
     "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
+      {
+        "name": "disks",
+        "count": 3,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks')]"
         }
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "disks-top-level-array",
+      "count": 3,
+      "input": {
+        "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+        "diskSizeGB": "1",
+        "diskIndex": "[copyIndex('disks-top-level-array')]"
+      }
+    },
+    {
+      "name": "top-level-string-array",
+      "count": 5,
+      "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+    }
+  ]
 },
 ```
 
-Variabeln **disk-matris på objektet** innehåller följande objekt med en matris med namnet **diskar**:
+Efter att kopiera uttrycket har utvärderats variabeln **disk-matris på objektet** innehåller följande objekt med en matris med namnet **diskar**:
 
 ```json
 {
@@ -194,34 +197,19 @@ Variabeln **diskar – top-nivå-matris** innehåller följande matris:
 ]
 ```
 
-Du kan också ange fler än ett objekt när du använder kopiera för att skapa variabler. I följande exempel definierar två matriser som variabler. En heter **diskar – top-nivå-matris** och har fem element. Den andra heter **en annan matris** och har tre element.
+Variabeln **top-nivå--Strängmatrisen** innehåller följande matris:
 
 ```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
-},
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
-Den här metoden fungerar bra när du behöver ta parametervärden och se till att de är i rätt format för ett mall-värde. I följande exempel formaterar parametervärden för användning i definierar säkerhetsregler:
+Kopiera fungerar bra när du behöver ta parametervärden och mappa den till resurs-värden. I följande exempel formaterar parametervärden för användning i definierar säkerhetsregler:
 
 ```json
 {

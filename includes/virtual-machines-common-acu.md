@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
-ms.openlocfilehash: 29f1ad29bf305150592fd1e634e006f83b296bbc
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 86320af20a5f296358e1fd1d38eb297a8bb1a4bb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53784501"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56331110"
 ---
 Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämföra prestanda för databearbetning (CPU) mellan Azure SKU: er. På så sätt blir det lättare att identifiera vilken SKU som bäst uppfyller dina behov.  ACU är för närvarande standardiserat på en liten virtuell dator (Standard_A1) och är 100, och alla andra SKU:er representerar ungefär hur mycket snabbare den SKU:n kan köra ett benchmark-standardtest. 
 
@@ -28,10 +28,10 @@ Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämf
 | --- | --- |---|
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 | 1:1 |
 | [A1 - A4](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
-| [A5 – A7](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
+| [A5 - A7](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
 | [A1_v2 - A8_v2](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
 | [A2m_v2 - A8m_v2](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
-| [A8 – A11](../articles/virtual-machines/windows/sizes-hpc.md) |225* | 1:1 |
+| [A8 - A11](../articles/virtual-machines/windows/sizes-hpc.md) |225* | 1:1 |
 | [D1 - D14](../articles/virtual-machines/windows/sizes-general.md) |160 | 1:1 |
 | [D1_v2 - D15_v2](../articles/virtual-machines/windows/sizes-general.md) |210 - 250* | 1:1 |
 | [DS1 - DS14](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 | 1:1 |
@@ -44,10 +44,10 @@ Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämf
 | [F1 - F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 |
 | [F1s - F16s](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 |
 | [G1 - G5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* | 1:1 |
-| [GS1 – GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* | 1:1 |
+| [GS1 - GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* | 1:1 |
 | [H](../articles/virtual-machines/windows/sizes-hpc.md) |290 - 300* | 1:1 |
 | [L4s - L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* | 1:1 |
-| [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175 ** | 2:1 |
+| [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175** | 2:1 |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160-180 | 2:1\*\*\* |
 
 * ACUs använder Intel® Turbo-teknik för att öka och ge högre prestanda.  Mängden prestandaökningen kan variera beroende på virtuella datorstorlek, arbetsbelastning och andra arbetsbelastningar som körs på samma värd.

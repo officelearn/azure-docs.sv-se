@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495228"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327518"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Utforma och implementera en Oracle-databas i Azure
 
@@ -65,7 +65,7 @@ I följande tabell visas några av skillnaderna mellan en lokal implementering o
 
 Det finns fyra potentiella områden som du kan finjustera för att förbättra prestanda i en Azure-miljö:
 
-- Virtuell datorstorlek
+- Storlek på virtuell dator
 - Nätverkets dataflöde
 - Disktyper och konfigurationer
 - Inställningar för cachelagring av disk
@@ -100,7 +100,7 @@ Följande är de mått som du kan hämta från AWR rapporten:
 - Databasens storlek i GB
 - Byte som tagits emot via SQL * Net från/till klienten
 
-### <a name="virtual-machine-size"></a>Virtuell datorstorlek
+### <a name="virtual-machine-size"></a>Storlek på virtuell dator
 
 #### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Uppskattningen VM-storlek baserat på processor, minne och i/o-användning i rapporten AWR
 
@@ -131,7 +131,7 @@ Följande diagram visar relationen mellan dataflöde och allokerad IOPS:
 ![Skärmbild av dataflöde](./media/oracle-design/throughput.png)
 
 Totalt antal nätverkets genomflöde beräknas baserat på följande information:
-- SQL * Net trafik
+- SQL*Net traffic
 - Mbit/s x antalet servrar (utgående stream, till exempel Oracle Data Guard)
 - Andra faktorer, till exempel programreplikering
 
@@ -146,19 +146,17 @@ Baserat på dina krav på bandbredd, finns det olika gatewaytyper av där du kan
 
 ### <a name="disk-types-and-configurations"></a>Disktyper och konfigurationer
 
-- *OS-diskar som standard*: dessa disktyper erbjuder beständiga data och cachelagring. De är optimerade för åtkomst till OS vid start och inte har utformats för antingen transaktionella eller datalager (Analytiska) arbetsbelastningar.
+- *OS-diskar som standard*: Dessa disktyper erbjuder beständiga data och cachelagring. De är optimerade för åtkomst till OS vid start och inte har utformats för antingen transaktionella eller datalager (Analytiska) arbetsbelastningar.
 
-- *Ohanterade diskar*: du ska hantera de lagringskonton som lagra filerna för virtuell hårddisk (VHD) som motsvarar dina VM-diskar med dessa disktyper. VHD-filer som lagras som sidblobar i Azure storage-konton.
+- *Ohanterade diskar*: Du kan hantera de lagringskonton som lagrar filerna för virtuell hårddisk (VHD) som motsvarar dina VM-diskar med dessa disktyper. VHD-filer som lagras som sidblobar i Azure storage-konton.
 
-- *Hanterade diskar*: hanteras av Azure storage-konton som du använder för dina VM-diskar. Anger typ av disk (premium eller standard) och storleken på den disk som du behöver. Azure skapar och hanterar disken åt dig.
+- *Hanterade diskar*: Azure hanterar de lagringskonton som du använder för dina VM-diskar. Anger typ av disk (premium eller standard) och storleken på den disk som du behöver. Azure skapar och hanterar disken åt dig.
 
-- *Premium-lagringsdiskar*: dessa disktyper är bäst lämpade för arbetsbelastningar under produktion. Premium storage stöder VM-diskar som kan kopplas till specifika storlek-seriens virtuella datorer, till exempel DS, DSv2, GS och F-serien virtuella datorer. Premium-diskar med olika storlekar, och du kan välja mellan diskar som sträcker sig från 32 GB till 4 096 GB. Varje diskstorleken har sin egen prestandakrav. Du kan koppla en eller flera diskar till din virtuella dator beroende på dina programkrav.
+- *Premium-lagringsdiskar*: Dessa disktyper är bäst lämpade för arbetsbelastningar under produktion. Premium storage stöder VM-diskar som kan kopplas till specifika storlek-seriens virtuella datorer, till exempel DS, DSv2, GS och F-serien virtuella datorer. Premium-diskar med olika storlekar, och du kan välja mellan diskar som sträcker sig från 32 GB till 4 096 GB. Varje diskstorleken har sin egen prestandakrav. Du kan koppla en eller flera diskar till din virtuella dator beroende på dina programkrav.
 
 När du skapar en ny hanterad disk från portalen kan du välja den **kontotyp** för typ av disk som du vill använda. Tänk på att inte alla tillgängliga diskar visas i den nedrullningsbara menyn. När du har valt en VM-storleken visas på menyn endast de tillgängliga premiumlagring SKU: er som är baserade på den VM-storleken.
 
 ![Skärmbild av sidan hanterad disk](./media/oracle-design/premium_disk01.png)
-
-Mer information finns i [högpresterande Premium Storage och hanterade diskar för virtuella datorer](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
 När du har konfigurerat din lagring på en virtuell dator kanske du vill läsa in testa diskarna innan du skapar en databas. Att känna till den i/o-hastigheten vad gäller både svarstid och dataflöde kan hjälpa dig att avgöra om de virtuella datorerna har stöd för det förväntade dataflödet med målen för svarstid.
 
@@ -190,17 +188,15 @@ När du har en tydlig bild av i/o-kraven kan välja du en kombination av enheter
 
 Det finns tre alternativ för värdcachelagring:
 
-- *Skrivskyddad*: alla begäranden cachelagras för framtida läsningar. Alla skrivåtgärder sparas direkt till Azure Blob storage.
+- *Skrivskyddad*: Alla begäranden cachelagras för framtida läsningar. Alla skrivåtgärder sparas direkt till Azure Blob storage.
 
-- *Läs-och*: det här är en ”read-ahead” algoritm. Läsningar och skrivningar cachelagras för framtida läsningar. Icke-write-through skrivningar har sparats till den lokala cachen först. För SQL Server sparas skrivningar till Azure Storage eftersom den använder write-through. Det ger också disk kortast svarstid för lätta arbetsbelastningar.
+- *Läs-och*: Det här är en ”read-ahead” algoritm. Läsningar och skrivningar cachelagras för framtida läsningar. Icke-write-through skrivningar har sparats till den lokala cachen först. För SQL Server sparas skrivningar till Azure Storage eftersom den använder write-through. Det ger också disk kortast svarstid för lätta arbetsbelastningar.
 
-- *Ingen* (inaktiverat): med det här alternativet kan du hoppa över cacheminnet. Alla data som överförs till disk och beständiga i Azure Storage. Den här metoden ger dig den högsta i/o-hastigheten för i/o-intensiva arbetsbelastningar. Du måste också beakta ”transaktionskostnaden”.
+- *Ingen* (inaktiverat): Genom att använda det här alternativet kan kringgå du cachen. Alla data som överförs till disk och beständiga i Azure Storage. Den här metoden ger dig den högsta i/o-hastigheten för i/o-intensiva arbetsbelastningar. Du måste också beakta ”transaktionskostnaden”.
 
 **Rekommendationer**
 
 Om du vill maximera dataflödet rekommenderar vi att du börjar med **ingen** för värdcachelagring. För Premium Storage, Tänk på att du måste inaktivera ”hinder” när du monterar filsystemet med den **ReadOnly** eller **ingen** alternativ. Uppdatera filen/etc/fstab med UUID till diskarna.
-
-Mer information finns i [Premiumlagring för virtuella Linux-datorer](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Skärmbild av sidan hanterad disk](./media/oracle-design/premium_disk02.png)
 
@@ -217,12 +213,12 @@ När du har skapat och konfigurerat Azure-miljön, är nästa steg att skydda di
 
 - *Princip för NSG*: NSG definieras med ett undernät eller ett nätverkskort. Det är enklare att styra åtkomsten på undernätverksnivån både i för säkerhet och framtvinga routning för till exempel brandväggar för webbprogram.
 
-- *Jumpbox*: för säkrare åtkomst administratörer bör inte ansluter direkt till programtjänsten eller databas. En jumpbox används som en media mellan administratör datorn och Azure-resurser.
+- *Jumpbox*: För säkrare åtkomst bör administratörer inte ansluter direkt till programtjänsten eller databas. En jumpbox används som en media mellan administratör datorn och Azure-resurser.
 ![Skärmbild av sidan Jumpbox-topologi](./media/oracle-design/jumpbox.png)
 
     Administratören datorn bör erbjuda IP tillgång till jumpboxen endast. Jumpbox ska ha åtkomst till programmet och databasen.
 
-- *Privat nätverk* (undernät): Vi rekommenderar att du har den programtjänsten och databasen på olika undernät så bättre kontroll kan ställas in av NSG-principen.
+- *Privat nätverk* (undernät): Vi rekommenderar att du har den programtjänsten och databasen på olika undernät så att bättre kontroll kan ställas in av NSG-principen.
 
 
 ## <a name="additional-reading"></a>Ytterligare resurser
@@ -234,5 +230,5 @@ När du har skapat och konfigurerat Azure-miljön, är nästa steg att skydda di
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
+- [Självstudier: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
 - [Utforska Azure CLI-exempel för VM-distribution](../../linux/cli-samples.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ec4b03629b56c09973c1ecc5c55930c33c24990b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997583"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312590"
 ---
 # <a name="output-metadata"></a>Output Metadata
 ## <a name="overview"></a>Översikt
@@ -29,7 +29,7 @@ Media Services igenom inte förebyggande syfte inkommande tillgångar för att g
 
 Om du vill undersöka metadatafilen kan du skapa en **SAS** positionerare och ladda ned filen till din lokala dator.  
 
-Den här artikeln beskriver de element och typer av XML-schema som utdata-metada (&lt;source_file_name&gt;_manifest.xml) är baserad. Läs om hur den fil som innehåller metadata om indatatillgången [Indatametadata](media-services-input-metadata-schema.md).  
+Den här artikeln beskriver de element och typer av XML-schema som utdata-metada (&lt;source_file_name&gt;_manifest.xml) är baserad. Information om den fil som innehåller metadata om indatatillgången finns i Indatametadata.  
 
 Du hittar koden för fullständigt schema och XML-exempel i slutet av den här artikeln.  
 
@@ -39,10 +39,10 @@ Samling av AssetFile poster för kodningsjobbet.
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |En [AssetFile elementet](media-services-output-metadata-schema.md) som ingår i samlingen AssetFiles. |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Ett AssetFile-element som ingår i samlingen AssetFiles. |
 
 ## <a name="AssetFile "></a> AssetFile element
-Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
+Du kan hitta ett XML-exempel [XML-exempel](#xml).  
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
@@ -54,24 +54,24 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **Källor** |Samling av indatakälla/mediafiler, som bearbetades för att skapa den här AssetFile. Mer information finns i [Källelement](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Varje fysisk AssetFile i den kan innehålla noll eller flera videor spårar överlagrad i ett format för att rätt behållare. Mer information finns i [VideoTracks elementet](media-services-output-metadata-schema.md). |
-| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Varje fysisk AssetFile kan innehålla noll eller flera ljudspår överlagrad i ett format för att rätt behållare i den. Detta är en samling av alla dessa ljudspår. Mer information finns i [AudioTracks elementet](media-services-output-metadata-schema.md). |
+| **Källor** |Samling av indatakälla/mediafiler, som bearbetades för att skapa den här AssetFile. Mer information finns i Källelement. |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Varje fysisk AssetFile i den kan innehålla noll eller flera videor spårar överlagrad i ett format för att rätt behållare. Mer information finns i VideoTracks element. |
+| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Varje fysisk AssetFile kan innehålla noll eller flera ljudspår överlagrad i ett format för att rätt behållare i den. Detta är en samling av alla dessa ljudspår. Mer information finns i AudioTracks element. |
 
 ## <a name="Sources "></a> Källor element
 Samling av indatakälla/mediafiler, som bearbetades för att skapa den här AssetFile.  
 
-Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
+Du kan hitta ett XML-exempel [XML-exempel](#xml).  
 
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **Källa**<br/><br/> minOccurs="1" maxOccurs="unbounded" |En indatakälla /-fil som används när du genererar den här tillgången. Mer information finns i [Källelement](media-services-output-metadata-schema.md). |
+| **Källa**<br/><br/> minOccurs="1" maxOccurs="unbounded" |En indatakälla /-fil som används när du genererar den här tillgången. Mer information finns i Källelement. |
 
 ## <a name="Source "></a> Källelement
 En indatakälla /-fil som används när du genererar den här tillgången.  
 
-Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
+Du kan hitta ett XML-exempel [XML-exempel](#xml).  
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
@@ -81,17 +81,17 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 ## <a name="VideoTracks "></a> VideoTracks element
 Varje fysisk AssetFile i den kan innehålla noll eller flera videor spårar överlagrad i ett format för att rätt behållare. Den **VideoTracks** element representerar en samling med alla video spår.  
 
-Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
+Du kan hitta ett XML-exempel [XML-exempel](#xml).  
 
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |En specifik video spåra i överordnat AssetFile. Mer information finns i [VideoTrack elementet](media-services-output-metadata-schema.md#VideoTrack). |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |En specifik video spåra i överordnat AssetFile. Mer information finns i VideoTrack element. |
 
 ## <a name="VideoTrack"></a> VideoTrack element
 En specifik video spåra i överordnat AssetFile.  
 
-Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
+Du kan hitta ett XML-exempel [XML-exempel](#xml).  
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
@@ -113,17 +113,17 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 ## <a name="AudioTracks "></a> AudioTracks element
 Varje fysisk AssetFile kan innehålla noll eller flera ljudspår överlagrad i ett format för att rätt behållare i den. Den **AudioTracks** element representerar en samling med alla dessa ljudspår.  
 
-Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
+Du kan hitta ett XML-exempel [XML-exempel](#xml).  
 
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |En specifik ljudspår i överordnat AssetFile. Mer information finns i [AudioTrack elementet](media-services-output-metadata-schema.md). |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |En specifik ljudspår i överordnat AssetFile. Mer information finns i AudioTrack element. |
 
 ## <a name="AudioTrack "></a> AudioTrack element
 En specifik ljudspår i överordnat AssetFile.  
 
-Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
+Du kan hitta ett XML-exempel [XML-exempel](#xml).  
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
@@ -139,12 +139,12 @@ Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Loudness Avläsning av resultatet parametrar. Mer information finns i [LoudnessMeteringResultParameters elementet](media-services-output-metadata-schema.md). |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Loudness Avläsning av resultatet parametrar. Mer information finns i LoudnessMeteringResultParameters element. |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters element
 Loudness Avläsning av resultatet parametrar.  
 
-Du kan hitta ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
+Du kan hitta ett XML-exempel [XML-exempel](#xml).  
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |

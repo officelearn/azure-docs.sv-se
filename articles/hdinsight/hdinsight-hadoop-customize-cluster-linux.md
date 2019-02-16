@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662915"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313287"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -55,7 +55,7 @@ En skriptåtgärder är Bash-skript som körs på noderna i ett HDInsight-kluste
 
     * Ett Azure Data Lake Storage-konto som är tillgänglig för HDInsight-klustret. Information om hur du använder Azure Data Lake Storage med HDInsight finns i [snabbstarten: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-        URI-format för skript som lagras i Data Lake Storage är `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+        URI-format för skript som lagras i Data Lake Storage Gen1 är `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
         > [!NOTE]  
         > Tjänstens huvudnamn HDInsight använder för att få åtkomst till Data Lake Storage måste ha läsbehörighet till skriptet.

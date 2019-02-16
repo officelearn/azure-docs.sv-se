@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756826"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311213"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -221,7 +221,7 @@ För att illustrera detta antar vi att Användare A är administratör för en A
 
 3. B använder Lagringsutforskaren för att ansluta till det konto som hör till användare a med hjälp av SAS.
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Generera en SAS-anslutningssträng för det konto som du vill dela
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>Generera en SAS-frågesträngen för det konto som du vill dela
 
 1. Högerklicka på det lagringskonto som du vill dela och välj sedan i Storage Explorer **hämta signatur för delad åtkomst...** .
 
@@ -231,7 +231,7 @@ För att illustrera detta antar vi att Användare A är administratör för en A
 
     ![Hämta SAS-dialogrutan][15]
 
-3. Bredvid den **Connection String** textrutan **kopia** kopiera till Urklipp och klicka sedan på **Stäng**.
+3. Bredvid den **frågesträngen** textrutan **kopia** kopiera till Urklipp och klicka sedan på **Stäng**.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Ansluta till ett lagringskonto med hjälp av en SAS-anslutningssträng
 

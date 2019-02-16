@@ -7,16 +7,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: danlep
-ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 42790905509e2ea8bbba87587ed01b1929221db5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857762"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329327"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referens för Azure Container Registry-webhook
 
-Du kan [konfigurerar webhooks](container-registry-webhook.md) för ditt behållarregister som genererar händelser när vissa åtgärder som utförs mot den. Du kan till exempel aktivera webhooks som utlösts av behållaravbildning `push` och `delete` åtgärder. När en webhook har utlösts skickar en HTTP eller HTTPS-begäran som innehåller information om händelsen till en slutpunkt som du anger i Azure Container Registry. Slutpunkten kan sedan bearbeta webhooken och agera utifrån dessa.
+Du kan [konfigurerar webhooks](container-registry-webhook.md) för ditt behållarregister som genererar händelser när vissa åtgärder som utförs mot den. Till exempel aktivera webhooks som utlösts av behållaravbildning `push` och `delete` åtgärder. När en webhook har utlösts skickar en HTTP eller HTTPS-begäran som innehåller information om händelsen till en slutpunkt som du anger i Azure Container Registry. Slutpunkten kan sedan bearbeta webhooken och agera utifrån dessa.
 
 Följande avsnitt beskriver schemat för webhook-begäranden som genereras av händelser som stöds. Händelse-avsnitt innehåller nyttolast-schemat för händelsetypen, en exempel-nyttolasten för begäran och en eller flera exempel på kommandon som ska utlösa webhooken.
 
@@ -40,33 +40,33 @@ Webhook-utlöst när en behållaravbildning skickas till en databas.
 
 ### <a name="push-event-payload"></a>Push-händelsenyttolast
 
-|Element|Typ|Beskrivning|
+|Element|Type|Beskrivning|
 |-------------|----------|-----------|
-|`id`|Sträng|ID för webhook-händelse.|
+|`id`|String|ID för webhook-händelse.|
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
-|`action`|Sträng|Den åtgärd som utlöste händelsen webhook.|
-|[Mål](#target)|Komplex typ|Mål för den händelse som utlöste händelsen webhook.|
-|[Begäran](#request)|Komplex typ|Den begäran som genereras av webhook-händelse.|
+|`action`|String|Den åtgärd som utlöste händelsen webhook.|
+|[target](#target)|Komplex typ|Mål för den händelse som utlöste händelsen webhook.|
+|[request](#request)|Komplex typ|Den begäran som genereras av webhook-händelse.|
 
 ### <a name="target"></a>mål
 
-|Element|Typ|Beskrivning|
+|Element|Type|Beskrivning|
 |------------------|----------|-----------|
-|`mediaType`|Sträng|MIME-typ för det refererade objektet.|
+|`mediaType`|String|MIME-typ för det refererade objektet.|
 |`size`|Int32|Antal byte av innehållet. Samma som fältet längd.|
-|`digest`|Sträng|Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen.|
+|`digest`|String|Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen.|
 |`length`|Int32|Antal byte av innehållet. Samma som fältet.|
-|`repository`|Sträng|Namnet på lagringsplatsen.|
-|`tag`|Sträng|Taggnamnet bild.|
+|`repository`|String|Namnet på lagringsplatsen.|
+|`tag`|String|Taggnamnet bild.|
 
 ### <a name="request"></a>begäran
 
-|Element|Typ|Beskrivning|
+|Element|Type|Beskrivning|
 |------------------|----------|-----------|
-|`id`|Sträng|ID för begäran som initierade händelsen.|
-|`host`|Sträng|Externt tillgängliga värdnamnet för registry-instans som den anges av HTTP-rubriken på inkommande begäranden.|
-|`method`|Sträng|Metoden för begäran som genererade händelsen.|
-|`useragent`|Sträng|Användaren agent huvudet för begäran.|
+|`id`|String|ID för begäran som initierade händelsen.|
+|`host`|String|Externt tillgängliga värdnamnet för registry-instans som den anges av HTTP-rubriken på inkommande begäranden.|
+|`method`|String|Metoden för begäran som genererade händelsen.|
+|`useragent`|String|Användaren agent huvudet för begäran.|
 
 ### <a name="payload-example-push-event"></a>Nyttolast-exempel: push-händelse
 
@@ -104,30 +104,30 @@ Webhook-utlöst när lagringsplats eller manifest tas bort. Utlöses inte när e
 
 ### <a name="delete-event-payload"></a>Ta bort händelsenyttolast
 
-|Element|Typ|Beskrivning|
+|Element|Type|Beskrivning|
 |-------------|----------|-----------|
-|`id`|Sträng|ID för webhook-händelse.|
+|`id`|String|ID för webhook-händelse.|
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
-|`action`|Sträng|Den åtgärd som utlöste händelsen webhook.|
-|[Mål](#delete_target)|Komplex typ|Mål för den händelse som utlöste händelsen webhook.|
-|[Begäran](#delete_request)|Komplex typ|Den begäran som genereras av webhook-händelse.|
+|`action`|String|Den åtgärd som utlöste händelsen webhook.|
+|[target](#delete_target)|Komplex typ|Mål för den händelse som utlöste händelsen webhook.|
+|[request](#delete_request)|Komplex typ|Den begäran som genereras av webhook-händelse.|
 
 ### <a name="delete_target"></a> Mål
 
-|Element|Typ|Beskrivning|
+|Element|Type|Beskrivning|
 |------------------|----------|-----------|
-|`mediaType`|Sträng|MIME-typ för det refererade objektet.|
-|`digest`|Sträng|Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen.|
-|`repository`|Sträng|Namnet på lagringsplatsen.|
+|`mediaType`|String|MIME-typ för det refererade objektet.|
+|`digest`|String|Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen.|
+|`repository`|String|Namnet på lagringsplatsen.|
 
 ### <a name="delete_request"></a> Begäran
 
-|Element|Typ|Beskrivning|
+|Element|Type|Beskrivning|
 |------------------|----------|-----------|
-|`id`|Sträng|ID för begäran som initierade händelsen.|
-|`host`|Sträng|Externt tillgängliga värdnamnet för registry-instans som den anges av HTTP-rubriken på inkommande begäranden.|
-|`method`|Sträng|Metoden för begäran som genererade händelsen.|
-|`useragent`|Sträng|Användaren agent huvudet för begäran.|
+|`id`|String|ID för begäran som initierade händelsen.|
+|`host`|String|Externt tillgängliga värdnamnet för registry-instans som den anges av HTTP-rubriken på inkommande begäranden.|
+|`method`|String|Metoden för begäran som genererade händelsen.|
+|`useragent`|String|Användaren agent huvudet för begäran.|
 
 ### <a name="payload-example-delete-event"></a>Nyttolasten exemplet: ta bort händelse
 
@@ -154,10 +154,10 @@ Exempel [Azure CLI](/cli/azure/acr) kommandon som utlösaren en **ta bort** hän
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>Nästa steg

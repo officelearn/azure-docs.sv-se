@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c4a7239110e0d3e712c97007ecc858f104811cc
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 53f1e8edc4286c2afbdf3b6909499a2e3fccfa5d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301697"
+ms.locfileid: "56313270"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 Det här dokumentet beskriver hur du installerar och konfigurerar Azure AD Connect Health-agenterna. Du kan ladda ned agenterna [här](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -42,7 +42,7 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 |Inaktivera FIPS|FIPS stöds inte av Azure AD Connect Health-agenter.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Utgående anslutning till Azure-tjänstens slutpunkter
- Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om du har blockerat utgående anslutningar med Brandväggar kontrollerar du att följande slutpunkter finns med i listan över tillåtna anslutningar. Läs mer om att [kontrollera utgående anslutningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om utgående anslutningar blockeras använder brandväggar, se till att följande webbadresser inte blockeras som standard. Inaktivera inte säkerhetsövervakning eller granskning av dessa URL: er, men låta dem precis som andra internet-trafiken. De tillåter kommunikation med Azure AD Connect Health-Tjänsteslutpunkter. Läs mer om att [kontrollera utgående anslutningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | Domänmiljö | Nödvändiga Azure-tjänsteslutpunkter |
 | --- | --- |

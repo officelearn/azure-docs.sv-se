@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ac55d14f864698506610301ae46bd4b6573d4f92
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118300"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330672"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -248,7 +248,7 @@ ms.locfileid: "56118300"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -870,7 +870,7 @@ Kraven när du förbereder din egen Azure VM-disken är:
 
 * Den virtuella Hårddisken som innehåller operativsystemet kan ursprungligen ha endast en maximal storlek på 127GB. Den här begränsningen har eliminerats i slutet av mars 2015. Den virtuella Hårddisken som innehåller operativsystemet kan nu vara upp till 1TB i storlek som VHD finns också i Azure Storage.
 * Det måste vara i formatet fast virtuell Hårddisk. Dynamiska virtuella hårddiskar eller virtuella hårddiskar i VHDx-format stöds inte ännu i Azure. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
-* VHD: er, som är monterade till den virtuella datorn och ska monteras igen i Azure VM behovet av att ha en fast VHD-format samt. Läs [i den här artikeln (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) och [i den här artikeln (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) för storleksbegränsningar för datadiskar. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
+* VHD: er, som är monterade till den virtuella datorn och ska monteras igen i Azure VM behovet av att ha en fast VHD-format samt. Läsa [i den här artikeln (Linux)](../../linux/managed-disks-overview.md) och [i den här artikeln (Windows)](../../windows/managed-disks-overview.md)) för storleksbegränsningar för datadiskar. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
 * Lägg till en annan lokalt konto med administratörsbehörighet som kan användas av Microsoft-supporten eller som kan tilldelas som kontext för tjänster och program att köras tills den virtuella datorn har distribuerats och lämpligare användare kan användas.
 * Lägga till andra lokala konton som de som kan behövas för det specifika distributionsscenariot.
 
@@ -897,7 +897,7 @@ Kraven när du förbereder din egen Azure VM-avbildning är:
 
 * Den virtuella Hårddisken som innehåller operativsystemet kan ursprungligen ha endast en maximal storlek på 127GB. Den här begränsningen har eliminerats i slutet av mars 2015. Den virtuella Hårddisken som innehåller operativsystemet kan nu vara upp till 1TB i storlek som VHD finns också i Azure Storage.
 * Det måste vara i formatet fast virtuell Hårddisk. Dynamiska virtuella hårddiskar eller virtuella hårddiskar i VHDx-format stöds inte ännu i Azure. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
-* VHD: er, som är monterade till den virtuella datorn och ska monteras igen i Azure VM behovet av att ha en fast VHD-format samt. Läs [i den här artikeln (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) och [i den här artikeln (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) för storleksbegränsningar för datadiskar. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
+* VHD: er, som är monterade till den virtuella datorn och ska monteras igen i Azure VM behovet av att ha en fast VHD-format samt. Läs [i den här artikeln (Linux)](../../windows/managed-disks-overview.md) och [i den här artikeln (Windows)](../../linux/managed-disks-overview.md) för storleksbegränsningar för datadiskar. Dynamiska virtuella hårddiskar kommer att konverteras till statisk VHD: er när du överför den virtuella Hårddisken med PowerShell-kommandon eller CLI
 * Lägga till andra lokala konton som de som kan behövas för det specifika distributionsscenariot.
 * Om bilden innehåller en installation av SAP NetWeaver och namnbyte av värdnamnet från det ursprungliga namnet distributionspunkten Azure troligtvis, rekommenderar vi att du kopiera de senaste versionerna av SAP Software etablering Manager DVD till mallen. Detta kan du enkelt använda SAP tillhandahålls rename-funktionen för att anpassa ändrade värdnamnet och/eller ändra SID för SAP-system i distribuerade avbildningen så fort en ny kopia har startats.
 

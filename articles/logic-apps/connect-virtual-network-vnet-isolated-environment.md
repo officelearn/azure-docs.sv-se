@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176211"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311910"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
@@ -67,9 +67,10 @@ För att styra inkommande och utgående trafik över det virtuella nätverkets u
 | Kommunikation till Azure Logic Apps <br>Kommunikation från Azure Logic Apps | Inkommande <br>Utgående | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
 | Azure Active Directory | Utgående | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Beroende av Azure Storage | Utgående | * <br>80 & 443 | VIRTUAL_NETWORK <br>Storage |
+| Logikappens körningshistorik | Inkommande | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
 | Anslutningshanteringen | Utgående | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
 | Publicera diagnostikloggar och mått | Utgående | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Logikappdesigner – dynamiska egenskaper <br>Logikappens körningshistorik <br>Connector-distribution <br>Slutpunkten för begäran-utlösare | Inkommande | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| Logikappdesigner – dynamiska egenskaper <br>Connector-distribution <br>Slutpunkten för begäran-utlösare | Inkommande | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
 | Service Management-appberoendet | Inkommande | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | API Management - hanteringsslutpunkt | Inkommande | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | Beroende från loggen till Event Hub-principen och övervakningsagent | Utgående | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |

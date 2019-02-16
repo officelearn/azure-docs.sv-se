@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564960"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313041"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -51,7 +51,7 @@ S: Listvyn är inte tillgänglig i de nya loggarna. Det finns en pil till vänst
 
 ### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>F. En lista över föreslagna filter är tillgängliga när du har kört en fråga. Hur kan jag se filter? 
 
-S: Klicka på ”filter” på den vänstra pan att visa en förhandsgranskning av hur nya filter. Detta är nu baserat på hela resultatuppsättningen i stället för att vara begränsad till 10 000 postgränsen av Användargränssnittet. Det här är en lista över de mest populära filter och 10 vanligaste värden för varje filter. 
+S: Klicka på ”filter” i det vänstra fönstret för att visa en förhandsgranskning av hur nya filter. Detta är nu baserat på hela resultatuppsättningen i stället för att vara begränsad till 10 000 postgränsen av Användargränssnittet. Det här är en lista över de mest populära filter och 10 vanligaste värden för varje filter. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>F. Varför får jag felet: ”Registrera resursprovidern” Microsoft.Insights ”för den här prenumerationen om du vill aktivera den här frågan” i loggar efter Detaljgranskning i från virtuell dator? 
 

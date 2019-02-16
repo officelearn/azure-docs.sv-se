@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: fd5f58a03ffd054e79f1ff4ea6d61c33c06b6e7c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9cd43172fc57443cc89f238e1d4ffaae45301936
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268557"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330570"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Skapa ett grundläggande index i Azure Search
 
@@ -110,7 +110,10 @@ Den [ *fält samling* ](#fields-collection) är vanligtvis den största delen av
 }
 ```
 
-## <a name="fields-collection-and-attribution"></a>Fältsamlingen och information
+<a name="fields-collection"></a>
+
+## <a name="fields-collection-and-field-attributes"></a>Fält samling och fältet attribut
+
 När du definierar ett schema måste du ange namnet, typen och attributet för varje fält i ditt index. Fälttypen klassificerar de data som lagras i fältet. Attribut anges för enskilda fält och definierar hur fältet används. Följande tabeller innehåller de typer och attribut som du kan ange.
 
 ### <a name="data-types"></a>Datatyper
@@ -139,7 +142,7 @@ Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns h
 
 Mer detaljerad information om [indexattributen i Azure Search finns här](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
-## <a name="storage-implications-of-index-attributes"></a>Storage effekterna av indexattribut
+## <a name="storage-implications"></a>Storage effekter
 
 De attribut som du väljer påverka lagring. Skärmbilden nedan är en illustration av index storage mönster som härrör från olika kombinationer av attribut. Indexet baseras på den [inbyggda realestate-exemplet](search-get-started-portal.md) datakällan, vilket kan du indexera och fråga i portalen.
 
@@ -147,7 +150,9 @@ Filtrera och sortera operations-fråga på exakta matchningar så att dokument s
 
 ![Index-storlek baserat på val av attributet](./media/search-what-is-an-index/realestate-index-size.png "Index-storlek baserat på val av attribut")
 
-Lagringsimplementering anses en implementeringsdetalj för Azure Search och kan ändras utan föregående meddelande. Det finns ingen garanti att aktuella beteendet behålls i framtiden.
+Flera av följande kombinationer är artificiella och användbara för belysning en punkt, men inte skulle resultera i ett genomförbart index. I praktiken, skulle du aldrig lägga till varje fält i en förslagsställare eller skapa ett index som är sökbara men inte hämtningsbar.
+
+Lagringsarkitektur anses en implementeringsdetalj för Azure Search och kan ändras utan föregående meddelande. Det finns ingen garanti att aktuella beteendet behålls i framtiden.
 
 ## <a name="suggesters"></a>Förslag på alternativ
 En förslagsställare är en del av det schema som definierar vilka fält i ett index används för att stödja Komplettera automatiskt eller frågeifyllningsförslag frågor i sökningar. Partiell söksträngar skickas vanligtvis till förslag (Azure Search Service REST API) när användaren skriver en sökfråga och API: et returnerar en mängd med föreslagna fraserna. 

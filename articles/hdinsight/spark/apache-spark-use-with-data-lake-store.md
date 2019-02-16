@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f50cc46244a4fb205e0ccf60665ba892d3aa8fc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821378"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310048"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Använd HDInsight Spark-kluster för att analysera data i Data Lake Storage
 
@@ -81,7 +81,7 @@ Om du har skapat ett HDInsight-kluster med Data Lake Storage som ytterligare lag
 
 5. Läs in exempeldata i en tillfällig tabell med hjälp av den **HVAC.csv** filen som du kopierade till Data Lake Storage-kontot. Du kan komma åt data i Data Lake Storage-konto med hjälp av följande URL-mönster.
 
-    * Om du har Data Lake Storage som standardlagringsutrymme blir HVAC.csv vid sökvägen som liknar följande URL:
+    * Om du har Data Lake Storage Gen1 som standardlagringsutrymme blir HVAC.csv vid sökvägen som liknar följande URL:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 

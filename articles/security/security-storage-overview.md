@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 5d8c9ae52152df6a0e016c12234afe4ae780b251
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115444"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326764"
 ---
 # <a name="azure-storage-security-overview"></a>Säkerhetsöversikt för Azure Storage
 
@@ -79,7 +79,7 @@ Många organisationer [datakryptering i viloläge](https://cloudblogs.microsoft.
 
 Lär dig mer om Storage Service Encryption:
 
-* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) är tillgänglig för [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Mer information om andra typer av Azure storage finns [Azure Files](https://azure.microsoft.com/services/storage/files/), [(Premium-lagring)](https://azure.microsoft.com/services/storage/premium-storage/), [tabellagring](https://azure.microsoft.com/services/storage/tables/), och [Queue storage](https://azure.microsoft.com/services/storage/queues/).
+* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) är tillgänglig för [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Mer information om andra typer av Azure storage finns [Azure Files](https://azure.microsoft.com/services/storage/files/), [tabellagring](https://azure.microsoft.com/services/storage/tables/), och [Queue storage](https://azure.microsoft.com/services/storage/queues/).
 * [Azure Storage Service Encryption för vilande Data](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption

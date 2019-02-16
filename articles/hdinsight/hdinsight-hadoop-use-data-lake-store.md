@@ -1,6 +1,6 @@
 ---
-title: Använd Data Lake Storage med Hadoop i Azure HDInsight
-description: Lär dig att läsa data från Azure Data Lake Storage och för att lagra resultatet av dina analyser.
+title: Använd Data Lake Storage Gen1 med Hadoop i Azure HDInsight
+description: Lär dig att läsa data från Azure Data Lake Storage Gen1 och för att lagra resultatet av dina analyser.
 services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,50 +9,54 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 5ba12e48092c02f9628e15166c84e871310d7556
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9dabf3fd37c591525625969ac0af1873477b84d6
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816381"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311444"
 ---
-# <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Använda Data Lake Storage med Azure HDInsight-kluster
+# <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Använda Data Lake Storage Gen1 med Azure HDInsight-kluster
 
-Om du vill analysera data i HDInsight-kluster kan du lagra data antingen i [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), eller båda. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
+> [!Note] 
+> Distribuera nya HDInsight-kluster med hjälp av [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md) för optimala prestanda och nya funktioner.
 
-I den här artikeln får du lära dig hur Data Lake Storage fungerar med HDInsight-kluster. Om du vill lära dig hur Azure Storage fungerar med HDInsight-kluster kan du läsa [Use Azure Storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md) (Använda Azure Storage med Azure HDInsight-kluster). Mer information om hur du skapar ett HDInsight-kluster finns i [skapa Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Om du vill analysera data i HDInsight-kluster kan du lagra data antingen i [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) eller [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). Alla lagringsalternativ för kan du ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
+
+I den här artikeln får du lära dig hur Data Lake Storage Gen1 fungerar med HDInsight-kluster. Om du vill lära dig hur Azure Storage fungerar med HDInsight-kluster kan du läsa [Use Azure Storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md) (Använda Azure Storage med Azure HDInsight-kluster). Mer information om hur du skapar ett HDInsight-kluster finns i [skapa Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!NOTE]  
-> Data Lake Storage alltid är tillgängligt via en säker kanal så det finns inga `adls` filsystemsschemanamn. Du använder alltid `adl`.
+> Data Lake Storage Gen1 alltid är tillgängligt via en säker kanal så det finns inga `adls` filsystemsschemanamn. Du använder alltid `adl`.
 
 
 ## <a name="availability-for-hdinsight-clusters"></a>Tillgänglighet för HDInsight-kluster
 
-Apache Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange en blobbehållare i Azure Storage som standardfilsystemet under skapandeprocessen för HDInsight-kluster eller med HDInsight 3.5 eller senare, du kan välja antingen Azure Storage eller Azure Data Lake Storage som standardfilsystem med några undantag. 
+Apache Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under skapandeprocessen för HDInsight-kluster kan du ange en blobbehållare i Azure Storage som standardfilsystemet eller med HDInsight 3.5 och senare versioner kan du välja antingen Azure Storage eller Azure Data Lake Storage Gen1 som standardfilsystem med ett få undantag. 
 
-HDInsight-kluster kan använda Data Lake Storage på två sätt:
+HDInsight-kluster kan använda Data Lake Storage Gen1 på två sätt:
 
 * Som standardlagring
 * Som ytterligare lagringsutrymme med Azure Storage Blob som standardlagringsutrymme.
 
-Från och med nu, bara en del av HDInsight klusterstöd typer/versioner med Data Lake Storage som standardlagring och ytterligare lagringskonton:
+Från och med nu, bara en del av HDInsight klusterstöd typer/versioner med Data Lake Storage Gen1 som standardlagring och ytterligare lagringskonton:
 
-| Typ av HDInsight-kluster | Data Lake Storage som standardlagring | Data Lake Storage som ytterligare lagringsutrymme| Anteckningar |
+| Typ av HDInsight-kluster | Data Lake Storage Gen1 som standardlagring | Data Lake Storage Gen1 som ytterligare lagringsutrymme| Anteckningar |
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight version 3.6 | Ja | Ja | Förutom HBase|
 | HDInsight version 3.5 | Ja | Ja | Förutom HBase|
 | HDInsight version 3.4 | Nej | Ja | |
 | HDInsight version 3.3 | Nej | Nej | |
 | HDInsight version 3.2 | Nej | Ja | |
-| Storm | | |Du kan använda Data Lake Storage för att skriva data från en Storm-topologi. Du kan också använda Data Lake Storage för referensdata som sedan kan läsas av en Storm-topologi.|
+| Storm | | |Du kan använda Data Lake Storage Gen1 för att skriva data från en Storm-topologi. Du kan också använda Data Lake Storage för referensdata som sedan kan läsas av en Storm-topologi.|
 
 > [!WARNING]  
-> HDInsight HBase stöds inte med Azure Data Lake Storage Gen 1
+> HDInsight HBase stöds inte med Azure Data Lake Storage Gen1
 
-Med Data Lake Storage som ett ytterligare lagringskonto påverkas inte prestanda eller möjligheten att läsa eller skriva till Azure-lagring från klustret.
-## <a name="use-data-lake-storage-as-default-storage"></a>Använda Data Lake Storage som standardlagring
+Med Data Lake Storage Gen1 som ett ytterligare lagringskonto påverkas inte prestanda eller möjligheten att läsa eller skriva till Azure-lagring från klustret.
 
-När HDInsight distribueras med Data Lake Storage som standardlagringsutrymme lagras klusterrelaterade filer i Data Lake Storage på följande plats:
+## <a name="use-data-lake-storage-gen1-as-default-storage"></a>Använda Data Lake Storage Gen1 som standardlagring
+
+När HDInsight distribueras med Data Lake Storage Gen1 som standardlagringsutrymme lagras klusterrelaterade filer på följande plats:
 
     adl://mydatalakestore/<cluster_root_path>/
 
@@ -61,11 +65,11 @@ där `<cluster_root_path>` är namnet på en mapp som du skapar i Data Lake Stor
 * Cluster1 kan använda sökvägen `adl://mydatalakestore/cluster1storage`
 * Cluster2 kan använda sökvägen `adl://mydatalakestore/cluster2storage`
 
-Observera att använda samma Data Lake Storage-konto för båda klustren **mydatalakestore**. Varje kluster har åtkomst till sitt egen rotfilsystem i Data Lake Storage. I synnerhet i Azure-portaldistributionen uppmanas du att använda ett mappnamn som **/kluster/\<klusternamn >** för rotsökvägen.
+Observera att båda klustren använder samma konto som Data Lake Storage Gen1 **mydatalakestore**. Varje kluster har åtkomst till sitt egen rotfilsystem i Data Lake Storage. I synnerhet i Azure-portaldistributionen uppmanas du att använda ett mappnamn som **/kluster/\<klusternamn >** för rotsökvägen.
 
-Om du vill kunna använda Data Lake Storage som standardlagring måste du ge tjänstens huvudnamn åtkomst till följande sökvägar:
+Om du vill kunna använda Data Lake Storage Gen1 som standardlagring måste du ge tjänstens huvudnamn åtkomst till följande sökvägar:
 
-- Roten för Data Lake Storage-konto.  Till exempel: adl://mydatalakestore/.
+- Data Lake Storage Gen1 konto roten.  Till exempel: adl://mydatalakestore/.
 - Mappen för alla klustermappar.  Till exempel: adl://mydatalakestore/clusters.
 - Mappen för klustret.  Till exempel: adl://mydatalakestore/clusters/cluster1storage.
 
@@ -73,7 +77,7 @@ Mer information för att skapa tjänstens huvudnamn och bevilja åtkomst finns i
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>Extrahera ett certifikat från Azure Keyvault för användning i klustret har skapats
 
-Om du vill att installationsprogrammet ADLS som standardlagring för ett nytt kluster och certifikatet för tjänstens huvudnamn lagras i Azure Key Vault, det finns några ytterligare steg som krävs för att konvertera certifikatet till rätt format. I följande kodavsnitt visar hur du kan utföra konverteringen.
+Om du vill ställa in Azure Data Lake Storage Gen1 som din standardlagring för ett nytt kluster och certifikatet för tjänstens huvudnamn lagras i Azure Key Vault, det finns några ytterligare steg som krävs för att konvertera certifikatet till rätt format. I följande kodavsnitt visar hur du kan utföra konverteringen.
 
 Först hämta certifikatet från Key Vault och extrahera den `SecretValueText`.
 
@@ -105,15 +109,15 @@ New-AzureRmResourceGroupDeployment `
     -servicePrincipalApplicationId $application.ApplicationId
 ```
 
-## <a name="use-data-lake-storage-as-additional-storage"></a>Använda Data Lake Storage som ytterligare lagringsutrymme
+## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>Använda Data Lake Storage Gen1 som ytterligare lagringsutrymme
 
-Du kan använda Data Lake Storage som ytterligare lagringsutrymme för klustret. I sådana fall kan Standardlagringsutrymmet för klustret antingen vara en Azure Storage Blob eller ett Data Lake Storage-konto. Om du kör HDInsight-jobb mot data som lagras i Data Lake Storage som ytterligare lagringsutrymme måste du använda den fullständiga sökvägen till filerna. Exempel:
+Du kan använda Data Lake Storage Gen1 som ytterligare lagringsutrymme för klustret. I sådana fall kan Standardlagringsutrymmet för klustret antingen vara en Azure Storage Blob eller ett Data Lake Storage-konto. Om du kör HDInsight-jobb mot data som lagras i Data Lake Storage som ytterligare lagringsutrymme måste du använda den fullständiga sökvägen till filerna. Exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Observera att det inte finns någon **cluster_root_path** i URL-adressen nu. Det beror på att Data Lake Storage inte är ett standardlagringsutrymme i det här fallet så allt du behöver göra är att ange sökvägen till filerna.
 
-Om du vill kunna använda ett Data Lake Storage som ytterligare lagringsutrymme behöver du bara ge tjänstens huvudnamn åtkomst till de sökvägar där filerna lagras.  Exempel:
+Om du vill kunna använda ett Data Lake Storage Gen1 som ytterligare lagringsutrymme behöver du bara ge tjänstens huvudnamn åtkomst till de sökvägar där filerna lagras.  Exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -129,7 +133,7 @@ Lägger till ett Data Lake Storage-konto som ytterligare och lägga till fler ä
 Om du vill konfigurera åtkomst till Data Lake Storage från HDInsight-kluster, måste du ha ett Azure Active directory (Azure AD)-tjänstobjekt. Det är bara Azure AD-administratörer som kan vara tjänstens huvudnamn. Tjänstens huvudnamn måste skapas med ett certifikat. Mer information finns i [ Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md), och [skapa tjänstens huvudnamn med klientportal signed certifikat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
 > [!NOTE]  
-> Om du ska använda Azure Data Lake Storage som ytterligare lagringsutrymme för HDInsight-kluster, rekommenderar vi starkt att du gör detta när du skapar klustret enligt beskrivningen i den här artikeln. Att lägga till Azure Data Lake Storage som ytterligare lagringsutrymme i ett befintligt HDInsight-kluster är inte ett scenario som stöds.
+> Om du ska använda Azure Data Lake Storage Gen1 som ytterligare lagringsutrymme för HDInsight-kluster, rekommenderar vi starkt att du gör detta när du skapar klustret enligt beskrivningen i den här artikeln. Att lägga till Azure Data Lake Storage Gen1 som ytterligare lagringsutrymme i ett befintligt HDInsight-kluster är inte ett scenario som stöds.
 >
 
 ## <a name="access-files-from-the-cluster"></a>Åtkomst till filer från klustret
@@ -152,18 +156,18 @@ Det finns flera sätt du kan komma åt filer i Data Lake Storage från ett HDIns
 
         /example/data/sample.log
 
-## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage"></a>Skapa HDInsight-kluster med åtkomst till Data Lake Storage
+## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage-gen1"></a>Skapa HDInsight-kluster med åtkomst till Data Lake Storage Gen1
 
-Använd följande länkar om du detaljerade anvisningar om hur du skapar HDInsight-kluster med åtkomst till Data Lake Storage.
+Använd följande länkar om du detaljerade anvisningar om hur du skapar HDInsight-kluster med åtkomst till Data Lake Storage Gen1.
 
 * [Använda portalen](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* [Använda PowerShell (med Data Lake Storage som standardlagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [Använda PowerShell (med Data Lake Storage som ytterligare lagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Använda PowerShell (med Data Lake Storage Gen1 som standardlagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [Använda PowerShell (med Data Lake Storage Gen1 som ytterligare lagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Använda Azure-mallar](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
-## <a name="refresh-the-hdinsight-certificate-for-data-lake-storage-access"></a>Uppdatera HDInsight-certifikatet för Data Lake Storage åtkomst
+## <a name="refresh-the-hdinsight-certificate-for-data-lake-storage-gen1-access"></a>Uppdatera HDInsight-certifikatet för Data Lake Storage Gen1 åtkomst
 
-I följande exempel PowerShell-kod läser ett certifikat från en lokal fil eller Azure Key Vault och uppdaterar ditt HDInsight-kluster med det nya certifikatet till Azure Data Lake Storage. Ange dina egna HDInsight-klusternamnet och resursgruppens namn, prenumerations-ID, app-ID, lokal sökväg till certifikatet. Ange lösenordet när du uppmanas till detta.
+I följande exempel PowerShell-kod läser ett certifikat från en lokal fil eller Azure Key Vault och uppdaterar ditt HDInsight-kluster med det nya certifikatet till åtkomst till Azure Data Lake Storage Gen1. Ange dina egna HDInsight-klusternamnet och resursgruppens namn, prenumerations-ID, app-ID, lokal sökväg till certifikatet. Ange lösenordet när du uppmanas till detta.
 
 ```powershell-interactive
 $clusterName = '<clustername>'
@@ -236,13 +240,13 @@ Invoke-AzureRmResourceAction `
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur du använder HDFS-kompatibla Azure Data Lake Storage med HDInsight. Du kan skapa skalbara, långsiktiga lösningar för arkivering av insamlade data samt HDInsight för att få tillgång till informationen i lagrade strukturerade och ostrukturerade data.
+I den här artikeln har du lärt dig hur du använder HDFS-kompatibla Azure Data Lake Storage Gen1 med HDInsight. Du kan skapa skalbara, långsiktiga lösningar för arkivering av insamlade data samt HDInsight för att få tillgång till informationen i lagrade strukturerade och ostrukturerade data.
 
 Mer information finns i:
 
 * [Kom igång med Azure HDInsight][hdinsight-get-started]
 * [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* [Skapa ett HDInsight-kluster om du vill använda Data Lake Storage med Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Skapa ett HDInsight-kluster om du vill använda Data Lake Storage Gen1 med Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Överföra data till HDInsight][hdinsight-upload-data]
 * [Använda Apache Hive med HDInsight][hdinsight-use-hive]
 * [Använda Apache Hive med HDInsight][hdinsight-use-pig]

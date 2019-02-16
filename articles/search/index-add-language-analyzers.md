@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: bb7fbdeea9c19b8a6fabe06687261296110b4064
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301816"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328307"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Lägga till språkanalysverktyg till ett Azure Search-index
 
@@ -51,9 +51,9 @@ Standard-analysatorn är Standard Lucene, vilket fungerar bra för engelska, men
 
 ## <a name="configuring-analyzers"></a>Konfigurera analysverktyg
 
-Språkanalysverktyg används som – är. För varje fält i indexdefinitionen, kan du ange den **analyzer** egenskapen till ett analyzer-namn som anger vilka språk och leverantör. Samma analysatorn tillämpas när indexering och sökning för det fältet. Du kan till exempel ha olika fält för engelska, franska och spanska hotell beskrivningar som finnas sida vid sida i samma index.  
+Språkanalysverktyg används som – är. För varje fält i indexdefinitionen, kan du ange den **analyzer** egenskapen till ett analyzer-namn som anger de språk och lingvistik stacken (Microsoft eller Lucene). Samma analysatorn tillämpas när indexering och sökning för det fältet. Du kan till exempel ha olika fält för engelska, franska och spanska hotell beskrivningar som finnas sida vid sida i samma index. Alternativt kan du i stället för **analyzer**, du kan använda **indexAnalyzer** och **searchAnalyzer** ha olika analysis regler vid indexering och frågetiden. 
 
-Använd den **searchFields** frågeparameter för att ange vilket språkspecifika fält om du vill söka mot i dina frågor. Du kan granska frågan exempel som innehåller egenskapen analyzer i söka efter dokument. 
+Använd den **searchFields** frågeparameter för att ange vilket språkspecifika fält om du vill söka mot i dina frågor. Du kan granska frågan exempel som innehåller egenskapen analyzer i [söka efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Läs mer om egenskaper för frågeindex [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Mer information om analys i Azure Search finns [analysverktyg i Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 

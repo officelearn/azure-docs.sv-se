@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1967ba60088cae2b946cfcfe1467c2de5aebccdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879959"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308867"
 ---
-# <a name="image-categorization-with-computer-vision"></a>Bild kategorisering med visuellt innehåll
+# <a name="categorize-images"></a>Kategorisera bilder
 
-Förutom taggning och beskrivningar returnerar för visuellt innehåll taxonomi-baserade kategorier som definierats i tidigare versioner. Kategorierna är ordnade som en taxonomi med ärftliga överordnade/underordnade hierarkier. Alla kategorier är på engelska. De kan användas fristående eller med vår nya taggning modeller.
+Förutom taggar och en beskrivning returnerar för visuellt innehåll taxonomi-baserade kategorier som har identifierats i en bild. Till skillnad från taggar, kategorier är ordnade i en överordnad/underordnad ärftliga hierarki och det finns färre (till skillnad från tusentals taggar 86). Alla kategorinamn som är på engelska. Kategorisering kan göras av sig själv eller tillsammans med den nya taggar-modellen.
 
 ## <a name="the-86-category-concept"></a>Konceptet 86-kategori
 
-Baserat på en lista över 86 begrepp som visas i följande diagram, kan en bild kategoriseras sträcker sig från bred till specifika. Läs den fullständiga taxonomin i textformat i [Kategoritaxonomi](category-taxonomy.md).
+Visuellt innehåll kan kategorisera en avbildning brett eller mer specifikt med hjälp av listan över 86 andra i följande diagram. Läs den fullständiga taxonomin i textformat i [Kategoritaxonomi](category-taxonomy.md).
 
 ![grupperade listor över alla kategorier i kategoritaxonomi](./Images/analyze_categories-v2.png)
 

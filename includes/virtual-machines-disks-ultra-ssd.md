@@ -8,38 +8,38 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4b5d2de2e9ccd44517e083a435e127bd5678f002
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736280"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56331318"
 ---
-# <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra SSD (förhandsversion) Managed Disks för Azure-datorbelastningar
+# <a name="ultra-disks-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra diskar (förhandsversion) hanterade diskar för Azure-datorbelastningar
 
-Azure Ultra SSD (förhandsversion) ger hög genomströmning, hög IOPS och konsekvent låg latens disklagring för virtuella Azure IaaS-datorer. Det här nya erbjudandet ger upp på rad prestanda på samma tillgänglighet nivåer som våra befintliga diskar-erbjudanden. Ytterligare fördelarna med Ultra SSD är möjligheten att ändra dynamiskt prestanda för disken tillsammans med dina arbetsbelastningar utan att behöva starta om dina virtuella datorer. Ultra SSD är lämpligt för dataintensiva arbetsbelastningar som SAP HANA, översta databaser och transaktionen tunga arbetsbelastningar.
+Ultra Azure-diskar (förhandsversion) ger hög genomströmning, hög IOPS och konsekvent låg latens disklagring för virtuella Azure IaaS-datorer. Det här nya erbjudandet ger upp på rad prestanda på samma tillgänglighet nivåer som våra befintliga diskar-erbjudanden. Ytterligare förmåner ultra diskar omfattar möjligheten att ändra dynamiskt prestanda för disken tillsammans med dina arbetsbelastningar utan att behöva starta om dina virtuella datorer. Ultra diskar lämpar sig för dataintensiva arbetsbelastningar som SAP HANA, översta databaser och transaktionen tunga arbetsbelastningar.
 
-## <a name="ultra-ssd-features"></a>Ultra SSD-funktioner
+## <a name="ultra-disk-features"></a>Funktioner för Ultra disk
 
-**Hanterade diskar**: Ultra SSD: er är endast tillgängliga som Managed Disks. Ultra SSD: er kan inte distribueras som en ohanterad Disk eller en Sidblob. När du skapar en hanterad Disk måste ange du disk-sku som UltraSSD_LRS och anger storleken på disken, IOPS, dataflöde som du behöver och Azure skapar och hanterar disken åt dig.  
+**Hanterade diskar**: Ultra diskar är endast tillgängliga som hanterade diskar. Ultra diskar kan inte distribueras som en ohanterad disk eller en sidblob. När du skapar en hanterad disk måste ange du disk-sku som UltraSSD_LRS och anger storleken på disken, IOPS, dataflöde som du behöver och Azure skapar och hanterar disken åt dig.  
 
-**Virtual Machines**: Ultra SSD: er är utformade att fungera med alla Premium SSD aktiverade Azure VM SKU: er; men eftersom den är för närvarande i förhandsversion, är de virtuella datorerna storlek som ES/DS v3.
+**Virtual Machines**: Ultra diskar är utformade att fungera med alla Premium SSD aktiverade Azure VM SKU: er; men eftersom den är för närvarande i förhandsversion, är de virtuella datorerna storlek som ES/DS v3.
 
-**Dynamisk Prestandakonfiguration**: Ultra SSD-enheter kan du ändra dynamiskt prestanda för disken tillsammans med dina arbetsbelastningsbehov (IOPS och dataflöde) utan att behöva starta om dina virtuella datorer.
+**Dynamisk Prestandakonfiguration**: Ultra diskar kan du ändra dynamiskt prestanda för disken tillsammans med dina arbetsbelastningsbehov (IOPS och dataflöde) utan att behöva starta om dina virtuella datorer.
 
 ## <a name="scalability-and-performance-targets"></a>Mål för skalbarhet och prestanda
 
-När du etablerar ett Ultra SSD har du möjlighet att konfigurera oberoende kapacitet och prestanda för disken. Ultra SSD kommer flera fasta storlekar från 4 GiB upp till 64 TiB och använder en modell för flexibla prestanda konfiguration där du kan konfigurera oberoende IOPS och dataflöden. Ultra SSD: er kan bara användas som datadiskar. Vi rekommenderar att du använder Premium SSD som OS-diskar.
+När du etablerar ett ultra diskar kan har du möjlighet att konfigurera oberoende kapacitet och prestanda för disken. Ultra diskar kommer flera fasta storlekar från 4 GiB upp till 64 TiB och använder en modell för flexibla prestanda konfiguration där du kan konfigurera oberoende IOPS och dataflöden. Ultra diskar kan endast användas som datadiskar. Vi rekommenderar att du använder Premium SSD som OS-diskar.
 
-Några nyckelfunktioner i Ultra SSD är:
+Några nyckelfunktioner ultra diskar är:
 
-- Kapacitet för disk: Ultra SSD erbjuder en mängd olika diskstorlekar från 4 GiB upp till 64 TiB.
-- IOPs per disk: Ultra SSD: er stöder IOPS-gränserna för 300 IOPS/GiB, upp till högst 160 kB IOPS per disk. Kontrollera att den valda Disk-IOPS är mindre än VM IOPS för att uppnå IOPS som du etablerade. Minsta IOPS-disken är 100 IOPS.
-- Diskdataflöde: Med Ultra SSD dataflödesgräns av en enskild disk är 256 KiB/s för var och en etablerad IOPS, upp till högst 2000 Mbit/s per disk (där Mbit/s = 10 ^ 6 byte per sekund). Det minsta diskgenomflödet är 1 MiB.
+- Kapacitet för disk: Ultra diskar erbjuder en mängd olika diskstorlekar från 4 GiB upp till 64 TiB.
+- IOPs per disk: Ultra diskar stöder IOPS-gränserna för 300 IOPS/GiB, upp till högst 160 kB IOPS per disk. Kontrollera att den valda Disk-IOPS är mindre än VM IOPS för att uppnå IOPS som du etablerade. Minsta IOPS-disken är 100 IOPS.
+- Diskdataflöde: Med ultra diskar dataflödesgräns av en enskild disk är 256 KiB/s för var och en etablerad IOPS, upp till högst 2000 Mbit/s per disk (där Mbit/s = 10 ^ 6 byte per sekund). Det minsta diskgenomflödet är 1 MiB.
 
 I följande tabell sammanfattas de olika konfigurationerna som stöds för olika diskstorlekar:  
 
-### <a name="ultra-ssd-managed-disk-offerings"></a>Erbjudanden för Ultra SSD Managed Disks
+### <a name="ultra-disks-managed-disk-offerings"></a>Ultra diskar hanterade disk erbjudanden
 
 |Diskstorlek (GiB)  |IOPS Caps  |Taket för dataflöde (Mbit/s)  |
 |---------|---------|---------|
@@ -55,22 +55,22 @@ I följande tabell sammanfattas de olika konfigurationerna som stöds för olika
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
-När du använder Ultra SSD, används följande för debitering:
+När du använder ultra diskar, används följande för debitering:
 
 - Hanterade diskens storlek
 - Hanterad Disk etablerad IOPS
 - Dataflöde för hanterad Disk
-- Ultra SSD VM reservation avgift
+- Ultra disk VM reservation avgift
 
 ### <a name="managed-disk-size"></a>Hanterade diskens storlek
 
-Hanterade diskar faktureras med de storlekar som du väljer när en ny virtuell Azure-dator. Azure mappar den etablerade storleken (avrundad uppåt) till närmaste diskstorlekserbjudande. Se tabellen i skalbarhets- och prestandamål ovan för information om diskstorlekar som erbjuds. Varje disk som mappar till en etablerad diskstorleken som stöds och kommer därefter faktureras per timme. Om du har etablerat en 200 GiB Ultra SSD-Disk och tar bort den efter 20 timmar, det mappas till disk storlek erbjudandet om 256 GB och du debiteras för 256 GB för 20 timmar. Den här Faktureringsmetoden baserades på compute-timförbrukning oavsett mängden data som faktiskt skrivs till disken.
+Hanterade diskar faktureras med de storlekar som du väljer när en ny virtuell Azure-dator. Azure mappar den etablerade storleken (avrundad uppåt) till närmaste diskstorlekserbjudande. Se tabellen i skalbarhets- och prestandamål ovan för information om diskstorlekar som erbjuds. Varje disk som mappar till en etablerad diskstorleken som stöds och kommer därefter faktureras per timme. Om du har etablerat en 200 GiB ultra disk och tar bort den efter 20 timmar, det mappas till disk storlek erbjudandet om 256 GB och du debiteras för 256 GB för 20 timmar. Den här Faktureringsmetoden baserades på compute-timförbrukning oavsett mängden data som faktiskt skrivs till disken.
 
-### <a name="managed-disk-provisioned-iops"></a>Hanterad Disk etablerad IOPS
+### <a name="managed-disk-provisioned-iops"></a>Hanterad disk etablerad IOPS
 
 IOPS är antalet begäranden som programmet skickar till diskar per sekund. En i/o-åtgärd kan vara sekventiell Läs- eller Skriv- eller icke-sekventiella Läs eller Skriv. Baserat på diskens storlek eller antalet diskar som är anslutna till den virtuella datorn, faktureras det genomsnittliga antalet IOPS per timme. Se tabellen i skalbarhets- och prestandamål ovan för information om den disk som erbjuds av IOPS.
 
-### <a name="managed-disk-provisioned-throughput"></a>Dataflöde för hanterad Disk
+### <a name="managed-disk-provisioned-throughput"></a>Managed disk etablerat dataflöde
 
 Dataflödet är mängden data som ditt program skickar till diskar i ett visst intervall, mätt i byte per sekund. Om ditt program fungerar stora indata/utdata-åtgärder, kräver hög genomströmning.  
 
@@ -78,20 +78,20 @@ Det finns en relation mellan dataflöde och IOPS, enligt följande formel:  IOPS
 
 Det är därför viktigt att fastställa optimal dataflöde och IOPS-värden som krävs för ditt program. När du försöker optimera en hämtar den andra också påverkas. Vi rekommenderar att från och med en genomströmning som motsvarar 16 KiB i/o-storlek och justera eventuellt större dataflöde.
 
-Se tabellen i skalbarhets- och prestandamål ovan för information om stöds diskgenomflödet på Ultra SSD. Det etablerade dataflödet debiteras per timme per Mbit/s etablerade som diskens storlek och IOPS.
+Se tabellen i skalbarhets- och prestandamål ovan för information om stöds diskgenomflödet på ultra diskar. Det etablerade dataflödet debiteras per timme per Mbit/s etablerade som diskens storlek och IOPS.
 
-### <a name="ultra-ssd-vm-reservation-fee"></a>Ultra SSD VM reservation avgift
+### <a name="ultra-disk-vm-reservation-fee"></a>Ultra disk VM reservation avgift
 
-Introducerar vi en funktion på den virtuella datorn som anger den virtuella datorn är Ultra SSD som är kompatibla. Ett Ultra SSD kompatibel virtuell dator allokerar dedikerad bandbreddskapacitet mellan beräkningsinstans för virtuell dator och blockera lagringsskalningsenhet att optimera prestanda och minska svarstiden. Lägger till den här funktionen på VM-resultatet reservation kostar pengar som endast gäller om du har aktiverat Ultra SSD-kapaciteten på den virtuella datorn utan att koppla ett Ultra SSD-disk till den. När ett Ultra SSD-disken är ansluten till de Ultra SSD kompatibla virtuella datorer, skulle inte den här avgiften tillämpas. Denna kostnad är per virtuell processor har etablerats på den virtuella datorn.
+Introducerar vi en funktion på den virtuella datorn som anger den virtuella datorn är ultra disk som är kompatibla. Ett ultra disk kompatibel virtuell dator allokerar dedikerad bandbreddskapacitet mellan beräkningsinstans för virtuell dator och blockera lagringsskalningsenhet att optimera prestanda och minska svarstiden. Lägger till den här funktionen på VM-resultatet reservation kostar pengar som endast gäller om du har aktiverat ultra disk-funktionen på den virtuella datorn utan att koppla en ultra disk till den. När ett ultra disken är ansluten till de ultra kompatibla virtuella datorer, skulle inte den här avgiften tillämpas. Denna kostnad är per virtuell processor har etablerats på den virtuella datorn.
 
-Referera till den [Azure Disks sidan med priser](https://azure.microsoft.com/pricing/details/managed-disks/) pris för nya Ultra SSD-diskar information som är tillgängliga i en begränsad förhandsversion.
+Referera till den [Azure Disks sidan med priser](https://azure.microsoft.com/pricing/details/managed-disks/) nya ultra diskar pris information tillgänglig i en begränsad förhandsversion.
 
-### <a name="ultra-ssd-preview-scope-and-limitations"></a>Ultra SSD förhandsversion omfång och begränsningar
+### <a name="ultra-disk-preview-scope-and-limitations"></a>Ultra disk förhandsversion omfång och begränsningar
 
-Förhandsversionen Ultra SSD-diskar:
+Förhandsversionen ultra diskar:
 
 - Inledningsvis stöds i östra USA 2 i en enda Tillgänglighetszon  
-- Kan bara användas med Tillgänglighetszoner (Tillgänglighetsuppsättningar och enkel VM-distributioner utanför zoner kommer inte har möjlighet att koppla ett Ultra SSD-Disk)
+- Kan bara användas med Tillgänglighetszoner (Tillgänglighetsuppsättningar och enkel VM-distributioner utanför zoner kommer inte har möjlighet att koppla ett ultra disk)
 - Stöds endast på ES/DS v3 virtuella datorer
 - Finns bara tillgängliga i datadiskar och endast stöd för 4k som fysisk sektorstorlek  
 - Kan bara skapas som tomma diskar  

@@ -16,24 +16,21 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd91607260d47d37bc3ce94ec63f700082416b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981153"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329907"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Hur du koppla ifrån en datadisk från en Windows-dator
 
 När du inte längre behöver en datadisk som är ansluten till en virtuell dator kan du enkelt koppla bort den. Detta tar bort disken från den virtuella datorn, men tas inte bort från storage.
 
 > [!WARNING]
-> Om du koppla bort en disk som den inte tas bort automatiskt. Om du har prenumererat på Premium-lagring, fortsätter att kosta lagringsavgifter för disken. Mer information finns i [priser och fakturering när du använder Premiumlagring](premium-storage.md#pricing-and-billing).
->
->
+> Om du koppla bort en disk som den inte tas bort automatiskt. Om du har prenumererat på Premium-lagring, fortsätter att kosta lagringsavgifter för disken. Mer information finns i [priser och fakturering när du använder Premiumlagring](disks-types.md#billing).
 
 Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator, eller till en annan.
-
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -51,11 +48,10 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 Disken kvar i lagring, men är inte längre kopplad till en virtuell dator.
 
-
 ## <a name="detach-a-data-disk-using-the-portal"></a>Koppla ifrån en datadisk med hjälp av portalen
 
 1. I den vänstra menyn väljer du **virtuella datorer**.
-2. Välj den virtuella dator som har datadisken som du vill koppla från och klickar på **stoppa** att frigöra den virtuella datorn.
+2. Välj den virtuella dator som har datadisken som du vill koppla från och klickar på **stoppa** till frigör den virtuella datorn.
 3. I den virtuella dator i rutan Välj **diskar**.
 4. Överst på den **diskar** väljer **redigera**.
 5. I den **diskar** i fönstret till höger i datadisken som du vill koppla från, klickar du på den ![koppla från knappbild](./media/detach-disk/detach.png) koppla från knappen.
@@ -65,5 +61,5 @@ Disken kvar i lagring, men är inte längre kopplad till en virtuell dator.
 Disken kvar i lagring, men är inte längre kopplad till en virtuell dator.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill återanvända datadisken kan du enkelt [koppla den till en annan virtuell dator](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
+Om du vill återanvända datadisken kan du enkelt [koppla den till en annan virtuell dator](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468843"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327569"
 ---
 # <a name="aks-troubleshooting"></a>AKS felsökning
 
@@ -34,7 +34,11 @@ Den maximala poddar per nod-inställningen är 110 som standard om du distribuer
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Jag får ett insufficientSubnetSize-fel när du distribuerar ett AKS-kluster med avancerade nätverk. Vad ska jag göra?
 
-I det anpassade Azure Virtual Network-alternativet för nätverk när du skapar AKS används Azure behållare nätverk gränssnitt (CNI) för hantering av IPAM (IP Address). Antalet noder i ett AKS-kluster kan finnas var som helst mellan 1 och 100. Utifrån föregående avsnitt, ska storleken på undernätet vara större än produkten av antalet noder och maximal poddarna per nod. Relationen kan uttryckas i det här sättet: undernätets storlek > Antal noder i klustret * maximala poddar per nod.
+Om du använder Azure CNI (Avancerat nätverk), AKS preallocates IP-adresserna baserat på ”max-poddarna” per nod som har konfigurerats. Antalet noder i ett AKS-kluster kan finnas var som helst mellan 1 och 110. Baserat på de konfigurerade maximala poddarna per nod, ska storleken på undernätet vara större än ”produkten av antalet noder och max pod per nod”. Följande grundläggande beräkning beskrivs detta:
+
+Undernätets storlek > Antal noder i klustret (ta hänsyn till kraven för framtida skalning) * max poddar per nod.
+
+Mer information finns i [Planera IP-adresser för ditt kluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Min pod har fastnat i CrashLoopBackOff läge. Vad ska jag göra?
 

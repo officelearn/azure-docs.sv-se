@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976910"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328732"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snabbstart: Manuell installation av en instans SAP HANA på Azure Virtual Machines
 ## <a name="introduction"></a>Introduktion
@@ -75,7 +75,7 @@ För ytterligare SAP-dokumentationen om SAP HANA och olika Linux-operativsystem,
 * [SAP Support-kommentar #1984787 - SUSE Linux Enterprise Server 12:  Installationsinformation](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP Support-kommentar #1391070 - UUID för Linux-lösningar](https://launchpad.support.sap.com/#/notes/1391070)
 * [SAP Support Obs! #2009879 – SAP HANA riktlinjer för Red Hat Enterprise Linux (RHEL)-operativsystem](https://launchpad.support.sap.com/#/notes/2009879)
-* [2292690 – SAP HANA-DATABASOBJEKT: Rekommenderade OS-inställningar för RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
+* [2292690 - SAP HANA DB: Rekommenderade OS-inställningar för RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
 
 ### <a name="sap-monitoring-in-azure"></a>SAP övervakning i Azure
 Information om SAP övervakning i Azure finns i:
@@ -195,7 +195,7 @@ Utifrån den [lagringskrav för SAP HANA TDI](https://www.sap.com/documents/2015
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-I den föreslagna diskkonfigurationen placeras HANA datavolym och loggvolymen på samma uppsättning Azure premium storage-diskar stripe med LVM eller MDADM. Du behöver inte definiera alla RAID-nivå för redundans eftersom Azure Premium Storage behåller tre bilder på diskarna för redundans. För att säkerställa att du konfigurerar tillräckligt med lagringsutrymme, finns det [lagringskrav för SAP HANA TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) och [Update Guide och SAP HANA Server Installation](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Även överväga annan virtuell hårddisk (VHD) dataflöde volymer av olika Azure premium storage-diskar som beskrivs i [högpresterande Premium Storage och hanterade diskar för virtuella datorer](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
+I den föreslagna diskkonfigurationen placeras HANA datavolym och loggvolymen på samma uppsättning Azure premium storage-diskar stripe med LVM eller MDADM. Du behöver inte definiera alla RAID-nivå för redundans eftersom Azure Premium Storage behåller tre bilder på diskarna för redundans. För att säkerställa att du konfigurerar tillräckligt med lagringsutrymme, finns det [lagringskrav för SAP HANA TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) och [Update Guide och SAP HANA Server Installation](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Även överväga annan virtuell hårddisk (VHD) dataflöde volymer av olika Azure premium storage-diskar som beskrivs i [högpresterande Premium Storage och hanterade diskar för virtuella datorer](../../windows/disks-types.md). 
 
 Du kan lägga till mer premium-lagringsdiskar HANA DBMS virtuella datorer för att lagra säkerhetskopior av transaktionsloggen.
 
@@ -206,9 +206,7 @@ Mer information om de två huvudsakliga verktyg som används för att konfigurer
 
 Läs mer på kopplar diskar till virtuella Azure-datorer som kör Linux som en gäst-OS, [lägga till en disk i en Linux VM](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure Premium Storage kan du definiera diskcachelagringstypen lägen. För stripe håller /hana/data och /hana/log, ska diskcachelagring vara inaktiverat. För andra volymer (diskar), cachelagring läge ska vara inställd på **ReadOnly**.
-
-Mer information finns i [Premium Storage: Lagring med höga prestanda för Azure-datorbelastningar](../../windows/premium-storage.md).
+Azure premium SSD-enheter kan du definiera diskcachelagringstypen lägen. För stripe håller /hana/data och /hana/log, ska diskcachelagring vara inaktiverat. För andra volymer (diskar), cachelagring läge ska vara inställd på **ReadOnly**.
 
 Du hittar exempel JSON-mallar för att skapa virtuella datorer genom att gå till [Azure-Snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates).
 Vm-enkel-sles-mallen är en grundläggande mall. Den innehåller ett avsnitt för lagring, med en ytterligare 100 GB data-disk. Den här mallen kan användas som bas. Du kan anpassa mallen till din specifika konfiguration.

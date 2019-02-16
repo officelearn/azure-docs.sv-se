@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 62a0e763913ea1ca27edf88d7560c9400043bf27
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7bf7034d30a8aac187fb2eeae6569f2f495e4439
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251375"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327263"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Om VPN gateway för Azure Stack
 
@@ -74,7 +74,7 @@ Diagrammen och beskrivningarna i följande avsnitt kan hjälpa dig att välja en
 
 ### <a name="site-to-site"></a>Plats-till-plats
 
-En *plats-till-plats* (S2S) VPN gateway-anslutning är en anslutning via IPsec/IKE (IKEv1 eller IKEv2) VPN-tunnel. Den här typen av anslutning kräver en VPN-enhet som finns lokalt och har tilldelats en offentlig IP-adress. Den här enheten får inte finnas bakom en NAT. S2S-anslutningar kan användas för konfigurationer mellan platser och för hybridkonfigurationer.
+En *plats-till-plats* (S2S) VPN gateway-anslutning är en anslutning via IPsec/IKE (IKEv2) VPN-tunnel. Den här typen av anslutning kräver en VPN-enhet som finns lokalt och har tilldelats en offentlig IP-adress. Den här enheten får inte finnas bakom en NAT. S2S-anslutningar kan användas för konfigurationer mellan platser och för hybridkonfigurationer.
 
 ![Konfigurationsexempel för plats-till-plats VPN-anslutning](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 

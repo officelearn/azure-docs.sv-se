@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244495"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327858"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -78,7 +78,7 @@ Tänk på dessa regler när du namnger lagringskontot:
 Allmänna lagringskonton kan konfigureras för något av följande prestandanivåer:
 
 * En standard prestandanivån för att lagra blobar, filer, tabeller, köer och Azure-datordiskar.
-* En premium-prestandanivån för att lagra virtuell dator i Azure-diskar. Se [Premium Storage: Lagring med höga prestanda för Azure-Datorbelastningar](../../virtual-machines/windows/premium-storage.md) för en detaljerad översikt över Premium storage.
+* En premium-prestandanivån för att lagra endast ohanterade virtuella diskar.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Åtkomstnivåerna för block blob-data
 

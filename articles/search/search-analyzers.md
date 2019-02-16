@@ -4,23 +4,23 @@ description: Tilldela analysatorer till sökbara fält i ett index att ersätta 
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 02/15/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 5c3894b1f19a6baa65323391526ea5492d79f8a7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: a3f782cdd34f2a45c58e6a98d013f949767589cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301340"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328018"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analysverktyg för textbearbetning i Azure Search
 
-En *analyzer* är en del av den [motorn för fulltextsökning](search-lucene-query-architecture.md) ansvarar för bearbetningen av text i frågesträngar och indexerade dokumenten. Det finns språkanalysverktyg och text manipulering analysverktyg. Språkanalysverktyg är de vanligaste och det är standard språkanalysverktyg som tilldelats varje strängfält i ett Azure Search-index.
+En *analyzer* är en del av den [motorn för fulltextsökning](search-lucene-query-architecture.md) ansvarar för bearbetningen av text i frågesträngar och indexerade dokumenten. Olika analysverktyg ändra text på olika sätt beroende på scenario. Språkanalysverktyg bearbeta text med språkliga regler för att förbättra kvaliteten för sökning, medan andra analysverktyg utför grundläggande uppgifter, t.ex. Konvertera tecken till gemener, till exempel. 
 
-Följande språk omvandlingarna är typiska under textanalys:
+Språkanalysverktyg är den vanligaste och det är standard språkanalysverktyg som tilldelats varje sökbart fält i ett Azure Search-index. Följande språk omvandlingarna är typiska under textanalys:
 
 + Icke-essential ord (stoppord) och skiljetecken tas bort.
 + Fraser och Avstavade ord är uppdelade i komponenter.
@@ -46,7 +46,7 @@ I följande lista beskrivs vilka analysverktyg är tillgängliga i Azure Search.
 | Fördefinierade analysverktyg | Erbjuds en färdig produkt som är avsedd att användas som – är. <br/>Det finns två typer: specialiserade och språk. Vad gör dem ”fördefinierade” är att du referera till dem efter namn, utan konfiguration eller anpassning. <br/><br/>[Specialiserad (språkoberoende) analysverktyg](index-add-custom-analyzers.md#AnalyzerTable) används när Textinmatningar kräver särskild bearbetning eller minimal bearbetning. Icke-fördefinierade språkanalysverktyg inkluderar **Asciifolding**, **nyckelordet**, **mönstret**, **enkel**, **stoppa**, **Blanksteg**.<br/><br/>[Språkanalysverktyg](index-add-language-analyzers.md) används när du behöver omfattande språkliga stöd för enskilda språk. Azure Search har stöd för 35 Lucene-språkanalys och 50 analysverktyg för språkbearbetning av Microsoft. |
 |[Anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refererar till en användardefinierad konfiguration av en kombination av befintliga element, som består av en tokenizer (krävs) och valfritt filter (char eller token).|
 
-Några fördefinierade analysatorer, till exempel **mönstret** eller **stoppa**, stöd för en begränsad uppsättning konfigurationsalternativ. Om du vill ange de här alternativen du effektivt skapar ett anpassat analysverktyg som består av de fördefinierade analzer och en av alternativ som beskrivs i [fördefinierade Analyzer referens](index-add-custom-analyzers.md#AnalyzerTable). Som med valfri anpassad konfiguration, ange den nya konfigurationen med ett namn, till exempel *myPatternAnalyzer* att skilja den från Lucene mönstret analysatorn.
+Några fördefinierade analysatorer, till exempel **mönstret** eller **stoppa**, stöd för en begränsad uppsättning konfigurationsalternativ. Om du vill ange de här alternativen du effektivt skapar ett anpassat analysverktyg som består av fördefinierade analysatorn och en av alternativ som beskrivs i [fördefinierade Analyzer referens](index-add-custom-analyzers.md#AnalyzerTable). Som med valfri anpassad konfiguration, ange den nya konfigurationen med ett namn, till exempel *myPatternAnalyzer* att skilja den från Lucene mönstret analysatorn.
 
 ## <a name="how-to-specify-analyzers"></a>Så här anger du analysverktyg
 
@@ -54,24 +54,26 @@ Några fördefinierade analysatorer, till exempel **mönstret** eller **stoppa**
 
 2. På en [fältet definition](https://docs.microsoft.com/rest/api/searchservice/create-index) i indexet, anger du fältets **analyzer** egenskapen till namnet på en mål-analyzer (till exempel `"analyzer" = "keyword"`. Giltiga värden är namnet på en fördefinierad analyzer, språkanalysverktyg eller anpassat analysverktyg definieras även i indexschemat. Planera hur du tilldelar analyzer i utvecklingsfasen index innan indexet har skapats i tjänsten.
 
-3. Du kan också istället för en **analyzer** egenskapen, som du kan ange olika analysverktyg för indexering och fråga med hjälp av den **indexAnalyzer** och **searchAnalyzer** fält parametrar. 
+3. Du kan också istället för en **analyzer** egenskapen, som du kan ange olika analysverktyg för indexering och fråga med hjälp av den **indexAnalyzer** och **searchAnalyzer** fält parametrar. Du använder olika analysverktyg för förberedelse av data och hämtning av filer om någon av dessa aktiviteter krävs en omvandling krävs inte för den andra.
 
-3. Att lägga till en analyzer i en fältdefinition medför en skrivåtgärd i indexet. Om du lägger till en **analyzer** till ett befintligt index, Tänk på följande:
+Tilldela **analyzer** eller **indexAnalyzer** till ett fält som redan har skapats fysiskt tillåts inte. Om det här är oklart, kontrollera i följande tabell för en analys på detaljnivå av vilka åtgärder måste indexet återskapas och varför.
  
  | Scenario | Påverkan | Steg |
  |----------|--------|-------|
- | Lägg till ett nytt fält | minimal | Om fältet inte finns ännu i schemat, finns det inga fält revision eftersom fältet ännu inte har en fysisk närvaro i ditt index. Använd [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) att lägga till ett nytt fält till ett befintligt index.|
- | Lägg till en analyzer till ett befintligt indexerade fält. | [rebuild](search-howto-reindex.md) | Vägar i inverterad indexet för det fältet måste återskapas från grunden upp och innehållet för dessa fält måste indexeras. <br/> <br/>För index utvecklas, [ta bort](https://docs.microsoft.com/rest/api/searchservice/delete-index) och [skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) i index för att hämta den nya fältdefinitionen. <br/> <br/>Du kan fördröja återskapning för index i produktionen genom att skapa ett nytt fält för att ge den omarbetade definitionen och börja använda det i stället för den gamla servern. Använd [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) att lägga till det nya fältet och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) att fylla i itbet. Senare, som en del av index för planerat underhåll, kan du rensa i index för att ta bort föråldrade fält. |
+ | Lägg till ett nytt fält | minimal | Om fältet inte finns ännu i schemat, finns det inga fält revision eftersom fältet ännu inte har en fysisk närvaro i ditt index. Du kan använda [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) att lägga till ett nytt fält till ett befintligt index och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) att fylla i den.|
+ | Lägg till en **analyzer** eller **indexAnalyzer** till ett befintligt indexerade fält. | [rebuild](search-howto-reindex.md) | Vägar i inverterad indexet för det fältet måste återskapas från grunden och innehållet för dessa fält måste indexeras. <br/> <br/>För index utvecklas, [ta bort](https://docs.microsoft.com/rest/api/searchservice/delete-index) och [skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) i index för att hämta den nya fältdefinitionen. <br/> <br/>Du kan fördröja återskapning av en genom att skapa ett nytt fält för att ge den omarbetade definitionen och börja använda det i stället för gamla för index i produktion. Använd [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) att lägga till det nya fältet och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) att fylla i den. Senare, som en del av index för planerat underhåll, kan du rensa i index för att ta bort föråldrade fält. |
 
 ## <a name="when-to-add-analyzers"></a>När du ska lägga till analysverktyg
 
-Du kan definiera flera anpassade analysverktyg varierar kombination av filter, men varje fält kan bara använda en analyzer för indexering analys och en för search-analys.  
+Det är bäst att lägga till och tilldela analysverktyg är under aktivt med utveckling, när släppa och återskapa index är rutin.
 
-Du bör konfigurera analysverktyg under aktivt med utveckling när indexdefinitionen är fortfarande i som. En analyzer som anges på ett fält är en del av fältdefinition, så du kan bara lägga till det när fältet har skapats. Om du vill lägga till analysverktyg i befintliga fält måste du [släpp och återskapa](search-howto-reindex.md) indexet.
+Som en Indexdefinition solidifies, du kan lägga till nya analysis-konstruktioner till ett index, men du kommer att behöva skicka den **allowIndexDowntime** flaggan till [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) om du vill undvika det här felet:
 
-Ett undantag är searchAnalyzer variant. Det finns tre sätt att ange analysverktyg: **analyzer**, **indexAnalyzer**, **searchAnalyzer**. Det första **analyzer**, används för både indexerings- och förfrågningar. De andra två kan du styra vilka analysverktyg som används för varje typ av begäran.
+*Indexera uppdatering tillåts inte eftersom det skulle orsaka driftstopp. Ange Frågeparametern 'allowIndexDowntime' till 'true' i begäran om uppdatering index för att lägga till nya analysverktyg, tokenizers, token filter eller tecknet filter till ett befintligt index. Observera att den här åtgärden placeras i ditt index offline för minst ett par sekunder, och din indexering och frågebegäranden misslyckas. Prestanda- och skrivbehörighet tillgängligheten för indexet kan vara försämrad i flera minuter efter att indexet har uppdaterats eller längre för mycket stora index.*
 
-Båda **analyzer** och **indexAnalyzer** måste anges på inledande fältdefinition. Den **searchAnalyzer** attribut kan läggas till ett fält som redan finns, utan att det medför ett återskapning krav.
+Detsamma gäller när du tilldelar en analyzer till ett fält. En analyzer är en del av fältdefinition, så du kan bara lägga till det när fältet har skapats. Om du vill lägga till analysverktyg i befintliga fält måste du [släpp och återskapa](search-howto-reindex.md) index, eller lägga till ett nytt fält med analyzer som du vill.
+
+Enligt vad som anges, ett undantag är den **searchAnalyzer** variant. Tre sätt att ange analysverktyg (**analyzer**, **indexAnalyzer**, **searchAnalyzer**), bara de **searchAnalyzer** attribut kan ändras på ett befintligt fält.
 
 ## <a name="recommendations-for-working-with-analyzers"></a>Rekommendationer för att arbeta med analysverktyg
 

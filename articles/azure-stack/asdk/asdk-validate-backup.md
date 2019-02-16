@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 02/15/2019
+ms.openlocfilehash: 6fdec992b19a5615a35955a46fd90102890cde16
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965332"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329361"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Använd ASDK för att validera en säkerhetskopiering i Azure Stack
 När du distribuerar Azure Stack och etablera användarresurser, till exempel erbjudanden, planer, kvoter och prenumerationer, bör du [Aktivera säkerhetskopiering av Azure Stack-infrastruktur](../azure-stack-backup-enable-backup-console.md). Schemaläggning och körning av infrastruktur för regelbundna säkerhetskopieringar säkerställer att infrastrukturen hanteringsdata inte går förlorad om det finns ett oåterkalleligt maskinvaru- eller tjänstfel.
@@ -52,11 +52,11 @@ Innan du startar en molndistribution för återställning av ASDK ska du kontrol
 
 |Krav|Beskrivning|
 |-----|-----|
-|Säkerhetskopiering resurssökväg.|UNC-sökvägen till filresursen för den senaste Azure Stack-säkerhetskopia som ska användas för att återskapa information för Azure Stack-infrastruktur. Den här lokala resursen skapas under distributionsprocessen för molnet återställning.|
-|Säkerhetskopiera krypteringsnyckel.|Krypteringsnyckeln som användes för att schemalägga infrastruktur för säkerhetskopiering ska köras med Azure Stack-administrationsportalen.|
-|Säkerhetskopie-ID att återställa.|Säkerhetskopie-ID i formuläret alfanumeriska ”xxxxxxxx-xxxx-xxxx-xxxx-XXXXXXXXXXXX” som identifierar säkerhetskopian ska återställas under molnåterställning.|
-|Tid IP-adress.|En giltig tid servern IP-adress, till exempel 132.163.97.2, krävs för Azure Stack-distributioner.|
-|Externt certifikatlösenord.|Lösenordet för det externa certifikatet som används av Azure Stack. CA-säkerhetskopiering innehåller externa certifikat som måste återställas med det här lösenordet.|
+|Säkerhetskopiering resurssökväg|UNC-sökvägen till filresursen för den senaste Azure Stack-säkerhetskopia som ska användas för att återskapa information för Azure Stack-infrastruktur. Den här lokala resursen skapas under distributionsprocessen för molnet återställning.|
+|Säkerhetskopiera krypteringsnyckel|Valfri. Krävs endast om du har uppgraderat till Azure Stack-version 1901 eller senare från en tidigare version av Azure Stack med säkerhetskopiering aktiverad.|
+|Säkerhetskopie-ID att återställa|Säkerhetskopie-ID i formuläret alfanumeriska ”xxxxxxxx-xxxx-xxxx-xxxx-XXXXXXXXXXXX” som identifierar säkerhetskopian ska återställas under molnåterställning.|
+|IP-adress för server för tid|En giltig tid servern IP-adress, till exempel 132.163.97.2, krävs för Azure Stack-distributioner.|
+|Lösenord för externa certifikat|Lösenordet för det självsignerade certifikatets privata nyckel (.pfx) som användes för att skydda säkerhetskopian.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Förbereda värddatorn 
@@ -133,11 +133,12 @@ $certPass = Read-Host -AsSecureString
 ## <a name="restore-infrastructure-data-from-backup"></a>Återställa infrastrukturdata från en säkerhetskopia
 Efter en lyckad återställning molndistribution, du behöver för att slutföra en återställning med hjälp av den **återställning AzureStack** cmdlet. 
 
-När du loggar in som Azure Stack-operatör [installera Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) och sedan ersätta din Backup-ID för den `Name` parameter, kör du följande kommando:
+När du loggar in som Azure Stack-operatör [installera Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) och kör följande kommandon för att ange certifikatet och lösenordet som ska användas när du återställer från en säkerhetskopia:
 
 ```powershell
 Restore-AzsBackup -Name "<BackupID>"
 ```
+
 Vänta 60 minuter efter att anropa denna cmdlet om du vill starta verifiering av säkerhetskopierade data på molnet återställts ASDK.
 
 ## <a name="next-steps"></a>Nästa steg

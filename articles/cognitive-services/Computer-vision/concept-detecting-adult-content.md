@@ -8,27 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 64db05e5e40b76d219ea0e3214c20297f32da4b5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861280"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312557"
 ---
-# <a name="detecting-adult-and-racy-content"></a>Identifiera vuxet eller olämpligt innehåll
+# <a name="detect-adult-and-racy-content"></a>Identifiera vuxet eller olämpligt innehåll
 
-Bland de olika visuella kategorierna är gruppen med innehåll som är olämpligt för barn som känner igen sådant material och begränsar bilder med sexuellt innehåll. Filtret för stötande och olämpligt innehåll kan ställas in på en skala för att passa dina preferenser.
+Visuellt innehåll kan identifiera material som är olämpligt för barn i bilder så att utvecklare kan begränsa visning av sådana bilder i sina program. Innehåll flaggor tillämpas med en poäng mellan noll och ett så att utvecklare kan tolka resultaten efter egna önskemål. 
 
-## <a name="defining-adult-and-racy-content"></a>Definiera vuxet eller olämpligt innehåll
+> [!NOTE]
+> Den här funktionen är även erbjuds av den [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) service. Se detta alternativ för lösningar i strängare innehållsmoderering scenarier, till exempel textmoderering och arbetsflöden för mänsklig granskning.
 
-Bland de olika visuella funktioner som omfattas av den [analysera bild metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vuxet visual funktionen gör det möjligt för identifiering av bilder med vuxet och vågat innehåll. ”Vuxet” avbildningar definieras som sådana som är pornografiskt sin natur och ofta föreställer nakenhet och sexuellt åtgärder. ”Vågat” bilder har definierats som bilder som sexuellt tyder sin natur och innehåller ofta mindre sexuellt explicit innehåll än avbildningar som taggats som ”vuxen”. Vuxet visual funktionstyp används ofta för att begränsa visning av bilder som innehåller sexuellt tyder och sexuellt explicit innehåll.
+## <a name="content-flag-definitions"></a>Innehåll flaggan definitioner
 
-## <a name="identifying-adult-and-racy-content"></a>Identifiera vuxet eller olämpligt innehåll
+**Vuxet** avbildningar definieras som sådana som är pornografiskt sin natur och ofta föreställer nakenhet och sexuellt åtgärder. 
 
-Analysera bild-metoden returnerar två egenskaper `isAdultContent` och `isRacyContent`, JSON-svar med metoden, ange vuxet eller olämpligt innehåll. Båda egenskaperna returnerar ett booleskt värde, true eller false. Metoden returnerar också två egenskaper `adultScore` och `racyScore`, som representerar, respektive förtroende poängen för att identifiera vuxet eller olämpligt innehåll. Ett förtroende-filter för vuxet och vågat innehåll kan ställas in på en glidande skala för att hantera dina inställningar baserat på din situation.
+**Vågat** avbildningar är definierade som avbildningar som är sexuellt tyder sin natur och ofta innehåller mindre sexuellt explicit innehåll än avbildningar som **vuxet**. 
+
+## <a name="identify-adult-and-racy-content"></a>Identifiera vuxet eller olämpligt innehåll
+
+Den [analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
+
+Analysera bild-metoden returnerar två booleska egenskaper `isAdultContent` och `isRacyContent`, JSON-svar med metoden för att ange vuxet eller olämpligt innehåll respektive. Metoden returnerar också två egenskaper `adultScore` och `racyScore`, som representerar förtroende poängen för att identifiera vuxet eller olämpligt innehåll respektive.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4f26c805c42f027409127232fcfef9840939e8d9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812575"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329191"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup-arkitektur
 
@@ -175,8 +175,8 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> För DP
 
 Läs mer:
 
-- Mer information om disklagring för [Windows](../virtual-machines/windows/about-disks-and-vhds.md) och [Linux](../virtual-machines/linux/about-disks-and-vhds.md) virtuella datorer.
-- Lär dig mer om [standard](../virtual-machines/windows/standard-storage.md) och [premium](../virtual-machines/windows/premium-storage.md) lagring.
+- Mer information om disklagring för [Windows](../virtual-machines/windows/managed-disks-overview.md) och [Linux](../virtual-machines/linux/managed-disks-overview.md) virtuella datorer.
+- Lär dig mer om de tillgängliga [-disktyper](../virtual-machines/windows/disks-types.md) som standard och premium.
 
 
 ### <a name="backing-up-and-restoring-azure-vms-with-premium-storage"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med premium storage 
@@ -184,9 +184,9 @@ Läs mer:
 Du kan säkerhetskopiera virtuella Azure-datorer med premium storage med Azure Backup:
 
 - När du säkerhetskopierar virtuella datorer med premium storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet ”AzureBackup-”, i lagringskontot. Storleken på mellanlagringsplatsen är lika stor som återställningspunktens ögonblicksbild.
-- Kontrollera att premium storage-konto har tillräckligt med ledigt utrymme för den tillfälliga mellanlagringsplatsen får platsen. [Läs mer](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Ändra inte mellanlagringsplatsen.
+- Kontrollera att premium storage-konto har tillräckligt med ledigt utrymme för den tillfälliga mellanlagringsplatsen får platsen. [Läs mer](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Ändra inte mellanlagringsplatsen.
 - När säkerhetskopieringen är klar tas mellanlagringsplatsen bort.
-- Priset för lagringen som används för mellanlagringsplatsen är konsekvent med [priser för premium storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+- Priset för lagringen som används för mellanlagringsplatsen är konsekvent med [priser för premium storage](../virtual-machines/windows/disks-types.md#billing).
 
 När du återställer virtuella Azure-datorer med premium storage kan återställa du dem till premium eller standard-lagring. Vanligtvis vill du återställa till premium, men det kan vara kostnadseffektivt att återställa till standard om du behöver bara en delmängd av filerna från den virtuella datorn.
 

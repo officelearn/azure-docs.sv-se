@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816738"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311536"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med hjälp av Azure Data Factory Kopieringsaktivitet
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -116,7 +116,7 @@ Det här exemplet innehåller exempel JSON-definitioner som du kan använda för
 
 Exemplet har följande Data Factory-entiteter:
 
-- En DB2-länkad tjänst av typen [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties)
+- En DB2-länkad tjänst av typen [OnPremisesDb2](data-factory-onprem-db2-connector.md)
 - Azure Blob storage-länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 - Indata [datauppsättning](data-factory-create-datasets.md) av typen [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties)
 - Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)

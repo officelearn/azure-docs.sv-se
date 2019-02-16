@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5719d5c49d3061acd167f51f74aac109dc22ec49
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961412"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326518"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Skapa disklagring för virtuella datorer i Azure Stack
 
@@ -32,9 +32,9 @@ Den här artikeln beskriver hur du skapar disklagring för virtuella datorer med
 
 Från och med version 1808, stöder Azure Stack användning av hanterade diskar och ohanterade diskar på virtuella datorer som både ett operativsystem (OS) och en datadisk. Före version 1808 stöds endast ohanterade diskar. 
 
-**[Hanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  förenkla Diskhantering för virtuella Azure IaaS-datorer genom att hantera de lagringskonton som är associerade med de Virtuella diskarna. Du behöver bara ange storleken på disk och Azure Stack skapar och hanterar disken åt dig.
+**[Hanterade diskar](../../virtual-machines/windows/managed-disks-overview.md)**  förenkla Diskhantering för virtuella Azure IaaS-datorer genom att hantera de lagringskonton som är associerade med de Virtuella diskarna. Du behöver bara ange storleken på disk och Azure Stack skapar och hanterar disken åt dig.
 
-**[Ohanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, kräver att du skapar en [lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) att lagra diskar. Diskar som du skapar kallas VM-diskar och lagras i behållare i lagringskontot.
+Ohanterade diskar kräver att du skapar ett lagringskonto för att lagra diskar. Diskar som du skapar kallas VM-diskar och lagras i behållare i lagringskontot.
 
 ### <a name="best-practice-guidelines"></a>Riktlinjer för bästa praxis
 

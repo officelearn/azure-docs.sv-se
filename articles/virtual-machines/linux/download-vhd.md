@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 6d827e1142fa17b29633c98c062fd204f7a49e36
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f72d49a3ab204ce64eb89d0f05630b640c138e0a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729745"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329259"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Hämta en Linux-VHD från Azure
 
-I den här artikeln får du lära dig hur du laddar ned en [Linux virtuell hårddisk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) filen från Azure med hjälp av Azure CLI och Azure-portalen. 
+I den här artikeln får du lära dig hur du hämtar en fil för Linux-virtuell hårddisk (VHD) från Azure med hjälp av Azure CLI och Azure-portalen. 
 
 Om du inte redan har gjort det installerar [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
@@ -72,7 +72,7 @@ För att hämta VHD-filen, måste du generera en [signatur för delad åtkomst (
 2.  Välj disken som operativsystemet för den virtuella datorn och klicka sedan på **exportera**.
 3.  Klicka på **generera URL: en**.
 
-    ![Skapa Webbadress](./media/download-vhd/export-generate.png)
+    ![Skapa webbadress](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>Ladda ned VHD
 

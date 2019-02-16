@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822790"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329958"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -88,7 +88,7 @@ Nu ska kontrollera du egenskaperna för källdatorn. Kom ihåg att Azure VM-namn
 2. I **Egenskaper** kan du visa information om replikering och redundans för den virtuella datorn.
 3. I **beräkning och nätverk** > **beräkna egenskaper**, du kan ändra flera VM-propoerties:
 * Azure VM name - ändra namnet till uppfyller kraven för Azure vid behov
-* Storleken eller typ - standard VM-storlek väljs baserat på käll-VM-storlek. Du kan välja en annan VM-storlek baserat på behov när som helst före redundans. Observera att VM-diskstorleken bygger också på källdiskens storlek och att den endast kan ändras efter redundans. Läs mer på [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) och [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) storlekar och IOPS.
+* Storleken eller typ - standard VM-storlek väljs baserat på käll-VM-storlek. Du kan välja en annan VM-storlek baserat på behov när som helst före redundans. Observera att VM-diskstorleken bygger också på källdiskens storlek och att den endast kan ändras efter redundans. Lär dig mer om diskstorlekar och IOPS i vår [skalbarhetsmål för diskar](../virtual-machines/windows/disk-scalability-targets.md) artikeln.
 
     ![Beräknings- och Nätverksegenskaper](./media/vmware-azure-enable-replication/vmproperties.png)
 

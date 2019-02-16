@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: b27dd1b9aec89f259649b313d3ba7f944ea647f1
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765729"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329304"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
@@ -114,7 +114,12 @@ Innan du kan skapa virtuella datorer med hjälp av CLI, måste du kontakta Azure
 
 Använd följande steg för att ansluta till Azure Stack:
 
-1. Registrera Azure Stack-miljön genom att köra den `az cloud register` kommando.
+1. Registrera Azure Stack-miljön genom att köra den `az cloud register` kommando. I vissa situationer kan dirigeras direkt utgående internet-anslutning via en proxy eller brandvägg som framtvingar SSL internetkommunikationer. I dessa fall kan den `az cloud register` kommando kan misslyckas med ett fel, till exempel ”det går inte att hämta slutpunkter från molnet”. Undvik det här felet, kan du ange följande miljövariabler:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
     a. Att registrera den *molnet administrativa* miljö, Använd:
 

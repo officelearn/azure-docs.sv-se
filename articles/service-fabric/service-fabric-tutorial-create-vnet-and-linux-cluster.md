@@ -1,6 +1,6 @@
 ---
 title: Skapa ett Linux Service Fabric-kluster i Azure | Microsoft Docs
-description: I den här självstudien får du lära dig att distribuera ett Linux Service Fabric-kluster till ett befintligt virtuellt nätverk i Azure med Azure CLI.
+description: Lär dig att distribuera ett Linux Service Fabric-kluster till ett befintligt virtuellt nätverk i Azure med Azure CLI.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -9,70 +9,33 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: tutorial
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/27/2018
+ms.date: 02/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 265e99d18d8660f149d33b1b4a37a7d32eae794d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: bef2e5da1a151fd6178298f3b993337fd07bd294
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755204"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313339"
 ---
-# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric-kluster i Linux till ett virtuellt Azure-nätverk
+# <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric-kluster i Linux till ett virtuellt Azure-nätverk
 
-Den här självstudien ingår i en serie. Du lär dig att distribuera ett Linux Service Fabric-kluster till ett [virtuellt nätverk i Azure (VNET)](../virtual-network/virtual-networks-overview.md) med Azure CLI och en mall. När du är färdig körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+I den här artikeln lär du dig hur du distribuera ett Linux Service Fabric-kluster till ett [Azure-nätverk (VNET)](../virtual-network/virtual-networks-overview.md) med Azure CLI och en mall. När du är färdig körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-I den här guiden får du lära dig att:
+## <a name="prerequisites"></a>Förutsättningar
 
-> [!div class="checklist"]
-> * Skapa ett VNET i Azure med Azure CLI
-> * Skapa ett säkert Service Fabric-kluster i Azure med hjälp av Azure CLI
-> * Gör klustret säkert med ett X.509-certifikat
-> * Anslut till klustret med Service Fabric CLI
-> * Ta bort ett kluster
+Innan du börjar:
 
-I den här självstudieserien får du lära du dig att:
-> [!div class="checklist"]
-> * skapa ett säkert kluster i Azure
-> * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
-> * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-Innan du börjar den här självstudien:
-
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Service Fabric CLI](service-fabric-cli.md)
 * Installera [Azure CLI](/cli/azure/install-azure-cli)
+* Nyckelbegreppen för kluster kan läsa [översikt av Azure-kluster](service-fabric-azure-clusters-overview.md)
 
-I följande procedurer skapas ett Service Fabric-kluster med fem noder. Du kan beräkna kostnaden för att köra ett Service Fabric-kluster i Azure med [Azures prissättningsberäknare](https://azure.microsoft.com/pricing/calculator/).
-
-## <a name="key-concepts"></a>Viktiga begrepp
-
-Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. Kluster kan skalas upp till tusentals datorer. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel placeringsegenskaper.
-
-En nodtyp definierar storlek, antal och egenskaper för en uppsättning virtuella datorer i klustret. Varje definierad nodtyp är konfigurerad som en [VM-skalningsuppsättning](/azure/virtual-machine-scale-sets/), en Azure-beräkningsresurs du använder till att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp kan sedan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. Nodtyper används till att definiera roller för en uppsättning klusternoder, till exempel en ”klientdel” eller ”serverdel”.  Klustret kan innehålla fler än en nodtyp, men den primära nodtypen måste innehålla minst fem virtuella datorer för produktionskluster (eller minst tre virtuella datorer för testkluster).  [Service Fabric-systemtjänster](service-fabric-technical-overview.md#system-services) placeras på noderna med den primära nodtypen.
-
-Klustret skyddas med ett klustercertifikat. Ett klustercertifikat är ett X.509-certifikat som används för att skydda kommunikationen mellan noderna och att autentisera slutpunkterna för klusterhantering i en hanteringsklient.  Klustercertifikatet tillhandahåller också en SSL för API:t för HTTPS-hantering och för Service Fabric Explorer över HTTPS. Självsignerade certifikat är praktiska för testkluster.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustercertifikat.
-
-Klustercertifikatet måste:
-
-* innehålla en privat nyckel
-* vara skapat för nyckelutbyte som kan exporteras till en Personal Information Exchange-fil (.pfx)
-* ha ett ämnesnamn som överensstämmer med domänen du använder för åtkomst till Service Fabric-klustret. Matchningen krävs för att tillhandahålla SSL för klustrets HTTPS-hanteringsslutpunkter och Service Fabric Explorer. Du kan inte hämta ett SSL-certifikat från en certifikatutfärdare (CA) för domänen .cloudapp.azure.com. Du måste skaffa ett anpassat domännamn för ditt kluster. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn du använder för klustret.
-
-Azure Key Vault används till att hantera certifikat för Service Fabric-kluster i Azure.  När ett kluster distribueras i Azure hämtar Azure-resursprovidern som ansvarar för att skapa Service Fabric-kluster certifikat från Key Vault och installerar dem på klustrets virtuella datorer.
-
-I den här självstudien distribueras ett kluster med fem noder av en enda nodtyp. Vid distribution av kluster till produktion är det emellertid viktigt med [kapacitetsplanering](service-fabric-cluster-capacity.md). Här är några saker att tänka på i samband med den här processen.
-
-* Antalet noder och nodtyper som behövs i klustret
-* Egenskaperna för respektive nodtyp (exempelvis storlek, primär, offentlig och antal virtuella datorer)
-* Klustrets egenskaper för tillförlitlighet och hållbarhet
+Följande procedurer för att skapa ett Service Fabric-kluster på sju noder. Du kan beräkna kostnaden för att köra ett Service Fabric-kluster i Azure med [Azures prissättningsberäknare](https://azure.microsoft.com/pricing/calculator/).
 
 ## <a name="download-and-explore-the-template"></a>Ladda ned och titta närmare på mallen
 
@@ -81,14 +44,14 @@ Ladda ned följande mallfiler för Resource Manager:
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
 
-Den här mallen distribuerar ett säkert kluster med fem virtuella datorer och en enda nodtyp till ett virtuellt nätverk.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy.json][template] distribuerar ett antal resurser, däribland följande.
+Den här mallen distribuerar ett säkert kluster av sju virtuella datorer och tre nodtyper till ett virtuellt nätverk.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy.json][template] distribuerar ett antal resurser, däribland följande.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-kluster
 
 I resursen **Microsoft.ServiceFabric/clusters** distribueras ett Linux-kluster med följande egenskaper:
 
-* en enda nodtyp
-* fem noder av den primära nodtypen (kan konfigureras i mallparametrarna)
+* tre nodtyper
+* fem noder av den primära nodtypen (kan konfigureras i mallparametrarna), en nod i var och en av de andra nodtyperna
 * Operativsystem: Ubuntu 16.04 LTS (kan konfigureras i mallparametrarna)
 * skyddat med certifikat (kan konfigureras i mallparametrarna)
 * [DNS-tjänst](service-fabric-dnsservice.md) är aktiverad
@@ -134,6 +97,8 @@ Parameterfilen [AzureDeploy.Parameters][parameters] deklarerar många värden so
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuera det virtuella nätverket och klustret
 
 Konfigurera sedan nätverkstopologin och distribuera Service Fabric-klustret. Resource Manager-mallen [AzureDeploy.json][template] skapar ett virtuellt nätverk (VNET) och ett undernät för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverad.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustercertifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
+
+Mallen i den här artikeln distribuera ett kluster som använder certifikatets tumavtryck för att identifiera klustercertifikatet.  Inga två certifikat kan ha samma tumavtryck, vilket gör det svårare certifikathantering. Växla ett distribuerat kluster från att använda certifikattumavtryck till att använda vanliga namn för certifikatet gör certifikathantering mycket enklare.  Läs hur du uppdaterar kluster för att använda vanliga namn för certifikatet för certifikathantering [ändra klustret till vanliga namn certifikathantering i](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Skapa ett kluster med ett befintligt certifikat
 
@@ -194,22 +159,13 @@ sfctl cluster health
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-De andra artiklarna i självstudieserien använder klustret du nyss skapade. Om du inte genast fortsätter till nästa artikel kanske du vill [ta bort klustret](service-fabric-cluster-delete.md) för att undvika kostnader.
+Om du inte genast fortsätter till nästa artikel kanske du vill [ta bort klustret](service-fabric-cluster-delete.md) för att undvika kostnader.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+Lär dig hur du [skala ett kluster](service-fabric-tutorial-scale-cluster.md).
 
-> [!div class="checklist"]
-> * Skapa ett VNET i Azure med Azure CLI
-> * Skapa ett säkert Service Fabric-kluster i Azure med hjälp av Azure CLI
-> * Gör klustret säkert med ett X.509-certifikat
-> * Anslut till klustret med Service Fabric CLI
-> * Ta bort ett kluster
+Mallen i den här artikeln distribuera ett kluster som använder certifikatets tumavtryck för att identifiera klustercertifikatet.  Inga två certifikat kan ha samma tumavtryck, vilket gör det svårare certifikathantering. Växla ett distribuerat kluster från att använda certifikattumavtryck till att använda vanliga namn för certifikatet gör certifikathantering mycket enklare.  Läs hur du uppdaterar kluster för att använda vanliga namn för certifikatet för certifikathantering [ändra klustret till vanliga namn certifikathantering i](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
-Fortsätt sedan till följande självstudie för att lära dig att skala klustret.
-> [!div class="nextstepaction"]
-> [Skala ett kluster](service-fabric-tutorial-scale-cluster.md)
-
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

@@ -11,16 +11,16 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 02/14/2019
 ms.author: twhitney, mikhegn
-ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300072"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311230"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Så här: felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Anvisningar: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2017
 
 Du kan felsöka .NET-program i behållare med Visual Studio 2017 uppdatering 7 (15.7), som Service Fabric-tjänster. Den här artikeln visar hur du konfigurerar din miljö och felsöka en .NET-program i en behållare i ett lokalt Service Fabric-kluster.
 
@@ -37,10 +37,10 @@ Du kan felsöka .NET-program i behållare med Visual Studio 2017 uppdatering 7 (
 1. För att stödja DNS-matchning mellan behållare, måste du konfigurera klustret för lokal utveckling med namnet på datorn. De här stegen är också nödvändigt om du vill adresstjänster via omvänd proxy.
     1. Öppna PowerShell som administratör
     2. Navigera till installationsmappen för SDK-kluster, vanligtvis `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    3. Kör skriptet `DevClusterSetup.ps1` med parametern `-UseMachineName`
+    3. Kör skript `DevClusterSetup.ps1`
 
        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
        ```
 
     > [!NOTE]
@@ -54,13 +54,13 @@ Du kan felsöka .NET-program i behållare med Visual Studio 2017 uppdatering 7 (
 Nedan visas en lista över kända begränsningar med felsökning behållare i Service Fabric och möjliga lösningar:
 
 * Med hjälp av localhost för ClusterFQDNorIP stöder inte DNS-matchning i behållare.
-    * Lösning: Ställa in det lokala klustret med namnet på datorn (se ovan)
+    * Lösning: Ställ in det lokala klustret med namnet på datorn (se ovan)
 * Kör Windows 10 på en virtuell dator får inte DNS-svaret tillbaka till behållaren.
     * Lösning: Inaktivera UDP kontrollsumma avlastning för IPv4 på nätverkskortet för virtuella datorer
     * Observera att detta försämras nätverksprestanda på datorn.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * Lösa tjänster i samma program med hjälp av DNS fungerar tjänstnamn inte på Windows 10, om programmet distribuerades med Docker Compose
-    * Lösning: Använd servicename.applicationname för att lösa Tjänsteslutpunkter
+    * Lösning: Använda servicename.applicationname för att lösa Tjänsteslutpunkter
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Om du använder IP-adress för ClusterFQDNorIP, bryts ändra primära IP-adresser på värden DNS-funktioner.
     * Lösning: Återskapa klustret med den nya primära IP-Adressen på värden eller Använd namnet på datorn. Det här är avsiktligt.
@@ -81,4 +81,4 @@ Nedan visas en lista över kända begränsningar med felsökning behållare i Se
     Visual Studio stöder konsolen och typer för ASP.NET-projekt för .NET och .NET Core.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om funktionerna i Service Fabric och behållare, följ den här länken: [översikt över Service Fabric-behållare](service-fabric-containers-overview.md).
+Följ den här länken om du vill veta mer om funktionerna i Service Fabric och behållare: [Översikt över Service Fabric-behållare](service-fabric-containers-overview.md).

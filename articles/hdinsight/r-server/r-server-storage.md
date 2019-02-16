@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7b937158be39f9a1f7f9374611a150fd11837f02
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910274"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309125"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-lösningar för ML-tjänster på Azure HDInsight
 
@@ -119,9 +119,9 @@ När du ge tjänstens huvudnamn ett namn och skapa ett lösenord för den, klick
 
 Det är också möjligt att lägga till klustret åtkomst till en eller flera Data Lake Storage-konton när klustret har skapats. Öppna Azure portal posten för en Data Lake Storage och gå till **Datautforskaren > åtkomst > Lägg till**. 
 
-### <a name="how-to-access-data-lake-storage-from-ml-services-on-hdinsight"></a>Hur du kommer åt Data Lake Storage från ML-tjänster på HDInsight
+### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>Hur du kommer åt Data Lake Storage Gen1 från ML-tjänster på HDInsight
 
-När du har beviljat åtkomst till Data Lake Storage, kan du använda lagring i ML-Services-kluster i HDInsight på sätt som en sekundär Azure-lagringskonto. Den enda skillnaden är att prefixet **wasb: / /** ändras till **adl: / /** på följande sätt:
+När du har beviljat åtkomst till Data Lake Storage Gen1, kan du använda lagringen i ML-Services-kluster i HDInsight på sätt som en sekundär Azure-lagringskonto. Den enda skillnaden är att prefixet **wasb: / /** ändras till **adl: / /** på följande sätt:
 
 
     # Point to the ADL Storage (e.g. ADLtest)
@@ -143,7 +143,7 @@ När du har beviljat åtkomst till Data Lake Storage, kan du använda lagring i 
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-Följande kommandon används för att konfigurera Data Lake Storage-konto med RevoShare katalogen och Lägg till exempel-CSV-filen från föregående exempel:
+Följande kommandon används för att konfigurera Gen1 för Data Lake Storage-konto med RevoShare katalogen och Lägg till exempel-CSV-filen från föregående exempel:
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

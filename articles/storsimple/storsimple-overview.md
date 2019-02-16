@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060669"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326935"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serien: en hybridlösning för molnlagring
 ## <a name="overview"></a>Översikt
@@ -92,7 +92,7 @@ Molninstallationen har följande funktioner:
 * Du kan skapa ett obegränsat antal molninstallationer i molnet och aktivera dem och inaktivera efter behov.
 * Det kan hjälpa att simulera i lokala miljöer i haveriberedskap, utveckling och test-scenarier och kan hjälpa dig med hämtning på objektnivå från säkerhetskopior.
 
-StorSimple-Molninstallationen finns i två modeller: enheten 8010 (kallades tidigare 1100 modellen) och 8020-enheten. 8010-enhet har en maxkapacitet på 30 TB. Enheten 8020 som utnyttjar Azure premium storage har en maxkapacitet på 64 TB. (I lokala nivåerna Azure premium storage lagrar data på SSD: er medan standardlagring lagrar data på hårddiskar.) Observera att du måste ha ett Azure premium storage-konto du använder premium storage. Mer information om premium-lagring, går du till [Premium Storage: lagring med höga prestanda för Azure-Datorbelastningar](../virtual-machines/windows/premium-storage.md).
+StorSimple-Molninstallationen finns i två modeller: enheten 8010 (kallades tidigare 1100 modellen) och 8020-enheten. 8010-enhet har en maxkapacitet på 30 TB. Enheten 8020 som utnyttjar Azure premium storage har en maxkapacitet på 64 TB. (I lokala nivåerna Azure premium storage lagrar data på SSD: er medan standardlagring lagrar data på hårddiskar.) Observera att du måste ha ett Azure premium storage-konto du använder premium storage.
 
 Mer information om StorSimple-Molninstallationen går du till [distribuera och hantera en StorSimple-Molninstallation i Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -272,7 +272,7 @@ Innan du distribuerar din Microsoft Azure StorSimple-lösning, rekommenderar vi 
 | ögonblicksbild av molndata |En point-in-time-kopia av volymdata som lagras i molnet. En ögonblicksbild i molnet motsvarar en ögonblicksbild som replikerats på ett annat, externa lagringssystem. Ögonblicksbilder av molnet som är särskilt användbart i scenarier för haveriberedskap. |
 | krypteringsnyckel för molnlagring |Ett lösenord eller en nyckel som används av din StorSimple-enhet för att få åtkomst till krypterade data som skickas från enheten till molnet. |
 | klustermedveten uppdatering |Hantering av programuppdateringar på servrar i ett failover-kluster så att uppdateringarna har minimal eller ingen effekt på tjänstens tillgänglighet. |
-| DataPath |En samling funktionella enheter som utför åtgärder för sammankopplade databearbetning. |
+| datapath |En samling funktionella enheter som utför åtgärder för sammankopplade databearbetning. |
 | inaktivera |En permanent åtgärd som bryter anslutningen mellan StorSimple-enheten och den tillhörande Molntjänsten. Molnögonblicksbilder av enheten kan förblir efter den här processen och klonas eller används för haveriberedskap. |
 | diskspegling |Replikering av logisk diskvolymer på olika hårddiskar eller enheter i realtid att säkerställa kontinuerlig tillgänglighet. |
 | dynamisk diskspegling |Replikering av logisk diskvolymer på dynamiska diskar. |

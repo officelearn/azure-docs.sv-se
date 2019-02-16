@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea6d94ff1ee8c27c1642f24660a6ab4f276137a8
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506795"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330791"
 ---
 # <a name="azure-storage-redundancy"></a>Redundans i Azure Storage
 
@@ -48,7 +48,7 @@ Information om priser för varje alternativ för dataredundans, finns i [priser 
 Information om Azure Storage-garantier för hållbarhet och tillgänglighet, finns i den [serviceavtal för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Premium Storage stöder endast lokalt redundant lagring (LRS). Information om Premium-lagring finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](../../virtual-machines/windows/premium-storage.md).
+> Premium Storage stöder endast lokalt redundant lagring (LRS).
 
 ## <a name="changing-replication-strategy"></a>Ändra replikeringsstrategi
 Vi kan du ändra replikeringsstrategi i ditt storage-konto med hjälp av den [Azure-portalen](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), eller en av många [ Azure-klientbiblioteken](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Ändra typen för replikering av ditt lagringskonto resulterar inte i driftstopp.

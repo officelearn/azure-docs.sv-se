@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 54511ac4dfdc05ec1880695b1ae2360f0b5e8162
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246882"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328375"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -64,7 +64,7 @@ Hela dokumentet används följande termer:
 * SAP-komponent: Ett enskilt SAP-program, till exempel ECC, BW, lösningen Manager eller EP. SAP-komponenter kan baseras på traditionella ABAP eller Java-tekniker eller ett icke-NetWeaver-baserade program, till exempel företag objekt.
 * SAP-miljön: en eller flera SAP-komponenter logiskt grupperade för att utföra en företagsfunktion, till exempel utveckling, QAS, utbildning, DR eller produktion.
 * SAP-landskap: Den här termen avser hela SAP-tillgångar i en kunds IT-miljön. SAP-landskap innehåller alla produktions- och icke-produktionsmiljöer.
-* SAP-System: Kombinationen av DBMS-lagret och programnivån av, till exempel en utvecklingssystem för SAP ERP, SAP BW testsystem, SAP CRM produktionssystemet osv. I Azure-distributioner, är det inte stöd för att dela upp de här två lager mellan lokala och Azure. Därför kan ett SAP-system är antingen distribueras lokalt eller det distribueras i Azure. Du kan dock distribuera olika system i ett SAP-landskap i Azure eller lokalt. Du kan till exempel distribuera SAP CRM-utveckling och testa system i Azure men SAP CRM produktionsprogrammen system på plats.
+* SAP System: Kombinationen av DBMS-lagret och programnivån av, till exempel en utvecklingssystem för SAP ERP, SAP BW testsystem, SAP CRM produktionssystemet osv. I Azure-distributioner, är det inte stöd för att dela upp de här två lager mellan lokala och Azure. Därför kan ett SAP-system är antingen distribueras lokalt eller det distribueras i Azure. Du kan dock distribuera olika system i ett SAP-landskap i Azure eller lokalt. Du kan till exempel distribuera SAP CRM-utveckling och testa system i Azure men SAP CRM produktionsprogrammen system på plats.
 * Mellan olika platser: Beskriver ett scenario där virtuella datorer distribueras till en Azure-prenumeration med plats-till-plats, flera platser eller ExpressRoute-anslutning mellan lokala datacenter och Azure. I vanliga Azure-dokumentation, dessa typer av distributioner beskrivs också som mellan lokala scenarier. Orsaken till att anslutningen är att utöka lokala domäner, en lokal Active Directory och lokala DNS i Azure. Lokala liggande utökas till Azure-tillgångar för prenumerationen. Med det här tillägget, kan de virtuella datorerna vara en del av den lokala domänen. Domänanvändare på den lokala domänen har åtkomst till servrarna och kan köra services på de virtuella datorerna (till exempel DBMS tjänster). Kommunikation och namnmatchning mellan virtuella datorer distribueras på plats och virtuella datorer som distribueras i Azure är möjligt. Det här scenariot är det vanligaste scenariot för att distribuera SAP-tillgångar i Azure. Mer information finns i [planering och design för VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 > [!NOTE]
@@ -79,7 +79,7 @@ Finns olika artiklar om SAP-arbetsbelastningar på Azure släppte. Rekommendatio
 
 Följande SAP-information är relaterade till SAP på Azure om området som beskrivs i det här dokumentet:
 
-| Nummer | Titel |
+| Nummer | Rubrik |
 | --- | --- |
 | [1928533] |SAP-program i Azure: Produkter som stöds och Azure VM-typer |
 | [2015553] |SAP på Microsoft Azure: Supportkrav |
@@ -106,12 +106,12 @@ Du bör ha kunskaper om arkitektur för Microsoft Azure och hur Microsoft Azure 
 
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Lagringsstrukturen för en virtuell dator för RDBMS-distributioner
-För att kunna följa det här kapitlet, det är nödvändigt att förstå vad som angavs i [detta] [ deployment-guide-3] kapitel i den [Distributionsguide][deployment-guide]. Information om de olika VM-serien och deras skillnader och skillnaderna för Azure Standard och [Premiumlagring](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) ska tolkas och kända innan du läser det här kapitlet.
+För att kunna följa det här kapitlet, det är nödvändigt att förstå vad som angavs i [detta] [ deployment-guide-3] kapitel i den [Distributionsguide][deployment-guide]. Kunskap om de olika VM-serien och deras skillnader och skillnaderna mellan standard storage och premium-lagring ska tolkas och kända innan du läser det här kapitlet. För
 
 När det gäller Azure Storage för virtuella Azure-datorer, bör du känna till artiklarna:
 
-- [Om disklagring för virtuella Azure Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [Om disklagring för virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Introduktion till hanterade diskar för virtuella Azure Windows-datorer](../../windows/managed-disks-overview.md)
+- [Introduktion till hanterade diskar för virtuella Linux-datorer](../../linux/managed-disks-overview.md)
 
 En struktur för distribution där operativsystemet, DBMS och eventuell SAP-binärfiler skiljer sig från databasfilerna rekommenderas vanligtvis i en grundläggande konfiguration. Därför rekommenderar vi SAP-system som körs i Azure virtuella datorer har den base VHD (eller disk) som installeras med operativsystemet, database management system körbara filer och SAP körbara filer. DBMS data och loggfiler filerna lagras i Azure Storage (Standard eller Premium Storage) i separata diskar och ansluten som logiska diskar på den ursprungliga Azure operativsystemavbildningen VM. Särskilt i Linux-distributioner kan det finnas olika rekommendationer dokumenterade. Särskilt när det gäller SAP HANA.
 
@@ -134,10 +134,8 @@ Azure tillämpar en kvot för IOPS per datadisk. Dessa kvoter är olika för dis
 > [!NOTE]
 > För att kunna dra nytta av Azure är unika [enkel VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) alla diskar som är anslutna måste vara av typen Azure Premium Storage, inklusive en bas-VHD.
 
-
 > [!NOTE]
 > Det går inte att värden huvuddatabasen (filer data och loggfiler) av SAP-databaser på lagringsmaskinvara som finns i den samordnade från tredje part Datacenter angränsande till Azure-datacenter. För SAP arbetsbelastningen endast storage som representeras som interna Azure har service stöd för data och transaktionen loggfiler SAP-databaser.
-> 
 
 Placeringen av databasfilerna och log/gör om filer och vilken typ av Azure Storage används, måste definieras av krav på IOPS, latens och dataflöde. För att få tillräckligt med IOPS, kan du tvingas att utnyttja flera diskar eller använda en större Premium Storage-disk. Vid att använda flera diskar, skapar du en programvara stripe över diskar som innehåller datafiler eller log/gör om filer. I sådana fall kan är IOPS och diskdataflöde serviceavtal för de underliggande Premium Storage-diskarna eller högsta möjliga IOPS för Azure Standard Storage-diskar ackumulerande för den resulterande stripe-uppsättningen.
 
@@ -210,7 +208,7 @@ För Azure Premium Storage finns följande alternativ för cachelagring:
 
 * Ingen
 * Läsa
-* Läs/Skriv
+* Läs/skriv
 * Ingen + Write Accelerator (endast för virtuella datorer Azure M-serien)
 * Läsa + Write Accelerator (endast för virtuella datorer Azure M-serien)
 

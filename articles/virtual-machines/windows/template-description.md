@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113251"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327773"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
@@ -290,7 +290,7 @@ Flera profil-element används när du definierar en VM-resurs. Några är obliga
 
 ## <a name="disks-and-images"></a>Diskar och avbildningar
    
-I Azure, vhd-filer kan representera [diskar eller avbildningar](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). När operativsystemet i en vhd-fil är specialiserat ska vara en specifik virtuell dator, kallas det för en disk. När operativsystemet i en vhd-fil är generaliserad som används för att skapa flera virtuella datorer, kallas det en bild.   
+I Azure, vhd-filer kan representera [diskar eller avbildningar](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). När operativsystemet i en vhd-fil är specialiserat ska vara en specifik virtuell dator, kallas det för en disk. När operativsystemet i en vhd-fil är generaliserad som används för att skapa flera virtuella datorer, kallas det en bild.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Skapa nya virtuella datorer och nya diskar från en plattformsavbildning
 

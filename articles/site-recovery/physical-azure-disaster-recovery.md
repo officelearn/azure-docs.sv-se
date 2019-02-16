@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 9c5f998470d3bf2a66d7de43bd54d5da4db57608
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221760"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329225"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurera katastrofåterställning till Azure för lokala fysiska servrar
 
@@ -78,9 +78,6 @@ Konfigurera en [Azure storage-konto](../storage/common/storage-quickstart-create
 
 - Site Recovery replikerar lokala datorer till Azure storage. Virtuella Azure-datorer skapas från lagringen efter redundansväxlingen.
 - Lagringskontot måste finnas i samma region som Recovery Services-valvet.
-- Lagringskontot kan vara standard eller [premium](../virtual-machines/windows/premium-storage.md).
-- Om du har konfigurerat ett premium-konto, måste du också ett ytterligare konto av standardtyp för loggdata.
-
 
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>Förbereda ett konto för installation av mobilitetstjänsten

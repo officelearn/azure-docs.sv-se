@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c85d405502890253bcdb80c652ed53f58546de9c
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747058"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328851"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure
 Det här dokumentet innehåller anvisningar för att konfigurera Azure-infrastrukturen och använda SAP HANA-system som har distribuerats på Azures inbyggda virtuella datorer (VM). Dokumentet innehåller också konfigurationsinformation för SAP HANA skalbar för M128s VM SKU: N. Det här dokumentet är inte avsedd att ersätta standard SAP-dokumentationen, som innehåller följande innehåll:
@@ -68,10 +68,10 @@ Distribuera virtuella datorer i Azure med hjälp av:
 Du kan även distribuera en fullständig installerade SAP HANA-plattform på Virtuella Azure-tjänster via den [SAP-molnplattform](https://cal.sap.com/). Installationsprocessen beskrivs i [distribuera SAP S/4HANA eller BW/4HANA på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) eller med automation är [här](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### <a name="choose-azure-storage-type"></a>Välj typ av Azure Storage
-Azure tillhandahåller två typer av lagring som är lämpliga för virtuella Azure-datorer som kör SAP HANA:
+Azure tillhandahåller två typer av lagring som är lämpliga för virtuella Azure-datorer som kör SAP HANA: Standard-hårddiskar (HDD) och premium solid state-hårddiskar (SSD). Mer information om dessa disktyper, finns i vår artikel [Välj en disktyp av](../../windows/disks-types.md)
 
-- [Azure Standard-lagring](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Standard hårddiskar-(HDD)
+- Premium solid state-hårddiskar (SSD)
 
 Azure erbjuder två metoder för distribution för virtuella hårddiskar på Azure Standard och Premium Storage. Om det övergripande scenariot tillåter dra nytta av [Azure hanterade disk](https://azure.microsoft.com/services/managed-disks/) distributioner.
 
@@ -408,7 +408,7 @@ Enligt DT 2.0 metodvägledning, bör disk-i/o-dataflöde vara minst 50 MB/sek pe
 
 Det krävs för att lägga till flera Azure-diskar till den virtuella datorn 2.0 DT och skapa programvaru-raid (striping) på nivån för att uppnå maxgränsen för diskdataflöde per virtuell dator. En enskild Azure disk tillhandahålla inte dataflöde för att nå maxgränsen för virtuell dator i detta avseende. Azure Premium storage är obligatorisk för att köra DT 2.0. 
 
-- Information om tillgängliga Azure disktyper finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Information om tillgängliga Azure disktyper finns [här](../../windows/disks-types.md)
 - Information om hur du skapar programvaru-raid via mdadm hittar [här](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 - Information om hur du konfigurerar LVM för att skapa en stripe-volym för maximal dataflödet finns [här](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358158"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327558"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installera klienten Chef i Azure Portal
 Du kan lägga till tillägget Chef klienten direkt på en Linux- eller Windows-dator från Azure-portalen. Den här artikeln vägleder dig genom processen med hjälp av en ny virtuell Linux-dator.
@@ -53,7 +53,7 @@ I det här avsnittet ska du först använda Azure-portalen för att skapa en Lin
 1. På den **grunderna** fliken, ange följande värden och därefter **OK**.
 
     - **Namn på** -ange ett namn för den nya virtuella datorn.
-    - **Typ av virtuell datordisk** -ange antingen **SSD** eller **HDD** för storage-disktyp. Mer information om disktyper för virtuell dator på Azure finns i artikeln [högpresterande Premium Storage och hanterade diskar för virtuella datorer](/azure/virtual-machines/windows/premium-storage).
+    - **Typ av virtuell datordisk** -ange antingen **SSD** eller **HDD** för storage-disktyp. Mer information om disktyper för virtuell dator på Azure finns i artikeln [Välj en disktyp av](../virtual-machines/windows/disks-types.md).
     - **Användarnamn** -ange ett användarnamn som har beviljats administratörsbehörighet på den virtuella datorn.
     - **Autentiseringstyp** – Välj **lösenord**. Du kan också välja **offentlig SSH-nyckel**, och ange en SSH-offentliga nyckelvärde. Gäller för den här demon (och i skärmbilderna) **lösenord** har valts.
     - **Lösenordet** och **Bekräfta lösenord** -ange ett lösenord för användaren.

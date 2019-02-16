@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 535a947f7a4b9c750d585ce854a14be80c4a135c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639972"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327314"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Vanliga problem vid skapande av virtuell Hårddisk (FAQ)
 
@@ -27,7 +27,7 @@ Följande och vanliga frågor svar (FAQ) omfattar vanliga problem påträffades 
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Hur skapar du en virtuell dator från Azure-portalen med hjälp av den virtuella Hårddisken som har överförts till premium storage?
 
-Azure Marketplace stöder för närvarande inte skapa VM-erbjudanden från avbildningar som finns på hanterad lagring eller från Azure Premium Storage.  Mer information om dessa lagringsalternativ finns i [Azure översikten över Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) och [högpresterande Premium Storage och hanterade diskar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
+Azure Marketplace stöder för närvarande inte skapa VM-erbjudanden från avbildningar som finns på hanterad lagring eller från Azure Premium Storage.  Mer information om dessa lagringsalternativ finns i [Azure översikten över Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>Kan du använda virtuella datorer i generation 2-erbjudanden?
@@ -73,7 +73,7 @@ Ja, om finns i Azure.  Azure tilldelar en unik identifierare som heter Azure VM 
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>I en virtuell dator, hur du hanterar det anpassa skripttillägget startåtgärden?
 
-I följande artikel beskriver hur man använder det anpassade Skripttillägget med Azure PowerShell-modulen, Azure Resource Manager-mallar och information om felsökning i Windows-System: [anpassade skript-tillägget för Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+I följande artikel beskriver hur man använder det anpassade Skripttillägget med Azure PowerShell-modulen, Azure Resource Manager-mallar och information om felsökning i Windows-System: [Tillägget för anpassat skript för Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Är 32-bitars program eller tjänster som stöds på Azure Marketplace?
@@ -83,7 +83,7 @@ I allmänhet Nej.  Är alla 64-bitars operativsystem som stöds och standardtjä
 Mer information finns i följande artiklar:
 - [32-bitars program som körs](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
 - [Stöd för 32-bitars operativsystem i Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
-- [Microsofts serverprogramsupport för Microsoft Azure-datorer](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
+- [Microsofts serverprogramsupport för Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
 
 ## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Varje gång jag försöker skapa en avbildning från min virtuella hårddiskar, visas felmeddelandet `.VHD is already registered with image repository as the resource` i PowerShell. Jag har skapat inte en avbildning innan eller var det jag hittade bilder med det här namnet i Azure. Hur löser jag det här problemet?

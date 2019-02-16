@@ -4,15 +4,15 @@ description: Tillgänglighet och prestanda kompromisser för olika konsekvensniv
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113761"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309208"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda 
 
@@ -44,22 +44,23 @@ Den exakta RTT svarstiden är en funktion av hastighet ljus avståndet och Azure
 
 - För en viss typ av skrivåtgärd som infoga, Ersätt, upsert och ta bort, är genomströmning för skrivning för begäransenheter identiska för alla konsekvensnivåer.
 
-## <a name="consistency-levels-and-data-durability"></a>Konsekvens nivåer och data hållbarhet
+## <a id="rto"></a>Konsekvens nivåer och data hållbarhet
 
-I en globalt distribuerad databas för miljön att det finns en direkt relation mellan konsekvens nivå och data hållbarhet när det finns ett avbrott på inom hela regionen. Tabellen definierar relationen mellan förhållandet mellan konsekvens modell och data hållbarhet när det finns många avbrott i regionen. Det är viktigt att Observera att i ett distribuerat system, även med stark konsekvens är det omöjligt att ha en distribuerad databas med och RPO och RTO noll på grund av CAP-satsen. Mer information om varför finns [konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
+I en globalt distribuerad databas för miljön att det finns en direkt relation mellan konsekvens nivå och data hållbarhet när det finns ett avbrott på inom hela regionen. När du utvecklar din affärskontinuitetsplan måste du förstå den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse. Den tid som krävs för ett program för att återställa kallas återställningstid (RTO). Du måste också att förstå den längsta tid för senaste datauppdateringar som programmet kan tolerera att förlora när det återställs efter en avbrottshändelse. Tid då uppdateringar som du kanske har råd att förlora kallas mål för återställningspunkt (RPO).
+
+Tabellen definierar relationen mellan förhållandet mellan konsekvens modell och data hållbarhet när det finns många avbrott i regionen. Det är viktigt att Observera att i ett distribuerat system, även med stark konsekvens är det omöjligt att ha en distribuerad databas med en RPO och RTO noll på grund av CAP-satsen. Mer information om varför finns [konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
 
 |**Region(s)**|**Replikeringsläge**|**Konsekvensnivå**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|En eller flera huvudservrar|Alla konsekvensnivå|< 240 minuter|< 1 vecka|
 |>1|Single Master|Session, konsekventa Prefix, eventuell|< 15 minuter|< 15 minuter|
-|>1|Single Master|Begränsad föråldring|K &AMP; T *|< 15 minuter|
+|>1|Single Master|Begränsad föråldring|K & T|< 15 minuter|
 |>1|Multi-Master|Session, konsekventa Prefix, eventuell|< 15 minuter|0|
-|>1|Multi-Master|Begränsad föråldring|K &AMP; T *|0|
+|>1|Multi-Master|Begränsad föråldring|K & T|0|
 |>1|En eller flera huvudservrar|Stark|0|< 15 minuter|
 
-* K & T = antalet ”K” versioner (uppdateringar) av ett objekt. Eller ”T” tidsintervall.
-
-
+K = antalet ”K” versioner (uppdateringar) av ett objekt.
+T = tid ”T” tidsintervall sedan senaste uppdateringen.
 
 ## <a name="next-steps"></a>Nästa steg
 

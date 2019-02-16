@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: f4be58d702b5d97722a3f9f1ee2df6b519ba4fab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: da0e393dc2ae0d93ecc49745a42ffac4669ed74b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731758"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326314"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Hur du använder Docker Machine för att skapa värdar i Azure
 Den här artikeln beskriver hur du använder [Docker Machine](https://docs.docker.com/machine/) att skapa värdar i Azure. Den `docker-machine` kommandot skapar en Linux-dator (VM) i Azure och sedan installerar Docker. Du kan sedan hantera Docker-värdar i Azure med hjälp av samma lokala verktyg och arbetsflöden. Om du vill använda docker-dator i Windows 10, måste du använda bash i Linux.
@@ -137,4 +137,4 @@ För att se behållaren i praktiken, öppna en webbläsare och ange den offentli
 ![Behållaren som körs ngnix](./media/docker-machine/nginx.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan också skapa värdar med de [Docker VM-tillägg](dockerextension.md). Exempel på med Docker Compose finns [Kom igång med Docker och Compose i Azure](docker-compose-quickstart.md).
+Exempel på med Docker Compose finns [Kom igång med Docker och Compose i Azure](docker-compose-quickstart.md).

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: a65ba66b91b89cca7a41b7276a0ee4790088d5a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dab0a6a5eee8893f28a221b44d57afe255841fa0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213633"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329753"
 ---
-# <a name="azure-data-factory-mapping-data-flow-expression-builder"></a>Azure Data Factory mappning Data Flow Uttrycksverktyget
+# <a name="mapping-data-flow-expression-builder"></a>Mappningen Data Flow Uttrycksverktyget
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

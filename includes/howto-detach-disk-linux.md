@@ -4,17 +4,17 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 7c9c52c5cda258908ac8463dd06044e244c75ee2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735902"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327928"
 ---
 När du inte längre behöver en datadisk som är ansluten till en virtuell dator (VM) kan du enkelt koppla bort den. När du kopplar bort en disk från den virtuella datorn tas den inte bort från lagringsutrymmet. Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator eller till en annan.  
 
 > [!NOTE]
-> En virtuell dator i Azure använder olika typer av diskar – en operativsystemdisk, en lokal temporär disk och valfria datadiskar. Mer information finns i avsnittet om [diskar och virtuella hårddiskar för virtuella datorer](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Du kan inte koppla bort en operativsystemdisk om du inte också tar bort den virtuella datorn.
+> En virtuell dator i Azure använder olika typer av diskar – en operativsystemdisk, en lokal temporär disk och valfria datadiskar. Mer information finns i avsnittet om [diskar och virtuella hårddiskar för virtuella datorer](../articles/virtual-machines/linux/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Du kan inte koppla bort en operativsystemdisk om du inte också tar bort den virtuella datorn.
 
 ## <a name="find-the-disk"></a>Hitta disken
 Innan du kan koppla bort en disk från en virtuell dator måste du ta reda på LUN-numret, som är en identifierare för disken som ska kopplas från. Det gör du genom att följa dessa steg:

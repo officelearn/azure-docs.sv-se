@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 02adb36bec574719f3f6d7f1c1b66124f96ccae1
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003745"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309241"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>Använd FMLE-kodare för att skicka en direktsänd dataström för enkel bithastighet (äldre)
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Den här självstudien beskrivs hur du använder AAC. FMLE stöder inte AAC som 
 >
 >
 
-Medan kanalen startar kan du [konfigurera kodaren](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
+Medan kanalen startar kan du [konfigurera kodaren](media-services-configure-fmle-live-encoder.md).
 
 > [!IMPORTANT]
 > Observera att faktureringen påbörjas när kanalen hamnar i tillståndet redo. Mer information finns i [kanalens tillstånd](media-services-manage-live-encoder-enabled-channels.md#states).

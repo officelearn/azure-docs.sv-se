@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359943"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328560"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL serverinstansen för Failover-kluster på Azure Virtual Machines
 
@@ -180,7 +180,7 @@ Dessa krav är uppfyllda, kan du gå vidare med att skapa redundansklustret. Det
    | SQL Server | 1433 | Normal port för standardinstanser av SQL Server. Om du har använt en avbildning från galleriet, öppnas automatiskt den här porten.
    | Hälsoavsökning | 59999 | Eventuella öppna TCP-port. Konfigurera i ett senare steg, belastningsutjämnaren [hälsoavsökning](#probe) och klustret ska använda den här porten.  
 
-1. Lägga till lagring till den virtuella datorn. Detaljerad information finns i [lägga till lagringsenheter](../premium-storage.md).
+1. Lägga till lagring till den virtuella datorn. Detaljerad information finns i [lägga till lagringsenheter](../disks-types.md).
 
    Båda de virtuella datorerna måste ha minst två datadiskar.
 
@@ -188,7 +188,7 @@ Dessa krav är uppfyllda, kan du gå vidare med att skapa redundansklustret. Det
       >[!NOTE]
       >Om du kopplar NTFS-formaterade diskar, kan du bara aktivera S2D med ingen kontroll för disk-behörighet.  
 
-   Koppla minst två Premium Storage (SSD-diskar) till varje virtuell dator. Vi rekommenderar minst P30 (1 TB) diskar.
+   Koppla minst två premium SSD: er till varje virtuell dator. Vi rekommenderar minst P30 (1 TB) diskar.
 
    Ange värdcachelagring till **skrivskyddad**.
 

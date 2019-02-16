@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492291"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310974"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 
@@ -31,7 +31,7 @@ Om du redan har Recovery Services-valvet öppnar du vidare till det andra steget
 
    ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   Listan över Recovery Services-valv visas. 
+   Listan över Recovery Services-valv visas.
 
    ![Välj valvet från lista](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -50,7 +50,7 @@ Om du redan har Recovery Services-valvet öppnar du vidare till det andra steget
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Ta bort Recovery Services-valvet automatiskt
 
-Du kan använda PowerShell för att ta bort ett Recovery Services-valv automatiskt. Framtvinga sätt raderas Recovery Services-valvet och alla associerade säkerhetskopieringsdata. 
+Du kan använda PowerShell för att ta bort ett Recovery Services-valv automatiskt. Framtvinga sätt raderas Recovery Services-valvet och alla associerade säkerhetskopieringsdata.
 
 > [!Warning]
 > När du använder PowerShell för att ta bort Recovery Services-valvet måste du vara säker på att du vill ta bort alla säkerhetskopierade data i valvet.
@@ -95,7 +95,7 @@ Ta bort ett Recovery Services-valv:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Logga in till din prenumeration i Azure-portalen och kontrollera att valvet tas bort.
 
 
@@ -106,7 +106,6 @@ Ta bort konfiguration mellan varje artikel eller servern och Recovery Services-v
 * Säkerhetskopieringar i Azure Storage (Azure Files)
 * SQL Server i Virtuella Azure-säkerhetskopieringar
 * Säkerhetskopior av virtuella Azure-datorer
-* Microsoft Azure Recovery Services-agenten säkerhetskopior
 
 Använd den **infrastruktur för säkerhetskopiering** menyn (se bild) för:
 
@@ -125,7 +124,7 @@ Använd den **infrastruktur för säkerhetskopiering** menyn (se bild) för:
 
 1. För alla objekt i listan, högerklicka på objektet och på snabbmenyn väljer **stoppa säkerhetskopiering**.
 
-    ![Välj typ av säkerhetskopiering](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![Välj typ av säkerhetskopiering](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     Menyn stoppa säkerhetskopiering öppnas.
 
@@ -154,9 +153,9 @@ Använd den **infrastruktur för säkerhetskopiering** menyn (se bild) för:
 
 ## <a name="removing-azure-backup-server-or-dpm"></a>Ta bort Azure Backup Server eller DPM
 
-1. Rulla ned till avsnittet Hantera i valvets instrumentpanel klicka sedan på **infrastruktur för säkerhetskopiering**. 
+1. Rulla ned till avsnittet Hantera i valvets instrumentpanel klicka sedan på **infrastruktur för säkerhetskopiering**.
 
-1. På undermenyn klickar du på **Säkerhetskopieringshanteringsservrar** att visa servrar för Azure Backup och System Center DPM-servern. Du kan stoppa och ta bort Azure-filservrar, SQL-servrar i virtuella Azure-datorer och Azure virtual machines. 
+1. På undermenyn klickar du på **Säkerhetskopieringshanteringsservrar** att visa servrar för Azure Backup och System Center DPM-servern. Du kan stoppa och ta bort Azure-filservrar, SQL-servrar i virtuella Azure-datorer och Azure virtual machines.
 
     ![Välj ditt valv för att öppna valvets instrumentpanel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

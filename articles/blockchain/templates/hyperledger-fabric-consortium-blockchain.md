@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830300"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328035"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric konsortienätverk
 
@@ -113,7 +113,7 @@ I **infrastrukturresurskonfigurationen**, du konfigurerar nätverkets storlek oc
 | Parameternamn | Beskrivning | Tillåtna värden |
 |---|---|---|
 **Skaltyp**|Typen av distribution av en virtuell dator med flera behållare eller flera virtuella datorer i en skalbar-modell.|Enstaka virtuell dator eller med flera virtuella datorer |
-**VM-disktyp**|Typ av säkerhetskopiering av var och en av de distribuerade noderna. <br/> Läs mer om storage [introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) och [Premiumlagring](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard SSD <br/> Premium SSD |
+**VM-disktyp**|Typ av säkerhetskopiering av var och en av de distribuerade noderna. <br/> Mer information om tillgängliga disktyper finns [Välj en disktyp av](../../virtual-machines/windows/disks-types.md).|Standard SSD <br/> Premium SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Distribution av flera virtuella datorer (ytterligare inställningar)
 

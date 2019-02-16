@@ -12,133 +12,133 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 748a9f4d7c2ec47a2ed9470789a4443bffdc0eba
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301748"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329174"
 ---
-# <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Hantera löpande uppgraderingar av molnprogram med SQL Database aktiv geo-replikering
+# <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Hantera löpande uppgraderingar av molnprogram med hjälp av SQL Database aktiv geo-replikering
 
-Lär dig hur du använder [aktiv geo-replikering](sql-database-auto-failover-group.md) i SQL-databasen för att möjliggöra löpande uppgraderingar av ditt molnprogram. Eftersom uppgraderingen är en störande åtgärd, bör det vara en del av ditt företag affärskontinuitet planering och design. I den här artikeln vi titta på två olika metoder för att samordna uppgraderingsprocessen och diskutera fördelarna och nackdelarna med varje alternativ. För den här artikeln använder vi ett program som består av en webbplats som är anslutna till en enkel databas som sin datanivå. Vårt mål är att uppgradera version 1 av programmet till version 2 utan några betydande påverkan på slutanvändarens upplevelse.
+Lär dig hur du använder [aktiv geo-replikering](sql-database-auto-failover-group.md) i Azure SQL Database för att möjliggöra löpande uppgraderingar av ditt molnprogram. Uppgraderingar är störande åtgärder, bör de vara en del av din kontinuitet för företag planering och design. I den här artikeln ska vi titta på två olika metoder för att samordna uppgraderingsprocessen och diskutera fördelar och nackdelar med varje alternativ. För den här artikeln refererar vi till ett program som består av en webbplats som är ansluten till en enda databas som sin datanivå. Vårt mål är att uppgradera version 1 (V1) av programmet för version 2 (V2) utan någon inverkan på användarupplevelsen.
 
-När du utvärderar uppgraderingsalternativen, bör du tänka på följande faktorer:
+När du utvärderar uppgraderingsalternativen, Tänk på följande:
 
-* Påverkan på programmets tillgänglighet under uppgraderingar. Hur länge funktionen programmet kan vara begränsad eller försämrad.
-* Möjlighet att återställa om uppgraderingen misslyckas.
-* Säkerhetsrisken i ett program om en orelaterade allvarligt fel skulle uppstå under uppgraderingen.
-* Totalt antal dollar kostnad.  Detta omfattar ytterligare redundans och kostnader för de tillfälliga komponenter som används av uppgraderingen.
+* Påverkan på programmets tillgänglighet under uppgraderingar, till exempel hur länge programfunktionerna kan begränsas eller försämrad.
+* Möjlighet att återställa databasen om uppgraderingen misslyckas.
+* Säkerhetsproblem för programmet om en orelaterade, oåterkalleligt fel uppstår under uppgraderingen.
+* Totalt antal dollar kostnad. Detta omfattar ytterligare databasredundans och kostnader för de tillfälliga komponenter som används av uppgraderingen.
 
-## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Uppgradera program som förlitar sig på säkerhetskopiering av databaser för katastrofåterställning
+## <a name="upgrade-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Uppgradera program som förlitar sig på säkerhetskopiering av databaser för katastrofåterställning
 
-Om ditt program är beroende av automatiska databassäkerhetskopieringar och använder geo-återställning för katastrofåterställning, distribueras den till en enda Azure-region. För att minimera störningar för slutanvändaren, skapar du en mellanlagringsmiljö i den regionen med alla programkomponenter som är inblandade i uppgraderingen. Följande diagram illustrerar driftsmiljön före uppgraderingen. Slutpunkten `contoso.azurewebsites.net` representerar en produktionsplatsen på webbprogrammet. Om du vill göra möjligheten att återställa uppgraderingen, måste du skapa en mellanlagringsplats med en helt synkroniserad kopia av databasen. Följande steg skapar en mellanlagringsmiljö för uppgraderingen:
+Om ditt program är beroende av automatiska databassäkerhetskopieringar och använder geo-återställning för katastrofåterställning, distribueras den till en enda Azure-region. Skapa en mellanlagringsmiljö för att minimera störningar för användaren i den regionen med alla programkomponenter som är inblandade i uppgraderingen. Det första diagrammet illustrerar driftsmiljön innan uppgraderingen. Slutpunkten `contoso.azurewebsites.net` representerar en produktionsmiljö av webbappen. Om du vill kunna återställa uppgraderingen måste du skapa en mellanlagringsmiljö med en helt synkroniserad kopia av databasen. Följ dessa steg om du vill skapa en mellanlagringsmiljö för uppgraderingen:
 
-1. Skapa en sekundär databas i samma Azure-region. Övervaka sekundärt för att se om seeding processen är slutförd (1).
-2. Skapa en ny distributionsplats för ditt webbprogram som kallas ”mellanlagring”. Det kommer att registreras i DNS med URL: en `contoso-staging.azurewebsites.net` (2).
+1. Skapa en sekundär databas i samma Azure-region. Övervaka sekundärt för att se om seeding processen är klar (1).
+2. Skapa en ny miljö för webbappen och anropa det ”mellanlagring”. Det kommer att registreras i Azure DNS med URL-Adressen `contoso-staging.azurewebsites.net` (2).
 
 > [!NOTE]
-> Observera de förberedande stegen påverkar inte produktionsplatsen och den kan fungera i full åtkomst-läge.
->  
+> Dessa förberedelsesteg påverka inte produktionsmiljön, vilket kan fungera i full-åtkomstläge.
 
-![Konfiguration av SQL Database Go-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-1.png)
+![SQL Database geo-replikering konfiguration för katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-1.png)
 
-Programmet är redo för den faktiska uppgraderingen när förberedelsesteg har slutförts. Följande diagram illustrerar stegen som ingår i uppgraderingsprocessen.
+När du är klar med steg för förberedelse är programmet redo för den faktiska uppgraderingen. I nästa diagram visas steg som ingår i uppgraderingen:
 
-1. Ange den primära databasen till skrivskyddat läge (3). Det här läget kommer garanterar att produktionsplatsen för webbprogram (V1) förblir skrivskyddat läge under uppgraderingen, vilket gör dataavvikelser mellan databasinstanser V1 och V2.  
-2. Koppla från den sekundära databasen med hjälp av planerad avslutning-läget (4). Den skapar en helt synkroniserad oberoende kopia av den primära databasen. Den här databasen kommer att uppgraderas.
+1. Ange den primära databasen till skrivskyddat läge (3). Det här läget garanterar att produktionsmiljön i webbappen (V1) är skrivskyddad under uppgraderingen, vilket gör dataavvikelser mellan databasinstanser V1 och V2.
+2. Koppla från den sekundära databasen med hjälp av planerad avslutning-läget (4). Den här åtgärden skapar en helt synkroniserade, oberoende kopia av den primära databasen. Den här databasen kommer att uppgraderas.
 3. Aktivera den sekundära databasen till läs-/ skrivläge och kör uppgraderingsskriptet (5).
 
-![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
+![SQL Database geo-replikering konfiguration för katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 
-Om uppgraderingen har slutförts, är du nu redo att växla slutanvändarna till den uppgraderade kopian programmet. Nu blir det en produktionsplatsen.  Växling innebär några fler steg som illustreras i följande diagram.
+Om uppgraderingen är klar har är du nu redo att växla användare till den uppgraderade kopian programmet, vilket blir en produktionsmiljö. Växla omfattar några fler steg, enligt beskrivningen i nästa diagram:
 
-1. Aktivera en växlingen mellan produktions- och mellanlagringsplatser för webbprogram (6). Det växlar URL: er av två platserna. Nu `contoso.azurewebsites.net` pekar till V2-versionen av webbplatsen och databasen (produktionsmiljö).  
+1. Aktivera en växlingen mellan produktionsmiljöer och mellanlagringsmiljön webbappens (6). Den här åtgärden växlar URL: erna för de två miljöerna. Nu `contoso.azurewebsites.net` pekar till V2-versionen av webbplatsen och databasen (produktionsmiljö). 
 2. Om du inte längre behöver den V1-versionen, vilket blev en mellanlagrings kopia efter växlingen kan du inaktivera mellanlagringsmiljön (7).
 
-![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
+![SQL Database geo-replikering konfiguration för katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
 
-Om uppgraderingen misslyckas, till exempel på grund av ett uppgraderingsskript, steg facket bör övervägas äventyras. Att återställa programmet till förberedande tillstånd, kan du återställa programmet på produktionsplatsen till fullständig åtkomst. Stegen som ingår visas på i nästa diagram.
+Om uppgraderingen misslyckas (till exempel på grund av ett fel i uppgraderingsskriptet) kan du överväga att mellanlagringsmiljön äventyras. Om du vill återställa återställa programmet till tillståndet före uppgradering till programmet i produktionsmiljön för att fullständig åtkomst. I nästa diagram visas återgång stegen:
 
-1. Ange databaskopian till läs-/ skrivläge (8). Den återställer fullständig V1 funktionellt på produktion kopian.
-2. Utför Rotorsaksanalys och ställa mellanlagringsmiljön (9).
+1. Ange databaskopian till läs-/ skrivläge (8). Den här åtgärden återställer alla V1-funktioner i produktion-kopia.
+2. Utför analys av grundorsaken och inaktivera mellanlagringsmiljön (9).
 
-I det här läget programmet är helt funktionella och Uppgraderingsstegen kan upprepas.
-
-> [!NOTE]
-> Återställningen kräver inte DNS-ändringarna när du inte ännu utför en växlingen.
-
-![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-4.png)
-
-Nyckeln **nytta** för det här alternativet är att du kan uppgradera ett program i en enda region med en uppsättning enkla steg. Dollar kostnaden för uppgraderingen är relativt låg. Huvudsakliga **kompromiss** är att om ett oåterkalleligt fel inträffar under uppgraderingen kommer återställningen till tillståndet före uppgradering innebär omdistribution av programmet i en annan region och återställa databasen från säkerhetskopiering med GEO-återställning. Den här processen resulterar i betydande driftavbrott.
-
-## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Uppgradera program som förlitar sig på database geo-replikering för haveriberedskap
-
-Om ditt program använder aktiv geo-replikering eller redundansgrupper för affärskontinuitet, distribueras den till minst två olika regioner med en aktiv primär databas i den primära regionen och en skrivskyddad sekundär databas i Backup-region. Förutom de faktorer som vi nämnde tidigare garanterar uppgraderingsprocessen att:
-
-* Programmet förblir skyddat från kritiska fel vid alla tidpunkter under uppgraderingsprocessen
-* Geo-redundanta komponenter i programmet uppgraderas parallellt med de aktiva komponenterna
-
-För att uppnå dessa mål, förutom att använda Web App-distributionsfack, ska du använda Azure Traffic Manager (ATM) med en profil för redundans med en aktiv och en säkerhetskopiering slutpunkter.  Följande diagram illustrerar driftsmiljön före uppgraderingen. Webbplatserna `contoso-1.azurewebsites.net` och `contoso-dr.azurewebsites.net` representerar en produktionsmiljö av programmet med fullständig geografisk redundans. Produktionsmiljön innehåller följande komponenter:
-
-1. Produktionsplatsen på webbprogrammet `contoso-1.azurewebsites.net` i den primära regionen (1)
-2. Primära databasen i den primära regionen (2) 
-3. En vänteläge instans av webbappen i regionen säkerhetskopiering (3)
-4. GEO-replikerad sekundär databas i regionen säkerhetskopiering (4)
-5. Azure traffic manager prestanda-profil med online-slutpunkt `contoso-1.azurewebsites.net` och offline-slutpunkt `contoso-dr.azurewebsites.net`
-
-Om du vill göra möjligheten att återställa uppgraderingen, måste du skapa en mellanlagringsmiljö med en helt synkroniserad kopia av programmet. Eftersom du behöver se till att programmet kan snabbt återställa om ett oåterkalleligt fel inträffar under uppgraderingsprocessen måste vara geo-redundant samt mellanlagringsmiljön. Följande steg krävs för att skapa en mellanlagringsmiljö för uppgraderingen:
-
-1. Distribuera en mellanlagringsplats för webbprogram i den primära regionen (6)
-2. Skapa en sekundär databas i den primära Azure-regionen (7). Konfigurera mellanlagringsplats för webbprogram för att ansluta till den. 
-3. Skapa en annan geo-redundant sekundär databas i regionen säkerhetskopiering genom att replikera den sekundära databasen i den primära regionen (kallas ”härledda geo-replikering”) (8).
-3. Distribuera en mellanlagringsplats för web application-instans i regionen säkerhetskopiering (9) och konfigurera den för att ansluta den geo-sekundära som skapades i steg (9).
-
+Nu kan programmet är helt funktionella och du kan upprepa Uppgraderingsstegen.
 
 > [!NOTE]
-> Observera de förberedande stegen påverkar inte programmet i produktionsplatsen och förblir fullt funktionell i skrivskyddad läge.
+> Återställningen kräver inte DNS-ändringarna eftersom du inte ännu utför en växlingen.
 
-![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-1.png)
+![SQL Database geo-replikering konfiguration för katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-4.png)
 
-När de förberedande stegen har slutförts, är mellanlagringsmiljön kan uppgraderas. Följande diagram illustrerar Uppgraderingsstegen.
+Den stora fördelen med det här alternativet är att du kan uppgradera ett program i en enskild region genom att följa en uppsättning enkla steg. Dollar kostnaden för uppgraderingen är relativt låg. 
 
-1. Ange den primära databasen i produktionsplatsen till skrivskyddat läge (10). Det här läget kommer garanterar produktionsdatabasen (V1) inte ändras under uppgraderingen, vilket gör dataavvikelser mellan databasinstanser V1 och V2.  
-2. Koppla från den sekundära databasen i samma region använder planerad avslutning-läge (11). En oberoende men helt synkroniserade kopia av produktionsdatabasen skapas. Den här databasen kommer att uppgraderas.
-3. Kör uppgraderingsskriptet mot `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` och tillfälliga primära databasen (12). Databasändringar replikeras automatiskt till den sekundära mellanlagringen 
+Den huvudsakliga Nackdelen är att om ett oåterkalleligt fel inträffar under uppgraderingen, återställningen till tillståndet före uppgradering innebär att omdistribuera programmet i en annan region och återställa databasen från en säkerhetskopia med hjälp av geo-återställning. Den här processen resulterar i betydande driftavbrott.
 
-![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
+## <a name="upgrade-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Uppgradera program som förlitar sig på database geo-replikering för haveriberedskap
 
-Om uppgraderingen har slutförts, är du nu redo att växla slutanvändarna till V2-versionen av programmet. Följande diagram illustrerar stegen som ingår.
+Om programmet använder aktiv geo-replikering eller grupper för automatisk redundans för affärskontinuitet, distribueras den till minst två olika regioner. Det finns en aktiv, primär databas i en primär region och en skrivskyddad sekundär databas i en säkerhetskopiering region. Tillsammans med de faktorer som nämns i början av den här artikeln, måste även uppgradera garanterar att:
 
-1. Aktivera en växlingen mellan produktions- och mellanlagringsplatser för webbprogram i den primära regionen (13) och i regionen säkerhetskopiering (14). V2 av programmet blir en produktionsplatsen med en identisk kopia i regionen säkerhetskopiering.
-2. Du kan utföra avställning mellanlagringsmiljön om du inte längre behöver V1-program (15 och 16).  
+* Programmet förblir skyddat från kritiska fel vid alla tidpunkter under uppgraderingsprocessen.
+* Geo-redundanta komponenter i programmet uppgraderas parallellt med de aktiva komponenterna.
 
-![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
+För att uppnå dessa mål, förutom att använda Web Apps-miljöer, drar du nytta av Azure Traffic Manager med hjälp av en profil för redundans med en aktiv slutpunkt och en slutpunkt för säkerhetskopiering. I nästa diagram visas driftsmiljön före uppgraderingen. Webbplatserna `contoso-1.azurewebsites.net` och `contoso-dr.azurewebsites.net` representerar en produktionsmiljö av programmet med fullständig geografisk redundans. Produktionsmiljön innehåller följande komponenter:
 
-Om uppgraderingen misslyckas, till exempel på grund av ett uppgraderingsskript, betraktas mellanlagringsmiljön i inkonsekvent tillstånd. Att återställa programmet till tillståndet före uppgraderingen återgå till att använda V1 av programmet i produktionsmiljö. Steg som krävs visas på i nästa diagram.
+* Produktionsmiljön webbappens `contoso-1.azurewebsites.net` i den primära regionen (1)
+* Den primära databasen i den primära regionen (2)
+* En standby instans av webbappen i regionen säkerhetskopiering (3)
+* Geo-replikerad sekundär databas i regionen säkerhetskopiering (4)
+* En Traffic Manager-prestanda-profil med en online-slutpunkt anropas `contoso-1.azurewebsites.net` och kallas för en offline-slutpunkt `contoso-dr.azurewebsites.net`
 
-1. Ange den primära databaskopian i produktionsplatsen till läs-/ skrivläge (17). Den återställer fullständig V1 funktionellt i produktionsplatsen.
-2. Utföra Rotorsaksanalys och reparera eller ta bort mellanlagringsmiljön (18 och 19).
+Om du vill göra det möjligt att återställa uppgraderingen, måste du skapa en mellanlagringsmiljö med en helt synkroniserad kopia av programmet. Eftersom du behöver se till att programmet kan snabbt återställa om ett oåterkalleligt fel inträffar under uppgraderingsprocessen måste mellanlagringsmiljön vara geo-redundant också. Följande steg krävs för att skapa en mellanlagringsmiljö för uppgraderingen:
 
-Nu kan programmet är helt funktionella och Uppgraderingsstegen kan upprepas.
+1. Distribuera en mellanlagringsmiljö för webbappen i den primära regionen (6).
+2. Skapa en sekundär databas i den primära Azure-regionen (7). Konfigurera mellanlagringsmiljön för web-app för att ansluta till den. 
+3. Skapa en annan geo-redundant, sekundär databas i regionen säkerhetskopiering genom att replikera den sekundära databasen i den primära regionen. (Den här metoden anropas *kedjat geo-replikering*.) (8).
+4. Distribuera en mellanlagringsmiljö för web app-instans i regionen säkerhetskopiering (9) och konfigurera den för att ansluta den geo-redundant sekundär databas som skapats enligt (8).
 
 > [!NOTE]
-> Återställningen kräver inte DNS-ändringarna eftersom du inte utförde en växlingen.
+> Dessa förberedelsesteg påverkar inte programmet i produktionsmiljön. Det kommer att finnas i läs-och skrivbehörighet.
 
-![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-4.png)
+![SQL Database geo-replikering konfiguration för katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-1.png)
 
-Nyckeln **nytta** för det här alternativet är att du kan uppgradera både programmet och dess geo-redundant kopia parallellt utan att kompromissa med kontinuitet för företag under uppgraderingen. Huvudsakliga **kompromiss** är att den kräver dubbla redundans för varje programkomponent och därför medför högre dollar kostnad. Det innebär också en mer komplicerad arbetsflöde.
+När du är klar med steg för förberedelse är mellanlagringsmiljön klar för uppgradering. I nästa diagram illustrerar stegen uppgraderingen:
+
+1. Ange den primära databasen i produktionsmiljön till skrivskyddat läge (10). Det här läget garanterar att produktionsdatabasen (V1) inte ändras under uppgraderingen, vilket gör dataavvikelser mellan databasinstanser V1 och V2.
+2. Koppla från den sekundära databasen i samma region med hjälp av planerad avslutning-läget (11). Den här åtgärden skapar en oberoende men helt synkroniserade kopia av produktionsdatabasen. Den här databasen kommer att uppgraderas.
+3. Kör uppgraderingsskriptet mot `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, och den fristående primära databasen (12). Databasändringar replikeras automatiskt till den sekundära mellanlagringen.
+
+![SQL Database geo-replikering konfiguration för katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
+
+Om uppgraderingen har slutförts, är du nu redo att växla användare till V2-versionen av programmet. I nästa diagram visas steg som ingår:
+
+1. Aktivera en växlingen mellan produktionsmiljöer och mellanlagringsmiljön webbappens i den primära regionen (13) och i regionen säkerhetskopiering (14). V2 av programmet blir en produktionsmiljö med en identisk kopia i regionen säkerhetskopiering.
+2. Om du behöver inte längre V1-program (15 och 16) kan inaktivera du mellanlagringsmiljön.
+
+![SQL Database geo-replikering konfiguration för katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
+
+Om uppgraderingen misslyckas (till exempel på grund av ett fel i uppgraderingsskriptet) kan du överväga att mellanlagringsmiljön ska vara i ett inkonsekvent tillstånd. Om du vill återställa programmet till tillståndet före uppgraderingen återgå till att använda V1 av programmet i produktionsmiljön. På nästa diagram visas steg som krävs:
+
+1. Ange den primära databaskopian i produktionsmiljön för att läs-/ skrivläge (17). Den här åtgärden återställer alla V1-funktioner i produktionsmiljön.
+2. Utföra rotorsaksanalyser och reparera eller ta bort mellanlagringsmiljön (18 och 19).
+
+Nu kan programmet är helt funktionella och du kan upprepa Uppgraderingsstegen.
+
+> [!NOTE]
+> Återställningen kräver inte DNS ändras eftersom du inte har vid ett byte.
+
+![SQL Database geo-replikering konfiguration för katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-4.png)
+
+Den stora fördelen med det här alternativet är att du kan uppgradera både programmet och dess geo-redundant kopia parallellt utan att kompromissa med kontinuitet för företag under uppgraderingen.
+
+Huvudsakliga Nackdelen är att det kräver dubbla redundans för varje programkomponent och därför medför högre dollar kostnad. Det innebär också en mer komplicerad arbetsflöde.
 
 ## <a name="summary"></a>Sammanfattning
 
-De två uppgradera metoderna som beskrivs i artikel skiljer sig åt i komplexitet och dollar kostnad, men de båda fokusera på att minimera tiden när användaren är begränsat till skrivskyddade åtgärder. Då definieras direkt av varaktigheten för uppgraderingsskriptet. Den inte är beroende på databasens storlek, tjänstnivå som du har valt, webbplatskonfigurationen och andra faktorer som du enkelt inte kan styra. Alla förberedelsesteg är fristående från Uppgraderingsstegen och påverkar inte programmet för produktion. Effektiviteten hos uppgraderingsskriptet är en viktig faktor som anger slutanvändarens upplevelse under uppgraderingar. Så är det bästa sättet som du kan förbättra det genom att fokusera på att göra uppgraderingsskriptet så effektivt som möjligt.  
+De två uppgradera metoderna som beskrivs i artikel skiljer sig åt i komplexiteten och kostnaden för dollar, men de båda fokusera på att minimera hur länge användaren är begränsat till skrivskyddade åtgärder. Då definieras direkt av varaktigheten för uppgraderingsskriptet. Den beror inte på databasens storlek, tjänstnivå som du har valt, konfiguration för webbplats eller andra faktorer som du enkelt inte kan styra. Alla förberedelsesteg är fristående från Uppgraderingsstegen och påverkar inte programmet för produktion. Effektiviteten hos uppgraderingsskriptet är en nyckelfaktor som bestämmer användarupplevelsen under uppgraderingar. Därför är det bästa sättet att förbättra den att fokusera på att göra uppgraderingsskriptet så effektivt som möjligt.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En översikt över affärskontinuitet och scenarier finns i [översikt över affärskontinuitet](sql-database-business-continuity.md).
 * Läs om Azure SQL Database aktiv geo-replikering i [skapa läsbara sekundära databaser med aktiv geo-replikering](sql-database-active-geo-replication.md).
-* Läs om redundans för Azure SQL Database-grupper i [aktivera transparent och samordnad redundans för flera databaser med hjälp av automatisk redundans grupper](sql-database-auto-failover-group.md).
-* Mer information om distributionsplatser och mellanlagringsmiljön i Azure App Service, se [konfigurera mellanlagringsmiljöer i Azure App Service](../app-service/deploy-staging-slots.md).  
-* Läs Azure traffic manager-profiler i [hantera en Azure Traffic Manager-profil](../traffic-manager/traffic-manager-manage-profiles.md).  
-
-
+* Läs om Azure SQL Database automatisk redundans-grupper i [aktivera transparent och samordnad redundans för flera databaser med hjälp av automatisk redundans grupper](sql-database-auto-failover-group.md).
+* Läs om mellanlagringsmiljöer i Azure App Service i [konfigurera mellanlagringsmiljöer i Azure App Service](../app-service/deploy-staging-slots.md).
+* Läs om Azure Traffic Manager-profiler i [hantera en Azure Traffic Manager-profil](../traffic-manager/traffic-manager-manage-profiles.md).

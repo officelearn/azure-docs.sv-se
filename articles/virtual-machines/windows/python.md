@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: c6d1d7e7a6b96b049e313507e9862fde7dba332e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 748bc08e003d398e96ef55493e4f3b0bf6b7da28
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888812"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326984"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera Windows-datorer i Azure med hjälp av Python
 
@@ -499,7 +499,7 @@ Många aspekter av distributionen bör övervägas när du bestämmer dig en sto
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Lägga till en datadisk till den virtuella datorn
 
-Virtuella datorer kan ha en eller flera [datadiskar](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) som lagras som virtuella hårddiskar.
+Virtuella datorer kan ha en eller flera [datadiskar](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) som lagras som virtuella hårddiskar.
 
 1. Lägg till den här funktionen när variabler i .py-fil för att lägga till en datadisk till den virtuella datorn: 
 

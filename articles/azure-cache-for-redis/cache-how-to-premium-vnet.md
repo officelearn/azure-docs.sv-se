@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: dafa9f09b6aed1f61facf3737c7e03c81b2a0e7d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 15b7bae6116d05e7bf4cd76a1ba1b93bb127fef8
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238257"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313100"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du stöd för Virtual Network för Premium Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner, inklusive funktioner på Premiumnivå som klustring, persistence och stöd för virtuella nätverk. Ett virtuellt nätverk är ett privat nätverk i molnet. När en Azure-Cache för Redis-instans är konfigurerad med ett virtuellt nätverk, är inte offentligt adresserbar och kan bara kommas åt från virtuella datorer och program i det virtuella nätverket. Den här artikeln beskriver hur du konfigurerar virtual network-stöd för premium Azure Cache för Redis-instans.
@@ -85,7 +85,7 @@ I följande lista innehåller svar på vanliga frågor om Azure Cache för att s
 
 * Vilka är några vanliga problem med konfigurationsfel för Azure Cache för Redis och virtuella nätverk?
 * [Hur kan jag kontrollera att mitt cacheminne fungerar i ett virtuellt nätverk?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
-* [När du försöker ansluta till mitt Azure Cache för Redis i ett virtuellt nätverk, varför får jag ett felmeddelande om Fjärrcertifikatet är ogiltigt?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
+* När du försöker ansluta till mitt Azure Cache för Redis i ett virtuellt nätverk, varför får jag ett felmeddelande om Fjärrcertifikatet är ogiltigt?
 * [Kan jag använda virtuella nätverk med en standard eller basic-cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * Varför skapa en Azure Cache för Redis misslyckas i vissa undernät, men inte för andra?
 * [Vad är utrymmeskraven för undernät?](#what-are-the-subnet-address-space-requirements)

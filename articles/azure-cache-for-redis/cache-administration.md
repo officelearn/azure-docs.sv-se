@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: b75a2faa2030fc343cbabb17eb37b63c9ea34f70
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232389"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313219"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Hur du administrerar Azure Cache för Redis
 Det här avsnittet beskriver hur du utför administrationsuppgifter som [omstart](#reboot) och [schemalägga uppdateringar](#schedule-updates) för din Azure-Cache för Redis-instanser.
@@ -94,7 +94,7 @@ Den **Schemalägg uppdateringar** kan du ange en underhållsperiod för din cach
 
 Om du vill ange en underhållsperiod, de önskade dagarna och ange starttid för underhåll fönstret för varje dag och klicka på **OK**. Observera att underhållsfönstertiden är i UTC. 
 
-Standard- och minimumkapacitet underhållsperiod för programuppdateringar är fem timmar. Det här värdet kan inte konfigureras från Azure-portalen, men du kan konfigurera det i PowerShell med hjälp av den `MaintenanceWindow` -parametern för den [New AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. Mer information finns i [kan jag hantera schemalagda uppdateringar med hjälp av PowerShell, CLI eller andra hanteringsverktyg?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+Standard- och minimumkapacitet underhållsperiod för programuppdateringar är fem timmar. Det här värdet kan inte konfigureras från Azure-portalen, men du kan konfigurera det i PowerShell med hjälp av den `MaintenanceWindow` -parametern för den [New AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. Mer information finns i kan jag hantera schemalagda uppdateringar med hjälp av PowerShell, CLI eller andra hanteringsverktyg?
 
 
 ## <a name="schedule-updates-faq"></a>Schemalägga uppdateringar av vanliga frågor och svar

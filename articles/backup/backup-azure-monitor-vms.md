@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 886c41f669d0b0363f4484b24ba3b9975904d9f7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492223"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310176"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Övervaka varningar vid säkerhetskopiering av virtuella Azure-datorer
 
@@ -42,7 +42,7 @@ Om du vill visa information om den händelse som utlöste en avisering, måste d
 
     ![Händelseinformation](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
-    Om du vill anpassa de attribut som visas i listan, se [visa ytterligare händelse attribut](backup-azure-monitor-vms.md#view-additional-event-attributes)
+    Om du vill anpassa de attribut som visas i listan, se [visa ytterligare händelse attribut](backup-azure-monitor-vms.md)
 
 ## <a name="configure-notifications"></a>Konfigurera meddelanden
 

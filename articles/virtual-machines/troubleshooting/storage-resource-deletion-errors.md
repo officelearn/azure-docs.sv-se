@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816194"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326831"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av storage-resurs
 
@@ -28,7 +28,7 @@ I vissa fall, kan du stöta på något av följande fel inträffar när du förs
 
 >**Det gick inte att ta bort # utanför # blobar:<br>BlobName.vhd: Det finns för närvarande ett lån på blobben och inga lån-ID har angetts i begäran.**
 
-De virtuella hårddiskarna i virtuella datorer i Azure är .vhd-filer som lagras som sidblobar i en standard- eller premium storage-konto i Azure. Läs mer om Azure-diskar, [om ohanterade och hanterade disklagring för Microsoft Azure Linux-datorer](../linux/about-disks-and-vhds.md). 
+De virtuella hårddiskarna i virtuella datorer i Azure är .vhd-filer som lagras som sidblobar i en standard- eller premium storage-konto i Azure. Mer information om Azure-diskar finns i vår [introduktion till hanterade diskar](../linux/managed-disks-overview.md).
 
 Azure förhindrar borttagning av en disk som är kopplad till en virtuell dator för att förhindra skador. Det förhindrar även att borttagningen av behållare och storage-konton som har en sidblobb som är kopplad till en virtuell dator. 
 

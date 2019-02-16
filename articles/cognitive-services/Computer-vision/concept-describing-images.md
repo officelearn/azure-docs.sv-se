@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7919a84ffe948c9b6a8f68fc1372f1976c09bc79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864289"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312199"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Beskriv bilder med läsbara språk
 
-Datorn Vision algoritmer analysera innehållet i en bild. Denna analys utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor i fullständiga meningar. Beskrivningen sammanfattar vad som finns i bilden. Datorn Vision algoritmer generera olika beskrivningar baserat på visuella funktioner som identifierats i avbildningen. Varje beskrivning utvärderas och ett förtroenderesultat genereras. Sedan returneras en lista som är sorterad efter högsta till lägsta förtroendepoäng.
+Visuellt innehåll kan analysera en bild och generera en läsbara mening som beskriver dess innehåll. Den algoritm som faktiskt retruns flera beskrivningar baserat på olika visuella funktioner och varje beskrivning får ett förtroenderesultat. Det slutgiltiga resultatet är en lista över beskrivningar som beställdes från högsta till lägsta förtroende.
 
 ## <a name="image-description-example"></a>Exempel på Programbeskrivning bild
 

@@ -2,16 +2,17 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 11/08/2018
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4ab9da996226b3f26fd30db1cd012c80253a85a5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333794"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306862"
 ---
-Följande krav gäller för minsta bandbredd för internet som krävs för dina enheter.
+Enheterna som är utformade för att fortsätta att fungera när Internetanslutningen är långsam eller hämtar avbryts. I normala driftsförhållanden rekommenderar vi att du använder: 
 
-- Enheten har en dedikerad 20 Mbit/s internet-bandbredd (eller mer) vid alla tidpunkter. Den här bandbredden inte bör delas med andra program.
-- Enheten har en dedikerad 64-Mbit/s internet-bandbredd (eller mer) när du använder nätverksbegränsning.
+- Minst 10 Mbit/s hämta bandbredd för att se till att enheten är uppdaterad.
+- Minst 20 Mbit/s dedikerade ladda upp och hämta bandbredd för att överföra filer.
+

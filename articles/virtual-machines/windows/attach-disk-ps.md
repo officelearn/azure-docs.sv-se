@@ -16,25 +16,25 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 791322c71b4d1b49e1367fb0f179e7b0513a1e94
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6788568510a0aa10a859236aebc3f3edb2de7527
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975661"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329627"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anslut en datadisk till en virtuell Windows-dator med PowerShell
 
 Den här artikeln visar hur du kopplar både nya och befintliga diskar till en Windows-dator med hjälp av PowerShell. 
 
 Granska först de här tipsen:
+
 * Storleken på den virtuella datorn styr hur många datadiskar som du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Om du vill använda Premium storage behöver en Premium Storage-aktiverad virtuell dator-typ som den DS-serien eller GS-serien virtuella datorn. Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Om du vill använda premium SSD, behöver du en [premium storage-aktiverade VM-typ](sizes-memory.md), till exempel DS-serien eller GS-serien virtuella datorn.
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Lägg till en tom datadisk till en virtuell dator
 
@@ -61,11 +61,12 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Använda hanterade diskar i en Tillgänglighetszon
 Du kan skapa en disk i en Tillgänglighetszon med [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) med den `-Zone` parametern. I följande exempel skapas en disk i zonen *1*.
 
+Du kan skapa en disk i en Tillgänglighetszon med [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) med den `-Zone` parametern. I följande exempel skapas en disk i zonen *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
-$location = 'East US 2' 
+$location = 'East US 2'
 $storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
@@ -78,10 +79,9 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Managed
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
-
 ### <a name="initialize-the-disk"></a>Initiera disken
 
-När du lägger till en tom disk måste du initiera den. Du kan logga in på en virtuell dator och använda Diskhantering för att initiera disken. Om du har aktiverat [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) och ett certifikat på den virtuella datorn när du skapade det. Du kan använda fjärr-PowerShell för att initiera disken. Du kan också använda ett anpassat skripttillägg: 
+När du lägger till en tom disk måste du initiera den. Du kan logga in på en virtuell dator och använda Diskhantering för att initiera disken. Om du har aktiverat [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) och ett certifikat på den virtuella datorn när du skapade det. Du kan använda fjärr-PowerShell för att initiera disken. Du kan också använda ett anpassat skripttillägg:
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -89,7 +89,7 @@ När du lägger till en tom disk måste du initiera den. Du kan logga in på en 
     $fileName = "script-file-name"
     Set-AzVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
-        
+
 Skriptfilen kan innehålla kod för att initiera diskar, till exempel:
 
 ```azurepowershell-interactive
@@ -109,10 +109,9 @@ Skriptfilen kan innehålla kod för att initiera diskar, till exempel:
     }
 ```
 
-
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Koppla en befintlig datadisk till en virtuell dator
 
-Du kan koppla en befintlig hanterad disk till en virtuell dator som en datadisk. 
+Du kan koppla en befintlig hanterad disk till en virtuell dator som en datadisk.
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"

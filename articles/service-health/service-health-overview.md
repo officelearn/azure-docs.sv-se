@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871710"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328273"
 ---
 # <a name="service-health"></a>Service Health
 Service Health ger dig en anpassningsbar instrumentpanel som spårar hälsotillståndet för dina Azure-tjänster i regioner där du använder. I den här instrumentpanelen kan du spåra aktiva händelser som pågående tjänstproblem, planerat underhåll eller relevanta hälsoråd. När händelser blir inaktiva, placeras de i din hälsotillståndshistoriken i upp till 90 dagar. Slutligen kan du använda Service Health-instrumentpanelen att skapa och hantera service health-aviseringar som proaktivt meddela dig när tjänstproblem påverkar dig.
@@ -24,6 +24,9 @@ Tjänstehälsa spårar tre typer av health-händelser som kan påverka dina resu
 1. **Tjänsten problem** -problem i Azure-tjänster som påverkar dig just nu. 
 2. **Planerat underhåll** -kommande underhåll som kan påverka tillgängligheten för dina tjänster i framtiden.  
 3. **Hälsoråd** -ändringar i Azure-tjänster som kräver din uppmärksamhet. Exempel är när Azure-funktionerna är inaktuella eller om du överskrider en kvot för användning.
+
+> [!NOTE]
+> Användarna måste ha rollen Läsare för en prenumeration om du vill visa Service Health-händelser.
 
 ## <a name="get-started-with-service-health"></a>Kom igång med Service Health
 Välj Service Health-panelen på instrumentpanelen i portalen för att starta Service Health-instrumentpanelen. Om du tidigare har tagit bort panelen eller om du använder en anpassad instrumentpanel, Sök efter Service Health-tjänsten i ”fler tjänster” (vänster på instrumentpanelen i nederkant).

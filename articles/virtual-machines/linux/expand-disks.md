@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abf0c88c356ba695e2f9905f77bf5fd193821712
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a55839550b57da2ae346e66f4908da39e78b76f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461856"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328302"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandera virtuella hårddiskar på en Linux VM med Azure CLI
 
@@ -64,7 +64,7 @@ I följande exempel ersätter exempel parameternamn som *myResourceGroup* och *m
     ```
 
     > [!NOTE]
-    > När du expanderar en hanterad disk är uppdaterade storleken avrundas uppåt till närmaste hanterade diskens storlek. En tabell över tillgängliga hanterade diskstorlekar och nivåerna finns i [Azure översikten över Managed Disks - priser och fakturering](../windows/managed-disks-overview.md#pricing-and-billing).
+    > När du expanderar en hanterad disk är uppdaterade storleken avrundas uppåt till närmaste hanterade diskens storlek. En tabell över tillgängliga hanterade diskstorlekar och nivåerna finns i [Azure översikten över Managed Disks - priser och fakturering](../windows/managed-disks-overview.md).
 
 1. Starta den virtuella datorn med [az vm start](/cli/azure/vm#az-vm-start). Följande exempel startar den virtuella datorn med namnet *myVM* i resursgruppen med namnet *myResourceGroup*:
 

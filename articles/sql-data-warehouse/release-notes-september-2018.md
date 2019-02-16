@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bd6531bc950e006f15924bb9a0d6428f9e69d544
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460734"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330842"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Vad är nytt i Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i September 2018.
@@ -24,6 +24,9 @@ Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artike
 I April 2018 [tillkännagav Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 som erbjuder 5 gånger prestandan, 5 x beräkning skalan, 4 x samtidighet och obegränsad lagring. Enligt vad som anges i den [datalager i molnet Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) av Gigaom, SQL-informationslager Gen2 **överlägsen Amazon Redshift med 42%**.
 
 Gen2 är nu allmänt tillgängligt på en lägre post punkt för DWU500c så att du kan köra en mindre storlek data warehouse eller dev/test-miljöer med alla de senaste förbättringarna för tjänsten. Den nya startpunkten behåller alla Gen2 funktioner inklusive [Adaptiv cachelagring](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [belysning snabbt Data blandning](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), samt stöd för [i realtid datalagret](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
+
+## <a name="sql-vulnerability-assessment"></a>Sårbarhetsbedömning för SQL
+[SQL Vulnerability Assessment (VA)](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/25/sql-vulnerability-assessment-now-supports-azure-sql-data-warehouse-and-azure-sql-database-managed-instance/) är en enkel att använda-tjänst som övervakar hela tiden ditt informationslager. Det hjälper dig att säkerställa en hög säkerhetsnivå för hela tiden och att din organisations principer är uppfyllda. Det tillhandahåller en omfattande säkerhetsrapport tillsammans med användbara steg för varje problem hittades. Den här rapporten gör det enkelt för dig att proaktivt hantera din databas security datasekretesstandarder och fokusera din uppmärksamhet på de högsta påverkan åtgärderna, även om du inte är en expert. För dynamiska miljöer där ändringar är ofta och svåra att spåra, är VA ovärderlig vid identifiering av de inställningar som kan göra ditt informationslager sårbar för attacker.
 
 ## <a name="improved-availability-with-query-restartability"></a>Förbättrad tillgänglighet med frågan restartability
 Vid körning av fråga valfritt antal problem kan uppstå som kan orsaka en fråga att misslyckas. Ett nätverksavbrott, ett maskinvarufel eller andra frånkoppling kan orsaka störningar. SQL Data Warehouse stöder nu fråga restartability för steg eller en SELECT-instruktion på servernivå-frågor. 

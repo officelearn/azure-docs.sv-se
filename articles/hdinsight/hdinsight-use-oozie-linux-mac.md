@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 11c5d44d44bf66bc7f50dac13c1c7cf0ae7acfff
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: aca64ce3d965d03ecc6fe6da0f372f355a48bed5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994393"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311876"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
 
@@ -301,7 +301,7 @@ Jobbdefinitionen beskrivs var du hittar workflow.xml. Här beskrivs också var d
     ```
 
     > [!NOTE]  
-    > Om HDInsight-klustret använder Azure Storage som standardlagring, den `<value>` elementet innehållet börjar med `wasb://`. Om Azure Data Lake Storage används i stället, den börjar med `adl://`.
+    > Om HDInsight-klustret använder Azure Storage som standardlagring, den `<value>` elementet innehållet börjar med `wasb://`. Om Azure Data Lake Storage Gen1 används i stället, den börjar med `adl://`.
 
     Spara innehållet i den `<value>` elementet, eftersom den används i nästa steg.
 
@@ -685,7 +685,7 @@ Följande är vissa fel kan uppstå och hur du löser dem.
 
 **Orsak**: Azure Blob storage-adresser som används i den **job.xml** filen innehåller inte storage-behållare eller lagringskontonamn. Formatet för Blob storage-adress måste vara `wasb://containername@storageaccountname.blob.core.windows.net`.
 
-**Lösning**: Ändra Blob storage-adresser som används av jobbet.
+**Upplösning**: Ändra Blob storage-adresser som används av jobbet.
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie är inte tillåtet att personifiera &lt;användare >
 
@@ -695,7 +695,7 @@ Följande är vissa fel kan uppstå och hur du löser dem.
 
 **Orsak**: De aktuella behörighetsinställningarna för tillåter inte Oozie att personifiera det angivna användarkontot.
 
-**Lösning**: Oozie kan personifiera användare i den **användare** grupp. Använd den `groups USERNAME` att se de grupper som användaren är medlem i. Om användaren inte är medlem i den **användare** gruppen, Använd följande kommando för att lägga till användaren i gruppen:
+**Upplösning**: Oozie kan personifiera användare i den **användare** grupp. Använd den `groups USERNAME` att se de grupper som användaren är medlem i. Om användaren inte är medlem i den **användare** gruppen, Använd följande kommando för att lägga till användaren i gruppen:
 
     sudo adduser USERNAME users
 
@@ -710,7 +710,7 @@ Följande är vissa fel kan uppstå och hur du löser dem.
 
 **Orsak**: Sqoop kan inte läsa in databasdrivrutinen som krävs för att få åtkomst till databasen.
 
-**Lösning**: När du använder Sqoop från ett Oozie-jobb, måste du inkludera databasdrivrutinen med andra resurser, till exempel workflow.xml, jobb används. Dessutom referera till arkivet som innehåller databasdrivrutinen från den `<sqoop>...</sqoop>` delen av workflow.xml.
+**Upplösning**: När du använder Sqoop från ett Oozie-jobb, måste du inkludera databasdrivrutinen med andra resurser, till exempel workflow.xml, jobb används. Dessutom referera till arkivet som innehåller databasdrivrutinen från den `<sqoop>...</sqoop>` delen av workflow.xml.
 
 Till exempel för jobbet i det här dokumentet använder du följande steg:
 

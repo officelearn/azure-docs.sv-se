@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4698268d8e7798d0664d9eb6c33862d9641ff9fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: f5d453fbacb44105c491c9e69085a219099943fa
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895592"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326916"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -339,7 +339,7 @@ Du kan publicera en pipeline kan köras med olika indata senare. För REST-slutp
 
 Alla publicerade pipelines har en REST-slutpunkt. Den här slutpunkten anropar körningen av pipelinen från externa system, till exempel-Python-klienter. Den här slutpunkten kan ”hanterade repeterbarhet” i batch bedömning och träna scenarier.
 
-För att anropa körning av föregående pipelinen du behöver ett Azure Active Directory-huvud autentiseringstoken, enligt beskrivningen i [AzureCliAuthentication klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
+För att anropa körning av föregående pipelinen du behöver ett Azure Active Directory-huvud autentiseringstoken, enligt beskrivningen i [AzureCliAuthentication klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) eller få mer information finns på [autentisering i Azure-dator Learning](https://aka.ms/pl-restep-auth) anteckningsboken.
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 

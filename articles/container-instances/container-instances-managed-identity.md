@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657033"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311571"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Hur du använder hanterade identiteter med Azure Container Instances
 
@@ -27,6 +27,9 @@ I den här artikeln får du lära dig mer om hanterade identiteter i Azure Conta
 > * Använda den hanterade identitet för åtkomst till Key Vault från en behållare som körs
 
 Anpassa exemplen för att aktivera och använda identiteter i Azure Container Instances för att få åtkomst till andra Azure-tjänster. De här exemplen är interaktiva. I praktiken men körs dina behållaravbildningar koden för att komma åt Azure-tjänster.
+
+> [!NOTE]
+> För närvarande kan du använda en hanterad identitet i en behållargrupp som distribueras till ett virtuellt nätverk.
 
 ## <a name="why-use-a-managed-identity"></a>Varför ska jag använda en hanterad identitet?
 

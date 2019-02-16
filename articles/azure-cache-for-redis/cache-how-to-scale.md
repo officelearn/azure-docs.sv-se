@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235580"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313440"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner. När en cache har skapats kan skala du storleken och prisnivå för cachen om kraven för ditt program ändrar. Den här artikeln visar hur du skalar cachen med hjälp av Azure-portalen och verktyg som Azure PowerShell och Azure CLI.
@@ -115,7 +115,7 @@ I följande lista innehåller svar på vanliga frågor om Azure Cache för att s
 * [Kommer jag att förlora data från mitt cacheminne under skalning?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Är Mina anpassade databaser konfigurera berörda under skalning?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Mitt cacheminne är tillgängliga under skalning?](#will-my-cache-be-available-during-scaling)
-* [Med Geo-replikering konfigureras, varför kan jag inte skala mitt cacheminne eller ändra shards i ett kluster?](#scaling-limitations-with-geo-relication)
+* Med Geo-replikering konfigureras, varför kan jag inte skala mitt cacheminne eller ändra shards i ett kluster?
 * [Åtgärder som inte stöds](#operations-that-are-not-supported)
 * [Hur lång tid skalning tar?](#how-long-does-scaling-take)
 * [Hur vet jag när skalning är klar?](#how-can-i-tell-when-scaling-is-complete)

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f065a7c428f191e37449145e946b26c3133ede05
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700049"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329821"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 
@@ -74,7 +74,7 @@ Azure Stream Analytics söker automatiskt efter uppdateras referensdatablobar me
 
 ## <a name="azure-sql-database-preview"></a>Azure SQL-databas (förhandsversion)
 
-Azure SQL Database-referensdata hämtas av ditt Stream Analytics-jobb och lagras som en ögonblicksbild i minnet för bearbetning. Ögonblicksbild av din referensdata lagras också i en behållare i ett lagringskonto som du anger i konfigurationsinställningarna. Behållaren har skapats automatiskt när jobbet startas och hämtar automatiskt bort när jobbet avbryts.
+Azure SQL Database-referensdata hämtas av ditt Stream Analytics-jobb och lagras som en ögonblicksbild i minnet för bearbetning. Ögonblicksbild av din referensdata lagras också i en behållare i ett lagringskonto som du anger i konfigurationsinställningarna. Behållaren har skapats automatiskt när jobbet börjar. Om jobbet har stoppats eller försätts i ett felaktigt tillstånd, tas de automatisk skapade behållarna bort när jobbet startas om.  
 
 Om din referensdata är en uppsättning med långsamt föränderliga data, måste regelbundet uppdatera ögonblicksbilden som används i jobbet. Stream Analytics kan du ange ett intervall när du konfigurerar din Azure SQL Database inkommande anslutning. Stream Analytics-runtime frågar Azure SQL Database med det intervall som anges av uppdateringsfrekvensen. Den snabbaste uppdateringsintervall som stöds är en gång per minut. Stream Analytics lagrar en ny ögonblicksbild i storage-kontot som angetts för varje uppdatering.
 

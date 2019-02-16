@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 0c52a10aa806962ee54fe6058f236ea9bd86414b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: e780a78bb2cc341ef6b2f682cd51fedad3f08494
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268353"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310866"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -25,7 +25,6 @@ Ja. Du kan skapa upp till 500 Recovery Services-valv per region som stöds av Az
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Finns det några begränsningar för hur många servrar/datorer som kan registreras mot varje valv?
 Du kan registrera upp till 1 000 virtuella Azure-datorer per valv. Om du använder Microsoft Azure Backup-agenten kan registrera du upp till 50 MAB-agenter per valv. Och du kan registrera 50 MAB-servrar/DPM-servrar till ett valv.
-
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Min organisation har ett valv, hur kan jag isolera data från olika servrar i valvet när du återställer data?
 Server-data som du vill återställa tillsammans bör använda samma lösenfras när du konfigurerar säkerhetskopiering. Om du vill isolera återställning till en specifik server eller servrar kan du använda en lösenfras för den server eller endast servrar. HR-servrarna kan till exempel använda en krypteringslösenfras, redovisningsservrarna en annan och lagringsservrar en tredje.
@@ -76,10 +75,8 @@ Nej. En DPM eller Azure Backup server kan registreras till ett enda valv.
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Kan jag använda Azure Backup Server för att skapa en BMR-säkerhetskopia (Bare Metal Recovery) för en fysisk server? <br/>
 Ja.
 
-
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Kan jag använda DPM för säkerhetskopiering av appar i Azure Stack?
 Nej. Du kan använda Azure Backup för att skydda Azure Stack, Azure Backup stöder inte använder DPM för att säkerhetskopiera appar i Azure Stack.
-
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Om jag har installerat Azure Backup-agenten för att skydda Mina filer och mappar kan jag installera System Center DPM att säkerhetskopiera lokala arbetsbelastningar till Azure?
 Ja. Men du bör konfigurera DPM först och sedan installera Azure Backup-agenten.  Installera komponenterna i den här ordningen säkerställer att Azure Backup-agenten fungerar med DPM. Installera agenten innan du installerar DPM inte detta varken rekommenderas eller stöds.
@@ -138,14 +135,8 @@ SharePoint | Summan av innehållet och konfigurationsdatabaserna i en SharePoint
 Exchange |Summan av alla Exchange-databaser i en Exchange-server som säkerhetskopieras.
 BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på datorn som säkerhetskopieras.
 
-
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Finns det en gräns för mängden data som säkerhetskopieras med ett Recovery Services-valv?
 Det finns ingen gräns för mängden data som du kan säkerhetskopiera med Recovery Services-valvet.
-
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Tas säkerhetskopierade data som redan har överförts bort om jag avbryter ett säkerhetskopieringsjobb som redan har startat?
-Nej. Alla data som har överförts till valvet innan säkerhetskopieringen avbröts finns kvar i valvet. Azure Backup använder en kontrollpunktsmekanism för att då och då lägga till kontrollpunkter till säkerhetskopierade data under säkerhetskopieringen. Eftersom det finns kontrollpunkter i säkerhetskopian kan nästa säkerhetskopiering validera filernas integritet. Nästa säkerhetskopieringsjobb är en inkrementell säkerhetskopiering mot tidigare säkerhetskopierade data. Vid inkrementella säkerhetskopieringar överförs bara nya eller ändrade data, vilket innebär att bandbredden utnyttjas bättre.
-
-Om du avbryter ett säkerhetskopieringsjobb för en virtuella Azure-dator ignoreras alla överförda data. Nästa säkerhetskopieringsjobb överför inkrementella data från det senaste lyckade säkerhetskopieringsjobbet.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Varför är mängden data som överförs till Recovery Services-valvet mindre än de data som valts för säkerhetskopiering?
  Data som säkerhetskopieras från Azure Backup Agent, DPM, och Azure Backup Server komprimeras och krypteras innan de överförs. Vid komprimering och kryptering används kan data i valvet är 30 – 40% mindre.
@@ -153,13 +144,14 @@ Om du avbryter ett säkerhetskopieringsjobb för en virtuella Azure-dator ignore
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Kan jag ta bort enskilda filer från en återställningspunkt i valvet?
 Azure Backup stöder inte, inte ta bort eller rensa enskilda objekt från lagrade säkerhetskopior.
 
-
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Om jag avbryter ett säkerhetskopieringsjobb när den har startat överförda säkerhetskopieringsdata raderas?
 Nej. Alla data som har överförts till valvet innan säkerhetskopieringen var avbröts finns kvar i valvet.
 
 - Azure Backup använder en kontrollpunktsmekanism för att då och då lägga till kontrollpunkter till säkerhetskopierade data under säkerhetskopieringen.
 - Eftersom det finns kontrollpunkter i säkerhetskopian kan nästa säkerhetskopiering validera filernas integritet.
 - Nästa säkerhetskopieringsjobb är en inkrementell säkerhetskopiering mot tidigare säkerhetskopierade data. Vid inkrementella säkerhetskopieringar överförs bara nya eller ändrade data, vilket innebär att bandbredden utnyttjas bättre.
+
+Om du avbryter ett säkerhetskopieringsjobb för en virtuella Azure-dator ignoreras alla överförda data. Nästa säkerhetskopieringsjobb överför inkrementella data från det senaste lyckade säkerhetskopieringsjobbet.
 
 ## <a name="retention-and-recovery"></a>Kvarhållning och återställning
 
@@ -207,7 +199,7 @@ När en ny princip tillämpas följs schemat för och kvarhållningen av den nya
 ## <a name="encryption"></a>Kryptering
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Krypteras informationen som skickas till Azure?
-Ja. Data krypteras på den lokala datorn med hjälp av AES256. Data skickas via en säker HTTPS-anslutning. Data överförs i molnet är skyddat av HTTPS-anslutning endast mellan tjänsten för lagring och återställning. iSCSI-protokollet skyddar de data som överförs mellan dator för återställning i tjänsten och användare. Säkra tunnlar används för att skydda iSCSI-kanalen.
+Ja. Data krypteras på den lokala datorn med hjälp av AES256. Data skickas via en säker HTTPS-anslutning. De data som överförs i molnet skyddas av HTTPS-anslutning endast mellan tjänsten för lagring och återställning. iSCSI-protokollet skyddar de data som överförs mellan dator för återställning i tjänsten och användare. Säkra tunnlar används för att skydda iSCSI-kanalen.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Är säkerhetskopierade data i Azure också krypterade?
 Ja. Data i Azure är krypterade i vila.

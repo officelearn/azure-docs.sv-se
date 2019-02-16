@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 61cad318dbbe55ef5ecf1b8167b6594ab6e57553
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247545"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327423"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale på Azure
 
@@ -89,7 +89,7 @@ Den här arkitekturen körs nivåerna program, lagring och data på virtuella Az
 
 ### <a name="storage-considerations"></a>Överväganden för lagring
 
-T.ex. Oracle RAC är DB2 pureScale en högpresterande block i/o, skalbar databas. Vi rekommenderar att du använder den största [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) alternativ som passar dina behov. Mindre lagringsalternativ kan vara lämplig för utvecklings- och testmiljöer produktionsmiljöer behöver ofta mer lagringskapacitet. Exempel-arkitekturen används [P30](https://azure.microsoft.com/pricing/details/managed-disks/) på grund av dess förhållandet mellan IOPS och storlek och pris. Oavsett storlek, använda Premium Storage för bästa prestanda.
+T.ex. Oracle RAC är DB2 pureScale en högpresterande block i/o, skalbar databas. Vi rekommenderar att du använder den största [Azure premium SSD](disks-types.md) alternativ som passar dina behov. Mindre lagringsalternativ kan vara lämplig för utvecklings- och testmiljöer produktionsmiljöer behöver ofta mer lagringskapacitet. Exempel-arkitekturen används [P30](https://azure.microsoft.com/pricing/details/managed-disks/) på grund av dess förhållandet mellan IOPS och storlek och pris. Oavsett storlek, använda Premium Storage för bästa prestanda.
 
 DB2 pureScale använder en delad – allt arkitektur, där alla data kan nås från alla noder i klustret. Premium-lagring måste delas mellan instanser, oavsett om du är på begäran eller enligt dedikerade instanser.
 

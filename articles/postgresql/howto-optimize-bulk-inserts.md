@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810250"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310299"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Optimera bulkinfogningar och använda tillfälliga data på en Azure Database for PostgreSQL-server 
 Den här artikeln beskrivs hur du kan optimera bulk insert-åtgärder och använda tillfälliga data på en Azure Database for PostgreSQL-server.
@@ -25,9 +25,9 @@ Lägga till i en ej loggade tabell innebär att PostgreSQL sker infogningar utan
 
 Använd följande alternativ för att skapa en ej loggade tabell:
 - Skapa en ny ej loggade tabell med hjälp av syntaxen `CREATE UNLOGGED TABLE <tableName>`.
-- Konvertera en befintlig loggas tabell till en ej loggade tabell med hjälp av syntaxen `ALTER <tableName> SET UNLOGGED`.  
+- Konvertera en befintlig loggas tabell till en ej loggade tabell med hjälp av syntaxen `ALTER TABLE <tableName> SET UNLOGGED`.  
 
-Om du vill ångra processen, Använd syntax `ALTER <tableName> SET LOGGED`.
+Om du vill ångra processen, Använd syntax `ALTER TABLE <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Ej loggade tabell kompromiss
 Ej loggade tabellerna inte krascher safe. En ej loggade tabell trunkeras automatiskt efter en krasch eller omfattas av en felaktig avstängning. Innehållet i en ej loggade tabellen replikerats inte till reservservrar. Skapa en tabell som ej loggade index är automatiskt ej loggade också. Efter infogningen åtgärden har slutförts, kan du konvertera tabellen till inloggad så att infogningen är beständiga.

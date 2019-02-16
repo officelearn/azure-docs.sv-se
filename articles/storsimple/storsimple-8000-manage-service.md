@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701928"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310065"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple Device Manager-tjänsten för enheter i StorSimple 8000-serien
 
@@ -32,7 +32,7 @@ Den här självstudien beskrivs de steg som krävs för att skapa, ta bort eller
 > [!NOTE]
 > -  Azure-portalen stöder enheter som kör uppdatering 5.0 eller senare. Installera uppdatering 5 omedelbart om enheten inte är uppdaterade. Mer information går du till [installera uppdatering 5](storsimple-8000-install-update-5.md). 
 > - Om du använder en StorSimple Cloud Appliance (8010/8020) kan inte du uppdatera en molninstallation. Använd den senaste versionen av programvara för att skapa en ny molninstallation med uppdatering 5.0 och sedan växla över till nya molninstallationen skapas. 
-> - Alla enheter som kör Update 4.0 eller tidigare får [minskas hanteringsfunktioner](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> - Alla enheter som kör Update 4.0 eller tidigare uppstår minskade hanteringsfunktioner. 
 
 ## <a name="create-a-service"></a>Skapa en tjänst
 Om du vill skapa en StorSimple Device Manager-tjänsten, måste du ha:
@@ -93,7 +93,7 @@ Utför följande steg för att hämta Registreringsnyckeln för tjänsten.
 
 Behåll nyckeln för tjänstregistrering på en säker plats. Du behöver den här nyckeln samt tjänstdatakrypteringsnyckel, att registrera ytterligare enheter med den här tjänsten. När du har fått nyckeln för tjänstregistrering, måste du konfigurera din enhet via Windows PowerShell för StorSimple-gränssnittet.
 
-Mer information om hur du använder den här nyckeln för tjänstregistrering finns [steg3: konfigurera och registrera enheten via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Mer information om hur du använder den här nyckeln för tjänstregistrering finns [steg3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## <a name="regenerate-the-service-registration-key"></a>Återskapa nyckel för tjänstregistrering
 Du måste återskapa en nyckel för tjänstregistrering om du behöver utföra nyckelrotation eller om listan över tjänstadministratörer har ändrats. När du återskapar en nyckel används den nya nyckeln endast för att registrera följande enheter. De enheter som redan har registrerats påverkas inte av den här processen.
@@ -127,7 +127,7 @@ Tjänstdatakrypteringsnycklarna används för att kryptera konfidentiell kundinf
 2. Med hjälp av Windows PowerShell för StorSimple, initiera data encryption key tjänständringen.
 3. Om du har mer än en StorSimple-enhet kan du uppdatera tjänstdatakrypteringsnyckel på andra enheter.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Steg 1: Använd Windows PowerShell-skript för att auktorisera en enhet för att ändra krypteringsnyckeln för tjänstdata
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Steg 1: Använda Windows PowerShell-skript för att auktorisera en enhet för att ändra krypteringsnyckeln för tjänstdata
 Normalt begär enhetsadministratören att tjänstadministratören auktorisera en enhet för att ändra tjänstdatakrypteringsnycklarna. Tjänstadministratör kommer sedan att auktorisera enheten för att ändra nyckeln.
 
 Det här steget utförs med hjälp av Azure Resource Manager-baserade skript. Tjänstadministratören kan välja en enhet som kan användas för att ha behörighet. Enheten har sedan behörighet att starta tjänsten data krypteringsprocessen ändringen. 
@@ -143,7 +143,7 @@ En enhet måste uppfylla följande kriterier innan den kan ha behörighet att in
 * Du kan inte godkänna en enhet när förnyelsen av krypteringsnyckeln för tjänstdata pågår.
 * Du kan auktorisera en enhet när några av de enheter som registrerats för tjänsten har perioder krypteringen medan andra inte har. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Steg 2: Använd Windows PowerShell för StorSimple att initiera data encryption key tjänständringen
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Steg 2: Använd Windows PowerShell för StorSimple att initiera krypteringsnyckeln för tjänstdata ändra
 Det här steget utförs i Windows PowerShell för StorSimple-gränssnittet på behöriga StorSimple-enheten.
 
 > [!NOTE]
@@ -154,7 +154,7 @@ Utför följande steg om du använder enhetens seriekonsol för att ansluta till
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>Initiera data encryption key tjänständringen
 1. Välj alternativ 1 för att logga in med fullständig åtkomst.
-2. I Kommandotolken skriver du:
+2. Skriv följande i kommandotolken:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 3. När cmdleten har slutförts får du en ny krypteringsnyckel för tjänstdata. Kopiera och spara den här nyckeln för användning i steg 3 i den här processen. Den här nyckeln används för att uppdatera de återstående enheter som registrerats med StorSimple Manager-tjänsten.
@@ -176,7 +176,7 @@ Utför följande steg för att uppdatera tjänsten datakryptering på din enhet.
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Att uppdatera krypteringsnyckeln för tjänstdata på fysiska enheter
 1. Använda Windows PowerShell för StorSimple för att ansluta till konsolen. Välj alternativ 1 för att logga in med fullständig åtkomst.
 2. I Kommandotolken skriver du:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Ange den krypteringsnyckeln för tjänstdata som du fick i [steg 2: Använd Windows PowerShell för StorSimple att initiera data encryption key tjänständringen](#to-initiate-the-service-data-encryption-key-change).
+3. Ange den krypteringsnyckeln för tjänstdata som du fick i [steg 2: Använda Windows PowerShell för StorSimple för att initiera data encryption key tjänständringen](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Att uppdatera krypteringsnyckeln för tjänstdata på alla de 8010/8020-molninstallationer
 1. Ladda ned och konfigurera [uppdatering CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell-skript. 

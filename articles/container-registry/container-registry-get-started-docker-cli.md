@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982853"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330876"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-containerregister med hjälp av Docker CLI
 
@@ -116,10 +116,10 @@ Om du inte längre behöver Nginx-avbildningen kan du radera den lokalt med den 
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Du kan använda Azure CLI-kommando för att ta bort avbildningar från Azure container registry [az acr databasen delete](/cli/azure/acr/repository#az-acr-repository-delete). Följande kommando tar till exempel bort manifestet refererar till en tagg, alla associerade layer-data och alla andra taggar som refererar till manifestet.
+Du kan använda Azure CLI-kommando för att ta bort avbildningar från Azure container registry [az acr databasen delete](/cli/azure/acr/repository#az-acr-repository-delete). Till exempel följande kommando tar bort manifestet refererar till den `samples/nginx:latest` tagg, alla unika layer-data och alla andra taggar som refererar till manifestet.
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
 ## <a name="next-steps"></a>Nästa steg

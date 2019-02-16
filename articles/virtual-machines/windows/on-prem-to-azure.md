@@ -3,8 +3,8 @@ title: Migrera från AWS och andra plattformar till Managed Disks i Azure | Micr
 description: Skapa virtuella datorer i Azure med hjälp av virtuella hårddiskar som överförts från andra moln som AWS eller andra virtualiseringsplattformar och utnyttja fördelarna med Azure Managed Disks.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2017
-ms.author: cynthn
+ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83e69cd488ab7e8b69895a25716350c8025c6c48
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 05e687ab31b6c19193076033e1350952549d26e0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074911"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330757"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrera från Amazon Web Services (AWS) och andra plattformar till Managed Disks i Azure
 
@@ -46,11 +46,8 @@ Du kan överföra generaliserade och specialiserade virtuella hårddiskar.
 
 ## <a name="overview-of-managed-disks"></a>Översikt över hanterade diskar
 
-Azure Managed Disks förenklar hanteringen av virtuella datorer genom att ta bort behovet av att hantera lagringskonton. Hanterade diskar också förmånen från bättre tillförlitlighet för virtuella datorer i en Tillgänglighetsuppsättning. Det innebär att diskar på olika virtuella datorer i en Tillgänglighetsuppsättning är tillräckligt isolerade från varandra för att undvika en enskild felpunkt. Den placerar automatiskt diskar på olika virtuella datorer i en Tillgänglighetsuppsättning i olika lagringsskalenheter (stämplar) vilket begränsar effekten av enskild lagringsskalningsenhetsfel bero på att maskinvara och programvarufel. Utifrån dina behov kan välja du mellan två typer av alternativ för lagring: 
- 
-- [Premium Managed Disks](premium-storage.md) är Solid tillstånd enhet (SSD) baserade lagringsmedia som levererar högpresterande disksupport med låg fördröjning för virtuella datorer som kör I/O-intensiva arbetsbelastningar. Du kan dra nytta av hastigheten och prestandan för dessa diskar genom att migrera till Premium Managed Disks.  
-
-- [Standard Managed Disks](standard-storage.md) använder hårddisken (HDD)-baserade lagringsmedia och passar bäst till utveckling/testning och andra arbetsbelastningar med lågfrekvent dataåtkomst som är mindre känsliga för varierande prestanda.  
+Azure Managed Disks förenklar hanteringen av virtuella datorer genom att ta bort behovet av att hantera lagringskonton. Hanterade diskar också förmånen från bättre tillförlitlighet för virtuella datorer i en Tillgänglighetsuppsättning. Det innebär att diskar på olika virtuella datorer i en Tillgänglighetsuppsättning är tillräckligt isolerade från varandra för att undvika en enskild felpunkt. Den placerar automatiskt diskar på olika virtuella datorer i en Tillgänglighetsuppsättning i olika lagringsskalenheter (stämplar) vilket begränsar effekten av enskild lagringsskalningsenhetsfel bero på att maskinvara och programvarufel.
+Utifrån dina behov kan välja du mellan fyra typer av lagringsalternativ. Läs om tillgängliga disktyper i vår artikel [Välj en disktyp av](disks-types.md).
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Planera för migrering till Managed Disks
 
@@ -85,7 +82,7 @@ Det finns sju typer av hanterade standarddiskar som kan användas med den virtue
 
 | Disk av standardtyp  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Diskstorlek           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1 024 GB (1 TB)   | 2 048 GB (2TB)    | 4 095 GB (4 TB)   | 
+| Diskstorlek           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1 024 GB (1 TB)   | 2048 GB (2TB)    | 4 095 GB (4 TB)   | 
 | IOPS per disk       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Dataflöde per disk | 60 MB per sekund | 60 MB per sekund | 60 MB per sekund | 60 MB per sekund |60 MB per sekund | 60 MB per sekund | 60 MB per sekund | 60 MB per sekund | 
 

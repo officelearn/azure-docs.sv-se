@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 36902edd7b2df472960d19b8ef9a4ebd4cdfe695
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 937ac1d892cdea849d7e5a89c8e69c6b069f2efd
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906688"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333996"
 ---
 Den här artikeln innehåller information om tidigare versioner av storlekar för virtuella datorer. Dessa storlekar kan fortfarande användas, men det finns nyare generationer.
 
@@ -22,9 +22,9 @@ Den här artikeln innehåller information om tidigare versioner av storlekar fö
 
 ACU: 160
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage Caching:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -39,9 +39,9 @@ Cachelagring för Premium Storage: stöds
 
 ACU: 160 <sup>1</sup>
 
-Premium Storage: stöds
+Premium-lagring:  Stöds
 
-Cachelagring för Premium Storage: stöds
+Premium Storage Caching:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -50,7 +50,7 @@ Cachelagring för Premium Storage: stöds
 | Standard_DS13 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 256 |8/4 000 |
 | Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
 
-<sup>1</sup> det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i DS-serien kan begränsas antal, storlek och striping av de anslutna diskarna.  Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i DS-serien kan begränsas antal, storlek och striping av de anslutna diskarna.  Mer information finns i [designa för höga prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 
 
@@ -58,13 +58,13 @@ Cachelagring för Premium Storage: stöds
 
 ACU: 160
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
-| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 4 / 4 x 500                         | 2/500                 |
+| Standard_D1  | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 4 / 4 x 500                         | 2/500                 |
 | Standard_D2  | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 000                     |
 | Standard_D3  | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/2 000                     |
 | Standard_D4  | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/4 000                     |
@@ -75,11 +75,11 @@ Premium Storage cachelagring: Stöds inte
 
 ACU: 160
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
-| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 000                     |
 | Standard_D12 | 4         | 28          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/2 000                     |
@@ -92,9 +92,9 @@ Premium Storage cachelagring: Stöds inte
 
 ACU: 225
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
 Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva instanser*. Maskinvaran som kör dessa storlekar är utformad och optimerad för beräkningsintensiva och nätverksintensiva program, inklusive HPC-klustertillämpningar (databehandling med höga prestanda), modellering och simuleringar. A8–A11-serien använder Intel Xeon E5-2670 @ 2,6 GHZ och H-serien använder Intel Xeon E5-2667 v3 @ 3,2 GHz.  Den här artikeln innehåller information om hur många virtuella processorer, datadiskar och nätverkskort samt storage dataflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -111,11 +111,11 @@ Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva ins
 
 ## <a name="a-series"></a>A-serien
 
-ACU: 50–100
+ACU: 50-100
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (HDD): GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -143,9 +143,9 @@ I den klassiska distributionsmodellen skiljer sig vissa namn på VM-storlekarna 
 
 ## <a name="basic-a"></a>Basic A
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
 Storlekarna på den grundläggande nivån är främst avsedda för utvecklingsarbetsbelastningar och andra program som inte kräver belastningsutjämning, automatisk skalning eller minnesintensiva virtuella datorer.
 

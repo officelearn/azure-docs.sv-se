@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 59a04ca5a546fff1043e1e157491b218f693d0f0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638820"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333824"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Återställning för säkerhetskopiering och haveriberedskap för Azure IaaS-diskar
 
 Den här artikeln beskriver hur du planerar för säkerhetskopiering och haveriberedskap (DR) av IaaS-datorer (VM) och diskar i Azure. Det här dokumentet omfattar både hanterade och ohanterade diskar.
 
-Först måste beskriver vi de inbyggda feltolerans i Azure-plattformen som skyddar mot lokala fel. Sedan tar vi upp katastrofscenarier som inte omfattas av de inbyggda funktionerna. Vi visar också flera exempel på arbetsbelastningsscenarier där olika säkerhetskopiering och Katastrofåterställning överväganden kan använda. Vi granskar möjliga lösningar för Haveriberedskap för IaaS-diskar. 
+Först måste beskriver vi de inbyggda feltolerans i Azure-plattformen som skyddar mot lokala fel. Sedan tar vi upp katastrofscenarier som inte omfattas av de inbyggda funktionerna. Vi visar också flera exempel på arbetsbelastningsscenarier där olika säkerhetskopiering och Katastrofåterställning överväganden kan använda. Vi granskar möjliga lösningar för Haveriberedskap för IaaS-diskar.
 
 ## <a name="introduction"></a>Introduktion
 
-Azure-plattformen använder olika metoder för redundans och feltolerans för att skydda kunder mot lokaliserade maskinvarufel. Lokala fel kan innehålla problem med en Azure Storage server-datorn på den servern som innehåller en del av data för en virtuell disk eller fel i en SSD och HDD. Sådana isolerade komponenten maskinvarufel kan inträffa under normal drift. 
+Azure-plattformen använder olika metoder för redundans och feltolerans för att skydda kunder mot lokaliserade maskinvarufel. Lokala fel kan innehålla problem med en Azure Storage server-datorn på den servern som innehåller en del av data för en virtuell disk eller fel i en SSD och HDD. Sådana isolerade komponenten maskinvarufel kan inträffa under normal drift.
 
 Azure-plattformen är utformad för att vara motståndskraftiga mot de här felen. Större katastrofer kan resultera i fel eller inaccessibility av många lagringsservrar eller även en hela datacenter. Även om dina virtuella datorer och diskar skyddas vanligtvis vid lokaliserade fel, krävs ytterligare steg för att skydda din arbetsbelastning från regionomfattande oåterkalleligt fel, till exempel en större katastrof som kan påverka dina virtuella datorer och diskar.
 
 Förutom om risken för plattformen fel kan uppstå problem med en kundprogram eller data. Exempelvis kan en ny version av ditt program oavsiktligt gör en ändring i de data som orsakar den att avbryta. I så fall kanske du vill återställa programmet och data till en tidigare version som innehåller den senast kända statusen. Detta kräver att underhålla regelbundna säkerhetskopieringar.
 
-För regional haveriberedskap, måste du säkerhetskopiera dina IaaS VM-diskar till en annan region. 
+För regional haveriberedskap, måste du säkerhetskopiera dina IaaS VM-diskar till en annan region.
 
 Innan vi tittar på säkerhetskopiering och Katastrofåterställning alternativ, vi återblick över några metoder för hantering av lokaliserade fel.
 
@@ -47,9 +47,9 @@ Om du vill se till att du alltid har tre repliker, Azure Storage automatiskt ska
 
 På grund av den här arkitekturen har Azure konsekvent levereras företagsklass hållbarhet för IaaS-diskar, med branschledande noll procent [årlig Felfrekvens](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
-Lokaliserade maskinvarufel i beräkningen som värd för eller i Storage-plattformen kan ibland leda till den virtuella datorn som omfattas av är tillfälligt otillgänglig i [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) för VM-tillgänglighet. Azure tillhandahåller också ett branschledande serviceavtal för enskilda VM-instanser som använder Azure Premium SSD-diskar.
+Lokaliserade maskinvarufel i beräkningen som värd för eller i Storage-plattformen kan ibland leda till den virtuella datorn som omfattas av är tillfälligt otillgänglig i [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) för VM-tillgänglighet. Azure tillhandahåller även ett branschledande serviceavtal för enskilda VM-instanser som använder Azure premium SSD.
 
-Kunder kan använda för att skydda arbetsbelastningar för program från stilleståndstid på grund av en disk eller en virtuell dator är tillfälligt otillgänglig, [tillgänglighetsuppsättningar](../articles/virtual-machines/windows/manage-availability.md). Två eller flera virtuella datorer i en tillgänglighetsuppsättning tillhandahålla redundans för programmet. Azure skapar sedan dessa virtuella datorer och diskar i separata feldomäner med olika ström, nätverk och server-komponenter. 
+Kunder kan använda för att skydda arbetsbelastningar för program från stilleståndstid på grund av en disk eller en virtuell dator är tillfälligt otillgänglig, [tillgänglighetsuppsättningar](../articles/virtual-machines/windows/manage-availability.md). Två eller flera virtuella datorer i en tillgänglighetsuppsättning tillhandahålla redundans för programmet. Azure skapar sedan dessa virtuella datorer och diskar i separata feldomäner med olika ström, nätverk och server-komponenter.
 
 På grund av de här separata feldomäner påverkar lokaliserade maskinvarufel vanligtvis inte flera virtuella datorer i uppsättningen på samma gång. Att ha separata feldomäner ger hög tillgänglighet för ditt program. Den betraktas som en bra idé att Använd tillgänglighetsuppsättningar när hög tillgänglighet krävs. Nästa avsnitt beskriver disaster recovery-aspekt.
 
@@ -98,11 +98,11 @@ Problem med IaaS-program är en annan möjlighet. Tänk dig ett program som ber�
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>Lösning för haveriberedskap: Azure Backup 
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) används för säkerhetskopiering och Katastrofåterställning och de fungerar med [hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md) samt [ohanterade diskar](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). Du kan skapa ett säkerhetskopieringsjobb med tidsbaserade säkerhetskopior, enkel återställning av virtuell dator och lagringsprinciper för säkerhetskopiering. 
+[Azure Backup](https://azure.microsoft.com/services/backup/) används för säkerhetskopiering och Katastrofåterställning och de fungerar med [hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md) samt ohanterade diskar. Du kan skapa ett säkerhetskopieringsjobb med tidsbaserade säkerhetskopior, enkel återställning av virtuell dator och lagringsprinciper för säkerhetskopiering.
 
-Om du använder [Premium SSD-diskar](../articles/virtual-machines/windows/premium-storage.md), [hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md), eller andra disktyper med den [lokalt redundant lagring](../articles/storage/common/storage-redundancy-lrs.md) är särskilt viktigt att säkerhetskopiera periodiska DR. Azure Backup lagrar data i recovery services-valv för långsiktig kvarhållning. Välj den [geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md) alternativ för backup recovery services-valv. Det alternativet säkerställer att säkerhetskopieringarna replikeras till en annan Azure-region för att skydda från regionala katastrofer.
+Om du använder [premium SSD](../articles/virtual-machines/windows/disks-types.md), [hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md), eller andra disktyper med den [lokalt redundant lagring](../articles/storage/common/storage-redundancy-lrs.md) är särskilt viktigt att säkerhetskopiera periodiska DR. Azure Backup lagrar data i recovery services-valv för långsiktig kvarhållning. Välj den [geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md) alternativ för backup recovery services-valv. Det alternativet säkerställer att säkerhetskopieringarna replikeras till en annan Azure-region för att skydda från regionala katastrofer.
 
-För [ohanterade diskar](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), du kan använda lokalt redundant lagring-typ för IaaS-diskar, men kontrollera att Azure Backup är aktiverat med alternativet geo-redundant lagring för recovery services-valvet.
+För ohanterade diskar kan du använda lokalt redundant lagring-typ för IaaS-diskar, men kontrollera att Azure Backup är aktiverat med alternativet geo-redundant lagring för recovery services-valvet.
 
 > [!NOTE]
 > Om du använder den [geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md) eller [läsåtkomst till geografiskt redundant lagring](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) alternativet för ohanterade diskar kan du fortfarande behöver programkonsekventa ögonblicksbilder för säkerhetskopiering och Katastrofåterställning. Använd antingen [Azure Backup](https://azure.microsoft.com/services/backup/) eller [programkonsekventa ögonblicksbilder](#alternative-solution-consistent-snapshots).
@@ -136,7 +136,7 @@ För det här problemet, innehåller Azure Backup programkonsekventa säkerhetsk
 
 När Azure Backup initierar en säkerhetskopiering på den schemalagda tiden, utlöser säkerhetskopieringstillägget installeras på den virtuella datorn att ta en ögonblicksbild för point-in-time. En ögonblicksbild tas tillsammans med tjänsten volume shadow för att hämta en konsekvent ögonblicksbild av diskarna i den virtuella datorn utan att behöva stänga av. Säkerhetskopieringstillägget på den virtuella datorn tömmer alla skrivningar innan du tar en konsekvent ögonblicksbild av alla diskar. Efter att ögonblicksbilden överförs data med Azure Backup till säkerhetskopieringsvalvet. Om du vill att säkerhetskopieringsprocessen effektivare tjänsten identifierar och överför endast datablock som har ändrats efter den senaste säkerhetskopieringen.
 
-Om du vill återställa, kan du visa tillgängliga säkerhetskopior via Azure Backup och startar sedan en återställning. Du kan skapa och återställa säkerhetskopior i Azure med den [Azure-portalen](https://portal.azure.com/), genom [med hjälp av PowerShell](../articles/backup/backup-azure-vms-automation.md), eller genom att använda den [Azure CLI](/cli/azure/). 
+Om du vill återställa, kan du visa tillgängliga säkerhetskopior via Azure Backup och startar sedan en återställning. Du kan skapa och återställa säkerhetskopior i Azure med den [Azure-portalen](https://portal.azure.com/), genom [med hjälp av PowerShell](../articles/backup/backup-azure-vms-automation.md), eller genom att använda den [Azure CLI](/cli/azure/).
 
 ### <a name="steps-to-enable-a-backup"></a>Steg för att aktivera en säkerhetskopia
 
@@ -166,7 +166,7 @@ Om du vill reparera eller återskapa en virtuell dator kan återställa du den v
 
 -   Du kan skapa en ny virtuell dator som en point-in-time-representation av den säkerhetskopierade virtuella datorn.
 
--   Du kan återställa diskarna och sedan använda mallen för den virtuella datorn för att anpassa och återskapa den återställda virtuella datorn. 
+-   Du kan återställa diskarna och sedan använda mallen för den virtuella datorn för att anpassa och återskapa den återställda virtuella datorn.
 
 Mer information finns i instruktionerna för att [återställa virtuella datorer med hjälp av Azure portal](../articles/backup/backup-azure-arm-restore-vms.md). Det här dokumentet beskriver även vilka specifika åtgärder för att återställa säkerhetskopierade virtuella datorer till ett parat datacenter med hjälp av geo-redundant säkerhetskopieringsvalvet om det finns en katastrof i det primära datacentret. Azure Backup använder i så fall beräkningstjänsten från den sekundära regionen för att skapa den återställda virtuella datorn.
 
@@ -174,7 +174,7 @@ Du kan också använda PowerShell för [återställer en virtuell dator](../arti
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Alternativ lösning: Programkonsekventa ögonblicksbilder
 
-Om det inte går att använda Azure Backup kan implementera du en egen mekanism för säkerhetskopiering med ögonblicksbilder. Det är komplicerat att skapa programkonsekventa ögonblicksbilder för alla diskar som används av en virtuell dator och replikerar sedan dessa ögonblicksbilder till en annan region. Därför överväger Azure med Backup-tjänsten som ett bättre alternativ än att skapa en anpassad lösning. 
+Om det inte går att använda Azure Backup kan implementera du en egen mekanism för säkerhetskopiering med ögonblicksbilder. Det är komplicerat att skapa programkonsekventa ögonblicksbilder för alla diskar som används av en virtuell dator och replikerar sedan dessa ögonblicksbilder till en annan region. Därför överväger Azure med Backup-tjänsten som ett bättre alternativ än att skapa en anpassad lösning.
 
 Om du använder läsåtkomst till geografiskt redundant lagring/geo-redundant lagring för diskar, replikeras ögonblicksbilder automatiskt till ett sekundärt datacenter. Om du använder lokalt redundant lagring för diskar, måste du replikerar data själv. Mer information finns i [säkerhetskopiera Azure-ohanterade Virtuella datordiskar med inkrementella ögonblicksbilder](../articles/virtual-machines/windows/incremental-snapshots.md).
 
@@ -216,7 +216,7 @@ Skapandet av ögonblicksbilder enbart kanske inte är tillräckligt för Katastr
 
 Om du använder geo-redundant lagring eller read-access geo-redundant lagring för dina diskar och ögonblicksbilder replikeras automatiskt till den sekundära regionen. Det kan finnas ett par minuters fördröjning innan replikeringen. Om det primära datacentret kraschar innan ögonblicksbilderna Slutför replikerar du kan inte få åtkomst till ögonblicksbilder från det sekundära datacentret. Sannolikheten för det här är liten.
 
-> [!NOTE] 
+> [!NOTE]
 > Endast med diskarna i en geo-redundant lagring eller read-access geo redundant skyddar inte den virtuella datorn från katastrofer i storage-konto. Du måste också skapa samordnad ögonblicksbilder eller använda Azure Backup. Detta är nödvändigt att återställa en virtuell dator till ett konsekvent tillstånd.
 
 Om du använder lokalt redundant lagring, måste du kopiera ögonblicksbilderna till ett annat lagringskonto omedelbart när du har skapat ögonblicksbilden. Kopieringsmål kan vara ett lokalt redundant lagringskonto i en annan region, vilket resulterar i att kopiera i en avlägsen region. Du kan också kopiera ögonblicksbilden till ett läsåtkomst till geografiskt redundant lagringskonto i samma region. I det här fallet replikeras lazily ögonblicksbilden till den fjärranslutna sekundära regionen. Din säkerhetskopia är skyddat från katastrofer på den primära platsen efter kopiering och replikeringen är klar.
@@ -260,12 +260,10 @@ Den största skillnaden mellan geo-redundant lagring och läsåtkomst till geogr
 
 Om det har visat sig vara ett betydande strömavbrott, kan Azure-teamet utlösa geo-redundans och ändra primära DNS-posterna så att den pekar till den sekundära lagringsplatsen. Om du har geo-redundant lagring eller read-access geo-redundant lagring aktiverad, kan du nu komma åt data i den region som används för att vara sekundärt. Med andra ord, om ditt lagringskonto är geo-redundant lagring och det finns ett problem, du kan komma åt sekundär lagring om det finns en geo-redundansväxling.
 
-Mer information finns i [vad du gör om ett avbrott i Azure Storage inträffar](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+Mer information finns i [vad du gör om ett avbrott i Azure Storage inträffar](../articles/storage/common/storage-disaster-recovery-guidance.md).
 
 >[!NOTE] 
 >Microsoft kontrollerar om det uppstår redundans. Redundans kontrolleras inte per lagringskonto, så att det inte fastställs av enskilda kunder. Om du vill implementera haveriberedskap för specifika storage-konton eller virtuella diskar, måste du använda de metoder som beskrivs tidigare i den här artikeln.
-
-
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

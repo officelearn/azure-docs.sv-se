@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084063"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333784"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till virtuell dator i Azure som påverkas: oplanerat maskinvaruunderhåll, oväntat driftavbrott och planerat underhåll.
@@ -41,7 +41,7 @@ För att undvika påverkan av den här typen av avbrott rekommenderar vi att du 
 För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Den här konfigurationen inom ett datacenter garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse är tillgänglig och uppfyller 99,95% serviceavtalet för Azure. Mer information finns i [Serviceavtal för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Undvik att endast ha en enda virtuell dator i en tillgänglighetsuppsättning. Virtuella datorer med en sådan konfiguration är inte kvalificerade för serviceavtalets drifttidsgaranti vid planerat Azure-underhåll, med undantag för om den virtuella datorn använder [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md). Azures serviceavtal gäller för enskilda virtuella datorer som använder Premium Storage.
+> Undvik att endast ha en enda virtuell dator i en tillgänglighetsuppsättning. Virtuella datorer i den här konfigurationen inte är berättigad till en SLA-garantin och står inför driftstopp under Azure planerade underhållshändelser, förutom när en enskild virtuell dator använder [Azure premium SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd). För enskilda virtuella datorer med premium SSD, gäller serviceavtalet för Azure.
 
 Varje virtuell dator i tillgänglighetsuppsättningen tilldelas en **uppdateringsdomän** och en **feldomän** av den underliggande Azure-plattformen. För en viss tillgänglighetsuppsättning tilldelas som standard fem uppdateringsdomäner, som inte kan konfigureras av användare, (Resource Manager-distributioner kan utökas till 20 uppdateringsdomäner) för att ange grupper av virtuella datorer och underliggande fysisk maskinvara som kan startas om samtidigt. Om fler än fem virtuella datorer har konfigurerats i en enskild tillgänglighetsuppsättning placeras den sjätte virtuella datorn i samma uppdateringsdomän som den första virtuella datorn. Den sjunde placeras i samma uppdateringsdomän som den andra virtuella datorn och så vidare. Ordningen för de uppdateringsdomäner som startas om kanske inte fortsätter i följd under planerat underhåll, men endast en uppdateringsdomän i taget startas om. En omstartad uppdateringsdomän får 30 minuter på sig för återställning innan underhållet initieras i en annan uppdateringsdomän.
 
@@ -60,7 +60,7 @@ Om du för närvarande använder virtuella datorer med ohanterade diskar rekomme
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Om du planerar att använda virtuella datorer med [ohanterade diskar](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks) följer du rekommendationerna nedan för Storage-konton där virtuella hårddiskar (VHD) på virtuella datorer lagras som [sidblobbar](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
+Om du tänker använda virtuella datorer med ohanterade diskar följer bästa praxis för Storage-konton där virtuella hårddiskar (VHD) för virtuella datorer lagras som [sidblobbar](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Förvara alla diskar (operativsystem och data) som är associerade med en virtuell dator i samma lagringskonto**
 2. **Kontrollera [gränserna](../articles/storage/common/storage-scalability-targets.md) för antalet ohanterade diskar i ett Storage-konto** innan du lägger till fler virtuella hårddiskar till ett lagringskonto

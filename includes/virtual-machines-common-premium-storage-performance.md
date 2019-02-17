@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e2dc82ee49b240fe562f02b38c4991c644c010d3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213213"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334012"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Design för hög prestanda
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: design för hög prestanda
 
 Den här artikeln innehåller riktlinjer för att skapa program med hög prestanda med hjälp av Azure Premium Storage. Du kan använda instruktionerna i det här dokumentet som kombineras med bästa praxis för prestanda gäller för tekniker som används av ditt program. För att visa riktlinjerna kan använda vi SQL Server på Premium Storage som ett exempel i hela dokumentet.
 
@@ -35,7 +35,7 @@ Vi har angett dessa riktlinjer specifikt för Premium Storage eftersom arbetsbel
 > Ibland är något som verkar vara problem med prestandan disk faktiskt en flaskhalsar i nätverket. I sådana situationer bör du optimera din [nätverksprestanda](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Om den virtuella datorn har stöd för accelererat nätverk, bör du kontrollera att den är aktiverad. Om den inte har aktiverats måste du aktivera det på redan distribuerade virtuella datorerna på både [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Innan du börjar, om du är nybörjare till Premium Storage, läsa den [Premium Storage: Lagring med höga prestanda för Azure-Datorbelastningar](../articles/virtual-machines/windows/premium-storage.md) och [skalbarhet för lagring av Azure- och prestandamål](../articles/storage/common/storage-scalability-targets.md) artiklar.
+Innan du börjar, om du är nybörjare till Premium Storage, läsa den [väljer du en Azure-diskar för virtuella IaaS-datorer](../articles/virtual-machines/windows/disks-types.md) och [skalbarhet för lagring av Azure- och prestandamål](../articles/storage/common/storage-scalability-targets.md) artiklar.
 
 ## <a name="application-performance-indicators"></a>Nyckeltal för program
 
@@ -45,7 +45,7 @@ I det här avsnittet diskuterar vi vanliga nyckeltal i samband med Premium Stora
 
 ## <a name="iops"></a>IOPS
 
-IOPS är antalet begäranden som programmet skickar till diskar med lagringsutrymme i en sekund. En i/o-åtgärd gick att läsa eller skriva sekventiella eller slumpmässig. OLTP-program som en onlinebutiker webbplats behöver bearbeta begäranden för många samtidiga användare direkt. Användare-förfrågningarna insert och uppdatera beräkningsintensiva databastransaktioner som programmet måste bearbeta snabbt. Därför kräver OLTP program mycket hög IOPS. Sådana program hantera miljontals små och slumpmässiga i/o-begäranden. Om du har ett sådant program, måste du utforma programinfrastruktur flerkanaliga IOPS. I senare avsnitt *optimera programprestanda*, beskrivs i detalj alla faktorer som du måste tänka på att få hög IOPS.
+IOPS eller indata/utdata-åtgärder Per sekund, är antalet begäranden som programmet skickar till diskar med lagringsutrymme i en sekund. En i/o-åtgärd gick att läsa eller skriva sekventiella eller slumpmässig. Online Transaction bearbetning (OLTP) program som en webbplats för onlinebutiker behöva bearbeta begäranden för många samtidiga användare direkt. Användare-förfrågningarna insert och uppdatera beräkningsintensiva databastransaktioner som programmet måste bearbeta snabbt. Därför kräver OLTP program mycket hög IOPS. Sådana program hantera miljontals små och slumpmässiga i/o-begäranden. Om du har ett sådant program, måste du utforma programinfrastruktur flerkanaliga IOPS. I senare avsnitt *optimera programprestanda*, beskrivs i detalj alla faktorer som du måste tänka på att få hög IOPS.
 
 När du kopplar en premium-lagringsdisk till hög nivå VM, Azure-regler automatiskt ett garanterad antal IOPS enligt specifikationen disk. Till exempel etablerar en P50-disk 7500 IOPS. Varje hög skala VM-storleken har också en viss IOPS-gräns som den kan klara. En Standard virtuell GS5-dator har till exempel 80 000 IOPS begränsa.
 
@@ -53,13 +53,13 @@ När du kopplar en premium-lagringsdisk till hög nivå VM, Azure-regler automat
 
 Dataflöde eller bandbredd är mängden data som ditt program skickar till diskar med lagringsutrymme i ett visst intervall. Om ditt program fungerar med stora i/o som är i/o-åtgärder, kräver hög genomströmning. Data warehouse program tenderar att utfärda genomsökning beräkningsintensiva aktiviteter som åtkomst till stora delar av data i taget och ofta utföra massåtgärder. Med andra ord kräver sådana program som högre dataflöde. Om du har ett sådant program, måste du utforma sin infrastruktur för att optimera för dataflöde. I nästa avsnitt diskuterar vi i detalj på faktorer som du måste justera för att uppnå detta.
 
-När du koppla en premium-lagringsdisk till en hög skala VM, Azure-regler dataflöde enligt specifikationen för disken. Till exempel etablerar en P50-disk 250 MB per sekund disk dataflöde. Varje hög skala VM-storleken har också som specifika dataflödesgräns som den kan klara. Standard virtuella GS5-datorer har exempelvis ett maximalt dataflöde på 2 000 MB per sekund. 
+När du kopplar en premium-lagringsdisk till en hög skala VM, Azure-regler dataflöde enligt specifikationen för disken. Till exempel etablerar en P50-disk 250 MB per sekund. Varje hög skala VM-storleken har också som specifika dataflödesgräns som den kan klara. Standard virtuella GS5-datorer har exempelvis ett maximalt dataflöde på 2 000 MB per sekund.
 
 Det finns en relation mellan dataflöde och IOPS, enligt nedanstående formel.
 
-![](media/premium-storage-performance/image1.png)
+![Relation med IOPS och dataflöde](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
-Det är därför viktigt att fastställa optimal dataflöde och IOPS-värden som krävs för ditt program. När du försöker optimera en hämtar den andra också påverkas. I ett senare avsnitt *optimera programprestanda*, diskuteras i mer information om hur du optimerar IOPS och dataflöden.
+Det är därför viktigt att fastställa optimal dataflöde och IOPS-värdena som programmet behöver. När du försöker optimera en hämtar den andra också påverkas. I ett senare avsnitt *optimera programprestanda*, diskuteras i mer information om hur du optimerar IOPS och dataflöden.
 
 ## <a name="latency"></a>Svarstid
 
@@ -67,23 +67,15 @@ Svarstiden är den tid det tar ett program för att ta emot en begäran, skicka 
 
 När du optimerar ditt program kan få högre IOPS och dataflöde, påverkar svarstiden för programmet. Utvärdera alltid svarstiden för programmet för att undvika oväntade fördröjningar beteende efter justering om programmets prestanda.
 
-Följande kontrollplanåtgärder på hanterade diskar kan omfatta flödet av Disk från en lagringsplats till en annan. Detta är orkestreras via bakgrund kopia av data som kan ta flera timmar att slutföra, vanligtvis mindre än 24 timmar beroende på mängden data på diskarna. Under den tiden kan ditt program högre än vanligt lässvarstid uppleva eftersom vissa läsning kan hämta omdirigeras till den ursprungliga platsen och kan ta längre tid att slutföra. Det finns ingen inverkan på skrivfördröjningen under denna period.  
+# <a name="performance-application-checklist-for-disks"></a>Checklista för prestanda-programmet för diskar
 
-1.  [Uppdatera lagringstyp](../articles/virtual-machines/windows/convert-disk-storage.md)
-2.  [Koppla från och ansluta en disk från en virtuell dator till en annan](../articles/virtual-machines/windows/attach-disk-ps.md)
-3.  [Skapa en hanterad Disk från en virtuell Hårddisk](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
-4.  [Skapa en hanterad Disk från en ögonblicksbild](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
-5.  [Konvertera ohanterade diskar till Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
+Det första steget i utforma högpresterande program som körs på Azure Premium Storage för att förstå prestandakraven för ditt program. Du kan optimera ditt program för att uppnå bästa möjliga prestanda när du har samlat in prestandakrav.
 
-## <a name="gather-application-performance-requirements"></a>Samla in prestanda programkrav
+I föregående avsnitt beskrivs vanliga nyckeltal, IOPS, dataflöde och svarstid. Du måste identifiera vilka av dessa nyckeltal är viktiga för ditt program för att leverera önskad användarupplevelsen. Till exempel hög IOPS som betyder mest för OLTP program bearbeta flera miljoner transaktioner på en sekund. Högt dataflöde är kritiska för Data Warehouse-program som bearbetar stora mängder data på en sekund. Extremt låg svarstid är avgörande för realtidsprogram som live videoströmningstjänster webbplatser.
 
-Det första steget i utforma högpresterande program som körs på Azure Premium Storage är att förstå prestandakraven för ditt program. Du kan optimera ditt program för att uppnå bästa möjliga prestanda när du samlar in prestandakrav.
+Mät sedan kraven för maximala prestanda för ditt program under hela dess livslängd. Använd exemplet checklistan nedan som en start. Registrera maximala prestandakrav under normal, hög och låg belastning på nätverket arbetsbelastning perioder. Genom att identifiera krav för alla arbetsbelastningar nivåer, kommer du att kunna fastställa den övergripande kraven på prestanda för ditt program. Till exempel debiteras normala arbetsbelastningen för webbplatser för e-handel transaktioner fungerar under större delen av tiden under ett år. Den högsta arbetsbelastningen på webbplatsen kommer att transaktioner fungerar under Rean eller särskilda försäljning händelser. Den högsta arbetsbelastningen är vanligtvis erfarna under en begränsad period, men kan kräva att ditt program och skala två eller fler gånger dess normal drift. Ta reda på den 50: e percentilen, 90: e percentilen och 99: e percentilen krav. Detta hjälper till att filtrera bort några avvikare i prestandakraven och du kan fokusera på att optimera för rätt värden.
 
-I det föregående avsnittet beskrivs vi vanliga nyckeltal, IOPS, dataflöde och svarstid. Du måste identifiera vilka av dessa nyckeltal är viktiga för ditt program för att leverera önskad användarupplevelsen. Till exempel hög IOPS som betyder mest för OLTP program bearbeta flera miljoner transaktioner på en sekund. Högt dataflöde är kritiska för Data Warehouse-program som bearbetar stora mängder data på en sekund. Extremt låg svarstid är avgörande för realtidsprogram som live videoströmningstjänster webbplatser.
-
-Mät sedan kraven för maximala prestanda för ditt program under hela dess livslängd. Använd exemplet checklistan nedan som en start. Anteckna den maximala prestandakrav under normal, tider med hög och låg belastning på nätverket arbetsbelastning punkter. Genom att identifiera krav för alla arbetsbelastningar nivåer, kommer du att kunna fastställa den övergripande kraven på prestanda för ditt program. Till exempel debiteras normala arbetsbelastningen för webbplatser för e-handel transaktioner fungerar under större delen av tiden under ett år. Den högsta arbetsbelastningen på webbplatsen kommer att transaktioner fungerar under Rean eller särskilda försäljning händelser. Den högsta arbetsbelastningen är vanligtvis erfarna under en begränsad period, men kan kräva att ditt program och skala två eller fler gånger dess normal drift. Ta reda på vilken 50: e percentilen, 90: e percentilen och 99: e percentilen. Detta hjälper till att filtrera bort några avvikare i prestandakraven och du kan fokusera på att optimera för rätt värden.
-
-### <a name="application-performance-requirements-checklist"></a>Checklista för programmet prestanda krav
+## <a name="application-performance-requirements-checklist"></a>Checklista för programmet prestanda krav
 
 | **Prestandakrav** | **50: e percentilen** | **90: e percentilen** | **99: e percentilen** |
 | --- | --- | --- | --- |
@@ -106,9 +98,7 @@ Mät sedan kraven för maximala prestanda för ditt program under hela dess livs
 > [!NOTE]
 > Du bör överväga att skala dessa siffror utifrån förväntade tillväxt i ditt program. Det är en bra idé att planera för tillväxt i förväg, eftersom det kan vara svårare att ändra infrastrukturen för att förbättra prestanda senare.
 
-Om du har ett befintligt program och vill flytta till Premium Storage, skapa först checklista ovan för att det befintliga programmet. Sedan skapar en prototyp av ditt program på Premium Storage och utforma appen baserat på riktlinjer som beskrivs i *optimera programprestanda* i ett senare avsnitt i det här dokumentet. I nästa avsnitt beskrivs de verktyg som du kan använda för att samla in prestandamått.
-
-Skapa en checklista som liknar ditt befintliga program för den aktuella typen. Med hjälp av Benchmarking verktyg kan du simulera arbetsbelastningarna och mäta prestanda på prototyp programmet. Se avsnittet om [Benchmarking](#benchmarking) vill veta mer. Genom att göra så att du kan avgöra om Premium Storage kan matcha eller överträffa dina prestandakrav för programmet. Du kan sedan implementera samma riktlinjer som för dina produktionsprogram.
+Om du har ett befintligt program och vill flytta till Premium Storage, skapa först checklista ovan för att det befintliga programmet. Sedan skapar en prototyp av ditt program på Premium Storage och utforma appen baserat på riktlinjer som beskrivs i *optimera programprestanda* i ett senare avsnitt i det här dokumentet. Nästa artikel beskriver de verktyg som du kan använda för att samla in prestandamått.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Prestandaräknare för att mäta prestanda programkrav
 
@@ -129,13 +119,15 @@ Prestandaräknarna är tillgängliga för processor, minne, och varje logisk dis
 
 Läs mer om [iostat](https://linux.die.net/man/1/iostat) och [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
-## <a name="optimizing-application-performance"></a>Optimera prestanda
+
+
+## <a name="optimize-application-performance"></a>Optimera programmets prestanda
 
 De viktigaste faktorerna som påverkar prestanda för ett program som körs på Premium Storage är typen av i/o-begäranden, VM-storlek, diskstorleken, antalet diskar, diskcachelagring, Multithreading och ködjup. Du kan styra några av de här faktorerna med rattar som tillhandahålls av systemet. De flesta program kanske inte ger ett alternativ för att ändra i/o-storlek och ködjup direkt. Om du använder SQL Server kan välja du inte det i/o-storlek och kön djupet. SQL Server väljer optimala i/o-storlek och kö djup värdena att få de flesta prestanda. Det är viktigt att förstå effekterna av båda typerna av faktorer på programprestanda, så att du kan etablera lämpliga resurser för att uppfylla prestandabehov.
 
 I det här avsnittet avse program krav checklistan som du skapade för att identifiera hur mycket du behöver för att optimera programprestanda. Baserat på detta kommer du att kunna avgöra vilka faktorer från det här avsnittet måste du justera. Om du vill diskvittne effekterna av varje faktor på programmets prestanda, kör du prestandamätningsverktyg på programinstallationen. Referera till den [Benchmarking](#Benchmarking) i slutet av den här artikeln för steg för att köra vanliga prestandamätningsverktyg på Windows och Linux-datorer.
 
-### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Optimera IOPS, dataflöde och svarstid i korthet
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Optimera IOPS, dataflöde och svarstid i korthet
 
 Tabellen nedan sammanfattas prestandafaktorer och stegen för att optimera IOPS, dataflöde och svarstid. Den här sammanfattningen i följande avsnitt beskriver varje faktor är mycket mer på djupet.
 
@@ -256,7 +248,7 @@ Bestämma antalet diskar som du behöver genom att uppskatta programkrav. Varje 
 
 Kom ihåg att Premium Storage-diskar har högre prestanda jämfört med Standard Storage-diskar. Därför, om du migrerar dina program från Azure IaaS-VM med standardlagring till Premium Storage, sannolikt måste färre premium disks för att uppnå samma eller högre prestanda för ditt program.
 
-## <a name="disk-caching"></a>Disk Caching
+## <a name="disk-caching"></a>Diskcachelagring
 
 Hög skala datorer som använder Azure Premium Storage har en cachelagringsteknik för flera nivåer som kallas BlobCache. BlobCache använder en kombination av den virtuella datorn RAM-minne och lokal SSD-lagring för cachelagring. Det här cacheminnet är tillgängligt för Premium Storage beständiga diskar och de lokala VM-diskarna. Den här cache-inställningen är som standard att läsa/skriva för OS-diskar och skrivskyddad för datadiskar som finns på Premium Storage. Hög skala virtuella datorer kan uppnå extremt höga prestanda som överstiger den underliggande diskprestandan med diskcachelagring aktiverad på Premium Storage-diskar.
 
@@ -268,7 +260,7 @@ Mer information om hur BlobCache fungerar avser insidan [Azure Premium Storage](
 
 Det är viktigt att aktivera cachen på rätt uppsättning diskar. Om du ska aktivera diskcachelagring på en premiumdisk eller inte beror på mönster för arbetsbelastningen som hanterar. Tabellen nedan visar standard cacheinställningar för operativsystem och datadiskar.
 
-| **Disktyp** | **Standardinställning för Cache** |
+| **Disktyp** | **Standardinställningen för cache** |
 | --- | --- |
 | OS-disk |Läs/skriv |
 | Datadisk |Skrivskyddad |
@@ -298,7 +290,47 @@ Exempelvis kan du kan använda dessa riktlinjer för SQL Server på Premium Stor
 1. Konfigurera ”None” cache på premium-lagringsdiskar som är värd för loggfilerna.  
    a.  Loggfilerna har främst skrivintensiv åtgärder. De därför inte dra nytta av ReadOnly-cachen.
 
-## <a name="disk-striping"></a>Disk Striping
+### <a name="optimize-performance-on-linux-vms"></a>Optimera prestanda på virtuella Linux-datorer
+
+För alla premium SSD eller ultra diskar med cache inställd **ReadOnly** eller **ingen**, måste du inaktivera ”hinder” när du monterar filsystemet. Du behöver inte hinder i det här scenariot eftersom skrivningar till premium storage-diskar finns under cacheinställningarna. När skrivbegäran slutförs har data skrivits till det beständiga arkivet. Använd någon av följande metoder om du vill inaktivera ”hinder”. Välja för ditt filsystem:
+  
+* För **reiserFS**, för att inaktivera hinder, Använd den `barrier=none` montera alternativet. (Om du vill aktivera hinder, Använd `barrier=flush`.)
+* För **ext3/ext4**, för att inaktivera hinder, Använd den `barrier=0` montera alternativet. (Om du vill aktivera hinder, Använd `barrier=1`.)
+* För **XFS**, för att inaktivera hinder, Använd den `nobarrier` montera alternativet. (Om du vill aktivera hinder, Använd `barrier`.)
+* För premium storage-diskar med cache inställd **ReadWrite**, aktivera hinder för skrivning tillförlitlighet.
+* Volymen etiketter ska finnas kvar när du startar om den virtuella datorn, måste du uppdatera/etc/fstab med universell unik identifierare (UUID) referenser till diskarna. Mer information finns i [lägga till en hanterad disk i en Linux VM](../articles/virtual-machines/linux/add-disk.md).
+
+Följande Linux-distributioner har verifierats för premium SSD: er. För bättre prestanda och stabilitet med premium SSD: er rekommenderar vi att du uppgraderar dina virtuella datorer till någon av dessa versioner eller senare. 
+
+Vissa av versionerna som kräver den senaste Linux Integration Services (LIS), v4.0, för Azure. Om du vill hämta och installera en distributionsplats, följer du länken som visas i följande tabell. Vi lägga till avbildningar i listan eftersom vi att slutföra verifieringen. Vår verifieringar visar att prestanda varierar för varje bild. Prestanda beror på arbetsbelastningen och dina inställningar för avbildningen. Olika bilder är anpassade för olika typer av arbetsbelastningar.
+
+| Distribution | Version | Stöds kernel | Information |
+| --- | --- | --- | --- |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 krävs](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 rekommenderas](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
+| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
+| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 eller RHCK |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 eller RHCK med[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 eller RHCK med[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+
+## <a name="lis-drivers-for-openlogic-centos"></a>LIS drivrutiner för OpenLogic CentOS
+
+Om du kör OpenLogic CentOS virtuella datorer, kör du följande kommando för att installera de senaste drivrutinerna:
+
+```
+sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum install microsoft-hyper-v
+```
+
+Starta om den virtuella datorn för att aktivera de nya drivrutinerna.
+
+## <a name="disk-striping"></a>Disk striping
 
 När en hög skalbarhet som virtuell dator är ansluten med flera premium storage beständiga diskar, diskarna kan vara stripe används tillsammans för att aggregera sina IOPs, bandbredd och lagringskapacitet.
 
@@ -363,249 +395,11 @@ Behålla en tillräckligt hög ködjup för stripe-volymer, så att varje disk h
 
 Azure Premium Storage-regler anges antalet IOPS och dataflöden för beroende på VM-storlekar och diskstorlekar som du väljer. När ditt program försöker öka IOPS eller dataflöde över gränserna för vad den virtuella datorn eller en disk som kan hantera den med begränsning av Premium Storage. Detta visar i form av försämrade prestanda i ditt program. Det kan innebära högre latens, lägre dataflöde eller lägre IOPS. Om Premium Storage inte begränsa, misslyckas programmet helt av som överskrider vad dess resurser är möjligt att uppnå. Så, för att undvika prestandaproblem på grund av begränsningar, alltid etablera tillräckligt med resurser för ditt program. Ta hänsyn till vilka beskrivits i VM-storlekar och Disk storlekar ovan. Prestandamätningar är det bästa sättet att ta reda på vilka resurser måste du vara värd för programmet.
 
-## <a name="benchmarking"></a>Prestandatest
-
-Prestandamätningar är processen för att simulera olika arbetsbelastningar på ditt program och mäta programprestanda för varje arbetsbelastning. Genom att följa anvisningarna i ett tidigare avsnitt, du har samlat in programkrav för prestanda. Du kan fastställa prestandanivåer som ditt program kan uppnå med Premium Storage genom att köra prestandamätningsverktyg på de virtuella datorerna som är värd för programmet. I det här avsnittet får du exempel på prestandamätningar en Standard DS14 virtuell dator som etablerats med Azure Premium Storage-diskar.
-
-Vi har använt common prestandamätningsverktyg Iometer och FIO, för Windows och Linux respektive. Dessa verktyg skapar flera trådar som simulerar en produktionsliknande arbetsbelastning och mäta systemets prestanda. Med hjälp av verktyg kan du också konfigurera parametrar som block storlek och kön djup, som normalt inte kan ändra för ett program. Detta ger dig större flexibilitet att driva ut maximala prestanda i hög skala virtuella datorer med premium-diskar för olika typer av arbetsbelastningar för program. Läs mer om varje benchmarking verktyg finns [Iometer](http://www.iometer.org/) och [FIO](http://freecode.com/projects/fio).
-
-Om du vill följa exemplen nedan, skapa en Standard DS14 virtuell dator och koppla 11 Premium Storage-diskar till den virtuella datorn. Konfigurera 10 diskar med värdcachelagring som ”None” och stripe-dem till en volym med namnet NoCacheWrites 11 diskar. Konfigurera värdcachelagring som ”skrivskyddad” på den återstående disken och skapa en volym med namnet CacheReads med den här disken. Med den här inställningen, kommer du att kunna se ut maximala prestanda för läsning och skrivning från en Standard DS14 virtuell dator. Detaljerade anvisningar om hur du skapar en DS14 virtuell dator med premium disks går du till [skapa och använda ett Premium Storage-konto för en virtuell dator datadisk](../articles/virtual-machines/windows/premium-storage.md).
-
-*Värmer upp cachen*  
-Disken med ReadOnly värdcachelagring kommer att kunna ge högre IOPS än gränsen på disk. Om du vill ha den här högsta läsprestanda från värd-cachen, måste först du värmt upp cachen för den här disken. Detta säkerställer att läsa IOs vilket benchmarking verktyg kommer att öka på CacheReads volym faktiskt når cachen och inte disken direkt. Cacheträffar resulterar i ytterligare IOPS från enkel cachen aktiverad disk.
-
-> **Viktigt!**  
-> Du måste värmt upp cachen innan du kör prestandamätningar, varje gång virtuella datorn startas om.
-
-#### <a name="iometer"></a>Iometer
-
-[Hämta verktyget Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) på den virtuella datorn.
-
-*Testa fil*  
-Iometer används en testfil som lagras på volymen där du kör testet benchmarking. Den styr läsningar och skrivningar på den här Testfilen för att mäta disken IOPS och dataflöden. Iometer skapar den här Testfilen om du inte har angett något. Skapa en testfil i 200GB med namnet iobw.tst på CacheReads och NoCacheWrites volymer.
-
-*Specifikationer för åtkomst*  
-Specifikationerna för begäran i/o-storlek, % Läs/Skriv, % slumpmässiga/sekventiella konfigureras på fliken ”åtkomst specifikationer” i Iometer. Skapa en access-specifikation för var och en av de scenarier som beskrivs nedan. Skapa åtkomst-specifikationer och ”spara” med ett lämpligt namn som – RandomWrites\_8K, RandomReads\_8 kB. Välj den motsvarande specifikationen när du kör Testscenario.
-
-Ett exempel på åtkomst specifikationer för maximal skriva IOPS scenariot visas nedan,  
-    ![](media/premium-storage-performance/image8.png)
-
-*Högsta IOPS Test specifikationer*  
-Använd mindre begärandestorlek på för att demonstrera högsta IOPs. Använd 8K begärandestorlek och skapa specifikationerna för slumpmässiga skrivningar och läsningar.
-
-| Åtkomst-specifikation | Begärandestorlek | Slumpmässig % | Läs % |
-| --- | --- | --- | --- |
-| RandomWrites\_8K |8 KB |100 |0 |
-| RandomReads\_8K |8 KB |100 |100 |
-
-*Maximalt dataflöde Test specifikationer*  
-Använd större begärandestorlek för att demonstrera maximalt dataflöde. Använd 64 kB begärandestorlek och skapa specifikationerna för slumpmässiga skrivningar och läsningar.
-
-| Åtkomst-specifikation | Begärandestorlek | Slumpmässig % | Läs % |
-| --- | --- | --- | --- |
-| RandomWrites\_64K |64 KB |100 |0 |
-| RandomReads\_64K |64 KB |100 |100 |
-
-*Iometer testet körs*  
-Utför nedanstående steg värmt upp cache
-
-1. Skapa två åtkomst specifikationer med värden som visas nedan,
-
-   | Namn | Begärandestorlek | Slumpmässig % | Läs % |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1 MB |1MB |100 |0 |
-   | RandomReads\_1 MB |1MB |100 |100 |
-1. Köra Iometer test för att initiera disk i cachen med följande parametrar. Använd tre trådar för målvolymen och ett ködjup på 128. Ange ”körningstiden” varaktighet för testet till 2hrs på fliken ”testa inställningar”.
-
-   | Scenario | Målvolymen | Namn | Varaktighet |
-   | --- | --- | --- | --- |
-   | Initiera Disk i cachen |CacheReads |RandomWrites\_1 MB |2hrs |
-1. Kör testet Iometer för uppvärmning disk i cachen med följande parametrar. Använd tre trådar för målvolymen och ett ködjup på 128. Ange ”körningstiden” varaktighet för testet till 2hrs på fliken ”testa inställningar”.
-
-   | Scenario | Målvolymen | Namn | Varaktighet |
-   | --- | --- | --- | --- |
-   | Varma upp Cachedisk |CacheReads |RandomReads\_1 MB |2hrs |
-
-När cachedisk värmas upp, kan du fortsätta med test-scenarier som anges nedan. Använd minst tre trådar för för att köra testet Iometer, **varje** rikta volym. För varje arbetstråd välja målvolymen, ange ködjup och välj en av de sparade test-specifikationerna som visas i tabellen nedan, för att köra motsvarande test-scenariot. Förväntat resultat visas också för IOPS och dataflöde när du kör dessa tester. En små i/o-storlek på 8KB och en hög ködjup på 128 används för alla scenarier.
-
-| Testscenario | Målvolymen | Namn | Resultat |
-| --- | --- | --- | --- |
-| Max. Lästa IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS |
-| Max. Skriva IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
-| Max. Kombinerade IOPS |CacheReads |RandomWrites\_8K |100,000 IOPS |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Max. Lästa MB/s |CacheReads |RandomWrites\_64K |524 MB/sek |
-| Max. Skriva MB/sek |NoCacheWrites |RandomReads\_64K |524 MB/sek |
-| Kombinerade MB/sek |CacheReads |RandomWrites\_64K |1 000 MB per sekund |
-| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
-
-Nedan visas skärmdumpar av Iometer testresultat för kombinerade scenarier för IOPS och dataflöden.
-
-*Kombinerade läsningar och skrivningar högsta IOPS*  
-![](media/premium-storage-performance/image9.png)
-
-*Kombinerade läsningar och skrivningar maximalt dataflöde*  
-![](media/premium-storage-performance/image10.png)
-
-### <a name="fio"></a>FIO
-
-FIO är ett populärt verktyg till benchmark lagring på virtuella Linux-datorer. Det har flexibiliteten att välja olika i/o-storlek, sekventiella eller icke-sekventiell läsning och skriver. Den tio trådar eller processer för att utföra de angivna i/o-åtgärderna. Du kan ange vilken typ av i/o-åtgärder som varje arbetstråd måste utföra med hjälp av jobbfiler. Vi har skapat en jobbet fil per scenariot som illustreras i exemplen nedan. Du kan ändra specifikationerna i jobbfilerna för att jämföra olika arbetsbelastningar som körs på Premium-lagring. I exemplen är vi använder en Standard DS 14 virtuella datorer som kör **Ubuntu**. Använd samma inställningar som beskrivs i början av den [prestandamätningar avsnittet](#Benchmarking) och varma in cachen innan du kör benchmark-tester.
-
-Innan du börjar [hämta FIO](https://github.com/axboe/fio) och installera den på den virtuella datorn.
-
-Kör följande kommando för Ubuntu
-
-```
-apt-get install fio
-```
-
-Vi använder fyra trådar för att driva skrivåtgärder och fyra arbetstrådar för utveckla läsåtgärder på diskarna. Skriv arbetare Driver trafik på volymen ”nocache”, som har 10 diskar med cache som ställts in på ”Ingen”. Läs arbetare Driver trafik på volymen ”readcache”, som har 1 disk med cache inställd på ”skrivskyddad”.
-
-*Maximal skrivåtgärder (IOPS)*  
-Skapa jobb-fil med följande specifikationer att få maximal skriva IOPS. Ge den namnet ”fiowrite.ini”.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-```
-
-Observera följande viktiga saker som överensstämmer med designriktlinjer som beskrivs i föregående avsnitt. Dessa specifikationer är avgörande för att driva högsta IOPS  
-
-* En hög ködjup på 256.  
-* En liten blockstorlek på 8 kB.  
-* Flera trådar som utför slumpmässiga skrivningar.
-
-Kör följande kommando för att sätta igång FIO testet i 30 sekunder  
-
-```
-sudo fio --runtime 30 fiowrite.ini
-```
-
-När testet körs kan kommer du att kunna se antalet skriva IOPS den virtuella datorn och levererar Premium-diskar. I exemplet nedan visas DS14 VM leverera dess högsta skriva IOPS-gränsen på 50 000 IOPS.  
-    ![](media/premium-storage-performance/image11.png)
-
-*Lästa IOPS på högsta*  
-Skapa jobb-fil med följande specifikationer att få högsta Läs IOPS. Ge den namnet ”fioread.ini”.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-```
-
-Observera följande viktiga saker som överensstämmer med designriktlinjer som beskrivs i föregående avsnitt. Dessa specifikationer är avgörande för att driva högsta IOPS
-
-* En hög ködjup på 256.  
-* En liten blockstorlek på 8 kB.  
-* Flera trådar som utför slumpmässiga skrivningar.
-
-Kör följande kommando för att sätta igång FIO testet i 30 sekunder
-
-```
-sudo fio --runtime 30 fioread.ini
-```
-
-När testet körs, kommer du att kunna se antalet lästa IOPS den virtuella datorn och levererar Premium-diskar. I exemplet nedan visas DS14 VM leverera fler än 64 000 IOPS för läsning. Det här är en kombination av disken och cache-prestanda.  
-    ![](media/premium-storage-performance/image12.png)
-
-*Maximalt läsa och skriva IOPS*  
-Skapa jobbfilen med följande specifikationer att få maximal kombineras läsa och skriva IOPS. Ge den namnet ”fioreadwrite.ini”.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=128
-ioengine=libaio
-bs=4k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-```
-
-Observera följande viktiga saker som överensstämmer med designriktlinjer som beskrivs i föregående avsnitt. Dessa specifikationer är avgörande för att driva högsta IOPS
-
-* En hög ködjup på 128.  
-* En liten storlek på 4KB.  
-* Flera trådar som utför slumpmässiga läsningar och skrivningar.
-
-Kör följande kommando för att sätta igång FIO testet i 30 sekunder
-
-```
-sudo fio --runtime 30 fioreadwrite.ini
-```
-
-När testet körs, kommer du att kunna se antalet kombinerade läsa och skriva IOPS på den virtuella datorn och levererar Premium-diskar. I exemplet nedan visas DS14 VM att leverera fler än 100 000 kombinerade läsa och skriva IOPS. Det här är en kombination av disken och cache-prestanda.  
-    ![](media/premium-storage-performance/image13.png)
-
-*Maximalt kombineras dataflöde*  
-För att få maximalt kombinerade läsa och skriva dataflöde, använda en större blockstorlek och stora ködjup med flera trådar som utför läsningar och skrivningar. Du kan använda en blockstorlek på 64KB och ködjup på 128.
-
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Premium Storage:
+Läs mer om tillgängliga disktyper:
 
-* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](../articles/virtual-machines/windows/premium-storage.md)  
+* [Välj en disktyp av](../articles/virtual-machines/windows/disks-types.md)  
 
 SQL Server-användare finns i artiklarna på Prestandametodtips för SQL Server:
 

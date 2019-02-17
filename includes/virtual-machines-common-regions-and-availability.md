@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476263"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334019"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regioner och tillgänglighet för virtuella datorer i Azure
 Azure körs på ett antal datacenter över hela världen. Dessa datacenter är grupperade i geografiska regioner så att du kan välja var du vill bygga dina program. Det är viktigt att förstå hur och var dina virtuella datorer körs i Azure och vilka alternativ du har för att maximera prestanda, tillgänglighet och redundans. Den här artikeln ger en översikt över funktionerna för tillgänglighet och redundans i Azure.
@@ -92,7 +92,7 @@ Priserna varierar beroende på vilken lagringstyp och tillgänglighet du väljer
 Se [Azure Storage-priser](https://azure.microsoft.com/pricing/details/storage/) för prisinformation för olika lagringstyper och tillgänglighetsalternativ.
 
 ## <a name="availability-sets"></a>Tillgänglighetsuppsättningar
-En tillgänglighetsuppsättning är en logisk gruppering av virtuella datorer inom ett datacenter som gör att Azure för att förstå hur ditt program är utformat för att tillhandahålla redundans och tillgänglighet. Vi rekommenderar att två eller flera virtuella datorer skapas i en tillgänglighetsuppsättning för att ge programmet hög tillgänglighet och att uppfylla den [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Det kostar ingenting för Tillgänglighetsuppsättningen själva, du betalar bara för varje VM-instans som du skapar. När en enskild virtuell dator använder [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md) gäller serviceavtalet för Azure för oplanerat underhåll. 
+En tillgänglighetsuppsättning är en logisk gruppering av virtuella datorer inom ett datacenter som gör att Azure för att förstå hur ditt program är utformat för att tillhandahålla redundans och tillgänglighet. Vi rekommenderar att två eller flera virtuella datorer skapas i en tillgänglighetsuppsättning för att ge programmet hög tillgänglighet och att uppfylla den [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Det kostar ingenting för Tillgänglighetsuppsättningen själva, du betalar bara för varje VM-instans som du skapar. När en enskild virtuell dator använder [Azure premium SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd), gäller serviceavtalet för Azure för oplanerat underhåll.
 
 En tillgänglighetsuppsättning består av två ytterligare grupperingar som skyddar mot maskinvarufel och gör att uppdateringar kan på ett säkert sätt användas: feldomäner (fd)-domäner och uppdateringsdomäner (ud). Läs mer om hur du hanterar tillgänglighet för [virtuella Linux-datorer](../articles/virtual-machines/linux/manage-availability.md) och [virtuella Windows-datorer](../articles/virtual-machines/windows/manage-availability.md).
 

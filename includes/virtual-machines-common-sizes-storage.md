@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: bb88736762219028d58fe70d0ec32309967c95a4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dbbfea183454b1068558111bf62b45f5fa6415cc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55830676"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333779"
 ---
 Lagring optimerad VM-storlekar ger högt diskgenomflöde och I/O och är perfekt för Stordata, SQL, NoSQL-databaser, informationslagerhantering och stora transaktionsdatabaser.  Exempel är Cassandra, MongoDB, Cloudera och Redis. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lokal lagring dataflöde och nätverket bandbredden för varje optimerad storlek.
 
@@ -64,7 +64,7 @@ Premium Storage Caching:  Stöds inte
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40,000 / 1,000     | 8 / 20,000 | 
  
 
-Det maximala diskgenomflödet som är möjligt med virtuella datorer i Ls-serien kan vara begränsas av antal, storlek och striping av alla anslutna diskar. Mer information finns i [Premium Storage: Lagring med höga prestanda för Azure-datorbelastningar](../articles/virtual-machines/windows/premium-storage.md).
+Det maximala diskgenomflödet som är möjligt med virtuella datorer i Ls-serien kan vara begränsas av antal, storlek och striping av alla anslutna diskar. Mer information finns i [designa för höga prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 <sup>1</sup> instansen är isolerad till maskinvara som är dedikerad till en enda kund.
 

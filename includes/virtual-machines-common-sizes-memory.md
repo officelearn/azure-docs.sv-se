@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b992947245175803f8f2f8c6a5aba70fe13bde2c
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 97efb82f104742993f7b2fac40a74f4feb9e0b38
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084029"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333946"
 ---
 Minnesoptimerade erbjudande för VM-storlekar högt minne att CPU-förhållande som är utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -30,11 +30,11 @@ Minnesoptimerade erbjudande för VM-storlekar högt minne att CPU-förhållande 
 
 ## <a name="esv3-series"></a>Esv3-serien 
 
-ACU: 160 190 <sup>1</sup>
+ACU: 160-190 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage cachelagring:  Stöds
+Premium Storage Caching:  Stöds
 
 Instanserna i ESv3-serien baseras på 2,3 GHz Intel XEON® E5-2673 v4-processorn (Broadwell) och kan komma upp i 3,5 GHz med Intel Turbo Boost Technology 2.0 och använder premiumlagring. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
 
@@ -45,7 +45,7 @@ Instanserna i ESv3-serien baseras på 2,3 GHz Intel XEON® E5-2673 v4-processorn
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8 000/64 (100)                                                      | 6,400 / 96                                | 2 / 2,000                                   |
 | Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16 000/128 (200)                                                    | 12,800 / 192                              | 4 / 4,000                                       |
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32 000/256 (400)                                                    | 25,600 / 384                              | 8 / 8,000                                       |
-| Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 40 000 / 320 (400)                                                    | 32000 / 480                              | 8 / 10 000                                       |
+| Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 40,000 / 320 (400)                                                    | 32,000 / 480                              | 8 / 10,000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64 000/512 (800)                                                    | 51,200 / 768                              | 8 / 16,000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128 000/1024 (1 600)                                                   | 80 000/1 200                             | 8 / 30,000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128 000/1024 (1 600)                                                   | 80 000/1 200                             | 8 / 30,000                             |
@@ -64,7 +64,7 @@ ACU: 160 - 190 <sup>1</sup>
 
 Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage Caching:  Stöds inte
 
 Instanserna i Ev3-serien baseras på 2,3 GHz Intel XEON ® E5-2673 v4-processorn (Broadwell) och kan komma upp i 3,5GHz med Intel Turbo Boost Technology 2.0. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
 
@@ -77,7 +77,7 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6 000/93/46                                               | 2 / 2,000                 |
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12 000/187/93                                             | 4 / 4,000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24 000/375/187                                            | 8 / 8,000                     |
-| Standard_E20_v3 | 20        | 160         | 500            | 32             | 30000/469/234                                            | 8 / 10 000                     |
+| Standard_E20_v3 | 20        | 160         | 500            | 32             | 30000/469/234                                            | 8 / 10,000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48 000/750/375                                            | 8 / 16,000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96 000/1 000/500                                           | 8 / 30,000           |
 | Standard_E64i_v3&nbsp;<sup>2,&nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96 000/1 000/500                                           | 8 / 30,000           |
@@ -95,26 +95,26 @@ ACU: 160-180 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage cachelagring:  Stöds
+Premium Storage Caching:  Stöds
 
 Write Accelerator:  [Stöds](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10 000 / 100 (793)  | 5 000 / 125 | 4 / 2 000 |
-| Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20 000 / 200 (1,587) | 10,000 / 250 | 8 / 4 000 |
-| Standard_M32ts | 32 | 192    | 1,024 | 32 | 40 000 / 400 (3,174) | 20,000 / 500 | 8 / 8,000 |
-| Standard_M32ls | 32 | 256    | 1,024 | 32 | 40 000 / 400 (3,174) | 20,000 / 500 | 8 / 8,000 |
-| Standard_M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1,024 | 32 | 40 000 / 400 (3,174) | 20,000 / 500 | 8 / 8,000 |
-| Standard_M64s  | 64 | 1,024   | 2 048 | 64 | över 80 000 IOPs / 800 (6,348)| 40,000 / 1,000 | 8 / 16,000          |
-| Standard_M64ls  | 64 | 512    | 2 048 | 64 | över 80 000 IOPs / 800 (6,348) | 40,000 / 1,000 | 8 / 16,000 |
-| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2 048 | 64 | över 80 000 IOPs / 800 (6,348)| 40,000 / 1,000 | 8 / 16,000          |
-| Standard_M128s&nbsp;<sup>2</sup> | 128  | 2 048        | 4 096  | 64 | 160 000/1 600 (12 696) | 80,000 / 2,000                            | 8 / 30,000          |
-| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3,892  | 4 096 | 64 | 160 000/1 600 (12 696) | 80,000 / 2,000                            | 8 / 30,000          |
-| Standard_M64   | 64  | 1,024 | 7,168  | 64 | över 80 000 IOPs / 800 (1,228) | 40,000 / 1,000 | 8 / 16,000 |
-| Standard_M64m  | 64  | 1,792 | 7,168  | 64 | över 80 000 IOPs / 800 (1,228) | 40,000 / 1,000 | 8 / 16,000 |
-| Standard_M128&nbsp;<sup>2  | 128 | 2 048 | 14,336 | 64 | 250 000 / 1,600 (2,456) | 80,000 / 2,000 | 8 / 32 000 |
-| Standard_M128m&nbsp;<sup>2 | 128 | 3,892 | 14,336 | 64 | 250 000 / 1,600 (2,456) | 80,000 / 2,000 | 8 / 32 000 |
+| Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10,000 / 100 (793)  | 5,000  / 125 | 4 / 2,000 |
+| Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20,000 / 200 (1,587) | 10,000 / 250 | 8 / 4,000 |
+| Standard_M32ts | 32 | 192    | 1,024 | 32 | 40,000 / 400 (3,174) | 20,000 / 500 | 8 / 8,000 |
+| Standard_M32ls | 32 | 256    | 1,024 | 32 | 40,000 / 400 (3,174) | 20,000 / 500 | 8 / 8,000 |
+| Standard_M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1,024 | 32 | 40,000 / 400 (3,174) | 20,000 / 500 | 8 / 8,000 |
+| Standard_M64s  | 64 | 1,024   | 2,048 | 64 | 80,000 / 800 (6,348)| 40,000 / 1,000 | 8 / 16,000          |
+| Standard_M64ls  | 64 | 512    | 2,048 | 64 | 80,000 / 800 (6,348) | 40,000 / 1,000 | 8 / 16,000 |
+| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2,048 | 64 | 80,000 / 800 (6,348)| 40,000 / 1,000 | 8 / 16,000          |
+| Standard_M128s&nbsp;<sup>2</sup> | 128  | 2,048        | 4,096  | 64 | 160 000/1 600 (12 696) | 80,000 / 2,000                            | 8 / 30,000          |
+| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3,892  | 4,096 | 64 | 160 000/1 600 (12 696) | 80,000 / 2,000                            | 8 / 30,000          |
+| Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80,000  / 800  (1,228) | 40,000 / 1,000 | 8 / 16,000 |
+| Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80,000  / 800  (1,228) | 40,000 / 1,000 | 8 / 16,000 |
+| Standard_M128&nbsp;<sup>2  | 128 | 2,048 | 14,336 | 64 | 250,000 / 1,600 (2,456) | 80,000 / 2,000 | 8 / 32,000 |
+| Standard_M128m&nbsp;<sup>2 | 128 | 3,892 | 14,336 | 64 | 250,000 / 1,600 (2,456) | 80,000 / 2,000 | 8 / 32,000 |
 
 
 
@@ -133,7 +133,7 @@ ACU: 180 - 240 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage cachelagring:  Stöds
+Premium Storage Caching:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
@@ -143,7 +143,7 @@ Premium Storage cachelagring:  Stöds
 | Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80,000 / 800 (2,112) |40,000 / 1,000 |8/16 000 |
 | Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8/20 000 |
 
-<sup>1</sup> det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i GS-serien kan begränsas antal, storlek och striping av de anslutna diskarna. Mer information finns i [Premium Storage: Lagring med höga prestanda för Azure-datorbelastningar](../articles/virtual-machines/windows/premium-storage.md). 
+<sup>1</sup> det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i GS-serien kan begränsas antal, storlek och striping av de anslutna diskarna. Mer information finns i [designa för höga prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 <sup>2</sup> instansen är isolerad till maskinvara som är dedikerad till en enda kund.
 
@@ -157,7 +157,7 @@ ACU: 180 - 240
 
 Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage Caching:  Stöds inte
 
 | Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -173,11 +173,11 @@ Premium Storage cachelagring:  Stöds inte
 
 ## <a name="dsv2-series-11-15"></a>DSv2-serien 11-15
 
-ACU: 210 – 250 <sup>1</sup>
+ACU: 210 - 250 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage cachelagring:  Stöds
+Premium Storage Caching:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -185,10 +185,10 @@ Premium Storage cachelagring:  Stöds
 | Standard_DS12_v2&nbsp;<sup>3</sup> |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 192 |4/3 000 |
 | Standard_DS13_v2&nbsp;<sup>3</sup> |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 384 |8/6 000 |
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 768 |8 / 12000 |
-| Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25 000&nbsp;<sup>4</sup>
+| Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25000&nbsp;<sup>4</sup>
 
 
-<sup>1</sup> det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i DSv2-serien kan begränsas antal, storlek och striping av de anslutna diskarna.  Mer information finns i [Premium Storage: Lagring med höga prestanda för Azure-datorbelastningar](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i DSv2-serien kan begränsas antal, storlek och striping av de anslutna diskarna.  Mer information finns i [designa för höga prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 <sup>2</sup> instansen är isolerad till maskinvara som är dedikerad till en enda kund.
 
@@ -200,11 +200,11 @@ Premium Storage cachelagring:  Stöds
 
 ## <a name="dv2-series-11-15"></a>Dv2-serien 11-15
 
-ACU: 210 – 250
+ACU: 210 - 250
 
 Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage Caching:  Stöds inte
 
 | Storlek              | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -212,7 +212,7 @@ Premium Storage cachelagring:  Stöds inte
 | Standard_D12_v2   | 4         | 28          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/3 000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/6 000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48 000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000          |
-| Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1,000          | 60 000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25 000&nbsp;<sup>2</sup> |
+| Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1,000          | 60 000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
 <sup>1</sup> instansen är isolerad till maskinvara som är dedikerad till en enda kund. 
 

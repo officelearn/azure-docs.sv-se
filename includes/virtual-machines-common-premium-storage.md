@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9f0dbc549600ef2b931ee99a36c60cae57cc7a67
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247188"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56331389"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Högpresterande Premium Storage och hanterade diskar för virtuella datorer
 
@@ -98,8 +98,6 @@ Det här är några av de funktioner som stöds i premium storage-aktiverade vir
 
     > [!NOTE]
     > Om du stripe-data för premiumlagringsdiskar med hjälp av [lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx), konfigurera lagringsutrymmen med 1 kolumn för varje disk som du använder. I annat fall kan prestanda i stripe-volymen vara lägre än förväntat på grund av en ojämn fördelning av trafik på diskarna. Du kan ställa in kolumner för upp till 8 diskar som standard i Serverhanteraren. Om du har mer än 8 diskar kan du använda PowerShell för att skapa volymen. Ange antalet kolumner manuellt. I annat fall fortsätter Serverhanteraren UI att använda 8 kolumner, även om du har fler diskar. Exempel: Om du har 32 diskar i en enda stripe-uppsättning, ange 32 kolumner. Ange antalet kolumner i den virtuella disken använder den [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell-cmdleten, Använd den *NumberOfColumns* parametern. Mer information finns i [översikt över lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx) och [Storage Spaces vanliga frågor och svar](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Cache**
 

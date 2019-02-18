@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 72493c6bba556314c3652be5251463d1d1e005bd
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383446"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330621"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av klassisk lagring resurs
 Den här artikeln innehåller felsökningsinformation när något av följande fel inträffar försöker ta bort klassiska lagringskontot, behållaren eller *.vhd sidan blob-fil. 
@@ -21,10 +21,10 @@ Den här artikeln innehåller felsökningsinformation när något av följande f
 
 Den här artikeln täcker endast problem med klassiska lagringsresurser. Om en användare tar bort en klassisk virtuell dator med hjälp av Azure portal, PowerShell eller CLI och sedan diskarna inte bort automatiskt. Användaren får möjlighet att ta bort resursen ”Disk”. Om alternativet inte är markerat, förhindrar ”Disk” resursen borttagning av lagringskontot, behållaren och faktiska *.vhd blob växlingsfilen.
 
-Mer information om Azure-diskar finns [här](../../virtual-machines/windows/about-disks-and-vhds.md). Azure förhindrar borttagning av en disk som är kopplad till en virtuell dator för att förhindra skador. Det förhindrar även att borttagningen av behållare och storage-konton som har en sidblobb som är kopplad till en virtuell dator. 
+Mer information om Azure-diskar finns [här](../../virtual-machines/windows/managed-disks-overview.md). Azure förhindrar borttagning av en disk som är kopplad till en virtuell dator för att förhindra skador. Det förhindrar även att borttagningen av behållare och storage-konton som har en sidblobb som är kopplad till en virtuell dator. 
 
 ## <a name="what-is-a-disk"></a>Vad är en ”Disk”?
-En ”Disk”-resurs används för att montera en *.vhd page blob-fil till en virtuell dator som en OS-disk eller datadisk. En OS-disk eller Data diskresursen, tills du tar bort, fortsätter att vänta ett lån *.vhd-filen. Alla lagringsresurs i sökvägen ovan i avbildningen kan inte tas bort om en ”Disk”-resurs som pekar på den.
+En ”Disk”-resurs används för att montera en *.vhd page blob-fil till en virtuell dator som en OS-disk eller datadisk. En OS-disk eller Data diskresursen, tills du tar bort, fortsätter att vänta ett lån *.vhd-filen. Alla lagringsresurs i sökvägen som visas i bilden nedan kan inte tas bort om en ”Disk”-resurs som pekar på den.
 
 ![Skärmbild av portalen med den disk (klassisk) ”Property”-rutan Öppna](./media/storage-classic-cannot-delete-storage-account-container-vhd/Disk_Lease_Illustration.jpg) 
 

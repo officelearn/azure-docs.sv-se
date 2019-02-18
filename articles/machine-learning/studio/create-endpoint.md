@@ -1,7 +1,7 @@
 ---
-title: Skapa slutpunkter för webbtjänster
+title: Skapa webb-Tjänsteslutpunkter
 titleSuffix: Azure Machine Learning Studio
-description: Skapa slutpunkter för webbtjänster i Azure Machine Learning. Varje slutpunkt i webbtjänsten är oberoende av varandra åtgärdas, begränsas och hanteras.
+description: Skapa webb-tjänstslutpunkter i Azure Machine Learning. Varje slutpunkt i webbtjänsten är oberoende av varandra åtgärdas, begränsas och hanteras.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,23 +9,23 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
-ms.date: 02/12/2019
-ms.openlocfilehash: a6945ac7bfb750916e229ae04376f895f2b3d506
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.date: 02/15/2019
+ms.openlocfilehash: 6759a94a1d1491532e85d1bd1e1a098b2f92ff9e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267283"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329310"
 ---
-# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Skapa slutpunkter för distribuerade Azure Machine Learning Studio-webbtjänster
+# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Skapa slutpunkter för distribuerade Azure Machine Learning Studio-webbtjänster
 
 > [!NOTE]
-> Det här avsnittet beskrivs tekniker som kan användas till en **klassiska** Machine Learning-webbtjänster.
+> Det här avsnittet beskrivs tekniker som kan användas till en **klassiska** Machine Learning-webbtjänst.
 
 När en webbtjänst har distribuerats skapas en standardslutpunkt för tjänsten. Standardslutpunkten kan anropas med dess API-nyckel. Du kan lägga till fler slutpunkter med deras egna nycklar från Web Services-portalen.
 Varje slutpunkt i webbtjänsten är oberoende av varandra åtgärdas, begränsas och hanteras. Varje slutpunkt är en unik URL med en auktoriseringsnyckeln som du kan distribuera till dina kunder.
 
-## <a name="adding-endpoints-to-a-web-service"></a>Lägga till slutpunkter till en webbtjänst
+## <a name="add-endpoints-to-a-web-service"></a>Lägga till slutpunkter till en webbtjänst
 
 Du kan lägga till en slutpunkt till en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen. När slutpunkten har skapats kan du använda via synkron API: er, batch API: er, och excel-kalkylblad.
 
@@ -35,7 +35,19 @@ Du kan lägga till en slutpunkt till en webbtjänst med hjälp av Azure Machine 
 1. Klicka på webbtjänster i Machine Learning Studio, på den vänstra kolumnen.
 2. Längst ned i instrumentpanelen för webbtjänsten klickar du på **hantera slutpunkter för**. Azure Machine Learning Web Services-portalen öppnas på sidan slutpunkter för webbtjänsten.
 3. Klicka på **Ny**.
-4. Skriv ett namn och beskrivning för den nya slutpunkten. Slutpunktsnamn måste vara 24 tecken eller mindre långt och måste bestå av gemena bokstäver eller siffror. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns i [aktivera loggning för Machine Learning Web services](web-services-logging.md).
+4. Skriv ett namn och beskrivning för den nya slutpunkten. Slutpunktsnamn måste vara 24 tecken eller mindre långt och måste bestå av gemena bokstäver eller siffror. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns i [aktivera loggning för Machine Learning web services](web-services-logging.md).
+
+## <a id="scaling"></a> Skala en webbtjänst genom att lägga till ytterligare slutpunkter
+
+Som standard varje publicerad webbtjänst är konfigurerad för att stödja 20 samtidiga begäranden och kan vara så mycket som 200 samtidiga begäranden. Azure Machine Learning Studio optimerar automatiskt inställningen för att tillhandahålla bästa prestanda för din webbtjänst och portal värdet ignoreras.
+
+Om du planerar att anropa API med en högre belastning än maximalt antal samtidiga anrop värdet 200 ska stödja, bör du skapa flera slutpunkter på samma webbtjänsten. Du kan sedan slumpmässigt distribuera inläsningen mellan dem.
+
+Skalning av en webbtjänst är en vanlig åtgärd. Några skäl att skala är stöd för fler än 200 samtidiga begäranden, öka tillgänglighet via flera slutpunkter eller ange separata slutpunkter för webbtjänsten. Du kan öka skalan genom att lägga till ytterligare slutpunkter för samma webbtjänsten via den [Azure Machine Learning-webbtjänsten](https://services.azureml.net/) portal.
+
+Kom ihåg att med hjälp av ett antal hög samtidighet kan vara skadligt om du inte anropar API: et med en relativt hög hastighet. Du kan se sporadiska tidsgränser och/eller toppar i svarstiderna om du placerar en relativt låg belastning på ett API som konfigurerats för hög belastning.
+
+Synkron API: er används vanligtvis i situationer där en låg fördröjning är det önskade. Här fördröjning innebär den tid det tar för API för att slutföra en begäran och inte hänsyn till eventuella fördröjningar i nätverket. Vi antar att du har ett API med en 50 ms fördröjning. Fullständigt förbruka tillgänglig kapacitet med begränsning nivån hög och maximalt antal samtidiga anrop = 20, måste du anropa detta API 20 * 1 000 / 50 = 400 gånger per sekund. Utöka detta ytterligare kan ett maximalt antal samtidiga anrop 200 du anropa API 4000 gånger per sekund, förutsatt att en 50 ms svarstid.
 
 ## <a name="next-steps"></a>Nästa steg
 

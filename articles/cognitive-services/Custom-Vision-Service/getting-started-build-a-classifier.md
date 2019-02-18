@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 6b39d01266cdde0316d1a660429d5ccab546dac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd6f533bcd32a307facc781c3b2207a337fc8a34
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873639"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309173"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Hur du skapar en klassificerare med anpassad visuellt innehåll
 
@@ -95,6 +95,11 @@ I det här avsnittet ska du ladda upp och tagga bilder för att träna klassific
     ![Förloppsindikatorn visar alla aktiviteter har slutförts.](./media/getting-started-build-a-classifier/add-images04.png)
 
 Tillbaka till början av det här avsnittet för att ladda upp en annan uppsättning bilder och upprepa steg. Vid en viss tidpunkt i projektet kan du behöva lägga till _negativt exempel_ för att göra din klassificerare mer exakta. Negativa prov är de som inte matchar någon av de andra taggarna. När du överför dessa avbildningar, gäller särskilda **negativt** etiketten på dem.
+
+> [!NOTE]
+> Custom Vision Service har stöd för vissa automatiska negativt bildhantering. Om du skapar en delvis kontra bananer klassificerare och skicka in en avbildning av en sko för förutsägelse bör klassificeraren exempelvis score avbildningen som nära 0% för både delvis och bananer.
+
+> Å andra sidan i fall där negativt bilderna är bara en variant av avbildningarna som används i utbildning, är det troligt att modellen klassificera negativt avbildningar som en klass som är märkta på grund av bra likheterna. Till exempel om du har en orange kontra grapefrukter klassificerare och du flöde i en avbildning av en clementine, kan det bedöma clementine som ett orange eftersom många funktioner i clementine liknar apelsiner. Om dina negativt avbildningar är av den här typen kan vi rekommenderar att du skapar en eller flera ytterligare taggar (till exempel **andra**) och märka negativt bilder med den här taggen under utbildning för att tillåta modellen bättre skilja mellan dessa klasser .
 
 ## <a name="train-the-classifier"></a>Träna klassificeraren
 

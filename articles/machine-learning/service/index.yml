@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f4b66f79e415be8f9598a0e6f5c875d8a2597514
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 46457711c1611e614f89a813b1856687beb27ac7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300031"
+ms.locfileid: "56311463"
 documentType: LandingData
 title: Dokumentation om Azure Machine Learning-tjänsten
 metadata:
@@ -17,26 +17,26 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 1/30/2019
+  ms.date: 2/15/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning Service tillhandahåller en molnbaserad miljö som du kan använda för att skapa, träna och distribuera maskininlärningsmodeller. Använd automatiserad maskininlärning för att identifiera algoritmer och justera hyperparametrar snabbare. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och Azure DevOps för maskininlärning. Använd alla dessa funktioner från din Python-miljö med hjälp av tjänst-SDK:er och ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn. Lär dig hur med våra snabbstarter och självstudier.
+  description: Azure Machine Learning Service tillhandahåller en molnmiljö som du kan använda för att snabbt förbereda data samt träna och distribuera maskininlärningsmodeller. Använd automatiserad maskininlärning för att identifiera algoritmer och justera hyperparametrar snabbare. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och pipelines. Få tillgång till dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn samt tjänst-SDK:erna. Kom igång med våra snabbstarter och självstudier.
 sections:
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: 'Om du vill använda den här tjänsten behöver du en arbetsyta och associerade resurser.  Kom igång:'
+    text: 'Om du vill använda den här tjänsten behöver du en arbetsyta och associerade resurser.  Kom igång med:'
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-get-started">Använd snabbstarten i Microsoft Azure-portalen</a> för att hämta arbetsytan och köra ett experiment utan att installera något.
-    - html: <a href="quickstart-create-workspace-with-python">Använd Python-snabbstarten</a> för att installera den huvudsakliga SDK:n, skapa en arbetsyta och köra ett experiment i en lokal notebook-server.
+    - html: '<a href="quickstart-get-started">snabbstarten för Azure-portalen</a>: hämta en arbetsyta och kör experiment utan att installera något.'
+    - html: '<a href="quickstart-create-workspace-with-python">snabbstarten för Python</a>: installera den huvudsakliga SDK:n, skapa en arbetsyta och kör ett experiment i en lokal notebook-server.'
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: 'Lär dig hur du förbereder data, konfigurerar experiment och operationaliserar dina maskininlärningsmodeller:'
+    text: 'Lär dig hur du förbereder data, konfigurerar experiment, tränar och operationaliserar dina maskininlärningsmodeller:'
   - type: list
     style: unordered
     items:

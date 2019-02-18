@@ -99,20 +99,13 @@ items:
   - name: Underhåll och uppdateringar
     href: maintenance-and-updates.md
   - name: Disklagring
-    href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: Introduktion till hanterade diskar
       href: managed-disks-overview.md
-    - name: Premium SSD:er
-      href: premium-storage.md
-    - name: Standard SSD:er
-      href: disks-standard-ssd.md
-    - name: Ultra SSD
-      href: disks-ultra-ssd.md
-    - name: Premium-lagringsprestanda
+    - name: Välja en disktyp för virtuella IaaS-datorer
+      href: disks-types.md
+    - name: Designa för höga prestanda
       href: premium-storage-performance.md
-    - name: Standard Storage
-      href: standard-storage.md
     - name: Skalbarhetsmål för diskar
       href: disk-scalability-targets.md
     - name: Lagring och haveriberedskap för diskar
@@ -426,6 +419,8 @@ items:
         href: add-disk.md
       - name: Azure Portal
         href: attach-disk-portal.md
+    - name: Beräkna benchmark för en disk
+      href: disks-benchmarks.md
     - name: Koppla från en disk
       href: detach-disk.md
     - name: Ändra storlek på en disk
@@ -450,7 +445,7 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: Använda Write Accelerator
       href: how-to-enable-write-accelerator.md
-    - name: Aktivera Ultra SSD
+    - name: Aktivera ultradiskar
       href: disks-enable-ultra-ssd.md
     - name: Optimera prestanda
       href: optimization.md
@@ -562,9 +557,9 @@ items:
     href: faq.md
 - name: Felsöka
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 5a154ba0022a73b8acf9ded071ccfb13e62b7509
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3c7ef0b41167e396828063950a63574ad5b3a7c9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299154"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330808"

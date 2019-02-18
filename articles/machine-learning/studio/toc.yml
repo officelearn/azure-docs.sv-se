@@ -109,7 +109,7 @@ items:
   - name: Distribuera modeller
     items:
     - name: Distribuera en webbtjänst
-      displayName: publish
+      displayName: publish, multiple regions
       href: publish-a-machine-learning-web-service.md
     - name: Hur det fungerar
       href: model-progression-experiment-to-web-service.md
@@ -118,9 +118,6 @@ items:
     - name: Använda externa data
       displayName: import, export
       href: web-services-that-use-import-export-modules.md
-    - name: Distribuera i flera områden
-      displayName: multiple regions
-      href: how-to-deploy-to-multiple-regions.md
     - name: Använda webbtjänstparametrar
       href: web-service-parameters.md
     - name: Aktivera loggning
@@ -133,17 +130,14 @@ items:
       displayName: endpoint, endpoints
       href: manage-web-service-endpoints-using-api-management.md
     - name: Skapa slutpunkter
+      displayName: scale, scaling
       href: create-endpoint.md
-    - name: Skalning
-      href: scaling-webservice.md
   - name: Omtrimningsmodeller
     items:
-    - name: Översikt
+    - name: Träna om och distribuera en ny webbtjänst
       href: retrain-machine-learning-model.md
-    - name: Omtrimma en befintlig webbtjänst
-      href: retrain-existing-resource-manager-based-web-service.md
-    - name: Felsöka
-      href: troubleshooting-retraining-models.md
+    - name: Träna om och distribuera en klassisk webbtjänst
+      href: retrain-classic-web-service.md
   - name: Förbrukningsmodeller
     items:
     - name: Översikt
@@ -194,9 +188,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Anpassade neurala nätverk (Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: c9bbcd35f74e113c33ef0a8b449d806734501324
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: c6d072a6e032fb4059b422d0778eb78b01d3706e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266875"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327688"

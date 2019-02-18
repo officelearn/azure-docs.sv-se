@@ -5,6 +5,12 @@ items:
   items:
   - name: Om Notification Hubs
     href: notification-hubs-push-notification-overview.md
+- name: Snabbstarter
+  items:
+  - name: Skapa en meddelandehubb – Azure-portalen
+    href: create-notification-hub-portal.md
+  - name: Konfigurera en meddelandehubb – Azure-portalen
+    href: configure-notification-hub-portal-pns-settings.md
 - name: Självstudier
   items:
   - name: 1 – Push-meddelanden till alla registrerade enheter
@@ -138,9 +144,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Supportalternativ
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 55dc84493eca49cce1abe9184daec2687d3e5d56
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 9035ed7f81639770b1c962e4cf254e18fd3b46bd
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301528"
+ms.locfileid: "56311008"

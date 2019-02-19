@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
 ms.service: Azure-Active-Directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: be5dd0a0fd1eb45c505a2f0ddf1489d21bfd38e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9328564b082ba3eb0cff94652271fcd64cf2630c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821203"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Självstudier: Azure Active Directory-integrering med LinkedIn Learning
 
@@ -118,11 +119,11 @@ Konfigurera Azure AD enkel inloggning med LinkedIn Learning genom att utföra f�
     > [!NOTE]
     > Dessa värden är inte verkliga värden. Du uppdaterar de här värdena med den faktiska identifieraren och svars-URL:en, vilket förklaras senare i kursavsnittet **Konfigurera enkel inloggning för LinkedIn Learning**.
 
-5. LinkedIn Learning-programmet förväntar sig SAML-intyget i ett visst format, vilket innebär att du måste lägga till anpassade attributmappningar i din SAML-tokenattributskonfiguration. Följande skärmbild visar ett exempel på detta. Standardvärdet för **Unik användaridentifierare** är **user.userprincipalname**, men LinkedIn Learning förväntar sig att detta mappas med användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration. 
+5. LinkedIn Learning-programmet förväntar sig SAML-intyget i ett visst format, vilket innebär att du måste lägga till anpassade attributmappningar i din SAML-tokenattributskonfiguration. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. LinkedIn Learning-programmet förväntar sig att **nameidentifier** mappas med **user.mail**, så du behöver redigera attributmappningen genom att klicka på ikonen **Redigera** och ändra attributmappningen.
 
     ![image](common/edit-attribute.png)
 
-6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
+6. Utöver ovanstående förväntar sig LinkedIn Learning-programmet att några fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
     
     | Namn | Källattribut |
     | ---------------| --------------- |
@@ -133,9 +134,9 @@ Konfigurera Azure AD enkel inloggning med LinkedIn Learning genom att utföra f�
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](./media/linkedinlearning-tutorial/tutorial_usermail.png)
+    ![image](common/new-save-attribute.png)
 
-    ![image](./media/linkedinlearning-tutorial/tutorial_usermailedit.png)
+    ![image](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 

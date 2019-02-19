@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bdc3b88109a8d8c46f0a6a09297b0ca197165
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ab9439cbf46fd77a24aa07cab1884e4e50720e43
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478985"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Självstudier: Azure Active Directory-integrering med Euromonitor Passport
 
@@ -66,7 +67,7 @@ För att konfigurera integrering av Euromonitor Passport med Azure AD behöver d
 
 4. I sökrutan skriver du **Euromonitor Passport**, väljer **Euromonitor Passport** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-     ![Euromonitor Passport i resultatlistan](common/search-new-app.png)
+    ![Euromonitor Passport i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
@@ -104,17 +105,17 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Eu
 
     ![Euromonitor Passport-domän och information om URL:er för enkel inloggning](common/preintegrated.png)
 
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+5. Om du vill konfigurera programmet i **SP**-initierat läge måste du hämta inloggnings-URL:en från [Euromonitor Passport-supportteamet](mailto:passport.support@euromonitor.com). När du får inloggnings-URL:en av Euromonitor Passport -supportteamet klickar du på **Ange ytterligare URL:er** och utföra följande steg:
 
     ![Euromonitor Passport-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
-    I rutan **Inloggnings-URL** anger du en URL: `https://portal.euromonitor.com`
+    Klistra in det erhållna inloggnings-URL-värdet från Euromonitor Passport-supportteamet i textrutan Inloggnings-URL.
 
 6. Euromonitor Passport-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
     ![image](./media/euromonitor-passport-tutorial/attribute1.png)
 
-7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
+7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
     | Namn | Källattribut|
     | ---------------| --------- |
@@ -142,7 +143,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Eu
 
     g. Klicka på **Spara**.
 
-8. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för appens federationsmetadata** och spara den på datorn.
+8. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 

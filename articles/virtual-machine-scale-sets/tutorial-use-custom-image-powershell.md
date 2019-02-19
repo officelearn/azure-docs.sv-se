@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bca92b5079b5ef21c954b46bfbeab9b973828fc8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a3b0f9b2b158bd36259ee96633682e1777333499
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427448"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981051"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudier: Skapa och använda en anpassad avbildning för VM-skalningsuppsättningar med Azure PowerShell
+
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -34,9 +35,9 @@ När du skapar en skalningsuppsättning, kan du ange en avbildning som ska anvä
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
-Om du väljer att installera och använda PowerShell lokalt krävs version 6.0.0 eller senare av Azure PowerShell-modulen i den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. 
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 
 ## <a name="create-and-configure-a-source-vm"></a>Skapa och konfigurera en virtuell källdator
@@ -44,24 +45,24 @@ Om du väljer att installera och använda PowerShell lokalt krävs version 6.0.0
 >[!NOTE]
 > Den här självstudien visar processen att skapa och använda en generaliserad VM-avbildning. Det finns inte stöd för att skapa en skalningsuppsättning från en specialiserad VHD.
 
-Först skapar du en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) därefter skapar du en virtuell dator med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Den här virtuella datorn används sedan som källan för en anpassad virtuell datoravbildning. Följande exempel skapar en virtuell dator som heter *myCustomVM* i resursgruppen med namnet *myResourceGroup*. När du uppmanas, anger du ett användarnamn och lösenord som ska användas som autentiseringsuppgifter för den virtuella datorn:
+Först skapar du en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) och därefter skapar du en virtuell dator med [New-AzVM](/powershell/module/az.compute/new-azvm). Den här virtuella datorn används sedan som källan för en anpassad virtuell datoravbildning. Följande exempel skapar en virtuell dator som heter *myCustomVM* i resursgruppen med namnet *myResourceGroup*. När du uppmanas, anger du ett användarnamn och lösenord som ska användas som autentiseringsuppgifter för den virtuella datorn:
 
 ```azurepowershell-interactive
 # Create a resource a group
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 # Create a Windows Server 2016 Datacenter VM
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -Name "myCustomVM" `
   -ImageName "Win2016Datacenter" `
   -OpenPorts 3389
 ```
 
-Om du vill ansluta till din virtuella dator, listar du den offentliga IP-adressen med [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) enligt följande:
+Om du vill ansluta till din virtuella dator, listar du den offentliga IP-adressen med [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) enligt följande:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
 Skapa en fjärranslutning med den virtuella datorn. Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Ange din egen IP-adress från det föregående kommandot. När du uppmanas, anger du de autentiseringsuppgifter som användes när du skapade den virtuella datorn i det första steget:
@@ -90,34 +91,34 @@ Fjärranslutningen till den virtuella datorn stängs automatiskt när Sysprep sl
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Skapa en anpassad virtuell datoravbildning från den virtuella källdatorn
 Den virtuella källdatorn är nu anpassad med IIS-webbservern som är installerad. Nu ska vi skapa den anpassade virtuella datoravbildningen för att använda med en skalningsuppsättning.
 
-Om du vill skapa en avbildning måste den virtuella datorn frigöras. Frigör den virtuella datorn med [Stop-AzureRmVm](/powershell/module/azurerm.compute/stop-azurermvm). Slutligen anger du tillståndet för den virtuella datorn som generaliserad med [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) så att Azure-plattformen vet att den virtuella datorn är redo för användning som en anpassad avbildning. Du kan bara skapa en avbildning från en generaliserad virtuell dator:
+Om du vill skapa en avbildning måste den virtuella datorn frigöras. Frigör den virtuella datorn med [Stop-AzVm](/powershell/module/az.compute/stop-azvm). Slutligen anger du tillståndet för den virtuella datorn som generaliserad med [Set-AzVm](/powershell/module/az.compute/set-azvm) så att Azure-plattformen vet att den virtuella datorn är redo för användning som en anpassad avbildning. Du kan bara skapa en avbildning från en generaliserad virtuell dator:
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Force
-Set-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Generalized
+Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Force
+Set-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Generalized
 ```
 
 Det kan ta några minuter att frigöra och generalisera den virtuella datorn.
 
-Nu skapar du en avbildning av den virtuella datorn med [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) och [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). Följande exempel skapar en avbildning med namnet *myImage* från din virtuella dator:
+Nu skapar du en avbildning av den virtuella datorn med [New-AzImageConfig](/powershell/module/az.compute/new-azimageconfig) och [New-AzImage](/powershell/module/az.compute/new-azimage). Följande exempel skapar en avbildning med namnet *myImage* från din virtuella dator:
 
 ```azurepowershell-interactive
 # Get VM object
-$vm = Get-AzureRmVM -Name "myCustomVM" -ResourceGroupName "myResourceGroup"
+$vm = Get-AzVM -Name "myCustomVM" -ResourceGroupName "myResourceGroup"
 
 # Create the VM image configuration based on the source VM
-$image = New-AzureRmImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID 
+$image = New-AzImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID 
 
 # Create the custom VM image
-New-AzureRmImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
+New-AzImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
 ```
 
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Skapa en skalningsuppsättning från den anpassad virtuella datoravbildningen
-Nu skapar du en skalningsuppsättning med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) som använder sig av `-ImageName`-parametern för att definiera den anpassade virtuella datoravbildningen som skapades i föregående steg. För att distribuera trafik till flera virtuella datorinstanser så skapas även en lastbalanserare. Lastbalanseraren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
+Nu skapar du en skalningsuppsättning med [New-AzVmss](/powershell/module/az.compute/new-azvmss) som använder sig av `-ImageName`-parametern för att definiera den anpassade virtuella datoravbildningen som skapades i föregående steg. För att distribuera trafik till flera virtuella datorinstanser så skapas även en lastbalanserare. Lastbalanseraren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -133,10 +134,11 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Om du vill testa din skalningsuppsättning, hämtar du den offentliga IP-adressen för din lastbalanserare med [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) enligt följande:
+Om du vill testa din skalningsuppsättning, hämtar du den offentliga IP-adressen för din lastbalanserare med [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) enligt följande:
+
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -ResourceGroupName "myResourceGroup" `
   -Name "myPublicIPAddress" | Select IpAddress
 ```
@@ -147,10 +149,10 @@ Ange den offentliga IP-adressen i din webbläsare. Standardwebbsidan för IIS vi
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Parametern `-Force` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång. Parametern `-AsJob` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs.
+Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Parametern `-Force` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång. Parametern `-AsJob` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

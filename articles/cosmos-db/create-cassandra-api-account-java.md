@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 7ef34ad17dbfbbadde7442fdcba2d02d25a6e4ad
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: fc1505526ddff33c68b6d7a4030338dd7d712598
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037506"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994480"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Självstudie: Skapa ett API för Cassandra-konto i Azure Cosmos DB med hjälp av ett Java-program för att lagra nyckel/värde-data
 
@@ -45,7 +45,7 @@ Den här självstudien omfattar följande uppgifter:
 
 2. Välj  **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**. 
 
-3. I fönstret  **Nytt konto**  anger du inställningarna för det nya Azure Cosmos-kontot. 
+3. I fönstret **Nytt konto** anger du inställningarna för det nya Azure Cosmos-kontot. 
 
    |Inställning   |Föreslaget värde  |Beskrivning  |
    |---------|---------|---------|

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5d844692b6199d93fa835da1021c9753311e17de
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824713"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112554"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -33,7 +33,7 @@ I det här dokumentet går vi igenom olika situationer där du vill flytta dina 
 Kunder kan vilja flytta sina virtuella datorer av följande skäl:
 
 - Om du redan har distribuerat i en region och vi lägger stöd för en ny region som ligger närmare dina slutanvändare så vore det bra för dig att **flytta dina virtuella datorer i befintligt skick till den nya regionen** för att få kortare svarstider. Samma metod används om du vill konsolidera dina prenumerationer eller om du måste göra flytten på grund av gällande regler och förordningar. 
-- Om den virtuella datorn är distribuerad som fristående instans eller om den ingår i en tillgänglighetsuppsättning och du vill förbättra tillgängligheten kan du **flytta dina virtuella datorer en tillgänglighetsuppsättning**. 
+- Om den virtuella datorn är distribuerad som fristående instans eller om den ingår i en tillgänglighetsuppsättning och du vill förbättra serviceavtalen för tillgänglighet kan du **flytta dina virtuella datorer till en tillgänglighetszon**. 
 
 ## <a name="how-to-move-azure-vms"></a>Så flyttar du virtuella Azure-datorer
 De här stegen ingår i att flytta virtuella datorer:
@@ -97,7 +97,7 @@ Baserat på ovanstående [arkitekturer](#typical-architectures-for-a-multi-tier-
 
 2. **Virtuella datorer i olika nivåer distribuerade över en tillgänglighetsuppsättning** – du kan välja att konfigurera dina virtuella datorer i en tillgänglighetsuppsättning i separata tillgänglighetszoner när du väljer att aktivera replikering för de virtuella datorerna med Azure Site Recovery. Serviceavtalet för tillgänglighet är 99,9 % när du har slutfört flytten.
 
-      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## <a name="next-steps"></a>Nästa steg

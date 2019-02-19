@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 55c1aa4a478031ebc49ec5ab7ea5744d9d980470
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3356d7425e692f248a3850e8bef7b80d4daba276
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825763"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Självstudier: Azure Active Directory-integrering med Atlassian Cloud
 
@@ -39,6 +40,7 @@ För att kunna konfigurera Azure AD-integrering med Atlassian Cloud behöver du 
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Atlassian Cloud-prenumeration med enkel inloggning aktiverat
+* Om du vill aktivera enkel inloggning med SAML för Atlassian Cloud-produkter måste du konfigurera Atlassian-åtkomst. Läs mer om [Atlassians-åtkomst]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -124,29 +126,15 @@ Konfigurera enkel inloggning i Azure AD med Atlassian Cloud genom att göra föl
     > [!NOTE]
     > Föregående inloggnings-URL-värde är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Hämta det här värdet genom att kontakta [supportteamet för Atlassians Cloud-klienten](https://support.atlassian.com/).
 
-6. Ditt Atlassian Cloud-program förväntar sig att hitta SAML-intygen i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i SAML-tokenattributkonfigurationen.
-
-    Värdet för **Användaridentifierare** mappas till user.userprincipalname. Ändra det här värdet så att det mappas till user.mail. Du kan också välja ett annat lämpligt värde enligt din organisations inställningar, men i de flesta fall bör e-post fungera. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+6. Ditt Atlassian Cloud-program förväntar sig SAML-intygen i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i SAML-tokenattributkonfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Atlassian Cloud-programmet förväntar sig att **nameidentifier** mappas med **user.mail**, så du behöver redigera attributmappningen genom att klicka på ikonen **Redigera** och ändra attributmappningen.
 
     ![image](common/edit-attribute.png)
 
-7. Gör följande i avsnittet **Användaranspråk** i dialogrutan **Användarattribut**:
-
-    a. Öppna dialogrutan **Hantera användaranspråk** genom att klicka på **redigeringsikonen**.
-
-    ![image](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
-
-    ![image](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
-
-    b. Välj **user.mail** i listan **Källattribut**.
-
-    c. Klicka på **Spara**.
-
-8. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-9. I avsnittet **Konfigurera Atlassian Cloud** kopierar du lämpliga URL:er enligt dina behov.
+8. I avsnittet **Konfigurera Atlassian Cloud** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 

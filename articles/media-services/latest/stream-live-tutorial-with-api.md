@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170529"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894181"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Självstudier: Strömma live med Media Services v3 med hjälp av .NET
 
@@ -166,7 +166,7 @@ Följande kod visar hur du rensar ditt konto från alla livehändelser:
 
 ## <a name="watch-the-event"></a>Titta på händelsen
 
-Om du vill titta på händelsen, kopierar du strömnings-URL:en som du fick när du körde koden som beskrivs i [Skapa en positionerare för direktuppspelning](#create-a-streaminglocator) och använd en valfri spelare. Du kan använda [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) för att testa din dataström på http://ampdemo.azureedge.net. 
+Om du vill titta på händelsen kopierar du strömnings-URL:en som du fick när du körde koden som beskrivs i Skapa en positionerare för direktuppspelning och använd en valfri spelare. Du kan använda [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) för att testa din dataström på http://ampdemo.azureedge.net. 
 
 Livehändelser konverterar automatiskt händelser till innehåll-på-begäran när de stoppas. Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången. En tillgång kan inte tas bort om den används av en händelse. Händelsen måste tas bort först. 
 

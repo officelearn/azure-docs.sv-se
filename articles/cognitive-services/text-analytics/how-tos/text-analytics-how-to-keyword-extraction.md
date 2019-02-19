@@ -1,22 +1,22 @@
 ---
-title: Instruktioner för extrahering av diskussionsämnen i REST API för textanalys (Microsoft Cognitive Services på Azure) | Microsoft Docs
-description: Instruktioner för extrahering av diskussionsämnen med hjälp av REST API för textanalys i Microsoft Cognitive Services på Azure i den här självstudien.
+title: Extrahering av nyckelfraser med REST-API:et för textanalys | Microsoft Docs
+description: Så här extraherar du nyckelfraser med hjälp av REST-API:et för textanalys från Azure Cognitive Services.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216752"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245617"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exempel: Så här extraherar du nyckelfraser i textanalys
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exempel: Så här extraherar du nyckelfraser med textanalys
 
 [API:et för extrahering av nyckelfras](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) utvärderar ostrukturerad text och returnerar en lista med nyckelfraser för varje JSON-dokument. 
 
@@ -29,13 +29,13 @@ För tillfället stöder extraktion av nyckelfraser engelska, tyska, spanska och
 
 ## <a name="preparation"></a>Förberedelse
 
-Extrahering av nyckelfraser fungerar bäst när du ger den en större mängd text att arbeta med. Det här är motsatt från känsloanalys som fungerar bättre på mindre block med text. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata därefter.
+Extrahering av nyckelfraser fungerar bäst när du ger den en större mängd text att arbeta med. Det här är motsatt från känsloanalys som fungerar bättre på mindre mängder text. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata därefter.
 
 Du måste ha JSON-dokument i följande format: id, text, språk
 
 Dokumentstorleken måste vara under 5 000 tecken per dokument och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. Följande exempel är en illustration av innehåll som du kan skicka in för extrahering av nyckelfraser.
 
-```
+```json
     {
         "documents": [
             {
@@ -94,9 +94,9 @@ Alla POST-begäranden returnerar ett JSON-formaterat svar med ID:n och identifie
 
 Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data.
 
-Ett exempel på utdata för extrahering av nyckelfraser visas härnäst:
+Ett exempel på utdata för extrahering av nyckelfraser visas här:
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

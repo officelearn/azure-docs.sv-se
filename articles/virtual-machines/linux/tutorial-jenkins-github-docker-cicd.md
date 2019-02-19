@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 82e80b9dd4d20709fc8598e0fed3323046c21cfa
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751131"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189420"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Självstudier: Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
 
@@ -59,7 +59,7 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - apt install default-jre -y
+  - apt install openjdk-8-jre-headless -y
   - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
   - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
@@ -109,6 +109,21 @@ Av säkerhetsskäl måste du ange det ursprungliga administratörslösenordet so
 ssh azureuser@<publicIps>
 ```
 
+Verifiera att Jenkins körs med hjälp av kommandot `service`:
+
+```bash
+$ service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2019-02-12 16:16:11 UTC; 55s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4103)
+   CGroup: /system.slice/jenkins.service
+
+Feb 12 16:16:10 myVM systemd[1]: Starting LSB: Start Jenkins at boot time...
+...
+```
+
 Visa `initialAdminPassword` för Jenkins-installationen och kopiera den:
 
 ```bash
@@ -125,7 +140,7 @@ Om filen ännu inte är tillgänglig väntar du ett par minuter till för att cl
 - Välj **Spara och Slutför**
 - När Jenkins är klar, väljer du **Börja använda Jenkins**
   - Om en tom sida visas i din webbläsare när du börjar använda Jenkins, starta om Jenkins-tjänsten. Från din SSH-session skriver du `sudo service jenkins restart` och uppdatera därefter webbläsaren.
-- Logga in på Jenkins med det användarnamn och lösenord som du skapade.
+- Logga in på Jenkins med det användarnamn och lösenord som du skapade, om det behövs.
 
 
 ## <a name="create-github-webhook"></a>Skapa GitHub-webhook
@@ -133,11 +148,13 @@ Om du vill konfigurera integreringen med GitHub öppnar du [exempelappen Node.js
 
 Skapa en webhook i förgreningen du har skapat:
 
-- Välj **Inställningar** och sedan **Integreringar och tjänster** på vänster sida.
-- Välj **Lägg till tjänst** och skriv *Jenkins* i filterrutan.
-- Välj *Jenkins (GitHub-pluginprogrammet)*
-- Som **Jenkins-hook-URL** anger du `http://<publicIps>:8080/github-webhook/`. Se till att ta med ”/” i slutet 
-- Välj **Lägg till tjänst**
+- Välj **Inställningar** och sedan **Webhooks** på vänster sida.
+- Välj **Lägg till webhook** och skriv *Jenkins* i filterrutan.
+- För **Payload URL** (Webbadress för nyttolast) anger du `http://<publicIps>:8080/github-webhook/`. Se till att ta med ”/” i slutet 
+- För **Innehållstyp** väljer du *application/x-www-form-urlencoded*.
+- För **Which events would you like to trigger this webhook?** (Vilka händelser vill du ska utlösa denna webhook?) väljer du *Just the push event* (Bara push-händelsen).
+- Markera **Aktiv**.
+- Klicka på **Lägg till webhook**.
 
 ![Lägga till GitHub-webhook till din förgrenade lagringsplats](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -166,7 +183,7 @@ response.end("Hello World!");
 
 Om du vill genomföra ändringarna markerar du knappen för att **spara ändringarna** längst ned.
 
-I Jenkins startar en ny version i avsnittet med **versionshistorik** längst ned till vänster på jobbsidan. Välj länken för versionsnummer och välj **konsolens utdata** till vänster. Du kan visa åtgärderna Jenkins vidtar medan koden hämtas från GitHub och byggåtgärden matar ut meddelandet `Testing` till konsolen. Varje gång ett genomförande görs i GitHub anropar webhooken Jenkins och utlöser en ny version.
+I Jenkins startar en ny version i avsnittet med **versionshistorik** längst ned till vänster på jobbsidan. Välj länken för versionsnummer och välj **konsolens utdata** till vänster. Du kan visa åtgärderna Jenkins vidtar medan koden hämtas från GitHub och byggåtgärden matar ut meddelandet `Test` till konsolen. Varje gång ett genomförande görs i GitHub anropar webhooken Jenkins och utlöser en ny version.
 
 
 ## <a name="define-docker-build-image"></a>Definiera Docker-avbildning

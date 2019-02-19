@@ -1,219 +1,191 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med eLuminate | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med eLuminate | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och eLuminate.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 94c28db4-dbca-446b-8eef-9b728f18ca9a
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/16/2018
+ms.topic: tutorial
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: d2798f3638192604d0912f50a8b1c43f4a1939fb
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 627427882b06b8d94adcd4a1c1b225abd7a765f4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40226044"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186445"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-eluminate"></a>Självstudier: Azure Active Directory-integration med eLuminate
+# <a name="tutorial-azure-active-directory-integration-with-eluminate"></a>Självstudier: Azure Active Directory-katalogintegrering med eLuminate
 
-I den här självstudien får du lära dig hur du integrerar eLuminate med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera eLuminate med Azure Active Directory (AD Azure).
+När du integrerar eLuminate med Azure AD innebär det följande fördelar:
 
-Integrera eLuminate med Azure AD ger dig följande fördelar:
+* Du kan styra i vem som har åtkomst till eLuminate från Azure AD.
+* Du kan låta dina användare automatiskt loggas in på eLuminate (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till eLuminate.
-- Du kan aktivera användarna att automatiskt få loggat in på eLuminate (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med eLuminate behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med eLuminate, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En eLuminate enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* eLuminate-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Att lägga till eLuminate från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* eLuminate stöder **IDP**-initierad enkel inloggning
 
-## <a name="adding-eluminate-from-the-gallery"></a>Att lägga till eLuminate från galleriet
+## <a name="adding-eluminate-from-the-gallery"></a>Lägga till eLuminate från galleriet
 
-För att konfigurera integrering av eLuminate i Azure AD, som du behöver lägga till eLuminate från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integrering av eLuminate i Azure AD måste du lägga till eLuminate från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till eLuminate från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **eLuminate**väljer **eLuminate** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **eLuminate**, väljer **eLuminate** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![eLuminate i resultatlistan](./media/eluminate-tutorial/tutorial_eluminate_addfromgallery.png)
+     ![eLuminate i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med eLuminate baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet får du konfigurera och testa enkel inloggning i Azure AD med eLuminate baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera så måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i eLuminate upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i eLuminate är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i eLuminate upprättas.
+Om du vill konfigurera och testa Azure AD enkel inloggning med eLuminate måste du utföra följande byggblock:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med eLuminate, måste du utföra följande byggblock:
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för eLuminate](#configure-eluminate-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa eLuminate-testanvändare](#create-eluminate-test-user)** – för att ha en motsvarighet för Britta Simon i eLuminate som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare eLuminate](#create-a-eluminate-test-user)**  – du har en motsvarighet för Britta Simon i eLuminate som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt eLuminate program.
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med eLuminate:
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med eLuminate:**
+1. Välj **Enkel inloggning** på sidan för programintegrering av **eLuminate** på [Azure-portalen](https://portal.azure.com/).
 
-1. I Azure-portalen på den **eLuminate** program integration-sidan klickar du på **enkel inloggning**.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera enkel inloggning för länken][4]
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Enkel inloggning för dialogrutan](./media/eluminate-tutorial/tutorial_eluminate_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-3. På den **eLuminate domän och URL: er** avsnittet, utför följande steg:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![eLuminate domän och URL: er enkel inloggning för information](./media/eluminate-tutorial/tutorial_eluminate_url.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://ClientShortName.eluminate.ca/azuresso/account/SignIn`
+    ![Information om enkel inloggning med eLuminate-domäner och -URL:er](common/sp-identifier.png)
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `Eluminate/ClientShortName`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://ClientShortName.eluminate.ca/azuresso/account/SignIn`
+
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `Eluminate/ClientShortName`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [eLuminate klienten supportteamet](mailto:support@intellimedia.ca) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för eLuminate-klienten](mailto:support@intellimedia.ca) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
+4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](./media/eluminate-tutorial/tutorial_eluminate_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-5. Klicka på **spara** knappen.
+### <a name="configure-eluminate-single-sign-on"></a>Konfigurera enkel inloggning för eLuminate
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/eluminate-tutorial/tutorial_general_400.png)
+För att konfigurera enkel inloggning på **eLuminate**-sidan måste du skicka **URL:en med appfederationsmetadata** till [eLuminate-supportteamet](mailto:support@intellimedia.ca). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-6. Att konfigurera enkel inloggning på **eLuminate** sida, som du behöver skicka den **Appfederationsmetadata** till [eLuminate supportteamet](mailto:support@intellimedia.ca). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-   ![Skapa en Azure AD-testanvändare][100]
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+2. Välj **Ny användare** överst på skärmen.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    ![Knappen Ny användare](common/new-user.png)
 
-    ![Azure Active Directory-knappen](./media/eluminate-tutorial/create_aaduser_01.png)
+3. Genomför följande steg i Användaregenskaper.
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/eluminate-tutorial/create_aaduser_02.png)
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
-
-    ![Knappen Lägg till](./media/eluminate-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/eluminate-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="create-a-eluminate-test-user"></a>Skapa en eLuminate testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i eLuminate. Arbeta med [eLuminate supportteamet](mailto:support@intellimedia.ca) att lägga till användare i eLuminate-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till eLuminate.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **eLuminate**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till eLuminate.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-![Tilldela rollen][200]
+2. I listan med program väljer du **eLuminate**.
 
-**Om du vill tilldela Britta Simon eLuminate, utför du följande steg:**
+    ![Länken eLuminate i programlistan](common/all-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Tilldela användare][201] 
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **eLuminate**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken eLuminate i listan med program](./media/eluminate-tutorial/tutorial_eluminate_app.png)  
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Länken ”användare och grupper”][202]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Fönstret Lägg till tilldelning][203]
+### <a name="create-eluminate-test-user"></a>Skapa eLuminate-testanvändare
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i eLuminate. Arbeta med [eLuminate-supportteamet](mailto:support@intellimedia.ca) för att lägga till användare i eLuminate-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen eLuminate i åtkomstpanelen du bör få automatiskt loggat in på ditt eLuminate program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på eLuminate-panelen i åtkomstpanelen så borde du automatiskt loggas in på den eLuminate som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/eluminate-tutorial/tutorial_general_01.png
-[2]: ./media/eluminate-tutorial/tutorial_general_02.png
-[3]: ./media/eluminate-tutorial/tutorial_general_03.png
-[4]: ./media/eluminate-tutorial/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/eluminate-tutorial/tutorial_general_100.png
-
-[200]: ./media/eluminate-tutorial/tutorial_general_200.png
-[201]: ./media/eluminate-tutorial/tutorial_general_201.png
-[202]: ./media/eluminate-tutorial/tutorial_general_202.png
-[203]: ./media/eluminate-tutorial/tutorial_general_203.png

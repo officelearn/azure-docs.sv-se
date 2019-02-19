@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3cca5e6d5ccdac5ee9ed250edfc526919d710d83
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769414"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Självstudier: Azure Active Directory-katalogintegrering med G Suite
 
@@ -38,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 Om du vill konfigurera Azure AD-integrering med G Suite, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En G Suite-prenumeration med enkel inloggning aktiverat
+- En prenumeration med enkel inloggning med G Suite aktiverat
 - En Google Apps-prenumeration eller Google Cloud Platform-prenumeration.
 
 > [!NOTE]
@@ -115,7 +116,7 @@ Om du vill konfigurera integreringen av G Suite till Azure AD, behöver du lägg
 I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med G Suite baserat på en testanvändare med namnet **Britta Simon**.
 För att enkel inloggning ska fungera så måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i G Suite upprättas.
 
-För att konfigurera och testa enkel inloggning med Azure AD med G Suite behöver du utföra följande byggstenar:
+Om du vill konfigurera och testa enkel inloggning till Azure AD med G Suite, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för G Suite](#configure-g-suite-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
@@ -146,7 +147,7 @@ Utför följande steg för att konfigurera enkel inloggning till Azure AD med G 
 
     ![Information om enkel inloggning till G Suite-domän och URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster:
     | |
@@ -163,7 +164,7 @@ Utför följande steg för att konfigurera enkel inloggning till Azure AD med G 
 
     ![Information om enkel inloggning till G Suite-domän och URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster:
     | |
@@ -283,7 +284,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 2. I listan över program skriver och väljer du **G Suite**.
 
-    ![Länken för G Suite i programlistan](common/all-applications.png)
+    ![G Suite-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 

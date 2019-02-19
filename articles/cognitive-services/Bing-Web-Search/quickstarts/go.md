@@ -4,26 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka begäranden till REST-API:et för webbsökning i Bing med hjälp av Go och få ett JSON-svar
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 11f15d37830bb177031ff90d93ea1053b66013ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3c64841656f81f2f78c02c54f08ca24cccd78586
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203253"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186870"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Snabbstart: Söka på webben med hjälp av REST-API:et för webbsökning i Bing och Go
 
-Använd den här snabbstarten för att göra ditt första anrop till API för webbsökning i Bing och få ett JSON-svar på mindre än 10 minuter.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
+Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Det här enkla Go-programmet skickar en sökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Go så är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -34,6 +32,8 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 * En prenumerationsnyckel
 
 Den här snabbstarten kräver endast **kärnbibliotek**. Det finns inga externa beroenden.  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="create-a-project-and-import-core-libraries"></a>Skapa ett projekt och importera kärnbibliotek
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 8ea1afbfb90a55ec1c34f5c59cf38ea5417118ff
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390899"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965026"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Artikeln beskriver hur du får åtkomst till ett klassrumslabb, ansluter till den virtuella datorn i labbet och stoppar den virtuella datorn. 
@@ -44,10 +44,8 @@ När du registrerat dig till labben kan du visa alla klassrumslabb genom att utf
 
 ## <a name="connect-to-the-virtual-machine-in-a-classroom-lab"></a>Ansluta till den virtuella datorn i ett klassrumslabb
 
-1. Starta den virtuella datorn om den inte redan startats, och välj **Starta**.
+1. Starta den virtuella datorn om den inte redan startats, och välj **Starta** i panelen. 
 2. Välj **Anslut** i panelen som representerar den virtuella dator som du vill ha åtkomst till i labbet. 
-
-    ![Visa alla labb](../media/how-to-use-classroom-lab/connect-button.png)
 3. Spara RDP-filen (för virtuell Windows-dator) på hårddisken och öppna den. 
 4. Använd det **användarnamn** och **lösenord** som du fick av läraren och logga in på datorn. 
 

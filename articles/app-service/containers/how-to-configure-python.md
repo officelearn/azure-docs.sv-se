@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 416566ac52e8df6324cbf6146919df160deb0f98
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6965379aadefd110ce6e46e105bbde10626b63c1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221002"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892175"
 ---
 # <a name="configure-your-python-app-for-azure-app-service"></a>Konfigurera Python-appar för Azure App Service
 Den här artikeln beskriver hur [Azure App Service](app-service-linux-intro.md) kör Python-appar och hur du kan anpassa beteendet för App Service när det behövs. Python-appar måste distribueras med alla de nödvändiga [pip](https://pypi.org/project/pip/)-moduler. App Service-distributionsmotorn (Kudu) aktiverar en virtuell miljö och kör automatiskt `pip install -r requirements.txt` åt dig när du distribuerar en [Git-lagringsplats](../deploy-local-git.md) eller ett [Zip-paket](../deploy-zip.md) med produktionsprocesser påslaget.
@@ -82,7 +82,7 @@ För Django-appar letar App Service efter en fil med namnet `wsgi.py` i din appk
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Om du vill ha mer specifik kontroll över startkommandot använder du ett [anpassat startkommando](#custom-startup-command) och ersätter `<module>` med namnet på den modul som innehåller *wsgi.py*.
+Om du vill ha mer specifik kontroll över startkommandot använder du ett anpassat startkommando och ersätter `<module>` med namnet på den modul som innehåller *wsgi.py*.
 
 ### <a name="flask-app"></a>Flask-app
 
@@ -95,7 +95,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-Om din huvudappmodul finns i en annan fil använder du ett annat namn för appobjektet, eller om du vill ange ytterligare argument till Gunicorn så använder du ett [anpassat startkommando](#custom-startup-command).
+Om din huvudappmodul finns i en annan fil använder du ett annat namn för appobjektet, eller om du vill ange ytterligare argument till Gunicorn så använder du ett anpassat startkommando.
 
 ### <a name="default-behavior"></a>Standardbeteende
 
@@ -160,7 +160,7 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 - Starta om App Service, vänta 15–20 sekunder och kontrollera appen igen.
 - Se till att du använder App Service för Linux i stället för en Windows-baserad instans. Från Azure-CLI kör du kommandot `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`. Byt ut `<resource_group_name>` och `<app_service_name>` därefter. Du bör se `app,linux` som utdata; annars återskapar du App Service och väljer Linux.
 - Använd SSH- eller Kudu-konsolen för att ansluta direkt till App Service och kontrollera att dina filer finns under *site/wwwroot*. Om filerna inte finns granskar du din distributionsprocess och distribuerar appen på nytt.
-- Om filerna finns kunde App Service inte identifiera din specifika startfil. Kontrollera att din app är strukturerad på det sätt som App Service förväntar sig för [Django](#django-app) eller [Flask](#flask-app), eller använd ett [anpassat startkommando](#custom-startup-command).
+- Om filerna finns kunde App Service inte identifiera din specifika startfil. Kontrollera att din app är strukturerad på det sätt som App Service förväntar sig för [Django](#django-app) eller [Flask](#flask-app), eller använd ett anpassat startkommando.
 - **Du ser meddelandet ”Service Unavailable” (Tjänsten är ej tillgänglig) i webbläsaren.** Webbläsaren nådde tidsgränsen i väntan på svar från App Service, vilket indikerar att App Service startade Gunicorn-servern, men de argument som specificerar appkoden är felaktiga.
 - Uppdatera webbläsaren, särskilt om du använder de lägsta prisnivåerna i din App Service-plan. Till exempel kan appen ta längre tid att starta om du använder de kostnadsfria nivåerna och blir tillgänglig när du uppdaterar webbläsaren.
 - Kontrollera att din app är strukturerad på det sätt som App Service förväntar sig för [Django](#django-app) eller [Flask](#flask-app), eller använd ett [anpassat startkommando](#customize-startup-command).

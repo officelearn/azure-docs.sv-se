@@ -1,231 +1,206 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med & sanningen | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och & sanningen.
+title: 'Självstudier: Azure Active Directory-katalogintegrering med &frankly | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och &frankly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 1d702060-1b89-4e9d-9f01-ede4f1171c73
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/09/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 8b95459e00296950924c7837890e2313bbcb183d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c1a008b131cd373c379cf1abbd0b8870af292569
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173113"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183300"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Självstudier: Azure Active Directory-integrering med & sanningen
+# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Självstudier: Azure Active Directory-katalogintegrering med &frankly
 
-I den här självstudien får du lära dig hur du integrerar & sanningen med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera &frankly med Azure Active Directory (AD Azure).
+När du integrerar &frankly med Azure AD innebär det följande fördelar:
 
-Integrera och även med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till &frankly från Azure AD.
+* Du kan göra så att dina användare automatiskt loggas in på &frankly (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till & sanningen
-- Du kan ge användarna får automatiskt inloggade till & sanningen (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med &frankly behöver du följande:
 
-Om du vill konfigurera Azure AD behöver-integrering med & sanningen du du följande objekt:
-
-- En Azure AD-prenumeration
-- A & sanningen enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* &frankly-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till & sanningen från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-frankly-from-the-gallery"></a>Att lägga till & sanningen från galleriet
-Om du vill konfigurera integreringen av & sanningen i Azure AD, som du behöver lägga till & sanningen från galleriet i din lista över hanterade SaaS-appar.
+* &frankly stöder **SP- och IDP**-initierad enkel inloggning
 
-**Så här lägger du till och även från galleriet, utför följande steg:**
+## <a name="adding-frankly-from-the-gallery"></a>Lägga till &frankly från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Om du vill konfigurera integreringen av &frankly i Azure AD behöver du lägga till &frankly från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Så här lägger du till &frankly från galleriet:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Appar][2]
-    
+    ![Azure Active Directory-knappen](common/select-azuread.png)
+
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Appar][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **& sanningen**.
+4. I sökrutan skriver du **&frankly**, väljer **&frankly** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Skapa en Azure AD-användare för testning](./media/andfrankly-tutorial/tutorial_andfrankly_search.png)
+     ![&frankly i resultatlistan](common/search-new-app.png)
 
-5. I resultatpanelen väljer **& sanningen**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-    ![Skapa en Azure AD-användare för testning](./media/andfrankly-tutorial/tutorial_andfrankly_addfromgallery.png)
+I det här avsnittet får du konfigurera och testa enkel inloggning i Azure AD med &frankly baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i &frankly upprättas.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet konfigurerar du och testa Azure AD enkel inloggning med & sanningen baserat på en testanvändare som kallas ”Britta Simon”.
+Om du vill konfigurera och testa Azure AD enkel inloggning med &frankly måste du slutföra följande byggblock:
 
-För enkel inloggning att fungera, Azure AD måste veta vilka motsvarande användaren i & sanningen är att en användare i Azure AD. Med andra ord en länk relationen mellan en Azure AD-användare och relaterade användaren måste i & sanningen upprättas.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för &frankly](#configure-frankly-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa &frankly-testanvändare](#create-frankly-test-user)** – för att ha en motsvarighet för Britta Simon i &frankly som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-I & sanningen tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-Om du vill konfigurera och testa Azure AD behöver enkel inloggning med & sanningen du för att slutföra följande byggblock:
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en & sanningen testanvändare](#creating-a-frankly-test-user)**  – du har en motsvarighet för Britta Simon i & sanningen som är länkade till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med &frankly:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. Välj **Enkel inloggning** på sidan för programintegrering av **&frankly** på [Azure-portalen](https://portal.azure.com/).
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din & sanningen program.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-**För att konfigurera Azure AD enkel inloggning med & sanningen utför följande steg:**
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. I Azure-portalen på den **& sanningen** program integration-sidan klickar du på **enkel inloggning**.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning][4]
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/andfrankly-tutorial/tutorial_andfrankly_samlbase.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-3. På den **& sanningen domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    ![Konfigurera enkel inloggning](./media/andfrankly-tutorial/tutorial_andfrankly_url.png)
+    ![Information om enkel inloggning med &frankly-domän och URL:er](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
 
-4. Kontrollera **visa avancerade URL-inställningar**. Om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Konfigurera enkel inloggning](./media/andfrankly-tutorial/tutorial_andfrankly_url1.png)
+    ![Information om enkel inloggning med &frankly-domän och URL:er](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren inloggning och svars-URL. Kontakta [andfrankly supportteamet](mailto:help@andfrankly.com) att hämta dessa värden.
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
 
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för &frankly-klienten](mailto:help@andfrankly.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning](./media/andfrankly-tutorial/tutorial_andfrankly_certificate.png) 
+6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-6. Klicka på knappen **Spara**.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Konfigurera enkel inloggning](./media/andfrankly-tutorial/tutorial_general_400.png)
+7. I avsnittet **Konfigurera &frankly** kopierar du lämpliga URL:er enligt dina behov.
 
-7. Att konfigurera enkel inloggning på **& sanningen** sida, som du behöver skicka de hämtade **XML-Metadata för** till [andfrankly supportteamet](mailto:help@andfrankly.com). 
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    a. Inloggnings-URL
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-frankly-single-sign-on"></a>Konfigurera enkel inloggning för &frankly
+
+För att konfigurera enkel inloggning på **&frankly**-sidan behöver du skicka nedladdade **XML-federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för &frankly](mailto:help@andfrankly.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/andfrankly-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/andfrankly-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/andfrankly-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/andfrankly-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-frankly-test-user"></a>Skapa en & sanningen testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i & sanningen. Arbeta med [andfrankly supportteamet](mailto:help@andfrankly.com) att lägga till användare i & sanningen plattform.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till &frankly.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att ge åtkomst till & sanningen.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **&frankly**.
 
-![Tilldela användare][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon till & sanningen, utför du följande steg:**
+2. I listan med program väljer **&frankly**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken &frankly i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-2. I listan med program väljer **& sanningen**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Konfigurera enkel inloggning](./media/andfrankly-tutorial/tutorial_andfrankly_app.png) 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Tilldela användare][202] 
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-frankly-test-user"></a>Skapa &frankly-testanvändare
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i &frankly. Arbeta med [&frankly-supportteamet](mailto:help@andfrankly.com) för att lägga till användare i &frankly-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Målet med det här avsnittet är att testa din Azure AD SSO-konfiguration med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på & sanningen panelen i åtkomstpanelen, bör du få automatiskt loggat in på ditt & sanningen program
+När du klickar på &frankly-panelen i åtkomstpanelen bör du automatiskt loggas in på &frankly som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/andfrankly-tutorial/tutorial_general_01.png
-[2]: ./media/andfrankly-tutorial/tutorial_general_02.png
-[3]: ./media/andfrankly-tutorial/tutorial_general_03.png
-[4]: ./media/andfrankly-tutorial/tutorial_general_04.png
-
-[100]: ./media/andfrankly-tutorial/tutorial_general_100.png
-
-[200]: ./media/andfrankly-tutorial/tutorial_general_200.png
-[201]: ./media/andfrankly-tutorial/tutorial_general_201.png
-[202]: ./media/andfrankly-tutorial/tutorial_general_202.png
-[203]: ./media/andfrankly-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

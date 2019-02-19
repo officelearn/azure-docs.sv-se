@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fdb481961680d5f84170a25c7a76bffa8423e0cc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604345"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097175"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Snabbstart: Prova en molnbaserad lösning för att analysera behovet av förutsägande underhåll på anslutna enheter
 
@@ -42,7 +42,7 @@ På sidan **Create Predictive Maintenance solution** (Skapa lösning för förut
 
 Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. I den här snabbstarten använder vi **Visual Studio Enterprise** och **USA, östra**. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
 
-Klicka på **Skapa lösning** för att inleda distributionen. Processen tar minst fem minuter att köra:
+Klicka på **Skapa** för att inleda distributionen. Processen tar minst fem minuter att köra:
 
 ![Information om lösningen för förutsägande underhåll](./media/quickstart-predictive-maintenance-deploy/createform.png)
 
@@ -50,9 +50,13 @@ Klicka på **Skapa lösning** för att inleda distributionen. Processen tar mins
 
 När distributionen till Azure-prenumerationen är klar visas en grön bockmarkering och **Redo** på lösningspanelen. Nu kan du logga in på instrumentpanelen för lösningsacceleratorn för förutsägande underhåll.
 
-Klicka på den nya lösningsacceleratorn för förutsägande underhåll på sidan **Etablerade lösningar**. Du kan visa information om lösningsacceleratorn på panelen som visas. Välj **Lösningens instrumentpanel** för att visa lösningsacceleratorn för förutsägande underhåll:
+Klicka på den nya lösningsacceleratorn för förutsägande underhåll på sidan **Etablerade lösningar**.
 
-![Lösningens panel](./media/quickstart-predictive-maintenance-deploy/solutionpanel.png)
+![Lösningens panel](./media/quickstart-predictive-maintenance-deploy/solution.png)
+
+ Du kan visa information om lösningsacceleratorn på sidan som visas. Välj **Go to your Solution accelerator** (Gå till din lösningsaccelerator) för att visa lösningsacceleratorn för förutsägande underhåll:
+
+![Lösningens panel](./media/quickstart-predictive-maintenance-deploy/solutionpaneldetails.png)
 
 Acceptera behörighetsförfrågan genom att klicka på **Acceptera**. Nu visas instrumentpanelen för lösningen för förutsägande underhåll i webbläsaren:
 

@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f3b49efa5e28eab2168c9a85d17e39ca7f0fce4a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881689"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984791"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Självstudier: Skapa och använda diskar med VM-skalningsuppsättningar med Azure PowerShell
+
 VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -35,9 +36,9 @@ VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorin
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
-Om du väljer att installera och använda PowerShell lokalt krävs version 6.0.0 eller senare av Azure PowerShell-modulen i den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. 
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 
 ## <a name="default-azure-disks"></a>Azure-standarddiskar
@@ -95,12 +96,12 @@ I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås ge
 Du kan skapa och ansluta diskar när du skapar en skalningsuppsättning eller med en befintlig skalningsuppsättning.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anslut diskarna när skalningsuppsättningen skapas
-Skapa en VM-skalningsuppsättning med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). När du uppmanas, anger du ett användarnamn och lösenord för de virtuella datorinstanserna. För att distribuera trafik till flera virtuella datorinstanser så skapas även en lastbalanserare. Lastbalanseraren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985.
+Skapa en VM-skalningsuppsättning med [New-AzVmss](/powershell/module/az.compute/new-azvmss). När du uppmanas, anger du ett användarnamn och lösenord för de virtuella datorinstanserna. För att distribuera trafik till flera virtuella datorinstanser så skapas även en lastbalanserare. Lastbalanseraren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985.
 
 Två diskar skapas med parametern `-DataDiskSizeGb`. Den första disken är *64* GB stor och den andra disken är *128* GB. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -115,23 +116,23 @@ New-AzureRmVmss `
 Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorinstanser.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Anslut en disk till en befintlig skalningsuppsättning
-Du kan även ansluta diskar till en befintlig skalningsuppsättning. Använd skalningsuppsättningen som skapades i det föregående steget för att lägga till en annan disk med [Add-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/add-azurermvmssdatadisk). Följande exempel ansluter en ytterligare *128* GB disk till en befintlig skalningsuppsättning:
+Du kan även ansluta diskar till en befintlig skalningsuppsättning. Använd skalningsuppsättningen som skapades i det föregående steget för att lägga till en annan disk med [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk). Följande exempel ansluter en ytterligare *128* GB disk till en befintlig skalningsuppsättning:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Attach a 128 GB data disk to LUN 2
-Add-AzureRmVmssDataDisk `
+Add-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -CreateOption Empty `
   -Lun 2 `
   -DiskSizeGB 128
 
 # Update the scale set to apply the change
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -143,11 +144,13 @@ Diskarna som skapas och ansluts till dina skalningsuppsättningar för virtuella
 
 Du kan använda det anpassade skripttillägget för Azure för att automatisera processen på flera virtuella datorinstanser i en skalningsuppsättning. Det här tillägget kan köra skript lokalt på varje virtuell datorinstans, till exempel för att förbereda anslutna datadiskar. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/windows/extensions-customscript.md).
 
-Följande exempel kör ett skript från ett GitHub-exempellager på varje virtuell datorinstans med [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension) som förbereder alla anslutna rådatadiskar:
+
+Följande exempel kör ett skript från ett GitHub-exempellager på varje virtuell datorinstans med [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) som förbereder alla anslutna rådatadiskar:
+
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
@@ -158,7 +161,7 @@ $publicSettings = @{
 }
 
 # Use Custom Script Extension to prepare the attached data disks
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
@@ -166,7 +169,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
   -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -174,17 +177,18 @@ Update-AzureRmVmss `
 
 För att bekräfta att diskarna har förberetts korrekt, RDP:ar du till en av de virtuella datorinstanserna. 
 
-Först hämtar du lastbalanserarobjektet med [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Därefter visar du de ingående NAT-reglerna med [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig). NAT-reglerna listar *FrontendPort* för varje virtuell datorinstans som RDP lyssnar på. Slutligen hämtar du den offentliga IP-adressen för lastbalanseraren med [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+Först hämtar du lastbalanserarobjektet med [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Därefter visar du de inkommande NAT-reglerna med [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). NAT-reglerna listar *FrontendPort* för varje virtuell datorinstans som RDP lyssnar på. Slutligen hämtar du den offentliga IP-adressen för lastbalanseraren med [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress):
+
 
 ```azurepowershell-interactive
 # Get the load balancer object
-$lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
+$lb = Get-AzLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoadBalancer"
 
 # View the list of inbound NAT rules
-Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
+Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 
 # View the public IP address of the load balancer
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
 Om du vill ansluta till din virtuella dator, anger du din egna offentliga IP-adress och portnummer för den nödvändiga virtuella datorinstansen som den visas i föregående kommandon. När du uppmanas, anger du de autentiseringsuppgifter som användes när du skapade skalningsuppsättningen. Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till den virtuella datorinstansen *1*:
@@ -245,10 +249,10 @@ Stäng fjärrskrivbordssessionen med den virtuella datorinstansen.
 
 
 ## <a name="list-attached-disks"></a>Lista de anslutna diskarna
-Du kan visa information om diskar anslutna till en skalningsuppsättning [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) på följande sätt:
+Du kan visa information om diskar anslutna till en skalningsuppsättning med [Get-AzVmss](/powershell/module/az.compute/get-azvmss) på följande sätt:
 
 ```azurepowershell-interactive
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
 Under egenskapen *VirtualMachineProfile.StorageProfile*, visas listan över *DataDisks*. Information om diskstorleken, lagringsnivå och LUN (Logical Unit Number) visas. Följande exempelutdata visar information om de tre datadiskarna som är kopplade till skalningsuppsättningen:
@@ -279,21 +283,21 @@ DataDisks[2]                            :
 
 
 ## <a name="detach-a-disk"></a>Koppla från en disk
-När du inte längre behöver en angiven disk, kan du koppla från den från skalningsuppsättningen. Disken tas bort från alla virtuella datorinstanser i skalningsuppsättningen. Om du vill koppla bort en disk från en skalningsuppsättning, använder du [Remove-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/remove-azurermvmssdatadisk) och anger LUN för disken. LUN visas i utdata från [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) i föregående avsnitt. Följande exempel kopplar från LUN *3* från skalningsuppsättningen:
+När du inte längre behöver en angiven disk, kan du koppla från den från skalningsuppsättningen. Disken tas bort från alla virtuella datorinstanser i skalningsuppsättningen. Om du vill koppla bort en disk från en skalningsuppsättning, använder du [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk) och anger LUN för disken. LUN visas i utdata från [Get-AzVmss](/powershell/module/az.compute/get-azvmss) i föregående avsnitt. Följande exempel kopplar från LUN *3* från skalningsuppsättningen:
 
 ```azurepowershell-interactive
 # Get scale set object
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
 # Detach a disk from the scale set
-Remove-AzureRmVmssDataDisk `
+Remove-AzVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -Lun 2
 
 # Update the scale set and detach the disk from the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
@@ -301,10 +305,10 @@ Update-AzureRmVmss `
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort din skalningsuppsättning och diskar, tar du bort resursgruppen och alla dess resurser med [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Parametern `-Force` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång. Parametern `-AsJob` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs.
+Om du vill ta bort din skalningsuppsättning och diskar, tar du bort resursgruppen och alla dess resurser med [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Parametern `-Force` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång. Parametern `-AsJob` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

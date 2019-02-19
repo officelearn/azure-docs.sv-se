@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169322"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175735"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -78,7 +78,7 @@ Du kan också prova att gå igenom [felsökningsstegen för problem relaterade t
 ## <a name="requirements-and-constraints"></a>Krav och begränsningar
 
 Följande begränsningar gäller när virtuella nätverk peerkopplas globalt:
-- De virtuella nätverken kan finnas i valfri region för offentligt Azure-moln men inte i nationella Azure-moln.
+- De virtuella nätverken kan finnas i valfri region för offentligt Azure-moln och i Azure Kina-regioner, men inte i Azure Government-moln.
 - Resurser i ett virtuellt nätverk kan inte kommunicera med IP-adressen i klientdelen för en intern Azure-belastningsutjämnare i ett globalt peerkopplat virtuellt nätverk. Belastningsutjämnaren och resurserna som kommunicerar med den måste finnas i samma region.
 - Du kan inte använda fjärrgatewayer eller tillåta gatewayöverföring. Om du vill använda fjärrgatewayer eller tillåta gatewayöverföring måste peerkopplade virtuella nätverk finnas i samma region.
 

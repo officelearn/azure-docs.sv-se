@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8585023b01de55acb6c1b43b45e27af914a0a96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884426"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976954"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure PowerShell
 
-Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för startkonfigurationer, till exempel förinläsning av program, programkonfigurationer och andra OS-konfigurationer. I den här självstudien skapar du en egen anpassad avbildning av en virtuell Azure-dator. Lär dig att:
+Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för att starta distributioner och säkerställa konsekvens mellan flera virtuella datorer. I den här självstudien skapar du en egen anpassad avbildning av en virtuell Azure-dator med hjälp av PowerShell. Lär dig att:
 
 > [!div class="checklist"]
 > * Förbereda systemet med Sysprep och generalisera virtuella datorer
@@ -40,13 +40,15 @@ Stegen nedan visar hur du tar en befintlig virtuell dator och omvandlar den till
 
 Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i självstudien. Om det behövs kan du skapa en med detta [skriptexempel](../scripts/virtual-machines-windows-powershell-sample-create-vm.md). När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
-Om du väljer att installera och använda PowerShell lokalt krävs AzureRM-modulen version 5.7.0 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
+
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="prepare-vm"></a>Förbereda den virtuella datorn
 
-För att skapa en avbildning av en virtuell dator måste du förbereda den genom att generalisera den virtuella datorn, frigöra och sedan markera den virtuella källdatorn som generaliserad i Azure.
+För att skapa en avbildning av en virtuell dator behöver du förbereda den virtuella källdatorn genom att generalisera, frigöra och sedan markera den som generaliserad med Azure.
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Generalisera den virtuella Windows-datorn med hjälp av Sysprep
 
@@ -54,60 +56,71 @@ Sysprep tar bland annat bort all din personliga kontoinformation och förbereder
 
 
 1. Ansluta till den virtuella datorn.
-2. Öppna Kommandotolken som administratör. Ändra katalogen till *%windir%\system32\sysprep* och kör sedan *sysprep.exe*.
-3. Välj *Starta OOBE för systemet (Out-of-Box Experience)* i dialogrutan **Systemförberedelseverktyget** och kontrollera att kryssrutan *Generalisera* är markerad.
-4. Välj *Avstängning* i **Avstängningsalternativ** och klicka på **OK**.
+2. Öppna Kommandotolken som administratör. Ändra katalogen till *%windir%\system32\sysprep* och kör sedan `sysprep.exe`.
+3. Välj **Starta OOBE för systemet (Out-of-Box Experience)** i dialogrutan **Systemförberedelseverktyget** och kontrollera att kryssrutan **Generalisera** är markerad.
+4. Välj **Avstängning** i **Avstängningsalternativ** och klicka på **OK**.
 5. När Sysprep har slutförts stängs den virtuella datorn av. **Starta inte om den virtuella datorn**.
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Frigöra och markera den virtuella datorn som generaliserad
 
 När du skapar en avbildning måste den virtuella datorn frigöras och markeras som generaliserad i Azure.
 
-Frigör den virtuella datorn med hjälp av [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm).
+Frigör den virtuella datorn med hjälp av [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
+Stop-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Force
 ```
 
-Ange statusen för den virtuella datorn till `-Generalized` med hjälp av [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
+Ange statusen för den virtuella datorn till `-Generalized` med hjälp av [Set-AzVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). 
    
 ```azurepowershell-interactive
-Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
+Set-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Generalized
 ```
 
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Nu kan du skapa en avbildning av den virtuella datorn med hjälp av [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) och [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). I följande exempel skapas en avbildning med namnet *myImage* från en virtuell dator med namnet *myVM*.
+Nu kan du skapa en avbildning av den virtuella datorn med hjälp av [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) och [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage). I följande exempel skapas en avbildning med namnet *myImage* från en virtuell dator med namnet *myVM*.
 
 Hämta den virtuella datorn. 
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+$vm = Get-AzVM `
+   -Name myVM `
+   -ResourceGroupName myResourceGroup
 ```
 
 Skapa avbildningskonfigurationen.
 
 ```azurepowershell-interactive
-$image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
+$image = New-AzImageConfig `
+   -Location EastUS `
+   -SourceVirtualMachineId $vm.ID 
 ```
 
 Skapa avbildningen.
 
 ```azurepowershell-interactive
-New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
+New-AzImage `
+   -Image $image `
+   -ImageName myImage `
+   -ResourceGroupName myResourceGroup
 ``` 
 
  
 ## <a name="create-vms-from-the-image"></a>Skapa virtuella datorer från avbildningen
 
-Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. Att skapa en virtuell dator från en anpassad avbildning påminner om att skapa en virtuell dator med hjälp av en Marketplace-avbildning. När du använder en Marketplace-avbildning måste du ange information om avbildningen, avbildningsprovidern, produkten, SKU och version. Med den förenklade parameteruppsättningen för cmdleten [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) behöver du bara ange namnet på den anpassade avbildningen, förutsatt att den finns i samma resursgrupp. 
+Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. Att skapa en virtuell dator från en anpassad avbildning påminner om att skapa en virtuell dator med hjälp av en Marketplace-avbildning. När du använder en Marketplace-avbildning måste du ange information om avbildningen, avbildningsprovidern, produkten, SKU och version. Med den förenklade parameteruppsättningen för cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) behöver du i stället bara ange namnet på den anpassade avbildningen, förutsatt att den finns i samma resursgrupp. 
 
-I det här exemplet skapas den virtuella datorn *myVMfromImage* från *myImage* i *myResourceGroup*.
+I det här exemplet skapas en virtuell dator med namnet *myVMfromImage* från avbildningen *myImage* i *myResourceGroup*.
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
     -ImageName "myImage" `
@@ -126,14 +139,14 @@ Här följer några exempel på vanliga uppgifter för hanterade avbildningar sa
 Visa alla avbildningar efter namn.
 
 ```azurepowershell-interactive
-$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
 Ta bort en avbildning. I det här exemplet tar vi bort avbildningen med namnet *myImage* från *myResourceGroup*.
 
 ```azurepowershell-interactive
-Remove-AzureRmImage `
+Remove-AzImage `
     -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```

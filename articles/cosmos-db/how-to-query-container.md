@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 08d9978134ce214a468691ec367fb1797f6e86fc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7536b5d0815351d2e6cb67705060d2e1046c970
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457759"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857880"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Köra frågor mot en Azure Cosmos-container
 
-I den här artikeln beskrivs hur du kör frågor mot en container (samling, graf, tabell) i Azure Cosmos DB.
+Den här artikeln beskriver hur du kör frågor mot en container (samling, graf eller tabell) i Azure Cosmos DB.
 
 ## <a name="in-partition-query"></a>Frågekörning inom en partition
 
-När du frågar efter data från containrar, och partitionsnyckelfiltret har angetts för frågan, dirigerar Azure Cosmos DB automatiskt frågan till de partitioner som motsvarar partitionsnyckelvärdena som angetts i filtret. Till exempel dirigeras följande fråga till DeviceId-partitionen som innehåller alla dokument som motsvarar partitionsnyckelvärdet ”XMS-0001”.
+När du hämtar data från containrar, och ett partitionsnyckelfilter har angetts för frågan, hanteras frågan automatiskt av Azure Cosmos DB. Frågan dirigeras till de partitioner som motsvarar de partitionsnyckelvärden som angetts i filtret. Till exempel dirigeras följande fråga till `DeviceId`-partitionen som innehåller alla dokument som motsvarar partitionsnyckelvärdet `XMS-0001`.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading
@@ -30,7 +30,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 ## <a name="cross-partition-query"></a>Frågekörning mellan partitioner
 
-Följande fråga har inget filter på partitionsnyckeln (DeviceId) och är utspridd till alla partitioner där den körs mot partitionens index. Om du vill köra en fråga mellan partitioner anger du **EnableCrossPartitionQuery** till sant (eller x-ms-documentdb-query-enablecrosspartition i REST API).
+Följande fråga har inget filter för partitionsnyckeln (`DeviceId`) och sprids till alla partitioner där den körs mot partitionens index. Om du vill köra en fråga över partitioner anger du `EnableCrossPartitionQuery` till true (eller `x-ms-documentdb-query-enablecrosspartition` i REST-API:et).
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading
@@ -40,11 +40,11 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-Cosmos DB har stöd för mängdfunktionerna COUNT, MIN, MAX och AVG mellan containrar med hjälp av SQL. Mängdfunktionerna över containrar startar från SDK-version 1.12.0 och senare. Frågor måste innehålla en enda mängdoperator och ett enda värde i projektionen.
+Azure Cosmos DB har stöd för mängdfunktionerna COUNT, MIN, MAX och AVG mellan containrar med hjälp av SQL. Mängdfunktionerna över containrar startar från SDK-version 1.12.0 och senare. Frågor måste innehålla en enskild mängdoperator och ett enda värde i projektionen.
 
 ## <a name="parallel-cross-partition-query"></a>Parallell frågekörning mellan partitioner
 
-Cosmos DB-SDK:er 1.9.0 och högre stöder alternativ för parallell frågekörning.  Parallell frågekörning mellan partitioner gör att du kan genomföra frågor med låg latens mellan partitioner. Följande fråga är till exempel konfigurerad för att köras parallellt över partitioner.
+Azure Cosmos DB SDK:erna 1.9.0 och senare stöder alternativ för parallell frågekörning. Parallell frågekörning mellan partitioner gör att du kan genomföra frågor med låg latens mellan partitioner. Följande fråga är till exempel konfigurerad för att köras parallellt över partitioner.
 
 ```csharp
 // Cross-partition Order By Query with parallel execution
@@ -57,15 +57,15 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Du kan hantera parallell frågekörning genom att justera följande parametrar:
 
-- **MaxDegreeOfParallelism**: Anger det högsta antalet samtidiga nätverksanslutningar till containerns partitioner. Om du anger den här egenskapen till -1 hanteras graden av parallellitet av SDK:n. Om MaxDegreeOfParallelism inte anges eller anges till 0, vilket är standardvärdet, finns det en enda nätverksanslutning till containerns partitioner.
+- **MaxDegreeOfParallelism**: Anger det högsta antalet samtidiga nätverksanslutningar till containerns partitioner. Om du anger den här egenskapen till -1 hanterar SDK graden av parallellitet. Om  `MaxDegreeOfParallelism` inte har angetts eller har angetts till 0, vilket är standardvärdet, finns det en enda nätverksanslutning till containerns partitioner.
 
-- **MaxBufferedItemCount**: Gör en avvägning mellan frågesvarstid och minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanteras det antal objekt som buffras under parallell frågekörning av SDK:n.
+- **MaxBufferedItemCount**: Gör en avvägning mellan frågesvarstid och minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanterar SDK:n antalet objekt som buffras under en parallell frågekörning.
 
-Med samma status för samlingen returnerar en parallell fråga resultat i samma ordning som vid seriell körning. När du utför en fråga över partitioner som inkluderar sorteringsoperatorer (ORDER BY och/eller TOP), utfärdar Azure Cosmos DB SDK frågan parallellt mellan partitionerna och sammanfogar delvis sorterade resulterar på klientsidan för att skapa globalt sorterade resultat.
+Med samma status för samlingen returnerar en parallell fråga resultat i samma ordning som vid seriell körning. När du utför en fråga över partitioner som inkluderar sorteringsoperatorer (ORDER BY, TOP) utfärdar Azure Cosmos DB SDK frågan parallellt över partitionerna. Den sammanfogar delvis sorterade resultat på klientsidan för att skapa globalt ordnade resultat.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar kan du lära dig om partitionering i Cosmos DB:
+I följande artiklar lär du dig mer om partitionering i Azure Cosmos DB:
 
 - [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 - [Syntetiska partitionsnycklar i Azure Cosmos DB](synthetic-partition-keys.md)

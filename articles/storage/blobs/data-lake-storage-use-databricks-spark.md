@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark| Microsoft Docs'
+title: 'Självstudier: Få åtkomst till Azure Data Lake Storage Gen2-data med Azure Databricks med hjälp av Spark | Microsoft Docs'
 description: I den här självstudien lär du dig att köra Spark-frågor i ett Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2-lagringskonto.
 services: storage
 author: dineshmurthy
@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: 533665ebfa3d35ed5f03326cf5614e37056b7713
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813610"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891665"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark
+# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data med Azure Databricks med hjälp av Spark
 
-Den här självstudien visar hur du ansluter ditt Azure Databricks-kluster till data som lagras i ett Azure-lagringskonto som har Azure Data Lake Storage Gen2 (förhandsversion) aktiverat. Med den här anslutningen kan du internt köra frågor och analyser från klustret på dina data.
+Den här självstudien visar hur du ansluter ditt Azure Databricks-kluster till data som lagras i ett Azure-lagringskonto som har Azure Data Lake Storage Gen2 aktiverat. Med den här anslutningen kan du internt köra frågor och analyser från klustret på dina data.
 
 I den här kursen ska du:
 
@@ -145,7 +145,7 @@ I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. I det här kodblocket ersätter du platshållarvärdena `storage-account-name`, `application-id`, `authentication-id` och `tenant-id` med de värden som du hämtade när du genomförde stegen i avsnitten [Spara lagringskontokonfiguration](#config) och [Skapa ett huvudnamn för tjänsten](#service-principal) i den här artikeln. Ersätt platshållaren `file-system-name` med ett namn som du vill ge ditt filsystem.
+18. I det här kodblocket ersätter du platshållarvärdena `storage-account-name`, `application-id`, `authentication-id` och `tenant-id` med de värden som du hämtade när du genomförde stegen i avsnitten Spara lagringskontokonfiguration och [Skapa ett huvudnamn för tjänsten](#service-principal) i den här artikeln. Ersätt platshållaren `file-system-name` med ett namn som du vill ge ditt filsystem.
 
 19. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket. 
 

@@ -1,6 +1,6 @@
 ---
 title: Självstudie om att lägga till automatisk komplettering i sökrutan – Azure Search
-description: Exempel på hur vi kan förbättra användarens upplevelse av ditt datacentrerade program med hjälp av Azure Search-API:er för automatisk komplettering och förslag.
+description: Exempel på hur du kan förbättra slutanvändarens upplevelse av dina datacentrerade program med hjälp av Azure Search-API:er för automatisk komplettering och förslag.
 manager: pablocas
 author: mrcarter8
 services: search
@@ -10,16 +10,21 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: a0b4301177fa1307244a784031ec890b9a20f01a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: de48f3129beba31f80f5bd4d0c131b28f2b1c91a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099116"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997174"
 ---
-# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Självstudie: Lägga till automatisk komplettering i sökrutan med hjälp av Azure Search
+# <a name="tutorial-add-autocomplete-to-your-search-box-using-azure-search"></a>Självstudier: Lägga till automatisk komplettering i sökrutan med hjälp av Azure Search
 
-I den här självstudien får du lära dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) och [fasetter](search-faceted-navigation.md) i [REST-API:et för Azure Search](https://docs.microsoft.com/rest/api/searchservice/) och [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) för att skapa en kraftfull sökruta. Med *förslag* ges rekommendationer av faktiska resultat utifrån det som användaren har skrivit hittills. *Komplettera automatiskt* är [en ny funktion (förhandsversion)](search-api-preview.md) i Azure Search, som tillhandahåller ord från index för att komplettera det som användaren skriver. Vi jämför flera tekniker för att förbättra användarproduktiviteten så att användarna snabbt och enkelt kan hitta det som de söker efter direkt medan de skriver.
+I den här självstudien får du lära dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) och [fasetter](search-faceted-navigation.md) i [REST-API:et för Azure Search](https://docs.microsoft.com/rest/api/searchservice/) och [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) för att skapa en kraftfull sökruta. 
+
++ Med *förslag* ges rekommendationer av faktiska resultat utifrån det som användaren har skrivit hittills. 
++ *Komplettera automatiskt* är [en ny funktion (förhandsversion)](search-api-preview.md) i Azure Search, som tillhandahåller ord från index för att komplettera det som användaren håller på att skriva. 
+
+Vi jämför flera tekniker för att förbättra användarproduktiviteten genom att ge gedigen sökning till användarna direkt medan de skriver.
 
 Den här självstudien vägleder dig genom ett ASP.NET MVC-baserat program som använder C# för att anropa [Azure Search .NET-klientbiblioteken](https://aka.ms/search-sdk) och JavaScript för att direkt anropa REST-API:et för Azure Search. Programmet för den här självstudien använder ett index som fyllts i med [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)-exempeldata. Du kan antingen använda det index som redan har konfigurerats i NYC Jobs-demon eller fylla i ett eget index med en datainläsare i NYCJobs-exempellösningen. I exemplet används JavaScript-biblioteken [jQuery UI](https://jqueryui.com/autocomplete/) och [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) för att skapa en sökruta som stöder automatisk komplettering. Genom att använda de här komponenterna med Azure Search kan du se flera exempel på hur du kan ge stöd för automatisk komplettering med förifyllning av förslag i sökrutan.
 
@@ -93,13 +98,13 @@ $(function () {
 });
 ```
 
-Den här koden körs i webbläsaren vid sidinläsningen för att konfigurera automatisk komplettering för inmatningsrutan "example1a".  `minLength: 3` ser till att rekommendationerna endast visas när det finns minst tre tecken i sökrutan.  Källvärdet är viktigt:
+Den här koden körs i webbläsaren vid sidinläsningen för att konfigurera automatisk komplettering för inmatningsrutan ”example1a”.  `minLength: 3` ser till att rekommendationerna endast visas när det finns minst tre tecken i sökrutan.  Källvärdet är viktigt:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-Den här raden informerar API:et för automatisk komplettering var listan med objekt som ska visas under sökrutan finns.  Eftersom det här är ett MVC-projekt anropas funktionen Suggest (Förslag) i HomeController.cs.  Vi ska titta mer på detta i nästa avsnitt.  Den skickar även några parametrar för att kontrollera markeringar, fuzzy-matchningar och termer.  JavaScript-API:et för automatisk komplettering lägger till term-parametern.
+Den här raden informerar API:et för automatisk komplettering var den lista med objekt som ska visas under sökrutan finns.  Eftersom det här är ett MVC-projekt anropas funktionen Suggest (Förslag) i HomeController.cs.  Vi ska titta mer på detta i nästa avsnitt.  Den skickar även några parametrar för att kontrollera markeringar, fuzzy-matchningar och termer.  JavaScript-API:et för automatisk komplettering lägger till term-parametern.
 
 #### <a name="extending-the-sample-to-support-fuzzy-matching"></a>Utöka exemplet för att stödja fuzzy-matchning
 
@@ -204,7 +209,7 @@ $(function () {
 });
 ```
 
-Om du jämför detta med exemplet ovan som anropar HomeController hittar vi flera likheter.  Konfigurationen för automatisk komplettering för `minLength` och `position` är identiska.  Den stora ändringen här är källan.  I stället för att anropa metoden Suggest (Föreslå) i HomeController skapas en REST-begäran i en JavaScript-funktion och körs med Ajax.  Svaret bearbetas sedan i ”success” och används som källa.
+Om du jämför detta med exemplet ovan som anropar HomeController hittar vi flera likheter.  Konfigurationen för automatisk komplettering för `minLength` och `position` är identisk.  Den stora ändringen här är källan.  I stället för att anropa metoden Suggest (Föreslå) i HomeController skapas en REST-begäran i en JavaScript-funktion och körs med Ajax.  Svaret bearbetas sedan i ”success” och används som källa.
 
 ## <a name="takeaways"></a>Lärdomar
 

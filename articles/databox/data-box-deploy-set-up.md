@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902176"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982411"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudier: Kabelansluta och ansluta till Azure Data Box
 
@@ -40,7 +40,7 @@ Innan du börjar ska du kontrollera att:
     - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
 6. Du måste ha tillgång till en plan yta där du kan placera Data Box. Om du vill placera enheten på en standardrackhylla måste du ha en 7U-plats i datacenterracket. Du kan placera enheten liggande eller stående i racket.
 7. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
-    - Två 10 GbE SFP+ Twinax-kopparkablar (använd med DATA 1-, DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Till exempel användes en CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M-kabel för intern testning.
+    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Till exempel användes en CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M-kabel för intern testning.
     - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
     - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
 
@@ -57,7 +57,7 @@ Kabelanslut enheten med hjälp av följande steg.
     1. Anslut strömkabeln till den märkta strömingången. Den andra änden av strömkabeln ansluts till en strömfördelare.
     2. Använd RJ-45 CAT 6-kabeln till att ansluta MGMT-porten i ena änden och en bärbar dator i den andra änden.            
     3. Använd RJ-45 CAT 6A-kabeln till att ansluta DATA 3-porten i ena änden. DATA 3 konfigureras som 10 GbE om du ansluter via RJ-45 CAT 6A-kabel och som 1 GbE om du ansluter via RJ-45 CAT 6-kabel.
-    4. Använd 10 GbE SFP+ Twinax-kopparkablarna för att ansluta till DATA 1- respektive DATA 2-porten. 
+    4. Beroende på vilket nätverksgränssnitt som du vill ansluta för dataöverföring använder du upp till två 10 GbE-SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar för att ansluta DATA 1- respektive DATA 2-portarna. 
     5. De andra ändarna av kablarna från dataportarna ansluts till värddatorn via en 10 GbE-switch.
 
 4. Leta reda på strömknappen på enhetens frontpanel. Slå på enheten.

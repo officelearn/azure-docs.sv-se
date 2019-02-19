@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: Med API:et för bildsökning i Bing kan du använda Bings kognitiva bildsökningsfunktioner i programmet. Genom att skicka användarsökfrågor med API:et kan du hämta och visa relevanta och högkvalitativa avbildningar som liknar Bing-avbildningar.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 10/11/2017
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4ae9c0c1fb6cd341e812f9e8b35eaff789637561
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765654"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237322"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Vad är API:et för bildsökning i Bing?
 
-Med API:et för bildsökning i Bing kan du använda Bings kognitiva bildsökningsfunktioner i programmet. Genom att skicka användarsökfrågor med API:et kan du hämta och visa relevanta och högkvalitativa avbildningar som liknar [Bing-avbildningar](https://www.bing.com/images).
+Med API:et för bildsökning i Bing kan du använda Bings bildsökningsfunktioner i programmet. Genom att skicka sökfrågor till API:et kan du hämta högkvalitativa bilder på samma sätt som på [bing.com/images](https://www.bing.com/images).
 
-Observera att API:et för bildsökning i Bing endast returnerar bildresultat. Använd [API:et för webbsökning i Bing](../bing-web-search/search-the-web.md), [API:et för videosökning](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) och [API:et för nyhetssökning](https://review.docs.microsoft.com/azure/cognitive-services/bing-news-search) för andra typer av webbinnehåll.
+API:et för bildsökning i Bing tillhandahåller sökresultat med bara bilder, men du kan kombinera eller använda de andra tillgängliga [API:erna för Bing-sökning](../bing-web-search/bing-api-comparison.md) för att hitta många olika typer av innehåll på webben.
 
 ## <a name="bing-image-search-features"></a>API för bildsökning i Bing – funktioner
-
-Bildsökning i Bing hittar och returnerar främst relevanta bilder från en sökfråga, men tjänsten tillhandahåller också flera ytterligare funktioner för att på ett smart och fokuserat sätt hämta bilder på webben.
-
 
 | Funktion                                                                                                                                                                                 | Beskrivning                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,10 +57,12 @@ För att komma igång snabbt med din första API-begäran kan du lära dig att:
 
 ## <a name="see-also"></a>Se även
 
-* [API:et för bildsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)-referensavsnittet innehåller definitioner och information om slutpunkterna, rubrikerna, API-svaren och frågeparametrarna som du kan använda till att begära bildsökresultat.
+* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
+
+* Referensavsnittet för [API:et för bildsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) innehåller information om API:ets slutpunkter, rubriker, API-svar och frågeparametrar.
 
 * I [användnings- och visningskraven för Bing](./useanddisplayrequirements.md) specificeras godtagbar användning för det innehåll och den information du får via API:erna för Bing-sökning.
 
-* I ämnet om att [hämta bilder från webben med API:et för bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) beskriver vi hur du söker efter och hämtar bilder från webben.
+* I artikeln om att [hämta bilder från webben med API:et för bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) beskrivs hur du söker efter och hämtar bilder från webben.
 
-* I avsnittet om att [skicka och arbeta med sökfrågor](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) beskriver vi hur du skapar, anpassar och pivoterar sökfrågor.
+* I artikeln om att [skicka och arbeta med sökfrågor](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) beskrivs hur du skapar, anpassar och pivoterar sökfrågor.

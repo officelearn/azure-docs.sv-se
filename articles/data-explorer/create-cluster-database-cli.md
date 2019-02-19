@@ -1,106 +1,106 @@
 ---
-title: Skapa ett Azure Data Explorer-kluster och en databas med CLI
-description: Den här artikeln beskriver hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI
+title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas med CLI'
+description: I den här snabbstarten lär du dig att skapa ett Azure Data Explorer-kluster och en databas med Azure CLI
 services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
-ms.topic: howto
-ms.date: 1/31/2019
-ms.openlocfilehash: a4c9156ef80f05e247b1cfef0acd56b601a2db65
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 2/4/2019
+ms.openlocfilehash: 9e0ae547df34594674dc03702310a1537717a4ed
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812692"
+ms.locfileid: "55881124"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-a-database-using-cli"></a>Skapa ett Azure Data Explorer-kluster och en databas med CLI
+# <a name="create-an-azure-data-explorer-cluster-and-database-using-cli"></a>Skapa ett Azure Data Explorer-kluster och en databas med CLI
 
-Den här artikeln beskriver hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI.
+Snabbstarten beskriver hur du skapar ett Azure Data Explorer-kluster och en databas med Azure CLI.
 
-## <a name="whats-the-difference-between-the-management-plane-and-data-plane-apis"></a>Vad är skillnaden mellan Hanteringsplanet och dataplanet API: er
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Det finns två olika API-bibliotek, hantering och dataplaner API: er.
-Management-API: er används för att hantera resurser, till exempel skapa ett kluster, skapa en databas, ta bort en dataanslutning, ändra antalet instanser antal osv. Dataplanet API: er används för att interagera med data, köra frågor, mata in data osv.
+Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="configure-the-cli-parameters"></a>Konfigurera CLI-parametrar
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Logga in på ditt konto
+Om du väljer att installera och använda Azure CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att kontrollera vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-```Bash
-az login
-```
+## <a name="configure-the-cli-parameters"></a>Konfigurera CLI-parametrarna
 
-Ange prenumerationen där du vill ska ingå i klustret som ska skapas.
+Följande steg krävs inte om du kör kommandon i Cloud Shell. Om du kör CLI lokalt måste du utföra följande steg för att logga in i Azure och ange din aktuella prenumeration:
 
-```Bash
-az account set --subscription "your_subscription"
-```
+1. Kör följande kommandon för att logga in på Azure:
 
-## <a name="create-the-azure-data-explorer-cluster"></a>Skapa Azure Data Explorer-kluster
+    ```azurecli-interactive
+    az login
+    ```
 
-Skapa klustret med följande kommando.
+2. Konfigurera prenumerationen där du vill att klustret ska skapas. Ersätt `MyAzureSub` med namnet på den Azure-prenumeration som du vill använda:
 
-```Bash
-az kusto cluster create --name azureclitest --sku D11_v2 --resource-group testrg
-```
+    ```azurecli-interactive
+    az account set --subscription MyAzureSub
+    ```
 
-Ange följande värden
+## <a name="create-the-azure-data-explorer-cluster"></a>Skapa Azure Data Explorer-klustret
+
+1. Skapa klustret med följande kommando:
+
+    ```azurecli-interactive
+    az kusto cluster create --name azureclitest --sku D11_v2 --resource-group testrg
+    ```
 
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
    |---|---|---|
    | namn | *azureclitest* | Önskat namn på klustret.|
-   | sku | *D13_v2* | SKU: N som ska användas för klustret. |
-   | resource-group | *testrg* | Resursgruppens namn där klustret skapas. |
+   | sku | *D13_v2* | SKU:n som ska användas för klustret. |
+   | resource-group | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
 
-Om du vill, finns det flera valfria parametrar som du kan använda, till exempel kapaciteten för klustret osv.
+    Det finns ytterligare parametrar som du kan använda, till exempel kapaciteten för klustret.
 
-Om du vill kontrollera om klustret har skapats, kan du köra
+2. Kör följande kommando för att kontrollera om klustret har skapats:
 
-```Bash
-az kusto cluster show --name azureclitest --resource-group testrg
-```
+    ```azurecli-interactive
+    az kusto cluster show --name azureclitest --resource-group testrg
+    ```
 
-Om resultatet innehåller ”provisioningState” med värdet ”Succeeded”, det innebär att klustret har skapats.
+Om resultatet innehåller ”provisioningState” med värdet ”Succeeded” har klustret skapats.
 
-## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Skapa en databas i Azure Data Explorer-kluster
+## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Skapa databasen i Azure Data Explorer-klustret
 
-Skapa en databas med hjälp av följande kommando.
+1. Skapa databasen med följande kommando:
 
-```Bash
-az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
-```
-
-Ange följande värden
+    ```azurecli-interactive
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    ```
 
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
    |---|---|---|
-   | cluster-name | *azureclitest* | Namnet på klustret där den ska skapas.|
-   | namn | *clidatabase* | Önskat namn för din databas.|
-   | resource-group | *testrg* | Resursgruppens namn där klustret skapas. |
-   | soft-delete-period | *3650:00:00:00* | Hur länge data bör hållas så att den är tillgängliga för frågor. |
-   | hot-cache-period | *3650:00:00:00* | Hur länge data ska behållas i cachen. |
+   | cluster-name | *azureclitest* | Namnet på klustret där databasen ska skapas.|
+   | namn | *clidatabase* | Önskat namn på databasen.|
+   | resource-group | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
+   | soft-delete-period | *3650:00:00:00* | Hur lång tid data ska behållas för att vara tillgänglig för frågor. |
+   | hot-cache-period | *3650:00:00:00* | Hur länge data ska behållas i cacheminnet. |
 
-Du kan se den databas du skapade genom att köra
+2. Kör följande kommando för att se databasen som du skapade:
 
-```Bash
-az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
-```
+    ```azurecli-interactive
+    az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
+    ```
 
-Det är allt som nu har du ett kluster och en databas.
+Nu har du ett kluster och en databas.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att följa våra andra snabbstarter och självstudier kan du spara alla resurser som du skapade.
+* Om du planerar att följa våra andra snabbstarter och självstudier kan du spara alla resurser som du skapade.
+* Ta bort klustret om du vill rensa resurser. När du tar bort ett kluster, raderas också alla databaser i den. Använd kommandot nedan för att ta bort klustret:
 
-När du tar bort ett kluster, raderas också alla databaser i den. Använd den nedan kommando för att ta bort ditt kluster.
-
-```Bash
-az kusto cluster delete --name azureclitest --resource-group testrg
-```
+    ```azurecli-interactive
+    az kusto cluster delete --name azureclitest --resource-group testrg
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
+> [Snabbstart: Mata in data med hjälp av Python-biblioteket](python-ingest-data.md) i Azure Data Explorer

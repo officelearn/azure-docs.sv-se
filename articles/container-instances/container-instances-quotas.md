@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/17/2018
+ms.date: 02/08/2019
 ms.author: danlep
-ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 35e846aa5954e3714d301c9c75cf42b31961fdfe
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075506"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160585"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Kvoter och regional tillgänglighet för Azure Container Instances
 
@@ -28,13 +28,13 @@ Azure Container Instances är tillgängligt i följande regioner med angivna pro
 
 | Plats | Operativsystem | Processor | Minne (GB) |
 | -------- | -- | :---: | :-----------: |
-| Centrala Kanada | Linux | 4 | 16 |
+| Kanada, centrala; USA, centrala och USA, östra 2 | Linux | 4 | 16 |
 | USA, östra; Europa, norra; Europa, västra; USA, västra; USA, västra 2 | Linux | 4 | 14 |
 | Östra Japan | Linux | 2 | 8 |
-| Australien, östra; USA, östra 2; Asien, sydöstra | Linux | 2 | 7 |
+| Australien, östra; Asien, sydöstra | Linux | 2 | 7 |
 | Centrala Indien, Asien och stillahavsområdet, norra centrala USA, södra centrala USA, södra Indien | Linux | 2 | 3.5 |
 | USA, östra; Europa, västra; USA, västra | Windows | 4 | 14 |
-| Östra Australien, centrala Kanada, centrala Indien, Asien och stillahavsområdet, östra USA 2, östra Japan, norra centrala USA, Nordeuropa, södra centrala USA, södra Indien, sydöstra Asien, västra USA 2 | Windows | 2 | 3.5 |
+| Australien, östra; Kanada, centrala; Indien, centrala; USA, centrala; Asien, östra; USA, östra 2; Japan, östra; USA, norra centrala; Europa, centrala; USA, södra centrala; Indien, södra; Asien, sydöstra; USA, västra 2 | Windows | 2 | 3.5 |
 
 Containerinstanser som har skapats inom dessa resursgränser finns i mån av tillgång i distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Du kan försöka lindra sådana distributionsfel genom att prova att distribuera instanser med lägre processor- och minnesinställningar. Du kan även prova att genomföra distributionen senare.
 

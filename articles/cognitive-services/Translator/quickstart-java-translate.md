@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att översätta en textsträng från engelska till italienska och tyska med hjälp av Java och Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: a757b766537cc4f1105d77478f4a1d7543c27e40
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2e7535476965258d02f3cd3db0126a0e8a486ab
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227921"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963632"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Snabbstart: Använda Translator Text API för att översätta en sträng med hjälp av Java
 
@@ -170,6 +170,12 @@ Det var allt. Nu är du redo att köra exempelappen. Navigera till roten för ar
 
 ```console
 gradle build
+```
+
+När bygget är klart kör du:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Exempelsvar

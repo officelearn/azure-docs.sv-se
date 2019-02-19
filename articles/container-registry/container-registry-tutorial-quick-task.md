@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754381"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860481"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudie: Skapa och distribuera containeravbildningar i molnet med Azure Container Registry Tasks
 
@@ -21,7 +21,7 @@ ms.locfileid: "53754381"
 
 Utvecklingscykeln för den ”inre loopen” är den iterativa processen för att skriva kod, skapa och testa ditt program innan du utför en källkontroll. En snabbuppgift förlänger den inre loopen till molnet, vilket ger dig versionsverifiering och automatisk överföring av skapade avbildningar till containerregistret. Avbildningarna skapas internt i molnet nära registret, vilket ger snabbare distribution.
 
-All din Dockerfile-expertis är direkt överföringsbar till ACR Tasks. Du behöver inte ändra dina Dockerfile-filer för att kunna skapa uppgifter med ACR Tasks i molnet, bara kommandot som du kör.
+All din Dockerfile-expertis är direkt överföringsbar till ACR Tasks. Du behöver inte ändra dina Dockerfile-filer för att kunna skapa uppgifter med ACR Tasks i molnet, bara kommandot som du kör. 
 
 I den här självstudien, som är del ett i en serie:
 
@@ -30,7 +30,7 @@ I den här självstudien, som är del ett i en serie:
 > * Skapa en containeravbildning i Azure
 > * Distribuera en behållare till Azure Container Instances
 
-I kommande självstudier får du lära dig att använda i ACR Tasks för automatiska containeravbildningsversioner som bygger på kodincheckning och uppdateringar av basavbildningar.
+I kommande självstudier får du lära dig att använda i ACR Tasks för automatiska containeravbildningsversioner som bygger på kodincheckning och uppdateringar av basavbildningar. ACR-uppgifter kan även köra [uppgifter i flera steg](container-registry-tasks-multi-step.md) (för närvarande i förhandsversion) med hjälp av en YAML-fil för att definiera steg för att skapa, skicka och om så önskas testa flera containrar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

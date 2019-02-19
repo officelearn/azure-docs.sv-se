@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f75b14ce2ca860ee894fe0a2ef501066b91f8e8a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c9fb24cd6bcfae273c5430eee8d1fa8df58c6202
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755653"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236319"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -45,6 +45,8 @@ I den här guiden får du lära dig att:
 > - Inaktivera HTTPS-protokollet på din anpassade domän.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [ Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
@@ -103,11 +105,11 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
 
 Registrera Azure CDN som en app i Azure Active Directory via PowerShell.
 
-1. Om det behövs installerar du [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) i PowerShell på den lokala datorn.
+1. Om det behövs installerar du [Azure PowerShell](/powershell/azure/install-az-ps) på den lokala datorn.
 
 2. Kör följande kommando i PowerShell:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
 
     ![Registrera Azure CDN i PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
               

@@ -6,34 +6,34 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 550201e692bb79197d50c2f44017c43ab9ea2016
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4df8a12581b5d71a76964ca1e3d40c6c53185f67
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477345"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860328"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Etablera dataflöde i en Azure Cosmos-container
 
-I den här artikeln beskrivs hur du etablerar dataflödet för en container (samling, graf, tabell) i Azure Cosmos DB. Du kan etablera dataflöden för en enda container eller [etablera för en databas](how-to-provision-database-throughput.md) och dela det mellan containrarna i dataflödet. Du kan etablera dataflöde för en container med hjälp av Azure-portalen, Azure CLI eller CosmosDB-SDK:er.
+I den här artikeln beskrivs hur du etablerar dataflödet för en container (samling, graf eller tabell) i Azure Cosmos DB. Du kan etablera dataflöden för en enskild container eller [etablera för en databas](how-to-provision-database-throughput.md) och dela det mellan containrarna i dataflödet. Du kan etablera dataflöde för en container med hjälp av Azure-portalen, Azure CLI eller Azure CosmosDB-SDK:er.
 
-## <a name="provision-throughput-using-azure-portal"></a>Etablera dataflöde med hjälp av Azure-portalen
+## <a name="provision-throughput-by-using-azure-portal"></a>Etablera dataflöde med hjälp av Azure-portalen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. [Skapa ett nytt Cosmos DB-konto](create-sql-api-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
+1. [Skapa ett nytt Azure Cosmos DB-konto](create-sql-api-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
 
-1. Öppna fönsterrutan **Datautforskaren** och välj **Ny samling**. Fyll sedan i formuläret med följande information:
+1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
 
-   * Skapa en ny databas eller välj en befintlig.
-   * Ange en samlings-ID (eller tabell, graf).
-   * Ange ett partitionsnyckelvärde, till exempel `/userid`.
-   * Ange ett dataflöde, till exempel 1 000 RU.
+   * Ange huruvida du skapar en ny databas eller använder en befintlig.
+   * Ange ett samlings-ID (eller tabell eller graf).
+   * Ange ett partitionsnyckelvärde (till exempel `/userid`).
+   * Ange ett dataflöde (till exempel 1000 RU).
    * Välj **OK**.
 
-![SQL API, etablera containerdataflöde](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+![Skärmbild av Data Explorer med Ny samling markerat](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli"></a>Etablera dataflöde med hjälp av Azure CLI
+## <a name="provision-throughput-by-using-azure-cli"></a>Etablera dataflöde med hjälp av Azure CLI
 
 ```azurecli-interactive
 # Create a container with a partition key and provision throughput of 1000 RU/s
@@ -46,9 +46,9 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-Om du etablerar dataflöde för ett Cosmos-konto som konfigurerats med Azure Cosmos DB:s API för MongoDB använder du ”/myShardKey” för partitionsnyckelns sökväg. Om du etablerar dataflöde för ett Cosmos-konto som konfigurerats för Cassandra API använder du ”/myPrimaryKey” för partitionsnyckelns sökväg.
+Om du etablerar dataflöde för ett Azure Cosmos DB-konto som har konfigurerats med Azure Cosmos DB API för MongoDB använder du `/myShardKey` för partitionsnyckelns sökväg. Om du etablerar dataflöde för ett Azure Cosmos DB-konto som har konfigurerats för API för Cassandra använder du `/myPrimaryKey` för partitionsnyckelns sökväg.
 
-## <a name="provision-throughput-using-net-sdk"></a>Etablera dataflöde med hjälp av .NET SDK
+## <a name="provision-throughput-by-using-net-sdk"></a>Etablera dataflöde med hjälp av .NET SDK
 
 > [!Note]
 > Använd SQL API för att etablera dataflöde för alla API: er förutom API för Cassandra.
@@ -79,7 +79,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar kan du lära dig hur du etablerar dataflöde i Cosmos DB:
+I följande artiklar kan du lära dig hur du etablerar dataflöde i Azure Cosmos DB:
 
 * [Så etablerar du dataflöde för en databas](how-to-provision-database-throughput.md)
 * [Begärandeenheter och dataflöde i Azure Cosmos DB](request-units.md)

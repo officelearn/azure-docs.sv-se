@@ -5,49 +5,58 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 07/03/2018
+ms.date: 02/12/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 377ea6629223c365ef3d00c756929bf23ddffde5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b38f66670ba29022713ae39824a190fcffb688c7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702655"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238770"
 ---
 För att komma igång med Service Bus-meddelandeentiteter i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningscontainer för adressering av Service Bus-resurser i ditt program.
 
 Så här skapar du ett namnområde:
 
-1. Logga in på [Azure Portal][Azure portal].
-2. I det vänstra navigeringsfältet i portalen klickar du på **+ Skapa en resurs**, därefter klickar du på **Integration** och sedan på **Service Bus**.
-3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic, Standard eller Premium). Om du vill använda [ämnen och prenumerationer](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) ska du välja antingen Standard eller Premium. Ämnen/prenumerationer stöds inte på Basic-prisnivån.
-5. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
-6. I fältet **Resursgrupp** väljer du en befintlig resursgrupp där namnområdet ska finnas eller skapar en ny.      
-7. I **Plats** väljer du land eller region där namnområdet ska finnas.
+1. Logga in på [Azure-portalen](https://portal.azure.com)
+2. I det vänstra navigeringsfältet i portalen väljer du **+ Skapa en resurs** följt av **Integration** och sedan **Service Bus**.
+
+    ![Skapa en resurs -> Integration -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
+3. I dialogrutan **Skapa namnrymd** utför du följande steg: 
+    1. Ange ett **namn för namnrymden**. Systemet kontrollerar omedelbart om namnet är tillgängligt.
+    2. Välj prisnivå (Basic, Standard eller Premium) för namnrymden. Om du vill använda [ämnen och prenumerationer](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) väljer du antingen Standard eller Premium. Ämnen/prenumerationer stöds inte på Basic-prisnivån.
+    3. Om du valde prisnivån **Premium** utför du följande steg: 
+        1. Ange antalet **meddelandefunktionsenheter**. Premium-nivån ger resursisolering på processor- och minnesnivå så att varje arbetsbelastning körs självständigt. Den här resurscontainern kallas för en meddelandefunktionsenhet. Varje Premium-namnrymd allokeras minst en meddelandefunktionsenhet. Du kan välja 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnrymd. Mer information finns i [Service Bus Premium-meddelanden](../articles/service-bus-messaging/service-bus-premium-messaging.md).
+        2. Ange huruvida du vill göra namnrymden **zonredundant**. Zonredundans ger förbättrad tillgänglighet genom att sprida repliker över tillgänglighetszoner inom en region utan extra kostnad. Mer information finns i [Tillgänglighetszoner i Azure](../articles/availability-zones/az-overview.md).
+    4. För **Prenumeration** väljer du en Azure-prenumeration där du ska skapa namnrymden.
+    5. För **Resursgrupp** väljer du en befintlig resursgrupp där namnrymden ska finnas, eller så skapar du en ny.      
+    6. För **Plats** väljer du land eller region där namnrymden ska finnas.
+    7. Välj **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
    
-    ![Skapa namnområde][create-namespace]
-8. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
+        ![Skapa namnområde](./media/service-bus-create-namespace-portal/create-namespace.png)
+4. Bekräfta att Service Bus-namnrymden har distribuerats. För att visa meddelandena väljer du **klockikonen (aviseringar)** i verktygsfältet. Välj **namnet på resursgruppen** i meddelandet såsom det visas i bilden. Du ser då den resursgrupp som innehåller Service Bus-namnrymden.
 
-### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
+    ![Distributionsavisering](./media/service-bus-create-namespace-portal/deployment-alert.png)
+5. På sidan **Resursgrupp** för resursgruppen väljer du din **Service Bus-namnrymd**. 
 
-Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig regel för signatur för delad åtkomst (SAS) med ett kopplat par med primära och sekundära nycklar som ger fullständig kontroll över alla namnområdets aspekter. Se [Service Bus – autentisering och auktorisering](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) för mer information om hur du skapar ytterligare regler med mer begränsade rättigheter för regelbundna sändare och mottagare. Gör så här om du vill kopiera den ursprungliga regeln: 
+    ![Sidan Resursgrupp – välja Service Bus-namnrymd](./media/service-bus-create-namespace-portal/resource-group-select-service-bus.png)
+6. Startsidan för din Service Bus-namnrymd visas. 
+
+    ![Startsidan för din Service Bus-namnrymd](./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png)
+
+### <a name="get-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
+Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig regel för signatur för delad åtkomst (SAS) med ett kopplat par med primära och sekundära nycklar som ger fullständig kontroll över alla namnområdets aspekter. Se [Service Bus – autentisering och auktorisering](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) för mer information om hur du skapar regler med mer begränsade rättigheter för regelbundna sändare och mottagare. Kopiera primärnycklar och sekundärnycklar för namnrymden genom att utföra följande steg: 
 
 1. Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
 2. I namnområdesfönstret, klickar du på **Principer för delad åtkomst**.
 3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
    
-    ![connection-info][connection-info]
-4. I fönstret **Princip: RootManageSharedAccessKey** klickar du på knappen Kopiera bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
+    ![connection-info](./media/service-bus-create-namespace-portal/connection-info.png)
+4. I fönstret **Princip: RootManageSharedAccessKey** klickar du på kopieringsknappen intill **Primär anslutningssträng** för att kopiera anslutningssträngen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
    
-    ![connection-string][connection-string]
-
+    ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Upprepa föregående steg, kopiera och klistra in värdet för **primärnyckeln** till en tillfällig plats för senare användning.
 
 <!--Image references-->
 
-[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
-[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
-[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
-[Azure portal]: https://portal.azure.com

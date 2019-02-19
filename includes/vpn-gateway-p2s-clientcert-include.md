@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7ae3886db6391836cd8d281e44c95c5253cc8dd5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323891"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985518"
 ---
 Varje klientdator som du ansluter till ett virtuellt nätverk med punkt-till-plats-anslutning måste ha ett klientcertifikat installerat. Du kan generera det från rotcertifikatet och installera det på varje klientdator. Om du inte installerar ett giltigt klientcertifikat misslyckas autentiseringen när klienten försöker ansluta till det virtuella nätverket.
 
@@ -31,4 +31,8 @@ Du kan generera klientcertifikat på följande sätt:
   * [MakeCert-instruktioner](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Använd MakeCert om du inte har åtkomst till en Windows 10-dator för att generera certifikat. MakeCert är inaktuellt, men du kan fortfarande använda det för att generera certifikat. Du kan installera de genererade certifikaten på valfri P2S-klient som stöds.
   * [Linux-instruktioner](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
-  När du skapar ett klientcertifikat från ett självsignerat rotcertifikat installeras det automatiskt på den dator som du använde för att skapa det. Om du vill installera klientcertifikatet på en annan klientdator ska du exportera det som .pfx tillsammans med hela certifikatkedjan. Då skapas en .pfx-fil som innehåller den rotcertifikatinformation som krävs för att autentisera klienten. Anvisningar för hur du exporterar ett certifikat finns i [Generate and export certificates for Point-to-Site using PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) (Generera och exportera certifikat för punkt-till-plats med hjälp av PowerShell).
+  När du skapar ett klientcertifikat från ett självsignerat rotcertifikat installeras det automatiskt på den dator som du använde för att skapa det. Om du vill installera klientcertifikatet på en annan klientdator ska du exportera det som .pfx tillsammans med hela certifikatkedjan. Då skapas en .pfx-fil som innehåller den rotcertifikatinformation som krävs för att autentisera klienten. 
+
+**Så här exporterar du certifikatet**
+
+Anvisningar för hur du exporterar ett certifikat finns i [Generate and export certificates for Point-to-Site using PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) (Generera och exportera certifikat för punkt-till-plats med hjälp av PowerShell).

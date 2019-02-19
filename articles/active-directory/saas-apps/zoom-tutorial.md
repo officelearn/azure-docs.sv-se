@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: ace02a0cb93cf3e56e4b895524b9e2d35440aecb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ca0e2c0ce12edba504745e2783844db5109ee01a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812993"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Självstudier: Azure Active Directory-katalogintegrering med Zoom
 
@@ -124,6 +125,10 @@ Konfigurera enkel inloggning med Azure AD med Zoom genom att utföra följande s
     | Efternamn  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
     | Telefonnummer  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
     | Avdelning  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
+    | roll |    user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+
+    > [!NOTE]
+    > Klicka på [här](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) för att få veta hur du konfigurerar rollen i Azure AD
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -141,11 +146,14 @@ Konfigurera enkel inloggning med Azure AD med Zoom genom att utföra följande s
 
     f. Klicka på **Spara**.
 
-4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+    > [!NOTE]
+    > Zoom kan förvänta sig gruppanspråk i SAML-nyttolasten. Om du har skapat en grupp kontakta du därför [Zoom-klientsupporten](https://support.zoom.us/hc/en-us) och lämnar information om gruppen så att de kan konfigurera den gruppinformationen på deras sida. Du måste också uppge objekt-ID:t till [Zoom-klientsupporten](https://support.zoom.us/hc/en-us) så att de kan konfigurera det på deras sida. Följ [dokumentet](https://support.zoom.us/hc/en-us/articles/115005887566) när du hämtar objekt-ID:t.
+
+7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. I avsnittet **Konfigurera Zoom** kopierar du lämpliga URL:er enligt dina behov.
+8. I avsnittet **Konfigurera Zoom** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -160,29 +168,29 @@ Konfigurera enkel inloggning med Azure AD med Zoom genom att utföra följande s
 1. Logga in på din Zoom-företagswebbplats som administratör i ett annat webbläsarfönster.
 
 2. Klicka på fliken **Enkel inloggning**.
-   
-    ![Fliken Enkel inloggning](./media/zoom-tutorial/IC784700.png "Enkel inloggning")
+
+    ![Fliken Enkel inloggning](./media/zoom-tutorial/ic784700.png "Enkel inloggning")
 
 3. Klicka på fliken **Säkerhetskontroll** och gå sedan till inställningarna för **Enkel inloggning**.
 
 4. Gör följande i avsnittet Enkel inloggning:
-   
-    ![Avsnittet Enkel inloggning](./media/zoom-tutorial/IC784701.png "Enkel inloggning")
-   
+
+    ![Avsnittet Enkel inloggning](./media/zoom-tutorial/ic784701.png "Enkel inloggning")
+
     a. I textrutan **Sign-in page URL** (Inloggnings-URL) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
-   
+
     b. I textrutan **Signout page URL** (Utloggnings-URL) klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
-     
+
     c. Öppna ditt Base64-kodade certifikat i Anteckningar, kopiera innehållet till Urklipp och klistra in det i textrutan **Certifikat för identitetsprovider**.
 
     d. I textrutan **Issuer**  (Utfärdare) klistrar du in det värde för **Azure AD-identifierare** som du har kopierat från Azure-portalen. 
 
     e. Klicka på **Spara**.
 
-    > [!NOTE] 
+    > [!NOTE]
     > För ytterligare information, besök informationen för Zoom [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
@@ -240,17 +248,17 @@ För att Azure AD-användare ska kunna logga in på Zoom måste de etableras til
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Gör följande för att etablera ett användarkonto:
 
 1. Logga in på din **Zoom**-företagswebbplats som administratör.
- 
+
 2. Klicka på fliken **Kontohantering** och klicka sedan på **Användarhantering**.
 
 3. Klicka på **Lägga till användare** under Användarhantering.
-   
-    ![Användarhantering](./media/zoom-tutorial/IC784703.png "Användarhantering")
+
+    ![Användarhantering](./media/zoom-tutorial/ic784703.png "Användarhantering")
 
 4. Gör följande i dialogrutan **Lägg till användare**:
-   
-    ![Lägga till användare](./media/zoom-tutorial/IC784704.png "Lägga till användare")
-   
+
+    ![Lägga till användare](./media/zoom-tutorial/ic784704.png "Lägga till användare")
+
     a. Som **Användartyp** väljer du **Grundläggande**.
 
     b. I textrutan **E-post** skriver du in e-postadressen till ett giltigt Azure AD-konto som du vill etablera.
@@ -260,7 +268,7 @@ För att Azure AD-användare ska kunna logga in på Zoom måste de etableras til
 > [!NOTE]
 > Du kan använda alla verktyg för att skapa ett Zoom-användarkonto eller API: er som tillhandahålls av Zoom för att etablera Azure Active Directory-användarkonton.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
@@ -273,4 +281,3 @@ När du klickar på Zoom-panelen i åtkomstpanelen bör du automatiskt loggas in
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

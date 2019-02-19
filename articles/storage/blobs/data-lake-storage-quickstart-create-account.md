@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732455"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884468"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snabbstart: Skapa ett Azure Data Lake Storage Gen2-lagringskonto
 
@@ -93,7 +93,7 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
 6. Välj den prenumeration där du vill skapa lagringskontot.
 7. Välj **Nästa : Avancerad >**
 8. Lämna standardvärdena i fälten **SECURITY** och **VIRTUELLA NÄTVERK**.
-9. I avsnittet **Data Lake Storage Gen2 (preview)** väljer du **Aktiverad** för **Hierarkiskt namnområde**.
+9. I avsnittet **Data Lake Storage Gen2** anger du **Hierarkisk namnrymd** till **Aktiverad**.
 10. Skapa lagringskontot genom att klicka på **Granska + Skapa**.
 
     ![Skärmbild som visar hur du skapar ett lagringskonto i Azure-portalen](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)

@@ -4,19 +4,19 @@ description: Använd den här snabbstarten till att göra din första bildsökni
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7603895d623bba9d5023379643b5ea9752344a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195623"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238138"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Snabbstart: Söka efter bilder med SDK för bildsökning i Bing för Java
 
@@ -45,7 +45,7 @@ Installera SDK för bildsökning i Bing med hjälp av Maven eller Gradle eller n
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och lägga till följande importer i din klassimplementering:
+1. Skapa ett nytt Java-projekt i valfri IDE eller valfritt redigeringsprogram och lägg till följande importer i din klassimplementering:
 
     ```java
     import com.microsoft.azure.cognitiveservices.search.imagesearch.BingImageSearchAPI;
@@ -63,9 +63,10 @@ Installera SDK för bildsökning i Bing med hjälp av Maven eller Gradle eller n
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Skicka en sökbegäran till API för bildsökning i Bing
+## <a name="send-a-search-request-to-the-api"></a>Skicka en sökbegäran till API:et
 
 1. Med hjälp av `bingImages().search()`, skicka en HTTP-begäran som innehåller sökfrågan. Spara svaret som en `ImagesModel`.
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
@@ -75,8 +76,8 @@ Installera SDK för bildsökning i Bing med hjälp av Maven eller Gradle eller n
 
 ## <a name="parse-and-view-the-result"></a>Parsa och visa resultatet
 
-Parsa bild resultatet som returneras i svaret.
-Om svaret innehåller sökresultat ska du lagra och skriva ut information om det första resultatet, som en webbadress till miniatyrbilden, en webbadress till originalet och det totala antalet returnerade bilder.  
+Parsa bildresultaten som returneras i svaret.
+Om svaret innehåller sökresultat ska du lagra och skriva ut information om det första resultatet, såsom en webbadress till miniatyrbilden, en webbadress till originalet samt det totala antalet returnerade bilder.  
 
 ```java
 if (imageResults != null && imageResults.value().size() > 0) {

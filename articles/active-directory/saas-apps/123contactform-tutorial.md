@@ -4,251 +4,222 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b91a3e2a100c9c355dd3e47851f95c4d3884b51a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2a91c5c67706c648af7eacedbc8093d5db8c6a55
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195332"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Självstudier: Azure Active Directory-integrering med 123ContactForm
 
-I den här självstudien får du lära dig hur du integrerar 123ContactForm med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera 123ContactForm med Azure Active Directory (AD Azure).
+Integreringen av 123ContactForm med Azure AD medför följande fördelar:
 
-Integrera 123ContactForm med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till 123ContactForm.
+* Du kan göra så att dina användare automatiskt loggas in på 123ContactForm (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till 123ContactForm
-- Du kan aktivera användarna att automatiskt få loggat in på 123ContactForm (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med 123ContactForm behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med 123ContactForm, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En 123ContactForm enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* 123ContactForm-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till 123ContactForm från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-123contactform-from-the-gallery"></a>Att lägga till 123ContactForm från galleriet
-För att konfigurera integrering av 123ContactForm i Azure AD, som du behöver lägga till 123ContactForm från galleriet i din lista över hanterade SaaS-appar.
+* 123ContactForm har stöd för **SP- och IDP**-initierad enkel inloggning
+* 123ContactForm har stöd för **just-in-time**-användaretablering
+
+## <a name="adding-123contactform-from-the-gallery"></a>Lägga till 123ContactForm från galleriet
+
+För att konfigurera integrering av 123ContactForm i Azure AD behöver du lägga till 123ContactForm från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till 123ContactForm från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Appar][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **123ContactForm**.
+4. I sökrutan skriver du **123ContactForm**, väljer **123ContactForm** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Skapa en Azure AD-användare för testning](./media/123contactform-tutorial/tutorial_123contactform_search.png)
+     ![123ContactForm i resultatlistan](common/search-new-app.png)
 
-5. I resultatpanelen väljer **123ContactForm**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-    ![Skapa en Azure AD-användare för testning](./media/123contactform-tutorial/tutorial_123contactform_addfromgallery.png)
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD till 123ContactForm baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i 123ContactForm upprättas.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med 123ContactForm baserat på en testanvändare som kallas ”Britta Simon”.
+För att konfigurera och testa enkel inloggning för Azure AD med 123ContactForm behöver du slutföra följande byggstenar:
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i 123ContactForm är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i 123ContactForm upprättas.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för 123ContactForm](#configure-123contactform-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa 123ContactForm-testanvändare](#create-123contactform-test-user)** – för att ha en motsvarighet för Britta Simon i 123ContactForm som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-I 123ContactForm, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med 123ContactForm, måste du utföra följande byggblock:
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare 123ContactForm](#creating-a-123contactform-test-user)**  – du har en motsvarighet för Britta Simon i 123ContactForm som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för 123ContactForm:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **123ContactForm** och väljer **Enkel inloggning**.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt 123ContactForm program.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med 123ContactForm:**
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. I Azure-portalen på den **123ContactForm** program integration-sidan klickar du på **enkel inloggning**.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning][4]
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/123contactform-tutorial/tutorial_123contactform_samlbase.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-3. På den **123ContactForm domän och URL: er** om du vill konfigurera programmet i **IDP-initierad läge**, utför följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    ![Konfigurera enkel inloggning](./media/123contactform-tutorial/url1.png)
+    ![123ContactForm-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
-4. Om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Konfigurera enkel inloggning](./media/123contactform-tutorial/url2.png)
+    ![123ContactForm-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
-    a. Klicka på den **visa avancerade URL-inställningar** alternativet
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
 
-    b. I den **inloggning på URL: en** textrutan anger du ett URL: en som: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Du behöver uppdatera de här värdena från faktiska URL:er och identifierare. Detta förklaras senare i självstudien.
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Du måste uppdatera dessa värdet från faktiska URL: er och identifierare som beskrivs senare i självstudien.
-    
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Konfigurera enkel inloggning](./media/123contactform-tutorial/tutorial_123contactform_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Klicka på knappen **Spara**.
+7. I avsnittet **Konfigurera 123ContactForm** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Konfigurera enkel inloggning](./media/123contactform-tutorial/tutorial_general_400.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-7. Att konfigurera enkel inloggning på **123ContactForm** sida, gå till [ https://www.123contactform.com/form-2709121/ ](https://www.123contactform.com/form-2709121/) och utför följande steg:
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-123contactform-single-sign-on"></a>Konfigurera enkel inloggning för 123ContactForm
+
+1. För att konfigurera enkel inloggning på **123ContactForm**-sidan går du till [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) och utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/123contactform-tutorial/submit.png) 
 
-    a. I den **e-post** textrutan skriver du e-postadressen för användaren dvs **BrittaSimon@Contoso.com**.
+    a. I textrutan **E-post** skriver du e-postadressen för användaren: **BrittaSimon@Contoso.com**.
 
-    b. Klicka på **överför** och bläddra i XML-Metadata för filen som du har hämtat från Azure-portalen.
+    b. Klicka på **Ladda upp** och bläddra till den nedladdade metadata-XML-filen som du har laddat ned från Azure-portalen.
 
-    c. Klicka på **skicka formuläret**.
+    c. Klicka på **SUBMIT FORM** (Skicka formulär).
 
-8. På den **konfigurera Appinställningar i Microsoft Azure AD enkel inloggning -** utför följande steg:
-    
+2. I **Microsoft Azure AD - Single sign-on - Configure App Settings** (Microsoft Azure AD – Enkel inloggning – Konfigurera appinställningar) utför du följande steg:
+
     ![Konfigurera enkel inloggning](./media/123contactform-tutorial/url3.png)
 
-    a. Om du vill konfigurera programmet i **IDP-initierad läge**, kopiera den **IDENTIFIERARE** för din instans och klistra in den i **identifierare** -textrutan i  **123ContactForm domän och URL: er** avsnittet på Azure-portalen.
-    
-    b. Om du vill konfigurera programmet i **IDP-initierad läge**, kopiera den **SVARS-URL** för din instans och klistra in den i **svars-URL** -textrutan i  **123ContactForm domän och URL: er** avsnittet på Azure-portalen.
+    a. Om du vill konfigurera programmet i **IDP-initierat läge** kopierar du värdet för **IDENTIFIER** (Identifierare) för din instans och klistrar in det i textrutan **Identifierare** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    c. Om du vill konfigurera programmet i **SP initierade läge**, kopiera den **inloggning på URL: en** för din instans och klistra in den i **inloggning på URL: en** -textrutan i  **123ContactForm domän och URL: er** avsnittet på Azure-portalen.
+    b. Om du vill konfigurera programmet i **IDP-initierat läge** kopierar du värdet för **REPLY URL** (Svars-URL) för din instans och klistrar in det i textrutan **Svars-URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    c. Om du vill konfigurera programmet i **SP-initierat läge** kopierar du värdet för **SIGN ON URL** (Inloggnings-URL) för din instans och klistrar in det i textrutan **Inloggnings-URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/123contactform-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/123contactform-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/123contactform-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/123contactform-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-123contactform-test-user"></a>Skapa en 123ContactForm testanvändare
 
-Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till 123ContactForm.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till 123ContactForm.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **123ContactForm**.
 
-![Tilldela användare][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon 123ContactForm, utför du följande steg:**
+2. I programlistan väljer du **123ContactForm**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken för 123ContactForm i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-2. I listan med program väljer **123ContactForm**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Konfigurera enkel inloggning](./media/123contactform-tutorial/tutorial_123contactform_app.png) 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Tilldela användare][202] 
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-123contactform-test-user"></a>Skapa 123ContactForm-testanvändare
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet skapas en användare som heter Britta Simon i 123ContactForm. 123ContactForm har stöd för just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i 123ContactForm skapas en ny efter autentisering.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen 123ContactForm i åtkomstpanelen du bör få automatiskt loggat in på ditt 123ContactForm program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på 123ContactForm-panelen i åtkomstpanelen bör du automatiskt loggas in på 123ContactForm som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/123contactform-tutorial/tutorial_general_01.png
-[2]: ./media/123contactform-tutorial/tutorial_general_02.png
-[3]: ./media/123contactform-tutorial/tutorial_general_03.png
-[4]: ./media/123contactform-tutorial/tutorial_general_04.png
-
-[100]: ./media/123contactform-tutorial/tutorial_general_100.png
-
-[200]: ./media/123contactform-tutorial/tutorial_general_200.png
-[201]: ./media/123contactform-tutorial/tutorial_general_201.png
-[202]: ./media/123contactform-tutorial/tutorial_general_202.png
-[203]: ./media/123contactform-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -11,12 +11,13 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 33bab4b66532a4cdcbd33c2f8594476d07985f4b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 39a5ef9d929899ac5e66c5a0e342040fc3c5074b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096950"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194826"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snabbstart: Skapa en ny klientorganisation i Azure Active Directory
 Du kan utföra alla administrativa aktiviteter med hjälp av Azure Active Directory (Azure AD)-portalen, inklusive att skapa en ny klient för din organisation. 
@@ -34,7 +35,7 @@ Logga in på din organisations [Azure-portal](https://portal.azure.com/) med ett
 När du har loggat in på Azure-portalen kan du skapa en ny klient för din organisation. Den nya klientorganisationen representerar din organisation och hjälper dig att hantera en specifik instans av Microsoft-molntjänster för dina interna och externa användare.
 
 ### <a name="to-create-a-new-tenant"></a>Så här skapar du en ny klient
-1. Välj **Azure Active Directory**, **Skapa resurser**, **Identitet** och välj sedan **Azure Active Directory**.
+1. Välj **Skapa en resurs** följt av **Identitet** och sedan **Azure Active Directory**.
 
     Sidan **Skapa katalog** visas.
 

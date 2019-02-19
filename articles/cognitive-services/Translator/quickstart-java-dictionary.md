@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att hämta alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av Java och Translator Text API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: a1e59b8a6ceae3e2379a271a9ff55030f14a5622
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5e9c24d1f128267bcfd201de3aac27b81eb8b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223229"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961286"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Snabbstart: Slå upp ord med en tvåspråkig ordlista med hjälp av Java
 
@@ -171,6 +171,12 @@ Det var allt. Nu är du redo att köra exempelappen. Navigera till roten för ar
 
 ```console
 gradle build
+```
+
+När bygget är klart kör du:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Exempelsvar

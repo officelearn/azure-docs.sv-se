@@ -4,7 +4,7 @@ description: Den här självstudiekursen beskriver steg för steg hur du laddar 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services
@@ -12,19 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/07/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 36e1f797263e367a73fde140d979243f96e83948
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7730d15b0d3be9c0ffc7c7fbafe40fece713afbd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780559"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976800"
 ---
-# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Ladda upp filer till ett Media Services-konto på Azure-portalen
+# <a name="upload-files-to-a-media-services-account-in-the-azure-portal-legacy"></a>Ladda upp filer till ett Media Services-konto i Azure-portalen (äldre)
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
-> * [.NET](media-services-dotnet-upload-files.md)
+> * [NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > 
 > [!NOTE]
@@ -63,6 +64,6 @@ När uppladdningen är klar visas den nya tillgången i fönstret **Tillgångar*
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [kodar dina uppladdade tillgångar](media-services-portal-encode.md).
 
-* Du kan också använda Azure Functions om du vill att ett kodningsjobb ska köras automatiskt när den konfigurerade behållaren tar emot en fil. Mer information finns i exemplet i [Media Services: Integrera Azure Media Services med Azure Functions och Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
+* Du kan också använda Azure Functions om du vill att ett kodningsjobb ska köras automatiskt när den konfigurerade containern tar emot en fil. Mer information finns i exemplet i [Media Services: Integrera Azure Media Services med Azure Functions och Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
 
 

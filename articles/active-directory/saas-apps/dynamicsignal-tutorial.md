@@ -1,230 +1,208 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med dynamiska signalen | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och dynamiska Signal.
+title: 'Självstudier: Azure Active Directory-integrering med Dynamic Signal | Microsoft Docs'
+description: Lär dig att konfigurera enkel inloggning mellan Azure Active Directory och Dynamic Signal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 863f7340-b065-4f59-b092-daa67da6f703
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: tutorial
+ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 2588511ac3892575b5decadd5ddca474e29a0abc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6ffd97c84af7e0efbdabc79b02c4ebd5cbdae9df
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170852"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175174"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dynamic-signal"></a>Självstudier: Azure Active Directory-integrering med dynamiska Signal
+# <a name="tutorial-azure-active-directory-integration-with-dynamic-signal"></a>Självstudier: Azure Active Directory-integrering med Dynamic Signal
 
-Lär dig hur du integrerar dynamisk Signal med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien lär du dig att integrera Dynamic Signal med Azure Active Directory (Azure AD).
+När du integrerar Dynamic Signal med Azure AD innebär det följande fördelar:
 
-Integrera dynamisk Signal med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till Dynamic Signal från Azure AD.
+* Du kan göra så att dina användare automatiskt loggas in på Dynamic Signal (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till dynamisk Signal.
-- Du kan aktivera användarna att automatiskt få loggat in på dynamiska Signal (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Dynamic Signal behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med dynamiska Signal, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En dynamisk signalen enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Dynamic Signal-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till dynamiska signalen från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-dynamic-signal-from-the-gallery"></a>Att lägga till dynamiska signalen från galleriet
-För att konfigurera integrering av dynamisk Signal i Azure AD, som du behöver lägga till dynamiska signalen från galleriet i din lista över hanterade SaaS-appar.
+* Dynamic Signal stöder **SP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till dynamiska signalen från galleriet:**
+* Dynamic Signal stöder **just-in-time**-användaretablering
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+## <a name="adding-dynamic-signal-from-the-gallery"></a>Lägga till Dynamic Signal från galleriet
 
-    ![Azure Active Directory-knappen][1]
+Om du vill konfigurera integrering av Dynamic Signal i Azure AD, måste du lägga till Dynamic Signal från galleriet i din lista med hanterade SaaS-appar.
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+**Utför följande steg för att lägga till Dynamic Signal från galleriet:**
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Knappen Nytt program][3]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. I sökrutan skriver **dynamisk Signal**väljer **dynamisk Signal** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Dynamisk Signal i resultatlistan](./media/dynamicsignal-tutorial/tutorial_dynamicsignal_addfromgallery.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+
+    ![Knappen Nytt program](common/add-new-app.png)
+
+4. I sökrutan skriver du **Dynamic Signal**. Välj **Dynamic Signal** i resultatpanelen och klicka på knappen **Lägg till** för att lägga till programmet.
+
+     ![Dynamic Signal i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med dynamiska Signal baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet får du konfigurera och testa enkel inloggning i Azure AD med Dynamic Signal baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Dynamic Signal upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i dynamiska signalen är till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i dynamiska signalen upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med dynamiska Signal, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning i Azure AD med Dynamic Signal, måste du slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en dynamisk signalen testanvändare](#create-a-dynamic-signal-test-user)**  – du har en motsvarighet för Britta Simon i dynamiska Signal som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+2. **[Konfigurera enkel inloggning för Dynamic Signal](#configure-dynamic-signal-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Dynamic Signal-testanvändare](#create-dynamic-signal-test-user)** – för att ha en motsvarighet till Britta Simon i Dynamic Signal som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för dynamisk Signal.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med dynamiska Signal:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Dynamic Signal:
 
-1. I Azure-portalen på den **dynamisk Signal** program integration-sidan klickar du på **enkel inloggning**.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Dynamic Signal** i [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/dynamicsignal-tutorial/tutorial_dynamicsignal_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **dynamisk signalen domän och URL: er** avsnittet, utför följande steg:
- 
-    ![Dynamiska signalen domän och URL: er med enkel inloggning för information](./media/dynamicsignal-tutorial/tutorial_dynamicsignal_url.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.voicestorm.com`
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.voicestorm.com`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.voicestorm.com/User/SsoResponse`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [dynamisk signalen klienten supportteamet](mailto:support@dynamicsignal.com) att hämta dessa värden. 
+    ![Information om Dynamic Signal-domän och URL:er med enkel inloggning](common/sp-identifier-reply.png)
 
-1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<subdomain>.voicestorm.com`
 
-    ![Länk för nedladdning av certifikatet](./media/dynamicsignal-tutorial/tutorial_dynamicsignal_certificate.png) 
+    b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.voicestorm.com`
 
-1. Klicka på **spara** knappen.
+    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.voicestorm.com/User/SsoResponse`
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/dynamicsignal-tutorial/tutorial_general_400.png)
-    
-1. På den **dynamisk signalen konfiguration** klickar du på **konfigurera dynamisk Signal** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Dynamic Signal-klientens supportteam](mailto:support@dynamicsignal.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Dynamisk signalen konfiguration](./media/dynamicsignal-tutorial/tutorial_dynamicsignal_configure.png) 
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-1. Att konfigurera enkel inloggning på **dynamisk Signal** sida, som du behöver skicka de hämtade **certifikat (Base64), URL: en för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** till [dynamisk Signal-supportteamet](mailto:support@dynamicsignal.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+6. I avsnittet **Konfigurera Dynamic Signal** kopierar du lämpliga URL:er efter behov.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-   ![Skapa en Azure AD-testanvändare][100]
+    a. Inloggnings-URL
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    b. Azure AD-identifierare
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    c. Utloggnings-URL
 
-    ![Azure Active Directory-knappen](./media/dynamicsignal-tutorial/create_aaduser_01.png)
+### <a name="configure-dynamic-signal-single-sign-on"></a>Konfigurera enkel inloggning i Dynamic Signal
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+För att konfigurera enkel inloggning på **Dynamic Signal**-sidan behöver du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade URL:er från Azure-portalen till [Dynamic Signals supportteam](mailto:support@dynamicsignal.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/dynamicsignal-tutorial/create_aaduser_02.png)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![Knappen Lägg till](./media/dynamicsignal-tutorial/create_aaduser_03.png)
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. I den **användaren** dialogrutan utför följande steg:
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Dialogrutan användare](./media/dynamicsignal-tutorial/create_aaduser_04.png)
+2. Välj **Ny användare** överst på skärmen.
 
-    a. I den **namn** skriver **BrittaSimon**.
+    ![Knappen Ny användare](common/new-user.png)
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+3. Genomför följande steg i Användaregenskaper.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    ![Dialogrutan Användare](common/user-properties.png)
+
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
+
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-dynamic-signal-test-user"></a>Skapa en dynamisk signalen testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon dynamisk signal. Dynamisk signalen stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt dynamiska Signal om det inte finns ännu.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Dynamic Signal.
+
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Dynamic Signal**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **Dynamic Signal**.
+
+    ![Dynamic Signal-länken i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-dynamic-signal-test-user"></a>Skapa Dynamic Signal-testanvändare
+
+I det här avsnittet skapas en användare som heter Britta Simon i Dynamic Signal. Dynamic Signal har stöd för just-in-time-användaretablering och det är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Dynamic Signal skapas en ny efter autentiseringen.
 
 >[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [dynamisk signalen supportteamet](mailto:support@dynamicsignal.com).
+>Om du vill skapa en användare manuellt kontaktar du [Dynamic Signals supportteam](mailto:support@dynamicsignal.com).
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till dynamisk Signal.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-![Tilldela rollen][200] 
-
-**Om du vill tilldela dynamisk signalen Britta Simon utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **dynamisk Signal**.
-
-    ![Dynamisk signalen länken i listan med program](./media/dynamicsignal-tutorial/tutorial_dynamicsignal_app.png)  
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Länken ”användare och grupper”][202]
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på panelen dynamisk Signal i åtkomstpanelen du bör få automatiskt loggat in på programmets dynamisk Signal.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Dynamic Signal-ikonen på åtkomstpanelen bör du automatiskt loggas in i den Dynamic Signal som du har konfigurerat enkel inloggning till. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/dynamicsignal-tutorial/tutorial_general_01.png
-[2]: ./media/dynamicsignal-tutorial/tutorial_general_02.png
-[3]: ./media/dynamicsignal-tutorial/tutorial_general_03.png
-[4]: ./media/dynamicsignal-tutorial/tutorial_general_04.png
-
-[100]: ./media/dynamicsignal-tutorial/tutorial_general_100.png
-
-[200]: ./media/dynamicsignal-tutorial/tutorial_general_200.png
-[201]: ./media/dynamicsignal-tutorial/tutorial_general_201.png
-[202]: ./media/dynamicsignal-tutorial/tutorial_general_202.png
-[203]: ./media/dynamicsignal-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

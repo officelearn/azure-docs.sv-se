@@ -1,6 +1,6 @@
 ---
 title: Skapa en brandväggsregel på servernivå – Azure SQL Database| Microsoft Docs
-description: Skapa en brandväggsregel på SQL Database-servernivå för en enskild eller poolindelad databas
+description: Skapa en brandväggsregel på SQL Database-servernivå för enkla databaser eller pooldatabaser
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,17 +11,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2374707d3fdf4d389a7c96c18767d3c52a9efb2f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/11/2019
+ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757235"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108967"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-in-azure-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en brandväggsregel på servernivå i Azure SQL Database med Azure-portalen
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Snabbstart: Skapa en brandväggsregel på servernivå för enkla databaser eller pooldatabaser med hjälp av Azure-portalen
 
-I den här snabbstarten går vi igenom hur du skapar en brandväggsregel på servernivå i Azure SQL Database med Azure-portalen så att du kan ansluta till den från en lokal resurs.
+Den här snabbstarten visar hur du skapar en [brandväggsregel på servernivå](sql-database-firewall-configure.md) för enkla databaser eller pooldatabaser i Azure SQL Database med hjälp av Azure-portalen, så att du kan ansluta till databasservrar, enkla databaser, samt elastiska pooler och deras databaser. Du måste ha en brandväggsregel för att kunna ansluta från andra Azure-resurser och lokala resurser.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

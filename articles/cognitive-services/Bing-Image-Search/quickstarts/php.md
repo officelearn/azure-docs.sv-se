@@ -5,19 +5,19 @@ description: Använd den här snabbstarten för att skicka bildsökningsbegäran
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7015d22222113c1b38c9fd43f218f243d9be7bbd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cca6fba401d8673cf97897c24a9d6de2329f19a4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181545"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232497"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Snabbstart: Sök efter bilder med REST API och PHP för bildsökning i Bing
 
@@ -49,9 +49,9 @@ Följ dessa steg om du vill köra programmet.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>Skapa och utför en HTTP-begäran
+## <a name="construct-and-perform-an-http-request"></a>Skapa och utför en HTTP-begäran
 
-1. Använda variablerna i det sista steget för att förbereda en HTTP-begäran till API:et för bildsökning.
+1. Använd variablerna i det sista steget när du förbereder en HTTP-begäran till API:et för bildsökning.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -59,7 +59,7 @@ Följ dessa steg om du vill köra programmet.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. Utför webbegäran och få JSON-svaret.
+2. Skicka webbegäran och få JSON-svaret.
 
     ```php
     $context = stream_context_create($options);
@@ -81,7 +81,7 @@ Bearbeta och skriv ut det returnerade JSON-svaret.
         return array($headers, $result);
     ```
 
-## <a name="sample-json-response"></a>JSON-exempelsvar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.
 
@@ -125,7 +125,7 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -137,7 +137,8 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 ## <a name="see-also"></a>Se även
 
 * [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) av API:er för Bing-sökning. 
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 * [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/28/2019
-ms.openlocfilehash: b611eb02203c872e3497b5b7c12acddd9eab14c0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/12/2019
+ms.openlocfilehash: d0dcfa3d5e387b03fe76eff34e32860ae5b17e76
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188396"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235384"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Snabbstart: Fråga Azure SQL Database med Python
 
@@ -27,20 +27,40 @@ ms.locfileid: "55188396"
 
 Kontrollera att du har följande så att du kan genomföra den här snabbstarten:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- En Azure SQL-databas. Du kan använda någon av dessa snabbstarter till att skapa och därefter konfigurera en databas i Azure SQL Database:
+
+  || Enskild databas | Hanterad instans |
+  |:--- |:--- |:---|
+  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
+  |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
+  |Läsa in data|Adventure Works som lästs in vid snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Återställa eller importera Adventure Works från en [BACPAC](sql-database-import.md)-fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > Skripten i den här artikeln är skrivna för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas, eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
   
 - Python och relaterad programvara för ditt operativsystem:
   
   - **MacOS**: Först installerar du Homebrew och Python, sedan ODBC-drivrutinen och SQLCMD och sedan installerar du Python-drivrutinen för SQL Server. Se steg 1.2, 1.3 och 2.1 i [Create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/) (Skapa Python-appar med SQL Server på macOS). Mer information finns i [Install the Microsoft ODBC Driver on Linux and macOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server) (Installera Microsoft ODBC-drivrutinen i Linux och macOS).
-    
+
   - **Ubuntu**: Installera Python och andra paket som krävs med `sudo apt-get install python python-pip gcc g++ build-essential`. Ladda ned och installera ODBC-drivrutinen, SQLCMD och Python-drivrutinen för SQL Server. Anvisningar finns i [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux) (Konfigurera en utvecklingsmiljö för utveckling med Python och pyodbc).
-    
+
   - **Windows**: Installera Python, ODBC-drivrutinen och SQLCMD, samt Python-drivrutinen för SQL Server. Anvisningar finns i [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows) (Konfigurera en utvecklingsmiljö för utveckling med Python och pyodbc).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
-    
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet samt inloggningsinformationen för de kommande procedurerna.
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+
+2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
+
+3. På sidan **Översikt** granskar du det fullständiga servernamnet bredvid **Servernamn** för en enkel databas, eller det fullständiga servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+
 ## <a name="create-code-to-query-your-sql-database"></a>Skapa kod för att fråga din SQL-databas 
 
 1. Skapa en ny fil med namnet *sqltest.py* i en textredigerare.  

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Skapa din första enkla databas i Azure SQL Database med hjälp av SSMS | Microsoft Docs'
-description: Läs hur du skapar din första Azure SQL-databas med SQL Server Management Studio.
+title: 'Självstudier: Utforma din första relationsdatabas i Azure SQL Database med hjälp av SSMS | Microsoft Docs'
+description: Lär dig hur du utformar din första relationsdatabas i en enkel databas i Azure SQL Database med hjälp av SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,30 +9,30 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459544"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990487"
 ---
-# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Självstudie: Skapa din första Azure SQL-databas med SSMS
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Självstudier: Utforma en relationsdatabas i en enkel databas i Azure SQL Database med hjälp av SSMS
 
-Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) för att:
+Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) för att:
 
 > [!div class="checklist"]
-> * Skapa en databas på Azure Portal*
-> * Skapade en brandväggsregel på servernivå på Azure-portalen
-> * Ansluta till databasen med SSMS
-> * Skapa tabeller med SSMS
-> * Massinläsa data med BCP
-> * Fråga efter data med SSMS
+> - Skapa en enkel databas med hjälp av Azure-portalen*
+> - Konfigurera en IP-brandväggsregel på servernivå med hjälp av Azure-portalen
+> - Ansluta till databasen med SSMS
+> - Skapa tabeller med SSMS
+> - Massinläsa data med BCP
+> - Fråga efter data med SSMS
 
 *Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 > [!NOTE]
-> I den här självstudiekursen använder vi [den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men du kan också välja [den vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
+> I den här självstudien använder vi enkel databas. Du skulle även kunna använda en pooldatabas i en elastisk pool eller en instansdatabas i en hanterad instans. Anslutning till en hanterad instans behandlas i de här snabbstarterna för hanterad instans: [Snabbstart: Konfigurera en virtuell Azure-dator för att ansluta till en hanterad Azure SQL Database-instans](sql-database-managed-instance-configure-vm.md) och [Snabbstart: Konfigurera en punkt-till-plats-anslutning till en hanterad Azure SQL Database-instans lokalt](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -45,90 +45,84 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-blank-database"></a>Skapa en tom databas
+## <a name="create-a-blank-single-database"></a>Skapa en enda tom databas
 
-Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagringsresurser](sql-database-service-tiers-dtu.md). Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och på en [Azure SQL Database-server](sql-database-features.md).
+En enkel databas i Azure SQL Database skapas med en definierad uppsättning beräknings-och lagringsresurser. Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och hanteras med hjälp av en [databasserver](sql-database-servers.md).
 
-Följ de här stegen om du vill skapa en tom SQL-databas.
+Följ dessa steg för att skapa en enkel tom databas.
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
-
-1. Välj **Databaser** i avsnittet Azure Marketplace på sidan **Nytt** och klicka sedan på **SQL Database** i avsnittet **Aktuellt**.
+2. Välj **Databaser** i avsnittet Azure Marketplace på sidan **Nytt** och klicka sedan på **SQL Database** i avsnittet **Aktuellt**.
 
    ![skapa tom databas](./media/sql-database-design-first-database/create-empty-database.png)
 
-   1. Fyll i följande information i **SQL Database**-formuläret (se föregående bild):
+3. Fyll i följande information i **SQL Database**-formuläret (se föregående bild):
 
-      | Inställning       | Föreslaget värde | Beskrivning |
-      | ------------ | ------------------ | ------------------------------------------------- |
-      | **Databasnamn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
-      | **Prenumeration** | *yourSubscription*  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-      | **Resursgrupp** | *yourResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions). |
-      | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. |
+    | Inställning       | Föreslaget värde | Beskrivning |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **Databasnamn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
+    | **Prenumeration** | *yourSubscription*  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
+    | **Resursgrupp** | *yourResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions). |
+    | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. |
 
-   1. Klicka på **Server** för att använda en befintlig server eller skapa och konfigurera en ny server för databasen. Antingen väljer du servern eller klicka på **Skapa en ny server** och fyller i följande information i formuläret **Ny server**:
+4. Klicka på **Server** för att använda en befintlig databasserver eller skapa och konfigurera en ny databasserver. Välj antingen en befintlig server eller klicka på **Skapa en ny server** och fyll i följande information i formuläret **Ny server**:
 
-      | Inställning       | Föreslaget värde | Beskrivning |
-      | ------------ | ------------------ | ------------------------------------------------- |
-      | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions). |
-      | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
-      | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-      | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | Inställning       | Föreslaget värde | Beskrivning |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions). |
+    | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
+    | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
+    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
-      ![skapa databas-server](./media/sql-database-design-first-database/create-database-server.png)
+    ![skapa databas-server](./media/sql-database-design-first-database/create-database-server.png)
 
-      Klicka på **Välj**.
+5. Klicka på **Välj**.
+6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Du kan undersöka alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå.
 
-   1. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Du kan undersöka alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå. I den här självstudiekursen använder vi [den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) **Standard**, men du kan också välja [den vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
+    När du har valt tjänstenivå, antalet DTU:er eller virtuella kärnor samt mängden lagring klickar du på **Använd**.
 
-      > [!IMPORTANT]
-      > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom följande: Storbritannien, norra; USA, västra centrala; Storbritannien, södra 2; Kina, östra; US DoD, centrala; Tyskland, centrala; US DoD, östra; US Gov, sydvästra; US Gov, södra centrala; Tyskland, nordöstra; Kina, norra; US Gov, östra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+7. Ange en **sortering** för den tomma databasen (använd standardvärdet för de här självstudierna). Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations).
 
-      När du har valt tjänstenivå, antalet DTU:er och mängden lagring klickar du på **Apply** (Använd).
+8. Nu när du har fyllt i **SQL Database**-formuläret klickar du på **Skapa** för att etablera den enkla databasen. Det här steget kan ta några minuter.
 
-   1. Ange en **sortering** för den tomma databasen (använd standardvärdet för de här självstudierna). Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations).
+9. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
-1. Nu när du har fyllt i**SQL Database**-formuläret klickar du på **Skapa** så att databasen etableras. Det här steget kan ta några minuter.
+   ![avisering](./media/sql-database-design-first-database/notification.png)
 
-1. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
+## <a name="create-a-server-level-ip-firewall-rule"></a>Skapa en IP-brandväggsregel på servernivå
 
-     ![avisering](./media/sql-database-design-first-database/notification.png)
+SQL Database-tjänsten skapar en IP-brandvägg på servernivå. Den här brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern såvida inte en brandväggsregel tillåter deras IP-adresser genom brandväggen. För att tillåta externa anslutningar till din databas måste du först lägga till en IP-brandväggsregel för din IP-adress (eller ditt IP-adressintervall). Följ de här stegen för att skapa en [IP-brandväggsregel på SQL Database-servernivå](sql-database-firewall-configure.md).
 
-## <a name="create-a-firewall-rule"></a>Skapa en brandväggsregel
-
-SQL Database-tjänsten skapar en brandvägg på servernivå. Brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill aktivera extern anslutning till din databas måste du först lägga till en regel för din IP-adress i brandväggen. Följ de här stegen för att skapa en [brandväggsregel på SQL Database-servernivå](sql-database-firewall-configure.md).
-
-> [!NOTE]
-> SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din administratör öppnar port 1433.
+> [!IMPORTANT]
+> SQL Database-tjänsten kommunicerar via port 1433. Om du försöker ansluta till den här tjänsten från ett företagsnätverk kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till din enkla databas om inte administratören öppnar port 1433.
 
 1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på *yourDatabase* på sidan **SQL-databaser**. Översiktssidan för databasen öppnas och visar det fullständigt kvalificerade **servernamnet** (till exempel *yourserver.database.windows.net*) tillsammans med alternativ för ytterligare konfiguration.
 
-1. Kopiera det här fullständigt kvalificerade servernamnet. Du behöver det när du ansluter till servern och dess databaser från SQL Server Management Studio.
+2. Kopiera det här fullständigt kvalificerade servernamnet. Du behöver det när du ansluter till servern och dess databaser från SQL Server Management Studio.
 
    ![servernamn](./media/sql-database-design-first-database/server-name.png)
 
-1. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
+3. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
 
-   ![brandväggsregler för server](./media/sql-database-design-first-database/server-firewall-rule.png)
+   ![IP-brandväggsregel på servernivå](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-   1. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
+4. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny IP-brandväggsregel. Med en IP-brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
-   1. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på SQL Database-servern skapas för din aktuella IP-adress.
+5. Klicka på **Spara**. En IP-brandväggsregel på servernivå för att öppna port 1433 på SQL Database-servern skapas för din aktuella IP-adress.
 
-   1. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
+6. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
-Din IP-adress kan nu passera genom brandväggen. Nu kan du ansluta till SQL-databasservern och dess databaser med hjälp av SQL Server Management Studio eller något annat verktyg. Se till att använda serveradmin-kontot som du skapade tidigare.
+Din IP-adress kan nu passera genom IP-brandväggen. Nu kan du ansluta till din enkla databas med hjälp av SQL Server Management Studio eller ett annat verktyg. Se till att använda serveradmin-kontot som du skapade tidigare.
 
 > [!IMPORTANT]
-> Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
+> Som standard är åtkomst via IP-brandväggen för SQL Database aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
 
 ## <a name="connect-to-the-database"></a>Ansluta till databasen
 
-Använd [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) för att upprätta en anslutning till Azure SQL Database-servern.
+Använd [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) för att upprätta en anslutning till din enkla databas.
 
 1. Öppna SQL Server Management Studio.
-
-1. I dialogrutan **Anslut till server** anger du följande information:
+2. I dialogrutan **Anslut till server** anger du följande information:
 
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -140,17 +134,17 @@ Använd [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ss
 
    ![Anslut till server](./media/sql-database-design-first-database/connect.png)
 
-   1. Klicka på **Alternativ** i dialogrutan **Anslut till server**. I avsnittet **Anslut till databas** anger du *yourDatabase* så att du ansluter till den här databasen.
+3. Klicka på **Alternativ** i dialogrutan **Anslut till server**. I avsnittet **Anslut till databas** anger du *yourDatabase* så att du ansluter till den här databasen.
 
-      ![ansluta till databas på server](./media/sql-database-design-first-database/options-connect-to-db.png)  
+    ![ansluta till databas på server](./media/sql-database-design-first-database/options-connect-to-db.png)  
 
-   1. Klicka på **Anslut**. Fönstret **Object Explorer** öppnas i SSMS.
+4. Klicka på **Anslut**. Fönstret **Object Explorer** öppnas i SSMS.
 
-1. I **Object Explorer** expanderar du **Databaser** och sedan *yourDatabase* för att visa objekten i exempeldatabasen.
+5. I **Object Explorer** expanderar du **Databaser** och sedan *yourDatabase* för att visa objekten i exempeldatabasen.
 
    ![databasobjekt](./media/sql-database-design-first-database/connected.png)  
 
-## <a name="create-tables-in-the-database"></a>Skapa tabeller i databasen
+## <a name="create-tables-in-your-database"></a>Skapa tabeller i databasen
 
 Skapa ett databasschema med fyra tabeller som visar ett studenthanteringssystem för universitet med [Transact-SQL](/sql/t-sql/language-reference):
 
@@ -168,7 +162,7 @@ Följande diagram visar hur tabellerna är relaterade till varandra. Vissa av ta
 
 1. I **Object Explorer** högerklickar du på *yourDatabase* och väljer sedan **Ny fråga**. Ett tomt frågefönster öppnas som är anslutet till databasen.
 
-1. I frågefönstret skriver du följande fråga om du vill skapa fyra tabeller i databasen:
+2. I frågefönstret skriver du följande fråga om du vill skapa fyra tabeller i databasen:
 
    ```sql
    -- Create Person table
@@ -213,7 +207,7 @@ Följande diagram visar hur tabellerna är relaterade till varandra. Vissa av ta
 
    ![Skapa tabeller](./media/sql-database-design-first-database/create-tables.png)
 
-1. Expandera noden **Tabeller** under *yourDatabase* i **Object Explorer** för att se de tabeller som du skapade.
+3. Expandera noden **Tabeller** under *yourDatabase* i **Object Explorer** för att se de tabeller som du skapade.
 
    ![skapade ssms-tabeller](./media/sql-database-design-first-database/ssms-tables-created.png)
 
@@ -221,17 +215,17 @@ Följande diagram visar hur tabellerna är relaterade till varandra. Vissa av ta
 
 1. Skapa en mapp med namnet *sampleData* i din mapp för nedladdningar för att lagra exempeldata till din databas.
 
-1. Högerklicka på följande länkar och spara dem i mappen *sampleData*.
+2. Högerklicka på följande länkar och spara dem i mappen *sampleData*.
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-1. Öppna en kommandotolk och navigera till mappen *sampleData*.
+3. Öppna en kommandotolk och navigera till mappen *sampleData*.
 
-1. Kör följande kommandon för att infoga exempeldata i tabellerna där du ersätter värdena för *server*, *databas*, *användare* och *lösenord* med värdena för din miljö.
-  
+4. Kör följande kommandon för att infoga exempeldata i tabellerna där du ersätter värdena för *server*, *databas*, *användare* och *lösenord* med värdena för din miljö.
+
    ```cmd
    bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
@@ -258,7 +252,7 @@ Kör följande frågor för att hämta information från databastabellerna. I [S
        AND Grade > 75
    ```
 
-1. I ett frågefönster kör du följande fråga:
+2. I ett frågefönster kör du följande fråga:
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
@@ -276,14 +270,14 @@ Kör följande frågor för att hämta information från databastabellerna. I [S
 I den här självstudien beskrivs många grundläggande databasuppgifter. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en databas
-> * Konfigurera en brandväggsregel
-> * Ansluta till databasen med [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
-> * Skapa tabeller
-> * Massinläsa data
-> * Fråga efter dessa data
+> - Skapa en enkel databas
+> - Konfigurera en IP-brandväggsregel på servernivå
+> - Ansluta till databasen med [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)
+> - Skapa tabeller
+> - Massinläsa data
+> - Fråga efter dessa data
 
 Gå vidare till fler självstudier för att lära dig att utforma en databas med Visual Studio och C#.
 
 > [!div class="nextstepaction"]
-> [Utforma en Azure SQL databas och ansluta med C# och ADO.NET](sql-database-design-first-database-csharp.md)
+> [Utforma en relationsdatabas i en enkel databas i Azure SQL Database C# och ADO.NET](sql-database-design-first-database-csharp.md)

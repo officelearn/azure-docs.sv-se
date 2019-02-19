@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6581c389cb7b1aa9c6ce6b9e84b56017264822f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7ef7216b2d3adf99b0c1fd9ace84991169106529
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232961"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976273"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Kom igång med Java-klientens SDK för Azure Media Services
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services-legacy"></a>Kom igång med Java-klientens SDK för Azure Media Services (äldre)
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Den här självstudien beskriver steg för steg hur du implementerar en enkel leveranstjänst för videoinnehåll med Azure Media Services med hjälp av Java-klientens SDK.
@@ -34,7 +35,7 @@ Följande krävs för att kunna genomföra kursen:
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * Den aktuella [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
-## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Så här: Importerar du Azure Media Services Java-klient SDK-paketet
+## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Anvisningar: Importera Java-klientens SDK-paket för Azure Media Services
 
 Om du vill börja använda Media Services SDK för Java lägger du till en referens till den aktuella versionen (0.9.8) av paketet `azure-media` från [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
@@ -48,7 +49,7 @@ Om ditt byggverktyg till exempel är `gradle` så lägger du till följande bero
 >[!NOTE]
 >Du hittar källkoden för Azure Media Services Java SDK i [GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Se till att växla till grenen 0,9 och inte till mastergrenen. 
 
-## <a name="how-to-use-azure-media-services-with-java"></a>Så här: Använder du Azure Media Services med Java
+## <a name="how-to-use-azure-media-services-with-java"></a>Anvisningar: Använda Azure Media Services med Java
 
 >[!NOTE]
 >När ditt Media Services-konto skapas läggs en slutpunkt för direktuppspelning av **standardtyp** till i kontot med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**.
@@ -58,10 +59,10 @@ Följande kod visar hur du skapar en tillgång, överför en mediefil till tillg
 Konfigurera ett Media Services-konto innan du använder den här koden. Information om hur du konfigurerar ett konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 
 Koden ansluter till Azure Media Services-API med hjälp av autentisering av Azure AD-tjänstens huvudnamn. Skapa ett Azure AD-program och ange värden för följande variabler i koden:
-* `tenant`: Azure AD-klientdomänen där Azure AD-programmet finns
+* `tenant`: Den Azure AD-klientorganisationsdomän där Azure AD-programmet finns
 * `clientId`: Klient-ID för Azure AD-programmet
-* `clientKey`: Klientnyckel för Azure AD-programmet
-* `restApiEndpoint`: Slutpunkt för REST API för Azure Media Services-konto
+* `clientKey`: Klientnyckeln för Azure AD-programmet
+* `restApiEndpoint`: REST API-slutpunkten för Azure Media Services-kontot
 
 Du kan skapa ett Azure AD-program och hämta föregående konfigurationsvärden från Azure Portal. Mer information finns i avsnittet **Service principal authentication** (autentiseringen med tjänstens huvudnamn) i [Getting started with Azure AD authentication using the Azure portal](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) (Komma igång med Azure AD-autentisering med Azure Portal).
 

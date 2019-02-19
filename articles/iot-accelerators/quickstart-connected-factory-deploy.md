@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602655"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098893"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Snabbstart: Testa en molnbaserad lösning för att hantera mina industriella IoT-enheter
 
@@ -42,7 +42,7 @@ På sidan **Skapa lösningen Ansluten fabrik** anger du ett unikt **lösningsnam
 
 Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. I den här snabbstarten använder vi **Visual Studio Enterprise** och **USA, östra**. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
 
-Klicka på **Skapa lösning** för att inleda distributionen. Processen tar minst fem minuter att köra:
+Klicka på **Skapa** för att inleda distributionen. Processen tar minst fem minuter att köra:
 
 ![Information om lösningen Ansluten fabrik](./media/quickstart-connected-factory-deploy/createform.png)
 
@@ -54,7 +54,7 @@ På sidan **Etablerade lösningar** klickar du på den nya lösningsacceleratorn
 
 ![Välj en ny lösning](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-Du kan visa information om lösningsacceleratorn Ansluten fabrik på panelen som visas. Välj **Lösningens instrumentpanel** för att visa lösningsacceleratorn Ansluten fabrik:
+Du kan visa information om lösningsacceleratorn Ansluten fabrik på sidan som visas. Välj **Go to your Solution accelerator** (Gå till din lösningsaccelerator) för att visa lösningsacceleratorn Ansluten fabrik:
 
 ![Lösningens panel](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 

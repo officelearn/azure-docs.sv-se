@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 604f135cc3dffdb9ac6533826eff6926ad5467df
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099166"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117756"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Självstudier: Etablera Azure Data Box Gateway i VMware (förhandsversion)
 
@@ -66,7 +66,7 @@ Innan du distribuerar en virtuell enhet kontrollerar du att:
 
 Innan du börjar:
 
-- Granska nätverkskraven för att distribuera en Data Box Gateway och konfigurera datacenternätverket enligt kraven. Mer information finns i [Nätverkskrav för Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
+- Granska nätverkskraven för att distribuera en Data Box Gateway och konfigurera datacenternätverket enligt kraven. Mer information finns i [Nätverkskrav för Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Se till att den minsta Internetbandbredden är 20 Mbps för att enheten ska fungera optimalt.
 
 ## <a name="check-the-host-system"></a>Kontrollera värdsystemet
@@ -77,7 +77,7 @@ För att skapa en virtuell enhet behöver du följande:
  
   * Minst 4 kärnor.
   * Minst 8 GB RAM. 
-  * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till Internet. 
+  * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till Internet.
   * En operativsystemdisk på 250 GB.
   * En 2 TB virtuell disk för data.
 * VMware vSphere-klient i systemet för att hantera ESXi-värden.
@@ -89,7 +89,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
 1. Kopiera avbildningen av den virtuella enheten i ditt system. Du har laddat ned den här virtuella avbildningen (två filer) via Azure-portalen. Anteckna den plats dit du kopierade avbildningen eftersom du använder den här avbildningen senare under proceduren.
 
-2. Logga in på ESXi-servern med vSphere-webbklienten. Du måste ha administratörsbehörighet för att kunna skapa en virtuell dator.
+2. Logga in på ESXi-servern via en webbläsare på följande URL: `https://<IP address of the ESXi server>`. Du måste ha administratörsbehörighet för att kunna skapa en virtuell dator.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -149,20 +149,24 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
-    Rulla ned tills du ser **New hard disk** (Ny hårddisk) och expandera den för att visa inställningarna. Ställ in **Virtual Device Node** (Nod för virtuell enhet) på **IDE controller 0** (IDE-styrenhet 0). Klicka på **Nästa**.
+    Rulla ned tills du ser **New hard disk** (Ny hårddisk) och expandera den för att visa inställningarna. Ställ in **Virtual Device Node** (Nod för virtuell enhet) på **IDE controller 0** (IDE-styrenhet 0).
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-27. På sidan **Ready to Complete** (Redo att slutföra)granskar du alla inställningar associerade med den nya virtuella datorn. Kontrollera att CPU är 4, minnet är 8 192 MB, nätverksgränssnittet är 1 och hårddisk 2 har IDE-styrenhet 0. Klicka på **Slutför**. 
+17. (Valfritt) *Utför bara det här steget om du använder VMware ESXi Server 6.7*. På sidan **Customize settings** (Anpassa inställningar) klickar du på **VM options** (VM-alternativ). Gå till **Boot options > Firmware** (Startalternativ > Inbyggd programvara) och ändra den till **BIOS**. Som standard är värdet inställt på EFI. Klicka på **Nästa**.
+
+    ![](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+
+18. På sidan **Ready to Complete** (Redo att slutföra)granskar du alla inställningar associerade med den nya virtuella datorn. Kontrollera att CPU är 4, minnet är 8 192 MB, nätverksgränssnittet är 1 och hårddisk 2 har IDE-styrenhet 0. Klicka på **Slutför**.
    
     ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
     ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-Den virtuella datorn är nu etablerad. Ett meddelande om detta visas och den nya virtuella datorn har lagts till i listan över virtuella datorer. 
+Den virtuella datorn är nu etablerad. Ett meddelande om detta visas och den nya virtuella datorn har lagts till i listan över virtuella datorer.
 
 ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-Nästa steg är att aktivera datorn och hämta IP-adressen.
+Nästa steg är att starta den här virtuella datorn och hämta IP-adressen.
 
 > [!NOTE]
 > Vi rekommenderar att du inte installerar VMware-verktyg på din virtuella enhet (enligt etableringen ovan). Installation av VMware-verktyg resulterar i en konfiguration som inte stöds.

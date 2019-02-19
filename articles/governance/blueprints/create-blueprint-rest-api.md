@@ -4,17 +4,17 @@ description: Använd Azure-skisser för att skapa, definiera och distribuera art
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566993"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989974"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definiera och tilldela en Azure-skiss med REST API
 
@@ -329,6 +329,12 @@ Värdet för `{BlueprintVersion}` är en sträng med bokstäver, siffror och bin
 
 När en skiss har publicerats med hjälp av REST API kan den tilldelas till en prenumeration. Tilldela skissen som du skapade till någon av prenumerationerna i din hierarki med hanteringsgrupper. Om skissen sparas till en prenumeration kan den endast tilldelas till den prenumerationen. **Begärandetexten** anger vilken skiss som tilldelas, anger namnet och platsen för resursgrupper i skissdefinitionen och anger alla parametrar som definierades i skissen och som används av en eller flera kopplade artefakter.
 
+I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
+
+- `{tenantId}` – Ersätt med ditt klientorganisations-ID
+- `{YourMG}` – Ersätt med ID för din hanteringsgrupp
+- `{subscriptionId}` – Ersätt med ditt prenumerations-ID
+
 1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är statiskt (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men tjänstobjektets ID varierar beroende på klientorganisation. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
 
    - REST API-URI
@@ -387,6 +393,25 @@ När en skiss har publicerats med hjälp av REST API kan den tilldelas till en p
          "location": "westus"
      }
      ```
+
+   - Användartilldelad hanterad identitet
+
+     En skisstilldelning kan även använda en [användartilldelad hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md). I det här fallet ändras **identitets**delen av begärandetexten på följande sätt.  Ersätt `{yourRG}` och `{userIdentity}` med ditt resursgruppnamn och namnet på din användartilldelade hanterade identitet.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     Den **användartilldelade hanterade identiteten** kan finnas i någon av de prenumerationer och resursgrupper som användaren som tilldelade skissen har behörighet till.
+
+     > [!IMPORTANT]
+     > Skisser hanterar inte den användartilldelade hanterade identiteten. Användarna är ansvariga för att tilldela tillräckligt med roller och behörigheter, för att inte skisstilldelningen ska misslyckas.
 
 ## <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
 

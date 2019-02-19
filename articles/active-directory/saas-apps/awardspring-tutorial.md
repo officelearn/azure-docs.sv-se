@@ -4,258 +4,242 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2f115be6-4fbe-42aa-9319-7462e7a75736
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2018
+ms.topic: tutorial
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: d633a9a4d162b921c360572ea8c6a942e4788d54
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a34e92cd7f8817481354646ad60e14557d66e0c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168370"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166580"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>Självstudier: Azure Active Directory-integrering med AwardSpring
 
-I den här självstudien får du lära dig hur du integrerar AwardSpring med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera AwardSpring med Azure Active Directory (Azure AD).
+När du integrerar AwardSpring med Azure AD innebär det följande fördelar:
 
-Integrera AwardSpring med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till AwardSpring från Azure AD.
+* Du kan göra så att dina användare automatiskt loggas in på AwardSpring (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till AwardSpring.
-- Du kan aktivera användarna att automatiskt få loggat in på AwardSpring (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med AwardSpring behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med AwardSpring, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En AwardSpring enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* AwardSpring-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till AwardSpring från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-awardspring-from-the-gallery"></a>Att lägga till AwardSpring från galleriet
-För att konfigurera integrering av AwardSpring i Azure AD, som du behöver lägga till AwardSpring från galleriet i din lista över hanterade SaaS-appar.
+* AwardSpring har stöd för **SP- och IDP**-initierad enkel inloggning
+* AwardSpring stöder **just-in-time**-användaretablering
+
+## <a name="adding-awardspring-from-the-gallery"></a>Lägga till AwardSpring från galleriet
+
+För att konfigurera integrering av AwardSpring i Azure AD behöver du lägga till AwardSpring från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till AwardSpring från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **AwardSpring**väljer **AwardSpring** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![AwardSpring i resultatlistan](./media/awardspring-tutorial/tutorial_awardspring_addfromgallery.png)
+4. Skriv **AwardSpring** i sökrutan, välj **AwardSpring** i resultatpanelen och klicka sedan på knappen **Lägg till** för att lägga till programmet.
+
+    ![AwardSpring i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med AwardSpring baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet får du konfigurera och testa enkel inloggning i Azure AD med AwardSpring baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i AwardSpring upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i AwardSpring är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i AwardSpring upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med AwardSpring, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD för AwardSpring, måste du utföra följande:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en testanvändare AwardSpring](#create-an-awardspring-test-user)**  – du har en motsvarighet för Britta Simon i AwardSpring som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+2. **[Konfigurera enkel inloggning för AwardSpring](#configure-awardspring-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa AwardSpring-testanvändare](#create-awardspring-test-user)** – för att ha en motsvarighet för Britta Simon i AwardSpring som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt AwardSpring program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med AwardSpring:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med AwardSpring:
 
-1. I Azure-portalen på den **AwardSpring** program integration-sidan klickar du på **enkel inloggning**.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **AwardSpring** på [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/awardspring-tutorial/tutorial_awardspring_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **AwardSpring domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![AwardSpring domän och URL: er med enkel inloggning för information](./media/awardspring-tutorial/tutorial_awardspring_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.awardspring.com/SignIn/SamlMetaData`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+
+    ![Information om enkel inloggning med AwardSpring-domäner och -URL:er](common/idp-intiated.png)
+
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.awardspring.com/SignIn/SamlMetaData`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.awardspring.com/SignIn/SamlAcs`
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![AwardSpring domän och URL: er med enkel inloggning för information](./media/awardspring-tutorial/tutorial_awardspring_url1.png)
+    ![Information om enkel inloggning med AwardSpring-domäner och -URL:er](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.awardspring.com/`
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [AwardSpring klienten supportteamet](mailto:support@awardspring.com) att hämta dessa värden. 
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<subdomain>.awardspring.com/`
 
-1. AwardSpring program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. Följande skärmbild visar ett exempel på detta.
-    
-    ![Konfigurera enkel inloggning](./media/awardspring-tutorial/tutorial_awardSpring_attribute.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för AwardSpring-klienten](mailto:support@awardspring.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
-    
-    | Attributnamn | Attributvärde |
+6. AwardSpring-programmet förväntar sig att SAML-försäkran har ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+
+    ![image](common/edit-attribute.png)
+
+7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
+
+    |  Namn | Källattribut |
     | ---------------| --------------- |    
     | Förnamn | user.givenname |
     | Efternamn | user.surname |
     | E-post | user.mail |
     | Användarnamn | user.userprinicipalname |
-    | StudentID | < Student ID > |
+    | StudentID | < Student-ID > |
 
     > [!NOTE]
-    > Attributet StudentID mappas med det faktiska Student-ID som ska skickas tillbaka i anspråk. Kontakta [AwardSpring klienten supportteamet](mailto:support@awardspring.com) att hämta det här värdet.
+    > Attributet StudentID mappas med det faktiska student-ID:t som ska skickas tillbaka i anspråk. Kontakta [supportteamet för AwardSpring-klienten](mailto:support@awardspring.com) för att få det här värdet.
 
-    a. Ta bort befintliga attribut och lägga till nya attribut. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![Konfigurera enkel inloggning](./media/awardspring-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Konfigurera enkel inloggning](./media/awardspring-tutorial/tutorial_attribute_05.png)
-    
+    ![image](common/new-attribute-details.png)
+
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-    
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
 
-    d. Lämna **Namnrymd** tom.
-    
-    d. Klicka på **Ok**
+    c. Lämna **Namnrymd** tom.
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    d. Välj Källa som **Attribut**.
 
-    ![Länk för hämtning av certifikat](./media/awardspring-tutorial/tutorial_awardspring_certificate.png) 
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-1. Klicka på **spara** knappen.
+    f. Klicka på **Ok**
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/awardspring-tutorial/tutorial_general_400.png)
-    
-1. Att konfigurera enkel inloggning på **AwardSpring** sida, som du behöver skicka de hämtade **XML-Metadata för** till [AwardSpring supportteamet](mailto:support@awardspring.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    g. Klicka på **Spara**.
+
+8. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+9. I avsnittet **Konfigurera AwardSpring** kopierar du lämpliga URL:er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-awardspring-single-sign-on"></a>Konfigurera enkel inloggning med AwardSpring
+
+För att konfigurera enkel inloggning på **AwardSpring**-sidan behöver du skicka nedladdad **federationsmetadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för AwardSpring](mailto:support@awardspring.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/awardspring-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/awardspring-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/awardspring-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/awardspring-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-an-awardspring-test-user"></a>Skapa en AwardSpring testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i AwardSpring. AwardSpring stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt AwardSpring om det inte finns ännu.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
->[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [AwardSpring supportteamet](maito:support@awardspring.com).
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till AwardSpring.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **AwardSpring**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till AwardSpring.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-![Tilldela rollen][200] 
+2. Välj **AwardSpring** i programlistan.
 
-**Om du vill tilldela Britta Simon AwardSpring, utför du följande steg:**
+    ![AwardSpring-länken i programlistan](common/all-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Tilldela användare][201] 
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I listan med program väljer **AwardSpring**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken AwardSpring i listan med program](./media/awardspring-tutorial/tutorial_awardspring_app.png)  
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Länken ”användare och grupper”][202]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Fönstret Lägg till tilldelning][203]
+### <a name="create-awardspring-test-user"></a>Skapa AwardSpring-testanvändare
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+I det här avsnittet skapas en användare som heter Britta Simon i AwardSpring. AwardSpring har stöd för användaretablering enligt just-in-time, och det är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i AwardSpring skapas en ny efter autentisering.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+> [!Note]
+> Om du behöver skapa en användare manuellt kan du kontakta [supportteamet för AwardSpring](maito:support@awardspring.com).
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen AwardSpring i åtkomstpanelen du bör få automatiskt loggat in på ditt AwardSpring program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på AwardSpring-panelen på åtkomstpanelen bör du automatiskt loggas in i AwardSpring-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/awardspring-tutorial/tutorial_general_01.png
-[2]: ./media/awardspring-tutorial/tutorial_general_02.png
-[3]: ./media/awardspring-tutorial/tutorial_general_03.png
-[4]: ./media/awardspring-tutorial/tutorial_general_04.png
-
-[100]: ./media/awardspring-tutorial/tutorial_general_100.png
-
-[200]: ./media/awardspring-tutorial/tutorial_general_200.png
-[201]: ./media/awardspring-tutorial/tutorial_general_201.png
-[202]: ./media/awardspring-tutorial/tutorial_general_202.png
-[203]: ./media/awardspring-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

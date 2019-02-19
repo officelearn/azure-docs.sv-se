@@ -4,255 +4,234 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 333394c1-b5a7-489c-8f7b-d1a5b4e782ea
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/30/2017
+ms.topic: tutorial
+ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 1da86d67356bf1c03f62b505d5bb339e4fe2cdfb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e5f129ecb3dc62c2aa500bfb9645c9e20f142e6c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179301"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Självstudier: Azure Active Directory-integrering med Benefitsolver
 
-I den här självstudien får du lära dig hur du integrerar Benefitsolver med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Benefitsolver med Azure Active Directory (AD Azure).
+Integreringen av Benefitsolver med Azure AD medför följande fördelar:
 
-Integrera Benefitsolver med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Benefitsolver.
+* Du kan göra så att dina användare automatiskt loggas in på Benefitsolver (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Benefitsolver.
-- Du kan aktivera användarna att automatiskt få loggat in på Benefitsolver (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Benefitsolver behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Benefitsolver, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Benefitsolver enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Benefitsolver-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Benefitsolver från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-benefitsolver-from-the-gallery"></a>Att lägga till Benefitsolver från galleriet
-För att konfigurera integrering av Benefitsolver i Azure AD, som du behöver lägga till Benefitsolver från galleriet i din lista över hanterade SaaS-appar.
+* Benefitsolver har stöd för **SP**-initierad enkel inloggning
+
+## <a name="adding-benefitsolver-from-the-gallery"></a>Lägga till Benefitsolver från galleriet
+
+För att konfigurera integrering av Benefitsolver i Azure AD behöver du lägga till Benefitsolver från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Benefitsolver från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Benefitsolver**väljer **Benefitsolver** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Benefitsolver i resultatlistan](./media/benefitsolver-tutorial/tutorial_benefitsolver_addfromgallery.png)
+4. I sökrutan skriver du **Benefitsolver**, väljer **Benefitsolver** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+
+    ![Benefitsolver i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Benefitsolver baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD till Benefitsolver baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Benefitsolver upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Benefitsolver är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Benefitsolver upprättas.
-
-I Benefitsolver, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med Benefitsolver, måste du utföra följande byggblock:
+För att konfigurera och testa enkel inloggning för Azure AD med Benefitsolver behöver du slutföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en testanvändare Benefitsolver](#create-a-benefitsolver-test-user)**  – du har en motsvarighet för Britta Simon i Benefitsolver som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+2. **[Konfigurera enkel inloggning för Benefitsolver](#configure-benefitsolver-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Benefitsolver-testanvändare](#create-benefitsolver-test-user)** – för att ha en motsvarighet för Britta Simon i Benefitsolver som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Benefitsolver program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Benefitsolver:**
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Benefitsolver:
 
-1. I Azure-portalen på den **Benefitsolver** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Benefitsolver** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/benefitsolver-tutorial/tutorial_benefitsolver_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **Benefitsolver domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Benefitsolver domän och URL: er med enkel inloggning för information](./media/benefitsolver-tutorial/tutorial_benefitsolver_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `http://<companyname>.benefitsolver.com`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.benefitsolver.com/saml20`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    c. I den **svars-URL** textrutan anger du URL: `https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`
+    ![Benefitsolver-domän och information om URL:er för enkel inloggning](common/sp-identifier-reply.png)
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och svars-URL. Kontakta [Benefitsolver klienten supportteamet](https://www.businessolver.com/contact) att hämta dessa värden.
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `http://<companyname>.benefitsolver.com`
 
-1. Programmets Benefitsolver förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar till din **saml-tokenattribut** konfiguration.
+    b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://<companyname>.benefitsolver.com/saml20`
 
-    ![Benefitsolver attributet avsnittet](./media/benefitsolver-tutorial/tutorial_attribute.png)
-
-1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
-    
-    | Attributnamn| Attributvärde|
-    |---------------|----------------|
-    | ClientID | Du behöver det här värdet från dina [Benefitsolver klienten supportteamet](https://www.businessolver.com/contact).|
-    | ClientKey | Du behöver det här värdet från dina [Benefitsolver klienten supportteamet](https://www.businessolver.com/contact).|
-    | LogoutURL | Du behöver det här värdet från dina [Benefitsolver klienten supportteamet](https://www.businessolver.com/contact).|
-    | EmployeeID | Du behöver det här värdet från dina [Benefitsolver klienten supportteamet](https://www.businessolver.com/contact).|
-
-    a. Klicka på Lägg till attribut för att öppna dialogrutan Lägg till attribut.
-
-    ![Benefitsolver attributet avsnittet](./media/benefitsolver-tutorial/tutorial_attribute_04.png)
-    
-    ![Benefitsolver attributet avsnittet](./media/benefitsolver-tutorial/tutorial_attribute_05.png)
-
-    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-    
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
-    
-    d. Klicka på **OK**.
-
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
-
-    ![Länk för hämtning av certifikat](./media/benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
-
-1. Klicka på **spara** knappen.
-
-    ![Konfigurera enkel inloggning – knappen Spara](./media/benefitsolver-tutorial/tutorial_general_400.png)
-
-1. Att konfigurera enkel inloggning på **Benefitsolver** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Benefitsolver supportteamet](https://www.businessolver.com/contact).
+    c. I textrutan **Svars-URL** skriver du in URL:en med hjälp av följande mönster: `https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`
 
     > [!NOTE]
-    > Supportteamet Benefitsolver har att göra den faktiska SSO-konfigurationen. Du får ett meddelande när enkel inloggning har aktiverats för din prenumeration.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [kundsupporten för Benefitsolver](https://www.businessolver.com/contact) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+5. Benefitsolver-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+    ![image](common/edit-attribute.png)
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-   ![Skapa en Azure AD-testanvändare][100]
+    | Namn |  Källattribut|
+    |---------------|----------------|
+    | ClientID | Du behöver hämta det här värdet från [kundsupporten för Benefitsolver](https://www.businessolver.com/contact).|
+    | ClientKey | Du behöver hämta det här värdet från [kundsupporten för Benefitsolver](https://www.businessolver.com/contact).|
+    | LogoutURL | Du behöver hämta det här värdet från [kundsupporten för Benefitsolver](https://www.businessolver.com/contact).|
+    | EmployeeID | Du behöver hämta det här värdet från [kundsupporten för Benefitsolver](https://www.businessolver.com/contact).|
+    | | |
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    ![image](common/new-save-attribute.png)
 
-    ![Azure Active Directory-knappen](./media/benefitsolver-tutorial/create_aaduser_01.png)
+    ![image](common/new-attribute-details.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/benefitsolver-tutorial/create_aaduser_02.png)
+    c. Lämna **Namnrymd** tom.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    d. Välj Källa som **Attribut**.
 
-    ![Knappen Lägg till](./media/benefitsolver-tutorial/create_aaduser_03.png)
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-1. I den **användaren** dialogrutan utför följande steg:
+    f. Klicka på **Ok**
 
-    ![Dialogrutan användare](./media/benefitsolver-tutorial/create_aaduser_04.png)
+    g. Klicka på **Spara**.
 
-    a. I den **namn** skriver **BrittaSimon**.
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+8. I avsnittet **Konfigurera Benefitsolver** kopierar du lämpliga URL:er enligt dina behov.
 
-    d. Klicka på **Skapa**.
- 
-### <a name="create-a-benefitsolver-test-user"></a>Skapa en Benefitsolver testanvändare
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-För att aktivera Azure AD-användare att logga in på Benefitsolver, måste de etableras i Benefitsolver. När det gäller Benefitsolver är anställda i ditt program som fyllts via en inventering från din personalinformationssystemet (vanligtvis natt).
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-benefitsolver-single-sign-on"></a>Konfigurera enkel inloggning för Benefitsolver
+
+För att konfigurera enkel inloggning på **Benefitsolver**-sidan behöver du skicka nedladdad **metadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Benefitsolver](https://www.businessolver.com/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!NOTE]
-> Du kan använda alla andra Benefitsolver användare konto verktyg för att skapa eller API: er som tillhandahålls av Benefitsolver att etablera AAD-användarkonton.
+> Supportteamet för Benefitsolver måste utföra själva konfigurationen av enkel inloggning. Du får ett meddelande när enkel inloggning har aktiverats för din prenumeration.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Benefitsolver.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Tilldela rollen][200] 
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Om du vill tilldela Britta Simon Benefitsolver, utför du följande steg:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Tilldela användare][201] 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. I listan med program väljer **Benefitsolver**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Länken Benefitsolver i listan med program](./media/benefitsolver-tutorial/tutorial_benefitsolver_app.png)  
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Länken ”användare och grupper”][202]
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+    d. Klicka på **Skapa**.
 
-    ![Fönstret Lägg till tilldelning][203]
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Benefitsolver.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Benefitsolver**.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I programlistan väljer du **Benefitsolver**.
+
+    ![Länken för Benefitsolver i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-benefitsolver-test-user"></a>Skapa Benefitsolver-testanvändare
+
+I det här avsnittet skapar du en användare med namnet Britta Simon i Benefitsolver. Ta hjälp av  [supportteamet för Benefitsolver](https://www.businessolver.com/contact) för att lägga till användare på Benefitsolver-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Benefitsolver i åtkomstpanelen du bör få automatiskt loggat in på ditt Benefitsolver program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Benefitsolver-panelen i åtkomstpanelen bör du automatiskt loggas in på Benefitsolver som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/benefitsolver-tutorial/tutorial_general_01.png
-[2]: ./media/benefitsolver-tutorial/tutorial_general_02.png
-[3]: ./media/benefitsolver-tutorial/tutorial_general_03.png
-[4]: ./media/benefitsolver-tutorial/tutorial_general_04.png
-
-[100]: ./media/benefitsolver-tutorial/tutorial_general_100.png
-
-[200]: ./media/benefitsolver-tutorial/tutorial_general_200.png
-[201]: ./media/benefitsolver-tutorial/tutorial_general_201.png
-[202]: ./media/benefitsolver-tutorial/tutorial_general_202.png
-[203]: ./media/benefitsolver-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

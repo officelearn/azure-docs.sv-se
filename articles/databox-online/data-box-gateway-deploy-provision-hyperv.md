@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 3187c516ef22a97d2af89e08d5b99ad7a00d875d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: cf47919ead890f0ad0e89646dde26276ebfb1127
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166465"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109749"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Självstudie: Etablera Azure Data Box Gateway i Hyper-V (förhandsversion)
+# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Självstudier: Etablera Azure Data Box Gateway i Hyper-V (förhandsversion)
 
 ## <a name="overview"></a>Översikt
 
@@ -66,7 +66,7 @@ Innan du distribuerar en enhet kontrollerar du att:
 
 Innan du börjar:
 
-- Granska nätverkskraven för att distribuera en Data Box Gateway och konfigurera datacenternätverket enligt kraven. Mer information finns i [Nätverkskrav för Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
+- Granska nätverkskraven för att distribuera en Data Box Gateway och konfigurera datacenternätverket enligt kraven. Mer information finns i [Nätverkskrav för Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Se till att den minsta Internetbandbredden är 20 Mbps för att enheten ska fungera optimalt.
 
 

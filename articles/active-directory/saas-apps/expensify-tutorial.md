@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b31d22990b79cb37ea5b3b89c699b9511f8d87cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453901"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Självstudier: Azure Active Directory-katalogintegrering med Expensify
 
@@ -104,9 +105,12 @@ Utför följande steg för att konfigurera Azure AD för enkel inloggning med Ex
 
     ![Information om enkel inloggning med Expensify-domäner och -URL:er](common/sp-identifier.png)
 
-    a. I rutan **Inloggnings-URL** anger du en URL: `https://www.expensify.com/authentication/saml/login`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://www.expensify.com`
+
+    > [!NOTE]
+    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [supportteamet för Expensify-klienten](mailto:help@expensify.com) för att få det här värdet.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -125,18 +129,18 @@ Utför följande steg för att konfigurera Azure AD för enkel inloggning med Ex
 ### <a name="configure-expensify-single-sign-on"></a>Konfigurera enkel inloggning med Expensify
 
 Om du vill aktivera enkel inloggning i Expensify, måste du först aktivera **domänkontroll** i programmet. Du kan aktivera domänkontroll i programmet med hjälp av stegen som beskrivs [här](https://help.expensify.com/domain-control). Behöver du mer stöd kan du ta hjälp av [supportteamet för Expensify-klienten](mailto:help@expensify.com). När du har aktiverat domänkontroll följer du dessa steg:
-   
+
 ![Konfigurera enkel inloggning](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
+
 1. Logga in på ditt Expensify-program.
-    
+
 2. Klicka på **Inställningar** i den vänstra rutan och gå till **SAML**.
-    
+
 3. Växla alternativet **SAML-inloggning** så att du väljer **Aktiverad**.
-    
+
 4. Öppna hämtade federationsmetadata från anteckningarna i Azure AD, kopiera innehållet och klistra in det i textrutan för **metadata för identitetsprovidern**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
@@ -191,7 +195,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 I det här avsnittet ska du skapa en användare med namnet Britta Simon i Expensify. Ta hjälp av [supportteamet för Expensify-klienten](mailto:help@expensify.com) för att lägga till användare på Expensify-plattformen.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
@@ -204,4 +208,3 @@ När du klickar på Expensify-panelen i åtkomstpanelen så borde du automatiskt
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

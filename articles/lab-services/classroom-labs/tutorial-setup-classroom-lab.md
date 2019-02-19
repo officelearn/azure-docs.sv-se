@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095761"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998526"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudier: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -28,7 +28,7 @@ I de här självstudierna gör du följande:
 
 > [!div class="checklist"]
 > * Skapa ett klassrumslabb
-> * Konfigurera klassrumslabbet
+> * Lägga till användare i labbet
 > * Skicka en registreringslänk till eleverna
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -43,13 +43,12 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 2. Välj **Logga in** och ange dina autentiseringsuppgifter. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
 3. Utför följande i fönstret **Nytt labb**: 
     1. Ange ett **namn** på ditt labb. 
-    2. Ange det högsta **antalet användare** som är tillåtet i labbet. 
+    2. Ange maximalt **antal virtuella datorer** i labbet. Du kan öka eller minska antalet virtuella datorer när du har skapat labbet eller i ett befintligt labb. Mer information finns i avsnittet om att [uppdatera antalet virtuella datorer i ett labb](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Välj **Spara**.
 
         ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. På sidan för att **välja specifikationer för virtuell dator** utför du följande steg:
     1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. 
-    2. Välj den **region** där du vill att de virtuella datorerna ska skapas. 
     3. Välj den **VM-avbildning**  som ska användas för att skapa virtuella datorer i labbet. 
     4. Välj **Nästa**.
 
@@ -69,17 +68,15 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 7. När konfigurationen av mallen har slutförts visas följande sida: 
 
     ![Konfigurera mallsidan när det är klart](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. Följande steg är valfria i den här självstudien: 
+8. På sidan **Konfigurera mall** utför du följande steg: De här stegen är **valfria** för självstudien.
     1. Starta mallen för den virtuella datorn genom att välja **Starta**.
     2. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. 
     3. Installera och konfigurera programvaran på mallen för den virtuella datorn. 
     4. **Stoppa** den virtuella datorn.  
     5. Ange en **beskrivning** för mallen
-
-        ![Nästa på sidan Konfigurera mall](../media/tutorial-setup-classroom-lab/configure-template-next.png)
 9. Välj **Nästa** på mallsidan. 
 10. På sidan **Publicera mallen** utför du någon av följande åtgärder. 
-    1. Om du vill publicera mallen omedelbart markerar du kryssrutan för *I understand I can't modify the template after publishing (Jag förstår att jag inte kan ändra mallen efter publicering). Den här processen kan bara göras en gång och den kan ta upp till en timme*. Välj sedan **Publicera**.  
+    1. För att publicera mallen omedelbart väljer du **Publicera**.  
 
         > [!WARNING]
         > När du väl har publicerat kan du inte ångra publiceringen. 
@@ -103,7 +100,9 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
 1. Välj **Användare** på den vänstra menyn. Som standard är alternativet **Begränsa åtkomst** aktiverat. När den här inställningen är aktiverad kan inte användaren registrera med labbet även om användaren har registreringslänken, såvida inte användaren finns i listan över användare. Endast användare i listan kan registreras med labbet genom att använda registreringslänken som du skickar. I den här proceduren ska du lägga till användare i listan. Du kan också stänga av **Begränsa åtkomst**, vilket gör att användare registrerar sig med labbet så länge de har registreringslänken. 
 2. Välj **Lägg till användare** i verktygsfältet. 
-3. På sidan **Lägg till användare** anger du e-postadresser för användare i separata rader eller på en enda rad, avgränsade med semikolon. 
+
+    ![Knappen Lägg till användare](../media/how-to-configure-student-usage/add-users-button.png)
+1. På sidan **Lägg till användare** anger du e-postadresser för användare i separata rader eller på en enda rad, avgränsade med semikolon. 
 
     ![Lägga till e-postadress till användare](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Välj **Spara**. Du ser användarnas e-postadresser och deras status (registrerad eller inte) i listan. 

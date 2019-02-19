@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: Ansluta till och fråga efter data i Azure SQL Database | Microsoft Docs'
+title: 'SSMS: Ansluta till och fråga efter data i en Azure SQL-databas | Microsoft Docs'
 description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av SQL Server Management Studio (SSMS). Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor mot och redigera data.
 keywords: anslut till sql database, sql server management studio
 services: sql-database
@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 095d7cf43d071d3857160d05e721bf7ac165cba2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: 5c5b32eaf3066abe4489d909e224d2aa65e884a7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756792"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238036"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använda SQL Server Management Studio för att ansluta till och fråga i en Azure SQL-databas
 
@@ -26,19 +26,35 @@ I den här snabbstarten får du använda [SQL Server Management Studio][ssms-ins
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här kursen behöver du:
+- En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  || Enskild databas | Hanterad instans |
+  |:--- |:--- |:---|
+  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
+  |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
+  |Läsa in data|AdventureWorks som lästs in enligt snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md)-fil från [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-* En konfigurerad brandväggsregel på servernivå. Mer information finns i [Skapa brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md).
+  > [!IMPORTANT]
+  > Skripten i den här artikeln är skrivna för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
 
 ## <a name="install-the-latest-ssms"></a>Installera den senaste SSMS
 
 Innan du börjar bör du kontrollera att du har installerat senaste [SSMS][ssms-install-latest-84g]. 
 
-## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
+## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet samt inloggningsinformationen för de kommande procedurerna.
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+
+2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
+
+3. På **översiktssidan** granskar du det fullständiga servernamnet intill **Servernamn** för en enskild databas eller det fullständiga servernamnet intill **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**.
 
 ## <a name="connect-to-your-database"></a>Ansluta till databasen
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: fca4b7cc59bf191094400892a37addf1023e2f85
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2e17ab5cfe51f3772148cc730c982671d602a79a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472957"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340492"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine-baserade team analys och AI-miljö 
 Den [Data Science Virtual Machine](overview.md) (DSVM) tillhandahåller en omfattande miljö i Azure-plattformen med färdiga programvara för artificiell intelligens (AI) och dataanalys. 
@@ -47,7 +47,7 @@ Den här artikelserien ger vägledning och pekare för var och en av ovanståend
 * [Övervakning av](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) och [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Loggning och granskning](https://docs.microsoft.com/azure/security/azure-log-audit)
 * [Rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)
-* [Principinställningen och tvingande](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)
+* [Principinställningen och tvingande](../../governance/policy/overview.md)
 * [Programvara mot skadlig kod](https://docs.microsoft.com/azure/security/azure-security-antimalware)
 * [Kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Identifiering och styrning](https://docs.microsoft.com/azure/data-catalog/)

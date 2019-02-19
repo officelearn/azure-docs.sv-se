@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a9e5be3c1dcbf4461bd00b2b1ce530aa16e441ef
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c2cc1b5829f3bb530c01e2bfc3538006bb8663cb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962136"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339319"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database Managed Instance resursbegränsningar
 
@@ -40,7 +40,7 @@ Azure SQL Database Managed Instance kan distribueras på två maskinvara generat
 | Compute | 8, 16, 24 virtuella kärnor | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Minne | 7 GB per vCore | 5.1 GB per vCore |
 | In-Memory OLTP-minne | 3 GB per vCore | 2,6 GB per vCore |
-| Maximalt lagringsutrymme (Allmänt) |  8 TB | 1 TB |
+| Maximalt lagringsutrymme (Allmänt) |  8 TB | 8 TB |
 | Maximalt lagringsutrymme (affärskritisk) | 1 TB | 1 TB, 2 TB och 4 TB beroende på antalet kärnor |
 
 ### <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper

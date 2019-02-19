@@ -3,21 +3,21 @@ title: Format för Geofence GeoJSON-data i Azure Maps | Microsoft Docs
 description: Lär dig mer om format för Geofence GeoJSON-data i Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2018
+ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa39661c8ecc4b594478def7d0cc9be3006294c4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008253"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339642"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing GeoJSON-data
 
-Azure Maps [geofence-området hämta](https://docs.microsoft.com/rest/api/map/spatial/getgeofencepreview) och [POST geofence-området](https://docs.microsoft.com/rest/api/map/spatial/postgeofencepreview) API: er låter dig hämta närhet av en koordinat i förhållande till en angiven geofence-området eller uppsättning avgränsningstecken. Den här artikeln beskriver hur du förbereder geofence-området-data som kan användas i Azure Maps få och publicera API: et.
+Azure Maps [geofence-området hämta](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) och [POST geofence-området](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) API: er låter dig hämta närhet av en koordinat i förhållande till en angiven geofence-området eller uppsättning avgränsningstecken. Den här artikeln beskriver hur du förbereder geofence-området-data som kan användas i Azure Maps få och publicera API: et.
 
 Data för geofence-området eller uppsättning geofence-områdena representeras av `Feature` objekt och `FeatureCollection` objekt i `GeoJSON` format, som definieras i [rfc7946](https://tools.ietf.org/html/rfc7946). Förutom den:
 

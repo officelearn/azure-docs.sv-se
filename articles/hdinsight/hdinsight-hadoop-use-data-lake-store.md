@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 9dabf3fd37c591525625969ac0af1873477b84d6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: fe195ba485e6653cee4a45f4a33067bf536334ad
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311444"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338622"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Använda Data Lake Storage Gen1 med Azure HDInsight-kluster
 
@@ -56,11 +56,7 @@ Med Data Lake Storage Gen1 som ett ytterligare lagringskonto påverkas inte pres
 
 ## <a name="use-data-lake-storage-gen1-as-default-storage"></a>Använda Data Lake Storage Gen1 som standardlagring
 
-När HDInsight distribueras med Data Lake Storage Gen1 som standardlagringsutrymme lagras klusterrelaterade filer på följande plats:
-
-    adl://mydatalakestore/<cluster_root_path>/
-
-där `<cluster_root_path>` är namnet på en mapp som du skapar i Data Lake Storage. Du kan använda samma Data Lake Storage-konto för flera kluster genom att ange en rotsökväg för varje kluster. Så du kan ha en konfiguration enligt följande:
+När HDInsight distribueras med Data Lake Storage Gen1 som standardlagringsutrymme lagras klusterrelaterade filer i `adl://mydatalakestore/<cluster_root_path>/`, där `<cluster_root_path>` är namnet på en mapp som du skapar i Data Lake Storage. Du kan använda samma Data Lake Storage-konto för flera kluster genom att ange en rotsökväg för varje kluster. Så du kan ha en konfiguration enligt följande:
 
 * Cluster1 kan använda sökvägen `adl://mydatalakestore/cluster1storage`
 * Cluster2 kan använda sökvägen `adl://mydatalakestore/cluster2storage`

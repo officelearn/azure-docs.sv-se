@@ -1,7 +1,7 @@
 ---
 title: Testa Speech Services kostnadsfritt
 titleSuffix: Azure Cognitive Services
-description: Det är enkelt och prisvärt att komma igång med Speech-tjänsten. En 30-dagars kostnadsfri utvärderingsversion kan du identifiera vad tjänsten kan göra och bestämmer om det är rätt för programmets behov.
+description: Det är enkelt och prisvärt att komma igång med Speech Services. En 30-dagars kostnadsfri utvärderingsversion kan du identifiera vad tjänsten kan göra och bestämmer om det är rätt för programmets behov.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 203cb07c9450a590b45caa66092fe0199d985058
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978161"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342685"
 ---
-# <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
+# <a name="try-speech-services-for-free"></a>Testa Speech Services kostnadsfritt
 
-Det är enkelt och prisvärt att komma igång med Speech-tjänsten. En 30-dagars kostnadsfri utvärderingsversion kan du identifiera vad tjänsten kan göra och bestämmer om det är rätt för programmets behov.
+Det är enkelt och prisvärt att komma igång med Speech Services. En 30-dagars kostnadsfri utvärderingsversion kan du identifiera vad tjänsten kan göra och bestämmer om det är rätt för programmets behov.
 
-Om du behöver mer tid kan du registrera dig för en Microsoft Azure-konto – medföljer 200 USD i tjänstkredit som du kan använda mot en betald prenumeration på upp till 30 dagar gäller tal-tjänst.
+Om du behöver mer tid kan du registrera dig för en Microsoft Azure-konto – medföljer 200 USD i tjänstkredit som du kan använda mot en betald prenumeration Speech Services i upp till 30 dagar.
 
-Slutligen erbjuder Speech-tjänsten en nivå för ledigt, med låga volymer som lämpar sig för att utveckla program. Du kan behålla den här kostnadsfria prenumerationen, även när din tjänstkredit går ut.
+Slutligen erbjuder Speech Services en nivå för ledigt, med låga volymer som lämpar sig för att utveckla program. Du kan behålla den här kostnadsfria prenumerationen, även när din tjänstkredit går ut.
 
 ## <a name="free-trial"></a>Kostnadsfri utvärderingsversion
 
@@ -38,7 +38,7 @@ Att registrera dig för en 30-dagars kostnadsfri utvärderingsversion:
 
    ![Fliken för tal-tjänster](media/index/try-speech-api-free-trial1.png)
 
-1. Under **taltjänster**väljer den **hämta API-nyckel** knappen.
+1. Under **Taltjänster**väljer den **hämta API-nyckel** knappen.
 
    ![API-nyckel](media/index/try-speech-api-free-trial2.png)
 
@@ -50,24 +50,24 @@ Att registrera dig för en 30-dagars kostnadsfri utvärderingsversion:
 
     Du kan registrera dig för ett kostnadsfritt microsoftkonto på den [Microsoft kontoportalen](https://account.microsoft.com/account). Kom igång genom att klicka på **logga in med Microsoft** och klicka sedan, när du ombeds logga in på **skapa ett.** Följ stegen för att skapa och verifiera ditt nya Microsoft-konto.
 
-När du loggar in på prova Cognitive Services, börjar din kostnadsfria utvärderingsversion. Visade webbsidan visar alla Azure Cognitive Services-tjänster som du för närvarande har utvärderingsprenumerationer. Två prenumerationsnycklar visas bredvid **taltjänster**. Du kan använda någon av nycklarna i dina program.
+När du loggar in på prova Cognitive Services, börjar din kostnadsfria utvärderingsversion. Visade webbsidan visar alla Azure Cognitive Services-tjänster som du för närvarande har utvärderingsprenumerationer. Två prenumerationsnycklar visas bredvid **Taltjänster**. Du kan använda någon av nycklarna i dina program.
 
 > [!NOTE]
 > Alla kostnadsfria utvärderingsversioner är i regionen USA, västra. När du gör förfrågningar måste du använda den `westus` slutpunkt.
 
 ## <a name="new-azure-account"></a>Nya Azure-konto
 
-Nya Azure-konton får en kredit på 200 servicekrediter som är tillgänglig i upp till 30 dagar. Du kan använda krediten att utforska ytterligare Speech-tjänsten eller för att starta apputveckling.
+Nya Azure-konton får en kredit på 200 servicekrediter som är tillgänglig i upp till 30 dagar. Du kan använda krediten att utforska ytterligare Speech Services eller för att starta apputveckling.
 
 Om du vill registrera dig för en ny Azure-konto går du till den [Azure registreringssidan](https://azure.microsoft.com/free/ai/), klickar du på **starta kostnadsfri** och skapa en ny Azure-konto med ditt Microsoft-konto.
 
 Du kan registrera dig för ett kostnadsfritt microsoftkonto på den [Microsoft kontoportalen](https://account.microsoft.com/account). Kom igång genom att klicka på **logga in med Microsoft** och klicka sedan, när du ombeds logga in på **skapa ett.** Följ stegen för att skapa och verifiera ditt nya Microsoft-konto.
 
-När du har skapat ditt Azure-konto, följer du stegen i nästa avsnitt för att starta en prenumeration på Speech-tjänsten.
+När du har skapat ditt Azure-konto, följer du stegen i nästa avsnitt för att starta en prenumeration på Speech Services.
 
 ## <a name="create-a-speech-resource-in-azure"></a>Skapa en tal-resurs i Azure
 
-Lägga till en tal-tjänstresurs (kostnadsfritt eller betalt nivå) på Azure-kontot:
+Lägga till en resurs med Speech Services (nivå kostnadsfritt eller betalt) på Azure-kontot:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ditt Microsoft-konto.
 
@@ -89,7 +89,7 @@ Lägga till en tal-tjänstresurs (kostnadsfritt eller betalt nivå) på Azure-ko
 
     * Ett namn för den nya resursen. Namnet hjälper dig att skilja mellan flera prenumerationer för samma tjänst.
     * Välj den prenumeration som den nya resursen är associerad med för att fastställa hur avgiften faktureras.
-    * Välj den region där resursen ska användas. Tal-tjänsten är för närvarande tillgänglig i Asien, Europa, norra och västra USA-regioner.
+    * Välj den region där resursen ska användas. Speech Services är för närvarande tillgängligt i östra Asien, Europa, norra och västra USA-regioner.
     * Välj antingen en kostnadsfri eller betald prisnivå. Klicka på **Visa fullständiga prisuppgifter** fullständig information om priser och användning kvoter för varje nivå.
     * Skapa en ny resursgrupp för den här prenumerationen med tal eller tilldela prenumerationen till en befintlig resursgrupp. Kan du spara dina olika Azure-prenumerationer som ordnas resursgrupperna.
     * För åtkomst till prenumerationen i framtiden, väljer du den **fäst på instrumentpanelen** markerar du kryssrutan.
@@ -114,7 +114,7 @@ Om du vill växla från en prenumeration till en annan, Ersätt till exempel nä
 > Kostnadsfri utvärderingsversion nycklar skapas i västra USA (`westus`) region. En prenumeration som skapats via Azure-instrumentpanelen kanske vissa andra region om du vill.
 
 * Om programmet använder ett [tal SDK](speech-sdk.md), ange regionskod, t.ex `westus`, när du skapar en tal-konfiguration.
-* Om ditt program använder en av Speech-tjänsten [REST API: er](rest-apis.md), regionen är en del av slutpunkten URI som du använder när du gör förfrågningar.
+* Om ditt program använder en av de Taltjänster [REST API: er](rest-apis.md), regionen är en del av slutpunkten URI som du använder när du gör förfrågningar.
 
 Nycklar som har skapats för en region är endast giltiga i den regionen. Försök att använda dem med andra regioner leder autentiseringsfel.
 

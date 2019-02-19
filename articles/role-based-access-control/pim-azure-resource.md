@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst till Azure-resurser med Privileged Identity Management (PIM)
-description: Lär dig mer om hur du hanterar åtkomst till Azure-resurser med Privileged Identity Management (PIM) och rollbaserad åtkomstkontroll (RBAC).
+title: Hantera åtkomst till Azure-resurser med Azure AD Privileged Identity Management (PIM)
+description: Lär dig mer om hur du hanterar åtkomst till Azure-resurser med Azure Active Directory Privileged Identity Management (PIM) och rollbaserad åtkomstkontroll (RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 141cba29f5027ce092775d97c1abe9ecf11badf5
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 757068034868744b408c9402b521a0e4c73950f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436053"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338214"
 ---
-# <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>Hantera åtkomst till Azure-resurser med Privileged Identity Management
+# <a name="manage-access-to-azure-resources-with-azure-ad-privileged-identity-management"></a>Hantera åtkomst till Azure-resurser med Azure AD Privileged Identity Management
 
 Du kan använda Azure Active Directory Privileged Identity Management (PIM) för att skydda Privilegierade konton från skadliga cyberattacker, för att sänka exponeringstiden för privilegier och öka din synlighet av deras användning via rapporter och aviseringar. PIM gör detta genom att begränsa användare till bara att utföra på sina privilegier just-in-time ”(JIT), eller genom att tilldela behörigheter för en förkortad tid efter vilken privilegier återkallas automatiskt. 
 
@@ -33,4 +33,4 @@ Du kan nu använda PIM med Azure rollbaserad åtkomstkontroll (RBAC) för att ha
 - Tilldela tillfällig åtkomst till Azure-resurser för Snabbuppgifter eller på anrop scheman
 - Få aviseringar när nya användare eller grupper har tilldelats åtkomst till resurser, och när de aktiverar berättigade uppgifter
 
-Mer information finns i [översikt över rollbaserad åtkomstkontroll i Azure PIM](../active-directory/privileged-identity-management/azure-pim-resource-rbac.md).
+Mer information finns i [vad är Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).

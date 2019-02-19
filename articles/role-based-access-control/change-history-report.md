@@ -1,6 +1,6 @@
 ---
-title: Visa aktivitetsloggar för RBAC ändringar i Azure | Microsoft Docs
-description: Visa aktivitet ändringar i loggen för rollbaserad åtkomstkontroll (RBAC) för de senaste 90 dagarna.
+title: Visa aktivitetsloggar för RBAC ändras till Azure-resurser | Microsoft Docs
+description: Visa aktivitetsloggar för rollbaserad åtkomstkontroll (RBAC) ändringar till Azure-resurser för de senaste 90 dagarna.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117656"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338826"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>Visa aktivitetsloggar för RBAC ändringar
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visa aktivitetsloggar för RBAC ändringar till Azure-resurser
 
-Ibland behöver du information om rollbaserad åtkomstkontroll (RBAC) ändringar, till exempel för granskning eller felsökning. Varje gång någon gör ändringar i rolltilldelningar eller rolldefinitioner dina prenumerationer, ändringarna loggas [Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md). Du kan visa aktivitetsloggar för att se alla ändringar som RBAC för de senaste 90 dagarna.
+Ibland behöver du information om rollbaserad åtkomstkontroll (RBAC) ändringar till Azure-resurser, till exempel för granskning eller felsökning. Varje gång någon gör ändringar i rolltilldelningar eller rolldefinitioner dina prenumerationer, ändringarna loggas [Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md). Du kan visa aktivitetsloggar för att se alla ändringar som RBAC för de senaste 90 dagarna.
 
 ## <a name="operations-that-are-logged"></a>Åtgärder som är inloggad
 

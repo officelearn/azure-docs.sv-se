@@ -1,6 +1,6 @@
 ---
-title: Felsöka RBAC i Azure | Microsoft Docs
-description: Felsök problem med Azure rollbaserad åtkomstkontroll (RBAC).
+title: Felsöka RBAC för Azure-resurser | Microsoft Docs
+description: Felsök problem med rollbaserad åtkomstkontroll (RBAC för Azure-resurser).
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411245"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342481"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>Felsöka RBAC i Azure
+# <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
 
-Den här artikeln innehåller vanliga frågor och svar om rollbaserad åtkomstkontroll (RBAC), så att du vet vad som händer när du använder roller i Azure-portalen och kan felsöka problem med åtkomst till.
+Den här artikeln innehåller vanliga frågor och svar om rollbaserad åtkomstkontroll (RBAC) för Azure-resurser, så att du vet vad som händer när du använder roller i Azure-portalen och kan felsöka problem med åtkomst till.
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problem med RBAC-rolltilldelningar
 
@@ -105,7 +105,7 @@ Dessa objekt kräver **skriva** åtkomst till den **VM**:
 Dessa kräver **skriva** åtkomst till både den **VM**, och **resursgrupp** (tillsammans med domännamn) som den tillhör:  
 
 * Tillgänglighetsuppsättning  
-* Belastningsutjämnade uppsättningen  
+* Belastningsutjämnad uppsättning  
 * Varningsregler  
 
 Fråga din administratör om du inte åtkomst till någon av dessa paneler för deltagaråtkomst till resursgruppen.
@@ -119,6 +119,6 @@ Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) k
 Användaren kan klicka på **plattformsfunktioner** fliken och klicka sedan på **alla inställningar** att visa vissa inställningar som är relaterade till en funktionsapp (liknar en webbapp), men de kan inte ändra någon av dessa inställningar.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hantera åtkomst med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
-* [Visa aktivitetsloggar för RBAC ändringar](change-history-report.md)
+* [Hantera åtkomst till Azure-resurser med RBAC och Azure portal](role-assignments-portal.md)
+* [Visa aktivitetsloggar för RBAC ändringar till Azure-resurser](change-history-report.md)
 

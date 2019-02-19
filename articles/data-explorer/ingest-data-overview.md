@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
-ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 2/18/2019
+ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354628"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340186"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Data Explorer-datainmatning
 
@@ -39,15 +39,21 @@ Datautforskaren i Azure data management service, som är ansvarig för datainmat
 
 Azure Data Explorer stöder flera inmatning metoder, var och en med sin egen målscenarier, fördelar och nackdelar. Azure Data Explorer erbjuder pipelines och anslutningar till vanliga tjänster, programmässiga datainmatning med hjälp av SDK: er och direktåtkomst till motorn för utforskning.
 
-### <a name="ingestion-using-pipelines"></a>Inmatning med pipelines
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>Inmatning med pipelines, anslutningar och plugin-program
 
-Azure Data Explorer stöder för närvarande pipelinen Event Hub, som kan hanteras med hjälp av guiden hantering i Azure-portalen. Mer information finns i [ Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md).
+Azure Data Explorer stöder för närvarande:
 
-### <a name="ingestion-using-connectors-and-plugins"></a>Datainmatning med hjälp av kopplingar och plugin-program
+* Event Grid pipeline, som kan hanteras med hjälp av guiden hantering i Azure-portalen. Mer information finns i [mata in Azure-Blobar i Azure Data Explorer](ingest-data-event-grid.md).
 
-* Azure Data Explorer stöder Logstash plugin-programmet. Mer information finns i [Logstash utdata-Plugin för Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+* Event Hub pipeline, som kan hanteras med hjälp av guiden hantering i Azure-portalen. Mer information finns i [mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md).
 
-* Azure Data Explorer stöder Kafka-kopplingen. Mer information finns i [ Snabbstart: Mata in data från Kafka i Azure Data Explorer](ingest-data-kafka.md)
+* Logstash plugin-programmet finns i [mata in data från Logstash till Datautforskaren i Azure](ingest-data-logstash.md).
+
+* Kafka-anslutningstjänsten finns i [mata in data från Kafka i Azure Data Explorer](ingest-data-kafka.md).
+
+### <a name="ingestion-using-integration-services"></a>Inmatning som använder integrationstjänster
+
+* Azure Data Factory (ADF), en fullständigt hanterad dataintegreringstjänst för analytiska arbetsbelastningar i Azure för att kopiera data till och från Azure Data Explorer. Mer information finns i [kopiera data till och från Azure Data Explorer med Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Programmässig inmatning
 
@@ -131,21 +137,27 @@ Formatera data så att Azure Data Explorer kan parsa den för alla inmatningen a
 Schemamappning hjälper till att binda datafält som källa till mål tabellkolumner.
 
 * [Mappning av CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (valfritt) fungerar med alla ordningstalet-baserade format. Det kan utföras med hjälp av Kommandoparametern som inmatning eller [färdiga för tabellen](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) och refererade från Kommandoparametern som inmatning.
-* [JSON-mappning](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoriskt) och [Avro mappning](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatorisk) kan utföras med hjälp av inmatning kommandoparameter eller [färdiga för tabellen](/azure/kusto/management/tables#create-ingestion-mapping) och som refereras från kommandot inmatning parameter.
+* [JSON-mappning](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoriskt) och [Avro mappning](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatorisk) kan utföras med hjälp av Kommandoparametern som inmatning. De kan även vara [färdiga för tabellen](/azure/kusto/management/tables#create-ingestion-mapping) och refererade från Kommandoparametern som inmatning.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
+> [Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data från Kafka i Azure Data Explorer](ingest-data-kafka.md)
+> [Mata in data med Event Grid-prenumeration i Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data med hjälp av Python-biblioteket](python-ingest-data.md) i Azure Data Explorer
+> [Mata in data från Kafka i Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data med hjälp av Azure Data Explorer nod-bibliotek](node-ingest-data.md)
+> [Mata in data med hjälp av Azure Data Explorer Python-bibliotek](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)](net-standard-ingest-data.md)
+> [Mata in data med hjälp av Azure Data Explorer nod-bibliotek](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Mata in data från Logstash till Datautforskaren i Azure](ingest-data-logstash.md)

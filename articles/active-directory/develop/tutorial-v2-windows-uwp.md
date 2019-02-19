@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 02/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0be784cdee0fd98a81c182f33dea987481aac3
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329140"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408824"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph API från en Universal Windows Platform-program (XAML)
 
@@ -74,14 +74,11 @@ Den här guiden skapar ett program som visar en knapp som frågar Graph API, en 
 2. Kopiera och klistra in följande kommando i den **Pakethanterarkonsolen** fönster:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
+    Install-Package Microsoft.Identity.Client
     ```
 
 > [!NOTE]
-> Det här kommandot installerar [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL förvärvar, cachelagrar och uppdaterar användartoken som har åtkomst till API: er som skyddas av Azure Active Directory v2.0.
-
-> [!NOTE]
-> Den här självstudien som inte används men den senaste versionen av MSAL.NET, men vi arbetar med att uppdatera den.
+> Det här kommandot installerar [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL förvärvar, cachelagrar och uppdaterar användartoken som har åtkomst till API: er som skyddas av Azure Active Directory v2.0.
 
 ## <a name="initialize-msal"></a>Initiera MSAL
 Det här steget kan du skapa en klass för att hantera interaktion med MSAL, till exempel hantering av token.
@@ -159,7 +156,8 @@ Det här avsnittet visar hur du använder MSAL för att hämta en token för Mic
     
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, App.PublicClientApp.Users.FirstOrDefault());
+                var accounts = await App.PublicClientApp.GetAccountsAsync();
+                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
             }
             catch (MsalUiRequiredException ex)
             {
@@ -203,15 +201,15 @@ Den `AcquireTokenSilentAsync` metoden hanterar token anskaffning och förnyelser
 
 Slutligen den `AcquireTokenSilentAsync` metoden misslyckas. Orsaker till felet kan vara att användare har loggat ut eller ändrat sitt lösenord på en annan enhet. När MSAL upptäcker att problemet kan lösas genom att kräva en interaktiv åtgärd, det utlöses en `MsalUiRequiredException` undantag. Programmet kan hantera det här undantaget på två sätt:
 
-* Det kan göra ett anrop mot `AcquireTokenAsync` omedelbart. Det här anropet resulterar i uppmanar användaren att logga in. Det här mönstret används vanligtvis i online-program där det finns inga tillgängliga offline innehåll för användaren. I exemplet som genererats av den här guidade konfigurationen följer mönstret. Du kan se den i åtgärden först gången du kör exemplet. 
-    * Eftersom ingen användare har använt programmet, `PublicClientApp.Users.FirstOrDefault()` innehåller ett null-värde och ett `MsalUiRequiredException` undantagsfel.
-    * Koden i exemplet hanterar undantaget genom att anropa `AcquireTokenAsync`. Det här anropet resulterar i uppmanar användaren att logga in.
+* Det kan göra ett anrop mot `AcquireTokenAsync` omedelbart. Det här anropet resulterar i uppmanar användaren att logga in. Det här mönstret används vanligtvis i online-program där det finns inga tillgängliga offline innehåll för användaren. I exemplet som genererats av den här guidade konfigurationen följer mönstret. Du kan se den i åtgärden först gången du kör exemplet.
+  * Eftersom ingen användare har använt programmet, `accounts.FirstOrDefault()` innehåller ett null-värde och ett `MsalUiRequiredException` undantagsfel.
+  * Koden i exemplet hanterar undantaget genom att anropa `AcquireTokenAsync`. Det här anropet resulterar i uppmanar användaren att logga in.
 
 * Eller i stället det utgör en visuell indikering för användare att det krävs en interaktiv inloggning. Sedan kan de välja rätt tid att logga in. Eller programmet kan försöka `AcquireTokenSilentAsync` senare. Det här mönstret används ofta, när användarna kan använda andra programfunktionen utan avbrott. Ett exempel är när offline innehållet är tillgängligt i programmet. I det här fallet kan användare bestämma när de vill logga in på antingen komma åt den skyddade resursen eller uppdatera gammal information. Eller annan programmet kan bestämma att försöka igen `AcquireTokenSilentAsync` när nätverket har återställts efter det var inte tillgänglig för tillfället.
 
 ## <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Anropa Microsoft Graph API med hjälp av den token som du precis fick
 
-* Lägg till följande nya metod till **MainPage.xaml.cs**. Den här metoden används för att göra en `GET` begäran mot Graph API med hjälp av ett [auktorisera]-huvud:
+* Lägg till följande nya metod till **MainPage.xaml.cs**. Den här metoden används för att göra en `GET` begäran mot Graph API med hjälp av en `Authorization` rubrik:
 
     ```csharp
     /// <summary>
@@ -255,11 +253,12 @@ I det här exempelprogrammet den `GetHttpContentWithToken` metod för att göra 
     /// </summary>
     private void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
-        if (App.PublicClientApp.Users.Any())
+        var accounts = await App.PublicClientApp.GetAccountsAsync();
+        if (accounts.Any())
         {
             try
             {
-                App.PublicClientApp.Remove(App.PublicClientApp.Users.FirstOrDefault());
+                App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
                 this.ResultText.Text = "User has signed-out";
                 this.CallGraphButton.Visibility = Visibility.Visible;
                 this.SignOutButton.Visibility = Visibility.Collapsed;
@@ -333,7 +332,7 @@ Om du vill aktivera Windows-integrerad autentisering när den används med en fe
     ```
 
 > [!IMPORTANT]
-> Windows-integrerad autentisering har inte konfigurerats som standard för det här exemplet. Program som begär *Företagsautentisering* eller *delade användarcertifikat* funktioner kräver en högre säkerhetsnivå för verifiering av Windows Store. Dessutom bör alla utvecklare att utföra den högre nivån verifieringsmetod. Den här inställningen aktiveras endast om du behöver Windows-integrerad autentisering med en federerad Azure Active Directory-domän.
+> [Integrerad Windows-autentisering](https://aka.ms/msal-net-iwa) konfigureras inte som standard för det här exemplet. Program som begär *Företagsautentisering* eller *delade användarcertifikat* funktioner kräver en högre säkerhetsnivå för verifiering av Windows Store. Dessutom bör alla utvecklare att utföra den högre nivån verifieringsmetod. Den här inställningen aktiveras endast om du behöver Windows-integrerad autentisering med en federerad Azure Active Directory-domän.
 
 ## <a name="test-your-code"></a>Testa koden
 

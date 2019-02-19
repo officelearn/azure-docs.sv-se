@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456229"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342312"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 
@@ -74,10 +74,13 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
     ![Navigeringsfönster][8]
 
     > [!IMPORTANT]
-    > På servernivå granskningsloggarna skrivs till **Tilläggsblobbar** i Azure Blob storage på din Azure-prenumeration.
+    > Granskningsloggarna skrivs till **Tilläggsblobbar** i Azure Blob storage på din Azure-prenumeration.
     >
-    > * **Premium Storage** är för närvarande **stöds inte** av Tilläggsblobbar.
-    > * **Storage i det virtuella nätverket** är för närvarande **stöds inte**.
+    > - Alla storage-typer (v1, v2, blob) stöds.
+    > - Alla lagringskonfigurationer replikering stöds.
+    > - **Premiumlagring** är för närvarande **stöds inte**.
+    > - **Storage i det virtuella nätverket** är för närvarande **stöds inte**.
+    > - **Storage bakom en brandvägg** är för närvarande **stöds inte**
 
 8. Klicka på **Spara**.
 

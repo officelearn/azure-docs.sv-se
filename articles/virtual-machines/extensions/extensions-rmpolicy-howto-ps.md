@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dc68127f2d19426c372be027634bb2563dbfa6c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980881"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341665"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Använda Azure Policy för att begränsa installation av tillägg på virtuella Windows-datorer
 
@@ -30,7 +30,7 @@ Den här självstudien används Azure PowerShell i Cloud Shell, som uppdateras t
 
 ## <a name="create-a-rules-file"></a>Skapa en regelfil
 
-För att begränsa vilka tillägg som kan installeras men, du måste ha en [regeln](/azure/azure-policy/policy-definition#policy-rule) att tillhandahålla logik för att identifiera tillägget.
+För att begränsa vilka tillägg som kan installeras men, du måste ha en [regeln](../../governance/policy/concepts/definition-structure.md#policy-rule) att tillhandahålla logik för att identifiera tillägget.
 
 Det här exemplet visar hur du neka tillägg som publicerats av ”Microsoft.Compute” genom att skapa en regelfil i Azure Cloud Shell, men om du arbetar lokalt i PowerShell kan du också skapa en lokal fil och ersätta sökvägen ($home/clouddrive) med sökvägen till den lokal fil på din dator.
 
@@ -70,7 +70,7 @@ När du är klar trycker du på den **Ctrl + O** och sedan **RETUR** att spara f
 
 ## <a name="create-a-parameters-file"></a>Skapa en fil med parametrar
 
-Du behöver också en [parametrar](/azure/azure-policy/policy-definition#parameters) -fil som skapar en struktur som du kan använda för att skicka en lista över tillägg ska blockeras. 
+Du behöver också en [parametrar](../../governance/policy/concepts/definition-structure.md#parameters) -fil som skapar en struktur som du kan använda för att skicka en lista över tillägg ska blockeras. 
 
 Det här exemplet visar hur du skapar en fil med parametrar för virtuella datorer i Cloud Shell, men om du arbetar lokalt i PowerShell kan du också skapa en lokal fil och ersätta sökvägen ($home/clouddrive) med sökvägen till den lokala filen på din dator.
 
@@ -166,4 +166,4 @@ Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [Azure Policy](../../azure-policy/azure-policy-introduction.md).
+Mer information finns i [Azure Policy](../../governance/policy/overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst med RBAC och REST-API – Azure | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och REST API. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
+title: Hantera åtkomst till Azure resoruces med RBAC och REST-API – Azure | Microsoft Docs
+description: Lär dig mer om att hantera åtkomst till Azure-resurser för användare, grupper och program med hjälp av rollbaserad åtkomstkontroll (RBAC) och REST API. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 859a410a4ff9204e8e52fbd2cc3b38823f4bb830
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435226"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338418"
 ---
-# <a name="manage-access-using-rbac-and-the-rest-api"></a>Hantera åtkomst med RBAC och REST API
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Hantera åtkomst till Azure-resurser med RBAC och REST API
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är sättet som du hantera åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och REST API.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och REST API.
 
 ## <a name="list-access"></a>Visar åtkomst
 
-I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar. Vill se rolltilldelningar kan du använda en av de [rolltilldelningar – lista](/rest/api/authorization/roleassignments/list) REST API: er. För att förfina dina resultat, anger du ett scope och eventuellt ett filter. För att anropa API: et, måste du ha åtkomst till den `Microsoft.Authorization/roleAssignments/read` igen i det specificerade omfånget. Flera [inbyggda roller](built-in-roles.md) beviljas åtkomst till den här åtgärden.
+I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar. Vill se rolltilldelningar kan du använda en av de [rolltilldelningar – lista](/rest/api/authorization/roleassignments/list) REST API: er. För att förfina dina resultat, anger du ett scope och eventuellt ett filter. För att anropa API: et, måste du ha åtkomst till den `Microsoft.Authorization/roleAssignments/read` igen i det specificerade omfånget. Flera [inbyggda roller för Azure-resurser](built-in-roles.md) beviljas åtkomst till den här åtgärden.
 
 1. Börja med följande begäran:
 
@@ -38,7 +38,7 @@ I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar. Vill s
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rolltilldelningar.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -77,7 +77,7 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar. Du kan skapa en roll
     
 1. I URI: N, Ersätt *{omfång}* med omfånget för rolltilldelningen.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -105,7 +105,7 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Ta bort en r
 
 1. I URI: N, Ersätt *{omfång}* med omfattning för att ta bort rolltilldelningen.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -117,4 +117,4 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Ta bort en r
 
 - [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Azure REST API-referens](/rest/api/azure/)
-- [Skapa anpassade roller med hjälp av REST-API](custom-roles-rest.md)
+- [Skapa anpassade roller för Azure-resurser med hjälp av REST-API](custom-roles-rest.md)

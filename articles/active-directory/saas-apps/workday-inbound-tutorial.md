@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175412"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340118"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -261,7 +261,7 @@ I det här steget ska du skapa en säkerhetsgrupp för integrering med obegräns
     * **Obegränsad:** Alla medlemmar i gruppen kan komma åt alla data-instanser som skyddas av gruppen.
     * **Begränsad:** Alla medlemmar i gruppen säkerhet har sammanhangsberoende åtkomst till en delmängd av data-instanser (rader) som gruppen har åtkomst till.
   * Kontakta din partner för integrering av Workday att välja lämpliga säkerhetsgruppstypen för integrering.
-  * När du vet vilken grupp, Välj **integrering Systemsäkerhetsgrupp (obegränsat)** eller **integrering Systemsäkerhetsgrupp (obegränsat)** från den **typ för Backups säkerhet Gruppen** listrutan.
+  * När du vet vilken grupp, Välj **integrering Systemsäkerhetsgrupp (obegränsat)** eller **integrering Systemsäkerhetsgrupp (Constrained)** från den **typen Backups säkerhetsgrupp**  listrutan.
 
     ![CreateSecurity grupp](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity grupp")
 

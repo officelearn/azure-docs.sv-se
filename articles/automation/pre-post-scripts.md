@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3010f4ec86b25c51fae2ce8f64238ec8815adca8
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236013"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408688"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
 
@@ -52,7 +52,19 @@ Genom att klicka i uppdateringsdistributionen kör, får du ytterligare informat
 
 ## <a name="passing-parameters"></a>Skicka parametrar
 
-När du konfigurerar före och efter skript, du kan skicka parametrar precis som schemaläggning av en runbook. Parametrar definieras vid tidpunkten för uppdatering distributionen skapas. Skript före och efter kräver att parametrarna är av typen `String`. Om du behöver en annan objekttyp kan du skicka den till en annan typ med `[System.Convert]` eller hantera den med din egen logik.
+När du konfigurerar före och efter skript, du kan skicka parametrar precis som schemaläggning av en runbook. Parametrar definieras vid tidpunkten för uppdatering distributionen skapas. Skript före och efter stöder följande typer:
+
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [enkel]
+* [dubbla]
+* [DateTime]
+* [string]
+
+Om du behöver en annan objekttyp kan skicka du den till en annan typ med egen logik i runbooken.
 
 Utöver standard runbook-parametrarna erbjuds en extra parameter. Den här parametern är **SoftwareUpdateConfigurationRunContext**. Den här parametern är en JSON-sträng, och om du definierar parametern i skriptet före eller efter det skickas automatiskt av uppdateringsdistributionen. Parametern innehåller information om distributionen av uppdateringen, vilket är en delmängd av information som returneras av den [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) i följande tabell visar de egenskaper som anges i variabeln:
 

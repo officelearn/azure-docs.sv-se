@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497425"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341410"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Åtgärda fel för registreringen av resursprovidern
 
@@ -45,13 +45,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 Felmeddelandet bör ge dig förslag på platser som stöds och API-versioner. Du kan ändra mallen till något av de föreslagna värdena. De flesta leverantörer är registrerade automatiskt av Azure portal eller kommandoradsgränssnittet som du använder, men inte alla. Om du inte har använt en viss resursprovider innan du kan behöva du registrera den providern.
 
+Eller när du inaktiverar automatisk avstängning för virtuella datorer, så visas ett felmeddelande som liknar:
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>Orsak
 
-De här felen visas i någon av tre orsaker:
+De här felen visas i något av följande skäl:
 
-* Resursprovidern har inte registrerats för din prenumeration
+* Den nödvändiga resursprovidern har inte registrerats för din prenumeration
 * API-versionen stöds inte för resurstypen
 * Plats stöds inte för resurstypen
+* Resursprovidern Microsoft.DevTestLab för automatisk avstängning av virtuella datorer, måste vara registrerad.
 
 ## <a name="solution-1---powershell"></a>Lösning 1 – PowerShell
 

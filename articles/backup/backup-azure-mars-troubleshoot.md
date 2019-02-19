@@ -3,17 +3,17 @@ title: Felsöka Azure Backup Agent
 description: Felsöka installation och registrering av Azure Backup-agenten
 services: backup
 author: saurabhsensharma
-manager: shreeshd
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: 65eb6ef088c9baae67d65607ede771f3c9d11a41
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9180604b18224adace040c9eee5181b4cd4d8b92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114152"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339013"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -24,8 +24,13 @@ Här är hur du löser problem som kan uppstå under konfiguration, registrering
 | ---     | ---     | ---    |
 | **Fel** </br> *Ogiltiga valvautentiseringsuppgifter har angetts. Filen är antingen skadad eller har inte har de senaste autentiseringsuppgifterna som är associerade med återställningstjänsten. (ID: 34513)* | <ul><li> Autentiseringsuppgifterna för valvet är ogiltiga (det vill säga de laddades ned mer än 48 timmar innan registrering).<li>MARS-agenten kan inte ladda ned filer till Windows Temp-katalog. <li>Valvautentiseringsuppgifterna finns på en nätverksplats. <li>TLS 1.0 är inaktiverat<li> En konfigurerad proxyserver blockerar anslutningen. <br> |  <ul><li>Ladda ned nya valvautentiseringsuppgifter. (**Obs**: Om flera valv credential filerna har hämtats tidigare är endast den senaste hämta filen giltig inom 48 timmar.) <li>Starta **IE** > **inställningen** > **Internetalternativ** > **Security**  >  **Internet**. Välj sedan **Anpassad nivå**, och Bläddra tills du ser att hämta filen. Välj sedan **aktivera**.<li>Du kan också behöva lägga till dessa webbplatser i Internet Explorer [betrodda platser](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements).<li>Ändra inställningarna för att använda en proxyserver. Ange sedan proxyn serverinformation. <li> Matcha datum och tid med din dator.<li>Om du får ett felmeddelande om att filhämtningar inte tillåts, är det troligt att det finns ett stort antal filer i C:/Windows/Temp-katalogen.<li>Gå till C:/Windows/Temp och kontrollera om det finns fler än 60 000 eller 65 000 filer med tillägget .tmp. Om det finns tar du bort dessa filer.<li>Kontrollera att du har .NET framework 4.6.2 eller senare installerat. <li>Om du har inaktiverat TLS 1.0 på grund av PCI-efterlevnad, referera till denna [felsökningssida](https://support.microsoft.com/help/4022913). <li>Om du har ett antivirusprogram installerat på servern, Uteslut följande filer från virusgenomsökning: <ul><li>CBengine.exe<li>CSC.exe, som är relaterade till .NET Framework. Det finns en CSC.exe för varje .NET-version som är installerad på servern. Undanta CSC.exe-filer som är knutna till alla versioner av .NET Framework på den berörda servern. <li>Tillfällig plats för mappen eller cache. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<br><li>Bin-mappen C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
+## <a name="unable-to-download-vault-credential-file"></a>Det går inte att hämta valvautentiseringsfilen
 
-## <a name="the-mars-agent-was-unable-to-connect-to-azure-backup"></a>MARS-agenten kunde inte ansluta till Azure Backup
+| Felinformation | Rekommenderade åtgärder |
+| ---     | ---    |
+|Det gick inte att hämta valvautentiseringsfilen. (ID: 403) | <ul><li> Försök att hämta autentiseringsuppgifterna för valvet med olika webbläsare eller utföra de stegen nedan: <ul><li> Starta Internet Explorer, trycka på F12. </li><li> Gå till **nätverk** fliken för att rensa IE cacheminnet och cookies </li> <li> Uppdatera sidan<br>(OR)</li></ul> <li> Kontrollera om prenumerationen är inaktiverad/har upphört att gälla<br>(OR)</li> <li> Kontrollera om någon brandväggsregel blockerar Filhämtning autentiseringsuppgifter för valv <br>(OR)</li> <li> Se till att du inte har förbrukat gränsen för valvet (50 datorer per valv)<br>(OR)</li>  <li> Se till att användaren krävs Azure Backup-behörighet för att ladda ned valvautentiseringsuppgifter och registrera servern med valvet, se [artikel](backup-rbac-rs-vault.md)</li></ul> | 
+
+## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure Recovery Service-agenten kunde inte ansluta till Microsoft Azure Backup
 
 | Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
 | ---     | ---     | ---    |
@@ -54,6 +59,8 @@ Här är hur du löser problem som kan uppstå under konfiguration, registrering
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Säkerhetskopieringar kan inte köras enligt schemat
 Om schemalagda säkerhetskopieringar inte hämta utlöses automatiskt, även om manuella säkerhetskopieringar fungera utan problem, kan du prova följande åtgärder:
 
+- Gå till **Kontrollpanelen** > **Administrationsverktyg** > **Schemaläggaren**. Expandera **Microsoft**, och välj **onlinesäkerhetskopieringen**. Dubbelklicka på **Microsoft OnlineBackup**, och gå till den **utlösare** fliken. Kontrollera att statusen är inställd på **aktiverad**. Om det inte finns väljer **redigera**, och välj den **aktiverad** markerar du kryssrutan. På den **Allmänt** går du till fliken **säkerhetsalternativ**. Se till att det användarkonto som valts för att köra uppgiften är antingen **SYSTEM** eller **gruppen lokala administratörer** på servern.
+
 - Se om PowerShell 3.0 eller senare är installerat på servern. Kör följande kommando för att kontrollera PowerShell-version och kontrollera att den *större* versionsnumret är lika med eller större än 3.
 
   `$PSVersionTable.PSVersion`
@@ -67,9 +74,6 @@ Om schemalagda säkerhetskopieringar inte hämta utlöses automatiskt, även om 
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
-
-- Gå till **Kontrollpanelen** > **Administrationsverktyg** > **Schemaläggaren**. Expandera **Microsoft**, och välj **onlinesäkerhetskopieringen**. Dubbelklicka på **Microsoft OnlineBackup**, och gå till den **utlösare** fliken. Kontrollera att statusen är inställd på **aktiverad**. Om det inte finns väljer **redigera**, och välj den **aktiverad** markerar du kryssrutan. På den **Allmänt** går du till fliken **säkerhetsalternativ**. Se till att det användarkonto som valts för att köra uppgiften är antingen **SYSTEM** eller **gruppen lokala administratörer** på servern.
-
 
 > [!TIP]
 > För att säkerställa att ändringarna tillämpas konsekvent, startar du om servern när du har utfört stegen ovan.
@@ -99,7 +103,7 @@ Azure Backup kan inte har montera återställningsvolymen, även om några minut
 
 8.  Starta om Microsoft iSCSI Initiator service. Gör detta genom att högerklicka på tjänsten, väljer **stoppa**, högerklicka igen och välj **starta**.
 
-9.  Försök återställa igen med hjälp av **omedelbar återställning**.
+9.  Försök återställa igen med hjälp av [ **omedelbar återställning**](backup-instant-restore-capability.md).
 
 Om återställningen fortfarande misslyckas, startar du om din server eller klient. Om du inte vill starta om eller återställningen fortfarande misslyckas efter att servern startas om, försök att återställa från en annan dator. Följ stegen i [i den här artikeln](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 

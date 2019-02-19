@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1f71276c25e3ec1e5791d9b35f89aa95190c6afd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770592"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341972"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Använda Azure Policy för att begränsa installation av tillägg på virtuella Linux-datorer
 
@@ -28,7 +28,7 @@ Den här självstudien använder CLI i Azure Cloud Shell, som uppdateras ständi
 
 ## <a name="create-a-rules-file"></a>Skapa en regelfil
 
-För att begränsa vilka tillägg som kan installeras men, du måste ha en [regeln](/azure/azure-policy/policy-definition#policy-rule) att tillhandahålla logik för att identifiera tillägget.
+För att begränsa vilka tillägg som kan installeras men, du måste ha en [regeln](../../governance/policy/concepts/definition-structure.md#policy-rule) att tillhandahålla logik för att identifiera tillägget.
 
 Det här exemplet visar hur du neka installera tillägg som publicerats av ”Microsoft.OSTCExtensions” genom att skapa en regelfil i Azure Cloud Shell, men om du arbetar i CLI lokalt kan du också skapa en lokal fil och Ersätt sökvägen (~/clouddrive) med sökvägen till den lokala filen på din dator.
 
@@ -69,7 +69,7 @@ När du är klar trycker du på den **Esc** tangenten och skriv sedan **: wq** a
 
 ## <a name="create-a-parameters-file"></a>Skapa en fil med parametrar
 
-Du behöver också en [parametrar](/azure/azure-policy/policy-definition#parameters) -fil som skapar en struktur som du kan använda för att skicka en lista över tillägg ska blockeras. 
+Du behöver också en [parametrar](../../governance/policy/concepts/definition-structure.md#parameters) -fil som skapar en struktur som du kan använda för att skicka en lista över tillägg ska blockeras. 
 
 Det här exemplet visar hur du skapar en fil med parametrar för virtuella Linux-datorer i Cloud Shell, men om du arbetar i CLI lokalt kan du också skapa en lokal fil och ersätts sökvägen (~/clouddrive) med sökvägen till den lokala filen på din dator.
 
@@ -171,6 +171,6 @@ az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-gr
 az policy definition delete --name 'not-allowed-vmextension-linux'
 ```
 
-
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [Azure Policy](../../azure-policy/azure-policy-introduction.md).
+
+Mer information finns i [Azure Policy](../../governance/policy/overview.md).

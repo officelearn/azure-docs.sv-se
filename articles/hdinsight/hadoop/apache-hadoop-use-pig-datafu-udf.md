@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 982ed4533c34cd4a6613d289ef4712001977538f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d67c3e452da05c626721d4c3144e612e6f9e0af4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436226"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338452"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>Använda Apache DataFu Pig med Apache Pig i HDInsight
 
@@ -90,7 +90,9 @@ I det här avsnittet förutsätter vi att du är bekant med Pig på HDInsight. M
 >
 > * Om klustret använder Azure Storage, använda en `wasb://` sökväg. Till exempel `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
 >
-> * Om klustret använder Azure Data Lake Store, kan du använda en `adl://` sökväg. Till exempel `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
+> * Om klustret använder Azure Data Lake Store Gen2, använda en `abfs://` sökväg. Till exempel `register abfs://home/example/jars/datafu-pig-1.4.0.jar`.
+>
+> * Om klustret använder Azure Data Lake Store Gen1, använda en `adl://` sökväg. Till exempel `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
 
 Ofta definierar du ett alias för DataFu funktioner. Följande exempel definierar ett alias för `SHA`:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1532c863a7906e7f3c1e0bc98d2080513263b9f8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7419baf99e4c508806361b408968dbf851a7f76c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105102"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343331"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
@@ -126,7 +126,7 @@ En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastni
 
 Security Center-principer innehåller följande komponenter:
 - [Datainsamling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agentetablering och datainsamlingsinställningar.
-- [Säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) som avgör vilka kontroller som övervakas och rekommenderas av Security Center eller använda Azure Policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer med hanteringsgrupper.
+- [Säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure Policy](../governance/policy/overview.md) som avgör vilka kontroller som övervakas och rekommenderas av Security Center eller använda Azure Policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer med hanteringsgrupper.
 - [E-postmeddelanden](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): säkerhetskontakter och inställningar för meddelanden.
 - [Prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing): val av kostnadsfritt eller standardpris, som bestämmer vilka Security Center-funktioner som är tillgängliga för resurser i omfattningen (kan anges för prenumerationer, resursgrupper och arbetsytor).
 

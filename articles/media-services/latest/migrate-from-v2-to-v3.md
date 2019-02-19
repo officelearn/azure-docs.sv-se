@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 02/04/2019
 ms.author: juliako
-ms.openlocfilehash: b05c174bf96e78efd66f2c673e46ab43700c09f9
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744181"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340356"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -45,11 +45,11 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 
 * Du kan använda en HTTP (S)-URL för filbaserade jobb bearbetning, som indata.<br/>Du behöver inte ha innehåll som redan lagras i Azure, inte heller att skapa tillgångar.
 * Introducerar begreppet [omvandlar](transforms-jobs-concept.md) för filbaserade Jobbearbetning. En transformering kan användas för att skapa återanvändbara konfigurationer för att skapa Azure Resource Manager-mallar och isolera bearbetning av inställningar mellan flera kunder eller klienter.
-* En tillgång kan ha flera [positionerare för direktuppspelning](streaming-locators-concept.md) med olika inställningar för dynamisk paketering och dynamisk kryptering.
+* En tillgång kan ha flera [positionerare för direktuppspelning](streaming-locators-concept.md) var och en med olika [dynamisk paketering](dynamic-packaging-overview.md) och inställningar för dynamisk kryptering.
 * [Innehållsskydd](content-key-policy-concept.md) har stöd för flera viktiga funktioner.
 * Du kan strömma Live-händelser som är upp till 24 timmar lång när använder Media Services för transkodning ett bidrag, enkel bithastighet, skicka till en utdataström som har flera olika bithastigheter.
 * Nya med låg latens live direktuppspelning support för Live-händelser. Mer information finns i [svarstid](live-event-latency.md).
-* Dynamisk förhandsgranskning av händelse har stöd för dynamisk paketering och dynamisk kryptering. Detta gör det möjligt för innehållsskydd på förhandsversion som DASH och HLS paketering.
+* Live-händelse förhandsversionen stöder [dynamisk paketering](dynamic-packaging-overview.md) och dynamisk kryptering. Detta gör det möjligt för innehållsskydd på förhandsversion som DASH och HLS paketering.
 * Live utdata är enklare att använda än programmet entiteten i v2-API: er. 
 * Förbättrad RTMP support (ökad stabilitet och mer käll-kodare stöder).
 * RTMPS säker mata in.<br/>När du skapar en direktsänd händelse kan du få 4 mata in URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS.   

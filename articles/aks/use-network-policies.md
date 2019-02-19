@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ade5a39273aa807f6c69f76342a0f715c7a96309
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 5e19f7cd2aa249e1c9587963e005e8114eacbdb0
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327175"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342058"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)
 
@@ -242,6 +242,9 @@ spec:
           role: frontend
 ```
 
+> [!NOTE]
+> Den här nätverksprincipen används en *namespaceSelector* och en *podSelector* element för inkommande regel. YAML-syntax är viktigt för inkommande regler är additiva eller inte. Båda elementen måste matcha för inkommande regel som ska användas i det här exemplet. Kubernetes-versioner före *1.12* kan inte tolka de här elementen på rätt sätt och begränsa nätverkstrafik som förväntat. Mer information finns i [funktionssätt till och från väljare][policy-rules].
+
 Tillämpa den uppdaterade nätverk princip med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
 
 ```azurecli-interactive
@@ -442,6 +445,7 @@ Mer information om hur du använder principer finns [Kubernetes nätverksprincip
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

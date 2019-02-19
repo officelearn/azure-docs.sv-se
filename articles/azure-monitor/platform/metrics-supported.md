@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473834"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408875"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inklusive diagram dem i portalen, få åtkomst till dem via REST API eller frågor till dem med PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som är tillgänglig med Azure Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med hjälp av konsoliderade pipelinen för Azure Monitor-mått. Fråga efter och komma åt de här måtten Använd den [2018-01-01 api-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -652,14 +652,52 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
-|---|---|---|---|---|---|
-|MetadataRequests|Metadata Requests|Antal|Antal|Antalet metadataförfrågningar. Cosmos DB upprätthåller samling för varje konto, där du kan räkna upp samlingar, databaser osv och konfigurationer, utan kostnad.|DatabaseName, CollectionName, Region, StatusCode|
-|MongoRequestCharge|Kostnad för mongo-begäran|Antal|Totalt|Mongo-programbegäran som förbrukas|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|MongoRequests|Mongo-begäranden|Antal|Antal|Antal Mongo-begäranden gjorda|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|TotalRequestUnits|Totalt antal enheter för programbegäran|Antal|Totalt|Enheter som används för begäran|DatabaseName, CollectionName, Region, StatusCode|
-|TotalRequests|Totalt antal begäranden|Antal|Antal|Antalet begäranden som görs|DatabaseName, CollectionName, Region, StatusCode|
+### <a name="request-metrics"></a>Begäran-mått
 
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Äldre mått mappning | Användning |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |   Totalt antal begäranden| Antal   | Antal | Antalet begäranden som görs|  DatabaseName, CollectionName, Region, StatusCode|   Alla |   TotalRequests Http 2xx, Http 3xx, Http 400, Http 401, interna serverfel, tjänsten är inte tillgänglig, begränsad begäranden, genomsnittlig begäranden per sekund |    Används för att övervaka förfrågningar per statuskod, samling vid en minutersnivå. Genomsnittlig begäranden per sekund får använda antal aggregering på minut och dela med 60. |
+| MetadataRequests |    Metadata Requests   |Antal| Antal   | Antalet metadataförfrågningar. Azure Cosmos DB upprätthåller samling för varje konto, där du kan räkna upp samlingar, databaser osv och konfigurationer, utan kostnad.    | DatabaseName, CollectionName, Region, StatusCode| Alla|  |Används för att övervaka begränsningar på grund av metadataförfrågningar.|
+| MongoRequests |   Mongo-begäranden| Antal | Antal|  Antal Mongo-begäranden gjorda   | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Alla |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|   Används för att övervaka Mongo begäran fel, skriver du användningar per kommando. |
+
+
+### <a name="request-unit-metrics"></a>Begär enhetsmått
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Äldre mått mappning | Användning |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|   Kostnad för mongo-begäran |  Antal   |Totalt  |Mongo-programbegäran som förbrukas|  DatabaseName, CollectionName, Region, CommandName, ErrorCode|   Alla |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Används för att övervaka Mongo resource ru: er på en minut.|
+| TotalRequestUnits |Totalt antal enheter för programbegäran|   Antal|  Totalt|  Enheter som används för begäran| DatabaseName, CollectionName, Region, StatusCode    |Alla|   TotalRequestUnits|  Används för att övervaka Totalt antal RU användning vid en minutersnivå. Genomsnittlig RU som förbrukas per sekund får använda totala aggregering på minut och dela med 60.|
+| ProvisionedThroughput |Etablerat dataflöde|    Antal|  Maximal |Etablerat dataflöde med samling Precision|  DatabaseName, samlingsnamn|   5M| |   Används för att övervaka etablerat dataflöde per samling.|
+
+### <a name="storage-metrics"></a>Storage-mått
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Äldre mått mappning | Användning |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage| Tillgängligt lagringsutrymme   |Byte| Totalt|  Totalt tillgängligt lagringsutrymme per 5 minuter kornighet per region|   DatabaseName, samlingsnamn, Region|   5M| Tillgängligt lagringsutrymme|   Används för att övervaka tillgängligt lagringsutrymme kapacitet (gäller endast för fast storage samlingar) lägsta Granulariteten bör vara 5 minuter.| 
+| DataUsage |Dataanvändning |Byte| Totalt   |Total dataanvändning rapporteras med 5 minuter Precision per region|    DatabaseName, samlingsnamn, Region|   5M  |Datastorlek  | Används för att övervaka total dataanvändning vid insamling och region, bör lägsta Granulariteten vara 5 minuter.|
+| IndexUsage|   Index användning|    Byte|  Totalt   |Total användning för Index rapporteras med 5 minuter Precision per region|    DatabaseName, samlingsnamn, Region|   5M| Indexstorlek| Används för att övervaka total dataanvändning vid insamling och region, bör lägsta Granulariteten vara 5 minuter. |
+| DocumentQuota|    Dokumentet kvot| Byte|  Totalt|  Totala lagringskvoten rapporterade med 5 minuter Precision per region. Gäller för f| DatabaseName, samlingsnamn, Region|   5M  |Lagringskapacitet|  Används för att övervaka totala kvoten för insamling och region, bör lägsta Granulariteten vara 5 minuter.|
+| DocumentCount|    Antal dokument| Antal   |Totalt  |Totaldocument antal som rapporterats med 5 minuter Precision per region|  DatabaseName, samlingsnamn, Region|   5M  |Antal dokument|Används för att övervaka dokumentantal i samlingen och region, bör lägsta Granulariteten vara 5 minuter.|
+
+### <a name="latency-metrics"></a>Mått för datainmatningssvarstider
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Användning |
+|---|---|---|---|---|---| ---| ---| ---|
+| ReplicationLatency    | Replikeringsfördröjning|  MilliSeconds|   Lägsta, högsta, genomsnitt | P99 replikeringsfördröjning mellan käll- och regioner för geo-aktiverat konto| SourceRegion, TargetRegion| Alla | Används för att övervaka P99 replikeringsfördröjning mellan de två regionerna för ett konto med geo-replikerade. |
+
+### <a name="availability-metrics"></a>Mått på tillgänglighet
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Äldre mått mappning | Användning |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability   | Tjänsttillgänglighet| Procent |Lägsta, högsta|   Tillgänglighet för begäranden med en timme Precision|  |   1H  | Tjänsttillgänglighet  | Det här är procent av totalt antal skickade begäranden. En begäran anses vara misslyckades på grund av systemfel om statuskoden är 410, 500 eller 503 som används för att övervaka tillgängligheten för konto på timme kornighet. |
+
+### <a name="cassandra-api-metrics"></a>Cassandra-API-mått
+
+|Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Användning |
+|---|---|---|---|---|---| ---| ---| ---|
+| CassandraRequests | Cassandra-begäranden |  Antal|  Antal|  Antal Cassandra API-begäranden gjorda|  DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|   Alla| Används för att övervaka Cassandra begäranden med en minut precision. Genomsnittlig begäranden per sekund får använda antal aggregering på minut och dela med 60.|
+| CassandraRequestCharges|  Avgifter för Cassandra-begäran| Antal|   Sum, Min, Max, genomsn.| Programbegäran som förbrukas av Cassandra API-begäranden|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Alla| Används för att övervaka ru: er som används per minut av ett Cassandra-API-konto.|
+| CassandraConnectionClosures   | Cassandra-anslutning öppettider |Antal| Antal   |Antal stängda Cassandra-anslutningar|    ClosureReason, Region|  Alla | Används för att övervaka anslutningen mellan klienter och Azure Cosmos DB Cassandra-API.|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 

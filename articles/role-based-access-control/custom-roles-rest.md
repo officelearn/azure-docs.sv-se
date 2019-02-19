@@ -1,6 +1,6 @@
 ---
-title: Skapa anpassade roller med hjälp av REST-API – Azure | Microsoft Docs
-description: Lär dig hur du skapar anpassade roller för rollbaserad åtkomstkontroll (RBAC) med hjälp av REST-API. Detta omfattar att lista, skapa, uppdatera och ta bort anpassade roller.
+title: Skapa anpassade roller för Azure-resurser med hjälp av REST-API – Azure | Microsoft Docs
+description: Lär dig hur du skapar anpassade roller med rollbaserad åtkomstkontroll (RBAC för Azure-resurser med hjälp av REST-API). Detta omfattar att lista, skapa, uppdatera och ta bort anpassade roller.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: cfcb7ef2a4fc02932f9d03c277b105c4b1e0ff3a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436070"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338775"
 ---
-# <a name="create-custom-roles-using-the-rest-api"></a>Skapa anpassade roller med hjälp av REST-API
+# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Skapa anpassade roller för Azure-resurser med hjälp av REST-API
 
-Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens specifika krav kan du skapa egna, anpassade roller. Den här artikeln beskriver hur du skapar och hanterar anpassade roller med hjälp av REST-API.
+Om den [inbyggda roller för Azure-resurser](built-in-roles.md) inte uppfyller de specifika behoven i din organisation kan du skapa dina egna anpassade roller. Den här artikeln beskriver hur du skapar och hanterar anpassade roller med hjälp av REST-API.
 
 ## <a name="list-roles"></a>Visa roller
 
@@ -38,7 +38,7 @@ Om du vill visa en lista över alla roller eller hämta information om en roll m
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -67,7 +67,7 @@ Om du vill ha information om en roll med hjälp av dess visningsnamn kan se för
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -115,7 +115,7 @@ Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdater
 
 1. I URI: N, Ersätt *{omfång}* med först `assignableScopes` av den anpassade rollen.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -179,7 +179,7 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
 
 1. I URI: N, Ersätt *{omfång}* med först `assignableScopes` av den anpassade rollen.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -262,7 +262,7 @@ Ta bort en anpassad roll genom att använda den [rolldefinitioner – ta bort](/
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill ta bort den anpassade rollen.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -272,6 +272,6 @@ Ta bort en anpassad roll genom att använda den [rolldefinitioner – ta bort](/
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anpassade roller i Azure](custom-roles.md)
-- [Hantera åtkomst med RBAC och REST API](role-assignments-rest.md)
+- [Anpassade roller för Azure-resurser](custom-roles.md)
+- [Hantera åtkomst till Azure-resurser med RBAC och REST API](role-assignments-rest.md)
 - [Azure REST API-referens](/rest/api/azure/)

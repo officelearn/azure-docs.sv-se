@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: aff57e58ffd247bcc697908f2f25cbf17ff9b91a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c5514a43602106cf045b575d289e02b591468359
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244138"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338469"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Styrning av infrastruktur för Azure DevTest Labs - resurser
 Den här artikeln tar upp justering och hantering av resurser för DevTest Labs i din organisation. 
@@ -56,7 +56,7 @@ Hur jag för att bibehålla en namngivningskonvention för min labb-miljö?
 ### <a name="answer"></a>Svar
 Du kanske vill utöka aktuella enterprise namnkonventioner för Azure-åtgärder och göra dem konsekvent i labb-miljö.
 
-Vi rekommenderar att du har specifika från principer när du distribuerar DevTest Labs. Du distribuerar dessa principer genom att en central skript och JSON-mallar för att upprätthålla konsekvens. Namngivning av principer kan implementeras via Azure-principer tillämpas på prenumerationsnivån. JSON-exempel för Azure Policy, se [Azure Policy-exempel](../azure-policy/json-samples.md).
+Vi rekommenderar att du har specifika från principer när du distribuerar DevTest Labs. Du distribuerar dessa principer genom att en central skript och JSON-mallar för att upprätthålla konsekvens. Namngivning av principer kan implementeras via Azure-principer tillämpas på prenumerationsnivån. JSON-exempel för Azure Policy, se [Azure Policy-exempel](../governance/policy/samples/index.md).
 
 ## <a name="number-of-users-per-lab-and-labs-per-organization"></a>Antalet användare per labb och labb per organisation
 

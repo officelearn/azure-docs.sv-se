@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 40e0c8c91c44e67c2c409d2efb1e917fdbe0bf33
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ff3fdec2f427e095c748e4a47079d783fa83802d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562104"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341342"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen att göra det för att gå smidigt. Ägna tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter. 
@@ -45,7 +45,7 @@ Beroende på dina tekniska krav storlek, geografiska områden och operativa meto
 5. Kommer din operativa team nu stöd för program/VM: ar i både klassiska och Azure Resource Manager?
 6. Hur (om alls) Azure Resource Manager ändras VM-distribution, hantering, övervakning och rapporteringsprocesser?  Behöver din distributionsskript uppdateras?
 7. Vad är meddelanden som planerar att meddela intressenter (slutanvändare, programägare och infrastrukturens ägare)?
-8. Beroende på komplexiteten i miljön, bör det finnas en underhållsperiod där programmet inte är tillgängligt för slutanvändare och programägare?  I så fall, hur länge?
+8. Beroende på komplexiteten i miljön, bör det finnas en underhållsperiod där programmet inte är tillgängligt för slutanvändare och programägare?  Om så är fallet, hur länge?
 9. Vad är utbildningsplan att säkerställa intressenter kunskap och proficient i Azure Resource Manager?
 10. Vad är programhantering eller hantering av projektplanen för migrering?
 11. Vad är tidslinjer för Azure Resource Manager-migrering och andra relaterade tekniken vägkartorna?  De optimalt justeras?
@@ -196,7 +196,7 @@ Vara meningsfullt på vilka tjänster som du nu vill aktivera i Azure Resource M
 - [Azure Resource Manager-mallar för distribution av enklare och mer kontrollerad](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Taggar](../../azure-resource-manager/resource-group-using-tags.md).
 - [Kontroll av aktivitet](../../azure-resource-manager/resource-group-audit.md)
-- [Azure-principer](../../azure-policy/azure-policy-introduction.md)
+- [Azure-principer](../../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>Man vill undvika
 

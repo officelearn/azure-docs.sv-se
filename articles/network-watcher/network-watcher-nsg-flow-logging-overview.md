@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d9d87e0e6427c0a0d4b16947fd0427e1c79d8f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097656"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341053"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödesloggar för nätverkssäkerhetsgrupper
 
@@ -72,8 +72,6 @@ Flödesloggar innehålla följande egenskaper:
                     * **Byte som skickats - mål-källan – Version 2 endast** det totala antalet TCP och UDP-paket byte som skickats från mål till källa sedan senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.
 
 ## <a name="nsg-flow-logs-version-2"></a>NSG-flödesloggarna version 2
-> [!NOTE] 
-> Flödesloggar av version 2 är endast tillgängliga i regionen USA, västra centrala. Om du aktiverar loggar av version 2 i en region som inte stöds matas loggar av version 1 in i ditt lagringskonto.
 
 Version 2 av loggarna introducerar flow tillstånd. Du kan konfigurera vilken version av flödesloggar felmeddelandet. Läs hur du aktiverar flödesloggar i [aktiverar NSG-flödesloggar](network-watcher-nsg-flow-logging-portal.md).
 

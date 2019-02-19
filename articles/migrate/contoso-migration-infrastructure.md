@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 17ec8eb779dec560cfc5350fecc0fb819e89195a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726992"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340135"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - distribuera en infrastruktur för migrering
 
@@ -27,14 +27,14 @@ Den här artikeln är en del av en serie av artiklar som dokumenterar hur det fi
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
-[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
+[Artikel 1: Översikt över](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
 Artikel 2: Distribuera en Azure-infrastruktur | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om i serien. | Den här artikeln
 [Artikel 3: Utvärdera lokala resurser för migrering till Azure](contoso-migration-assessment.md)  | SContoso kör en utvärdering av dess lokal SmartHotel360-app som körs på VMware. Contoso utvärderar app virtuella datorer med hjälp av Azure Migrate-tjänsten och app-SQL Server-databasen med hjälp av Data Migration Assistant. | Tillgängligt
 [Artikel 4: Ange ny värd för en app på en virtuell Azure-dator och SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso körs en lift and shift-migrering till Azure för dess lokal SmartHotel360-app. Contoso migrerar app frontend virtuell dator med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migrerar app-databasen till en Azure SQL Database Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt   
 [Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Contoso migrerar dess SmartHotel360 app virtuella datorer till Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
 [Artikel 6: Ange ny värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar appen, med hjälp av Site Recovery migrera app-datorer och Database Migration Service för att migrera app-databasen till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
-[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso Slutför en lift and shift-migrering av dess osTicket app i Linux på Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
-[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar dess osTicket Linux-app till virtuella Azure-datorer med hjälp av Site Recovery. Den migrerar app-databas till Azure Database för MySQL med MySQL Workbench. | Tillgängligt
+[Artikel 7: Ange ny värd för en app för Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso Slutför en lift and shift-migrering av dess osTicket app i Linux på Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
+[Artikel 8: Ange ny värd för en app för Linux på Azure virtuella datorer och Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar dess osTicket Linux-app till virtuella Azure-datorer med hjälp av Site Recovery. Den migrerar app-databas till Azure Database för MySQL med MySQL Workbench. | Tillgängligt
 [Artikel 9: Omstrukturera en app i en Azure webbapp och Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar dess SmartHotel360-app till en Azure webbapp och migrerar app-databasen till en Azure SQL Server-instans med Database Migration Assistant. | Tillgängligt    
 [Artikel 10: Omstrukturera en Linux-app i en Azure-webbapp och en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrerar dess osTicket Linux-app till en Azure-webbapp på flera platser. Webbappen är integrerad med GitHub för kontinuerlig leverans. Den migrerar app-databasen till en Azure Database for MySQL-instans. | Tillgängligt
 [Artikel 11: Omstrukturera Team Foundation Server på Azure DevOps-tjänsterna](contoso-migration-tfs-vsts.md) | Contoso migrerar dess lokal Team Foundation Server-distribution till Azure DevOps-tjänsterna i Azure. | Tillgängligt
@@ -49,12 +49,12 @@ I den här artikeln Contoso ställer in alla infrastrukturelement som den behöv
 
 Innan Contoso kan migrera till Azure, är det viktigt att förbereda en Azure-infrastruktur.  Det finns ofta fem områden Contoso behöver tänka på:
 
-**Steg 1: Azure-prenumerationer**: hur ska Contoso köper Azure och interagera med Azure-plattformen och tjänster?  
-**Steg 2: Hybrididentitet**: hur ska det hantera och styra åtkomsten till både lokala och Azure-resurser efter migreringen? Hur Contoso utöka eller flytta Identitetshantering till molnet?  
-**Steg 3: Haveriberedskap och återhämtning**: hur Contoso säkerställer att dess appar och infrastruktur är flexibel om avbrott och katastrofer inträffar?  
-**Steg 4: Nätverk**: hur ska Contoso utforma en nätverksinfrastruktur och upprätta en anslutning mellan sina lokala datacenter och Azure?  
-**Steg 5: Säkerhet**: hur ska dess säker hybrid/Azure-distribution?  
-**Steg 6: Styrning**: hur Contoso behåller distributionen justerad med krav på säkerhet och styrning?
+**Steg 1: Azure-prenumerationer**: Hur kommer Contoso köper Azure och interagera med Azure-plattformen och tjänster?  
+**Steg 2: Hybrididentitet**: Hur kommer det för att hantera och styra åtkomsten till både lokala och Azure-resurser efter migreringen? Hur Contoso utöka eller flytta Identitetshantering till molnet?  
+**Steg 3: Haveriberedskap och återhämtning**: Hur Contoso säkerställer att dess appar och infrastruktur är flexibel om avbrott och katastrofer inträffar?  
+**Steg 4: Nätverk**: Hur ska Contoso utforma en nätverksinfrastruktur och upprätta en anslutning mellan sina lokala datacenter och Azure?  
+**Steg 5: Security**: Hur kommer dess säker hybrid/Azure-distribution?  
+**Steg 6: Styrning**: Hur kommer Contoso håller distributionen justerad med krav på säkerhet och styrning?
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -264,7 +264,7 @@ Contoso administratörer nu tilldelar roller till AD-grupper som de synkronisera
     ![En lokal AD-medlemmar i Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png) 
 
 
-## <a name="step-3-design-for-resilience-and-disaster"></a>Steg 3: Utforma för ökad flexibilitet och haveriberedskap
+## <a name="step-3-design-for-resilience-and-disaster"></a>Steg 3: Design för ökad flexibilitet och haveriberedskap
 
 ### <a name="set-up-regions"></a>Konfigurera regioner
 
@@ -302,9 +302,9 @@ Contoso distribuerar tillgänglighet zoner som appar anropa för skalbarhet, hö
 
 Contoso är redo att överväga en strategi för nätverk med regional designen på plats. Den behöver tänka på hur den lokala datacenter och Azure för att ansluta och kommunicera med varandra och hur du utformar nätverksinfrastrukturen i Azure. Mer specifikt Contoso behöver:
 
-- **Planera hybrid nätverksanslutning**: ta reda på hur den ska ansluta nätverk mellan lokala och Azure.
+- **Planera nätverk hybridanslutning**: Ta reda på hur den ska ansluta nätverk mellan lokala och Azure.
 - **Utforma en Azure nätverksinfrastruktur**: Bestäm hur kommer att distribueras nätverk över regioner. Hur kommunicerar nätverk inom samma region och mellan regioner?
-- **Utforma och skapa Azure-nätverk**: Konfigurera Azure-nätverk och undernät, och Bestäm vad kommer att finnas i dem.
+- **Utforma och skapa Azure-nätverk**: Konfigurera Azure-nätverk och undernät och Bestäm vad kommer att finnas i dem.
 
 ### <a name="plan-hybrid-network-connectivity"></a>Planera nätverk för hybridanslutning
 
@@ -399,10 +399,10 @@ Contoso är redo att konfigurera Azure-nätverk och undernät med ett nätverk o
 
 Östra USA 2 är den primära regionen som Contoso använder för att distribuera resurser och tjänster. Här är hur Contoso kommer skapa nätverk:
 
-- **Hub**: hubbens virtuella nätverk i östra USA 2 är den centrala punkten för primära anslutning till lokala datacenter.
-- **Virtuella nätverk**: ekrar virtuella nätverk i östra USA 2 kan användas för att isolera arbetsbelastningar om det behövs. Förutom Hubbnätverk har Contoso två eker virtuella nätverk i östra USA 2:
+- **Hub**: Det virtuella hubbnätverket i östra USA 2 är den centrala punkten för primära anslutning till lokala datacenter.
+- **Virtuella nätverk**: Eker virtuella nätverk i östra USA 2 kan användas till att isolera arbetsbelastningar om det behövs. Förutom Hubbnätverk har Contoso två eker virtuella nätverk i östra USA 2:
     - **VNET-DEV-EUS2**. Det här virtuella nätverket kommer ge att utveckla och testa team med ett fullt fungerande nätverk för utvecklingsprojekt. Den fungerar som en pilot område och förlitar sig på produktionsinfrastruktur ska fungera.
-    - **VNET-PROD-EUS2**: olika komponenter i Azure IaaS ska finnas i det här nätverket. 
+    - **VNET-PROD-EUS2**: Olika komponenter i Azure IaaS ska finnas i det här nätverket. 
     -  Varje virtuellt nätverk ska ha sin egen unika adressutrymme utan överlappande. Contoso vill konfigurera routning utan NAT.
 - **Undernät**:
     - Det blir ett undernät i varje nätverk för varje app-nivå
@@ -411,7 +411,7 @@ Contoso är redo att konfigurera Azure-nätverk och undernät med ett nätverk o
 
 Virtuella nätverk i östra USA 2 sammanfattas i tabellen nedan.
 
-**Virtuellt nätverk** | **Adressintervall** | **Peer**
+**VNet** | **Adressintervall** | **Peer**
 --- | --- | ---
 **VNET-HUB-EUS2** | 10.240.0.0/20 | VNET-HUB-CUS2, VNET-DEV-EUS2, VNET-PROD-EUS2
 **VNET-DEV-EUS2** | 10.245.16.0/20 | VNET-HUB-EUS2
@@ -426,8 +426,8 @@ Virtuella nätverk i östra USA 2 sammanfattas i tabellen nedan.
 --- | --- | ---
 **IB-UntrustZone** | 10.240.0.0/24 | 251
 **IB-TrustZone** | 10.240.1.0/24 | 251
-**OB UntrustZone** | 10.240.2.0/24 | 251
-**OB TrustZone** | 10.240.3.0/24 | 251
+**OB-UntrustZone** | 10.240.2.0/24 | 251
+**OB-TrustZone** | 10.240.3.0/24 | 251
 **GatewaySubnets** | 10.240.10.0/24 | 251
 
 
@@ -461,20 +461,20 @@ Azure IaaS-komponenter finns i produktionsmiljön. Varje app-nivå har ett eget 
 
 Centrala USA är Contosos sekundär region. Här är hur Contoso kommer skapa nätverk:
 
-- **Hub**: hubben virtuellt nätverk i östra USA 2 är den centrala punkten för anslutning till lokala datacenter och eker virtuella nätverk i östra USA 2 kan användas för att isolera arbetsbelastningar om det behövs kan hanteras separat från andra ekrar.
+- **Hub**: Hubben virtuellt nätverk i östra USA 2 är den centrala punkten för anslutning till lokala datacenter och eker virtuella nätverk i östra USA 2 kan användas för att isolera arbetsbelastningar om det behövs kan hanteras separat från andra ekrar.
 - **Virtuella nätverk**: Contoso har två virtuella nätverk i centrala USA:
-    - VNET-PROD-CU: ER. Det här virtuella nätverket är ett produktionsnätverk som liknar VNET PROD_EUS2. 
-    - VNET-ASR-CU: ER. Det här virtuella nätverket fungerar som en plats där virtuella datorer skapas efter en redundansväxling från den lokala eller som en plats för virtuella Azure-datorer som har redundansväxlats från primärt till den sekundära regionen. Det här nätverket är liknande till produktionsnätverk, men utan några domänkontrollanter på den.
+    - VNET-PROD-CUS. Det här virtuella nätverket är ett produktionsnätverk som liknar VNET PROD_EUS2. 
+    - VNET-ASR-CUS. Det här virtuella nätverket fungerar som en plats där virtuella datorer skapas efter en redundansväxling från den lokala eller som en plats för virtuella Azure-datorer som har redundansväxlats från primärt till den sekundära regionen. Det här nätverket är liknande till produktionsnätverk, men utan några domänkontrollanter på den.
     -  Varje virtuellt nätverk i regionen har en egen adressutrymme utan överlappande. Contoso vill konfigurera routning utan NAT.
-- **Undernät**: undernät kommer att byggts på liknande sätt som de i östra USA 2. Undantaget är att Contoso inte behöver ett undernät för domänkontrollanter.
+- **Undernät**: Undernät kommer att byggts på liknande sätt som de i östra USA 2. Undantaget är att Contoso inte behöver ett undernät för domänkontrollanter.
 
 De virtuella nätverken i USA, centrala sammanfattas i tabellen nedan.
 
-**Virtuellt nätverk** | **Adressintervall** | **Peer**
+**VNet** | **Adressintervall** | **Peer**
 --- | --- | ---
-**VNET-HUB-CU: ER** | 10.250.0.0/20 | VNET-HUB-EUS2, VNET-ASR-CU: ER, VNET-PROD-CU: ER
-**VNET-ASR-CU: ER** | 10.255.16.0/20 | VNET-HUB-CU: ER, VNET-PROD-CU: ER
-**VNET-PROD-CU: ER** | 10.255.32.0/20 | VNET-HUB-CU: ER, VNET-ASR-CU: ER, VNET-PROD-EUS2  
+**VNET-HUB-CUS** | 10.250.0.0/20 | VNET-HUB-EUS2, VNET-ASR-CUS, VNET-PROD-CUS
+**VNET-ASR-CUS** | 10.255.16.0/20 | VNET-HUB-CU: ER, VNET-PROD-CU: ER
+**VNET-PROD-CUS** | 10.255.32.0/20 | VNET-HUB-CUS, VNET-ASR-CUS, VNET-PROD-EUS2  
 
 
 ![Nav/eker i länkad region](./media/contoso-migration-infrastructure/paired-hub-peer.png)
@@ -486,8 +486,8 @@ De virtuella nätverken i USA, centrala sammanfattas i tabellen nedan.
 --- | --- | ---
 **IB-UntrustZone** | 10.250.0.0/24 | 251
 **IB-TrustZone** | 10.250.1.0/24 | 251
-**OB UntrustZone** | 10.250.2.0/24 | 251
-**OB TrustZone** | 10.250.3.0/24 | 251
+**OB-UntrustZone** | 10.250.2.0/24 | 251
+**OB-TrustZone** | 10.250.3.0/24 | 251
 **GatewaySubnet** | 10.250.2.0/24 | 251
 
 
@@ -497,10 +497,10 @@ Parallellt till företagets nätverk i den primära regionen östra USA 2 finns 
 
 **Undernät** | **CIDR** | **Adresser** | **I undernät**
 --- | --- | --- | ---
-**PROD-FE-CU: ER** | 10.255.32.0/22 | 1019 | Klienter/virtuella datorer på webbnivå
-**PROD-APP-CU: ER** | 10.255.36.0/22 | 1019 | App-nivå virtuella datorer
-**PROD-DB-CU: ER** | 10.255.40.0/23 | 507 | Virtuella
-**PROD-DC-CU: ER** | 10.255.42.0/24 | 251 | Virtuella datorer för domänkontrollanter
+**PROD-FE-CUS** | 10.255.32.0/22 | 1019 | Klienter/virtuella datorer på webbnivå
+**PROD-APP-CUS** | 10.255.36.0/22 | 1019 | App-nivå virtuella datorer
+**PROD-DB-CUS** | 10.255.40.0/23 | 507 | Virtuella
+**PROD-DC-CUS** | 10.255.42.0/24 | 251 | Virtuella datorer för domänkontrollanter
 
 #### <a name="subnets-in-the-central-us-failoverrecovery-network-in-central-us-vnet-asr-cus"></a>Undernät i nätverket för centrala USA-redundans/återställning i centrala USA (VNET-ASR-CUS)
 
@@ -510,9 +510,9 @@ VNET-ASR-Cu: er är samma grundläggande undernät som virtuella nätverk i öst
 
 **Undernät** | **CIDR** | **Adresser** | **I undernät**
 --- | --- | --- | ---
-**ASR-FE-CU: ER** | 10.255.16.0/22 | 1019 | Klienter/virtuella datorer på webbnivå
-**ASR-APP-CU: ER** | 10.255.20.0/22 | 1019 | App-nivå virtuella datorer
-**ASR-DB-CU: ER** | 10.255.24.0/23 | 507 | Virtuella
+**ASR-FE-CUS** | 10.255.16.0/22 | 1019 | Klienter/virtuella datorer på webbnivå
+**ASR-APP-CUS** | 10.255.20.0/22 | 1019 | App-nivå virtuella datorer
+**ASR-DB-CUS** | 10.255.24.0/23 | 507 | Virtuella
 
 ![Hub nätverksarkitektur](./media/contoso-migration-infrastructure/azure-networks-cus.png)
 
@@ -564,12 +564,12 @@ Contoso-administratörer har valt att Azure DNS-tjänsten inte är ett bra val i
 
 Förutom de lokala domänkontrollanterna, Contoso ska implementera fyra mer för att stödja de Azure-nätverk, två för varje region. Här är vad Contoso distribuerar i Azure.
 
-**Region** | **DC** | **Virtuellt nätverk** | **Undernät** | **IP-adress**
+**Region** | **DC** | **VNet** | **Undernät** | **IP-adress**
 --- | --- | --- | --- | ---
 EUS2 | CONTOSODC3 | VNET-PROD-EUS2 | PROD-DC-EUS2 | 10.245.42.4
 EUS2 | CONTOSODC4 | VNET-PROD-EUS2 | PROD-DC-EUS2 | 10.245.42.5
-CU: ER | CONTOSODC5 | VNET-PROD-CU: ER | PROD-DC-CU: ER | 10.255.42.4
-CU: ER | CONTOSODC6 | VNET-PROD-CU: ER | PROD-DC-CU: ER | 10.255.42.4
+CU: ER | CONTOSODC5 | VNET-PROD-CUS | PROD-DC-CUS | 10.255.42.4
+CU: ER | CONTOSODC6 | VNET-PROD-CUS | PROD-DC-CUS | 10.255.42.4
 
 När du har distribuerat de lokala domänkontrollanterna måste Contoso att uppdatera DNS-inställningarna på nätverk på antingen region för att inkludera de nya domänkontrollanterna i DNS-serverlistan.
 
@@ -638,15 +638,15 @@ Azure erbjuder en uppsättning kontroller för styrning i tjänster och Azure-pl
 
 När de konfigurera identitet och åtkomstkontroll har Contoso redan börjat infört vissa aspekter av styrning och säkerhet. Det finns allmänna ordalag tre områden som behövs för att tänka på:
 
-- **Principen**: principen i Azure gäller och tillämpar regler och effekterna på resurserna, så att resurserna kompatibla med företagets krav och serviceavtal.
+- **Principen**: Principen i Azure gäller och tillämpar regler och effekterna på resurserna, så att resurserna kompatibla med företagets krav och serviceavtal.
 - **Låser**: Azure kan du låsa prenumerationer, resursgrupper och andra resurser, så att de kan bara ändras av de som har behörighet att göra detta.
-- **Taggar**: resurser kan kontrolleras, granskas och hanteras med taggar. Taggar koppla metadata till resurser, tillhandahålla information om resurser eller ägare.
+- **Taggar**: Resurser kan kontrolleras, granskas och hanteras med taggar. Taggar koppla metadata till resurser, tillhandahålla information om resurser eller ägare.
 
 ### <a name="set-up-policies"></a>Konfigurera principer
 
 Azure Policy-tjänsten utvärderar dina resurser, söker efter sådana som inte är kompatibla med de principdefinitioner som du har på plats. Du kan till exempel ha en princip som endast tillåter vissa typer av virtuella datorer, eller kräver resurser som har en specifik tagg. 
 
-Azure-principer ange en definition av principen och en principtilldelning anger den omfattning som en principen ska tillämpas. Omfånget kan variera mellan en hanteringsgrupp till en resursgrupp. [Lär dig](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) om att skapa och hantera principer.
+Azure-principer ange en definition av principen och en principtilldelning anger den omfattning som en principen ska tillämpas. Omfånget kan variera mellan en hanteringsgrupp till en resursgrupp. [Lär dig](../governance/policy/tutorials/create-and-manage.md) om att skapa och hantera principer.
 
 Contoso vill komma igång med några principer:
 
@@ -728,8 +728,8 @@ Säkerhet är avgörande i molnet Azure ger en mängd olika säkerhetsverktyg oc
 
 Det finns några aspekter för Contoso att tänka på:
 
-- **Azure Security Center**: Azure Security Center erbjuder enhetlig säkerhetshantering och Avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Med Security Center kan du tillämpa säkerhetsprinciper i arbetsbelastningarna, begränsa hotexponeringen samt identifiera och åtgärda attacker.  [Läs mer](https://docs.microsoft.com/azure/security-center/security-center-intro).
-- **Nätverkssäkerhetsgrupper (NSG)**: en NSG är ett filter (brandvägg) som innehåller en lista över security regler som vid tillämpningen tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk. [Läs mer](https://docs.microsoft.com/azure/virtual-network/security-overview).
+- **Azure Security Center**: Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Med Security Center kan du tillämpa säkerhetsprinciper i arbetsbelastningarna, begränsa hotexponeringen samt identifiera och åtgärda attacker.  [Läs mer](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- **Nätverkssäkerhetsgrupper (NSG)**: En NSG är ett filter (brandvägg) som innehåller en lista över security regler som vid tillämpningen tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk. [Läs mer](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - **Datakryptering**: Azure Disk Encryption är en funktion som hjälper dig att kryptera din Windows- och Linux IaaS VM-diskar. [Läs mer](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
 
 ### <a name="work-with-the-azure-security-center"></a>Arbeta med Azure Security Center

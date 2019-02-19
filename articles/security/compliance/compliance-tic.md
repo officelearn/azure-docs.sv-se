@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751930"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341733"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Vägledning för betrodda Internet-anslutningar
 
@@ -198,7 +198,7 @@ Azure tillhandahåller molnbaserade verktyg för att säkerställa att du har si
 
 ### <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](https://azure.microsoft.com/services/azure-policy/) är en Azure-tjänst som ger din organisation bättre möjlighet att granska och genomdriva efterlevnadsinitiativ. Azure Policy finns för närvarande i offentlig förhandsversion i Azure-tjänster som är kommersiellt tillgängligt. Azure Policy är ännu inte tillgängligt i Azure Government. Kunder kan planera och testa sina Azure Policy-regler nu om du vill säkerställa framtida kompatibilitet för ärende. 
+[Azure Policy](../../governance/policy/overview.md) är en Azure-tjänst som ger din organisation bättre möjlighet att granska och genomdriva efterlevnadsinitiativ. Kunder kan planera och testa sina Azure Policy-regler nu om du vill säkerställa framtida kompatibilitet för ärende.
 
 Azure Policy är avsett för prenumerationsnivån. Tjänsten ger ett centraliserat gränssnitt där du kan utföra efterlevnad aktiviteter, inklusive:
 - Hantera initiativ
@@ -213,13 +213,13 @@ Följande exempel principer kan användas för ärende kompatibilitet scenarier:
 
 |Princip  |Exempelscenario  |Mall  |
 |---------|---------|---------|
-|Framtvinga en användardefinierad routningstabell. | Se till att standardvägen på alla virtuella nätverk som pekar på en godkänd virtuell nätverksgateway för routning till den lokala.    | Kom igång med den här [mallen](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
-|Granska om Network Watcher har inte aktiverats för en region.  | Kontrollera att Network Watcher är aktiverat för alla regioner.  | Kom igång med den här [mallen](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
-|NSG x i varje undernät.  | Se till att en NSG (eller en uppsättning godkända NSG: er) med internet-trafiken blockeras tillämpas på alla undernät i varje virtuellt nätverk. | Kom igång med den här [mallen](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
-|NSG x på varje nätverkskort. | Se till att en Nätverkssäkerhetsgrupp med internet-trafiken blockeras tillämpas på alla nätverkskort på alla virtuella datorer. | Kom igång med den här [mallen](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
-|Använda ett godkända virtuellt nätverk för virtuella datorers nätverksgränssnitt.  | Se till att alla nätverkskort i ett godkända-nätverk. | Kom igång med den här [mallen](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
-|Tillåtna platser. | Se till att alla resurser som distribueras till regioner med kompatibla virtuella nätverk och Network Watcher-konfigurationen.  | Kom igång med den här [mallen](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
-|Otillåtna resurstyper, till exempel **PublicIPs**. | Förhindra distribution av resurstyper som inte har en plan för efterlevnad. Använd den här principen för att förhindra distribution av offentliga IP-adress-resurser. NSG-regler kan användas för att effektivt blockera inkommande Internettrafik, minskar hindrar användning av offentliga IP-adresser ytterligare risken för angrepp.   | Kom igång med den här [mallen](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
+|Framtvinga en användardefinierad routningstabell. | Se till att standardvägen på alla virtuella nätverk som pekar på en godkänd virtuell nätverksgateway för routning till den lokala.    | Kom igång med den här [mallen](../../governance/policy/samples/no-user-defined-route-table.md). |
+|Granska om Network Watcher har inte aktiverats för en region.  | Kontrollera att Network Watcher är aktiverat för alla regioner.  | Kom igång med den här [mallen](../../governance/policy/samples/network-watcher-not-enabled.md). |
+|NSG x i varje undernät.  | Se till att en NSG (eller en uppsättning godkända NSG: er) med internet-trafiken blockeras tillämpas på alla undernät i varje virtuellt nätverk. | Kom igång med den här [mallen](../../governance/policy/samples/nsg-on-subnet.md). |
+|NSG x på varje nätverkskort. | Se till att en Nätverkssäkerhetsgrupp med internet-trafiken blockeras tillämpas på alla nätverkskort på alla virtuella datorer. | Kom igång med den här [mallen](../../governance/policy/samples/nsg-on-nic.md). |
+|Använda ett godkända virtuellt nätverk för virtuella datorers nätverksgränssnitt.  | Se till att alla nätverkskort i ett godkända-nätverk. | Kom igång med den här [mallen](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
+|Tillåtna platser. | Se till att alla resurser som distribueras till regioner med kompatibla virtuella nätverk och Network Watcher-konfigurationen.  | Kom igång med den här [mallen](../../governance/policy/samples/allowed-locations.md). |
+|Otillåtna resurstyper, till exempel **PublicIPs**. | Förhindra distribution av resurstyper som inte har en plan för efterlevnad. Använd den här principen för att förhindra distribution av offentliga IP-adress-resurser. NSG-regler kan användas för att effektivt blockera inkommande Internettrafik, minskar hindrar användning av offentliga IP-adresser ytterligare risken för angrepp.   | Kom igång med den här [mallen](../../governance/policy/samples/not-allowed-resource-types.md).  |
 
 ### <a name="network-watcher-traffic-analytics"></a>Network Watcher-trafikanalys
 

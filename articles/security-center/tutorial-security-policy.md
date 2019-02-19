@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90c508fb5ad3caf961747f2ac10bae42dd1f4c35
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114968"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343518"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
-Den här artikeln förklarar hur säkerhetsprinciper har konfigurerats och hur du visar dem i Security Center. Azure Security Center tilldelar automatiskt dess [inbyggda säkerhetsprinciper](security-center-policy-definitions.md) på varje prenumeration som har publicerats. Du kan konfigurera dem i [Azure Policy](../azure-policy/azure-policy-introduction.md), som också kan du ange principer över hanteringsgrupper och över flera prenumerationer.
+Den här artikeln förklarar hur säkerhetsprinciper har konfigurerats och hur du visar dem i Security Center. Azure Security Center tilldelar automatiskt dess [inbyggda säkerhetsprinciper](security-center-policy-definitions.md) på varje prenumeration som har publicerats. Du kan konfigurera dem i [Azure Policy](../governance/policy/overview.md), som också kan du ange principer över hanteringsgrupper och över flera prenumerationer.
 
-Anvisningar om hur du anger principer med hjälp av PowerShell finns i [snabbstarten: Skapa en principtilldelning som identifierar icke-kompatibla resurser med hjälp av Azure RM PowerShell-modulen](../azure-policy/assign-policy-definition-ps.md).
+Anvisningar om hur du anger principer med hjälp av PowerShell finns i [snabbstarten: Skapa en principtilldelning som identifierar icke-kompatibla resurser med hjälp av Azure PowerShell-modulen](../governance/policy/assign-policy-powershell.md).
 
 >[!NOTE]
 > Security Center igång dess integrering med Azure Policy. Befintliga kunder kommer att migreras automatiskt till det nya inbyggda initiativet i Azure Policy, i stället för föregående säkerhetsprinciper i Security Center. Den här ändringen påverkar inte dina resurser eller miljö utom förekomst av det nya initiativet i Azure Policy.
 
 ## <a name="what-are-security-policies"></a>Vad är säkerhetsprinciper?
-En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. Du kan definiera principer för dina Azure-prenumerationer och anpassa dem till din typ av arbetsbelastning eller känslighet för dina data i Azure Policy. Program som använder reglerade data, till exempel personligt identifierbar information kan till exempel kräva en högre säkerhetsnivå än andra arbetsbelastningar. Om du vill ange en princip för prenumerationer eller hanteringsgrupper, ställa in dem [Azure Policy](../azure-policy/azure-policy-introduction.md).
+En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. Du kan definiera principer för dina Azure-prenumerationer och anpassa dem till din typ av arbetsbelastning eller känslighet för dina data i Azure Policy. Program som använder reglerade data, till exempel personligt identifierbar information kan till exempel kräva en högre säkerhetsnivå än andra arbetsbelastningar. Om du vill ange en princip för prenumerationer eller hanteringsgrupper, ställa in dem [Azure Policy](../governance/policy/overview.md).
 
 Dina säkerhetsprinciper innehåller säkerhetsrekommendationer som du får i Azure Security Center. Du kan övervaka efterlevnad med dem för att hjälpa dig att upptäcka potentiella säkerhetsrisker och avhjälpa hot. Mer information om hur du avgör vilket alternativ som passar dig finns i listan över [inbyggda säkerhetsprinciper](security-center-policy-definitions.md).
 
@@ -52,7 +52,7 @@ Security Center skapar automatiskt en standardsäkerhetsprincip för var och en 
 - Tilldela principer över hanteringsgrupper och prenumerationer som motsvarar en hel organisation eller affärsenhet inom organisationen.
 - Övervaka principefterlevnad.
 
-Om du vill ha mer information om Azure Policy kan du läsa [Create and manage policies to enforce compliance](../azure-policy/create-manage-policy.md) (Skapa och hantera principer för att genomdriva efterlevnad).
+Om du vill ha mer information om Azure Policy kan du läsa [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md) (Skapa och hantera principer för att genomdriva efterlevnad).
 
 En Azure-princip består av följande komponenter:
 
@@ -236,4 +236,4 @@ I den här artikeln lärde du dig att redigera säkerhetsprinciper i Azure Polic
 * [Vanliga frågor om Azure Security Center](security-center-faq.md): Få svar på vanliga frågor om att använda tjänsten.
 * [Azures Säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
-Mer information om Azure Policy finns i [Vad är Azure Policy?](../azure-policy/azure-policy-introduction.md)
+Mer information om Azure Policy finns i [Vad är Azure Policy?](../governance/policy/overview.md)

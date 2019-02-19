@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e19f9acef256cdd0c690195bd56f971e3ec88c01
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7a3a603b6b1b76f61536adee5d33663bd7af9813
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494739"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342083"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Hantera resurser med Azure PowerShell
 
@@ -76,7 +76,7 @@ Normalt upprepar du processen för **Nätverksdeltagare** och **Lagringskontodel
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../azure-policy/azure-policy-introduction.md) hjälper dig se till att alla resurser i prenumerationen uppfyller företagets standarder. Din prenumeration har redan flera principdefinitioner. Om du vill se tillgängliga principdefinitioner, använder du:
+[Azure Policy](../governance/policy/overview.md) hjälper dig se till att alla resurser i prenumerationen uppfyller företagets standarder. Din prenumeration har redan flera principdefinitioner. Om du vill se tillgängliga principdefinitioner, använder du:
 
 ```azurepowershell-interactive
 (Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType

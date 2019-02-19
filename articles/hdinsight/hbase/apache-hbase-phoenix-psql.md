@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5faea45a55d69cece56137d70862d80dfe335971
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652769"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342464"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Massinläsning av data till Apache Phoenix med psql
 
@@ -115,7 +115,7 @@ För högre dataflöde läser in fördelas på klustret, använder du verktyget 
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /inputFolderBulkLoad/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure
     ```
 
-8. Om du vill använda MapReduce med ADLS, hitta rotkatalogen ADLS, vilket är den `hbase.rootdir` värde i `hbase-site.xml`. I följande kommando, ADLS-rotkatalogen är `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. I det här kommandot anger ADLS-indata och utdata mappar som parametrar:
+8. Om du vill använda MapReduce med Azure Data Lake Storage, letar du upp Data Lake Storage rotkatalogen, vilket är den `hbase.rootdir` värde i `hbase-site.xml`. I följande kommando, Data Lake Storage rotkatalogen är `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. I det här kommandot anger Data Lake Storage indata och utdata mappar som parametrar:
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -127,7 +127,7 @@ För högre dataflöde läser in fördelas på klustret, använder du verktyget 
 
 ## <a name="recommendations"></a>Rekommendationer
 
-* Använd samma lagringsmedium för både inkommande och utgående mappar WASB eller ADLS. Om du vill överföra data från WASB till ADLS, du kan använda den `distcp` kommando:
+* Använd samma lagringsmedium för både inkommande och utgående mappar Azure Storage (WASB) eller Azure Data Lake Storage (ADL). Om du vill överföra data från Azure Storage till Data Lake Storage, du kan använda den `distcp` kommando:
 
     ```bash
     hadoop distcp wasb://@.blob.core.windows.net/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder

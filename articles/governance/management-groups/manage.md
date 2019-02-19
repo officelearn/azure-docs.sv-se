@@ -1,6 +1,6 @@
 ---
-title: Ändra, ta bort eller hantera dina hanteringsgrupper i Azure
-description: Lär dig mer om att underhålla och uppdatera din grupphierarki för hantering.
+title: Ändra, ta bort eller hantera dina hanteringsgrupper i Azure - styrning i Azure
+description: Lär dig mer om att visa, underhålla, uppdatera och ta bort din grupphierarki för hantering.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582425"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342609"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
@@ -39,11 +39,11 @@ Du kan ändra namnet på hanteringsgruppen med hjälp av portalen, PowerShell el
 
 1. Välj den **Byt namn på grupp** alternativet överst på sidan.
 
-   ![Byt namn på grupp](./media/detail_action_small.png)
+   ![Byt namn på grupp-alternativet](./media/detail_action_small.png)
 
 1. När menyn öppnas anger du det nya namnet som du vill ska visas.
 
-   ![Byt namn på grupp](./media/rename_context.png)
+   ![Byt namn på grupp-fönstret](./media/rename_context.png)
 
 1. Välj **Spara**.
 
@@ -87,11 +87,11 @@ Om du vill ta bort en hanteringsgrupp, måste följande krav uppfyllas:
 
    - Om ikonen är inaktiverad, visas orsaken om du hovrar musen-väljare över ikonen.
 
-   ![ta bort grupp](./media/delete.png)
+   ![Ta bort grupp](./media/delete.png)
 
 1. Det finns ett fönster som öppnas bekräftar du vill ta bort hanteringsgruppen.
 
-   ![ta bort grupp](./media/delete_confirm.png)
+   ![Ta bort gruppen bekräftelsefönstret](./media/delete_confirm.png)
 
 1. Välj **Ja**.
 
@@ -195,13 +195,13 @@ För att se vilka behörigheter du har, Välj hanteringsgruppen och välj sedan 
 
 1. Välj ellipsen i slutet av raden för prenumerationen i listan som du vill flytta.
 
-   ![Flytta](./media/move_small.png)
+   ![Flytta alternativet](./media/move_small.png)
 
 1. Välj **flytta**.
 
 1. På den meny som öppnas väljer du den **överordnad hanteringsgrupp**.
 
-   ![Flytta](./media/move_small_context.png)
+   ![Flytta fönstret](./media/move_small_context.png)
 
 1. Välj **Spara**.
 
@@ -272,19 +272,19 @@ Använd kommandot update för att flytta en hanteringsgrupp med Azure CLI.
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
-## <a name="audit-management-groups-using-activity-logs"></a>Granska hantering av grupper med hjälp av aktivitetsloggar
+## <a name="audit-management-groups-using-activity-logs"></a>Granska hanteringsgrupper med hjälp av aktivitetsloggar
 
-För att spåra hanteringsgrupper via den här API: et måste använda den [klient aktivitet Log API](/rest/api/monitor/tenantactivitylogs). Det är för närvarande inte möjligt att använda PowerShell, CLI eller Azure-portalen för att spåra aktivitet om grupper.
+Om du vill spåra hanteringsgrupper via det här API: et använder du [API:et för klientaktivitetsloggen](/rest/api/monitor/tenantactivitylogs). Det är för närvarande inte möjligt att använda PowerShell, CLI eller Azure-portalen för att spåra aktiviteter för hanteringsgrupper.
 
-1. Som Innehavaradministratör för Azure AD-klient [utöka behörighet](../../role-based-access-control/elevate-access-global-admin.md) sedan tilldela en läsarroll för granskning användaren definitionsområdet `/providers/microsoft.insights/eventtypes/management`.
-1. Som granskning användare, anropa den [klient aktivitet Log API](/rest/api/monitor/tenantactivitylogs) att se hanteringsaktiviteter för gruppen. Du kan filtrera baserat på Resursprovidern **Microsoft.Management** för all aktivitet för management-grupp.  Exempel:
+1. Som innehavaradministratör av Azure AD-klienten kan du [höja åtkomsten](../../role-based-access-control/elevate-access-global-admin.md) och sedan tilldela en läsarroll till granskningsanvändaren inom omfånget `/providers/microsoft.insights/eventtypes/management`.
+1. Som granskningsanvändare anropar du [API:et för klientaktivitetsloggen](/rest/api/monitor/tenantactivitylogs) för att visa aktiviteter för hanteringsgruppen. Filtrera efter Resursprovider **Microsoft.Management** för alla aktiviteter för hanteringsgruppen.  Exempel:
 
 ```xml
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 
 > [!NOTE]
-> För att enkelt anropa detta API från kommandoraden, försök [ARMClient](https://github.com/projectkudu/ARMClient).
+> Du kan anropa det här API:et från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -292,6 +292,6 @@ Läs mer om hanteringslösningar här:
 
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
 - [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
-- [Granska av hanteringsgrupper i Azure PowerShell-modulen för resurser](https://aka.ms/mgPSdocs)
-- [Granska hanteringsgrupper i REST-API](https://aka.ms/mgAPIdocs)
-- [Granska av hanteringsgrupper i Azure CLI](https://aka.ms/mgclidoc)
+- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](https://aka.ms/mgPSdocs)
+- [Granska hanteringsgrupper i REST API](https://aka.ms/mgAPIdocs)
+- [Granska hanteringsgrupper i Azure CLI](https://aka.ms/mgclidoc)

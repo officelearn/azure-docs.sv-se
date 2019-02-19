@@ -8,13 +8,13 @@ ms.author: omidm
 ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 02/15/2019
+ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436287"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343297"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package
 
@@ -217,11 +217,12 @@ nano workflow.xml
        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
-  
-   a. Ersätt `domainuser` med ditt användarnamn för domänen.  
-   b. Ersätt `ClusterShortName` med det korta namnet för klustret. Exempel: Om klusternamnet är https:// *[exempel länk]* sechadoopcontoso.azurehdisnight.net, den `clustershortname` är de första sex tecknen i klustret: **sechad**.  
-   c. Ersätt `jdbcurlvalue` med JDBC-Webbadressen från Hive-konfigurationen. Ett exempel är jdbc:hive2: / / headnodehost:10001 /; transportMode = http.      
-   d. Om du vill spara filen, Välj Ctrl + X, ange `Y`, och välj sedan **RETUR**.
+
+   * Använd den `adl://home` URI för den `nameNode` egenskapen om du har Azure Data Lake Storage Gen1 som din primära klusterlagringen. Om du använder Azure Blob Storage kan sedan ändra detta till `wasb://home`. Om du använder Azure Data Lake Storage Gen2 sedan ändra detta till `abfs://home`.
+   * Ersätt `domainuser` med ditt användarnamn för domänen.  
+   * Ersätt `ClusterShortName` med det korta namnet för klustret. Exempel: Om klusternamnet är https:// *[exempel länk]* sechadoopcontoso.azurehdisnight.net, den `clustershortname` är de första sex tecknen i klustret: **sechad**.  
+   * Ersätt `jdbcurlvalue` med JDBC-Webbadressen från Hive-konfigurationen. Ett exempel är jdbc:hive2: / / headnodehost:10001 /; transportMode = http.      
+   * Om du vill spara filen, Välj Ctrl + X, ange `Y`, och välj sedan **RETUR**.
 
    För Egenskapsfilen måste finnas lokalt när Oozie jobb som körs.
 

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 02/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311719"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342430"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Säkerhet och sekretess i Azure Search
 
@@ -26,7 +26,7 @@ Azure Search-säkerhetsarkitekturen omfattar fysisk säkerhet, krypterade överf
 
 Azure Search är certifierad för följande standarder som [tillkännagav i juni 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
 
-+ [ISO 27001: 2013](https://www.iso.org/isoiec-27001-information-security.html) 
++ [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [SOC 2 typ 2-efterlevnad](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) för den fullständiga rapporten, gå till [Azure- och Azure Government SOC 2 typ II rapporten](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
 + [Health Insurance Portability and Accountability Act (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
 + [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
@@ -60,14 +60,16 @@ Alla Azure-tjänster stöder rollbaserad åtkomstkontroll (RBAC) för att ställ
 
 ## <a name="service-access-and-authentication"></a>Tjänståtkomst och autentisering
 
-Medan Azure Search ärver säkerhetsåtgärder i Azure-plattformen, ger också en egen nyckel för autentisering. En api-nyckel är en sträng som består av slumpmässigt genererat siffror och bokstäver. Typen av nyckel (admin eller fråga) avgör vilken åtkomstnivå. Överföring av en giltig nyckel anses vara bevis begäran kommer från en betrodd enhet. Två typer av nycklar används för att få åtkomst till din söktjänst:
+Medan Azure Search ärver säkerhetsåtgärder i Azure-plattformen, ger också en egen nyckel för autentisering. En api-nyckel är en sträng som består av slumpmässigt genererat siffror och bokstäver. Typen av nyckel (admin eller fråga) avgör vilken åtkomstnivå. Överföring av en giltig nyckel anses vara bevis begäran kommer från en betrodd enhet. 
 
-* Admin (gäller för alla skrivskyddade åtgärder mot tjänsten)
-* Fråga (gäller för skrivskyddade åtgärder, till exempel frågor mot ett index)
+Det finns två nivåer av åtkomst till din söktjänst, aktiveras med två typer av nycklar:
 
-Admin-nycklar skapas när tjänsten har etablerats. Det finns två administratörsnycklar utsetts *primära* och *sekundära* för att hålla dem direkt, men i själva verket de är utbytbara. Varje tjänst har två administratörsnycklar så att du kan växla en utan att förlora åtkomst till din tjänst. Du kan återskapa antingen admin-nyckel, men du kan inte lägga till antalet totala administratör. Det finns två administratörsnycklar per söktjänst maximalt.
+* Administratörsåtkomst (gäller för alla skrivskyddade åtgärder mot tjänsten)
+* Frågebehörighet (gäller för skrivskyddade åtgärder, till exempel frågor mot ett index)
 
-Frågenycklar skapas när det behövs och är utformade för klientprogram som anropar Search direkt. Du kan skapa upp till 50 frågenycklar. I programkoden anger du URL: en för sökning och en api-Frågenyckeln för att tillåta skrivskyddad åtkomst till tjänsten. Programkoden anger också det index som används av ditt program. Tillsammans definiera slutpunkten, en api-nyckel för skrivskyddad åtkomst och ett målindex omfång och åtkomst anslutningen från klientprogrammet.
+*Administratörsnycklar* skapas när tjänsten har etablerats. Det finns två administratörsnycklar utsetts *primära* och *sekundära* för att hålla dem direkt, men i själva verket de är utbytbara. Varje tjänst har två administratörsnycklar så att du kan växla en utan att förlora åtkomst till din tjänst. Du kan återskapa antingen admin-nyckel, men du kan inte lägga till antalet totala administratör. Det finns två administratörsnycklar per söktjänst maximalt.
+
+*Frågenycklar* skapas när det behövs och är utformade för klientprogram som anropar Search direkt. Du kan skapa upp till 50 frågenycklar. I programkoden anger du URL: en för sökning och en api-Frågenyckeln för att tillåta skrivskyddad åtkomst till tjänsten. Programkoden anger också det index som används av ditt program. Tillsammans definiera slutpunkten, en api-nyckel för skrivskyddad åtkomst och ett målindex omfång och åtkomst anslutningen från klientprogrammet.
 
 Autentisering krävs för varje begäran, där varje begäran består av en obligatorisk nyckel och en åtgärd som ett objekt. De två behörighetsnivåerna (fullständig eller skrivskyddad) plus kontext (till exempel en frågeåtgärden för ett index) är tillräckliga för att tillhandahålla fullständigt spektrum säkerhet på tjänståtgärder när kopplats samman. Mer information om nycklar finns i [skapa och hantera api-nycklar](search-security-api-keys.md).
 
@@ -93,7 +95,9 @@ Information om att strukturera en begäran i Azure Search finns i [Azure Search 
 
 ## <a name="user-access-to-index-content"></a>Användaråtkomst till indexera innehåll
 
-Per användare åtkomst till innehållet i ett index implementeras via säkerhetsfilter i dina frågor som returnerar ett dokument som är associerade med en viss säkerhetsidentitet. I stället för fördefinierade roller och rolltilldelningar implementeras identitetsbaserade åtkomstkontroll som ett filter som tar bort sökresultat för dokument och innehåll utifrån identiteter. I följande tabell beskrivs två metoder för att ta bort sökresultaten av obehörig innehåll.
+Som standard bestäms åtkomst till ett index genom att snabbtangent på query-fråga. De flesta utvecklare skapar och tilldelar [ *frågenycklar* ](search-security-api-keys.md) för klientsidan sökfrågor. En frågenyckel ger läsbehörighet till allt innehåll i indexet.
+
+Om du behöver detaljerad per användare kontroll över innehåll, du kan skapa säkerhetsfilter på dina frågor returnerar dokument som är associerade med en viss säkerhetsidentitet. I stället för fördefinierade roller och rolltilldelningar identitetsbaserade åtkomstkontroll implementeras som en *filter* som tar bort sökresultat för dokument och innehåll baserat på identiteter. I följande tabell beskrivs två metoder för att ta bort sökresultaten av obehörig innehåll.
 
 | Metoden | Beskrivning |
 |----------|-------------|

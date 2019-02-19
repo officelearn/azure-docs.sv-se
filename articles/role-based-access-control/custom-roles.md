@@ -1,6 +1,6 @@
 ---
-title: Anpassade roller i Azure | Microsoft Docs
-description: Lär dig hur du definierar anpassade roller med Azure rollbaserad åtkomstkontroll (RBAC) för tillgång till ingående åtkomsthantering av resurser i Azure.
+title: Anpassade roller för Azure-resurser | Microsoft Docs
+description: Lär dig hur du skapar anpassade roller med rollbaserad åtkomstkontroll (RBAC) för detaljerad åtkomsthantering för Azure-resurser.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697143"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339336"
 ---
-# <a name="custom-roles-in-azure"></a>Anpassade roller i Azure
+# <a name="custom-roles-for-azure-resources"></a>Anpassade roller för Azure-resurser
 
-Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens specifika krav kan du skapa egna, anpassade roller. Precis som inbyggda roller, kan du tilldela anpassade roller till användare, grupper och tjänstens huvudnamn på prenumerationen, resursgruppen och resurs-scope. Anpassade roller lagras i en katalog i Azure Active Directory (Azure AD) och kan delas mellan prenumerationer. Varje katalog kan ha upp till 2000 anpassade roller. Anpassade roller kan skapas med hjälp av Azure PowerShell, Azure CLI eller REST API.
+Om den [inbyggda roller för Azure-resurser](built-in-roles.md) inte uppfyller de specifika behoven i din organisation kan du skapa dina egna anpassade roller. Precis som inbyggda roller, kan du tilldela anpassade roller till användare, grupper och tjänstens huvudnamn på prenumerationen, resursgruppen och resurs-scope. Anpassade roller lagras i en katalog i Azure Active Directory (Azure AD) och kan delas mellan prenumerationer. Varje katalog kan ha upp till 2000 anpassade roller. Anpassade roller kan skapas med hjälp av Azure PowerShell, Azure CLI eller REST API.
 
 ## <a name="custom-role-example"></a>Exempel på anpassad roll
 
@@ -107,7 +107,7 @@ Precis som inbyggda roller i `AssignableScopes` egenskap anger scope att rollen 
 | Visa en anpassad roll | `Microsoft.Authorization/ roleDefinition/read` | Användare som fått den här åtgärden i ett omfång kan visa anpassade roller som är tillgängliga för tilldelning i detta omfång. Alla inbyggda roller kan anpassade roller ska vara tillgängliga för tilldelning. |
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa anpassade roller med Azure PowerShell](custom-roles-powershell.md)
-- [Skapa anpassade roller med Azure CLI](custom-roles-cli.md)
-- [Förstå rolldefinitioner](role-definitions.md)
-- [Felsöka RBAC i Azure](troubleshooting.md)
+- [Skapa anpassade roller för Azure-resurser med Azure PowerShell](custom-roles-powershell.md)
+- [Skapa anpassade roller för Azure-resurser med Azure CLI](custom-roles-cli.md)
+- [Förstå rolldefinitioner för Azure-resurser](role-definitions.md)
+- [Felsöka RBAC för Azure-resurser](troubleshooting.md)

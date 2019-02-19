@@ -1,6 +1,6 @@
 ---
-title: Skapa anpassade roller med hjälp av Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar anpassade roller för rollbaserad åtkomstkontroll (RBAC) med Azure CLI. Detta omfattar att lista, skapa, uppdatera och ta bort anpassade roller.
+title: Skapa anpassade roller för Azure-resurser med Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar anpassade roller med rollbaserad åtkomstkontroll (RBAC) för Azure-resurser med Azure CLI. Detta omfattar att lista, skapa, uppdatera och ta bort anpassade roller.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3b5d18a3e0bf846137dfdf68b8e5dd9e2db58792
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437264"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338146"
 ---
-# <a name="create-custom-roles-using-azure-cli"></a>Skapa anpassade roller med hjälp av Azure CLI
+# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Skapa anpassade roller för Azure-resurser med Azure CLI
 
-Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens specifika krav kan du skapa egna, anpassade roller. Den här artikeln beskriver hur du skapar och hanterar anpassade roller med hjälp av Azure CLI.
+Om den [inbyggda roller för Azure-resurser](built-in-roles.md) inte uppfyller de specifika behoven i din organisation kan du skapa dina egna anpassade roller. Den här artikeln beskriver hur du skapar och hanterar anpassade roller med hjälp av Azure CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -162,6 +162,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Skapa en anpassad roll med hjälp av Azure CLI](tutorial-custom-role-cli.md)
-- [Anpassade roller i Azure](custom-roles.md)
+- [Självstudier: Skapa en anpassad roll för Azure-resurser med Azure CLI](tutorial-custom-role-cli.md)
+- [Anpassade roller för Azure-resurser](custom-roles.md)
 - [Azure Resource Manager åtgärder för resursprovider](resource-provider-operations.md)

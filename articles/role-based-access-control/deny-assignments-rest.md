@@ -1,6 +1,6 @@
 ---
-title: Lista neka tilldelningar med RBAC och REST-API – Azure | Microsoft Docs
-description: Lär dig hur du listar neka tilldelningar för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och REST API.
+title: Lista neka tilldelningar för Azure-resurser med hjälp av REST-API – Azure | Microsoft Docs
+description: Lär dig hur du listar neka tilldelningar för användare, grupper och program, med rollbaserad åtkomstkontroll (RBAC) för Azure-resurser och REST API.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975595"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341631"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>Lista neka tilldelningar med RBAC och REST-API
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lista neka tilldelningar för Azure-resurser med hjälp av REST-API
 
-För närvarande kan neka-tilldelningar **skrivskyddad** och kan bara ställas in av Azure. Även om det går inte att skapa egna neka tilldelningar, du kan lista neka tilldelningar eftersom de kan påverka din gällande behörigheter. Den här artikeln beskrivs hur du kan visa neka tilldelningar med RBAC och REST-API.
+För närvarande är tilldelningsnekanden **skrivskyddade** och kan bara ställas in av Azure. Även om det går inte att skapa egna tilldelningsnekanden kan du lista tilldelningsnekanden eftersom de kan påverka din gällande behörigheter. Den här artikeln beskrivs hur du kan visa neka tilldelningar med RBAC och REST-API.
 
 ## <a name="list-a-single-deny-assignment"></a>Lista över en enda neka tilldelning
 
@@ -36,7 +36,7 @@ För närvarande kan neka-tilldelningar **skrivskyddad** och kan bara ställas i
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill ta med neka-tilldelningar.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -60,7 +60,7 @@ För närvarande kan neka-tilldelningar **skrivskyddad** och kan bara ställas i
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill ta med neka-tilldelningar.
 
-    | Omfång | Typ |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -95,6 +95,6 @@ För närvarande kan neka-tilldelningar **skrivskyddad** och kan bara ställas i
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå neka tilldelningar](deny-assignments.md)
-- [Utöka behörighet för Global administratör i Azure Active Directory](elevate-access-global-admin.md)
+- [Förstå neka tilldelningar för Azure-resurser](deny-assignments.md)
+- [Utöka behörighet för global administratör i Azure Active Directory](elevate-access-global-admin.md)
 - [Azure REST API-referens](/rest/api/azure/)

@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: a3f782cdd34f2a45c58e6a98d013f949767589cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328018"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343280"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analysverktyg för textbearbetning i Azure Search
 
@@ -69,7 +69,7 @@ Det är bäst att lägga till och tilldela analysverktyg är under aktivt med ut
 
 Som en Indexdefinition solidifies, du kan lägga till nya analysis-konstruktioner till ett index, men du kommer att behöva skicka den **allowIndexDowntime** flaggan till [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) om du vill undvika det här felet:
 
-*Indexera uppdatering tillåts inte eftersom det skulle orsaka driftstopp. Ange Frågeparametern 'allowIndexDowntime' till 'true' i begäran om uppdatering index för att lägga till nya analysverktyg, tokenizers, token filter eller tecknet filter till ett befintligt index. Observera att den här åtgärden placeras i ditt index offline för minst ett par sekunder, och din indexering och frågebegäranden misslyckas. Prestanda- och skrivbehörighet tillgängligheten för indexet kan vara försämrad i flera minuter efter att indexet har uppdaterats eller längre för mycket stora index.*
+*”Index uppdatering tillåts inte eftersom det skulle orsaka driftstopp. Ange Frågeparametern 'allowIndexDowntime' till 'true' i begäran om uppdatering index för att lägga till nya analysverktyg, tokenizers, token filter eller tecknet filter till ett befintligt index. Observera att den här åtgärden placeras i ditt index offline för minst ett par sekunder, och din indexering och frågebegäranden misslyckas. Prestanda- och skrivbehörighet tillgängligheten för indexet kan vara försämrad i flera minuter efter att indexet har uppdaterats eller längre för mycket stora index ”.*
 
 Detsamma gäller när du tilldelar en analyzer till ett fält. En analyzer är en del av fältdefinition, så du kan bara lägga till det när fältet har skapats. Om du vill lägga till analysverktyg i befintliga fält måste du [släpp och återskapa](search-howto-reindex.md) index, eller lägga till ett nytt fält med analyzer som du vill.
 

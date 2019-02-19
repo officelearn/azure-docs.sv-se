@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 42b62c819fd3d26c6ea944f968e0d5956a7f055e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 654c23474ebc96a6873f82f51f969da5c7d2d20c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987466"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343263"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Tillämpa principer för Windows-datorer med Azure Resource Manager
 Med hjälp av principer kan en organisation tillämpa olika konventioner och regler i hela företaget. Efterlevnad av önskat beteende kan du minimera risken när bidrar till framgång för organisationen. I den här artikeln beskriver vi hur du kan använda Azure Resource Manager-principer för att definiera önskat beteende för virtuella datorer i din organisation.
 
-En introduktion till principer finns i [vad är Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+En introduktion till principer finns i [vad är Azure Policy?](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>Tillåtna virtuella datorer
 För att säkerställa att virtuella datorer för din organisation är kompatibla med ett program, kan du begränsa de tillåtna operativsystem. I exemplet nedan principen Tillåt endast Windows Server 2012 R2 Datacenter-datorer som ska skapas:
@@ -251,6 +251,6 @@ När du har en lokal-licens kan spara du licensavgiften på dina virtuella dator
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* När du har definierat en regel (som visas i föregående exempel), måste du skapa principdefinitionen och tilldela den till ett omfång. Omfånget kan vara en prenumeration, resursgrupp eller resurs. Om du vill tilldela principer, se [Använd Azure portal för att tilldela och hantera resursprinciper](../../azure-policy/assign-policy-definition.md), [Använd PowerShell för att tilldela principer](../../azure-policy/assign-policy-definition-ps.md), eller [används Azure CLI för att tilldela principer](../../azure-policy/assign-policy-definition-cli.md).
-* Läs en introduktion till resursprinciper [vad är Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+* När du har definierat en regel (som visas i föregående exempel), måste du skapa principdefinitionen och tilldela den till ett omfång. Omfånget kan vara en prenumeration, resursgrupp eller resurs. Om du vill tilldela principer, se [Använd Azure portal för att tilldela och hantera resursprinciper](../../governance/policy/assign-policy-portal.md), [Använd PowerShell för att tilldela principer](../../governance/policy/assign-policy-powershell.md), eller [används Azure CLI för att tilldela principer](../../governance/policy/assign-policy-azurecli.md).
+* Läs en introduktion till resursprinciper [vad är Azure Policy?](../../governance/policy/overview.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507434"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341241"
 documentType: LandingData
 title: Azure-hantering – styrning
 metadata:
@@ -39,21 +39,25 @@ sections:
     - href: ./management-groups/overview
       html: <p>Läs mer om hur du grupperar och ordnar dina prenumerationer i en logisk hierarki som underlättar distribution av andra styrningstjänster på ett strukturerat sätt.<br /></p>
       image:
+        alt: Hanteringsgrupper
         src: ./media/management-groups-illustration.svg
       title: Hanteringsgrupper
     - href: ./resource-graph/
       html: <p>Använd ett kraftfullt kommandoradsverktyg (med stöd för Azure CLI och Azure PowerShell) för att snabbt fråga efter komplex information om dina Azure-resurser. Hitta och tillgängliggör information som tidigare krävde komplexa och iterativa skript för att identifiera de resurserna i stor skala.</p>
       image:
+        alt: Resursdiagram
         src: ./media/resource-graph-illustration.svg
       title: Resursdiagram
     - href: ./policy/
       html: <p>Definiera och använd standarder för resurser i din miljö. Förhindra att oönskade resurser skapas, förbättra nya resurser med ytterligare element, och granska och åtgärda resurser som redan finns i miljön.</p>
       image:
+        alt: Princip
         src: ./media/policy-illustration.svg
       title: Princip
     - href: ./blueprints/
       html: <p>Skapa ett Azure-internt paket med <i>artefakter</i> (resursgrupper, principer, rolltilldelningar, Resource Manager-mallar och mer) som kan distribueras dynamiskt till prenumerationer för att skapa enhetliga och upprepningsbara miljöer.</p>
       image:
+        alt: Skisser
         src: ./media/blueprints-illustration.svg
       title: Skisser
 - title: Implementeringar

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b80a2effb4cdfe45ad3f37785f7e97449d60f00c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510841"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340152"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
@@ -139,7 +139,7 @@ Använd följande procedur för att skapa en principdefinition.
 
 1. Skapa principdefinitionen med någon av följande anrop:
 
-   ```
+   ```console
    # For defining a policy in a subscription
    armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
 
@@ -169,7 +169,7 @@ Använd följande procedur för att skapa en principtilldelning och tilldelar pr
 
 1. Skapa principtilldelning med hjälp av följande anrop:
 
-   ```
+   ```console
    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
    ```
 
@@ -239,7 +239,7 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 
 Principdefinitionens ID för principdefinitionen som du skapade bör likna följande exempel:
 
-```
+```output
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 

@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 02/18/2019
 ms.author: bwren
-ms.openlocfilehash: 77a806d328a6dbac0e57c9d99e06debbb25e88b8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 874c0eca97ba7fea7543e41c75e642108141047f
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108389"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408501"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor-namngivning och terminologi ändringar
 Viktiga ändringar har gjorts till Azure Monitor nyligen med olika tjänster som konsolideras för att underlätta övervakning för Azure-kunder. Den här artikeln beskriver de senaste namn och terminologi ändringar i Azure Monitor-dokumentationen.
@@ -31,7 +31,7 @@ Azure Monitor log data är fortfarande lagras i Log Analytics-arbetsytan och for
 Termen _logganalys_ nu gäller främst för sidan i Azure portal som används för att skriva och köra frågor och analysera loggdata. Det är den funktionella motsvarigheten till [måttutforskaren](platform/metrics-charts.md), vilket är sidan i Azure portal som används för att analysera måttdata.
 
 ### <a name="log-analytics-workspaces"></a>Log Analytics-arbetsytor
-[Arbetsytor](platform/manage-access.md) som håller loggdata i Azure Monitor kallas fortfarande Log Analytics-arbetsytor. Den **Log Analytics** sidan på Azure portal har bytt namn till **Log Analytics-arbetsytor** och är där du [skapa nya arbetsytor](learn/quick-create-workspace.md) och konfigurera datakällor. Analysera dina loggar och andra övervakningsdata i **Azure Monitor** och konfigurera din arbetsyta i **Log Analytics-arbetsytor**.
+[Arbetsytor](platform/manage-access.md) som håller loggdata i Azure Monitor kallas fortfarande Log Analytics-arbetsytor. Den **Log Analytics** menyn i Azure-portalen har bytt namn till **Log Analytics-arbetsytor** och är där du [skapa nya arbetsytor](learn/quick-create-workspace.md) och konfigurera datakällor. Analysera dina loggar och andra övervakningsdata i **Azure Monitor** och konfigurera din arbetsyta i **Log Analytics-arbetsytor**.
 
 ### <a name="management-solutions"></a>Hanteringslösningar
 [Lösningar för hantering av](insights/solutions.md) har bytt namn till _övervakningslösningar_, vilket bättre beskriver deras funktioner.

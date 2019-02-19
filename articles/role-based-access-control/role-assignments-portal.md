@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst med hjälp av RBAC och Azure Portal | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst för användare, grupper, tjänstens huvudnamn och hanterade identiteter, med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure-portalen. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
+title: Hantera åtkomst till Azure resoruces med RBAC och Azure portal | Microsoft Docs
+description: Lär dig mer om att hantera åtkomst till Azure-resurser för användare, grupper, tjänstens huvudnamn och hanterade identiteter med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure-portalen. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412316"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342345"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>Hantera åtkomst med hjälp av RBAC och Azure Portal
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure portal
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är sättet som du hantera åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper, tjänstens huvudnamn och hanterade identiteter med RBAC och Azure-portalen.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper, tjänstens huvudnamn och hanterade identiteter med RBAC och Azure-portalen.
 
 ## <a name="open-access-control-iam"></a>Öppna åtkomstkontroll (IAM)
 
@@ -41,7 +41,7 @@ Den **åtkomstkontroll (IAM)** bladet, kallas även för identitets- och åtkoms
 
 ## <a name="view-roles-and-permissions"></a>Visa roller och behörigheter
 
-En rolldefinition är en uppsättning behörigheter som du använder för rolltilldelningar. Azure har över 70 [inbyggda roller](built-in-roles.md). Följ dessa steg om du vill visa de roller och behörigheter som kan utföras på hanterings- och dataplanet.
+En rolldefinition är en uppsättning behörigheter som du använder för rolltilldelningar. Azure har över 70 [inbyggda roller för Azure-resurser](built-in-roles.md). Följ dessa steg om du vill visa de roller och behörigheter som kan utföras på hanterings- och dataplanet.
 
 1. Öppna **åtkomstkontroll (IAM)** i ett omfång, till exempel hanteringsgruppen, prenumeration, resursgrupp eller resurs, där du vill visa roller och behörigheter.
 
@@ -165,7 +165,7 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Följ dessa 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudier: Bevilja åtkomst för en användare med RBAC och Azure portal](quickstart-assign-role-user-portal.md)
-* [Självstudier: Bevilja åtkomst för en användare med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Felsöka RBAC i Azure](troubleshooting.md)
-* [Organisera dina resurser med Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md)
+* [Självstudier: Ge en användaråtkomst till Azure-resurser med RBAC och Azure portal](quickstart-assign-role-user-portal.md)
+* [Självstudier: Ge en användaråtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Felsöka RBAC för Azure-resurser](troubleshooting.md)
+* [Organisera dina resurser med Azure-hanteringsgrupper](../governance/management-groups/index.md)

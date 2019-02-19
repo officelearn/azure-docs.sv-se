@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 9cd43172fc57443cc89f238e1d4ffaae45301936
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: addc1a0d7356cf1ba536c7ab47e376a48621e2d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330570"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342498"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Skapa ett grundläggande index i Azure Search
 
@@ -26,9 +26,29 @@ Du kan skapa ett index i portalen [REST API](search-create-index-rest-api.md), e
 
 ## <a name="recommended-workflow"></a>Rekommenderat arbetsflöde
 
-Eftersom fysiska strukturer skapas under indexering, behöver du [ta bort och återskapa index](search-howto-reindex.md) när du gör större ändringar till en befintlig fältdefinition. Det innebär att under utvecklingen, bör du planera på ofta behöver. Kan du arbeta med en delmängd av dina data så återskapar gå snabbare. 
+Rätt index-design som kommer uppnås vanligtvis via flera iterationer. Använda en kombination av verktyg och API: er kan hjälpa dig att slutföra utformningen snabbt.
 
-Koden i stället för att portalen indexering rekommenderas. Om du förlitar dig på portalen för indexdefinitionen, måste du fylla i indexdefinitionen på varje återskapning. Alternativt kan du med ett verktyg som [Postman och REST API](search-fiddler.md) är användbara för proof-of-concept testning när utvecklingsprojekt är fortfarande under tidiga faser. Du kan ändra inkrementella en Indexdefinition i begärandetexten, skickar en begäran till din tjänst att återskapa ett index med en uppdaterade schemat.
+1. Avgöra om du kan använda en [indexeraren](search-indexer-overview.md#supported-data-sources). Om dina externa data är en av datakällorna som stöds, kan du skapa prototyper och läsa in ett index med hjälp av den [ **dataimport** ](search-import-data-portal.md) guiden.
+
+2. Om du inte kan använda **dataimport**, du kan fortfarande [skapa ett första index i portalen](search-create-index-portal.md), lägga till fält, datatyper, och tilldela attribut med hjälp av kontrollerna på den **Add Index** sidan. Portalen visar vilka attribut som är tillgängliga för olika datatyper. Det här är användbart om du inte har använt design för indexet.
+
+   ![Lägg till indexsidan som visar attribut med datatypen](media/search-create-index-portal/field-attributes.png "Lägg till indexsidan som visar attributen efter datatyp")
+  
+   När du klickar på **skapa**, alla fysiska strukturer som stöder ditt index skapas i din söktjänst.
+
+3. Hämta den index schema med hjälp av [hämta Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) och en webbplats testning verktyg som [Postman](search-fiddler.md). Nu har du en JSON-representation av det index som du skapade i portalen. 
+
+   Du byter till en kodbaserad metod i det här läget. Portalen är inte passar bra för iteration eftersom du inte kan redigera ett index som redan har skapats. Men du kan använda Postman och RESTEN för de återstående aktiviteterna.
+
+4. [Läsa in ditt index med data](search-what-is-data-import.md). Azure Search accepterar JSON-dokument. Du kan använda Postman med JSON-dokument i nyttolasten för begäran för att läsa in dina data programmässigt. Om dina data inte är enkelt uttryckt i JSON, blir det här steget mest arbete beräkningsintensiva.
+
+5. Fråga ditt index, granska resultaten och ytterligare itererar indexschemat tills du börjar du se oväntade resultat. Du kan använda [ **Sökutforskaren** ](search-explorer.md) eller Postman fråga ditt index.
+
+6. Fortsätt att använda kod till att iterera över din design.  
+
+Eftersom fysiska strukturer skapas i tjänsten [släppa och återskapa index](search-howto-reindex.md) är nödvändigt när du gör betydande ändringar av ab befintliga definitionen för fältet. Det innebär att under utvecklingen, bör du planera på ofta behöver. Kan du arbeta med en delmängd av dina data så återskapar gå snabbare. 
+
+Koden i stället för en portal metod som rekommenderas för upprepad konstruktion. Om du förlitar dig på portalen för indexdefinitionen, måste du fylla i indexdefinitionen på varje återskapning. Alternativt kan verktyg som [Postman och REST API](search-fiddler.md) är användbara för proof-of-concept testning när utvecklingsprojekt är fortfarande under tidiga faser. Du kan göra inkrementella ändringar i en Indexdefinition i en begärandetext och skicka begäran till din tjänst att återskapa ett index med en uppdaterade schemat.
 
 ## <a name="components-of-an-index"></a>Komponenter i ett index
 
@@ -119,13 +139,13 @@ När du definierar ett schema måste du ange namnet, typen och attributet för v
 ### <a name="data-types"></a>Datatyper
 | Type | Beskrivning |
 | --- | --- |
-| *Edm.String* |Text som kan tokeniseras för textsökning (radbrytning, ordstamsigenkänning osv). |
+| *Edm.String* |Text som kan tokeniseras för textsökning (radbrytning, ordstamsigenkänning och så vidare). |
 | *Collection(Edm.String)* |En lista med strängar som kan tokeniseras för textsökning. Det finns ingen teoretisk övre gräns för antalet objekt i en samling, men den övre gränsen på 16 MB för nyttolasten gäller för samlingar. |
 | *Edm.Boolean* |Innehåller sant/falskt-värden. |
 | *Edm.Int32* |32-bitars heltalsvärden. |
 | *Edm.Int64* |64-bitars heltalsvärden. |
 | *Edm.Double* |Numeriska data med dubbel precision. |
-| *Edm.DateTimeOffset* |Datum- och tidsvärden som representeras i OData V4-format (t.ex. `yyyy-MM-ddTHH:mm:ss.fffZ` eller `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| *Edm.DateTimeOffset* |Datum tidsvärden som representeras i OData V4-format (till exempel `yyyy-MM-ddTHH:mm:ss.fffZ` eller `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |En punkt som representerar en geografisk plats i världen. |
 
 Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
@@ -144,32 +164,33 @@ Mer detaljerad information om [indexattributen i Azure Search finns här](https:
 
 ## <a name="storage-implications"></a>Storage effekter
 
-De attribut som du väljer påverka lagring. Skärmbilden nedan är en illustration av index storage mönster som härrör från olika kombinationer av attribut. Indexet baseras på den [inbyggda realestate-exemplet](search-get-started-portal.md) datakällan, vilket kan du indexera och fråga i portalen.
+De attribut som du väljer påverka lagring. Följande skärmbild illustrerar index storage mönster som härrör från olika kombinationer av attribut.
 
-Filtrera och sortera operations-fråga på exakta matchningar så att dokument som lagras intakta. Sökbara fält möjliggör fulltext- och fuzzy-sökning. Vägar i inverterad index skapas för sökbara fält och fylls med principfilerna villkor. Markera ett fält påverkar som ett hämtningsbart inte märkbar Indexstorlek.
+Indexet baseras på den [inbyggda realestate-exemplet](search-get-started-portal.md) datakällan, vilket kan du indexera och fråga i portalen. Även om de index scheman inte visas, kan du hämta de attribut som baseras på Indexnamnet. Till exempel *realestate-sökbara* indexet innehåller den **sökbara** attributet som väljs och inget annat, *realestate-hämtningsbara* indexet innehåller den  **hämtningsbar** attributet som väljs och inget annat och så vidare.
 
 ![Index-storlek baserat på val av attributet](./media/search-what-is-an-index/realestate-index-size.png "Index-storlek baserat på val av attribut")
 
-Flera av följande kombinationer är artificiella och användbara för belysning en punkt, men inte skulle resultera i ett genomförbart index. I praktiken, skulle du aldrig lägga till varje fält i en förslagsställare eller skapa ett index som är sökbara men inte hämtningsbar.
+Även om dessa index varianter är artificiella, refererar vi till dem för bred jämförelser av hur attribut påverkar lagring. Gör inställningen **hämtningsbar** öka indexstorleken på? Nej. Gör att lägga till fält till en **förslagsställare** öka indexstorleken på? Ja.
 
-Lagringsarkitektur anses en implementeringsdetalj för Azure Search och kan ändras utan föregående meddelande. Det finns ingen garanti att aktuella beteendet behålls i framtiden.
+Index som har stöd för filtrering och sortering är proportionellt större än index som stöder bara fulltextsökning. Anledningen är att filtrera och sortera fråga på exakta matchningar så att dokument som lagras intakta. Däremot Sök sökbara fält som har stöd för fulltext- och fuzzy Använd inverterad index, som fylls i med principfilerna villkor som förbrukar mindre utrymme än hela dokument.
+
+> [!Note]
+> Lagringsarkitektur anses en implementeringsdetalj för Azure Search och kan ändras utan föregående meddelande. Det finns ingen garanti att aktuella beteendet behålls i framtiden.
 
 ## <a name="suggesters"></a>Förslag på alternativ
-En förslagsställare är en del av det schema som definierar vilka fält i ett index används för att stödja Komplettera automatiskt eller frågeifyllningsförslag frågor i sökningar. Partiell söksträngar skickas vanligtvis till förslag (Azure Search Service REST API) när användaren skriver en sökfråga och API: et returnerar en mängd med föreslagna fraserna. 
+En förslagsställare är en del av det schema som definierar vilka fält i ett index används för att stödja Komplettera automatiskt eller frågeifyllningsförslag frågor i sökningar. Normalt partiella söksträngar skickas till den [förslag (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) när användaren skriver en sökfråga och API: et returnerar en mängd med föreslagna fraserna. 
 
-En förslagsställare som du definierar i indexet avgör vilka fält som används för att skapa frågeifyllningsförslag sökvillkor. Mer information finns i [lägga till förslagsställare](index-add-suggesters.md) konfigurationsinformation.
+Fält som har lagts till i en förslagsställare används för att skapa frågeifyllningsförslag söktermer. Alla sökvillkor skapas under indexering och lagrat separat. Läs mer om hur du skapar en förslagsställare struktur, [lägga till förslagsställare](index-add-suggesters.md).
 
 ## <a name="scoring-profiles"></a>Poängprofiler
 
-En bedömningsprofil är en del av det schema som definierar anpassade bedömnings beteenden som kan du påverka vilka objekt som visas högre upp i sökresultaten. Bedömningsprofiler består av fältvikter och funktioner. För att använda dem. anger du en profil med namnet i frågesträngen.
+En [bedömningsprofil](index-add-scoring-profiles.md) är en del av det schema som definierar anpassad bedömning beteenden som låter du påverka vilka objekt som visas högre upp i sökresultaten. Bedömningsprofiler består av fältvikter och funktioner. För att använda dem. anger du en profil med namnet i frågesträngen.
 
-Standard bedömningsprofil körs i bakgrunden att beräkna en sökpoäng för alla objekt i en resultatuppsättning. Du kan använda den interna icke namngivna bedömningsprofil. Du kan också ange defaultScoringProfile att använda en anpassad profil som standard, anropas när en anpassad profil har angetts i frågesträngen.
-
-Mer information finns i [lägga till bedömningsprofiler](index-add-scoring-profiles.md).
+Standard bedömningsprofil körs i bakgrunden att beräkna en sökpoäng för alla objekt i en resultatuppsättning. Du kan använda den interna icke namngivna bedömningsprofil. Du kan också ange **defaultScoringProfile** att använda en anpassad profil som standard, som anropas när en anpassad profil har angetts i frågesträngen.
 
 ## <a name="analyzers"></a>Analysverktyg
 
-Analysverktyg elementet anger namnet på språkanalysverktyg för fältet. Tillåtna uppsättning värden, se [språkanalysverktyg i Azure Search](index-add-language-analyzers.md). Det här alternativet kan bara användas med sökbara fält och den kan inte anges tillsammans med antingen **searchAnalyzer** eller **indexAnalyzer**. När analysatorn är valt, kan inte det ändras för fältet.
+Analysverktyg elementet anger namnet på språkanalysverktyg för fältet. Läs mer om vilka analysverktyg som är tillgängliga för dig, [att lägga till analysverktyg i ett Azure Search-index](search-analyzers.md). Analysverktyg kan bara användas med sökbara fält. När analysatorn tilldelas till ett fält, kan den inte ändras, såvida inte du återskapa indexet.
 
 ## <a name="cors"></a>CORS
 

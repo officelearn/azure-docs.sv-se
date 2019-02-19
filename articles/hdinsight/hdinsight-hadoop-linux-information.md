@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001931"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339236"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -87,7 +87,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
 
 Mer information finns i den [portar som används av Apache Hadoop-tjänster på HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentet.
 
-## <a name="file-locations"></a>Sökvägar
+## <a name="file-locations"></a>Filplatser
 
 Hadoop-relaterade filer kan hittas på klusternoder på `/usr/hdp`. Den här katalogen innehåller följande undermappar:
 
@@ -126,7 +126,15 @@ När du använder __Azure Storage__, Använd någon av följande URI-scheman:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Används vid kommunikation med ett icke-standard storage-konto. Till exempel när du har ett annat lagringskonto eller när åtkomst till data som lagras i ett offentligt tillgänglig storage-konto.
 
-När du använder __Data Lake Storage__, Använd någon av följande URI-scheman:
+När du använder __Azure Data Lake Storage Gen2__, Använd någon av följande URI-scheman:
+
+* `abfs:///`: Åtkomst till standard storage med hjälp av dekrypterade kommunikation.
+
+* `abfss:///`: Standard storage med krypterad kommunikation.  Abfss-schemat stöds endast från HDInsight version 3.6 och senare.
+
+* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Används vid kommunikation med ett icke-standard storage-konto. Till exempel när du har ett annat lagringskonto eller när åtkomst till data som lagras i ett offentligt tillgänglig storage-konto.
+
+När du använder __Azure Data Lake Storage Gen1__, Använd någon av följande URI-scheman:
 
 * `adl:///`: Åtkomst till standard Data Lake-lagring för klustret.
 
@@ -177,7 +185,7 @@ Det finns en olika sätt att komma åt data från utanför HDInsight-kluster. H�
 Om du använder __Azure Storage__, se följande länkar för sätt att du kan komma åt dina data:
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Kommandon för att arbeta med Azure. När installationen är klar att använda den `az storage` kommandot för att få hjälp om hur du använder lagring, eller `az storage blob` för blob-fil.
-* [blobxfer.PY](https://github.com/Azure/blobxfer): Ett python-skript för att arbeta med blobar i Azure Storage.
+* [blobxfer.py](https://github.com/Azure/blobxfer): Ett python-skript för att arbeta med blobar i Azure Storage.
 * Olika SDK: er:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -226,7 +234,7 @@ Olika klustertyper påverkas genom att skala på följande sätt:
 
         Du kan också ange parametrar för att åsidosätta parallellitet tipsen ursprungligen tillhandahålls av topologin. Till exempel `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` konfigurerar om topologin 5 arbetsprocesser, 3 executors för komponenten blå-kanal och 10 executors för komponenten gult bulten.
 
-    * **Storm-Användargränssnittet**: Använd följande steg för att balansera om en topologi med hjälp av Storm-Användargränssnittet.
+    * **Storm UI**: Använd följande steg för att balansera om en topologi med hjälp av Storm-Användargränssnittet.
 
         1. Öppna **https://CLUSTERNAME.azurehdinsight.net/stormui** i webbläsaren, där KLUSTERNAMN är namnet på ditt Storm-kluster. Om du uppmanas ange HDInsight-klusternamnet administrator (administratör) och lösenordet du angav när klustret skapas.
         2. Välj topologi som du inte vill att balansera om, och välj sedan den **balansera om** knappen. Ange fördröjningen innan ombalanseringen utförs.

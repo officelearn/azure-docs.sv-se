@@ -1,6 +1,6 @@
 ---
-title: Förstå rolldefinitioner i Azure RBAC | Microsoft Docs
-description: Läs mer om rolldefinitioner med rollbaserad åtkomstkontroll (RBAC) för tillgång till ingående åtkomsthantering av resurser i Azure.
+title: Förstå rolldefinitioner i RBAC för Azure-resurser | Microsoft Docs
+description: Läs mer om rolldefinitioner med rollbaserad åtkomstkontroll (RBAC) för detaljerad åtkomsthantering för Azure-resurser.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991369"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342787"
 ---
-# <a name="understand-role-definitions"></a>Förstå rolldefinitioner
+# <a name="understand-role-definitions-for-azure-resources"></a>Förstå rolldefinitioner för Azure-resurser
 
-Om du vill förstå hur en roll fungerar eller om du skapar dina egna [anpassad roll](custom-roles.md), är det bra att förstå hur roller definieras. Den här artikeln innehåller information om rolldefinitioner och innehåller några exempel.
+Om du vill förstå hur en roll fungerar eller om du skapar dina egna [anpassad roll för Azure-resurser](custom-roles.md), är det bra att förstå hur roller definieras. Den här artikeln innehåller information om rolldefinitioner och innehåller några exempel.
 
 ## <a name="role-definition-structure"></a>Roll-definitionsstruktur
 
@@ -151,6 +151,8 @@ Eftersom Alice har ett jokertecken (`*`) åtgärden en prenumerationsomfånget �
 
 Bobs behörigheter är begränsade till bara den `Actions` och `DataActions` anges i den [Storage Blob Data-deltagare (förhandsgranskning)](built-in-roles.md#storage-blob-data-contributor-preview) roll. Baserat på vilken roll, kan Bob utföra både hantering och åtgärder. Till exempel Bob kan läsa, skriva och ta bort behållare i det angivna lagringskontot och han kan också läsa, skriva och ta bort blobar.
 
+Mer information om hantering och datasäkerhet plan för lagring finns i den [säkerhetsguiden för Azure Storage](../storage/common/storage-security-guide.md).
+
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>Vilka verktyg stöd med rollbaserad Åtkomstkontroll i dataåtgärder?
 
 Om du vill visa och arbeta med dataåtgärder, måste du ha rätt versioner av verktyg och SDK: er:
@@ -225,10 +227,10 @@ Inbyggda roller har `AssignableScopes` inställd rotscopet (`"/"`). Rotscopet an
 | Rollen är tillgängliga för tilldelning endast i Nätverksresursgruppen | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Rollen är tillgängliga för tilldelning i alla omfattningar | `"/"` |
 
-Information om `AssignableScopes` anpassade roller finns [anpassade roller](custom-roles.md).
+Information om `AssignableScopes` anpassade roller finns [anpassade roller för Azure-resurser](custom-roles.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Inbyggda roller](built-in-roles.md)
-* [Anpassade roller](custom-roles.md)
+* [Inbyggda roller för Azure-resurser](built-in-roles.md)
+* [Anpassade roller för Azure-resurser](custom-roles.md)
 * [Azure Resource Manager åtgärder för resursprovider](resource-provider-operations.md)

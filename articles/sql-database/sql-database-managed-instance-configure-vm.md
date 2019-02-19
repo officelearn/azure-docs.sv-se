@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 02/18/2019
+ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410075"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408807"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabbstart: Konfigurera virtuell Azure-dator att ansluta till en Azure SQL Database Managed Instance
 
@@ -97,7 +97,8 @@ Det enklaste sättet att skapa en virtuell dator för klienten med alla nödvän
 4. Välj **köp** att distribuera virtuella Azure-datorer i nätverket.
 5. Välj ikonen **Meddelanden** för att visa status för distributionen.
 
-Fortsätt inte förrän den virtuella Azure-datorn har skapats. 
+> [!IMPORTANT]
+> Fortsätt inte till cirka 15 minuter efter den virtuella datorn har skapats för att ge tid för efter skapande-skript för att installera SQL Server Management Studio.
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 

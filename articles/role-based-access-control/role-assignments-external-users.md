@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst för externa användare med RBAC i Azure | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst för användare utanför en organisation som använder rollbaserad åtkomstkontroll (RBAC) i Azure.
+title: Hantera åtkomst till Azure-resurser för externa användare med RBAC | Microsoft Docs
+description: Lär dig mer om att hantera åtkomst till Azure-resurser för användare utanför en organisation som använder rollbaserad åtkomstkontroll (RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284531"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343868"
 ---
-# <a name="manage-access-for-external-users-using-rbac"></a>Hantera åtkomst för externa användare med RBAC
+# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Hantera åtkomst till Azure-resurser för externa användare med RBAC
 
 Rollbaserad åtkomstkontroll (RBAC) gör bättre säkerhetshantering för stora organisationer och för små och medelstora företag att arbeta med externa samarbetspartner, leverantörer eller freelancers som behöver åtkomst till specifika resurser i din miljö, men inte nödvändigtvis för hela infrastruktur eller eventuella faktureringsrelaterade scope. RBAC kan flexibiliteten i ägande en Azure-prenumeration som hanteras av administratörskontot (administratörsrollen för tjänsten på en prenumerationsnivå) och har flera användare bjuds in för att arbeta i samma prenumeration, men utan några administrativa rättigheter för den .
 
 > [!NOTE]
-> Office 365-prenumerationer eller Azure Active Directory-licenser (till exempel: åtkomst till Azure Active Directory) etablerats från center är inte kvalificerade för att använda RBAC Administrationscenter för Office 365.
+> Office 365-prenumerationer eller Azure Active Directory-licenser (till exempel: Åtkomst till Azure Active Directory) som etablerats från Office 365 Admin center är inte kvalificerade för att använda RBAC.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Tilldela RBAC-roller prenumerationsområde
 
@@ -55,7 +55,7 @@ När du har valt prenumerationen administratörsanvändaren måste klicka på **
 
 ![Lägg till ny användare i IAM åtkomstfunktion i Azure-portalen](./media/role-assignments-external-users/2.png)
 
-Nästa steg är att välja rollen tilldelas och användaren som ska tilldelas den RBAC-rollen. I den **rollen** listrutan admin-användare ser bara de inbyggda RBAC-roller som är tillgängliga i Azure. Mer detaljerade förklaringar av varje roll och deras tilldelningsbara scope finns i [inbyggda roller](built-in-roles.md).
+Nästa steg är att välja rollen tilldelas och användaren som ska tilldelas den RBAC-rollen. I den **rollen** listrutan admin-användare ser bara de inbyggda RBAC-roller som är tillgängliga i Azure. Mer detaljerade förklaringar av varje roll och deras tilldelningsbara scope finns i [inbyggda roller för Azure-resurser](built-in-roles.md).
 
 Administratören måste sedan lägga till den externa användaren e-postadress. Det är förväntat beteende för den externa användaren inte visas i den befintliga klienten. När den externa användaren har bjudits han kommer att visas under **prenumerationer > åtkomstkontroll (IAM)** med de aktuella användarna som är tilldelade en RBAC-roll prenumerationsområde.
 

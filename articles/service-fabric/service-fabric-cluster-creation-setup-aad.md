@@ -12,44 +12,52 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/15/2018
+ms.date: 02/15/2019
 ms.author: aljo
-ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 15561969e27512c4882eccc10f75aa932bcf23df
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903510"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338996"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
 
-För kluster som körs på Azure, rekommenderar Azure Active Directory (Azure AD) att säkra åtkomst till av hanteringsslutpunkter.  Den här artikeln beskrivs hur att konfigurera Azure AD för att autentisera klienter för Service Fabric-kluster som måste göras innan [skapar klustret](service-fabric-cluster-creation-via-arm.md).  Azure AD kan organisationer (kallas även klienter) för att hantera åtkomst till program. Program är indelade i dem med en webbaserad Användargränssnittet för inloggning och personer med en intern klient-upplevelse. I den här artikeln förutsätter vi att du redan har skapat en klient. Om du inte har börjar med att läsa [skaffa en Azure Active Directory-klient][active-directory-howto-tenant].
+För kluster som körs på Azure, rekommenderar Azure Active Directory (Azure AD) att säkra åtkomst till av hanteringsslutpunkter.  Den här artikeln beskrivs hur att konfigurera Azure AD för att autentisera klienter för Service Fabric-kluster som måste göras innan [skapar klustret](service-fabric-cluster-creation-via-arm.md).  Azure AD kan organisationer (kallas även klienter) för att hantera åtkomst till program. Program är indelade i dem med en webbaserad Användargränssnittet för inloggning och personer med en intern klient-upplevelse. 
 
-## <a name="create-azure-ad-applications"></a>Skapa Azure AD-program
 Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, inklusive den webbaserade [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] och [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Därför kan du skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program.  När programmen har skapats kan du tilldela användare till skrivskyddat läge och administrativa roller.
-
-Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa av stegen som ingår i Konfigurera Azure AD med Service Fabric-kluster.
 
 > [!NOTE]
 > Du måste slutföra följande steg innan du skapar klustret. Eftersom skripten förväntar dig klusternamn och slutpunkter, värdena bör planeras och värden inte att du redan har skapat.
 
+## <a name="prerequisites"></a>Förutsättningar
+I den här artikeln förutsätter vi att du redan har skapat en klient. Om du inte har börjar med att läsa [skaffa en Azure Active Directory-klient][active-directory-howto-tenant].
+
+Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa av stegen som ingår i Konfigurera Azure AD med Service Fabric-kluster.
+
 1. [Ladda ned skripten](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) till datorn.
 2. Högerklicka på zipfilen, Välj **egenskaper**väljer den **avblockera** och klicka sedan på **tillämpa**.
 3. Extrahera zip-filen.
-4. Kör `SetupApplications.ps1`, och ange TenantId, klusternamn och WebApplicationReplyUrl som parametrar. Exempel:
+
+## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>Skapa Azure AD-program och asssign användare till roller
+Skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program. När du har skapat de program som ska representera klustret kan du tilldela dina användare till den [roller som stöds av Service Fabric](service-fabric-cluster-security-roles.md): skrivskyddade och administratör.
+
+Kör `SetupApplications.ps1`, och tillhandahåller klienten-ID, klusternamnet och web application svars-URL som parametrar.  Även ange användarnamn och lösenord för användarna.  Exempel:
 
 ```PowerShell
-.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+$Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
 
 > [!NOTE]
-> För nationella moln (Azure Government, Azure Kina Azure Tyskland), bör du också ange den `-Location` parametern.
+> För nationella moln (till exempel Azure Government, Azure Kina Azure Tyskland), bör du också ange den `-Location` parametern.
 
-Du hittar ditt TenantId genom att köra PowerShell-kommandot `Get-AzureSubscription`. Kör det här kommandot visar TenantId för varje prenumeration.
+Du kan hitta din *TenantId* genom att köra PowerShell-kommandot `Get-AzureSubscription`. Kör det här kommandot visar TenantId för varje prenumeration.
 
-Klusternamn används som prefix i Azure AD-program som skapas av skriptet. Det behöver inte matcha det faktiska klusternamnet exakt. Det är endast avsedd att göra det enklare att mappa Azure AD-artefakter till Service Fabric-klustret som de som används med.
+*Klusternamn* används som prefix i Azure AD-program som skapas av skriptet. Det behöver inte matcha det faktiska klusternamnet exakt. Det är endast avsedd att göra det enklare att mappa Azure AD-artefakter till Service Fabric-klustret som de som används med.
 
-WebApplicationReplyUrl är den standardslutpunkt som Azure AD returnerar till användarna när de Slutför inloggningen. Ange den här slutpunkten som Service Fabric Explorer-slutpunkt för ditt kluster, vilket som standard är:
+*WebApplicationReplyUrl* är standardslutpunkten som Azure AD returnerar till användarna när de Slutför inloggningen. Ange den här slutpunkten som Service Fabric Explorer-slutpunkt för ditt kluster, vilket som standard är:
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
@@ -58,7 +66,7 @@ Du uppmanas att logga in på ett konto som har administratörsbehörighet för A
    * *Klusternamn*\_kluster
    * *Klusternamn*\_klienten
 
-Skriptet skriver ut den JSON som krävs av Azure Resource Manager-mallen när du skapar klustret i nästa avsnitt, så det är en bra idé att öppna PowerShell-fönstret.
+Skriptet skriver ut den JSON som krävs av Azure Resource Manager-mallen när du [skapa klustret](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), så det är en bra idé att öppna PowerShell-fönstret.
 
 ```json
 "azureActiveDirectory": {
@@ -67,31 +75,6 @@ Skriptet skriver ut den JSON som krävs av Azure Resource Manager-mallen när du
   "clientApplication":"<guid>"
 },
 ```
-
-<a name="assign-roles"></a>
-
-## <a name="assign-users-to-roles"></a>Tilldela användare till roller
-När du har skapat de program som ska representera klustret kan tilldela dina användare till roller som stöds av Service Fabric: skrivskyddade och administratör. Du kan tilldela rollerna med hjälp av den [Azure-portalen][azure-portal].
-
-1. Välj din klient i det övre högra hörnet i Azure-portalen.
-
-    ![Välj knappen för klient][select-tenant-button]
-2. Välj **Azure Active Directory** på den vänstra fliken och väljer ”program”.
-3. Välj ”alla program”, och leta upp och välj webbprogram som har ett namn som `myTestCluster_Cluster`.
-4. Klicka på den **användare och grupper** fliken.
-
-    ![Fliken användare och grupper][users-and-groups-tab]
-5. Klicka på den **Lägg till användare** knapp på den nya sidan, Välj en användare och rollen för att tilldela och klicka sedan på den **Välj** längst ned på sidan.
-
-    ![Tilldela användare till roller sida][assign-users-to-roles-page]
-6. Klicka på den **tilldela** längst ned på sidan.
-
-    ![Lägg till tilldelning bekräftelse][assign-users-to-roles-confirm]
-
-> [!NOTE]
-> Mer information om roller i Service Fabric finns i [rollbaserad åtkomstkontroll för Service Fabric-klienter](service-fabric-cluster-security-roles.md).
->
->
 
 ## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>Hjälp att konfigurera Azure Active Directory med felsökning
 Konfigurera Azure AD och använda det kan vara en utmaning, så här följer några tips på vad du kan göra för att felsöka problemet.
@@ -159,10 +142,6 @@ När du har installerat Azure Active Directory-program och inställningen använ
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->
-[select-tenant-button]: ./media/service-fabric-cluster-creation-setup-aad/select-tenant-button.png
-[users-and-groups-tab]: ./media/service-fabric-cluster-creation-setup-aad/users-and-groups-tab.png
-[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-page.png
-[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-setup-aad/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-setup-aad/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-setup-aad/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-setup-aad/web-application-reply-url.png

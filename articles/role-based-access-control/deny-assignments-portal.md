@@ -1,6 +1,6 @@
 ---
-title: Visa neka tilldelningar med Azure portal | Microsoft Docs
-description: Lär dig hur du visar användare, grupper, tjänstens huvudnamn och hanterade identiteter som har nekats åtkomst till specifika åtgärder i visst omfång med Azure portal.
+title: Visa neka tilldelningar för Azure-resurser med Azure portal | Microsoft Docs
+description: Lär dig hur du visar användare, grupper, tjänstens huvudnamn och hanterade identiteter som har nekats åtkomst till specifika Azure-resurs åtgärder i visst omfång med Azure portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642811"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343246"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>Visa neka tilldelningar med Azure portal
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visa neka tilldelningar för Azure-resurser med Azure portal
 
-[Neka tilldelningar](deny-assignments.md) blockera användare från att utföra specifika åtgärder, även om en rolltilldelning ger dem åtkomst. Även om det går inte att skapa egna neka tilldelningar, du behöver för att kunna visa neka tilldelningar eftersom de kan påverka din övergripande behörigheter. Om du vill hämta information om tilldelningsnekande måste du ha `Microsoft.Authorization/denyAssignments/read`-behörighet, vilket ingår i de flesta [inbyggda roller](built-in-roles.md).
+[Neka tilldelningar](deny-assignments.md) blockera användare från att utföra åtgärder för specifika Azure-resurs, även om en rolltilldelning ger dem åtkomst. Även om det går inte att skapa egna neka tilldelningar, du behöver för att kunna visa neka tilldelningar eftersom de kan påverka din övergripande behörigheter. Om du vill ha information om en neka-tilldelning måste du ha den `Microsoft.Authorization/denyAssignments/read` behörigheter, som ingår i de flesta [inbyggda roller för Azure-resurser](built-in-roles.md).
 
 Den här artikeln beskriver hur du använder Azure-portalen för att visa neka tilldelningar.
 
@@ -38,11 +38,11 @@ Följ anvisningarna nedan om du vill visa neka tilldelningar definitionsområdet
 
 1. Klicka på hanteringsgruppen eller prenumerationen som du vill visa.
 
-1. Klicka på **åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
 1. Klicka på den **neka tilldelningar** fliken (eller klicka på den **visa** knappen i vyn neka tilldelningar panelen).
 
-    Om det inte finns någon neka tilldelningar i den här omfattningen eller ärvt för detta omfång visas.
+    Om det finns några nekande tilldelningar i det här omfånget eller som ärvts till det här omfånget visas de.
 
     ![Åtkomstkontroll – neka tilldelningar](./media/deny-assignments-portal/access-control-deny-assignments.png)
 
@@ -105,5 +105,5 @@ Följ dessa steg om du vill visa mer information om en neka-tilldelning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förstå neka tilldelningar](deny-assignments.md)
-* [Lista neka tilldelningar med RBAC och REST-API](deny-assignments-rest.md)
+* [Förstå neka tilldelningar för Azure-resurser](deny-assignments.md)
+* [Lista neka tilldelningar för Azure-resurser med hjälp av REST-API](deny-assignments-rest.md)

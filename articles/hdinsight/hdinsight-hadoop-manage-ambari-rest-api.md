@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 79bc9310eb3f7c8dd2b295405cea70c514d343d3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6eb759928d504bf1a3ccac4bc1aa983bb6a47979
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820881"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339374"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
 
@@ -255,7 +255,9 @@ Det returnera värdet är av följande exempel:
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` – Det här värdet anger att klustret använder ett Azure Storage-konto för standardlagring. Den `ACCOUNTNAME` värdet är namnet på lagringskontot. Den `CONTAINER` delen är namnet på blob-behållare i lagringskontot. Behållaren är roten för HDFS kompatibla lagringsutrymmet för klustret.
 
-* `adl://home` – Det här värdet anger att klustret använder Azure Data Lake Storage för standardlagring.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` – Det här värdet anger att klustret använder Azure Data Lake Storage Gen2 för standardlagring. Den `ACCOUNTNAME` och `CONTAINER` värden ha innebörden som är samma som för Azure Storage som tidigare nämnts.
+
+* `adl://home` – Det här värdet anger att klustret använder Azure Data Lake Storage Gen1 för standardlagring.
 
     Använd följande exempel för att hitta namnet på Data Lake Storage-kontot:
 

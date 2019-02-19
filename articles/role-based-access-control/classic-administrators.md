@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5049a5a829ce8e94b62409c9d3b1439e8431fb1
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 3274d753d33c759efa06b899a5511daf53aa9ec9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101199"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338656"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure klassiska prenumerationsadministratörer
 
-Microsoft rekommenderar att du hanterar åtkomst till resurser med hjälp av rollbaserad åtkomstkontroll (RBAC). Om du fortfarande använder den klassiska distributionsmodellen, ska du dock behöva använda en administratörsroll för klassiska prenumerationer: Tjänstadministratör och delad administratör. Mer information finns i [Azure Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft rekommenderar att du hanterar åtkomst till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC). Om du fortfarande använder den klassiska distributionsmodellen, ska du dock behöva använda en administratörsroll för klassiska prenumerationer: Tjänstadministratör och delad administratör. Mer information finns i [Azure Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Den här artikeln beskrivs hur du lägger till eller ändrar rollerna delad administratör och administratör för tjänsten och hur du visar kontoadministratör.
 
@@ -155,4 +155,4 @@ Följ dessa steg om du vill visa kontoadministratör.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md)
+* [Hantera åtkomst till Azure-resurser med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md)

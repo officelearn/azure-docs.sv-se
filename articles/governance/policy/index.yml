@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: db83cf4310cb4d74dcbbd290f650e4dcfc00c0c8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343714"
 documentType: LandingData
 title: Dokumentation om Azure Policy
 metadata:
-  title: 'Dokumentation om Azure Policy – självstudier, API-referens'
-  description: 'Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal. Lär dig hur du skapar, tilldelar och hanterar principdefinitioner med våra snabbstarter, vägledningar och exempel.'
+  title: Dokumentation om Azure Policy – självstudier, API-referens
+  description: Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal.
   services: azure-policy
   author: DCtheGeek
   manager: carmonm
@@ -12,53 +18,56 @@ metadata:
   ms.date: 01/23/2019
   ms.author: dacoulte
 abstract:
-  description: 'Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal. Lär dig hur du skapar, tilldelar och hanterar principdefinitioner med våra snabbstarter, vägledningar och exempel.'
+  description: Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och effekter för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal.
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/portal.svg
-            text: Azure Portal
-            href: ./assign-policy-portal
-          - image:
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: ./assign-policy-powershell
-          - image:
-              src: ./media/cli.svg
-            text: Azure CLI
-            href: ./assign-policy-azurecli
-  - title: Steg för steg-självstudier
+    - image:
+        alt: Azure Portal
+        src: ./media/portal.svg
+      text: Azure Portal
+      href: ./assign-policy-portal
+    - image:
+        alt: Azure PowerShell
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: ./assign-policy-powershell
+    - image:
+        alt: Azure CLI
+        src: ./media/cli.svg
+      text: Azure CLI
+      href: ./assign-policy-azurecli
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Skapa och hantera Azure Policy</a>
-  - title: Exempel
+    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Skapa och hantera Azure Policy</a>
+- title: Exempel
+  items:
+  - type: paragraph
+    text: Använd följande JSON-exempel för att skapa principdefinitioner i Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Använd följande JSON-exempel för att skapa principdefinitioner i Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
-  - title: Referens
+    - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/cli/azure/policy">Azure CLI</a></p>
-          - title: PowerShell
-            html: '<p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>'
-          - title: REST-API
-            html: <p><a href="/rest/api/policy-insights/policyevents">Händelser</a></p><p><a href="/rest/api/policy-insights/policystates">Tillstånd</a></p><p><a href="/rest/api/resources/policyassignments">Tilldelningar</a></p><p><a href="/rest/api/resources/policydefinitions">Principdefinitioner</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiativdefinitioner</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Principspårade resurser</a></p><p><a href="/rest/api/policy-insights/remediations">Reparationer</a></p>
+    - title: Kommandorad
+      html: <p><a href="/cli/azure/policy">Azure CLI</a></p>
+    - title: PowerShell
+      html: <p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>
+    - title: REST-API
+      html: <p><a href="/rest/api/policy-insights/policyevents">Händelser</a></p><p><a href="/rest/api/policy-insights/policystates">Tillstånd</a></p><p><a href="/rest/api/resources/policyassignments">Tilldelningar</a></p><p><a href="/rest/api/resources/policydefinitions">Principdefinitioner</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiativdefinitioner</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Principspårade resurser</a></p><p><a href="/rest/api/policy-insights/remediations">Reparationer</a></p>

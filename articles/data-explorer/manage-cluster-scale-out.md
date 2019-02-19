@@ -7,17 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 38dc7b70630276d51c75ca7e87f0b69ea7fe040a
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/18/2019
+ms.openlocfilehash: 15ef5282e0a073e870f2ac12b5fc442407535770
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735622"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408450"
 ---
-# <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Hantera kluster skala ut för ändrade behov
+# <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Hantera kluster skalbar för att hantera ändrade behov
 
-Ändra storlek på ett kluster på rätt sätt är det viktigt att prestandan för Azure Data Explorer. Men det går inte att förutse efterfrågan på ett kluster med 100% noggrannhet. En statisk klusterstorlek kan leda till under användning eller Överskriden användning, inte är idealiskt. En bättre metod är att *skala* ett kluster, att lägga till och ta bort kapaciteten med ändringen av begäran. Den här artikeln visar hur du hanterar klustret skala ut.
+Ändra storlek på ett kluster på rätt sätt är det viktigt att prestandan för Azure Data Explorer. Men det går inte att förutse efterfrågan på ett kluster med 100% noggrannhet. En statisk klusterstorlek kan leda till under användning eller Överskriden användning, inte är idealiskt. En bättre metod är att *skala* ett kluster, att lägga till och ta bort kapaciteten med ändringen av begäran. Det finns två arbetsflöden för skalning, skala upp och skala ut. Den här artikeln förklarar skalbar arbetsflödet.
+
+Den här artikeln visar hur du hanterar klustret utskalning, även känt som automatisk skalning. Automatisk skalning kan du skala ut automatiskt baserat på fördefinierade regler och scheman antal instanser. Avgör dina inställningar för automatisk skalning för ditt kluster i Azure-portalen, enligt beskrivningen nedan.
 
 Navigera till ditt kluster och under **inställningar** Välj **skala ut**. Under **konfigurera**väljer **aktivera autoskalning**.
 
@@ -35,6 +37,8 @@ Följande bild visar flödet av de kommande stegen. Vi tillhandahåller mer info
 
 1. I den **skalningsregeln** till höger och ange värden för varje inställning.
 
+    **Kriterie**
+
     | Inställning | Beskrivning och värde |
     | --- | --- | --- |
     | **Tidsmängd** | Välj en aggregering villkor, till exempel **genomsnittlig**. |
@@ -42,7 +46,13 @@ Följande bild visar flödet av de kommande stegen. Vi tillhandahåller mer info
     | **Tidsintervallstatistik** | Välj mellan **genomsnittliga**, **minsta**, **maximala**, och **summan**. |
     | **Operator** | Välj lämpligt alternativ, till exempel **större än eller lika med**. |
     | **Tröskelvärde** | Välj ett lämpligt värde. Till exempel är 80% för användning av cache, en bra utgångspunkt. |
-    | **Varaktighet** | Välj en lämplig mängd tid för systemet att söka igen vid beräkning av mått. Börja med standard tio minuter. |
+    | **Varaktighet (i minuter)** | Välj en lämplig mängd tid för systemet att söka igen vid beräkning av mått. Börja med standardvärdet 10 minuter. |
+    |  |  |
+
+    **Åtgärd**
+
+    | Inställning | Beskrivning och värde |
+    | --- | --- | --- |
     | **Åtgärd** | Välj rätt alternativ för att skala in eller skala ut. |
     | **Instansantal** | Välj antal noder eller instanser som du vill lägga till eller ta bort när ett mått villkor är uppfyllt. |
     | **Väntetid (minuter)** | Välj en lämplig tidsintervallet mellan skalningsåtgärder. Börja med standardvärdet på fem minuter. |
@@ -54,13 +64,15 @@ Följande bild visar flödet av de kommande stegen. Vi tillhandahåller mer info
 
     | Inställning | Beskrivning och värde |
     | --- | --- | --- |
-    | *Minimum* | Detta är antalet instanser som klustret inte skalas nedan, oavsett användning. |
-    | *Maximalt* | Detta är antalet instanser som klustret inte skalas ovan, oavsett användning. |
+    | *Minimum* | Antalet instanser som klustret inte skalas nedan, oavsett användning. |
+    | *Maximalt* | Antalet instanser som klustret inte skalas ovan, oavsett användning. |
     | *Standard* | Standardantalet instanser som används om det inte går att läsa mätvärden för resurs. |
     |  |  |
 
 1. Välj **Spara**.
 
 Du har nu konfigurerat utskalningen för ditt Azure Data Explorer-kluster. Lägg till en annan regel för att skala in. Detta gör att skala klustret dynamiskt baserat på mått som du anger.
+
+Du kan också göra [klustret skala upp](manage-cluster-scale-up.md) för lämplig storlek i ett kluster.
 
 Om du behöver hjälp med klusterskalning problem, öppna en supportbegäran i den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

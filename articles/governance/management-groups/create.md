@@ -1,6 +1,6 @@
 ---
-title: Skapa hanteringsgrupper för att organisera Azure-resurser
-description: Lär dig hur du skapar Azure hanteringsgrupper för att hantera flera resurser.
+title: Skapa hanteringsgrupper för att organisera Azure-resurser – Azure-styrning
+description: Lär dig hur du skapar Azure hanteringsgrupper för att hantera flera resurser med portalen, Azure PowerShell och Azure CLI.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 699a9b7a371a004213419567d0672f56b5365598
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 01bfd10b2f37a7990ab9a1badfcb09422baa391a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620122"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342209"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 
@@ -78,6 +78,6 @@ Läs mer om hanteringslösningar här:
 
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
 - [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
-- [Granska av hanteringsgrupper i Azure PowerShell-modulen för resurser](https://aka.ms/mgPSdocs)
-- [Granska hanteringsgrupper i REST-API](https://aka.ms/mgAPIdocs)
-- [Granska av hanteringsgrupper i Azure CLI](https://aka.ms/mgclidoc)
+- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](https://aka.ms/mgPSdocs)
+- [Granska hanteringsgrupper i REST API](https://aka.ms/mgAPIdocs)
+- [Granska hanteringsgrupper i Azure CLI](https://aka.ms/mgclidoc)

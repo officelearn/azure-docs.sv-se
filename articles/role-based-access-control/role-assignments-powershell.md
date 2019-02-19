@@ -1,6 +1,6 @@
 ---
-title: Hantera åtkomst med RBAC och Azure PowerShell | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst för användare, grupper och program, med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
+title: Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell | Microsoft Docs
+description: Lär dig mer om att hantera åtkomst till Azure resoruces för användare, grupper och program med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106179"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343782"
 ---
-# <a name="manage-access-using-rbac-and-azure-powershell"></a>Hantera åtkomst med RBAC och Azure PowerShell
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är sättet som du hantera åtkomst till resurser i Azure. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure PowerShell.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -326,6 +326,6 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Bevilja åtkomst för en grupp med RBAC och Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Självstudier: Skapa en anpassad roll med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Självstudier: Bevilja en åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Självstudier: Skapa en anpassad roll för Azure-resurser med Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Hantera resurser med Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)

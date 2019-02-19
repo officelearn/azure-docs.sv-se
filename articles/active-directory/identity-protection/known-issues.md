@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd894b214366302af4651b5944e250086be14beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183844"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339031"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Vanliga frågor och kända problem med identity protection (uppdateras) i Azure Active Directory
 
@@ -33,6 +33,8 @@ ms.locfileid: "56183844"
 
 
 **Stäng användarrisk** i Identity Protection (uppdateras) anger aktören i användarens Riskhistorik i Identity Protection (uppdateras) till **\<administratörens namn med en hyperlänk som pekar på användarens blad\>**.
+
+Det finns en aktuell känt problem som orsakar fördröjningar i användarflödet risk avsked. Om du har en ”användarprincip” sluta den här principen att använda avvisade användare inom minuter efter att klicka på ”Stäng användarrisk”. Men finns det kända förseningar med UX uppdaterar ”Risk statusen” Avvisade användare. Uppdatera sidan på nivå webbläsare om du vill se senaste användare ”risktillstånd” som en lösning.
 
 
 ## <a name="risky-users-report"></a>Rapport om riskanvändare

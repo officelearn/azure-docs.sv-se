@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820801"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339524"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella datornätverk
 
@@ -113,7 +113,7 @@ Azure använder [rollbaserad åtkomstkontroll](../role-based-access-control/over
 
 Azure Policy kan du skapa, tilldela och hantera principdefinitioner. Principdefinitioner tillämpar olika regler på resurserna, så att resurserna kompatibla med din organisations normer och servicenivåavtal. Azure Policy kör en utvärdering av resurserna och söker efter resurser som inte är kompatibla med de principdefinitioner som du har. Du kan till exempel definiera och tillämpa en princip som tillåter generering av virtuella nätverk i en specifik resursgrupp eller region. En annan princip kan kräva att varje undernät som har en nätverkssäkerhetsgrupp som är associerade med den. Principerna utvärderas sedan resurser skapas och uppdateras.
 
-Principer som används för följande hierarki: Prenumeration, hanteringsgrupp och resursgrupp. Läs mer om [Azure policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller distribuera ett virtuellt nätverk [Principmall](policy-samples.md) exempel.
+Principer som används för följande hierarki: Prenumeration, hanteringsgrupp och resursgrupp. Läs mer om [Azure policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller distribuera ett virtuellt nätverk [Principmall](policy-samples.md) exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 

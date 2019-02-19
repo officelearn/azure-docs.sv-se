@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 80d84fcede0d293b083ea75f24e9b0bd3125b265
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959688"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344037"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
@@ -69,7 +69,7 @@ Information om hur du skapar och konfigurerar Azure IR finns i How to create and
 En IR med egen värd kan:
 
 - Köra kopieringsaktivitet mellan molndatalager och ett datalager i privat nätverk.
-- Skicka följande transformeringsaktiviteter mot beräkningsresurser i lokalt eller Azure Virtual Network: HDInsight Hive-aktivitet (BYOC), HDInsight Pig-aktivitet (BYOC), HDInsight MapReduce-aktivitet (BYOC), HDInsight Spark-aktivitet (BYOC), HDInsight Streaming-aktivitet (BYOC), Machine Learning-batchkörningsaktivitet, Machine Learning-resursuppdatering aktiviteter, lagringsprocedur-aktivitet, Data Lake Analytics U-SQL-aktivitet, .net-anpassad aktivitet, Lookup-aktivitet och GetMetaData-aktivitet.
+- Skicka följande transformeringsaktiviteter mot beräkningsresurser i lokalt eller Azure Virtual Network: HDInsight Hive-aktivitet (BYOC ta med din egen kluster), HDInsight Pig-aktivitet (BYOC), HDInsight MapReduce-aktivitet (BYOC), HDInsight Spark-aktivitet (BYOC), HDInsight Streaming-aktivitet (BYOC), Machine Learning-batchkörningsaktivitet, Machine Learning Uppdatera resursaktiviteter, lagringsprocedur-aktivitet, Data Lake Analytics U-SQL-aktivitet, .net-anpassad aktivitet, Lookup-aktivitet och GetMetaData-aktivitet.
 
 > [!NOTE] 
 > Använda Integration Runtime med egen värd för att stödja datalager som kräver egen drivrutin, till exempel SAP Hana, MySQL osv.  Mer information finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

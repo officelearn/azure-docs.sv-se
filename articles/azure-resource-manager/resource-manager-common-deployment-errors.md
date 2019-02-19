@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/16/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 600b79ec0b34d6b79b1b56719dd800bbe8ec803a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487157"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339271"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
 
@@ -36,7 +36,7 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 | AccountPropertyCannotBeSet | Kontrollera tillgängligt lagringsutrymme kontoegenskaperna. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | Det kluster eller en region har resurser som är tillgängliga eller har inte stöd för den begärda VM-storleken. Gör om begäran vid ett senare tillfälle eller be en annan VM-storlek. | [Problem med etablering och allokering för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problem med etablering och allokering för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [Felsök Allokeringsfel](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Vänta tills samtidiga åtgärden har slutförts. | |
-| AuthorizationFailed | Ditt konto eller tjänstens huvudnamn har inte behörighet att slutföra distributionen. Kontrollera ditt konto tillhör rollen och dess åtkomst för distributionsomfattningen. | [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md) |
+| AuthorizationFailed | Ditt konto eller tjänstens huvudnamn har inte behörighet att slutföra distributionen. Kontrollera ditt konto tillhör rollen och dess åtkomst för distributionsomfattningen.<br><br>Du kan se det här felet när en nödvändig resurs-providern inte är registrerad. | [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Lösa registrering](resource-manager-register-provider-errors.md) |
 | BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för att få hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-manager-templates-resources.md#location) |
 | Konflikt | Du ska få en åtgärd som inte är tillåtet i resursens aktuella tillstånd. Till exempel tillåts ändra storlek på disken endast när du skapar en virtuell dator eller när Virtuellt datorn frigörs. | |
 | DeploymentActive | Vänta tills samtidig distribuering till den här resursgruppen ska slutföras. | |

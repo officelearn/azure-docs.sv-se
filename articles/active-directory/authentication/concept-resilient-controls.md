@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44712f364b434d123abe17b043f7c2309871bd12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198957"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339557"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
 
@@ -78,7 +78,7 @@ Det här exemplet principuppsättningen beviljar valda användare i **AppUsers**
 **Ange principer för minskning av CA: N:**
 
 * Principen 1: Blockera åtkomst till personer utanför målgrupper
-  * Användare och grupper: Inkludera alla användare. Exkludera AppAccess och CoreAdmins EmergencyAccess
+  * Användare och grupper: Inkludera alla användare. Exkludera AppUsers och CoreAdmins EmergencyAccess
   * Appar i molnet: Inkludera alla appar
   * Villkor: (Ingen)
   * Ge kontroll: Blockera
@@ -145,28 +145,28 @@ I följande exempel: **Exempel A – Contingency CA: N för att återställa åt
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Alla
   * Ge kontroll: Kräv domänansluten
-  * Tillstånd: Disabled
+  * Status: Disabled
 * Princip för 2: Blockera andra plattformar än Windows
   * Namn: EM002 - AKTIVERA I NÖDFALL: MFA-avbrott [2/4] - Exchange SharePoint – blockera åtkomst utom Windows
   * Användare och grupper: Inkludera alla användare. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Plattformen omfattar alla Enhetsplattformar, undanta Windows
   * Ge kontroll: Blockera
-  * Tillstånd: Disabled
+  * Status: Disabled
 * Princip 3: Blockera nätverk än CorpNetwork
   * Namn: EM003 - AKTIVERA I NÖDFALL: MFA-avbrott [3 och 4] - Exchange SharePoint – blockera åtkomst förutom företagets nätverk
   * Användare och grupper: Inkludera alla användare. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Platser är valfri plats, undanta CorpNetwork
   * Ge kontroll: Blockera
-  * Tillstånd: Disabled
+  * Status: Disabled
 * Princip 4: Blockera EAS uttryckligen
   * Namn: EM004 - AKTIVERA I NÖDFALL: MFA-avbrott [4/4] - Exchange - Block EAS för alla användare
   * Användare och grupper: Inkludera alla användare
   * Appar i molnet: Innehåller Exchange Online
   * Villkor: Klientappar: Exchange Active Sync
   * Ge kontroll: Blockera
-  * Tillstånd: Disabled
+  * Status: Disabled
 
 Ordningen för aktivering:
 
@@ -187,14 +187,14 @@ I den här nästa exempel **exempel B - Contingency CA-principer för att tillå
   * Appar i molnet: Salesforce.
   * Villkor: Ingen
   * Ge kontroll: Blockera
-  * Tillstånd: Disabled
+  * Status: Disabled
 * Princip för 2: Blockera säljteamet från valfri plattform än mobile (för att minska ytan på attack)
   * Namn: EM002 - AKTIVERA I NÖDFALL: Enhetens efterlevnad avbrott [2/2] - Salesforce - Block på alla plattformar förutom iOS och Android
   * Användare och grupper: Inkludera SalesforceContingency. Exkludera SalesAdmins
   * Appar i molnet: Salesforce
   * Villkor: Plattformen omfattar alla Enhetsplattformar, undanta iOS och Android
   * Ge kontroll: Blockera
-  * Tillstånd: Disabled
+  * Status: Disabled
 
 Ordningen för aktivering:
 

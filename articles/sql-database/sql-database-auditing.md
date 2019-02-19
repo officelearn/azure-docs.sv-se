@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234670"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339795"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -43,8 +43,11 @@ Du kan använda SQL database auditing till att:
 > [!IMPORTANT]
 > Granskningsloggarna skrivs till **Tilläggsblobbar** i Azure Blob storage på din Azure-prenumeration.
 >
-> - **Premiumlagring** är för närvarande **stöds inte** av Tilläggsblobbar.
+> - Alla storage-typer (v1, v2, blob) stöds.
+> - Alla lagringskonfigurationer replikering stöds.
+> - **Premiumlagring** är för närvarande **stöds inte**.
 > - **Storage i det virtuella nätverket** är för närvarande **stöds inte**.
+> - **Storage bakom en brandvägg** är för närvarande **stöds inte**
 
 ## <a id="subheading-8"></a>Definiera på servernivå och databasnivå granskningsprincip
 

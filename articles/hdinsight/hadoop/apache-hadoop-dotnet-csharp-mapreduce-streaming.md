@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435318"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342931"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# med MapReduce, streaming på Apache Hadoop i HDInsight
 
@@ -25,7 +25,7 @@ Lär dig hur du använder C# för att skapa en lösning för MapReduce på HDIns
 
 Direktuppspelning av Apache Hadoop är ett verktyg som låter dig köra MapReduce-jobb med hjälp av ett skript eller en körbar fil. I det här exemplet används .NET för att implementera mapper och reducer för en lösning för word antal.
 
-## <a name="net-on-hdinsight"></a>.NET på HDInsight
+## <a name="net-on-hdinsight"></a>.NET on HDInsight
 
 __Linux-baserade HDInsight__ kluster Använd [Mono (https://mono-project.com) ](https://mono-project.com) att köra .NET-program. Mono version 4.2.1 medföljer HDInsight version 3.6. Läs mer på vilken version av Mono som medföljer HDInsight [HDInsight komponenten versioner](../hdinsight-component-versioning.md). Om du vill använda en specifik version av Mono se den [installera eller uppdatera Mono](../hdinsight-hadoop-install-mono.md) dokumentet.
 
@@ -175,7 +175,13 @@ När du har skapat programmet, skapar du det att skapa den `/bin/Debug/reducer.e
 
 2. Använd något av följande kommandon för att starta MapReduce-jobb:
 
-    * Om du använder __Data Lake Storage__ som standardlagringsutrymme:
+    * Om du använder __Data Lake Storage Gen2__ som standardlagringsutrymme:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * Om du använder __Data Lake Storage Gen1__ som standardlagringsutrymme:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,7 +196,7 @@ När du har skapat programmet, skapar du det att skapa den `/bin/Debug/reducer.e
     I följande lista beskrivs vad varje parameter gör:
 
     * `hadoop-streaming.jar`: Jar-filen som innehåller strömmande MapReduce-funktioner.
-    * `-files`: Lägger till den `mapper.exe` och `reducer.exe` filer till det här jobbet. Den `adl:///` eller `wasb:///` innan varje fil måste sökvägen till roten för standardlagringen för klustret.
+    * `-files`: Lägger till den `mapper.exe` och `reducer.exe` filer till det här jobbet. Den `abfs:///`,`adl:///` eller `wasb:///` innan varje fil måste sökvägen till roten för standardlagringen för klustret.
     * `-mapper`: Anger vilken fil implementerar mappningen.
     * `-reducer`: Anger vilken fil implementerar reducer.
     * `-input`: Indata.

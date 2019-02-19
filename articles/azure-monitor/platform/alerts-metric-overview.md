@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005530"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342991"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur arbetet aviseringar i mått i Azure Monitor
 
-Måttaviseringar i Azure Monitor ovanpå flerdimensionella mått. De här måtten kan vara plattform mått [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md), [populära loggar från Azure Monitor konverteras till mått](../../azure-monitor/platform/alerts-metric-logs.md), standardmått i Application Insights. Måttaviseringar utvärderar med jämna mellanrum för att kontrollera om villkoren på en eller flera mått time series-är SANT och meddelar dig när utvärderingarna är uppfyllda. Måttaviseringar är tillståndskänsliga, det vill säga de endast skicka ut meddelanden när tillståndet ändras.
+Måttaviseringar i Azure Monitor ovanpå flerdimensionella mått. De här måtten kan vara [plattform mått](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md), [populära loggar från Azure Monitor konverteras till mått](../../azure-monitor/platform/alerts-metric-logs.md) och Application Insights-mått. Måttaviseringar utvärderar med jämna mellanrum för att kontrollera om villkoren på en eller flera mått time series-är SANT och meddelar dig när utvärderingarna är uppfyllda. Måttaviseringar är tillståndskänsliga, det vill säga de endast skicka ut meddelanden när tillståndet ändras.
 
 ## <a name="how-do-metric-alerts-work"></a>Hur fungerar måttaviseringar?
 
@@ -65,8 +65,6 @@ Anta att användningen på ”myVM” fortsätter att tröskelvärdet i efterfö
 Om en stund om användningen på ”myVM” kommer tillbaka ned till normal går det vill säga under tröskeln. Varningsregeln övervakar villkoret för två gånger, skicka ut en löst avisering. Varningsregeln skickar ut ett meddelande som löst/inaktiveras när aviseringstillståndet inte uppfylls för tre punkter att minska bruset vid växlar villkor.
 
 Som lösts meddelandet skickas via webhooks eller e-postmeddelandet, anges status för aviseringsinstansen (kallas övervakningstillstånd) i Azure-portalen också till löst.
-
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Övervakning i stor skala med måttaviseringar i Azure Monitor
 
 ### <a name="using-dimensions"></a>Med hjälp av dimensioner
 
@@ -123,9 +121,9 @@ Den här regeln övervakar om den genomsnittliga CPU-användningen under de sena
 
 Öka titt bak perioder och antal överträdelser kan det också filtrera aviseringarna till bara aviseringen på din definition av en stor avvikelse. [Mer information om dynamiska tröskelvärden avancerade alternativ](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Övervakning av flera resurser med hjälp av måttaviseringar
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Övervakning i stor skala med måttaviseringar i Azure Monitor
 
-När du har sett i föregående avsnitt, är det möjligt att ha en enda måttaviseringsregel som övervakar varje dimensionskombination för enskilda (dvs.) en metrisk tidsserie). Dock tidigare var du fortfarande begränsad till det utförs på en resurs i taget. Azure Monitor stöder även övervakning av flera resurser med en måttaviseringsregel. Den här funktionen är för närvarande förhandsversionen och stöds bara på virtuella datorer. En enda metrisk varning kan också övervaka resurser i en Azure-region.
+Hittills har du sett hur en enda metrisk varning kan användas för att övervaka en eller flera mått time series-relaterade till en enda Azure-resurs. Många gånger du samma avisering regeln ska gälla för många resurser. Azure Monitor stöder även övervakning av flera resurser med en måttaviseringsregel. Den här funktionen stöds för närvarande endast på virtuella datorer. En enda metrisk varning kan också övervaka resurser i en Azure-region.
 
 Du kan ange omfånget för övervakning av en enda metrisk varning på något av tre sätt:
 
@@ -133,7 +131,7 @@ Du kan ange omfånget för övervakning av en enda metrisk varning på något av
 - alla virtuella datorer (inom en Azure-region) i en eller flera resursgrupper i en prenumeration
 - alla virtuella datorer (i en Azure-region) i en prenumeration
 
-Skapa måttvarningsregler som övervakar flera resurser stöds inte för närvarande via Azure-portalen. Du kan skapa dessa regler via [Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje virtuell dator.
+Skapa måttvarningsregler som övervakar flera resurser liknar [skapar metrisk varning](alerts-metric.md) som övervakar en enskild resurs. Endast skillnaden är att du skulle välja alla resurser som du vill övervaka. Du kan också skapa reglerna via [Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje virtuell dator.
 
 ## <a name="typical-latency"></a>Typisk svarstid
 
@@ -149,7 +147,7 @@ Om du använder klassiska måttaviseringar idag och vill ha mer information om m
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | Ja |
 | Microsoft.Batch/batchAccounts| Ja|
-|Microsoft.Cache/redis| Ja
+|Microsoft.Cache/redis| Ja |
 |Microsoft.ClassicCompute/virtualMachines | Nej |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Nej|
 |Microsoft.CognitiveServices/accounts | Nej |
@@ -160,7 +158,7 @@ Om du använder klassiska måttaviseringar idag och vill ha mer information om m
 |Microsoft.DBforMySQL/servers| Ja|
 |Microsoft.DBforPostgreSQL/servers| Ja|
 |Microsoft.Devices/IotHubs | Nej|
-|Microsoft.DocumentDB/databaseAccounts| Nej|
+|Microsoft.DocumentDB/databaseAccounts| Ja|
 |Microsoft.EventHub/namespaces | Ja|
 |Microsoft.Logic/workflows | Ja|
 |Microsoft.Network/loadBalancers |Ja|
@@ -168,16 +166,16 @@ Om du använder klassiska måttaviseringar idag och vill ha mer information om m
 |Microsoft.Network/applicationGateways| Ja|
 |Microsoft.Network/expressRouteCircuits| Ja|
 |Microsoft.Network/trafficManagerProfiles | Ja|
-|Microsoft.Search/searchServices | Nej|
-|Microsoft.ServiceBus/namespaces| Nej|
+|Microsoft.Search/searchServices | Ja|
+|Microsoft.ServiceBus/namespaces| Ja |
 |Microsoft.Storage/storageAccounts | Ja|
 |Microsoft.StreamAnalytics/streamingjobs| Ja|
 |Microsoft.TimeSeriesInsights/environments | Ja|
 |Microsoft. Web/servergrupper | Ja |
 |Microsoft. -/ Webbplatser (exklusive funktioner) | Ja|
 |Microsoft. Web/hostingEnvironments/multiRolePools | Nej|
-|Microsoft. Web/hostingEnvironments/workerPools| Nej
-|Microsoft.SQL/Servers | Nej|
+|Microsoft. Web/hostingEnvironments/workerPools| Nej |
+|Microsoft.SQL/Servers | Nej |
 
 ## <a name="next-steps"></a>Nästa steg
 

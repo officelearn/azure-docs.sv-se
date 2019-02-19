@@ -15,12 +15,15 @@ items:
 - name: Självstudier
   items:
   - name: Koda fjärrfiler och strömma video – REST
+    displayName: encoding, job, transform
     href: stream-files-tutorial-with-rest.md
   - name: Koda uppladdade filer och strömma video – NET
+    displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
   - name: Strömma live – .NET
     href: stream-live-tutorial-with-api.md
   - name: Analysera din video – .NET
+    displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
   expanded: true
 - name: Exempel
@@ -31,33 +34,55 @@ items:
     href: cli-samples.md
 - name: Begrepp
   items:
-  - name: Mata in
+  - name: Uppladdning till och lagring i molnet
+    href: storage-account-concept.md
     items:
     - name: Tillgångar
       href: assets-concept.md
-  - name: Koda
-    href: encoding-concept.md
+  - name: Kodning
     items:
+    - name: Översikt
+      displayName: Presets
+      href: encoding-concept.md
     - name: Transformeringar och jobb
       href: transforms-jobs-concept.md
     - name: Media Encoder Standard-format
       href: media-encoder-standard-formats.md
     - name: Generera anpassningsbar bithastighetsstege automatiskt
       href: autogen-bitrate-ladder.md
-  - name: Analysera
-    href: analyzing-video-audio-files-concept.md
+  - name: Medieanalys
     items:
+    - name: Översikt
+      displayName: Presets
+      href: analyzing-video-audio-files-concept.md
     - name: Transformeringar och jobb
       href: transforms-jobs-concept.md
-  - name: Strömma
+  - name: Paketering, leverans, skydd
     items:
+    - name: Paketering
+      items:
+      - name: Dynamisk paketering
+        href: dynamic-packaging-overview.md
+      - name: Filter
+        href: filters-concept.md
+      - name: Dynamiska manifest
+        href: filters-dynamic-manifest-overview.md
+    - name: Innehållsskydd
+      href: content-protection-overview.md
+      items:
+      - name: Multi-DRM-system med åtkomstkontroll
+        href: design-multi-drm-system-with-access-control.md
     - name: Slutpunkter för direktuppspelning
+      displayName: Origins
       href: streaming-endpoint-concept.md
     - name: Positionerare för direktuppspelning
+      displayName: URLs
       href: streaming-locators-concept.md
     - name: Principer för direktuppspelning
       href: streaming-policy-concept.md
-  - name: Strömma live
+    - name: Viktiga innehållsprinciper
+      href: content-key-policy-concept.md
+  - name: Liveuppspelning
     href: live-streaming-overview.md
     items:
     - name: Livehändelser och liveresultat
@@ -72,36 +97,19 @@ items:
       href: live-event-states-billing.md
     - name: Svarstid
       href: live-event-latency.md
-  - name: Leverera
+  - name: Övervakning
     items:
-    - name: Filter och dynamiska manifest
-      href: filters-dynamic-manifest-overview.md
-  - name: Övervaka
-    items:
-    - name: Event Grid
+    - name: Händelser med Event Grid
       href: reacting-to-media-services-events.md
-  - name: Skydda
-    href: content-protection-overview.md
+  - name: Player-klienter
     items:
-    - name: Viktiga innehållsprinciper
-      href: content-key-policy-concept.md
-    - name: Principer för direktuppspelning
-      href: streaming-policy-concept.md
-    - name: Positionerare för direktuppspelning
-      href: streaming-locators-concept.md
-    - name: Multi-DRM-system med åtkomstkontroll
-      href: design-multi-drm-system-with-access-control.md
-  - name: Uppspelning
-    href: use-azure-media-player.md
-  - name: Konton
+    - name: Azure Media Player
+      href: use-azure-media-player.md
+  - name: Media Services-entiteter
     items:
-    - name: Kvoter och begränsningar
-      href: limits-quotas-constraints.md
-    - name: Lagringskonton
-      href: storage-account-concept.md
-  - name: Filtrera, ordna, sidenheter
-    href: entities-overview.md
-  - name: Migrera från v2 till v3
+    - name: Sortering, filtrering, växling av entiteter
+      href: entities-overview.md
+  - name: Vägledning för migrering från v2 till v3
     href: migrate-from-v2-to-v3.md
 - name: Instruktionsguider
   items:
@@ -113,19 +121,34 @@ items:
       href: access-api-cli-how-to.md
     - name: Skala mediereserverade enheter – CLI
       href: media-reserved-units-cli-how-to.md
-  - name: Konfigurera Postman
-    href: media-rest-apis-with-postman.md
+    - name: Börja utveckla
+      href: developers-guide.md
+    - name: Konfigurera Postman
+      href: media-rest-apis-with-postman.md
   - name: Överföra innehåll
     items:
-    - name: Från HTTP(:er) – .NET
+    - name: Från HTTPS – .NET
+      displayName: upload
       href: job-input-from-http-how-to.md
     - name: Från en lokal fil – .NET
+      displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: Från en lokal fil – REST
+      displayName: upload
       href: upload-files-rest-how-to.md
   - name: Koda innehåll
     items:
-    - name: Anpassa förinställningar för transformering – .NET
+    - name: HTTPS som jobbindata – .NET
+      displayName: encode, encoding
+      href: job-input-from-http-how-to.md
+    - name: Lokal fil som jobbindata – .NET
+      displayName: encode, encoding
+      href: job-input-from-local-file-how-to.md
+    - name: Lokal fil som jobbindata – REST
+      displayName: encode
+      href: upload-files-rest-how-to.md
+    - name: Använda en anpassad transformering – .NET
+      displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
   - name: Använda Event Grid
     items:
@@ -215,13 +238,15 @@ items:
     href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Viktig information
     href: release-notes.md
+  - name: Kvoter och begränsningar
+    href: limits-quotas-constraints.md
   - name: VANLIGA FRÅGOR OCH SVAR
     href: frequently-asked-questions.md
   - name: Azure-moln och -regioner
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0ca98ea27a77418ee5a111a67bd013ab6ad40e55
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 05b20d905a5848cfcfd0f9c6d20e4addb5c776fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330026"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340441"

@@ -1,5 +1,5 @@
 items:
-- name: Dokumentation om rollbaserad åtkomstkontroll
+- name: Dokumentation om RBAC för Azure-resurser
   href: index.yml
 - name: Översikt
   items:
@@ -9,15 +9,15 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: Snabbstarter
   items:
-  - name: Visa roller för en användare
+  - name: Visa åtkomst för en användare
     href: check-access.md
 - name: Självstudier
   items:
-  - name: Bevilja åtkomst för en användare – Portal
+  - name: Bevilja en användare åtkomst – portalen
     href: quickstart-assign-role-user-portal.md
-  - name: Bevilja åtkomst för en användare – PowerShell
+  - name: Bevilja en användare åtkomst – PowerShell
     href: tutorial-role-assignments-user-powershell.md
-  - name: Bevilja åtkomst för en grupp – PowerShell
+  - name: Bevilja en grupp åtkomst – PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: Skapa en anpassad roll – PowerShell
     href: tutorial-custom-role-powershell.md
@@ -29,7 +29,7 @@ items:
     href: role-definitions.md
   - name: Förstå tilldelningsnekanden
     href: deny-assignments.md
-  - name: Privileged Identity Management (PIM) för RBAC
+  - name: PIM för Azure-resurser
     href: pim-azure-resource.md
   - name: Villkorlig åtkomst för hantering av Azure
     href: conditional-access-azure-management.md
@@ -96,9 +96,9 @@ items:
   items:
   - name: Utveckla dina färdigheter med Microsoft Learn
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 46ff0e024e2c7dc466120054b4a8e69fa47c14cd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099215"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408773"

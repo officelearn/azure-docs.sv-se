@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6972ad521ac5622086b5294dc6b49e35f10ba178
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f0465b954e48822470374abeadb13e90a03fa3a
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431489"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408739"
 documentType: LandingData
-title: Dokumentation om rollbaserad åtkomstkontroll
+title: Dokumentation om RBAC för Azure-resurser
 metadata:
   document_id: 
-  title: Dokumentation om RBAC (rollbaserad åtkomstkontroll) i Azure | Microsoft Docs
+  title: Dokumentation om rollbaserad åtkomstkontroll (RBAC) för Azure-resurser | Microsoft Docs
   description: Läs mer om rollbaserad åtkomstkontroll (RBAC) för att hantera vem som ska ha åtkomst till Azure-resurser, vad de ska kunna göra med resurserna och till vilka områden de ska ha åtkomst.
   services: active-directory
   author: rolyon
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/15/2018
+  ms.date: 02/16/2019
   ms.author: rolyon
 abstract:
   description: Rollbaserad åtkomstkontroll (RBAC) är ett system som ger detaljerad åtkomsthantering av resurser i Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
@@ -37,13 +37,14 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Bevilja åtkomst för en användare</a>
+    - html: <a href="/azure/role-based-access-control/check-access">Visa åtkomst för en användare</a>
 - title: Stegvisa självstudier
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Bevilja åtkomst för en grupp – PowerShell</a>
+    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Bevilja en användare åtkomst – portalen</a>
+    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Bevilja en grupp åtkomst – PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Skapa en anpassad roll – PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Skapa en anpassad roll – CLI</a>
 - title: Utveckla dina färdigheter med Microsoft Learn

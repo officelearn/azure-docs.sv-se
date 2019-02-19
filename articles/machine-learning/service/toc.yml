@@ -59,7 +59,11 @@ items:
 - name: Instruktionsguider
   items:
   - name: Hantera arbetsytor
-    href: how-to-manage-workspace.md
+    items:
+    - name: Använda portalen för arbetsytor
+      href: how-to-manage-workspace.md
+    - name: Använda en Resource Manager-mall
+      href: how-to-create-workspace-template.md
   - name: Konfigurera utvecklingsmiljön 
     items:
     - name: Konfigurera utvecklingsmiljöer
@@ -119,8 +123,6 @@ items:
       href: how-to-deploy-fpga-web-service.md
     - name: Felsöka
       href: how-to-troubleshoot-deployment.md
-    - name: Säkra webbtjänster med SSL
-      href: how-to-secure-web-service.md
   - name: Konsumera webbtjänster
     items:
     - name: Använda i realtid
@@ -136,25 +138,27 @@ items:
       href: how-to-enable-data-collection.md
     - name: Övervaka med Application Insights
       href: how-to-enable-app-insights.md
+  - name: Säkerhet
+    items:
+    - name: Använda virtuella nätverk
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: Säkra webbtjänster med SSL
+      href: how-to-secure-web-service.md
   - name: Skapa din första pipeline
     href: how-to-create-your-first-pipeline.md
+  - name: Aktivera loggning
+    displayName: logging
+    href: how-to-enable-logging.md
   - name: Hantera resurskvoter
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Skydda med virtuella nätverk
-    displayName: vnet
-    href: how-to-enable-virtual-network.md
   - name: Använd CLI för Machine Learning
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Exportera och ta bort data
     displayName: gdpr
     href: how-to-export-delete-data.md
-  - name: Använda en Resource Manager-mall
-    href: how-to-create-workspace-template.md
-  - name: Aktivera loggning
-    displayName: logging
-    href: how-to-enable-logging.md
 - name: Referens
   items:
   - name: Maskininlärning SDK
@@ -166,8 +170,6 @@ items:
   - name: Övervaka SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: Resurser
   items:
   - name: Azure-översikt
@@ -183,9 +185,9 @@ items:
     href: support-for-aml-services.md
   - name: Jämför våra ML-produkter
     href: overview-more-machine-learning.md
-ms.openlocfilehash: eb803b44bbe72b80f4414a4de66bce519591dea7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 041a4b0f3ebecdaedb041ceb25f426a6e1825292
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268829"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338101"

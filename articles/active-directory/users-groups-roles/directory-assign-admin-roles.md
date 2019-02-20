@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/08/19
+ms.date: 02/16/19
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 199c0e53fb9462a121072dbea8c90928c0d75abf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1d4e0534a1f3068aba77496c02390a21d48c8e91
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178962"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430479"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
-Med Azure Active Directory (Azure AD) kan ange du separata administratörer att hantera olika funktioner. Administratörer kan utses i Azure AD-portalen för att utföra åtgärder som att lägga till eller ändra användare, tilldela administrativa roller, återställa användarlösenord, hantera användarlicenser och hantera domännamn.
+Med Azure Active Directory (Azure AD) kan ange du begränsade administratörer att hantera funktioner i mindre privilegierade roller. Administratörer kan utses i Azure AD-portalen för att utföra åtgärder som att lägga till eller ändra användare, tilldela administrativa roller, återställa användarlösenord, hantera användarlicenser och hantera domännamn. Standard användarbehörigheter kan ändras endast i användarinställningarna i Azure AD.
 
 Globala administratörer har åtkomst till alla administrativa funktioner. Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som Global administratör för katalogen. Endast globala administratörer och Privilegierade Rolladministratörer kan delegera administratörsroller. För att minska risken för företaget rekommenderar vi att du tilldela den här rollen till endast ett fåtal personer i företaget.
 

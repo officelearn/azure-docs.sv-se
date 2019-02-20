@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b7515a5c22b98fb14499e07057ff52311fc6e67
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: acdd2f5cb345ca5c5462394ae5c6135ad43b2143
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744832"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415722"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Använda Azure vid som är värd för och köra SAP-arbetsbelastningsscenarier
 
-Genom att välja Microsoft Azure, kan du tillförlitligt köra verksamhetskritiska SAP arbetsbelastningar och scenarier på en skalbar, kompatibel och företagsklass plattform.  Få skalbarheten, flexibiliteten och kostnadseffektiviteten med Azure. Med det utökade partnerskapet mellan Microsoft och SAP kan du köra SAP-program i olika scenarion för utveckling/testning och produktion i Azure – och få fullständig support. Vi ger dig support från SAP NetWeaver till SAP S4/HANA, SAP BI, Linux till Windows, SAP HANA till SQL.
+Genom att välja Microsoft Azure, kan du tillförlitligt köra verksamhetskritiska SAP arbetsbelastningar och scenarier på en skalbar, kompatibel och företagsklass plattform.  Få skalbarheten, flexibiliteten och kostnadseffektiviteten med Azure. Med det utökade partnerskapet mellan Microsoft och SAP kan du köra SAP-program i olika scenarion för utveckling/testning och produktion i Azure – och få fullständig support. Vi ger dig support från SAP NetWeaver till SAP S/4HANA, SAP BI Linux till Windows, SAP HANA till SQL.
 
 Förutom som är värd för SAP NetWeaver-scenarier med olika DBMS på Azure, och du kan ha olika andra SAP-arbetsbelastningsscenarier som SAP BI på Azure. 
 

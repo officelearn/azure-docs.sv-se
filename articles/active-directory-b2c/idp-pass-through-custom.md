@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f21f835ea50563497b73fb6e4505f60411029406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd24d4ad026af7d8bce70902376c3a31d659a203
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883006"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427879"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomst-token via en anpassad princip till ditt program i Azure Active Directory B2C
 
@@ -24,11 +24,11 @@ ms.locfileid: "55883006"
 
 En [anpassad princip](active-directory-b2c-get-started-custom.md) i Azure Active Directory (Azure AD) B2C ger ditt programs användare möjlighet att registrera dig eller logga in med en identitetsprovider. Då kan Azure AD B2C får en [åtkomsttoken](active-directory-b2c-reference-tokens.md) från identitetsprovidern. Azure AD B2C använder den token för att hämta information om användaren. Du lägger till en typ av anspråk och utgående anspråksuppsättningar till en egen princip och skicka token via till de program som du registrerar i Azure AD B2C. 
 
-Azure AD-B2C stöder för närvarande endast skicka åtkomsttoken [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) identitetsleverantörer, bland annat Facebook och [Google](active-directory-b2c-custom-setup-goog-idp.md). För alla andra identitetsleverantörer returneras anspråket tomt.
+Azure AD-B2C stöder skicka åtkomsttoken [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) och [OpenID Connect](active-directory-b2c-reference-oidc.md) identitetsleverantörer. För alla andra identitetsleverantörer returneras anspråket tomt.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Den anpassade principen har konfigurerats med en OAuth 2.0-identitetsprovider.
+- Den anpassade principen har konfigurerats med en identitetsleverantör för OAuth 2.0 eller OpenID Connect.
 
 ## <a name="add-the-claim-elements"></a>Lägg till anspråk-element 
 
@@ -87,8 +87,8 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha en Azur
 ### <a name="upload-the-files"></a>Ladda upp filer
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Identitetsramverk**.
 5. På sidan anpassade principer **ladda upp principen**.
 6. Välj **Skriv över principen om den finns**, och sök sedan efter och välj den *TrustframeworkExtensions.xml* fil.

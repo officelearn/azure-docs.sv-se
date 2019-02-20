@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422976"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417439"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Underordnade runbooks i Azure Automation
 
@@ -28,7 +28,7 @@ När du anropar en infogad runbook körs i samma jobb som den överordnade runbo
 
 När en runbook publiceras måste alla underordnade runbooks som anropas redan publiceras. Det beror på att Azure Automation bygger en association med någon av underordnade runbooks när en runbook kompileras. Om de inte är den överordnade runbooken publicerar korrekt visas, men genererar ett undantag när den startas. Om det händer kan du publicera om den överordnade runbooken för att korrekt referens till underordnade runbooks. Du behöver inte att publicera den överordnade runbooken om någon av underordnade runbooks ändras eftersom associationen redan har skapats.
 
-Parametrarna för en underordnad runbook som anropas internt kan vara en datatyp som inkluderar komplexa objekt. Det finns inga [JSON-serialisering](automation-starting-a-runbook.md#runbook-parameters) eftersom det inte finns när du startar en runbook med Azure portal eller med cmdleten Start-AzureRmAutomationRunbook.
+Parametrarna för en underordnad runbook som anropas internt kan vara en datatyp som inkluderar komplexa objekt. Det finns inga [JSON-serialisering](start-runbooks.md#runbook-parameters) eftersom det inte finns när du startar en runbook med Azure portal eller med cmdleten Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Runbook-typer
 
@@ -65,7 +65,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Om du anropar en underordnad runbook med den `Start-AzureRmAutomationRunbook` cmdlet med den `-Wait` växeln och resultatet av den underordnade runbooken är ett objekt, kan det uppstå fel. Om du vill kringgå felet, se [underordnade runbooks med objektutdata](troubleshoot/runbooks.md#child-runbook-object) information om hur du implementerar logik för att söka efter resultaten och använda den [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-Du kan använda den [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet för att starta en runbook enligt beskrivningen i [att starta en runbook med Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Det finns två lägen för denna cmdlet.  I ett läge returnerar cmdlet: en jobb-id när underordnat jobb skapas för den underordnade runbooken.  I det andra läget som du gör det genom att ange den **-vänta** parametern cmdleten väntar tills det underordnade jobbet har slutförts och returnerar resultatet från den underordnade runbooken.
+Du kan använda den [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet för att starta en runbook enligt beskrivningen i [att starta en runbook med Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Det finns två lägen för denna cmdlet.  I ett läge returnerar cmdlet: en jobb-id när underordnat jobb skapas för den underordnade runbooken.  I det andra läget som du gör det genom att ange den **-vänta** parametern cmdleten väntar tills det underordnade jobbet har slutförts och returnerar resultatet från den underordnade runbooken.
 
 Jobbet från en underordnad runbook som startas med en cmdlet körs i ett separat jobb från den överordnade runbooken. Detta innebär fler jobb än att starta infogad runbook och gör dem svårare att spåra. Överordnat kan starta mer än en underordnad runbook asynkront utan att behöva vänta på att alla ska slutföras. För att få samma typ av parallell körning vid anrop av infogade underordnade runbooks, skulle den överordnade runbooken måste du använda den [parallellt nyckelord](automation-powershell-workflow.md#parallel-processing).
 
@@ -73,7 +73,7 @@ Resultatet av underordnade runbooks inte tillbaka till den överordnade runbooke
 
 Om du inte vill den överordnade runbooken blockeras på väntar du startar en underordnad runbook med hjälp av `Start-AzureRmAutomationRunbook` cmdlet utan att den `-Wait` växla. Sedan måste du använda `Get-AzureRmAutomationJob` vänta tills jobbet är slutfört, och `Get-AzureRmAutomationJobOutput` och `Get-AzureRmAutomationJobOutputRecord` att hämta resultaten.
 
-Parametrar för en underordnad runbook som startas med en cmdlet tillhandahålls som en hash-tabell enligt beskrivningen i [Runbookparametrar](automation-starting-a-runbook.md#runbook-parameters). Endast enkla datatyper kan användas. Om runbooken har en parameter med en komplex datatyp, det måste den anropas infogad.
+Parametrar för en underordnad runbook som startas med en cmdlet tillhandahålls som en hash-tabell enligt beskrivningen i [Runbookparametrar](start-runbooks.md#runbook-parameters). Endast enkla datatyper kan användas. Om runbooken har en parameter med en komplex datatyp, det måste den anropas infogad.
 
 Prenumerationskontexten kan gå förlorade när du startar underordnade runbooks som separat jobb. För den underordnade runbooken ska köra Azure RM-cmdlet: ar mot en specifik Azure-prenumeration, måste den underordnade runbooken autentisera till den här prenumerationen oberoende av den överordnade runbooken.
 
@@ -120,6 +120,6 @@ I följande tabell sammanfattas skillnaderna mellan de två metoderna för att a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Starta en runbook i Azure Automation](automation-starting-a-runbook.md)
+* [Starta en runbook i Azure Automation](start-runbooks.md)
 * [Runbook-utdata och meddelanden i Azure Automation](automation-runbook-output-and-messages.md)
 

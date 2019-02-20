@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204380"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417218"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera Azure AD-lösenordsskydd
 
@@ -53,15 +53,18 @@ Detta åstadkoms helst genom att helt åtgärda datorn via Windows Update. I ann
     |`https://login.microsoftonline.com`|Begäranden om autentisering|
     |`https://enterpriseregistration.windows.net`|Azure AD-lösenordsskydd-funktioner|
 
+* Alla datorer som är värd för tjänsten Azure AD-lösenord Protection Proxy måste konfigureras för att tillåta utgående TLS 1.2 HTTP-trafik.
 * Ett globalt administratörskonto för att registrera Azure AD-lösenord Protection Proxy-tjänst och skog med Azure AD.
 * Ett konto med administratörsbehörighet för Active Directory-domänen i rotdomänen i skogen för att registrera Windows Server Active Directory-skog med Azure AD.
 * Alla Active Directory-domän som kör domänkontrollanten agentprogramvaran för tjänsten måste använda DFSR för sysvol-replikering.
 
 ## <a name="single-forest-deployment"></a>Enkel skog distribution
 
-Följande diagram visar hur grundkomponenterna i Azure AD-lösenordsskydd tillsammans i en lokal Active Directory-miljö.  
+Följande diagram visar hur grundkomponenterna i Azure AD-lösenordsskydd tillsammans i en lokal Active Directory-miljö.
 
 ![Hur Azure AD-lösenordsskydd komponenter fungerar tillsammans](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+Innan du distribuerar är det en bra idé att granska hur programvaran fungerar; Se [konceptuell översikt över Azure AD-lösenordsskydd](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>Ladda ned programvaran
 

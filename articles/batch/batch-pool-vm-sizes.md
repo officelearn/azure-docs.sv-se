@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186015"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417150"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för beräkningsnoder i en Azure Batch-pool
 
@@ -44,14 +44,16 @@ Batch-pooler i den virtuella datorkonfigurationen stöder alla VM-storlekar ([Li
 | B-serien | Alla |
 | DC-serien | Alla |
 | Extreme minnesoptimerade | Alla |
-| HB-serien<sup>1</sup> | Alla |
-| HC-serien<sup>1</sup> | Alla |
+| HB-serien<sup>1,2</sup> | Alla |
+| HC-serien<sup>1,2</sup> | Alla |
 | Lsv2-serien | Alla |
-| NDv2-series<sup>1</sup> | Alla |
-| NVv2-serien | Alla |
+| NDv2-serien<sup>1,2</sup> | Alla |
+| NVv2-series<sup>1</sup> | Alla |
 | SAP HANA | Alla |
 
-<sup>1</sup> kan användas av Batch-konton i användarprenumerationsläge; användarprenumerationsläget Batch-kontot måste ha core kvoten som angetts. Se [konfiguration för användarprenumerationsläget](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) för mer information.
+
+<sup>1</sup> planerat för support.  
+<sup>2</sup> kan användas av Batch-konton i användarprenumerationsläge; användarprenumerationsläget Batch-kontot måste ha core kvoten som angetts. Se [konfiguration för användarprenumerationsläget](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) för mer information.
 
 Storlek på följande Virtuella datorer stöds endast för lågprioriterade virtuella noder:
 

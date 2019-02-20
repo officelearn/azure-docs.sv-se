@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9d265ec7f0ce2030874f38b99b07343f1d4a3f4d
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: bc3f97c798f5e040908e8103c00d3f015f8c824d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408654"
+ms.locfileid: "56415342"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Hantera klustret skala upp för att hantera ändrade behov
 
@@ -30,10 +30,7 @@ ms.locfileid: "56408654"
 1. Om du vill ändra din SKU, Välj den SKU och tryck på den **Välj** knappen.
 
 > [!NOTE]
-> Skala upp processen kan ta några minuter. Klustret kommer att inaktiveras under den tiden.
->
-> Skala ned kan skada din klusterprestanda.
->
+> Skala upp processen kan ta några minuter och under den tiden klustret kommer att inaktiveras. Observera att skala ned kan skada din klusterprestanda.
 
 Nu har du utfört en skala upp eller skala ned åtgärd för ditt Azure Data Explorer-kluster. Du kan också göra [kluster skalbar](manage-cluster-scale-out.md), även kallad automatisk skalning skalar dynamiskt baserat på mått som du anger.
 

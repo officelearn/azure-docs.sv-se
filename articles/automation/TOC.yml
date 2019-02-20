@@ -81,28 +81,49 @@ items:
     - name: Hantera rollbaserad åtkomstkontroll
       displayName: RBAC
       href: automation-role-based-access-control.md
-  - name: Skapa runbooks
+  - name: Runbooks
     items:
+    - name: Hantera runbook-flöden
+      href: manage-runbooks.md
     - name: Runbook-typer
       displayName: graphical, python, powershell, powershell workflow
       href: automation-runbook-types.md
-    - name: Skapa och importera Runbooks
-      href: automation-creating-importing-runbook.md
-    - name: Skapa en grafisk runbook
-      href: automation-first-runbook-graphical.md
-    - name: Skapa en PowerShell-runbook
-      href: automation-first-runbook-textual-powershell.md
-    - name: Skapa en PowerShell-runbook för arbetsflöden
-      href: automation-first-runbook-textual.md
-    - name: Skapa en Python-runbook
-      href: automation-first-runbook-textual-python2.md
-    - name: Redigera Runbooks med text
-      displayName: powershell
-      href: automation-edit-textual-runbook.md
-    - name: Redigera grafiska Runbooks
-      href: automation-graphical-authoring-intro.md
-    - name: Testa en Runbook
-      href: automation-testing-runbook.md
+    - name: Skapa runbooks
+      items:
+      - name: Grafisk runbook
+        href: automation-first-runbook-graphical.md
+      - name: PowerShell-runbook
+        href: automation-first-runbook-textual-powershell.md
+      - name: Skapa runbook för PowerShell-arbetsflöde
+        href: automation-first-runbook-textual.md
+      - name: Python-runbook
+        href: automation-first-runbook-textual-python2.md
+      - name: Skapa runbook-flöden med grafisk runbook-SDK
+        href: graphical-runbook-sdk.md
+    - name: Redigera runbook-flöden
+      items:
+      - name: Redigera Runbooks med text
+        displayName: powershell
+        href: automation-edit-textual-runbook.md
+      - name: Redigera grafiska Runbooks
+        href: automation-graphical-authoring-intro.md
+    - name: Starta en Runbook
+      href: start-runbooks.md
+    - name: Starta ett Runbook-flöde från en webhook
+      href: automation-webhooks.md
+    - name: Indataparametrar för Runbook
+      displayName: input,json
+      href: runbook-input-parameters.md
+    - name: Felhantering i grafiska Runbook-flöden
+      href: automation-runbook-graphical-error-handling.md
+    - name: Spåra ett Runbook-jobb
+      displayName: fair share, activity log
+      href: automation-runbook-execution.md
+    - name: Hantera Azure Automation-data
+      displayName: backup
+      href: automation-managing-data.md
+    - name: Hantera Python 2-paket
+      href: python-packages.md
     - name: Läs mer om PowerShell-arbetsflödet
       href: automation-powershell-workflow.md
     - name: Underordnade Runbooks
@@ -116,28 +137,6 @@ items:
     - name: Källkontrollsintegrering – föråldrad
       href: automation-source-control-integration-legacy.md
       displayname: github
-    - name: Skapa runbook-flöden med grafisk runbook-SDK
-      href: graphical-runbook-sdk.md
-  - name: Automatisera
-    items:
-    - name: Starta en Runbook
-      href: automation-starting-a-runbook.md
-    - name: Starta ett Runbook-flöde från en webhook
-      href: automation-webhooks.md
-    - name: Konfigurera indataparametrar för Runbook
-      href: automation-runbook-input-parameters.md
-    - name: Felhantering i grafiska Runbook-flöden
-      href: automation-runbook-graphical-error-handling.md
-    - name: Spåra ett Runbook-jobb
-      displayName: fair share, activity log
-      href: automation-runbook-execution.md
-    - name: Hantera Azure Automation-data
-      displayName: backup
-      href: automation-managing-data.md
-    - name: Skicka ett JSON-objekt till en Azure Automation-runbook
-      href: automation-pass-json-string.md
-    - name: Hantera Python 2-paket
-      href: python-packages.md
   - name: Hybrid Runbook Worker
     items:
     - name: Översikt över Hybrid Runbook Worker
@@ -205,12 +204,6 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: Skapa virtuella Amazon Web Service-datorer
       href: automation-scenario-aws-deployment.md
-    - name: Källkontrollsintegrering med GitHub Enterprise
-      displayName: CI, runbooks
-      href: automation-scenario-source-control-integration-with-github-ent.md
-    - name: Källkontrollsintegrering med Azure DevOps
-      displayName: VSTS, CI, runbooks
-      href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
       href: automation-deploy-template-runbook.md
     - name: Integrera Azure Automation med Event Grid och Microsoft Teams
@@ -292,9 +285,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: a5886c5af9db6945fe33efd8198b5527f580d297
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e35c51bb1d82f2c5eda708ab8bce71c2bf5b69b7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004596"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417031"

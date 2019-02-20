@@ -64,7 +64,7 @@ items:
     - name: Använda data från lokal SQL
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
-  - name: Skapa och träna modeller
+  - name: Inlärningsmodeller
     items:
     - name: Livscykelhantering för experiment
       href: version-control.md
@@ -87,6 +87,12 @@ items:
         href: interpret-model-results.md
       - name: Felsökning
         href: debug-models.md
+    - name: Omtrimningsmodeller
+      items:
+      - name: "\"Nya\" webbtjänster"
+        href: retrain-machine-learning-model.md
+      - name: Klassiska webbtjänster
+        href: retrain-classic-web-service.md
     - name: Använd R och Python
       items:
       - name: Komma ingång i R
@@ -132,12 +138,6 @@ items:
     - name: Skapa slutpunkter
       displayName: scale, scaling
       href: create-endpoint.md
-  - name: Omtrimningsmodeller
-    items:
-    - name: Träna om och distribuera en ny webbtjänst
-      href: retrain-machine-learning-model.md
-    - name: Träna om och distribuera en klassisk webbtjänst
-      href: retrain-classic-web-service.md
   - name: Förbrukningsmodeller
     items:
     - name: Översikt
@@ -146,11 +146,9 @@ items:
       href: consuming-from-excel.md
     - name: Använda Excel-tillägg
       href: excel-add-in-for-web-services.md
-    - name: Använda en mall för webbappar
-      href: consume-web-service-with-web-app-template.md
     - name: Använda Batch-pool
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Exempel
+  - name: Användningsfall
     items:
     - name: Konsumentförlust
       href: azure-ml-customer-churn-scenario.md
@@ -158,12 +156,14 @@ items:
       href: text-analytics-module-tutorial.md
     - name: Migrera analys från Excel till Studio
       href: linear-regression-in-azure.md
-  - name: Visa och ta bort Studio-data
-    displayName: export
-    href: export-delete-personal-data-dsr.md
-  - name: Visa och ta bort galleridata
-    displayName: export
-    href: ai-gallery-control-personal-data-dsr.md
+  - name: Ta bort och exportera kunddata
+    items:
+    - name: Studio-data
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+    - name: Galleridata
+      displayName: export
+      href: ai-gallery-control-personal-data-dsr.md
 - name: Referens
   items:
   - name: Algoritm- och modulreferens
@@ -188,9 +188,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Anpassade neurala nätverk (Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: c6d072a6e032fb4059b422d0778eb78b01d3706e
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6649d1c39bdb0a66018feff73f9e9d2b39064155
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327688"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430241"

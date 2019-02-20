@@ -2,25 +2,16 @@
 title: 'Ta bort en virtuell nätverksgateway: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: Ta bort en virtuell nätverksgateway med hjälp av PowerShell i Resource Manager-distributionsmodellen.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: ''
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 02/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: a0fc21c469658da637f15c820c105ec3ff31a04e
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 922aa739a42eddbe8cd7e3cabe46681c0c2c6d46
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507934"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417082"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Ta bort en virtuell nätverksgateway med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -38,6 +29,8 @@ Det finns ett par olika metoder som du kan använda när du vill ta bort en virt
 
 ## <a name="before-beginning"></a>Innan du börjar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Ladda ned de senaste Azure Resource Managers PowerShell-cmdletarna.
 
 Hämta och installera den senaste versionen av Azure Resource Managers PowerShell-cmdlet: ar. Mer information om hämtning och installation av PowerShell-cmdlets finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
@@ -47,19 +40,19 @@ Hämta och installera den senaste versionen av Azure Resource Managers PowerShel
 Öppna PowerShell-konsolen och anslut till ditt konto. Använd följande exempel för att ansluta:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Kontrollera prenumerationerna för kontot.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Om du har mer än en prenumeration kan du ange den prenumeration som du vill använda.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
 ## <a name="S2S"></a>Ta bort en plats-till-plats-VPN-gateway
@@ -75,14 +68,14 @@ Följande steg gäller för Resource Manager-distributionsmodellen.
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Hämta den virtuella nätverksgatewayen som du vill ta bort.
 
 ```powershell
-$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-Azvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Kontrollera om den virtuella nätverksgatewayen har några anslutningar.
 
 ```powershell
-get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
-$Conns=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
+get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
+$Conns=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
 
 ### <a name="3-delete-all-connections"></a>3. Ta bort alla anslutningar.
@@ -90,7 +83,7 @@ $Conns=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | whe
 Du kan uppmanas att bekräfta borttagningen av var och en av anslutningarna.
 
 ```powershell
-$Conns | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
+$Conns | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
 ### <a name="4-delete-the-virtual-network-gateway"></a>4. Ta bort den virtuella nätverksgatewayen.
@@ -99,7 +92,7 @@ Du kan uppmanas att bekräfta borttagningen av gatewayen. Om du har en P2S-konfi
 
 
 ```powershell
-Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
+Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 Nu kan har din virtuella nätverksgateway tagits bort. Du kan använda nästa steg att ta bort alla resurser som används inte längre.
@@ -109,13 +102,13 @@ Nu kan har din virtuella nätverksgateway tagits bort. Du kan använda nästa st
 Hämta listan över de motsvarande lokala nätverksgatewayerna.
 
 ```powershell
-$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
+$LNG=Get-AzLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
 ```
 
 Ta bort de lokala nätverksgatewayerna. Du kan uppmanas att bekräfta borttagningen av var och en av den lokala nätverksgatewayen.
 
 ```powershell
-$LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
+$LNG | ForEach-Object {Remove-AzLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
 ```
 
 ### <a name="6-delete-the-public-ip-address-resources"></a>6. Ta bort offentlig IP-adressresurser.
@@ -129,20 +122,20 @@ $GWIpConfigs = $Gateway.IpConfigurations
 Hämta listan över offentliga IP-adressresurser som används för den här virtuella nätverksgatewayen. Om den virtuella nätverksgatewayen var aktiv-aktiv, visas två offentliga IP-adresser.
 
 ```powershell
-$PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+$PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
 Ta bort offentlig IP-resurser.
 
 ```powershell
-$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
+$PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
 ```
 
 ### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Ta bort gateway-undernätet och ange konfigurationen.
 
 ```powershell
-$GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
-Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
+$GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
 ## <a name="v2v"></a>Ta bort en VNet-till-VNet VPN-gateway
@@ -158,19 +151,19 @@ Följande steg gäller för Resource Manager-distributionsmodellen.
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Hämta den virtuella nätverksgatewayen som du vill ta bort.
 
 ```powershell
-$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-Azvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Kontrollera om den virtuella nätverksgatewayen har några anslutningar.
 
 ```powershell
-get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
+get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
  
 Det kan finnas andra anslutningar till den virtuella nätverksgatewayen som ingår i en annan resursgrupp. Sök efter ytterligare anslutningar i varje ytterligare resursgrupp. I det här exemplet kontrollerar för anslutningar från RG2. Kör detta för varje resursgrupp att du har som kan ha en anslutning till den virtuella nätverksgatewayen.
 
 ```powershell
-get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
+get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
 ```
 
 ### <a name="3-get-the-list-of-connections-in-both-directions"></a>3. Hämta listan över anslutningar i båda riktningarna.
@@ -178,13 +171,13 @@ get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-obje
 Eftersom detta är en VNet-till-VNet-konfiguration måste listan över anslutningar i båda riktningarna.
 
 ```powershell
-$ConnsL=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
+$ConnsL=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
  
 I det här exemplet kontrollerar för anslutningar från RG2. Kör detta för varje resursgrupp att du har som kan ha en anslutning till den virtuella nätverksgatewayen.
 
 ```powershell
- $ConnsR=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "<NameOfResourceGroup2>" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
+ $ConnsR=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "<NameOfResourceGroup2>" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
  ```
 
 ### <a name="4-delete-all-connections"></a>4. Ta bort alla anslutningar.
@@ -192,8 +185,8 @@ I det här exemplet kontrollerar för anslutningar från RG2. Kör detta för va
 Du kan uppmanas att bekräfta borttagningen av var och en av anslutningarna.
 
 ```powershell
-$ConnsL | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
-$ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
+$ConnsL | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
+$ConnsR | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
 ### <a name="5-delete-the-virtual-network-gateway"></a>5. Ta bort den virtuella nätverksgatewayen.
@@ -201,7 +194,7 @@ $ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_
 Du kan uppmanas att bekräfta borttagningen av den virtuella nätverksgatewayen. Om du har P2S konfigurationer till dina virtuella nätverk utöver V2V konfigurationen bort tar bort de virtuella nätverksgatewayerna automatiskt alla P2S-klienter utan varning skapas.
 
 ```powershell
-Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
+Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 Nu kan har din virtuella nätverksgateway tagits bort. Du kan använda nästa steg att ta bort alla resurser som används inte längre.
@@ -217,20 +210,20 @@ $GWIpConfigs = $Gateway.IpConfigurations
 Hämta listan över offentliga IP-adressresurser som används för den här virtuella nätverksgatewayen. Om den virtuella nätverksgatewayen var aktiv-aktiv, visas två offentliga IP-adresser.
 
 ```powershell
-$PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+$PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
 Ta bort offentlig IP-resurser. Du kan uppmanas att bekräfta borttagningen av den offentliga IP-Adressen.
 
 ```powershell
-$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
+$PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
 ### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Ta bort gateway-undernätet och ange konfigurationen.
 
 ```powershell
-$GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
-Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
+$GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
 ## <a name="deletep2s"></a>Ta bort en punkt-till-plats-VPN-gateway
@@ -252,7 +245,7 @@ Följande steg gäller för Resource Manager-distributionsmodellen.
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Hämta den virtuella nätverksgatewayen som du vill ta bort.
 
 ```powershell
-$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-Azvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-delete-the-virtual-network-gateway"></a>2. Ta bort den virtuella nätverksgatewayen.
@@ -260,7 +253,7 @@ $GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 Du kan uppmanas att bekräfta borttagningen av den virtuella nätverksgatewayen.
 
 ```powershell
-Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
+Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 Nu kan har din virtuella nätverksgateway tagits bort. Du kan använda nästa steg att ta bort alla resurser som används inte längre.
@@ -276,20 +269,20 @@ $GWIpConfigs = $Gateway.IpConfigurations
 Hämta listan över offentliga IP-adresser som används för den här virtuella nätverksgatewayen. Om den virtuella nätverksgatewayen var aktiv-aktiv, visas två offentliga IP-adresser.
 
 ```powershell
-$PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
+$PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
 Ta bort den offentliga IP-adresser. Du kan uppmanas att bekräfta borttagningen av den offentliga IP-Adressen.
 
 ```powershell
-$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
+$PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
 ### <a name="4-delete-the-gateway-subnet-and-set-the-configuration"></a>4. Ta bort gateway-undernätet och ange konfigurationen.
 
 ```powershell
-$GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
-Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
+$GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
 ## <a name="delete"></a>Ta bort en VPN-gateway genom att ta bort resursgruppen.
@@ -299,7 +292,7 @@ Om du inte är orolig att behålla någon av dina resurser i resursgruppen och d
 ### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. Hämta en lista över alla resursgrupper i din prenumeration.
 
 ```powershell
-Get-AzureRmResourceGroup
+Get-AzResourceGroup
 ```
 
 ### <a name="2-locate-the-resource-group-that-you-want-to-delete"></a>2. Leta upp den resursgrupp som du vill ta bort.
@@ -307,7 +300,7 @@ Get-AzureRmResourceGroup
 Leta upp den resursgrupp som du vill ta bort och visa listan över resurser i resursgruppen. I det här exemplet är namnet på resursgruppen RG1. Ändra exemplet om du vill hämta en lista över alla resurser.
 
 ```powershell
-Find-AzureRmResource -ResourceGroupNameContains RG1
+Find-AzResource -ResourceGroupNameContains RG1
 ```
 
 ### <a name="3-verify-the-resources-in-the-list"></a>3. Kontrollera resurserna i listan.
@@ -319,7 +312,7 @@ När listan returneras kan du granska den för att kontrollera att du vill ta bo
 Ta bort resursgruppen och alla resurser i resursgruppen genom att ändra exemplet och kör.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name RG1
+Remove-AzResourceGroup -Name RG1
 ```
 
 ### <a name="5-check-the-status"></a>5. Kontrollera status.
@@ -327,7 +320,7 @@ Remove-AzureRmResourceGroup -Name RG1
 Det tar lite tid för Azure för att ta bort alla resurser. Du kan kontrollera status för en resursgrupp med hjälp av denna cmdlet.
 
 ```powershell
-Get-AzureRmResourceGroup -ResourceGroupName RG1
+Get-AzResourceGroup -ResourceGroupName RG1
 ```
 
 Det resultat som returneras visas ”lyckades”.

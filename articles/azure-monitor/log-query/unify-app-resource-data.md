@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237679"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429524"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Skapa en enhetlig flera Azure Monitor Application Insights-resurser 
 Den här artikeln beskriver hur du fråga efter och visa alla dina Application Insights log programdata på samma plats, även om de finns i olika Azure-prenumerationer, som en ersättning för utfasningen av Application Insights-anslutningsprogram. Antalet resurser Application Insights-resurser som ska inkluderas i en enskild fråga är begränsad till 100.  
@@ -68,6 +68,9 @@ Funktionens alias returnerar unionen av begäranden från alla definierade progr
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Fråga efter data i Application Insights-resurser och arbetsytan 
 När du har slutat anslutningstjänsten och behovet av att köra frågor på ett tidsintervall som var tas bort av Application Insights-datakvarhållning (90 dagar), måste du utföra [mellan resurser frågor](../../azure-monitor/log-query/cross-workspace-query.md) på arbetsytan och Application Insights resurser för ett mellanliggande period. Det här är tills en publiceringskonfiguration ackumuleras programdata ditt per ny Application Insights-datalagring som nämns ovan. Frågan kräver vissa ändringar eftersom alla scheman i Application Insights och arbetsytan är olika. Se tabellen i avsnittet om du markerar schemaolikheter. 
+
+>[!NOTE]
+>[Fråga mellan resurser](../log-query/cross-workspace-query.md) i loggen för aviseringar stöds i den nya [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Azure Monitor använder som standard den [äldre Log Analytics avisering API](../platform/api-alerts.md) för att skapa nya log Varningsregler från Azure-portalen om du växlar från [äldre Log aviseringar API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln, nya API: et blir standard för nya aviseringsregler i Azure-portalen och du kan skapa mellan resurser fråga log aviseringar regler. Du kan skapa [mellan resurser fråga](../log-query/cross-workspace-query.md) loggar Varningsregler utan att göra växeln med hjälp av den [ARM-mall för scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här aviseringsregeln kan hanteras dock [ scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure-portalen.
 
 Om anslutningen inte fungerar längre på 2018-11-01, när du fråga loggar i Application Insights-resurser och program på arbetsytan, skulle frågan konstrueras som i följande exempel:
 

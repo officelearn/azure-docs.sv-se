@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 4885be7547d404505b50c563036f260166cbc2cc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6b980ae7539642e67609be802b2e31b287d09f72
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833830"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415283"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Nätverkssäkerhetsgrupper med Azure Site Recovery
 
@@ -45,7 +45,7 @@ Du kanske inte alltid är medveten om när nätverkssäkerhetsgrupper tillämpas
 
 Azure Site Recovery kan haveriberedskap och migrering till Azure för lokala [Hyper-V-datorer](hyper-v-azure-architecture.md), [virtuella VMware-datorer](vmware-azure-architecture.md), och [fysiska servrar](physical-azure-architecture.md). För alla lokala till Azure-scenarier, replikeringsdata skickas till och lagras i ett Azure Storage-konto. Du behöver inte betala några avgifter för virtuella datorer under replikeringen. När du kör en redundansväxling till Azure skapar Site Recovery automatiskt Azure IaaS-datorer.
 
-NSG: er kan användas för att begränsa trafik till det virtuella nätverket och virtuella datorer när virtuella datorer har skapats efter redundansväxlingen till Azure. Site Recovery kan inte skapa NSG: er som en del av redundansväxlingen. Vi rekommenderar att du skapar nödvändiga Azure NGSs innan du påbörjar redundans. Därefter kan du associera NSG: er till redundansväxlade virtuella datorer automatiskt under redundansväxlingen, med automatiserade skript med Site Recovery kraftfulla [återställningsplaner](site-recovery-create-recovery-plans.md).
+NSG: er kan användas för att begränsa trafik till det virtuella nätverket och virtuella datorer när virtuella datorer har skapats efter redundansväxlingen till Azure. Site Recovery kan inte skapa NSG: er som en del av redundansväxlingen. Vi rekommenderar att du skapar NSG: er för nödvändiga Azure innan du påbörjar redundans. Därefter kan du associera NSG: er till redundansväxlade virtuella datorer automatiskt under redundansväxlingen, med automatiserade skript med Site Recovery kraftfulla [återställningsplaner](site-recovery-create-recovery-plans.md).
 
 Exempel: om postredundant VM-konfigurationen liknar den [Exempelscenario](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) beskrivs ovan:
 -   Du kan skapa **Contoso VNet** och **Contoso undernät** som en del av DR planera på mål-Azure-region.
@@ -61,7 +61,7 @@ Azure Site Recovery kan haveriberedskap för [Azure-datorer](azure-to-azure-arch
 
 Se till att NSG-reglerna på den Azure källregion tillåter för Azure VM replikering [utgående anslutning](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) för replikeringstrafik. Du kan också testa och verifiera reglerna krävs via [NSG exempelkonfiguration](azure-to-azure-about-networking.md#example-nsg-configuration).
 
-Site Recovery inte skapar eller replikera NSG: er som en del av redundansväxlingen. Vi rekommenderar att du skapar nödvändiga NGSs på mål-Azure-region innan du påbörjar redundans. Därefter kan du associera NSG: er till redundansväxlade virtuella datorer automatiskt under redundansväxlingen, med automatiserade skript med Site Recovery kraftfulla [återställningsplaner](site-recovery-create-recovery-plans.md).
+Site Recovery inte skapar eller replikera NSG: er som en del av redundansväxlingen. Vi rekommenderar att du skapar nödvändiga NSG: er på den Azure-målregion innan du påbörjar redundans. Därefter kan du associera NSG: er till redundansväxlade virtuella datorer automatiskt under redundansväxlingen, med automatiserade skript med Site Recovery kraftfulla [återställningsplaner](site-recovery-create-recovery-plans.md).
 
 Funderar på att den [Exempelscenario](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) som beskrivs ovan:
 -   Site Recovery kan skapa repliker av **Contoso VNet** och **Contoso undernät** på mål-Azure-region när replikering har aktiverats för den virtuella datorn.

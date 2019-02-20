@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508342"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417981"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av portalen
 
@@ -30,6 +30,8 @@ Ansluta ett klassiskt virtuellt nätverk till ett Resource Manager-VNet liknar a
 Om du inte redan har en virtuell nätverksgateway och inte vill skapa ett du istället du överväga att ansluta dina virtuella nätverk med VNet-Peering. Ingen VPN-gateway används för VNet-peering. Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Innan du börjar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Dessa instruktioner förutsätter att båda de virtuella nätverken har redan skapats. Om du använder den här artikeln som en övning och inte har virtuella nätverk finns länkar i steg för att skapa dem.
 * Kontrollera att adressintervallen för den virtuella nätverken inte överlappar varandra eller överlappar med något av intervallen för andra anslutningar som gatewayer kan anslutas till.
@@ -226,19 +228,19 @@ I följande steg ska konfigurera du anslutningen från det klassiska virtuella n
 Öppna PowerShell-konsolen med förhöjd behörighet och logga in på kontot. När du har loggat in hämtas dina kontoinställningar så att de är tillgängliga för Azure PowerShell. Följande cmdlet uppmanar dig inloggningsuppgifterna för ditt Azure-konto för distributionsmodellen i Resource Manager:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Hämta en lista över dina Azure-prenumerationer.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Om du har mer än en prenumeration kan du ange den prenumeration som du vill använda.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 Logga sedan in kan använda det klassiska PowerShell-cmdlet (Service Management). Använd följande kommando för att lägga till ditt Azure-konto för den klassiska distributionsmodellen:

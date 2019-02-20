@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fd0f8241c07f603089b896dcfc9ece29f1e33d1c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882224"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428212"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomst-token via ett användarflöde till ditt program i Azure Active Directory B2C
 
@@ -24,12 +24,12 @@ ms.locfileid: "55882224"
 
 En [användarflödet](active-directory-b2c-reference-policies.md) i Azure Active Directory (Azure AD) B2C ger ditt programs användare möjlighet att registrera dig eller logga in med en identitetsprovider. När vägen startar Azure AD B2C får en [åtkomsttoken](active-directory-b2c-reference-tokens.md) från identitetsprovidern. Azure AD B2C använder den token för att hämta information om användaren. Du kan aktivera ett anspråk i ditt användarflöde och skicka token via till de program som du registrerar i Azure AD B2C.
 
-Azure AD-B2C stöder för närvarande endast skicka åtkomsttoken [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) identitetsleverantörer, bland annat [Facebook](active-directory-b2c-setup-fb-app.md) och [Google](active-directory-b2c-setup-goog-app.md). För alla andra identitetsleverantörer returneras anspråket tomt.
+Azure AD-B2C stöder skicka åtkomsttoken [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) och [OpenID Connect](active-directory-b2c-reference-oidc.md) identitetsleverantörer. För alla andra identitetsleverantörer returneras anspråket tomt.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Programmet måste använda en [v2 användarflödet](user-flow-versions.md).
-- Ditt användarflöde är konfigurerad med en OAuth 2.0-identitetsprovider.
+- Ditt användarflöde är konfigurerad med en identitetsleverantör för OAuth 2.0 eller OpenID Connect.
 
 ## <a name="enable-the-claim"></a>Aktivera anspråket
 

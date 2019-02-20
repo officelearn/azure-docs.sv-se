@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421819"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416130"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
 
@@ -23,11 +23,11 @@ Du kan skriva en [Azure Automation PowerShell-runbook](automation-first-runbook-
 
 På så sätt kan du automatisera distributionen av Azure-resurser. Du kan underhålla dina Resource Manager-mallar på en central och säker plats som Azure Storage.
 
-I det här avsnittet ska vi skapa en PowerShell-runbook som använder en Resource Manager-mall som lagras i [Azure Storage](../storage/common/storage-introduction.md) att distribuera ett nytt Azure Storage-konto.
+I den här artikeln ska vi skapa en PowerShell-runbook som använder en Resource Manager-mall som lagras i [Azure Storage](../storage/common/storage-introduction.md) att distribuera ett nytt Azure Storage-konto.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att kunna genomföra den här kursen behöver du följande:
+Den här kursen behöver du följande objekt:
 
 * En Azure-prenumeration. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
@@ -176,7 +176,7 @@ Spara filen lokalt som `DeployTemplate.ps1`.
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importera och publicera en runbook i Azure Automation-konto
 
 Nu vi använda PowerShell för att importera runbooken till ditt Azure Automation-konto och sedan publicera en runbook.
-Information om hur du importerar och publicerar en runbook i Azure-portalen finns i [skapa eller importera en runbook i Azure Automation](automation-creating-importing-runbook.md).
+Information om hur du importerar och publicerar en runbook i Azure-portalen finns i [hantera runbooks i Azure Automation](manage-runbooks.md).
 
 Importera `DeployTemplate.ps1` i ditt Automation-konto som en PowerShell-runbook, kör du följande PowerShell-kommandon:
 

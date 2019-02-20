@@ -4,15 +4,15 @@ description: Innehåller information om uppgraderingar för Azure Migrate Collec
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 02/19/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: 88077ac965b2abb69be145f29cbadca2ff1128d6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f29556c8f2a5aa727ce80632eaccf5e1ed6d7c1a
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836652"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415552"
 ---
 # <a name="collector-update-release-history"></a>Insamlaren uppdateringshistorik för versionen
 
@@ -20,14 +20,14 @@ Den här artikeln sammanfattas uppgraderingsinformation för insamlingsprogramme
 
 Azure Migrate Collector är en enkel installation som används för att identifiera en lokal vCenter-miljö för utvärdering innan du migrerar till Azure. [Läs mer](concepts-collector.md).
 
-## <a name="continuous-discovery-upgrade-versions"></a>Kontinuerlig identifiering: uppgradera versioner
+## <a name="continuous-discovery-upgrade-versions"></a>Kontinuerlig identifiering: Uppgradera versioner
 
 Ingen uppgradering för identifiering av kontinuerlig produkten är tillgänglig ännu.
 
-## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Enstaka identifiering (nu inaktuellt): föregående uppgraderingsversionerna
+## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Enstaka identifiering (nu inaktuellt): Tidigare versioner av uppgradering
 
 > [!NOTE]
-> Identifiering av enstaka installationen är nu föråldrad eftersom den här metoden förlitade sig tidigare på vCenter-serverns statistikinställningarna för prestanda datatillgänglighet och samlas in genomsnittlig prestandaräknare som resulterade i under storleksändringar av virtuella datorer för migrering till Azure.
+> Installationen för engångsidentifiering är nu inaktuell eftersom den här metoden förlitade sig på vCenter Servers statistikinställningarna för tillgänglighet av prestandadatapunkt och samlade in räknare för genomsnittlig prestanda, vilket resulterade i för små VM-storlekar för migrering till Azure.
 
 ### <a name="version-10916-released-on-10292018"></a>Version 1.0.9.16 (ut den 29/10/2018)
 
@@ -71,7 +71,7 @@ Du kan uppgradera insamlaren till den senaste versionen utan att hämta ova-file
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    Exempel: **C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
+    Exempel: **C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
 3. Kopiera zip-filen till insamlingsprogrammet VM.
 4. Högerklicka på zip-fil > **extrahera alla**.
 5. Högerklicka på **Setup.ps1** > **kör med PowerShell**, och Följ installationsanvisningarna.

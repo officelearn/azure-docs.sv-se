@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
-ms.translationtype: HT
+ms.openlocfilehash: 886fa6c088f2fbabb3d3ba1cd0b15bbc488784f3
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30198119"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418312"
 ---
 **För att ladda ned konfigurationsskript för VPN-enheten:**
 
@@ -27,7 +27,7 @@ Beroende på vilken VPN-enhet du har kan du eventuellt hämta ett skript för VP
 
 - Mer information om länkar till konfigurationsinställningar för enheter, finns i [Verifierade VPN-enheter](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Det är alltid bäst att kontrollera med enhetstillverkaren för att få den senaste konfigurationsinformationen. I listan visas de versioner vi har testat. Ditt operativsystem kan vara kompatibelt även om versionen inte finns med på listan. Kontrollera med enhetstillverkaren och verifiera att OS-versionen för VPN-enheten är kompatibel.
 
-- En översikt över VPN-enhetskonfigurationer finns i [översikten över tredje parts VPN-enhetskonfigurationer](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
+- En översikt över VPN-enhetens konfiguration finns i [Konfigurationsöversikt för VPN-enheten](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 
 - Mer information om att redigera enhetens konfigurationsexempel finns i [Redigera exempel](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).
 

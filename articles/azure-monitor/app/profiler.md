@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 58ee4b7d615c70845e1239d4ee98b086b2124c77
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f3ec10a970406cbb1bb6a1a52ffa8508e37fc516
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874198"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414175"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilera live Azure App Service-appar med Application Insights
 
@@ -25,8 +25,8 @@ Profiler fungerar för närvarande för ASP.NET och ASP.NET Core-appar som körs
 
 ## <a id="installation"></a> Aktivera Profiler för din app
 Följ anvisningarna nedan om du vill aktivera Profiler för en app. Om du kör en annan typ av Azure-tjänst, följer du anvisningarna för att aktivera Profiler för andra plattformar som stöds:
-* [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric-program](../../azure-monitor/app/profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric-program](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler är förinstallerade som en del av App Services runtime, men du måste stänga in get-profiler för App Service-appen. När du har distribuerat en app, även om du har inkluderat App Insights SDK i källkoden, följer du stegen nedan för att aktivera profiler.

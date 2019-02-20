@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 68378342769618c2b0e1096fbf5a2d28d0cb4b0e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 67bdabe24e789dc4d1f2020a7a7853eafaa607c3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309904"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429374"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -48,7 +48,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
     |Anslutningsläge  |Protokoll som stöds  |Stödda SDK: erna  |API/Service-port  |
     |---------|---------|---------|---------|
     |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
-    |Direkt    |    HTTPS     |  .NET och Java SDK    |    SQL(443)   |
+    |Direkt    |    HTTPS     |  .NET och Java SDK    |   Portar i intervallet 20 10 000 000    |
     |Direkt    |     TCP    |  .Net SDK    | Portar i intervallet 20 10 000 000 |
 
     Azure Cosmos DB erbjuder en enkel och öppna RESTful-programmeringsmiljö via HTTPS. Dessutom finns det en effektiv TCP-protokollet som är också RESTful i sin modell och är tillgänglig via SDK för .NET-klient. Använda SSL för den inledande autentiseringen och kryptering trafik direkt TCP- och HTTPS. Använda TCP-protokollet när det är möjligt för bästa prestanda.

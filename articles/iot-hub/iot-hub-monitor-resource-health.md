@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: 3b56097f8805b4c6d95256ae1753daf5ded266fb
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8c575c6d34543cbd8f692c64b43cf738b4c22617
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888404"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415637"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -302,12 +302,118 @@ Direkta metoder kategorin spårar begäranden och svar-interaktioner som skickas
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
             "location": "Resource location"
         }
     ]
 }
 ```
+
+#### <a name="distributed-tracing-preview"></a>Distribuerad spårning (förhandsversion)
+
+Distribuerad spårning kategorin spårar Korrelations-ID: N för meddelanden som rubriken trace kontext. Innan du kan utnyttja de här loggarna, klientsidekod måste uppdateras genom att följa [analysera och diagnostisera IoT program slutpunkt till slutpunkt med IoT Hub distribuerad spårning (förhandsversion)](iot-hub-distributed-tracing.md).
+
+Observera att `correlationId` och överensstämmer med den [W3C Trace kontext](https://github.com/w3c/trace-context) förslag, om den innehåller en `trace-id` samt en `span-id`. 
+
+##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IoT Hub D2C (enhet-till-moln) loggar
+
+IoT Hub registrerar den här loggen när ett meddelande som innehåller egenskaper för giltiga spår anländer till IoT Hub. 
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubD2C",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Receive message success",
+            "durationMs": "",
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Här kan `durationMs` beräknas inte som IoT-hubbens klockan inte är synkroniserade med enhetens klocka och därför en beräkning för varaktighet kan vara vilseledande. Vi rekommenderar att skriva logic med hjälp av den tidsstämplar i den `properties` avsnitt för att avbilda toppar i svarstid för enhet-till-moln.
+
+| Egenskap  | Typ | Beskrivning |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **messageSize** | Integer | Storlek för enhet-till-moln-meddelande i byte |
+| **deviceId** | Sträng med ASCII 7 bitar alfanumeriska tecken | Identiteten för enheten |
+| **callerLocalTimeUtc** | UTC-tidsstämpel | Skapandetid för meddelandet som rapporteras av den lokala klockan för enhet |
+| **calleeLocalTimeUtc** | UTC-tidsstämpel | Ankomsttiden meddelande till IoT-hubbens gateway som rapporterats av IoT Hub-tjänsten på klientsidan klockan |
+
+##### <a name="iot-hub-ingress-logs"></a>IoT Hub ingress-loggar
+
+IoT Hub registrerar den här loggen när meddelandet som innehåller egenskaper för giltiga spår skriver till interna eller inbyggda Event Hub.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubIngress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Ingress message success",
+            "durationMs": "10",
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+I den `properties` avsnittet, den här loggfilen innehåller mer information om inkommande meddelande
+
+| Egenskap  | Typ | Beskrivning |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **isRoutingEnabled** | String | True eller false, anger huruvida meddelanderoutning är aktiverad i IoT Hub |
+| **parentSpanId** | String | Den [span-id](https://w3c.github.io/trace-context/#parent-id) meddelandets överordnade som i det här fallet är spårningen för D2C-meddelande |
+
+##### <a name="iot-hub-egress-logs"></a>IoT Hub utgående loggar
+
+IoT Hub poster detta logga när [routning](iot-hub-devguide-messages-d2c.md) är aktiverad och meddelandet skrivs till en [endpoint](iot-hub-devguide-endpoints.md). Om routning inte är aktiverat, registrera IoT Hub inte den här loggfilen.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubEgress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-98ac3578922acd26-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Egress message success",
+            "durationMs": "10",
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+I den `properties` avsnittet, den här loggfilen innehåller mer information om inkommande meddelande
+
+| Egenskap  | Typ | Beskrivning |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **endpointName** | String | Namnet på slutpunkten som Routning |
+| **EndpointType** | String | Vilken typ av Routning slutpunkten |
+| **parentSpanId** | String | Den [span-id](https://w3c.github.io/trace-context/#parent-id) meddelandets överordnade som i det här fallet är IoT Hub inkommande meddelande spårningen |
+
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Läs loggar från Azure Event Hubs
 

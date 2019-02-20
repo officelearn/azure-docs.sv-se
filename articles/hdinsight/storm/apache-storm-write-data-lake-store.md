@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819169"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428802"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Skriva till Apache Hadoop HDFS från Apache Storm på HDInsight
 
@@ -50,15 +50,18 @@ Följande miljövariabler kan konfigureras när du installerar Java och JDK på 
 HdfsBolt använder schemat för filen som du anger för att lära dig att skriva till HDFS. Med HDInsight, kan du använda en av scheman som följande:
 
 * `wasb://`: Används med ett Azure Storage-konto.
-* `adl://`: Använda med Azure Data Lake Storage.
+* `abfs://`: Använda med en Azure Data Lake Storage Gen2.
+* `adl://`: Använda med Azure Data Lake Storage Gen1.
 
 Följande tabell innehåller exempel på användning av fil-schema för olika scenarier:
 
 | Schema | Anteckningar |
 | ----- | ----- |
 | `wasb:///` | Standardkontot för lagring är en blobbehållare i ett Azure Storage-konto |
-| `adl:///` | Standardkontot för lagring är en katalog i Azure Data Lake Storage. När du skapar klustret anger du katalogen i Data Lake Storage som är roten av klustrets HDFS. Till exempel den `/clusters/myclustername/` directory. |
+| `abfs:///` | Standardkontot för lagring är en katalog i ett Azure Data Lake Storage Gen2-konto |
+| `adl:///` | Standardkontot för lagring är en katalog i Azure Data Lake Storage Gen1. När du skapar klustret anger du katalogen i Data Lake Storage som är roten av klustrets HDFS. Till exempel den `/clusters/myclustername/` directory. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | En icke-standard (ytterligare) Azure-lagringskonto som är associerade med klustret. |
+| `abfs://CONTAINER@ACCOUNT.dfs.core.windows.net/` | En icke-standard (ytterligare) Azure-lagringskonto som är associerade med klustret. |
 | `adl://STORENAME/` | Roten för Data Lake-lagring som används av klustret. Det här schemat kan du komma åt data som ligger utanför den katalog som innehåller klustret-filsystemet. |
 
 Mer information finns i den [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) referens på Apache.org.
@@ -180,7 +183,7 @@ Information om hur du använder det här skriptet med ditt kluster finns i den [
         hdfs.url: wasb:///
 
     > [!IMPORTANT]  
-    > Det här exemplet förutsätts att klustret använder ett Azure Storage-konto som standardlagring. Om klustret använder Azure Data Lake Storage, använda `hdfs.url: adl:///` i stället.
+    > Det här exemplet förutsätts att klustret använder ett Azure Storage-konto som standardlagring. Om klustret använder Azure Data Lake Storage Gen2, Använd `hdfs.url: abfs:///` i stället. Om klustret använder Azure Data Lake Storage Gen1, Använd `hdfs.url: adl:///` i stället.
     
     Om du vill spara filen, Använd __Ctrl + X__, sedan __Y__, och slutligen __RETUR__. Värdet i den här filen in Webbadressen för Data Lake-lagring och katalognamnet som data ska skrivas till.
 

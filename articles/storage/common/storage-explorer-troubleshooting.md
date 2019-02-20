@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 32c47233946dacf4e80a9ff3ba25388e1231d7c9
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301068"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415518"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -61,6 +61,8 @@ Tom logga i dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra
 3. Välj vilken miljö som du vill logga in på.
 4. Klicka på ”signera” i knappen.
 5. Följ anvisningarna på nästa panel.
+
+Obs: den här funktionen finns för närvarande endast på 1.7.0 förhandsversion.
 
 Om du vill har problem med att logga in på kontot du använda eftersom din standardwebbläsare redan är inloggad på ett annat konto som du kan antingen:
 1. Manuellt kopiera länken och koden i en privat session i webbläsaren.

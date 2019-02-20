@@ -16,16 +16,16 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 36699acab7a10a11ae60c62bab8e5130362ddfc7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 62fde78cce05e62489931868da3d21c8b2e16928
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817265"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430360"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
-Registrera Azure Stack med Azure kan du hämta marketplace-objekt från Azure och konfigurera handelsdata rapporterar tillbaka till Microsoft. När du har registrerat Azure Stack användning rapporteras till Azure commerce och du kan se dem under den prenumeration som användes för registrering.
+Registrera Azure Stack med Azure kan du hämta marketplace-objekt från Azure och konfigurera handelsdata rapporterar tillbaka till Microsoft. När du har registrerat Azure Stack användning rapporteras till Azure commerce och du kan se dem under Azure fakturering prenumerations-ID används för registrering.
 
 I den här artikeln beskrivs registrera integrerade Azure Stack-system med Azure. Information om hur du registrerar ASDK med Azure finns i [Azure Stack-registrering](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) i ASDK-dokumentationen.
 

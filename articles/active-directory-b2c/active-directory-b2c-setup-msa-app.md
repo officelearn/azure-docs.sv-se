@@ -1,5 +1,5 @@
 ---
-title: Konfigurera registrering och inloggning med ett Microsoft-konto med hjälp av Azure Active Directory B2C | Microsoft Docs
+title: Konfigurera registrering och inloggning med ett Microsoft-konto – Azure Active Directory B2C | Microsoft Docs
 description: Tillhandahålla registrera dig och logga in till kunder med Microsoft-konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0565b9ec1e78a5ce1f40e4f2e1f46e84fbb53a94
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13e199a56a3cdd4f8e5a21f162fe0397c6f397cd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172739"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428263"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Microsoft-konto med hjälp av Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Skapa ett program för Microsoft-konto
 
-Om du vill använda ett Microsoft-konto som identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Microsoft-konto, kan du hämta den på [ https://www.live.com/ ](https://www.live.com/).
+Att använda ett microsoftkonto som ett [identitetsprovider](active-directory-b2c-reference-oidc.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Microsoft-konto, kan du hämta den på [ https://www.live.com/ ](https://www.live.com/).
 
 1. Logga in på den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) med autentiseringsuppgifterna för ditt Microsoft-konto.
 2. I det övre högra hörnet väljer **lägga till en app**.

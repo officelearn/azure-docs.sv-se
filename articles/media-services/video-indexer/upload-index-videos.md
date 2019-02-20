@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: fa64d24d74a71981e3273fbdf5fa96b386a34685
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342447"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414752"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -29,10 +29,10 @@ Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexe
 När din video har laddats upp, kodar Video Indexer kan du kan också videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
 
 ## <a name="uploading-considerations"></a>Att tänka på gällande uppladdning
-    
+
 - När du laddar upp videon baserat på URL:en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
 - Överföringsstorlek med URL: er är begränsad till 25GB
-- Överföringsstorlek med alternativet byte-matrisen är begränsat till 2GB 
+- Överföringsstorlek med alternativet byte-matrisen är begränsat till 2GB
 - Alternativet byte-matris på grund av timeout efter 30 min
 - URL:en som anges i parametern `videoURL` måste kodas
 

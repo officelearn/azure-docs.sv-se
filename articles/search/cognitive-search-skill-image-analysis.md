@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f658f6bb9e66eda13dbf4213e37dcd96b17f76e7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c70c3cc1818e85c03c78524d1e8571af6d686218
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411025"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429068"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Bild Analysis kognitiva kunskaper
 
@@ -45,7 +45,7 @@ Parametrar är skiftlägeskänsliga.
 
 | Indatanamnet      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
-| image         | Komplexa typen. För närvarande bara fungerar med ”/ dokument/normalized_images” fältet genereras av Azure Blob-indexeraren när ```imageAction``` är inställd på ```generateNormalizedImages```. Se den [exempel](#sample-output) för mer information.|
+| image         | Komplexa typen. För närvarande bara fungerar med ”/ dokument/normalized_images” fältet genereras av Azure Blob-indexeraren när ```imageAction``` anges till ett värde annat än ```none```. Se den [exempel](#sample-output) för mer information.|
 
 
 

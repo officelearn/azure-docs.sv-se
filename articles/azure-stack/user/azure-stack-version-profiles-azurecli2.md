@@ -14,12 +14,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 40973fbdd1965eb84776fc9365718c65fa0149a7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329304"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416997"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
@@ -205,7 +205,7 @@ Använd följande steg för att ansluta till Azure Stack:
       ```
 
       > [!NOTE]
-      > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login command` utan att ange den `-u` parametern. Kör det här kommandot ger dig en URL och en kod som du måste använda för att autentisera.
+      > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login` kommandot utan att ange den `-u` parametern. Kör det här kommandot ger dig en URL och en kod som du måste använda för att autentisera.
    
       * Logga in som en *tjänstens huvudnamn*: Innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
 

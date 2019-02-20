@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3010f4ec86b25c51fae2ce8f64238ec8815adca8
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408688"
+ms.locfileid: "56416793"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
 
@@ -22,7 +22,7 @@ Skript före och efter att du kör PowerShell-runbooks i ditt Automation-konto i
 
 ## <a name="runbook-requirements"></a>Krav för Runbook
 
-För en runbook som ska användas som ett skript före eller efter måste runbook importeras till ditt automation-konto och publiceras. Mer information om den här processen finns [publicera en runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+För en runbook som ska användas som ett skript före eller efter måste runbook importeras till ditt automation-konto och publiceras. Mer information om den här processen finns [publicera en runbook](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="using-a-prepost-script"></a>Med ett före/efter-skript
 

@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 64e743010b3ae615817639d9b2531b2f99979498
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e53d77c4faea5b9461395a0098261866bdf6252f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156910"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430444"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med Azure portal
 
@@ -85,7 +85,7 @@ När du har skapat en avisering, kan du välja den och:
 | SQL-databas | connection_successful | Anslutningarna lyckades | Totalt | 10 minuter |
 | SQL-databas | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
 | SQL-databas | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
-| SQL-databas | Deadlock | Dödlägen | Totalt | 10 minuter |
+| SQL-databas | deadlock | Dödlägen | Totalt | 10 minuter |
 | SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
 | SQL-databas | xtp_storage_percent | Percent(Preview) för in-Memory OLTP-lagring | Medel | 5 minuter |
 | SQL-databas | workers_percent | Arbetare procent | Medel | 5 minuter |
@@ -106,7 +106,6 @@ När du har skapat en avisering, kan du välja den och:
 ||||||               
 | SQL Data Warehouse | cpu_percent | CPU-procent | Medel | 10 minuter |
 | SQL Data Warehouse | physical_data_read_percent | Data IO-procent | Medel | 10 minuter |
-| SQL Data Warehouse | lagring | Totala databasstorleken | Maximal | 10 minuter |
 | SQL Data Warehouse | connection_successful | Anslutningarna lyckades | Totalt | 10 minuter |
 | SQL Data Warehouse | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
 | SQL Data Warehouse | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312620"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430275"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hur du bearbetar och extrahera information från bilder i scenarier med kognitiv sökning
 
@@ -34,7 +34,7 @@ Du kan inte inaktivera normalisering av avbildningen. Som en itererar över avbi
 
 | Konfigurationsparameter | Beskrivning |
 |--------------------|-------------|
-| imageAction   | Ange ”none” om ingen åtgärd ska vidtas när inbäddade bilder eller bildfiler uppstår. <br/>Ange till ”generateNormalizedImages” för att generera en matris med normaliserad avbildningar som en del av document cracking. Dessa avbildningar exponeras i den *normalized_images* fält. <br/>Standardvärdet är ”ingen”. Den här konfigurationen är bara relevant till blob-datakällor, när ”dataToExtract” är inställt på ”contentAndMetadata”. |
+| imageAction   | Ange ”none” om ingen åtgärd ska vidtas när inbäddade bilder eller bildfiler uppstår. <br/>Ange till ”generateNormalizedImages” för att generera en matris med normaliserad avbildningar som en del av document cracking.<br/>Ange till ”generateNormalizedImagePerPage” att generera en matris med normaliserad avbildningar för PDF-filer i din datakälla, återges där varje sida som en utdata-bild.  Funktionen är samma som ”generateNormalizedImages” för icke-PDF-filtyper.<br/>För alla alternativ som inte är ”none” bilderna visas i den *normalized_images* fält. <br/>Standardvärdet är ”ingen”. Den här konfigurationen är bara relevant till blob-datakällor, när ”dataToExtract” är inställt på ”contentAndMetadata”. |
 |  normalizedImageMaxWidth | Den maximala bredden (i bildpunkter) för normaliserade bilder som skapas. Standardvärdet är 2000.|
 |  normalizedImageMaxHeight | Maximal höjd (i bildpunkter) för normaliserade bilder som skapas. Standardvärdet är 2000.|
 
@@ -62,7 +62,7 @@ Du anger imageAction i din [indexerardefinitionen](https://docs.microsoft.com/re
 }
 ```
 
-När den *imageAction* är inställd på ”generateNormalizedImages” den nya *normalized_images* fältet innehåller en matris med bilder. Varje avbildning är en komplex typ som har följande medlemmar:
+När den *imageAction* anges till ett värde andra sedan ”none” den nya *normalized_images* fältet innehåller en matris med bilder. Varje avbildning är en komplex typ som har följande medlemmar:
 
 | Bild medlem       | Beskrivning                             |
 |--------------------|-----------------------------------------|

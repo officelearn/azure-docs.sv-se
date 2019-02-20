@@ -1,5 +1,5 @@
 ---
-title: Konfigurera registrering och inloggning med ett Facebook-konto med Azure Active Directory B2C | Microsoft Docs
+title: Konfigurera registrering och logga in med Facebook-konto – Azure Active Directory B2C | Microsoft Docs
 description: Tillhandahålla registrera dig och logga in till kunder med Facebook-konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1afb83c3e381c33b1c29c224d1ce0cc1d3d080
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 56534589c89fefb38f206f1c57da7996ae43e81d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163049"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428507"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Facebook-konto med Azure Active Directory B2C
 
 ## <a name="create-a-facebook-application"></a>Skapa ett Facebook-program
 
-Om du vill använda en Facebook-konto som identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Facebook-konto, kan du hämta den på [ https://www.facebook.com/ ](https://www.facebook.com/).
+Att använda ett Facebook-konto som ett [identitetsprovider](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Facebook-konto, kan du hämta den på [ https://www.facebook.com/ ](https://www.facebook.com/).
 
 1. Logga in på [Facebook för utvecklare](https://developers.facebook.com/) med dina autentiseringsuppgifter för Facebook-konto.
 2. Om du inte redan har gjort det så, behöver du registrera som Facebook-utvecklare. Om du vill göra detta, Välj **registrera** acceptera Facebooks principer i det övre högra hörnet på sidan och gör registreringen.
@@ -32,7 +32,7 @@ Om du vill använda en Facebook-konto som identitetsprovider i Azure Active Dire
 7. Välj en **kategori**, till exempel `Business and Pages`. Det här värdet krävs av Facebook, men inte använts för Azure AD B2C.
 8. Längst ned på sidan Välj **Lägg till plattform**, och välj sedan **webbplats**.
 9. I **webbplatsens URL**, ange `https://your-tenant-name.b2clogin.com/` ersätter `your-tenant-name` med namnet på din klient. Ange en URL för den **princip Sekretesswebbadress**, till exempel `http://www.contoso.com`. Princip-URL är en sida som ska underhållas för att tillhandahålla Sekretessinformation för ditt program.
-10. Välj **spara ändringar**.
+10. Välj **Spara ändringar**.
 11. Kopiera värdet för längst ned på sidan **App-ID**. 
 12. Klicka på **visa** och kopiera värdet för **Apphemlighet**. Du kan använda båda för att konfigurera Facebook som en identitetsprovider i din klient. **Apphemlighet** är en viktig säkerhetsuppgift för autentisering.
 13. Välj **produkter**, och välj sedan **konfigurera** under **Facebook-inloggning**.

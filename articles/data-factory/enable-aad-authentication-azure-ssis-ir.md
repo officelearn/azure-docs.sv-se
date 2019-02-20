@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/9/2019
+ms.date: 2/19/2019
 ms.author: douglasl
-ms.openlocfilehash: 5cc625e07f1c92c53491e83f4049bad12cd9d1a1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b672264e1cb3cd415532cf4bcfbbd268afffa70d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158269"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415945"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
@@ -172,7 +172,7 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
 6.  I frågefönstret kör du följande T-SQL-skript för att konvertera den hanterade identitet för din ADF till typen binary:
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = {your SERVICE IDENTITY APPLICATION ID}
+    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -181,7 +181,7 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
 7.  Rensa frågefönstret och kör följande T-SQL-skript för att lägga till den hanterade identitet för din ADF som en användare
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID ={your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```

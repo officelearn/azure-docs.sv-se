@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dbb94e0dbcb1dccf8ecbc60bca47b2cc3533297c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169980"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429748"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -220,8 +220,6 @@ Nätverkstrafik i en Azure-nätverk kan kontrolleras med hjälp av följande met
 * **Virtuella nätverksinstallationer** replikera funktionerna på enheter som brandväggar och routrar. Mer information finns i den [nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances) dokumentet.
 
 HDInsight kräver obegränsad åtkomst till HDinsight-hälsa och management services både inkommande och utgående trafik från det virtuella nätverket som en hanterad tjänst. När du använder NSG: er och udr: er, måste du kontrollera att dessa tjänster fortfarande kan kommunicera med HDInsight-kluster.
-
-HDInsight exponerar tjänster på flera portar. När du använder en virtuell installation brandvägg, måste du tillåta trafik på portarna som används för dessa tjänster. Mer information finns i avsnittet [nödvändiga portar].
 
 ### <a id="hdinsight-ip"></a> HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar
 

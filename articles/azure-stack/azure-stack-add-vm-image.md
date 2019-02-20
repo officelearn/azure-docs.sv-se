@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/18/2019
+ms.date: 2/19/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: dce158e600d3bf5dbcc552aff82959208d7b47f8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0319445f946a53ace5718dce1ad593d0a8225ecc
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249069"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428524"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-I Azure Stack, kan du tillgängliggöra avbildningar av virtuella datorer till dina användare. Dessa avbildningar kan refereras av Azure Resource Manager-mallar eller du kan lägga till dem till Azure Marketplace-Gränssnittet som ett Marketplace-objekt. Du kan använda antingen en bild form global Azure Marketplace eller lägga till en egen anpassad avbildning. Du kan lägga till en virtuell dator med portalen eller med Windows PowerShell.
+I Azure Stack, kan du tillgängliggöra avbildningar av virtuella datorer till dina användare. Dessa avbildningar kan användas av Azure Resource Manager-mallar. Du kan också lägga till dem i Azure Marketplace-användargränssnittet som ett Marketplace-objekt. Använda en avbildning form global Azure Marketplace eller en egen anpassad avbildning. Avbildningen kan läggas till med hjälp av portalen eller Windows PowerShell.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Lägg till en VM-avbildning via portalen
 

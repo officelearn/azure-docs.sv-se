@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 66d7a2ce5833729d601ae896f0903a17a40fc8a3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 09514e37d1d40c489eda483980237d26e4a08730
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339507"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417930"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Med hjälp av Azure Data Lake Storage Gen2 för stordatakrav
 
@@ -81,7 +81,7 @@ Se följande artiklar om du vill bevilja åtkomst till specifika filer och mappa
 
 * [Åtkomstkontrollistor för filer och kataloger](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 
-Läs om hur du konfigurerar andra aspekter av säkerhet i [säkerhetsguiden för Azure Data Lake Storage Gen2](https://review.docs.microsoft.com/en-us/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Läs om hur du konfigurerar andra aspekter av säkerhet i [säkerhetsguiden för Azure Data Lake Storage Gen2](https://review.docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="ingest-the-data"></a>Mata in data
 

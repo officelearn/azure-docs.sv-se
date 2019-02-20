@@ -1,5 +1,5 @@
 ---
-title: Auktoriseringskodflödet i Azure Active Directory B2C | Microsoft Docs
+title: Auktoriseringskodflödet - Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du skapar webbappar med hjälp av Azure AD B2C och OpenID Connect-autentiseringsprotokollet.
 services: active-directory-b2c
 author: davidmu1
@@ -7,17 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f1f372cd8fc5ea1e64fbe195fd15790cd0535347
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ee67f07965036a71151d7b6a5092b9a76d94999
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164035"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428694"
 ---
-# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-auktoriseringskodflöde
+# <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>OAuth 2.0-auktoriseringskodflödet i Azure Active Directory B2C
+
 Du kan använda OAuth 2.0-auktoriseringskod i appar som installerats på en enhet för att få åtkomst till skyddade resurser, till exempel webb API: er. Genom att använda den Azure Active Directory B2C (Azure AD B2C) implementering av OAuth 2.0, du kan lägga till registrering, inloggning och andra Identitetshantering uppgifter till dina appar och program. Den här artikeln är språkoberoende. I artikeln beskrivs hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek med öppen källkod.
 
 OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749). Du kan använda för autentisering och auktorisering i de flesta [programtyper](active-directory-b2c-apps.md), inklusive webb- och internt installerade program. Du kan använda OAuth 2.0-auktoriseringskodflödet på ett säkert sätt hämta åtkomsttoken och uppdateringstoken för dina program, som kan användas för att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-b2c-reference-protocols.md).  Uppdateringstoken gör att klienten kan få nya åtkomst (och uppdatera) token när åtkomsttoken upphör att gälla, vanligtvis efter en timme.
@@ -27,7 +28,7 @@ Den här artikeln fokuserar på de **offentliga klienter** OAuth 2.0-auktoriseri
 > [!NOTE]
 > Lägg till Identitetshantering till en webbapp med hjälp av Azure AD B2C genom att använda [OpenID Connect](active-directory-b2c-reference-oidc.md) i stället för OAuth 2.0.
 
-Azure AD B2C utökar standard OAuth 2.0 flöden för att göra mer än enkel autentisering och auktorisering. Det introducerar den [användaren flow parametern](active-directory-b2c-reference-policies.md). Med användarflöden, du kan använda OAuth 2.0 att lägga till användarupplevelser i ditt program, till exempel registrering, inloggning och profilhantering. I den här artikeln visar vi dig hur du använder OAuth 2.0 och användaren flöden för att implementera var och en av dessa upplevelser i dina interna program. Vi visar också hur du hämtar åtkomsttoken för att komma åt webb API: er.
+Azure AD B2C utökar standard OAuth 2.0 flöden för att göra mer än enkel autentisering och auktorisering. Det introducerar den [användaren flow parametern](active-directory-b2c-reference-policies.md). Med användarflöden, du kan använda OAuth 2.0 att lägga till användarupplevelser i ditt program, till exempel registrering, inloggning och profilhantering. Identitetsleverantörer som använder OAuth 2.0-protokollet är bland annat [Amazon](active-directory-b2c-setup-amzn-app.md), [Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md), [Facebook](active-directory-b2c-setup-fb-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [ Google](active-directory-b2c-setup-goog-app.md), och [LinkedIn](active-directory-b2c-setup-li-app.md).
 
 I exemplet HTTP-begäranden i den här artikeln använder vi vår exempel Azure AD B2C-katalog **fabrikamb2c.onmicrosoft.com**. Vi kan också använda våra exempel och flöden. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med dina egna värden.
 Lär dig hur du [hämta din egen Azure AD B2C-katalog, program och användare flöden](#use-your-own-azure-ad-b2c-directory).

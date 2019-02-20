@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5242f31ff35e367211d48157fd4953751d1bb148
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103323"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416300"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Konfigurera ExpressRoute och plats-till-plats-anslutningar för samexistens mellan med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -81,9 +81,9 @@ Det finns två uppsättningar procedurer för att välja bland. Vilken konfigura
 ## <a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
 Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats- och ExpressRoute-anslutningar som ska finnas samtidigt.
 
-1. Installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur man installerar cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). De cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna.
+1. Installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur man installerar cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/azurerm/overview). De cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna.
 
-2. Logga in på ditt konto och konfigurera miljön.
+1. Logga in på ditt konto och konfigurera miljön.
 
   ```powershell
   Connect-AzureRmAccount

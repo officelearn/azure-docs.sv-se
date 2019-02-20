@@ -14,23 +14,23 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d0545d7285289c7081faf51c6e3ea09071f55a51
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f3d6466ced6efdb4047f9531329b70477911bf21
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666697"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414773"
 ---
-# <a name="create-power-bi-app-technical-assets"></a>Skapa Power BI-appen tekniska resurser
+# <a name="create-power-bi-app-offer-technical-assets"></a>Skapa Power BI-appen erbjudande tekniska resurser
 
-Den primära tekniska tillgången behöver du för den här erbjudandetypen är en Power BI-program, som är en samling av en primär datauppsättning, rapportera och (eller) instrumentpanelen och valfritt anslutna tjänster och inbäddade datauppsättningar. (Power BI-program är en utveckling av tillgångstyp som tidigare kallades [innehållspaket](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction).)  Fullständig information om hur du utvecklar programmen finns [Power BI-appar](https://go.microsoft.com/fwlink/?linkid=2028636).
+Den primära tekniska tillgången som ska användas för den här erbjudandetypen är en Power BI-app. En Power BI-appen är en samling primära datauppsättningar, rapporter eller instrumentpaneler, och valfria anslutna tjänster och inbäddade datauppsättningar. Det har utvecklats ur en typ av tillgång som tidigare kallades en [Innehållspaketet](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Läs mer om hur du utvecklar den här typen av app [vad är Power BI-mall appar?](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
-## <a name="obtaining-an-installation-url"></a>Hämta en URL för installation
+## <a name="obtain-an-installation-url"></a>Hämta en URL för installation
 
-Att skapa Power BI-appen i endast tillgängliga i den [Power BI-tjänsten](https://powerbi.microsoft.com/) och kräver loggar in med en [Power BI Pro-licens](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). När ditt tjänstprogram har skapats och testats i Power BI, spara programmets installation URL genererar Power BI.  Du måste ange den här URL: en i den [teknisk informationsfliken](./cpp-technical-info-tab.md) Cloud Partner Portal skicka formuläret.
+Du kan skapa en Power BI-appen endast i den [Power BI-tjänsten](https://powerbi.microsoft.com/). Om du vill börja måste du logga in med en [Power BI Pro-licens](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). När du har skapat och testa ditt tjänstprogram i Power BI kan du spara installation av app-URL som Power BI genererar. Slutligen anger URL-Adressen på den [teknisk information](./cpp-technical-info-tab.md) flik i formuläret för överföring av partnerportalen i molnet.
  
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat och testat din Power BI-App och skapat den associerade erbjudanden, kan du [publicera Power BI-erbjudande](./cpp-publish-offer.md).  
+När du har skapat och testat ditt Power BI-appen och du har skapat det associera erbjudandet, kan du [publicera erbjudandet i Power BI-appen](./cpp-publish-offer.md). 

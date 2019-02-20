@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: bbd5058be502839f83db484136d1c97bac4a3d79
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 1b0e99998aaf29c366cce1926f930174686cfee6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585959"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414906"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använd meddelandevägar och anpassade slutpunkter för meddelanden från enheten till molnet
 
@@ -34,7 +34,7 @@ Ett enskilt meddelande som kan matcha tillståndet på flera routning frågor om
 
 En IoT-hubb har en standard [inbyggd slutpunkt](iot-hub-devguide-messages-read-builtin.md). Du kan skapa anpassade slutpunkter skicka meddelanden till genom att länka andra tjänster i din prenumeration till hubben. IoT Hub stöder för närvarande Azure Storage-behållare, Event Hubs, Service Bus-köer och Service Bus-ämnen som anpassade slutpunkter.
 
-När du använder Routning och anpassade slutpunkter levereras endast meddelanden till den inbyggda slutpunkten om de inte matchar alla frågor. Om du vill skicka meddelanden till den inbyggda slutpunkten även om en anpassad slutpunkt, lägger du till ett flöde som skickar meddelanden till den **händelser** slutpunkt.
+När du använder Routning och anpassade slutpunkter levereras endast meddelanden till den inbyggda slutpunkten om de inte matchar alla frågor. Om du vill skicka meddelanden till den inbyggda slutpunkten även om en anpassad slutpunkt, lägger du till ett flöde som skickar meddelanden till inbyggt **händelser** slutpunkt.
 
 > [!NOTE]
 > * IoT Hub stöder endast skriva data till Azure Storage-behållare som blobar.

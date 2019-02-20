@@ -5,17 +5,17 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/25/2018
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8cc253f751b209332ee890c0ebc9b6846d4feab5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f93d9eaefe18dd012a639cd26636b56b9eb09249
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749856"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427644"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure CLI
 
@@ -113,7 +113,6 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
    }
    ```
 
-
 ## <a name="identify-devices-using-tags"></a>Identifiera enheter med hjälp av taggar
 
 Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter som du vill påverka. Azure IoT Edge identifierar enheter med hjälp av **taggar** i enhetstvillingen. Varje enhet kan ha flera taggar och definiera ett sätt som passar för din lösning. Om du hanterar en campus av smarta byggnader kan du lägga till följande taggar till en enhet:
@@ -155,10 +154,12 @@ Använd följande kommando för att visa innehållet i en distribution:
    ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
    ```
+
 * **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
 * **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
 
 Kontrollera distributionen i kommandofönstret. Den **mått** egenskapen innehåller ett antal för varje mått som utvärderas av varje hub:
+
 * **targetedCount** -ett system-mått som anger antalet enhetstvillingar i IoT Hub som matchar villkoret målobjekt.
 * **appliedCount** -ett system mått anger hur många enheter som har haft distributionens innehåll som tillämpas på deras modultvillingar i IoT Hub.
 * **reportedSuccessfulCount** -ett mått för enheten som anger hur många av Edge-enheter i distributionen rapporterar lyckade från klienten IoT Edge-körningen.
@@ -179,6 +180,7 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 När du ändrar en distribution kan replikera ändringarna direkt till alla målriktade enheter. 
 
 Om du uppdaterar målvillkoret, inträffar följande uppdateringar:
+
 * Om en enhet inte uppfyllde gamla målvillkoret, men uppfyller nya målvillkor och den här distributionen är den högsta prioriteten för enheten, tillämpas den här distributionen på enheten. 
 * Om en enhet som körs på den här distributionen inte längre uppfyller målvillkoret, avinstallerar den här distributionen och tar på nästa distributionen med högst prioritet. 
 * Om en enhet som körs på den här distributionen inte längre uppfyller målvillkoret och uppfyller inte target villkoret för alla andra distributioner, sker ingen ändring på enheten. Enheten fortsätter att köra dess aktuella moduler i det aktuella tillståndet, men hanteras inte som en del av den här distributionen längre. När den uppfyller målvillkoret för alla andra distributioner, avinstallerar den här distributionen och tar på den nya servern. 
@@ -188,12 +190,13 @@ Använd följande kommando för att uppdatera en distribution:
    ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
    ```
+
 * **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
 * **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
 * **--Ange** – uppdaterar en egenskap i distributionen. Du kan uppdatera följande egenskaper:
-    * targetCondition - exempel `targetCondition=tags.location.state='Oregon'`
-    * etiketter 
-    * prioritet
+  * targetCondition - exempel `targetCondition=tags.location.state='Oregon'`
+  * etiketter 
+  * prioritet
 
 
 ## <a name="delete-a-deployment"></a>Ta bort en distribution
@@ -205,6 +208,7 @@ Använd följande kommando för att ta bort en distribution:
    ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name] 
    ```
+
 * **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
 * **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4195016bb029d2cf8f5042a853fa591609bd486e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447215"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428541"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloudshell
 Azure Cloud Shell är en interaktiv, tillgängligt via webbläsaren gränssnitt för att hantera Azure-resurser.
@@ -53,7 +53,7 @@ Cloudshell hanteras av Microsoft, så det levereras med populära kommandoradsve
 Visa hela [lista över verktyg som installerats i Cloud Shell.](features.md#tools)
 
 ### <a name="integrated-cloud-shell-editor"></a>Integrerad Cloud Shell-redigeraren
-Cloudshell tillhandahåller en integrerad grafiska textredigerare baserat på öppen källkod Monaco redigeraren. Helt enkelt skapa och redigera konfigurationsfiler genom att köra `code .` för sömlös distribution via Azure CLI 2.0 eller Azure PowerShell.
+Cloudshell tillhandahåller en integrerad grafiska textredigerare baserat på öppen källkod Monaco redigeraren. Helt enkelt skapa och redigera konfigurationsfiler genom att köra `code .` för sömlös distribution via Azure CLI eller Azure PowerShell.
 
 [Läs mer om Cloud Shell-redigeraren](using-cloud-shell-editor.md).
 
@@ -68,7 +68,7 @@ Cloudshell är ett flexibelt verktyg som kan användas från:
 * [Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure)
 * [Dokumentation om Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure-mobilappen](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [VS Code Azure-kontotillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Visual Studio Code Azure-kontotillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Ansluta din Microsoft Azure Files-lagring
 Cloud Shell datorer är tillfälliga och kräver en ny eller befintlig Azure Files-resurs som ska monteras som `clouddrive` för bevarande av filer.

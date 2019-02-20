@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246042"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429870"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -188,6 +188,8 @@ Två gånger per dag för varje hanterad Windows-dator utförs en sökning. Var 
 Utförs en sökning var tredje timme för varje hanterad Linux-dator.
 
 Det kan ta mellan 30 minuter och 6 timmar innan instrumentpanelen visar uppdaterade data från hanterade datorer.
+
+Genomsnittliga dataanvändning i Log Analytics för en virtuell dator med uppdateringshantering är cirka 25MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras baserat på din miljö. Vi rekommenderar att du övervakar din miljö för att se exakt användningen som du har.
 
 ## <a name="viewing-update-assessments"></a>Visa uppdatering utvärderingar
 

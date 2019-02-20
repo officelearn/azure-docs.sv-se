@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fc2cfcce57ad15d2bbad3242351492e184e7fd33
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096304"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415304"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurera routningsfilter för Microsoft-peering: PowerShell
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "53096304"
 
 Flödesfilter är ett sätt att använda en delmängd av tjänster som stöds via Microsoft-peering. Stegen i den här artikeln hjälper dig att konfigurera och hantera flödesfilter för ExpressRoute-kretsar.
 
-Dynamics 365-tjänster och Office 365-tjänster som Exchange Online, SharePoint Online och Skype för företag och offentliga Azure-tjänster, till exempel storage och SQL DB är tillgängliga via Microsoft-peering. Offentliga Azure-tjänster går att välja på basis av per region och kan inte definieras per offentlig tjänst. 
+Dynamics 365-tjänster och Office 365-tjänster som Exchange Online, SharePoint Online och Skype för företag och offentliga Azure-tjänster, till exempel storage och SQL DB är tillgängliga via Microsoft-peering. Offentliga Azure-tjänster går att välja på basis av per region och kan inte definieras per offentlig tjänst.
 
 När Microsoft-peering har konfigurerats på en ExpressRoute-krets och ett flödesfilter är ansluten, visas alla prefix som har valts för dessa tjänster i BGP-sessioner upprättas. Ett community-värde för BGP är kopplat till varje prefix för att identifiera vilken tjänst som erbjuds genom prefixet. En lista över BGP community-värden och de tjänster som de mappas till finns i [BGP-communities](expressroute-routing.md#bgp).
 

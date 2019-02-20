@@ -2,25 +2,17 @@
 title: 'Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-anslutningar: PowerShell: Azure | Microsoft Docs'
 description: Skapa Windows, Mac OS X och Linux VPN client configuration-filer för anslutningar som använder RADIUS-autentisering.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/07/2018
+ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6d21a5bceab2d5dada79ec4c694cdf12f0acac48
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 8881582eac47e31b20e9eb96effea254b821ba34
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329651"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417303"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering
 
@@ -46,6 +38,8 @@ Konfiguration av arbetsflödet för P2S RADIUS-autentisering är följande:
 
 Om du vill använda avsnitten i den här artikeln måste börja med att bestämma vilken typ av autentisering som du vill använda: användarnamn/lösenord, certifikat eller andra typer av autentisering. Varje avsnitt innehåller steg för Windows, Mac OS X och Linux (begränsad steg som är tillgängliga just nu).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="adeap"></a>Autentisering med användarnamn/lösenord
 
 Du kan konfigurera autentisering med användarnamn/lösenord för att antingen använda Active Directory eller inte använda Active Directory. Med båda fallen måste du se till att alla användare som ansluter har autentiseringsuppgifter som går att autentisera via RADIUS.
@@ -57,7 +51,7 @@ När du konfigurerar autentisering med användarnamn/lösenord kan skapa du bara
 Generera VPN-klientkonfigurationsfiler för användning med autentisering med användarnamn/lösenord. Du kan generera VPN-klientkonfigurationsfiler med hjälp av följande kommando:
 
 ```powershell 
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 Kör kommandot returnerar en länk. Kopiera och klistra in en länk till en webbläsare för att ladda ned **VpnClientConfiguration.zip**. Packa upp filen om du vill visa följande mappar: 
@@ -66,12 +60,12 @@ Kör kommandot returnerar en länk. Kopiera och klistra in en länk till en webb
 * **Allmän**: Den här mappen innehåller allmän information som används för att skapa egna VPN-klientkonfiguration. Du behöver inte den här mappen för konfigurationer med användarnamn/lösenord autentisering.
 * **Mac**: Om du har konfigurerat IKEv2 när du skapade den virtuella nätverksgatewayen finns i en mapp med namnet **Mac** som innehåller en **mobileconfig** fil. Du kan använda den här filen för att konfigurera Mac-klienter.
 
-Om du redan har skapat klienten konfigurationsfiler, kan du hämta dem med hjälp av den `Get-AzureRmVpnClientConfiguration` cmdlet. Men om du gör några ändringar i dina P2S VPN-konfiguration, till exempel typ av VPN-protokoll eller autentiseringstyp, konfigurationen uppdateras inte automatiskt. Du måste köra den `New-AzureRmVpnClientConfiguration` cmdlet för att skapa en ny nedladdning.
+Om du redan har skapat klienten konfigurationsfiler, kan du hämta dem med hjälp av den `Get-AzVpnClientConfiguration` cmdlet. Men om du gör några ändringar i dina P2S VPN-konfiguration, till exempel typ av VPN-protokoll eller autentiseringstyp, konfigurationen uppdateras inte automatiskt. Du måste köra den `New-AzVpnClientConfiguration` cmdlet för att skapa en ny nedladdning.
 
 Om du vill hämta tidigare genererade klientkonfigurationsfiler, använder du följande kommando:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
 ### <a name="setupusername"></a> 2. Konfigurera VPN-klienter
@@ -101,7 +95,8 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
    ![Platsen för den mobileconfig-fil](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Valfritt steg - om du vill ange en anpassad DNS, Lägg till följande rader till den **mobileconfig** fil:
-```xml
+
+  ```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -113,7 +108,7 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
             <string>TestDomain.com</string>
         </array>
     </dict> 
-```
+  ```
 4. Dubbelklicka på profilen du vill installera den och välj **Fortsätt**. Namnet på profilen är samma som namnet på det virtuella nätverket.
 
    ![Meddelande om att installationen](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
@@ -137,7 +132,7 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
    ![Information om VPN-anslutningen](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. Välj **autentiseringsinställningar**. Välj **användarnamn** i listan och ange dina autentiseringsuppgifter. Om du har angett autentiseringsuppgifterna tidigare, sedan **användarnamn** automatiskt vald i listan och det användarnamn och lösenord är innehåller. Välj **OK** att spara inställningarna.
 
-    ![Autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+   ![Autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. I den **nätverk** dialogrutan **tillämpa** att spara ändringarna. För att initiera anslutningen, Välj **Connect**.
 
 #### <a name="adlinuxcli"></a>Linux VPN-klientkonfiguration via strongSwan
@@ -188,7 +183,7 @@ Varje enhet för VPN-klienten kräver ett installerat klientcertifikat. Ibland h
 Generera VPN-klientkonfigurationsfiler för användning med certifikatautentisering. Du kan generera VPN-klientkonfigurationsfiler med hjälp av följande kommando:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
+New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 Kör kommandot returnerar en länk. Kopiera och klistra in en länk till en webbläsare för att hämta VpnClientConfiguration.zip. Packa upp filen om du vill visa följande mappar:
@@ -196,12 +191,12 @@ Kör kommandot returnerar en länk. Kopiera och klistra in en länk till en webb
 * **WindowsAmd64** och **WindowsX86**: Dessa mappar innehåller installationsprogrammet för Windows 64-bitars och 32-bitars-paket. 
 * **GenericDevice**: Den här mappen innehåller allmän information som används för att skapa egna VPN-klientkonfiguration.
 
-Om du redan har skapat klienten konfigurationsfiler, kan du hämta dem med hjälp av den `Get-AzureRmVpnClientConfiguration` cmdlet. Men om du gör några ändringar i dina P2S VPN-konfiguration, till exempel typ av VPN-protokoll eller autentiseringstyp, konfigurationen uppdateras inte automatiskt. Du måste köra den `New-AzureRmVpnClientConfiguration` cmdlet för att skapa en ny nedladdning.
+Om du redan har skapat klienten konfigurationsfiler, kan du hämta dem med hjälp av den `Get-AzVpnClientConfiguration` cmdlet. Men om du gör några ändringar i dina P2S VPN-konfiguration, till exempel typ av VPN-protokoll eller autentiseringstyp, konfigurationen uppdateras inte automatiskt. Du måste köra den `New-AzVpnClientConfiguration` cmdlet för att skapa en ny nedladdning.
 
 Om du vill hämta tidigare genererade klientkonfigurationsfiler, använder du följande kommando:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
+Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ### <a name="setupusername"></a> 2. Konfigurera VPN-klienter
@@ -260,7 +255,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på en Mac
 
 Att använda olika autentiseringstyper (till exempel OTP), eller Använd en annan autentiseringsprotokoll (till exempel PEAP-MSCHAPv2 i stället för EAP-MSCHAPv2), måste du skapa din egen profil för VPN-klienten. Du behöver information som virtuellt nätverk gatewayens IP-adress, Tunneltyp och vägar i delade tunnlar för att skapa profilen. Du kan hämta den här informationen med hjälp av följande steg:
 
-1. Använd den `Get-AzureRmVpnClientConfiguration` cmdlet för att generera VPN-klientkonfiguration för EapMSChapv2.
+1. Använd den `Get-AzVpnClientConfiguration` cmdlet för att generera VPN-klientkonfiguration för EapMSChapv2.
 
 2. Packa upp filen VpnClientConfiguration.zip och leta efter den **GenericDevice** mapp. Ignorera mapparna som innehåller de Windows-installationsprogram för 64-bitars och 32-bitars arkitektur.
  

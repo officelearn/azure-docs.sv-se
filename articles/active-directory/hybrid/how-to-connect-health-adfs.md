@@ -16,12 +16,12 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4714a4ee5f90194a3be47b1e5878dfa8e230f42b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d239d372a514b24a4e022f62ceec2dfee94d187
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173495"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430411"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
@@ -199,7 +199,7 @@ Privata IP-adresser (<i>10.x.x.x, 172.x.x.x och 192.168.x.x</i>) och Exchange-IP
 Om du ser IP-adresser för lastbalanserare är det mycket troligt att en extern lastbalanserare inte skickar klientens IP-adress när den skickar sin begäran till servern för webbprogramproxyn. Konfigurera lastbalanseraren korrekt för att vidarebefordra klientens IP-adress. 
 
 3. Hur gör jag för att blockera IP-adressen?  <br />
-Du bör lägga till identifierade skadliga IP-adresser i brandväggen eller blockera dem i Exchange.   <br />
+Du bör lägga till identifierade skadliga IP-adresser i brandväggen eller blockera dem i Exchange. För AD FS 2016 kan du blockera IP-adressen direkt från förbjudna IP-egenskaper. [Läs mer](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection#banned-ip-addresses)   <br />
 
 4. Varför visas inte några objekt i rapporten? <br />
    - De misslyckade inloggningsaktiviteterna överskrider inte tröskelinställningarna. 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cbe13c9167ebccdd55d54ddd99ba11c6d58b01e8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9c684e9d1bf6cec12024cedfb5360d10e400e139
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429941"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416012"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Redigera runbooks med text i Azure Automation
 
@@ -22,7 +22,7 @@ Textredigeraren i Azure Automation kan användas för att redigera [PowerShell-r
 
 Textredigeraren innehåller en funktion för att infoga kod för cmdlet: ar, tillgångar och underordnade runbooks i en runbook. I stället för att skriva i koden själv, kan du välja från en lista med tillgängliga resurser och lämplig kod som infogats i runbook.
 
-Varje runbook i Azure Automation har två versioner: utkast och publicerad. Du redigerar Utkastversionen av runbooken och publicerar det så att den kan köras. Den publicerade versionen kan inte redigeras. Se [publicera en runbook](automation-creating-importing-runbook.md#publishing-a-runbook) för mer information.
+Varje runbook i Azure Automation har två versioner: utkast och publicerad. Du redigerar Utkastversionen av runbooken och publicerar det så att den kan köras. Den publicerade versionen kan inte redigeras. Mer information finns i [publicera en runbook](manage-runbooks.md#publish-a-runbook).
 
 Att arbeta med [grafiska Runbooks](automation-runbook-types.md#graphical-runbooks), se [grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -33,7 +33,7 @@ Använd följande procedur för att öppna en runbook för redigering i textredi
 1. I Azure-portalen väljer du ditt automation-konto.
 2. Under **PROCESSAUTOMATISERING**väljer **Runbooks** att öppna listan med runbooks.
 3. Välj den runbook som du vill redigera och klicka sedan på den **redigera** knappen.
-4. Utför den redigering som krävs.
+4. Redigera runbook.
 5. Klicka på **spara** när ändringarna har slutförts.
 6. Klicka på **publicera** om du vill att den senaste Utkastversionen av runbooken som ska publiceras.
 
@@ -64,7 +64,7 @@ Använd följande procedur för att öppna en runbook för redigering i textredi
 
 ## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Så här redigerar du en Azure Automation-runbook med Windows PowerShell
 
-Om du vill redigera en runbook med Windows PowerShell, Använd valfri redigerare och spara den till en .ps1-fil. Du kan använda den [Export-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) cmdlet för att hämta innehållet i runbook och sedan [Import-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) cmdlet för att ersätta den befintliga utkast runbook med den ändra något.
+Om du vill redigera en runbook med Windows PowerShell måste du använda valfri redigerare och spara den i en `.ps1` fil. Du kan använda den [Export-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) cmdlet för att hämta innehållet i runbook och sedan [Import-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) cmdlet för att ersätta den befintliga utkast runbook med den ändra något.
 
 ### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Att hämta innehållet i en Runbook med Windows PowerShell
 
@@ -81,7 +81,7 @@ Export-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $autom
 
 ### <a name="to-change-the-contents-of-a-runbook-using-windows-powershell"></a>Ändra innehållet i en Runbook med Windows PowerShell
 
-Följande exempelkommandon visar hur du ersätter det befintliga innehållet i en runbook med innehållet i en skriptfil. Observera att detta är samma exempel procedur som i [att importera en runbook från en skriptfil med Windows PowerShell](automation-creating-importing-runbook.md).
+Följande exempelkommandon visar hur du ersätter det befintliga innehållet i en runbook med innehållet i en skriptfil. Det här är samma exempel procedur som i [att importera en runbook från en skriptfil med Windows PowerShell](manage-runbooks.md#import-a-runbook).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -95,7 +95,7 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-* [Skapa eller importera en runbook i Azure Automation](automation-creating-importing-runbook.md)
+* [Hantera runbooks i Azure Automation](manage-runbooks.md)
 * [Learning PowerShell-arbetsflöde](automation-powershell-workflow.md)
 * [Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md)
 * [Certifikat](automation-certificates.md)

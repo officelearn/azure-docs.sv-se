@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 8c0c4ac6ce09ce92851b532b226dadfd8b9f7e18
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270444"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417643"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera din enda och delade databaser i Azure SQL Database
 
@@ -302,11 +302,11 @@ SQL Database använder vissa smart tekniker för att den kan hantera vissa klass
 
 - **Exportera**: Du kan exportera din Azure SQL-databas som en BACPAC-fil från Azure portal
 
-   ![databasexport](./media/sql-database-export/database-export.png)
+   ![databasexport](./media/sql-database-export/database-export1.png)
 
 - **Importera**: Du kan även importera data som en BACPAC-fil till databasen med hjälp av Azure portal.
 
-   ![databasimport](./media/sql-database-import/import.png)
+   ![databasimport](./media/sql-database-import/import1.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Hur jag för att synkronisera data mellan SQL Database och SQL Server
 

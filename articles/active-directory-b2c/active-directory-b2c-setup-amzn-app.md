@@ -1,5 +1,5 @@
 ---
-title: Konfigurera registrering och inloggning med en Amazon-konto med hjälp av Azure Active Directory B2C | Microsoft Docs
+title: Konfigurera registrering och inloggning med ett Amazon-konto – Azure Active Directory B2C | Microsoft Docs
 description: Tillhandahålla registrera dig och logga in till kunder med Amazon konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 207a33931d7be88355241ea8c282dc7c39c9971c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4f60db91a1fb667586287873245fd5face343713
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169968"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427742"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med en Amazon-konto med hjälp av Azure Active Directory B2C
 
 ## <a name="create-an-amazon-application"></a>Skapa ett Amazon-program
 
-Om du vill använda ett Amazon-konto som identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett program i din klient som representerar den. Om du inte redan har en Amazon-konto kan du hämta den på [ https://www.amazon.com/ ](https://www.amazon.com/).
+Att använda ett Amazon-konto som ett [identitetsprovider](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient som representerar den. Om du inte redan har en Amazon-konto kan du hämta den på [ https://www.amazon.com/ ](https://www.amazon.com/).
 
 1. Logga in på den [Amazon Developer Center](https://login.amazon.com/) med autentiseringsuppgifterna för ditt Amazon.
 2. Om du inte redan har gjort det, klickar du på **registrera dig**, av utvecklare registrering anvisningarna och acceptera principen.

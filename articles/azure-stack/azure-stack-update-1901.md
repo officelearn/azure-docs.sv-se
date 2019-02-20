@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 94c7b5c81785c3d6fba31396f5812a1308817e33
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301119"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416521"
 ---
 # <a name="azure-stack-1901-update"></a>Uppdatering av Azure Stack 1901
 
@@ -292,7 +292,7 @@ Här följer efter installation kända problem för den här build-versionen.
 
    - Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks kan misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
       1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Välj **Resursprovidrar**och välj sedan **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
-      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
+      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **AzureStack-DiskRP-klient** visas.
    - Om du har konfigurerat en miljö med flera organisationer kan kan distribuera virtuella datorer i en prenumeration som är associerade med en gäst-katalog misslyckas med ett internt felmeddelande. Lös felet genom att följa stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
 
 - En dator med Ubuntu 18.04 skapas med SSH-auktorisering aktiverat kan inte du använda SSH-nycklar för att logga in. Som en lösning kan använda för åtkomst till virtuell dator för Linux-tillägget för att implementera SSH-nycklar när du har etablerat eller använder lösenordsbaserad autentisering.

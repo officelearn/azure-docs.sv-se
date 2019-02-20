@@ -5,15 +5,15 @@ author: yossi-y
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 36be305e60806ba2cdea260fc46bc329c43284cb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c50c1a111f037b74176b5ca2cf8af518b2d3ffa0
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429794"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429391"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Aviseringen loggfrågor i Azure Monitor
 [Aviseringsregler baserat på Azure Monitor-loggar](alerts-unified-log.md) körs med jämna mellanrum, så bör du se till att de är skrivna för att minimera kostnader och svarstid. Den här artikeln innehåller rekommendationer om hur du skriver effektiva frågor för aviseringar och en process för att konvertera befintliga frågor. 
@@ -55,7 +55,9 @@ app('Contoso-app1').requests,
 app('Contoso-app2').requests, 
 workspace('Contoso-workspace1').Perf 
 ```
- 
+
+>[!NOTE]
+>[Fråga mellan resurser](../log-query/cross-workspace-query.md) i loggen för aviseringar stöds i den nya [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Azure Monitor använder som standard den [äldre Log Analytics avisering API](api-alerts.md) för att skapa nya log Varningsregler från Azure-portalen om du växlar från [äldre Log aviseringar API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln, nya API: et blir standard för nya aviseringsregler i Azure-portalen och du kan skapa mellan resurser fråga log aviseringar regler. Du kan skapa [mellan resurser fråga](../log-query/cross-workspace-query.md) loggar Varningsregler utan att göra växeln med hjälp av den [ARM-mall för scheduledQueryRules API](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här aviseringsregeln kan hanteras dock [ scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure-portalen.
 
 ## <a name="examples"></a>Exempel
 I följande exempel inkluderar loggfrågor som använder `search` och `union` samt åtgärder som du kan använda för att ändra de här frågorna för användning med Varningsregler.

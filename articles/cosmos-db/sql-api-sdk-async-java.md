@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979181"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416283"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Dirigera GA.
+* Direkt-läge anslutningen är nu allmänt Available(GA). Ett exempel som använder direkt läge anslutning, se [azure cosmosdb java](https://github.com/Azure/azure-cosmosdb-java) GitHub-lagringsplatsen.
 * Stöd har lagts till för QueryMetrics.
-* Ändra API: er som tar emot java.util.Collection där ordningen är viktig att acceptera java.util.List i stället.
-  Nu acceptera ConnectionPolicy#getPreferredLocations() och JsonSerialization PartitionKey(.) lista.
+* Ändra API: er som tar emot java.util.Collection där ordningen är viktig att acceptera java.util.List i stället. Nu acceptera ConnectionPolicy#getPreferredLocations() och JsonSerialization PartitionKey(.) lista.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
-* Stöd har lagts till för direkt.
+* Stöd har lagts till för anslutning direkt-läge.
 * Ändra API: er som tar emot java.util.Collection där ordningen är viktig att acceptera java.util.List i stället.
   Nu acceptera ConnectionPolicy#getPreferredLocations() och JsonSerialization PartitionKey(.) lista.
 * En bugg session för dokumentet frågan i gateway-läge.

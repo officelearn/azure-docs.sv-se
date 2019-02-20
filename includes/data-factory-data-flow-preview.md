@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
-ms.openlocfilehash: af74917ebfbea5f65f2e889fbf92c4cb88a35adf
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: a47b4ad88bdf8648ac2275ad63a5be418f976bb0
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56278256"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409658"
 ---
 > [!NOTE] 
-> Mappning av dataflöde är en ny funktion i Azure Data Factory. Det är för närvarande under förhandsversionen och som inte omfattas av Azure-kund SLA bestämmelser.
+> Mappning av dataflöde är en ny funktion i Azure Data Factory. Det är för närvarande begränsad allmän förhandsversion och som inte omfattas av Azure-kund SLA bestämmelser.

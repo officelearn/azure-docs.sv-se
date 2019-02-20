@@ -2,25 +2,17 @@
 title: Återställa Azure VPN gateway för att återupprätta IPsec-tunnlar | Microsoft Docs
 description: Den här artikeln visar hur du återställer din Azure VPN Gateway för att återupprätta IPsec-tunnlar. Artikeln gäller VPN-gatewayer i både klassiska och Resource Manager-distributionsmodeller.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8db17b92208bd956bd5f9b855249f03ecd5e2c59
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756707"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414941"
 ---
 # <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
 
@@ -62,11 +54,13 @@ Du kan återställa en Resource Manager VPN-gateway med Azure portal. Om du vill
 
 ### <a name="resource-manager-deployment-model"></a>Distributionsmodell med Resource Manager
 
-Cmdlet: en om du vill återställa en gateway är **återställning-AzureRmVirtualNetworkGateway**. Innan du utför en återställning måste du kontrollera att du har den senaste versionen av den [Resource Managers PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0). I följande exempel återställs en virtuell nätverksgateway med namnet VNet1GW i resursgruppen TestRG1:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Cmdlet: en om du vill återställa en gateway är **återställning AzVirtualNetworkGateway**. Innan du utför en återställning måste du kontrollera att du har den senaste versionen av den [Resource Managers PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0). I följande exempel återställs en virtuell nätverksgateway med namnet VNet1GW i resursgruppen TestRG1:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+$gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
 Resultat:

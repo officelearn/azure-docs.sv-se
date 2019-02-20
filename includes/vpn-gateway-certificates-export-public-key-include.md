@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3c6485406c67bf84b9e0fdfb9f4683abe5062d6c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444394"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418117"
 ---
 När du har skapat ett självsignerat rotcertifikat, exportera den offentliga nyckeln .cer-filen med rotcertifikatet (inte den privata nyckeln). Du kommer senare att överföra filen till Azure. Följande steg hjälper dig att exportera .cer-filen för ditt självsignerade rotcertifikat:
 
-1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**. Leta upp det självsignerade rotcertifikatet, som vanligtvis finns under ”Certifikat – aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas. Om du inte kan hitta certifikatet under aktuell användare\personligt\certifikat bero det på att du har öppnat Certifikathanteraren för lokal dator-certifikat (rubrik är ”certifikat – lokal dator” som motsats till ”certifikat – aktuell användare”). Öppna Certifikathanteraren i den aktuella användaromfattning starta den från samma PowerShell där certifikat som har skapats genom att skriva ```certmgr```.
+1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**. Leta upp det självsignerade rotcertifikatet, som vanligtvis finns under ”Certifikat – aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas. Om du inte kan hitta certifikatet under aktuell användare\personligt\certifikat, kan du av misstag öppnade ”certifikat - lokal Computer”, i stället för ”certifikat – aktuell användare”). Om du vill öppna Certifikathanteraren i aktuella omfång med hjälp av PowerShell kan du skriva *certmgr* i konsolfönstret.
 
    ![Exportera](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. Klicka på **Nästa** i guiden.

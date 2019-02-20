@@ -1,5 +1,5 @@
 ---
-title: Skapa ett erbjudande med Power BI-program – Azure Marketplace | Microsoft Docs
+title: Skapa ett erbjudande med Power BI-appen – Azure Marketplace | Microsoft Docs
 description: Så här skapar du ett erbjudande med Power BI-appen för Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter: ''
@@ -14,41 +14,41 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: e0e1311276b858f1ac16fe6f17ccad49dd9901c9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6a4f7daa337618278c3652fad3053c20557a9e28
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666872"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414697"
 ---
-# <a name="create-a-power-bi-application-offer"></a>Skapa ett erbjudande med Power BI-program
+# <a name="create-a-power-bi-app-offer"></a>Skapa ett erbjudande med Power BI-appen
 
-Det här avsnittet innehåller anvisningar för att skapa ett nytt erbjudande för Power BI-appen för [AppSource](https://appsource.microsoft.com). Varje erbjudande visas som en egen enhet i AppSource.  När du skapar ett nytt erbjudande i den [Cloud Partner Portal](https://cloudpartner.azure.com/), du måste ange fyra grupper av tillgångar för ditt erbjudande.
+Den här artikeln beskriver vad du kan följa för att skapa ett nytt erbjudande för Power BI-appen för [AppSource](https://appsource.microsoft.com). Varje erbjudande visas som en egen enhet i AppSource. När du skapar ett nytt erbjudande i den [Cloud Partner Portal](https://cloudpartner.azure.com/), så måste du ange fyra grupper av tillgångar för ditt erbjudande.
+
+Tillgångsgrupper beskrivs i följande tabell:
 
 |   Grupp      | Beskrivning                                                                         |
 | ----------------   | ----------------                                                                    |
-| Erbjudandeinställningar     | Primär identifieringar och namn för erbjudandet                                      |
-| Teknisk information     | Installationsprogrammet URL som används för att installera appen på klientens Power BI-arbetsyta. Mer information om hur du skapar denna URL finns [Power BI-appen dokumentation](https://go.microsoft.com/fwlink/?linkid=2028636).   |
-| Storefront information | Innehåller material för marknadsföring, juridisk och lead-hantering. Marknadsföring-material inkluderar beskrivning av erbjudande och logotyper.  Juridiska tillgångar är en sekretesspolicy, användningsvillkor och andra juridisk dokumentation.  Lead princip kan du ange hur du hanterar leads från AppSource-slutanvändarportal. |
-| Contacts           | Innehåller information om support kontakta och princip                                     |
-|    |     |
-
+| Erbjudandeinställningar     | Primär identifiering och namn på erbjudandet.                                      |
+| Teknisk information     | Installationsprogrammet URL som används för att installera appen på klientens Power BI-arbetsyta. Läs mer om hur du skapar denna URL [Power BI-appen dokumentation](https://go.microsoft.com/fwlink/?linkid=2028636). |
+| Storefront information | Innehåller material för marknadsföring, juridiska och lead-hantering. Marknadsföring-material inkluderar en beskrivning av erbjudande och logotyper. Juridiska tillgångar är en sekretesspolicy, användningsvillkor och andra juridisk dokumentation. Lead-hantering av principen kan du ange hur du hanterar leads från AppSource-användarportalen. |
+| Contacts           | Innehåller information om support kontakta och principen.                                     |
 
 ## <a name="new-offer-form"></a>Nytt erbjudande formulär
 
-När din logga in på partnerportalen i molnet klickar du på den **+ nytt erbjudande** objekt i den vänstra menyraden.  I den resulterande menyn, klickar du på **Power BI-appar** att visa den **nytt erbjudande** formar och starta processen med att definiera tillgångar till en ny app.
+När du loggar in på partnerportalen i molnet väljer **nytt erbjudande** i den vänstra rutan. Om du vill visa nytt erbjudande-formulär och starta processen med att definiera tillgångar till en ny app, Välj **Power BI-appar**.
 
 ![Menyalternativet för Power BI-erbjudande](./media/new-offer-menu.png)
 
-> [!WARNING] 
-> Om den **Power BI-appar** alternativet inte visas eller inte är aktiverat och sedan ditt konto har inte behörighet att skapa den här erbjudandetypen. Kontrollera att du uppfyller alla de [krav](./cpp-prerequisites.md) för den här erbjudandetypen, inklusive registrering för ett utvecklarkonto.
+> [!NOTE] 
+> Om den **Power BI-appar** alternativ visas inte eller har inte aktiverats, ditt konto har inte behörighet att skapa den här erbjudandetypen. Kontrollera att du har uppfyllt alla de [krav](./cpp-prerequisites.md) för den här erbjudandetypen, inklusive registrering för ett utvecklarkonto.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I efterföljande artiklar i det här avsnittet spegling av flikarna i den **nytt erbjudande** (för en Power BI-appen erbjudande-typ). Varje artikeln förklarar hur du använder fliken associerade definiera tillgångar och stödtjänster till din nya apperbjudandet.
+Följande artiklar beskriver flikarna på den **nytt erbjudande** för erbjudandetypen en Power BI-appen. Varje artikel beskriver tillgångar och stödtjänster till din nya erbjudandet för Power BI-appen.
 
 -  [fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
--  [Fliken teknisk information](./cpp-technical-info-tab.md)
--  [fliken Butiksinformation](./cpp-storefront-details-tab.md)
--  [Kontakter](./cpp-contacts-tab.md)
+-  [Fliken Teknisk information](./cpp-technical-info-tab.md)
+-  [Fliken Butiksinformation](./cpp-storefront-details-tab.md)
+-  [Fliken Kontakter](./cpp-contacts-tab.md)

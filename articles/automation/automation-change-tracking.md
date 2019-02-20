@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/29/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487242"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429272"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -180,6 +180,8 @@ I följande tabell visar de spårade objekt gränserna per dator för ändringss
 |Linux-paket|1250||
 |Tjänster|250||
 |Daemon|250||
+
+Genomsnittlig användning av Log Analytics-data för en virtuell dator med ändringsspårning och inventering är cirka 40MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras baserat på din miljö. Vi rekommenderar att du övervakar din miljö för att se exakt användningen som du har.
 
 ### <a name="windows-service-tracking"></a>Windows service-spårning
 

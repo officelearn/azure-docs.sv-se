@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 254d1faf0d846cc6a0e165b68db11ac0314eab33
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747500"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430581"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
-Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Användningsdata warehouse ögonblicksbilder till recovery eller kopiera ditt informationslager till en tidigare återställningspunkt i den primära regionen. Användningsdata warehouse geo-redundanta säkerhetskopieringar att återställa till en annan geografisk region. 
+Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använda återställningspunkter för data warehouse för att återställa eller kopiera ditt informationslager till ett tidigare tillstånd i den primära regionen. Användningsdata warehouse geo-redundanta säkerhetskopieringar att återställa till en annan geografisk region. 
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>Vad är en ögonblicksbild av data warehouse?
 En *data warehouse ögonblicksbild* skapar en återställningspunkt som du kan använda för att återställa eller kopiera din datalager till ett tidigare tillstånd.  Eftersom SQL Data Warehouse är ett distribuerat system, består en ögonblicksbild av data warehouse med många filer som finns i Azure storage. Sparar hårdiskdata inkrementella ändringar från data som lagras i ditt informationslager.

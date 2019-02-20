@@ -1,5 +1,5 @@
 ---
-title: Konfigurera registrering och inloggning med ett Google-konto med hjälp av Azure Active Directory B2C | Microsoft Docs
+title: Konfigurera registrering och inloggning med ett Google-konto – Azure Active Directory B2C | Microsoft Docs
 description: Tillhandahålla registrera dig och logga in till kunder med Google-konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: af8a727bf9733b744b1ed429420cd8fde6e3e6f1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 29b988beff0f25bc0d4abcc1c95a70bccf9ba1cb
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176139"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427436"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Google-konto med hjälp av Azure Active Directory B2C
 
 ## <a name="create-a-google-application"></a>Skapa ett Google-program
 
-Om du vill använda ett Google-konto som identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Google-konto kan du hämta den på [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
+Att använda ett Google-konto som ett [identitetsprovider](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Google-konto kan du hämta den på [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
 
 1. Logga in på den [Google utvecklare konsolen](https://console.developers.google.com/) med dina Google-kontouppgifter.
 2. Välj **skapa projekt**, och klicka sedan på **skapa**. Om du har skapat projekt innan du kan välja projektlistan och välj sedan **nytt projekt**.

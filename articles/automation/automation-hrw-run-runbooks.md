@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657424"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430292"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker
 
 Det finns ingen skillnad i strukturen för runbooks som körs i Azure Automation och runbooks som körs på en Hybrid Runbook Worker. Runbooks som du använder med var och en troligen skiljer sig avsevärt. Den här skillnaden beror på runbooks som är riktade till en Hybrid Runbook Worker vanligtvis hantera resurser på den lokala datorn sig själv eller mot resurser i den lokala miljön där det har distribuerats. Runbooks i Azure Automation hanterar vanligtvis resurser i Azure-molnet.
 
-När du skapar runbooks för att köra på en Hybrid Runbook Worker ska du redigera och testa runbooks på datorn som är värd för Hybrid worker. Värddatorn har alla PowerShell-moduler och nätverksåtkomst som du behöver hantera och komma åt lokala resurser. När en runbook testas på den Hybrid worker-datorn, kan du sedan överföra den till Azure Automation-miljön där den är tillgänglig för körning i Hybrid worker. Det är viktigt att veta som jobb som kör under det lokala systemkontot för Windows eller ett särskilt användarkonto **nxautomation** i Linux. Det här beteendet kan introducera små skillnader vid redigering av runbooks för en Hybrid Runbook Worker. De här ändringarna bör granskas när du skriver runbooks.
+När du skapar runbooks för att köra på en Hybrid Runbook Worker ska du redigera och testa runbooks på datorn som är värd för Hybrid worker. Värddatorn har alla PowerShell-moduler och nätverksåtkomst som du behöver hantera och komma åt lokala resurser. När en runbook testas på den Hybrid worker-datorn, kan du sedan överföra den till Azure Automation-miljön där den är tillgänglig för körning i Hybrid worker. Det är viktigt att veta som jobb som kör under det lokala systemkontot för Windows eller ett särskilt användarkonto `nxautomation` i Linux. Det här beteendet kan introducera små skillnader vid redigering av runbooks för en Hybrid Runbook Worker. De här ändringarna bör granskas när du skriver runbooks.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Starta en runbook på Hybrid Runbook Worker
 
@@ -44,7 +44,7 @@ Runbooks som körs på en Hybrid Runbook Worker kan inte använda samma metod so
 
 ### <a name="runbook-authentication"></a>Runbook-autentisering
 
-Som standard runbooks körs i kontexten för det lokala systemkontot för Windows och ett särskilt användarkonto **nxautomation** för Linux på den lokala datorn, så de måste autentisera sina egna till resurser som de har åtkomst till .
+Som standard runbooks körs i kontexten för det lokala systemkontot för Windows och ett särskilt användarkonto `nxautomation` för Linux på den lokala datorn, så de måste autentisera sina egna till resurser som de har åtkomst till.
 
 Du kan använda [Credential](automation-credentials.md) och [certifikat](automation-certificates.md) tillgångar i din runbook med cmdlets så att du kan ange autentiseringsuppgifter så att du kan autentisera till olika resurser. I följande exempel visas en del av en runbook som startar om en dator. Den hämtar autentiseringsuppgifter från en autentiseringsuppgifttillgång och namnet på datorn från en variabel tillgång och använder dessa värden med cmdleten Restart-Computer.
 
@@ -59,7 +59,7 @@ Du kan också använda [InlineScript](automation-powershell-workflow.md#inlinesc
 
 ### <a name="runas-account"></a>Kör som-konto
 
-Som standard använder Hybrid Runbook Worker lokala System för Windows och ett särskilt användarkonto **nxautomation** för Linux för att köra runbooks. I stället för att runbooks som sin egen autentisering till lokala resurser, kan du ange en **RunAs** för en Hybrid worker-grupp. Du anger en [autentiseringstillgång](automation-credentials.md) som har åtkomst till lokala resurser och alla runbooks som körs under autentiseringsuppgifterna vid körning på en Hybrid Runbook Worker i gruppen.
+Som standard använder Hybrid Runbook Worker lokala System för Windows och ett särskilt användarkonto `nxautomation` för Linux för att köra runbooks. I stället för att runbooks som sin egen autentisering till lokala resurser, kan du ange en **RunAs** för en Hybrid worker-grupp. Du anger en [autentiseringstillgång](automation-credentials.md) som har åtkomst till lokala resurser och alla runbooks som körs under autentiseringsuppgifterna vid körning på en Hybrid Runbook Worker i gruppen.
 
 Användarnamn för autentiseringsuppgifter måste vara i något av följande format:
 
@@ -247,7 +247,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-När runbooken har signerats, måste de importeras till ditt Automation-konto och publiceras med signaturblocket. Läs hur man importerar runbooks i [importera en runbook från en fil till Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+När runbooken har signerats, måste de importeras till ditt Automation-konto och publiceras med signaturblocket. Läs hur man importerar runbooks i [importera en runbook från en fil till Azure Automation](manage-runbooks.md#import-a-runbook).
 
 ### <a name="linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker
 
@@ -271,7 +271,7 @@ sudo gpg --generate-key
 
 GPG vägleder dig genom stegen för att skapa nyckelpar. Du måste ange ett namn, en e-postadress, förfallotid, lösenfras och vänta tills tillräckligt med entropi på datorn för nyckeln som ska genereras.
 
-Eftersom katalogen GPG genererades med sudo, måste du ändra ägaren till nxautomation. 
+Eftersom katalogen GPG genererades med sudo, måste du ändra ägaren till `nxautomation`. 
 
 Kör följande kommando för att ändra ägaren.
 
@@ -289,7 +289,7 @@ gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
 
 #### <a name="verify-signature-validation-is-on"></a>Kontrollera verifiera signaturen är aktiverad
 
-Om verifiera signaturen har inaktiverats på datorn, måste du aktivera den. Kör följande kommando för att aktivera verifiera signaturen. Ersätt `<LogAnalyticsworkspaceId>` med arbetsytans Id.
+Om verifiera signaturen har inaktiverats på datorn, måste du aktivera den. Kör följande kommando för att aktivera verifiera signaturen. Ersätt `<LogAnalyticsworkspaceId>` med ditt arbetsyte-ID.
 
 ```bash
 sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
@@ -300,7 +300,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 När verifiera signaturen har konfigurerats kan kan du använda följande kommando för att logga en runbook:
 
 ```bash
-gpg –clear-sign <runbook name>
+gpg –-clear-sign <runbook name>
 ```
 
 Signerade runbook har namn `<runbook name>.asc`.

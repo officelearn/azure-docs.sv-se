@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859754"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429476"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begäranden till Azure Cognitive Services
 
@@ -58,7 +58,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-Följande videoklipp visar hur du använder en Cognitive Services-nyckel. 
+Följande videoklipp visar hur du använder en Cognitive Services-nyckel.
 
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autentisera med en flera tjänster prenumerationsnyckel
 
@@ -127,16 +127,15 @@ Autentiseringstoken som ingår i en begäran som den `Authorization` rubrik. Tok
 
 ### <a name="sample-requests"></a>Exempelförfrågan
 
-Använda den här URL: en för att skicka en prenumerationsnyckel för en tjänst för en autentiseringstoken: `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Använda den här URL: en för att skicka en prenumerationsnyckel för en autentiseringstoken: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 ```cURL
 curl -v -X POST \
-"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
+-H "Content-length: 0" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
-
-När du använder flera tjänster prenumerationsnyckel, måste du använda en viss region-slutpunkt för token exchange. Använda den här URL: en för att skicka en flera tjänster prenumerationsnyckel för en autentiseringstoken: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 Dessa flera tjänster regioner har stöd för token exchange:
 
@@ -147,13 +146,6 @@ Dessa flera tjänster regioner har stöd för token exchange:
 | `japaneast` | `northeurope` | `southcentralus` |
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
-
-```cURL
-curl -v -X POST \
-"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
--H "Content-type: application/x-www-form-urlencoded" \
--H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
 
 När du får en autentiseringstoken, måste du skicka den i varje begäran som den `Authorization` rubrik. Det här är ett exempel anrop till Translator Text API:
 

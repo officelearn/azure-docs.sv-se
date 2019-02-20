@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243424"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428915"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
 Använd appredigeringsprocessen för att skapa LUIS-appen. 
@@ -77,23 +77,32 @@ Mer information:
 * Begrepp: [Redigering för LUIS-appen](luis-concept-app-iteration.md)
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Lägg till frasen listor och mönster i senare iterationer
-[Fras listor](luis-concept-feature.md) kan du definiera ordlistor av ord som rör din appdomän. Startvärdesklassen din frasen lista med några få ord och Använd sedan funktionen Föreslå så LUIS vet om flera ord i en viss terminologi till din app. Lägg inte till alla ord vokabulär eftersom den frasen inte är en exakt matchning. 
+
+Ett bra tips är att inte använda dessa metoder innan din app har testats. Du bör förstå hur appen fungerar innan du lägger till frasen listor och mönster. När du förstår hur din app fungerar utan dessa lägger du till de här funktionerna eftersom de gäller för din app. Du behöver inte lägga till dessa funktioner i varje [iteration](luis-concept-app-iteration.md) eller ändra funktionerna med varje version. 
+
+Det finns inget om man lägger till dem i början av modelldesignen men det är lättare att se hur varje funktion ändras resultat när modellen har testats med yttranden. 
+
+Ett bra tips är att testa den [endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) så att du får den ytterligare fördelen med [aktiv inlärning](luis-concept-review-endpoint-utterances.md). Den [interaktiva testning fönstret](luis-interactive-test.md) är också en giltig test-metod. 
+ 
+
+### <a name="phrase-lists"></a>Fraslistor
+
+[Fras listor](luis-concept-feature.md) kan du definiera ordlistor av ord som rör din appdomän. Startvärdesklassen din frasen lista med några få ord och Använd sedan funktionen Föreslå så LUIS vet om flera ord i en viss terminologi till din app. En lista med frasen förbättrar avsikt identifiering och klassificering för entitet genom att öka signalen som är associerade med ord eller fraser som är relevanta för att din app. 
+
+Lägg inte till alla ord vokabulär eftersom den frasen inte är en exakt matchning. 
+
+Mer information:
+* Begrepp: [Fras funktioner i din LUIS-app](luis-concept-feature.md)
+* Så här gör du: [Använd frasen visar att boost signaler med ordlistan](luis-how-to-add-features.md)
+
+### <a name="patterns"></a>Mönster
 
 Hur användarna yttranden från slutpunkten, liknar varandra, kan avslöja mönster för val av word och placering. Den [mönstret](luis-concept-patterns.md) funktionen tar den här word valmöjligheter och placering tillsammans med reguljära uttryck för att förbättra prognosens noggrannhet. Ett reguljärt uttryck i mönstret kan ord och skiljetecken som du vill ignorera när fortfarande matchar mönstret. 
 
 Användningsmönstret [valfria syntax](luis-concept-patterns.md) för skiljetecken så skiljetecken kan ignoreras. Använd den [explicit lista](luis-concept-patterns.md#explicit-lists) att kompensera för pattern.any syntax problem. 
 
-Gäller inte dessa metoder innan din app har tagit emot förfrågningar för slutpunkten. Du bör förstå hur appen fungerar innan du lägger till frasen listor och mönster. När du förstår hur din app fungerar utan dessa lägger du till de här funktionerna eftersom de gäller för din app. 
-
-Det finns inget om man lägger till dem i början av modelldesignen men det är lättare att se hur varje funktion ändras resultat om du lägger till dem när du har använt appen med verklig trafik. 
-
-Du behöver inte lägga till de här funktionerna med varje iteration eller ändra funktionerna med varje version. 
-
 Mer information:
-* Begrepp: [Redigering för LUIS-appen](luis-concept-app-iteration.md)
-* Begrepp: [Fras funktioner i din LUIS-app](luis-concept-feature.md)
 * Begrepp: [Mönster förbättra prognosens noggrannhet](luis-concept-patterns.md)
-* Så här gör du: [Använd frasen visar att boost signaler med ordlistan](luis-how-to-add-features.md)
 * Så här gör du: [Hur du lägger till mönster för att förbättra förutsägelsefunktionen](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Belastningsutjämnas alla avsikter din yttranden

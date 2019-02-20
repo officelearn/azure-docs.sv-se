@@ -1,26 +1,19 @@
 ---
-title: Azure felsökningsguide för säkerhetskopiering för SQL Server VM | Microsoft Docs
-description: Felsökningsinformation för att säkerhetskopiera SQL Server-datorer till Azure.
+title: Felsöka säkerhetskopiering av SQL Server-databas med Azure Backup | Microsoft Docs
+description: Felsökningsinformation för att säkerhetskopiera SQL Server-databaser som körs på virtuella Azure-datorer med Azure Backup.
 services: backup
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
+author: anuragm
+manager: shivamg
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 02/19/2019
 ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296129"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428627"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
@@ -28,11 +21,11 @@ Den här artikeln innehåller felsökningsinformation för att skydda SQL Server
 
 ## <a name="public-preview-limitations"></a>Begränsningar för offentlig förhandsversion
 
-Om du vill visa de offentliga begränsningarna i förhandsversionen finns i artikeln [säkerhetskopiera SQL Server-databas i Azure](backup-azure-sql-database.md#public-preview-limitations).
+Om du vill visa de offentliga begränsningarna i förhandsversionen finns i artikeln [säkerhetskopiera SQL Server-databas i Azure](backup-azure-sql-database.md#preview-limitations).
 
 ## <a name="sql-server-permissions"></a>SQL Server-behörigheter
 
-Konfigurera skydd för en SQL Server-databas på en virtuell dator i **AzureBackupWindowsWorkload** tillägget måste vara installerad på den virtuella datorn. Om du får felet, **UserErrorSQLNoSysadminMembership**, betyder det SQL-instansen inte har behörighet för säkerhetskopiering. Om du vill åtgärda det här felet följer du stegen i [ange behörigheter för virtuella datorer inte finns i marketplace med SQL](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms).
+Konfigurera skydd för en SQL Server-databas på en virtuell dator i **AzureBackupWindowsWorkload** tillägget måste vara installerad på den virtuella datorn. Om du får felet, **UserErrorSQLNoSysadminMembership**, betyder det SQL-instansen inte har behörighet för säkerhetskopiering. Om du vill åtgärda det här felet följer du stegen i [ange behörigheter för virtuella datorer inte finns i marketplace med SQL](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ## <a name="troubleshooting-errors"></a>Felsöka fel
 
@@ -56,13 +49,13 @@ Följande tabeller är ordnade efter felkod.
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
 | Den här SQL database stöder inte den begärda säkerhetskopieringstypen. | Inträffar när databasens Återställningsmodell inte tillåter den begärda säkerhetskopieringstypen. Felet kan inträffa i följande situationer: <br/><ul><li>En databas med en enkel återställningsprocess tillåter inte loggsäkerhetskopiering.</li><li>Differentiella och loggbaserade säkerhetskopieringar tillåts inte för en databas.</li></ul>Mer information finns i den [återställningsmodeller för SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) dokumentation. | Om loggsäkerhetskopieringen misslyckas av DB i enkelt återställningsläge, prova något av följande alternativ:<ul><li>Om databasen är i enkelt återställningsläge, inaktivera loggsäkerhetskopior.</li><li>Använd den [dokumentation om SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) ändra databasens Återställningsmodell till Full eller Bulk Logged. </li><li> Om du har en standard för att säkerhetskopiera flera databaser som inte kan ändras om du inte vill ändra återställningsmodellen och ignorera felet. Din fullständiga och differentiella säkerhetskopieringar fungerar per schema. Säkerhetskopior av kommer att hoppas över, som förväntas i det här fallet.</li></ul>Om det är en Master-databasen och du har konfigurerat differentiell eller log säkerhetskopiering, Använd någon av följande steg:<ul><li>Använd portalen för att ändra säkerhetskopieringsprincipen schemat för huvudservern databasen till Full.</li><li>Om du har en standard för att säkerhetskopiera flera databaser som inte kan ändras kan du ignorera felet. Fullständiga säkerhetskopieringen fungerar per schema. Differentiell eller log säkerhetskopieringar göras inte som förväntas i det här fallet.</li></ul> |
-| Åtgärden avbröts eftersom en motstridig åtgärd redan körs på samma databas. | Se den [blogginlägg om hur du säkerhetskopierar och återställer begränsningar](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) som körs samtidigt.| [Använda SQL Server Management Studio (SSMS) för att övervaka säkerhetskopieringsjobb.](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms) När den hindrande åtgärden misslyckas, startar du om åtgärden.|
+| Åtgärden avbröts eftersom en motstridig åtgärd redan körs på samma databas. | Se den [blogginlägg om hur du säkerhetskopierar och återställer begränsningar](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) som körs samtidigt.| [Använda SQL Server Management Studio (SSMS) för att övervaka säkerhetskopieringsjobb.](manage-monitor-sql-database-backup.md) När den hindrande åtgärden misslyckas, startar du om åtgärden.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| SQL-databas finns inte. | Databasen har antingen tagits bort eller bytt namn. | <ul><li>Kontrollera om databasen av misstag har tagits bort eller bytt namn.</li><li>Om databasen tagits bort av misstag, om du vill fortsätta säkerhetskopiering, återställa databasen till den ursprungliga platsen.</li><li>Om du tog bort den och inte behöver framtida säkerhetskopior i Recovery Services-valv på [Avbryt säkerhetskopiering med ”ta bort/avinstallationsalternativ”](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms).</li>|
+| SQL-databas finns inte. | Databasen har antingen tagits bort eller bytt namn. | Kontrollera om databasen av misstag har tagits bort eller bytt namn.<br/><br/> Om databasen tagits bort av misstag, om du vill fortsätta säkerhetskopiering, återställa databasen till den ursprungliga platsen.<br/><br/> Om du tog bort den och inte behöver framtida säkerhetskopior i Recovery Services-valv på [Avbryt säkerhetskopiering med ”ta bort/avinstallationsalternativ”](manage-monitor-sql-database-backup.md).
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 

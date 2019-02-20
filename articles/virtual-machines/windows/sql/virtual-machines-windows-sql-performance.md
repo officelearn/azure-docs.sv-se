@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6493da0cfc86560fac8e69f4329804c628942806
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328727"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415909"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestandavägledning för SQL Server i Azure Virtual Machines
 
@@ -88,11 +88,9 @@ Temporär lagring-enhet, märkta som den **D**: enhet, sparas inte till Azure bl
 
 För D-serien, Dv2-serien och virtuella datorer i G-serien är den temporära enheten på dessa virtuella datorer SSD-baserad. Om din arbetsbelastning gör väldigt mycket för TempDB (till exempel temporära objekt eller komplexa kopplingar), lagring av TempDB på den **D** enhet kan leda till högre TempDB dataflöde och lägre latens TempDB. Ett exempelscenario finns i TempDB-diskussion i följande blogginlägg: [Riktlinjer för Storage-konfiguration för SQLServer på Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm).
 
-<<<<<<< HEAD för virtuella datorer som har stöd för premium SSD (DS-serien, DSv2-serien och GS-serien), vi rekommenderar att du lagrar TempDB på en disk som har stöd för premium SSD med läscachelagring aktiverat. Det finns ett undantag till den här rekommendationen; Om din användning av TempDB är skrivningsintensiva, kan du få bättre prestanda genom att lagra TempDB på lokalt **D** enhet, som också är SSD-baserade på dessa datorstorlekar.
-=== För virtuella datorer som har stöd för Premium Storage (DS-serien, DSv2-serien och GS-serien), rekommenderar vi att du lagrar TempDB på en disk som har stöd för Premium Storage med läscachelagring aktiverat. 
+För virtuella datorer som har stöd för premium SSD (DS-serien, DSv2-serien och GS-serien), rekommenderar vi att du lagrar TempDB på en disk som har stöd för premium SSD med läscachelagring aktiverat.
 
-Det finns ett undantag till den här rekommendationen: _om TempDB-användningen är skrivningsintensiva, kan du få bättre prestanda genom att lagra TempDB på lokalt **D** enhet, som också är SSD-baserade på dessa datorstorlekar._ 
->>>>>>> 4326ed494fad7ef7be29e2f4ba3301ec496acf76
+Det finns ett undantag till den här rekommendationen: _om TempDB-användningen är skrivningsintensiva, kan du få bättre prestanda genom att lagra TempDB på lokalt **D** enhet, som också är SSD-baserade på dessa datorstorlekar._
 
 ### <a name="data-disks"></a>Datadiskar
 

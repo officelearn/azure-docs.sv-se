@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109325"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428645"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Säkerhetsscenarier för Service Fabric-kluster
 Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktionsarbetsbelastningar i klustret. Även om det är möjligt att skapa ett oskyddat kluster om klustret exponerar hanteringsslutpunkter till det offentliga internet, kan anonyma användare ansluta till den. Oskyddade kluster stöds inte för produktionsarbetsbelastningar. 
@@ -73,7 +73,12 @@ Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktione
 För kluster som körs på Azure kan skydda du också åtkomst till hanteringsslutpunkter genom att använda Azure Active Directory (AD Azure). Lär dig hur du skapar de nödvändiga Azure AD-artefakter och hur du kan fylla dem när du skapar klustret, se [ställa in Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Säkerhetsrekommendationer
-För Azure-kluster för nod-till-nod-säkerhet rekommenderar vi att du använder Azure AD-säkerhetsgrupper för att autentisera klienter och certifikat.
+För Service Fabric-kluster som distribueras i ett offentligt nätverk finns i Azure, är rekommendationen för klient-till-nod ömsesidig autentisering:
+*   Använd Azure Active Directory för klientens identitet
+*   Ett certifikat för serveridentitet och SSL-kryptering av http-kommunikation
+
+Rekommendationen för nod-till-nod-säkerhet är att använda ett klustercertifikat för att autentisera noder för Service Fabric-kluster som distribueras i ett offentligt nätverk finns i Azure. 
+
 
 Om du har Windows Server 2012 R2 och Windows Active Directory, fristående Windows Server-kluster kan rekommenderar vi att du använder Windows-säkerhet med grupphanterade tjänstkonton. Annars kan du använda Windows-säkerhet med Windows-konton.
 

@@ -4,14 +4,14 @@ description: Lär dig hur du ändrar domändelegering och använder Azure DNS-na
 services: dns
 author: vhorne
 ms.service: dns
-ms.date: 1/22/2019
+ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 85f7318ac584e324f58d2ad470dc896e79e416d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461042"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417896"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegering av DNS-zoner med Azure DNS
 
@@ -27,7 +27,7 @@ Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomä
 
 **Domänregistrator** – En domänregistrator är ett företag som kan tillhandahålla Internetdomännamn. De kontrollerar om Internetdomänen som du vill använda är tillgänglig så att du kan köpa den. När domännamnet har registrerats är du domännamnets juridiska ägare. Om du redan har en Internetdomän använder du domänregistratorn för att delegera till Azure DNS.
 
-Om du vill ha mer information om vem som äger ett visst domännamn eller om du vill ha information om hur du köper en domän läser du [Internetdomänhantering i Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
+Läs mer om auktoriserad domän registratorer [ICANN-Accredited Registratorer](https://www.icann.org/registrar-reports/accredited-list.html).
 
 ### <a name="resolution-and-delegation"></a>Matchning och delegering
 

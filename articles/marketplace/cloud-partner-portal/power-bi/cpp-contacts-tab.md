@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6ece83fe3011c4e94416e12231a3d093af79704e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 191f58252aadf776465bb097207a7e76c0f92003
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666704"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415178"
 ---
-# <a name="power-bi-apps-contacts-tab"></a>Fliken för Power BI-appar kontakter
+# <a name="power-bi-app-contacts-tab"></a>Power BI-appen Contacts fliken
 
 Använd den **kontakter** fliken den **nytt erbjudande** sidan för att ge teknisk hjälp och användaren Supportresurser för ditt erbjudande. Den är uppdelad i två delar: **Tekniska** och **kundsupport**.
 
@@ -30,20 +30,20 @@ Använd den **kontakter** fliken den **nytt erbjudande** sidan för att ge tekni
 
 ## <a name="contacts-fields"></a>Kontaktfält 
 
-I följande tabell beskrivs namn och syftet med de här fälten. 
+I följande tabell beskrivs syftet med varje fält: 
 
 |   Fält               |   Beskrivning                                                            |
 |-----------------------|--------------------------------------------------------------------------|
-| *Engineering Contact* | Fungerar som en teknisk kontakt mellan AppSource och din organisation    |
-| **Namn**              | Namnet på den person eller grupp som fungerar som technical/tekniksupport |
-| **E-post**             | E-postadressen för den här teknisk kontakt                                  |
-| **telefon**             | Telefonnummer för teknisk support                                       |
-| *Supportkontakt*     | Tar emot supportärenden som öppnas av kunder i AppSource            |
-| **Namn**              | Namnet på den person eller grupp som fungerar som kundsupport              |
-| **E-post**             | E-postadress till support                                        |
+| *Engineering Contact* | Fungerar som en teknisk kontakt mellan AppSource och din organisation.    |
+| **Namn**              | Namnet på den person eller grupp som fungerar som teknisk och tekniska support. |
+| **E-post**             | E-postadress för den här tekniska kontakt.                                  |
+| **telefon**             | Telefonnumret till teknisk support.                                       |
+| *Supportkontakt*     | Tar emot supportärenden som öppnas av kunder i AppSource.            |
+| **Namn**              | Namnet på den person eller grupp som fungerar som kundsupport.              |
+| **E-post**             | E-postadress till support.                                        |
 |  |  |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har slutfört Power BI-appen erbjudande, ska du bekräfta att du har skapat alla den associerade [tekniska resurser](./cpp-create-technical-assets.md) för det här erbjudandet.
+När du har slutfört erbjudandet Power BI-appen för att bekräfta att du har skapat alla den associerade [tekniska resurser](./cpp-create-technical-assets.md) för erbjudandet.

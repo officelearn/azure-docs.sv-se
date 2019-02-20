@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e574759ff8af172841db9fc94ee860a19dd14200
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850966"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415373"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Skapa och exportera certifikat för punkt-till-plats med hjälp av PowerShell
 
@@ -47,7 +47,7 @@ I exemplen används cmdleten New-SelfSignedCertificate för att generera ett kli
 
 ### <a name="example-1"></a>Exempel 1
 
-Det här exemplet används variabeln '$cert' deklarerade i föregående avsnitt. Om du har stängt PowerShell-konsolen när du har skapat det självsignerade rotcertifikatet eller skapar ytterligare certifikat i en ny PowerShell-konsolsession, Följ stegen i [exempel 2](#ex2).
+Använd det här exemplet om du inte har stängt PowerShell-konsolen när du har skapat det självsignerade rotcertifikatet. Det här exemplet fortsätter från föregående avsnitt och använder variabeln deklarerade '$cert'. Om du har stängt PowerShell-konsolen när du har skapat det självsignerade rotcertifikatet eller skapar ytterligare certifikat i en ny PowerShell-konsolsession, Följ stegen i [exempel 2](#ex2).
 
 Ändra och köra exemplet för att generera ett klientcertifikat. Om du kör följande exempel utan att ändra den är resultatet ett klientcertifikat med namnet ”P2SChildCert”.  Om du vill namnge certifikatet underordnade något annat ändra CN-värde. Ändra inte TextExtension när du kör det här exemplet. Klientcertifikatet som du genererar installeras automatiskt under ”certifikat – aktuell användare\personligt\certifikat” på datorn.
 

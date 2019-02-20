@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ac52e3b824efdbd5277982a7f1939e8aa0deeeb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201796"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416725"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referens för Backup-tjänsten för infrastruktur
 
@@ -108,6 +108,23 @@ Infrastruktur för säkerhetskopiering Controller säkerhetskopieras data på be
 > [!Note]  
 > Inga ingående portar måste du öppna.
 
+### <a name="encryption-requirements"></a>Krav på datakryptering
+
+Från och med 1901, infrastruktur backup-tjänsten använder ett certifikat med en offentlig nyckel (. CER) för att kryptera säkerhetskopierade data och ett certifikat med privat nyckel (. PFX) för att dekryptera säkerhetskopierade data under molnåterställning.   
+ - Certifikatet används för transport av nycklar och används inte för att upprätta säker och autentiserad kommunikation. Certifikatet kan därför vara ett självsignerat certifikat. Azure Stack behöver inte att verifiera rot- eller förtroende för det här certifikatet så extern Internetåtkomst inte krävs.
+ 
+Det självsignerade certifikatet finns i två delar, en med offentlig nyckel och en med den privata nyckeln:
+ - Kryptera säkerhetskopierade data: Certifikat med offentlig nyckel (exporteras till. CER-fil) som används för att kryptera säkerhetskopierade data
+ - Dekryptera säkerhetskopierade data: Certifikat med privat nyckel (exporteras till. PFX-fil) som används för att dekryptera säkerhetskopierade data
+
+Certifikatet med den offentliga nyckeln (. CER) hanteras inte av interna hemliga rotation. För att rotera certifikatet, behöver du skapa ett nytt självsignerat certifikat och uppdatera inställningar för säkerhetskopiering med den nya filen (. CER).  
+ - Alla befintliga säkerhetskopior förblir krypterade med föregående offentlig nyckel. Nya säkerhetskopior använder den nya publika nyckeln. 
+ 
+Certifikatet som används under molnåterställning med den privata nyckeln (. PFX) bevaras inte av Azure Stack av säkerhetsskäl. Den här filen måste anges uttryckligen under molnåterställning.  
+
+**Bakåtkompatibilitet kompatibilitetsläge** börjar 1901, viktiga stöd för kryptering är inaktuell och kommer att tas bort i kommande versioner. Om du har uppdaterat från 1811 med backup redan har aktiverats med hjälp av en krypteringsnyckel, Azure Stack kommer att fortsätta att använda krypteringsnyckeln. Bakåtkompatibilitet stöds kompatibilitetsläge för minst 3 versionen. Efter måste ett certifikat utföras. 
+ * Uppdaterar från krypteringsnyckeln till certifikat är en enkelriktad åtgärd.  
+ * Alla befintliga säkerhetskopior förblir krypterade med hjälp av krypteringsnyckeln. Nya säkerhetskopior ska använda certifikatet. 
 
 ## <a name="infrastructure-backup-limits"></a>Begränsningar för säkerhetskopiering av infrastruktur
 

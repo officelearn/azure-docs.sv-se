@@ -1,5 +1,5 @@
 ---
-title: Konfigurera registrering och inloggning med ett GitHub-konto med hjälp av Azure Active Directory B2C | Microsoft Docs
+title: Konfigurera registrering och inloggning med ett GitHub-konto – Azure Active Directory B2C | Microsoft Docs
 description: Tillhandahålla registrera dig och logga in till kunder med GitHub-konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 60fd7ec53681f9b96970d8a33e5610115e579615
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f1c1ac91c08fe27445f4b9631500543d1d0287bd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166092"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427283"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett GitHub-konto med hjälp av Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55166092"
 > Den här funktionen är en förhandsversion.
 > 
 
-Om du vill använda ett GitHub-konto som identitetsprovider i Azure Active Directory (Azure AD) B2C, måste du skapa ett program i din klient som representerar den. Om du inte redan har ett GitHub-konto, kan du hämta den på [ https://www.github.com/ ](https://www.github.com/).
+Att använda ett GitHub-konto som ett [identitetsprovider](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient som representerar den. Om du inte redan har ett GitHub-konto, kan du hämta den på [ https://www.github.com/ ](https://www.github.com/).
 
 ## <a name="create-a-github-oauth-application"></a>Skapa ett GitHub OAuth-program
 

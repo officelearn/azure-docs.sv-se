@@ -1,5 +1,5 @@
 ---
-title: Konfigurera inloggning för en Azure Active Directory-organisation i Azure Active Directory B2C | Microsoft Docs
+title: Konfigurera inloggning för en Azure Active Directory-organisation – Azure Active Directory B2C | Microsoft Docs
 description: Konfigurera inloggning för en viss Azure Active Directory-organisation i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9078cbfd14e61b2de0d513e513413ae3c79137e3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0da27c5ce872d1b4e1b4c63f6f4207bb5ca4d6ef
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166228"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428082"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurera inloggning för en viss Azure Active Directory-organisation i Azure Active Directory B2C
 
 >[!NOTE]
 > Den här funktionen är en allmänt tillgänglig förhandsversion. Använd inte funktionen i produktionsmiljöer.
 
-Den här artikeln visar hur du aktiverar inloggning för användare från en viss Azure Active Directory (Azure AD)-organisation med hjälp av ett användarflöde i Azure Active Directory (Azure AD) B2C.
+Att använda en Azure Active Directory (Azure AD) som en [identitetsprovider](active-directory-b2c-reference-oauth-code.md) i Azure AD B2C måste du skapa ett program som representerar den. Den här artikeln visar hur du aktiverar inloggning för användare från en viss Azure AD organisation med hjälp av en användare för flow i Azure AD B2C.
 
 ## <a name="create-an-azure-ad-app"></a>Skapa en Azure AD-app
 
@@ -49,7 +49,7 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Konfigurera Azure AD som identitetsprovider
 
 1. Kontrollera att du använder den katalog som innehåller Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din Azure AD B2C-klient.
-2. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 3. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
 4. Ange en **namn**. Ange till exempel ”Contoso Azure AD”.
 5. Välj **identifiera providertyp**väljer **öppna ID Connect (förhandsversion)**, och klicka sedan på **OK**.

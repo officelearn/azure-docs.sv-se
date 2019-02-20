@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 074f090d295ef5eafad48e57f68dad019bf7eab9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 23618b545814e89a7343d2db4664405855051c1b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470043"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415450"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets
 Du kan skala in och ut på Virtual Machine Scale Sets baserat på prestanda tröskelmått, genom ett återkommande schema eller genom att ett visst datum. Du kan också konfigurera e-post och webhook meddelanden om skalningsåtgärder. Den här genomgången visar ett exempel på hur du konfigurerar dessa objekt med en Resource Manager-mall för VM-Skalningsuppsättningen.
@@ -48,9 +48,9 @@ I den här genomgången använder vi [Azure Resource Explorer](https://resources
 4. Här är ett hypotetiskt skalning scenario som vi använder för den här genomgången.
 
     * **Belastningen baserat** -jag vill skala in eller ut baserat på belastning på min App på min skala set.*
-    * **Meddelandestorlek kö** – jag använder en Service Bus-kön för inkommande meddelanden till mitt program. Jag använda kön antal meddelanden och processor och konfigurera en standardprofil för att utlösa en skalningsåtgärd om något av meddelandeantalet eller processor når threshold.*
-    * **Tid för vecka och dag** -jag vill ha en veckovis återkommande ”tid på dagen' baserat profil med namnet” veckodag morgon timmar ”. Baserat på historiska data kan vet jag är det bättre att ha vissa antalet Virtuella datorinstanser att hantera belastningen för mitt program under den här tid.*
-    * **Datum** – jag har lagt till en produkt starta dag-profil. Jag Planera framåt för specifika datum så att programmet är redo att hantera belastningen på grund av marknadsföring meddelanden och när vi publicerar en ny produkt i programmet.*
+    * **Meddelandestorlek kö** – jag använder en Service Bus-kön för inkommande meddelanden till mitt program. Jag använder köns antal meddelanden och processor och konfigurera en standardprofil för att utlösa en skalningsåtgärd om något av meddelandeantalet eller processor når tröskelvärdet.\*
+    * **Tid för vecka och dag** -jag vill ha en veckovis återkommande ”tid på dagen' baserat profil med namnet” veckodag morgon timmar ”. Baserat på historiska data kan vet jag att det är bättre att ha vissa antalet Virtuella datorinstanser att hantera belastningen för mitt program under den här tiden.\*
+    * **Datum** – jag har lagt till en produkt starta dag-profil. Jag Planera framåt för specifika datum så att programmet är redo att hantera belastningen på grund av marknadsföring meddelanden och när vi publicerar en ny produkt i programmet.\*
     * *De två sista profilerna kan också ha andra mått baserat Prestandaregler i dem. I det här fallet jag valt att inte har någon och i stället för att förlita dig på standard-prestandamått baseras regler. Regler är valfria för återkommande och datum-baserade profiler.*
 
     Automatisk skalning motorn prioritering av profiler och regler hämtas även i den [Metodtips för automatisk skalning](autoscale-best-practices.md) artikeln.

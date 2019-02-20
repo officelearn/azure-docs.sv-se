@@ -1,6 +1,6 @@
 ---
-title: Felsök ett objekt som inte synkroniseras med Azure AD | Microsoft Docs
-description: Felsöka anledningen till ett objekt inte synkroniseras till Azure AD.
+title: Felsök ett objekt som inte synkroniseras med Azure Active Directory | Microsoft Docs
+description: Felsök ett objekt som inte synkroniseras med Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,185 +16,198 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55668b8ef8019e1ee808bc0cba9d98c0db53c584
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198748"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416929"
 ---
-# <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Felsök ett objekt som inte synkroniseras med Azure AD
+# <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Felsök ett objekt som inte synkroniseras med Azure Active Directory
 
-Om ett objekt inte synkroniseras som förväntat till Azure AD, kan det bero på flera orsaker. Om du har fått ett e-postmeddelande med fel från Azure AD eller om du ser felet i Azure AD Connect Health, läs sedan [felsöka export](tshoot-connect-sync-errors.md) i stället. Men om du felsöker ett problem där objektet inte är i Azure AD, sedan det här avsnittet är för dig. Den beskriver hur du hittar fel i den lokala komponenten Azure AD Connect-synkroniseringen.
+Om ett objekt inte synkroniserar som förväntat med Microsoft Azure Active Directory (AD Azure), kan det vara på grund av flera skäl. Om du har fått ett e-postmeddelande med fel från Azure AD eller om du ser felet i Azure AD Connect Health, läsa [Felsök fel under synkronisering](tshoot-connect-sync-errors.md) i stället. Men om du felsöker ett problem där objektet inte är i Azure AD, den här artikeln rätt för dig. Den beskriver hur du hittar fel i lokalt komponenten Azure AD Connect-synkronisering.
 
 >[!IMPORTANT]
->För Azure Active Directory (AAD) ansluta distribution med version 1.1.749.0 eller högre, använda den [felsökning uppgift](tshoot-connect-objectsync.md) i guiden för att felsöka problem med synkronisering av objektet. 
+>För Azure AD ansluta distribution med version 1.1.749.0 eller högre, använda den [felsökning uppgift](tshoot-connect-objectsync.md) i guiden för att felsöka objekt synkroniserar problem. 
 
 ## <a name="synchronization-process"></a>Processen för synkronisering
 
-Innan man har undersökt synkroniseringsproblem, låt oss se på **Azure AD Connect** synkroniseringsprocessen:
+Innan vi undersöka synkroniserar problem, låt oss se Azure AD Connect synkroniserar processen:
 
-  ![Azure AD Connect-synkronisering](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+  ![Diagram över Azure AD Connect-synkroniseringen](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
 
 ### <a name="terminology"></a>**Terminologi**
 
-* **CS:** En tabell i databasen i anslutningsplatsen.
-* **MV:** Metaversum, en tabell i databasen.
-* **AD:** Active Directory
-* **AAD:** Azure Active Directory
+* **CS:** Anslutarplats, en tabell i en databas
+* **MV:** Metaversum, en tabell i en databas
 
 ### <a name="synchronization-steps"></a>**Synkroniseringssteg**
-Synkroniseringsprocessen omfattar följande steg:
+Synkroniserar processen omfattar följande steg:
 
-1. **Importera från AD:** **Active Directory** objekt förs in **AD CS**.
+1. **Importera från AD:** Active Directory-objekt förs in Active Directory-CS.
 
-2. **Importera från AAD:** **Azure Active Directory** objekt förs in **AAD CS**.
+2. **Import från Azure AD:** Azure AD-objekt överförs till Azure AD CS.
 
-3. **Synkronisering:** **Inkommande Synkroniseringsregler** och **utgående Synkroniseringsregler** körs i den ordning som siffran från lägre till högre. Om du vill visa de Synkroniseringsregler som du kan gå till **Synchronization Rules Editor** från program. Den **inkommande Synkroniseringsregler** ger i data från CS MV. Den **utgående Synkroniseringsregler** flyttar data från MV till CS.
+3. **Synkronisering:** Regler för inkommande synkronisering och regler för utgående synkronisering körs i den ordning som siffran från lägre till högre. Om du vill visa synkroniseringsreglerna som går du till Synchronization Rules Editor från program. Regler för inkommande synkronisering importera data från CS till MV. Regler för utgående synkronisering flytta data från MV till CS.
 
-4. **Exportera till AD:** När synkronisering har körts kan exporteras objekt från AD CS att **Active Directory**.
+4. **Exportera till AD:** När synkroniseringen, exporteras objekt från Active Directory-CS till Active Directory.
 
-5. **Exportera till AAD:** När du har kört synkronisering objekt exporteras från AAD CS till **Azure Active Directory**.
+5. **Exportera till Azure AD:** När synkroniseringen, exporteras objekt från Azure AD CS till Azure AD.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du vill hitta fel som ska du titta på några olika platser i följande ordning:
+För att hitta felen, titta på några olika platser i följande ordning:
 
-1. Den [åtgärdsloggar](#operations) för att söka efter fel som identifierats av Synkroniseringsmotorn under import och synkronisering.
-2. Den [anslutarplatsen](#connector-space-object-properties) för att söka efter objekt som saknas och synkroniseringsfel.
-3. Den [metaversum](#metaverse-object-properties) för att söka efter data som är relaterade problem.
+1. Den [åtgärdsloggar](#operations) att hitta fel som identifierats av Synkroniseringsmotorn under import och synkronisering.
+2. Den [anslutarplatsen](#connector-space-object-properties) att hitta objekt som saknas och synkroniseringsfel.
+3. Den [metaversum](#metaverse-object-properties) att hitta data som är relaterade problem.
 
 Starta [hanteraren för synkroniseringstjänsten](how-to-connect-sync-service-manager-ui.md) innan du påbörjar de här stegen.
 
 ## <a name="operations"></a>Åtgärder
-Fliken åtgärder i hanteraren för synkroniseringstjänsten är var du ska börja felsökningen. Fliken åtgärder visas resultatet från de senaste åtgärderna.  
-![Sync Service Manager](./media/tshoot-connect-object-not-syncing/operations.png)  
+Den **Operations** fliken i hanteraren för synkroniseringstjänsten är var du ska börja felsökningen. Den här fliken visas resultaten från de senaste åtgärderna. 
 
-Den övre delen visas alla körningar i kronologisk ordning. Som standard logga åtgärderna är fortfarande information om de senaste sju dagarna, men den här inställningen kan ändras med den [scheduler](how-to-connect-sync-feature-scheduler.md). Du vill söka efter alla körningar som inte visar statusen lyckades. Du kan ändra sorteringen genom att klicka på rubrikerna.
+![Skärmbild av Synchronization Service Manager, som visar fliken för åtgärder som valts](./media/tshoot-connect-object-not-syncing/operations.png)  
 
-Den **Status** kolumnen är den viktigaste informationen och visar det mest allvarliga problemet för en körning. Här är en snabb sammanfattning av de vanligaste statusvärdena i prioritetsordning att undersöka (där * indikera flera möjliga felsträngar).
+Den övre delen av den **Operations** fliken visas alla körningar i kronologisk ordning. Som standard logga åtgärderna är fortfarande information om de senaste sju dagarna, men den här inställningen kan ändras med den [scheduler](how-to-connect-sync-feature-scheduler.md). Utseende för något kör som visar inte en **lyckades** status. Du kan ändra sorteringen genom att klicka på rubrikerna.
+
+Den **Status** kolumn som innehåller den viktigaste informationen och visar det mest allvarliga problemet för en körning. Här är en snabb sammanfattning av de vanligaste statusvärdena i undersökningen prioritetsordning (där * anger flera möjliga felsträngar).
 
 | Status | Kommentar |
 | --- | --- |
-| stopped-* |Det gick inte att slutföra körningen. Exempel: om fjärrdatorn är igång och kan inte kontaktas. |
+| stopped-* |Kör kunde inte slutföras. Detta kan inträffa, till exempel om fjärrsystemet är igång och kan inte kontaktas. |
 | stopped-error-limit |Det finns fler än 5 000 fel. Körningen stoppades automatiskt på grund av det stora antalet fel. |
-| slutförda -\*-fel |Körningen slutfördes, men det finns fel (färre än 5 000) som bör undersökas. |
-| completed-\*-warnings |Körningen har slutförts, men vissa data är inte i förväntat tillstånd. Om du har fel sedan är det här meddelandet vanligtvis bara ett tecken. Du bör inte undersöka varningar förrän du har åtgärdat felen. |
+| slutförda -\*-fel |Körningen är klar, men det finns fel (färre än 5 000) som bör undersökas. |
+| completed-\*-warnings |Körningen är klar, men vissa data är inte i det förväntade tillståndet. Om du har fel kan det här meddelandet är vanligtvis bara ett tecken. Inte Undersök varningar förrän du har åtgärdat felen. |
 | lyckades |Inga problem. |
 
-När du har valt en rad uppdaterar längst ned för att visa information om som körs. Du kan ha en lista som säger att längst till vänster på nedersta, **steg #**. Den här listan visas bara om du har flera domäner i skogen där varje domän representeras av ett steg. Domännamnet finns under rubriken **Partition**. Under **Synkroniseringsstatistik**, du kan hitta mer information om antalet ändringar som har bearbetats. Du kan klicka på länkarna för att få en lista med ändrade objekt. Om du har objekt med fel felen som visas **synkroniseringsfel**.
+När du väljer en rad, längst ned på den **Operations** fliken uppdateras för att visa information om den körningen. Du kan ha en lista med titeln på längst till vänster sida av det här området, **steg #**. Den här listan visas bara om du har flera domäner i skogen och domänerna representeras av ett steg. Domännamnet finns under rubriken **Partition**. Under den **Synkroniseringsstatistik** rubrik, kan du hitta mer information om antalet ändringar som har bearbetats. Välj länken för att hämta en lista med ändrade objekt. Om du har objekt med fel felen som visas den **synkroniseringsfel** rubrik.
 
-### <a name="troubleshoot-errors-in-operations-tab"></a>Felsöka fel i operations-fliken
-![Sync Service Manager](./media/tshoot-connect-object-not-syncing/errorsync.png)  
-När du har fel är båda objektet i fel och den själva länkar som innehåller mer information.
+### <a name="errors-on-the-operations-tab"></a>Fel på fliken åtgärder
+När du har fel visas hanteraren för synkroniseringstjänsten både objektet i fel och själva felet som länkar som innehåller mer information.
 
-Starta genom att klicka på felsträngen (**sync-regel-fel-funktion-utlöst** i bilden). Först visas en översikt över objektet. Klicka på knappen om du vill se faktiska felet **stackspårning**. Den här spårningen innehåller felsökningsinformation för nivån för felet.
+![Skärmbild av fel i hanteraren för synkroniseringstjänsten](./media/tshoot-connect-object-not-syncing/errorsync.png)  
+Starta genom att välja felsträngen. (I bilden ovan är felsträngen **sync-regel-fel-funktion-utlöst**.) Först visas en översikt över objektet. Om du vill se faktiska felet **stackspårning**. Den här spårningen innehåller felsökningsnivå information om felet.
 
-Du kan högerklicka på i den **anropa Stackinformation** väljer **Markera alla**, och **kopiera**. Du kan sedan kopiera stacken och titta på felet i din favoritredigerare, till exempel Anteckningar.
+Högerklicka på den **anropa Stackinformation** klickar du på **Markera alla**, och välj sedan **kopiera**. Kopiera stacken och titta på fel i din favoritredigerare, till exempel Anteckningar.
 
-* Om felet är från **SyncRulesEngine**, och sedan informationen för anropsstacken först har en lista över alla attribut för objektet. Rulla nedåt tills du ser rubriken **InnerException = >**.  
-  ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)  
-  Rad efter visar felet. Felet är från en anpassad synkronisering regeln Fabrikam som skapats i bilden ovan.
+Om felet är från **SyncRulesEngine**, stack samtalsinformation först visar en lista över alla attribut för objektet. Rulla nedåt tills du ser rubriken **InnerException = >**.  
 
-Om felet själva inte ger tillräckligt med information, är det dags att titta på själva informationen. Du kan klicka på länken med objekt-ID och fortsätta felsökning i [connector utrymme importerade objektet](#cs-import).
+  ![Skärmbild av hanteraren för synkroniseringstjänsten, som visar information om fel under rubriken InnerException = >](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
+  
+Rad efter rubriken visas felet. Felet är från en anpassad synkroniseringsregel som Fabrikam skapade i föregående bild.
+
+Om felet inte ger tillräckligt med information, är det dags att titta på själva informationen. Klicka på länken med objekt-ID och fortsätta felsökningen i [connector utrymme importerade objektet](#cs-import).
 
 ## <a name="connector-space-object-properties"></a>Objektegenskaper för utrymme
-Om du inte har några fel har påträffats i den [operations](#operations) fliken och sedan på nästa steg är att följa anslutarplatsen från Active Directory till metaversum och till Azure AD. Du bör hitta var problemet finns på den här sökvägen.
+Om den [ **Operations** ](#operations) fliken visar några fel, följ anslutarplatsen från Active Directory till metaversum till Azure AD. Du bör hitta var problemet finns på den här sökvägen.
 
-### <a name="search-for-an-object-in-the-cs"></a>Sök efter ett objekt i CS
+### <a name="searching-for-an-object-in-the-cs"></a>Söker efter ett objekt i CS
 
-I **hanteraren för synkroniseringstjänsten**, klickar du på **Anslutningsappar**, Välj den Active Directory-koppling och **Search Connector Space**.
+I hanteraren för synkroniseringstjänsten, Välj **Anslutningsappar**, Välj den Active Directory-koppling och välj **Search Connector Space**.
 
-I **omfång**väljer **RDN** (när du vill söka på attributet CN) eller **DN eller fästpunkt** (när du vill söka på attributet distinguishedName). Ange ett värde och klickar på **Search**.  
-![Söka Anslutarplats](./media/tshoot-connect-object-not-syncing/cssearch.png)  
+I den **omfång** väljer **RDN** när du vill söka på CN-attributet eller välj **DN eller fästpunkt** när du vill söka på den **distinguishedName**  attribut. Ange ett värde och välj **Search**. 
+ 
+![Skärmbild av en söka anslutarplats](./media/tshoot-connect-object-not-syncing/cssearch.png)  
 
-Om du inte hittar objektet du letar efter så den kan filtreras med [domänbaserade filtreringen](how-to-connect-sync-configure-filtering.md#domain-based-filtering) eller [OU-baserad filtrering](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). Läs den [filtreringen](how-to-connect-sync-configure-filtering.md) avsnittet om du vill kontrollera att filtrering är konfigurerad som förväntat.
+Om du inte hittar objektet du söker efter den kan filtreras med [domänbaserade filtreringen](how-to-connect-sync-configure-filtering.md#domain-based-filtering) eller [OU-baserad filtrering](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). Kontrollera att filtrering är konfigurerad som förväntat genom att läsa [Azure AD Connect-synkronisering: Konfigurera filtrering](how-to-connect-sync-configure-filtering.md).
 
-En annan användbar sökning är att välja Azure AD-koppling i **omfång** Välj **väntande Import**, och välj den **Lägg till** kryssrutan. Den här sökningen ger dig alla synkroniserade objekt i Azure AD som inte kan associeras med ett lokalt-objekt.  
-![Connector utrymme search rader](./media/tshoot-connect-object-not-syncing/cssearchorphan.png)  
-Dessa objekt har skapats av en annan Synkroniseringsmotorn eller en Synkroniseringsmotorn med en annan konfiguration för filtrering. Den här vyn visas en lista över **rader** objekt som inte längre hanteras. Du bör granska den här listan och Överväg att ta bort dessa objekt med hjälp av den [Azure AD PowerShell](https://aka.ms/aadposh) cmdletar.
+Du kan utföra en annan användbar sökning genom att välja Azure AD Connector. I den **omfång** väljer **väntande Import**, och välj sedan den **Lägg till** markerar du kryssrutan. Den här sökningen ger dig alla synkroniserade objekt i Azure AD som inte kan associeras med ett lokalt-objekt.  
 
-### <a name="cs-import"></a>CS-Import
-När du öppnar ett cs-objekt, finns det flera flikar högst upp. Den **importera** fliken visar data som mellanlagras efter en import.  
-![CS-objekt](./media/tshoot-connect-object-not-syncing/csobject.png)    
-Den **Gammalt värde** visar vad för närvarande som lagras i Connect och **nytt värde** vad har tagits emot från källsystemet och har inte tillämpats. Om det finns ett fel på objektet, bearbetas inte ändringar.
+![Skärmbild av rader i en söka anslutarplats](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
+ 
+Dessa objekt har skapats av en annan Synkroniseringsmotorn eller en Synkroniseringsmotorn med en annan konfiguration för filtrering. Dessa överblivna objekt hanteras inte längre. Granska listan och Överväg att ta bort dessa objekt med hjälp av den [Azure AD PowerShell](https://aka.ms/aadposh) cmdletar.
 
-**Fel**  
-![CS-objekt](./media/tshoot-connect-object-not-syncing/cssyncerror.png)  
-Den **synkroniseringsfel** fliken visas endast om det finns ett problem med objektet. Mer information finns i [Felsök synkroniseringsfel](#troubleshoot-errors-in-operations-tab).
+### <a name="cs-import"></a>CS-import
+När du öppnar ett CS-objekt, finns det flera flikar högst upp. Den **importera** fliken visar data som mellanlagras efter en import.  
+
+![Skärmbild av fönstret objektegenskaper för utrymmet med fliken importera valt](./media/tshoot-connect-object-not-syncing/csobject.png)    
+
+Den **Gammalt värde** kolumnen visar det för närvarande lagras i Connect, och **nytt värde** kolumnen visar vad som har tagits emot från källsystemet och har inte tillämpats. Om det finns ett fel på objektet, bearbetas inte ändringar.
+
+Den **synkroniseringsfel** mallfliken visas i den **objektegenskaper för utrymme** fönstret endast om det finns ett problem med objektet. Mer information hur du [Felsök synkroniseringsfel på den **Operations** fliken](#errors-on-the-operations-tab).
+
+![Skärmbild av fliken synkroniseringsfel i fönstret objektegenskaper för utrymme](./media/tshoot-connect-object-not-syncing/cssyncerror.png)  
 
 ### <a name="cs-lineage"></a>CS härkomst
-Fliken härkomst visar hur anslutarplatsen som är kopplad till metaversumobjekt. Du kan se när anslutningen senast importerade en ändring från det anslutna systemet och vilka regler som används för att fylla i data i metaversum.  
-![CS härkomst](./media/tshoot-connect-object-not-syncing/cslineage.png)  
-I den **åtgärd** kolumn, du kan se det finns en sådan **inkommande** synkroniseringsregel med åtgärden **etablera**. Värde som anger att så länge som den här anslutarplatsen finns, förblir metaversumobjekt. Om listan över Synkroniseringsregler i stället visas en synkroniseringsregel riktning **utgående** och **etablera**, betyder det att det här objektet tas bort när metaversumobjekt tas bort.  
-![Sync Service Manager](./media/tshoot-connect-object-not-syncing/cslineageout.png)  
-Du kan också se i den **PasswordSync** kolumn som kan bidra med inkommande anslutningsplatsen ändras till lösenordet eftersom en synkroniseringsregel har värdet **SANT**. Det här lösenordet skickas sedan till Azure AD via en utgående regel.
+Den **härkomst** fliken i den **objektegenskaper för utrymme** visar hur anslutarplatsen som är kopplad till metaversumobjekt. Du kan se när anslutningen senast importeras en ändring från det anslutna systemet och vilka regler som används för att fylla i data i metaversum.  
 
-Från fliken härkomst du kommer till metaversum genom att klicka på [Metaversumobjektegenskaperna](#mv-attributes).
+![Skärmbild som visar fliken härkomst i fönstret objektegenskaper för utrymme](./media/tshoot-connect-object-not-syncing/cslineage.png)  
 
-Finns två knappar längst ned på alla flikar: **Förhandsversion av** och **Log**.
+På bilden ovan den **åtgärd** kolumnen visar en regel för inkommande synkronisering med åtgärden **etablera**. Värde som anger att så länge som den här anslutarplatsen finns, förblir metaversumobjekt. Om listan över Synkroniseringsregler i stället visas en utgående synkroniseringsregel med en **etablera** åtgärd, det här objektet tas bort när metaversumobjekt tas bort.  
+
+![Skärmbild av ett härkomst fönster på fliken härkomst i fönstret objektegenskaper för utrymme](./media/tshoot-connect-object-not-syncing/cslineageout.png)  
+
+I föregående bild kan du också se i den **PasswordSync** kolumn som kan bidra med inkommande anslutningsplatsen ändras till lösenordet eftersom en regel för synkronisering har värdet **SANT**. Det här lösenordet skickas till Azure AD via en utgående regel.
+
+Från den **härkomst** fliken du kommer till metaversum genom att välja [ **Metaversumobjektegenskaperna**](#mv-attributes).
 
 ### <a name="preview"></a>Förhandsversion
-Förhandsgranskningssidan används för att synkronisera ett enda objekt. Det är användbart om du felsöker vissa anpassade Synkroniseringsregler och vill se effekten av en ändring på ett enda objekt. Du kan välja mellan **Full sync** och **Deltasynkronisering**. Du kan också välja mellan **Generera förhandsgranskning**, vilket upprätthåller bara ändringen i minnet, och **genomför förhandsversion**, som uppdateras metaversum och skapar etapper alla ändringar i mål-kopplingens utrymmen.  
-![Sync Service Manager](./media/tshoot-connect-object-not-syncing/preview.png)  
-Du kan granska objektet och vilken regel tillämpas för en viss attributflöde.  
-![Sync Service Manager](./media/tshoot-connect-object-not-syncing/previewresult.png)
+I det nedre vänstra hörnet av den **objektegenskaper för utrymme** fönstret är den **förhandsversion** knappen. Välj den här knappen för att öppna den **förhandsversion** sidan där du kan synkronisera ett enda objekt. Den här sidan är användbart om du felsöker vissa anpassade Synkroniseringsregler och vill se effekten av en ändring på ett enda objekt. Du kan välja en **Full sync** eller en **Deltasynkronisering**. Du kan också välja **Generera förhandsgranskning**, vilket upprätthåller bara ändringen i minnet. Eller välj **genomför förhandsversion**, vilket uppdaterar metaversum och skapar etapper alla ändringar i mål-kopplingens utrymmen.  
+
+![Skärmbild av sidan för förhandsgranskning med starta förhandsgranskning som valts](./media/tshoot-connect-object-not-syncing/preview.png)  
+
+I förhandsversionen kan du granska objektet och se vilken regel som tillämpas för en viss attributflöde.  
+
+![Skärmbild av sidan för förhandsversionen som visar Import av attributflöde](./media/tshoot-connect-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>Logga
-Sidan Log används för att se status för synkronisering av lösenord och historik. Mer information finns i [Felsök synkronisering av lösenordshash](tshoot-connect-password-hash-synchronization.md).
+Bredvid den **förhandsversion** knapp, väljer den **Log** knappen för att öppna den **Log** sidan. Här kan du se status för synkronisering av lösenord och historik. Mer information finns i [felsöka lösenordshashsynkronisering med Azure AD Connect-synkronisering](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Egenskaper för Metaversumobjekt
 Det är vanligtvis bättre att börja söka från källan Active Directory-anslutarplatsen. Men du kan också starta söka från metaversum.
 
-### <a name="search-for-an-object-in-the-mv"></a>Sök efter ett objekt i MV
-I **hanteraren för synkroniseringstjänsten**, klickar du på **Metaversumsökning**. Skapa en fråga som du vet hittar användaren. Du kan söka efter vanliga attribut, till exempel accountName (SAM) eller userPrincipalName. Mer information finns i [metaversumsökning](how-to-connect-sync-service-manager-ui-mvsearch.md).
-![Sync Service Manager](./media/tshoot-connect-object-not-syncing/mvsearch.png)  
+### <a name="searching-for-an-object-in-the-mv"></a>Söker efter ett objekt i MV
+I hanteraren för synkroniseringstjänsten, Välj **Metaversumsökning**, som i följande bild. Skapa en fråga som du vet hittar användaren. Sök efter vanliga attribut, till exempel **accountName** (**sAMAccountName**) och **userPrincipalName**. Mer information finns i [Sync Service Manager Metaverse search](how-to-connect-sync-service-manager-ui-mvsearch.md).
+
+![Skärmbild av Synchronization Service Manager, med fliken Metaversumsökning markerad](./media/tshoot-connect-object-not-syncing/mvsearch.png)  
 
 I den **sökresultat** fönstret klickar du på objektet.
 
-Om du inte gick att hitta objektet, har sedan den ännu inte nått metaversum. Fortsätta att söka efter objektet i den **Active Directory** [anslutarplatsen](#connector-space-object-properties). Om du hittar objekt i den **Active Directory** anslutningsplatsen sedan det uppstå ett fel i synkronisering som blockerar objektet från kommer till metaversum eller så kanske en synkroniseringsregel Omfångsfilter tillämpas.
+Om du inte gick att hitta objektet, har det ännu inte nått metaversum. Fortsätta att söka efter objekt i Active Directory [anslutarplatsen](#connector-space-object-properties). Om du hittar objektet i Active Directory-anslutarplatsen det kan vara ett synkroniseringsfel som blockerar objektet från kommer till metaversum eller ett Omfångsfilter för synkronisering-regel kan användas.
 
 ### <a name="object-not-found-in-the-mv"></a>Objektet hittades inte i MV
-Om objektet är i den **Active Directory** CS, men finns inte i MV och sedan Omfångsfilter tillämpas. 
+Om objektet är i Active Directory-CS men finns inte i MV, ett Omfångsfilter tillämpas. Om du vill titta på Omfångsfilter, gå till menyn skrivbordsprogram och välj **Synchronization Rules Editor**. Filtrera regler för objektet genom att justera i filtreringen nedan.
 
-* För att titta på Omfångsfilter går du till menyn skrivbordsprogram och klicka på **Synchronization Rules Editor**. Filtrera reglerna som gäller objektet genom att justera i filtreringen nedan.
+  ![Skärmbild av Synchronization Rules Editor, som visar en sökning för regler för inkommande synkronisering](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
 
-  ![Inkommande synkronisering regler sökning](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+Visa varje regel i listan ovan och kontrollera den **Scoping filter**. I följande Omfångsfilter, om den **isCriticalSystemObject** värdet är null eller FALSKT eller tomt, är det i omfånget.
 
-* Visa varje regel i listan ovan och kontrollera den **Scoping filter**. I den nedan Omfångsfilter om den **isCriticalSystemObject** värdet är null eller FALSKT eller tomt så är det i omfånget.
+  ![Skärmbild av ett Omfångsfilter i en regel för inkommande synkronisering-sökning](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
 
-  ![Inkommande synkronisering regler sökning](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+Gå till den [CS Import](#cs-import) attributet lista och kontrollera vilka filter blockerar objekt från att flyttas till MV. Den **Anslutarplatsen** attributlistan visas bara attribut för icke-null och inte är tom. Till exempel om **isCriticalSystemObject** visas inte i listan med värdet för det här attributet är null eller tomt.
 
-* Gå till den [CS Import](#cs-import) attributet lista och kontrollera vilka filter blockerar objektet för att flytta till MV. Det sig den **Anslutarplatsen** attributlistan visas bara attribut för icke-null och inte är tom. Till exempel om **isCriticalSystemObject** inte visas i listan och sedan det innebär att värdet för det här attributet är null eller tomt.
+### <a name="object-not-found-in-the-azure-ad-cs"></a>Objektet hittades inte i Azure AD CS
+Om objektet finns inte i anslutarplatsen för Azure AD men finns i MV, titta på Omfångsfilter om utgående regler för motsvarande anslutningsplatsen och ta reda på om objektet är filtrerats bort eftersom den [MV attribut](#mv-attributes)inte uppfyller villkoren.
 
-### <a name="object-not-found-in-the-aad-cs"></a>Objektet hittades inte i AAD-CS
-Om objektet inte finns i den **Anslutarplatsen** av **Azure Active Directory**. Men den finns i MV, titta sedan på Scoping filtret för den **utgående** reglerna för motsvarande **Anslutarplatsen** och kontrollera om objektet är filtrerats bort eftersom den [MV attribut](#mv-attributes) uppfyller inte kriterierna.
+Om du vill titta på utgående Omfångsfilter, väljer du de tillämpliga reglerna för objektet genom att justera i filtreringen nedan. Visa varje regel och titta på motsvarande [MV-attributet](#mv-attributes) värde.
 
-* Om du vill titta på utgående Omfångsfilter, väljer du de tillämpliga reglerna för objektet genom att justera i filtreringen nedan. Visa varje regel och titta på motsvarande [MV-attributet](#mv-attributes) värde.
-
-  ![Sök efter utgående Synchroniztion-regler](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+  ![Skärmbild av en utgående synkronisering regler sökning i Synchronization Rules Editor](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
 
 
 ### <a name="mv-attributes"></a>MV-attribut
-Du kan se värdena och vilken anslutning som tillförts det på fliken attribut.  
-![Sync Service Manager](./media/tshoot-connect-object-not-syncing/mvobject.png)  
+På den **attribut** fliken kan du se värdena och vilka kopplingar som tillförts dem.  
 
-Om ett objekt inte synkroniseras, titta sedan på följande attribut i metaversum:
-- Är attributet **cloudFiltered** presentera och inställd **SANT**? Om det är så den har filtrerats enligt anvisningarna i [filtrering baserad på attributet](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
-- Är attributet **sourceAnchor** finns? Om inte, har du en konto-resurs skogstopologi? Om ett objekt identifieras som en länkad postlåda (attributet **msExchRecipientTypeDetails** har värdet 2), och sedan sourceAnchor är som tillförts av skogen med ett aktiverat Active Directory-konto. Kontrollera att huvudkontot har importerats och synkroniseras korrekt. Huvudkontot måste anges i den [anslutningsappar](#mv-connectors) för objektet.
+![Skärmbild av fliken attribut som valts i fönstret Egenskaper för Metaversumobjekt](./media/tshoot-connect-object-not-syncing/mvobject.png)  
+
+Om ett objekt inte synkroniserar du ställa följande frågor om attributet tillstånd i metaversum:
+- Är attributet **cloudFiltered** presentera och inställd **SANT**? Om det är den har filtrerats enligt anvisningarna i [attributet-baserad filtrering](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
+- Är attributet **sourceAnchor** finns? Om inte, har du en konto-resurs skogstopologi? Om ett objekt identifieras som en länkad postlåda (attributet **msExchRecipientTypeDetails** har värdet **2**), **sourceAnchor** datavetenskapscommunityn skog med en Aktivera Active Directory-konto. Kontrollera att huvudkontot har importerats och synkroniserats korrekt. Huvudkontot måste anges mellan den [anslutningsappar](#mv-connectors) för objektet.
 
 ### <a name="mv-connectors"></a>MV-kopplingar
-Fliken för anslutningar visas alla kopplingens utrymmen som har en representation av-objektet.  
-![Sync Service Manager](./media/tshoot-connect-object-not-syncing/mvconnectors.png)  
+Den **kopplingar** fliken visar alla kopplingens utrymmen som har en representation av-objektet. 
+ 
+![Skärmbild av fönstret Egenskaper för Metaversumobjekt med fliken för anslutningar valt](./media/tshoot-connect-object-not-syncing/mvconnectors.png)  
+
 Du bör ha en anslutning till:
 
-- Varje Active Directory-skog användaren visas i. Detta kan inkludera foreignSecurityPrincipals och kontaktobjekt.
+- Varje Active Directory-skog användaren visas i. Detta kan inkludera **foreignSecurityPrincipals** och **Kontakta** objekt.
 - En anslutning i Azure AD.
 
-Om du saknar anslutning till Azure AD, läs sedan [MV attribut](#mv-attributes) att verifiera villkoren för håller på att etableras till Azure AD.
+Om du saknar anslutning till Azure AD, Läs avsnittet på [MV attribut](#mv-attributes) att verifiera villkoren för etablering i Azure AD.
 
-Den här fliken kan du gå till den [anslutarplatsen](#connector-space-object-properties). Välj en rad och klicka på **egenskaper**.
+Från den **Anslutningsappar** fliken som du kan även gå till den [anslutarplatsen](#connector-space-object-properties). Välj en rad och klicka på **egenskaper**.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md).
-- [Vad är hybrididentitet? ](whatis-hybrid-identity.md).
+- Läs mer om [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md).
+- Läs mer om [hybrididentitet](whatis-hybrid-identity.md).

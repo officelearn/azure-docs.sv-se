@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: af067cabf312ec3c2556b84dc4d739e41ec0aacc
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535292"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430224"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure Database för MySQL
 
@@ -24,6 +24,7 @@ Skapa en virtuell nätverksregel det måste du först ta en [virtuellt nätverk]
 
 > [!NOTE]
 > Den här funktionen är tillgänglig i alla regioner där Azure där Azure Database for MySQL distribueras för generell användning och Minnesoptimerad servrar.
+> VNet peering om trafik flödar genom en gemensam Gateway för virtuellt nätverk med tjänstslutpunkter och ska flöda till peer-datorn kan du skapa en ACL/VNet-regel som tillåter Azure Virtual Machines i Gateway virtuella nätverk till Azure Database for MySQL-server.
 
 <a name="anch-terminology-and-description-82f" />
 

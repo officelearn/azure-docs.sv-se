@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9eebd695cbbc1e29ea7d2647b5955bcc2e3cfe4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175922"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415654"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
@@ -82,8 +82,8 @@ Använd följande checklista för att felsöka problem med sömlös enkel inlogg
 - Se till att användarkontot är från en Active Directory-skog där sömlös enkel inloggning har ställts in.
 - Kontrollera att enheten är ansluten till företagsnätverket.
 - Kontrollera att enhetens tiden har synkroniserats med tiden i både Active Directory och domänkontrollanterna och att de är inom fem minuter efter varandra.
-- Se till att den `AZUREADSSOACCT` datorkontot är tillgänglig och aktiverad i varje AD-skog som du vill att sömlös SSO aktiverat. Om datorkontot saknas eller har tagits bort, kan du använda [PowerShell-cmdletar](#manual-reset-of-the-feature) skapa dem igen.
-- Lista över de befintliga Kerberos-biljetterna på enheten med hjälp av den `klist` från en kommandotolk. Se till att biljetter som utfärdats för den `AZUREADSSOACCT` datorkontot finns. Användarens Kerberos-biljetter är vanligtvis giltiga i 10 timmar. Du kan ha olika inställningar i Active Directory.
+- Se till att den `AZUREADSSOACC` datorkontot är tillgänglig och aktiverad i varje AD-skog som du vill att sömlös SSO aktiverat. Om datorkontot saknas eller har tagits bort, kan du använda [PowerShell-cmdletar](#manual-reset-of-the-feature) skapa dem igen.
+- Lista över de befintliga Kerberos-biljetterna på enheten med hjälp av den `klist` från en kommandotolk. Se till att biljetter som utfärdats för den `AZUREADSSOACC` datorkontot finns. Användarens Kerberos-biljetter är vanligtvis giltiga i 10 timmar. Du kan ha olika inställningar i Active Directory.
 - Om du inaktiveras och återaktiveras sömlös enkel inloggning på din klient kan får användarna inte enkel inloggning till sina cachelagrade Kerberos-biljetter har upphört att gälla.
 - Rensa befintliga Kerberos-biljetter från enheten med hjälp av den `klist purge` kommandot och försök igen.
 - Granska loggarna för konsolen i webbläsaren för att avgöra om det finns problem med JavaScript (under **Developer Tools**).
@@ -123,7 +123,7 @@ Om inte hjälpte felsökning, kan du manuellt återställa funktionen på din kl
     >[!NOTE]
     >Vi använder den domänadministratör, det tillhandahållna användarnamnet i User Principal namn (UPN) (johndoe@contoso.com)-format eller domän kvalificerade sam-konto (contoso\johndoe eller contoso.com\johndoe) namnformatet, att hitta rätt AD-skogen. Om du använder domän kvalificerade sam-kontonamnet som vi använder domändelen i användarnamnet för att [hitta domänkontrollant av domänadministratören med hjälp av DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Om du använder UPN i stället vi [översätta det till en domän kvalificerade sam-kontonamnet](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) innan du hitta rätt domänkontrollanten.
 
-2. Anropa `Disable-AzureADSSOForest -OnPremCredentials $creds`. Detta kommando tar bort den `AZUREADSSOACCT` datorkontot från den lokala domänkontrollanten för den här specifika Active Directory-skogen.
+2. Anropa `Disable-AzureADSSOForest -OnPremCredentials $creds`. Detta kommando tar bort den `AZUREADSSOACC` datorkontot från den lokala domänkontrollanten för den här specifika Active Directory-skogen.
 3. Upprepa föregående steg för varje Active Directory-skog där du har konfigurerat funktionen.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Steg 4: Aktivera sömlös enkel inloggning för varje Active Directory-skog

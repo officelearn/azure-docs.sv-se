@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: e1bf51697425cca5074b5801c2286c7449132a17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 71fb289f03467147acb2ef254ab87a2c753bc75c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330919"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416555"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
 
@@ -248,7 +248,7 @@ Om du använder Azure Bot Service och problemet är att den **Test i Web Chat** 
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Lösa problem när du felsöker på lokal dator med Bot Framework. 
 
-Mer information om lokal felsökning av en robot finns [felsöka en robot](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Mer information om lokal felsökning av en robot finns [felsöka en robot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## <a name="integrating-luis"></a>Integrera LUIS
 

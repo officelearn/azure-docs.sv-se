@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c27c32f19dac4e5394ca5e2f3e3722eccffb49b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165118"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415875"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart
 
@@ -54,7 +54,7 @@ Se till att följande krav är uppfyllda.
 3. Identifiera en eller flera ytterligare servrar (som kör Windows Server 2012 R2 eller senare med TLS 1.2 aktiverat) där du kan köra fristående Autentiseringsagenter. Dessa ytterligare servrar behövs för att garantera hög tillgänglighet för begäranden för att logga in. Lägg till servrar i samma Active Directory-skog som användare vars lösenord du måste verifiera.
 
     >[!IMPORTANT]
-    >I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 12 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 40 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 4. Om det finns en brandvägg mellan dina servrar och Azure AD måste du konfigurera följande objekt:
    - Se till att Autentiseringsagenter kan göra *utgående* begäranden till Azure AD via följande portar:
@@ -109,7 +109,7 @@ I det här skedet kan användare från de hanterade domänerna i din klient logg
 Om du planerar att distribuera direktautentisering i en produktionsmiljö bör du installera ytterligare fristående Autentiseringsagenter. Installera de här autentiseringsagenter på servrarna _andra_ än en aktiva Azure AD Connect. Den här konfigurationen ger hög tillgänglighet för begäranden för användare logga in.
 
 >[!IMPORTANT]
->I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 12 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 40 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Följ dessa instruktioner för att hämta programvaran för autentiseringsagent:
 

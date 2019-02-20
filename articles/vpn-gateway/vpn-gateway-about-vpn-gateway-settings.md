@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3bf3dd325af48f99e109f651628883d8f946fdc8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 24b08bb843b4f1a0eb9f2471cb17b81f2c8ac4d0
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512490"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417541"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurationsinställningar för VPN-Gateway
 
@@ -20,13 +20,15 @@ En VPN-gateway är en typ av virtuell nätverksgateway som skickar krypterad tra
 
 En anslutning för VPN-gateway är beroende av konfigurationen av flera resurser som innehåller konfigurerbara inställningar. Avsnitt i den här artikeln beskrivs de resurser och inställningar som är relaterade till en VPN-gateway för ett virtuellt nätverk som skapats i Resource Manager-distributionsmodellen. Du hittar beskrivningar och Topologidiagram för varje anslutning lösning i den [om VPN Gateway](vpn-gateway-about-vpngateways.md) artikeln.
 
->[!NOTE]
-> Värdena i den här artikeln gäller VPN-gatewayer (vnet-gateways som använder - GatewayType Vpn). Den här artikeln beskriver inte alla gateway-typer eller zonredundant gatewayer.
->
->* Värden som gäller för - GatewayType ”ExpressRoute”, se [virtuella Nätverksgatewayer för ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
->* Zonredundant gateways, se [om zonredundant gatewayer](about-zone-redundant-vnet-gateways.md).
->* Virtuellt WAN-nätverk, finns i [om virtuellt WAN](../virtual-wan/virtual-wan-about.md). 
->
+Värdena i den här artikeln gäller VPN-gatewayer (vnet-gateways som använder - GatewayType Vpn). Den här artikeln beskriver inte alla gateway-typer eller zonredundant gatewayer.
+
+* Värden som gäller för - GatewayType ”ExpressRoute”, se [virtuella Nätverksgatewayer för ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
+
+* Zonredundant gateways, se [om zonredundant gatewayer](about-zone-redundant-vnet-gateways.md).
+
+* Virtuellt WAN-nätverk, finns i [om virtuellt WAN](../virtual-wan/virtual-wan-about.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gwtype"></a>Gateway-typer
 
@@ -42,7 +44,7 @@ En VPN-gateway kräver den `-GatewayType` *Vpn*.
 Exempel:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
@@ -62,7 +64,7 @@ Om du använder Azure-portalen för att skapa en virtuell nätverksgateway för 
 Följande PowerShell-exempel anger den `-GatewaySku` som VpnGw1. När du använder PowerShell för att skapa en gateway, måste du först skapa IP-konfigurationen och sedan använda en variabel för att referera till den. I det här exemplet är konfigurationsvariabeln $gwipconfig.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -101,7 +103,7 @@ Varje konfiguration kräver anslutningstypen för gatewayen ett specifikt virtue
 I följande PowerShell-exempel skapar vi en S2S-anslutning som kräver anslutningstypen *IPsec*.
 
 ```powershell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
@@ -119,7 +121,7 @@ Du kan inte ändra den VPN-typ när du har skapat en virtuell nätverksgateway. 
 Följande PowerShell-exempel anger den `-VpnType` som *RouteBased*. När du skapar en gateway måste du kontrollera att -VpnType är rätt för din konfiguration.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -141,21 +143,21 @@ När du skapar gatewayundernätet anger du det antal IP-adresser som undernätet
 I följande Resource Managers PowerShell-exempel visar ett gateway-undernät med namnet GatewaySubnet. Du kan se att CIDR-noteringen anger en/27, vilket gör att tillräckligt många IP-adresser för de flesta konfigurationer som finns för närvarande.
 
 ```powershell
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="lng"></a>Lokala nätverksgatewayer
 
-När du skapar en VPN-gateway-konfiguration, representerar den lokala nätverksgatewayen ofta din lokala plats. I den klassiska distributionsmodellen kallades den lokala nätverksgatewayen för Lokal plats. 
+ En lokal nätverksgateway skiljer sig från en virtuell nätverksgateway. När du skapar en VPN-gateway-konfiguration, representerar den lokala gatewayen vanligtvis din lokala plats. I den klassiska distributionsmodellen kallades den lokala nätverksgatewayen för Lokal plats.
 
 Du och ge den lokala nätverksgatewayen ett namn, offentlig IP-adressen för den lokala VPN-enheten och ange IP-adressprefixen som finns på den lokala platsen. Azure tittar på måladressprefixen för nätverkstrafiken, konsultationer den konfiguration som du har angett för din lokala nätverksgateway och dirigerar paket på lämpligt sätt. Du kan också ange lokala nätverksgatewayer för VNet-till-VNet-konfigurationer som använder en VPN-gatewayanslutning.
 
 I följande PowerShell-exempel skapas en ny lokal nätverksgateway:
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -167,7 +169,7 @@ Ytterligare tekniska resurser och specifik syntax krav när du använder REST AP
 
 | **Klassisk** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
+| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST-API](https://msdn.microsoft.com/library/jj154113) |[REST-API](/rest/api/network/virtualnetworkgateways) |
 | Stöds inte | [Azure CLI](/cli/azure/network/vnet-gateway)|
 

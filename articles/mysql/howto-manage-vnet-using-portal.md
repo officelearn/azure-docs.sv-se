@@ -6,18 +6,19 @@ ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 9aac664ae78fa0995f39677a362f1b23b9c4af35
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 366ffe03d5e31d88b02a841a95b89bb11e312abe
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535309"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414855"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure Database för MySQL-VNet-tjänstslutpunkter och VNet-regler med hjälp av Azure portal
 Virtuella nätverk (VNet) services-slutpunkter och regler kan du utöka det privata adressutrymmet för ett virtuellt nätverk till Azure Database för MySQL-server. En översikt över Azure Database för MySQL-VNet-tjänstslutpunkter, inklusive begränsningar, finns i [Azure Database för MySQL Server VNet-tjänstslutpunkter](concepts-data-access-and-security-vnet.md). VNet-tjänstslutpunkter är tillgängliga i alla regioner som stöds för Azure Database for MySQL.
 
 > [!NOTE]
 > Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
+> VNet peering om trafik flödar genom en gemensam Gateway för virtuellt nätverk med tjänstslutpunkter och ska flöda till peer-datorn kan du skapa en ACL/VNet-regel som tillåter Azure Virtual Machines i Gateway virtuella nätverk till Azure Database for MySQL-server.
 
 ## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>Skapa en VNet-regel och aktivera tjänstslutpunkter i Azure portal
 

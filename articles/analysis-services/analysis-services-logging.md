@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4d5c7c592bae32586922531781803db6622e6515
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310754"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429000"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera Diagnostisk loggning
 
@@ -158,7 +158,7 @@ Om du vill visa dina diagnostiska data i Log Analytics-arbetsytan, öppna **logg
 
 ![Loggalternativ för sökning i Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Expandera i Frågeverktyget **LogManagement** > **AzureDiagnostics**. AzureDiagnostics innehåller motor och tjänsthändelser. Observera att en fråga har skapats på direkt. EventClass\_s fältet innehåller xEvent-namn, som kan se bekant ut om du har använt xEvents för lokal loggning. Klicka på **EventClass\_s** eller en av händelsenamn och Log Analytics fortsätter att konstruera en fråga. Glöm inte att spara dina frågor att återanvända senare.
+Expandera i Frågeverktyget **LogManagement** > **AzureDiagnostics**. AzureDiagnostics innehåller motor och tjänsthändelser. Observera att en fråga har skapats på direkt. EventClass\_s fältet innehåller xEvent-namn, som kan se bekant ut om du har använt xEvents för lokal loggning. Klicka på **EventClass\_s** eller en av de händelsenamn och Log Analytics-arbetsytan fortsätter att konstruera en fråga. Glöm inte att spara dina frågor att återanvända senare.
 
 ### <a name="example-query"></a>Exempelfråga
 Den här frågan beräknar och returnerar CPU för varje fråga slutet/uppdatera Sluthändelse för en modelldatabasen och server:

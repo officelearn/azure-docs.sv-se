@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 63d22aaa402c77b55591a15745b258cdd6f0ef0a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bfbafea13f49ada59dae88e0336f926a8ad89d36
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244359"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430258"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudier: Distribuera appar till Azure och Azure Stack
 
@@ -281,7 +281,7 @@ Du kan följa anvisningarna i [skapa en tjänstanslutning för Azure Resource Ma
 
 Du kan skapa en anslutning för tjänsten med hjälp av följande mappning:
 
-| Name | Exempel | Beskrivning |
+| Namn | Exempel | Beskrivning |
 | --- | --- | --- |
 | Anslutningsnamn | Azure Stack Azure AD | Namnet på anslutningen. |
 | Miljö | AzureStack | Namnet på din miljö. |
@@ -306,7 +306,7 @@ Den senaste uppdateringen till Azure DevOps kan skapa en tjänstanslutning som a
 
 Du kan skapa en anslutning för tjänsten med hjälp av följande mappning:
 
-| Name | Exempel | Beskrivning |
+| Namn | Exempel | Beskrivning |
 | --- | --- | --- |
 | Anslutningsnamn | Azure Stack ADFS | Namnet på anslutningen. |
 | Miljö | AzureStack | Namnet på din miljö. |

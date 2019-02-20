@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 022017015808d72f661f6764e8fa10fdc49e9f61
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 29b7893bbe813ece7cece9d1591dd574158f4482
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843214"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56409689"
 ---
-## <a name="set-up-your-project"></a>Konfigurera ditt projekt
+## <a name="set-up-your-project"></a>Konfigurera projektet
 
 I det här avsnittet skapar du ett nytt projekt för att demonstrera hur du integrerar ett Windows Desktop .NET-program (XAML) med *logga In med Microsoft* så att programmet kan fråga webb-API: er som kräver en token.
 
@@ -33,17 +33,17 @@ Det program som du skapar med den här guiden visar en knapp som används för a
 
 Skapa ditt program genom att göra följande:
 
-1. I Visual Studio väljer **filen** > **New** > **projekt**.
+1. Välj **Arkiv** > **Nytt** > **Projekt** i Visual Studio.
 2. Under **mallar**väljer **Visual C#**.
 3. Välj **WPF-App (.NET Framework)**, beroende på vilken version av Visual Studio-version som du använder.
 
 ## <a name="add-msal-to-your-project"></a>Lägg till MSAL i projektet
 
-1. I Visual Studio väljer **verktyg** > **NuGet-Pakethanteraren**> **Pakethanterarkonsolen**.
+1. I Visual Studio väljer du **Verktyg** > **NuGet Package Manager**> **Package Manager Console**.
 2. Klistra in följande Azure PowerShell-kommando i fönstret Package Manager-konsolen:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client
     ```
 
     > [!NOTE] 

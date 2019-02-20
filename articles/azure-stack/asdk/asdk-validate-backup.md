@@ -11,12 +11,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 6fdec992b19a5615a35955a46fd90102890cde16
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 31c5d068c8fcd0b6edea7cff63098131d848a14e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329361"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416386"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Använd ASDK för att validera en säkerhetskopiering i Azure Stack
 När du distribuerar Azure Stack och etablera användarresurser, till exempel erbjudanden, planer, kvoter och prenumerationer, bör du [Aktivera säkerhetskopiering av Azure Stack-infrastruktur](../azure-stack-backup-enable-backup-console.md). Schemaläggning och körning av infrastruktur för regelbundna säkerhetskopieringar säkerställer att infrastrukturen hanteringsdata inte går förlorad om det finns ett oåterkalleligt maskinvaru- eller tjänstfel.
@@ -45,18 +45,35 @@ Följande scenario **är inte** stöds vid verifiering av säkerhetskopior på A
 ## <a name="cloud-recovery-deployment"></a>Distribution av återställning
 Infrastruktur säkerhetskopior från distributionen av integrerade system kan verifieras genom att utföra en molndistribution för återställning av ASDK. I den här typen av distribution har specifik tjänstdata återställts från säkerhetskopia när ASDK har installerats på värddatorn.
 
-
-
 ### <a name="prereqs"></a>Krav för återställning av molnet
 Innan du startar en molndistribution för återställning av ASDK ska du kontrollera att du har följande information:
+
+**Krav för UI-installationsprogrammet**
+
+*Aktuella UI-installationsprogrammet stöder endast krypteringsnyckel*
 
 |Krav|Beskrivning|
 |-----|-----|
 |Säkerhetskopiering resurssökväg|UNC-sökvägen till filresursen för den senaste Azure Stack-säkerhetskopia som ska användas för att återskapa information för Azure Stack-infrastruktur. Den här lokala resursen skapas under distributionsprocessen för molnet återställning.|
-|Säkerhetskopiera krypteringsnyckel|Valfri. Krävs endast om du har uppgraderat till Azure Stack-version 1901 eller senare från en tidigare version av Azure Stack med säkerhetskopiering aktiverad.|
 |Säkerhetskopie-ID att återställa|Säkerhetskopie-ID i formuläret alfanumeriska ”xxxxxxxx-xxxx-xxxx-xxxx-XXXXXXXXXXXX” som identifierar säkerhetskopian ska återställas under molnåterställning.|
 |IP-adress för server för tid|En giltig tid servern IP-adress, till exempel 132.163.97.2, krävs för Azure Stack-distributioner.|
-|Lösenord för externa certifikat|Lösenordet för det självsignerade certifikatets privata nyckel (.pfx) som användes för att skydda säkerhetskopian.|
+|Lösenord för externa certifikat|Lösenordet för det externa certifikatet som används av Azure Stack. CA-säkerhetskopiering innehåller externa certifikat som måste återställas med det här lösenordet.|
+|Säkerhetskopiera krypteringsnyckel|Krävs om du har uppgraderat till Azure Stack-version 1901 eller senare och säkerhetskopiering inställningar konfigureras fortfarande in med en krypteringsnyckel. Krypteringsnyckeln är inaktuell från och med 1901. Installationsprogrammet stöder krypteringsnyckeln i bakåtkompatibilitet kompatibilitetsläge för minst 3 versioner. När du har uppdaterat inställningar för att använda ett certifikat finns i nästa tabell för nödvändig information.|
+
+|     |     | 
+
+**Installationsprogrammet för PowerShell-krav**
+
+*Den aktuella PowerShell installationsprogrammet stöder nyckel eller dekryptering krypteringscertifikat*
+
+|Krav|Beskrivning|
+|-----|-----|
+|Säkerhetskopiering resurssökväg|UNC-sökvägen till filresursen för den senaste Azure Stack-säkerhetskopia som ska användas för att återskapa information för Azure Stack-infrastruktur. Den här lokala resursen skapas under distributionsprocessen för molnet återställning.|
+|Säkerhetskopie-ID att återställa|Säkerhetskopie-ID i formuläret alfanumeriska ”xxxxxxxx-xxxx-xxxx-xxxx-XXXXXXXXXXXX” som identifierar säkerhetskopian ska återställas under molnåterställning.|
+|IP-adress för server för tid|En giltig tid servern IP-adress, till exempel 132.163.97.2, krävs för Azure Stack-distributioner.|
+|Lösenord för externa certifikat|Lösenordet för det externa certifikatet som används av Azure Stack. CA-säkerhetskopiering innehåller externa certifikat som måste återställas med det här lösenordet.|
+|Krypteringslösenord för certifiering|Valfri. Krävs endast om säkerhetskopieringen har krypterats med ett certifikat. Lösenordet är för självsignerade certifikatets (.pfx) som innehåller den privata nyckeln som krävs för att dekryptera säkerhetskopierade data.|
+|Säkerhetskopiera krypteringsnyckel|Valfri. Krävs om du har uppgraderat till Azure Stack-version 1901 eller senare och säkerhetskopiering inställningar konfigureras fortfarande in med en krypteringsnyckel. Installationsprogrammet stöder krypteringsnyckeln i bakåtkompatibilitet kompatibilitetsläge för minst 3 versioner. När du har uppdaterat inställningar för att använda ett certifikat måste du ange lösenordet för dekrypteringscertifikat.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Förbereda värddatorn 
@@ -74,17 +91,23 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
 Kopiera ditt senaste säkerhetskopieringsfilerna för Azure Stack till nyligen skapade resursen. Mappstruktur på resursen ska vara: `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`.
 
+Kopiera slutligen dekrypteringscertifikat (.pfx) till katalogen certifikat: `C:\CloudDeployment\Setup\Certificates\` och Byt namn på filen och `BackupDecryptionCert.pfx`.
+
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>Distribuera ASDK i återställningsläge för molnet
-Den **InstallAzureStackPOC.ps1** skript används för att initiera molnåterställning. 
 
 > [!IMPORTANT]
-> ASDK installation har stöd för exakt ett nätverkskort (NIC) för nätverk. Om du har flera nätverkskort kan du kontrollera att endast ett är aktiverat (och alla andra har inaktiverats) innan du kör skriptet för distribution.
+> 1. Aktuella installationsprogrammet Användargränssnittet stöder endast krypteringsnyckeln. Du kan bara verifiera säkerhetskopior från system som fortsätta att använda krypteringsnyckeln. Om säkerhetskopieringen har krypterats på ett integrerat system eller ASDK som använder certifikat, använder du installationsprogrammet för PowerShell (**InstallAzureStackPOC.ps1**). 
+> 2. PowerShell-installationsprogrammet (**InstallAzureStackPOC.ps1**) stöder krypteringsnyckeln eller certifikat.
+> 3. ASDK installation har stöd för exakt ett nätverkskort (NIC) för nätverk. Om du har flera nätverkskort kan du kontrollera att endast ett är aktiverat (och alla andra har inaktiverats) innan du kör skriptet för distribution.
 
-### <a name="use-the-installer-to-deploy-the-asdk-in-recovery-mode"></a>Använd installationsprogrammet för att distribuera ASDK i återställningsläge
+### <a name="use-the-installer-ui-to-deploy-the-asdk-in-recovery-mode"></a>Använd installationsprogrammet för Användargränssnittet för att distribuera ASDK i återställningsläge
 Stegen i det här avsnittet visar hur du distribuerar ASDK med ett grafiskt användargränssnitt (GUI) som tillhandahålls av ladda ned och köra den **asdk installer.ps1** PowerShell-skript.
 
 > [!NOTE]
 > Installationsprogrammet användargränssnittet för Azure Stack Development Kit är en öppen källkod-skript som baseras på WCF- och PowerShell.
+
+> [!IMPORTANT]
+> Aktuella installationsprogrammet Användargränssnittet stöder endast krypteringsnyckeln.
 
 1. När värddatorn startar i CloudBuilder.vhdx-avbildning, logga in med administratörsautentiseringsuppgifter för anges när du [förberett värddatorn development kit](asdk-prepare-host.md) för ASDK installation. Detta bör vara samma som development kit-autentiseringsuppgifter för lokal administratör på värden.
 2. Öppna en upphöjd PowerShell-konsol och kör den  **&lt;enhetsbeteckning > \AzureStack_Installer\asdk-installer.ps1** PowerShell-skript. Skriptet kan nu vara på en annan enhet än C:\ i CloudBuilder.vhdx bild. Klicka på **återställa**.
@@ -117,26 +140,64 @@ Stegen i det här avsnittet visar hur du distribuerar ASDK med ett grafiskt anv�
 
 
 ### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Använd PowerShell för att distribuera ASDK i återställningsläge
+
 Ändra följande PowerShell-kommandon för din miljö och kör dem om du vill distribuera ASDK i återställningsläge för molnet:
+
+**Använd InstallAzureStackPOC.ps1 skript för att starta molnåterställning med krypteringsnyckeln.**
 
 ```powershell
 cd C:\CloudDeployment\Setup     
-$adminPass = Get-Credential Administrator
-$key = ConvertTo-SecureString "<Your backup encryption key>" -AsPlainText -Force ` 
-$certPass = Read-Host -AsSecureString  
+$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
+$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
+$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
+$key = Read-Host -AsSecureString -Prompt "Your backup encryption key"
 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
--BackupEncryptionKeyBase64 $key -BackupStoreCredential $adminPass -BackupId "<Backup ID to restore>" `
--TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
+ -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
+ -BackupEncryptionKeyBase64 $key `
+ -BackupStoreCredential $backupstorecredential `
+ -BackupId "<Backup ID to restore>" `
+ -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
 
-## <a name="restore-infrastructure-data-from-backup"></a>Återställa infrastrukturdata från en säkerhetskopia
+**Använd InstallAzureStackPOC.ps1 skript för att initiera molnåterställning med dekrypteringscertifikat.**
+
+```powershell
+cd C:\CloudDeployment\Setup     
+$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
+$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
+$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
+$decryptioncertpassword  = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
+ -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
+ -BackupDecryptionCertPassword $decryptioncertpassword `
+ -BackupStoreCredential $backupstorecredential `
+ -BackupId "<Backup ID to restore>" `
+ -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
+```
+
+## <a name="complete-cloud-recovery"></a>Fullständig molnåterställning 
 Efter en lyckad återställning molndistribution, du behöver för att slutföra en återställning med hjälp av den **återställning AzureStack** cmdlet. 
 
 När du loggar in som Azure Stack-operatör [installera Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) och kör följande kommandon för att ange certifikatet och lösenordet som ska användas när du återställer från en säkerhetskopia:
 
+**Återställningsläge med certifikatfilen**
+
+> [!NOTE] 
+> Dekrypteringscertifikat av säkerhetsskäl sparas inte i Azure Stack-distribution. Du måste ange dekrypteringscertifikat och tillhörande lösenord igen.
+
 ```powershell
-Restore-AzsBackup -Name "<BackupID>"
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>" `
+ -DecryptionCertPath "<path to decryption certificate with file name (.pfx)>" `
+ -DecryptionCertPassword $decryptioncertpassword
+```
+
+**Återställningsläge med krypteringsnyckeln**
+```powershell
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>"
 ```
 
 Vänta 60 minuter efter att anropa denna cmdlet om du vill starta verifiering av säkerhetskopierade data på molnet återställts ASDK.

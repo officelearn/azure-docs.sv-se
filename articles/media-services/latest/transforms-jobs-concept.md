@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: d93e0de48fd10677ad30e002390dc2e8177cf2eb
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: fd93b84c251a0b2346550c79bcb8796161cb9116
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408484"
+ms.locfileid: "56417879"
 ---
 # <a name="transforms-and-jobs"></a>Transformeringar och jobb
  
@@ -52,6 +52,10 @@ Anta att du vill extrahera första bildruta från dina videor som en miniatyrbil
     2. Var ska skriva på miniatyrbilden för utdata. 
 
 En **transformera** hjälper dig att skapa receptet en gång (steg 1) och skicka jobb med hjälp av det receptet (steg 2).
+
+## <a name="job-error-codes"></a>Felkoder för jobbet
+
+Se [felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="paging"></a>Sidindelning
 

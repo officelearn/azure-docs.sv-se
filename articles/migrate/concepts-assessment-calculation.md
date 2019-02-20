@@ -4,14 +4,14 @@ description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 62683aaf7dda048b5828e9494ba8cafe6c8b8f9f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849181"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417947"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -54,7 +54,7 @@ Följande logik används av Azure Migrate för att identifiera Azure-beredskap f
 **Operativsystem** | **Detaljer** | **Status för Azure-beredskap**
 --- | --- | ---
 Windows Server 2016 och alla Service Pack | Azure tillhandahåller fullständig support. | Redo för Azure
-Windows Server 2012 R2 och alla Service Pack | Azure tillhandahåller fullständig support. | Redo för Azure
+Windows Server 2012 R2 & all SPs | Azure tillhandahåller fullständig support. | Redo för Azure
 Windows Server 2012 och alla Service Pack | Azure tillhandahåller fullständig support. | Redo för Azure
 Windows Server 2008 R2 med alla Service Pack | Azure tillhandahåller fullständig support.| Redo för Azure
 Windows Server 2008 (32-bitars och 64-bitars) | Azure tillhandahåller fullständig support. | Redo för Azure
@@ -68,7 +68,7 @@ Andra operativsystem<br/><br/> t.ex. Oracle Solaris, Apple Mac OS etc., FreeBSD 
 OS tillhörigheten **andra** i vCenter Server | Azure Migrate identifiera inte Operativsystemet i det här fallet. | Beredskap för okänd. Se till att det operativsystem som körs på den virtuella datorn stöds i Azure.
 32-bitars operativsystem | Datorn kan starta i Azure, men Azure tillhandahålla inte fullständig support. | Villkorligt redo för Azure bör du överväga att uppgradera Operativsystemet på datorn från 32-bitars operativsystem till 64-bitars operativsystem innan du migrerar till Azure.
 
-## <a name="sizing"></a>Storleksändring
+## <a name="sizing"></a>Storlekar
 
 När en dator markeras som redo för Azure, storlekar Azure Migrate den virtuella datorn och dess diskar för Azure. Om storlekskriteriet som angetts i egenskaperna för utvärdering är att utföra prestandabaserade storleksändringar, överväger Azure Migrate prestandahistoriken för datorn att identifiera VM-storlek och disk-typ i Azure. Den här metoden är användbar i scenarier där du har tilldelat en lokal virtuell dator över men användningen är låg och du vill att storleksanpassa de virtuella datorerna i Azure för att minska kostnaderna.
 
@@ -94,7 +94,7 @@ För prestandabaserade storleksändringar behöver Azure Migrate börjar med dis
     - Tillsammans med nätverksprestanda, den tittar också om den virtuella Azure-datorn har stöd för de nödvändiga antalet nätverkskort.
     - Om det finns inga nätverk prestandadata anses endast nätverk nätverkskort antal för VM-storlek.
 
-- **Compute**: när krav för lagring och nätverk beräknas Azure Migrate överväger processor- och kraven för att hitta en lämplig VM-storlek i Azure.
+- **Compute**: När krav för lagring och nätverk beräknas överväger Azure Migrate processor- och kraven för att hitta en lämplig VM-storlek i Azure.
     - Azure Migrate tittar på utnyttjade kärnor och minne och gäller komfortfaktor för att få gällande kärnor och minne. Baserat på det antalet försök att hitta en lämplig VM-storlek i Azure.
     - Om det finns ingen passande storlek, markeras datorn som olämpliga för Azure.
     - Om en lämplig storlek hittas, gäller Azure Migrate lagring och nätverk beräkningar. Den gäller sedan plats och prisnivåinställningarna för den slutliga rekommendationen för VM-storlek.
@@ -131,8 +131,8 @@ För prestandabaserade storleksändringar behöver Azure Migrate användningsdat
 
 När storleksrekommendationer har slutförts kan beräknar Azure Migrate efter migrering beräknings- och kostnader.
 
-- **Beräkningskostnaden**: med den rekommenderade storleken för virtuell Azure-dator kan Azure Migrate använder Billing-API för att beräkna den månatliga kostnaden för den virtuella datorn. Det operativsystem, software assurance, reserverade instanser, VM drifttid, plats och valutainställningar hänsyn tas med i beräkningen. Sammanställer kostnaden för samtliga datorer att beräkna den totala månadskostnaden för beräkning.
-- **Kostnaden för lagring**: månatlig lagringskostnad för en dator beräknas genom att sammanställa månadskostnaden för alla diskar som är anslutna till datorn. Azure Migrate beräknar de totala månatliga kostnaderna för lagring genom att sammanställa lagringskostnaderna för alla datorer. Beräkningen tar för närvarande inte erbjudanden som anges i utvärderingsinställningarna för i kontot.
+- **Beräkningskostnaden**: Med den rekommenderade storleken för virtuell Azure-dator kan använder Azure Migrate Billing-API för att beräkna den månatliga kostnaden för den virtuella datorn. Det operativsystem, software assurance, reserverade instanser, VM drifttid, plats och valutainställningar hänsyn tas med i beräkningen. Sammanställer kostnaden för samtliga datorer att beräkna den totala månadskostnaden för beräkning.
+- **Kostnaden för lagring**: Månatliga storage-kostnaden för en dator beräknas genom att sammanställa månadskostnaden för alla diskar som är anslutna till datorn. Azure Migrate beräknar de totala månatliga kostnaderna för lagring genom att sammanställa lagringskostnaderna för alla datorer. Beräkningen tar för närvarande inte erbjudanden som anges i utvärderingsinställningarna för i kontot.
 
 Kostnader visas i den valuta som anges i utvärderingsinställningarna för.
 

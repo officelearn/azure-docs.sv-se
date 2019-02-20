@@ -4,17 +4,17 @@ description: Beskriver hur resource principdefinitionen används av Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5a16edcb702db21b357c437b920e870a65fb155a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9dc6407a222adb06f4139d9973c168911e0faca8
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270172"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429680"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -80,7 +80,7 @@ Den **läge** avgör vilka typer av resurser kommer att utvärderas för en prin
 
 Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användning i `all` läge. Om du använder PowerShell eller Azure CLI kan du ange den **läge** parametern manuellt. Om principdefinitionen inte innehåller en **läge** , den standardvärdet `all` i Azure PowerShell och till `null` i Azure CLI. En `null` läge är detsamma som att använda `indexed` att stödja bakåtkompatibilitet kompatibilitet.
 
-`indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Du måste inte, förhindrar resurser som inte stöder taggar och platser från dyker upp som icke-kompatibla i kompatibilitetsresultaten. Undantaget är **resursgrupper**. Principer som framtvinga plats eller taggar på en resursgrupp bör ange **läge** till `all` och specifikt mål den `Microsoft.Resources/subscriptions/resourceGroup` typen. Ett exempel finns i [framtvinga grupp resurstaggar](../samples/enforce-tag-rg.md).
+`indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Du måste inte, förhindrar resurser som inte stöder taggar och platser från dyker upp som icke-kompatibla i kompatibilitetsresultaten. Undantaget är **resursgrupper**. Principer som framtvinga plats eller taggar på en resursgrupp bör ange **läge** till `all` och specifikt mål den `Microsoft.Resources/subscriptions/resourceGroups` typen. Ett exempel finns i [framtvinga grupp resurstaggar](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parametrar
 
@@ -245,15 +245,41 @@ Följande fält stöds:
 - `identity.type`
   - Returnerar typen för [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) aktiverad på resursen.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - Den här syntaxen hakparentes stöder taggnamn som har skiljetecken, till exempel ett bindestreck, punkt eller blanksteg.
   - Där **\<tagName\>** är namnet på taggen för att verifiera villkoret för.
-  - Exempel: `tags.CostCenter` där **CostCenter** är namnet på taggen.
-- `tags[<tagName>]`
-  - Den här syntaxen hakparentes stöder taggnamn som har en period.
-  - Där **\<tagName\>** är namnet på taggen för att verifiera villkoret för.
-  - Exempel: `tags[Acct.CostCenter]` där **Acct.CostCenter** är namnet på taggen.
-
+  - Exempel: `tags['Acct.CostCenter']` där **Acct.CostCenter** är namnet på taggen.
+- `tags['''<tagName>''']`
+  - Den här syntaxen hakparentes stöder taggnamn som har apostrofer i den genom att undantagstecken med dubbla apostrofer.
+  - Där **'\<tagName\>'** är namnet på taggen för att verifiera villkoret för.
+  - Exempel: `tags['''My.Apostrophe.Tag''']` där **'\<tagName\>'** är namnet på taggen.
 - Egenskapen alias – en lista i [alias](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]`, och `tags[tag.with.dots]` godtas sätt deklarerar en tagg-fälten.
+> Prioriterade uttrycken är de som anges ovan.
+
+#### <a name="use-tags-with-parameters"></a>Använda taggar med parametrar
+
+Ett parametervärde kan skickas till ett fält med taggen. Skicka en parameter till ett fält i taggen ökar flexibiliteten för principdefinitionen under principtilldelningen.
+
+I följande exempel `concat` används för att skapa en fält-sökning för taggar för taggen med namnet värdet för den **tagName** parametern. Om taggen i fråga inte finns i **lägga till** effekt används för att lägga till taggen med hjälp av värdet för samma namngivna tagg in på granskade resurserna överordnade resursgruppen med hjälp av den `resourcegroup()` lookup-funktion.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>Värde
 
@@ -353,7 +379,7 @@ Alla [Resource Manager-Mallfunktioner](../../../azure-resource-manager/resource-
 
 Dessutom kan den `field` funktionen är tillgänglig för hanteringsprincipregler (MPR). `field` används främst med **AuditIfNotExists** och **DeployIfNotExists** till referensfält på resursen som utvärderas. Ett exempel på den här användningen visas på den [DeployIfNotExists exempel](effects.md#deployifnotexists-example).
 
-#### <a name="policy-function-examples"></a>Exempel på funktion
+#### <a name="policy-function-example"></a>Princip för funktionen exempel
 
 Den här principen regelexempel använder den `resourceGroup` resurs-funktionen för att hämta den **namn** egenskapen tillsammans med den `concat` matris och objekt-funktionen för att skapa en `like` villkor som tillämpar resursnamnet att starta med resursgruppens namn.
 
@@ -367,24 +393,6 @@ Den här principen regelexempel använder den `resourceGroup` resurs-funktionen 
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-Den här principen regelexempel använder den `resourceGroup` resurs-funktionen för att hämta den **taggar** matris-värdet för den **kostnadsställe** taggen på resursgruppen och lägger till dem till den **kostnadsställe**  taggen på den nya resursen.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

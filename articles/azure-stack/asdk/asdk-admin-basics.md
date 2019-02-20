@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9a07a829aac9659ac7ab8d04b64a1ea1a9a2de78
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248171"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428066"
 ---
 # <a name="asdk-administration-basics"></a>Grundläggande om administration av ASDK 
 Det finns flera saker du behöver veta om du inte har använt Azure Stack Development Kit (ASDK) administration. Den här vägledningen innehåller en översikt över din roll som Azure Stack-operatör i utvecklingsmiljö och kontrollera din testanvändare kan vara produktiva snabbt.
@@ -37,7 +37,7 @@ Det finns några överväganden för användarkonton som du bör känna till nä
 |-----|-----|-----|
 |Lokal administratör (. \administratör)|ASDK värd administratör|ASDK värd administratör|
 |AzureStack\AzureStackAdmin|ASDK värd administratör<br><br>Kan användas för att logga in på administrationsportalen för Azure Stack<br><br>Åtkomst till se och administrera Service Fabric-ringar|ASDK värd administratör<br><br>Ingen åtkomst till Azure Stack-administrationsportalen<br><br>Åtkomst till se och administrera Service Fabric-ringar<br><br>Inte längre ägare av standard providern prenumeration (DPS)|
-|AzureStack\CloudAdmin|Kan komma åt och kör tillåtna kommandon inom den privilegierad slutpunkt|Kan komma åt och kör tillåtna kommandon inom den privilegierad slutpunkt<br><br>Kan inte logga in till ASDK värden<br><br>Ägaren av providern Standardprenumeration (DPS)|
+|AzureStack\CloudAdmin|Kan komma åt och kör tillåtna kommandon inom den privilegierad slutpunkt|Kan komma åt och kör tillåtna kommandon inom den privilegierad slutpunkt<br><br>Det går inte att logga in på ASDK värden<br><br>Ägaren av providern Standardprenumeration (DPS)|
 |Azure AD Global Administrator|Används under installationen<br><br>Ägaren av providern Standardprenumeration (DPS)|Inte tillämpligt|
 |
 

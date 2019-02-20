@@ -17,7 +17,7 @@ metadata:
   ms.date: 05/18/2018
   ms.author: robinsh
 abstract:
-  description: Välkommen till Microsoft Azure och Sakernas Internet (Internet of Things, IoT). Azure IoT är en omfattande uppsättning tjänster och lösningar som är utformade för att hjälpa dig att skapa IoT-program från slutpunkt till slutpunkt på Azure. Azure IoT tillhandahåller en omfattande uppsättning alternativ och verktyg som är anpassade efter dina branschbehov och företagets färdigheter och resurser, från värdbaserade och fullständigt hanterade SaaS-lösningar till distinkta och specialiserade PaaS-erbjudanden samt tekniker för att skapa intelligenta Edge-produkter.
+  description: Välkommen till Microsoft Azure och Sakernas Internet (Internet of Things, IoT). Azure IoT är en omfattande uppsättning tjänster och lösningar som är utformade för att hjälpa dig att skapa IoT-program från slutpunkt till slutpunkt på Azure. Azure IoT tillhandahåller en omfattande uppsättning alternativ och verktyg som är anpassade efter dina branschbehov och företagets färdigheter och resurser, från värdbaserade och fullständigt hanterade SaaS-lösningar till distinkta och specialiserade PaaS-erbjudanden samt tekniker för att skapa den intelligenta nätverksgränsen.
 sections:
 - title: Snabbstarter på 5 minuter
   items:

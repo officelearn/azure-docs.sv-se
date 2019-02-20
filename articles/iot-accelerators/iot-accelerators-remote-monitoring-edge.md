@@ -22,7 +22,7 @@ I den här självstudien konfigurerar du lösningen för fjärrövervakning för
 
 I den här självstudien används en simulerad oljepumpjackenhet för att introducera Edge-bearbetning med fjärrövervakning. Oljepumpjacket hanteras av en organisation som heter Contoso och är anslutet till lösningsacceleratorn Fjärrövervakning. Sensorer på oljepumpjacket mäter temperatur och tryck. Operatörer på Contoso vet att en onormal temperaturökning kan orsaka att oljepumpjacket blir långsammare. Operatörer på Contoso behöver inte övervaka enhetens temperatur när det är inom det normala intervallet.
 
-Contoso vill distribuera en intelligent gränsenhetsmodul till oljepumpjacket som identifierar temperaturavvikelser. En annan Edge-modul skickar aviseringar till lösningen för fjärrövervakning. När en avisering tas emot kan en Contoso-operator skicka en underhållstekniker. Contoso kan också konfigurera en automatisk åtgärd, som att skicka ett e-postmeddelande, som ska köras när lösningen tar emot en avisering.
+Contoso vill distribuera en modul för den intelligenta nätverksgränsen till oljepumpjacket som identifierar temperaturavvikelser. En annan Edge-modul skickar aviseringar till lösningen för fjärrövervakning. När en avisering tas emot kan en Contoso-operator skicka en underhållstekniker. Contoso kan också konfigurera en automatisk åtgärd, som att skicka ett e-postmeddelande, som ska köras när lösningen tar emot en avisering.
 
 Följande diagram visar huvudkomponenterna i självstudiescenariot:
 

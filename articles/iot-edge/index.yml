@@ -25,7 +25,7 @@ abstract:
       height: 110
       src: ./media/index/iot-edge-thumbnail.png
       width: 250
-    title: Skapa den intelligenta gränsen med Azure IoT Edge (6:59)
+    title: Skapa den intelligenta nätverksgränsen med Azure IoT Edge (6:59)
     href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge
     width: 250
 sections:

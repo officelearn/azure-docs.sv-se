@@ -4,14 +4,14 @@ description: Vanliga frågor och svar om Azure Migrate adresser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746327"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416198"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -118,6 +118,10 @@ Data som samlas in av insamlingsprogrammet lagras på Azure-plats som du anger n
 
 För visualisering av beroenden, om du installerar agenter på de virtuella datorerna, lagras data som samlas in av agenterna beroende i USA i en Log Analytics-arbetsyta som skapades i användarens prenumeration. Dessa data tas bort när du tar bort logganalys-arbetsytan i din prenumeration. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Vad är mängden data som överförts av Azure Migrate när det gäller kontinuerlig profilering?
+
+Mängden data som skickas till Azure Migrate skulle varierar beroende på flera parametrar. För att ge ett vägledande nummer, skickar ett projekt med tio datorer (var och en med en disk och ett nätverkskort), ungefär 50 MB per dag. Detta är ett ungefärligt värde och skulle ändras baserat på antalet datapunkter för nätverkskort och diskar (data som skickas skulle vara icke-linjära om antalet datorer, nätverkskort eller diskar ökar). 
+
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Data krypteras i vila och under överföring?
 
 Ja, insamlade data krypteras både i vila och under överföringen. De metadata som samlas in av installationen skickas på ett säkert sätt till Azure Migrate-tjänsten över internet via https. Insamlade metadata lagras i [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) och i [Azure blobblagring](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) i en Microsoft-prenumeration och krypteras i viloläge.
@@ -130,7 +134,7 @@ Insamlaren ansluter till vCenter-servern (port 443) med de autentiseringsuppgift
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Kan jag ansluta samma insamlingsprogrammet till flera vCenter-servrar?
 
-Ja, en enda insamlingsprogrammet kan användas för att identifiera flera vCenter-servrar, men inte samtidigt. Du behöver köra identifieringar efter varandra.
+Ja, en enda insamlingsprogrammet kan användas för att identifiera flera vCenter-servrar, men inte samtidigt. Du behöver köra identifieringen efter varandra.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>OVA-mallen som används av Site Recovery är integrerad med ova-filen som används av Azure Migrate?
 

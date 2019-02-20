@@ -67,10 +67,10 @@ Du kan utöka funktionerna i frågespråket genom att definiera och anropa ytter
 
 Azure Stream Analytics är ett fullständigt hanterat serverlöst erbjudande (PaaS) på Azure. Det innebär att du inte behöver etablera någon maskinvara eller hantera kluster för att köra jobben. Azure Stream Analytics hanterar jobbet fullt ut, genom att ta hand om konfigurationen av komplexa beräkningskluster i molnet och den prestandajustering som krävs för att köra jobbet. Tack vare integreringen med Azure Event Hubs och Azure IoT Hub kan jobb mata in flera miljoner händelser per sekund från anslutna enheter, klickströmsdata och loggfiler för att bara nämna några få. Med partitioneringsfunktionen för händelsehubbar kan du partitionera beräkningar i logiska steg, vart och ett med möjlighet att ytterligare partitioneras för att öka skalbarheten.
 
-## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>Köra i molnet på intelligenta gränsenheter
+## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>Köra i molnet på den intelligenta nätverksgränsen
 
-Azure Stream Analytics kan köras i molnet, för storskaliga analyser, eller köras på en intelligent gränsenhet för analyser med extremt låg latens.
-Azure Stream Analytics använder samma frågespråk både i molnet och på intelligenta gränsenheter, så att utvecklare kan skapa verklig hybridarkitektur för bearbetning av dataströmmen.
+Azure Stream Analytics kan köras i molnet, för storskaliga analyser, eller köras på den intelligenta nätverksgränsen för analyser med extremt låg latens.
+Azure Stream Analytics använder samma frågespråk både i molnet och på den intelligenta nätverksgränsen, så att utvecklare kan skapa verklig hybridarkitektur för bearbetning av dataströmmen.
 
 ## <a name="low-total-cost-of-ownership"></a>Låg total ägandekostnad
 

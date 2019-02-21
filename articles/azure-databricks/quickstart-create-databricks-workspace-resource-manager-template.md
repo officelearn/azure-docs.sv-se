@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 88538aa9528059458f6e73485f4839693caa943b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 179bb4586ce7d6b306decfcf4d312d541dc9232e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054511"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330485"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
 
@@ -51,7 +51,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure Resource 
 
 4. Det tar några minuter att skapa arbetsytan. När arbetsytan skapas i portalen visas panelen för att **skicka distribution för Azure Databricks** på höger sida. Du kan behöva rulla åt höger på instrumentpanelen för att se panelen. En förloppsindikator visas även längst upp på skärmen. Båda dessa områden visar förloppet.
 
-   ![Distributionspanel för Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Distributionspanel för Databricks")
+   ![Distributionspanel för Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Distributionspanel för Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 
@@ -59,11 +59,11 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure Resource 
 
 2. Du omdirigeras till Azure Databricks-portalen. Från portalen klickar du på **Kluster**.
 
-   ![Databricks på Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks på Azure")
+   ![Databricks på Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-on-azure.png "Databricks på Azure")
 
 3. På sidan **Nytt kluster** anger du värdena för att skapa ett kluster.
 
-   ![Skapa Databricks Spark-kluster på Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Skapa Databricks Spark-kluster på Azure")
+   ![Skapa Databricks Spark-kluster på Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Skapa Databricks Spark-kluster på Azure")
 
    Godkänn alla övriga standardvärden, förutom följande:
 
@@ -87,11 +87,11 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
 1. Klicka på **Arbetsyta** i det vänstra fönstret. Från listrutan **Arbetsyta** klickar du på **Skapa** och sedan på **Anteckningsbok**.
 
-   ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
+   ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
 
 2. I dialogrutan **Skapa anteckningsbok** anger du ett namn, väljer **Scala** som språk och väljer det Spark-kluster som du skapade tidigare.
 
-   ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
+   ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
 
    Klicka på **Skapa**.
 
@@ -145,17 +145,17 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
 6. Du ser en tabellvy som i följande skärmbild (endast vissa kolumner visas):
 
-   ![Exempel-JSON-data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Exempel-JSON-data")
+   ![Exempel-JSON-data](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "Exempel-JSON-data")
 
    Bland annat fångar exempeldata in könet på en radiokanals målgrupp (kolumnnamn, **kön**) och om deras prenumeration är kostnadsfri eller om den betalas (kolumnnamn, **nivå**).
 
 7. Nu skapar du en visuell representation av dessa data för att visa hur många användare av varje kön som har kostnadsfria konton och hur många som är betalande prenumeranter. Längst ned i tabellvyn klickar du på ikonen **Stapeldiagram** och sedan på **Ritalternativ**.
 
-   ![Skapa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Skapa stapeldiagram")
+   ![Skapa stapeldiagram](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "Skapa stapeldiagram")
 
 8. I **Anpassa ritning** drar och släpper du värden enligt skärmbilden.
 
-   ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
+   ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
 
    * Ställ in **Nycklar** på **kön**.
    * Ställ in **Seriegrupperingar** på **nivå**.
@@ -166,13 +166,13 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
 9. Utdata visar den visuella representationen som visas i följande skärmbild:
 
-   ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Anpassa stapeldiagram")
+   ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "Anpassa stapeldiagram")
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När du är klar med artikeln kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
 
-![Stoppa ett Databricks-kluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
+![Stoppa ett Databricks-kluster](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
 Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_\_ minuters inaktivitet** när klustret skapades. I sådant fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 

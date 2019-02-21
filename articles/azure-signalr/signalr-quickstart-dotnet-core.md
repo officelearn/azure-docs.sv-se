@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e1eced2d00737a950ed441bd83614d9d6d0b9230
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731282"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267758"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snabbstart: Skapa ett chattrum med SignalR Service
 
@@ -79,7 +79,7 @@ I det här avsnittet lägger du till [verktyget Secret Manager](https://docs.mic
 
 1. Lägg till en referens till NuGet-paketet `Microsoft.Azure.SignalR` genom att köra följande kommando:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
+        dotnet add package Microsoft.Azure.SignalR
 
 2. Kör följande kommando för att återställa paket för projektet.
 
@@ -92,7 +92,7 @@ I det här avsnittet lägger du till [verktyget Secret Manager](https://docs.mic
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
     Secret Manager används endast för testning av webbappen medan den hanteras lokalt. I senare självstudier kommer du att distribuera chattwebbappen till Azure. När webbappen har distribuerats till Azure, använder du en programsinställning istället för att lagra anslutningssträngen med Secret Manager.

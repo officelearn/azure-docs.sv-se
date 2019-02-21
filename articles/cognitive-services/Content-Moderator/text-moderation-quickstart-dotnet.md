@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6383a495ed3e3876e96b1249cb7b2286b240a481
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884604"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312250"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i C# 
 
@@ -35,9 +35,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 1. Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio och ge det namnet **TextModeration**. 
 1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
 1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Sök efter och installera följande paket:
-    - Microsoft.Azure.CognitiveServices.ContentModerator
-    - Microsoft.Rest.ClientRuntime
-    - Newtonsoft.Json
+    - `Microsoft.Azure.CognitiveServices.ContentModerator`
+    - `Microsoft.Rest.ClientRuntime`
+    - `Newtonsoft.Json`
 
 ## <a name="add-text-moderation-code"></a>Lägga till kod för textmoderering
 

@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c674c11f26d236e27852eb52bfc304aab12adcb5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 446c5393b654c7743371e4097517d16ba71da630
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112152"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270308"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Lär dig att skapa länkade Azure Resource Manager-mallar. Med hjälp av länkade mallar kan du få en mall att anropa en annan. Det är perfekt för modularisering av mallar. I den här självstudien använder du samma mall som används i [Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md), vilket skapar en virtuell dator, ett virtuellt nätverk och andra beroende resurser, inklusive ett lagringskonto. Du separerar skapandet av lagringskontoresursen till en länkad mall.
 

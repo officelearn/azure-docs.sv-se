@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 87360d49892698458a021287d88240d98ba2ee19
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881517"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447590"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Känna igen tal med Speech Service SDK för Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech Service SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet baseras på Maven-paketet för Speech SDK och Eclipse Java IDE (v4.8) i 64-bitars Windows eller 64-bitars Ubuntu Linux 16.04/18.04. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet baseras på Maven-paketet för Speech SDK och Eclipse Java IDE (v4.8) i 64-bitars Windows eller 64-bitars Ubuntu Linux 16.04/18.04. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
@@ -39,7 +39,7 @@ Om du kör Ubuntu 16.04/18.04 ska dessa beroenden vara installerade innan du sta
 
 ```console
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Om du kör Windows (64 bitar) ska du kontrollera att du har installerat Microsoft Visual C++ Redistributable för din plattform.

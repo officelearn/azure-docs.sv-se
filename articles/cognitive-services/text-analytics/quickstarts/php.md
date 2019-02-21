@@ -3,19 +3,19 @@ title: 'Snabbstart: Anropa API:et för textanalys med hjälp av PHP'
 titleSuffix: Azure Cognitive Services
 description: Få information och kodexempel som hjälper dig att snabbt komma igång med att använda API för textanalys i Microsoft Cognitive Services på Azure.
 services: cognitive-services
-author: noellelacharite
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: nolachar
-ms.openlocfilehash: a211bcedb0f3de41dbd62f137230bdf5d85d7fdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/15/2019
+ms.author: aahi
+ms.openlocfilehash: 4bfc0556d283bff3e5ca59c062e0e71ae1af7e3f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868946"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327434"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av PHP
 <a name="HOLTop"></a>

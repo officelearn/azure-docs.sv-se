@@ -1,15 +1,16 @@
 ---
 author: PatrickFarley
 ms.service: cognitive-services
+ms.subservice: custom-vision
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 920f2186bc7944f2db6ebbf848c63f720fceef69
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6387fd963e5e069f9cff3e4f91c2aba72370abc8
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283955"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56323458"
 ---
 ## <a name="clean-up-resources"></a>Rensa resurser
 Om du vill implementera ett eget objektidentifieringsprojekt (eller prova ett projekt för [bildklassificering](../csharp-tutorial.md) istället) kan du vilja ta bort projektet för gaffel-/saxidentifiering (fork/scissors) från det här exemplet. Du kan skapa två Custom Vision-projekt med en kostnadsfri utvärderingsversion.

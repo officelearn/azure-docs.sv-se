@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0c235a9fd3898fa4525651d514c77432627603c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238966"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310363"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Snabbstart: Kom igång med Azure Machine Learning med hjälp av Python-SDK:n
 
@@ -89,7 +89,7 @@ Innan du installerar SDK:n rekommenderar vi att du skapar en isolerad Python-mil
 1. Installera en Jupyter Notebook-server i conda-miljön.
 
   ```shell
-    conda install nb_conda
+    conda install -y nb_conda
     ```
 
 1. Om du vill använda den här miljön för Azure Machine Learning- självstudier installerar du dessa paket.

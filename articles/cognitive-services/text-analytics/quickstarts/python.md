@@ -3,19 +3,19 @@ title: 'Snabbstart: Använda Python för att anropa API för textanalys'
 titleSuffix: Azure Cognitive Services
 description: Få information och kodexempel som hjälper dig att snabbt komma igång med att använda API för textanalys i Microsoft Cognitive Services på Azure.
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 99aa1db8979f6eb58d3d21c89e647937076c572d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/15/2019
+ms.author: aahi
+ms.openlocfilehash: 1219a5f43d8abd78c4840e824c2f4c69a6fa7939
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878025"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330145"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Python 
 <a name="HOLTop"></a>

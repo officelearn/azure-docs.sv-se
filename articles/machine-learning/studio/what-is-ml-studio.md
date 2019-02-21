@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 77c69e7e655770ab912e6ee25183e760f972504d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4f69de744be3a9926e1c5d3e674966e24c3020dc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243696"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455661"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio är ett drag-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Tjänsten Machine Learning Studio publicerar modeller som webbtjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
@@ -37,7 +37,7 @@ För att skapa en prediktiv analysmodell använder du normalt data från eller f
 
 Ingen programmering krävs. Det enda du behöver göra är att koppla samman datauppsättningar och moduler visuellt för att skapa en prediktiv analysmodell.
 
-![Azure Machine Learning-studiodiagram: Skapa experiment, läs in data från flera källor, skriv in bedömda data, skriv modeller.][ml-studio-overview]
+![Azure Machine Learning-studiodiagram: Skapa experiment, läs in data från flera källor, skriv in bedömda data, skriv modeller.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Kom igång med Machine Learning Studio
 När du startar [Machine Learning Studio](https://studio.azureml.net) kommer du att se **startsidan**. Härifrån kan du titta på dokumentation, videor, webbseminarier och hitta andra användbara resurser.
@@ -107,9 +107,6 @@ Om du vill få hjälp med att navigera genom det stora biblioteket med tillgäng
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Distribuera en prediktiv analysmodell som webbtjänst
 När din prediktiva analysmodell är färdig kan du distribuera den som en webbtjänst direkt från Machine Learning Studio. Mer information om den här processen finns i [Distribuera en webbtjänst via Azure Machine Learning](publish-a-machine-learning-web-service.md).
-
-[ml-studio-overview]:./media/what-is-ml-studio/azure-ml-studio-diagram.jpg
-
 
 
 ## <a name="key-machine-learning-terms-and-concepts"></a>Viktiga termer och begrepp inom maskininlärning

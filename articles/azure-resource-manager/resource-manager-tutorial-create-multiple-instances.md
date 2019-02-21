@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3bbf2d1d5fab7dec06eda851cfaad0c84365cc88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 779ae6030c7d36c60dbd0ad00daaf1423a21eb04
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110803"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269050"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Självstudier: Skapa flera resursinstanser med Resource Manager-mallar
 
@@ -32,8 +32,6 @@ Den här självstudien omfattar följande uppgifter:
 > * Distribuera mallen
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -122,6 +120,8 @@ Läs mer om hur du skapar flera instanser i [distribuera flera instanser av en r
 
 Mer information finns i avsnittet [Distribuera mallen](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) i Visual Studio Code-snabbstarten för distributionen.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Om du vill visa alla tre lagringskonton utelämnar du parametern --name:
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -132,8 +132,6 @@ az storage account list --resource-group $resourceGroupName
 ```
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"

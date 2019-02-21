@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/28/2018
+ms.date: 02/20/2019
 ms.author: douglasl
-ms.openlocfilehash: bb6c3281ffc434bd31f901b2b7f6e540f893ca76
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001910"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447607"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudier: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 
@@ -135,7 +135,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
     },
     "resources": [{
         "name": "[parameters('dataFactoryName')]",
-        "apiVersion": "2017-09-01-preview",
+        "apiVersion": "2018-06-01",
         "type": "Microsoft.DataFactory/factories",
         "location": "[parameters('dataFactoryLocation')]",
         "identity": {
@@ -147,7 +147,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
                 "dependsOn": [
                     "[parameters('dataFactoryName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "type": "AzureStorage",
                     "description": "Azure Storage linked service",
@@ -166,7 +166,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
                     "[parameters('dataFactoryName')]",
                     "[variables('azureStorageLinkedServiceName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "type": "AzureBlob",
                     "typeProperties": {
@@ -186,7 +186,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
                     "[parameters('dataFactoryName')]",
                     "[variables('azureStorageLinkedServiceName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "type": "AzureBlob",
                     "typeProperties": {
@@ -208,7 +208,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
                     "[variables('inputDatasetName')]",
                     "[variables('outputDatasetName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "activities": [{
                         "type": "Copy",
@@ -242,7 +242,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
                     "[variables('outputDatasetName')]",
                     "[variables('pipelineName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "type": "ScheduleTrigger",
                     "typeProperties": {
@@ -492,7 +492,7 @@ AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du
     "dependsOn": [
         "[parameters('dataFactoryName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "AzureStorage",
         "description": "Azure Storage linked service",
@@ -520,7 +520,7 @@ Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory
         "[parameters('dataFactoryName')]",
         "[variables('azureStorageLinkedServiceName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "AzureBlob",
         "typeProperties": {
@@ -547,7 +547,7 @@ Du anger namnet på mappen i Azure Blob Storage som innehåller kopierade data f
         "[parameters('dataFactoryName')]",
         "[variables('azureStorageLinkedServiceName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "AzureBlob",
         "typeProperties": {
@@ -576,7 +576,7 @@ Du definierar en pipeline som kopierar data från Azure-blobdatamängden till Az
         "[variables('inputDatasetName')]",
         "[variables('outputDatasetName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "activities": [{
             "type": "Copy",
@@ -617,7 +617,7 @@ Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuer
         "[variables('outputDatasetName')]",
         "[variables('pipelineName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "ScheduleTrigger",
         "typeProperties": {

@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c917e37d48f2b26d9a1e4d13b76dde5539ce94ea
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1a7a0604117dde55300a779bb1b7167c8da4e056
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116593"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266772"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Självstudier: Felsöka Resource Manager-malldistributioner
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Lär dig hur du felsöker fel i Resource Manager-malldistributioner. I den här självstudien konfigurerar du två fel i en mall och lär dig hur du använder aktivitetsloggar och distributionshistoriken för att lösa problemen.
 

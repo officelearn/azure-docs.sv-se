@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e7d271ce37209a49e1c75d6114ed07b11558df44
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c8aafa2dc2798aee5576dab4781b42d4aa67ddd9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105000"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269271"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager kontra klassisk distribution: Förstå distributionsmodeller och tillståndet för dina resurser
 
@@ -48,8 +48,6 @@ Azure levererade ursprungligen bara den klassiska distributionsmodellen. I den m
 När Resource Manager lades till, lades alla resurser till retroaktivt i standardresursgrupperna. Om du skapar en resurs via klassisk distribution nu skapas resursen automatiskt i en standardresursgrupp för tjänsten, även om du inte angav den resursgruppen vid distributionen. Att bara finnas i en resursgrupp innebär dock inte att resursen har konverterats till Resource Manager-modellen.
 
 ## <a name="understand-support-for-the-models"></a>Förstå stödet för modellerna
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Det finns tre scenarier att vara medveten om:
 

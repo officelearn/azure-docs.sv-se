@@ -23,26 +23,6 @@ items:
     href: active-directory-passwords-reset-register.md
   - name: Återställa lösenordet
     href: user-help-reset-password.md
-- name: Hjälp om säkerhetsinformation (förhandsversion)
-  items:
-  - name: Översikt
-    href: user-help-security-info-overview.md
-  - name: Konfigurera en autentiseringsapp
-    href: security-info-setup-auth-app.md
-  - name: Konfigurera textmeddelanden
-    href: security-info-setup-text-msg.md
-  - name: Konfigurera telefonsamtal
-    href: security-info-setup-phone-number.md
-  - name: Konfigurera e-post
-    href: security-info-setup-email.md
-  - name: Konfigurera säkerhetsfrågor
-    href: security-info-setup-questions.md
-  - name: Hantera lösenord för appar
-    href: security-info-app-passwords.md
-  - name: Hantera säkerhetsinformation
-    href: security-info-manage-settings.md
-  - name: Logga in
-    href: user-help-sign-in.md?toc=./toc.json
 - name: Hjälp om Microsoft Authenticator-appen
   items:
   - name: Översikt
@@ -60,21 +40,49 @@ items:
       href: user-help-auth-app-add-non-ms-account.md
     - name: Lägga till ett konto manuellt
       href: user-help-auth-app-add-account-manual.md
-    expanded: true
   - name: Logga in med Microsoft Authenticator-appen
     href: user-help-auth-app-sign-in.md
   - name: Säkerhetskopiera och återställa konton
     href: user-help-auth-app-backup-recovery.md
   - name: VANLIGA FRÅGOR OCH SVAR
     href: user-help-auth-app-faq.md
-- name: Hjälp om portalen Mina appar
+- name: Hjälp för Min profil (förhandsversion) på portalen
   items:
   - name: Översikt
-    href: user-help-my-apps-overview.md
-  - name: Vad är portalen Mina appar?
-    href: active-directory-saas-access-panel-introduction.md
-  - name: Felsöka problem
-    href: active-directory-saas-access-panel-user-help.md
+    href: myprofile-portal-overview.md
+  - name: Hantera säkerhetsinformation
+    href: user-help-security-info-overview.md
+  - name: Visa din inloggningsaktivitet
+    href: myprofile-portal-recent-activity-page.md
+  - name: Hantera dina organisationer
+    href: myprofile-portal-organizations-page.md
+  - name: Hantera dina anslutna enheter
+    href: myprofile-portal-devices-page.md
+  - name: Visa din sekretessrelaterade information
+    href: myprofile-portal-privacy-page.md
+- name: Hjälp om säkerhetsinformation (förhandsversion)
+  items:
+  - name: Översikt
+    href: user-help-security-info-overview.md
+  - name: Lägga till säkerhetsinformation under inloggning
+    href: security-info-setup-signin.md
+  - name: Översikt över att lägga till eller uppdatera säkerhetsinformationsmetoder
+    href: security-info-add-update-methods-overview.md
+    items:
+    - name: Konfigurera en autentiseringsapp
+      href: security-info-setup-auth-app.md
+    - name: Konfigurera textmeddelanden
+      href: security-info-setup-text-msg.md
+    - name: Konfigurera telefonsamtal
+      href: security-info-setup-phone-number.md
+    - name: Konfigurera e-post
+      href: security-info-setup-email.md
+    - name: Konfigurera säkerhetsfrågor
+      href: security-info-setup-questions.md
+  - name: Hantera lösenord för appar
+    href: security-info-app-passwords.md
+  - name: Logga in
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Hjälp om att hantera enheter
   items:
   - name: Översikt
@@ -85,9 +93,17 @@ items:
     href: user-help-register-device-on-network.md
   - name: Felsöka meddelande om att du inte får åtkomst
     href: user-help-device-remediation.md
-ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+- name: Hjälp om portalen Mina appar
+  items:
+  - name: Översikt
+    href: user-help-my-apps-overview.md
+  - name: Vad är portalen Mina appar?
+    href: active-directory-saas-access-panel-introduction.md
+  - name: Felsöka problem
+    href: active-directory-saas-access-panel-user-help.md
+ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816058"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452582"

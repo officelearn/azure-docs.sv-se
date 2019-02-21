@@ -2,16 +2,10 @@
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure-dokumentation
-description: Lär dig att skapa och hantera kraftfulla program med Microsoft Azure-molntjänster. Hämta dokumentation, exempelkod, självstudier med mera.
+description: 'Lär dig att skapa och hantera kraftfulla program med Microsoft Azure-molntjänster. Hämta dokumentation, exempelkod, självstudier med mera.'
 ms.topic: hub-page
 featureFlags:
-- clicktale
-ms.openlocfilehash: 4ae03eedb96ecd1b460b06df3a80a7349c04e099
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330723"
+  - clicktale
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -195,6 +189,7 @@ Go</a>
                                                 <h4>Relationsdatabaser</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL-databas som en tjänst</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server på virtuella Azure-datorer</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse som en tjänst</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL-databas som en tjänst</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL-databas som en tjänst</a></li>

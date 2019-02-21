@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-title: Användarhjälp för autentisering, appar och enhetshantering – Azure Active Directory | Microsoft Docs
-description: Användarhjälpen är avsedd för personer som behöver hjälp med att konfigurera och använda säkerhetsinformation, tvåstegsverifiering, lösenordsåterställning med självbetjäning, enhetshantering, Microsoft Authenticator-appen och portalen Mina appar.
+title: 'Användarhjälp för autentisering, appar och enhetshantering – Azure Active Directory | Microsoft Docs'
+description: 'Användarhjälpen är avsedd för personer som behöver hjälp med att konfigurera och använda säkerhetsinformation, tvåstegsverifiering, lösenordsåterställning med självbetjäning, enhetshantering, Microsoft Authenticator-appen och portalen Mina appar.'
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,13 +11,8 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af4cf345efe2180249f9c9491e9f66f75ac4514
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188723"
 ---
+
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Användarhjälp för autentisering, appar och enhetshantering
 
 Det här innehållet är avsett som hjälp att konfigurera och använda säkerhetsinformation, tvåstegsverifiering och för att lära dig återställa egna lösenord, konfigurera och ansluta Azure Active Directory-enheter och konfigurera och använda Microsoft Authenticator-appen samt portalen Mina appar.
@@ -29,6 +24,62 @@ Det här innehållet är avsett som hjälp att konfigurera och använda säkerhe
 
 
 <ul class="panelContent cardsF">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Hjälp om Microsoft Authenticator-appen</h3>
+                        <p>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">Översikt</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-download-install">Ladda ned och installera appen</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-add-account-overview">Lägga till konton</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-sign-in">Logga in med hjälp av appen</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-backup-recovery">Säkerhetskopiera och återställa kontoautentiseringsuppgifter</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>    
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Hjälp för Min profil (förhandsversion) på portalen</h3>
+                        <p>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-overview">Översikt</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-security-info-overview">Hantera säkerhetsinformation</a><br/>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">Visa senaste inloggningsaktivitet</a><br/>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">Hantera dina organisationer</a><br/>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">Hantera dina anslutna enheter</a><br/>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Visa din sekretessrelaterade information</a><br/>                       
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Hjälp om säkerhetsinformation (förhandsversion)</h3>
+                        <p>
+                        <a href="/azure/active-directory/user-help/user-help-security-info-overview">Översikt</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-signin">Konfigurera från en fråga på inloggningssidan</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Konfigurera en autentiseringsapp</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Konfigurera textmeddelanden</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Konfigurera telefonsamtal</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-sign-in">Logga in</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
     <li>
         <div class="cardSize">
             <div class="cardPadding">
@@ -61,37 +112,16 @@ Det här innehållet är avsett som hjälp att konfigurera och använda säkerhe
                 </div>
             </div>
         </div>
-    </li>
-<li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Hjälp om säkerhetsinformation (förhandsversion)</h3>
-                        <p>
-                        <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Konfigurera en autentiseringsapp</a><br/>
-                        <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Konfigurera textmeddelanden</a><br/>
-                        <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Konfigurera telefonsamtal</a><br/>
-                        <a href="/azure/active-directory/user-help/security-info-manage-settings">Hantera säkerhetsinformation</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-sign-in">Logga in</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
+    </li>      
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Hjälp om Microsoft Authenticator-appen</h3>
+                        <h3>Hjälp om att hantera enheter</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">Översikt</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-download-install">Ladda ned och installera appen</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-add-account-overview">Lägga till konton</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-sign-in">Logga in med hjälp av appen</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-backup-recovery">Säkerhetskopiera och återställa kontoautentiseringsuppgifter</a>
+                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">Ansluta din arbetsenhet</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">Registrera din personliga arbetsenhet</a>
                         </p>
                     </div>
                 </div>
@@ -112,20 +142,5 @@ Det här innehållet är avsett som hjälp att konfigurera och använda säkerhe
                 </div>
             </div>
         </div>
-    </li>
-<li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Hjälp om att hantera enheter</h3>
-                        <p>
-                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">Ansluta din arbetsenhet</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">Registrera din personliga arbetsenhet</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
+    </li>    
 </ul>

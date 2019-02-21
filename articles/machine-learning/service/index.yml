@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46457711c1611e614f89a813b1856687beb27ac7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 372d3d88c0a160c1f294f07e58c5e11dbf5eac5e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311463"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456613"
 documentType: LandingData
 title: Dokumentation om Azure Machine Learning-tjänsten
 metadata:
   title: Dokumentation om Azure Machine Learning-tjänsten – självstudier, API-referens| Microsoft Docs
-  description: Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att utveckla, träna, testa, distribuera, hantera och spåra maskininlärningsmodeller. Azure Machine Learning Service har fullständigt stöd för tekniker med öppen källkod som till exempel Scikit-learn, Tensorflow, Pytorch och andra Python-baserade ramverk. Lär dig hur du använder Azure Machine Learning Service för dina arbetsflöden för maskininlärning med hjälp av våra snabbstarter och självstudier.
+  description: Azure Machine Learning Service tillhandahåller SDK:er och tjänster som du kan använda för att snabbt förbereda data samt träna och distribuera maskininlärningsmodeller. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och pipelines. Använd dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn. Kom igång med våra snabbstarter och självstudier.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -17,12 +17,21 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/15/2019
+  ms.date: 2/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning Service tillhandahåller en molnmiljö som du kan använda för att snabbt förbereda data samt träna och distribuera maskininlärningsmodeller. Använd automatiserad maskininlärning för att identifiera algoritmer och justera hyperparametrar snabbare. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och pipelines. Få tillgång till dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn samt tjänst-SDK:erna. Kom igång med våra snabbstarter och självstudier.
+  description: Azure Machine Learning Service tillhandahåller SDK:er och tjänster som du kan använda för att snabbt förbereda data samt träna och distribuera maskininlärningsmodeller. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och pipelines. Använd dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn. Kom igång med våra snabbstarter och självstudier.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: Titta på video (9:58)
+    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    width: 250
 sections:
 - title: Snabbstarter på 5 minuter
   items:
@@ -32,7 +41,7 @@ sections:
     style: unordered
     items:
     - html: '<a href="quickstart-get-started">snabbstarten för Azure-portalen</a>: hämta en arbetsyta och kör experiment utan att installera något.'
-    - html: '<a href="quickstart-create-workspace-with-python">snabbstarten för Python</a>: installera den huvudsakliga SDK:n, skapa en arbetsyta och kör ett experiment i en lokal notebook-server.'
+    - html: '<a href="quickstart-create-workspace-with-python">snabbstarten för Python</a>: installera huvudsaklig SDK, skapa en arbetsyta och kör ett experiment i en lokal notebook-server.'
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -51,9 +60,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/aml-sdk">Huvud-SDK (Python)</a>
-    - html: <a href="https://aka.ms/data-prep-sdk">SDK för dataförberedelser (Python)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">SDK för övervakning (Python)</a>
+    - html: '<a href="https://aka.ms/aml-sdk">Huvudsaklig SDK för Python</a>: huvudfunktioner, automatiserad maskininlärning, pipelines med mera'
+    - html: '<a href="https://aka.ms/data-prep-sdk">Dataförberedelser</a> SDK för Python: förbereda och transformera data'
+    - html: '<a href="https://aka.ms/aml-monitoring-sdk">Övervaka</a> SDK för Python: samla in data på distribuerade webbtjänster'
 - title: Andra Azure Machine Learning-tekniker
   items:
   - type: list

@@ -10,21 +10,21 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
-ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d4e267915338e8043138be0ca1a4922ac84d8eab
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822382"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456273"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Snabbstartssjälvstudier R-programmeringsspråket för Azure Machine Learning Studio
 
 <!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>Introduktion
-I den här kursen hjälper dig att snabbt börja utöka Azure Machine Learning med hjälp av R-programmeringsspråket. Den här kursen R programmeringsspråk för att skapa, testa och köra R-kod i Azure Machine Learning. När du har gått igenom kursen kommer du skapa en komplett lösning för prognostisering med hjälp av R-språket i Azure Machine Learning.  
+I den här kursen hjälper dig att snabbt börja utöka Azure Machine Learning Studio med hjälp av R-programmeringsspråket. Den här kursen R programmeringsspråk för att skapa, testa och köra R-kod i Studio. När du har gått igenom självstudiekursen skapas en komplett lösning för prognostisering med hjälp av R-språket i Studio.  
 
-Microsoft Azure Machine Learning innehåller många kraftfulla machine learning och data manipulation moduler. Kraftfulla R-språket har beskrivits som lingua franca analysens. Lyckligtvis kan manipulering av analyser och data i Azure Machine Learning utökas med hjälp av R. Den här kombinationen ger skalbarhet och enkel distribution av Azure Machine Learning med flexibilitet och djupgående analys av R.
+Microsoft Azure Machine Learning Studio innehåller många kraftfulla machine learning och data manipulation moduler. Kraftfulla R-språket har beskrivits som lingua franca analysens. Lyckligtvis kan analys- och manipulering av i Studio utökas med hjälp av R. Den här kombinationen ger skalbarhet och enkel distribution av Studio med flexibilitet och djupgående analys av R.
 
 
 
@@ -38,23 +38,23 @@ I den här snabbstartsguiden ska vi arbeta med Kalifornien mejeriproduktion och 
 De data som används i den här artikeln, tillsammans med R-skript kan vara [hämtade här](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Dessa data har ursprungligen syntetiskt från information som är tillgängliga från University of Wisconsin på https://dairymarkets.com.
 
 ### <a name="organization"></a>Organisation
-Vi kommer att gå igenom flera steg som du lär dig att skapa, testa och köra analys- och manipulering av R-kod i Azure Machine Learning-miljö.  
+Vi kommer att gå igenom flera steg som du lär dig att skapa, testa och köra analys- och manipulering av R-kod i Azure Machine Learning Studio-miljön.  
 
 * Först ska vi utforska grunderna i att använda R-språket i Azure Machine Learning Studio-miljön.
-* Vi fortsätter sedan att diskutera olika aspekter av i/o för data, R-kod- och i Azure Machine Learning-miljö.
+* Vi fortsätter sedan att diskutera olika aspekter av i/o för data, R-kod- och i Azure Machine Learning Studio-miljön.
 * Vi kommer sedan att skapa den första delen av vår prognostiseringslösningen genom att skapa koden för Datarensning och transformering.
 * Med våra förberett ska vi köra en analys av korrelationer mellan flera variabler i vår datauppsättning.
 * Slutligen skapar vi en säsongens prognosmodellen tidsseriemodell för mjölkproduktion.
 
 ## <a id="mlstudio"></a>Interagera med R-språket i Machine Learning Studio
-Det här avsnittet tar dig igenom grunderna för att interagera med R-programspråket i Machine Learning Studio-miljön. R-språket tillhandahåller ett kraftfullt verktyg för att skapa anpassade analytics och data manipulation moduler i Azure Machine Learning-miljö.
+Det här avsnittet tar dig igenom grunderna för att interagera med R-programspråket i Machine Learning Studio-miljön. R-språket tillhandahåller ett kraftfullt verktyg för att skapa anpassade analytics och data manipulation moduler i Azure Machine Learning Studio-miljön.
 
 Jag använder RStudio för att utveckla, testa och felsöka R-kod i liten skala. Den här koden är sedan åtgärderna klipp ut och klistra in i en [kör R-skript] [ execute-r-script] modul i Machine Learning Studio kan köras.  
 
 ### <a name="the-execute-r-script-module"></a>Modulen köra R-skript
 Inom Machine Learning Studio, R-skript körs inom den [kör R-skript] [ execute-r-script] modulen. Ett exempel på den [kör R-skript] [ execute-r-script] modul i Machine Learning Studio illustreras i bild 1.
 
- ![R-programspråket: Kör R-skript-modulen som valts i Machine Learning Studio][1]
+ ![R-programspråket: Kör R-skript-modulen som valts i Machine Learning Studio](./media/r-quickstart/fig1.png)
 
 *Bild 1. Machine Learning Studio-miljön som visar modulen köra R-skript som valts.*
 
@@ -66,20 +66,20 @@ Titta på bild 1 och nu ska vi titta på några av de viktigaste delarna av Mach
 
 Vi kommer naturligtvis att diskutera den [kör R-skript] [ execute-r-script] mer detaljerat i resten av det här dokumentet.
 
-När du arbetar med avancerade funktioner för R, rekommenderar jag att redigera, testa och felsöka i RStudio. Utöka din kod stegvis precis som med alla programutveckling och testa det på små enkla testfall. Klipp och klistra in dina funktioner i fönstret för R-skript på den [kör R-skript] [ execute-r-script] modulen. Den här metoden kan du dra nytta av både RStudio integrated development environment (IDE) och kraften i Azure Machine Learning.  
+När du arbetar med avancerade funktioner för R, rekommenderar jag att redigera, testa och felsöka i RStudio. Utöka din kod stegvis precis som med alla programutveckling och testa det på små enkla testfall. Klipp och klistra in dina funktioner i fönstret för R-skript på den [kör R-skript] [ execute-r-script] modulen. Den här metoden kan du dra nytta av både RStudio integrated development environment (IDE) och kraften i Azure Machine Learning Studio.  
 
 #### <a name="execute-r-code"></a>Köra R-kod
 Alla R-kod i den [kör R-skript] [ execute-r-script] modul som körs när du kör experimentet genom att klicka på den **kör** knappen. När körningen har slutförts markeras visas på den [kör R-skript] [ execute-r-script] ikon.
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Skydden R kodning för Azure Machine Learning
-Om du utvecklar R-kod för, exempelvis en webbtjänst med hjälp av Azure Machine Learning, bör du definitivt planera hur din kod så hanterar indata oväntade data och undantag. Om du vill behålla tydlighet har jag inte med mycket vägen kontrollerar eller undantagshantering i de flesta kodexempel som visas. Men när vi går vidare ger jag dig flera exempel på funktioner med hjälp av RS undantag för hantering av meddelandeströmmar.  
+Om du utvecklar R-kod för, exempelvis en webbtjänst med hjälp av Azure Machine Learning Studio, bör du definitivt planera hur din kod så hanterar indata oväntade data och undantag. Om du vill behålla tydlighet har jag inte med mycket vägen kontrollerar eller undantagshantering i de flesta kodexempel som visas. Men när vi går vidare ger jag dig flera exempel på funktioner med hjälp av RS undantag för hantering av meddelandeströmmar.  
 
 Om du behöver en fullständig behandling av R undantagshantering jag rekommenderar att du läst tillämpliga avsnitt av boken av Wickham som anges i [bilaga B - ytterligare läsning](#appendixb).
 
 #### <a name="debug-and-test-r-in-machine-learning-studio"></a>Felsöka och testa R i Machine Learning Studio
 Jag vill rekommenderar jag att du testa och felsöka R-kod i liten skala i RStudio. Men det finns fall där du behöver spåra problem med R-kod i den [kör R-skript] [ execute-r-script] själva. Dessutom är det bra att kontrollera resultaten i Machine Learning Studio.
 
-Utdata från körningen av din R-kod och på Azure Machine Learning-plattformen finns främst i output.log. Ytterligare information kan ses i error.log.  
+Utdata från körningen av din R-kod och på Azure Machine Learning Studio-plattformen finns främst i output.log. Ytterligare information kan ses i error.log.  
 
 Om ett fel uppstår i Machine Learning Studio när du kör ditt R-kod, bör din första erhåller vara att titta på error.log. Den här filen kan innehålla användbara felmeddelanden för att förstå och åtgärda felet. Om du vill visa error.log, klickar du på **visa felloggen** på den **egenskapsrutan** för den [kör R-skript] [ execute-r-script] som innehåller felet.
 
@@ -90,7 +90,7 @@ Till exempel jag körde följande R-kod med ett odefinierat variabeln y, i en [k
 
 Den här koden kan inte köra, vilket resulterar i ett feltillstånd. När du klickar på **visa felloggen** på den **egenskapsrutan** producerar skärmen som visas i bild 2.
 
-  ![Felmeddelande popup-fönster][2]
+  ![Felmeddelande popup-fönster](./media/r-quickstart/fig2.png)
 
 *Figur 2. Popup-felmeddelande.*
 
@@ -109,12 +109,12 @@ Det här felmeddelandet innehåller inga överraskningar och tydligt identifiera
 Om du vill kontrollera värdet för alla objekt i R, kan du skriva ut dessa värden till filen output.log. Reglerna för att undersöka objektvärden är i stort sett desamma som för en interaktiv R-session. Om du skriver ett namn på variabel på en rad, till exempel skrivas värdet för objektet ut till output.log-filen.  
 
 #### <a name="packages-in-machine-learning-studio"></a>Paket i Machine Learning Studio
-Azure Machine Learning levereras med över 350 förinstallerade R språk-paket. Du kan använda följande kod i den [kör R-skript] [ execute-r-script] modul för att hämta en lista över de förinstallerade paket.
+Studio levereras med över 350 förinstallerade R språk-paket. Du kan använda följande kod i den [kör R-skript] [ execute-r-script] modul för att hämta en lista över de förinstallerade paket.
 
     data.set <- data.frame(installed.packages())
     maml.mapOutputPort("data.set")
 
-Läs vidare om du inte förstår den sista raden i den här koden för tillfället. I resten av det här dokumentet berättar vi stor utsträckning använda R i Azure Machine Learning-miljö.
+Läs vidare om du inte förstår den sista raden i den här koden för tillfället. I resten av det här dokumentet berättar vi stor utsträckning använda R i Studio-miljön.
 
 ### <a name="introduction-to-rstudio"></a>Introduktion till RStudio
 RStudio är ett vanligt IDE för R. Jag använder RStudio för redigering, testning och felsökning på några av R-kod som används i den här snabbstartsguiden. När R-kod är testats och är klara kan du helt enkelt klipp ut och klistra in från RStudio-redigeraren i en Machine Learning Studio [kör R-skript] [ execute-r-script] modulen.  
@@ -157,14 +157,14 @@ Nu när vi har några data i Machine Learning Studio, som vi behöver skapa ett 
 
 I det här läget experimentet bör se ut ungefär som bild 3.
 
-![CA: N Mejeri analysen experimentera med datauppsättningen och kör R-skript-modulen][3]
+![CA: N Mejeri analysen experimentera med datauppsättningen och kör R-skript-modulen](./media/r-quickstart/fig3.png)
 
 *Bild 3. CA: N Mejeri analysen experimentera med datauppsättningen och kör R-skript-modulen.*
 
 #### <a name="check-on-the-data"></a>Kontrollera data
 Låt oss ta en titt på de data som vi har läst in i vår experiment. I experimentet, klickar du på utdata från den **cadairydata.csv datauppsättning** och välj **visualisera**. Du bör se något som liknar bild 4.  
 
-![Sammanfattning av cadairydata.csv datauppsättningen][4]
+![Sammanfattning av cadairydata.csv datauppsättningen](./media/r-quickstart/fig4.png)
 
 *Bild 4. Sammanfattning av cadairydata.csv datauppsättningen.*
 
@@ -200,7 +200,7 @@ Skriptet paketet indata gör att du kan skicka innehållet i en zip-fil i [kör 
     load("src/yourData.rdata") # Reads a zipped R data file
 
 > [!NOTE]
-> Azure Machine Learning behandlar filer i ZIP-filen som om de finns i src / directory, så du behöver som prefix i din filnamn med namnet på den här katalogen. Om ZIP-filen innehåller filerna som till exempel `yourfile.R` och `yourData.rdata` i roten av ZIP-filen du vill åtgärda dessa som `src/yourfile.R` och `src/yourData.rdata` när du använder `source` och `load`.
+> Azure Machine Learning Studio behandlar filer i ZIP-filen som om de finns i src / directory, så du behöver som prefix i din filnamn med namnet på den här katalogen. Om ZIP-filen innehåller filerna som till exempel `yourfile.R` och `yourData.rdata` i roten av ZIP-filen du vill åtgärda dessa som `src/yourfile.R` och `src/yourData.rdata` när du använder `source` och `load`.
 > 
 > 
 
@@ -227,7 +227,7 @@ Vi redan pratat läser in datauppsättningar i [läser in datauppsättningen](#l
 
 När dessa steg har slutförts, den [kör R-skript] [ execute-r-script] modulen utför R-skriptet i zip-filen när experimentet har körts. I det här läget experimentet bör se ut ungefär som bild 5.
 
-![Experimentera med hjälp av komprimerade R-skript][6]
+![Experimentera med hjälp av komprimerade R-skript](./media/r-quickstart/fig6.png)
 
 *Bild 5. Experimentera med hjälp av komprimerade R-skript.*
 
@@ -289,7 +289,7 @@ Du kan mata ut innehållet i en dataram i R som en rektangulär tabell genom res
 
 När experimentet har körts kan du klicka på utdataporten resultatet Dataset1 och klicka sedan på **visualisera**. Du bör se något som liknar bild 6.
 
-![Visualisering av utdata från Kalifornien mjölkproducerande data][7]
+![Visualisering av utdata från Kalifornien mjölkproducerande data](./media/r-quickstart/fig7.png)
 
 *Bild 6. Visualisering av utdata från Kalifornien mjölkproducerande data.*
 
@@ -300,13 +300,13 @@ Enheten utdata från den [kör R-skript] [ execute-r-script] modulen innehåller
 
 Om du vill visa utdata för R-enhet, klickar du på porten och klicka sedan på **visualisera**. Vi kan se standardutdata och standardfel från R-skriptet på bild 7.
 
-![Standardutdata och standardfel från R-enhet-port][8]
+![Standardutdata och standardfel från R-enhet-port](./media/r-quickstart/fig8.png)
 
 *Bild 7. Standardutdata och standardfel från R-enhet-port.*
 
 Bläddra nedåt vi ser grafik utdata från våra R-skript i figur 8.  
 
-![Grafik utdata från R-enhet-port][9]
+![Grafik utdata från R-enhet-port](./media/r-quickstart/fig9.png)
 
 *Figur 8. Grafik utdata från R-enhet-port.*  
 
@@ -689,7 +689,7 @@ Låt oss utforska några av variablerna i den här datauppsättningen. En matris
 
 Kör den här koden och se vad som händer. Diagram som skapas på porten som R-enhet bör se ut som bild 16.
 
-![Spridningsdiagrammet matris med valda variabler][17]
+![Spridningsdiagrammet matris med valda variabler](./media/r-quickstart/fig17.png)
 
 *Bild 16. Spridningsdiagrammet matris med valda variabler.*
 
@@ -753,7 +753,7 @@ En gång `ts.detrend()` definieras vi tillämpa den på variabler av intresse f�
 
 Den sista raden i koden skapar en pairwise spridningsdiagrammet. När du har kört R-kod, visas resultatet av spridningsdiagrammet i bild 17.
 
-![Pairwise spridningsdiagrammet för ta bort daglig och standardiserad tidsserie][18]
+![Pairwise spridningsdiagrammet för ta bort daglig och standardiserad tidsserie](./media/r-quickstart/fig18.png)
 
 *Bild 17. Pairwise spridningsdiagrammet för ta bort daglig och standardiserad tidsserie.*
 
@@ -856,7 +856,7 @@ Följande kod extraherar fördröjning värden från listan över ccf objekt, vi
 
 
     ## WARNING!
-    ## The following line works only in Azure Machine Learning
+    ## The following line works only in Azure Machine Learning Studio
     ## When running in RStudio, this code will result in an error
     #maml.mapOutputPort('outframe')
 
@@ -870,7 +870,7 @@ Observera att raden namnen i en kolumn i dataramen. Gör så bevaras raden namn 
 
 Kör koden producerar de utdata som visas i bild 19 när jag **visualisera** utdata på resultatet datauppsättning-port. Rad-namn är i den första kolumnen som avsett.
 
-![Resultaten utdata från Korrelations-analys][20]
+![Resultaten utdata från Korrelations-analys](./media/r-quickstart/fig20.png)
 
 *Bild 19. Resultat utdata från Korrelations-analys.*
 
@@ -884,7 +884,7 @@ Den fullständiga R-koden för det här avsnittet är i zip-filen som du hämtad
 ### <a name="creating-the-dataframe-for-analysis"></a>Skapa dataframe för analys
 Starta genom att lägga till en **nya** [kör R-skript] [ execute-r-script] modulen i experimentet. Anslut den **resultatet datauppsättning** utdata från den befintliga [kör R-skript] [ execute-r-script] modul till den **Dataset1** indata för den nya modulen. Resultatet bör likna bild 20.
 
-![Experimentera med den nya köra R-skript-modulen har lagts till][21]
+![Experimentera med den nya köra R-skript-modulen har lagts till](./media/r-quickstart/fig21.png)
 
 *Bild 20. Experimentera med den nya köra R-skript-modulen har lagts till.*
 
@@ -954,7 +954,7 @@ Kör koden genererar serien med time series ritar från R-enhet-utdata som visas
 ### <a name="a-trend-model"></a>En trend-modell
 Att ha skapat ett time series-objekt och har haft en titt på data kan vi börja att konstruera en trend modell för produktionsdata för Kalifornien mjölk. Vi kan göra detta med en time series-regression. Det är dock tydligt från området som vi behöver mer än en lutning och komma åt för att exakt utforma observerade trend i träningsdata.
 
-Med den mindre storleken på data kan ska jag skapa modell för trender i RStudio klipp och klistra in den resulterande modellen i Azure Machine Learning. RStudio ger en interaktiv miljö för den här typen av interaktiva analyser.
+Med den mindre storleken på data kan ska jag skapa modell för trender i RStudio klipp och klistra in den resulterande modellen i Azure Machine Learning Studio. RStudio ger en interaktiv miljö för den här typen av interaktiva analyser.
 
 Som ett första försöket försöker jag en polynom regression med stänger upp till 3. Det finns en verklig risk över anpassa dessa typer av modeller. Därför är det bäst att undvika hög ordning villkor. Den `I()` funktionen hindrar beslutsträdets tolkning av innehållet (tolkar innehållet ”som är”) och du kan skriva en bokstavligen tolkad funktion i en regression formel.
 
@@ -1014,7 +1014,7 @@ Detta genererar följande.
 
 Detta ser bättre ut. Alla villkor har betydelse. Dock 2e-16-värde är ett standardvärde och bör inte vidtas för allvar.  
 
-Som ett förstånd test vi gör en time series rityta Kalifornien mjölkproducerande data med trend kurvan visas. Jag har lagt till följande kod i Azure Machine Learning [kör R-skript] [ execute-r-script] -modellen (inte RStudio) för att skapa modellen och göra en rityta. Resultatet visas i bild 23.
+Som ett förstånd test vi gör en time series rityta Kalifornien mjölkproducerande data med trend kurvan visas. Jag har lagt till följande kod i Azure Machine Learning Studio [kör R-skript] [ execute-r-script] -modellen (inte RStudio) för att skapa modellen och göra en rityta. Resultatet visas i bild 23.
 
     milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
@@ -1071,14 +1071,14 @@ Detta genererar följande.
 
 Vi kan se att modellen inte längre har en skärningspunkt term och har 12 betydande månad faktorer. Det är precis vad vi ville se.
 
-Vi gör en annan tid serie diagram Kalifornien mjölkproducerande data att se hur väl modellen säsongens fungerar. Jag har lagt till följande kod i Azure Machine Learning [kör R-skript] [ execute-r-script] att skapa modellen och göra en rityta.
+Vi gör en annan tid serie diagram Kalifornien mjölkproducerande data att se hur väl modellen säsongens fungerar. Jag har lagt till följande kod i Azure Machine Learning Studio [kör R-skript] [ execute-r-script] att skapa modellen och göra en rityta.
 
     milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
     plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
     lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
-Kör den här koden i Azure Machine Learning ger området visas i bild 24.
+Kör den här koden i Azure Machine Learning Studio genererar området visas i bild 24.
 
 ![Kalifornien mjölkproduktion med modellen inklusive säsongens effekter](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1198,7 +1198,7 @@ Utrustad med en funktion för att mäta RMS-fel, ska vi skapa och mata ut en dat
 
 Kör den här koden skapar utdata visas i bild 27 på utdataporten för datauppsättningen i resultatet.
 
-![Jämförelse av RMS-fel för modeller][26]
+![Jämförelse av RMS-fel för modeller](./media/r-quickstart/fig26.png)
 
 *Bild 27. Jämförelse av RMS-fel för modellen.*
 
@@ -1246,31 +1246,6 @@ Några bra Internetresurser:
 * Snabbgenomgång av Kelly Black från Clarkson University R http://www.cyclismo.org/tutorial/R/
 * 60 + R resurserna som beskrevs i http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
-<!--Image references-->
-[1]: ./media/r-quickstart/fig1.png
-[2]: ./media/r-quickstart/fig2.png
-[3]: ./media/r-quickstart/fig3.png
-[4]: ./media/r-quickstart/fig4.png
-[5]: ./media/r-quickstart/fig5.png
-[6]: ./media/r-quickstart/fig6.png
-[7]: ./media/r-quickstart/fig7.png
-[8]: ./media/r-quickstart/fig8.png
-[9]: ./media/r-quickstart/fig9.png
-[10]: ./media/r-quickstart/fig10.png
-[11]: ./media/r-quickstart/fig11.png
-[12]: ./media/r-quickstart/fig12.png
-[13]: ./media/r-quickstart/fig13.png
-[14]: ./media/r-quickstart/fig14.png
-[15]: ./media/r-quickstart/fig15.png
-[16]: ./media/r-quickstart/fig16.png
-[17]: ./media/r-quickstart/fig17.png
-[18]: ./media/r-quickstart/fig18.png
-[19]: ./media/r-quickstart/fig19.png
-[20]: ./media/r-quickstart/fig20.png
-[21]: ./media/r-quickstart/fig21.png
-[22]: ./media/r-quickstart/fig22.png
-
-[26]: ./media/r-quickstart/fig26.png
 
 <!--links-->
 [appendixa]: #appendixa

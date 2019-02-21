@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dc6407a222adb06f4139d9973c168911e0faca8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429680"
+ms.locfileid: "56447794"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -215,7 +215,9 @@ Ett villkor utvärderas om en **fältet** eller **värdet** accessor uppfyller v
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ Ett villkor utvärderas om en **fältet** eller **värdet** accessor uppfyller v
 När du använder den **som** och **notLike** villkor du anger ett jokertecken `*` i värdet.
 Värdet får inte innehålla fler än ett jokertecken `*`.
 
-När du använder den **matchar** och **notMatch** villkor, ger `#` så att de matchar en siffra, `?` för en bokstav, `.` så att den matchar alla tecken och alla andra tecken som ska matchas Det faktiska tecknet. Exempel finns i [Tillåt flera namn mönster](../samples/allow-multiple-name-patterns.md).
+När du använder den **matchar** och **notMatch** villkor, ger `#` så att de matchar en siffra, `?` för en bokstav, `.` så att den matchar alla tecken och alla andra tecken som ska matchas Det faktiska tecknet.
+**matcha** och **notMatch** är skiftlägeskänsliga. Skiftlägeskänsliga alternativ är tillgängliga i **matchInsensitively** och **notMatchInsensitively**. Exempel finns i [Tillåt flera namn mönster](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fält
 

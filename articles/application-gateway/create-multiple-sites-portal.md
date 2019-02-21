@@ -1,25 +1,22 @@
 ---
-title: Skapa en Programgateway som är värd för flera webbplatser – Azure-portalen | Microsoft Docs
+title: Skapa en Programgateway som är värd för flera webbplatser – Azure-portalen
 description: Lär dig hur du skapar en Programgateway som är värd för flera webbplatser med hjälp av Azure portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993317"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454329"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Skapa och konfigurera en Programgateway som värd för flera webbplatser med hjälp av Azure portal
 
-Du kan använda Azure portal för att [konfigurera den som är värd för flera webbplatser](multiple-site-overview.md) när du skapar en [Programgateway](overview.md). I den här självstudien definierar du serverdelsadresspooler med hjälp av virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. I den här självstudien förutsätts att du äger flera domäner. Vi använder *www.contoso.com* och *www.fabrikam.com* som exempel.
+Du kan använda Azure portal för att [konfigurera den som är värd för flera webbplatser](multiple-site-overview.md) när du skapar en [Programgateway](overview.md). I den här artikeln kan du definiera serverdelsadresspooler med hjälp av virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här artikeln förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.fabrikam.com*.
 
 I den här artikeln kan du se hur du:
 
@@ -35,9 +32,9 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com)
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
@@ -141,6 +138,8 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 3. Klicka på **OK**.
 4. Skapa en andra lyssnare med namnet på *fabrikamListener* och använda dina andra domännamn. I det här exemplet *www.fabrikam.com* används.
 
+![mult-plats-lyssnare](media/create-multiple-sites-portal/be-listeners.png)
+
 ## <a name="create-routing-rules"></a>Skapa routningsregler
 
 Regler bearbetas i ordningen de anges, och trafiken dirigeras med hjälp av den första regel som matchar oavsett särskilda egenskaper. Om du till exempel har en regel med en grundläggande lyssnare och en regel med en lyssnare för flera webbplatser för samma port så måste regeln med lyssnare för flera platser stå innan regeln med den grundläggande lyssnaren om regeln för flera platser ska fungera som förväntat. 
@@ -180,12 +179,4 @@ När du har skapat programgatewayen med dess offentliga IP-adress kan du hämta 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du:
-
-> [!div class="checklist"]
-> * Skapa en programgateway
-> * Skapa virtuella datorer för backend-servrar
-> * Skapa serverdelspooler med backend-servrar
-> * Skapa lyssnare för serverdelen
-> * Skapa routningsregler
-> * Skapa en CNAME-post i domänen
+[Konfigurera App Service med Application Gateway](create-web-app.md)

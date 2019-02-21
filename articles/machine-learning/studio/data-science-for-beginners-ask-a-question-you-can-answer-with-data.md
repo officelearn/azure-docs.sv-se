@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/03/2018
-ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7134a22532622d7de25a23897f83dc453d8a4344
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498156"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454063"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Ställ en fråga som du kan svara på med data
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Datavetenskap för nybörjare-serien
@@ -89,7 +89,7 @@ Men viktigast av allt, och Ställ sharp frågan - fråga som du kan svara på me
 
 Vi har pratat om några grundläggande principer för att ställa en fråga som du kan svara på med data.
 
-Glöm inte att checka ut andra videor i ”Data datavetenskap för nybörjare” från Microsoft Azure Machine Learning.
+Glöm inte att checka ut andra videor i ”Data datavetenskap för nybörjare” från Microsoft Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Prova en första dataexperiment med Machine Learning Studio](create-experiment.md)

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 0ffa917aa6bcfb642cd672d0a51a70b13f041635
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267571"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453876"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Hantera en webbtjänst med hjälp av Azure Machine Learning Studio Web Services-portalen
 Du kan hantera dina Machine Learning nya och klassiska webbtjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande teknik, har du lite olika hanteringsfunktioner för var och en av dem.
@@ -39,7 +39,7 @@ Om användaren inte har tillräckliga behörigheter för att komma åt resurser 
 
 *Det gick inte att Web Service-distributionen. Det här kontot har inte tillräcklig åtkomst till Azure-prenumerationen som innehåller arbetsytan. För att kunna distribuera en webbtjänst till Azure måste samma konto måste bli inbjuden till arbetsytan och ges åtkomst till Azure-prenumerationen som innehåller arbetsytan.*
 
-Läs mer om hur du skapar en arbetsyta, [skapa och dela en Azure Machine Learning-arbetsyta](create-workspace.md).
+Läs mer om hur du skapar en arbetsyta, [skapa och dela en Azure Machine Learning Studio-arbetsyta](create-workspace.md).
 
 Läs mer på inställningen åtkomstbehörigheter [hantera åtkomst med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -108,7 +108,7 @@ Instrumentpanelen för planen innehåller följande information:
 
 ## <a name="manage-classic-web-services"></a>Hantera klassiska webbtjänster
 > [!NOTE]
-> Procedurerna i det här avsnittet är relevanta för att hantera klassiska webbtjänster via Azure Machine Learning Web Services-portalen. Information om hur du hanterar klassiska webbtjänster i Machine Learning Studio och Azure portal finns i [hantera en Azure Machine Learning-arbetsyta](manage-workspace.md).
+> Procedurerna i det här avsnittet är relevanta för att hantera klassiska webbtjänster via Azure Machine Learning Web Services-portalen. Information om hur du hanterar klassiska webbtjänster i Machine Learning Studio och Azure portal finns i [hantera en Azure Machine Learning Studio-arbetsyta](manage-workspace.md).
 > 
 > 
 

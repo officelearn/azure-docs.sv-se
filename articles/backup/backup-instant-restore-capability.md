@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: cc4f559efecec3f024ce995dcf8f8757eb9cb4fb
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489706"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452822"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
@@ -23,10 +23,11 @@ ms.locfileid: "55489706"
 Den nya modellen för omedelbar återställning innehåller följande funktionsförbättringar:
 
 * Möjlighet att använda ögonblicksbilder som tas som en del av ett säkerhetskopieringsjobb som är tillgängliga för återställning utan att behöva vänta på att överföra data till valvet för att slutföra. Det minskar väntetiden för ögonblicksbilder att kopiera till valvet innan återställningen.
-* Minskar tider för säkerhetskopiering och återställning genom att behålla ögonblicksbilder tillsammans med diskarna i sju dagar.
+* Minskar tider för säkerhetskopiering och återställning genom att behålla ögonblicksbilder lokalt, i två dagar som standard. Det här standard-valvet kan konfigureras till ett värde mellan 1 till 5 dagar.
 * Stöder disk storlekar upp till 4 TB.
 * Stöder Standard SSD-diskar.
-* Möjligheten att använda en ohanterad virtuell dator ursprungliga lagringskonton (per disk) när du återställer. Denna möjlighet finns även när den virtuella datorn har diskar som är fördelade på storage-konton. Det går snabbare återställningsåtgärder för en mängd olika VM-konfigurationer.
+*   Möjligheten att använda en ohanterad virtuell dator ursprungliga lagringskonton (per disk) när du återställer. Denna möjlighet finns även när den virtuella datorn har diskar som är fördelade på storage-konton. Det går snabbare återställningsåtgärder för en mängd olika VM-konfigurationer
+
 
 
 ## <a name="whats-new-in-this-feature"></a>Vad är nytt i den här funktionen
@@ -47,6 +48,12 @@ En återställningspunkt anses skapas endast efter faser 1 och 2 har slutförts.
 * Ögonblicksbilder lagras tillsammans med diskarna att öka skapa en återställningspunkt och påskynda återställningsåtgärder. Därför visas lagringskostnader för ögonblicksbilder som tas under denna period.
 * Inkrementella ögonblicksbilder lagras som sidblobar. Alla användare som använder ohanterade diskar debiteras för ögonblicksbilder som lagras i kontot Lokal lagring. Eftersom återställningspunkt samlingar som används av säkerhetskopieringar för hanterade virtuella datorn använder blob-ögonblicksbilder på underliggande lagringsnivå, hanterade diskar visas kostnaderna som motsvarar blob-ögonblicksbild priser och de är inkrementell.
 * Ögonblicksbilder som tas för omedelbar återställningspunkter count mot gränsen på 10 TB allokerat utrymme för premium storage-konton.
+* Du får en möjlighet att konfigurera den ögonblicksbild kvarhållning av säkerhetskopior baserat på dina behov för återställning. Beroende på krav, kan du ange ögonblicksbild kvarhållning till minst en dag i bladet säkerhetskopieringspolicy som beskrivs nedan. Detta kan hjälpa dig minska kostnaderna för ögonblicksbild kvarhållning om du inte utföra återställningar ofta.
+
+
+>[!NOTE]
+>Med den här snabbmeddelanden återställa uppgradering ögonblicksbild kvarhållningsvaraktighetens för alla kunder (**nya och befintliga ingår både**) anges till ett standardvärde på två dagar. Du kan dock ange varaktighet enligt dina krav på att ett värde mellan 1 till 5 dagar.
+
 
 ## <a name="cost-impact"></a>Kostnad påverkan
 
@@ -56,17 +63,25 @@ Inkrementella ögonblicksbilder lagras i Virtuella datorns lagringskonto som anv
 ## <a name="upgrading-to-instant-restore"></a>Uppgradera till omedelbar återställning
 
 Om du använder Azure-portalen, visas ett meddelande på instrumentpanelen för valvet. Det här meddelandet relaterar till stöd för stora diskar och förbättringar för säkerhetskopiering och återställning hastighet.
+Välj banderollen för att öppna en skärm för att uppgradera till omedelbar återställning.
 
 ![Säkerhetskopieringsjobbet på VM säkerhetskopieringsstack Resource Manager-modellen – stöd för meddelande](./media/backup-azure-vms/instant-rp-banner.png)
 
-Välj banderollen för att öppna en skärm för att uppgradera till omedelbar återställning.
+Klicka på **uppgradera** som visas i skärmbilden nedan:
 
 ![Säkerhetskopieringsjobbet på säkerhetskopieringsstack för virtuell dator distributionsmodellen för Resource Manager – uppgradera](./media/backup-azure-vms/instant-rp.png)
 
-Alternativt kan du gå till **egenskaper** sidan i valvet för att hämta den **uppgradera** alternativet **säkerhetskopieringsstack för virtuell dator**.
+Du kan också gå till **egenskaper** sidan i valvet för att hämta den **uppgradera** alternativet **säkerhetskopieringsstack för virtuell dator**.
 
 ![Säkerhetskopieringsjobbet på säkerhetskopieringsstack för virtuell dator – sidan Egenskaper](./media/backup-azure-vms/instant-restore-capability-properties.png)
 
+
+## <a name="configure-snapshot-retention-using-azure-portal"></a>Konfigurera ögonblicksbild kvarhållning av säkerhetskopior med hjälp av Azure portal
+Det här alternativet är för närvarande tillgängligt i regionen USA, västra, Indien, södra och Australien, östra.
+
+I Azure-portalen för de uppgraderade användarna, visas ett fält har lagts till i den **VM Backup-principen** bladet under den **omedelbar återställning** avsnittet. Du kan ändra kvarhållningsvaraktighetens ögonblicksbild från den **VM säkerhetskopieringsprincip** bladet för alla virtuella datorer som är associerade med principen för specifika säkerhetskopiering.
+
+![Kapaciteten för omedelbar återställning](./media/backup-azure-vms/instant-restore-capability.png)
 
 ## <a name="upgrade-to-instant-restore-using-powershell"></a>Uppgradera till omedelbar återställning med hjälp av PowerShell
 
@@ -145,13 +160,13 @@ Varje dag en ny ögonblicksbild tas, så det finns fem enskilda inkrementella ö
 Ögonblicksbilder som tas som en del av kapaciteten för omedelbar återställning är inkrementella ögonblicksbilder.
 
 ### <a name="how-can-i-calculate-the-approximate-cost-increase-due-to-instant-restore-feature"></a>Hur kan jag för att beräkna den ungefärliga kostnad ökningen på grund av omedelbar återställning funktionen?
-Det beror på omsättning på den virtuella datorn. I ett stabilt tillstånd, kan du anta att ökade kostnader är = ögonblicksbild kvarhållningsperiod * dataomsättning per dag per virtuell dator * storage-kostnad per GB.
+Det beror på omsättning på den virtuella datorn. I ett stabilt tillstånd, kan du anta ökning av kostnaden är = ögonblicksbild kvarhållning period dagliga dataomsättningen per VM storage-kostnad per GB.
 
 ### <a name="if-the-recovery-type-for-a-restore-point-is-snapshot-and-vault-and-i-perform-a-restore-operation-which-recovery-type-will-be-used"></a>Om typ av återställning för en återställningspunkt är ”ögonblicksbild och valv” och jag utföra en återställning, vilken typ av återställning kommer att användas?
 Om typ av återställning är ”ögonblicksbild och valv”, kommer återställning göras automatiskt från den lokala ögonblicksbilder som ska jämföras mycket snabbare att återställa från valvet.
 
 ### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>Vad händer om jag väljer en kvarhållningsperiod för återställningspunkt (nivå 2) mindre än kvarhållningsperioden ögonblicksbild (nivå 1)?
-Den nya modellen tillåter inte att ta bort återställningspunkten (– nivå 2) om inte ögonblicksbild (nivå 1) har tagits bort. För närvarande stöder vi sju dagar kvarhållningsperiod för borttagning av ögonblicksbilder (nivå 1), så att återställningspunkten (– nivå 2) kvarhållningsperioden för mindre än sju dagar lösts in inte. Vi rekommenderar att schemalägga återställningspunkt (– nivå 2) kvarhållningsperiod är större än sju dagar.
+Den nya modellen tillåter inte att ta bort återställningspunkten (– nivå 2) om inte ögonblicksbild (nivå 1) har tagits bort. Vi rekommenderar att schemalägga återställningspunkt (– nivå 2) kvarhållningsperiod är större än kvarhållningsperioden för ögonblicksbild.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Varför är min ögonblicksbild befintliga även efter den inställda kvarhållningsperioden period i principen för säkerhetskopiering?
-Om återställningspunkten du har en ögonblicksbild och det är den senaste tillgängliga RP, finns den kvar tills det finns en säkerhetskopia som nästa gång. Det här är enligt utformade GC policy idag som anger att minst en senaste RP närvara alltid om alla säkerhetskopior ytterligare på misslyckas på grund av ett problem på den virtuella datorn. I normala fall rensas RPs i upp till 48 timmar upphört att gälla.
+Om återställningspunkten du har en ögonblicksbild och det är den senaste tillgängliga RP, finns den kvar tills det finns en säkerhetskopia som nästa gång. Det här är enligt utformade GC policy idag som anger att minst en senaste RP närvara alltid om alla säkerhetskopior ytterligare på misslyckas på grund av ett problem på den virtuella datorn. I normala fall rensas RPs i maximalt 24 timmar upphört att gälla.

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d4e0534a1f3068aba77496c02390a21d48c8e91
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: c1496653c319b4732614cd1c8148afb5c5b06215
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430479"
+ms.locfileid: "56456749"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -42,7 +42,7 @@ Följande administratörsroller är tillgängliga:
 
 * **[Programutvecklare](#application-developer)**: Användare i den här rollen kan skapa programregistreringar när den ”användare kan registrera program” är inställt på Nej. Den här rollen kan också medlemmar måste samtycka på sina egna räkning när den ”användare kan godkänna att appar får åtkomst till företagets data å deras vägnar” är inställt på Nej. Medlemmar i den här rollen har lagts till som ägare när du skapar nya programregistreringar eller företagsprogram.
 
-* **[Administratören Authentication](#authentication-administrator)**: Användare med den här rollen kan visa den aktuella autentiseringsinformationen för metoden och ange eller återställa autentiseringsuppgifter för icke-password. Autentisering-administratörer kan tvinga användare att registrera mot befintliga icke-password autentiseringsuppgifter (t.ex. MFA, FIDO) och återkalla ”Kom ihåg att MFA på enheten' prompt för MFA vid nästa inloggning av andra användare som är icke-administratörer eller medlemmar av den följande roller:
+* **[Administratören Authentication](#authentication-administrator)**: Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-password. Autentisering-administratörer kan tvinga användare att registrera mot befintliga icke-password autentiseringsuppgifter (t.ex. MFA, FIDO) och återkalla ”Kom ihåg att MFA på enheten' prompt för MFA vid nästa inloggning av andra användare som är icke-administratörer eller medlemmar av den följande roller:
   * Autentiseringsadministratör
   * Katalogläsare
   * Gäst bjuder in

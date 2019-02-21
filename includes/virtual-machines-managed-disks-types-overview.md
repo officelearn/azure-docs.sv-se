@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7f5583bfd6089362aef51285643f5fc920005242
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 8a067474fb172d4ff7a7fdf7eb6d24536bd2d017
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331303"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443391"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
 
@@ -21,9 +21,9 @@ Azure-hanterade diskar erbjuder för närvarande fyra disktyper, tre som är all
 
 ## <a name="disk-comparison"></a>Diskjämförelse
 
-Följande tabell innehåller en jämförelse av ultra diskar (förhandsversion), premium solid-state-enheter (SSD), standard SSD och standard hårddiskar (HDD) för hanterade diskar för att avgöra vad du ska använda.
+Följande tabell innehåller en jämförelse av ultra solid-state-enheter (SSD) (förhandsversion), premium SSD, standard SSD och standard-hårddiskar (HDD) för hanterade diskar för att avgöra vad du ska använda.
 
-|   | Ultra diskar (förhandsversion)   | Premium SSD   | Standard SSD   | Standard HDD   |
+|   | Ultra SSD (förhandsversion)   | Premium SSD   | Standard SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensiva arbetsbelastningar som SAP HANA, databaser för övre nivå (till exempel SQL, Oracle) och andra transaktion tunga arbetsbelastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, används företagsprogram och utveckling/testning   |Säkerhetskopiering, icke-kritiska, lågfrekvent åtkomst   |
@@ -31,19 +31,19 @@ Följande tabell innehåller en jämförelse av ultra diskar (förhandsversion),
 |Högsta dataflöde   |2 000 MiB/s (förhandsversion)   |250 (GA) MiB/s, 750 MiB/s (förhandsversion)   |60 MiB/s (GA), 500 MiB/s (förhandsversion)   |60 Mib/s (GA), 500 MiB/s (förhandsversion)   |
 |Max IOPS   |160,000 (förhandsversion)   |7500 (GA), 20 000 (förhandsversion)   |500 (GA), 2 000 (förhandsversion)   |500 (GA), 2 000 (förhandsversion)   |
 
-## <a name="ultra-disks-preview"></a>Ultra diskar (förhandsversion)
+## <a name="ultra-ssd-preview"></a>Ultra SSD (förhandsversion)
 
-Ultra Azure-diskar (förhandsversion) leverera högt dataflöde, hög IOPS och konsekvent låg latens disklagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med ultra diskar är möjligheten att ändra dynamiskt prestanda för disken, tillsammans med dina arbetsbelastningar, utan att behöva starta om dina virtuella datorer. Ultra diskar lämpar sig för dataintensiva arbetsbelastningar som SAP HANA, översta databaser och transaktionen tunga arbetsbelastningar. Ultra diskar kan endast användas som datadiskar. Vi rekommenderar att du använder premium SSD som OS-diskar.
+Azure ultra SSD (förhandsversion) leverera högt dataflöde, hög IOPS och konsekvent låg latens disklagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med ultra SSD omfattar möjligheten att ändra dynamiskt prestanda för disken, tillsammans med dina arbetsbelastningar, utan att behöva starta om dina virtuella datorer. Ultra SSD lämpar sig för dataintensiva arbetsbelastningar som SAP HANA, översta databaser och transaktionen tunga arbetsbelastningar. Ultra SSD kan bara användas som datadiskar. Vi rekommenderar att du använder premium SSD som OS-diskar.
 
 ### <a name="performance"></a>Prestanda
 
-När du etablerar ett ultra disk kan konfigureras oberoende kapacitet och prestanda för disken. Ultra diskar kommer in flera fasta storlekar, från 4 GiB upp till 64 TiB och använder en modell för flexibla prestanda konfiguration där du kan konfigurera oberoende IOPS och dataflöden.
+När du etablerar ett ultra disk kan konfigureras oberoende kapacitet och prestanda för disken. Ultra SSD komma in flera fasta storlekar, från 4 GiB upp till 64 TiB och använder en modell för flexibla prestanda konfiguration där du kan konfigurera oberoende IOPS och dataflöden.
 
-Några nyckelfunktioner Ultra diskar är:
+Några nyckelfunktioner i Ultra SSD är:
 
-- Kapacitet för disk: Ultra diskar kapacitet sträcker sig från 4 GiB upp till 64 TiB.
-- IOPs per disk: Ultra diskar stöder IOPS-gränserna för 300 IOPS/GiB, upp till högst 160 kB IOPS per disk. Kontrollera att den valda Disk-IOPS är mindre än VM IOPS för att uppnå IOPS som du etablerade. Minsta IOPS-disken är 100 IOPS.
-- Diskdataflöde: Med ultra diskar dataflödesgräns av en enskild disk är 256 KiB/s för var och en etablerad IOPS, upp till högst 2000 Mbit/s per disk (där Mbit/s = 10 ^ 6 byte per sekund). Det minsta diskgenomflödet är 1 MiB.
+- Kapacitet för disk: Ultra SSD-kapacitet intervall från 4 GiB upp till 64 TiB.
+- IOPs per disk: Ultra SSD stöder IOPS-gränserna för 300 IOPS/GiB, upp till högst 160 kB IOPS per disk. Kontrollera att den valda Disk-IOPS är mindre än VM IOPS för att uppnå IOPS som du etablerade. Minsta IOPS-disken är 100 IOPS.
+- Diskdataflöde: Med ultra SSD dataflödesgräns av en enskild disk är 256 KiB/s för var och en etablerad IOPS, upp till högst 2000 Mbit/s per disk (där Mbit/s = 10 ^ 6 byte per sekund). Det minsta diskgenomflödet är 1 MiB.
 
 ### <a name="disk-size"></a>Diskstorlek
 
@@ -61,7 +61,7 @@ Några nyckelfunktioner Ultra diskar är:
 
 ### <a name="preview-scope-and-limitations"></a>Förhandsversion av omfång och begränsningar
 
-I förhandsversionen ultra diskar:
+I förhandsversionen ultra SSD:
 
 - Stöds i östra USA 2 i en enda tillgänglighetszon  
 - Kan bara användas med tillgänglighetszoner (tillgänglighetsuppsättningar och enkel VM-distributioner utanför zoner kommer inte har möjlighet att koppla ett ultra disk)
@@ -81,7 +81,7 @@ Azure premium SSD leverera diskar med höga prestanda och låg fördröjning som
 
 Storlekar som är markerade med en asterisk finns för närvarande i förhandsversion.
 
-| Premium SSD-storlekar  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60*              | P70*              | P80*              |
+| Premium SSD-storlekar  | P4               | P6               | P10             | P15 | P20              | P30              | P40              | P50              | P60*              | P70*              | P80*              |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | Diskstorleken i GiB           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8 192     | 16,384     | 32,767     |
 | IOPS per disk       | Upp till 120 | Upp till 240              | Upp till 500              | Upp till 1 100 | Upp till 2 300              | Upp till 5 000              | Upp till 7 500             | Upp till 7 500              | Upp till 12 500              | Upp till 15 000              | Upp till 20 000              |

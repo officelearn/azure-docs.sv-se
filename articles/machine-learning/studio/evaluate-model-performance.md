@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: b663177a07446b888bc7bf9e919bf180458d36bc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e5c85451ca48aab8f980b89de41ebf40f1f97ff3
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487016"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453967"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Så här utvärderar du modellens prestanda i Azure Machine Learning Studio
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Mach
 
 Utvärdera prestanda i en modell är en av de grundläggande stegen i data science process. Den visar hur lyckade bedömnings (förutsägelser) för en datauppsättning har av en trained model. 
 
-Azure Machine Learning har stöd för utvärdering av modellen via två av dess huvudsakliga machine learning-moduler: [Utvärdera modellen] [ evaluate-model] och [Kontrollera modellen][cross-validate-model]. Dessa moduler kan du se hur modellen presterar när det gäller ett antal mått som är vanliga i machine learning och statistik.
+Azure Machine Learning Studio stöder modellen utvärdering via två av dess huvudsakliga machine learning-moduler: [Utvärdera modellen] [ evaluate-model] och [Kontrollera modellen][cross-validate-model]. Dessa moduler kan du se hur modellen presterar när det gäller ett antal mått som är vanliga i machine learning och statistik.
 
 ## <a name="evaluation-vs-cross-validation"></a>Jämfört med utvärdering Korsvalidering
 Utvärdering och mellan verifiering är standard sätt att mäta prestanda i din modell. De båda generera utvärderingsmått som du kan kontrollera eller jämföra med de andra modeller.
@@ -48,7 +48,7 @@ Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
 
 * Bil price data (Raw)
 * [Linjär Regression][linear-regression]
-* [Träna modell][train-model]
+* [Train Model][train-model] (Träningsmodell)
 * [Poängsätta modell][score-model]
 * [Utvärdera modellen][evaluate-model]
 
@@ -83,14 +83,14 @@ När experimentet har körts kan du inspektera utvärderingsresultaten genom att
 Figur 4. Korsvalidering resultatet av en regressionsmodell.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Utvärderar en binär Klassificeringsmodell
-I ett scenario med binär klassificering en målvariabel har bara två möjliga resultat, till exempel: {0, 1} eller {FALSKT, SANT}, {negativt, positivt}. Anta att du får en datauppsättning som är olämpligt för barn anställda med några demografiska och anställning variabler och att du uppmanas att förutsäga inkomstnivå, en binär variabel med värdena {”< = 50 K” ”, > 50 K”}. Med andra ord klassen negativt representerar de medarbetare som gör mindre än eller lika med 50 K per år och klassen positivt representerar alla andra anställda. Som i scenariot regression skulle vi tränar en modell, bedöma vissa data och utvärdera resultaten. Den största skillnaden här är valet av Azure Machine Learning beräknar mått- och utdata. För att visa intäkter på förutsägelse scenario kan vi använder den [vuxet](http://archive.ics.uci.edu/ml/datasets/Adult) datauppsättning för att skapa ett Azure Machine Learning-experiment och utvärdera prestanda för en tvåklassförhöjt logistic regression-modellen, en binär som används ofta klassificerare.
+I ett scenario med binär klassificering en målvariabel har bara två möjliga resultat, till exempel: {0, 1} eller {FALSKT, SANT}, {negativt, positivt}. Anta att du får en datauppsättning som är olämpligt för barn anställda med några demografiska och anställning variabler och att du uppmanas att förutsäga inkomstnivå, en binär variabel med värdena {”< = 50 K” ”, > 50 K”}. Med andra ord klassen negativt representerar de medarbetare som gör mindre än eller lika med 50 K per år och klassen positivt representerar alla andra anställda. Som i scenariot regression skulle vi tränar en modell, bedöma vissa data och utvärdera resultaten. Den största skillnaden här är valet av mått beräknar Azure Machine Learning Studio- och utdata. För att visa intäkter på förutsägelse scenario kan vi använder den [vuxet](http://archive.ics.uci.edu/ml/datasets/Adult) datauppsättning för att skapa ett experiment i Studio och utvärdera prestanda för en tvåklassförhöjt logistic regression-modellen, ett vanligt binär klassificerare.
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
 Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
 
 * Vuxet insamlade binära Intäktsklassificering datauppsättning
 * [Två Logistic Regression][two-class-logistic-regression]
-* [Träna modell][train-model]
+* [Train Model][train-model] (Träningsmodell)
 * [Poängsätta modell][score-model]
 * [Utvärdera modellen][evaluate-model]
 
@@ -105,7 +105,7 @@ När du har kört experimentet som du kan klicka på utdataporten för den [utv�
 
 Precision är helt enkelt den korrekt klassificerade instanser. Det är vanligtvis den första mått som du tittar på när du utvärderar en klassificerare. Men när testdata är obalanserade (där de flesta av de hör till någon av klasserna) eller om du är intresserad av mer precision inte prestanda på någon av klasserna verkligen avbilda effektiviteten i en klassificerare. Anta att du testar på vissa data där 99% av instanserna motsvarar personer som du betalar, desto mindre än eller lika med 50K per år intäkter på klassificering för scenariot. Det är möjligt att uppnå en 0.99 noggrannhet genom att förutsäga klassen ”< = 50K” för alla instanser. Klassificeraren visas i det här fallet att utföra en övergripande bra, men i verkligheten kan det går inte att klassificera någon av high-income personer (1-%) korrekt.
 
-Därför är det bra att beräkna ytterligare mått som samlar in mer specifika aspekter av utvärderingen. Innan du fortsätter i detaljerna för mått, är det viktigt att förstå felmatrisen för en binär klassificering utvärderingen. Klass-etiketter i träningsmängden kan ha endast 2 möjliga värden som vi vanligtvis refererar till som positivt eller negativt. Positiva och negativa instanserna som en klassificerare beräknar korrekt kallas korrekta positiva identifieringar (TP) och SANT negativ (TN). På samma sätt kallas felaktigt klassificerad instanser falska positiva identifieringar (FP) och FALSKT negativ (FN). Felmatrisen är helt enkelt en tabell som visar antalet instanser som hör till var och en av följande 4 kategorier. Azure Machine Learning beslutar automatiskt som två klasser i datauppsättningen är positivt klassen. Om klassen etiketter är booleskt värde eller heltal, har namngivna instanser 'true' eller '1' tilldelats klassen positivt. Om etiketterna är strängar, som i fallet med inkomst datauppsättningen etiketterna sorteras alfabetiskt och den första nivån väljs vara negativt klassen medan den andra nivån är positivt klassen.
+Därför är det bra att beräkna ytterligare mått som samlar in mer specifika aspekter av utvärderingen. Innan du fortsätter i detaljerna för mått, är det viktigt att förstå felmatrisen för en binär klassificering utvärderingen. Klass-etiketter i träningsmängden kan ha endast 2 möjliga värden som vi vanligtvis refererar till som positivt eller negativt. Positiva och negativa instanserna som en klassificerare beräknar korrekt kallas korrekta positiva identifieringar (TP) och SANT negativ (TN). På samma sätt kallas felaktigt klassificerad instanser falska positiva identifieringar (FP) och FALSKT negativ (FN). Felmatrisen är helt enkelt en tabell som visar antalet instanser som hör till var och en av följande 4 kategorier. Azure Machine Learning Studio beslutar automatiskt som två klasser i datauppsättningen är positivt klassen. Om klassen etiketter är booleskt värde eller heltal, har namngivna instanser 'true' eller '1' tilldelats klassen positivt. Om etiketterna är strängar, som i fallet med inkomst datauppsättningen etiketterna sorteras alfabetiskt och den första nivån väljs vara negativt klassen medan den andra nivån är positivt klassen.
 
 ![Binär klassificering Felmatris](./media/evaluate-model-performance/6a.png)
 
@@ -140,8 +140,8 @@ Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
 
 * [Importera Data][import-data]
 * [Beslutsskog med multiclass][multiclass-decision-forest]
-* [Dela Data][split]
-* [Träna modell][train-model]
+* [Split Data][split] (Dela data)
+* [Train Model][train-model] (Träningsmodell)
 * [Poängsätta modell][score-model]
 * [Utvärdera modellen][evaluate-model]
 

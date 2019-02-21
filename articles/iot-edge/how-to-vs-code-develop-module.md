@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245760"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456715"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
@@ -262,6 +262,7 @@ När felsökning moduler med den här metoden, dina moduler körs ovanpå IoT Ed
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - Lägg till följande rad med kod i det återanrop som du vill felsöka:
 
       ```python
@@ -350,6 +351,12 @@ Du kan hoppa över det här avsnittet om dina moduler körs på samma dator som 
 
 > [!NOTE]
 > I föregående exempel visar hur du felsöker IoT Edge-moduler i behållare. Portar läggs den till din modul behållare `createOptions` inställningar. När du är klar med att felsöka dina moduler rekommenderar vi att du tar bort dessa portar för produktionsklara IoT Edge-moduler.
+
+## <a name="build-and-debug-a-module-remotely"></a>Skapa och felsöka en modul via fjärranslutning
+
+Med de senaste ändringarna i både Docker och Moby motorer för SSH-anslutningar och en ny inställning i Azure IoT-verktyg som gör det möjligt för inmatning av miljöinställningar i kommandopaletten för Visual Studio Code och Azure IoT Edge terminaler, kan du nu skapa och Felsök moduler på fjärranslutna enheter.
+
+Se den här [IoT Developer blogginlägg](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) för mer information och instruktioner.
 
 ## <a name="next-steps"></a>Nästa steg
 

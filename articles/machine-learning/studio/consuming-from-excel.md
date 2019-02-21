@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1e8bb6deeb66b506e1342fceb725b1563b822dff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989431"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453128"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Använda en Azure Machine Learning Studio-webbtjänst från Excel
 
@@ -34,7 +34,7 @@ När du har en webbtjänst, klickar du på den **WEBBTJÄNSTER** till vänster i
 
 1. På den **INSTRUMENTPANELEN** fliken för webbtjänsten är en rad för den **begäran/svar** service. Om den här tjänsten har haft ett enda utflöde, bör du se den **ladda ned Excel-arbetsbok** länk på den raden.
    
-    ![][1]
+    ![](./media/consuming-from-excel/excellink.png)
 2. Klicka på **ladda ned Excel-arbetsbok**.
 
 **Ny webbtjänst**
@@ -47,13 +47,13 @@ När du har en webbtjänst, klickar du på den **WEBBTJÄNSTER** till vänster i
 1. Öppna arbetsboken.
 2. En säkerhetsvarning visas. Klicka på den **Aktivera redigering** knappen.
    
-    ![][2]
+    ![](./media/consuming-from-excel/enableeditting.png)
 3. En säkerhetsvarning visas. Klicka på den **Aktivera innehåll** för att köra makron i kalkylbladet.
    
-    ![][3]
+    ![](./media/consuming-from-excel/enablecontent.png)
 4. När makron är aktiverade, skapas en tabell. Kolumnerna i blå är obligatoriska som indata till webbtjänsten RRS eller **parametrar**. Observera utdata för RRS-tjänsten **FÖRUTSE värden** i grönt. När alla kolumner för en viss rad är fyllda arbetsboken automatiskt bedömnings-API: n och visar poängsatta resultat.
    
-    ![][4]
+    ![](./media/consuming-from-excel/sampletable.png)
 5. För att bedöma mer än en rad, Fyll den andra raden med data och de förväntade värdena produceras. Du kan även klistra in flera rader på samma gång.
 
 Du kan använda någon av funktionerna i Excel (diagram, power map, villkorsstyrd formatering, osv.) med de förväntade värdena för att visualisera data.    
@@ -66,8 +66,3 @@ En RRS-anrop görs i de här två situationer:
 
 1. Första gången en rad har innehållet i alla dess **parametrar**
 2. Varje gång någon av de **parametrar** ändringar i en rad där alla dess **parametrar** har angett.
-
-[1]: ./media/consuming-from-excel/excellink.png
-[2]: ./media/consuming-from-excel/enableeditting.png
-[3]: ./media/consuming-from-excel/enablecontent.png
-[4]: ./media/consuming-from-excel/sampletable.png

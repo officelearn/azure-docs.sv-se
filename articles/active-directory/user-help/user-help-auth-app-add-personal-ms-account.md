@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba77f79ad4625319a9b6e3eae46bf8470f43607
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 67cb3d049cc2d2f26be6d62270e677a5cbcd39cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203785"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455049"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Lägg till ditt personliga Microsoft-konton
 Lägga till ditt personliga Microsoft-konton som för Outlook.com, Xbox LIVE och på Microsoft Authenticator-appen för både standard tvåfaktors-verifieringen och konfiguration av lösenordsfri phone inloggningsmetod.
@@ -37,7 +37,7 @@ Du kan lägga till ditt personliga Microsoft-konto genom att aktivera tvåfaktor
 
 ### <a name="turn-on-two-factor-verification"></a>Aktivera tvåfaktorsautentisering verifiering
 
-1. På din dator går du till din [Säkerhetsgrunder](https://account.microsoft.com/security) sidan och logga in med ditt personliga Microsoft-konto. Till exempel alain@outlook.com.
+1. På din dator, går du till din [Säkerhetsgrunder](https://account.microsoft.com/security) sidan och logga in med ditt personliga Microsoft-konto. Till exempel alain@outlook.com.
 
 2. Längst ned på den **säkerhetskoncepten** väljer du den **mer säkerhetsalternativ** länk.
 

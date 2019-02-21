@@ -2,43 +2,69 @@
 title: Uppgradera till den senaste generationen i Azure SQL Data Warehouse | Microsoft Docs
 description: Uppgradera Azure SQL Data Warehouse till senaste generationen i Azure maskin- och storage-arkitektur.
 services: sql-data-warehouse
-author: kevinvngo
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/26/2018
-ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: 173846e4828228bdc51fc42858e0c6c9b00cafd6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.date: 02/19/2019
+ms.author: martinle
+ms.reviewer: jrasnick
+ms.openlocfilehash: f3e877733d473993a5acd2f44e088b8b0b4fe130
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242798"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447267"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 Uppgradera Azure SQL Data Warehouse till senaste generationen i Azure maskin- och storage-arkitektur.
 
 ## <a name="why-upgrade"></a>Varför uppgradera?
-Du kan nu sömlöst uppgradera till SQL Data Warehouse Compute Optimized Gen2 nivån i Azure-portalen. Om du har ett informationslager för Compute Optimized Gen1 nivå, rekommenderas uppgradera. Genom att uppgradera, du kan använda den senaste generationen i Azure-maskinvaran och förbättrad lagringsarkitektur. Du kan dra nytta av bättre prestanda, högre skalbarhet och obegränsad kolumnformad lagring. 
+Du kan nu uppgradera sömlöst till SQL Data Warehouse Compute Optimized Gen2 nivån i Azure-portalen för [regioner som stöds](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Om din region inte har stöd för lokal uppgradera, kan du uppgradera till en region som stöds eller vänta tills själva uppgradera ska vara tillgängliga i din region. Uppgradera nu för att dra nytta av den senaste generationen i Azure-maskinvaran och bättre lagringsarkitektur inklusive snabbare prestanda, högre skalbarhet och obegränsad kolumnformad lagring. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Gäller
-Den här uppgraderingen gäller för informationslager för Compute Optimized Gen1 nivå.
+Den här uppgraderingen gäller för Compute Optimized Gen1 nivån informationslager i [regioner som stöds](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+1. Kontrollera om din [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) stöds för GEN1 till GEN2 migrering. Obs automatisk migrering datumen. Planera din manuell migrering före startdatumet automatiserad process för att undvika konflikter med den automatiska processen.
+2. Om du är i en region som inte stöds ännu kan fortsätta att söka efter din region som ska läggas till eller [uppgradera med hjälp av restore](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) till en region som stöds.
+3. Om din region stöds [uppgradera via Azure portal](#Upgrade-in-a-supported-region-using-the-Azure-portal)
+4. **Välj den föreslagna prestandanivån** för datalagret baserat på din aktuella prestandanivå på Compute Optimized Gen1 nivån med hjälp av mappningen nedan:
+
+   | Optimerad Gen1 Beräkningsnivån | Beräkningsnivån optimerade Gen2 |
+   | :-------------------------: | :-------------------------: |
+   |            DW100            |           DW100c            |
+   |            DW200            |           DW200c            |
+   |            DW300            |           DW300c            |
+   |            DW400            |           DW400c            |
+   |            DW500            |           DW500c            |
+   |            DW600            |           DW500c            |
+   |           DW1000            |           DW1000c           |
+   |           DW1200            |           DW1000c           |
+   |           DW1500            |           DW1500c           |
+   |           DW2000            |           DW2000c           |
+   |           DW3000            |           DW3000c           |
+   |           DW6000            |           DW6000c           |
+>[!Note]
+>Föreslagna prestandanivåer är inte en direkt konvertering. Exempelvis rekommenderar vi gå från DW600 till DW500c.
+
+## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Uppgradera i en region som stöds med hjälp av Azure portal
+
+> [!NOTE]
+> Migrering från GEN1 till GEN2 via Azure portal är permanent. Det finns inte en process för att återgå till GEN1.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure Portal](https://portal.azure.com/).
 
-## <a name="before-you-begin"></a>Innan du börjar
-> [!NOTE]
-> Om ditt befintliga Compute Optimized Gen1 nivån data warehouse inte är i en region där Compute Optimized Gen2-nivån är tillgänglig, kan du [geo-återställning](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) via PowerShell till en region som stöds.
->
-> 
-
 1. Om datalagret Compute Optimized Gen1 nivå som ska uppgraderas är pausad, [återuppta datalagret](pause-and-resume-compute-portal.md).
+
+   > [!NOTE]
+   > Azure SQL Data Warehouse måste köras för att migrera till Gen2.
 
 2. Förberedas för ett par minuter stillestånd. 
 
@@ -71,37 +97,22 @@ Logga in på [Azure Portal](https://portal.azure.com/).
    ```sql
    ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
    ```
-    > [!NOTE] 
-    > SERVICE_OBJECTIVE = 'DW300' ändras till SERVICE_OBJECTIVE = ' DW300**c**'
+   > [!NOTE] 
+   > SERVICE_OBJECTIVE = 'DW300' ändras till SERVICE_OBJECTIVE = ' DW300**c**'
 
 
 
 ## <a name="start-the-upgrade"></a>Starta uppgraderingen
 
-1. Gå till din Compute Optimized Gen1 nivån datalager i Azure-portalen och klicka på den **uppgradera till Gen2** kortet under fliken aktiviteter:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Gå till Compute Optimized Gen1 nivån data warehouse i Azure-portalen. Om datalagret Compute Optimized Gen1 nivå som ska uppgraderas är pausad, [återuppta datalagret](pause-and-resume-compute-portal.md). 
+2. Välj **uppgradera till Gen2** kortet under fliken aktiviteter:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > Om du inte ser den **uppgradera till Gen2** kortet under fliken aktiviteter, typ av prenumeration är begränsad i den aktuella regionen.
-    > [Skicka in ett supportärende](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) att hämta din prenumeration i listan över godkända.
+    > [Skicka in ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md) att hämta din prenumeration i listan över godkända.
 
-2. Som standard **väljer den föreslagna prestandanivån** för datalagret baserat på din aktuella prestandanivå på Compute Optimized Gen1 nivån med hjälp av mappningen nedan:
 
-   | Optimerad Gen1 Beräkningsnivån | Beräkningsnivån optimerade Gen2 |
-   | :-------------------------: | :-------------------------: |
-   |            DW100            |           DW100c            |
-   |            DW200            |           DW200c            |
-   |            DW300            |           DW300c            |
-   |            DW400            |           DW400c            |
-   |            DW500            |           DW500c            |
-   |            DW600            |           DW500c            |
-   |           DW1000            |           DW1000c           |
-   |           DW1200            |           DW1000c           |
-   |           DW1500            |           DW1500c           |
-   |           DW2000            |           DW2000c           |
-   |           DW3000            |           DW3000c           |
-   |           DW6000            |           DW6000c           |
-
-3. Se till att din arbetsbelastning har slutförts körs och offline innan du uppgraderar. Du får driftstopp för ett par minuter innan datalagret är online igen som ett informationslager för Compute Optimized Gen2 nivå. **Klicka på Uppgradera**:
+3. Se till att din arbetsbelastning har slutförts körs och offline innan du uppgraderar. Du kommer drabbas för ett par minuter innan datalagret är online igen som ett informationslager för Compute Optimized Gen2 nivå. **Välj uppgradering**:
 
    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
@@ -111,11 +122,14 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
    Det första steget i uppgraderingen går igenom skalningsåtgärden (”uppgradera - Offline”) där alla sessioner kommer att avslutas och anslutningar kommer att tas bort. 
 
-   Det andra steget i uppgraderingsprocessen är datamigrering (”uppgradera - Online”). Migrering av data är en online takt bakgrundsprocess som långsamt flyttar kolumner data från den gamla lagringsarkitekturen till den nya storage-arkitekturen som att använda en lokal SSD-cache. Under denna tid kommer ditt informationslager att vara online för att fråga och läsa in. Alla dina data blir tillgängliga för frågor, oavsett om den har migrerats eller inte. Migrering av data sker på en varierande avgift beroende på datastorleken på din, din prestandanivån och antalet columnstore-segment. 
+   Det andra steget i uppgraderingsprocessen är datamigrering (”uppgradera - Online”). Migrering av data är en online takt bakgrundsprocess. Den här processen flyttar långsamt petabyteskalade kolumndata från den gamla lagringsarkitekturen till den nya storage-arkitekturen med en lokal SSD-cache. Under denna tid kommer ditt informationslager att vara online för att fråga och läsa in. Dina data ska vara tillgängliga för frågor, oavsett om den har migrerats eller inte. Migrering av data sker på olika priser beroende på datastorleken på din, din prestandanivån och antalet columnstore-segment. 
 
-5. **Valfri rekommendation:** För att bearbeta data bakgrund migreringsprocessen kan du direkt tvinga dataförflyttning genom att köra [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) på alla primära columnstore-tabeller du skulle köras mot en större SLO och resurs-klass. Den här åtgärden är **offline** jämfört med den takt bakgrundsprocess som kan ta timmar att slutföra beroende på antalet och storleken på dina tabeller, migrering av data är dock mycket snabbare där du sedan kan dra full nytta Förbättrad lagringsarkitektur när du är klar med högkvalitativa radgrupper för den nya. 
+5. **Valfri rekommendation:** När skalning åtgärden har slutförts, kan du påskynda bakgrund migrerar data. Du kan tvinga dataförflyttning genom att köra [Alter Index rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller du skulle köras mot en större SLO och resurs-klass. Den här åtgärden är **offline** jämfört med bakgrundsprocess takt, vilket kan ta timmar att slutföra beroende på antalet och storleken på dina tabeller. När du är klar kommer datamigrering dock mycket snabbare på grund av den nya arkitekturen i Förbättrad lagring med högkvalitativa radgrupper.
+ 
+> [!NOTE]
+> ALTER Index rebuild är en offline-åtgärd och tabellerna är inte tillgängliga förrän återskapandet har slutförts.
 
-Följande fråga genererar nödvändiga Alter Index Rebuild kommandon att påskynda migreringen data:
+Följande fråga genererar nödvändiga Alter Index Rebuild kommandon att påskynda migrering av data:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
@@ -159,8 +173,74 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
+## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Uppgradera från en Azure-geografisk region med hjälp av återställning via Azure portal
+
+## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Skapa en användardefinierad återställningspunkt med hjälp av Azure portal
+
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+
+2. Gå till SQL data warehouse som du vill skapa en återställningspunkt för.
+
+3. Högst upp i översiktsavsnittet, Välj **+ ny återställningspunkt**.
+
+    ![Ny återställningspunkt](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
+
+4. Ange ett namn för återställningspunkten.
+
+    ![Namnet på återställningspunkt](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
+
+## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Återställ en aktiv eller pausad-databas med Azure portal
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Gå till SQL data warehouse som du vill återställa från.
+3. Högst upp i översiktsavsnittet, Välj **återställa**.
+
+    ![ Återställa översikt](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
+
+4. Välj antingen **automatisk återställningspunkter** eller **användardefinierade återställningspunkter**.
+
+    ![Automatiska återställningspunkter](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
+
+5. För användardefinierade återställningspunkter **Välj en återställningspunkt** eller **skapa en ny användardefinierad återställningspunkt**. Välj en server i en Gen2 geografiska region som stöds. 
+
+    ![Användardefinierade återställningspunkter](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
+
+## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Återställa från en Azure-geografisk region med hjälp av PowerShell
+Om du vill återställa en databas kan använda den [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet.
+
+> [!NOTE]
+> Du kan utföra en geo-återställning till Gen2! Du gör detta genom att ange en Gen2 ServiceObjectiveName (t.ex. DW1000**c**) som en valfri parameter.
+>
+
+1. Öppna Windows PowerShell.
+2. Anslut till ditt Azure-konto och lista över alla prenumerationer som är associerat med ditt konto.
+3. Välj den prenumeration som innehåller databasen som skulle återställas.
+4. Hämta den databas som du vill återställa.
+5. Skapa recovery-begäran för databasen att ange en Gen2 ServiceObjectiveName.
+6. Kontrollera status för geo-återställa databasen.
+
+```Powershell
+Connect-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+
+# Get the database you want to recover
+$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+
+# Recover database
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>" -RequestedServiceObjectiveName "DW300c"
+
+# Verify that the geo-restored database is online
+$GeoRestoredDatabase.status
+```
+
+> [!NOTE]
+> För att konfigurera databasen efter återställningen har slutförts, se [konfigurera databasen efter återställningen](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+>
+
+Den återställda databasen kommer att TDE-aktiverade om källdatabasen är TDE-aktiverad.
 
 
+Om du får problem med ditt data warehouse, skapa en [supportförfrågan](sql-data-warehouse-get-started-create-support-ticket.md) och referera till ”Gen2 uppgraderingen” som möjlig orsak.
 
 ## <a name="next-steps"></a>Nästa steg
 Uppgraderade datalagret är online. Om du vill dra nytta av förbättrad arkitektur, se [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md).

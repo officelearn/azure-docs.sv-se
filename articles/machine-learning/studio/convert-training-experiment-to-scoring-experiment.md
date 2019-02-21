@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001705"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455117"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Hur du förbereder din modell för distribution i Azure Machine Learning Studio
 
@@ -50,11 +50,11 @@ När du har kört experimentet (klicka på **kör** längst ned på arbetsytan f
 
 Till exempel träna följande experiment finns en modell för trädet av tvåklassförhöjt beslutsträd med hjälp av exemplet insamlade data:
 
-![Träningsexperiment][figure1]
+![Träningsexperiment](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 Moduler i det här experimentet utför i princip fyra olika funktioner:
 
-![Modulfunktioner][figure2]
+![Modulfunktioner](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 När du konverterar den här träningsexperiment till ett förutsägbart experiment, några av dessa moduler längre behövs inte eller de nu har en annan syfte:
 
@@ -70,7 +70,7 @@ När du konverterar den här träningsexperiment till ett förutsägbart experim
 
 Här är hur vårt exempel ser ut när du klickar på **konfigurera Web Service**:
 
-![Konverterade förutsägbart experiment][figure3]
+![Konverterade förutsägbart experiment](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 Arbetet som utförs av **konfigurera Web Service** kan vara tillräckliga för att förbereda ditt experiment som kan distribueras som en webbtjänst. Dock kan du utföra vissa ytterligare arbete som är specifika för ditt experiment.
 
@@ -79,7 +79,7 @@ I din träningsexperiment används en uppsättning träningsdata och har viss be
 
 Som standard **konfigurera Web Service** placerar den **Web service indata** modulen överst i ditt dataflöde, som visas i bilden ovan. Men vi kan placera manuellt de **Web service indata** tidigare databearbetning-moduler:
 
-![Flytta webbtjänstindata][figure4]
+![Flytta webbtjänstindata](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 Indata via webbtjänsten nu skickas direkt till modulen poängsätta modell utan någon Förbearbeta.
 
@@ -88,14 +88,14 @@ Men om du föredrar att returnera något annat sedan du kan lägga till ytterlig
 
 Exempelvis om du vill returnera endast de bedömnings resultaten och inte hela vektor indata, lägga till en [Välj kolumner i datauppsättning] [ select-columns] modul för att exkludera alla kolumner utom bedömnings resultaten. Flytta den **Web service utdata** modulen till utdataporten för den [Välj kolumner i datauppsättning] [ select-columns] modulen. Experimentet ser ut så här:
 
-![Flytta web service-utdata][figure5]
+![Flytta web service-utdata](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>Lägga till eller ta bort ytterligare bearbetning-moduler
 Om det finns flera moduler i ditt experiment som du vet inte behövs under bedömning, kan de tas bort. Till exempel eftersom vi har flyttat den **Web service indata** modul till en tidpunkt efter bearbetning av moduler som vi kan ta bort den [Rensa Data som saknas] [ clean-missing-data] modul från den förutsägbart experiment.
 
 Vår förutsägelseexperiment ser nu ut så här:
 
-![Ta bort ytterligare modulen][figure6]
+![Ta bort ytterligare modulen](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### <a name="add-optional-web-service-parameters"></a>Lägga till valfria Webbtjänstparametrar
@@ -116,16 +116,6 @@ Nu när förutsägbart experiment har förberetts tillräckligt, kan du distribu
 Läs mer om fullständig distributionsprocessen [distribuera en Azure Machine Learning-webbtjänst][deploy]
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

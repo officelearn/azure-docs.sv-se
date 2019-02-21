@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ddc0f0f8cfd6c7d540d2a1de2f5ecb35cdfd234f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417609"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447182"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)
 
@@ -27,21 +27,7 @@ Den här artikeln visar hur du använder principer för nätverk för att styra 
 
 Du behöver Azure CLI version 2.0.56 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
-## <a name="overview-of-network-policy"></a>Översikt över nätverksprincip
-
-Som standard kan alla poddar i ett AKS-kluster skicka och ta emot trafik utan begränsningar. Du kan definiera regler som styr flödet av trafik för att förbättra säkerheten. Till exempel serverdelsprogrammen exponeras ofta bara till nödvändiga frontend-tjänster eller databaskomponenter är endast tillgängliga på nivån för program som ansluter till dem.
-
-Nätverksprinciper är Kubernetes-resurser att reglera trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Nätverksprinciper definieras som en YAML manifest, och kan ingå som en del av ett bredare manifest som även skapar en distribution eller tjänst.
-
-Nu ska vi se nätverksprinciper i praktiken, skapa och expandera sedan en princip som definierar trafikflödet på följande sätt:
-
-* Neka all trafik till pod.
-* Tillåta trafik baserat på pod etiketter.
-* Tillåta trafik baserat på namnområdet.
-
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Skapa ett AKS-kluster och aktivera principen för nätverk
-
-Principen för nätverk kan bara aktiveras när klustret har skapats. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster. Om du vill skapa ett AKS med nätverksprincip först aktivera en funktionsflagga i prenumerationen. Att registrera den *EnableNetworkPolicy* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
+Om du vill skapa ett AKS med nätverksprincip först aktivera en funktionsflagga i prenumerationen. Att registrera den *EnableNetworkPolicy* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -59,7 +45,25 @@ När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerServ
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Om du vill använda principen för nätverk med ett AKS-kluster, måste du använda den [plugin-programmet Azure CNI] [ azure-cni] och definiera dina egna virtuella nätverk och undernät. Mer detaljerad information om hur du planerar ut nödvändiga undernätets adressintervall finns i [konfigurera avancerade nätverk][use-advanced-networking]. Följande exempelskript:
+## <a name="overview-of-network-policy"></a>Översikt över nätverksprincip
+
+Som standard kan alla poddar i ett AKS-kluster skicka och ta emot trafik utan begränsningar. Du kan definiera regler som styr flödet av trafik för att förbättra säkerheten. Till exempel serverdelsprogrammen exponeras ofta bara till nödvändiga frontend-tjänster eller databaskomponenter är endast tillgängliga på nivån för program som ansluter till dem.
+
+Nätverksprinciper är Kubernetes-resurser att reglera trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Nätverksprinciper definieras som en YAML manifest, och kan ingå som en del av ett bredare manifest som även skapar en distribution eller tjänst.
+
+Nu ska vi se nätverksprinciper i praktiken, skapa och expandera sedan en princip som definierar trafikflödet på följande sätt:
+
+* Neka all trafik till pod.
+* Tillåta trafik baserat på pod etiketter.
+* Tillåta trafik baserat på namnområdet.
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Skapa ett AKS-kluster och aktivera principen för nätverk
+
+Principen för nätverk kan bara aktiveras när klustret har skapats. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster. 
+
+Om du vill använda principen för nätverk med ett AKS-kluster, måste du använda den [plugin-programmet Azure CNI] [ azure-cni] och definiera dina egna virtuella nätverk och undernät. Mer detaljerad information om hur du planerar ut nödvändiga undernätets adressintervall finns i [konfigurera avancerade nätverk][use-advanced-networking].
+
+Följande exempelskript:
 
 * Skapar ett virtuellt nätverk och undernät.
 * Skapar ett Azure Active Directory (AD) tjänstens huvudnamn för användning med AKS-klustret.
@@ -86,7 +90,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857948"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445125"
 ---
 # <a name="ship-an-application"></a>Skicka ett program
 
@@ -47,19 +47,19 @@ De tal SDK-filerna som krävs kan distribueras i samma katalog som ditt program.
 
 ## <a name="linux"></a>Linux
 
+Tal-SDK stöder för närvarande Ubuntu 16.04 och 18.04 distributioner.
 För ett internt program, måste du skicka tal SDK-biblioteket `libMicrosoft.CognitiveServices.Speech.core.so`.
 Kontrollera att du väljer den versionen (x86, x64) som matchar ditt program. Beroende på Linux-version kan behöva du också omfattar följande beroenden:
 
 * Delade bibliotek av GNU C-bibliotek (inklusive POSIX trådar Programming-biblioteket `libpthreads`)
 * OpenSSL-bibliotek (`libssl.so.1.0.0`)
-* CURL-biblioteket (`libcurl.so.4`)
 * Det delade biblioteket för ALSA program (`libasound.so.2`)
 
-På Ubuntu 16.04 eller 18.04, till exempel bör GNU C-bibliotek vara installerad som standard. Tre senaste kan installeras med hjälp av följande kommandon:
+I Ubuntu bör GNU C-bibliotek vara installerad som standard. Tre senaste kan installeras med hjälp av följande kommandon:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## <a name="next-steps"></a>Nästa steg

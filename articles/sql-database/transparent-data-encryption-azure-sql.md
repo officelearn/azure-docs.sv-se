@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 8fb7ea1841d788c1d8e7809a0641140228fd2ea5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/20/2019
+ms.openlocfilehash: bfceb8feacdad428a6e4c23272fd9092a356f107
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233164"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453332"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent datakryptering för SQL Database och Data Warehouse
 
@@ -33,7 +33,7 @@ SQL Server som körs på virtuella Azure-datorer även kan använda en asymmetri
 
 ## <a name="service-managed-transparent-data-encryption"></a>Tjänsthanterad transparent datakryptering
 
-I Azure är standardinställningen för transparent datakryptering att databaskrypteringsnyckeln skyddas av ett certifikat för inbyggda. Inbyggda servercertifikatet är unikt för varje server. Om en databas finns i en relation för geo-replikering, både primär och geo-sekundära databasen skyddas av den primära databasen överordnade servernyckeln. Om två databaser är ansluten till samma server kan dela de också samma inbyggda certifikat. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag.
+I Azure är standardinställningen för transparent datakryptering att databaskrypteringsnyckeln skyddas av ett certifikat för inbyggda. Inbyggda servercertifikatet är unikt för varje server. Om en databas finns i en relation för geo-replikering, både primär och geo-sekundära databasen skyddas av den primära databasen överordnade servernyckeln. Om två databaser är ansluten till samma server kan dela de också samma inbyggda certifikat. Microsoft roterar automatiskt dessa certifikat i enlighet med den interna säkerhetsprincipen och rotnyckeln skyddas av en Microsoft interna hemliga store.
 
 Microsoft även sömlöst flyttar hanterar nycklar som behövs för geo-replikering och återställer.
 
@@ -42,7 +42,7 @@ Microsoft även sömlöst flyttar hanterar nycklar som behövs för geo-repliker
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Kundhanterad transparent datakryptering, Bring Your Own Key
 
-[TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) tillåter för att kryptera den databasen Datakrypteringsnyckeln (DEK) med en kundhanterad asymmetrisk nyckel kallas TDE-skydd.  TDE-skyddet lagras i en kundägda och hanteras [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade externa nyckelhanteringssystem. TDE DEK, som finns på startsidan av en databas, krypteras och dekrypteras av TDE-skyddet, som lagras i Azure Key Vault och lämnar aldrig nyckelvalvet.  SQL-databasen måste ha behörighet till kundägda nyckelvalvet för att dekryptera och kryptera DEK. Om behörigheterna för den logiska SQL-servern till nyckelvalvet har återkallats, en databas kan inte nås och alla data krypteras. För Azure SQL Database, TDE-skyddet är inställd på den logiska SQL-servernivån och ärvs av alla databaser som är associerade med den här servern. För [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), TDE-skyddet är inställd på instansnivå och den ärvs av alla *krypterade* databaser på instansen. Termen *server* refererar både till servern och instansen i hela dokumentet, om inte anges på olika sätt.
+[TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) tillåter för att kryptera den databasen Datakrypteringsnyckeln (DEK) med en kundhanterad asymmetrisk nyckel kallas TDE-skydd.  Detta kallas också i allmänhet som ta med din egen nyckel (BYOK) som har stöd för Transparent datakryptering. I BYOK-scenariot TDE-skyddet lagras i en kundägda och hanteras [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade externa nyckelhanteringssystem. TDE-skyddet kan vara [genereras av key vault eller överföras till nyckelvalvet](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) från en lokal HSM-enhet. TDE DEK, som finns på startsidan av en databas, krypteras och dekrypteras av TDE-skyddet, som lagras i Azure Key Vault och lämnar aldrig nyckelvalvet.  SQL-databasen måste ha behörighet till kundägda nyckelvalvet för att dekryptera och kryptera DEK. Om behörigheterna för den logiska SQL-servern till nyckelvalvet har återkallats, en databas kan inte nås och alla data krypteras. För Azure SQL Database, TDE-skyddet är inställd på den logiska SQL-servernivån och ärvs av alla databaser som är associerade med den här servern. För [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), TDE-skyddet är inställd på instansnivå och den ärvs av alla *krypterade* databaser på instansen. Termen *server* refererar både till servern och instansen i hela dokumentet, om inte anges på olika sätt.
 
 Med transparent Datakryptering med Azure Key Vault-integrering, kan användare styra viktiga hanteringsaktiviteter, inklusive nyckelrotationer, nyckelvalvet behörigheter, nyckelsäkerhetskopior och aktivera granskning/reporting på alla TDE-skydd med hjälp av Azure Key Vault-funktioner. Key Vault ger central nyckelhantering, utnyttjar nära övervakade maskinvarusäkerhetsmoduler (HSM) och låter uppdelning av uppgifter mellan hantering av nycklar och data för att uppfylla efterlevnad med säkerhetsprinciper.
 Läs mer om transparent datakryptering med Azure Key Vault-integrering (stöd för Bring Your Own Key) för Azure SQL Database, SQL-hanterad instans och Data Warehouse i [Transparent datakryptering med Azure Key Vault-integrering](transparent-data-encryption-byok-azure-sql.md).

@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 02/19/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5c809153b3b86a5460bd2c235d9f6226fb50a024
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f89eca6fb8893210f4c65adc42598ab0e0b531f4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118803"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454343"
 ---
-# <a name="explore-net-trace-logs-in-application-insights"></a>Utforska .NET spårningsloggarna i Application Insights
-Om du använder NLog, log4Net eller System.Diagnostics.Trace för diagnostikspårning i ASP.NET-program, kan du använda dina loggar som skickas till [Azure Application Insights][start], där du kan utforska och söka dem. Loggarna tillsammans med den telemetri som kommer från ditt program, så att du kan identifiera spårningar som är associerade med Underhåll varje användarbegäran och korrelera dem med andra händelser och undantagsrapporter.
+# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Utforska.NET/.NET Core spårningsloggar i Application Insights
+
+Om du använder ILogger, NLog, log4Net eller System.Diagnostics.Trace för diagnostikspårning i din ASP.NET/ASP.NET Core-App, kan du använda dina loggar som skickas till [Azure Application Insights][start], där du kan utforska och söka efter den. Loggarna tillsammans med den telemetri som kommer från ditt program, så att du kan identifiera spårningar som är associerade med Underhåll varje användarbegäran och korrelera dem med andra händelser och undantagsrapporter.
 
 > [!NOTE]
 > Behöver du avbilda-modulen programlogg? Det är en användbar adapter för 3 part tangenttryckningar, men om du inte redan använder NLog, log4Net eller System.Diagnostics.Trace, bör du bara anropa [Application Insights TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) direkt.
@@ -30,23 +31,18 @@ Om du använder NLog, log4Net eller System.Diagnostics.Trace för diagnostikspå
 ## <a name="install-logging-on-your-app"></a>Installera loggning i din app
 Installera din valda loggningsramverk i projektet. Detta resulterar i en post i app.config eller web.config.
 
-Om du använder System.Diagnostics.Trace, måste du lägga till en post i web.config:
-
 ```XML
-
     <configuration>
-     <system.diagnostics>
-       <trace autoflush="false" indentsize="4">
-         <listeners>
-           <add name="myListener"
-             type="System.Diagnostics.TextWriterTraceListener"
-             initializeData="TextWriterOutput.log" />
-           <remove name="Default" />
-         </listeners>
-       </trace>
-     </system.diagnostics>
+      <system.diagnostics>
+    <trace autoflush="true" indentsize="0">
+      <listeners>
+        <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
+      </listeners>
+    </trace>
+  </system.diagnostics>
    </configuration>
 ```
+
 ## <a name="configure-application-insights-to-collect-logs"></a>Konfigurera Application Insights för att samla in loggar
 **[Lägg till Application Insights i projektet](../../azure-monitor/app/asp-net.md)**  om du inte har gjort det ännu. Ser du ett alternativ för att inkludera logginsamlaren.
 
@@ -60,15 +56,28 @@ Använd den här metoden om din projekttyp inte stöds av Application Insights-i
 1. Om du planerar att använda log4Net eller NLog, kan du installera det i projektet.
 2. Högerklicka på projektet i Solution Explorer och välj **hantera NuGet-paket**.
 3. Sök efter ”Application Insights”
-4. Välj lämpligt paket - en av:
+4. Välj något av följande paket:
 
-   * Microsoft.ApplicationInsights.TraceListener (för att spela in System.Diagnostics.Trace anrop)
-   * Microsoft.ApplicationInsights.EventSourceListener (för att samla in EventSource händelser)
-   * Microsoft.ApplicationInsights.EtwCollector (för att samla in ETW-händelser)
-   * Microsoft.ApplicationInsights.NLogTarget
-   * Microsoft.ApplicationInsights.Log4NetAppender
+   - För ILogger: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - För NLog: [Microsoft.ApplicationInsights.NLogTarget](http://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - För Log4Net: [Microsoft.ApplicationInsights.Log4NetAppender](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - För System.Diagnostics: [Microsoft.ApplicationInsights.TraceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
-NuGet-paketet installerar nödvändiga sammansättningar och ändrar också web.config eller app.config.
+NuGet-paketet installerar nödvändiga sammansättningar och tillämpliga ändrar web.config eller app.config.
+
+## <a name="ilogger"></a>ILogger
+
+Exempel på hur du använder Application Insights ILogger implementering med konsolprogram och ASP.NET Core finns i denna [artikeln](ilogger.md).
 
 ## <a name="insert-diagnostic-log-calls"></a>Infoga diagnostiklogg anrop
 Om du använder System.Diagnostics.Trace, blir en typisk anrop:

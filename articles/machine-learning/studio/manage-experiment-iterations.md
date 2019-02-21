@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e41a669e3dcd14952077cbd21e7387184546de80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488455"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454318"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Hantera iterationer av experiment i Azure Machine Learning Studio
 Utveckla en förutsägande analysmodell är en iterativ process - allteftersom du ändrar de olika funktioner och parametrar av experimentet resultaten att Konvergera tills du är nöjd att du har en tränad, effektiv modell. Nyckeln till den här processen för att spåra olika iterationer av dina experiment parametrar och konfigurationer.
@@ -48,7 +48,7 @@ Anta exempelvis att du skapar ett experiment med den [linjär Regression] [ line
 
 Om du klickar på **visa KÖRNINGSHISTORIK**, visas en lista över alla körningar:
 
-![Exempel på Kör historik][runhistory]
+![Exempel på Kör historik](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
 Klicka på någon av dessa körningar att visa en ögonblicksbild av experimentet när du körde den. Konfiguration, parametervärden, kommentarer och resultat bevaras för att ge dig en fullständig post för den körningen av experimentet.
 
@@ -73,10 +73,6 @@ Anta exempelvis att du har experimentet körningshistorik som visas i föregåen
 5. Klicka på **kör**.
 
 Du kan nu fortsätta att ändra och köra den här versionen av ditt experiment, att skapa en ny körningshistorik för att registrera ditt arbete.
-
-<!-- Images -->
-[runhistory]:./media/manage-experiment-iterations/viewrunhistory.jpg
-
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/

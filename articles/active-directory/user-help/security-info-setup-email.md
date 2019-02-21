@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhetsinformation för att använda e-post – Azure Active Directory | Microsoft Docs
-description: Ställ in din säkerhetsinformation för att verifiera din identitet med hjälp av företagets eller skolans e-postadress.
+title: Konfigurera säkerhetsinformation (förhandsversion) för att använda din e-postadress – Azure Active Directory | Microsoft Docs
+description: Hur du ställer in din säkerhetsinformation för att verifiera din identitet med din e-postadress.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,49 +9,72 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c18124286d78520e8b89a61c5d12760c9ad784c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7c6bf2c8ea6a2526f8548a785706e5ed3a7460ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197223"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455219"
 ---
-# <a name="set-up-security-info-to-use-email-preview"></a>Konfigurera säkerhetsinformation för att använda e-post (förhandsversion)
+# <a name="set-up-security-info-preview-to-use-your-email-address"></a>Konfigurera säkerhetsinformation (förhandsversion) för att använda din e-postadress
+Du kan följa stegen nedan för att lägga till metoden för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.
+
+När du har konfigurerat metoden för återställning av lösenord, du måste också ställa in din tvåfaktorsautentisering verifieringsmetod, med hjälp av en [autentiseringsapp](security-info-setup-auth-app.md), [textmeddelanden](security-info-setup-text-msg.md), eller en [telefonsamtal](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Konfigurera din säkerhetsinformation måste du logga in på ditt arbets- eller skolkonto konto och sedan slutföra registreringen. Om du aldrig har konfigurerat din säkerhetsinformation kommer du bli ombedd att göra det nu.
-
-## <a name="set-up-email"></a>Konfigurera e-post
-
-Beroende på organisationens inställningar kan uppmanas du att lägga till en e-postadress till din säkerhetsinformation när du loggar in. I annat fall för att börja konfigurera e-post i säkerhetsinformation, följer du stegen i [hantera din säkerhetsinformation](security-info-manage-settings.md).
+## <a name="set-up-your-email-address-from-the-security-info-page"></a>Ange din e-postadress från sidan säkerhetsinformation
+Beroende på organisationens inställningar kan kanske du kan använda din e-postadress som en av din information säkerhetsmetoder.
 
 >[!Note]
->Vi rekommenderar att du använder ett e-postkonto som inte kräver nätverkslösenordet för att få åtkomst till.<br>Om du inte ser alternativet e-post, är det möjligt att din organisation tillåter inte att du använder ett e-postmeddelande för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
+>Vi rekommenderar att du använder en e-postadress som inte kräver nätverkslösenordet för att få åtkomst till. Om du inte ser alternativet e-post, är det möjligt att din organisation tillåter inte att du använder ett e-postmeddelande för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
 
-### <a name="to-use-your-email-address"></a>Att använda din e-postadress
+### <a name="to-set-up-your-email-address"></a>Du ställer in din e-postadress
 
-1. Välj den **e-post** alternativet och Skriv din e-postadress i rutan. E-postadressen får inte vara din arbets- eller skolkonto e-post.
+1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
 
-     ![Säkerhetssidan information med e-post](media/security-info/security-info-keep-secure-setup-email.png)
+    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile.png)
 
-2. Sök efter ett e-postmeddelande från Microsoft för din organisation, ange verifieringskoden som ingår i den **verifiera din e-** och väljer sedan **klar**.
+2. Välj **säkerhetsinformation** från det vänstra navigeringsfönstret eller från länken i den **säkerhetsinformation** blockera och sedan välja **tilläggsmetod** från den **säkerhetsinformation**  sidan.
 
-     ![Säkerhetssidan information med inmatningsfält för e-verifiering kod](media/security-info/security-info-verify-email.png)
+    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    >[!Note]
-    >Om du inte ser ett e-postmeddelande från Microsoft för din organisations räkning, kontrollera att du har skrivit din e-postadress korrekt och kontrollera mapparna skräppost eller skräppost.
+3. På den **Lägg till en metod** väljer **e-post** från listrutan och välj sedan **Lägg till**.
 
-3. I den **skydda ditt konto** väljer **klar**.
+    ![Lägg till metoden rutan med e-postadress som valts](media/security-info/securityinfo-myprofile-addemail.png)
 
-    Din säkerhetsinformation uppdateras om du vill använda din e-postadress för att verifiera din identitet när du använder återställning av lösenord.
+4. På den **e-post** , ange din e-postadress (till exempel alain@gmail.com), och välj sedan **nästa**.
 
-## <a name="additional-security-info-options"></a>Ytterligare säkerhetsalternativ för information
+    ![Lägg till telefonnummer och välj telefonsamtal](media/security-info/securityinfo-myprofile-emailaddress.png)
 
-Du har alternativ för hur din organisation kontakter du verifiera din identitet, baserat på vad är du försöker göra. Följande alternativ är tillgängliga:
+    >[!Important]
+    >E-postadressen får inte vara din arbets- eller skolkonto e-post.
+
+5. Skriv kod som skickas till din angivna e-postadress och välj sedan **nästa**.
+
+    ![Lägg till telefonnummer och välj textmeddelanden](media/security-info/securityinfo-myprofile-emailcode.png)
+
+    Din säkerhetsinformation uppdateras och du kan använda din e-postadress för att verifiera din identitet när du använder återställning av lösenord.
+
+## <a name="delete-your-email-address-from-your-security-info-methods"></a>Ta bort din e-postadress från din info säkerhetsmetoder
+Om du inte längre vill använda din e-postadress som en säkerhetsmetod information du kan ta bort den från den **säkerhetsinformation** sidan.
+
+>[!Important]
+>Om du tar bort din e-postadress av misstag, går det inte att ångra åtgärden. Du måste lägga till metoden igen, följa stegen i den [ställa in din e-postadress](#set-up-your-email-address-from-the-security-info-page) i den här artikeln.
+
+### <a name="to-delete-your-email-address"></a>Att ta bort din e-postadress
+
+1. På den **säkerhetsinformation** väljer den **ta bort** länka bredvid den **e-post** alternativet.
+
+    ![Länk för att ta bort metoden phone från säkerhetsinformation](media/security-info/securityinfo-myprofile-emaildelete.png)
+
+2. Välj **Ja** från dialogrutan Bekräfta att ta bort den **e-post** konto. När e-postkonto tas bort, tas den bort från din säkerhetsinformation och försvinner den från den **säkerhetsinformation** sidan.
+
+## <a name="additional-security-info-methods"></a>Ytterligare information om säkerhetsmetoder
+Du har ytterligare alternativ för hur din organisation kontakter du verifiera din identitet, baserat på vad är du försöker göra. Följande alternativ är tillgängliga:
 
 - **Authenticator-appen.** Ladda ned och använda en autentiseringsapp för att få ett meddelande om godkännande eller en slumpmässigt genererad godkännandekod för återställning av tvåstegsverifiering verifiering eller lösenord. Stegvisa instruktioner om hur du skapar och använder Microsoft Authenticator-appen finns i [konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md).
 
@@ -65,8 +88,6 @@ Du har alternativ för hur din organisation kontakter du verifiera din identitet
     >Om vissa av dessa alternativ saknas, är det mest sannolika eftersom din organisation inte tillåter dessa metoder. Om så är fallet, måste du välja en tillgänglig metod eller kontakta administratören för mer hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
-
-- Om du behöver uppdatera din säkerhetsinformation, följ instruktionerna i den [hantera din säkerhetsinformation](security-info-manage-settings.md) artikeln.
 
 - Återställa lösenordet om du har förlorat den, från den [portal för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följer du stegen i den [återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md) artikeln.
 

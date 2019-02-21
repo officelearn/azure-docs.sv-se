@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: fd93b84c251a0b2346550c79bcb8796161cb9116
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d621afd682e6040179777f4cd6d991ff31acb5a3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417879"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445499"
 ---
 # <a name="transforms-and-jobs"></a>Transformeringar och jobb
  
@@ -61,6 +61,13 @@ Se [felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 Se [filtrering, sortering, växling av Media Services entiteter](entities-overview.md).
 
+## <a name="configure-media-reserved-units"></a>Konfigurera Mediereserverade enheter
+
+För analys av ljud och Video Analysis jobb som utlöses av Media Services v3 eller Video Indexer kan rekommenderar vi starkt att etablera ditt konto med 10 Mediereserverade S3-enheter (MRUs). Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
+
+Mer information finns i [skala mediebearbetning med CLI](media-reserved-units-cli-how-to.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
-[Ladda upp, koda och strömma videofiler](stream-files-tutorial-with-api.md)
+- [Självstudier: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)
+- [Självstudier: Analysera videoklipp med Media Services v3 med hjälp av .NET](analyze-videos-tutorial-with-api.md)

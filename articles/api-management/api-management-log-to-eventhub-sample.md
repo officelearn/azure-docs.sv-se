@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 8358eceedbb9214e4adb73f055bcf0db7fecec76
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430394"
+ms.locfileid: "56447760"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Övervaka dina API: er med Azure API Management, Event Hubs och Moesif
 Den [API Management-tjänsten](api-management-key-concepts.md) innehåller många funktioner för att förbättra bearbetningen av HTTP-begäranden som skickas till din HTTP-API. Förekomsten av begäranden och svar är dock tillfälligt. Begäran gjordes och den förs vidare via API Management-tjänsten till ditt serverdels-API. Ditt API bearbetar begäran och svaret som flödar tillbaka via API-konsumenter. API Management-tjänsten ser till att vissa viktig statistik om API: er för visning i instrumentpanelen för Azure portal, men även efteråt som informationen är borta.
@@ -293,7 +293,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-Den `MoesifHttpMessageProcessor` drar nytta av en [ C# API-bibliotek för Moesif](https://www.moesif.com/docs/api?csharp#events) som gör det enkelt att skicka HTTP händelsedata i sina tjänster. För att skicka HTTP data Collector-API: et för Moesif, behöver du ett konto och en program-Id. Du get hämta ett Moesif program-Id genom att skapa ett konto på [Moesifs webbplats](https://www.moesif.com) och gå till den _övre högra menyn_ -> _App installationsprogrammet_.
+Den `MoesifHttpMessageProcessor` drar nytta av en [ C# API-bibliotek för Moesif](https://www.moesif.com/docs/api?csharp#events) som gör det enkelt att skicka HTTP händelsedata i sina tjänster. För att skicka HTTP data Collector-API: et för Moesif, behöver du ett konto och en program-Id. Du får ett Moesif program-Id genom att skapa ett konto på [Moesifs webbplats](https://www.moesif.com) och gå till den _övre högra menyn_ -> _App installationsprogrammet_.
 
 ## <a name="complete-sample"></a>Fullständigt exempel
 Den [källkod](https://github.com/dgilling/ApimEventProcessor) och tester för exemplet på GitHub. Du behöver en [API Management-tjänsten](get-started-create-service-instance.md), [anslutna Händelsehubben](api-management-howto-log-event-hubs.md), och en [Lagringskonto](../storage/common/storage-create-storage-account.md) att köra exemplet själv.   

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 14e631edb21c43ccde04a536760c2793ead40e90
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997090"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454707"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-tillägget för Azure Machine Learning Studio-webbtjänster
 Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva någon kod.
@@ -29,13 +29,13 @@ Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva n�
 
 2. Välj webbtjänsten genom att klicka på den-”Titanic efterlevande ge säkrare prognoser (Excel-tillägget prov) [poäng]” i det här exemplet.
    
-    ![Välj webbtjänst][01]
+    ![Välj webbtjänst](./media/excel-add-in-for-web-services/image1.png)
 3. Då kommer du till den **Predict** avsnittet.  Den här arbetsboken innehåller redan exempeldata, men för en tom arbetsbok kan du markera en cell i Excel och klicka på **använder exempeldata**.
 4. Välj data med rubriker och klicka på ikonen indata intervall.  Kontrollera att rutan ”data innehåller rubriker” är markerad.
 5. Under **utdata**, ange antalet celler där du vill att resultatet ska vara, till exempel ”H1” här.
 6. Klicka på **förutsäga**. Om du markerar kryssrutan ”Automatisk predict” ska eventuella ändringar i de markerade områdena (de som anges som indata) utlösa en begäran och en uppdatering av utdata cellerna utan att behöva du ska trycka på knappen predict.
    
-    ![Förutsäga avsnittet][02]
+    ![Förutsäga avsnittet](./media/excel-add-in-for-web-services/image1.png)
 
 Distribuera en webbtjänst eller Använd en befintlig webbtjänst. Mer information om hur du distribuerar en webbtjänst finns i [självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md).
 
@@ -45,10 +45,10 @@ Hämta API-nyckel för webbtjänsten. Om du utför beror denna åtgärd på om d
 
 1. I Machine Learning Studio, klickar du på den **WEBBTJÄNSTER** avsnittet i den vänstra rutan och välj sedan webbtjänsten.
    
-    ![Studio väljer en webbtjänst][04]
+    ![Studio väljer en webbtjänst](./media/excel-add-in-for-web-services/image4.png)
 2. Kopiera API-nyckel för webbtjänsten.
    
-    ![Studio API-nyckel][05]
+    ![Studio API-nyckel](./media/excel-add-in-for-web-services/image5.png)
 3. På den **INSTRUMENTPANELEN** för webbtjänsten klickar du på den **begäran/svar** länk.
 4. Leta efter den **begär URI** avsnittet.  Kopiera och spara URL: en.
 
@@ -70,23 +70,16 @@ Hämta API-nyckel för webbtjänsten. Om du utför beror denna åtgärd på om d
 3. Leta efter den **grundläggande förbrukning info** avsnittet. Kopiera och spara den **primärnyckel** och **Request-Response** URL: en.
 4. I Excel, går du till den **webbtjänster** avsnittet (om du är i den **Predict** klickar du på bakåtpilen för att gå till listan för web services).
    
-    ![Gå till Web service val][03]
+    ![Gå till Web service val](./media/excel-add-in-for-web-services/image3.png)
 5. Klicka på **Lägg till webbtjänst**.
 6. Klistra in Webbadressen till Excel-tillägget textrutan med etiketten **URL**.
 7. Klistra in den API eller den primära nyckeln i textrutan **API-nyckel**.
 8. Klicka på **Lägg till**.
    
-    ![URL: en och API-nyckeln för en klassiska webbtjänst.][06]
+    ![URL: en och API-nyckeln för en klassiska webbtjänst.](./media/excel-add-in-for-web-services/image6.png)
 9. Om du vill använda webbtjänsten, följer du föregående anvisningarna och ”steg för att använda en befintlig web Service”.
 
 ## <a name="sharing-your-workbook"></a>Dela din arbetsbok
 Om du har sparat din arbetsbok kan sparas även API eller den primära nyckeln för webbtjänster som du har lagt till. Det innebär att du bör bara dela arbetsboken med personer som du litar på.
 
 Frågor i avsnittet nedan kommentar eller på vår [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
-
-[01]: ./media/excel-add-in-for-web-services/image1.png
-[02]: ./media/excel-add-in-for-web-services/image2.png
-[03]: ./media/excel-add-in-for-web-services/image3.png
-[04]: ./media/excel-add-in-for-web-services/image4.png
-[05]: ./media/excel-add-in-for-web-services/image5.png
-[06]: ./media/excel-add-in-for-web-services/image6.png

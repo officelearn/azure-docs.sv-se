@@ -1,5 +1,5 @@
 ---
-title: Om säkerhetskopiering av Azure virtuella datorer
+title: Om Säkerhetskopiering av virtuella Azure-datorer
 description: Läs om säkerhetskopiering av Azure virtuella datorer och Observera några metodtips.
 services: backup
 author: rayne-wiselman
@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: c331c3617f421c913abbc3554aa5ba17e86cb978
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: c38c457bbf428d7252cf57168685201a2ca227ba
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429187"
+ms.locfileid: "56446808"
 ---
-# <a name="about-azure-vm-backup"></a>Om säkerhetskopiering av Azure virtuella datorer
+# <a name="about-azure-vm-backup"></a>Om Säkerhetskopiering av virtuella Azure-datorer
 
 Den här artikeln beskrivs hur [Azure Backup-tjänsten](backup-introduction-to-azure-backup.md) säkerhetskopierar virtuella Azure-datorer.
 
@@ -48,7 +48,7 @@ När du säkerhetskopierar virtuella Azure-datorer med Azure Backup är virtuell
 
 **Kryptering** | **Detaljer** | **Support**
 --- | --- | ---
-**ADE** | ADE krypterar krypterar både Operativsystemet och datadiskarna för virtuella Azure-datorer.<br/><br/> ADE integreras med BitLocker krypteringsnycklar (BEK) skyddas i ett nyckelvalv som hemligheter, eller med krypteringsnycklar för Azure Key Vault nyckel (KEK). | Azure Backup stöder säkerhetskopiering av hanterade och ohanterade virtuella datorer i Azure krypteras endast BEK eller med BEK och KEK.<br/><br/> Båda BEK och och säkerhetskopieras och krypterad.<br/><br/> Eftersom KEK BEK säkerhetskopieras och, om det behövs användare med behörigheter kan återställa nycklar och hemligheter till nyckelvalvet och återställa krypterade virtuella datorn.<br/><br/> Krypterade nycklar och hemligheter kan inte läsas av obehöriga användare eller av Azure.
+**ADE** | ADE krypterar både Operativsystemet och datadiskarna för virtuella Azure-datorer.<br/><br/> ADE integreras med BitLocker krypteringsnycklar (BEK) skyddas i ett nyckelvalv som hemligheter, eller med krypteringsnycklar för Azure Key Vault nyckel (KEK). | Azure Backup stöder säkerhetskopiering av hanterade och ohanterade virtuella datorer i Azure krypteras endast BEK eller med BEK och KEK.<br/><br/> Båda BEK och säkerhetskopieras och krypterad.<br/><br/> Eftersom KEK BEK säkerhetskopieras och, om det behövs användare med behörigheter kan återställa nycklar och hemligheter till nyckelvalvet och återställa krypterade virtuella datorn.<br/><br/> Krypterade nycklar och hemligheter kan inte läsas av obehöriga användare eller av Azure.
 **SSE** | Med SSE, Azure storage tillhandahåller kryptering i vila genom att automatiskt kryptera data innan de lagras och dekrypterar dem före hämtning. | Azure Backup använder SSE för kryptering av vilande data med Azure virtuella datorer.
 
 - Säkerhetskopiering av virtuella datorer som har krypterats med BitLocker-kryptering nyckel (BEK) endast och BEK tillsammans med nyckel kryptering Key(KEK) stöds för hanterade och ohanterade virtuella Azure-datorer.

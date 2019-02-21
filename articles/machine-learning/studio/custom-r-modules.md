@@ -1,7 +1,7 @@
 ---
 title: Definiera anpassade R-moduler
 titleSuffix: Azure Machine Learning Studio
-description: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa.
+description: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning Studio. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0da5456845b940ef88ac40ffed1f53e84fe54080
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488313"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457038"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio
 
@@ -24,9 +24,9 @@ Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul 
 
 
 ## <a name="what-is-a-custom-r-module"></a>Vad är en anpassad R-modul?
-En **anpassad modul** är en användardefinierad modul som kan överföras till din arbetsyta och köras som en del av ett Azure Machine Learning-experiment. En **anpassad R-modul** är en anpassad modul som utför en användardefinierad R-funktion. **R** är ett programmeringsspråk för statistiska beräkningar och grafik som används av statistiker och dataexperter för att implementera algoritmer. R är för närvarande det enda språk som stöds i anpassade moduler, men stöd för ytterligare språk är schemalagd för framtida versioner.
+En **anpassad modul** är en användardefinierad modul som kan överföras till din arbetsyta och köras som en del av ett Azure Machine Learning Studio-experiment. En **anpassad R-modul** är en anpassad modul som utför en användardefinierad R-funktion. **R** är ett programmeringsspråk för statistiska beräkningar och grafik som används av statistiker och dataexperter för att implementera algoritmer. R är för närvarande det enda språk som stöds i anpassade moduler, men stöd för ytterligare språk är schemalagd för framtida versioner.
 
-Anpassade moduler har **förstklassig status** i Azure Machine Learning i den mening att de kan användas precis som andra moduler. De kan köras med andra moduler som ingår i publicerade experiment eller i visualiseringar. Du har kontroll över den algoritm som implementeras av modulen, indata och utdata-portarna som ska användas, modellering parametrar och andra olika körningsbeteenden. Ett experiment som innehåller anpassade moduler publiceras också i Azure AI-galleriet för att enkelt dela.
+Anpassade moduler har **förstklassig status** i Azure Machine Learning Studio i den mening att de kan användas precis som andra moduler. De kan köras med andra moduler som ingår i publicerade experiment eller i visualiseringar. Du har kontroll över den algoritm som implementeras av modulen, indata och utdata-portarna som ska användas, modellering parametrar och andra olika körningsbeteenden. Ett experiment som innehåller anpassade moduler publiceras också i Azure AI-galleriet för att enkelt dela.
 
 ## <a name="files-in-a-custom-r-module"></a>Filer i en anpassad R-modul
 En anpassad R-modul definieras av en .zip-fil som innehåller minst två filer:
@@ -55,7 +55,7 @@ Studera exemplet med en **anpassad Lägg till rader** modul som ändrar standard
     } 
 
 ### <a name="the-xml-definition-file"></a>XML-definitionsfilen
-Att exponera det `CustomAddRows` funktion som en Azure Machine Learning-modul, en XML-definitionsfilen måste skapas för att ange hur **anpassad Lägg till rader** modul bör ser ut och fungerar. 
+Att exponera det `CustomAddRows` funktion som en Azure Machine Learning Studio-modul, en XML-definitionsfilen måste skapas för att ange hur **anpassad Lägg till rader** modul bör ser ut och fungerar. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -105,7 +105,7 @@ Den **anpassad Lägg till rader** modulen är nu klar att användas av Machine L
 
 ## <a name="elements-in-the-xml-definition-file"></a>Element i XML-definitionsfilen
 ### <a name="module-elements"></a>Modulen element
-Den **modulen** elementet används för att definiera en anpassad modul i XML-filen. Flera moduler kan definieras i en XML-fil med hjälp av flera **modulen** element. Varje modul i din arbetsyta måste ha ett unikt namn. Registrera en anpassad modul med samma namn som en befintlig anpassad modul och den ersätter den befintliga modulen med den nya. Anpassade moduler kan dock vara registrerade med samma namn som en befintlig Azure Machine Learning-modul. Om så de visas i den **anpassad** kategori av modulpaletten.
+Den **modulen** elementet används för att definiera en anpassad modul i XML-filen. Flera moduler kan definieras i en XML-fil med hjälp av flera **modulen** element. Varje modul i din arbetsyta måste ha ett unikt namn. Registrera en anpassad modul med samma namn som en befintlig anpassad modul och den ersätter den befintliga modulen med den nya. Anpassade moduler kan dock vara registrerade med samma namn som en befintlig Azure Machine Learning Studio-modul. Om så de visas i den **anpassad** kategori av modulpaletten.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -330,7 +330,7 @@ En modul-parameter har definierats med hjälp av den **Arg** underordnat element
   * **standard** -värdet för standardegenskapen måste motsvara med ett id-värde från en av de **objekt** element.
 
 ### <a name="auxiliary-files"></a>Extra filer
-Alla filer som placeras i ZIP-filen för anpassade modulen ska vara tillgängliga för användning under körningstid. Alla finns katalogstrukturer bevaras. Det innebär att filen sourcing fungerar samma lokalt och i Azure Machine Learning-körning. 
+Alla filer som placeras i ZIP-filen för anpassade modulen ska vara tillgängliga för användning under körningstid. Alla finns katalogstrukturer bevaras. Det innebär att filen sourcing fungerar samma lokalt och i Azure Machine Learning Studio-körning. 
 
 > [!NOTE]
 > Observera att alla filer extraheras till ”src'-katalogen så att alla sökvägar ska ha ' src /' prefix.

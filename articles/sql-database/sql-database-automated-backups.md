@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997145"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453587"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -85,6 +85,11 @@ Enkel och delade databaser erbjuder alternativet att konfigurera långsiktig kva
 Precis som PITR, LTR-säkerhetskopior är geo-redundant och skyddas av [Azure Storage-replikering mellan tillgänglighetszoner](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
 Mer information finns i [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md).
+
+## <a name="storage-costs"></a>Lagringskostnader
+Automatiserade säkerhetskopieringar för 7 dagar av dina databaser kopieras till RA-GRS standardbloblagring som standard. Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Storleken på transaktionsloggen beror på ändringsfrekvensen i databasen. En minimimängd lagringsutrymme motsvarande 100 procent av databasens storlek tillhandahålls utan extra kostnad. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras för GB/månad.
+
+Mer information om priserna för lagring finns i den [priser](https://azure.microsoft.com/pricing/details/sql-database/single/) sidan. 
 
 ## <a name="are-backups-encrypted"></a>Krypteras säkerhetskopior
 

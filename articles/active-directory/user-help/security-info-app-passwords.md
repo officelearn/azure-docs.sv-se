@@ -1,6 +1,6 @@
 ---
-title: Konfigurera applösenord med hjälp av säkerhetsinformation - Azure Active Directory | Microsoft Docs
-description: Konfigurera automatiskt genererade lösenord (lösenord) ska användas med varje icke-Webbläsarprogrammet, avgränsa från ett normalt lösenord, med hjälp av säkerhetsinformation.
+title: Ställa in applösenord från sidan säkerhetsinformation (förhandsversion) – Azure Active Directory | Microsoft Docs
+description: Konfigurera automatiskt genererade lösenord (lösenord) ska användas med alla icke-webbläsarbaserade appar eller appar som inte stöder två faktorer verifiering i din organisation. Det här applösenordet skiljer sig från ett normalt lösenord och kan ställas in från sidan säkerhetsinformation.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dcdfe3aef40942dd61fe604e179b61dbdd747c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211894"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456817"
 ---
-# <a name="manage-app-passwords-using-security-info-preview"></a>Hantera lösenord med hjälp av säkerhetsinformation (förhandsversion)
+# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Hantera lösenord från sidan Security info (förhandsversion)
+Vissa appar, till exempel Outlook 2010 stöder inte tvåstegsverifiering. Den här avsaknaden av stöd innebär att appen inte fungerar om du använder tvåstegsverifiering i din organisation. För att undvika det här problemet, kan du skapa ett automatiskt genererat lösenord ska användas med varje icke-Webbläsarprogrammet, separat från normala lösenordet.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Vissa icke-webbläsarappar, till exempel Outlook 2010 inte stöder tvåstegsverifiering. Den här avsaknaden av stöd innebär att appen inte fungerar om du använder tvåstegsverifiering. För att undvika det här problemet, kan du skapa ett automatiskt genererat lösenord ska användas med varje icke-Webbläsarprogrammet, separat från normala lösenordet.
+>[!Important]
+>Administratören kan inte använda applösenord. Om du inte ser **applösenord** som ett alternativ kan de inte är tillgängliga i din organisation.
 
 När du använder lösenord, är det viktigt att komma ihåg:
 
@@ -36,52 +38,48 @@ När du använder lösenord, är det viktigt att komma ihåg:
     >[!Note]
     >Office 2013-klienter (inklusive Outlook) har stöd för nya autentiseringsprotokoll och kan användas med tvåstegsverifiering. Det här stödet innebär att när tvåstegsverifiering är aktiverad, du behöver inte längre applösenord för Office 2013-klienter. Mer information finns i den [hur modern autentisering fungerar för Office 2013 och Office 2016 klientappar](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) artikeln.
 
-## <a name="create-and-delete-app-passwords-using-security-info"></a>Skapa och ta bort lösenord med hjälp av säkerhetsinformation
+## <a name="create-new-app-passwords"></a>Skapa nya applösenord
+Om du använder tvåstegsverifiering med ditt arbets- eller skolkonto konto och din administratör har aktiverat info säkerhetsupplevelse, du kan skapa och ta bort ditt lösenord med hjälp av den **säkerhetsinformation** sidan.
 
-Om du använder tvåstegsverifiering med företagets eller skolans konto och din administratör har aktiverat info säkerhetsupplevelse, kan du skapa och ta bort ditt lösenord med hjälp av Mina appar-portalen.
+>[!Note]
+>Om administratören inte har aktiverat info säkerhetsupplevelse, du måste följa anvisningar och information i den [hantera applösenord för tvåstegsverifiering](multi-factor-authentication-end-user-app-passwords.md) avsnittet.
 
-Om administratören inte har aktiverat info säkerhetsupplevelse, du måste följa anvisningar och information i den [hantera applösenord för tvåstegsverifiering](multi-factor-authentication-end-user-app-passwords.md) avsnittet.
+### <a name="to-create-a-new-app-password"></a>Skapa ett nytt applösenord
+1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
 
-### <a name="to-create-app-passwords-using-the-my-apps-portal"></a>Att skapa applösenord med hjälp av Mina appar-portalen
+    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile.png)
 
-1. Logga in på ditt arbets- eller skolkonto konto.
+2. Välj **säkerhetsinformation** från det vänstra navigeringsfönstret eller från länken i den **säkerhetsinformation** blockera och sedan välja **tilläggsmetod** från den **säkerhetsinformation**  sidan.
 
-2. Gå till myapps.microsoft.com, väljer du ditt namn i övre högra hörnet på sidan och välj sedan **profil**.
+    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod.png)
 
-3. I den **Hantera konto** Välj **redigera säkerhetsinformation**.
+3. På den **Lägg till en metod** väljer **applösenord** från listrutan och välj sedan **Lägg till**.
 
-    ![Profil för skärmen med Redigera security info med länken markerad](media/security-info/security-info-profile.png)
+    ![Lägg till metoden rutan med applösenord som valts](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. I den **skydda ditt konto** väljer **lägga till säkerhetsinformation**.
+4. Skriv namnet på appen som kräver applösenordet och välj sedan **nästa**.
 
-    ![Security info skärmen med befintliga, redigerbara information](media/security-info/security-info-edit-add-info.png)
+    ![Applösenordssidan med namnet på appen](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. I den **lägga till säkerhetsinformation** väljer **applösenord**.
+5. Kopiera text från den **lösenord** , klistra in lösenordet i området lösenord i appen (i det här exemplet Outlook 2010) och väljer sedan **klar**.
 
-6. I den **skapa ditt applösenord** skärmen, Skriv ett namn för ditt applösenord och välj sedan **nästa**.
-
-    ![Skärm där du namnger ditt applösenord](media/security-info/security-info-name-app-password.png)
-
-7. Välj **kopia** att kopiera lösenord till Urklipp och välj sedan **nästa**.
-
-    ![Skärmen med applösenord för att kopiera](media/security-info/security-info-create-app-password.png)
+    ![Applösenordssidan med namnet på appen](media/security-info/securityinfo-myprofile-password-copytext.png)
     
-8. Kontrollera att applösenordet visas på den **skydda ditt konto** skärmen.
+    Lösenordet har lagts till och du kan logga in till appen framöver.
 
-    ![Behåll säker skärmen med applösenord](media/security-info/security-info-keep-secure-app-password.png)
+## <a name="delete-your-app-passwords"></a>Ta bort dina applösenord
+Om du inte längre behöver använda en app som kräver ett applösenord kan du ta bort det associerade applösenordet. Ta bort applösenordet frigör en tillgänglig app lösenord vinklar för användning i framtiden.
 
-### <a name="to-delete-app-passwords-using-the-my-apps-portal"></a>Ta bort lösenord med hjälp av Mina appar-portalen
+>[!Important]
+>Om du tar bort ett applösenord av misstag, går det inte att ångra åtgärden. Du måste skapa ett nytt applösenord och ange den igen i appen, följa stegen i den [skapa nya applösenord](#create-new-app-passwords) i den här artikeln.
 
-1. På den **skydda ditt konto** väljer den **X** bredvid applösenord för att ta bort.
+### <a name="to-delete-an-app-password"></a>Att ta bort ett applösenord
 
-    ![Håll säker skärm, ta bort applösenordet](media/security-info/security-info-keep-secure-delete-app-password.png)
+1. På den **säkerhetsinformation** väljer den **ta bort** länka bredvid den **applösenord** alternativ för den specifika appen.
 
-2. I den **ta bort programlösenord** väljer **ta bort**.
+    ![Länk för att ta bort app lösenordsmetoden från säkerhetsinformation](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-    ![Ta bort skärmen](media/security-info/security-info-keep-secure-delete-app-password2.png)
+2. Välj **Ja** från dialogrutan Bekräfta att ta bort den **applösenord**. När applösenordet har tagits bort, tas den bort från din säkerhetsinformation och försvinner den från den **säkerhetsinformation** sidan.
 
-## <a name="next-steps"></a>Nästa steg
-
-- Om du behöver uppdatera din säkerhetsinformation, följ instruktionerna i den [hantera din säkerhetsinformation](security-info-manage-settings.md) artikeln.
-
-- Mer allmän information om säkerhetsinformation och vad du kan göra finns i [info Säkerhetsöversikt](user-help-security-info-overview.md) 
+## <a name="for-more-information"></a>Mer information
+- Mer information om den **säkerhetsinformation** sidan och hur du konfigurerar den finns i [info Säkerhetsöversikt](user-help-security-info-overview.md)

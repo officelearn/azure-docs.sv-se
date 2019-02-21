@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746004"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447318"
 ---
 # <a name="assets"></a>Tillgångar
 
@@ -48,8 +48,7 @@ En av de vanliga arbetsflödena för Media Services är att överföra, koda och
 4. Använd Media Services v3-API: er för att skapa en transformering och ett jobb för att bearbeta din ”in” tillgång. Mer information finns i [Transformeringar och jobb](transform-concept.md).
 5. Stream innehållet från ”utdatatillgången”.
 
-> [!TIP]
-> För en fullständig .NET-exempel som visar hur du: skapa tillgången, få en skrivbar SAS-URL till den tillgången behållare i storage, ladda upp filen till behållaren i storage med SAS-Webbadressen, se [skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md).
+För en fullständig .NET-exempel som visar hur du: skapa tillgången, få en skrivbar SAS-URL till den tillgången behållare i storage, ladda upp filen till behållaren i storage med SAS-Webbadressen, se [skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Skapa en ny tillgång
 

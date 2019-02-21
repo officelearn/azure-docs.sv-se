@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 25d2b9fac65525c56912e5daa7e5bcb4aa2cd5f4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 255182fe5e6c5576077dc97831628e4a13dfc026
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036009"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453536"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och application development partner
 
@@ -38,7 +38,7 @@ Från NoSQL migrering till programutveckling, kan du välja från en mängd olik
 |![Coeo][7]     |   Appinnovation (befintliga appar) <br/> Ny apputveckling |    Storbritannien     |  [Webbplats](http://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL-migrering |USA, Kanada, Storbritannien, Danmark, Nederländerna, Schweiz, Australien, Japan | [Webbplats](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL-migrering       |    Global     |  [Webbplats](http://www.infosys.com/)       |
-| ![Lagash][16] | NoSQL-migrering <br/> Ny apputveckling | Argentina, Chile, Colombia, Mexiko| [Webbplats](https://lagash.com/)|
+| ![Lagash][16] | NoSQL-migrering <br/> Ny apputveckling | Argentina, Chile, Colombia, Mexiko| [Webbplats](https://www.lagash.com/)|
 | ![Lambda3 Informatics][17] | NoSQL-migrering <br/> Ny apputveckling | Brasilien| [Webbplats](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     Utveckling av appar (nya appar)    |    USA     |  [Webbplats](http://www.nealanalytics.com/)       |
 |![Pragmatic fungerar programvara Inc][10]    |   NoSQL-migrering      |   USA      |  [Webbplats](http://www.pragmaticworks.com/)       |

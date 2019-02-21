@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/20/2019
+ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964159"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454749"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Använda avancerad datasäkerhet med virtuella nätverk och nästan 100% kompatibilitet SQL-databas
 
@@ -47,7 +47,7 @@ Hanterade instans kombinerar de bästa funktionerna som finns både i Azure SQL 
 | --- | --- |
 |Ingen maskinvara att köpa och hantering <br>Ingen hantering av fasta kostnader för att hantera underliggande infrastruktur <br>Snabb etablering och skalning av tjänst <br>Automatisk uppdatering och version uppgradering <br>Integrering med andra data PaaS-tjänster |99,99% drifttid  <br>Inbyggda [hög tillgänglighet](sql-database-high-availability.md) <br>Data som skyddas med [automatiska säkerhetskopior](sql-database-automated-backups.md) <br>Kunden kan konfigureras kvarhållningsperiod <br>Användarinitierad [säkerhetskopior](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Tidpunkt för återställning till tidpunkt databasen](sql-database-recovery-using-backups.md#point-in-time-restore) funktion |
 |**Säkerhet och efterlevnad** | **Hantering**|
-|Isolerad miljö ([VNet-integrering](sql-database-managed-instance-connectivity-architecture.md), enskild klient-tjänsten, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggning för support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-inloggningar</a> (**förhandsversion**) <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Identifiering av hot](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för att automatisera service etablering och skalning <br>Azure-portalen funktioner för manuell tjänsten etablering och skalning <br>Data Migration Service
+|Isolerad miljö ([VNet-integrering](sql-database-managed-instance-connectivity-architecture.md), enskild klient-tjänsten, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggning för support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-server-huvudkonton (inloggningar)</a> (**förhandsversion**) <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Identifiering av hot](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för att automatisera service etablering och skalning <br>Azure-portalen funktioner för manuell tjänsten etablering och skalning <br>Data Migration Service
 
 I följande tabell visas de viktigaste funktionerna i hanterade instanser:
 
@@ -150,9 +150,9 @@ Migrering av en krypterad databas till en hanterad instans stöds via Azure Data
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory-integrering
 
-Distributionsalternativ för hanterad instans har stöd för traditionella SQL server Database engine-inloggningar och inloggningar som integreras med Azure Active Directory (AAD). AAD-inloggningar (**förhandsversion**) är version av en lokal databasinloggningar som du använder i din lokala miljö. AAD-inloggningar kan du ange användare och grupper från Azure Active Directory-klient som true instans omfattar huvudnamn, kan utföra alla åtgärder som på instansnivå, inklusive frågor mellan databaser inom samma hanterade instans.
+Distributionsalternativ för hanterad instans har stöd för traditionella SQL server Database engine-inloggningar och inloggningar som integreras med Azure Active Directory (AAD). Azure AD-server-huvudkonton (inloggningar) (**förhandsversion**) är version av en lokal databasinloggningar som du använder i din lokala miljö. Azure AD-server-huvudkonton (inloggningar) kan du ange användare och grupper från Azure Active Directory-klient som true instans omfattar huvudnamn, kan utföra alla åtgärder som på instansnivå, inklusive frågor mellan databaser inom samma hanterad instans.
 
-Introduceras en ny syntax för att skapa AAD inloggningar (**förhandsversion**), **från extern PROVIDER**. Mer information om syntaxen finns i <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, och granska de [etablera en Azure Active Directory-administratör för din hanterade instans](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artikeln.
+Introduceras en ny syntax för att skapa Azure AD server-huvudkonton (inloggningar) (**förhandsversion**), **från extern PROVIDER**. Mer information om syntaxen finns i <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, och granska de [etablera en Azure Active Directory-administratör för din hanterade instans](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artikeln.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering
 

@@ -10,12 +10,12 @@ author: mlee3gsd
 ms.author: anumjs
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 0b1c4c728c23d8bdfe439b3a3db69b06065dad8a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 2de7c335e56117f2a99db5150575ed94616467e9
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266959"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455593"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Viktig information om Azure SQL Data Warehouse
 Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de senaste versionerna av [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). Artikeln innehåller också viktiga uppdateringar av innehållet som är inte direkt relaterade till versionen men som har publicerats i samma tidsram. Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates)
@@ -28,6 +28,7 @@ Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de se
 | --- | --- |
 |**Returnera Order By-optimering**|VÄLJ... ORDER BY-frågor får en prestandaökning i den här versionen.   Nu kan beräkningsresurser alla noder skickar resultaten till en enda beräkningsnod som sammanfogar och sorterar resultatet som returneras till användaren via Beräkningsnoden.  Sammanslagning via en enda beräkning noden leder till betydande prestandafördelar när frågeresultatet innehåller ett stort antal rader. Motorn för körning av fråga skulle tidigare, ordna resultaten på varje beräkningsnod och strömma dem till control-noden som skulle sedan Sammanfoga resultatet.|
 |**Förbättringar för flytt av data för PartitionMove och BroadcastMove**|I Azure SQL Data Warehouse Gen2, data movement steg av typen ShuffleMove, använder du omedelbar data movement metoder som beskrivs i den [prestanda förbättringar blogg](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/). Med den här versionen drivs förflyttning datatyper PartitionMove och BroadcastMove nu också av samma rörelsetekniker för omedelbar data. Användarfrågor som använder dessa typer av data movement steg körs med förbättrad prestanda. Några ändringar i koden krävs för att dra nytta av dessa prestandaförbättringar.|
+|**Viktiga buggar**|Felaktig version av Azure SQL Data Warehouse - ”Välj@VERSION” kan returnera fel version 10.0.9999.0. Rätt version för den aktuella versionen är 10.0.10106.0. Den här buggen har rapporterats och är under granskning.
 
 ### <a name="documentation-improvements"></a>Dokumentation om förbättringar
 

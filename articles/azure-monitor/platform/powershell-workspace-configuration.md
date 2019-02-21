@@ -2,24 +2,18 @@
 title: Använd PowerShell för att skapa och konfigurera en Log Analytics-arbetsyta | Microsoft Docs
 description: Logga Analytics använder data från servrar i din lokala eller molnbaserade infrastruktur. Du kan samla in Maskindata från Azure storage när genereras av Azure-diagnostik.
 services: log-analytics
-documentationcenter: ''
 author: richrundmsft
-manager: jochan
-editor: ''
-ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: e34d45d2d7c81ec5f15a5441ce2bb0f082c65155
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5b64ecbb82e88b43546946ef30bf3107874af170
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884120"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446485"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Hantera Log Analytics med PowerShell
 Du kan använda den [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) att utföra olika funktioner i Log Analytics från en kommandorad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell:
@@ -63,7 +57,7 @@ Följande skriptexempel illustrerar hur du:
 11. Samla in prestandaräknaren för minne tillgängligt, MB från Windows-datorer
 12. Samla in en anpassad logg 
 
-```
+```PowerShell
 
 $ResourceGroup = "oms-example"
 $WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
@@ -184,23 +178,22 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 
 # Custom Logs
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
-
 ```
-I exemplet ovan regexDelimiter har definierats som ”\\n” för ny rad. Log avgränsare kanske också är en tidsstämpel.  Det här är format som stöds:
+I exemplet ovan regexDelimiter har definierats som ”\\n” för ny rad. Log-avgränsaren kan också vara en tidsstämpel.  Det här är format som stöds:
 
 | Format | JSON RegEx-formatet använder två \\ för varje \ i en standard RegEx om testning i en app för RegEx minska \\ till \ |
 | --- | --- |
-| ÅÅÅÅ-MM-DD: MM: SS | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
-| M/D/ÅÅÅÅ HH: MM: SS AM/PM | (([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm) |
-| dd/MMM/yyyy HH:MM:SS | ((([0-3]\\\\d)\|(\\\\d)) / (Jan\|Feb\|Mar\|maj\|Apr\|Jul\|Jun\|Aug\|okt\|Sep\|Nov\|Dec\|jan\|feb\|mar\|kan\|apr\|jul\|jun\|aug\|okt\|sep\|nov\|dec) / ((\\\\d{2})\|(\\\\d{4})) \\ \\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]) |
-| MMM dd yyyy HH:MM:SS | (((?: Jan(?:uary)? \|Feb(?:ruary)? \|Mar(?:ch)? \|Apr(?:il)? \|Kan\|Jun(?:e)?\| Jul(?:y)? \|Aug(?:ust)? \|Sep(?:tember)? \|Sept\|Oct(?:o ber)? \|Nov(?:ember)? \|Dec(?:ember)?)). *? ((?: (?: [0-2]? \\ \\d{1})\|(?: [3] [01]{1}))) (?! [\\\\d]).* ? ((?: (?: [1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?: [2]{1} \\ \\d{3}))) (?! [\\\\d]). *? ((?: (?: [0-1][0-9])\|(?: [2][0-3])\|(?: [0-9])):(?:[0-5][0-9])(?::[0-5][0-9])? (?:\\\\s? (?: am\|AM\|pm\|PM))?)) |
-| yyMMdd HH:mm:ss | ([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
-| ddMMyy: mm: ss | (([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
-| MMM d HH:mm:ss | (Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9]) |
-| MMM  d HH:mm:ss<br> två blanksteg efter MMM | (Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
-| MMM d HH:mm:ss | (Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
-| dd/mm/yyyy:HH:mm:ss + zzzz<br> där + är + eller -<br> där zzzz tidsförskjutning | (([0-2] [1 – 9]\|[3][0-1])\\\\/ (Jan\|Feb\|Mar\|Apr\|maj\|Jun\|Jul\|Aug\|Sep \|Okt\|Nov\|Dec)\\\\/((19\|20) [0-9] [0-9]): ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\ \\s [\\\\+\|\\\\-] [0-9]{4}) |
-| yyyy-MM-ddTHH:mm:ss<br> T är en literal bokstaven T | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| `YYYY-MM-DD HH:MM:SS` | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
+| `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm)` |
+| `dd/MMM/yyyy HH:MM:SS` | `((([0-3]\\\\d)\` |`(\\\\d))/(Jan\|Feb\|Mar\|May\|Apr\|Jul\|Jun\|Aug\|Oct\|Sep\|Nov\|Dec\|jan\|feb\|mar\|may\|apr\|jul\|jun\|aug\|oct\|sep\|nov\|dec)/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\` | `([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9])` |
+| `MMM dd yyyy HH:MM:SS` | `(((?:Jan(?:uary)?\|Feb(?:ruary)?\|Mar(?:ch)?\|Apr(?:il)?\|May\|Jun(?:e)?\|Jul(?:y)?\|Aug(?:ust)?\|Sep(?:tember)?\|Sept\|Oct(?:ober)?\|Nov(?:ember)?\|Dec(?:ember)?)).*?((?:(?:[0-2]?\\\\d{1})\|(?:[3][01]{1})))(?![\\\\d]).*?((?:(?:[1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?:[2]{1}\\\\d{3})))(?![\\\\d]).*?((?:(?:[0-1][0-9])\|(?:[2][0-3])\|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\\\s?(?:am\|AM\|pm\|PM))?))` |
+| `yyMMdd HH:mm:ss` | `([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` |
+| `ddMMyy HH:mm:ss` | `(([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` |
+| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9])` |
+| `MMM  d HH:mm:ss` <br> två blanksteg efter MMM | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` |
+| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` |
+| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> där + är + eller - <br> där zzzz tidsförskjutning | `(([0-2][1-9]\|[3][0-1])\\\\/(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4})` |
+| `yyyy-MM-ddTHH:mm:ss` <br> T är en literal bokstaven T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Konfigurera Log Analytics för att indexera Azure-diagnostik
 För övervakning utan Agent för Azure-resurser, måste resurserna som har Azure-diagnostik aktiverad och konfigurerad för att skriva till en Log Analytics-arbetsyta. Den här metoden skickar data direkt till Log Analytics och kräver inte data som ska skrivas till ett lagringskonto. Resurser som stöds är:
@@ -230,7 +223,7 @@ Information för tillgängliga mått i [stöds mått med Azure Monitor](../../az
 
 Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
-```
+```PowerShell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
@@ -238,7 +231,7 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Du kan också använda cmdleten föregående för att samla in loggar från resurser som finns i olika prenumerationer. Cmdlet: en kan fungera i alla prenumerationer, eftersom du tillhandahåller id för både den resurs som skapar loggar och arbetsytan loggarna skickas till.
+Du kan också använda cmdleten föregående för att samla in loggar från resurser som finns i olika prenumerationer. Cmdlet: en kan fungera mellan prenumerationer eftersom ger du ID för både den resurs som skapar loggar och arbetsytan loggarna skickas till.
 
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Konfigurera Log Analytics för att indexera Azure Diagnostics-data från storage
@@ -254,7 +247,7 @@ I följande exempel visas hur du:
 3. Uppdatera nyligen skapade konfigurationen att indexera data från fler platser
 4. Ta bort den nyligen skapade konfigurationen
 
-```
+```PowerShell
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
 $workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
@@ -276,7 +269,7 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 
 ```
 
-Du kan också använda det här skriptet för att samla in loggar från lagringskonton i olika prenumerationer. Skriptet kan fungera mellan prenumerationer eftersom du får tillgång till resurs-id för storage-konto och en motsvarande åtkomstnyckel. När du ändrar att snabbtangent som du behöver uppdatera storage insight om du vill att den nya nyckeln.
+Du kan också använda det här skriptet för att samla in loggar från lagringskonton i olika prenumerationer. Skriptet kan fungera mellan prenumerationer eftersom du får tillgång till resurs-ID för storage-konto och en motsvarande åtkomstnyckel. När du ändrar att snabbtangent som du behöver uppdatera storage insight om du vill att den nya nyckeln.
 
 
 ## <a name="next-steps"></a>Nästa steg

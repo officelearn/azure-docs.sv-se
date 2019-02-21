@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 714a78c436b7071717e2df12c2a65999920f8c63
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192140"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453655"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Lägg till icke-Microsoft-konton
 Lägga till dina icke-Microsoft-konton, till exempel för Google, Facebook och GitHub till Microsoft Authenticator-appen för verifiering av två faktorer. Microsoft Authenticator-appen fungerar med alla appar som använder tvåfaktorsverifiering och alla konton som har stöd för tidsbaserade engångslösenord (TOTP).
@@ -28,7 +28,7 @@ Lägga till dina icke-Microsoft-konton, till exempel för Google, Facebook och G
 ## <a name="add-personal-accounts"></a>Lägga till personliga konton
 För alla dina personliga konton måste du i allmänhet:
 
-1. Logga in på ditt konto och sedan aktivera tvåfaktorsautentisering verifieringen med din enhet eller din dator.
+1. Logga in på ditt konto och sedan aktivera tvåfaktorsautentisering verifiering med hjälp av enheten eller datorn.
 
 2. Lägga till kontot i Microsoft Authenticator-appen. Du kan bli ombedd att skanna en QR-kod som en del av den här processen.
 
@@ -39,13 +39,13 @@ Lägg till ditt Google-konto genom att aktivera tvåfaktorsautentisering verifie
 
 ### <a name="turn-on-two-factor-verification"></a>Aktivera tvåfaktorsautentisering verifiering
 
-1. På din dator går du till https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcomeväljer **börjar**, och verifiera din identitet.
+1. På din dator, går du till https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcomeväljer **börjar**, och verifiera din identitet.
 
 2. Följ stegen på sidan Aktivera tvåstegsverifiering för ditt personliga Google-konto.
 
 ### <a name="add-your-google-account-to-the-app"></a>Lägga till ditt Google-konto i appen
 
-1. På sidan Google på din dator går du till den **konfigurera alternativa andra steget** väljer **konfigurera** från den **autentiseringsapp** avsnittet.
+1. På sidan Google på datorn går du till den **konfigurera alternativa andra steget** väljer **konfigurera** från den **autentiseringsapp** avsnittet.
 
 2. På den **hämta koder från autentiseringsappen** väljer du antingen **Android** eller **iPhone** baserat på din Telefontyp och välj sedan **nästa**.
 
@@ -53,7 +53,7 @@ Lägg till ditt Google-konto genom att aktivera tvåfaktorsautentisering verifie
 
 3. Öppna Microsoft Authenticator-appen, Välj **Lägg till konto** från den **anpassa och styra** ikonen längst upp till höger och välj sedan **annat konto (Google, Facebook, etc.)** .
 
-4. Använd enhetens kamera för att skanna QR-kod från den **konfigurera Authenticator** sida på din dator.
+4. Använd enhetens kamera för att skanna QR-kod från den **konfigurera Authenticator** sidan på datorn.
 
     >[!Note]
     >Om din kamera inte fungerar korrekt kan ange du QR-koden och Webbadressen manuellt.
@@ -62,7 +62,7 @@ Lägg till ditt Google-konto genom att aktivera tvåfaktorsautentisering verifie
 
     För ytterligare säkerhet ändrar verifieringskoden med 30 sekunders mellanrum hindra någon från och med en kod flera gånger.
 
-6. Välj **nästa** på den **konfigurera Authenticator** på din dator, ange den sexsiffriga Verifieringskod som angavs i appen för ditt Google-konto och välj sedan **Kontrollera**.
+6. Välj **nästa** på den **konfigurera Authenticator** på datorn, ange den sexsiffriga Verifieringskod som angavs i appen för ditt Google-konto och välj sedan **Kontrollera**.
 
 7. Ditt konto har verifierats och du kan välja **klar** att Stäng den **konfigurera Authenticator** sidan.
 
@@ -74,7 +74,7 @@ Lägg till ditt Facebook-konto genom att aktivera tvåfaktorsautentisering verif
 
 ### <a name="turn-on-two-factor-verification"></a>Aktivera tvåfaktorsautentisering verifiering
 
-1. På din dator, öppna Facebook, Välj den nedrullningsbara menyn i det övre högra hörnet och sedan gå till **inställningar** > **säkerhets- och logga in**.
+1. På din dator, öppna Facebook, Välj den nedrullningsbara menyn i det övre högra hörnet och gå sedan till **inställningar** > **säkerhets- och logga in**.
 
     Den **säkerhets- och inloggningen** visas.
 
@@ -86,13 +86,13 @@ Lägg till ditt Facebook-konto genom att aktivera tvåfaktorsautentisering verif
 
 ### <a name="add-your-facebook-account-to-the-app"></a>Lägga till ditt Facebook-konto i appen
 
-1. På Facebook-sida på din dator går du till den **lägga till en säkerhetskopia** och sedan välja **installationsprogrammet** från den **Authentication-appen** området.
+1. På Facebook-sida på datorn går du till den **lägga till en säkerhetskopia** och sedan välja **installationsprogrammet** från den **Authentication-appen** området.
 
     Du får en QR-kod som du kan använda för att automatiskt förknippa ditt konto med Microsoft Authenticator-appen. Stäng inte det här fönstret.
 
 2. Öppna Microsoft Authenticator-appen, Välj **Lägg till konto** från den **anpassa och styra** ikonen längst upp till höger och välj sedan **annat konto (Google, Facebook, etc.)** .
 
-3. Använd enhetens kamera för att skanna QR-kod från den **två factor-autentisering** sida på din dator.
+3. Använd enhetens kamera för att skanna QR-kod från den **två factor-autentisering** sidan på datorn.
 
     >[!Note]
     >Om din kamera inte fungerar korrekt kan ange du QR-koden och Webbadressen manuellt.
@@ -113,7 +113,7 @@ Lägg till ditt GitHub-konto genom att aktivera tvåfaktorsautentisering verifie
 
 ### <a name="turn-on-two-factor-verification"></a>Aktivera tvåfaktorsautentisering verifiering
 
-1. På din dator, öppna GitHub, Välj din avbildning i övre högra hörnet och välj sedan **inställningar**.
+1. Öppna GitHub på din dator, Välj din avbildning i övre högra hörnet och välj sedan **inställningar**.
 
     Den **tvåfaktorsautentisering** visas.
 
@@ -121,7 +121,7 @@ Lägg till ditt GitHub-konto genom att aktivera tvåfaktorsautentisering verifie
 
 ### <a name="add-your-github-account-to-the-app"></a>Lägga till ditt GitHub-konto i appen
 
-1. På den **tvåfaktorautentisering** sida på din dator, Välj **skapat med hjälp av en app**.
+1. På den **tvåfaktorautentisering** sidan på datorn, väljer **skapat med hjälp av en app**.
 
 2. Spara dina recovery-koder så att du kan komma åt ditt konto om du förlorar åtkomst och välj sedan **nästa**. 
 
@@ -137,7 +137,7 @@ Lägg till ditt GitHub-konto genom att aktivera tvåfaktorsautentisering verifie
 
 5. Ange en **kontonamn** (till exempel GitHub) och Skriv den **hemlig nyckel** från steg 4 och välj sedan **Slutför**.
 
-4. På den **tvåfaktorsautentisering authenticator** på din dator, ange den sexsiffriga Verifieringskod som angavs i appen för ditt GitHub-konto och välj sedan **aktivera**.
+4. På den **tvåfaktorsautentisering authenticator** på datorn, ange den sexsiffriga Verifieringskod som angavs i appen för ditt GitHub-konto och välj sedan **aktivera**.
 
     Den **konton** sidan av appen visar namnet på ditt konto och en sexsiffrig Verifieringskod. För ytterligare säkerhet ändrar verifieringskoden med 30 sekunders mellanrum hindra någon från och med en kod flera gånger.
 
@@ -163,7 +163,7 @@ Lägg till Amazon-konto genom att aktivera tvåfaktorsautentisering verifiering 
 
 5. Öppna Microsoft Authenticator-appen, Välj **Lägg till konto** från den **anpassa och styra** ikonen längst upp till höger och välj sedan **annat konto (Google, Facebook, etc.)** .
 
-6. Använd enhetens kamera för att skanna QR-kod från den **Välj hur du kommer att få koder** sida på din dator.
+6. Använd enhetens kamera för att skanna QR-kod från den **Välj hur du kommer att få koder** sidan på datorn.
 
     >[!Note]
     >Om din kamera inte fungerar korrekt kan ange du QR-koden och Webbadressen manuellt.
@@ -172,13 +172,13 @@ Lägg till Amazon-konto genom att aktivera tvåfaktorsautentisering verifiering 
 
     För ytterligare säkerhet ändrar verifieringskoden med 30 sekunders mellanrum hindra någon från och med en kod flera gånger.
 
-6. På den **Välj hur du kommer att få koder** på din dator, Skriv sexsiffrig verifieringskoden som angavs i appen för Amazon-konto och välj sedan **verifiera kod och fortsätta**.
+6. På den **Välj hur du kommer att få koder** på datorn, skriver sexsiffrig verifieringskoden som angavs i appen för Amazon-konto och välj sedan **verifiera kod och fortsätta**.
 
 7. Slutför resten av registreringen, inklusive att lägga till en säkerhetskopiering verifieringsmetod, till exempel ett SMS och välj sedan **skicka kod**.
 
-8. På den **lägga till en säkerhetskopiering verifieringsmetod** på din dator, Skriv sexsiffrig verifieringskoden som tillhandahålls av din säkerhetskopiering verifieringsmetod för Amazon-konto och välj sedan **verifiera kod och fortsätta**.
+8. På den **lägga till en säkerhetskopiering verifieringsmetod** på datorn, skriver sexsiffrig verifieringskoden som tillhandahålls av din säkerhetskopiering verifieringsmetod för Amazon-konto och välj sedan **verifiera kod och fortsätta**.
 
-9. På Almost sidan, bestämma om du vill göra din dator till en betrodd enhet och välj sedan **fattar. Aktivera tvåstegsverifiering**.
+9. På Almost sidan, bestämma om du vill gör datorn till en betrodd enhet och välj sedan **fattar. Aktivera tvåstegsverifiering**.
 
     Den **avancerade säkerhetsinställningar** visas, som visar information om din uppdaterade tvåfaktors-verifiering.
 

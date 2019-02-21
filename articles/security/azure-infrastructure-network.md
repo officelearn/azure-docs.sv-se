@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 02/20/2019
 ms.author: terrylan
-ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112231"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455765"
 ---
 # <a name="azure-network-architecture"></a>Arkitektur för Azure-nätverk
 Arkitektur för Azure-nätverk följer en modifierad version av branschens standard core/distribution/access modellen, med olika maskinvara lager. Lager är:
@@ -28,7 +28,7 @@ Arkitektur för Azure-nätverk följer en modifierad version av branschens stand
 - Distribution (åtkomst routrar och L2 aggregering). Distribution lagret separerar L3 routning L2 växlar.
 - Åtkomst (L2 värden växlar)
 
-Nätverksarkitekturen har två nivåer av layer 2-växlar. Ett lager aggregerar trafik från det andra lagret. Det andra lagret loopar för att införliva redundans. Detta ger en mer flexibel VLAN-fotavtryck och förbättrar port skalning. Arkitekturen ser L2 och L3 distinkta, som tillåter användning av maskinvara i var och en av de olika lager i nätverket och minimerar fel i ett lager påverkar andra lager. Användning av trunkar möjliggör resursdelning, till exempel anslutningen till L3-infrastruktur.
+Nätverksarkitekturen har två nivåer av layer 2-växlar. Ett lager aggregerar trafik från det andra lagret. Det andra lagret loopar för att införliva redundans. Arkitekturen ger en mer flexibel VLAN-fotavtryck och förbättrar port skalning. Arkitekturen ser L2 och L3 distinkta, som tillåter användning av maskinvara i var och en av de olika lager i nätverket och minimerar fel i ett lager påverkar andra lager. Användning av trunkar möjliggör resursdelning, till exempel anslutningen till L3-infrastruktur.
 
 ## <a name="network-configuration"></a>Nätverkskonfiguration
 Nätverksarkitektur i ett Azure-kluster i ett datacenter består av följande enheter:
@@ -64,7 +64,7 @@ Länkaggregering kan flera enskilda länkar buntas ihop och behandlas som en log
 Siffrorna som angetts för L2Agg till L2Host växel är port kanal-värden som används på L2Agg sida. Eftersom en uppsättning siffror är mer begränsad på L2Host sida, är standard att använda tal 1 och 2 på L2Host sida. Dessa avser den port-kanal-gå till sidan ”a” och ”b”-sida respektive.
 
 ### <a name="vlans"></a>VLAN
-Nätverksarkitekturen använder VLAN-nätverk kan gruppera servrar tillsammans i en enda broadcast-domän. VLAN-nummer överensstämmer med 802.1Q standarder som stöder VLAN numrerade 1 – 4094.
+Nätverksarkitekturen använder VLAN-nätverk kan gruppera servrar tillsammans i en enda broadcast-domän. VLAN-nummer stämmer överens med 802.1Q standard, som stöder numrerade 1 – 4094 VLAN.
 
 ### <a name="customer-vlans"></a>Kund-VLAN
 Har du olika alternativ för implementering av VLAN kan du distribuera via Azure portal så att den passar separation och arkitektur för din lösning. Du kan distribuera dessa lösningar via virtuella datorer. Kunden referens arkitektur exempel finns i [Azure-referensarkitekturer](https://docs.microsoft.com/azure/architecture/reference-architectures/).
@@ -72,23 +72,15 @@ Har du olika alternativ för implementering av VLAN kan du distribuera via Azure
 ### <a name="edge-architecture"></a>Edge-arkitektur
 Azure-datacenter som bygger på mycket redundant och väl etablerade nätverksinfrastrukturer. Microsoft implementerar nätverk i Azure-datacenter med ”behöver plus ett” (N + 1) redundans arkitekturer eller bättre. Funktioner för fullständig redundans inom och mellan Datacenter bidra till att säkerställa nätverks- och tillgänglighet. Externt, betjänas Datacenter av dedikerade nätverk med hög bandbredd kretsar. Dessa kretsar träffa redundant över 1200 Internetleverantörer globalt på flera platser för peering egenskaper. Detta ger som överstiger 2 000 Gbit/s potentiella edge-kapacitet i nätverket.
 
-Filtrerande routrar på edge- och åtkomst för Azure-nätverket tillhandahålla välkänt säkerhet på paketnivå. Detta bidrar till att förhindra obehöriga försök att ansluta till Azure. Routrarna att se till att det faktiska innehållet i paketen innehåller data i det förväntade formatet och överensstämmer med det förväntade klient/server-kommunikation schemat. Azure implementerar en nivåindelad arkitektur, som består av följande nätverksuppdelning och komponenter för kontroll av åtkomst:
+Filtrerande routrar på edge- och åtkomst för Azure-nätverket innehåller välkänt säkerhet på paketnivå och bidrar till att förhindra obehöriga försök att ansluta till Azure. Routrarna att se till att det faktiska innehållet i paketen innehåller data i det förväntade formatet och överensstämmer med det förväntade klient/server-kommunikation schemat. Azure implementerar en nivåindelad arkitektur, som består av följande nätverksuppdelning och komponenter för kontroll av åtkomst:
 
 - **Edge-routrar.** Dessa särskilja programmiljön från internet. Edge-routrar är utformade för att skydda mot spoof och begränsa åtkomst med hjälp av ACL: er.
 - **Distribution (åtkomst) routrar.** Dessa kan bara Microsoft godkända IP-adresser, ger skydd mot förfalskning och upprätta anslutningar med hjälp av ACL: er.
 
-### <a name="a10-ddos-mitigation-architecture"></a>Arkitektur för a10 DDOS-minskning
-DOS-attacker fortsätta att visa ett verkligt hot för tillförlitligheten för onlinetjänster. Eftersom attacker blir mer riktade och avancerade och som tjänsterna tillhandahåller Microsoft bli mer geografiskt skilda, identifiera och minimera är effekten av dessa attacker en hög prioritet. Informationen nedan förklaras hur A10 DDOS minskning system har implementerats från ett nätverksperspektiv arkitektur.
+### <a name="ddos-mitigation"></a>DDOS-åtgärd
+Distribuerade attacker denial of service (DDoS) fortsätter att presentera ett verkligt hot för tillförlitligheten för onlinetjänster. Eftersom attacker blir mer riktade och avancerade och som tjänsterna tillhandahåller Microsoft bli mer geografiskt skilda, identifiera och minimera är effekten av dessa attacker en hög prioritet.
 
-Azure använder A10 nätverksenheter vid datacenter-router (DCR) som tillhandahåller automatisk identifiering och skyddsteknik. A10-lösningen använder Azure Network Monitor till exempel flow paket och avgöra om det finns ett angrepp. Om attacken upptäcks Skrubba A10 enheter för att minska attacker. Endast sedan är rensad trafik tillåts i Azure-datacentret direkt från DCR. Microsoft använder A10-lösningen för att skydda Azure nätverkets infrastruktur.
-
-DDoS-skydd i A10-lösningen är:
-
-- UDP IPv4 och IPv6 översvämma skydd
-- ICMP IPv4 och IPv6 översvämma skydd
-- TCP IPv4 och IPv6 översvämma skydd
-- TCP SYN attack skydd för IPv4 och IPv6
-- Fragmentering attack
+[Azure DDoS Protection Standard](../virtual-network/ddos-protection-overview.md) ger skydd mot DDoS-attacker. Se [Azure DDoS Protection: Bästa praxis och referensarkitekturer](azure-ddos-best-practices.md) vill veta mer.
 
 > [!NOTE]
 > Microsoft tillhandahåller DDoS-skydd som standard för alla Azure-kunder.

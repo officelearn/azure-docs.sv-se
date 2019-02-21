@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b29e4f6e6e877a3d03ded9edd9e282e0960e177
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414643"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455542"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Förhandsversion: Azure AD-lösenordsskydd lokalt – vanliga frågor och svar
 
@@ -69,7 +69,7 @@ Mer information finns i följande artiklar:
 
 **F: Hur mycket diskutrymme kräver funktionen på domänen sysvol-resursen?**
 
-Exakt utrymmesanvändningen kan inte anges korrekt eftersom det beror på faktorer som antalet och längden förbjudna lösenord token i listan Microsoft global förbjudna lösenord och anpassat per klient förbjuden lösenordslista plus omkostnader för kryptering. Innehållet i de här listorna är sannolikt att växa i framtiden. Med det i åtanke är en rimlig aktuella tumregel att funktionen måste minst fem (5) MB ledigt utrymme på domänen sysvol-resursen.
+Exakt utrymmesanvändningen varierar eftersom det beror på faktorer som antalet och längden förbjudna token i listan Microsoft global förbjudna och anpassad lista i per klient plus kryptering omkostnader. Innehållet i de här listorna är sannolikt att växa i framtiden. Med det i åtanke är rimligen kan antas att funktionen måste minst fem (5) MB ledigt utrymme på domänen sysvol-resursen.
 
 **F: Varför är en omstart krävs för att installera eller uppgradera DC-agentprogramvaran?**
 
@@ -77,33 +77,33 @@ Det här kravet orsakas av core Windows beteende.
 
 **F: Finns det något sätt att konfigurera en DC-agenten för att använda en särskild proxyserver?**
 
-Nej. Observera att eftersom proxyservern är tillståndslösa, det inte är viktigt vilken specifik proxy-server används.
+Nej. Eftersom proxyservern är tillståndslösa, är det inte viktigt vilken specifik proxy-server används.
 
-**F: Är det bra att distribuera den Azure AD-lösenord Protection Proxy service sida-vid-sidan på en dator med andra tjänster som Azure AD Connect?**
+**F: Är det bra att distribuera tjänsten för Azure AD-lösenord Protection Proxy sida vid sida med andra tjänster som Azure AD Connect?**
 
 Ja. Azure AD-lösenord Protection Proxy-tjänst och Azure AD Connect bör aldrig står i konflikt med varandra.
 
 **F: Bör jag vara bekymrade över prestandan nåddes på domänkontrollanter från att distribuera den här funktionen?**
 
-Azure AD-lösenord DC Protection Agent-tjänsten är avsedd att vara så effektivt som möjligt och bör inte påverka domänkontrollantens prestanda i en befintlig Active Directory-distribution som redan tillräckligt resurstilldelas.
+Azure AD-lösenord Protection DC-agenttjänsten bör inte påverka domänkontrollantens prestanda i en befintlig felfri Active Directory-distribution.
 
-Det är bra att tänka på att ändra åtgärder för de flesta lösenord för Active Directory-distributioner är en liten del av den övergripande arbetsbelastningen på någon viss domänkontrollant. Till exempel anta att en Active Directory-domän med 10000 användarkonton och en princip för MaxPasswordAge 30 dagar. I genomsnitt är den här domänen visas 10000/30 = ~ 333 lösenordsändringar varje dag, vilket är ett mindre antal åtgärder för även en enda domänkontrollant. Push-överföra exemplet till en potentiell sämsta användningsfall anta att dessa ~-333 lösenordsändringar på en Domänkontrollant har utförts under en enda timme (till exempel det här scenariot kan inträffa när ett stort antal alla anställda kommer att fungera på en måndag morgon); även i detta fall använder vi letar fortfarande efter ~333/60 minuter = sex lösenordsändringar per minut, vilket igen inte är en avsevärd belastning.
+För de flesta Active Directory-distributioner lösenord är ändringen en liten del av den övergripande arbetsbelastningen på någon viss domänkontrollant. Till exempel anta att en Active Directory-domän med 10000 användarkonton och en princip för MaxPasswordAge 30 dagar. I genomsnitt är den här domänen visas 10000/30 = ~ 333 lösenordsändringar varje dag, vilket är ett mindre antal åtgärder för även en enda domänkontrollant. Överväg ett potentiella värsta scenario: Anta att dessa ~-333 lösenordsändringar på en Domänkontrollant har utförts under en timme. Det här scenariot kan exempelvis uppstå när många anställda alla kommer att fungera på en måndag morgon. Även i den fallet vi letar fortfarande efter ~333/60 minuter = sex lösenordsändringar per minut, vilket igen inte är en avsevärd belastning.
 
-Med den sägs om domänkontrollanterna aktuella redan körs på begränsade prestanda-nivåer (till exempel överutnyttjade ut med avseende på processor, diskutrymme, disk-i/o osv), skulle det vara en bra idé att distribuera ytterligare domänkontrollanter och/eller expandera ledigt utrymme innan du distribuerar Azure AD-lösenordsskydd. Du kan också se fråga ovan om sysvol diskutrymmesanvändning ovan.
+Men om din aktuella domänkontrollanter redan körs på begränsade prestanda-nivåer (t.ex, överutnyttjade ut med avseende på processor, diskutrymme, disk-i/o, etc.), är det lämpligt att lägga till ytterligare domänkontrollanter eller expandera ledigt diskutrymme innan distribuera den här funktionen. Du kan också se fråga ovan om sysvol diskutrymmesanvändning ovan.
 
 **F: Jag vill testa Azure AD-lösenord skydd på bara några få domänkontrollanter i min domän. Är det möjligt att tvinga lösenordsändringar för användare att använda dessa specifika domänkontrollanter?**
 
-Nej. När en användare ändrar sina lösenord, väljs den domänkontrollant som används av Windows-klientoperativsystem baserat på faktorer som Active Directory-platser och undernät tilldelningar, miljöspecifika nätverkskonfiguration, osv. Azure AD-lösenordsskydd som inte påverkar eller kontrollera de här faktorerna och därför kan påverka vilken domänkontrollant som har valts för en viss användare lösenordsändring.
+Nej. Windows-klientoperativsystem styr vilken domänkontrollant som ska användas när en användare ändrar sina lösenord. Domänkontrollanten är valt baserat på faktorer som Active Directory-platser och undernät tilldelningar, miljöspecifika nätverkskonfiguration, osv. Azure AD-lösenordsskydd styr inte de här faktorerna och det går inte att påverka vilken domänkontrollant har valts för att ändra en användares lösenord.
 
-Med den SA, är en metod som ligger nära simulera detta mål att distribuera Azure AD-lösenord skydd på alla domänkontrollanter i en viss Active Directory-plats. Den här metoden ger rimligen allt vanligare täckning för Windows-klienter som är kopplade till den platsen, och därför även för användarna som loggar in på dessa klienter och ändra sina lösenord.
+Ett sätt att delvis nå detta mål är att distribuera Azure AD-lösenord Protection på alla domänkontrollanter i en viss Active Directory-plats. Den här metoden ger rimliga täckning för Windows-klienter som är tilldelade till platsen, och därför även för användarna som loggar in på dessa klienter och ändra sina lösenord.
 
 **F: Om jag installerar Azure AD-lösenord Protection DC-agenttjänsten på bara den primär domänkontrollant (PDC), kommer alla andra domänkontrollanter i domänen också skyddas?**
 
-Nej. När en användares lösenord ändras för en viss icke-PDC-domänkontrollant, skickas klartext lösenordet aldrig till den primära domänkontrollanten (det här är en gemensam felkonfigurerat perception). I stället när ett nytt lösenord accepteras på en viss Domänkontrollant, den DC använder lösenordet för att skapa de olika autentisering protokollspecifika hash-värden för lösenordet och sedan fortsätter dessa hashvärden i katalogen. De uppdaterade hashvärden replikeras sedan till den primära domänkontrollanten - men Azure AD-lösenordsskydd ingår inte i den här processen. Lösenord kan i vissa fall ändras direkt på den primära domänkontrollanten igen beroende på olika faktorer, till exempel nätverkstopologi och design för Active Directory-plats. (Se föregående fråga).
+Nej. När en användares lösenord ändras för en viss icke-PDC-domänkontrollant, skickas klartext lösenordet aldrig till den primära domänkontrollanten (det här är en gemensam felkonfigurerat perception). När ett nytt lösenord accepteras på en viss Domänkontrollant, den DC använder lösenordet för att skapa de olika autentisering protokollspecifika hash-värden för lösenordet och sedan fortsätter dessa hashvärden i katalogen. Okrypterade lösenord är inte beständiga. Uppdaterade hashvärdena replikeras sedan till den primära domänkontrollanten. Lösenord kan i vissa fall ändras direkt på den primära domänkontrollanten igen beroende på olika faktorer, till exempel nätverkstopologi och design för Active Directory-plats. (Se föregående fråga).
 
-Sammanfattningsvis: distribution av Azure AD lösenord DC skyddsagenttjänsten på den primära domänkontrollanten krävs för att nå 100% säkerhetstäckning av funktionen, men som påverkar i sig inte tillhandahåller Azure AD-lösenordsskydd säkerhetsfördelarna för alla andra domänkontrollanter i domänen.
+Sammanfattningsvis krävs distribution av Azure AD-lösenord DC Protection Agent-tjänsten på den primära domänkontrollanten för att nå 100% säkerhetstäckning av funktionen i hela domänen. Distributionen av funktionen på den primära domänkontrollanten bara ger inte Azure AD-lösenordsskydd säkerhetsfördelarna för alla andra domänkontrollanter i domänen.
 
-**F: Finns ett hanteringspaket för System Center Operations Manager (SCOM) för Azure AD-lösenordsskydd?**
+**F: Finns ett hanteringspaket för System Center Operations Manager för Azure AD-lösenordsskydd?**
 
 Nej.
 
@@ -114,6 +114,10 @@ Följande länkar är inte en del av grundläggande dokumentation för Azure AD-
 [E-guiden för nätfiske skydd – del 15: Implementera Microsoft Azure AD-lösenord Protection Service (för lokala för!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
 [Azure AD-lösenordsskydd och Smart kontoutelåsning finns nu i offentlig förhandsversion!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
+
+## <a name="microsoft-premierunified-support-training-available"></a>Microsoft Premier\Unified supportutbildning som är tillgängliga
+
+Om du är intresserad av att lära dig mer om Azure AD-lösenordsskydd och distribuerar det i din miljö kan dra du nytta av en Microsoft proaktiv tjänsten är tillgänglig för kunder med ett Premier eller Unified support-kontrakt. Tjänsten kallas Azure Active Directory: Lösenordsskydd. Kontakta Teknikkontoansvarig om du vill ha mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 

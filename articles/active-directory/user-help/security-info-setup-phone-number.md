@@ -1,6 +1,6 @@
 ---
-title: Konfigurera säkerhetsinformation för att använda telefonsamtal – Azure Active Directory | Microsoft Docs
-description: Ställ in din säkerhetsinformation för att verifiera din identitet med en mobil enhet eller telefonnummer, arbete.
+title: Konfigurera säkerhetsinformation (förhandsversion) för att använda telefonsamtal – Azure Active Directory | Microsoft Docs
+description: Hur du ställer in din säkerhetsinformation för att verifiera din identitet med telefonsamtal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,50 +9,90 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c8daa50886c583f26a2d931854d7132eb2ece4b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf07541c23ba2295a367ac8ba6a514b7dee6ee9a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177214"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453842"
 ---
-# <a name="set-up-security-info-to-use-phone-calls-preview"></a>Konfigurera säkerhetsinformation för att använda telefonsamtal (förhandsversion)
+# <a name="set-up-security-info-preview-to-use-phone-calls"></a>Konfigurera säkerhetsinformation (förhandsversion) för att använda telefonsamtal
+Du kan följa stegen nedan för att lägga till två faktorer verifieringen och metoder för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.
+
+Om du uppmanas att konfigurera detta omedelbart efter att du loggar in på ditt arbets- eller skolkonto konto finns detaljerade anvisningar i den [ställa in din säkerhetsinformation från inloggningssidan prompten](security-info-setup-signin.md) artikeln.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Konfigurera din säkerhetsinformation måste du logga in på ditt arbets- eller skolkonto konto och sedan slutföra registreringen. Om du aldrig har konfigurerat din säkerhetsinformation kommer du bli ombedd att göra det nu.
+>[!Note]
+>Säkerhetsinformation stöder inte med anknytningsnummer. Även om du lägger till rätt format, tas + 1 4255551234 X 12345 tilläggen bort innan de görs.
 
-## <a name="set-up-phone-calls"></a>Konfigurera telefonsamtal
+>Om du inte ser en Telefonalternativet, är det möjligt att din organisation tillåter inte att du använder ett telefonnummer för att bekräfta. I det här fallet måste du välja en annan metod eller kontakta administratören för mer hjälp.
 
-Beroende på organisationens inställningar kan uppmanas du att lägga till ett telefonnummer till din säkerhetsinformation när du loggar in. I annat fall för att börja konfigurera telefonsamtal säkerhetsinformation, följer du stegen i [hantera din säkerhetsinformation](security-info-manage-settings.md).
+## <a name="set-up-phone-calls-from-the-security-info-page"></a>Konfigurera telefonsamtal från sidan säkerhetsinformation
+Beroende på organisationens inställningar kan kanske du kan använda telefonsamtal som en av din information säkerhetsmetoder.
 
 >[!Note]
->Säkerhetsinformation stöder inte med anknytningsnummer. Även om du lägger till rätt format, tas + 1 4255551234 X 12345 tilläggen bort innan de görs.<br>Om du inte ser Telefonalternativet, är det möjligt att din organisation tillåter inte att du kan använda telefonsamtal för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
+>Om du vill få ett textmeddelande i stället för ett telefonsamtal, följer du stegen i den [konfigurera säkerhetsinformation för att använda textmeddelanden](security-info-setup-text-msg.md) artikeln.
 
-### <a name="to-use-your-phone-number"></a>Att använda ditt telefonnummer
+### <a name="to-set-up-phone-calls"></a>Du ställer in telefonsamtal
 
-1. Välj den **Phone** alternativet.
+1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
 
-    Den **ställa in din telefon** guiden visas.
+    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile.png)
 
-    ![Konfigurera ditt land eller region och telefonnumret nummer](media/security-info/security-info-keep-secure-setup-phone.png)
+2. Välj **säkerhetsinformation** från det vänstra navigeringsfönstret eller från länken i den **säkerhetsinformation** blockera och sedan välja **tilläggsmetod** från den **säkerhetsinformation**  sidan.
 
-2. Välj din **land eller Region** från listrutan, ange ditt telefonnummer (inklusive riktnumret, om tillämpligt) i den **telefonnummer** väljer den **ringa mig** alternativet Välj sedan **nästa**.
+    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    Du får ett telefonsamtal för att kontrollera att du har angett rätt telefonnummer. Då kommer du bli ombedd att skicka (#) fyrkant att bekräfta och slutföra din konfiguration.
+3. På den **Lägg till en metod** väljer **Phone** från listrutan och välj sedan **Lägg till**.
 
-    ![Kontrollera din telefon skärm, som visar att anropet har besvarat](media/security-info/security-info-keep-secure-verify-phone-call.png)
+    ![Lägg till metoden rutan med telefon som har valts](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-    Din säkerhetsinformation uppdateras om du vill använda ditt telefonnummer för att verifiera din identitet när du använder två verifieringen eller Självbetjäning för återställning av lösenord.
+4. På den **Phone** sidan, anger du telefonnumret för din mobila enhet, Välj **ringa mig**, och välj sedan **nästa**.
 
-    >[!Note]
-    >Om du vill få ett textmeddelande i stället för ett telefonsamtal till din mobila enhet följer du stegen i den [konfigurera säkerhetsinformation för att använda textmeddelanden (SMS)](security-info-setup-text-msg.md) artikeln.
+    ![Lägg till telefonnummer och välj telefonsamtal](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
-## <a name="additional-security-info-options"></a>Ytterligare säkerhetsalternativ för information
+5. Besvara samtalet verifiering skickas till det telefonnummer som du har angett och följ instruktionerna.
 
+    Sidändringar att visa din framgång.
+
+    ![Meddelande för lyckade, ansluter telefonen number, möjlighet att ta emot samtal, och ditt konto](media/security-info/securityinfo-myprofile-phonetext-success.png)
+
+    Din säkerhetsinformation uppdateras och du kan använda telefonsamtal för att verifiera din identitet när du använder återställning för tvåstegsverifiering verifiering eller lösenord. Om du vill ringa telefonsamtal din standardmetod finns i den [ändra standard security info metoden](#change-your-default-security-info-method) i den här artikeln.
+
+## <a name="delete-phone-calls-from-your-security-info-methods"></a>Ta bort telefonsamtal från din info säkerhetsmetoder
+Om du inte längre vill använda telefonsamtal som en säkerhetsmetod information du kan ta bort den från den **säkerhetsinformation** sidan.
+
+>[!Important]
+>Om du tar bort telefonsamtal av misstag, går det inte att ångra åtgärden. Du måste lägga till metoden igen, följa stegen i den [konfigurera telefonsamtal](#set-up-phone-calls-from-the-security-info-page) i den här artikeln.
+
+### <a name="to-delete-phone-calls"></a>Ta bort telefonsamtal
+
+1. På den **säkerhetsinformation** väljer den **ta bort** länka bredvid den **Phone** alternativet.
+
+    ![Länk för att ta bort metoden phone från säkerhetsinformation](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+
+2. Välj **Ja** från dialogrutan Bekräfta att ta bort den **Phone** tal. När ditt telefonnummer har tagits bort, tas den bort från din säkerhetsinformation och försvinner den från den **säkerhetsinformation** sidan. Om **Phone** är din standardmetod standard ändras till en annan metod som är tillgängliga.
+    
+## <a name="change-your-default-security-info-method"></a>Ändra din standardmetod security info
+Om du vill ringa samtal ska vara den standardmetod som används när du loggar in till ditt arbets- eller skolkonto konto med två faktorer verifiering eller för att återställa lösenord begäranden, kan du ändra det från den **säkerhetsinformation** sidan.
+
+### <a name="to-change-your-default-security-info-method"></a>Ändra din standardmetod security info
+
+1. På den **säkerhetsinformation** väljer den **ändra** länka bredvid den **standard inloggningsmetod** information.
+
+    ![Ändra-länk för standard inloggningsmetod](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+
+2. Välj **Phone - anrop (*_your_phone_number_*)** från listan över tillgängliga metoder och välj sedan **Bekräfta**.
+
+    ![Välj metod för att logga in standard](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
+
+    Standardmetod som används för inloggning ändringar i **Phone - anrop (*_your_phone_number_*)**.
+
+## <a name="additional-security-info-methods"></a>Ytterligare information om säkerhetsmetoder
 Du har ytterligare alternativ för hur din organisation kontakter du verifiera din identitet, baserat på vad är du försöker göra. Följande alternativ är tillgängliga:
 
 - **Authenticator-appen.** Ladda ned och använda en autentiseringsapp för att få ett meddelande om godkännande eller en slumpmässigt genererad godkännandekod för återställning av tvåstegsverifiering verifiering eller lösenord. Stegvisa instruktioner om hur du skapar och använder Microsoft Authenticator-appen finns i [konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md).
@@ -67,8 +107,6 @@ Du har ytterligare alternativ för hur din organisation kontakter du verifiera d
     >Om vissa av dessa alternativ saknas, är det mest sannolika eftersom din organisation inte tillåter dessa metoder. Om så är fallet, måste du välja en tillgänglig metod eller kontakta administratören för mer hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
-
-- Om du behöver uppdatera din säkerhetsinformation, följ instruktionerna i den [hantera din säkerhetsinformation](security-info-manage-settings.md) artikeln.
 
 - Återställa lösenordet om du har förlorat den, från den [portal för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följer du stegen i den [återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md) artikeln.
 

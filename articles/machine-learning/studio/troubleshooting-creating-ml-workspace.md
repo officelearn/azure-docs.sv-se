@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: c12c87524ac1b8d0be5b691d599510f8e4573317
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 7f0485221f0f29d08275f9508ba79e32c3f8924a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267333"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455446"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Felsökningsguide: Skapa och Anslut till en Azure Machine Learning Studio-arbetsyta
 Den här guiden innehåller lösningar för några vanliga påträffade utmaningar när du ställer in Azure Machine Learning Studio-arbetsytor.
@@ -39,31 +39,24 @@ Machine Learning-tjänsten behöver ett lagringskonto för att lagra data. Du ka
 
 När den nya Machine Learning Studio-arbetsytan har skapats kan logga du in till Machine Learning Studio med hjälp av Microsoft-kontot som du använde för att skapa arbetsytan. Om du får felmeddelandet Använd ”arbetsyta hittades inte” (ungefär som följande skärmbild), följande steg att ta bort cookies i webbläsaren.
 
-![Arbetsytan hittades inte][screen3]
+![Arbetsytan hittades inte](media/troubleshooting-creating-ml-workspace/screen3.png)
 
 **Att ta bort cookies i webbläsaren**
 
 1. Om du använder Internet Explorer, klickar du på den **verktyg** i det övre högra hörnet och välj **Internetalternativ**.  
 
-   ![Internet-alternativ][screen4]
+   ![Internet-alternativ](media/troubleshooting-creating-ml-workspace/screen4.png)
 
 2. Under den **Allmänt** fliken **ta bort...**
 
-   ![Fliken Allmänt][screen5]
+   ![Fliken Allmänt](media/troubleshooting-creating-ml-workspace/screen5.png)
 
 3. I den **ta bort webbhistorik** dialogrutan Kontrollera **Cookies och webbsidesdata** är markerad och klicka på **ta bort**.
 
-   ![Ta bort cookies][screen6]
+   ![Ta bort cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 
-Efter det raderas cookies, starta om webbläsaren och gå sedan till den [Microsoft Azure Machine Learning](https://studio.azureml.net) sidan. När du ombeds ange ett användarnamn och lösenord anger du samma Microsoft-konto som du använde för att skapa arbetsytan.
+Efter det raderas cookies, starta om webbläsaren och gå sedan till den [Microsoft Azure Machine Learning Studio](https://studio.azureml.net) sidan. När du ombeds ange ett användarnamn och lösenord anger du samma Microsoft-konto som du använde för att skapa arbetsytan.
 
 ## <a name="comments"></a>Kommentarer
 
 Vårt mål är att göra Machine Learning-miljö så smidig som möjligt. Du publicera alla kommentarer och problem med den [Azure Machine Learning-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) så att vi dig.
-
-[screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
-[screen2]:media/troubleshooting-creating-ml-workspace/screen2.png
-[screen3]:media/troubleshooting-creating-ml-workspace/screen3.png
-[screen4]:media/troubleshooting-creating-ml-workspace/screen4.png
-[screen5]:media/troubleshooting-creating-ml-workspace/screen5.png
-[screen6]:media/troubleshooting-creating-ml-workspace/screen6.png

@@ -1,7 +1,7 @@
 ---
 title: Hur en maskininlärningsmodell blir en webbtjänst
 titleSuffix: Azure Machine Learning Studio
-description: En översikt över hur din Azure Machine Learning model utvecklas från en utveckling experimentera till en produktionsslutpunkt webbtjänst säkerhetsnivån.
+description: En översikt över hur din modell utvecklas i Azure Machine Learning Studio från en utveckling experimentera till en produktionsslutpunkt webbtjänst säkerhetsnivån.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 31005077c9c149f9aff055432d9577a63bac8e1c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 776f33e3e550ad9a711a90732c6c4526e647aa89
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992305"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456800"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hur en Machine Learning Studio-modell övergår från ett experiment till en produktionsslutpunkt webbtjänst
 Azure Machine Learning Studio tillhandahåller en interaktiv arbetsyta där du kan utveckla, köra, testa och iterera ett ***experimentera*** som representerar en prediktiv analysmodell. Det finns en mängd olika moduler som kan:
@@ -46,7 +46,7 @@ Här följer stegen som en typisk lösning följer du utvecklar och distribuerar
 *Bild 1 – faser i en typisk prediktiv analysmodell*
 
 ### <a name="the-training-experiment"></a>Träningsexperimentet
-Den ***träningsexperiment*** är den första fasen i att utveckla webbtjänsten i Machine Learning Studio. Syftet med träningsexperimentet är att ge dig en plats för att utveckla, testa, iterera och så småningom träna en maskininlärningsmodell. Du kan även skapa flera modeller samtidigt som du leta efter den bästa lösningen, men när du är klar experimentera du väljer en enda tränas modellera och eliminera resten från experimentet. Ett exempel i att utveckla en förutsägande analys experiment finns i [utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](tutorial-part1-credit-risk.md).
+Den ***träningsexperiment*** är den första fasen i att utveckla webbtjänsten i Machine Learning Studio. Syftet med träningsexperimentet är att ge dig en plats för att utveckla, testa, iterera och så småningom träna en maskininlärningsmodell. Du kan även skapa flera modeller samtidigt som du leta efter den bästa lösningen, men när du är klar experimentera du väljer en enda tränas modellera och eliminera resten från experimentet. Ett exempel i att utveckla en förutsägande analys experiment finns i [utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning Studio](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>Förutsägbart experiment
 När du har en tränad modell i experimentet utbildning, klickar du på **konfigurera Web Service** och välj **förutsägande webbtjänsten** i Machine Learning Studio för att starta processen för att konvertera utbildning Experimentera till en ***förutsägelseexperiment***. Syftet med förutsägelseexperiment är att använda den tränade modellen för att rangordna nya data, med målet att så småningom blir operationaliserat som Azure-webbtjänst.

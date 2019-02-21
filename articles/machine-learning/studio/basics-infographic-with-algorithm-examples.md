@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 78daf4534334d56c962d97e7a9aac8a7910db34c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242909"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453604"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Nedladdningsbar Infografik: Machine learning-grunder med algoritmexempel
 
@@ -33,7 +33,7 @@ Ladda ned den här lätt att förstå informationsgrafik över grunderna i machi
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Mer hjälp med algoritmer för nybörjare och avancerade användare
 
-* En djupare beskrivning av de olika typerna av machine learning-algoritmer, hur de används och hur du väljer rätt typ för din lösning finns i [så väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md).
+* En djupare beskrivning av de olika typerna av machine learning-algoritmer, hur de används och hur du väljer rätt typ för din lösning finns i [så väljer du algoritmer för Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 * En lista efter kategori av alla de tillgängliga maskininlärningsalgoritmer i Machine Learning Studio finns i [initiera modell] [ initialize-model] i Machine Learning Studio-algoritmen och modulen hjälpa.
 * En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio finns i [A-Z-lista över Machine Learning Studio-moduler] [ a-z-list] i modulen hjälpen och Machine Learning Studio-algoritm.
 * En översikt över Azure AI-galleriet och de användargenererat resurserna som finns där, se [resurs och identifiera resurser i Azure AI-galleriet](gallery-how-to-use-contribute-publish.md).

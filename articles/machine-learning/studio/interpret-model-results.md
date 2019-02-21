@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997013"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456086"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Tolka modellresultat i Azure Machine Learning Studio
 Det här avsnittet förklarar hur du visualiserar och tolka förutsagda resultaten i Azure Machine Learning Studio. När du har tränats en modell och göra förutsägelser ovanpå det. (”poängsätts modellen”), måste du förstå och tolka resultatet förutsägelse.
 
 
 
-Det finns fyra viktiga typer av machine learning-modeller i Azure Machine Learning:
+Det finns fyra viktiga typer av machine learning-modeller i Azure Machine Learning Studio:
 
 * Klassificering
 * Klustring
@@ -35,11 +35,11 @@ Moduler som används för förutsägelse ovanpå dessa modeller är:
 * [Tilldela till kluster] [ assign-to-clusters] -modulen för kluster
 * [Bedöma Matchbox rekommenderare] [ score-matchbox-recommender] för recommendation-system
 
-Det här dokumentet beskriver hur du tolkar förutsägelser för var och en av dessa moduler. En översikt över dessa moduler finns i [välja parametrar för att optimera algoritmerna i Azure Machine Learning](algorithm-parameters-optimize.md).
+Det här dokumentet beskriver hur du tolkar förutsägelser för var och en av dessa moduler. En översikt över dessa moduler finns i [välja parametrar för att optimera algoritmerna i Azure Machine Learning Studio](algorithm-parameters-optimize.md).
 
-Det här avsnittet behandlar förutsägelse tolkning men inte modellen utvärderingsversioner. Läs mer om hur du utvärderar din modell, [hur du utvärderar du modellens prestanda i Azure Machine Learning](evaluate-model-performance.md).
+Det här avsnittet behandlar förutsägelse tolkning men inte modellen utvärderingsversioner. Läs mer om hur du utvärderar din modell, [hur du utvärderar du modellens prestanda i Azure Machine Learning Studio](evaluate-model-performance.md).
 
-Om du inte har använt Azure Machine Learning och behöver hjälp med att skapa ett enkelt experiment du kommer igång finns i [skapar ett enkelt experiment i Azure Machine Learning Studio](create-experiment.md) i Azure Machine Learning Studio.
+Om du inte har använt Azure Machine Learning Studio och behöver hjälp med att skapa ett enkelt experiment du kommer igång finns i [skapar ett enkelt experiment i Azure Machine Learning Studio](create-experiment.md) i Azure Machine Learning Studio.
 
 ## <a name="classification"></a>Klassificering
 Det finns två underkategorier klassificering problem:
@@ -47,12 +47,12 @@ Det finns två underkategorier klassificering problem:
 * Problem med bara två klasser (tvåklassförhöjt eller binär klassificering)
 * Problem med fler än två klasser (flera klassificering)
 
-Azure Machine Learning har olika moduler behöver bry dig om de olika typerna av klassificering, men metoder för att tolka resultaten förutsägelse är liknande.
+Azure Machine Learning Studio har olika moduler behöver bry dig om de olika typerna av klassificering, men metoder för att tolka resultaten förutsägelse är liknande.
 
 ### <a name="two-class-classification"></a>Två klassificering
 **Exempelexperiment**
 
-Ett exempel på en tvåklassförhöjt klassifikationsproblem är klassificeringen av iris blommor. Uppgiften är att klassificera iris blommor baserat på deras funktioner. Iris-datauppsättningen som anges i Azure Machine Learning är en delmängd av de populära [Iris-datauppsättningen](http://en.wikipedia.org/wiki/Iris_flower_data_set) som innehåller instanser av endast två blomma species (klasser 0 och 1). Det finns fyra funktioner för varje blommor (sepal length, sepal width, petal längd och petal width).
+Ett exempel på en tvåklassförhöjt klassifikationsproblem är klassificeringen av iris blommor. Uppgiften är att klassificera iris blommor baserat på deras funktioner. Iris-datauppsättningen som anges i Azure Machine Learning Studio är en delmängd av de populära [Iris-datauppsättningen](http://en.wikipedia.org/wiki/Iris_flower_data_set) som innehåller instanser av endast två blomma species (klasser 0 och 1). Det finns fyra funktioner för varje blommor (sepal length, sepal width, petal längd och petal width).
 
 ![Skärmbild av iris experiment](./media/interpret-model-results/1.png)
 
@@ -226,7 +226,7 @@ För rekommenderare system, du kan använda restaurang rekommendation problemet 
 * Funktionen kunddata
 * Restaurang funktionsdata
 
-Det finns flera saker som vi kan göra med den [träna Matchbox rekommenderare] [ train-matchbox-recommender] modul i Azure Machine Learning:
+Det finns flera saker som vi kan göra med den [träna Matchbox rekommenderare] [ train-matchbox-recommender] modul i Azure Machine Learning Studio:
 
 * Förutsäga klassificeringar för en viss användare och objekt
 * Rekommendera föremål för en viss användare
@@ -237,7 +237,7 @@ Du kan välja vad du vill göra genom att välja bland de fyra alternativen i de
 
 ![Matchbox rekommenderare](./media/interpret-model-results/19_1.png)
 
-Ett typiskt Azure Machine Learning-experiment för ett system för rekommenderare ser ut som bild 20. Information om hur du använder dessa moduler för rekommenderare system finns i [träna matchbox rekommenderare] [ train-matchbox-recommender] och [poäng matchbox rekommenderare] [ score-matchbox-recommender].
+Ett typiskt Azure Machine Learning Studio-experiment för ett system för rekommenderare ser ut som bild 20. Information om hur du använder dessa moduler för rekommenderare system finns i [träna matchbox rekommenderare] [ train-matchbox-recommender] och [poäng matchbox rekommenderare] [ score-matchbox-recommender].
 
 ![Rekommenderare system experiment](./media/interpret-model-results/20.png)
 

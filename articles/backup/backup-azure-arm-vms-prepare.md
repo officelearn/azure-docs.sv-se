@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0f522897f3d3b3261045f1c14387af53ebf4ad9d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429595"
+ms.locfileid: "56447573"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services-valv
 
@@ -108,7 +108,7 @@ Om du inte har en proxy för system-konto, konfigurera en enligt följande:
 1. Ladda ned [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
 
 2. Kör **PsExec.exe -i -s cmd.exe** att köra kommandotolken under ett systemkonto.
-3. Kör webbläsaren i systemkontexten. Exempel: **ProgramFiles%\Internet Explorer\iexplore.exe** för Internet Explorer.  
+3. Kör webbläsaren i systemkontexten. Till exempel: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** för Internet Explorer.  
 4. Definiera proxyinställningarna.
     - På Linux-datorer:
         - Lägg till följande rad till den **/etc/miljö** fil:
@@ -117,7 +117,7 @@ Om du inte har en proxy för system-konto, konfigurera en enligt följande:
             - **HttpProxy.Host=proxy IP-adress**
             - **HttpProxy.Port=proxy port**
     - Ange att en proxyserver ska användas på Windows-datorer i inställningarna för webbläsaren. Om du använder en proxyserver för ett användarkonto, kan du använda det här skriptet för att använda inställningen på kontonivå system.
-        ```
+        ```powershell
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
@@ -145,7 +145,7 @@ På NSG: N **NSF låsning**, tillåta trafik från alla portar på 10.0.0.5 till
 - Följande PowerShell-skript innehåller ett exempel för att tillåta trafik.
 - I stället för att tillåta utgående trafik till alla offentliga internet-adresser, kan du ange ett IP-adressintervall (-DestinationPortRange), eller Använd storage.region tjänsttagg.   
 
-    ```
+    ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
@@ -237,7 +237,7 @@ Identifiera virtuella datorer i prenumerationen och konfigurera säkerhetskopier
 
 När du har aktiverat säkerhetskopiering:
 
-- En inledande säkerhetskopiering säkerhetskopiering körs i enlighet med schemat för säkerhetskopiering.
+- En första säkerhetskopieringen körs i enlighet med schemat för säkerhetskopiering.
 - Backup-tjänsten installerar tillägget för säkerhetskopiering, oavsett om Virtuellt datorn körs.
     - En virtuell dator som körs har bäst chans att tilldelas en programkonsekvent återställningspunkt.
     -  Den virtuella datorn säkerhetskopieras dock även om den är avstängd och det går inte att installera tillägget. Detta kallas *offline VM*. I detta fall är återställningspunkten *kraschkonsekvent*.

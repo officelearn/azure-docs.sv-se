@@ -10,20 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0f324dec9349b44252a85b2f9334a1b6d847faae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 870345148b55bc6026202fbd433d8575e421faba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247145"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456018"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Välj parametrar för att optimera algoritmerna i Azure Machine Learning Studio
 
-Det här avsnittet beskriver hur du väljer rätt finjustering för en algoritm i Azure Machine Learning. De flesta maskininlärningsalgoritmer har parametrar för att konfigurera. När du tränar en modell, måste du ange värden för dessa parametrar. Effekt av den tränade modellen beror på Modellparametrar som du väljer. Processen att hitta den optimala uppsättningen parametrar som kallas *modellera val av*.
+Det här avsnittet beskriver hur du väljer rätt finjustering för en algoritm i Azure Machine Learning Studio. De flesta maskininlärningsalgoritmer har parametrar för att konfigurera. När du tränar en modell, måste du ange värden för dessa parametrar. Effekt av den tränade modellen beror på Modellparametrar som du väljer. Processen att hitta den optimala uppsättningen parametrar som kallas *modellera val av*.
 
 
 
-Det finns olika sätt att modellera val. Korsvalidering är en av de mest använda metoderna för vald modell i machine learning, och det är standardmekanismen för modellen val i Azure Machine Learning. Eftersom Azure Machine Learning har stöd för både R och Python, kan du alltid implementera sina egna mekanismer för val av modellen genom att använda R eller Python.
+Det finns olika sätt att modellera val. Korsvalidering är en av de mest använda metoderna för vald modell i machine learning, och det är standardmekanismen för modellen val i Azure Machine Learning Studio. Eftersom Azure Machine Learning Studio stöder både R och Python kan implementera du alltid sina egna mekanismer för val av modellen genom att använda R eller Python.
 
 Det finns fyra steg håller på att hitta den bästa parameteruppsättningen:
 
@@ -32,7 +32,7 @@ Det finns fyra steg håller på att hitta den bästa parameteruppsättningen:
 3. **Definiera måttet**: Bestäm vilka mått som ska använda för att avgöra den bästa uppsättningen parametrar, till exempel noggrannhet, rot medelvärdet cirkels fel, precision, återkallande eller f-poäng.
 4. **Träna, utvärdera och jämföra**: För varje unik kombination av parametervärdena som utförs av korsvalidering och baserat på fel-mått som du definierar. Du kan välja modellen med bäst prestanda efter utvärderingen och jämförelse.
 
-Följande bild illustrerar visar hur du kan göra detta i Azure Machine Learning.
+Följande bild illustrerar visar hur du kan göra detta i Azure Machine Learning Studio.
 
 ![Hitta den bästa parameteruppsättningen](./media/algorithm-parameters-optimize/fig1.png)
 

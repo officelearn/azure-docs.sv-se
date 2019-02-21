@@ -11,21 +11,27 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 3013d8997660df95fb12c8b18c1120f726eead04
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216028"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447879"
 ---
-# <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
+# <a name="application-insights-connector-management-solution-deprecated"></a>Lösning för Application Insights-Anslutningsapp (inaktuell)
 
 ![Application Insights symbol](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Med hjälp av [mellan resurser frågor](../../azure-monitor/log-query/cross-workspace-query.md) och [visar flera Azure Monitor Application Insights-resurser](../log-query/unify-app-resource-data.md), hanteringslösning för Application Insights-anslutning krävs inte. Application Insights-anslutningsprogram kommer föråldrade och tas bort från Azure Marketplace tillsammans med OMS-portalen utfasning officiellt dra tillbaka den 15 januari 2019 för kommersiella Azure-molnet och Azure US Government-molnet, den officiellt dras mars 30, 2019. Befintliga anslutningar fortsätter att fungera förrän den 30 juni 2019. Med OMS-portalen utfasning går det inte att konfigurera och ta bort befintliga anslutningar från portalen. Detta kommer att stödjas med hjälp av REST-API som ska göras tillgänglig i januari 2019 och ett meddelande publiceras på [Azure-uppdateringar](https://azure.microsoft.com/updates/). Mer information finns i [OMS-portalen som flyttar till Azure](../../azure-monitor/platform/oms-portal-transition.md).
+> Med hjälp av [mellan resurser frågor](../../azure-monitor/log-query/cross-workspace-query.md), Application Insights-anslutningsprogram hanteringslösningen inte längre behövs. Det har inaktuella och tas bort från Azure Marketplace, tillsammans med OMS-portalen som officiellt upphörde den 15 januari 2019 för kommersiella Azure-molnet. Den tas ur bruk den 30 mars 2019 för Azure US Government-molnet.
+>
+>Befintliga anslutningar fortsätter att fungera förrän den 30 juni 2019.  Med OMS-portalen utfasning går det inte att konfigurera och ta bort befintliga anslutningar från portalen. Se [tar bort anslutningen med PowerShell](#removing-the-connector-with-powershell) nedan för ett skript på använder PowerShell för att ta bort befintliga anslutningar.
+>
+>Vägledning för frågor till Application Insights loggdata för flera program, se [förena flera Azure Monitor Application Insights-resurser](../log-query/unify-app-resource-data.md). Mer information om OMS portal utfasningen finns [OMS-portalen som flyttar till Azure](../../azure-monitor/platform/oms-portal-transition.md).
+>
+> 
 
 Program Insights Connector-lösningen hjälper dig att diagnostisera prestandaproblem och förstå vad användarna gör med din app när den är övervakad med [Application Insights](../../azure-monitor/app/app-insights-overview.md). Vyer för samma programtelemetri som utvecklare kan se i Application Insights är tillgängliga i Log Analytics. När du integrerar dina Application Insights-appar med Log Analytics, ökas visningen av dina program genom att använda åtgärden och programdata på samma ställe. Att ha samma vyer hjälper dig att samarbeta med dina apputvecklare. Vanliga vyer kan du minska tiden för att identifiera och lösa både programmet och plattformsproblem.
 
@@ -262,6 +268,57 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 
 Den här lösningen har inte en uppsättning exempel på loggsökningar visas på instrumentpanelen. Men exempel loggsökningsfrågor med beskrivningar visas i den [visa Application Insights-anslutningsprogram information](#view-application-insights-connector-information) avsnittet.
+
+## <a name="removing-the-connector-with-powershell"></a>Ta bort anslutningen med PowerShell
+Med OMS-portalen utfasning går det inte att konfigurera och ta bort befintliga anslutningar från portalen. Du kan ta bort befintliga anslutningar med följande PowerShell-skript. Du måste vara ägare eller deltagare i arbetsytan och läsaren i Application Insights-resurs för att utföra åtgärden.
+
+```PowerShell
+$Subscription_app = "App Subscription Name"
+$ResourceGroup_app = "App ResourceGroup"
+$Application = "Application Name"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+
+Connect-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $Subscription_app
+$AIApp = Get-AzureRmApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
+Set-AzureRmContext -SubscriptionId $Subscription_workspace
+Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
+```
+
+Du kan hämta en lista över program med hjälp av följande PowerShell-skript som anropar ett REST API-anrop. 
+
+```PowerShell
+Connect-AzureRmAccount
+$Tenant = "TenantId"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+$AccessToken = "AAD Authentication Token" 
+
+Set-AzureRmContext -SubscriptionId $Subscription_workspace
+$LAWorkspace = Get-AzureRmOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
+
+$Headers = @{
+    "Authorization" = "Bearer $($AccessToken)"
+    "x-ms-client-tenant-id" = $Tenant
+}
+
+$Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
+$ConnectionsJson = $Connections | ConvertTo-Json
+```
+Det här skriptet kräver en ägar-token för autentisering för autentisering mot Azure Active Directory. Ett sätt att hämta denna token med hjälp av en artikel i den [REST API-dokumentationswebbplats](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Klicka på **prova** och logga in på din Azure-prenumeration. Du kan kopiera ägartoken från den **begär förhandsgranskning** enligt följande bild.
+
+
+![Ägartoken](media/app-insights-connector/bearer-token.png)
+
+
+Du kan också hämta en lista över program används en loggfråga:
+
+```Kusto
+ApplicationInsights | summarize by ApplicationName
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

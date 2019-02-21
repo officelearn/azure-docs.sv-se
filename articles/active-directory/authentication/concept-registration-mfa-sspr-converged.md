@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66d4dc7e6fc1545e1de1e3b50887585c4156b4c0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1923a34c5c49f16b32ed5b5d0913a65ce0b1ea21
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208798"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453383"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Konvergerade registrering för lösenordsåterställning via självbetjäning och Azure Multi-Factor Authentication (förhandsversion)
 
@@ -78,7 +78,7 @@ Granskningsloggarna för den här nya upplevelsen finns under kategorin autentis
 
 **Standardmetoden för MFA har angetts till telefonsamtal när en användare registrerar en telefon med SMS**
 
-   * Vissa användare märker att deras standardmetoden för MFA har angetts till telefonsamtal när de registrerar sina telefonnummer genom att använda SMS: et. Användare kan lösa det här problemet genom att ändra deras standardmetoden genom att följa anvisningarna i artikeln [hantera din säkerhetsinformation (förhandsversion)](../user-help/security-info-manage-settings.md#change-your-info).
+   * Vissa användare märker att deras standardmetoden för MFA har angetts till telefonsamtal när de registrerar sina telefonnummer genom att använda SMS: et. Användare kan lösa det här problemet genom att ändra deras standardmetoden genom att följa anvisningarna i artiklarna som refereras av [översikt om hur du ändrar din säkerhetsinformation (förhandsversion)](../user-help/security-info-add-update-methods-overview.md).
 
 **Användaren kan inte komma åt den nya upplevelsen för registrering när en administratör har inaktiverat sina standardmetoden**
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 337e7a848b6aa141ecf4f96cd4f8f391be35a619
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b216242b5c1c093c5f508adce04ef7b4bec4d1e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475541"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453196"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Använda webbtjänstparametrar för Azure Machine Learning Studio
 En Azure Machine Learning-webbtjänst skapas genom att publicera ett experiment som innehåller moduler med konfigurerbara parametrar. I vissa fall kan du ändra beteendet modulen medan webbtjänsten körs. *Web tjänstparametrar* gör att du kan göra detta. 
@@ -57,7 +57,7 @@ Exempelvis kan vi antar att vi har ett experiment med en [exportera Data] [ writ
 
 3. Klicka på ikonen till höger om den **sökväg till blob som börjar med behållare parametern**. Det ser ut så här:
    
-   ![Web Service-parametern ikon][icon]
+   ![Web Service-parametern ikon](./media/web-service-parameters/icon.png)
    
    Välj ”ange som web service parameter”.
    
@@ -65,7 +65,7 @@ Exempelvis kan vi antar att vi har ett experiment med en [exportera Data] [ writ
 4. Att byta namn på parametrarna för webbtjänsten, klickar du på namnet, anger du ”Blob sökvägen”, och tryck på den **RETUR** nyckel. 
 5. Om du vill ange ett standardvärde för parametern Web Service, klickar du på ikonen till höger om namnet, Välj ”ge standardvärdet”, ange ett värde (till exempel ”container1/output1.csv”), och tryck på den **RETUR** nyckel.
    
-   ![Web Service-Parameter][parameter]
+   ![Web Service-Parameter](./media/web-service-parameters/parameter.png)
 6. Klicka på **Run** (Kör). 
 7. Klicka på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [klassisk]** eller **distribuera webbtjänsten [nyhet]** att distribuera webbtjänsten.
 
@@ -78,11 +78,6 @@ Användaren av webbtjänsten kan nu ange ett nytt mål för den [exportera Data]
 Ett mer detaljerat exempel finns i [Webbtjänstparametrar](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) post i den [Machine Learning Blog](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 Mer information om hur du använder en Machine Learning-webbtjänst finns i [hur du använder en Azure Machine Learning-webbtjänst](consume-web-services.md).
-
-<!-- Images -->
-[icon]: ./media/web-service-parameters/icon.png
-[parameter]: ./media/web-service-parameters/parameter.png
-
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

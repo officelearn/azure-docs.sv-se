@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243554"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453995"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning Studio
 ## <a name="overview"></a>Översikt
-Den här artikeln beskriver vi en referensimplementering av ett kundomsättning analysis-projekt som skapats med hjälp av Azure Machine Learning. I den här artikeln diskuterar vi associerade allmän modeller för att lösa problemen med industriell kundomsättning holistiskt. Vi också mäta riktighet modeller som skapas med hjälp av Machine Learning och utvärdera anvisningarna för ytterligare utveckling.  
+Den här artikeln beskriver vi en referensimplementering av ett kundomsättning analysis-projekt som skapats med hjälp av Azure Machine Learning Studio. I den här artikeln diskuterar vi associerade allmän modeller för att lösa problemen med industriell kundomsättning holistiskt. Vi också mäta riktighet modeller som skapas med hjälp av Machine Learning och utvärdera anvisningarna för ytterligare utveckling.  
 
 ### <a name="acknowledgements"></a>Bekräftelser
-Det här experimentet utvecklades och testats av Serge Berger huvudnamn dataexpert hos Microsoft och Roger Barga, tidigare Product Manager för Microsoft Azure Machine Learning. Azure-Dokumentationsteamet mycket bekräftar sin expertis och tack dem för att dela det här dokumentet.
+Det här experimentet utvecklades och testats av Serge Berger huvudnamn dataexpert hos Microsoft och Roger Barga, tidigare Product Manager för Microsoft Azure Machine Learning Studio. Azure-Dokumentationsteamet mycket bekräftar sin expertis och tack dem för att dela det här dokumentet.
 
 > [!NOTE]
 > Data som används för det här experimentet är inte allmänt tillgängliga. Ett exempel på hur du skapar en maskininlärningsmodell för omsättning analys finns: [Detaljhandel omsättningen modellen mallen](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) i [Azure AI-galleriet](http://gallery.azure.ai/)
@@ -54,11 +54,11 @@ En gemensam problemlösning process för att lösa kundomsättning illustreras i
 2. En åtgärd från modell kan du överväga hur andelen åtgärder kan påverka sannolikheten för omsättning och mängden kunden livstidsvärde (CLV).
 3. Den här analysen lämpar sig för en kvalitativ analys som har skickats vidare till en proaktiv marknadsföringskampanj som riktar sig mot kundsegment för att ge optimala erbjudandet.  
 
-![][1]
+![Diagram som visar hur riskerar tolerans plus beslut modeller ger användbara insikter](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
 Den här framåt söker metoden är det bästa sättet att behandla omsättning, men medföljer komplexiteten: Vi har att utveckla en flermodells archetype och spåra beroenden mellan modellerna. Vara kan inkapslade samspelet mellan modeller som du ser i följande diagram:  
 
-![][2]
+![Omsättningen modelldiagram interaktion](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
 *Bild 4: Enhetlig flermodells archetype*  
 
@@ -77,18 +77,18 @@ Flera datamodeller metoden är ett måste när du utformar en global archetype f
 
 Följande diagram visar prototypen vi skapade, som använder fyra bedömnings algoritmer i Machine Learning Studio för att förutsäga omsättning. Orsak till att använda en metod för flera modeller är inte bara för att skapa en ensemble klassificerare att öka tillförlitligheten, men också att skydda mot över montering och förbättra val av förebyggande funktioner.  
 
-![][3]
+![Skärmbild som illustrerar en komplex Studio-arbetsyta med många sammankopplade moduler](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Bild 5: Skapa prototyper för en omsättning modellering metod*  
 
 Följande avsnitt innehåller mer information om prototypen bedömningsmodell som vi har implementerat med hjälp av Machine Learning Studio.  
 
 ### <a name="data-selection-and-preparation"></a>Dataurval och förberedelse
-Data som används för att skapa modeller och poängsätta kunder har hämtats från en lodrät CRM-lösning med de data som har dolts för att skydda kundernas integritet. Data innehåller information om 8 000 prenumerationer i USA och den kombinerar tre källor: etablering data (prenumeration metadata), aktivitetsdata (användning av systemet) och stöd för kunddata. Data innehåller inte alla företag relaterad information om kunder; Exempelvis kan innehåller den inte lojalitet metadata eller kredit poäng.  
+Data som används för att skapa modeller och poängsätta kunder har hämtats från en lodrät CRM-lösning med de data som har dolts för att skydda kundernas integritet. Data innehåller information om 8 000 prenumerationer i USA och den kombinerar tre källor: etablering data (prenumeration metadata), aktivitetsdata (användning av systemet) och stöd för kunddata. Data innehåller inte någon affärsrelaterade information om kunder; Exempelvis kan innehåller den inte lojalitet metadata eller kredit poäng.  
 
-För enkelhetens skull är ETL och processer för Datarensning utanför omfånget eftersom vi antar att förberedelse av data har redan gjorts någon annanstans.   
+För enkelhetens skull är ETL och processer för Datarensning utanför omfånget eftersom vi antar att förberedelse av data har redan gjorts någon annanstans.
 
-Val av funktioner för modellering baseras på preliminära multipel bedömning av uppsättning förutsägelserna som ingår i den process som använder slumpmässig skog-modulen. För att genomföra i Machine Learning Studio beräknat vi medelvärde, median och intervall för representativa funktioner. Exempelvis kan vi lagt till mängder för kvalitativ data, till exempel lägsta och högsta värden för användaraktivitet.    
+Val av funktioner för modellering baseras på preliminära multipel bedömning av uppsättning förutsägelserna som ingår i den process som använder slumpmässig skog-modulen. För att genomföra i Machine Learning Studio beräknat vi medelvärde, median och intervall för representativa funktioner. Exempelvis kan vi lagt till mängder för kvalitativ data, till exempel lägsta och högsta värden för användaraktivitet.
 
 Vi har också avbildas temporala information för de senaste sex månaderna. Vi analyserade data i ett år och vi upprättat att även om det fanns statistiskt signifikanta trender, minskat effekten på omsättning avsevärt efter sex månader.  
 
@@ -96,11 +96,11 @@ Det viktigaste är att hela processen, inklusive ETL, val av funktioner och mode
 
 Följande diagram visar de data som har använts.  
 
-![][4]
+![Skärmbild som visar ett exempel på de data som används med rådata](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
 *Bild 6: Utdrag ur datakällan (dold)*  
 
-![][5]
+![Skärmbild som visar statistisk funktioner som extraherats från datakällan](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
 *Bild 7: Funktioner som extraherats från datakällan*
  
@@ -122,7 +122,7 @@ Vi använde följande fyra maskininlärningsalgoritmer för att skapa prototyper
 
 Följande diagram illustrerar en del av designyta experiment som anger vilken ordning som modeller har skapats:  
 
-![][6]  
+![Skärmbild av en liten del av studio-experiment arbetsytor](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
 *Bild 8: Skapa modeller i Machine Learning Studio*  
 
@@ -135,18 +135,18 @@ Vi har också har skickats bedömnings datauppsättningen till en jämförbar mo
 I det här avsnittet presentera vi våra resultat om det arbete du utfört modeller, baserat på bedömnings datauppsättningen.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Precision och precisionen för bedömning
-Implementering i Azure Machine Learning är oftast bakom SAS i Precision med cirka 10 – 15% (området Under kurvan eller AUC).  
+Implementering i Azure Machine Learning Studio är oftast bakom SAS i Precision med cirka 10 – 15% (området Under kurvan eller AUC).  
 
 Omsättning viktigaste måttet är dock felklassificering frekvensen: det vill säga för högsta N-churners som förväntade av klassificeraren vilken av dem gjorde **inte** omsättning och har fått någon särskild behandling? Diagrammet nedan jämförs felklassificering priset för varje modell:  
 
-![][7]
+![Området under diagrammet jämföra prestanda för 4 algoritmer](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
 *Bild 9: Passau prototyp området under kurva*
 
 ### <a name="using-auc-to-compare-results"></a>Med hjälp av AUC för att jämföra resultaten
 Området Under kurvan (AUC) är ett mått som representerar ett globala mått på *Avskiljbarhet* mellan distributioner av poäng för positiva och negativa. Den liknar traditionella mottagare operatorn egenskap (ROC) diagrammet, men en viktig skillnad är att AUC mått inte måste du välja ett tröskelvärde. I stället det sammanfattar resultaten över **alla** möjliga alternativ. Däremot i traditionella ROC-diagrammet visas positiva identifieringar på den lodräta axeln och andel falska positiva identifieringar på den horisontala axeln och klassificering tröskelvärde varierar.   
 
-AUC används vanligtvis i form av ett mått är värd för olika algoritmer (eller olika system) eftersom den tillåter modeller som ska jämföras med hjälp av deras AUC värden. Det här är en populär metod i olika branscher, till exempel väderförhållanden samt biosciences. Därför representerar AUC ett populärt verktyg för utvärdering av klassificerare prestanda.  
+AUC används som ett mått på värt för olika algoritmer (eller olika system) eftersom den tillåter modeller som ska jämföras med hjälp av deras AUC-värden. Det här är en populär metod i olika branscher, till exempel väderförhållanden samt biosciences. Därför representerar AUC ett populärt verktyg för utvärdering av klassificerare prestanda.  
 
 ### <a name="comparing-misclassification-rates"></a>Jämföra felklassificering priser
 Vi jämfört med priserna för felklassificering på datauppsättningen i fråga med hjälp av CRM-data av cirka 8 000 prenumerationer.  
@@ -160,14 +160,14 @@ På samma sätt, är viktigare än precisionen eftersom det är mest intresserad
 
 Följande diagram från Wikipedia visar relationen i en livlig, enkelt att förstå bild:  
 
-![][8]
+![Två mål. Ett mål visar når marks löst grupperade men nära tjurar-ögat markerats ”låg Precision: bra riktighet, dålig precision. Ett annat mål nära grupperade men är långt från tjurar-ögat markerats ”låg Precision: dålig riktighet, bra precision”](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
 *Bild 10: Förhållandet mellan noggrannhet och precision*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Noggrannhet och precision resultat för beslutsträd trädet modell
 Följande diagram visar rådata resultaten från bedömning med Machine Learning-prototyp för beslutsträd trädet modellen råkar vara det mest korrekta bland fyra modeller:  
 
-![][9]
+![Tabellen kodfragment som visar noggrannhet, Precision, återkallande, F-poäng, AUC, genomsnittlig logg-förlust och utbildning Log förlust för fyra algoritmer](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *Bild 11: Beslutsträd trädet modellen egenskaper*
 
@@ -200,13 +200,13 @@ Den här viktiga observationer förbises ofta i företag, vilket vanligtvis för
 
 Löftet om självbetjäningsanalys med hjälp av Machine Learning Studio är dock att de fyra informationskategorierna klassificerats efter avdelning blir en värdefull källa för machine learning om omsättning.  
 
-En annan viktig funktion i Azure Machine Learning är möjligheten att lägga till en anpassad modul till lagringsplatsen för fördefinierade moduler som redan är tillgängliga. Den här funktionen skapar i princip en möjlighet att ange bibliotek och mallar för vertikala marknader. Det är ett viktigt skillnaden av Azure Machine Learning på marknaden plats.  
+En annan viktig funktion i Azure Machine Learning Studio är möjligheten att lägga till en anpassad modul till lagringsplatsen för fördefinierade moduler som redan är tillgängliga. Den här funktionen skapar i princip en möjlighet att ange bibliotek och mallar för vertikala marknader. Det är ett viktigt skillnaden i Azure Machine Learning Studio på marknaden plats.  
 
 Vi hoppas att fortsätta det här avsnittet i framtiden, särskilt rör analyser av stordata.
   
 
 ## <a name="conclusion"></a>Sammanfattning
-Det här dokumentet beskriver en metod som är känsliga för att lösa vanliga problem med kundomsättning med hjälp av ett allmänt ramverk. Vi anses vara en prototyp för bedömning modeller och implementeras med hjälp av Azure Machine Learning. Slutligen kan utvärderat vi prestanda av lösningen prototyp avseende jämförbara algoritmer i SAS.  
+Det här dokumentet beskriver en metod som är känsliga för att lösa vanliga problem med kundomsättning med hjälp av ett allmänt ramverk. Vi anses vara en prototyp för bedömning modeller och implementeras med hjälp av Azure Machine Learning Studio. Slutligen kan utvärderat vi prestanda av lösningen prototyp avseende jämförbara algoritmer i SAS.  
 
  
 
@@ -223,17 +223,6 @@ Det här dokumentet beskriver en metod som är känsliga för att lösa vanliga 
  
 
 ## <a name="appendix"></a>Bilaga
-![][10]
+![Ögonblicksbild av en presentation i omsättning prototyp](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *Bild 12: Ögonblicksbild av en presentation i omsättning prototyp*
-
-[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
-[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
-[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
-[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
-[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
-[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
-[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
-[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
-[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
-[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299902"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447828"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informationslagerenheter (dwu: er) och beräkning Informationslagerenheter (cDWUs)
 Rekommendationer om hur du väljer perfekt antalet informationslagerenheter (dwu: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter. 
@@ -37,7 +37,9 @@ Prestanda för informationslagerenheter baseras på dessa arbetsbelastningar må
 - Ökar det maximala antalet samtidiga frågor och samtidighetsfack.
 
 ## <a name="service-level-objective"></a>Servicenivåmål
-Den tjänst för servicenivåmål (SNM) är den skalbarhet-inställningen som styr både vilken kostnad och prestanda för ditt informationslager. Servicenivåer för Gen2 mäts i beräkning informationslagerenheter (cDWU), till exempel DW2000c. Gen1 servicenivåer mäts i dwu: er, till exempel DW2000. 
+Den tjänst för servicenivåmål (SNM) är den skalbarhet-inställningen som styr både vilken kostnad och prestanda för ditt informationslager. Servicenivåer för Gen2 mäts i beräkning informationslagerenheter (cDWU), till exempel DW2000c. Gen1 servicenivåer mäts i dwu: er, till exempel DW2000.
+  > [!NOTE]
+  > Azure SQL Data Warehouse Gen2 nyligen lagt till ytterligare skalningsfunktioner för att stödja beräkningsnivåer så lågt som 100 cDWU. Befintliga informationslager för närvarande på Gen1 som kräver nedre compute nivåerna nu kan du uppgradera till Gen2 i de regioner som är tillgängliga för utan extra kostnad.  Om din region inte stöds ännu, kan du fortfarande uppgradera till en region som stöds. Mer information finns i [uppgradera till Gen2](upgrade-to-latest-generation.md).
 
 I T-SQL anger inställningen SERVICE_OBJECTIVE servicenivå och prestandanivå för ditt informationslager.
 

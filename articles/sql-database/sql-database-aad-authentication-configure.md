@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 87c3633bb3ed3537d1e258b9d8d50fd6d6356d81
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 02/20/2019
+ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960039"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454845"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL
 
@@ -39,7 +39,7 @@ Mer information finns i [Integrera dina lokala identiteter med Azure Active Dire
 1. Koppla din Azure-prenumeration till Azure Active Directory genom att göra katalogen som en betrodd katalog för Azure-prenumerationen som är värd för databasen. Mer information finns i [hur Azure-prenumerationer är associerade med Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 2. Använd katalogväxlaren i Azure-portalen för att växla till den prenumeration som är kopplad till domänen.
 
-   **Ytterligare information:** varje Azure-prenumeration har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Den här förtroenderelationen mellan en prenumeration och en katalog skiljer sig från relationen mellan en prenumeration och alla andra resurser i Azure (webbplatser, databaser och så vidare), som är mer som underordnade resurser till en prenumeration. Om en prenumeration går ut stoppas även åtkomsten till de resurser som är associerade med prenumerationen. Men katalogen finns kvar i Azure och du kan associera en annan prenumeration med katalogen och fortsätta hantera kataloganvändarna. Mer information om resurser finns i [förstå resursåtkomst i Azure](../active-directory/active-directory-b2b-admin-add-users.md). Mer information om detta betrodd relation Se [hur du associerar eller lägga till en Azure-prenumeration i Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+   **Ytterligare information:** Alla Azure-prenumerationer har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Den här förtroenderelationen mellan en prenumeration och en katalog skiljer sig från relationen mellan en prenumeration och alla andra resurser i Azure (webbplatser, databaser och så vidare), som är mer som underordnade resurser till en prenumeration. Om en prenumeration går ut stoppas även åtkomsten till de resurser som är associerade med prenumerationen. Men katalogen finns kvar i Azure och du kan associera en annan prenumeration med katalogen och fortsätta hantera kataloganvändarna. Mer information om resurser finns i [förstå resursåtkomst i Azure](../active-directory/active-directory-b2b-admin-add-users.md). Mer information om detta betrodd relation Se [hur du associerar eller lägga till en Azure-prenumeration i Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Skapa en Azure AD-administratör för Azure SQL-server
 
@@ -58,7 +58,7 @@ När du använder Azure Active Directory med geo-replikering, måste Azure Activ
 Din hanterade instans måste du ha behörighet att läsa Azure AD för att utföra uppgifter, till exempel autentisering av användare via säkerhetsgrupp eller skapa nya användare har. För detta ska fungera måste du bevilja behörigheter till hanterad instans att läsa Azure AD. Det finns två sätt att göra det: från portalen och PowerShell. Följande steg båda metoderna.
 
 1. I Azure-portalen i det övre högra hörnet väljer du din anslutning om du vill se en lista över möjliga Active kataloger.
-2. Välj rätt Active Directory som standard Azure AD.
+2. Välj rätt Active Directory som standard-Azure AD.
 
    Det här steget länkar den prenumeration som är associerad med Active Directory med Managed Instance att se till att samma prenumeration används för både Azure AD och den hanterade instansen.
 3. Gå till Managed Instance och välja en som du vill använda för Azure AD-integrering.
@@ -129,21 +129,21 @@ Din hanterade instans måste du ha behörighet att läsa Azure AD för att utfö
 
 6. Du kan nu välja din Azure AD-administratör för din hanterade instans. För att på sidan Active Directory-administratör väljer **konfigurera administratör** kommando.
 
-    ![Konfigurera administratör](./media/sql-database-aad-authentication/set-admin.png)
+    ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
 
 7. AAD-administratören sidan Sök efter en användare väljer du den användare eller grupp som ska vara en administratör och välj sedan **Välj**.
 
    Sidan Active Directory visas alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. Se listan över stöds administratörer i [Azure AD-funktioner och begränsningar](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomstkontroll (RBAC) gäller enbart för Azure-portalen och är inte sprids till SQL Server.
 
-    ![Lägg till administratör](./media/sql-database-aad-authentication/add-admin.png)
+    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
 
 8. Överst på sidan Active Directory-administratör väljer **spara**.
 
     ![spara](./media/sql-database-aad-authentication/save.png)
 
-    Processen att ändra administratören kan ta flera minuter. Ny administratör visas sedan i rutan Active Directory-administratör.
+    Processen med att ändra administratör kan ta några minuter. Ny administratör visas sedan i rutan Active Directory-administratör.
 
-När du har etablerat en Azure AD-administratör för din hanterade instans, kan du börja skapa Azure AD-inloggningar (**förhandsversion**) med den <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. Mer information finns i [översikten över Managed-instans](sql-database-managed-instance.md#azure-active-directory-integration).
+När du har etablerat en Azure AD-administratör för din hanterade instans, kan du börja skapa Azure AD server-huvudkonton (inloggningar) (**förhandsversion**) med den <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. Mer information finns i [översikten över Managed-instans](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > Om du vill senare tar bort en administratör kan högst upp på sidan Active Directory-administratör väljer **ta bort administratör**, och välj sedan **spara**.
@@ -157,11 +157,11 @@ Följande två procedurer visar hur du etablerar en Azure Active Directory-admin
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. I den [Azure-portalen](https://portal.azure.com/), i det övre högra hörnet väljer du din anslutning om du vill se en lista över möjliga Active kataloger. Välj rätt Active Directory som standard Azure AD. Det här steget länkar prenumerationen associerad Active Directory med Azure SQL-server att se till att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL-servern kan vara värd för Azure SQL Database eller Azure SQL Data Warehouse.) ![väljer ad][8]
+1. På [Azure-portalen](https://portal.azure.com/) väljer du din anslutning i det övre högra hörnet för att visa en lista över möjliga Active Directories. Välj rätt Active Directory som standard-Azure AD. Det här steget länkar prenumerationsassocierad Active Directory till Azure SQL-servern, vilket gör att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL-servern kan vara värd för Azure SQL Database eller Azure SQL Data Warehouse.) ![väljer ad][8]
 
 2. I den vänstra banderollen väljer **alla tjänster**, och i vilken filtertyp i **SQLServer**. Välj **Sql-servrar**.
 
-    ![sqlservers.PNG](media/sql-database-aad-authentication/sqlservers.png)
+    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)
 
     >[!NOTE]
     > På den här sidan innan du väljer **SQL-servrar**, kan du välja den **star** bredvid namnet att *favorit* kategori och Lägg till **SQL-servrar**till det vänstra navigeringsfältet.
@@ -169,16 +169,16 @@ Följande två procedurer visar hur du etablerar en Azure Active Directory-admin
 3. På **SQL Server** väljer **Active Directory-administratör**.
 4. I den **Active Directory-administratör** väljer **konfigurera administratör**.  ![Välj active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
 
-5. I den **Lägg till administratör** sidan, söka efter en användare, väljer användaren eller gruppen för en administratör och välj sedan **Välj**. (Active Directory-administratörssidan visar alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. (Se listan över stöds administratörer i den **Azure AD-funktioner och begränsningar** delen av [Använd Azure Active Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication.md).) Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server.
-    ![Välj admin](./media/sql-database-aad-authentication/select-admin.png)  
+5. på sidan **Lägg till administratör** söker du efter en användare, väljer den användare eller den grupp som ska vara administratör och väljer sedan **Välj**. (Active Directory-administratörssidan visar alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. (Se listan över administratörer som stöds i avsnittet om **Azure AD-funktioner och begränsningar** i artikeln om att [använda Azure Active Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication.md).) Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server.
+    ![välja admin](./media/sql-database-aad-authentication/select-admin.png)  
 
-6. Överst på den **Active Directory-administratör** väljer **spara**.
-    ![Spara admin](./media/sql-database-aad-authentication/save-admin.png)
+6. Längst upp på sidan **Active Directory-administratör** väljer du **SPARA**.
+    ![spara admin](./media/sql-database-aad-authentication/save-admin.png)
 
-Processen att ändra administratören kan ta flera minuter. Ny administratör visas i den **Active Directory-administratör** box.
+Processen med att ändra administratör kan ta några minuter. Sedan visas den nya administratören i rutan **Active Directory-administratör**.
 
    > [!NOTE]
-   > När du konfigurerar Azure AD-administratören, kan inte det nya admin-namnet (användare eller grupp) redan finnas i den virtuella huvuddatabasen som en användare för SQL Server-autentisering. Om den är tillgänglig, misslyckas Azure AD-administratörsinstallation; återställer den har skapandet och som indikerar att sådana administratör (namn) redan finns. Eftersom SQL Server-autentisering användaren inte är en del av Azure AD, misslyckas alla arbete för att ansluta till servern med hjälp av Azure AD-autentisering.
+   > När Azure AD-administratören konfigureras får namnet för den nya administratören (användare eller grupp) inte redan finnas i den virtuella huvuddatabasen som SQL Server-autentiseringsanvändare. Om det finns misslyckas Azure AD-administratörskonfigurationen. Den återställer skapande och anger att den administratören (namnet) redan finns. Eftersom en sådan SQL Server-autentiseringsanvändare inte är en del av Azure AD misslyckas alla försök att ansluta till servern med hjälp av Azure AD-autentisering.
 
 Senare ta bort en administratör kan högst upp på den **Active Directory-administratör** väljer **ta bort administratör**, och välj sedan **spara**.
 
@@ -264,14 +264,14 @@ Du kan uppfylla dessa krav genom att:
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Skapa oberoende databasanvändare i din databas som mappats till Azure AD-identiteter
 
 >[!IMPORTANT]
->Hanterad instans har nu stöd för Azure AD-inloggningar (**förhandsversion**), vilket gör att du kan skapa inloggningar från Azure AD-användare, grupper eller program. Azure AD-inloggningar ger möjlighet att autentisera till din hanterade instans utan databasanvändare som ska skapas som en oberoende databasanvändare. Mer information finns i [översikten över Managed-instans](sql-database-managed-instance.md#azure-active-directory-integration). Syntax om hur du skapar Azure AD-inloggningar, se <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+>Hanterad instans har nu stöd för Azure AD-server-huvudkonton (inloggningar) (**förhandsversion**), vilket gör att du kan skapa inloggningar från Azure AD-användare, grupper eller program. Azure AD-server-huvudkonton (inloggningar) ger möjlighet att autentisera till din hanterade instans utan databasanvändare som ska skapas som en oberoende databasanvändare. Mer information finns i [översikten över Managed-instans](sql-database-managed-instance.md#azure-active-directory-integration). Syntax för att skapa Azure AD server-huvudkonton (inloggningar), se <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
-Azure Active Directory-autentisering kräver databasanvändare som ska skapas som oberoende databasanvändare. En oberoende databasanvändare baserat på en Azure AD-identitet är en databasanvändare som inte har en inloggning i huvuddatabasen, och som mappar till en identitet i Azure AD-katalog som är associerat med databasen. Azure AD-identitet kan vara antingen ett enskilt användarkonto eller en grupp. Läs mer om oberoende databasanvändare, [oberoende databasanvändare-göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx).
+Azure Active Directory-autentisering kräver att databasanvändare skapas som användare av oberoende databas. En användare av oberoende databas baserad på en Azure AD-identitet är en databasanvändare som inte har någon inloggning i huvuddatabasen, och som mappas till en identitet i den Azure AD-katalog som är associerad med databasen. Azure AD-identiteten kan vara antingen ett enskilt användarkonto eller en grupp. Mer information om användare av oberoende databas finns i avsnittet om [användare av oberoende databas – så gör du din databas portabel](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Databasanvändare (med undantag för administratörer) kan inte skapas med hjälp av Azure portal. RBAC-roller sprids inte till SQL Server, SQL Database eller SQL Data Warehouse. Azure RBAC-roller som används för att hantera Azure-resurser och gäller inte för databasbehörigheter. Till exempel den **SQL Server-deltagare** rollen ger inte kan ansluta till SQL Database eller SQL Data Warehouse. Åtkomstbehörigheten måste beviljas direkt i databasen med hjälp av Transact-SQL-uttryck.
+> Databasanvändare (med undantag för administratörer) kan inte skapas med hjälp av Azure-portalen. RBAC-roller sprids inte till SQL Server, SQL Database eller SQL Data Warehouse. Azure RBAC-roller används för att hantera Azure-resurser och gäller inte för databasbehörigheter. Till exempel beviljar rollen **SQL Server-deltagare** inte åtkomst för att ansluta till SQL Database eller SQL Data Warehouse. Åtkomstbehörigheten måste beviljas direkt i databasen med hjälp av Transact-SQL-instruktioner.
 > [!WARNING]
-> Specialtecken som kolon `:` eller et-tecken `&` när ingår som användarnamn i T-SQL-skapa inloggning och skapa användare instruktioner inte stöds.
+> Specialtecken som kolon `:` eller et-tecken `&` stöds inte när de ingår i användarnamn i instruktionerna T-SQL CREATE LOGIN och CREATE USER.
 
 Att skapa en Azure AD-baserad innehöll databasanvändare (andra än serveradministratören som äger databasen), ansluta till databasen med en Azure AD-identitet som en användare med minst den **ALTER ANY USER** behörighet. Sedan använder du följande Transact-SQL-syntax:
 
@@ -281,7 +281,7 @@ CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 
 *Azure_AD_principal_name* kan vara användarens huvudnamn för Azure AD-användare eller visningsnamn för en Azure AD-grupp.
 
-**Exempel:** för att skapa en innesluten databas användaren som representerar en Azure AD federerade eller hanterade domänanvändare:
+**Exempel:** Skapa en innesluten databas användaren som representerar en Azure AD federerade eller hanterade domänanvändare:
 
 ```sql
 CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
@@ -314,7 +314,7 @@ När du skapar en databasanvändare som användaren tar emot den **CONNECT** beh
 En federerad domän-användarkonto som har importerats till en hanterad domän som en extern användare måste använda den hanterade domän identiteten.
 
 > [!NOTE]
-> Azure AD-användare har markerats i databasmetadata för med typen E (EXTERNAL_USER) och för grupper med typen X (EXTERNAL_GROUPS). Mer information finns i [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> Azure AD-användare markeras i databasmetadata med typen E (EXTERNAL_USER) och för grupper med typen X (EXTERNAL_GROUPS). Mer information finns i [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 >
 
 ## <a name="connect-to-the-user-database-or-data-warehouse-by-using-ssms-or-ssdt"></a>Ansluta till databasen eller datalagret för användare med hjälp av SSMS eller SSDT  
@@ -323,14 +323,11 @@ Kontrollera Azure AD-administratör är rätt konfigurerad genom att ansluta til
 Ansluta till databasen med en Azure AD-identitet som har åtkomst till databasen för att etablera en Azure AD-baserad innehöll databasanvändare (andra än serveradministratören som äger databasen).
 
 > [!IMPORTANT]
-> Support för Azure Active Directory-autentisering är tillgänglig med [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) och [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) i Visual Studio 2015. Augusti 2016-versionen av SSMS innehåller också stöd för Active Directory Universal-autentisering, vilket gör att administratörer kan kräva Multifaktorautentisering med hjälp av ett telefonsamtal, textmeddelande, smartkort och PIN-kod eller mobilapp. Med hjälp av Azure AD-inloggningar och användare (**förhandsversion**) med SSDT stöds inte för tillfället.
+> Support för Azure Active Directory-autentisering är tillgänglig med [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) och [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) i Visual Studio 2015. Augusti 2016-versionen av SSMS innehåller också stöd för Active Directory Universal-autentisering, vilket gör att administratörer kan kräva Multifaktorautentisering med hjälp av ett telefonsamtal, textmeddelande, smartkort och PIN-kod eller mobilapp.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Använda en Azure AD-identitet för att ansluta med hjälp av SSMS eller SSDT
 
 Följande procedurer visar hur du ansluter till en SQL-databas med en Azure AD-identitet med hjälp av SQL Server Management Studio eller SQL Server-databas Tools.
-
->[!IMPORTANT]
->Med hjälp av Azure AD-inloggningar och användare (**förhandsversion**) med SSDT stöds inte för tillfället.
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory-integrerad autentisering
 

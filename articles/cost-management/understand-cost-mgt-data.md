@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981765"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447471"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -61,6 +61,8 @@ I följande tabell visar erbjudanden som inte stöds.
 | **Supportavtal** | Azure Government Standard Support | MS-AZR-USGOV-0041P |
 | **Supportavtal** | Azure Government Pro-Direct Support | MS-AZR-USGOV-0042P |
 | **Supportavtal** | Azure Government Developer Support | MS-AZR-USGOV-0043P |
+
+För kunder med användningsbaserad betalning, MSDN och Visual Studio erbjudandet kategorier är data tillgängliga i Cost Management från och med 2018-02-10.
 
 Om du inte ser data för en prenumeration och du vill fastställa om din prenumeration omfattas stöds erbjudanden, kan du verifiera att det finns stöd för din prenumeration. För att verifiera att det finns stöd för en Azure-prenumeration kan logga in på den [Azure-portalen](https://portal.azure.com). Välj sedan **alla tjänster** i den vänstra meny-rutan. Välj i listan över tjänster, **prenumerationer**. Klicka på den prenumeration som du vill verifiera i listmenyn prenumeration. Din prenumeration visas på fliken Översikt och du kan se den **erbjuder** och **erbjudande-ID**. I följande bild visas ett exempel.
 

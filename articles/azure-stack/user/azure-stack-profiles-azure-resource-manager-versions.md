@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 6866c6d208468e53b04ede1b5e596f0ea625c49d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f7d82b8cb609b390275617509946d640720f2dda
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248486"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456953"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versioner som stöds av profiler i Azure Stack
 
@@ -57,28 +57,6 @@ En förklaring av API-profiler och version frisläppningstakt för Azure Stack f
 | Prenumerationer | 2016-10-01 |
 
 Läs mer en lista över versioner för varje resurstyp för leverantörer i API-profilen, [information för 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profil.
-
-## <a name="overview-of-2018-03-01-hybrid"></a>Översikt över 2018-03-01-hybrid
-
-| Resursprovider | Api-version |
-|------------------------------------------------|------------------------------|
-| Microsoft.Compute | 2016-03-30 |
-| Microsoft.Network | 2015-06-15 |
-| Microsoft.Storage (Data Plane) | 2015-04-05  |
-| Microsoft.Storage (kontrollplanet) | 2016-01-01   |
-| Microsoft.Websites | 2016-01-01 |
-| Microsoft.KeyVault | 2016-10-01<br>(Ändra inte) |
-| Microsoft.Resources<br>(Azure Resource Manager själva) | 2016-02-01 |
-| Microsoft.Authorization<Br>(åtgärder) | 2015-11-01 |
-| Microsoft.Insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| Princip | 2015-10-01-preview |
-| Resurser | 2016-02-01 |
-| Resources_Links | 2016-09-01 |
-| Resources_Locks | 2016-09-01 |
-| Prenumerationer | 2016-06-1 |
-
-En lista med versioner av varje resurstyp för leverantörer i API-profilen finns i nästa avsnitt.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Information om 2018-03-01-hybrid
 

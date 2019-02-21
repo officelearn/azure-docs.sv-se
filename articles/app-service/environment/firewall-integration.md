@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 87331ed0d9e5a4ff51e3669390d1b40dea58574a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389238"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453859"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Låsa en App Service Environment
 
@@ -75,18 +75,18 @@ Den här användningen av Application Gateway är bara ett exempel på hur du ko
 
 ## <a name="logging"></a>Loggning 
 
-Azure-brandväggen kan skicka loggar till Azure Storage, Event Hub eller Log Analytics. För att integrera din app med ett mål som stöds, gå till Brandvägg för Azure-portalen > diagnostikloggar och aktivera loggar för dina önskade mål. Om du integrerar med Log Analytics kan du se loggning för trafik som skickas till Azure-brandväggen. Om du vill se den trafik som nekas, öppna Log Analytics-portalen > loggar och ange en fråga av typen 
+Azure-brandväggen kan skicka loggar till Azure Storage, Event Hub eller Azure Monitor-loggar. För att integrera din app med ett mål som stöds, gå till Brandvägg för Azure-portalen > diagnostikloggar och aktivera loggar för dina önskade mål. Om du integrerar med Azure Monitor-loggar, ser du loggning för trafik som skickas till Azure-brandväggen. Om du vill se den trafik som nekas, öppnas portalen för Log Analytics-Arbetsyta > loggar och ange en fråga av typen 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Integrera din Azure-brandvägg med Log Analytics är användbart när du först hämtar ett program som fungerar när du inte är medvetna om alla beroenden för programmet. Du kan lära dig mer om Log Analytics från [analysera Log Analytics-data i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+Integrera din Azure-brandvägg med Azure Monitor-loggar är användbart när du först hämtar ett program som fungerar när du inte är medvetna om alla beroenden för programmet. Du kan läsa mer om Azure Monitor-loggar från [analysera loggdata i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
 ## <a name="dependencies"></a>Beroenden
 
 Följande information är endast krävs om du vill konfigurera en brandväggsinstallation än Azure-brandväggen. 
 
 - Tjänsteslutpunkt kan tjänster konfigureras med Tjänsteslutpunkter.
-- IP-adress beroenden är för icke-HTTP/S-trafik
+- IP-adress beroenden är för icke-HTTP/S-trafik (både TCP och UDP-trafik)
 - FQDN HTTP/HTTPS-slutpunkter kan placeras i enheten för brandväggen.
 - Jokertecken HTTP/HTTPS-slutpunkterna är beroenden som kan variera beroende på din ASE baserat på ett antal kvalificerare. 
 - Linux-beroenden är endast ett problem om du distribuerar Linux-appar i din ASE. Om du inte distribuerar Linux-appar i din ASE, behöver inte dessa adresser som ska läggas till i brandväggen. 

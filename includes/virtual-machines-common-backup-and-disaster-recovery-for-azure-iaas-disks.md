@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 59a04ca5a546fff1043e1e157491b218f693d0f0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333824"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443444"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Återställning för säkerhetskopiering och haveriberedskap för Azure IaaS-diskar
 
@@ -170,7 +170,7 @@ Om du vill reparera eller återskapa en virtuell dator kan återställa du den v
 
 Mer information finns i instruktionerna för att [återställa virtuella datorer med hjälp av Azure portal](../articles/backup/backup-azure-arm-restore-vms.md). Det här dokumentet beskriver även vilka specifika åtgärder för att återställa säkerhetskopierade virtuella datorer till ett parat datacenter med hjälp av geo-redundant säkerhetskopieringsvalvet om det finns en katastrof i det primära datacentret. Azure Backup använder i så fall beräkningstjänsten från den sekundära regionen för att skapa den återställda virtuella datorn.
 
-Du kan också använda PowerShell för [återställer en virtuell dator](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) eller för [skapar en ny virtuell dator från återställs diskar](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+Du kan också använda PowerShell för [skapar en ny virtuell dator från återställs diskar](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Alternativ lösning: Programkonsekventa ögonblicksbilder
 

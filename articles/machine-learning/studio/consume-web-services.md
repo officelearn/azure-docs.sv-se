@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a05b99cf0e40e63c01aee27bd745dd165dc23b8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998123"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452703"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Hur du använder en Azure Machine Learning Studio-webbtjänst
 
-När du distribuerar en Azure Machine Learning förutsägelsemodell som en webbtjänst, kan du kan använda ett REST-API för att skicka data och få förutsägelser. Du kan skicka data i realtid eller i batchläge.
+När du distribuerar en Azure Machine Learning Studio förutsägelsemodell som en webbtjänst, kan du kan använda ett REST-API för att skicka data och få förutsägelser. Du kan skicka data i realtid eller i batchläge.
 
 Du hittar mer information om hur du skapar och distribuerar en Machine Learning-webbtjänst med hjälp av Machine Learning Studio här:
 
@@ -32,14 +32,14 @@ Du hittar mer information om hur du skapar och distribuerar en Machine Learning-
 ## <a name="overview"></a>Översikt
 Med Azure Machine Learning webbtjänsten kommunicerar ett externt program med en arbetsflödesbaserad poängmodell i Machine Learning i realtid. Ett Machine Learning webbtjänstanrop returnerar förutsägelser till ett externt program. Om du vill göra ett Machine Learning-webbtjänstanrop skickar du en API-nyckel som skapas när du distribuerar en förutsägelse. Machine Learning-webbtjänst baseras på REST, ett populärt arkitekturval för programmeringsprojekt.
 
-Azure Machine Learning har två typer av tjänster:
+Azure Machine Learning Studio har två typer av tjänster:
 
 * Request-Response Service (RR) – låga svarstider och mycket skalbar tjänst som tillhandahåller ett gränssnitt för de tillståndslösa modeller som skapas och distribueras från Machine Learning Studio.
 * Batch Execution Service (BES) – en asynkron tjänst som poängsätter en batch med dataposter.
 
 Mer information om Machine Learning-webbtjänsterna finns i [distribuera en Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
 
-## <a name="get-an-azure-machine-learning-authorization-key"></a>Hämta en nyckel för auktorisering av Azure Machine Learning
+## <a name="get-an-azure-machine-learning-studio-authorization-key"></a>Hämta en nyckel för auktorisering av Azure Machine Learning Studio
 När du distribuerar ditt experiment, genereras API-nycklar för webbtjänsten. Du kan hämta nycklarna från flera platser.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Från Microsoft Azure Machine Learning Web Services-portalen
@@ -103,7 +103,7 @@ Att ansluta till en Machine Learning-webbtjänster, den **system.NET.http.Format
 **Att köra kodexemplet**
 
 1. Publicera ”exempel 1: Hämta datauppsättningen från UCI: Vuxen 2 klass datauppsättning ”experiment, en del av de Machine Learning-exemplet.
-2. Tilldela apiKey med nyckel från en webbtjänst. Se **hämta en nyckel för auktorisering av Azure Machine Learning** ovan.
+2. Tilldela apiKey med nyckel från en webbtjänst. Se **hämta en nyckel för auktorisering av Azure Machine Learning Studio** ovan.
 3. Tilldela serviceUri med begäran-URI.
 
 **Här är en fullständig begäran ut.**
@@ -199,7 +199,7 @@ Om du vill ansluta till en Machine Learning-webbtjänst, den **urllib2** bibliot
 **Att köra kodexemplet**
 
 1. Distribuera ”exempel 1: Hämta datauppsättningen från UCI: Vuxen 2 klass datauppsättning ”experiment, en del av de Machine Learning-exemplet.
-2. Tilldela apiKey med nyckel från en webbtjänst. Se den **hämta en nyckel för auktorisering av Azure Machine Learning** avsnittet i början av den här artikeln.
+2. Tilldela apiKey med nyckel från en webbtjänst. Se den **hämta en nyckel för auktorisering av Azure Machine Learning Studio** avsnittet i början av den här artikeln.
 3. Tilldela serviceUri med begäran-URI.
 
 **Här är en fullständig begäran ut.**

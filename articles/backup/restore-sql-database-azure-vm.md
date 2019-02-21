@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 3571eb2471f9b3f06eb509937fd11866b4e0caa8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9b741f8562ae2e81d297357afd3b0e0e3976a248
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430810"
+ms.locfileid: "56445448"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server-databaser på Azure Virtual Machines 
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du återställer SQL Server-databaser. Om du int
 Azure Backup kan återställa SQL Server-databaser som körs på virtuella Azure-datorer på följande sätt:
 
 - Återställa till ett visst datum eller tid (till andra) med hjälp av säkerhetskopieringar av transaktionsloggen. Azure Backup anger automatiskt den lämpliga fullständig differentiella säkerhetskopieringen och kedja av loggsäkerhetskopior som krävs för att återställa baserat på den valda tid.
-- Återställa en en fullständig eller Differentiell säkerhetskopia att återställa till en specifik återställningspunkt i stället för en viss tid.
+- Återställa en fullständig eller Differentiell säkerhetskopia att återställa till en specifik återställningspunkt i stället för en viss tid.
 
 
 ### <a name="prerequisites"></a>Förutsättningar

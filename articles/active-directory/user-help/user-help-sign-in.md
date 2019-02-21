@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d95f7eb971f7da229c7d66d586598697ab0a2d8b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2aca321ac0902d115f4fc7622992d29183c1d35c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209412"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452608"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Logga in med tvåstegsverifiering verifiering eller din säkerhetsinformation
-
 När du har konfigurerat tvåstegsverifiering eller säkerhetsinformation kommer du att kunna logga in på ditt konto med angivna autentiseringsmetod.
 
 >[!Note]
->Om du fortfarande använder verifieringsupplevelse tvåstegsverifiering, du måste du konfigurera dina autentiseringsmetoder genom att följa anvisningarna i den [konfigurerar mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md) artikeln. Om din administratör har aktiverat info säkerhetsupplevelse, måste du ange dina autentiseringsmetoder som använder dessa stegvisa guider:<ul><li>[Ställa in säkerhetsinformation för att använda en authentication-appen](security-info-setup-auth-app.md)</li><li>[Konfigurera säkerhetsinformation för att använda textmeddelanden](security-info-setup-text-msg.md)</li><li>[Konfigurera säkerhetsinformation för att använda ett telefonsamtal](security-info-setup-phone-number.md)</li></ul>
+>Om du fortfarande använder verifieringsupplevelse tvåstegsverifiering, du måste du konfigurera dina autentiseringsmetoder genom att följa anvisningarna i den [konfigurerar mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md) artikeln.
+
+>Om din administratör har aktiverat info säkerhetsupplevelse, måste du ange dina autentiseringsmetoder med hjälp av dessa steg för steg-artiklar:<ul><li>[Ställa in säkerhetsinformation för att använda en authentication-appen](security-info-setup-auth-app.md)</li><li>[Konfigurera säkerhetsinformation för att använda textmeddelanden](security-info-setup-text-msg.md)</li><li>[Konfigurera säkerhetsinformation för att använda ett telefonsamtal](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Logga in med en avisering för authenticator-appen på din mobila enhet
 
@@ -55,9 +56,6 @@ När du har konfigurerat tvåstegsverifiering eller säkerhetsinformation kommer
 
 
 ## <a name="next-steps"></a>Nästa steg
-
-- Redigera din säkerhetsinformation för att lägga till eller ändra din verifieringsmetoder i den [hantera din säkerhetsinformation](security-info-manage-settings.md) artikeln. 
-
 - Lär dig mer om säkerhetsinformation i den [info (förhandsversion) Säkerhetsöversikt](user-help-security-info-overview.md) artikeln.
 
 - Lär dig mer om tvåstegsverifiering i den [tvåstegsverifiering verifiering översikt](user-help-two-step-verification-overview.md) artikeln. 

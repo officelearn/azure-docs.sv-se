@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754653"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453009"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster för att uppfylla krav på program på Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,9 @@ Den här artikeln visar hur du aktiverar och hanterar klustret autoskalningen i 
 
 Den här artikeln kräver att du kör Azure CLI version 2.0.55 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
-AKS-kluster som har stöd för autoskalningen kluster måste använda VM-skalningsuppsättningar och kör Kubernetes-version *1.12.4* eller senare. Den här stöd finns i förhandsversion. Om du vill anmäla dig och skapa kluster som använder skalningsuppsättningar, installera den *aks-förhandsversion* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till] [ az-extension-add] kommandot, som visas i följande exempel:
+### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägg för aks-förhandsversion
+
+AKS-kluster som har stöd för autoskalningen kluster måste använda VM-skalningsuppsättningar och kör Kubernetes-version *1.12.4* eller senare. Den här stöd finns i förhandsversion. Om du vill anmäla dig och skapa kluster som använder skalningsuppsättningar, först installera den *aks-förhandsversion* Azure CLI tillägget med hjälp av den [az-tillägget lägger du till] [ az-extension-add] kommandot enligt följande Exempel:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -35,6 +37,26 @@ az extension add --name aks-preview
 
 > [!NOTE]
 > När du installerar den *aks-förhandsversion* tillägg, varje AKS-kluster som du skapar använder scale set förhandsversion-distributionsmodellen. Avanmäla dig och skapa regular, stöds fullt ut kluster genom att ta bort tillägget med hjälp av `az extension remove --name aks-preview`.
+
+### <a name="register-scale-set-feature-provider"></a>Registrera scale set funktionen providern
+
+Så här skapar du ett AKS som använder skala, du måste även aktivera en funktionsflagga i prenumerationen. Att registrera den *VMSSPreview* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
+
+```azurecli-interactive
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
+```
+
+Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera statusen registrering med den [az funktionslistan] [ az-feature-list] kommando:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
+```
+
+När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern med hjälp av den [az provider register] [ az-provider-register] kommando:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## <a name="about-the-cluster-autoscaler"></a>Om klustret autoskalningen
 
@@ -149,6 +171,9 @@ Den här artikeln visade hur du automatiskt skala antalet AKS-noder. Du kan ocks
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

@@ -8,17 +8,70 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: a5b8cd7da465bc2dc58c2b89852903669c18bf4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871803"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446842"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: 2019 februariversionen
+
+**Nya funktioner**
+
+* Tal SDK stöder valet av inkommande mikrofonen via AudioConfig-klassen. Detta gör kan strömma ljud data till tal-tjänst från en icke-standard mikrofon. Mer information finns i dokumentationen som beskriver [ingående ljud enhet](how-to-select-audio-input-devices.md). Detta är inte ännu tillgängliga från JavaScript.
+* Tal-SDK: N har nu stöd för Unity i en betaversion. Ge feedback via avsnittet problemet i den [GitHub-exempellagringsplats](https://aka.ms/csspeech/samples). Den här versionen stöder Unity på Windows x86 och x64 (desktop eller Universal Windows Platform-program) och Android (ARM32/64, x86). Mer information finns i vår [Unity Snabbstart](quickstart-csharp-unity.md).
+
+**Exempel**
+
+Följande nya innehåll finns i vår [exempellagringsplatsen](https://aka.ms/csspeech/samples):
+
+* Ytterligare exempel för AudioConfig.FromMicrophoneInput.
+* Ytterligare Python-exempel för taligenkänning och översättning.
+* Ytterligare exempel för att använda anslutningsobjektet i iOS.
+* Ytterligare Java-exempel för översättning med ljuduppspelning.
+* Nya exempel för användning av den [Batch avskrift REST API](batch-transcription.md).
+
+**Förbättringar av / ändras**
+
+* Python
+  * Förbättrad parametern verifiering och felmeddelanden i SpeechConfig.
+  * Lägg till stöd för anslutningsobjektet.
+  * Stöd för 32-bitarsversionen av Python (x86) på Windows.
+  * Tal-SDK för Python ligger utanför beta.
+* iOS
+  * SDK är nu byggt mot iOS SDK version 12.1.
+  * SDK: N har nu stöd för iOS version 9.2 och senare.
+  * Förbättra referensdokumentation och åtgärda flera egenskapsnamn.
+* JavaScript
+  * Lägg till stöd för anslutningsobjektet.
+  * Lägg till typen definitionsfiler för tillsammans JavaScript
+  * Inledande stöd och implementering av frasen tips.
+  * Returnera egenskapssamlingen med tjänst-JSON för taligenkänning
+* Windows-dll: er innehåller nu en versionsresurs.
+
+**Felkorrigeringar**
+
+* Tom proxy användarnamn och lösenord för proxy hanterades inte korrekt. Med den här versionen om du ställer in proxy-användarnamn och lösenord för proxy till en tom sträng, skickas de inte när du ansluter till proxyn.
+* Sessions-ID är skapat av SDK kan inte alltid slumpvis för vissa språk&nbsp;/ miljöer. Lägga till slumpmässiga generator initieringen för att åtgärda detta.
+* Förbättra hanteringen av autentiseringstoken. Om du vill använda en autentiseringstoken anger i SpeechConfig och låter prenumerationsnyckeln tom. Skapa sedan identifieraren som vanligt.
+* I vissa fall anslutningen inte var objektet är korrekt. Problemet har åtgärdats.
+* JavaScript-exemplet åtgärdades för ljuduppspelning för översättning syntes också på Safari.
+
+## <a name="speech-sdk-121"></a>Speech SDK 1.2.1
+
+Det här är en version med endast JavaScript. Inga funktioner har lagts till. Följande har gjorts:
+
+* Utlöses slut på strömmen vid turn.end, inte på speech.end.
+* Åtgärda fel i ljud ingenjör att inte schemat bredvid skickade om aktuellt utskicket misslyckades.
+* Åtgärda kontinuerlig taligenkänning med auth-token.
+* Buggfix för olika Igenkännande / slutpunkter.
+* Dokumentation om förbättringar.
 
 ## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: 2018-December versionen
 

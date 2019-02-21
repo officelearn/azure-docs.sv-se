@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231112"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453313"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway
 
@@ -90,7 +90,7 @@ Följande kodavsnitt visar ett exempel på svaret:
 
 ## <a name="diagnostic-logging"></a>Diagnostikloggar
 
-Du kan använda olika typer av loggar i Azure för att hantera och felsöka programgatewayer. Du kan komma åt vissa av de här loggarna via portalen. Alla loggar kan extraheras från Azure Blob storage och visas i olika verktyg, till exempel [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel och Power BI. Du kan läsa mer om de olika typerna av loggar i listan nedan:
+Du kan använda olika typer av loggar i Azure för att hantera och felsöka programgatewayer. Du kan komma åt vissa av de här loggarna via portalen. Alla loggar kan extraheras från Azure Blob storage och visas i olika verktyg, till exempel [Azure Monitor loggar](../azure-monitor/insights/azure-networking-analytics.md), Excel och Power BI. Du kan läsa mer om de olika typerna av loggar i listan nedan:
 
 * **Aktivitetsloggen**: Du kan använda [Azure-aktivitetsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare känt som driftloggar och granskningsloggar) att visa alla åtgärder som skickas till din Azure-prenumeration och deras status. Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
 * **Åtkomstlogg**: Du kan använda den här loggen visar Application Gateway åtkomstmönster och analyserar viktig information. Detta inkluderar anroparens IP, begärd URL, svarsfördröjning, returkod och byte in och ut. En åtkomstlogg samlas in var 300 sekund. Den här loggfilen innehåller en post per instans av Application Gateway. Application Gateway-instans kan identifieras av egenskapen instanceId.
@@ -104,7 +104,7 @@ Du har tre alternativ för att lagra dina loggar:
 
 * **Storage-konto**: Storage-konton är bäst för loggar när loggar lagras under en längre period och granskat när det behövs.
 * **Händelsehubbar**: Händelsehubbar är ett bra alternativ för att integrera med andra säkerhet och händelsehantering (SEIM) hanteringsverktyg för att få meddelanden om dina resurser.
-* **Log Analytics**: Log Analytics passar bäst för allmän realtidsövervakning av ditt program eller leta efter trender.
+* **Azure Monitor-loggar**: Azure Monitor-loggar är bäst för allmän realtidsövervakning av ditt program eller leta efter trender.
 
 ### <a name="enable-logging-through-powershell"></a>Aktivera loggning med PowerShell
 
@@ -165,11 +165,11 @@ Azure genererar aktivitetsloggen som standard. Loggarna bevaras i 90 dagar i ark
 |Värde  |Beskrivning  |
 |---------|---------|
 |instanceId     | Application Gateway-instans som hanteras av begäran.        |
-|ClientIP     | Ursprungliga IP-Adressen för begäran.        |
+|clientIP     | Ursprungliga IP-Adressen för begäran.        |
 |clientPort     | Ursprungliga port för begäran.       |
-|HttpMethod     | HTTP-metod som används i begäran.       |
+|httpMethod     | HTTP-metod som används i begäran.       |
 |requestUri     | URI för fick begäran.        |
-|RequestQuery     | **Server-dirigerat**: Backend-poolen-instans som har skickats begäran.</br>**X-AzureApplicationGateway-LOG-ID**: Korrelations-ID som användes för begäran. Det kan användas för att felsöka problem med trafik på backend servrarna. </br>**SERVERSTATUS**: HTTP-svarskoden som Application Gateway har fått från backend-servern.       |
+|RequestQuery     | **Server-dirigerat**: Backend-poolen-instans som har skickats begäran.</br>**X-AzureApplicationGateway-LOG-ID**: Korrelations-ID som användes för begäran. Det kan användas för att felsöka problem med trafik på backend servrarna. </br>**SERVER-STATUS**: HTTP-svarskoden som Application Gateway har fått från backend-servern.       |
 |UserAgent     | Användaragent från HTTP-frågehuvudet.        |
 |httpStatus     | HTTP-statuskoden som returneras till klienten från Programgatewayen.       |
 |httpVersion     | HTTP-version för begäran.        |
@@ -211,7 +211,7 @@ Prestandaloggen skapas endast om du har aktiverat det på varje Application Gate
 |instanceId     |  Application Gateway-instans för vilka data som genereras. Det finns en rad per instans för en Programgateway med flera instanser.        |
 |HealthyHostCount     | Antal felfria värdar i backend-poolen.        |
 |unHealthyHostCount     | Antal defekta värdar i backend poolen.        |
-|RequestCount     | Antal begäranden som hanteras.        |
+|requestCount     | Antal begäranden som hanteras.        |
 |svarstid | Genomsnittlig svarstid (i millisekunder) för förfrågningar från instansen till backend-server som hanterar begäranden. |
 |failedRequestCount| Antal misslyckade begäranden.|
 |Dataflöde| Genomsnittligt dataflöde sedan senaste loggen, mätt i byte per sekund.|
@@ -251,14 +251,14 @@ Brandväggsloggen skapas endast om du har aktiverat det för varje application g
 |requestUri     | URL för fick begäran.       |
 |ruleSetType     | Ange för regeln. Tillgängliga värdet är OWASP.        |
 |ruleSetVersion     | Regeluppsättning version som används. Tillgängliga värden är 2.2.9 och 3.0.     |
-|regel-ID     | Regel-ID för den utlösande händelsen.        |
+|ruleId     | Regel-ID för den utlösande händelsen.        |
 |meddelande     | Användarvänligt meddelande för utlösande händelsen. Mer information finns i informationsavsnittet.        |
 |åtgärd     |  Åtgärder som vidtas för begäran. Tillgängliga värden är blockerade och tillåts.      |
 |webbplats     | Plats för vilken loggen har genererats. För närvarande kan visas endast globala eftersom regler är globala.|
 |detaljer     | Information om den utlösande händelsen.        |
-|details.Message     | Beskrivning av regeln.        |
+|details.message     | Beskrivning av regeln.        |
 |details.data     | Specifika data hittades i begäran som matchar regeln.         |
-|details.File     | Konfigurationsfil som innehåller regeln.        |
+|details.file     | Konfigurationsfil som innehåller regeln.        |
 |details.Line     | Radnumret i konfigurationsfilen som utlöste händelsen.       |
 
 ```json
@@ -298,7 +298,7 @@ Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visa och analysera åtkomst, prestanda och loggar från brandväggen
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) kan samla in prestandaräknare och händelseloggen filerna från Blob storage-kontot. Där finns visualiseringar och kraftfulla sökfunktioner när du ska analysera dina loggar.
+[Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md) kan samla in prestandaräknare och händelseloggen filerna från Blob storage-kontot. Där finns visualiseringar och kraftfulla sökfunktioner när du ska analysera dina loggar.
 
 Du kan också ansluta till ditt lagringskonto och hämta JSON-loggposter för åtkomst- och prestandaloggar. När du har laddat ned JSON-filerna kan du konvertera dem till CSV-format och visa dem i Excel, Power BI eller något annat verktyg för visualisering av data.
 
@@ -374,7 +374,7 @@ Om du vill veta mer om webhooks och hur du kan använda dem med aviseringar, bes
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visualisera prestandaräknare och händelseloggar genom att använda [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+* Visualisera prestandaräknare och händelseloggar genom att använda [Azure Monitor loggar](../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualisera dina Azure-aktivitetsloggen med Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogginlägg.
 * [Visa och analysera Azure-aktivitetsloggar i Power BI med mera](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogginlägg.
 

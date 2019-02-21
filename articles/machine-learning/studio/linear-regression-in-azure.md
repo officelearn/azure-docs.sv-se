@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 12c82d440613078e9f0593ddb9fb6c7fe7b8c362
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5db8c4be9317706fcc8a31b916cff72fd13596d6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488364"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453314"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrera analytics från Excel till Azure Machine Learning Studio
 
@@ -102,11 +102,11 @@ Vår lösning var att operationalisera vår Machine Learning regression-modellen
 
 Den *Web Services-instrumentpanel* avsnittet innehåller en nedladdningsbar Excel-arbetsbok. Arbetsboken innehåller redan formaterad web API- och schemareferenser information om tjänstens inbäddade. När du klickar på *ladda ned Excel-arbetsbok*, arbetsboken öppnas och du kan spara den till din lokala dator. 
 
-![][1]
+![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 Kopiera dina fördefinierade parametrar till blå parameteravsnittet med öppna arbetsboken som visas nedan. När parametrarna har angetts Excel som anropar till Machine Learning-webbtjänsten och förväntade poängsatta etiketter visas i avsnittet grön förutsagda värden. Arbetsboken kommer att fortsätta att skapa förutsägelser för parametrar som baserat på din tränade modellen för alla radobjekt som angetts under parametrar. Mer information om hur du använder den här funktionen finns i [förbrukar en Azure Machine Learning-webbtjänst från Excel](consuming-from-excel.md). 
 
-![][2]
+![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>Optimering och ytterligare experiment
 Nu när vi har haft en baslinje med vår Excel-datamodellen, flyttas vi vidare att optimera våra linjär regressionsmodell för Maskininlärning. Vi använde modulen [Filter-baserade Funktionsurval] [ filter-based-feature-selection] för att förbättra på vår valet av ursprungliga data element och det hjälpt oss att uppnå en förbättring av prestanda för 4.6% innebär absoluta fel. Vi använder den här funktionen som kunde vi sparar veckor i går igenom dataattribut att hitta rätt uppsättning funktioner för modellering för framtida projekt. 

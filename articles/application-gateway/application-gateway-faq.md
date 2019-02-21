@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 81a84e1ff4a9ed974a69762ce35075780e8d1f96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991539"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453502"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -346,7 +346,7 @@ Du kan använda PowerShell-cmdleten `Get-AzureRmApplicationGatewayBackendHealth`
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Vad är bevarandeprincipen på diagnostikloggar?
 
-Flöde för diagnostikloggar till kunder storage-konto och kunder kan definiera bevarandeprincipen baserat på deras prioritet. Diagnostikloggar kan också skickas till en Event Hub eller Log Analytics. Se [Application Gateway Diagnostics](application-gateway-diagnostics.md) för mer information.
+Flöde för diagnostikloggar till kunder storage-konto och kunder kan definiera bevarandeprincipen baserat på deras prioritet. Diagnostikloggar kan också skickas till en Event Hub eller Azure Monitor loggar. Se [Application Gateway Diagnostics](application-gateway-diagnostics.md) för mer information.
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Hur får jag granskningsloggar för Application Gateway?
 
@@ -358,7 +358,7 @@ Ja, stöder Application Gateway aviseringar. Aviseringar kan konfigureras på m�
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Hur jag för att analysera trafik statistik för Application Gateway?
 
-Du kan visa och analysera loggar för åtkomst via flera mekanismer som till exempel Azure Log Analytics, Excel, Power BI osv.
+Du kan visa och analysera loggar för åtkomst via flera mekanismer, till exempel Azure Monitor-loggar, Excel, Power BI osv.
 
 Vi har också publicerat en Resource Manager-mall som installerar och kör populära [GoAccess](https://goaccess.io/) logga analyzer för Åtkomstloggar för Application Gateway. GoAccess ger värdefull HTTP-trafik statistik, till exempel unika besökare, begärt filer, värdar, operativsystem, webbläsare, HTTP-statuskoder och mycket mer. Mer information finns i den [Readme-filen i mallmappen för Resource Manager-i GitHub](https://aka.ms/appgwgoaccessreadme).
 

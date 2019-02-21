@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: a040991ca4b3a08dec90f4fc6944b006ebea2135
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5f132dce2a0a868de8607581935325d48e1520a1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487854"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456766"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Kör skript för Python-maskininlärning i Azure Machine Learning Studio
 
-Det här avsnittet beskrivs de designprinciperna underliggande aktuella stöd för Python-skript i Azure Machine Learning. De viktigaste funktionerna markeras också, inklusive:
+Det här avsnittet beskrivs de designprinciperna underliggande aktuella stöd för Python-skript i Azure Machine Learning Studio. De viktigaste funktionerna markeras också, inklusive:
 
 - köra grundläggande Användningsscenarier
 - poäng ett experiment i en webbtjänst
@@ -61,11 +61,11 @@ Figur 1. Den **kör Python-skript** modulen.
 Den [kör Python-skript] [ execute-python-script] modul i Azure ML Studio accepterar upp till tre indata och producerar upp till två utdata (beskrivs i följande avsnitt), som dess R-analog den [köra R Skriptet] [ execute-r-script] modulen. Python-kod som ska köras har angetts i parameterrutan som ett särskilt namngivna startpunkt anropade funktionen `azureml_main`. Här följer de viktiga designprinciperna som används för att implementera den här modulen:
 
 1. *Måste vara idiomatiskt för Python-användare.* De flesta Python användare ta sin kod som funktioner i moduler. Placera så mycket av körbara uttryck i en översta modul är relativt sällsynta. Rutan skriptet tar därför även en särskild Python-funktion i stället för bara en sekvens av uttryck. De objekt som exponeras i funktionen är Standardtyper för Python-bibliotek som [Pandas](http://pandas.pydata.org/) dataramar och [NumPy](http://www.numpy.org/) matriser.
-2. *Måste ha hifi mellan lokala och molnbaserade körningar.* Serverdelen som används för att köra Python-koden är baserad på [Anaconda](https://store.continuum.io/cshop/anaconda/), ett används mycket plattformsoberoende vetenskapliga Python-distribution. Medföljer nära 200 av de vanligaste Python-paketen. Dataexperter kan därför Felsök och kvalificera sin kod på sina lokala Azure Machine Learning-kompatibla Anaconda-miljön. Använda en befintlig utvecklingsmiljö, t.ex [IPython](http://ipython.org/) anteckningsboken eller [Python Tools för Visual Studio](https://aka.ms/ptvs), för att köra den som en del av ett Azure ML-experiment. Den `azureml_main` startpunkt är en vanliga Python-funktion och det *** kan skapas utan Azure ML-specifik kod eller SDK: N installerad.
-3. *Måste vara sömlöst kan med andra Azure Machine Learning-moduler.* Den [kör Python-skript] [ execute-python-script] modulen accepterar, som indata och utdata, standard Azure Machine Learning-datauppsättningar. Underliggande ramverk överbryggar transparent och effektivt Azure ML och Python-körningar. Så kan Python användas tillsammans med befintliga Azure ML-arbetsflöden, inklusive de som anropa R- och sqlite-felkod. Resultatet blir dataexpert kan skapa arbetsflöden som:
+2. *Måste ha hifi mellan lokala och molnbaserade körningar.* Serverdelen som används för att köra Python-koden är baserad på [Anaconda](https://store.continuum.io/cshop/anaconda/), ett används mycket plattformsoberoende vetenskapliga Python-distribution. Medföljer nära 200 av de vanligaste Python-paketen. Dataexperter kan därför Felsök och kvalificera sin kod på sina lokala Azure Machine Learning Studio-kompatibla Anaconda-miljön. Använda en befintlig utvecklingsmiljö, t.ex [IPython](http://ipython.org/) anteckningsboken eller [Python Tools för Visual Studio](https://aka.ms/ptvs), för att köra den som en del av ett Azure ML-experiment. Den `azureml_main` startpunkt är en vanliga Python-funktion och det *** kan skapas utan Azure ML-specifik kod eller SDK: N installerad.
+3. *Måste vara sömlöst kan med andra Azure Machine Learning Studio-moduler.* Den [kör Python-skript] [ execute-python-script] modulen accepterar, som indata och utdata, standard Azure Machine Learning Studio-datauppsättningar. Underliggande ramverk överbryggar transparent och effektivt Azure ML och Python-körningar. Så kan Python användas tillsammans med befintliga Azure ML-arbetsflöden, inklusive de som anropa R- och sqlite-felkod. Resultatet blir dataexpert kan skapa arbetsflöden som:
    * använda Python och Pandas för förbearbetning och rensning
    * feed-data till en SQL-omvandling, koppla flera datauppsättningar till formulärfunktioner
-   * Träna modeller med algoritmerna i Azure Machine Learning 
+   * Träna modeller med algoritmerna i Azure Machine Learning Studio 
    * utvärdera och efter bearbeta resultaten med R.
 
 
@@ -149,7 +149,7 @@ Figur 7. Användardefinierad funktion som används i den [kör Python-skript] [ 
 
 ## <a name="working-with-visualizations"></a>Arbeta med visualiseringar
 
-Diagrammen som skapats med hjälp av MatplotLib som kan visualiseras i webbläsare kan returneras av den [kör Python-skript][execute-python-script]. Men områdena automatiskt dirigeras inte till avbildningar som de är med R. Så måste du uttryckligen spara alla områden i PNG-filer om de ska returneras tillbaka till Azure Machine Learning. 
+Diagrammen som skapats med hjälp av MatplotLib som kan visualiseras i webbläsare kan returneras av den [kör Python-skript][execute-python-script]. Men områdena automatiskt dirigeras inte till avbildningar som de är med R. Så måste du uttryckligen spara alla områden i PNG-filer om de ska returneras tillbaka till Azure Machine Learning Studio. 
 
 Om du vill skapa avbildningar från MatplotLib, måste du utföra följande procedur:
 
@@ -172,12 +172,12 @@ Bild 9 illustrerar ett experiment som använder skriptet som visades tidigare f�
 
 Figur 9. Visualisera områden som genereras från Python-kod.
 
-Det är möjligt att returnera flera bilder genom att spara dem i olika bilder, Azure Machine Learning-runtime hämtar alla avbildningar och sammanfogar dem för visualisering.
+Det är möjligt att returnera flera bilder genom att spara dem i olika bilder, Azure Machine Learning Studio-runtime hämtar alla avbildningar och sammanfogar dem för visualisering.
 
 
 ## <a name="advanced-examples"></a>Avancerade exempel
 
-Anaconda-miljö som installerats i Azure Machine Learning innehåller vanliga paket som till exempel NumPy, SciPy och lär du dig Scikits. Dessa paket kan användas effektivt för olika uppgifter, databearbetning i machine learning-pipeline. Visar användningen av ensemble deltagarna i Scikits – Lär dig beräkna funktionen vikten poäng för en datauppsättning till exempel följande experiment och skript. Poängen kan användas för att utföra övervakat Funktionsurval innan som matas in en annan ML-modell.
+Anaconda-miljö som installerats i Azure Machine Learning Studio innehåller vanliga paket som till exempel NumPy, SciPy och lär du dig Scikits. Dessa paket kan användas effektivt för olika uppgifter, databearbetning i machine learning-pipeline. Visar användningen av ensemble deltagarna i Scikits – Lär dig beräkna funktionen vikten poäng för en datauppsättning till exempel följande experiment och skript. Poängen kan användas för att utföra övervakat Funktionsurval innan som matas in en annan ML-modell.
 
 Här är Python-funktion som används för att beräkna vikten poängen och ordning funktionerna baserat på poängen:
 
@@ -185,7 +185,7 @@ Här är Python-funktion som används för att beräkna vikten poängen och ordn
 
 Figur 10. Funktionen för att rangordnas funktioner av resultat.
  
-Följande experiment finns sedan beräknar och returnerar poängen vikten av funktioner i datauppsättningen ”Pima indiska Diabetes” i Azure Machine Learning:
+Följande experiment finns sedan beräknar och returnerar poängen vikten av funktioner i datauppsättningen ”Pima indiska Diabetes” i Azure Machine Learning Studio:
 
 ![image12](./media/execute-python-scripts/figure9a.png)
 ![image13](./media/execute-python-scripts/figure9b.png)    
@@ -197,11 +197,11 @@ Den [kör Python-skript] [ execute-python-script] för närvarande har följande
 
 1. *I begränsat läge för körning.* Python-körningen är för närvarande i begränsat läge och därför tillåter inte åtkomst till nätverket eller till det lokala filsystemet på ett beständigt sätt. Alla filer som sparats lokalt är isolerade och tas bort när modulen är klar. Python-koden kan inte komma åt de flesta kataloger på datorn som används på, undantaget den aktuella katalogen och dess underkataloger.
 2. *Brist på avancerade utveckling och felsökning.* Python-modulen stöder för närvarande inte IDE-funktioner som intellisense och felsökning. Även om modulen inte vid körning, finns fullständiga stackspårningen för Python. Men den visas i utdataloggen för modulen. För närvarande rekommenderar vi att utveckla och felsöka Python-skript i en miljö, till exempel IPython och importera sedan koden i modulen.
-3. *Enkel data frame utdata.* Startpunkten Python tillåts bara för att returnera en enda dataram som utdata. Det går för närvarande inte att returnera valfri Python-objekt, till exempel anpassade modeller direkt till Azure Machine Learning-runtime. Som [kör R-skript][execute-r-script], som har samma begränsningar, det är möjligt i många fall att pickle objekt i en byte-matris och returnera som inuti en dataram.
+3. *Enkel data frame utdata.* Startpunkten Python tillåts bara för att returnera en enda dataram som utdata. Det går för närvarande inte att returnera valfri Python-objekt, till exempel anpassade modeller direkt till Azure Machine Learning Studio-runtime. Som [kör R-skript][execute-r-script], som har samma begränsningar, det är möjligt i många fall att pickle objekt i en byte-matris och returnera som inuti en dataram.
 4. *Det går inte att anpassa Python-installationen*. Det enda sättet att lägga till anpassad Python-moduler är för närvarande via mekanismen zip-fil som beskrivs ovan. Även om det är möjligt för små moduler, är det besvärligt för stora moduler (särskilt de med interna DLL: er) eller ett stort antal moduler. 
 
 ## <a name="conclusions"></a>Slutsatser
-Den [kör Python-skript] [ execute-python-script] modulen gör någon dataexpert att införliva befintliga Python-kod i molnet maskininlärning arbetsflöden i Azure Machine Learning och till sömlöst operationalisera dem som en del av en webbtjänst. Python-skriptmodul samverkar naturligt med andra moduler i Azure Machine Learning. Modulen kan användas för en serie aktiviteter från datagranskning att bearbeta data i förväg och extrahering av funktionen och sedan till utvärdering och efter bearbetning av resultaten. Backend-runtime som används vid körningen baseras på Anaconda, en väl beprövad och vanligt Python-distribution. Serverdelen gör det enkelt för dig att integrera befintliga kod tillgångar till molnet.
+Den [kör Python-skript] [ execute-python-script] modulen gör någon dataexpert att införliva befintliga Python-kod i molnet maskininlärning arbetsflöden i Azure Machine Learning Studio och till sömlöst operationalisera dem som en del av en webbtjänst. Python-skriptmodul samverkar naturligt med andra moduler i Azure Machine Learning Studio. Modulen kan användas för en serie aktiviteter från datagranskning att bearbeta data i förväg och extrahering av funktionen och sedan till utvärdering och efter bearbetning av resultaten. Backend-runtime som används vid körningen baseras på Anaconda, en väl beprövad och vanligt Python-distribution. Serverdelen gör det enkelt för dig att integrera befintliga kod tillgångar till molnet.
 
 Vi förväntar oss att tillhandahålla ytterligare funktioner i [kör Python-skript] [ execute-python-script] modulen, till exempel möjligheten att träna och operationalisera modeller i Python och att ge bättre stöd för utveckling och felsöka kod i Azure Machine Learning Studio.
 

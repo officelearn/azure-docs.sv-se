@@ -10,12 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765798"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457004"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -73,7 +73,7 @@ Följande information krävs som indata för automation-parametrar:
 
 Konfigurera den närmaste Active Directory-plats till Azure Stack-distribution för Active Directory-distributioner med flera platser. Konfigurationen innebär att du slipper Azure Stack diagramtjänsten matcha frågor med hjälp av en Global katalogserver från en fjärrplats.
 
-Lägg till Azure Stack [offentliga VIP-nätverk](azure-stack-network.md#public-vip-network) undernätet till Azure AD plats närmast Azure Stack. Till exempel om din Active Directory har två platser Seattle och Redmond med Azure Stack som distribueras på Seattle-plats, och Lägg till Azure Stack offentliga VIP-nätverksundernätet Azure AD-plats för Seattle.
+Lägg till Azure Stack [offentliga VIP-nätverk](azure-stack-network.md#public-vip-network) undernätet till den Active Directory-plats närmast Azure Stack. Till exempel om din Active Directory har två platser Seattle och Redmond med Azure Stack som distribueras på Seattle-plats, och Lägg till Azure Stack offentliga VIP-nätverksundernätet Active Directory-platsen för Seattle.
 
 Mer information om Active Directory-platser finns i [designa platstopologin](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 

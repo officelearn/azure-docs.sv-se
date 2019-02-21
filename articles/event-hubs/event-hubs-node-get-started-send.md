@@ -2,24 +2,24 @@
 title: Skicka händelser med hjälp av Node.js – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en genomgång för att skapa ett Node.js-program som skickar händelser från Azure Event Hubs.
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 7281e6bb2dda5dc3fddb5f39bf271293ebb88a73
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: ec3182d11f1b2ffa31acd05fa1f2db695f3f2cf7
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732027"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447726"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Skicka händelser till Azure Event Hubs med hjälp av Node.js
 
-Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+Azure Event Hubs är en Big Data som strömmas-plattformen och händelsen händelseinmatningstjänst som kan ta emot och bearbeta miljontals händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
 Den här självstudien beskrivs hur du skickar händelser till en händelsehubb från ett program som skrivits i Node.js.
 
@@ -34,7 +34,7 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 - Visual Studio Code (rekommenderas) eller andra IDE
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
-Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md) och fortsätter sedan enligt följande steg i den här självstudien.
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md), fortsätt sedan med följande steg i den här självstudien.
 
 Hämta anslutningssträngen för händelsehubbens namnområde genom att följa anvisningarna i artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du kan använda anslutningssträngen senare i den här självstudien.
 
@@ -56,7 +56,7 @@ SDK: N som du har klonat innehåller flera exempel som visar dig hur du skickar 
 
 1. Öppna projektet i Visual Studio Code. 
 2. Skapa en fil med namnet **.env** under den **klienten** mapp. Kopiera och klistra in exemplet miljövariabler från den **sample.env** i rotmappen.
-3. Konfigurera händelsehubbens anslutningssträng, händelsehubbens namn och slutpunkt för lagring. Du kan kopiera anslutningssträngen för din händelsehubb från **anslutning anslutningssträng-primär** viktiga under **RootManageSharedAccessKey** på sidan Händelsehubb i Azure-portalen. Detaljerade anvisningar finns i [hämta anslutningssträngen](event-hubs-create.md#create-an-event-hubs-namespace).
+3. Konfigurera händelsehubbens anslutningssträng, händelsehubbens namn och slutpunkt för lagring. Mer information om hur du hämtar en anslutningssträng för en händelsehubb [hämta anslutningssträngen](event-hubs-create.md#create-an-event-hubs-namespace).
 4. På din Azure-CLI, navigerar du till den **klienten** mappsökväg. Installera paket i noden och skapa projektet genom att köra följande kommandon:
 
     ```shell
@@ -71,29 +71,39 @@ SDK: N som du har klonat innehåller flera exempel som visar dig hur du skickar 
 
 
 ## <a name="review-the-sample-code"></a>Granska exempelkoden 
-Här är exempelkod för att skicka händelser till en event hub med node.js. Du kan manuellt skapa en sampleSender.js-fil och kör den för att skicka händelser till en händelsehubb. 
-
+Granska exempelkoden i filen simpleSender.js att skicka händelser till en händelsehubb.
 
 ```javascript
-const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
-const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const lib_1 = require("../lib");
+const dotenv = require("dotenv");
+dotenv.config();
+const connectionString = "EVENTHUB_CONNECTION_STRING";
+const entityPath = "EVENTHUB_NAME";
+const str = process.env[connectionString] || "";
+const path = process.env[entityPath] || "";
 
 async function main() {
-    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object/array.
-    // const eventData = { body: { "message": "Hello World" } };
-    const data = { body: "Hello World 1" };
+    const client = lib_1.EventHubClient.createFromConnectionString(str, path);
+    const data = {
+        body: "Hello World!!"
+    };
     const delivery = await client.send(data);
-    console.log("message sent successfully.");
+    console.log(">>> Sent the message successfully: ", delivery.tag.toString());
+    console.log(delivery);
+    console.log("Calling rhea-promise sender close directly. This should result in sender getting reconnected.");
+    await Object.values(client._context.senders)[0]._sender.close();
+    // await client.close();
 }
 
 main().catch((err) => {
-    console.log(err);
+    console.log("error: ", err);
 });
 
 ```
 
-Kom ihåg att ange din miljövariabler innan du kör skriptet. Du kan konfigurera det på kommandoraden som visas i följande exempel eller Använd den [dotenv paketet](https://www.npmjs.com/package/dotenv#dotenv). 
+Kom ihåg att ange din miljövariabler innan du kör skriptet. Du kan konfigurera dem på kommandoraden som visas i följande exempel eller Använd den [dotenv paketet](https://www.npmjs.com/package/dotenv#dotenv). 
 
 ```shell
 // For windows

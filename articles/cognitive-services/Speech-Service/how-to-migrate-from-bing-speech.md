@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd9e9d64849c90d23146b814d2d48a8400d069f0
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863575"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447964"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Bing-tal till Taltjänst
 
@@ -65,7 +65,7 @@ Om du eller din organisation har program i utveckling eller produktion som anvä
 
 Med Taltjänsten [REST API: er](rest-apis.md) är kompatibla med API: er för Bing-tal. Om du använder Bing Speech REST-API: er, behöver du bara ändra REST-slutpunkten och växla till en prenumerationsnyckel för Speech Service.
 
-Speech Service WebSockets-protokoll är också kompatibla med de som används av Bing-taligenkänning. Vi rekommenderar att för nyutveckling bör du använder SDK för tal i stället för WebSockets. Det är en bra idé att migrera befintliga kod i SDK samt. Som med REST API: er kräver befintlig kod som använder Bing-taligenkänning via WebSockets dock endast en ändring i slutpunkt och en nyckel som har uppdaterats.
+Speech Service WebSockets-protokoll är också kompatibla med de som används av Bing-taligenkänning. Vi rekommenderar att för nyutveckling bör du använda tal SDK i stället för WebSockets. Det är en bra idé att migrera befintliga kod i SDK samt. Som med REST API: er kräver befintlig kod som använder Bing-taligenkänning via WebSockets dock endast en ändring i slutpunkt och en nyckel som har uppdaterats.
 
 Om du använder ett klientbibliotek för Bing-taligenkänning för ett specifikt programmeringsspråk, migrera till den [tal SDK](speech-sdk.md) kräver ändringar i ditt program, eftersom API: et är olika. Tal-SDK kan göra din kod enklare, samtidigt som också ger dig tillgång till nya funktioner.
 

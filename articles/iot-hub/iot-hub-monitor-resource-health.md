@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: 8c575c6d34543cbd8f692c64b43cf738b4c22617
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415637"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446791"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -340,7 +340,7 @@ IoT Hub registrerar den här loggen när ett meddelande som innehåller egenskap
 }
 ```
 
-Här kan `durationMs` beräknas inte som IoT-hubbens klockan inte är synkroniserade med enhetens klocka och därför en beräkning för varaktighet kan vara vilseledande. Vi rekommenderar att skriva logic med hjälp av den tidsstämplar i den `properties` avsnitt för att avbilda toppar i svarstid för enhet-till-moln.
+Här kan `durationMs` beräknas inte som IoT-hubbens klockan inte är synkroniserade med enhetens klocka och därför en beräkning för varaktighet kan vara vilseledande. Vi rekommenderar att skriva logik med tidsstämplar i den `properties` avsnitt för att avbilda toppar i svarstid för enhet-till-moln.
 
 | Egenskap  | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|

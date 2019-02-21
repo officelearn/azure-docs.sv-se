@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961354"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454029"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala resurser för enkel databas i Azure SQL Database
 
@@ -42,7 +42,7 @@ När du har valt antal virtuella kärnor, du kan skala en enskild databas upp el
 
 Tjänsten ändrades till nivå och/eller beräkna storleken på en databas skapas en replik av den ursprungliga databasen till den nya beräkningsstorleken och sedan växlas anslutningar över till repliken. Inga data förloras under den här processen men under kort tidsperiod när vi växlar över till repliken är anslutningar till databasen inaktiverade, så vissa transaktioner som sker då kan återställas. Hur lång tid för switch-over varierar, men är vanligtvis mindre än 30 sekunder 99% av tiden. Om det finns stora mängder transaktioner som rör sig just då anslutningarna är inaktiverade, hur lång tid för switch-over kan också ta längre.
 
-Hur lång tid processen att skala upp tar beror på databasens storlek och tjänstnivå före och efter ändringen. Till exempel bör en 250 GB-databas som ändras till, från eller inom en tjänstnivå för generell användning slutföras inom sex timmar. För en databas med samma storlek som ändras instansstorlekarna inom affärskritisk tjänstnivå, bör skala upp slutföras inom tre timmar.
+Varaktigheten för hela skala upp processen beror vanligtvis på storlek och tjänstnivå på databasen före och efter ändringen. Till exempel alla databaser i storlek som ändras beräkningsstorleken inom allmänna tjänstnivån bör slutföras inom några minuter å andra sidan, fördröjning för att ändra beräkningen storlek inom den affärskritisk nivå är vanligtvis 90 minuter eller mindre per 100 GB.
 
 > [!TIP]
 > För att övervaka åtgärder som pågår, se: [Hantera åtgärder med hjälp av REST-API SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [hantera åtgärder med hjälp av CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) och [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).

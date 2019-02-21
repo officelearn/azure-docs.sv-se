@@ -1,5 +1,5 @@
 ---
-title: Ett internt fel inträffar när du upprättar en RDP-anslutning till Azure Virtual Machines | Microsoft Docs
+title: Ett internt fel inträffar när du gör en RDP-anslutning till Azure Virtual Machines | Microsoft Docs
 description: Lär dig att felsöka RDP internt fel i Microsoft Azure. | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dd75d5a3186bbb6ba82e2deb83a7e8429e32a3f2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4476e4732dfcf8d79c9678a7ff4719eba10e48f3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134530"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445789"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ett internt fel inträffar vid försök att ansluta till en Azure-dator via fjärrskrivbord
 
 Den här artikeln beskrivs ett fel som kan uppstå när du försöker ansluta till en virtuell dator (VM) i Microsoft Azure.
 > [!NOTE]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
 
 ## <a name="symptoms"></a>Symtom
 
@@ -65,23 +65,25 @@ Ansluta till [seriella konsolen och öppna PowerShell-instans](./serial-console-
 
     1. Stoppa tjänsten för det program som använder 3389-tjänsten:
 
-        Stop-Service - namn <ServiceName>
+            Stop-Service -Name <ServiceName> -Force
 
     2. Starta tjänsten terminal:
 
-        Start-Service - Name Termservice
+            Start-Service -Name Termservice
 
 2. Om programmet inte kan stoppas, eller om den här metoden inte gäller för dig, kan du ändra porten för RDP:
 
     1. Ändra porten:
 
-        Set-itemproperty-egenskap-sökvägen ”HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp”-namnet PortNumber-värde <Hexportnumber>
+            Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
-        Stop-Service - Name Termservice Start-Service-Name Termservice
+            Stop-Service -Name Termservice -Force
+            
+            Start-Service -Name Termservice 
 
     2. Ställa in brandväggen för den nya porten:
 
-        Set-NetFirewallRule-Name ”RemoteDesktop-UserMode-i-TCP” - LocalPort < ny PORT (decimal) >
+            Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
     3. [Uppdatera nätverkssäkerhetsgruppen för den nya porten](../../virtual-network/security-overview.md) i Azure portal RDP-porten.
 
@@ -89,7 +91,13 @@ Ansluta till [seriella konsolen och öppna PowerShell-instans](./serial-console-
 
 1.  Kör följande kommandon ett i taget att förnya det självsignerade certifikatet för RDP i en PowerShell-instans:
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
+        Import-Module PKI 
+    
+        Set-Location Cert:\LocalMachine 
+        
+        $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
+        
+        Remove-Item -Path $RdpCertThumbprint
 
         Stop-Service -Name "SessionEnv"
 
@@ -112,7 +120,9 @@ Ansluta till [seriella konsolen och öppna PowerShell-instans](./serial-console-
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt 
+        
+        takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
@@ -120,11 +130,13 @@ Ansluta till [seriella konsolen och öppna PowerShell-instans](./serial-console-
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt 
+        
+        Restart-Service TermService -Force
 
 4. Starta om den virtuella datorn och försök sedan starta en fjärrskrivbordsanslutning till den virtuella datorn. Om felet kvarstår, gå till nästa steg.
 
-Steg 3: Aktivera alla TLS-versioner som stöds
+Steg 3: Aktivera alla TLS-versioner
 
 RDP-klient använder TLS 1.0 som standardprotokoll. Detta kan dock ändras till TLS 1.1, som har blivit den nya standarden. Om TLS 1.1 inaktiveras på den virtuella datorn, misslyckas anslutningen.
 1.  Aktivera TLS-protokollet i en CMD-instans:
@@ -161,7 +173,7 @@ Kör följande skript för att aktivera dump logg- och Seriekonsol.
 
     I det här skriptet förutsätter vi att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F. Ersätt enhetsbeteckningen med lämpligt värde för den virtuella datorn.
 
-    ```powershell
+    ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
     REM Enable Serial Console
@@ -191,6 +203,7 @@ Kör följande skript för att aktivera dump logg- och Seriekonsol.
         Md F:\temp
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
+        
         takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"

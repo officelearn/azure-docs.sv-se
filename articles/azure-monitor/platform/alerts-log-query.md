@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: c50c1a111f037b74176b5ca2cf8af518b2d3ffa0
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429391"
+ms.locfileid: "56447222"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Aviseringen loggfrågor i Azure Monitor
 [Aviseringsregler baserat på Azure Monitor-loggar](alerts-unified-log.md) körs med jämna mellanrum, så bör du se till att de är skrivna för att minimera kostnader och svarstid. Den här artikeln innehåller rekommendationer om hur du skriver effektiva frågor för aviseringar och en process för att konvertera befintliga frågor. 
@@ -31,16 +31,11 @@ Frågor som börjar med `search` eller `union` gör att du kan söka i flera kol
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 Även om `search` och `union` är användbart under datagranskning, söka villkoren över hela datamodellen, som de är mindre effektivt än att använda en tabell eftersom de måste genomsöka från flera tabeller. Eftersom frågor i Varningsregler körs med jämna mellanrum, kan detta resultera i höga omkostnader som att lägga till svarstid till aviseringen. Frågor för loggvarningsregler i Azure bör alltid börja med en tabell för att definiera en tydlig scope, vilket förbättrar både frågeprestanda och upplevelsen av resultaten på grund av det här arbetet.
 

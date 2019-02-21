@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a995fd93fa8d538cd1a686ecc12fa69c718758c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: cb136391610035911af3614f88f5ea823f86922d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313508"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456339"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-aktivitetsloggar i Azure Monitor (förhandsversion)
 
@@ -31,13 +31,13 @@ Du kan nu vidarebefordra aktivitetsloggar i Azure Active Directory (AD Azure) ti
 * Arkivera Azure AD-aktivitetsloggar till ett Azure storage-konto att behålla data under en längre tid.
 * Stream Azure AD aktivitetsloggar till en Azure event hub för analys, med hjälp av populära verktyg för säkerhetsinformation och händelsehantering (SIEM), till exempel Splunk och QRadar.
 * Integrera Azure AD-aktivitetsloggar med dina egna anpassade loggen lösningar genom att strömma dem till en händelsehubb.
-* Skicka Azure AD-aktivitetsloggar till Log Analytics för att aktivera kraftfulla visualiseringar, övervakning och avisering för den anslutna data.
+* Skicka Azure AD-aktivitetsloggar till Azure Monitor-loggar att aktivera kraftfulla visualiseringar, övervakning och avisering för den anslutna data.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Rapporter som stöds
 
-Du kan dirigera Azure AD granska loggar och logga in med loggar på din Azure storage-konto, händelsehubb, Log Analytics eller anpassad lösning med hjälp av den här funktionen. 
+Du kan dirigera Azure AD granska loggar och logga in med loggar på din Azure storage-konto, event hub, Azure Monitor-loggar eller anpassad lösning med hjälp av den här funktionen. 
 
 * **Granskningsloggar**: Den [granskningsloggar](concept-audit-logs.md) ger dig tillgång till historiken för varje aktivitet som utförs i din klient.
 * **Logga in loggar**: Med den [inloggningsaktivitet rapporten](concept-sign-ins.md), du kan bestämma vem som utfört de uppgifter som rapporteras i granskningsloggarna.
@@ -60,7 +60,7 @@ Beroende på vart du vill dirigera spårningsloggdata behöver du något av föl
 
 * Ett Azure-lagringskonto som du har *ListKeys*-behörigheter för. Vi rekommenderar att du använder ett allmänt lagringskonto och inte ett blob-lagringskonto. Prisinformation för lagring finns i [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * En Azure Event Hubs-namnrymd för att integrera med lösningar från tredje part.
-* En Azure Log Analytics-arbetsyta för att skicka loggar till Log Analytics.
+* En Azure Log Analytics-arbetsyta skicka loggar till Azure Monitor-loggar.
 
 ## <a name="cost-considerations"></a>Kostnadsöverväganden
 
@@ -94,9 +94,9 @@ Följande tabell innehåller uppskattad kostnad per månad för en grundläggand
 | Granska | 1,000 | 0,1 | 52 | 104 KB | 1 | 8 640 | 10,80 USD |
 | Inloggningar | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
-### <a name="log-analytics-cost-considerations"></a>Log Analytics kostnadsöverväganden
+### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor loggar kostnaden överväganden
 
-Kostnaderna för att hantera Log Analytics-arbetsytan finns [hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Kostnaderna för att hantera Azure Monitor-loggar finns i [hantera kostnader genom att kontrollera datavolymer och kvarhållning i Azure Monitor-loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -177,4 +177,4 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 
 * [Arkivera aktivitetsloggar till ett lagringskonto](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Dirigera aktivitetsloggar till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Integrera aktivitetsloggar med Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
+* [Integrera aktivitetsloggar med Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

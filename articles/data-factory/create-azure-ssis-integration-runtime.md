@@ -7,24 +7,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 02/20/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 29e32177c899e8f42ee892be12a61c6633b23bdc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a6bd0097bacaa988c9c9f03c2ce827c42769aa99
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567340"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447386"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa Azure-SSIS Integration Runtime i Azure Data Factory
 Den här artikeln innehåller steg för etablering Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF). Du kan sedan använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera och köra SQL Server Integration Services (SSIS)-paket på den här integration runtime i Azure.
 
 Den [självstudien: Distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md) visar hur du skapar Azure-SSIS IR med Azure SQL Database-server till värd SSIS-katalogdatabasen (SSISDB). Den här artikeln utökas med självstudien och visar hur du gör du följande:
 
-- Du kan också använda Azure SQL Database-server med virtuellt nätverk tjänstens slutpunkter/hanterad instans som värd för SSISDB. Vägledning i att välja vilken typ av database-server som värd för SSISDB finns i [jämför Azure SQL Database enkel databaser/elastiska pooler och Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). Som ett krav måste du ansluta till din Azure-SSIS IR till ett virtuellt nätverk och konfigurera behörigheter/inställningar för virtuella nätverk efter behov. Se [ansluta till Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+- Du kan också använda Azure SQL Database-server med virtuellt nätverk tjänstens slutpunkter/hanterad instans som värd för SSISDB. Anvisningar för att välja vilken typ av databasserver du vill använda som värd för SSISDB finns i avsnittet om att [jämföra enkla databaser/elastiska pooler för Azure SQL Database med hanterad instans](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). Som ett krav måste du ansluta till din Azure-SSIS IR till ett virtuellt nätverk och konfigurera behörigheter/inställningar för virtuella nätverk efter behov. Se [ansluta till Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
 - Du kan också använda Azure Active Directory (AAD)-autentisering med den hanterade identitet för din ADF för att ansluta till databasservern. Som ett krav, måste du lägga till den hanterade identitet för din ADF som en oberoende databasanvändare som kan skapa SSISDB i din Azure SQL Database-server/hanterad instans [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir).
 
@@ -546,7 +546,7 @@ I det här avsnittet använder du Azure Resource Manager-mallen för att skapa A
         "variables": {},
         "resources": [{
             "name": "<Specify a name for your data factory>",
-            "apiVersion": "2017-09-01-preview",
+            "apiVersion": "2018-06-01",
             "type": "Microsoft.DataFactory/factories",
             "location": "East US",
             "properties": {},
@@ -554,7 +554,7 @@ I det här avsnittet använder du Azure Resource Manager-mallen för att skapa A
                 "type": "integrationruntimes",
                 "name": "<Specify a name for your Azure-SSIS IR>",
                 "dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "type": "Managed",
                     "typeProperties": {

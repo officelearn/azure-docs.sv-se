@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c9d8b875d7e5a831af52eae8abc642632cb5f635
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238393"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454708"
 documentType: LandingData
 title: Hanterad Azure SQL Database-instans
 metadata:
@@ -75,7 +75,7 @@ sections:
     style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">Kritiska-affärsnivå</a> är nu i <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">allmän tillgänglighet (GA)</a>.
-    - html: (Förhandsversion) Skapa <a href="https://aka.ms/managed-instance-aadlogins">på instansnivå Azure AD-inloggningar</a> med <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">skapa inloggning från en extern PROVIDER</a> .
+    - html: (Förhandsversion) Skapa <a href="https://aka.ms/managed-instance-aadlogins">på instansnivå huvudnamn för Azure AD-server (inloggningar)</a> med <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">skapa inloggning från en extern PROVIDER</a> .
     - html: (Förhandsversion) Skapa instanser med <a href="https://aka.ms/managed-instance-collation">på servernivå sortering valfri</a>.
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhetskopior upp till 35 dagar</a> för Point-in-time-återställning. Observera att långsiktig kvarhållning av säkerhetskopior (upp till 10 år) fortfarande inte har aktiverats så att du kan använda <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">endast kopiering säkerhetskopior</a> som ett alternativ.
     - html: (Förhandsversion) Använd <a href="https://aka.ms/managed-instance-failover-groups">geodistribuerad redundansgrupper</a> att behålla en kopia av instansen i en annan region och se till att dina data är tillgängliga även i scenariot regionalt haveri.

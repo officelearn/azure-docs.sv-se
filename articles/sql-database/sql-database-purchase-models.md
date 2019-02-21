@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008435"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456698"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
 
@@ -50,9 +50,11 @@ Beräkningskostnaden Visar total beräknings-kapacitet som tillhandahålls för 
 
 ## <a name="storage-costs"></a>Lagringskostnader
 
-Olika typer av lagring faktureras på olika sätt. För lagring av data debiteras du för den etablerade lagring baserat på den maximala storleken för databas eller pool du väljer. Kostnaden ändras inte om inte du minska eller öka den högsta. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans och allokeras dynamiskt. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen. Det tillkommer ingen ytterligare avgift för lagringsenhet för säkerhetskopior för upp till 100 procent av ditt totala etablerade serverutrymme. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras i GB per månad. Om du till exempel har en databaslagringsstorlek på 100 GB får du 100 GB säkerhetskopiering utan extra kostnad. Men om säkerhetskopieringen är på 110 GB får du betala för de extra 10 GB.
+Olika typer av lagring faktureras på olika sätt. För lagring av data debiteras du för den etablerade lagring baserat på den maximala storleken för databas eller pool du väljer. Kostnaden ändras inte om inte du minska eller öka den högsta. Lagringsenhet för säkerhetskopior är associerad till automatiska säkerhetskopior av din instans och allokeras dynamiskt. När du ökar din kvarhållningsperiod för lagringsenhet för säkerhetskopiering ökar lagringsenheten för säkerhetskopiering som förbrukas av instansen. 
 
-Du debiteras för lagring av säkerhetskopior för en enkel databas, på en proportionell beräkning för den lagring som har tilldelats till säkerhetskopior av databasen minus på databasens storlek. Du debiteras för lagring av säkerhetskopior för en elastisk pool, på en proportionell beräkning för den lagring som har tilldelats till säkerhetskopior av databasen på alla databaser i poolen minus den maximala datastorleken för den elastiska poolen. Varje ökning av databasens storlek eller elastisk pool eller ökning av transaktioner, kräver mer lagringsutrymme och därför ökar din faktura för lagring av säkerhetskopior.  Om du ökar den maximala datastorleken kan den här nya är dras av från Faktureras säkerhetskopieringslagring storlek.
+Automatiserade säkerhetskopieringar för 7 dagar av dina databaser kopieras till RA-GRS standardbloblagring som standard. Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Storleken på transaktionsloggen beror på ändringsfrekvensen i databasen. En minimimängd lagringsutrymme motsvarande 100 procent av databasens storlek tillhandahålls utan extra kostnad. Ytterligare förbrukning av lagringsenhet för säkerhetskopior debiteras för GB/månad.
+
+Mer information om priserna för lagring finns i den [priser](https://azure.microsoft.com/pricing/details/sql-database/single/) sidan. 
 
 ## <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e56cc5a893c5a88a5b64466d6feceb20ccd8cdc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167855"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445550"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zendesk för automatisk användaretablering
 
@@ -118,7 +118,8 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
     *   I den **domän** fältet, fylla i underdomänen för din Zendesk-klient.
     Exempel: Ett konto med ett klient-URL för https://my-tenant.zendesk.com, din underdomän skulle vara **min klient**.
 
-6. Den **hemlighet Token** för ditt Zendesk-konto är baserat i **Admin > API > Inställningar**. 
+6. Den **hemlighet Token** för ditt Zendesk-konto är baserat i **Admin > API > Inställningar**.
+   Se till att **Tokenåtkomst** är inställd på **aktiverad**.
 
     ![Zendesk etablering](./media/zendesk-provisioning-tutorial/ZenDesk4.png) ![Zendesk etablering](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
 

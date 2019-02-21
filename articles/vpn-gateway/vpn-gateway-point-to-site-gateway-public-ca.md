@@ -1,45 +1,49 @@
 ---
-title: Övergången från självsignerat till offentlig CA-certifikat för P2S-gatewayer | Azure VPN Gateway | Microsoft Docs
+title: Övergången till offentlig CA-certifikat för P2S-gatewayer | Azure VPN Gateway | Microsoft Docs
 description: Den här artikeln får du går över till de nya offentliga CA-certifikat för P2S-gatewayer.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: e5a75826730219adc643d7c6ca300a38c8640006
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428372"
+ms.locfileid: "56453529"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Övergång till ett offentligt CA-gatewaycertifikat för P2S
 
 Azure VPN-Gateway utfärdar inte längre självsignerade certifikat för Azure-nivå till dess gatewayer för P2S-anslutningar. Utfärdade certifikat är nu signerade av en offentlig certifikatutfärdare (CA). Men kanske vissa äldre gateway fortfarande använder självsignerade certifikat. De självsignerade certifikaten närmar sig sitt förfallodatum och måste gå över till offentlig CA-certifikat.
 
-Certifikat i det här sammanhanget är ett certifikat för ytterligare Azure-nivå. De är inte certifikatkedjor som du använder när du genererar din egen självsignerade rotcertifikat och klientcertifikat för autentisering. Dessa certifikat påverkas och går ut på datumen du genererat dem för att göra detta.
-
 >[!NOTE]
 > Självsignerat certifikat för klientautentisering för P2S påverkas inte av den här Azure-nivå certifikat ändringen. Du kan fortsätta att utfärda och använda självsignerade certifikat som vanligt.
 >
+
+Certifikat i det här sammanhanget är ett certifikat för ytterligare Azure-nivå. De är inte certifikatkedjor som du använder när du genererar din egen självsignerade rotcertifikat och klientcertifikat för autentisering. Dessa certifikat påverkas och går ut på datumen du genererat dem för att göra detta.
 
 Tidigare behövde ett självsignerat certifikat för gateway (utfärdats i bakgrunden av Azure) uppdateras varje 18 månader. VPN-klientkonfigurationsfiler behövde sedan skapas och distribueras om till alla P2S-klienter. Flytta till offentliga certifikat eliminerar den här begränsningen. Förutom övergången för certifikat finns den här ändringen även förbättringar för plattformen, bättre mått och förbättrad stabilitet.
 
 Endast äldre gatewayer som påverkas av den här ändringen. Om din gateway-certifikatet måste överföras, får du kommunikation eller popup i Azure-portalen. Du kan kontrollera om din gateway påverkas med hjälp av stegen i den här artikeln.
 
->[!IMPORTANT]
->Övergången är schemalagd för mars 12,2019 kl. 18:00 UTC. Du kan skapa ett supportärende om du föredrar ett annat tidsintervall. Se och slutföra din begäran minst 24 timmar i förväg.  Du kan begära en av följande fönster:
+> [!IMPORTANT]
+> Övergången är schemalagd för mars 12 2019 kl. 18:00 UTC. Du kan skapa ett supportärende om du föredrar ett annat tidsintervall. Se och slutföra din begäran minst 24 timmar i förväg.  Du kan begära en av följande fönster:
 >
->* 06:00 UTC på 25 Feb
->* 18:00 UTC på 25 Feb
->* 06:00 UTC på 1 mars
->* 18:00 UTC på 1 mars
+> * 06:00 UTC den 25 februari
+> * 18:00 UTC den 25 februari
+> * 06:00 UTC på 1 mars
+> * 18:00 UTC på 1 mars
 >
->**Alla återstående gatewayer övergår mars 12 2019 kl. 18:00 UTC**.
+> **Alla återstående gatewayer övergår mars 12 2019 kl. 18:00 UTC**.
 >
+> Gateway-processen övergången tar upp till 2 timmar att slutföra. Kunderna får ett e-postmeddelande när deras gateway Slutför övergången.
+> 
 
 ## <a name="1-verify-your-certificate"></a>1. Kontrollera ditt certifikat
+
+### <a name="resource-manager"></a>Resource Manager
 
 1. Kontrollera om du påverkas av den här uppdateringen. Ladda ned din aktuella VPN-klientkonfiguration med hjälp av stegen i [i den här artikeln](point-to-site-vpn-client-configuration-azure-cert.md).
 
@@ -49,6 +53,11 @@ Endast äldre gatewayer som påverkas av den här ändringen. Om din gateway-cer
   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Om *ServerCertRotCn* och *ServerCertIssuerCn* är ”DigiCert globala Rotcertifikatutfärdare”, du påverkas inte av den här uppdateringen och du behöver inte fortsätta med stegen i den här artikeln. Men om de visar något annat gateway-certifikatet är en del av uppdateringen och kommer att överföras.
+
+### <a name="classic"></a>Klassisk
+
+1. På en klientdator, navigera till sökvägen %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. Du kan visa certifikatet i Gateway-ID-mappen.
+2. Kontrollera att certifikatutfärdaren är ”DigiCert globala Rotcertifikatutfärdare” på fliken Allmänt för certifikatet. Om du har något annat än denna utfärdande myndighet, gateway-certifikatet är en del av uppdateringen och kommer att överföras.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Kontrollera certifikatet övergången schema
 

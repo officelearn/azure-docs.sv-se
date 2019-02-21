@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884009"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453944"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-algoritmfacit för Azure Machine Learning Studio
 
-Den **Azure Machine Learning-algoritm facit blad** hjälper dig att välja rätt algoritmen för en modell för förutsägelseanalys.
+Den **Azure Machine Learning Studio algoritmen facit blad** hjälper dig att välja rätt algoritmen för en modell för förutsägelseanalys.
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) har ett stort bibliotek med algoritmer från den ***regression***, ***klassificering***, ***klustring***, och  ***avvikelseidentifiering*** familjer. Varje är utformad för att åtgärda en annan typ av problem med machine learning.
 
@@ -27,14 +27,12 @@ Den **Azure Machine Learning-algoritm facit blad** hjälper dig att välja rätt
 
 **Hämta facit här: [Machine Learning-Algoritmfacit (11 x 17 tum)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Machine learning-algoritmfacit: Lär dig hur du väljer en Machine Learning-algoritm.][cheat-sheet]
-
-[cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+![Machine learning-algoritmfacit: Lär dig hur du väljer en Machine Learning-algoritm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
 Ladda ned och skriva Machine Learning Studio algoritmen facit ut i tabloidformat för att enkelt och få hjälp med att välja en algoritm.
 
 > [!NOTE]
-> Om du vill ha hjälp med den här lathunden för att välja rätt algoritmen, plus en djupare beskrivning av de olika typerna av machine learning-algoritmer och hur de används finns i [så väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md).
+> Om du vill ha hjälp med den här lathunden för att välja rätt algoritmen, plus en djupare beskrivning av de olika typerna av machine learning-algoritmer och hur de används finns i [så väljer du algoritmer för Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Viktig information och termer som är för Machine Learning Studio-algoritmen Lathund
 
@@ -44,7 +42,7 @@ Ladda ned och skriva Machine Learning Studio algoritmen facit ut i tabloidformat
 
 * Det finns tre huvudkategorier av machine learning: **övervakad inlärning**, **oövervakad inlärning**, och **förstärkande inlärning**.
 
-  * I **övervakad inlärning**, varje datapunkt märkts eller som är associerade med en kategori eller ett värde av intresse.  Ett exempel på en kategoriska etikett tilldelar en avbildning som en katt eller en hund.  Ett exempel på en etikett är försäljningspriset som är associerade med en återförsäljaren. Målet med övervakad inlärning är att studera många taggade exemplen som dessa, och sedan för att kunna göra förutsägelser om framtida datapunkter. Till exempel identifierar nya foton med rätt djur eller tilldelas andra begagnade bilar korrekt försäljning priser. Det här är en populär och användbart typ av machine learning. Alla moduler i Azure Machine Learning är övervakade algoritmer undantag för [K-Means klustring][k-means-clustering].
+  * I **övervakad inlärning**, varje datapunkt märkts eller som är associerade med en kategori eller ett värde av intresse.  Ett exempel på en kategoriska etikett tilldelar en avbildning som en katt eller en hund.  Ett exempel på en etikett är försäljningspriset som är associerade med en återförsäljaren. Målet med övervakad inlärning är att studera många taggade exemplen som dessa, och sedan för att kunna göra förutsägelser om framtida datapunkter. Till exempel identifierar nya foton med rätt djur eller tilldelas andra begagnade bilar korrekt försäljning priser. Det här är en populär och användbart typ av machine learning. Alla moduler i Azure Machine Learning Studio är övervakade algoritmer undantag för [K-Means klustring][k-means-clustering].
 
   * I **oövervakad inlärning**, datapunkterna har inga etiketter. Målet med en oövervakad Inlärningsalgoritmen är istället att ordna data på något sätt eller för att beskriva dess struktur. Detta kan innebära att gruppera den i kluster, precis K-means eller hitta olika sätt att titta på komplexa data så att den visas enklare.
 

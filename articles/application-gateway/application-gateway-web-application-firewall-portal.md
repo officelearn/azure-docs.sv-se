@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157147"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453264"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Skapa en Programgateway med en brandvägg för webbaserade program med Azure portal
 
@@ -130,7 +130,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-I den här självstudien används ett lagringskonto till att lagra data för identifiering och förebyggande åtgärder. Du kan också använda Log Analytics eller Event Hub till att registrera data.
+I den här självstudien används ett lagringskonto till att lagra data för identifiering och förebyggande åtgärder. Du kan också använda Azure Monitor-loggar eller Event Hub för att registrera data.
 
 1. Klicka på **New** hittades på det övre vänstra hörnet i Azure-portalen.
 2. Välj **Lagring** och sedan **Koppla undernät – blob, fil, tabell, kö**.
@@ -162,7 +162,7 @@ Konfigurera diagnostik för registrering av data i loggarna ApplicationGatewayAc
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du:
+I den här artikeln lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en programgateway med WAF aktiverat

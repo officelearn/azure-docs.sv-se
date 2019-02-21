@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0369a7792f0d9c97aa3d943708dfcc07228effa2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 972a538fab8a2aa84f6a12df48422abb40baac82
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330940"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443374"
 ---
-# <a name="enabling-azure-ultra-disks"></a>Aktivera Azure ultra-diskar
+# <a name="enabling-azure-ultra-ssd"></a>Aktivera Azure ultra SSD
 
-Azure-diskar som ultra leverera högt dataflöde, hög IOPS och konsekvent låg latens disklagring för virtuella Azure IaaS-datorer. Det här nya erbjudandet ger upp på rad prestanda på samma tillgänglighet nivåer som våra befintliga diskar-erbjudanden. Ytterligare förmåner ultra diskar omfattar möjligheten att ändra dynamiskt prestanda för disken tillsammans med dina arbetsbelastningar utan att behöva starta om dina virtuella datorer. Ultra diskar lämpar sig för dataintensiva arbetsbelastningar som SAP HANA, översta databaser och transaktionen tunga arbetsbelastningar.
+Azure ultra SSD leverera högt dataflöde, hög IOPS och konsekvent låg latens disklagring för virtuella Azure IaaS-datorer. Det här nya erbjudandet ger upp på rad prestanda på samma tillgänglighet nivåer som våra befintliga diskar-erbjudanden. Ytterligare fördelarna med ultra SSD är möjligheten att ändra dynamiskt prestanda för disken tillsammans med dina arbetsbelastningar utan att behöva starta om dina virtuella datorer. Ultra SSD lämpar sig för dataintensiva arbetsbelastningar som SAP HANA, översta databaser och transaktionen tunga arbetsbelastningar.
 
-För närvarande ultra diskar finns i en förhandsversion och du måste [registrera](https://aka.ms/UltraSSDPreviewSignUp) i förhandsgranskningen för att komma åt dem.
+För närvarande ultra SSD är i förhandsversion och du måste [registrera](https://aka.ms/UltraSSDPreviewSignUp) i förhandsgranskningen för att komma åt dem.
 
 När den godkänts, kör du något av följande kommandon för att avgöra vilken zon i östra USA 2 att distribuera ultra disken till:
 
@@ -35,12 +35,12 @@ Svaret ska vara detsamma som i formuläret här nedan, där X är den zon som sk
 
 Om det fanns inget svar från kommandot, som innebär att din registrering för funktionen är fortfarande väntande eller inte godkänd ännu.
 
-Nu när du vet vilken zon att distribuera till följer du stegen för distributionen i den här artikeln för att få din första virtuella datorer som distribueras med ultra diskar.
+Nu när du vet vilken zon att distribuera till följer du stegen i den här artikeln för att få din första virtuella datorer som distribueras med ultra SSD för distributionen.
 
-## <a name="deploying-an-ultra-disk"></a>Distribuera en ultra-disk
+## <a name="deploying-an-ultra-ssd"></a>Distribuera ett ultra SSD
 
 Börja med att kontrollera VM-storlek för att distribuera. En del av den här förhandsversionen är stöds endast DsV3 och EsV3 VM-familjer. Referera till den andra tabellen på den här [blogg](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) för ytterligare information om dessa storlekar på Virtuella datorer.
-Även i exemplet [skapa en virtuell dator med flera ultra diskar](https://aka.ms/UltraSSDTemplate), som visar hur du skapar en virtuell dator med flera ultra diskar.
+Även i exemplet [skapa en virtuell dator med flera ultra SSD](https://aka.ms/UltraSSDTemplate), som visar hur du skapar en virtuell dator med flera ultra SSD.
 
 Här beskrivs nya/ändras Resource Manager ändringarna i mallen: **apiVersion** för `Microsoft.Compute/virtualMachines` och `Microsoft.Compute/Disks` måste anges som `2018-06-01` (eller senare).
 
@@ -77,11 +77,11 @@ Lägga till en ytterligare funktion på egenskaperna för den virtuella datorn a
 
 När den virtuella datorn har etablerats kan du partitionera och formatera datadiskar och konfigurera dem för dina arbetsbelastningar.
 
-## <a name="additional-ultra-disk-scenarios"></a>Ytterligare ultra disk-scenarier
+## <a name="additional-ultra-ssd-scenarios"></a>Ytterligare ultra SSD-scenarier
 
-- Under skapandet av VM kan ultra diskar implicit skapas också. Men får de här diskarna ett standardvärde för IOPS (500) och dataflöde (8 MiB/s).
-- Ytterligare ultra diskar kan kopplas till kompatibla virtuella datorer.
-- Ultra diskar stödja justera disk Prestandaattribut (IOPS och dataflöde) vid körning utan kopplar bort disken från den virtuella datorn. När storleksändringen en disk prestanda har utfärdats på en disk, kan det ta upp till en timme för att ändringen ska börja gälla faktiskt.
+- Under skapandet av VM kan ultra SSD implicit skapas också. Men får de här diskarna ett standardvärde för IOPS (500) och dataflöde (8 MiB/s).
+- Ytterligare ultra SSD kan kopplas till kompatibla virtuella datorer.
+- Ultra SSD stödja justera disk Prestandaattribut (IOPS och dataflöde) vid körning utan kopplar bort disken från den virtuella datorn. När storleksändringen en disk prestanda har utfärdats på en disk, kan det ta upp till en timme för att ändringen ska börja gälla faktiskt.
 - Växande diskkapaciteten kräver en virtuell dator ska frigöras.
 
 ## <a name="next-steps"></a>Nästa steg

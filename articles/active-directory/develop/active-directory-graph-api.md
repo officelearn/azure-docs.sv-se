@@ -1,9 +1,9 @@
 ---
 title: Azure Active Directory Graph API | Microsoft Docs
-description: En översikt och Snabbstart guide för Azure AD Graph-API som ger programmatisk åtkomst till Azure AD via REST API-slutpunkter.
+description: En översikt och Snabbstart guide för Azure AD Graph API, vilket ger programmässig åtkomst till Azure AD via REST API-slutpunkter.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: lleonard-msft
 manager: mtillman
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
@@ -13,21 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b26c8a0d040ab91c53e04593280885ef7fd13eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 567ea09a50edc043f2022a47d08576720550e750
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173767"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448100"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph/) i stället för Azure AD Graph API för att komma åt resurser i Azure Active Directory. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett begränsat antal scenarier där Azure AD Graph API fortfarande kan vara lämpligt. Mer information finns i blogginlägget [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) (Microsoft Graph eller Azure AD Graph) i Office Dev Center.
+>
+> Från och med februari 2019 har Azure Active Directory Graph API ersatts av Microsoft Graph API.  
+>
+> För att underlätta övergången kan tas ur drift innan nyare som tidigare versioner av Azure AD Graph API.  
+>
+> För information, uppdateringar och tidsramar, [Microsoft Graph eller Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blogginlägget i Office Dev Center.
+>
+> Framöver kommer ska program använda Microsoft Graph API. 
+
+
 
 Den här artikeln gäller för Azure AD Graph API. Liknande information relaterad till Microsoft Graph API finns i [använder Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api). 
 

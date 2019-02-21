@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 9/25/2018
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 52653252df3efd3e12fa974ed82cd2557eee93d0
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: d751d4898be3fd19f9e6f5d03e9313e9d98e9dd2
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301255"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446103"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
 
@@ -25,40 +25,40 @@ En alias-postuppsättning stöds för följande typer av poster i en Azure DNS-z
 - CNAME 
 
 > [!NOTE]
-> Alias-poster för A eller AAAA posttyper för Azure Traffic Manager stöds bara för typer av externa slutpunkter. Du måste ange IPv4 eller IPv6-adress, efter behov för externa slutpunkter i Traffic Manager. Vi rekommenderar Använd statiska IP-adresser för adressen.
+> Om du planerar att använda en aliasresurspost för posttyper A eller AAAA för att peka mot en [Azure Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md) måste du se till att Traffic Manager-profilen har bara [externa slutpunkter](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Du måste ange IPv4 eller IPv6-adress för externa slutpunkter i Traffic Manager. Vi rekommenderar använda statiska IP-adresser.
 
 ## <a name="capabilities"></a>Funktioner
 
-- **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs.
+- **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs. DNS-postuppsättning är automatiskt om den offentliga IP-adressen ändras eller har tagits bort. Överflödiga DNS undviks-poster som pekar på felaktig IP-adresser.
 
-- **Peka på en Traffic Manager-profil från en CNAME-DNS A/AAAA-postuppsättning.** Du kan peka till CNAME för en Traffic Manager-profil från en DNS CNAME-postuppsättning. Ett exempel är contoso.trafficmanager.net. Nu kan kan du också peka på en Traffic Manager-profil som har externa slutpunkter från ett A eller AAAA-postuppsättning i din DNS-zon.
+- **Peka på en Traffic Manager-profil från en CNAME-DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA eller CNAME-post och använda alias poster för att peka på en Traffic Manager-profil. Det är särskilt användbart när du vill dirigera trafik på en basdomänen som traditionella CNAME-poster inte stöds för en zonens apex. Anta exempelvis att Traffic Manager-profilen är myprofile.trafficmanager.net och företag DNS-zonen contoso.com. Du kan skapa ett alias postuppsättningen av typen A/AAAA för contoso.com (basdomänen) och pekar på myprofile.trafficmanager.net.
 
-   > [!NOTE]
-   > Alias-poster för A eller AAAA posttyper för Traffic Manager stöds bara för typer av externa slutpunkter. Du måste ange IPv4 eller IPv6-adress, efter behov för externa slutpunkter i Traffic Manager. Vi rekommenderar Använd statiska IP-adresser för adressen.
-   
-- **Peka på en annan DNS-postuppsättning i samma zon.** Aliasposter kan referera till andra postuppsättningar av samma typ. En DNS CNAME-postuppsättning kan till exempel vara ett alias till en annan CNAME-postuppsättning av samma typ. Det här är användbart om du vill att vissa postuppsättningar vara alias och vissa alias.
+- **Peka på en annan DNS-postuppsättning i samma zon.** Aliasposter kan referera till andra postuppsättningar av samma typ. En DNS CNAME-postuppsättning kan till exempel vara ett alias till en annan CNAME-postuppsättning. Det här är användbart om du vill att vissa postuppsättningar vara alias och vissa alias.
 
 ## <a name="scenarios"></a>Scenarier
+
 Det finns några vanliga scenarier för Alias poster.
 
 ### <a name="prevent-dangling-dns-records"></a>Förhindra överflödiga DNS-poster
- Alias poster kan användas för nära livscykeln för Azure-resurser i Azure DNS-zoner. Resurser är en offentlig IP-adress eller en Traffic Manager-profil. Ett vanligt problem med traditionella DNS-poster överflödiga poster. Det här problemet uppstår särskilt med A/AAAA- eller CNAME posttyper. 
 
-Med en traditionell DNS-zon post, om det finns inte längre mål-IP- eller CNAME-post, känner DNS-zon posten inte till den. Posten måste därför uppdateras manuellt. I vissa organisationer kan den här manuell uppdatering inte ske i tid. Det kan också vara problematiskt på grund av åtskillnad av roller och associerade behörighetsnivåer.
+Ett vanligt problem med traditionella DNS-poster överflödiga poster. Till exempel DNS-poster som inte har uppdaterats för att återspegla ändringar till IP-adresser. Problemet uppstår särskilt med A/AAAA- eller CNAME posttyper.
 
-En roll kan till exempel ha behörighet att ta bort en CNAME-post eller IP-adress som hör till ett program. Men som har inte tillräcklig behörighet att uppdatera DNS-post som pekar på dessa mål. Tid fördröjning mellan när IP- eller CNAME-post tas bort och DNS-post som pekar till den tas bort. Den här tidsfördröjningen orsaka ett avbrott för användare.
+Med en traditionell DNS-zon post, om det finns inte längre mål-IP- eller CNAME-post, måste DNS-posten som associeras med den uppdateras manuellt. I vissa organisationer kan en manuell uppdatering inte ske i tid på grund av problem med processen eller på grund av åtskillnad av roller och associerade behörighetsnivåer. En roll kan till exempel ha behörighet att ta bort en CNAME-post eller IP-adress som hör till ett program. Men som har inte tillräcklig behörighet att uppdatera DNS-post som pekar på dessa mål. En fördröjning vid uppdatering av DNS-posten kan eventuellt medföra ett avbrott för användare.
 
-Alias poster ta bort komplexiteten som är associerade med det här scenariot. De bidrar till att förhindra överflödiga referenser. Ta till exempel en DNS-post som är kvalificerad som ett aliaspost så att den pekar till en offentlig IP-adress eller en Traffic Manager-profil. Om de underliggande resurserna tas bort tas DNS-aliaspost bort samtidigt. Den här processen säkerställer att användare aldrig har drabbats av ett avbrott.
+Alias-poster förhindrar överflödiga referenser nära att koppla livscykeln för en DNS-post med en Azure-resurs. Anta exempelvis att en DNS-post som är kvalificerad som ett aliaspost så att den pekar till en offentlig IP-adress eller en Traffic Manager-profil. Om de underliggande resurserna tas bort tas DNS-aliaspost bort samtidigt.
 
-### <a name="update-dns-zones-automatically-when-application-ips-change"></a>Uppdatera DNS-zoner automatiskt när programmet IP-adresser ändras
+### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Uppdatera DNS-postuppsättning automatiskt när programmet IP-adresser ändras
 
-Det här scenariot liknar föregående. Kanske ett program har flyttats, eller den underliggande virtuella datorn har startats om. En aliaspost uppdaterar sedan automatiskt när IP-adressen ändras för den underliggande offentliga IP-adressresursen. På så sätt undviker potentiella säkerhetsriskerna med att dirigera användarna till ett annat program som har den gamla IP-adressen.
+Det här scenariot liknar föregående. Kanske ett program har flyttats, eller den underliggande virtuella datorn har startats om. En aliaspost uppdaterar sedan automatiskt när IP-adressen ändras för den underliggande offentliga IP-adressresursen. På så sätt undviker potentiella säkerhetsriskerna med att dirigera användarna till ett annat program som har tilldelats den gamla offentliga IP-adressen.
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Värdprogram för Utjämning av nätverksbelastning i basdomänen
 
-DNS-protokollet förhindrar tilldelningen av något annat än en A eller AAAA-post på zonens apex. Ett exempel kan vara contoso.com. Den här begränsningen utgör ett problem för programägare som har belastningsutjämnade program bakom Traffic Manager. Det inte går att den pekar på Traffic Manager-profilen från zonen apex posten. Programägare måste därför använda en lösning. En omdirigering på programnivå omdirigera från basdomänen till en annan domän. Ett exempel är en omdirigering från contoso.com till www.contoso.com. Den här ordningen anger en enskild felpunkt för funktionen omdirigering.
+Tilldelningen av CNAME-poster i basdomänen förhindrar att DNS-protokollet. Till exempel om domänen är contoso.com; Du kan skapa CNAME-poster för somelable.contoso.com; men du kan inte skapa CNAME-post för contoso.com själva.
+Den här begränsningen utgör ett problem för programägare som har belastningsutjämnade program bakom [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Eftersom du använder en Traffic Manager-profil kräver en CNAME-post skapas, går det inte att den pekar på Traffic Manager-profilen från zonens apex.
 
-Det här problemet finns inte längre med alias poster. Nu kan programägare peka deras zon apex-poster på en Traffic Manager-profil som har externa slutpunkter. Programägare kan peka på samma Traffic Manager-profilen som används för andra domäner i sina DNS-zonen. Till exempel kan contoso.com och www.contoso.com peka på samma Traffic Manager-profilen. Detta är fallet så länge Traffic Manager-profilen har endast externa slutpunkter som har konfigurerats.
+Det här problemet kan lösas med hjälp av alias poster. Till skillnad från CNAME-poster, alias poster kan skapas i basdomänen och programägare kan använda den för att rikta sin zon apex-post till en Traffic Manager-profil som har externa slutpunkter. Programägare kan peka på samma Traffic Manager-profilen som används för andra domäner i sina DNS-zonen.
+
+Till exempel kan contoso.com och www.contoso.com peka på samma Traffic Manager-profilen. Om du vill lära dig mer om att använda alias poster med Azure Traffic Manager-profiler finns i avsnittet nästa steg.
 
 ## <a name="next-steps"></a>Nästa steg
 

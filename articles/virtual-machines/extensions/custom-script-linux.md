@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 87d15f7b351f2b8b6a8c010651d82faa66b28918
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: f8b0955afa1705dd8e3c01a943cc5e5d885f9c71
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276473"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456970"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda Azure anpassade skript-tillägget Version 2 med Linux-datorer
 Anpassat skript-tillägget Version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfigurationen efter distribution, Programvaruinstallation eller andra konfigurationshantering/uppgifter. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internetplats eller du kan ange dem till tillägget-körningen. 
 
-Det anpassade Skripttillägget integreras med Azure Resource Manager-mallar. Du kan också köra den med hjälp av Azure CLI, PowerShell, Azure-portalen eller Azure Virtual Machines REST API.
+Det anpassade Skripttillägget integreras med Azure Resource Manager-mallar. Du kan också köra den med hjälp av Azure CLI, PowerShell eller Azure Virtual Machines REST API.
 
 Den här artikeln beskriver hur du använder tillägget för anpassat skript från Azure CLI och hur du kör tillägget med hjälp av en Azure Resource Manager-mall. Den här artikeln innehåller också felsökningssteg för Linux-system.
 
 
 Det finns två Linux anpassade skripttillägg:
-* Version 1 – Microsoft.OSTCExtensions.CustomScriptForLinux
+* Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Version 2 – Microsoft.Azure.Extensions.CustomScript
 
 Växla nya och befintliga distributioner för att använda den nya versionen 2 i stället. Den nya versionen är avsedd att vara en lättillgänglig ersättning. Därför migreringen är lika enkelt som att ändra namn och version, du behöver inte ändra din konfiguration.
@@ -114,12 +114,12 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 | typ | CustomScript | sträng |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
-| commandToExecute (t.ex.) | Python MyPythonScript.py < Mina param1 > | sträng |
-| skriptet | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | sträng |
+| commandToExecute (t.ex.) | python MyPythonScript.py <my-param1> | sträng |
+| skript | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | sträng |
 | skipDos2Unix (t.ex.) | false | boolesk |
 | tidsstämpel (t.ex.) | 123456789 | 32-bitars heltal |
 | storageAccountName (t.ex.) | examplestorageacct | sträng |
-| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q / + hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg == | sträng |
+| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
 
 ### <a name="property-value-details"></a>Information om egenskapen
 * `skipDos2Unix`: (valfritt, booleskt) hoppa över dos2unix konvertering av skriptbaserade fil-URL: er eller skript.

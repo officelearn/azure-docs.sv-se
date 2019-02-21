@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: e780a78bb2cc341ef6b2f682cd51fedad3f08494
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310866"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446672"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -39,7 +39,8 @@ Nej. Säkerhetskopierade data lagras i ett valv kan inte flyttas till ett annat 
 Nej. Recovery Services-valvet kan bara ändra lagringsalternativ innan eventuella säkerhetskopior som har lagrats.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Kan jag göra ett objekt på Återställ Objektnivå för virtuella datorer till ett Recovery Services-valv?
-Nej, återställning på Objektnivå stöds inte.
+- Återställning på Objektnivå stöds för virtuella datorer i Azure backas upp av virtuell Azure-säkerhetskopiering. Mer information finns i [artikel](backup-azure-restore-files-from-vm.md)
+- Återställning på Objektnivå stöds inte för onlineåterställningspunkter för lokala virtuella datorer som backas upp av Azure backup Server eller System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
@@ -90,7 +91,6 @@ Ja.
 - Du säkerhetskopierar virtuella Azure-datorer en gång om dagen.
 
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Vilka operativsystem som stöds för säkerhetskopiering?
-
 Azure Backup stöder dessa operativsystem för att säkerhetskopiera filer och mappar och appar som skyddas av Azure Backup Server och DPM.
 
 **OS**| **SKU** |**Detaljer**
@@ -139,7 +139,7 @@ BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på dato
 Det finns ingen gräns för mängden data som du kan säkerhetskopiera med Recovery Services-valvet.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Varför är mängden data som överförs till Recovery Services-valvet mindre än de data som valts för säkerhetskopiering?
- Data som säkerhetskopieras från Azure Backup Agent, DPM, och Azure Backup Server komprimeras och krypteras innan de överförs. Vid komprimering och kryptering används kan data i valvet är 30 – 40% mindre.
+Data som säkerhetskopieras från Azure Backup Agent, DPM, och Azure Backup Server komprimeras och krypteras innan de överförs. Vid komprimering och kryptering används kan data i valvet är 30 – 40% mindre.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Kan jag ta bort enskilda filer från en återställningspunkt i valvet?
 Azure Backup stöder inte, inte ta bort eller rensa enskilda objekt från lagrade säkerhetskopior.

@@ -2,30 +2,30 @@
 title: ta med fil
 description: ta med fil
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/12/2018
-ms.author: cherylmc
+ms.date: 02/19/2018
+ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: f4a1937062f7e59cb3ef3f38610e077e8d36a3ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9e16c3bb4e4e5ba384bdc664e2c056acb0b70caf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47005569"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448236"
 ---
 ### <a name="what-is-expressroute-direct"></a>Vad är ExpressRoute direkt?
 
-ExpressRoute Direct ger kunderna möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. ExpressRoute Direct innehåller dubbla 100Gbps anslutning som har stöd för aktiv/aktiv-anslutningar i stor skala. 
+Med ExpressRoute Direct får kunder möjligheten att ansluta direkt till Microsofts globala nätverk vid peering-platser strategiskt fördelade runt om i världen. ExpressRoute Direct innehåller dubbla 100 Gbit/s-anslutningar som har stöd för aktiv/aktiv-anslutningar i stor skala. 
 
-### <a name="how-do-customers-connect-to-expressroute-direct"></a>Hur ansluter kunder till ExpressRoute direkt? 
+### <a name="how-do-customers-connect-to-expressroute-direct"></a>Hur ansluter kunder till ExpressRoute direkt? 
 
 Kunder måste arbeta med sina lokala operatörer och samordningsleverantörer och få anslutningen till ExpressRoute-routrar att dra nytta av ExpressRoute direkt.
 
-### <a name="what-locations-will-the-100gbps-expressroute-direct-be-available-for-public-preview"></a>Vilka platser 100Gbps ExpressRoute Direct blir tillgänglig i offentlig förhandsversion? 
+### <a name="what-locations-will-the-100-gbps-expressroute-direct-be-available-for-public-preview"></a>Vilka platser 100 Gbit/s ExpressRoute Direct blir tillgänglig i offentlig förhandsversion? 
 
-Ett begränsat antal ExpressRoute-peeringplatser stöder detta i den offentliga förhandsversionen. Tillgängliga portar ska vara dynamisk och blir tillgängligt via PowerShell för att visa kapaciteten. Inkludera platser och *kan komma att ändras baserat på tillgänglighet*:
+Ett begränsat antal ExpressRoute-peeringplatser stöder detta i den offentliga förhandsversionen. Tillgängliga portar ska vara dynamisk och blir tillgängligt via PowerShell för att visa kapaciteten. Inkludera platser och *kan komma att ändras baserat på tillgänglighet*:
 
 * Amsterdam
 * Canberra
@@ -36,7 +36,7 @@ Ett begränsat antal ExpressRoute-peeringplatser stöder detta i den offentliga 
 * Los Angeles
 * New York City
 * Paris
-* SAN Antonio
+* San Antonio
 * Silicon Valley
 * Singapore 
 
@@ -44,10 +44,14 @@ Ett begränsat antal ExpressRoute-peeringplatser stöder detta i den offentliga 
 
 ExpressRoute Direct ska använda samma [företagsklass över ExpressRoute](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/). 
 
-### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Vilka scenarier bör kunderna med ExpressRoute direkt?  
+### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Vilka scenarier bör kunderna med ExpressRoute direkt?  
 
-ExpressRoute Direct tillhandahåller kunder med direkta 100Gbps portpar om global inom Microsofts stamnätverk. Scenarier som ger kunderna med de största fördelarna är: enorma datainmatning, fysisk isolering för reglerade marknader och dedikerad kapacitet för burst-scenariot som återgivning. 
+ExpressRoute Direct tillhandahåller kunder med direkta 100 Gbit/s portpar i global inom Microsofts stamnätverk. Scenarier som ger kunderna med de största fördelarna är: Omfattande datainmatning, fysisk isolering för reglerade marknader och dedikerad kapacitet för burst-scenariot, t.ex. rendering. 
 
-### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Vad är faktureringsmodellen för ExpressRoute direkt? 
+### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Vad är faktureringsmodellen för ExpressRoute direkt? 
 
 ExpressRoute Direct debiteras för port-par för ett fast belopp. Standard-kretsar som ska inkluderas i inga ytterligare timmar och premium har en liten tillägg avgift. Utgående trafik debiteras på basis av per krets baserat på zonen på peering-plats.
+
+### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>När fungerar faktureringen tillstånd för portpar ExpressRoute direkt?
+
+ExpressRoute Direct portpar faktureras 45 dagar i skapandet av ExpressRoute Direct resursen eller om 1 eller båda länkarna är aktiverade, beroende på vilket som inträffar först. Respitperioden på 45 dagar beviljas för att ge kunderna möjlighet att slutföra korsanslutning med samordning-providern.

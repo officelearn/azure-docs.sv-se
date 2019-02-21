@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425182"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454267"
 ---
 # <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
 
@@ -133,7 +133,7 @@ Application Gateway WAF kan konfigureras för att köras i följande två lägen
 
 ### <a name="application-gateway-waf-reports"></a>WAF-övervakning
 
-Det är viktigt att övervaka hälsotillståndet för Application Gateway. Övervakningen av hälsotillståndet för brandväggen för webbaserade program och de program som den skyddar sker via loggning och integrering med Azure Monitor, Azure Security Center och Log Analytics.
+Det är viktigt att övervaka hälsotillståndet för Application Gateway. Övervakningen av hälsotillståndet för ditt webb-brandvägg och de program som den skyddar sker via loggning och integrering med Azure Monitor, Azure Security Center och Azure Monitor-loggar.
 
 ![diagnostik](./media/waf-overview/diagnostics.png)
 
@@ -149,7 +149,7 @@ Med hjälp av [Azure Security Center](../security-center/security-center-intro.m
 
 #### <a name="logging"></a>Loggning
 
-Application Gateway WAF erbjuder detaljerad rapportering för varje hot som upptäcks. Loggningen är integrerad med loggar och varningar för Azure Diagnostics och registreras i JSON-format. Dessa loggar kan integreras med [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+Application Gateway WAF erbjuder detaljerad rapportering för varje hot som upptäcks. Loggningen är integrerad med loggar och varningar för Azure Diagnostics och registreras i JSON-format. Dessa loggar kan integreras med [Azure Monitor loggar](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 

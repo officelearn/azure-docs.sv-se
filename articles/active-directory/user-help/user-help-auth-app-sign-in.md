@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120e0f3c7e6af22210ba04565b86b8098851b26d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3974d1de2bd90049541dcc249f18346c9e48fd3d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186904"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456035"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Logga in på dina konton med hjälp av Microsoft Authenticator-appen
 Med Microsoft Authenticator-appen kan du logga in på dina konton om du använder tvåfaktorsverifiering. Med tvåfaktorsverifiering kan du komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stjälas eller komprometteras är tvåfaktorsverifiering ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.
@@ -62,7 +62,7 @@ När du har aktiverat telefoninloggning, kan du logga in med bara Microsoft Auth
 
     När du har skrivit ditt användarnamn, en **Godkänn inloggning** skärm visas där du kan se två siffror och uppmanas att logga in via Microsoft Authenticator-appen. Om du inte vill använda den här inloggning i metoden kan du välja **Använd ditt lösenord istället**, och logga in med ditt lösenord.
 
-    ![Godkänn inloggning rutan på dator](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
+    ![Godkänn kryssrutan logga in på datorn](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
 2. Öppna meddelandet eller Microsoft Authenticator-appen på din enhet och tryck sedan på det nummer som matchar det nummer du ser på din dator **Godkänn inloggning** skärmen.
 
@@ -113,7 +113,7 @@ Steg som krävs för att logga in på ditt arbets- eller Skol- eller ditt person
 |**Vad händer om jag tappar bort min telefon eller inte har den med mig? Hur kommer jag åt mitt konto?**| Du kan alltid välja att använda ett lösenord i stället länken på sidan logga in för att växla tillbaka till ditt lösenord. Om du använder tvåstegsverifiering kommer du dock fortfarande behöver använda ett annat sätt för att verifiera din identitet.<br><br>**Viktigt**<br>Vi att starkt du kan kontrollera att du har mer än en uppdaterad verifieringsmetod som är associerat med ditt konto.<br><br>Du kan hantera din verifieringsmetoder för personliga konton från din [säkerhetsinställningar](https://account.live.com/proofs/manage) sidan. För konton för arbets- eller skolkonto, går du till din organisations [ytterligare säkerhetsverifiering](https://aka.ms/MFASetup) sidan eller **skydda ditt konto** om din administratör har aktiverat säkerhetsinformation. Läs mer om säkerhetsinformation [hantera din säkerhetsinformation](security-info-manage-settings.md).<br><br>Om du inte kan hantera din verifieringsmetoder, måste du kontakta din administratör.|
 |**Hur jag för att sluta använda den här funktionen och gå tillbaka till med mitt lösenord?**|För personliga konton väljer du den **använder ett lösenord i stället** länk när de loggar in. Senaste valfri sparas och erbjuds som standard nästa gång du loggar in. Om du vill gå tillbaka till att använda telefoninloggning, Välj den **använder en app i stället** länk när de loggar in.<br><br>För arbets- eller skolkonto-konton måste du till din sida med ytterligare verifiering (t.ex, https://aka.ms/MFASetup) och ta bort Microsoft Authenticator-appen.|
 |**Varför kan jag inte använda fler än ett arbets- eller skolkonto konto för inloggning via mobilen?**| En telefon måste vara registrerade i en arbets- eller skolkonto. Om du vill aktivera telefoninloggning för en annan arbets- eller skolkonto, måste du först avregistrera gamla enheten via den **inställningar** sidan.|
-|**Kan jag logga in på datorn med hjälp av min telefon?**| För din dator rekommenderar vi loggar in med Windows Hello på Windows 10. Windows Hello kan du använda din ansiktsigenkänning eller fingeravtryck PIN-kod för att logga in.|
+|**Kan jag logga in på datorn med hjälp av min telefon?**| För datorn rekommenderar vi loggar in med Windows Hello på Windows 10. Windows Hello kan du använda din ansiktsigenkänning eller fingeravtryck PIN-kod för att logga in.|
 
 ## <a name="next-steps"></a>Nästa steg
 - Om du har mer allmänna frågor om appen kan se den [Microsoft Authenticator vanliga frågor och svar](user-help-auth-app-faq.md)

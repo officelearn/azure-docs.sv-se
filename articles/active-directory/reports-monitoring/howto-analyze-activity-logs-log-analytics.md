@@ -1,6 +1,6 @@
 ---
-title: Analysera Azure Active Directory-aktivitetsloggar med Log Analytics (förhandsversion) | Microsoft Docs
-description: Lär dig hur du analyserar Azure Active Directory-aktivitetsloggar med Log Analytics (förhandsversion)
+title: Analysera aktivitetsloggar i Azure Active Directory med Azure Monitor-loggar (förhandsversion) | Microsoft Docs
+description: Lär dig hur du analyserar aktivitetsloggar i Azure Active Directory med Azure Monitor-loggar (förhandsversion)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ea13d08af924427b9e7dc5def72c19d560525b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188264"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454766"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analysera Azure AD-aktivitetsloggar med Log Analytics (förhandsversion)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analysera Azure AD-aktivitetsloggar med Azure Monitor-loggar (förhandsversion)
 
-När du [integrera Azure AD-aktivitetsloggar med Log Analytics](howto-integrate-activity-logs-with-log-analytics.md), du kan använda kraften i Log Analytics för att få insikter om din miljö. Du kan också installera den [Log Analytics-vyer för Azure AD activity loggar](howto-install-use-log-analytics-views.md) att få åtkomst till inbyggda rapporter kring gransknings- och inloggningshändelser i din miljö.
+När du [integrera Azure AD-aktivitetsloggar med Azure Monitor-loggar](howto-integrate-activity-logs-with-log-analytics.md), du kan använda kraften i Azure Monitor-loggar och få insikter om din miljö. Du kan också installera den [logga analysvyer för Azure AD activity loggar](howto-install-use-log-analytics-views.md) att få åtkomst till inbyggda rapporter kring gransknings- och inloggningshändelser i din miljö.
 
 I den här artikeln får du lära dig hur du analyserar Azure AD-aktivitetsloggar i Log Analytics-arbetsytan. 
 
@@ -78,10 +78,12 @@ AuditLogs
 
 Du kan också ställa in aviseringar på din fråga. Om du vill konfigurera en avisering när fler än 10 har till exempel program använts under den senaste veckan:
 
-1. Från arbetsytan, Välj **Ställ in en avisering** att öppna den **skapa regeln** sidan. 
+1. Från arbetsytan, Välj **Ställ in en avisering** att öppna den **skapa regeln** sidan.
+
     ![Ställ in en avisering](./media/howto-analyze-activity-logs-log-analytics/setalert.png)
 
-2. Välj standard **Avisera kriterier** skapas i varningen och uppdatera den **tröskelvärdet** i Standardmåttet till 10. 
+2. Välj standard **Avisera kriterier** skapas i varningen och uppdatera den **tröskelvärdet** i Standardmåttet till 10.
+
     ![Aviseringsvillkor](./media/howto-analyze-activity-logs-log-analytics/alertcriteria.png)
 
 3. Ange ett namn och en beskrivning av aviseringen och välj allvarlighetsgraden. I vårt exempel kan vi ange den till **information**.
@@ -92,17 +94,17 @@ Du kan också ställa in aviseringar på din fråga. Om du vill konfigurera en a
 
 ## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Installera och använda fördefinierade vyer för Azure AD activity loggar
 
-Du kan också hämta färdiga Log Analytics-vyerna för Azure AD activity logs. Vyerna tillhandahåller flera rapporter som rör vanliga scenarier som omfattar gransknings- och inloggningshändelser. Du kan även meddela på någon av informationen i rapporterna, genom att följa anvisningarna i föregående avsnitt.
+Du kan också hämta färdiga log analytics-vyer för Azure AD activity logs. Vyerna tillhandahåller flera rapporter som rör vanliga scenarier som omfattar gransknings- och inloggningshändelser. Du kan även meddela på någon av informationen i rapporterna, genom att följa anvisningarna i föregående avsnitt.
 
 * **Azure AD-konto etablering händelser**: Den här vyn visar rapporter som rör granskning etableringsaktivitet, till exempel hur många nya användare etableras och konfigurationsfel, antal användare uppdateras och uppdatera fel och antalet användare som avetableras och motsvarande fel.    
 * **Inloggningar händelser**: Den här vyn visar de mest relevanta rapporter som rör övervakning inloggningsaktivitet, till exempel inloggningar efter program, användare, enhet, samt en sammanfattningsvy spåra antalet inloggningar över tid.
 * **Användare som utför medgivande**: Den här vyn visar rapporter som rör användargodkännande, t.ex. samtycke ger av användaren, inloggningar efter användare som givit medgivande samt inloggningar av program för alla medgivande-baserade program. 
 
-Lär dig hur du [installerar och använder Log Analytics-vyer för Azure AD-aktivitetsloggar](howto-install-use-log-analytics-views.md). 
+Lär dig hur du [installera och använda log analytics vyer för Azure AD activity logs](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång med frågor i Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
+* [Kom igång med frågor i Azure Monitor-loggar](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Skapa och hantera aviseringar grupper i Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [Installera och använda Log Analytics-vyer för Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Installera och använda log analytics-vyer för Azure Active Directory](howto-install-use-log-analytics-views.md)

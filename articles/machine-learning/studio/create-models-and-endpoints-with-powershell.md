@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244306"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455066"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Använd PowerShell för att skapa Studio modeller och slutpunkter för webbtjänster från ett experiment
 
@@ -25,9 +25,9 @@ Anta exempelvis att du äger en global cykel hyra franchise verksamhet. Du vill 
 
 Du kan träna din modell som en gång med hjälp av en sammanfogad version av alla datauppsättningar på alla platser. Men var och en av platserna har en unik-miljö. Så är en bättre metod att träna din regressionsmodell separat med hjälp av datauppsättningen för varje plats. På så sätt kan varje tränade modellen kan ta hänsyn till olika store-storlekar, volym, geografi, population, cykel-vänlig trafiken miljö med mera.
 
-Som kan vara det bästa sättet, men du vill inte skapa 1 000 utbildning experiment i Azure Machine Learning med var och en representerar en unik plats. Förutom att en utmanande uppgiften också verkar ineffektiv eftersom varje experiment skulle ha samma komponenter förutom datauppsättning för träning.
+Som kan vara det bästa sättet, men du vill inte skapa 1 000 utbildning experiment i Azure Machine Learning Studio med var och en representerar en unik plats. Förutom att en utmanande uppgiften också verkar ineffektiv eftersom varje experiment skulle ha samma komponenter förutom datauppsättning för träning.
 
-Som tur är kan du kan göra detta med hjälp av den [Azure Machine Learning retraining API](retrain-models-programmatically.md) och automatisera uppgiften med [Azure Machine Learning PowerShell](powershell-module.md).
+Som tur är kan du kan göra detta med hjälp av den [Azure Machine Learning Studio träna API](retrain-models-programmatically.md) och automatisera uppgiften med [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Minska antalet platser från 1 000 till 10 för att göra ditt exempel snabbare. Men samma principer och procedurer som gäller för 1 000 platser. Men om du vill att träna från 1 000 datauppsättningar kan du köra följande PowerShell-skript parallellt. Hur du gör är utanför omfattningen för den här artikeln, men du kan hitta exempel på PowerShell flertrådsteknik på Internet.  

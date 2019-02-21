@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 821ee126350d18102ec92de04436a76050734dc4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241452"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456834"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiera andras arbete för att göra datavetenskap
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Datavetenskap för nybörjare-serien
@@ -52,7 +52,7 @@ En av affärshemligheter för datavetenskap får andra personer att göra arbete
 
 Microsoft har en molnbaserad tjänst som kallas [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) när är du Välkommen att testa kostnadsfritt. Den ger dig en arbetsyta där du kan experimentera med olika machine learning-algoritmer, och när du har fått din lösning som genereras, kan du starta den som en webbtjänst.
 
-En del av den här tjänsten är något som kallas den  **[Azure AI-galleriet](https://gallery.azure.ai/)**. Den innehåller resurser, till exempel en samling med Azure Machine Learning-experiment eller modeller som personer har skapat och bidragit så att andra kan använda. Dessa experiment som är ett bra sätt att utnyttja ansedda och hårda arbete med att komma igång på dina egna lösningar. Alla är Välkommen till Bläddra igenom den.
+En del av den här tjänsten är något som kallas den  **[Azure AI-galleriet](https://gallery.azure.ai/)**. Den innehåller resurser, till exempel en samling med Azure Machine Learning Studio-experiment eller modeller som personer har skapat och bidragit så att andra kan använda. Dessa experiment som är ett bra sätt att utnyttja ansedda och hårda arbete med att komma igång på dina egna lösningar. Alla är Välkommen till Bläddra igenom den.
 
 ![Azure AI-galleriet](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -88,8 +88,8 @@ Det finns andra experiment i den [Azure AI-galleriet](https://gallery.azure.ai) 
 
 [Azure AI-galleriet](https://gallery.azure.ai) är en plats för att hitta fungerande experiment som du kan använda som en startpunkt för dina egna lösningar.
 
-Glöm inte att checka ut andra videor i ”Data datavetenskap för nybörjare” från Microsoft Azure Machine Learning.
+Glöm inte att checka ut andra videor i ”Data datavetenskap för nybörjare” från Microsoft Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Testa ditt första dataexperiment med Azure Machine Learning](create-experiment.md)
+* [Testa ditt första dataexperiment med Azure Machine Learning Studio](create-experiment.md)
 * [Få en introduktion till Machine Learning på Microsoft Azure](what-is-machine-learning.md)

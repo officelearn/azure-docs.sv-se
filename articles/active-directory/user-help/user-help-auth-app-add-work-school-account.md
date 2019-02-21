@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775e6968282c94abec64fb410f2cc720ba0913e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168453"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453553"
 ---
 # <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets- eller skolkonto
 Om din organisation använder två faktorer verifiering, kan du ställa in ditt arbets- eller skolkonto konto att använda Microsoft Authenticator-appen som en av verifieringsmetoderna.
@@ -27,7 +27,7 @@ Om din organisation använder två faktorer verifiering, kan du ställa in ditt 
 
 ## <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets- eller skolkonto
 
-1. På din dator går du till den [ytterligare säkerhetsverifiering](https://aka.ms/mfasetup) sidan.
+1. På din dator, går du till den [ytterligare säkerhetsverifiering](https://aka.ms/mfasetup) sidan.
 
     >[!Note]
     >Om du inte ser den **ytterligare säkerhetsverifiering** sidan, är det möjligt att din administratör har aktiverat säkerhetsupplevelse för info (förhandsversion). Om så är fallet ska du följa anvisningarna i den [konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md) avsnittet. Om detta inte är fallet behöver du kontakta organisationens supportavdelning om du behöver hjälp. Läs mer om säkerhetsinformation [hantera din säkerhetsinformation](security-info-manage-settings.md).
@@ -40,7 +40,7 @@ Om din organisation använder två faktorer verifiering, kan du ställa in ditt 
 
 3. Öppna Microsoft Authenticator-appen, Välj **Lägg till konto** från den **anpassa och kontroll** ikonen i det övre högra hörnet, och välj sedan **arbets- eller skolkonto**.
 
-4. Använd enhetens kamera för att skanna QR-kod från den **konfigurera mobilappen** skärmen på din dator och välj sedan **klar**.
+4. Använd enhetens kamera för att skanna QR-kod från den **konfigurera mobilappen** skärmen på datorn och välj sedan **klar**.
 
     >[!Note]
     >Om din kamera inte att samla in QR-koden kan du manuellt lägga till din kontoinformation till Microsoft Authenticator-appen för verifiering av två faktorer. Mer information och hur du gör det, finns i [manuellt lägga till ditt konto](user-help-auth-app-add-account-manual.md).

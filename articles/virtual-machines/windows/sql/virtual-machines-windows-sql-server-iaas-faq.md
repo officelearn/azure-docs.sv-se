@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767347"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456664"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -88,6 +88,9 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Ja. Du kan flytta enkelt flytta mellan två licensieringsmodellerna, om du ursprungligen började med en användningsbaserad galleriavbildning. Men kan du inte byta din licens till PAYG om du ursprungligen började med en BYOL-avbildning. Mer information finns i [ändra så att licensieringsmodellen för en SQL Server VM](virtual-machines-windows-sql-ahb.md).
 
+   > [!Note]
+   > Denna funktion är för närvarande endast tillgängligt för kunder i offentliga moln.
+
 1. **Bör jag använda BYOL-avbildningar eller SQL VM RP för att skapa den nya SQL VM?**
 
    Bring-your-own-license (BYOL)-avbildningar är bara tillgängliga för EA-kunder. Andra kunder som har Software Assurance ska använda SQL VM-resursprovidern för att skapa en SQL-VM med [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
@@ -142,11 +145,11 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur uppgraderar jag till en ny version/utgåva av SQL Server i en Azure-dator?**
 
-   För närvarande finns ingen uppgradering på plats för SQL Server som körs i en Azure VM. Skapa en ny Azure-dator med den önskade versionen/utgåvan av SQL Server och migrera sedan databaserna till den nya servern med hjälp av standard [för datamigrering](virtual-machines-windows-migrate-sql.md).
+   För närvarande finns det ingen uppgradering på plats för SQL Server som körs på en virtuell dator i Azure. Skapa en ny Azure-dator med den önskade versionen/utgåvan av SQL Server och migrera sedan databaserna till den nya servern med hjälp av standard [för datamigrering](virtual-machines-windows-migrate-sql.md).
 
 1. **Hur uppdateringar och service packs tillämpas på en SQL Server VM?**
 
-   Virtuella datorer ger dig kontroll över värddatorn, även när och hur du tillämpar uppdateringar. För operativsystemet, kan du manuellt installera windows-uppdateringar, eller du kan aktivera en schemaläggningstjänst som kallas [automatisk uppdatering](virtual-machines-windows-sql-automated-patching.md). Automatisk uppdatering installerar alla uppdateringar som markeras som viktiga, inklusive SQL Server-uppdateringar i den kategorin. Andra valfria uppdateringar till SQL Server måste installeras manuellt.
+   Virtuella datorer ger dig kontroll över värddatorn, inklusive när och hur du tillämpar uppdateringar. För operativsystemet, kan du manuellt installera windows-uppdateringar, eller du kan aktivera en schemaläggningstjänst som kallas [automatisk uppdatering](virtual-machines-windows-sql-automated-patching.md). Automatisk uppdatering installerar alla uppdateringar som markeras som viktiga, inklusive SQL Server-uppdateringar i den kategorin. Andra valfria uppdateringar till SQL Server måste installeras manuellt.
 
 ## <a name="general"></a>Allmänt
 

@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217194"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453145"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Använda Azure Active Directory-autentisering för autentisering med SQL
 
@@ -101,16 +101,16 @@ Om du vill skapa en oberoende databasanvändare i Azure SQL Database Managed Ins
 
 ### <a name="manage-instances"></a>Hantera instanser
 
-- Azure AD-inloggningar och användare stöds som en förhandsversion av funktionen för [instanser som hanteras av](sql-database-managed-instance.md).
-- Ange Azure AD-inloggningar som mappats till en Azure AD-grupp som databasens ägare inte stöds i [instanser som hanteras av](sql-database-managed-instance.md).
+- Azure AD-server-huvudkonton (inloggningar) och användare stöds som en förhandsversion av funktionen för [instanser som hanteras av](sql-database-managed-instance.md).
+- Ange Azure AD-server-huvudkonton (inloggningar) mappas till en Azure AD-grupp som databasens ägare inte stöds i [instanser som hanteras av](sql-database-managed-instance.md).
     - En utökning av det här är att när en grupp har lagts till som en del av den `dbcreator` serverrollen användare från den här gruppen kan ansluta till den hanterade instansen och skapa nya databaser, men kommer inte att kunna få åtkomst till databasen. Det beror på att den nya databasägaren är SA och inte Azure AD-användare. Det här problemet inte manifest om den enskilda användaren läggs till i `dbcreator` serverrollen.
-- SQL Agent hanterings- och jobb körning har stöd för Azure AD-inloggningar.
-- Säkerhetskopiering av databas och återställning kan utföras av Azure AD-inloggningar.
-- Granskning av alla instruktioner som är relaterade till Azure AD-inloggningar och autentiseringshändelser stöds.
-- DAC-anslutning för Azure AD-inloggningar som är medlemmar i serverrollen sysadmin stöds.
+- SQL Agent hanterings- och jobb körning har stöd för Azure AD-server-huvudkonton (inloggningar).
+- Säkerhetskopiering av databas och återställning kan utföras av Azure AD-server-huvudkonton (inloggningar).
+- Granskning av alla instruktioner som är relaterade till Azure AD-server-huvudkonton (inloggningar) och autentiseringshändelser stöds.
+- DAC-anslutning för Azure AD-server-huvudkonton (inloggningar) som är medlemmar i serverrollen sysadmin stöds.
     - Stöds via SQLCMD-verktyget och SQL Server Management Studio.
-- Inloggningsutlösare har stöd för inloggningshändelser som kommer från Azure AD-inloggningar.
-- Service Broker och DB e-post kan konfigureras med hjälp av Azure AD-inloggning.
+- Inloggningsutlösare har stöd för inloggningshändelser som kommer från Azure AD-server-huvudkonton (inloggningar).
+- Service Broker och DB e-post kan konfigureras med ett huvudnamn för Azure AD-server (inloggning).
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>Ansluta med hjälp av Azure AD-identiteter
@@ -121,7 +121,7 @@ Azure Active Directory-autentisering har stöd för följande metoder för att a
 - Med hjälp av en Azure AD-huvudnamn och ett lösenord
 - Med hjälp av programmet tokenautentisering
 
-Följande autentiseringsmetoder som stöds för Azure AD-inloggningar (**förhandsversion**):
+Följande autentiseringsmetoder som stöds för Azure AD-server-huvudkonton (inloggningar) (**förhandsversion**):
 
 - Azure Active Directory Password
 - Azure Active Directory Integrated
@@ -133,7 +133,7 @@ Följande autentiseringsmetoder som stöds för Azure AD-inloggningar (**förhan
 
 - För att förbättra hanterbarhet, vi rekommenderar att du etablerar en dedikerad Azure AD som en administratör.   
 - Endast en Azure AD-administratör (användare eller grupp) kan konfigureras för en Azure SQL Database-server eller Azure SQL Data Warehouse när som helst.
-  - Tillägg av Azure AD-inloggningar för hanterade instanser (**förhandsversion**) gör att möjligheten att skapa flera Azure AD-inloggningar som kan läggas till i `sysadmin` rollen.
+  - Tillägg av Azure AD-huvudkonton server (inloggningar) för hanterade instanser (**förhandsversion**) gör att möjligheten att skapa flera Azure AD server säkerhetsobjekt (inloggningar) som kan läggas till i `sysadmin` roll.
 - Endast en Azure AD-administratör för SQL Server kan först ansluta till Azure SQL Database-server, hanterad instans eller Azure SQL Data Warehouse med hjälp av ett Azure Active Directory-konto. Active Directory-administratör kan konfigurera efterföljande Azure AD databasen användare.   
 - Vi rekommenderar att du anger timeout för anslutning till 30 sekunder.   
 - SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1April 2016 eller senare) stöder Azure Active Directory-autentisering. (Azure AD-autentisering som stöds av den **.NET Framework Data Provider Pro SqlServer**; minst version .NET Framework 4.6). Därför de senaste versionerna av dessa verktyg och -datanivåprogram (DAC och. BACPAC) kan använda Azure AD-autentisering.   
@@ -147,12 +147,12 @@ Följande autentiseringsmetoder som stöds för Azure AD-inloggningar (**förhan
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill lära dig mer om att skapa och fylla i Azure AD och konfigurera Azure AD med Azure SQL Database eller Azure SQL Data Warehouse, se [konfigurera och hantera Azure Active Directory-autentisering med SQL Database Managed Instance eller SQL Data Warehouse ](sql-database-aad-authentication-configure.md).
-- Se en självstudie i att använda Azure AD-inloggningar med hanterade instanser [Azure AD-inloggningar med hanterade instanser](sql-database-managed-instance-aad-security-tutorial.md)
+- Se en självstudie i att använda Azure AD-server-huvudkonton (inloggningar) med hanterade instanser [Azure AD-huvudkonton server (inloggningar) med hanterade instanser](sql-database-managed-instance-aad-security-tutorial.md)
 - En översikt över åtkomst och kontroll i SQL Database finns i [Åtkomst och kontroll för SQL Database](sql-database-control-access.md).
 - En översikt över inloggningar, användare och databasroller i SQL Database finns i [Inloggningar, användare och databasroller](sql-database-manage-logins.md).
 - Mer information om huvudkonton finns i [Huvudkonton](https://msdn.microsoft.com/library/ms181127.aspx).
 - Mer information om databasroller finns [Databasroller](https://msdn.microsoft.com/library/ms189121.aspx).
-- Syntax för skapande av Azure AD-inloggningar för hanterade instanser finns [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Syntax om hur du skapar servern säkerhetsobjekt (inloggningar) för hanterade instanser i Azure AD, se [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Mer information om brandväggsregler i SQL Database finns [SQL Database-brandväggsregler](sql-database-firewall-configure.md).
 
 <!--Image references-->

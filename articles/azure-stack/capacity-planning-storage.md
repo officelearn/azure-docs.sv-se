@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176364"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446009"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack storage kapacitetsplanering
 Följande avsnitt innehåller Azure Stack lagringskapacitet planeringsinformation för att hjälpa att planera för de lösningar lagringsbehov.
@@ -38,7 +38,9 @@ Operatörer kan välja mellan en alla flash eller en hybrid-konfiguration för l
 
 ![Kapacitetsplanering för Azure storage](media/azure-stack-capacity-planning/storage.png)
 
-I alla flash konfigurationen är cacheminnet NVMe ett urval av SATA SSD eller NVMe för kapacitet. Hybrid-konfiguration finns cacheminnet i ett val mellan NVMe och SATA SSD och kapaciteten är HDD.
+Konfigurationen kan antingen vara en konfiguration med två lager eller en nivå i alla flash-konfiguration.  Om konfigurationen är en nivå måste alla kapacitetsenheter av samma typ (t.ex. NVMe eller SATA SSD eller SAS SSD) och cacheenheter som inte används. I en tvålagers-alla flash konfiguration, typisk konfiguration är NVMe som cacheenheter och sedan antingen SATA eller SAS SSD-enheter som kapacitetsenheter.
+
+Cacheminnet är hybrid, tvålagers-konfiguration, ett val mellan NVMe, SATA eller SAS SSD och kapaciteten är HDD. 
 
 En kort sammanfattning av Lagringsdirigering och lagringskonfiguration för Azure Stack är följande:
 - Ett blanksteg lagringspoolen per Skalningsenhet (alla lagringsenheter är konfigurerade i en enda pool)

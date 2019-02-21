@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173950"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454658"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Manuellt lägga till ett konto i appen
 Om din kamera inte att samla in QR-koden kan du manuellt lägga till din kontoinformation till Microsoft Authenticator-appen för verifiering av två faktorer. Detta fungerar för arbets- eller skolkonton och icke-Microsoft-konton.
@@ -55,7 +55,7 @@ Koder för dina konton är inte skiftlägeskänsliga och kräver inte blanksteg 
 
 3. Ange en **kontonamn** (till exempel Google) och Skriv den **hemlig nyckel** från steg 1 och välj sedan **Slutför**.
 
-4. På den **konfigurera Authenticator** på din dator, ange den sexsiffriga Verifieringskod som angavs i appen för ditt Google-konto och välj sedan **Kontrollera**.
+4. På den **konfigurera Authenticator** på datorn, ange den sexsiffriga Verifieringskod som angavs i appen för ditt Google-konto och välj sedan **Kontrollera**.
 
     Den **konton** skärmen i appen visar namnet på ditt konto och en sexsiffrig Verifieringskod. För ytterligare säkerhet ändrar verifieringskoden med 30 sekunders mellanrum hindra någon från och med en kod flera gånger.
 
@@ -70,7 +70,7 @@ Koder för dina konton är inte skiftlägeskänsliga och kräver inte blanksteg 
 
 3. Ange en **kontonamn** (till exempel Facebook) och Skriv den **hemlig nyckel** från steg 1 och välj sedan **Slutför**.
 
-4. På den **tvåfaktorsautentisering Authenticator** på din dator, ange den sexsiffriga Verifieringskod som angavs i appen för ditt Facebook-konto och välj sedan **Kontrollera**.
+4. På den **tvåfaktorsautentisering Authenticator** på datorn, ange den sexsiffriga Verifieringskod som angavs i appen för ditt Facebook-konto och välj sedan **Kontrollera**.
 
     Den **konton** skärmen i appen visar namnet på ditt konto och en sexsiffrig Verifieringskod. För ytterligare säkerhet ändrar verifieringskoden med 30 sekunders mellanrum hindra någon från och med en kod flera gånger.
 
@@ -90,9 +90,9 @@ Du kan lägga till Amazon-konto genom att aktivera tvåfaktorsautentisering veri
 
 4. Slutför resten av registreringen, inklusive att lägga till en säkerhetskopiering verifieringsmetod, till exempel ett SMS och välj sedan **skicka kod**.
 
-5. På den **lägga till en säkerhetskopiering verifieringsmetod** på din dator, Skriv sexsiffrig verifieringskoden som tillhandahålls av din säkerhetskopiering verifieringsmetod för Amazon-konto och välj sedan **verifiera kod och fortsätta**.
+5. På den **lägga till en säkerhetskopiering verifieringsmetod** på datorn, skriver sexsiffrig verifieringskoden som tillhandahålls av din säkerhetskopiering verifieringsmetod för Amazon-konto och välj sedan **verifiera kod och fortsätta**.
 
-6. På Almost sidan, bestämma om du vill göra din dator till en betrodd enhet och välj sedan **fattar. Aktivera tvåstegsverifiering**.
+6. På Almost sidan, bestämma om du vill gör datorn till en betrodd enhet och välj sedan **fattar. Aktivera tvåstegsverifiering**.
 
     Den **avancerade säkerhetsinställningar** visas, som visar information om din uppdaterade tvåfaktors-verifiering.
 

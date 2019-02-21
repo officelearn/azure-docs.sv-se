@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 6/8/2018
+ms.date: 02/20/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98231ab55ce66f06d591dc9c933e4790460625c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985517"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56458417"
 ---
 # <a name="enable-write-accelerator"></a>Aktiverar du Write Accelerator
 
@@ -42,17 +42,17 @@ Dessa begränsningar gäller när du använder Write Accelerator för en Azure-d
 
 - Cachelagring för Premium disk måste anges till ”ingen” eller ”skrivskyddad”. Alla andra lägen för cachelagring stöds inte.
 - Ögonblicksbilder stöds inte för närvarande för Write Accelerator-aktiverade diskar. Under säkerhetskopieringen är inkluderas tjänsten Azure Backup Write Accelerator-aktiverade diskar som är anslutna till den virtuella datorn.
-- Endast mindre i/o-storlekar (< = 32 KiB) tar snabbare sökvägen. I arbetsbelastningen situationer där data får bulk lästs in, eller om transaktionen log buffertar av olika DBMS är ifyllt i större utsträckning innan komma beständiga lagringen, risken är att i/o som skrivs till disk inte tar snabbare sökvägen.
+- Endast mindre i/o-storlekar (< = 512 KiB) tar snabbare sökvägen. I arbetsbelastningen situationer där data får bulk lästs in, eller om transaktionen log buffertar av olika DBMS är ifyllt i större utsträckning innan komma beständiga lagringen, risken är att i/o som skrivs till disk inte tar snabbare sökvägen.
 
 Det finns gränser för Azure Premium Storage virtuella hårddiskar per virtuell dator som stöds av Write Accelerator. De aktuella gränserna är:
 
 | SKU FÖR VIRTUELL DATOR | Antalet diskar som Write Accelerator | Write Accelerator Disk IOPS per virtuell dator |
 | --- | --- | --- |
-| M128ms 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms M16s | 2 | 1000 |
-| M8ms M8s | 1 | 500 |
+| M128ms 128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5000 |
+| M16ms M16s | 2 | 2500 |
+| M8ms M8s | 1 | 1250 |
 
 IOPS-gränserna är per virtuell dator och *inte* per disk. Alla diskar för Write Accelerator delar samma IOPS-gränsen per virtuell dator.
 

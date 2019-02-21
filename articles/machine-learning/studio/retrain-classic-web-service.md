@@ -1,5 +1,5 @@
 ---
-title: Träna och distribuera en klassiska webbtjänst
+title: Träna om och distribuera en klassisk webbtjänst
 titleSuffix: Azure Machine Learning Studio
 description: Lär dig hur du tränar en modell och uppdatera en klassisk webbtjänst för att använda den nyligen tränade modellen i Azure Machine Learning Studio.
 services: machine-learning
@@ -10,12 +10,12 @@ author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: e8fd3511eb7b718374bfbc608a35fb84740ed03c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331312"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456562"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Träna och distribuera en klassiska Studio-webbtjänst
 
@@ -60,7 +60,7 @@ Följ dessa steg för att få rätt KORRIGERA URL programmässigt kan:
 1. Kör den [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) exempelkoden.
 1. Från utdata från AddEndpoint, hitta den *HelpLocation* värde och kopiera URL: en.
 
-   ![HelpLocation i utdata från addEndpoint-exemplet.][image2]
+   ![HelpLocation i utdata från addEndpoint-exemplet.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
 1. Klistra in URL: en i en webbläsare och navigera till en sida som innehåller länkar för webbtjänsten.
 1. Klicka på den **resursuppdatering** länk för att öppna sidan patch hjälp.
 
@@ -81,7 +81,7 @@ Följ dessa steg för att få rätt KORRIGERA URL: en med hjälp av webbportalen
 
 PATCH-hjälpsidan innehåller KORRIGERA URL: en måste du använda och visar exempelkod som du kan använda för att anropa den.
 
-![Patch-URL.][image5]
+![Patch-URL.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>Uppdatera slutpunkten
 
@@ -149,6 +149,3 @@ Om du vill veta mer om hur du hanterar webbtjänster och hålla reda på flera e
 
 * [Utforska Web Services-portalen](manage-new-webservice.md)
 * [Hantera iterationer av experiment](manage-experiment-iterations.md)
-
-[image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
-[image5]: ./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png

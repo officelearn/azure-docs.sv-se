@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820792"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446757"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
-Den här självstudien visar hur du skyddar webbappen genom att skapa (köpa) ett App Service-certifikat i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) och kopplar den till en App Service-app.
+Den här självstudiekursen visar hur du skyddar dina [App Service-app](https://docs.microsoft.com/azure/app-service/) eller [funktionsapp](https://docs.microsoft.com/azure/azure-functions/) genom att skapa (köpa) ett App Service-certifikat i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) och Binder det till en App Service-app.
 
 > [!TIP]
 > App Service-certifikat kan användas för alla Azure- eller icke - Azure-tjänster och är inte begränsat till App Services. Om du vill göra det måste du skapa en lokal PFX-kopia av en App Service-certifikat som du kan använda det var du vill. Mer information finns i [skapar en lokal PFX-kopia av ett App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
@@ -35,7 +35,7 @@ Den här självstudien visar hur du skyddar webbappen genom att skapa (köpa) et
 Att följa den här guiden:
 
 - [Skapa en App Service-app](/azure/app-service/)
-- [Mappa ett domännamn till din webbapp](app-service-web-tutorial-custom-domain.md) eller [köp och konfigurera i Azure](manage-custom-dns-buy-domain.md)
+- [Mappa ett domännamn till din app](app-service-web-tutorial-custom-domain.md) eller [köp och konfigurera i Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 

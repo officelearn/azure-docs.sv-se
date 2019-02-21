@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: 1a291a54389b678647f4a08ea03ec8c2f85a5917
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c9e72ea2762af0d9a4c47ca5b23fe4bdbe53b968
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872841"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447556"
 ---
 # <a name="speech-service-supported-regions"></a>Med Taltjänsten regioner som stöds
 
@@ -26,7 +26,7 @@ Se till att du använder den slutpunkt som matchar regionen för din prenumerati
 
 ## <a name="speech-sdk"></a>Speech SDK
 
-I den [tal-tjänst-SDK](speech-sdk.md), regioner har angetts som en sträng (till exempel som en parameter till `SpeechConfig.FromSubscription` i tal SDK för C#).
+I den [tal SDK](speech-sdk.md), regioner har angetts som en sträng (till exempel som en parameter till `SpeechConfig.FromSubscription` i tal SDK för C#).
 
 ### <a name="speech-recognition-and-translation"></a>Taligenkänning och översättning
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ea179ff7e4b525e86003faadfb92e090476bd81
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172654"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446383"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typer av program som kan användas i Active Directory B2C
 
@@ -91,10 +91,10 @@ Webb-API:et kan sedan använda token för att verifiera API-anroparens identitet
 Ett webb-API kan ta emot token från många typer av klienter, inklusive webbprogram, fjärrskrivbord och mobilprogram, en sida program, server-deamon och andra webb-API: er. Här är ett exempel på det fullständiga flödet för ett webbprogram som anropar ett webb-API:
 
 1. Webbprogrammet körs en princip och användaren Slutför användarupplevelsen.
-2. Azure AD B2C returnerar ett `access_token` och en auktoriseringskod till webbläsaren.
-3. Webbläsaren inlägg i `access_token` och auktoriseringskod omdirigerings-URI.
-4. Webbservern bekräftar den `access token` och anger en sessions-cookie.
-5. Den `access_token` tillhandahålls till Azure AD B2C med auktoriseringskod programklients-ID och autentiseringsuppgifter.
+2. Azure AD B2C returnerar ett (OpenID Connect) `id_token` och en auktoriseringskod till webbläsaren.
+3. Webbläsaren inlägg i `id_token` och auktoriseringskod omdirigerings-URI.
+4. Webbservern bekräftar den `id_token` och anger en sessions-cookie.
+5. Webbservern frågar Azure AD B2C för en `access_token` genom att förse den med auktoriseringskod, programklients-ID och klientens autentiseringsuppgifter.
 6. Den `access_token` och `refresh_token` returneras till webbservern.
 7. Webb-API anropas med den `access_token` i en auktoriseringsrubrik.
 8. Webb-API: verifierar token.

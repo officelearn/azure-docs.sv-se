@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107828"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267708"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Självstudier: Flytta Azure-resurser till ny resursgrupp eller prenumeration
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Lär dig hur du flyttar en Azure-resurs från en resursgrupp till en annan resursgrupp. Du kan också flytta Azure-resurser från en Azure-prenumeration till en annan Azure-prenumeration. I den här självstudien använder du en Resource Manager-mall för att distribuera två resursgrupper och ett lagringskonto. Du flytta lagringskontot från en resursgrupp till en annan.
 
@@ -37,8 +35,6 @@ Den här självstudien omfattar följande uppgifter:
 > * Rensa resurser.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>Förbered resurserna
 
@@ -98,6 +94,8 @@ Med åtgärden för att verifiera flytt kan du testa ditt flyttscenario utan att
 ## <a name="move-the-resource"></a>Flytta resursen
 
 Lagringskontot är i källresursgruppen (rg1). Kör följande PowerShell-skript för att flytta resursen till målresursgruppen (rg2). Se till att använda samma projektnamn som du använde när du distribuerade resurser.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"

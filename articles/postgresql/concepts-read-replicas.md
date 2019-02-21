@@ -1,139 +1,132 @@
 ---
 title: Skrivskyddade repliker i Azure Database for PostgreSQL
-description: Den här artikeln beskrivs skrivskyddade repliker i Azure Database för PostgreSQL.
+description: Den här artikeln beskrivs Läs replica-funktionen i Azure Database för PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/19/2019
+ms.openlocfilehash: 40b31f166ea97cfce67d3cc386062e32338ffd45
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657883"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455525"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql"></a>Läs repliker i Azure Database för PostgreSQL
+# <a name="read-replicas-in-azure-database-for-postgresql"></a>Skrivskyddade repliker i Azure Database for PostgreSQL
+
+Läs replica-funktionen kan du replikera data från en Azure Database for PostgreSQL-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem kopior på samma Azure-region. Repliker uppdateras asynkront med PostgreSQL-motorn interna replikeringsteknik.
 
 > [!IMPORTANT]
 > Läs replica-funktionen är i offentlig förhandsversion.
 
-Läs replik-funktionen kan du replikera data från en Azure Database for PostgreSQL-server (master) upp till fem skrivskyddade servrar (läsa repliker) inom samma Azure-region. Läs repliker uppdateras asynkront med inbyggda replikeringsteknik för PostgreSQL-motorn.
+Repliker är nya servrar som du hanterar liknar vanliga Azure Database for PostgreSQL-servrar. Var finns replik du faktureras för den etablerade beräkningen i virtuella kärnor och lagring i GB / månad.
 
-Repliker är nya servrar som kan hanteras på liknande sätt som normala fristående Azure Database for PostgreSQL-servrar. För varje skrivskyddad replik faktureras du för den etablerade beräkningen i virtuella kärnor och den etablerade lagringen i GB/månad.
+Lär dig hur du [skapa och hantera repliker](howto-read-replicas-portal.md).
 
-Gå till den [how-to sidan information om hur du skapar och hanterar repliker](howto-read-replicas-portal.md).
-
-## <a name="when-to-use-read-replicas"></a>När du ska använda skrivskyddade repliker
-Läs replica-funktionen är avsett för att förbättra prestanda och skalning för läsintensiva arbetsbelastningar. Skrivskyddade arbetsbelastningar kan exempelvis vara isolerade på replikerna medan skrivning arbetsbelastningar kan dirigeras till huvudservern.
+## <a name="when-to-use-a-read-replica"></a>När du ska använda en skrivskyddad replik
+Läs replica-funktionen hjälper till att förbättra prestanda och skalning för läsintensiva arbetsbelastningar. Läs arbetsbelastningar kan isoleras repliker, medan skrivning arbetsbelastningar kan dirigeras till huvudservern.
 
 Ett vanligt scenario är att ha BI och analytiska arbetsbelastningar använder den skrivskyddade repliken som datakälla för rapportering.
 
-Eftersom repliker är skrivskyddade kan de direkt minska inte behovet av write-kapacitet på huvudmålservern och så den här funktionen inte är riktad mot write-intensiva arbetsbelastningar.
+Eftersom repliker är skrivskyddade, minska inte de direkt behovet av write-kapacitet på huvudmålservern. Den här funktionen är inte riktad mot write-intensiva arbetsbelastningar.
 
-Läs replica-funktionen använder Postgresqls asynkron replikering och så är inte avsedd för synkron replikeringsscenarier. Det blir en mätbara fördröjning mellan huvudservern och repliken. Data på repliken blir konsekvent med data i bakgrunden. Använd denna funktion för arbetsbelastningar som kan hantera den här fördröjningen.
+Läs replica-funktionen använder asynkron replikering för PostgreSQL. Funktionen är inte avsedd för synkron replikeringsscenarier. Det blir en mätbara fördröjning mellan huvudservern och repliken. Data på repliken blir så småningom konsekventa med data i bakgrunden. Använd denna funktion för arbetsbelastningar som kan hantera den här fördröjningen.
 
-## <a name="creating-a-replica"></a>Skapa en replik
-Huvudservern måste ha den **azure.replication_support** inställd på REPLIKEN. Ändra den här parametern kräver en omstart av servern ska börja gälla. (**Azure.replication_support** parametern gäller för generell användning och Minnesoptimerad nivåer).
+## <a name="create-a-replica"></a>Skapa en replik
+Huvudservern måste ha den `azure.replication_support` parameteruppsättning till **REPLIKEN**. När den här parametern har ändrats, krävs en omstart av servern för att ändringen ska börja gälla. (Den `azure.replication_support` parametern gäller för generell användning och Minnesoptimerad nivåer endast).
 
-När du har initierat skapa replica arbetsflöde kan skapas en tom Azure Database for PostgreSQL-server. Den nya servern är fylld med de data som fanns på huvudservern. Den tid det tar för att skapa den nya repliken beror på mängden data på huvudservern och hur lång tid sedan den senaste veckovisa fullständiga säkerhetskopieringen. Det kan röra sig om ett par minuter till några timmar.
+När du börjar skapa replica arbetsflöde, skapas en tom Azure Database for PostgreSQL-server. Den nya servern är fylld med de data som fanns på huvudservern. Tiden för skapandet beror på mängden data på huvudservern och hur lång tid sedan den senaste veckovisa fullständiga säkerhetskopieringen. Tiden kan variera mellan några minuter till flera timmar.
 
-Läs replica-funktionen använder Postgresqls fysiska replikering (inte logiska replikering). Strömning replikering med replikering fack är standardläget för åtgärden. Vid behov, används loggöverföring för att snabba upp processen.
+Läs replica-funktionen använder PostgreSQL fysiska replikering, inte logiska replikering. Strömning replikering med hjälp av replikering fack är standardläget för åtgärden. Om det behövs används loggöverföring för att komma ifatt.
 
 > [!NOTE]
-> Om du inte redan har en avisering uppsättning lagring på dina servrar som vi rekommenderar att du gör detta för att informera dig när en server närmar sig lagringsgränsen, eftersom detta påverkar replikeringen.
+> Om du inte har en avisering uppsättning lagring på dina servrar, rekommenderar vi att du gör det. Aviseringen informerar dig när en server närmar sig lagringsgränsen, vilket påverkar replikeringen.
 
-[Lär dig hur du skapar en skrivskyddad replik i Azure-portalen](howto-read-replicas-portal.md).
+Lär dig hur du [skapar en skrivskyddad replik i Azure-portalen](howto-read-replicas-portal.md).
 
-## <a name="connecting-to-a-replica"></a>Ansluta till en replik
-När du skapar en replik, ärver inte brandväggsregler eller VNet-tjänstslutpunkt för domänens huvudserver. Dessa regler måste konfigureras separat för repliken.
+## <a name="connect-to-a-replica"></a>Ansluta till en replik
+När du skapar en replik, ärver den inte brandväggsregler eller VNet-tjänstslutpunkt för domänens huvudserver. Dessa regler måste konfigureras separat för repliken.
 
-Repliken ärver dess administratörskonto från huvudservern. Alla användarkonton på huvudservern replikeras till de skrivskyddade replikerna. Du kan bara ansluta till en skrivskyddad replik med hjälp av användarkontona som är tillgängliga på huvudservern.
+Repliken ärver administratörskontot som från huvudservern. Alla användarkonton på huvudservern replikeras till de skrivskyddade replikerna. Du kan bara ansluta till en skrivskyddad replik med hjälp av användarkonton som är tillgängliga på huvudservern.
 
-Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användarkonto, precis som på en vanlig Azure-databas för PostgreSQL-server. Exempelvis om serverns namn är myreplica och administratörsanvändarnamnet är myadmin kan du ansluta till den från psql på följande sätt:
+Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användarkonto, precis som på en vanlig Azure-databas för PostgreSQL-server. För en server med namnet **myreplica** med administratörsanvändarnamnet **myadmin**, du kan ansluta till repliken med hjälp av psql:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
-och i Kommandotolken anger du lösenordet för användarkontot.
 
-## <a name="monitoring-replication"></a>Övervakning av replikeringen
-Det finns en **Max Lag över repliker** mått som är tillgängliga i Azure Monitor. Detta mått är tillgängliga på den överordnade servern. Mätvärdet visar fördröjningen i byte mellan huvudservern och mest släpar repliken. 
+Ange lösenordet för användarkontot i Kommandotolken.
 
-Vi ger även en **repliken fördröjning** mått i Azure Monitor. Det här måttet är tillgängligt för repliker endast. 
+## <a name="monitor-replication"></a>Övervakare för replikering
+Azure Database for PostgreSQL får den **Max fördröjning mellan repliker** mått i Azure Monitor. Detta mått är tillgängliga på den överordnade servern. Mätvärdet visar fördröjningen i byte mellan huvudservern och de flesta släpar repliken. 
 
-Måttet beräknas från vyn pg_stat_wal_receiver:
+Azure Database för PostgreSQL innehåller också de **repliken fördröjning** mått i Azure Monitor. Det här måttet är tillgängligt för repliker endast. 
+
+Måttet beräknas från de `pg_stat_wal_receiver` vy:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp())
 ```
-Kom ihåg att repliken fördröjning mått visar tiden sedan senast återupprepas transaktion. Om det finns inga transaktioner som sker i bakgrunden, visar den här tidsförskjutningen i måttet.
 
-Vi rekommenderar att du ställer in en avisering som meddelar dig när repliken fördröjning når ett värde som inte är acceptabel för din arbetsbelastning. 
+Repliken fördröjning måttet visar tiden sedan den senaste uppspelat transaktionen. Om det finns inga transaktioner som inträffar på dina huvudservern, visar den här tidsförskjutningen i måttet.
+
+Ställa in en avisering om när repliken fördröjning når ett värde som inte är acceptabel för din arbetsbelastning. 
 
 Mer information finns i fråga huvudservern direkt för att få replikeringsfördröjning i byte på alla repliker.
-On PG 10:
+
+I PostgreSQL version 10:
+
 ```SQL
 select pg_wal_lsn_diff(pg_current_wal_lsn(), stat.replay_lsn) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
-På PG 9.6 och nedan:
+I PostgreSQL version 9,6 och tidigare:
+
 ```SQL
 select pg_xlog_location_diff(pg_current_xlog_location(), stat.replay_location) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
 > [!NOTE]
-> Om en master eller repliken servern har startats om återspeglas den tid det tar att starta om och sedan komma ifatt i repliken Lag-mått.
+> Om en huvudserver eller Läs repliken har startats om återspeglas den tid det tar att starta om och ta del av i repliken Lag-mått.
 
-## <a name="stopping-replication-to-a-replica"></a>Stoppa replikering till en replik
-Du kan välja att stoppa replikering mellan en och en replik. Detta innebär att repliken för att starta om för att ta bort dess replikeringsinställningar. När replikeringen har stoppats mellan en och en replikserver, blir replikservern en fristående server. Data i den fristående servern är de data som fanns på repliken när kommandot Stoppa replikering har påbörjats. Det här fristående server fånga inte med huvudservern.
+## <a name="stop-replication"></a>Stoppa replikering
+Du kan stoppa replikering mellan en och en replik. Stoppa medför repliken att starta om och ta bort dess replikeringsinställningar. När replikeringen har stoppats mellan en huvudserver och en skrivskyddad replik, blir repliken en fristående server. Data i den fristående servern är de data som fanns på repliken när kommandot Stoppa replikering har startats. Den fristående servern ifatt inte med huvudservern.
 
-Den här servern kan inte göras i en replik igen.
+> [!IMPORTANT]
+> Den fristående servern kan inte göras i en replik igen.
+> Kontrollera att repliken har alla data som du behöver innan du stoppa replikering på en skrivskyddad replik.
 
-Kontrollera att repliken har alla data som du behöver innan du stoppa replikeringen.
-
-Du kan [Lär dig hur du stoppar en replik i dokumentationen för how-to](howto-read-replicas-portal.md).
+Lär dig hur du [Stoppa replikering till en replik](howto-read-replicas-portal.md).
 
 
 ## <a name="considerations"></a>Överväganden
 
-### <a name="preparing-for-replica"></a>Förbereda för replikering
-**Azure.replication_support** måste anges till REPLIKEN på huvudservern innan du kan skapa en replik. Ändra den här parametern kräver en omstart av servern ska börja gälla. Den här parametern gäller för generell användning och Minnesoptimerad nivåer.
+Det här avsnittet sammanfattas överväganden om skrivskyddade replica-funktionen.
 
-### <a name="stopped-replicas"></a>Stoppad repliker
-Om du vill stoppa replikering mellan huvud- och repliken startas repliken för att tillämpa ändringen. Repliken blir sedan en Läs-och server. Därefter kan kan den inte fås till en replik igen.
+### <a name="prerequisites"></a>Förutsättningar
+Innan du skapar en skrivskyddad replik i `azure.replication_support` parametern måste anges till **REPLIKEN** på huvudservern. När den här parametern har ändrats, krävs en omstart av servern för att ändringen ska börja gälla. Den `azure.replication_support` parametern gäller för generell användning och Minnesoptimerad nivåer endast.
 
-### <a name="replicas-are-new-servers"></a>Repliker är nya servrar
-Repliker skapas som ny Azure Database for PostgreSQL-servrar. Befintliga servrar kan inte göras i repliker.
+### <a name="new-replicas"></a>Nya repliker
+En skrivskyddad replik skapas som en ny Azure Database for PostgreSQL-server. En befintlig server kan inte göras i en replik. En skrivskyddad replik kan bara skapas i samma Azure-region som huvudserver. Du kan inte skapa en replik av en annan skrivskyddade replik.
 
-### <a name="replica-server-configuration"></a>Repliken serverkonfiguration
-Replikservrar skapas med hjälp av samma server-konfigurationer som huvudserver, vilket innefattar följande konfigurationer:
-- Prisnivå
-- Compute-generering
-- vCores
-- Storage
-- Kvarhållningsperiod för säkerhetskopiering
-- Redundansalternativ för säkerhetskopiering
-- Motorversion för PostgreSQL
-
-När en replik har skapats, prisnivån (förutom till och från Basic), compute-generering, vCores, lagring och kvarhållningsperiod för säkerhetskopiering kan ändras oberoende från huvudservern.
+### <a name="replica-configuration"></a>Repliken konfiguration
+En replik skapas med hjälp av samma serverkonfiguration som huvudserver. När en replik skapas flera inställningar kan ändras oberoende från huvudservern: compute-generering, vCores, lagring och kvarhållningsperiod för säkerhetskopiering. Prisnivån kan också ändras oberoende av varandra, förutom till eller från Basic-nivån.
 
 > [!IMPORTANT]
-> Innan en master-serverkonfigurationen har uppdaterats till nya värden, bör de replikerna konfiguration uppdateras till samma eller högre värden. Detta säkerställer att repliker är kan hålla jämna steg med ändringar som gjorts i huvuddatabasen.
+> Innan en huvudserver-konfiguration har uppdaterats till nya värden, uppdatera konfigurationen för repliken till samma eller högre värden. Den här åtgärden säkerställer att replikeringen kan hålla jämna steg med ändringar som görs till huvudservern.
 
-Postgres kräver särskilt replik server värdet för parametern max_connections ska vara större än eller lika med värdet i master annars inte kommer att starta replikeringen. Azure Database för PostgreSQL har max_connections värdet beroende på vilken sku. Mer information finns i [gränser doc](concepts-limits.md). 
+PostgreSQL kräver värdet för den `max_connections` parametern på den skrivskyddade repliken ska vara större än eller lika med värdet master, annars repliken inte startar. Azure Database för PostgreSQL, den `max_connections` parametervärdet är baserat på SKU. Mer information finns i [begränsningar i Azure Database for PostgreSQL](concepts-limits.md). 
 
-Försök att göra en uppdatering som bryter mot detta leder till ett fel.
+Om du försöker uppdatera server-värden, men inte följa gränserna, felmeddelande ett.
 
+### <a name="stopped-replicas"></a>Stoppad repliker
+Om du stoppar replikering mellan en huvudserver och en skrivskyddad replik startar om repliken för att tillämpa ändringen. Stoppad repliken blir en fristående server som accepterar både läsningar och skrivningar. Den fristående servern kan inte göras i en replik igen.
 
-### <a name="deleting-the-master"></a>Tar bort huvudservern
-När en huvudserver har tagits bort, blir alla skrivskyddade repliker fristående servrar. Replikerna kommer att startas om för den här ändringen.
-
-### <a name="other"></a>Annat
-- Läs repliker kan bara skapas i samma Azure-region som huvudserver.
-- Det går inte att skapa en replik av en replik.
+### <a name="deleted-master-and-standalone-servers"></a>Borttagna huvud- och fristående servrar
+När en huvudserver har tagits bort, blir alla dess skrivskyddade repliker fristående servrar. Replikerna startas om för den här ändringen.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Hur du skapar och hanterar läsa repliker i Azure portal](howto-read-replicas-portal.md).
+Lär dig hur du [skapa och hantera skrivskyddade repliker i Azure portal](howto-read-replicas-portal.md).

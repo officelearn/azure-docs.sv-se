@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818999"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456511"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhetsbegrepp för program och -kluster i Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller grundläggande begrepp som skyddar dina program i 
 - [Nod-säkerhet](#node-security)
 - [Klusteruppgradering](#cluster-upgrades)
 - [Nätverkssäkerhet](#network-security)
-- Kubernetes-hemligheter
+- [Kubernetes-hemligheter](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Master säkerhet
 
@@ -36,9 +36,9 @@ Som standard Kubernetes API-servern använder en offentlig IP-adress och namnge 
 
 AKS-noder är Azure virtuella datorer som du hanterar och underhåller. Noderna kör en optimerad Ubuntu Linux-distribution med Docker container runtime. När ett AKS-kluster skapas eller skalas upp, distribueras automatiskt noderna med den senaste OS säkerhetsuppdateringar och konfigurationer.
 
-Azure-plattformen används automatiskt OS säkerhetsuppdateringar till noder på basis av varje natt. Om en OS-säkerhetsuppdatering kräver en omstart av värden, utförs inte att starta om automatiskt. Du kan manuellt starta om noderna eller en vanlig metod är att använda [Kured][kured], en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet] [aks-daemonset] och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Omstarter hanteras i klustret med samma [här och tömma processen](#cordon-and-drain) som en uppgradering av klustret.
+Azure-plattformen används automatiskt OS säkerhetsuppdateringar till noder på basis av varje natt. Om en OS-säkerhetsuppdatering kräver en omstart av värden, utförs inte att starta om automatiskt. Du kan manuellt starta om noderna eller en vanlig metod är att använda [Kured][kured], en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet] [ aks-daemonsets] och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Omstarter hanteras i klustret med samma [här och tömma processen](#cordon-and-drain) som en uppgradering av klustret.
 
-Noder distribueras i ett privat virtuellt nätverksundernät, med inga offentliga IP-adresserna som tilldelats. För felsökning och hantering, är SSH aktiverat som standard. Den här SSH-åtkomst är bara tillgänglig i den interna IP-adressen. Azure reglerna för nätverkssäkerhetsgrupper kan användas för att ytterligare begränsa åtkomst för IP-adressintervall till AKS-noder. Tar bort den standard SSH nätverkssäkerhetsgruppregel och inaktivering av SSH-tjänsten på noderna förhindrar utföra underhållsåtgärder Azure-plattformen.
+Noder distribueras i ett privat virtuellt nätverksundernät, med inga offentliga IP-adresserna som tilldelats. För felsökning och hantering, är SSH aktiverat som standard. Den här SSH-åtkomst är bara tillgänglig i den interna IP-adressen.
 
 Noderna använder Azure Managed Disks för att tillhandahålla lagring. För de flesta storlekar på VM-nod är dessa premiumdiskar backas upp av SSD för höga prestanda. De data som lagras på hanterade diskar krypteras automatiskt i vila i Azure-plattformen. För att förbättra redundans, replikeras också på ett säkert sätt dessa diskar i Azure-datacentret.
 
@@ -46,7 +46,7 @@ Kubernetes-miljöer i AKS eller någon annanstans, är för närvarande inte hel
 
 ## <a name="cluster-upgrades"></a>Klusteruppgradering
 
-Säkerhet och efterlevnad, eller att använda de senaste funktionerna finns tillhandahåller Azure verktyg för att dirigera uppgraderingen av ett AKS-kluster och komponenter. Den här uppgraderingen orchestration omfattar både Kubernetes-huvud- och agentdatorer komponenter. Du kan visa en lista över tillgängliga Kubernetes-versioner för AKS-klustret. Du anger en av dessa tillgängliga versioner för att starta uppgraderingsprocessen. Azure och sedan på ett säkert sätt cordons och tömmer noderna AKS och utför uppgraderingen.
+Säkerhet och efterlevnad, eller att använda de senaste funktionerna finns tillhandahåller Azure verktyg för att dirigera uppgraderingen av ett AKS-kluster och komponenter. Den här uppgraderingen orchestration omfattar både Kubernetes-huvud- och agentdatorer komponenter. Du kan visa en [lista över tillgängliga Kubernetes-versioner](supported-kubernetes-versions.md) för AKS-klustret. Du anger en av dessa tillgängliga versioner för att starta uppgraderingsprocessen. Azure och sedan på ett säkert sätt cordons och tömmer noderna AKS och utför uppgraderingen.
 
 ### <a name="cordon-and-drain"></a>Cordon och drain
 
@@ -57,7 +57,7 @@ Under uppgraderingen avspärrade AKS-noder separat från klustret så att nya po
 - Poddar är schemalagda att köras på dem igen.
 - Nästa nod i klustret är avspärrade och tömda med samma process tills alla noder har uppgraderats.
 
-Mer information finns i [uppgraderings- och AKS-kluster][aks-upgrade-cluster].
+Mer information finns i [uppgradera ett AKS-kluster][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 

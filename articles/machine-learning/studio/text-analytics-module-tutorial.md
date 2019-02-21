@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e8e50aa49595addeab3369f74b618c31b7cf1625
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242676"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454386"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Skapa en sentiment analysmodell i Azure Machine Learning Studio
 
-Du kan använda Azure Machine Learning för att skapa och operationalisera modeller för textanalys. Dessa modeller kan hjälpa dig att lösa, exempelvis dokument klassificerings- eller sentiment analysis problem.
+Du kan använda Azure Machine Learning Studio för att skapa och operationalisera modeller för textanalys. Dessa modeller kan hjälpa dig att lösa, exempelvis dokument klassificerings- eller sentiment analysis problem.
 
 I en text analytics experiment skulle du normalt:
 
@@ -66,7 +66,7 @@ Du kan använda funktions-hashning modulen som en annan metod för med hjälp av
 ## <a name="step-3-train-classification-or-regression-model"></a>Steg 3: Träna klassificerings- eller regressionsmodell modell
 Texten har nu tagits omvandlas till funktionen för numeriska kolumner. Datauppsättningen innehåller fortfarande strängkolumner från föregående steg, så vi använder Välj kolumner i datauppsättning så de utesluts.
 
-Sedan använder vi [Tvåklassförhöjt Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) att förutsäga våra mål: granska för hög eller låg poäng. Nu har text analytics problemet omvandlats till en vanlig klassificeringsproblem. Du kan använda verktyg som finns tillgängliga i Azure Machine Learning för att förbättra modellen. Du kan till exempel experimentera med olika klassificerare att ta reda på hur korrekta resultat som de ger eller använda finjustering justering för att förbättra noggrannheten.
+Sedan använder vi [Tvåklassförhöjt Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) att förutsäga våra mål: granska för hög eller låg poäng. Nu har text analytics problemet omvandlats till en vanlig klassificeringsproblem. Du kan använda verktygen i Azure Machine Learning Studio för att förbättra modellen. Du kan till exempel experimentera med olika klassificerare att ta reda på hur korrekta resultat som de ger eller använda finjustering justering för att förbättra noggrannheten.
 
 ![Träna upp och poäng](./media/text-analytics-module-tutorial/scoring-text.png)
 

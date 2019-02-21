@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7cd6af1dc6b947abd91c9d25a4b102e52da9d24d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819118"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456732"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalningsalternativ för program i Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Den här artikeln beskrivs grundläggande begrepp som hjälper dig att skala pro
 - [Skala manuellt](#manually-scale-pods-or-nodes)
 - [Vågrät pod autoskalningen (HPA)](#horizontal-pod-autoscaler)
 - [Klustret autoskalningen](#cluster-autoscaler)
-- Azure Container-instans (ACI)-integrering med AKS
+- [Azure Container-instans (ACI)-integrering med AKS](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>Skala poddar eller noder manuellt
 

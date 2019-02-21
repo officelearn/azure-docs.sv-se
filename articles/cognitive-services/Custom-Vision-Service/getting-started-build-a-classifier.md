@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cd6f533bcd32a307facc781c3b2207a337fc8a34
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309173"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445465"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Hur du skapar en klassificerare med anpassad visuellt innehåll
 
@@ -23,26 +23,28 @@ Om du vill använda Custom Vision Service för klassificering av avbildning mås
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En giltig [microsoftkonto](https://account.microsoft.com/account) eller ett Azure Active Directory (AAD)-konto (”arbets- eller skolkonto konto”).
-
-    > [!IMPORTANT] 
-    > Inloggning för AAD-användare från [Microsoft nationella moln](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) stöds inte för närvarande.
+- En giltig Azure-prenumeration. [Skapa ett konto](https://azure.microsoft.com/free/) utan kostnad.
 - En uppsättning avbildningar som kan lära din klassificerare. Nedan finns tips om hur du väljer bilder.
-- Du kan också: En Azure-prenumeration som är associerade med ditt Microsoft-konto eller AAD-konto. Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. Utan någon Azure-prenumeration kommer du bara att kunna skapa två __begränsad utvärderingsversion__ projekt.
+
+
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Skapa anpassade Vision resurser i Azure Portal
+Om du vill använda Custom Vision Service kommer du behöva skapa Custom Vision-utbildning och förutsägelser resurser i den i den [Azure-portalen](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Detta skapar både för träning och förutsägelser resurs. 
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-I din webbläsare, navigerar du till den [Custom Vision-webbsida](https://customvision.ai) och välj __logga in__.
+I din webbläsare, navigerar du till den [Custom Vision-webbsida](https://customvision.ai) och välj __logga in__. Logga in med samma konto som du använde för att logga in på Azure Portal.
 
 ![Bild av sidan logga in](./media/browser-home.png)
 
-Om du har ett Azure-konto kan du uppmanas att skapa Custom Vision Service Inlärnings- och Förutsägelsetransaktioner resurser i den [Azure-portalen](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) när projektet skapades.
 
 1. För att skapa ditt första projekt, Välj **nytt projekt**. Den **Skapa nytt projekt** dialogrutan visas.
 
     ![Dialogrutan Nytt projekt har fält för namn, beskrivning och domäner.](./media/getting-started-build-a-classifier/new-project.png)
 
-1. Ange ett namn och en beskrivning för projektet. Välj sedan en resursgrupp. Om ditt inloggade konto är associerad med ett Azure-konto, visas resursgrupp listrutan alla dina Azure-resursgrupper som innehåller en resurs för Custom Vision Service. I båda fallen kan du också välja __begränsad utvärderingsversion__ från den här listrutan.
+1. Ange ett namn och en beskrivning för projektet. Välj sedan en resursgrupp. Om ditt inloggade konto är associerad med ett Azure-konto, visas resursgrupp listrutan alla dina Azure-resursgrupper som innehåller en resurs för Custom Vision Service. 
+
+> [!NOTE]
+> Om det finns ingen resursgrupp, bekräftar du att du är inloggad på [customvision.ai](https://customvision.ai) med samma konto som du använde för att logga in på [Azure-portalen](https://portal.azure.com/). Bekräfta också att du har valt samma ”Directory” i Custom Vision-portalen som katalog i Azure-portalen var Custom Vision-resurserna finns. I båda platserna, kan du välja din katalog från nedrullningsbara meny i det övre högra hörnet på skärmen. 
 
 1. Välj __klassificering__ under __projekttyper__. Sedan, under __Klassificeringstyper__, väljer du antingen **Multilabel** eller **Multiclass**, beroende på ditt användningsområde. Multilabel klassificering används valfritt antal taggarna för en avbildning (noll eller fler), medan multiklass-baserad klassificering sorterar bilder i enkel kategorier (varje bild som du skickar sorteras i taggen mest sannolika). Du kommer att kunna ändra klassificeringstypen senare om du vill.
 

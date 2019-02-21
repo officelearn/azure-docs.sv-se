@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998095"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456528"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ Kluster-master innehåller följande Kubernetes kärnkomponenter:
 
 Ger en enda klient kluster-master för AKS med en dedikerad API-server, Scheduler, osv. Du definierar antalet och storleken på noderna och Azure-plattformen konfigurerar säker kommunikation mellan kluster huvud- och noder. Interaktion med kluster sker via Kubernetes APIs som `kubectl` eller Kubernetes-instrumentpanelen.
 
-Den här bakgrunden hanterat kluster innebär att du inte behöver konfigurera komponenter som en högtillgänglig *etcd* store, men det innebär också att du inte åtkomst till klustret master direkt. Uppgradering till Kubernetes orkestreras via Azure CLI eller Azure-portalen som uppgraderar klustret master och sedan på noderna. Du kan granska master loggarna kluster via Azure Log Analytics för att felsöka eventuella problem.
+Den här bakgrunden hanterat kluster innebär att du inte behöver konfigurera komponenter som en högtillgänglig *etcd* store, men det innebär också att du inte åtkomst till klustret master direkt. Uppgradering till Kubernetes orkestreras via Azure CLI eller Azure-portalen som uppgraderar klustret master och sedan på noderna. Du kan granska master loggarna kluster via Azure Monitor-loggar för att felsöka eventuella problem.
 
 Om du vill konfigurera kluster-master i ett visst sätt eller behöver direkt åtkomst till dem. Du kan distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine].
 
@@ -70,13 +70,13 @@ Azure VM-storlek för noderna definierar hur många processorer, hur mycket minn
 
 I AKS baserat VM-avbildning för noderna i klustret för närvarande på Ubuntu Linux. När du skapar ett AKS-kluster eller skala upp antalet noder, skapar det begärda antalet virtuella datorer i Azure-plattformen och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra.
 
-Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine]. Den överordnade `aks-engine` släpper funktioner och ange konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda Windows-behållare eller en behållare runtime än Docker, du kan använda `aks-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
+Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine]. Den överordnade `aks-engine` släpper funktioner och ger konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda Windows-behållare eller en behållare runtime än Docker, du kan använda `aks-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
 
 ### <a name="resource-reservations"></a>Resurs-reservationer
 
 Du behöver inte hantera Kubernetes kärnkomponenter på varje nod som den *kubelet*, *kube-proxy*, och *kube-dns*, men de använder några av de tillgängliga beräkningsresurs. Om du vill behålla noden prestandan och funktionaliteten är följande beräkningsresurser reserveras på varje nod:
 
-- **CPU** – 60ms
+- **CPU** - 60 ms
 - **Minne** – 20% upp till 4 GiB
 
 Reservationerna innebär att mängden tillgängliga CPU och minne för dina program kan verka mindre än noden själva innehåller. Om det finns resursbegränsningar på grund av antalet program som körs, reservationerna Kontrollera CPU och minne är fortfarande tillgänglig för Kubernetes kärnkomponenter. Resurs-reservationer kan inte ändras.

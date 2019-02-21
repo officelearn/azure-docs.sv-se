@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: f57f6bf93fce2526bdc478558551616ba1fa3c4c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4f474fd6ac2fa6a4f44aacf0eacb85a92fdf1de9
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496031"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456477"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Är dina data klara för datavetenskap?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Datavetenskap för nybörjare-serien
@@ -100,7 +100,7 @@ När du lägger till mer data bilden blir tydligare och du kan fatta mer detalje
 
 Med data som är relevant, ansluten, korrekt och tillräckligt, du har alla komponenter krävs för att göra vissa datavetenskap med hög kvalitet.
 
-Se till att Kolla in andra fyra videor i *datavetenskap för nybörjare* från Microsoft Azure Machine Learning.
+Se till att Kolla in andra fyra videor i *datavetenskap för nybörjare* från Microsoft Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Prova en första dataexperiment med Machine Learning Studio](create-experiment.md)

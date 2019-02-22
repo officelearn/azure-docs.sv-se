@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f0b2e1afdc42d8aaa0ab8d3af76f51fb6ded24e0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bacfb5fed4d72a7be2239ba97a68f15766b3ff59
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857774"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650453"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Kunskapsbas livscykel i QnA Maker
 QnA Maker lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor. 
@@ -27,9 +27,15 @@ QnA Maker lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck e
 Slutpunkt för QnA Maker knowledge base (KB) innehåller en bästa matchning svaret på en användarfråga baserat på innehållet i KB. Det är en engångsåtgärd för att skapa en innehållsdatabasen frågor, svar och associerade metadata för att skapa en kunskapsbas. En kunskapsbas kan skapas med vår högkvalitativa befintliga innehåll som sidor med vanliga frågor och svar, produkthandböcker eller strukturerade Q-A-par. Lär dig hur du [skapa en kunskapsbas](../How-To/create-knowledge-base.md).
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Testa och uppdatera kunskapsbasen
-Kunskapsbasen är klart för testning när det fylls i med innehåll, redigeringsmässigt eller via automatisk extrahering. Testning kan göras via den **Test** panelen genom att ange vanliga användarfrågor om och kontrollera att svaren som returneras är som förväntat och med tillräckligt med förtroendepoäng. Du kan lägga till alternativa frågor för att åtgärda resultat för låga förtroende. Du kan också lägga till nya svar när en fråga returnerar ”ingen matchning hittades i KB” Standard svarstid. Den här tät loop av test-uppdatering fortsätter tills du är nöjd med resultaten. Lär dig hur du [testa kunskapsbasen](../How-To/test-knowledge-base.md).
 
-För stora KB-artiklar, kan testning automatiseras via generateAnswer API: er. 
+Kunskapsbasen är klart för testning när det fylls i med innehåll, redigeringsmässigt eller via automatisk extrahering. Interaktiv testning kan göras i QnA Maker-portalen via den **Test** panelen genom att ange vanliga användarfrågor om och verifiera att svaren som returneras med rätt svar och tillräckligt med förtroendepoäng. 
+
+* **Åtgärda resultat för låga förtroende**: lägga till alternativa frågor. 
+* **När en fråga felaktigt returnerar den [Standardsvar](confidence-score.md#change-default-answer)**: lägga till nya svar på rätt frågan. 
+
+Den här tät loop av test-uppdatering fortsätter tills du är nöjd med resultaten. Lär dig hur du [testa kunskapsbasen](../How-To/test-knowledge-base.md).
+
+För stora KB-artiklar, Använd automatiska tester med den [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) och `isTest=true` frågesträngparametern vilka frågor i `test` kunskapsbas i stället för publicerade kunskapsbasen. 
 
 ## <a name="publish-the-knowledge-base"></a>Publicera kunskapsbasen
 När du är klar testar kunskapsbasen kan du publicera den. Publicera push-meddelanden den senaste versionen av testade kunskapsbasen till en dedikerad Azure Search index som representerar den **publicerade** knowledge base. Den skapar även en slutpunkt som kan anropas i ditt program eller en chattrobot.

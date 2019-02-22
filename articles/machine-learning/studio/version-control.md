@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 10/27/2016
-ms.openlocfilehash: 26e469076e16f57300cf3e385620a723ddf51a4c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 1b57fefad726f8fb21f23fa9eef9e71643a3f51b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510739"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588406"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Livscykelhantering för program i Azure Machine Learning Studio
 Azure Machine Learning Studio är ett verktyg för utveckling av machine learning-experiment som operationaliserat i Azure-molnplattformen. Det sammanfogas som Visual Studio IDE och skalbar molntjänst i en enda plattform. Du kan införliva standardmetoder Application Lifecycle Management (ALM) från versionshantering olika tillgångar för automatisk körning och distribution i Azure Machine Learning Studio. Den här artikeln beskrivs några av alternativen och metoder.
@@ -42,7 +42,7 @@ Körningshistorik ögonblicksbilder behålla en oföränderligt version av exper
 JSON-filen är en textrepresentation av experimentdiagram, vilket kan innebära en referens till tillgångar på arbetsytan, till exempel en datauppsättning eller en tränad modell. Den innehåller inte en serialiserade version av tillgången. Om du försöker importera JSON-dokumentet tillbaka till arbetsytan måste refererade tillgångar redan finnas med samma tillgång ID: N som refereras till i experimentet. Annars kan du komma åt importerade experimentet.
 
 ## <a name="versioning-trained-model"></a>Versionshantering tränade modellen
-En tränad modell i Azure Machine Learning är serialiserat till ett format som kallas en iLearner-fil (`.iLearner`), och lagras i Azure Blob storage-konto som är associerade med arbetsytan. Ett sätt att hämta en kopia av den iLearner-fil är via omtränings-API. [Den här artikeln](retrain-models-programmatically.md) förklarar hur du omtränings-API: et. De övergripande stegen:
+En tränad modell i Azure Machine Learning Studio serialiseras till ett format som kallas en iLearner-fil (`.iLearner`), och lagras i Azure Blob storage-konto som är associerade med arbetsytan. Ett sätt att hämta en kopia av den iLearner-fil är via omtränings-API. [Den här artikeln](retrain-models-programmatically.md) förklarar hur du omtränings-API: et. De övergripande stegen:
 
 1. Ställ in din träningsexperiment.
 2. Lägg till en web service-utdataporten träningsmodellmodulen eller den modul som ger den tränade modellen, till exempel finjustera modell finjustering eller skapa R-modellen.
@@ -57,7 +57,7 @@ När du har den iLearner-fil som innehåller den tränade modellen kan kan du an
 Den sparade iLearner-fil kan sedan användas för bedömning via distribuerade webbtjänster.
 
 ## <a name="versioning-web-service"></a>Webbtjänst för versionshantering
-Du kan distribuera två typer av webbtjänster från ett Azure Machine Learning-experiment. Klassisk webbtjänst är direkt kopplade till experimentet samt arbetsytan. Den nya webbtjänsten använder Azure Resource Manager-ramverk och det inte längre används tillsammans med det ursprungliga experimentet eller på arbetsytan.
+Du kan distribuera två typer av tjänster från en Azure Machine Learning Studio experimentera. Klassisk webbtjänst är direkt kopplade till experimentet samt arbetsytan. Den nya webbtjänsten använder Azure Resource Manager-ramverk och det inte längre används tillsammans med det ursprungliga experimentet eller på arbetsytan.
 
 ### <a name="classic-web-service"></a>Klassisk webbtjänst
 Du kan dra nytta av web service-slutpunkt-konstruktion till version en klassisk webbtjänst. Här är ett typiskt flöde:
@@ -79,7 +79,7 @@ Om du skapar en ny Azure Resource Manager-baserad webbtjänst, är endpoint-kons
 När du har exporterat WSD fil- och kontroll över den version distribuera du även WSD som en ny webbtjänst i en annan web service-plan i en annan Azure-region. Se bara till att du anger rätt konto lagringskonfigurationen samt nya web service-plan-ID. Om du vill korrigera i olika iLearner filer du ändrar WSD-filen och uppdatera platsreferensen av den tränade modellen och distribuera den som en ny webbtjänst.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Körning av experiment och distribuera automatiskt
-Det är en viktig aspekt av ALM ska kunna automatisera körning och processen för distribution av programmet. I Azure Machine Learning kan du göra detta med hjälp av den [PowerShell-modulen](https://aka.ms/amlps). Här är ett exempel på åtgärder för slutpunkt till slutpunkt som är relevanta för en standard ALM automatisk körning/distributionsprocessen genom att använda den [Azure Machine Learning Studio PowerShell-modulen](https://aka.ms/amlps). Varje steg är länkad till en eller flera PowerShell-kommandon som du kan använda för att utföra steget.
+Det är en viktig aspekt av ALM ska kunna automatisera körning och processen för distribution av programmet. I Azure Machine Learning Studio, kan du göra detta med hjälp av den [PowerShell-modulen](https://aka.ms/amlps). Här är ett exempel på åtgärder för slutpunkt till slutpunkt som är relevanta för en standard ALM automatisk körning/distributionsprocessen genom att använda den [Azure Machine Learning Studio PowerShell-modulen](https://aka.ms/amlps). Varje steg är länkad till en eller flera PowerShell-kommandon som du kan använda för att utföra steget.
 
 1. [Överföra en datauppsättning](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Kopiera ett träningsexperiment till arbetsytan från en [arbetsytan](https://github.com/hning86/azuremlps#copy-amlexperiment) eller från [galleriet](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), eller [importera](https://github.com/hning86/azuremlps#import-amlexperimentgraph) en [exporteras](https://github.com/hning86/azuremlps#export-amlexperimentgraph) experiment från lokal disk.

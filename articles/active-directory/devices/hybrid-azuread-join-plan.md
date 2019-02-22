@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4d2e3ad4015df74ea3adb98eae4d98e30f2948ce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234110"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649194"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen hybrid Azure Active Directory join
 
@@ -92,7 +92,7 @@ Som ett första steg för planering, bör du granska din miljö och Bestäm om d
 
 Du kan inte använda en hybrid Azure AD-anslutning om miljön består av en enda skog som synkroniseras identitetsdata till mer än en Azure AD-klient.
 
-Om du lita på systemförberedelseverktyget (Sysprep), se till att skapa avbildningar från en installation av Windows som inte har konfigurerats för hybrid Azure AD-anslutning.
+Om du lita på systemförberedelseverktyget (Sysprep), se till att avbildningar som skapats från en installation av Windows 10-1803 eller tidigare inte har konfigurerats för hybrid Azure AD-anslutning.
 
 Om du lita på en virtuell dator (VM)-ögonblicksbild för att skapa ytterligare virtuella datorer, kontrollera att du använder en VM-ögonblicksbild som inte har konfigurerats för hybrid Azure AD-anslutning.
 
@@ -116,6 +116,7 @@ Om din Windows 10-domänanslutna enheter är redan [Azure AD-registrerad](https:
  - Alla befintliga Azure AD-registrerad tillstånd skulle tas bort automatiskt när enheten är Hybrid Azure AD-anslutna. 
  - Du kan förhindra att dina domänansluten enhet som Azure AD-registrerad genom att lägga till den här registernyckeln - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, ”BlockAADWorkplaceJoin” = DWORD: 00000001
 
+FIPS-kompatibel TPM: er stöds inte för Hybrid Azure AD-anslutning. Om dina enheter har FIPS-kompatibel TPM: er, måste du inaktivera dem innan du fortsätter med Hybrid Azure AD-anslutning.
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Läs om hur du styr hybrid Azure AD-anslutning av dina enheter
 

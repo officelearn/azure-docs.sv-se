@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a817e3681f6b94b1b9ad7d5a2d2a1369935ee064
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252225"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651784"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
 En åtgärdsgrupp är en samling av aviseringsinställningarna som definieras av ägaren av en Azure-prenumeration. Azure Monitor och Service Health-aviseringar använda åtgärdsgrupper för att meddela användare att en avisering har utlösts. Olika typer av aviseringar kan använda samma åtgärdsgruppen eller annan åtgärdsgrupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärdsgrupper i en prenumeration.
 
-När en åtgärd har konfigurerats för att meddela en person via e-post eller SMS personen får en bekräftelse som anger han / hon har lagts till i åtgärdsgruppen.
+Du kan konfigurera en åtgärd för att meddela en person med e-post eller SMS, de får en bekräftelse som anger de har lagts till i åtgärdsgruppen.
 
 Den här artikeln visar hur du skapar och hanterar åtgärdsgrupper i Azure-portalen.
 
 Varje åtgärd består av följande egenskaper:
 
 * **Namn**: En unik identifierare i åtgärdsgruppen.  
-* **Åtgärdstyp**: Åtgärden som ska utföras. Exempel är att skicka en röst-anrop, SMS, e-postmeddelandet, eller utlösa olika typer av automatiska åtgärder. Se typer senare i den här artikeln. 
-* **Information om**: Motsvarande information som kan variera efter *åtgärdstyp*. 
+* **Åtgärdstyp**: Utföra åtgärden. Exempel är att skicka en röst-anrop, SMS, e-postmeddelandet, eller utlösa olika typer av automatiska åtgärder. Se typer senare i den här artikeln. 
+* **Information om**: Den motsvarande information som varierar beroende på *åtgärdstyp*. 
 
 Information om hur du använder Azure Resource Manager-mallar för att konfigurera åtgärdsgrupper finns i [åtgärd grupp Resource Manager-mallar](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Skapa en grupp med hjälp av Azure-portalen ##
-1. I den [portal](https://portal.azure.com)väljer **övervakaren**. Den **övervakaren** bladet konsoliderar alla dina övervakningsinställningar och -data i en vy.
+1. I den [portal](https://portal.azure.com)väljer **övervakaren**. Den **övervakaren** fönstret konsoliderar alla dina övervakningsinställningar och -data i en vy.
 
     ![”Övervakningstjänsten”](./media/action-groups/home-monitor.png)
 1. Välj **aviseringar** därefter **hantera åtgärdsgrupper**.
@@ -49,7 +49,7 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
 1. Välj den **resursgrupp** i åtgärdsgruppen har sparats.
 
-1. Definiera en lista med åtgärder genom att tillhandahålla varje åtgärd:
+1. Definiera en lista med åtgärder. Ange följande för varje åtgärd:
 
     a. **Namn**: Ange en unik identifierare för den här åtgärden.
 
@@ -60,51 +60,53 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 1. Välj **OK** skapa åtgärdsgruppen.
 
 ## <a name="manage-your-action-groups"></a>Hantera din åtgärdsgrupper ##
-När du har skapat en åtgärdsgrupp den syns i den **åtgärdsgrupper** delen av den **övervakaren** bladet. Välj åtgärdsgrupp som du vill hantera att:
+När du har skapat en åtgärdsgrupp den syns i den **åtgärdsgrupper** delen av den **övervakaren** fönstret. Välj åtgärdsgrupp som du vill hantera att:
 
 * Lägga till, redigera eller ta bort åtgärder.
 * Ta bort åtgärdsgruppen.
 
 ## <a name="action-specific-information"></a>Information om specifika
-**Azure-app Push** – du kan ha upp till 10 Azure åtgärder i en åtgärdsgrupp. Azure-app-åtgärden stöder endast ServiceHealth aviseringar just nu. En annan tidpunkt som aviseringen kommer att ignoreras. Se [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+> [!NOTE]
+> Se [prenumerationstjänsten för övervakning](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) för numeriska gränser för vart och ett av objekten nedan.  
+
+**Azure-app Push** – du kan ha ett begränsat antal åtgärder för Azure i en åtgärdsgrupp. För tillfället stöder Azure-app-åtgärden endast ServiceHealth aviseringar. En annan tidpunkt som aviseringen kommer att ignoreras. Se [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **E-post** -e-postmeddelanden ska skickas från följande e-postadresser. Kontrollera att din e-filtrering har konfigurerats på rätt sätt
    - azure-noreply@microsoft.com
    - azureemail-noreply@microsoft.com
    - alerts-noreply@mail.windowsazure.com
 
-Du kan ha upp till 1 000 e poståtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel
+Du kan ha ett begränsat antal e poståtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel
 
-**ITSM** – du kan ha upp till 10 ITSM-åtgärder i en åtgärd grupp ITSM-åtgärden kräver en ITSM-anslutningen. Lär dig hur du skapar en [ITSM-anslutningen](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** – du kan ha ett begränsat antal begränsat antal ITSM-åtgärder i en åtgärdsgrupp. ITSM-åtgärden kräver en ITSM-anslutningen. Lär dig hur du skapar en [ITSM-anslutningen](../../azure-monitor/platform/itsmc-overview.md).
 
-**Logic App** – du kan ha upp till 10 Logic App-åtgärder i en åtgärdsgrupp
+**Logic App** – du kan ha ett begränsat antal Logic App-åtgärder i en åtgärdsgrupp.
 
-**Funktionen App** -funktionstangenterna för Funktionsappar som har konfigurerats som åtgärder läses via API-funktioner, som för närvarande kräver v2 funktionsappar att konfigurera appinställningen ”AzureWebJobsSecretStorageType” till ”filer”, se [ Ändringar för hantering av nycklar i Functions V2]( https://aka.ms/funcsecrets) för mer information.
+**Funktionen App** -funktionen nycklar för Funktionsappar som har konfigurerats som åtgärder läses via API-funktioner, som för närvarande kräver v2 funktionsappar att konfigurera appinställningen ”AzureWebJobsSecretStorageType” till ”filer”. Mer information finns i [ändras till hantering av nycklar i Functions V2]( https://aka.ms/funcsecrets).
 
-**Runbook** -du kan ha upp till 10 Runbook-åtgärder i en åtgärd grupp referera till den [Azure-prenumerationstjänsten](../../azure-subscription-service-limits.md) för gränser för Runbook-nyttolaster
+**Runbook** – du kan ha ett begränsat antal Runbook-åtgärder i en åtgärdsgrupp. Referera till den [Azure-prenumerationstjänsten](../../azure-subscription-service-limits.md) för gränser för Runbook-nyttolaster.
 
-**SMS** – du kan ha upp till 10 SMS-åtgärder i en grupp finns åtgärd i den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel se den [SMS Avisera beteende](../../azure-monitor/platform/alerts-sms-behavior.md) artikeln
+**SMS** – du kan ha ett begränsat antal SMS åtgärder i en åtgärdsgrupp. Se även de [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) och [SMS Avisera beteende](../../azure-monitor/platform/alerts-sms-behavior.md) ytterligare viktig information. 
 
-**Röst** – du kan ha upp till 10 Voice-åtgärder i en åtgärdsgrupp</dd>
-Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel</dd>
+**Röst** – du kan ha ett begränsat antal röst åtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikeln.
 
-**Webhook** – du kan ha upp till 10 Webhook-åtgärder i en åtgärdsgrupp.
-Logik för omprövning - tidsgränsen för svar är 10 sekunder. Webhook-anrop kommer att göras upp till 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504 eller HTTP-slutpunkt svarar inte. Det första återförsöket sker efter 10 sekunder. Andra återförsök sker efter 100 sekunder. Efter två fel ska slutpunkten inte anropas i 30 minuter från alla åtgärdsgruppen.
+**Webhook** – du kan ha ett begränsat antal Webhook-åtgärder i en åtgärdsgrupp. Webhooks görs med hjälp av följande regler. Webhook-anrop görs ett nytt högst 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504 eller HTTP-slutpunkt svarar inte. Det första återförsöket görs efter 10 sekunder. Andra återförsök sker efter 100 sekunder. Efter två fel anropar inga åtgärdsgrupp slutpunkten i 30 minuter. 
 
 Käll-IP-adressintervall
-    - 13.72.19.232
-    - 13.106.57.181
-    - 13.106.54.3
-    - 13.106.54.19
-    - 13.106.38.142
-    - 13.106.38.148
-    - 13.106.57.196
-    - 52.244.68.117
+ - 13.72.19.232
+ - 13.106.57.181
+ - 13.106.54.3
+ - 13.106.54.19
+ - 13.106.38.142
+ - 13.106.38.148
+ - 13.106.57.196
+ - 52.244.68.117
 
-Att ta emot uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du konfigurerar en [hälsoavisering för tjänst](./../../azure-monitor/platform/service-notifications.md) som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
+För att ta emot konfigurerar uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du en [Tjänstehälsa för avisering, som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
 
 
 ## <a name="next-steps"></a>Nästa steg ##
+
 * Läs mer om [SMS Avisera beteende](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Få en [förståelse för avisering webhook för aktivitetslogg](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Läs mer om [ITSM-anslutningsprogram](../../azure-monitor/platform/itsmc-overview.md)

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.author: ramamill
-ms.openlocfilehash: 6319ef908b5b040bf61285451448c08bb3960fe2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d8b009d47a7fd0057c71ff3fc120a4443fc262d7
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215018"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593666"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitetstjänsten för VMware-datorer och fysiska servrar
 
@@ -50,7 +50,7 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 Om datorer som du vill replikera har aktiva antivirusprogram som körs, kontrollerar du exkluderar installationsmappen Mobility service från ett virusskyddsprogram åtgärder (*C:\ProgramData\ASR\agent*). Detta garanterar att replikeringen fungerar som förväntat.
 
-## <a name="update-the-mobility-service"></a>Uppdatera mobilitetstjänsten
+## <a name="update-mobility-service-from-azure-portal"></a>Uppdateringen av mobilitetstjänsten från Azure-portalen
 
 1. Innan du börjar måste du kontrollera att konfigurationsservern och skala ut processervrar någon huvudmålservern-server som är en del av distributionen uppdateras innan du uppdaterar Mobilitetstjänsten på skyddade datorer.
 2. Öppna i portalen valvet > **replikerade objekt**.
@@ -63,6 +63,14 @@ Om datorer som du vill replikera har aktiva antivirusprogram som körs, kontroll
      ![Replikerade objekt VM-lista](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. Uppdateringen av Mobilitetstjänsten jobbet startar för var och en av de valda datorerna.
+
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Uppdateringen av mobilitetstjänsten via powershell-skript på Windows server
+
+Använd följande skript för att uppgradera mobilitetstjänsten på en server via power shell-cmdlet
+
+```azurepowershell
+Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+```
 
 ## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>Uppdatera det konto som används för push-installation av mobilitetstjänsten
 

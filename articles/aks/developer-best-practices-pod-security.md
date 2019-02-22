@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559084"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651968"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metodtips för pod säkerhet i Azure Kubernetes Service (AKS)
 
@@ -70,7 +70,7 @@ Arbeta med din kluster-operator för att avgöra vilka säkerhetsinställningar 
 
 Undvik att fasta eller delade autentiseringsuppgifter används för att begränsa risken för autentiseringsuppgifter som exponeras i programkoden. Autentiseringsuppgifter eller nycklar bör inte inkluderas direkt i din kod. Om autentiseringsuppgifterna exponeras måste programmet uppdateras och omdistribueras. En bättre metod är att ge poddar sina egna identitets- och sätt att autentisera sig eller automatiskt hämta autentiseringsuppgifter från ett digitala valv.
 
-AKS innehåller två sätt att automatiskt autentisera poddar eller begäran om autentiseringsuppgifter och nycklar från en digital vault:
+Följande [associerade AKS projekt med öppen källkod] [ aks-associated-projects] kan du automatiskt autentisera poddar eller begäran om autentiseringsuppgifter och nycklar från en digital vault:
 
 * Hanterade identiteter för Azure-resurser, och
 * Azure Key Vault FlexVol-drivrutin
@@ -83,7 +83,7 @@ En hanterad identitet för Azure-resurser kan en pod autentisera sig mot en tjä
 
 Med en hanterad identitet behöver inte din programkod inkludera autentiseringsuppgifter för att få åtkomst till en tjänst, till exempel Azure Storage. Eftersom varje pod autentiserar med sin egen identitet, så kan du granska och granska åtkomst. Om ditt program ansluter med andra Azure-tjänster måste använda hanterade identiteter till gränsen credential återanvändning och risken för exponering av.
 
-Läs mer om pod identiteter, [konfigurera ett AKS-kluster om du vill använda pod hanterade identiteter] [ aad-pod-identity] och [tilldela och använda pod hanterade identiteter i din kod] [ aad-pod-identity].
+Läs mer om pod identiteter [konfigurera ett AKS-kluster om du vill använda pod hanterade identiteter och med dina program][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>Använda Azure Key Vault med FlexVol
 
@@ -107,6 +107,7 @@ Den här artikeln fokuserar på hur du skyddar dina poddar. Om du vill implement
 [aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6f36000eb5a17e58d1450a064897dd9caef89bad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 424aa7038fecba7a11c1ccaa07053cf2e1606835
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859359"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651144"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kunskapsbas begränsningar och gränser
 Omfattande lista över gränserna över QnA Maker.
@@ -71,6 +71,6 @@ Dessa representerar gränser för varje uppdateringsåtgärd; det vill säga att
 
 Se när och hur du ändrar tjänstnivåer:
 
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): när du behöver ha fler frågor och svar i kunskapsbasen, utanför din aktuella nivån uppgradera din prisnivå QnA Maker-tjänsten.
-* [Sök](how-to/upgrade-qnamaker-service.md#upgrade-app-service) – när din kunskapsbas behöver hantera flera begäranden från din klientapp måste du uppgradera din app service-prisnivå.
-* [Apptjänst](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): när du planerar att ha många kunskapsbaser uppgradera prisnivån Azure Search-tjänsten.
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): När du behöver ha flera källfiler eller större dokument i kunskapsbasen, utanför din aktuella nivån, uppgradera din prisnivå QnA Maker-tjänsten.
+* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): När din kunskapsbas behöver hantera flera begäranden från klientappen, uppgradera din app service-prisnivå.
+* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): När du planerar att ha många kunskapsbaser uppgradera prisnivån Azure Search-tjänsten.

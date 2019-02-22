@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5618d9cc14819a15a0396b0dd4fcbf1d0319bbbf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269067"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651166"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -86,6 +86,12 @@ För äldre Windows OS-versioner som är en lokal Active Directory-domänanslutn
 -   För äldre Windows OS-versioner som är en lokal Azure Directory domänanslutna skapar automatisk registrering en ny enhetspost med samma enhetsnamn för varje domänanvändare som loggar in på enheten. 
 
 -   En domänansluten dator i Azure AD som har rensats, installeras om och återkopplas med samma namn som visas som en annan post med samma enhetsnamn.
+
+---
+
+**F: Stöder registrering av Windows 10-enheten i Azure AD TPM: er i FIPS-läge?**
+
+**A:** Nej, för närvarande enhetsregistrering i Windows 10 för alla enhetstillstånd - Hybrid Azure AD-anslutning, Azure AD-anslutning och Azure AD-registrerad - stöder inte TPM: er i FIPS-läge. Om du vill ansluta till eller registrera dig till Azure AD, måste FIPS-läge stängas av för TPM: er på dessa enheter
 
 ---
 

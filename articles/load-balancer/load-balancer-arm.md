@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235045"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593819"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Med stöd för Azure Resource Manager med Azure-belastningsutjämnare
 
@@ -30,9 +30,9 @@ Med Resource Manager kan Azure Load Balancer innehåller följande underordnade 
 
 * Frontend IP-konfiguration – en belastningsutjämnare kan innehålla en eller flera frontend IP-adresser, även känt som en virtuell IP-adresser (VIP). Dessa IP-adresser fungerar som ingresser för trafiken.
 * Backend adresspoolen – det här är IP-adresser som är associerade med det virtuella datorn Standardnätverksgränssnittet kort (nätverkskortet) som belastningen distribueras.
-* Belastningsutjämningsregler – en regel för egenskapen mappar en given frontend-IP och portkombination till en uppsättning med backend-IP-adresser och portkombinationer. En enskild lastbalanserare kan ha flera regler för lastbalansering. Varje regel är en kombination av en frontend-IP och port och backend-IP och port som associeras med virtuella datorer.
+* Belastningsutjämningsregler – en regel för egenskapen mappar en given frontend-IP och portkombination till en uppsättning med backend-IP-adresser och portkombinationer. En enskild lastbalanserare kan ha flera regler för lastbalansering. Varje regel är en kombination av en frontend-IP och port och backend-IP och port som är associerade med virtuella datorer.
 * Avsökningar – avsökningar kan du hålla koll på hälsotillståndet för VM-instanser. Om en hälsoavsökning misslyckas, tas den Virtuella datorinstansen automatiskt bort från roteringen.
-* Ingående NAT-regler – NAT-regler som definierar den inkommande trafik som flödar genom frontend-IP och distribueras till backend-IP.
+* Ingående NAT-regler – NAT-regler definierar den inkommande trafik som flödar genom frontend-IP och distribueras till backend-IP-adress.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
@@ -58,7 +58,7 @@ Exempel på mallar:
 
 Kom igång med Azure Resource Manager-cmdletar, kommandoradsverktyg och REST API: er
 
-* [Azure Networking cmdletar](https://docs.microsoft.com/powershell/module/azurerm.network#networking) kan användas för att skapa en belastningsutjämnare.
+* [Azure Networking cmdletar](https://docs.microsoft.com/powershell/module/az.network#networking) kan användas för att skapa en belastningsutjämnare.
 * [Så här skapar du en belastningsutjämnare med hjälp av Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [Med hjälp av Azure CLI med Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 * [Belastningsutjämnare REST API: er](https://msdn.microsoft.com/library/azure/mt163651.aspx)

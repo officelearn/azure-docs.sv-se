@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 3d2f07a2a5f660a6f22256fa528c2a308fde81ad
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 20c103c19de203d7598484b8f1d160256cb253e9
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435370"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648871"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostisk loggning för en grupp
 
@@ -40,8 +40,8 @@ Du kan använda den [Azure-portalen](#azure-portal), [PowerShell](#powershell), 
 2. Välj **alla tjänster**, Skriv *nätverkssäkerhetsgrupper*. När **Nätverkssäkerhetsgrupper** visas i sökresultaten, markerar du den.
 3. Välj NSG: N som du vill aktivera loggning för.
 4. Under **övervakning**väljer **diagnostikloggar**, och välj sedan **slå på diagnostik**, enligt följande bild:
- 
-    ![Slå på diagnostik](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
+
+   ![Slå på diagnostik](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
 
 5. Under **diagnostikinställningar**anger, eller Välj följande information och välj sedan **spara**:
 
@@ -54,32 +54,34 @@ Du kan använda den [Azure-portalen](#azure-portal), [PowerShell](#powershell), 
 
 ### <a name="powershell"></a>PowerShell
 
-Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste den *AzureRM* PowerShell-modulen version 6.1.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` på datorn, hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också behöva köra `Login-AzureRmAccount` att logga in på Azure med ett konto som har den [behörighet](virtual-network-network-interface.md#permissions)].
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du vill aktivera Diagnostisk loggning, behöver du Id för en befintlig Nätverkssäkerhetsgrupp. Om du inte har en befintlig Nätverkssäkerhetsgrupp kan du skapa en med [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
+Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste du Azure PowerShell-modulen, version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` på datorn, hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också behöva köra `Connect-AzAccount` att logga in på Azure med ett konto som har den [behörighet](virtual-network-network-interface.md#permissions).
 
-Hämtar nätverkssäkerhetsgruppen som du vill aktivera Diagnostisk loggning för med [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup). Till exempel att hämta en NSG med namnet *myNsg* som finns i en resursgrupp med namnet *myResourceGroup*, anger du följande kommando:
+Om du vill aktivera Diagnostisk loggning, behöver du Id för en befintlig Nätverkssäkerhetsgrupp. Om du inte har en befintlig Nätverkssäkerhetsgrupp kan du skapa en med [New AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+
+Hämtar nätverkssäkerhetsgruppen som du vill aktivera Diagnostisk loggning för med [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Till exempel att hämta en NSG med namnet *myNsg* som finns i en resursgrupp med namnet *myResourceGroup*, anger du följande kommando:
 
 ```azurepowershell-interactive
-$Nsg=Get-AzureRmNetworkSecurityGroup `
+$Nsg=Get-AzNetworkSecurityGroup `
   -Name myNsg `
   -ResourceGroupName myResourceGroup
 ```
 
-Du kan skriva diagnostikloggar för tre typer av mål. Mer information finns i [logga mål](#log-destinations). I den här artikeln loggarna skickas till den *Log Analytics* mål, som exempel. Hämta en befintlig Log Analytics-arbetsyta med [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Till exempel att hämta en befintlig arbetsyta med namnet *myWorkspace* i en resursgrupp med namnet *myWorkspaces*, anger du följande kommando:
+Du kan skriva diagnostikloggar för tre typer av mål. Mer information finns i [logga mål](#log-destinations). I den här artikeln loggarna skickas till den *Log Analytics* mål, som exempel. Hämta en befintlig Log Analytics-arbetsyta med [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Till exempel att hämta en befintlig arbetsyta med namnet *myWorkspace* i en resursgrupp med namnet *myWorkspaces*, anger du följande kommando:
 
 ```azurepowershell-interactive
-$Oms=Get-AzureRmOperationalInsightsWorkspace `
+$Oms=Get-AzOperationalInsightsWorkspace `
   -ResourceGroupName myWorkspaces `
   -Name myWorkspace
 ```
 
-Om du inte har en befintlig arbetsyta kan du skapa en med [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
+Om du inte har en befintlig arbetsyta kan du skapa en med [New AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Det finns två typer av loggning som du kan aktivera loggar för. Mer information finns i [logga kategorier](#log-categories). Aktivera Diagnostisk loggning för NSG med [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting). I följande exempel loggar händelse- och räknaren kategoridata till arbetsytan för en NSG med ID: N för NSG och arbetsytan som du hämtade tidigare:
+Det finns två typer av loggning som du kan aktivera loggar för. Mer information finns i [logga kategorier](#log-categories). Aktivera Diagnostisk loggning för NSG med [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting). I följande exempel loggar händelse- och räknaren kategoridata till arbetsytan för en NSG med ID: N för NSG och arbetsytan som du hämtade tidigare:
 
 ```azurepowershell-interactive
-Set-AzureRmDiagnosticSetting `
+Set-AzDiagnosticSetting `
   -ResourceId $Nsg.Id `
   -WorkspaceId $Oms.ResourceId `
   -Enabled $true
@@ -105,7 +107,7 @@ nsgId=$(az network nsg show \
   --output tsv)
 ```
 
-Du kan skriva diagnostikloggar för tre typer av mål. Mer information finns i [logga mål](#log-destinations). I den här artikeln loggarna skickas till den *Log Analytics* mål, som exempel. Mer information finns i [logga kategorier](#log-categories). 
+Du kan skriva diagnostikloggar för tre typer av mål. Mer information finns i [logga mål](#log-destinations). I den här artikeln loggarna skickas till den *Log Analytics* mål, som exempel. Mer information finns i [logga kategorier](#log-categories).
 
 Aktivera Diagnostisk loggning för NSG med [az monitor diagnostic-settings skapa](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). I följande exempel loggar händelse- och räknaren kategoridata till en befintlig arbetsyta med namnet *myWorkspace*, som finns i en resursgrupp med namnet *myWorkspaces*, och ID för NSG: N som du hämtade tidigare:
 
@@ -118,7 +120,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Om du inte har en befintlig arbetsyta kan du skapa en med den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Det finns två typer av loggning som du kan aktivera loggar för. 
+Om du inte har en befintlig arbetsyta kan du skapa en med den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Det finns två typer av loggning som du kan aktivera loggar för. 
 
 Ta bort den kategori som du inte vill logga data för i det föregående kommandot om du bara vill logga data i en kategori eller den andra. Om du vill logga in till en annan [mål](#log-destinations) än en Log Analytics-arbetsyta, använder du parametrarna för en Azure [lagringskonto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -199,14 +201,14 @@ Läs hur du visar diagnostiklogg data i [översikt över Azure-diagnostikloggar]
 - **Log Analytics**: Du kan använda den [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) lösning för bättre information. Lösningen innehåller visualiseringar för NSG-regler som tillåter eller nekar trafik per MAC-adressen för nätverksgränssnittet i en virtuell dator.
 - **Azure Storage-konto**: Data skrivs till en pt1h.JSON. Du hittar den:
-    - Händelseloggen på följande sökväg: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
-    - Logg för räknaren i följande sökväg: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Händelseloggen på följande sökväg: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Logg för räknaren i följande sökväg: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [aktivitetsloggning](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), tidigare känd som gransknings- eller driftloggar. Aktivitetsloggning är aktiverat som standard för NSG: er som skapats via antingen Azure-distributionsmodellen. För att avgöra vilka åtgärder har slutförts på NSG: er i aktivitetsloggen, Sök efter poster som innehåller följande resurstyper:
-    - Microsoft.ClassicNetwork/networkSecurityGroups
-    - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
-    - Microsoft.Network/networkSecurityGroups
-    - Microsoft.Network/networkSecurityGroups/securityRules
+  - Microsoft.ClassicNetwork/networkSecurityGroups
+  - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+  - Microsoft.Network/networkSecurityGroups
+  - Microsoft.Network/networkSecurityGroups/securityRules
 - Läs hur du loggar in diagnostisk information, om du vill inkludera IP-källadressen för varje flöde i [NSG-flödesloggar](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

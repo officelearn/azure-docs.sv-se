@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: aschhab
-ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1cdd0a3bd7e0d647e2f67d4c92b5a2167d5d21ad
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849965"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585227"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Hur du använder Service Bus-ämnen och prenumerationer med Java
 
@@ -46,46 +46,9 @@ Till skillnad från Service Bus-köer, där varje meddelande bearbetas av en ens
 
 Service Bus-ämnen och prenumerationer kan du skala för att bearbeta ett stort antal meddelanden över ett stort antal användare och program.
 
-## <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Ett namnområde för Service Bus-meddelanden innehåller en unik omfattningscontainer som refereras till av dess [fullständigt kvalificerade domännamn](https://wikipedia.org/wiki/Fully_qualified_domain_name), där du skapar en eller fler köer, ämnen och prenumerationer. I följande exempel skapas ett namnområde för Service Bus-meddelanden i en ny eller befintlig [resursgrupp](/azure/azure-resource-manager/resource-group-portal):
-
-1. I det vänstra navigeringsfältet i portalen, klickar du på **+ Skapa en resurs**, därefter klickar du på **Enterprise-integration** och sedan på **Service Bus**.
-2. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-3. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Standard eller Premium).
-4. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
-5. I den **resursgrupp** fältet, Välj en befintlig resursgrupp där namnområdet finns eller skapa en ny.      
-6. I **Plats** väljer du land eller region där namnområdet ska finnas.
-7. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
-
-  ![namnområde](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
-
-Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig regel för signatur för delad åtkomst (SAS) med ett kopplat par med primära och sekundära nycklar som ger fullständig kontroll över alla namnområdets aspekter. Gör så här om du vill kopiera den ursprungliga regeln:
-
-1. Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
-2. I namnområdesfönstret, klickar du på **Principer för delad åtkomst**.
-3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
-4. I **principen: I fönstret RootManageSharedAccessKey** klickar du på knappen **Kopiera** bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
-
-    ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
-5. Upprepa föregående steg, kopiera och klistra in värdet för **Primärnyckeln** till en tillfällig plats för senare användning.
-
-## <a name="create-a-topic"></a>Skapa ett ämne 
-Du skapar ett Service Bus-ämne genom att ange det namnområde som du vill skapa det under. Följande exempel visar hur du skapar ett ämne på portalen:
-
-1. I det vänstra navigeringsfönstret i portalen klickar du på **Service Bus** (om du inte ser **Service Bus** klickar du på **Alla tjänster**).
-2. Klicka på det namnområde där du vill skapa ämnet.
-3. I namnområdesfönstret, klickar du på **Ämnen** och därefter går du till fönstret **Köer** och klickar på **+ Ämnen**.
-4. Ange **BasicTopic** för ämnet **namn**, och lämna de andra värdena med standardvärdena.
-5. Klicka på **Skapa** längst ned i fönstret.
-
-
-## <a name="create-subscriptions-for-the-topic"></a>Skapa prenumerationer för ämnet
-1. Välj den **avsnittet** du skapade.
-2. Klicka på **+ prenumeration**, ange prenumerationens namn **Subscription1**, och lämna andra värdena med standardvärdena.
-3. Upprepa föregående steg två gånger mer, skapa prenumerationer med namnet **Subscription2** och **Subscription3**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet att använda Service Bus

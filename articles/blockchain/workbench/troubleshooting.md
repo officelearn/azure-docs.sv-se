@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: df0e3e0b8d5ce8b0e35ac7a30df94b3c6a1c2f8b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329743"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648753"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench felsökning
 
@@ -24,7 +24,7 @@ Ett PowerShell-skript kan hjälpa till med felsökning utvecklare eller stöd f�
 * Blockchain-nätverket, till exempel Ethereum
 * Blockchain Workbench mikrotjänster
 * Application Insights
-* Azure Monitoring (Log Analytics)
+* Azure Monitoring (Azure Monitor-loggarna)
 
 Du kan använda informationen för att avgöra nästa steg och fastställa orsaken till problem.
 
@@ -52,9 +52,9 @@ Skriptet godkänner följande parametrar:
 | ResourceGroupName | Namnet på Azure-resursgrupp där Blockchain Workbench har distribuerats. | Ja |
 | OutputDirectory | Sökväg till skapa utdata. ZIP-filen. Om den inte anges som standard den aktuella katalogen. | Nej |
 | LookbackHours | Antal timmar som ska användas för att hämta telemetri. Standardvärdet är 24 timmar. Högsta tillåtna värde är 90 timmar | Nej |
-| OmsSubscriptionId | Prenumerations-ID där Log Analytics har distribuerats. Skicka bara den här parametern om logganalys för blockchain-nätverk som distribueras utanför Blockchain Workbench resursgrupp.| Nej |
-| OmsResourceGroup |Den resursgrupp där Log Analytics har distribuerats. Skicka bara den här parametern om logganalys för blockchain-nätverk som distribueras utanför Blockchain Workbench resursgrupp.| Nej |
-| OmsWorkspaceName | Namnet på Log Analytics-arbetsytan. Endast skicka den här parametern om logganalys för blockchain-nätverk som distribueras utanför Blockchain Workbench resursgrupp | Nej |
+| OmsSubscriptionId | Prenumerations-ID var Azure Monitor loggar distribueras. Skicka bara den här parametern om Azure Monitor-loggar för nätverket blockchain distribueras utanför Blockchain Workbench resursgrupp.| Nej |
+| OmsResourceGroup |Resursgruppen där Azure Monitor-loggar har distribuerats. Skicka bara den här parametern om Azure Monitor-loggar för nätverket blockchain distribueras utanför Blockchain Workbench resursgrupp.| Nej |
+| OmsWorkspaceName | Namnet på Log Analytics-arbetsytan. Endast skicka den här parametern om Azure Monitor-loggar för nätverket blockchain distribueras utanför Blockchain Workbench resursgrupp | Nej |
 
 ## <a name="what-is-collected"></a>Vad samlas in?
 

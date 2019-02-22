@@ -13,25 +13,25 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981299"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649092"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Självstudie: skapa och testa en prenumeration
 
-Den här självstudien visar hur du skapar en prenumeration som innehåller ett erbjudande och sedan testa den. För att testet du loggar in på användarportalen för Azure Stack som en molnadministratör prenumererar på erbjudandet och sedan skapa en virtuell dator.
+Den här självstudiekursen visar hur du skapar en prenumeration som innehåller ett erbjudande och sedan testa den. För att testet du loggar in på användarportalen för Azure Stack som en molnadministratör prenumererar på erbjudandet och sedan skapa en virtuell dator.
 
 > [!TIP]
-> För mer en mer avancerade utvärderingsversionen, kan du [skapa en prenumeration för en viss användare](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) och logga sedan in som användaren i användarportalen. 
+> För mer en mer avancerade utvärderingsversionen, kan du [skapa en prenumeration för en viss användare](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) och logga sedan in som användaren i användarportalen.
 
-Den här självstudien visar hur du prenumererar på ett Azure Stack-erbjudande.
+Den här självstudiekursen visar hur du prenumererar på ett Azure Stack-erbjudande.
 
 Vad du lära dig:
 
@@ -60,10 +60,10 @@ För att du prenumererar på ett erbjudande som en användare kan logga du in p�
 
 ## <a name="test-the-offer"></a>Testa erbjudandet
 
-Loggat in på användarportalen, kan du testa erbjudandet genom att etablera en virtuell dator med de nya funktionerna i prenumerationen. 
+Loggat in på användarportalen, kan du testa erbjudandet genom att etablera en virtuell dator med de nya funktionerna i prenumerationen.
 
 > [!NOTE]
-> Det här testet kräver att en Windows Server 2016 Datacenter VM först har lagts till i Azure Stack marketplace. 
+> Det här testet kräver att en Windows Server 2016 Datacenter VM först har lagts till i Azure Stack marketplace.
 
 1. Logga in på användarportalen.
 
@@ -84,7 +84,6 @@ Loggat in på användarportalen, kan du testa erbjudandet genom att etablera en 
 > [!NOTE]
 > Distributionen av virtuella datorer tar några minuter att slutföra.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 Vad du lärt dig i den här självstudien:
@@ -92,7 +91,6 @@ Vad du lärt dig i den här självstudien:
 > [!div class="checklist"]
 > * Prenumerera på ett erbjudande 
 > * Testa erbjudandet
-
 
 > [!div class="nextstepaction"]
 > [Skapa en virtuell dator från en community-mall](azure-stack-create-vm-template.md)

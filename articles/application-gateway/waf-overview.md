@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 014353bafa31b1c4e924cba8335dbd30a48c2d11
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454267"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651438"
 ---
 # <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
 
@@ -130,6 +130,16 @@ Application Gateway WAF kan konfigureras för att köras i följande två lägen
 
 * **Identifieringsläge** – när du konfigurerade för körning i identifieringsläge, Application Gateway WAF övervakas och loggas alla hotvarningar i en loggfil. Loggningsdiagnostik för Application Gateway bör aktiveras i avsnittet **Diagnostik**. Du måste också säkerställa att WAF-loggen har valts och är aktiverad. Vid körning i identifieringsläge blockerar brandväggen för webbaserade program inte inkommande begäranden.
 * **Förhindringsläge** – När Application Gateway har konfigurerats för att köras i förhindringsläge blockerar den aktivt intrång och attacker som identifieras enligt reglerna för den. Attackeraren erhåller undantag 403 för obehörig åtkomst och anslutningen avbryts. Förhindringsläget fortsätter logga sådana attacker i WAF-loggarna.
+
+### <a name="anomaly-scoring-mode"></a>Avvikelseidentifiering bedömning läge 
+ 
+OWASP har två lägen för att bestämma om du blockerar trafik eller inte. Det finns en traditionell läge och en bedömning av Avvikelseidentifiering läge. I traditionella läge anses alla regler som matchar trafiken oberoende av om andra regler är samma för. När det är lättare att förstå, är en av begränsningarna i det här läget bristen på information om hur många regler är utlöst av en specifik begäran. Därför Avvikelseidentifiering bedömning-läget introducerades, som har blivit standard med OWASP 3.x. 
+
+I läget för Avvikelseidentifiering bedömning innebär det faktum att en av de regler som beskrivs i föregående avsnitt matchar på trafik direkt inte att trafiken kommer att blockeras, förutsatt att den är i förhindringsläge. Regler har en viss allvarlighetsgrad (kritiskt, fel, varning och meddelande) och beroende på den allvarlighetsgraden de ökar ett numeriskt värde för den begäran som kallas poäng för Avvikelseidentifiering. Till exempel en matchande regel för varning bidrar värdet 3, men en matchande regel för kritisk bidrar värdet 5. 
+
+Det finns ett tröskelvärde för Avvikelsepoäng där trafik inte ignoreras, gränsen är inställd på 5. Det innebär att, en matchande kritiska regel är tillräckligt för att en begäran i förhindringsläge blockerar i Azure WAF (eftersom kritiska regeln ökar avvikelsepoäng med 5, enligt ovan). Men en matchande regel med en nivå av varning kommer endast ökning avvikelsen poäng med 3. Eftersom 3 är fortfarande lägre än tröskelvärdet 5, blockeras ingen trafik, även om WAF är i förhindringsläge. 
+
+Observera att meddelandet loggas när en WAF-regler matchar trafik innehåller fältet action_s som ”blockerad”, men som inte nödvändigtvis att trafiken verkligen har blockerats. En avvikelsepoäng på 5 eller högre krävs för att blockera trafik.  
 
 ### <a name="application-gateway-waf-reports"></a>WAF-övervakning
 

@@ -16,20 +16,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2bdd3cd05f78503962461abfcc85320c25350e69
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980609"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593139"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till Azure Desired State Configuration-tilläggshanterare
 
 Azure VM-agenten och dess associerade tillägg är en del av Microsoft Azure-infrastrukturtjänster. VM-tillägg är programkomponenter som utökar funktionerna för virtuell dator och förenkla olika VM-hanteringsåtgärder.
 
-Primärt användningsfall för tillägget Azure Desired State Configuration (DSC) är ska kunna starta en virtuell dator till den [Azure Automation DSC-tjänsten](../../automation/automation-dsc-overview.md). Start av en virtuell dator innehåller [fördelar](/powershell/dsc/metaconfig#pull-service) som omfattar kontinuerlig hantering av VM-konfiguration och integrering med andra operativa verktyg, till exempel Azure-övervakning.
+Primärt användningsfall för tillägget Azure Desired State Configuration (DSC) är ska kunna starta en virtuell dator till den [Azure Automation tillstånd Configuration (DSC) tjänsten](../../automation/automation-dsc-overview.md).
+Tjänsten tillhandahåller [fördelar](/powershell/dsc/metaconfig#pull-service) som omfattar kontinuerlig hantering av VM-konfiguration och integrering med andra operativa verktyg, till exempel Azure-övervakning.
+Använda tillägget för att registrera Virtuella datorer till tjänsten ger en flexibel lösning som även fungerar mellan Azure-prenumerationer.
 
-Du kan använda DSC-tillägget oberoende av Automation DSC-tjänsten. Detta innebär dock att en enda åtgärd som uppstår under distributionen. Inga pågående rapportering eller konfigurationshantering är tillgänglig, än lokalt på den virtuella datorn.
+Du kan använda DSC-tillägget oberoende av Automation DSC-tjänsten.
+Detta kommer dock endast skicka en konfiguration till den virtuella datorn.
+Inga pågående reporting är tillgängligt, annat än lokalt på den virtuella datorn.
 
 Den här artikeln innehåller information om båda scenarierna: med hjälp av DSC-tillägget för Automation-onboarding och med hjälp av DSC-tillägget som ett verktyg för att tilldela konfigurationer för virtuella datorer med hjälp av Azure SDK.
 
@@ -120,6 +124,34 @@ $storageName = 'demostorage'
 Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
 Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+```
+
+## <a name="azure-cli-deployment"></a>Azure CLI-distribution
+
+Azure CLI kan användas för att distribuera DSC-tillägget till en befintlig virtuell dator.
+
+För en virtuell dator som kör Windows:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name Microsoft.Powershell.DSC \
+  --publisher Microsoft.Powershell \
+  --version 2.77 --protected-settings '{}' \
+  --settings '{}'
+```
+
+För en virtuell mchine som kör Linux:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name DSCForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --version 2.7 --protected-settings '{}' \
+  --settings '{}'
 ```
 
 ## <a name="azure-portal-functionality"></a>Azure portal-funktioner

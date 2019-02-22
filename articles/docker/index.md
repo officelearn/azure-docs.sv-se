@@ -11,12 +11,6 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: fa2cce2314b3df0d9d32d9d8d6ede5a70520a7d4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647260"
 ---
 <div class="content">
    <h1>Docker på Azure</h1>   
@@ -28,7 +22,7 @@ Docker är en populär containerhanterings- och avbildningsplattform som gör at
     </div>
 <h2>Snabbstarter på 5 minuter</h2>
 <p>Lär dig hur du distribuerar Docker på Azure:</p>
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Distribuera Docker i en snabbstartsmall för Ubuntu</a><br/>
+<a href="https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/">Distribuera Docker i en snabbstartsmall för Ubuntu</a><br/>
 <h2>Steg för steg-självstudier</h2>
 <p>Lär dig hur du använder Docker i ditt program och som en del av din CI/CD-pipeline:</p>
 <ol>

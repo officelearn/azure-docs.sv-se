@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 26b083069380d7bf107cd3be54cb2e4786789e11
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407715"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593871"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC-tillägg
 
@@ -33,11 +33,11 @@ PowerShell DSC-tillägg för Windows är publicerat och stöds av Microsoft. Til
 
 DSC-tillägget har stöd för följande operativsystem
 
-Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1
+Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-DSC-tillägget för Windows kräver att den virtuella måldatorn är ansluten till internet. 
+DSC-tillägget för Windows kräver att den virtuella måldatorn ska kunna kommunicera med Azure och platsen för konfigurationspaketet (.zip-fil) om den är lagrad på en plats utanför Azure. 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -47,12 +47,12 @@ Följande JSON visar schemat för inställningsavsnittet av DSC-tillägget i en 
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-10-01",
   "location": "<location>",
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.73",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
         "wmfVersion": "latest",
@@ -100,10 +100,10 @@ Följande JSON visar schemat för inställningsavsnittet av DSC-tillägget i en 
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2018-10-01 | datum |
 | utgivare | Microsoft.Powershell.DSC | sträng |
 | typ | DSC | sträng |
-| typeHandlerVersion | 2,73 | int |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Egenskap inställningsvärden
 
@@ -111,7 +111,7 @@ Följande JSON visar schemat för inställningsavsnittet av DSC-tillägget i en 
 | ---- | ---- | ---- |
 | settings.wmfVersion | sträng | Anger vilken version av Windows Management Framework som ska installeras på den virtuella datorn. Den här egenskapen: senaste installerar den allra senaste versionen av WMF. Endast aktuella möjliga värden för den här egenskapen är ”4.0', '5.0” och ”senaste”. Dessa möjliga värden är föremål för uppdateringar. Standardvärdet är ”senaste”. |
 | settings.configuration.url | sträng | Anger den URL: en plats där du kan hämta DSC-konfiguration zip-fil. Om den URL som kräver en SAS-token för åtkomst och måste du ange egenskapen protectedSettings.configurationUrlSasToken till värdet för din SAS-token. Den här egenskapen krävs om settings.configuration.script och/eller settings.configuration.function har definierats.
-| Settings.Configuration.Script | sträng | Anger namnet på det skript som innehåller definitionen av DSC-konfiguration. Det här skriptet måste vara i rotmappen i zip-filen som hämtas från den URL som anges av egenskapen configuration.url. Den här egenskapen krävs om settings.configuration.url och/eller settings.configuration.script har definierats.
+| settings.configuration.script | sträng | Anger namnet på det skript som innehåller definitionen av DSC-konfiguration. Det här skriptet måste vara i rotmappen i zip-filen som hämtas från den URL som anges av egenskapen configuration.url. Den här egenskapen krävs om settings.configuration.url och/eller settings.configuration.script har definierats.
 | settings.configuration.function | sträng | Anger namnet på din DSC-konfiguration. Konfigurationen med namnet måste finnas i skriptet som definieras av configuration.script. Den här egenskapen krävs om settings.configuration.url och/eller settings.configuration.function har definierats.
 | settings.configurationArguments | Samling | Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen kommer inte krypteras.
 | settings.configurationData.url | sträng | Anger den URL som du vill ladda ned konfigurationsdatafilen (.pds1) från att använda som indata för DSC-konfiguration. Om den URL som kräver en SAS-token för åtkomst och måste du ange egenskapen protectedSettings.configurationDataUrlSasToken till värdet för din SAS-token.
@@ -130,26 +130,9 @@ Följande JSON visar schemat för inställningsavsnittet av DSC-tillägget i en 
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver konfiguration efter distribution. En Resource Manager-mall som innehåller VM-tillägg för Log Analytics-agenten finns på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
-
-JSON-konfiguration för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resursnamn och typ. 
-
-När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn. När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en referens till den överordnade virtuella datorn och typen återspeglar den kapslade konfigurationen.  
-
-
-## <a name="azure-cli-deployment"></a>Azure CLI-distribution
-
-Azure CLI kan användas för att distribuera VM-tillägg för Log Analytics-agenten till en befintlig virtuell dator. Ersätt nyckel för Log Analytics och Log Analytics-ID med de från Log Analytics-arbetsytan. 
-
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
-  --publisher Microsoft.Powershell \
-  --version 2.73 --protected-settings '{}' \
-  --settings '{}'
-```
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar.
+Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver konfiguration efter distribution.
+En Resource Manager-mall som innehåller DSC-tillägget för Windows finns på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: d4464f6188efb479f21a23bf936a8222061d9987
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244145"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593411"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurera portar med hög tillgänglighet för en intern belastningsutjämnare
 
@@ -38,9 +38,9 @@ Bilden visar följande konfiguration för distribution till exempel i den här a
 
 ![Exempel på distribution portar med hög tillgänglighet](./media/load-balancer-configure-ha-ports/haports.png)
 
-
-
 ## <a name="configure-high-availability-ports"></a>Konfigurera portar med hög tillgänglighet
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Konfigurera portar med hög tillgänglighet genom att ställa in en intern belastningsutjämnare med nva: erna i backend-poolen. Konfigurera en motsvarande hälsotillstånd avsökningen belastningsutjämningskonfigurationen att identifiera NVA hälso- och belastningsutjämningsregel med portar med hög tillgänglighet. Den allmänna belastningsutjämningen konfigurationen beskrivs i [börjar](load-balancer-get-started-ilb-arm-portal.md). Den här artikeln visar hur portar med hög tillgänglighet.
 
@@ -51,7 +51,6 @@ Konfigurationen innebär i stort sett frontend-porten och backend-Portvärdet ti
 Om du vill konfigurera portar med hög tillgänglighet med hjälp av Azure portal, Välj den **HA Ports** markerar du kryssrutan. När du väljer fylls den relaterade port och protokoll-konfigurationen i automatiskt. 
 
 ![Konfiguration för portar med hög tillgänglighet via Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
-
 
 ### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Konfigurera en portar med hög tillgänglighet regel belastningsutjämning via Resource Manager-mall
 
@@ -91,7 +90,7 @@ Du kan konfigurera portar med hög tillgänglighet med hjälp av API-version 201
 Använd följande kommando för att skapa belastningsutjämningsregel för portar med hög tillgänglighet när du skapar den interna belastningsutjämnaren med PowerShell:
 
 ```powershell
-lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
+lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Konfigurera en belastningsutjämningsregel för portar med hög tillgänglighet med Azure CLI

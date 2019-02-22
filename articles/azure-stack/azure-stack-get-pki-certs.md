@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 602517f13b762f5dd7a13e652a5e8bf5de56e403
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9d358c021f795172e7ced0ba2a2f309a0a0dab6e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245641"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649735"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack-certifikat signering begäran generation
 
@@ -27,48 +27,49 @@ Du kan använda verktyget Azure Stack-beredskap för installation för att skapa
 
 Du kan använda verktyget Azure Stack-beredskap för installation (AzsReadinessChecker) för att begära följande certifikat:
 
- - **Standard certifikatförfrågningar** enligt [generera PKI-certifikat för Azure Stack-distribution](azure-stack-get-pki-certs.md).
- - **Platform-as-a-Service**  
-    Du kan begära platform as a service (PaaS) namn för certifikat som anges i [certifikatkrav för Azure Stack Public Key Infrastructure - certifikat för valfritt PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
+- **Standard certifikatförfrågningar** enligt [generera PKI-certifikat för Azure Stack-distribution](azure-stack-get-pki-certs.md).
+- **Platform as a Service**: Du kan begära platform as a service (PaaS) namn för certifikat som anges i [certifikatkrav för Azure Stack Public Key Infrastructure - certifikat för valfritt PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Datorn måste uppfylla följande krav innan du genererar CSR(s) för PKI-certifikat för distribution av Azure Stack:
 
- - Microsoft Azure Stack-beredskap för installation
- - Certifikatattribut:
-    - Regionnamn
-    - Externa fullständigt kvalificerade domännamnet (FQDN)
-    - Subjekt
- - Windows 10 eller Windows Server 2016
- 
+- Microsoft Azure Stack-beredskap för installation
+- Certifikatattribut:
+  - Regionnamn
+  - Externa fullständigt kvalificerade domännamnet (FQDN)
+  - Subjekt
+- Windows 10 eller Windows Server 2016
+
   > [!NOTE]  
   > När du tar emot certifikat från din certifikatutfärdare tillbaka stegen i [förbereda Azure Stack-PKI-certifikat](azure-stack-prepare-pki-certs.md) måste slutföras på samma system!
 
 ## <a name="generate-certificate-signing-requests"></a>Generera begäranden om Certifikatsignering
 
-Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat: 
+Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat:
 
-1.  Installera AzsReadinessChecker från en PowerShell-kommandotolk (5.1 eller senare) genom att köra följande cmdlet:
+1. Installera AzsReadinessChecker från en PowerShell-kommandotolk (5.1 eller senare) genom att köra följande cmdlet:
 
     ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2.  Deklarera de **ämne** som en sorterad ordlista. Exempel: 
+2. Deklarera de **ämne** som en sorterad ordlista. Exempel:
 
     ```PowerShell  
-    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
     ```
+
     > [!note]  
     > Om ett eget namn (CN) anges detta kommer att skrivas över av certifikatförfrågan första DNS-namn.
 
-3.  Deklarera en utdatakatalog som redan finns. Exempel:
+3. Deklarera en utdatakatalog som redan finns. Exempel:
 
     ```PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
-4.  Deklarera ID-system
+
+4. Deklarera ID-system
 
     Azure Active Directory
 
@@ -107,12 +108,12 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat:
     ```
 
     Ange växeln om du vill inkludera PaaS-tjänster ```-IncludePaaS```
-    
+
 8. Granska utdata:
 
     ```PowerShell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
-    
+
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
     oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
     nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com*dn2=*.adminhosting.east.azurestack.contoso.com@dns=*.hosting.east.azurestack.contoso.com
@@ -123,7 +124,7 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat:
     New-AzsCertificateSigningRequest Completed
     ```
 
-9.  Skicka den **. BEG** fil som skapats på din CA (intern eller offentlig).  Utdatakatalogen av **New-AzsCertificateSigningRequest** innehåller CSR(s) krävs för att skicka till en certifikatutfärdare.  Katalogen innehåller också, referens, en underordnad katalog som innehåller INF-fil som används vid skapande av certifikat-begäran. Se till att din CA genererar certifikat med hjälp av din begäran som skapats och som uppfyller de [PKI-kraven för Azure Stack](azure-stack-pki-certs.md).
+9. Skicka den **. BEG** fil som skapats på din CA (intern eller offentlig).  Utdatakatalogen av **New-AzsCertificateSigningRequest** innehåller CSR(s) krävs för att skicka till en certifikatutfärdare.  Katalogen innehåller också, referens, en underordnad katalog som innehåller INF-fil som används vid skapande av certifikat-begäran. Se till att din CA genererar certifikat med hjälp av din begäran som skapats och som uppfyller de [PKI-kraven för Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

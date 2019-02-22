@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fd723304e2219c457e982cbe54529d00afe526f4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 02a6cbabaeb7d9c6f764eec5dd86226e37aa6c2b
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896017"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593530"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging integration
 
@@ -375,7 +375,7 @@ Service Bus-ämnen kan användas för att meddela användare om händelser som i
 
 ## <a name="notification-message-reference"></a>Referens för meddelande
 
-Beroende på den **OperationName**, meddelanden har någon av följande typer av meddelanden.
+Beroende på den **messageName**, meddelanden har någon av följande typer av meddelanden.
 
 ### <a name="block-message"></a>Blockeringsmeddelande
 

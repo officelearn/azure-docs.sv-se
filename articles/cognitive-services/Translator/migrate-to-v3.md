@@ -10,17 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 04d7bfcf0527b490bc18f6d85977d899823d5e69
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: a6aab8fda2459804b38afc113be58db7c31b54c5
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301884"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586859"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 till V3-migrering
 
 > [!NOTE]
 > V2 upphörde den 30 April 2018 och kommer att upphöra den 30 April 2019.
+
+> Microsoft Translator Hub tas ur bruk den 30 April 2019. [Visa information om viktiga migrering och datum](https://www.microsoft.com/translator/business/hub/).  
 
 Microsoft Translator-teamet har släppt Version 3 (V3) av Translator Text API. Den här versionen innehåller nya funktioner, föråldrad metoder och ett nytt format för att skicka till och ta emot data från tjänsten Microsoft Translator. Det här dokumentet innehåller information för att ändra programmen kan använda V3. 
 
@@ -41,16 +43,16 @@ Följande lista över V2 och V3 metoder identifierar V3-metoder och API: er som 
 
 | V2 API-metoden   | V3 API-kompatibilitet |
 |:----------- |:-------------|
-| `Translate`     | [Översätt](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [Översätt](reference/v3-0-translate.md)        |
+| `Translate`     | [Översätta](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Översätta](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Språk](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Språk](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [Detect](reference/v3-0-detect.md)         |
-| `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
-| `AddTranslation`     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| `AddTranslationArray`    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `Detect`     | [Identifiera](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Identifiera](reference/v3-0-detect.md)         |
+| `AddTranslation`     | Funktionen stöds inte längre       |
+| `AddTranslationArray`    | Funktionen stöds inte längre          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | `GetTranslations`      | Funktionen stöds inte längre         |
 | `GetTranslationsArray`      | Funktionen stöds inte längre         |
@@ -105,6 +107,10 @@ Global
 [`Dictionary/example`](reference/v3-0-dictionary-examples.md)
 
 ## <a name="compatibility-and-customization"></a>Kompatibilitet och anpassning
+
+> [!NOTE] 
+
+> Microsoft Translator Hub tas ur bruk den 30 April 2019. [Visa information om viktiga migrering och datum](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 använder neural maskinöversättning som standard. Det kan därför inte användas med Microsoft Translator Hub. Translator-hubben har endast stöd för äldre statistiska maskinöversättning. Anpassning av neural översättning är nu tillgänglig med hjälp av anpassade Translator. [Läs mer om hur du anpassar neural maskinöversättning](custom-translator/overview.md)
 

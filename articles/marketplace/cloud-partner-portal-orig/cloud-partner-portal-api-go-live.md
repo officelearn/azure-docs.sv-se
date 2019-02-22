@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7d643f0c7885e64636a107d22ce332b1ba9371c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811298"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594686"
 ---
 <a name="go-live"></a>Starta direktsändning
 =======
@@ -33,18 +33,18 @@ Detta API startar processen för att pusha en app till produktion. Den här åtg
 
 |  **Namn**      |   **Beskrivning**                                                           | **Datatyp** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identifierare för utgivare till erbjudandet ska hämtas, till exempel `contoso`       |  Sträng       |
-| offerId        | Erbjud identifierare för erbjudandet att hämta                                   |  Sträng       |
+| publisherId    | Identifierare för utgivare till erbjudandet ska hämtas, till exempel `contoso`       |  String       |
+| offerId        | Erbjud identifierare för erbjudandet att hämta                                   |  String       |
 | API-versionen    | Senaste versionen av API: et                                                   |  Date         |
 |  |  |  |
 
 
-<a name="header"></a>Sidhuvud
+<a name="header"></a>Huvud
 ------
 
 |  **Namn**       |     **Värde**       |
 |  ---------      |     ----------      |
-| Innehållstyp    | `application/json`  |
+| Content-Type    | `application/json`  |
 | Auktorisering   | `Bearer YOUR_TOKEN` |
 |  |  |
 
@@ -61,13 +61,13 @@ Detta API startar processen för att pusha en app till produktion. Den här åtg
 
 |  **Namn**             |      **Värde**                                                            |
 |  --------             |      ----------                                                           |
-| Åtgärden-plats    |  URL till fråga för att fastställa den aktuella statusen för åtgärden            |
+| Operation-Location    |  URL till fråga för att fastställa den aktuella statusen för åtgärden            |
 |  |  |
 
 
 ### <a name="response-status-codes"></a>Svarsstatuskoder
 
-| **Kod** |  ** Beskrivning **                                                                        |
+| **Kod** |  **Beskrivning**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` -Begäran har accepterats. Svaret innehåller en plats för att spåra Åtgärdsstatus. |
 |  400     | `Bad/Malformed request` – Ytterligare felinformation hittar du i svarstexten. |

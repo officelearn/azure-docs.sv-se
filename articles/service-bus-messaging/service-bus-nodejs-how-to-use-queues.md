@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: b8036c373541d76ecaaec7664e3bfc3ad3e35703
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 32b566056de76d4e73b88c7ce37e148b4ecc3fd7
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853107"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587879"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Hur du använder Service Bus-köer med Node.js
 
@@ -30,6 +30,7 @@ Den här artikeln beskriver hur du använder Service Bus-köer med Node.js. Exem
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 
 ## <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 Skapa en tom Node.js-program. Anvisningar om hur du skapar ett Node.js-program finns i [skapa och distribuera en Node.js-program till en Azure-webbplats][Create and deploy a Node.js application to an Azure Website], eller [Node.js molntjänst] [ Node.js Cloud Service] med hjälp av Windows PowerShell.

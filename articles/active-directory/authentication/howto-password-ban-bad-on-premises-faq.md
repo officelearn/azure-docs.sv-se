@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: adbfb0e42bc7057313c7652402fce2b2ede47735
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455542"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592510"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Förhandsversion: Azure AD-lösenordsskydd lokalt – vanliga frågor och svar
 
@@ -44,6 +44,14 @@ Nej, lokala Azure AD-lösenord skydd stöds endast i det offentliga molnet. Inge
 **F: Hur kan jag använda Azure AD-lösenordsskydd fördelar till en delmängd av Mina lokala användare?**
 
 Stöds ej. När distribuerats och aktiverats, Azure AD-lösenordsskydd skilja inte – alla användare får lika säkerhetsfördelarna.
+
+**F: Vad är skillnaden mellan en lösenordsändring och en lösenordsändring (eller återställning)?**
+
+Ändra lösenord är när en användare väljer ett nytt lösenord efter bevisar att de har kunskap om det gamla lösenordet. Det här är till exempel vad som händer när en användare loggar in på Windows och sedan uppmanas att välja ett nytt lösenord.
+
+Ett lösenord (kallas ibland en lösenordsåterställning) är när en administratör ersätter lösenordet till ett konto med ett nytt lösenord, till exempel med hjälp av verktyget för Active Directory-användare och datorer. Den här åtgärden kräver en hög behörighetsnivå (vanligtvis domänadministratören) och den person som utför åtgärden vanligtvis har inte kunskap om det gamla lösenordet. Helpdesk-scenarier ofta göra detta, exempelvis när hjälpa en användare som har glömt sitt lösenord. Du kan även se lösenord in händelser när ett helt nytt konto skapas för första gången med ett lösenord.
+
+Princip för verifiering av lösenord fungerar på samma sätt oavsett om en ändring av lösenord eller en uppsättning görs. Azure AD-lösenord Protection DC-agenttjänsten loggar olika händelser för att informera dig om en lösenordsändring eller set-åtgärd utfördes.  Se [Azure AD lösenordsskydd övervakning och loggning](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **F: Finns det stöd för att installera Azure AD-lösenord Protection sida vid sida med andra filter-lösenordsbaserade produkter?**
 

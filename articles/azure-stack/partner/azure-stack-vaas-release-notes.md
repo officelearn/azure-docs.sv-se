@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 5252eed66018cd2028545567dfe62ca7ba17be7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/19/2019
+ms.openlocfilehash: 884c87501a54a582177cba99596fe6f0b4cccf36
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247824"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593343"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Viktig information för verifiering som en tjänst
 
@@ -28,14 +28,13 @@ ms.locfileid: "55247824"
 Den här artikeln innehåller viktig information för Azure Stack-verifiering som en tjänst.
 
 ## <a name="version-405"></a>Version 4.0.5
+
 2019 17 januari
 
--  Disk identifiering Test har uppdaterats till adress storage pool inkonsekvenser. Version: 5.1.14.0  -> 5.1.15.0
--  Azure Stack månatliga Uppdateringsverifiering uppdateras till adress godkända programvara och innehåll verifiering inkonsekvenser. Version: 5.1.14.0  -> 5.1.15.0
--  Verifiering av OEM-tillägget paketet uppdateras för att du utför nödvändiga kontroller *innan* steg för Azure Stack-uppdatering. Version: 5.1.14.0  -> 5.1.15.0
--  Intern felkorrigeringar
-
-
+- Disk identifiering Test har uppdaterats till adress storage pool inkonsekvenser. Version: 5.1.14.0 -> 5.1.15.0
+- Azure Stack månatliga Uppdateringsverifiering uppdateras till adress godkända programvara och innehåll verifiering inkonsekvenser. Version: 5.1.14.0 -> 5.1.17.0
+- OEM-tillägget paketet verifiering uppdateras så att du utför nödvändiga kontroller före steg för Azure Stack-uppdatering. Version: 5.1.14.0 -> 5.1.16.0
+- Intern felkorrigeringar
 
 ## <a name="version-402"></a>Version 4.0.2
 
@@ -77,7 +76,7 @@ Den 29 augusti 2018
 
 - VaaS krav och VHD-uppdateringar
 
-    `Install-VaaSPrerequisites` kräver nu att molnet administratörsautentiseringsuppgifter för att åtgärda problem vid verifiering av lösningen. I dokumentationen på [ladda ned och installera agenten](azure-stack-vaas-local-agent.md#download-and-install-the-agent) har uppdaterats med följande:
+    `Install-VaaSPrerequisites` kräver nu att molnet administratörsautentiseringsuppgifter för att åtgärda problem vid verifiering av paketet. I dokumentationen på [ladda ned och installera agenten](azure-stack-vaas-local-agent.md#download-and-install-the-agent) har uppdaterats med följande:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -104,7 +103,7 @@ Den 29 augusti 2018
 
   - Paket som loggar meddelanden
 
-    När ett paket för OEM-anpassning skickas som en del av lösningen valideringsarbetsflödet kommer formatet paketet att valideras för att säkerställa att det följer specifikationen publicerade. Om paketet är inte kompatibel, misslyckas körningen. E-postmeddelanden skickas till e-postadress på den registrerade Azure Active Directory-kontakten för klienten.
+    När ett paket för OEM-anpassning skickas som en del av paketet valideringsarbetsflödet kommer formatet paketet att valideras för att säkerställa att det följer specifikationen publicerade. Om paketet är inte kompatibel, misslyckas körningen. E-postmeddelanden skickas till e-postadress på den registrerade Azure Active Directory-kontakten för klienten.
 
   - Interaktiv test-kategori
 

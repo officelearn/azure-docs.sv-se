@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7e680e3cd8a3d7056141814c5e7d4539b72073b4
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50757236"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592833"
 ---
 # <a name="create-an-advanced-device-model"></a>Skapa en avancerad enhetsmodell
 
@@ -26,11 +26,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Om du vill följa stegen i den här guiden, måste en distribuerad Enhetssimulering-instans i Azure-prenumerationen.
 
-Om du inte har distribuerat Enhetssimulering ännu, bör du genomföra den [distribuera och kör en IoT-enhetssimulering i Azure](quickstart-device-simulation-deploy.md) Snabbstart.
+Om du inte har distribuerat enhetssimulering ännu bör du slutföra snabbstarten [Distribuera och köra en IoT-enhetssimulering i Azure](quickstart-device-simulation-deploy.md).
 
-### <a name="open-device-simulation"></a>Öppna Enhetssimulering
+### <a name="open-device-simulation"></a>Öppna enhetssimulering
 
-Om du vill köra Enhetssimulering i din webbläsare, navigerar först till [Microsoft Azure IoT-Lösningsacceleratorer](https://www.azureiotsolutions.com).
+För att köra enhetssimulering i webbläsaren navigerar du först till [Microsoft Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com).
 
 Du kan bli ombedd att logga in med dina autentiseringsuppgifter för Azure-prenumeration.
 
@@ -164,7 +164,7 @@ Fält som anges i schemat kan vara av följande typer:
 * Text
 * Boolesk
 * Integer
-* Double-värde
+* Double
 * DateTime
 
 ### <a name="supported-methods"></a>Metoder som stöds
@@ -494,13 +494,13 @@ function main(context, state) {
 
 För att distribuera din avancerade enhetsmodell, överför du filerna Enhetssimulering-instans:
 
-Välj **enhetsmodeller** på menyraden. Den **enhetsmodeller** sidan listar enhetsmodeller som är tillgängliga i den här instansen av Enhetssimulering:
+Välj **Enhetsmodeller** på menyraden. Den **enhetsmodeller** sidan listar enhetsmodeller som är tillgängliga i den här instansen av Enhetssimulering:
 
 ![Enhetsmodeller](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
 Klicka på **+ Lägg till enhetsmodeller** i det övre högra hörnet på sidan:
 
-![Lägg till enhetsmodell](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
+![Lägga till enhetsmodell](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
 Klicka på **Avancerat** att öppna fliken avancerade modellen:
 
@@ -516,4 +516,4 @@ Om dina filer valideras, klickar du på **spara** och din enhetsmodell är redo 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden beskrivs om enheten modellfiler som används i Enhetssimulering och hur du skapar en avancerad enhetsmodell. Därefter kan du utforska hur du [Använd Time Series Insights för att visualisera telemetri som skickas från lösningsaccelerator Enhetssimulering](about-iot-accelerators.md).
+I den här guiden beskrivs om enheten modellfiler som används i Enhetssimulering och hur du skapar en avancerad enhetsmodell. Därefter kan du utforska hur du [Använd Time Series Insights för att visualisera telemetri som skickas från lösningsaccelerator Enhetssimulering](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

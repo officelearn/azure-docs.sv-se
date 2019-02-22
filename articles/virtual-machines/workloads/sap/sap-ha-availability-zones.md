@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d98a5ab13c2aecd3b3cef590526031f5bdee594
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: a8e20d617da12aea857308f4020fbd0cfe711430
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268321"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651319"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfigurationer för SAP-arbetsbelastning med Tillgänglighetszoner i Azure
 [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med hjälp av Tillgänglighetszoner förbättrar den övergripande tillgängligheten för SAP-arbetsbelastningar på Azure. Den här funktionen finns redan i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer blir den tillgänglig i fler regioner.
@@ -123,7 +123,7 @@ Om du inte hittar en godtagbar delta mellan svarstiden i nätverk inom en zon oc
 
 Grundläggande layouten för arkitekturen ser ut så här:
 
-![Aktiv/passiv zon distribution](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Aktiv/passiv zon distribution](./media/sap-ha-availability-zones/active_passive_zones_deployment.png)
 
 Följande gäller för den här konfigurationen:
 

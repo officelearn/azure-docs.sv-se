@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0d1d4358789cce4d393143e8a243ee9a3e06bf36
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101659"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652407"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
-När du registrerar dig för Azure, finns det flera saker du kan göra för att få en bättre uppfattning av spenderar. Den [priskalkylator](https://azure.microsoft.com/pricing/calculator/) kan ge en uppskattning av kostnaderna innan du skapar en Azure-resurs. Den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ger dig den aktuella kostnadsdata och prognos för din prenumeration. Om du vill gruppera och uppskatta kostnaden för olika projekt eller team kan du titta på [resurstaggning](../azure-resource-manager/resource-group-using-tags.md). Om din organisation har ett rapporteringssystem som du föredrar att använda kan du kolla den [billing API: er](billing-usage-rate-card-overview.md).
+När du registrerar dig för Azure, finns det flera saker du kan göra för att få en bättre uppfattning av dina utgifter. Den [priskalkylator](https://azure.microsoft.com/pricing/calculator/) kan ge en uppskattning av kostnaderna innan du skapar en Azure-resurs. Den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ger dig den aktuella kostnadsdata och prognos för din prenumeration. Om du vill gruppera och uppskatta kostnaden för olika projekt eller team kan du titta på [resurstaggning](../azure-resource-manager/resource-group-using-tags.md). Om din organisation har ett rapporteringssystem som du föredrar att använda kan du kolla den [billing API: er](billing-usage-rate-card-overview.md).
 
 - Om din prenumeration är ett Enterprise Agreement (EA), är den offentliga förhandsversionen för att se dina kostnader i Azure portal tillgänglig. Om din prenumeration via Cloud Solution Provider (CSP) eller Azure-sponsring, kanske några av de följande funktionerna inte gäller för dig. Se [ytterligare resurser för EA, CSP och sponsring](#other-offers) för mer information.
 
@@ -64,23 +64,23 @@ Om du vill se om du har har utgiftsgräns på, går du till den [prenumerationer
 
 Klicka på banderollen och följ anvisningarna för att ta bort utgiftsgränsen. Om du inte har angett kreditkortsinformation när du registrerade dig, måste du ange den för att ta bort utgiftsgränsen. Mer information finns i [Azure-utgiftsgräns – hur det fungerar och hur du aktivera eller ta bort den](https://azure.microsoft.com/pricing/spending-limits/).
 
-Du kan använda den [Cloudyn](https://www.cloudyn.com/) -tjänsten för att skapa aviseringar som automatiskt meddela intressenter utgifter avvikelser och höga risker. Du kan skapa aviseringar med hjälp av rapporter att stöd för aviseringar baserat på budget- och kostnadströsklar. Läs mer om hur du använder Cloudyn [självstudien: Granska användning och kostnader](../cost-management/tutorial-review-usage.md).
+Du kan använda den [Cloudyn](https://www.cloudyn.com/) -tjänsten för att skapa aviseringar som automatiskt meddela intressenter utgifter avvikelser och höga risker. Du kan skapa aviseringar med hjälp av rapporter som har stöd för aviseringar baserat på tröskelvärden för budgetar och kostnader. Läs mer om hur du använder Cloudyn [självstudien: Granska användning och kostnader](../cost-management/tutorial-review-usage.md).
 
-Det här exemplet används den **Actual Cost Over Time** rapporten för att skicka ett meddelande när dina utgifter på en Azure VM närmar sig din totala budget. Du har en total budget på 20 000 och du vill få ett meddelande när kostnaderna närmar hälften av din budget, 9 000 dollar och en ytterligare avisering när kostnaderna når 10 000 USD i det här scenariot.
+I det här exemplet används rapporten **Actual Cost Over Time** (Faktisk kostnad över tid) till att skicka ett meddelande när dina Azure VM-utgifter närmar sig din totala budget. I det här scenariot har du en total budget på 20 000 dollar, och du vill få ett meddelande när kostnaderna närmar sig hälften av budgeten – 9 000 dollar – och ytterligare ett meddelande när kostnaderna når 10 000 dollar.
 
-1. På menyn överst på Cloudyn-portalen, väljer **kostnader** > **kostnadsanalys** > **Actual Cost Over Time**. 
+1. På menyn längst upp i Cloudyn-portalen väljer du **Kostnader** > **Kostnadsanalys** > **Faktisk kostnad över tid**. 
 2. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**. 
-3. Uppe till höger i rapporten, Välj **åtgärder** och välj sedan **Schemalägg rapport**.
-4. Om du vill skicka dig själv ett e-postmeddelande i rapporten med schemalagda intervall, Välj den **schemaläggning** fliken i den **spara eller schemalägga detta** rapporten dialogrutan. Välj **Skicka via e-post**. De taggar samt gruppering och filtrering du användning som ingår i rapporten via e-post. 
-5. Välj den **tröskelvärdet** fliken och välj sedan **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). 
-   1. I den **röda aviseringen** tröskelvärdet anger 10000. 
-   2. I den **gul avisering** tröskelvärdet anger 9000. 
-   3. I den **antalet på varandra följande aviseringar** anger antalet på varandra följande aviseringar för att ta emot. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. 
+3. Längst upp till höger i rapporten väljer du **Åtgärder** och sedan **Schemalägg rapport**.
+4. Om du vill skicka e-post med rapporten till dig själv vid schemalagt intervall väljer du fliken **Schemaläggning** i rapportdialogrutan **Spara eller schemalägg den här**. Välj **Skicka via e-post**. Eventuella taggar samt den gruppering och filtrering du använde ingår i den rapport som du får via e-post. 
+5. Välj fliken **Tröskel** och sedan **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). 
+   1. I tröskelrutan **Röd avisering** anger du 10000. 
+   2. I tröskelrutan **Gul avisering** anger du 9000. 
+   3. I rutan **Antal på varandra följande aviseringar** anger du det antal på varandra följande aviseringar som ska tas emot. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. 
 6. Välj **Spara**.
 
     ![Exemplet visar röda och gula aviseringar baserat på tröskelvärden för utgifter](./media/billing-getting-started/schedule-alert01.png)
 
-Du kan också välja den **Cost Percentage vs. Budget** kostnadernas att skapa aviseringar. På så sätt kan du ange tröskelvärden som procentandelar av budgeten i stället för valutavärden.
+Du kan även välja tröskelvärdesmåttet **Cost Percentage vs. Budget** (Kostnadernas procentandel av budgeten) till att skapa aviseringar. På så sätt kan du ange tröskelvärden som procentandelar av budgeten i stället för valutavärden.
 
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Sätt att övervaka dina kostnader när du använder Azure-tjänster
 

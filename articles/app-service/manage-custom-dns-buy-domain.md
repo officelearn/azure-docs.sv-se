@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d47c560515a13efa8346974e828f14f9a15f0e4a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c2bee4d35fe857d5ad3bf26dc1145b8721c85df4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731442"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594244"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domännamn för Azure App Service
 
@@ -126,7 +126,7 @@ Välj sedan önskat alternativ för din domän. Se tabellen nedan förklaringar:
 Klicka på **juridiska villkor** att granska villkoren och kostnaderna och klicka sedan på **köpa**.
 
 > [!NOTE]
-> App Service-domäner med Azure DNS vara värd för domäner. Förutom avgiften domän registrering gäller avgifter för användning för Azure DNS. Mer information finns i [priser för Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+> App Service-domäner kan du använda GoDaddy för domänregistrering och Azure DNS som värd för domäner. Förutom avgiften domän registrering gäller avgifter för användning för Azure DNS. Mer information finns i [priser för Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -251,7 +251,7 @@ Azure-portalen från den vänstra menyn, Välj **alla tjänster** > **App Servic
 
 Välj domänen som ska du vill avbryta eller ta bort. 
 
-### <a name="delete-hostname-bindings"></a>Ta bort värdnamnsbindningar
+### <a name="delete-hostname-bindings"></a>Ta bort värddatornamnsbindningar
 
 I vänstermenyn för domänens väljer **värdnamnsbindningar**. Värdnamnsbindningar från alla Azure-tjänster visas här.
 

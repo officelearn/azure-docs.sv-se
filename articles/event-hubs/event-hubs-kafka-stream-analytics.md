@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 7612e9d6444b61210da5d642530d99423220c0a4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 753c5312987cc541456b2f7415bb7dc9d4770d05
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076848"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593360"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Bearbeta Apache Kafka för Event Hubs-händelser med Stream-analys 
 Den här artikeln visar hur du strömma data till Kafka-aktiverade Event Hubs och bearbeta dem med Azure Stream Analytics. Vi går igenom följande steg: 
@@ -133,7 +133,7 @@ Frågan i Stream Analytics-jobb passerar data utan att behöva genomföra några
 
 ### <a name="configure-job-input"></a>Konfigurera jobbindata
 
-1. I meddelandet, välj ** Gå till resurs ** om du vill se den **Stream Analytics-jobbet** sidan. 
+1. I meddelandet, väljer **gå till resurs** att se den **Stream Analytics-jobbet** sidan. 
 2. Välj **indata** i den **JOBBTOPOLOGI** avsnitt i den vänstra menyn.
 3. Välj **Lägg till strömindata**, och välj sedan **Event Hub**. 
 

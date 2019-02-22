@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0df36f4c939ed9bd7bb6a134a356b37d699abc1d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695035"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586351"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database för PostgreSQL prisnivåer
 
@@ -43,6 +43,9 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 
 > [!IMPORTANT]
 > Från och 12 December 2018 kommer nya kunder inte att kunna etablera compute generation 4 servrar i södra Brasilien, centrala Kanada, Östra Kanada, östra Asien, östra USA 2, centrala Indien, västra Indien, västra Japan, norra centrala USA, västra USA. Tidigare skapade compute generation 4 servrar kommer att migreras till beräknings-generation 5 med början den 1 februari 2019 i dessa regioner.
+>
+> [!IMPORTANT]
+> Från och den 19 februari 2019 kommer nya kunder inte att kunna etablera compute generation 4 servrar i centrala USA, östra USA, östra Japan, Norra Europa, USA, södra centrala, Asien, sydöstra, Europa, västra. Tidigare skapade compute generation 4 servrar kommer att migreras till beräknings-generation 5 med början den 1 April 2019 i dessa regioner.
 
 | **Azure-region** | **Generation 4** | **5: e generationen** |
 |:---|:----------:|:--------------------:|

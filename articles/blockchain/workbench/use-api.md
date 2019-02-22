@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/14/2018
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c1a9b526f08f330d62c30dd1d676e95460aee6c2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: eb4b87a008b9e43de7e7a5f7895449303f1e44a6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712355"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593989"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Använda REST API för Azure Blockchain Workbench
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 När en användare väljer att djupdykning i ett kontrakt, kan blockchain-klienten sedan visa de tillgängliga användaråtgärder får tillståndet för kontraktet. I det här exemplet tittar användaren på alla tillgängliga åtgärder för ett nytt smart kontrakt som de skapat:
 
-* Ändra: Låter användaren ändra beskrivning och pris för en tillgång.
-* Avsluta: Används att avsluta kontraktet av tillgången.
+* Ändra: Gör att användaren kan ändra den beskrivning och pris för en tillgång.
+* Avsluta: Tillåter användare att sluta kontraktet av tillgången.
 
 Använd [POST API för kontraktsåtgärden](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 En användare kan sedan välja att vidta åtgärder för den angivna smarta kontrakt-instansen. I det här fallet Överväg ett scenario där en användare vill ändra den beskrivning och pris för en tillgång till följande åtgärd:
 
-* Beskrivning: "Min uppdaterade bil"
+* Beskrivning: ”Min uppdaterade bil”
 * Pris: 54321
 
 Använd [Contract Action POST API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) (Kontraktsåtgärd för POST API):

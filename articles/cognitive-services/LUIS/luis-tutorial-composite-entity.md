@@ -1,5 +1,5 @@
 ---
-title: Sammansatt entitet ”
+title: Sammansatt entitet självstudien
 titleSuffix: Azure Cognitive Services
 description: Lägg till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2da007d0e97f55432282fbc52c38ef3f50a2e5f4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883312"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593581"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Självstudier: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
@@ -85,18 +85,19 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
 1. Välj **TransferEmployeeToDepartment** från listan över avsikter.
 
-1. Välj personName-entitet i den första uttryck `John Jackson`och välj sedan **starta wrapping sammansatt entitet** i listan över popup-menyn för följande uttryck:
+1. I uttryck `place John Jackson in engineering`, Välj entiteten personName `John Jackson`och välj sedan **omsluta i sammansatt entitet** i listan över popup-menyn för följande uttryck. 
 
-    `place John Jackson in engineering`
+    ![Skärmbild över att välja radbyte sammansatta i listrutan dialogrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Välj sedan det senaste entitet omedelbart `engineering` i uttryck. En grön stapel dras under de valda ord som anger en sammansatt entitet. I popup-menyn, anger du sammansatta namn `TransferEmployeeInfo` och sedan anger du väljer. 
 
-1. I **vilken typ av enhet vill du skapa?**, alla fält som krävs finns i listan: `personName` och `Department`. Välj **Done** (Klar). 
+    ![Skärmbild av hur du anger sammansatta namn i listrutan dialogrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    Observera att entiteten fördefinierade personName, har lagts till sammansatta entiteten. Om du hade en fördefinierade entitet visas mellan första och sista token på en sammansatt entitet innehålla sammansatta entiteten de fördefinierade entiteterna. Om det inte ingår förskapade entiteter, sammansatta entiteten är inte korrekt förutse utan varje enskilt element.
+1. I **vilken typ av enhet vill du skapa?**, alla fält som krävs finns i listan: `personName` och `Department`. Välj **Done** (Klar). Observera att entiteten fördefinierade personName, har lagts till sammansatta entiteten. Om du hade en fördefinierade entitet visas mellan första och sista token på en sammansatt entitet innehålla sammansatta entiteten de fördefinierade entiteterna. Om det inte ingår förskapade entiteter, sammansatta entiteten är inte korrekt förutse utan varje enskilt element.
+
+    ![Skärmbild av hur du anger sammansatta namn i listrutan dialogrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Etikett exempel yttranden med sammansatta entitet
-
 
 1. Välj vänster-entitet som ska vara i sammansatt i varje exempel-uttryck. Välj sedan **omsluta i sammansatt entitet**.
 

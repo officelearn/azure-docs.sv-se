@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 460edc7f092764cce3584c81371db4801fbd69bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240024"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593242"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Självstudier: Konfigurera resurser för verifiering som en tjänst
 
@@ -92,7 +92,7 @@ Azure AD-administratör ge VaaS Azure AD-programmet behörigheterna som krävs f
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
-Under testkörning av VaaS matar du ut diagnostikloggar till ett Azure Storage-konto. Förutom loggar testet, kan storage-konto också användas för att ladda upp OEM-tilläggspaket för lösningen valideringsarbetsflödet.
+Under testkörning av VaaS matar du ut diagnostikloggar till ett Azure Storage-konto. Förutom loggar testet, kan storage-konto också användas för att ladda upp OEM-tilläggspaket för paketet valideringsarbetsflödet.
 
 Azure Storage-konto finns i Azure offentligt moln, inte på Azure Stack-miljön.
 

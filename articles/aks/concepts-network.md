@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7de97097e9678410537895c3bafc48d67809331e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176245"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594176"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverkskoncept för program i Azure Kubernetes Service (AKS)
 
@@ -102,7 +102,7 @@ En annan vanlig funktion för ingång är SSL/TLS-avslutning. I stora webbprogra
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 
-En nätverkssäkerhetsgrupp filtrerar trafik för virtuella datorer, till exempel AKS-noder. När du skapar tjänster, till exempel en LoadBalancer konfigurerar Azure-plattformen automatiskt alla regler för nätverkssäkerhetsgrupper som krävs. Inte manuellt konfigurera regler för nätverkssäkerhetsgrupper för att filtrera trafik för poddar i ett AKS-kluster. Definiera alla nödvändiga portar och vidarebefordran som en del av Kubernetes Service-manifest och låt Azure-plattformen skapa eller uppdatera lämpliga regler. Du kan också använda principer för nätverk, enligt beskrivningen i nästa avsnitt, den automatiskt tillämpa filter trafikregler på poddar.
+En nätverkssäkerhetsgrupp filtrerar trafik för virtuella datorer, till exempel AKS-noder. När du skapar tjänster, till exempel en LoadBalancer konfigurerar Azure-plattformen automatiskt alla regler för nätverkssäkerhetsgrupper som krävs. Inte manuellt konfigurera regler för nätverkssäkerhetsgrupper för att filtrera trafik för poddar i ett AKS-kluster. Definiera alla nödvändiga portar och vidarebefordran som en del av Kubernetes Service-manifest och låt Azure-plattformen skapa eller uppdatera lämpliga regler. Du kan också använda principer för nätverk, enligt beskrivningen i nästa avsnitt, att automatiskt tillämpa filter trafikregler på poddar.
 
 Nätverkssäkerhetsgrupp finns regler för trafik som SSH som standard. Det är dessa standardregler för klusterhantering och felsöka åtkomst. Ta bort dessa standardregler kan orsaka problem med hantering av AKS och delar upp servicenivåmål (SLO).
 

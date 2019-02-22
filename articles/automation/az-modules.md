@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e9240949c589717303fe00205c5374b5e3a6a791
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008260"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585070"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Stöd för AZ-modulen i Azure Automation
 
@@ -31,7 +31,7 @@ Importera en `Az` modul i ditt Automation-konto inte automatiskt importera modul
 * När en annan modul beroende på modulen importeras till en PowerShell-session
 
 > [!IMPORTANT]
-> Det är viktigt att se till att runbooks i ett Automation-konto som antingen bara importera `Az` eller `AzureRM` moduler i PowerShell-sessioner som används av runbooks och inte båda. Om `Az` importeras innan `AzureRM` i en runbook kommer att slutföra runbook, men en [fel som refererar till get_SerializationSettings](/troubleshoot/runbooks.md#get-serializationsettings) visas i jobbströmmar och cmdlets kan inte har korrekt köra. Om du importerar `AzureRM` och sedan `Az` din runbook fortfarande klar, men du kommer att se ett fel i jobbströmmar om att båda `Az` och `AzureRM` kan inte importeras i samma session eller används i samma runbook.
+> Det är viktigt att se till att runbooks i ett Automation-konto som antingen bara importera `Az` eller `AzureRM` moduler i PowerShell-sessioner som används av runbooks och inte båda. Om `Az` importeras innan `AzureRM` i en runbook kommer att slutföra runbook, men en [fel som refererar till get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) visas i jobbströmmar och cmdlets kan inte har korrekt köra. Om du importerar `AzureRM` och sedan `Az` din runbook fortfarande klar, men du kommer att se ett fel i jobbströmmar om att båda `Az` och `AzureRM` kan inte importeras i samma session eller används i samma runbook.
 
 ## <a name="migrating-to-az-modules"></a>Migrera till Az-moduler
 

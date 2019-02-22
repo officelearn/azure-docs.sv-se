@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8ae55028bbc44a9383be6723f9bc6d39787cca45
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 01aa3d45d3b168c67603861a0a947026d4f2e08c
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767311"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650894"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data.
@@ -56,7 +56,7 @@ Azure Data Lake Store-utdata från Stream Analytics är för närvarande inte ti
 | Format | Gäller endast för JSON-serialisering. Radseparering innebär att utdata formateras genom att låta varje JSON-objekt avgränsas med en ny rad. Matrisen anger att utdata formateras som en matris av JSON-objekt. Den här matrisen stängs först när jobbet stoppas eller Stream Analytics har gått vidare till nästa tidsfönstret. I allmänhet är det bättre att använda rad avgränsade JSON, eftersom det inte krävs någon särskild hantering när utdatafilen skrivs fortfarande till.|
 
 ### <a name="renew-data-lake-store-authorization"></a>Förnya auktoriseringen för Data Lake Store
-Du måste autentiseras på nytt Data Lake Store-konto om lösenordet har ändrats sedan jobbet skapades eller senast autentiserade. Om du inte återautentisera jobbet producerar inte utdata resultatet och visar ett felmeddelande om att behovet av omauktorisering i loggarna för åtgärden. För närvarande finns en begränsning där autentiseringstoken behöver uppdateras manuellt efter 90 dagar för alla jobb med Data Lake Store-utdata.
+Du måste autentiseras på nytt Data Lake Store-konto om lösenordet har ändrats sedan jobbet skapades eller senast autentiserade. Om du inte återautentisera jobbet producerar inte utdata resultatet och visar ett felmeddelande om att behovet av omauktorisering i loggarna för åtgärden. För närvarande finns en begränsning där autentiseringstoken behöver uppdateras manuellt efter 90 dagar för alla jobb med Data Lake Store-utdata. Men du kan lösa den här begränsningen av [autentiserar med hanterade identiteter (förhandsversion)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
 
 Förnya auktorisering, **stoppa** jobbet > Gå till ditt Data Lake Store-utdata > klickar du på den **förnya auktoriseringen** länka och under en kort tid en sida kommer att visas som anger **omdirigering till auktorisering...** . Sidan stängs automatiskt och om det lyckas anger **auktoriseringen har förnyats**. Du måste sedan klicka på **spara** längst ned på sidan och kan gå vidare genom att starta om jobbet från den **senast stoppad** att undvika dataförlust.
 

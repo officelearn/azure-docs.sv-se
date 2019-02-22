@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197801"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592935"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Belastningsutjämna virtuella datorer mellan alla tillgänglighetszoner med Azure CLI
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Skapa en zonredundant offentlig IP-Standard
-För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. En zonredundant frontend hanteras av alla tillgänglighetszoner i en region samtidigt. Skapa en zon redundant offentlig IP-adress med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). När du skapar en offentlig IP-adress är zonredundant som standard.
+För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. En zonredundant frontend hanteras av alla tillgänglighetszoner i en region samtidigt. Skapa en zon redundant offentlig IP-adress med [az nätverket offentliga ip-skapa](/cli/azure/network/public-ip#az-network-public-ip-create). När du skapar en offentlig IP-adress är zonredundant som standard.
 
 I följande exempel skapas en zonen redundant offentliga IP-adress med namnet *myPublicIP* i den *myResourceGroupLoadBalancer* resursgrupp.
 

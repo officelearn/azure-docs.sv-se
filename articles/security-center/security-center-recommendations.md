@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: a5ca8efd43244825eef412cf3c05c8df20094112
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8535a77c9f44a4dafca34ef24414f90741a9133e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109547"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652738"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig genom hur du använder rekommendationer i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
@@ -53,21 +53,25 @@ Om du vill se information om varje rekommendation, Välj den **rekommendationer 
 
 Du kan filtrera rekommendationer. Om du vill filtrera rekommendationer, Välj **Filter** på den **rekommendationer** bladet. Den **Filter** bladet öppnas och du kan välja allvarlighetsgrad och status du vill se.
 
-Rekommendationerna visas i tabellformat där varje rad motsvarar en viss rekommendation. Kolumner i den här tabellen är:
 
-* **BESKRIVNING AV**: Förklarar rekommendationen och vad som behöver göras för att åtgärda detta.
+* **REKOMMENDATIONER**: Rekommendationen.
+* **SKYDDAR SCORE INVERKAN**:
 * **RESOURCE**: Visar en lista över de resurser som den här rekommendationen gäller.
-* **TILLSTÅND**: Beskriver det aktuella tillståndet för rekommendationen:
-  * **Öppna**: Rekommendationen har inte utförts än.
-  * **Pågår**: Rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.
-  * **Löst**: Rekommendationen har redan slutförts (i det här fallet raden är nedtonat).
-* **ALLVARLIGHETSGRAD**: Visas hur viktig rekommendationen:
-  * **Hög**: En sårbarhet i finns en viktig resurs (till exempel ett program, en virtuell dator eller en nätverkssäkerhetsgrupp) som måste åtgärdas.
-  * **Medel**: Det finns ett säkerhetsproblem och icke-kritiska eller ytterligare åtgärder krävs att eliminera den eller för att slutföra en process.
-  * **Låg**: Det finns en säkerhetsrisk som bör åtgärdas, men inte kräver omedelbar åtgärd. (Låg rekommendationer är inte visas som standard, men du kan filtrera fram om du vill se dem.)
+* **STATUSFÄLT**:  Visas hur viktig rekommendationen:
+   * **Hög (röd)**: En sårbarhet i finns en viktig resurs (till exempel ett program, en virtuell dator eller en nätverkssäkerhetsgrupp) som måste åtgärdas.
+   * **Medel (Orange)**: Det finns ett säkerhetsproblem och icke-kritiska eller ytterligare åtgärder krävs att eliminera den eller för att slutföra en process.
+   * **Låg (blå)**: Det finns en säkerhetsrisk som bör åtgärdas, men inte kräver omedelbar åtgärd. (Låg rekommendationer är inte visas som standard, men du kan filtrera fram om du vill se dem.) 
+   * **Felfritt (grönt)**:
+   * **Inte tillgänglig (grå)**:
+ <!-- * **DESCRIPTION**: Explains the recommendation and what needs to be done to address it.
+**STATE**: Describes the current state of the recommendation:
+   * **Open**: The recommendation hasn't been addressed yet.
+    * **In Progress**: The recommendation is currently being applied to the resources, and no action is required by you.
+   * **Resolved**: The recommendation has already been completed (in this case, the line is grayed out).
+    -->
 
 Använd tabellen nedan som referens för att förstå rekommendationerna som är tillgängliga och vad var och en gör om du använder den.
-
+<!-- There is no table below -->
 > [!NOTE]
 > Du vill förstå den [klassiska och Resource Manager-distributionsmodeller](../azure-classic-rm.md) för Azure-resurser.
 >

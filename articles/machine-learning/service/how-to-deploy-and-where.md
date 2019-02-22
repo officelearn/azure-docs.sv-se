@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7d5bfba10fe68c4d29a66fe39a386aec975b978f
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878620"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651540"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -29,10 +29,11 @@ Du kan distribuera modeller till följande beräkning:
 
 | Beräkningsmål | Distributionstyp | Beskrivning |
 | ----- | ----- | ----- |
-| [Azure Container Instances (ACI)](#aci) | Webbtjänst | Snabb distribution. Bra för utveckling och testning. |
-| [Azure Kubernetes Service (AKS)](#aks) | Webbtjänst | Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
-| [Azure IoT Edge](#iotedge) | IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
-| [Fältet-programmable gate array FPGA)](#fpga) | Webbtjänst | Extremt låg latens för i realtid inferensjobb. |
+| [Azure Kubernetes Service (AKS)](#aks) | I realtid inferens | Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
+| [Azure ML Compute](#amlcompute) | Batch inferens | Kör batch-förutsägelse på beräkning utan server. Har stöd för normal och lågprioriterade virtuella datorer. |
+| [Azure Container Instances (ACI)](#aci) | Testning | Bra för utveckling och testning. **Inte lämplig för produktionsarbetsbelastningar.** |
+| [Azure IoT Edge](#iotedge) | (Förhandsversion) IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
+| [Fältet-programmable gate array FPGA)](#fpga) | (Förhandsversion) Webbtjänst | Extremt låg latens för i realtid inferensjobb. |
 
 Processen för att distribuera en modell är liknande för alla beräkningsmål:
 
@@ -225,7 +226,7 @@ När du kommer till distribution, är processen variera beroende på beräknings
 >
 > Exemplen i det här dokumentet används `deploy_from_image`.
 
-### <a id="aci"></a> Distribuera till Azure Container Instances
+### <a id="aci"></a> Distribuera till Azure Container Instances (DEVTEST)
 
 Använd Azure Container Instances för att distribuera dina modeller som en webbtjänst om en eller flera av följande villkor är uppfyllt:
 
@@ -246,7 +247,7 @@ Om du vill distribuera till Azure Container Instances, använder du följande st
 
 Mer information finns i referensdokumentationen för den [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klasser.
 
-### <a id="aks"></a> Distribuera till Azure Kubernetes Service
+### <a id="aks"></a> Distribuera till Azure Kubernetes Service (produktion)
 
 Använd Azure Kubernetes Service (AKS) för att distribuera din modell som en webbtjänst i produktionsmiljön för hög skalbarhet. Du kan använda ett befintligt AKS-kluster eller skapa en ny med SDK: N för Azure Machine Learning, CLI eller Azure-portalen.
 
@@ -332,6 +333,13 @@ print(service.state)
 **Uppskattad tidsåtgång**: Ca 3 minuter.
 
 Mer information finns i referensdokumentationen för den [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klasser.
+
+### <a id="fpga"></a> Inferens med Azure ML-beräkning
+
+Azure ML-beräkningsmål skapas och hanteras av Azure Machine Learning-tjänsten. De kan användas för batch-förutsägelse från Azure ML-Pipelines.
+
+En genomgång av batch inferens med Azure ML Compute läsa den [hur du kör Batch-förutsägelser](how-to-run-batch-predictions.md) dokumentet.
+
 
 ### <a id="fpga"></a> Distribuera till fältet-programmable gate matriser (FPGA)
 

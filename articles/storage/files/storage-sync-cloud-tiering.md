@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470459"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652568"
 ---
 # <a name="cloud-tiering-overview"></a>Molnet lagringsnivåer översikt
 Molnet lagringsnivåer är en valfri funktion i Azure File Sync som ofta öppnade filer cachelagras lokalt på servern medan alla andra filer nivåindelas till Azure Files utifrån principinställningar. När en fil är nivåindelad ersätter Azure File Sync filsystemsfilter (StorageSync.sys) filen lokalt med en pekare eller en referenspunkt. Referenspunkten representerar en URL till filen i Azure Files. En nivåindelad fil har både ”offline”-attributet och FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attributuppsättningen i NTFS så att program från tredje part kan på ett säkert sätt identifiera nivåindelade filer.
@@ -21,9 +21,12 @@ Molnet lagringsnivåer är en valfri funktion i Azure File Sync som ofta öppnad
 När en användare öppnar en nivåindelad fil, återkallar Azure File Sync sömlöst fildata från Azure-filer utan att användaren behöver du veta att filen lagras i Azure. 
  
  > [!Important]  
-    > Viktigt: Molnet lagringsnivåer stöds inte för serverslutpunkter på volymer för Windows-system och endast filer som är större än 64 KiB i storlek kan vara nivåindelad till Azure Files.
+ > Molnet lagringsnivåer stöds inte för serverslutpunkter på volymer för Windows-system och endast filer som är större än 64 KiB i storlek kan vara nivåindelad till Azure Files.
     
 Azure File Sync stöder inte lagringsnivåer filer som är mindre än 64 KiB så att prestanda försämras av lagringsnivåer och återställa sådana små filer skulle uppväger Utrymmesbesparingar.
+
+ > [!Important]  
+ > Om du vill återställa filer som har varit nivåindelade, måste nätverkets bandbredd vara minst 1 Mbit/s. Om nätverksbandbredden är mindre än 1 Mbit/s, misslyckas filer att komma ihåg med ett timeout-fel.
 
 ## <a name="cloud-tiering-faq"></a>Molnet lagringsnivåer vanliga frågor och svar
 

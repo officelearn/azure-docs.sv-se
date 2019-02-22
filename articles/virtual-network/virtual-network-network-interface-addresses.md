@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 4fae4486e6cf47892ba2133885ec864969f66001
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 716c229fbd906798d39bf4ef54ba1f47cd5bd980
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663612"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651047"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett gränssnitt för Azure-nätverk
 
@@ -30,11 +30,13 @@ Om du behöver för att skapa, ändra eller ta bort ett nätverksgränssnitt, l�
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [kostnadsfritt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppnar du https://portal.azure.com, och logga in med ditt Azure-konto.
-- Om du utför uppgifterna i den här artikeln med hjälp av PowerShell-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du utför uppgifterna i den här artikeln med hjälp av PowerShell-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudien kräver Azure PowerShell-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
 
 Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [nätverk gränssnitt behörigheter](virtual-network-network-interface.md#permissions).
@@ -49,20 +51,20 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
 4. Under **IP-konfigurationer**väljer **+ Lägg till**.
 5. Anger du följande och välj sedan **OK**:
 
-    |Inställning|Krävs?|Information|
-    |---|---|---|
-    |Namn|Ja|Måste vara unikt för nätverksgränssnittet|
-    |Type|Ja|Eftersom du lägger till en IP-konfiguration till en befintlig nätverksgränssnitt och varje nätverksgränssnitt måste ha en [primära](#primary) IP-konfiguration, det enda alternativet är **sekundära**.|
-    |Tilldelningsmetoden för privat IP-adress|Ja|[**Dynamic**](#dynamic): Azure tilldelar nästa tillgängliga adress för adressintervall för undernätet nätverksgränssnittet har distribuerats i. [**Static**](#static): Du tilldelar en oanvända adress för adressintervall för undernätet nätverksgränssnittet har distribuerats i.|
-    |Offentlig IP-adress|Nej|**Inaktiverad:** Ingen offentlig IP-adressresurs är för närvarande associerad till IP-konfigurationen. **Aktiverad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Läs hur du skapar en offentlig IP-adress, den [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) artikeln.|
+   |Inställning|Krävs?|Information|
+   |---|---|---|
+   |Namn|Ja|Måste vara unikt för nätverksgränssnittet|
+   |Type|Ja|Eftersom du lägger till en IP-konfiguration till en befintlig nätverksgränssnitt och varje nätverksgränssnitt måste ha en [primära](#primary) IP-konfiguration, det enda alternativet är **sekundära**.|
+   |Tilldelningsmetoden för privat IP-adress|Ja|[**Dynamic**](#dynamic): Azure tilldelar nästa tillgängliga adress för adressintervall för undernätet nätverksgränssnittet har distribuerats i. [**Static**](#static): Du tilldelar en oanvända adress för adressintervall för undernätet nätverksgränssnittet har distribuerats i.|
+   |Offentlig IP-adress|Nej|**Inaktiverad:** Ingen offentlig IP-adressresurs är för närvarande associerad till IP-konfigurationen. **Aktiverad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Läs hur du skapar en offentlig IP-adress, den [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) artikeln.|
 6. Lägg till manuellt sekundära privata IP-adresser för VM-operativsystemet när du har slutfört instruktionerna i den [tilldela flera IP-adresser till VM-operativsystem](virtual-network-multiple-ip-addresses-portal.md#os-config) artikeln. Se [privata](#private) IP-adresser för att tänka på innan du manuellt lägger till IP-adresser till ett VM-operativsystem. Lägg inte till offentliga IP-adresser till VM-operativsystem.
 
 **Kommandon**
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
+|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
+|PowerShell|[Lägg till AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>Ändra inställningar för IP-adresser
 
@@ -82,8 +84,8 @@ Du kanske måste ändra tilldelningsmetoden för en IPv4-adress ändra statiska 
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
+|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>Ta bort IP-adresser
 
@@ -98,8 +100,8 @@ Du kan ta bort [privata](#private) och [offentliga](#public) IP-adresser från e
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
+|CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
+|PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP-konfigurationer
 
@@ -118,10 +120,10 @@ Förutom en primär IP-konfiguration, kan ett nätverksgränssnitt ha noll eller
 
 - Ha måste en privat IPv4- eller IPv6-adress tilldelad till den. Om adressen är IPv6, kan nätverksgränssnittet bara ha en sekundär IP-konfiguration. Om adressen är IPv4, kan nätverksgränssnittet ha flera sekundära IP-konfigurationer tilldelade till den. Läs mer om hur många privata och offentliga IPv4-adresser kan tilldelas till ett nätverksgränssnitt i den [Azure-begränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artikeln.
 - Också kan ha en offentlig IPv4-adress tilldelad till sig om den privata IP-adressen är IPv4. Om den privata IP-adressen är IPv6, kan du tilldela en offentlig IPv4- eller IPv6-adress till IP-konfigurationen. Tilldela flera IP-adresser till ett nätverksgränssnitt är användbart i scenarier som:
-    - Du kan hantera flera webbplatser eller tjänster med olika IP-adresser och SSL-certifikat på en enda server.
-    - En virtuell dator som fungerar som en virtuell nätverksenhet, till exempel en brandvägg eller belastningsutjämnare.
-    - Möjligheten att lägga till någon av de privata IPv4-adresserna för alla nätverksgränssnitt i en Azure Load Balancer-backend-poolen. Tidigare kunde endast primär IPv4-adressen för det primära nätverksgränssnittet läggas till en backend-poolen. Läs mer om hur du belastningsutjämnar flera IPv4-konfigurationer i den [belastningsutjämning flera IP-konfigurationer](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln. 
-    - Möjligheten att läsa in balansera en IPv6-adress för ett nätverksgränssnitt. Läs mer om hur du belastningsutjämnar till en privat IPv6-adress i den [belastningsutjämna IPv6-adresser](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln.
+  - Du kan hantera flera webbplatser eller tjänster med olika IP-adresser och SSL-certifikat på en enda server.
+  - En virtuell dator som fungerar som en virtuell nätverksenhet, till exempel en brandvägg eller belastningsutjämnare.
+  - Möjligheten att lägga till någon av de privata IPv4-adresserna för alla nätverksgränssnitt i en Azure Load Balancer-backend-poolen. Tidigare kunde endast primär IPv4-adressen för det primära nätverksgränssnittet läggas till en backend-poolen. Läs mer om hur du belastningsutjämnar flera IPv4-konfigurationer i den [belastningsutjämning flera IP-konfigurationer](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln. 
+  - Möjligheten att läsa in balansera en IPv6-adress för ett nätverksgränssnitt. Läs mer om hur du belastningsutjämnar till en privat IPv6-adress i den [belastningsutjämna IPv6-adresser](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln.
 
 ## <a name="address-types"></a>-Adresstyper
 

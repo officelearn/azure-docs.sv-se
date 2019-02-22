@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 18e5e9ff299cb645e2b5b47d327ee93e27da82df
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fabec317370f5a45b16ac3e6dd3422eceb9621c3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700045"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592800"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Skapa en Standardbelastningsutjämnare med zonindelad klientdel med Azure CLI
 
@@ -51,7 +51,7 @@ az group create \
 ## <a name="create-a-zonal-public-ip-standard"></a>Skapa en zonindelad offentlig IP-Standard
 För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. En offentlig IP-adress som har skapats i en viss zon alltid finns bara i zonen. Det går inte att ändra zonen på en offentlig IP-adress.
 
-Skapa en offentlig IP-adress med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). I följande exempel skapas en zonindelad offentlig IP-adress med namnet *myPublicIP* i den *myResourceGroupLoadBalancer* resursgrupp i zon 1.
+Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). I följande exempel skapas en zonindelad offentlig IP-adress med namnet *myPublicIP* i den *myResourceGroupLoadBalancer* resursgrupp i zon 1.
 
 ```azurecli-interactive
 az network public-ip create \

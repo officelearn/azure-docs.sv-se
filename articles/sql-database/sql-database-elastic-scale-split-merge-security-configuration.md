@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563226"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593326"
 ---
 # <a name="split-merge-security-configuration"></a>Dela / sammanslå säkerhetskonfiguration
 
@@ -121,24 +121,29 @@ Standardkonfigurationen nekar all åtkomst till HTTP-slutpunkten. Det här är d
 Standardkonfigurationen kan all åtkomst till HTTPS-slutpunkten. Den här inställningen kan begränsas ytterligare.
 
 ### <a name="changing-the-configuration"></a>Ändra konfigurationen
-Grupp av regler för åtkomstkontroll som gäller för och slutpunkten har konfigurerats i den **<EndpointAcls>** i avsnittet den **tjänstkonfigurationsfilen**.
+Grupp av regler för åtkomstkontroll som gäller för och slutpunkten har konfigurerats i den  **\<EndpointAcls >** i avsnittet den **tjänstkonfigurationsfilen**.
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```xml
+<EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
-Regler i en grupp för kontroll av åtkomst har konfigurerats i en <AccessControl name=""> avsnittet i tjänstekonfigurationsfilen. 
+Regler i en grupp för kontroll av åtkomst har konfigurerats i en \<AccessControl name = ”” > avsnittet i tjänstekonfigurationsfilen. 
 
 Formatet förklaras i nätverket åtkomstkontrollistor-dokumentationen.
 Om du vill tillåta endast IP-adresser i intervallet 100.100.0.0 100.100.255.255 att komma åt HTTPS-slutpunkt, till exempel ut reglerna så här:
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
+```xml
+<AccessControl name="Retricted">
+    <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+    <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+</EndpointAcls>
+```
 
 ## <a name="denial-of-service-prevention"></a>DOS-skydd för tjänsten
 Det finns två olika sätt som stöd för att identifiera och förhindra DOS-attacker:
@@ -154,22 +159,29 @@ Dessa är baserade på de funktioner som beskrivs ytterligare i den dynamiska IP
 ## <a name="restricting-number-of-concurrent-accesses"></a>Att begränsa antalet samtidiga åtkomster
 De inställningar som konfigurerar det här beteendet är:
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 Ändra DynamicIpRestrictionDenyByConcurrentRequests till true för att aktivera skyddet.
 
 ## <a name="restricting-rate-of-access"></a>Begränsa mängden åtkomst
 De inställningar som konfigurerar det här beteendet är:
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## <a name="configuring-the-response-to-a-denied-request"></a>Konfigurera svar på en nekade begäran
 Följande inställning konfigurerar svar på en nekade begäran:
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```xml
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+
 I dokumentationen för den dynamiska IP-säkerhet i IIS för andra värden som stöds.
 
 ## <a name="operations-for-configuring-service-certificates"></a>Åtgärder för att konfigurera service-certifikat
@@ -232,12 +244,16 @@ Endast klienten certifikatbaserad autentisering stöds och inaktiverar den till�
 
 Ändra dessa inställningar till false i konfigurationsfilen för tjänsten att stänga av funktionen:
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```xml
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 Kopiera sedan samma tumavtryck som SSL-certifikat i CA-certifikat inställningen:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="create-a-self-signed-certification-authority"></a>Skapa en självsignerade certifikatutfärdare
 Kör följande steg för att skapa ett självsignerat certifikat kan fungera som en certifikatutfärdare:
@@ -280,11 +296,15 @@ Ladda upp certifikatet med den befintliga eller skapas. CER-fil med den offentli
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>Uppdatera CA-certifikat i tjänstekonfigurationsfilen
 Uppdatera värdet för tumavtrycket för följande inställning i tjänstekonfigurationsfilen med tumavtrycket för certifikatet som har laddats upp till Molntjänsten:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 Uppdatera värdet för följande inställning med samma tumavtryck:
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```xml
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## <a name="issue-client-certificates"></a>Utfärda klientcertifikat
 Varje person som har behörighet att komma åt tjänsten ska ha ett klientcertifikat utfärdat för eget bruk och bör välja sina egna starkt lösenord för att skydda den privata nyckeln. 
@@ -338,17 +358,23 @@ Varje enskild person som ett certifikat har utfärdats måste följa de här ste
 * I dialogrutan certifikat som öppnas väljer du fliken information
 * Se till att visa visar alla
 * Välj fältet med namnet tumavtrycket i listan
-* Kopiera värdet för tumavtrycket ** ta bort icke-synliga Unicode-tecken framför den första siffran ** ta bort alla blanksteg
+* Kopiera värdet för tumavtrycket
+  * Ta bort icke-synliga Unicode-tecken framför den första siffran
+  * Ta bort alla blanksteg
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Konfigurera tillåtna klienter i tjänstekonfigurationsfilen
 Uppdatera värdet för följande inställning i tjänstekonfigurationsfilen med en kommaavgränsad lista med tumavtrycken för de klientcertifikat som får åtkomst till tjänsten:
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```xml
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## <a name="configure-client-certificate-revocation-check"></a>Konfigurera klienten Återkallningskontrollen för lövcertifikatet
 Standardinställningen kontrollerar inte med certifikatutfärdaren för certifikatåterkallningsstatus för klienten. Aktivera kontrollerna om certifikatutfärdaren som utfärdade certifikaten för klienten har stöd för sådana kontroller genom att ändra följande inställning med någon av de värden som definieras i uppräkningen X509RevocationMode:
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```xml
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Skapa PFX-filen för självsignerat krypteringscertifikat
 För ett certifikat för kryptering, kör du:
@@ -381,7 +407,9 @@ Ladda upp certifikatet med den befintliga eller skapas. PFX-fil med nyckelparet 
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>Uppdatera krypteringscertifikat i tjänstkonfigurationsfil
 Uppdatera värdet för tumavtrycket för följande inställningar i tjänstekonfigurationsfilen med tumavtrycket för certifikatet som har laddats upp till Molntjänsten:
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="common-certificate-operations"></a>Vanliga certifikatåtgärder
 * Konfigurera SSL-certifikat
@@ -452,7 +480,9 @@ I [Azure Portal](https://portal.azure.com/)
 ## <a name="other-security-considerations"></a>Andra säkerhetsöverväganden
 SSL-inställningarna som beskrivs i det här dokumentet kryptera kommunikation mellan tjänsten och dess klienter när HTTPS-slutpunkten används. Detta är viktigt eftersom autentiseringsuppgifter för åtkomst till databasen och eventuellt andra känslig information finns i kommunikationen. Observera dock att tjänsten kvarstår interna status, inklusive autentiseringsuppgifter, i dess interna tabeller i Microsoft Azure SQL-databasen som du har angett för lagring av metadata i Microsoft Azure-prenumerationen. Databasen har definierats som en del av följande inställning i din tjänstekonfigurationsfil (. CSCFG-fil): 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```xml
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 Autentiseringsuppgifterna som lagras i den här databasen krypteras. Men som bör du kontrollera att både webb- och worker-roller för dina tjänstdistributioner hålls uppdaterade och säkra som de båda ha åtkomst till metadata-databasen och certifikatet som används för kryptering och dekryptering av lagrade autentiseringsuppgifter. 
 

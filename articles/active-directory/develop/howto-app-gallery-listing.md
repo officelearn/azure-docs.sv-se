@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 02/15/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855b9db645721c63abae34422ae6461cea3daab2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5622c179b6eb767f4c608e8c36c2ba154aac0906
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189828"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594703"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -47,6 +47,9 @@ ms.locfileid: "56189828"
 - För enkel inloggning med lösenord, se till att ditt program stöder formulärautentisering så att lösenordsvalv kan göras för att få enkel inloggning fungerar som förväntat.
 
 - För förfrågningar om automatisk användaretablering bör programmet visas i galleriet med funktionen för enkel inloggning som är aktiverad med SAML 2.0/WS-Fed. Du kan begära för enkel inloggning och Användaretablering tillsammans på portalen om det inte redan visas.
+
+>[!NOTE]
+>Vi använder med högt antal SCIM anslutningen, så vi har stoppat tar nya begäranden på vår portal. Vänta på dina begäranden tills vidare. Vi beklagar för den här fördröjningen och eventuella olägenheter detta kan ha orsakat.
 
 ## <a name="submit-the-request-in-the-portal"></a>Skicka din begäran i portalen
 
@@ -108,6 +111,16 @@ Om du vill uppdatera eller ta bort ett befintligt program i Azure AD app-galleri
     * Om du vill ta bort ett befintligt program från Azure AD-galleriet väljer **ta bort befintliga program lista**.
     * Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
+## <a name="listing-requests-by-customers"></a>Visa en lista över begäranden av kunder
+
+Kunder kan skicka begäran för att visa en lista över ett program genom att klicka på **appen begär av kunder** -> **Skicka ny begäran**.
+
+![Kunden begärda appar sida vid sida](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Nedan visas flödet av kunden begärt program-
+
+![Kunden begärde appar flöde](./media/howto-app-gallery-listing/customer-request.png)
+
 ## <a name="timelines"></a>Tidslinjer
 
 Tidslinje för att visa en lista över en SAML 2.0 eller WS-Fed program i galleriet är 7 – 10 arbetsdagar.
@@ -117,10 +130,6 @@ Tidslinje för att visa en lista över en SAML 2.0 eller WS-Fed program i galler
 Tidslinje för att visa en lista över ett OpenID Connect-program i galleriet är 2 – 5 arbetsdagar.
 
    ![Tidslinje för att visa en lista över saml-program i galleriet](./media/howto-app-gallery-listing/timeline2.png)
-
-Tidslinje för att visa en lista över program i galleriet med stöd för användaretablering är 40-45 dagar.
-
-   ![Tidslinje för att visa en lista över saml-program i galleriet](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Ökningar av
 

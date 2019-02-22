@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a63155e65460f9e2193c121bb49849940104eff1
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427074"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649246"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration-översikt
 
@@ -41,9 +41,41 @@ Från Azure portal eller PowerShell, kan du hantera alla dina DSC-konfiguratione
 
 Noder som hanteras med Azure Automation-Tillståndskonfiguration Skicka detaljerad status för rapporteringsdata till inbyggda hämtningsservern. Du kan konfigurera Azure Automation State Configuration för att skicka dessa data till Log Analytics-arbetsytan. Läs hur du skickar Tillståndskonfiguration statusdata till Log Analytics-arbetsytan i [vidarebefordra Azure Automation Tillståndskonfiguration rapporterar data till Log Analytics](automation-dsc-diagnostics.md).
 
-## <a name="network-planning"></a>Konfigurera nätverket
+## <a name="prerequisites"></a>Förutsättningar
 
-Följande port och URL: er krävs för tillstånd Configuration (DSC) att kommunicera med Automation:
+Överväg följande krav när du använder Azure Automation tillstånd Configuration (DSC).
+
+### <a name="operating-system-requirements"></a>Operativsystemkrav
+
+För noder som kör Windows, stöds följande versioner:
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012 R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+För noderna som kör Linux, stöds följande distributioner/versioner:
+
+DSC-Linux-tillägget har stöd för Linux-distributioner [på Azure-godkända](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) utom:
+
+Distribution | Version
+-|-
+Debian  | Alla versioner
+Ubuntu  | 18.04
+
+### <a name="dsc-requirements"></a>DSC-krav
+
+För alla Windows-noder som körs i Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) kommer att installeras under publiceringen.  För noder som kör Windows Server 2012 och Windows 7, [WinRM aktiveras](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+
+Alla Linux-noder som körs i Azure, [PowerShell DSC för Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) kommer att installeras under publiceringen.
+
+### <a name="network-planning"></a>Konfigurera privata nätverk
+
+Om noderna finns i ett privat nätverk kan krävs följande port och URL: er för tillstånd Configuration (DSC) att kommunicera med Automation:
 
 * Port: Endast TCP 443 krävs för utgående Internetåtkomst.
 * Global URL: *.azure-automation.net
@@ -85,7 +117,7 @@ Föredrar du att titta eller läsa? Ta en titt på följande videoklipp från ma
 > [!NOTE]
 > Koncept och livscykel som beskrivs i den här videon är korrekta, har Azure Automation-Tillståndskonfiguration utvecklats mycket sedan videon spelades. Det är nu allmänt tillgänglig, har ett mycket mer omfattande användargränssnitt i Azure-portalen och har stöd för många ytterligare funktioner.
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="next-steps"></a>Nästa steg
 

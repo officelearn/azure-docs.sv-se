@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: d0ab683ac59c17cbae1e0947cd2acd785b0365d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c0e024281782ede67aa3092d7af05a54113b0d68
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885000"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587539"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Stöd för språk och din region för Translator Text API
 
@@ -268,7 +268,7 @@ Du kan hämta en lista över språk som stöds för Translator Text API-v3.0 med
 
 ## <a name="customization"></a>Anpassning
 
-Följande språk är tillgängligt för anpassning med hjälp av [anpassad Translator](http://aka.ms/CustomTranslator).
+Följande språk är tillgängliga för anpassning till eller från engelska med [anpassad Translator](http://aka.ms/CustomTranslator).
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|

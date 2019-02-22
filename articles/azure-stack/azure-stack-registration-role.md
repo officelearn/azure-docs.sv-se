@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: 80caa470675a78a9c2e3d4c055333719f54fe64a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/13/2019
+ms.openlocfilehash: 4858e33023ff0f94bb9fb879b01846184df2491e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247892"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652152"
 ---
 # <a name="create-a-registration-role-for-azure-stack"></a>Skapa en roll för registrering för Azure Stack
 
@@ -33,7 +33,7 @@ Scenarier där du inte vill ge behörigheter i Azure-prenumeration kan skapa du 
 
 När du registrerar Azure Stack kräver registrering-kontot i följande Azure Active Directory och behörigheter på Azure-prenumeration:
 
-* **Registrering av behörigheter för programmet i din Azure Active Directory-klient:** Administratörer har behörigheter för registrering av programmet. Behörigheten för användare är en global inställning för alla användare i klienten. Visa eller ändra inställningen Se [och skapa en Azure AD program och tjänstens huvudnamn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+* **Registrering av behörigheter för programmet i din Azure Active Directory-klient:** Administratörer har behörigheter för registrering av programmet. Behörigheten för användare är en global inställning för alla användare i klienten. Om du vill visa eller ändra inställningen, se [och skapa en Azure AD program och tjänstens huvudnamn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
     Den *användare kan registrera program* måste ha angetts **Ja** om du vill aktivera ett användarkonto att registrera Azure Stack. Om inställningen appregistreringar anges till **nr**, du kan inte använda ett användarkonto och måste använda ett globalt administratörskonto för att registrera Azure Stack.
 

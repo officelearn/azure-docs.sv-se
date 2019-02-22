@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b569165153ce713846be5e836a26f48e500be1fc
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446757"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594142"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
@@ -54,7 +54,7 @@ Använd följande tabell för att konfigurera certifikatet. Klicka på **Skapa**
 | Prenumeration | Datacenter som är värd för webbappen. |
 | Resursgrupp | Den resursgrupp som innehåller certifikatet. Du kan använda en ny resursgrupp eller Välj samma resursgrupp som din App Service-app, till exempel. |
 | Certifikat-SKU | Avgör vilken typ av certifikat för att skapa, om ett standardcertifikat eller en [jokerteckencertifikat](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Juridiska villkor | Klicka för att bekräfta att du godkänner de juridiska villkoren. |
+| Juridiska villkor | Klicka för att bekräfta att du godkänner de juridiska villkoren. Certifikat som erhålls från GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Store i Azure Key Vault
 

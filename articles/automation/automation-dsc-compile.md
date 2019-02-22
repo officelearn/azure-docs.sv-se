@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423416"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594278"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
 
@@ -284,6 +284,14 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > När kompilering är klar visas ett felmeddelande om: **Modulen 'Microsoft.PowerShell.Management' importerades inte eftersom snapin-modulen 'Microsoft.PowerShell.Management' har redan importerats.** Den här varningen kan ignoreras.
+
+## <a name="partial-configuration"></a>Partiell konfiguration
+
+Azure Automation State konfigurationen har stöd för användning av [partiella konfigurationer](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+I det här scenariot DSC konfigureras för att hantera konfigurationer med flera oberoende av varandra och varje konfiguration är retreieved från Azure Automation.
+Men kan bara en konfiguration tilldelas till en nod och automation-konto.
+Det innebär att om du använder två konfigurationer för en nod behöver du två automation-konton.
+Mer information om hur team kan arbeta tillsammans att samarbeta hantera servrar med konfiguration som kod finns i [förstå DSC-rollen i en CI/CD-Pipeline](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Importera nodkonfigurationer
 

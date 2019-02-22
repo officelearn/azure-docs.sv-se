@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7f38ef5076472954672cb721874891539802e7f1
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892889"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593275"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database-dataidentifiering och klassificering
 
@@ -144,7 +144,7 @@ Du kan också använda REST API: er för att programmässigt hantera klassificer
 - [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) – tar bort känslighetsetikett för en viss kolumn
 - [Hämta](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -hämtar känsliga etiketten för en viss kolumn
 - [Lista över aktuella av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -hämtar aktuella känslighet etiketterna för en viss databas
-- [Listan rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -hämtar aktuella känslighet etiketterna för en viss databas
+- [Listan rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -hämtar rekommenderade känslighet etiketterna för en viss databas
 
 ## <a id="subheading-5"></a>Nästa steg
 

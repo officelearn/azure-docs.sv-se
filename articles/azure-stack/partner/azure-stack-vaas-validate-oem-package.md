@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3a9ee66907b51a40e9f4b0871d9f6ba6e29763a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242407"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594057"
 ---
 # <a name="validate-oem-packages"></a>Verifiera OEM-paket
 
@@ -35,7 +35,7 @@ Du kan testa ett nytt OEM-paket när det har skett en ändring av inbyggd progra
 
 ## <a name="managing-packages-for-validation"></a>Hantera paket för verifiering
 
-När du använder den **Paketvalideringen** arbetsflöde för att verifiera ett paket måste du ange en URL till en **Azure Storage-blob**. Den här bloben är OEM-paket som har installerats på lösningen vid tidpunkten för distribution. Skapa blob med hjälp av Azure Storage-konto som du skapade under installationen (se [ställa in din validering som en tjänstresurser](azure-stack-vaas-set-up-resources.md)).
+När du använder den **Paketvalideringen** arbetsflöde för att verifiera ett paket måste du ange en URL till en **Azure Storage-blob**. Den här bloben är testet signerade OEM-paket som installeras som en del av uppdateringen. Skapa blob med hjälp av Azure Storage-konto som du skapade under installationen (se [ställa in din validering som en tjänstresurser](azure-stack-vaas-set-up-resources.md)).
 
 ### <a name="prerequisite-provision-a-storage-container"></a>Förutsättning: Etablera en lagringsbehållare
 
@@ -58,7 +58,9 @@ Skapa en behållare i ditt storage-konto för paketet BLOB. Den här behållaren
 
 När du skapar en **Paketvalideringen** arbetsflöde i VaaS-portalen, måste du ange en URL till Azure Storage-blob som innehåller ditt paket.
 
-#### <a name="option-1-generating-an-account-sas-url"></a>Alternativ 1: Generera en kontots SAS-URL
+#### <a name="option-1-generating-a-blob-sas-url"></a>Alternativ 1: Generera en blob SAS-URL
+
+Använd det här alternativet om du inte vill aktivera offentlig läsbehörighet till storage-behållare eller BLOB-objekt.
 
 1. I den [Azure-portalen](https://portal.azure.com/), gå till ditt storage-konto och navigera till .zip som innehåller ditt paket
 
@@ -68,20 +70,23 @@ När du skapar en **Paketvalideringen** arbetsflöde i VaaS-portalen, måste du 
 
 4. Ange **starttid** till aktuell tid och **sluttid** minst 48 timmar från **starttid**. Om du ska köra andra tester med samma paket måste du överväga att öka **sluttid** för längden på testet. Alla tester som schemalagts via VaaS efter **sluttid** kommer misslyckas och en ny SAS behöver ska genereras.
 
-5. Välj **generera blob SAS-token och URL: en**
+5. Välj **Generera blob-SAS-token och URL**.
 
-Använd **Blob SAS-Webbadressen** när startar en ny **Paketvalideringen** arbetsflöde i VaaS-portalen.
+Använd den **Blob SAS-Webbadressen** när tillhandahåller paketet blob-URL: er till portalen.
 
-#### <a name="option-2-using-public-read-container"></a>Alternativ 2: Offentliga behållare som skrivskyddad
+#### <a name="option-2-grant-public-read-access"></a>Alternativ 2: Ge offentlig läsbehörighet
 
 > [!CAUTION]
-> Det här alternativet öppnas din behållare för anonym åtkomst för skrivskyddat läge.
+> Det här alternativet öppnas din BLOB(ar) för anonym åtkomst för skrivskyddat läge.
 
 1. Bevilja **offentlig läsbehörighet endast för blobbar** till behållaren paketet genom att följa anvisningarna i avsnittet [bevilja anonyma användare till behållare och blobbar](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-2. I behållaren paketet väljer du på paketet blob i behållaren för att öppna egenskapsfönstret.
+> [!NOTE]
+> Om du tillhandahåller en paket-URL till en *interaktiva test* (t.ex, månatlig AzureStack Update verifiering eller OEM-tillägget paketet verifieringen), måste du ge **fullständig offentlig läsbehörighet** till Gå vidare med testning.
 
-3. Kopiera den **URL**. Använd det här värdet när du startar en ny **Paketvalideringen** arbetsflöde i VaaS-portalen.
+2. I behållaren paket väljer du blobben som paketet ska öppna egenskapsfönstret.
+
+3. Kopiera den **URL**. Använd det här värdet när tillhandahåller paketet blob-URL: er till portalen.
 
 ## <a name="apply-monthly-update"></a>Tillämpa månatliga uppdatering
 
@@ -99,7 +104,7 @@ Använd **Blob SAS-Webbadressen** när startar en ny **Paketvalideringen** arbet
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
-5. Ange URL: en för Azure Storage blob till OEM-paketet som har installerats på lösningen vid tidpunkten för distribution. Anvisningar finns i [generera paketet blob-Webbadressen för VaaS](#generate-package-blob-url-for-vaas).
+5. Ange Azure Storage blob URL: en till test-signerade OEM-paketet som kräver en signatur från Microsoft. Anvisningar finns i [generera paketet blob-Webbadressen för VaaS](#generate-package-blob-url-for-vaas).
 
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
@@ -113,9 +118,16 @@ Använd **Blob SAS-Webbadressen** när startar en ny **Paketvalideringen** arbet
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Du omdirigeras till sammanfattningssidan tester.
 
+## <a name="required-tests"></a>Tester som krävs
+
+Följande test krävs för att verifiera för OEM-paketet:
+
+- Verifiering av OEM-tillägg-paketet
+- Cloud Simulation Engine
+
 ## <a name="run-package-validation-tests"></a>Köra verifieringstester för paketet
 
-1. I den **Paketvalideringen testar sammanfattning** sidan visas en lista över de tester som krävs för att slutföra verifieringen. Tester i det här arbetsflödet kör för ungefär 24 timmar.
+1. I den **Paketvalideringen testar sammanfattning** kan du köra en delmängd av de listade testerna som är lämpligt för ditt scenario.
 
     I arbetsflöden verifiering **schemaläggning** ett test använder de gemensamma parametrarna för arbetsflödet på servernivå som du angav under arbetsflödet skapats (se [arbetsflödets gemensamma parametrar för Azure Stack-verifiering som en tjänst](azure-stack-vaas-parameters.md)). Om någon av test parametervärden blir ogiltiga måste du resupply dem som finns beskrivet i [ändra arbetsflödesparametrar](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
@@ -125,13 +137,11 @@ Använd **Blob SAS-Webbadressen** när startar en ny **Paketvalideringen** arbet
 
 2. Välj den agent som ska köra testet. Information om att lägga till lokala webbtestagenter körning, se [distribuera lokal agent](azure-stack-vaas-local-agent.md).
 
-3. För var och en av följande test steg fyra och fem:
-    - Verifiering av OEM-tillägg-paketet
-    - Cloud Simulation Engine
+3. Till fullständig verifiering av OEM-tillägget paketet Välj **schema** från snabbmenyn för att öppna en kommandotolk för att schemalägga test-instans.
 
-4. Välj **schema** från snabbmenyn för att öppna en kommandotolk för att schemalägga test-instans.
+4. Granska de test-parametrarna och välj sedan **skicka** att schemalägga OEM-tillägget paketet verifiering för körning.
 
-5. Granska de test-parametrarna och välj sedan **skicka** att schemalägga testet för körning.
+5. Granska resultatet för OEM-tillägget paketet verifiering. När testet har slutförts kan du schemalägga molnet simulering motorn för körning.
 
 När alla tester har slutförts, skicka namnet på din VaaS lösning och verifiera paketet till [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) till Begär signering av paketet.
 

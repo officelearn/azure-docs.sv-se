@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7763807fdb5fcff7e93d54bf5a851cd4443427d3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8b2e42759ba2bffef28e1bf74e07bc149027ab7a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107199"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651781"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Undersöka incidenter och aviseringar i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda undersökningsfunktionen i Azure Security Center för att undersöka incidenter och aviseringar.
@@ -29,8 +29,10 @@ Med undersökningsfunktionen i Security Center kan du sortera, förstå omfattni
 
 Avsikten är att underlätta undersökningsprocessen genom att länka alla entiteter ([säkerhetsaviseringar](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), användare, datorer och incidenter) som ingår i incidenten du undersöker.  Security Center kan göra detta genom att korrelera relevanta data med berörda entiteter och visa korrelationen i ett interaktivt diagram som hjälper dig att navigera bland objekten och visualisera relevant information.
 
+
 > [!NOTE]
-> [Anpassade aviseringar](security-center-custom-alert.md) stöds inte i undersökningsfunktionen i Security Center.
+    > * [Anpassade aviseringar](security-center-custom-alert.md) stöds inte i undersökningsfunktionen i Security Center.
+    > * Undersökning har endast stöd för aviseringar baserat på data som samlas in från Windows-servrar.
 >
 >
 

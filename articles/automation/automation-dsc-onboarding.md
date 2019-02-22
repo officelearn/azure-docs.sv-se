@@ -9,18 +9,23 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: f9a1076ddfb840ba845718c5ca0deea8c5788e7d
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: b81dccf3c71fbaff7b0cbb9ba00f13b458156e73
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100337"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588270"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Konfigurera datorer för hantering av Azure Automation State Configuration
 
 ## <a name="why-manage-machines-with-azure-automation-state-configuration"></a>Varför hantera datorer med Azure Automation-Tillståndskonfiguration?
 
-Som [PowerShell Desired State Configuration](/powershell/dsc/overview), tillståndskonfigurationen för Azure Automation är en enkel men kraftfull configuration management-tjänsten för DSC-noder (fysiska och virtuella datorer) i alla moln- eller lokala datacenter . Den möjliggör skalbarhet till tusentals datorer snabbt och enkelt från en central och säker plats. Du kan enkelt integrera datorer, tilldela dem deklarativa konfigurationer och visa rapporter som visar var och en dator är efterlevnad av önskat tillstånd som du har angett. Azure Automation-Tillståndskonfiguration hanteringslager är att DSC nyheter Azure Automation-hanteringslager till PowerShell-skript. Med andra ord på samma sätt som Azure Automation hjälper dig att hantera PowerShell-skript får också hantera DSC-konfigurationer. Läs mer om fördelarna med att använda Azure Automation-Tillståndskonfiguration i [översikt över Azure Automation-Tillståndskonfiguration](automation-dsc-overview.md).
+Azure Automation State Configuration är en management-konfigurationstjänsten för DSC-noder i ett moln eller lokala datacenter.
+Den möjliggör skalbarhet till tusentals datorer snabbt och enkelt från en central och säker plats.
+Du kan enkelt integrera datorer, tilldela dem deklarativa konfigurationer och visa rapporter som visar var och en dator är efterlevnad av önskat tillstånd som du har angett.
+Azure Automation State Configuration-tjänsten är att DSC vad Azure Automation-runbooks är att PowerShell-skript.
+Med andra ord på samma sätt som Azure Automation hjälper dig att hantera PowerShell-skript får också hantera DSC-konfigurationer.
+Läs mer om fördelarna med att använda Azure Automation-Tillståndskonfiguration i [översikt över Azure Automation-Tillståndskonfiguration](automation-dsc-overview.md).
 
 Azure Automation-Tillståndskonfiguration kan användas för att hantera olika datorer:
 
@@ -30,7 +35,8 @@ Azure Automation-Tillståndskonfiguration kan användas för att hantera olika d
 - Fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure/AWS
 - Fysiska/virtuella Linux-datorer lokalt, i Azure eller i ett annat moln än Azure
 
-Dessutom om du inte är redo att hantera datorkonfigurationen från molnet kan tillståndskonfigurationen för Azure Automation också användas som en endast-slutpunkt. På så sätt kan du ange (push) önskad konfiguration via DSC på plats och visa omfattande rapportering på noden efterlevnad av önskat tillstånd i Azure Automation.
+Dessutom om du inte är redo att hantera datorkonfigurationen från molnet kan tillståndskonfigurationen för Azure Automation också användas som en endast-slutpunkt.
+På så sätt kan du ange (push) konfigurationer via DSC och visa rapporteringsuppgifter i Azure Automation.
 
 > [!NOTE]
 > Hantera virtuella Azure-datorer med Tillståndskonfiguration ingår utan extra kostnad om VM DSC-tillägget installerat är större än 2.70. Referera till den [ **Automation prissättningssidan** ](https://azure.microsoft.com/pricing/details/automation/) för mer information.
@@ -56,26 +62,34 @@ Under **registrering**, ange den [PowerShell DSC lokal konfigurationshanterare v
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-Azure-datorer kan distribueras och har integrerats i Azure Automation-Tillståndskonfiguration via Azure Resource Manager-mallar. Se [konfigurera en virtuell dator via DSC-tillägget och Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) för en exempelmall som registrerar virtuella en befintlig virtuell dator till Azure Automation State Configuration. Att hitta nyckeln för tjänstregistrering och Registreringswebbadress vidtas som indata i den här mallen, ser du följande [ **säker registrering** ](#secure-registration) avsnittet.
+Azure-datorer kan distribueras och har integrerats i Azure Automation-Tillståndskonfiguration via Azure Resource Manager-mallar. Se [Server hanteras av Desired State Configuration-tjänsten](https://azure.microsoft.com/en-us/resources/templates/101-automation-configuration/) för en exempelmall som registrerar virtuella en befintlig virtuell dator till Azure Automation State Configuration.
+Om du hanterar en Virtual Machine Scale Sets, se exempel mallen [ange konfigurationen för virtuell dator skala hanteras av Azure Automation](https://azure.microsoft.com/en-us/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="powershell"></a>PowerShell
 
 Den [registrera AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet kan användas för att publicera virtuella datorer i Azure-portalen via PowerShell.
 
+### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Registrera virtuella datorer mellan Azure-prenumerationer
+
+Det bästa sättet att registrera virtuella datorer från andra Azure-prenumerationer är att använda DSC-tillägg i en Distributionsmall av Azure Resource Manager.
+Exempel finns i [Desired State Configuration-tillägget med Azure Resource Manager-mallar](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template).
+Nyckel för tjänstregistrering och URL: en för registrering ska användas som parametrar i mallen finns i följande [ **säker registrering** ](#secure-registration) avsnittet.
+
 ## <a name="azure-virtual-machines-classic"></a>Azure-datorer (klassisk)
 
-Med Azure Automation State Configuration kan du enkelt integrera Azure-datorer (klassisk) för konfigurationshantering med antingen Azure-portalen eller PowerShell. Under huven och utan att en administratör som har fjärråtkomst till den virtuella datorn registreras tillägget Azure VM Desired State Configuration den virtuella datorn med Azure Automation State Configuration. Eftersom Azure VM Desired State Configuration-tillägget körs asynkront, steg för att spåra förloppet eller felsöka den finns i följande [ **felsöka Azure VM onboarding** ](#troubleshooting-azure-virtual-machine-onboarding) avsnittet.
+Med Azure Automation State Configuration kan du enkelt integrera Azure-datorer (klassisk) för konfigurationshantering med antingen Azure-portalen eller PowerShell. Under huven och utan att en administratör som har fjärråtkomst till den virtuella datorn registreras tillägget Azure VM Desired State Configuration den virtuella datorn med Azure Automation State Configuration.
+Steg att följa förloppet eller felsöka den finns i följande [ **felsöka Azure VM onboarding** ](#troubleshooting-azure-virtual-machine-onboarding) avsnittet.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal-classic-virtual-machines"></a>Azure-portalen (klassiska virtuella datorer)
 
 I den [Azure-portalen](https://portal.azure.com/), klickar du på **Bläddra** -> **virtuella datorer (klassiska)**. Välj Windows VM som du vill publicera. Den virtuella datorns instrumentpanelen bladet och klicka på **alla inställningar** -> **tillägg** -> **Lägg till** -> **Azure Automation DSC** -> **skapa**.
-Ange den [PowerShell DSC lokal konfigurationshanterare värden](/powershell/dsc/metaconfig4) krävs för ditt användningsområde, Registreringsnyckeln för ditt Automation-konto och URL: en registrering och eventuellt en nodkonfiguration ska tilldelas den virtuella datorn.
+Ange den [PowerShell DSC lokal konfigurationshanterare värden](/powershell/dsc/metaconfig4) för Registreringsnyckeln för ditt Automation-konto och URL: en registrering och eventuellt en nodkonfiguration ska tilldelas den virtuella datorn.
 
 ![Azure VM-tillägg för DSC](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
 Hitta URL: en för registrering och nyckel för Automation-konto för att registrera datorn för att se följande [ **säker registrering** ](#secure-registration) avsnittet:
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell-classic-virtual-machines"></a>PowerShell (klassiska virtuella datorer)
 
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
@@ -149,7 +163,7 @@ Du kan enkelt integrera Amazon Web Services virtuella datorer för konfiguration
 
 ## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws"></a>Fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure/AWS
 
-Lokala Windows-datorer och Windows-datorer i Azure-moln (till exempel Amazon Web Services) kan du också vara har integrerats i Azure Automation State Configuration, så länge som de har utgående åtkomst till internet via några få enkla steg:
+Windows-servrar som körs lokalt eller i andra miljöer i molnet kan också vara har integrerats i Azure Automation State Configuration, så länge som de har utgående åtkomst till Azure:
 
 1. Kontrollera att den senaste versionen av [WMF 5](https://aka.ms/wmf5latest) är installerat på datorer som du vill att publicera till Azure Automation State Configuration.
 1. Följ anvisningarna i följande avsnitt [ **generera DSC metaconfigurations** ](#generating-dsc-metaconfigurations) att generera en mapp som innehåller nödvändiga DSC-metaconfigurations.
@@ -162,9 +176,9 @@ Lokala Windows-datorer och Windows-datorer i Azure-moln (till exempel Amazon Web
 1. Om du inte använder PowerShell DSC-metaconfigurations via en fjärranslutning, kopiera mappen metaconfigurations från steg 2 till varje dator för att publicera. Anropa sedan **Set-DscLocalConfigurationManager** lokalt på varje dator för att publicera.
 1. Med Azure portal eller cmdlet: ar, kontrollera att datorerna som ska publiceras som nu visas som Tillståndskonfiguration noder som registrerats i Azure Automation-kontot.
 
-## <a name="physicalvirtual-linux-machines-on-premises-in-azure-or-in-a-cloud-other-than-azure"></a>Fysiska/virtuella Linux-datorer lokalt, i Azure eller i ett annat moln än Azure
+## <a name="physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure"></a>Fysiska/virtuella Linux-datorer lokalt eller i ett annat moln än Azure
 
-Lokala Linux-datorer, Linux-datorer i Azure och Linux-datorer i Azure-moln kan du också vara har integrerats i Azure Automation State Configuration, så länge som de har utgående åtkomst till internet via några få enkla steg:
+Linux-servrar som körs lokalt eller i andra miljöer i molnet kan också vara har integrerats i Azure Automation State Configuration, så länge som de har utgående åtkomst till Azure:
 
 1. Kontrollera att den senaste versionen av [PowerShell Desired State Configuration för Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) är installerat på datorer som du vill att publicera till Azure Automation State Configuration.
 1. Om den [PowerShell DSC lokal konfigurationshanterare standardvärden](/powershell/dsc/metaconfig4) matchar ditt användningsområde och du vill integrera datorer, till exempel att de **både** hämta från och rapportera till Azure Automation-Tillståndskonfiguration:
@@ -175,7 +189,7 @@ Lokala Linux-datorer, Linux-datorer i Azure och Linux-datorer i Azure-moln kan d
 
    - Nyckel för tjänstregistrering och Registreringswebbadress för ditt Automation-konto finns i följande [ **säker registrering** ](#secure-registration) avsnittet.
 
-     Om PowerShell DSC Local Configuration Manager som standard **inte** matchar ditt användningsfall, eller om du vill att publicera datorer så att de endast rapporterar till Azure Automation-Tillståndskonfiguration, men inte hämta konfiguration eller PowerShell moduler från den, Följ steg 3 – 6. Annars kan fortsätta direkt till steg 6.
+     Om PowerShell DSC Local Configuration Manager som standard **inte** matchar ditt användningsområde eller du vill publicera datorer så att de endast rapporterar till Azure Automation-Tillståndskonfiguration, Följ steg 3 – 6. Annars kan fortsätta direkt till steg 6.
 
 1. Följ anvisningarna i följande [ **generera DSC metaconfigurations** ](#generating-dsc-metaconfigurations) avsnitt för att skapa en mapp som innehåller nödvändiga DSC-metaconfigurations.
 1. Via en fjärranslutning gäller PowerShell DSC-metaconfiguration för de datorer du vill publicera:
@@ -193,7 +207,7 @@ Lokala Linux-datorer, Linux-datorer i Azure och Linux-datorer i Azure-moln kan d
 
 Den datorn som det här kommandot körs från måste ha den senaste versionen av [WMF 5](https://aka.ms/wmf5latest) installerad.
 
-1. Om du inte kan använda PowerShell DSC-metaconfigurations via fjärranslutning, för varje Linux-dator för att publicera, kopierar du metaconfiguration som motsvarar den datorn från mappen i steg 5 till Linux-dator. Anropa sedan `SetDscLocalConfigurationManager.py` lokalt på varje Linux-dator du vill att publicera till Azure Automation-Tillståndskonfiguration:
+1. Om du inte kan använda PowerShell DSC-metaconfigurations via en fjärranslutning, kopiera metaconfiguration som motsvarar den datorn från mappen i steg 5 till Linux-dator. Anropa sedan `SetDscLocalConfigurationManager.py` lokalt på varje Linux-dator du vill att publicera till Azure Automation-Tillståndskonfiguration:
 
    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
 
@@ -201,7 +215,7 @@ Den datorn som det här kommandot körs från måste ha den senaste versionen av
 
 ## <a name="generating-dsc-metaconfigurations"></a>Generera DSC metaconfigurations
 
-Att Allmänt publicera någon dator tillståndskonfigurationen för Azure Automation, en [DSC metaconfiguration](/powershell/dsc/metaconfig) kan vara genereras som, när tillämpas, säger till DSC-agenten på datorn för att hämta från och/eller rapportera till Azure Automation-tillstånd Konfiguration. DSC-metaconfigurations för Azure Automation-Tillståndskonfiguration kan genereras med hjälp av en PowerShell DSC-konfiguration eller Azure Automation PowerShell-cmdlets.
+Att Allmänt publicera någon dator tillståndskonfigurationen för Azure Automation, en [DSC metaconfiguration](/powershell/dsc/metaconfig) kan genereras som säger till DSC-agenten för att hämta från och/eller rapportera till Azure Automation State Configuration. DSC-metaconfigurations för Azure Automation-Tillståndskonfiguration kan genereras med hjälp av en PowerShell DSC-konfiguration eller Azure Automation PowerShell-cmdlets.
 
 > [!NOTE]
 > DSC-metaconfigurations innehålla hemligheterna som behövs för att registrera en dator till ett Automation-konto för hantering. Se till att skydda alla DSC-metaconfigurations som du skapar eller tar bort dem när du har använt.

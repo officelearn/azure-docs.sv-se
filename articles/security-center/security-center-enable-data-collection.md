@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: a11a72bf2121bb36203002b69f06c74ca3e8a2d0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cdbce2073213906dbb82b0684f8ef4e3528f6cf4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107863"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652704"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
-Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
+Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Log Analytics-agenten, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Log Analytics-agenten kopierar också kraschdumpfiler till din arbetsyta.
 
 Insamling av data krävs för att ge dig information om saknade uppdateringar, felkonfigurerad OS-säkerhetsinställningar, aktivering av endpoint protection och hälsa och threat identifieringar. 
 
-Den här artikeln innehåller råd om hur du installerar Microsoft Monitoring Agent och ange en Log Analytics-arbetsyta där du vill lagra insamlade data. Både krävs för att aktivera insamling av data. 
+Den här artikeln innehåller råd om hur du installerar en Log Analytics-agenten och ange en Log Analytics-arbetsyta där du vill lagra insamlade data. Både krävs för att aktivera insamling av data. 
 
 > [!NOTE]
 > - Datainsamling krävs endast för beräkningsresurser (virtuella datorer och Azure-datorer). Du kan dra nytta av Azure Security Center även om du inte etablera agenter; men du har begränsad säkerhet och de funktioner som anges ovan stöds inte.  
@@ -34,19 +34,19 @@ Den här artikeln innehåller råd om hur du installerar Microsoft Monitoring Ag
 > - Insamling av data för Virtual machine scale Sets stöds inte för närvarande.
 
 
-## Aktivera automatisk etablering av Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
+## Aktivera automatisk etablering av Log Analytics-agenten <a name="auto-provision-mma"></a>
 
-Om du vill samla in data från datorerna bör du ha Microsoft Monitoring Agent installerad.  Installationen av agenten kan vara automatiskt (rekommenderas) eller så kan du välja att installera agenten manuellt.  
+Om du vill samla in data från datorerna bör du ha Log Analytics-agenten installerad.  Installationen av agenten kan vara automatiskt (rekommenderas) eller så kan du välja att installera agenten manuellt.  
 
 >[!NOTE]
 > Automatisk etablering är inaktiverat som standard. Om du vill ange Security Center för att installera Automatisk etablering som standard, ange den till **på**.
 >
 
-När automatisk etablering är aktiverat, stöds etablerar Security Center Microsoft Monitoring Agent på alla virtuella Azure-datorer och alla nya som skapas. Automatisk försörjning rekommenderas starkt men manuell agentinstallation är också tillgängliga. [Lär dig hur du installerar tillägget Microsoft Monitoring Agent](#manualagent).
+När automatisk etablering är aktiverat etablerar Log Analytics-agenten på alla virtuella Azure-datorer och alla nya som skapas i Security Center. Automatisk försörjning rekommenderas starkt men manuell agentinstallation är också tillgängliga. [Lär dig hur du installerar tillägget för Log Analytics-agenten](#manualagent).
 
 
 
-Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
+För att aktivera automatisk etablering av Log Analytics-agenten:
 1. Huvudmenyn i Security Center, Välj **säkerhetsprincip**.
 2. Klicka på **redigera inställningar för** i kolumnen inställningar i den önskade prenumerationen i listan.
 
@@ -60,7 +60,7 @@ Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
 
 >[!NOTE]
 > - Anvisningar för hur du etablerar en befintlig installation finns i [Automatisk etablering i händelse av en befintlig agentinstallation](#preexisting).
-> - Information om manuell etablering finns [installerar tillägget Microsoft Monitoring Agent manuellt](#manualagent).
+> - Information om manuell etablering finns [installerar tillägget för Log Analytics-agenten manuellt](#manualagent).
 > - Anvisningar för att stänga av Automatisk etablering, se [inaktivera automatisk etablering](#offprovisioning).
 > - Mer information om hur du integrera Security Center med hjälp av PowerShell, se [automatisera onboarding av Azure Security Center med hjälp av PowerShell](security-center-powershell-onboarding.md).
 >
@@ -147,7 +147,7 @@ När du väljer en arbetsyta där du vill lagra dina data finns alla arbetsytor 
 
 
 ## <a name="data-collection-tier"></a>Samling datanivå
-Att välja en nivå för insamling av data i Azure Security Center påverkar endast lagring av säkerhetshändelser i Log Analytics-arbetsytan. Microsoft Monitoring Agent kommer fortfarande att samla in och analysera säkerhetshändelser som krävs för Azure Security Center threat identifieringar, oavsett vilken nivå av säkerhetshändelser som du väljer att lagra i Log Analytics-arbetsytan (om sådan finns). Välja att lagra säkerhetshändelser i din arbetsyta aktiverar undersökning, sökning och granskning av dessa händelser i din arbetsyta. 
+Att välja en nivå för insamling av data i Azure Security Center påverkar endast lagring av säkerhetshändelser i Log Analytics-arbetsytan. Log Analytics-agenten kommer fortfarande att samla in och analysera säkerhetshändelser som krävs för Azure Security Center threat identifieringar, oavsett vilken nivå av säkerhetshändelser som du väljer att lagra i Log Analytics-arbetsytan (om sådan finns). Välja att lagra säkerhetshändelser i din arbetsyta aktiverar undersökning, sökning och granskning av dessa händelser i din arbetsyta. 
 > [!NOTE]
 > Lagra data i Log Analytics kan debiteras ytterligare avgifter för lagring av data, se prissättningssidan för mer information.
 >
@@ -202,8 +202,8 @@ Att välja din filtreringsprincip:
 
 Följande användningsfall ange hur automatisk etablering i fall när det finns redan en agent eller tillägget har installerats. 
 
-- Microsoft Monitoring Agent är installerad på datorn, men inte som ett tillägg<br>
-Om Microsoft Monitoring Agent är installerad direkt på den virtuella datorn (inte som en utökning av Azure), installera inte Microsoft Monitoring Agent i Security Center. Du kan aktivera automatisk etablering och välj användararbetsytan relevanta i Security Center automatiskt etableringskonfiguration. Om du väljer samma arbetsyta som den virtuella datorn är redan ansluten till den befintliga agenten hanteras med tillägget Microsoft Monitoring Agent. 
+- Log Analytics-agenten är installerad på datorn, men inte som ett tillägg<br>
+Om Log Analytics-agenten är installerad direkt på den virtuella datorn (inte som en utökning av Azure), installerar inte Log Analytics-agenten i Security Center. Du kan aktivera automatisk etablering och välj användararbetsytan relevanta i Security Center automatiskt etableringskonfiguration. Om du väljer samma arbetsyta som den virtuella datorn är redan ansluten till den befintliga agenten hanteras med filtillägget Log Analytics-agenten. 
 
 > [!NOTE]
 > Om SCOM agent-version 2012 installeras, **inte** aktivera automatisk etablering på. 
@@ -212,8 +212,8 @@ Mer information finns i [vad händer om en SCOM eller OMS dirigera agenten är r
 
 -   Det finns en befintlig VM-tillägg<br>
     - Security center har stöd för befintliga installationer av tillägget och åsidosätts inte befintliga anslutningar. Security Center lagrar data från den virtuella datorn i arbetsytan redan är ansluten och ger skydd baserat på de lösningar som har aktiverats på arbetsytan.   
-    - Se på vilka arbetsyta befintliga tillägget skickar data för att köra testet till [Kontrollera anslutning med Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Du kan också öppna Log analytics, Välj en arbetsyta, väljer den virtuella datorn och titta på Microsoft Monitoring Agent-anslutningen. 
-    - Om du har en miljö där Microsoft Monitoring Agent är installerad på klientdatorer och rapporterar till en befintlig Log Analytics-arbetsyta, granska listan över [operativsystem som stöds av Azure Security Center](security-center-os-coverage.md) till Kontrollera att det finns stöd för operativsystemet och se [befintliga Log Analytics-kunder](security-center-faq.md#existingloganalyticscust) för mer information.
+    - Se på vilka arbetsyta befintliga tillägget skickar data för att köra testet till [Kontrollera anslutning med Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Du kan också öppna Log analytics, Välj en arbetsyta, väljer den virtuella datorn och titta på Log Analytics-agenten anslutningen. 
+    - Om du har en miljö där Log Analytics-agenten är installerad på klientdatorer och rapporterar till en befintlig Log Analytics-arbetsyta, granska listan över [operativsystem som stöds av Azure Security Center](security-center-os-coverage.md) Kontrollera operativsystemet stöds och se [befintliga Log Analytics-kunder](security-center-faq.md#existingloganalyticscust) för mer information.
  
 ### Inaktivera automatisk etablering <a name="offprovisioning"></a>
 Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. 

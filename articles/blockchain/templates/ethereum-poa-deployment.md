@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 42e5fd713f6353a2a939236f34463e9ba4195e29
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313576"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650214"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -285,14 +285,14 @@ En exempeldistribution visas nedan: ![ethereum-inställningar](./media/ethereum-
 
 #### <a name="monitoring"></a>Övervakning
 
-Bladet övervakning kan du konfigurera en Log Analytics-resurs för ditt nätverk. Övervakningsagenten samlar in och surface användbart mått och loggar från ditt nätverk, ger möjligheten att snabbt kontrollera nätverkets tillstånd eller felsöka problem.
+Bladet övervakning kan du konfigurera en resurs med Azure Monitor-loggar för nätverket. Övervakningsagenten samlar in och surface användbart mått och loggar från ditt nätverk, ger möjligheten att snabbt kontrollera nätverkets tillstånd eller felsöka problem.
 
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
 Övervakning|Möjlighet att aktivera övervakning|Aktivera eller inaktivera|Aktivera
-Anslut till befintliga Log Analytics|Skapa en ny Log Analytics-instans eller Anslut till en befintlig instans|Skapa en ny eller ansluta till befintliga|Skapa ny
-Övervaka plats (Anslut till befintliga Log Analytics = Skapa ny)|Den region där den nya Log Analytics-instansen ska distribueras|Alla regioner för Log Analytics|Ej tillämpligt
-Befintliga Log Analytics arbetsyte-Id (Anslut till befintliga Log Analytics = ansluta befintliga)|Arbetsyte-ID för den befintliga Log Analytics-instansen||Ej tillämpligt
+Ansluta till befintliga Azure Monitor-loggar|Skapa en ny instans av Azure Monitor-loggar eller Anslut till en befintlig instans|Skapa en ny eller ansluta till befintliga|Skapa ny
+Övervaka plats (Anslut till befintliga Azure Monitor-loggar = Skapa ny)|Den region där den nya Azure Monitor loggar instansen kommer att distribueras|Alla Azure Monitor loggar regioner|Ej tillämpligt
+Befintliga Log Analytics arbetsyte-Id (Anslut till befintliga Azure Monitor-loggar = ansluta befintliga)|Arbetsyte-ID för den befintliga Azure-övervakaren loggar instans||Ej tillämpligt
 Primärnyckeln för befintliga Log Analytics (Anslut till befintliga Log Analytics = ansluta befintliga)|Den primära nyckeln som används för att ansluta till den befintliga Log Analytics-instansen||Ej tillämpligt
 
 
@@ -425,7 +425,7 @@ Att välja **nätverk Stats** ombeds du att visa Ethereum nätverksstatistik.
 
 ![statistik för nätverk](./media/ethereum-poa-deployment/network-stats.png)
 
-#### <a name="sample-log-analytics-queries"></a>Exempelfrågor för Log Analytics
+#### <a name="sample-kusto-queries"></a>Exempelfrågor för Kusto
 
 Är en uppsättning frågningsbart loggarna bakom instrumentpanelerna. Du kan använda de här loggarna för att anpassa instrumentpanelerna, Undersök fel eller konfigurera tröskelvärde för aviseringar. Nedan hittar du en uppsättning exempel på frågor som kan vara kördes i verktyget Log Search:
 

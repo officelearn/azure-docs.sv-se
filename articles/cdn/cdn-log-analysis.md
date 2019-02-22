@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: magattus
-ms.openlocfilehash: 45b3698dd77bda815218b43405d64819c3e4789f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ef713c954d6eab05259547a277db12a1e9036bcf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091274"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650554"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analysera användningsmönster för Azure CDN
 
@@ -27,7 +27,7 @@ När du aktiverar CDN för ditt program kan du övervaka CDN-användning, kontro
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Grundläggande analys via Azure diagnostikloggar
 
-Grundläggande analys är tillgänglig för CDN-slutpunkter för alla prisnivåer. Azure-diagnostikloggar Tillåt grundläggande analys som ska exporteras till Azure storage, händelsehubbar och Azure Log Analytics. Azure Log Analytics tillhandahåller en lösning med diagram, som är användarangiven och anpassningsbara. Läs mer om Azure diagnostikloggar [Azure diagnostikloggar](cdn-azure-diagnostic-logs.md).
+Grundläggande analys är tillgänglig för CDN-slutpunkter för alla prisnivåer. Azure-diagnostikloggar Tillåt grundläggande analys som ska exporteras till Azure storage, event hubs eller Azure Monitor-loggar. Azure Monitor-loggar är en lösning med diagram som är användarangiven och anpassningsbara. Läs mer om Azure diagnostikloggar [Azure diagnostikloggar](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Verizon core-rapporter
 

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/20/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 9ce21a6b01dc4f4a99e5c70faf1e004bf7918dad
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658427"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594125"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 
@@ -39,7 +39,7 @@ Du kan använda Kubernetes:
 
 - Utveckla mycket skalbar och kan uppgraderas, program som kan distribueras på några sekunder. 
 - Förenkla utformningen av programmet och förbättra tillförlitligheten genom olika Helm-program. [Helm](https://github.com/kubernetes/helm) är ett verktyg med öppen källkod paketering som hjälper dig att installera och hantera livscykeln för Kubernetes-program.
-- Enkelt övervaka och diagnostisera hälsotillståndet för dina program med skala och uppgradera funktioner.
+- Enkelt övervaka och diagnostisera hälsotillståndet för dina program.
 
 Du debiteras endast för beräkning användningen enligt de noder som har stöd för ditt kluster. Mer information finns i [användning och fakturering i Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
@@ -53,7 +53,7 @@ Anvisningar om hur du installerar klustret när du använder Azure AD finns i [d
 - **Active Directory Federation Services (AD FS)**  
 Anvisningar om hur du installerar klustret när du använder AD FS finns i [distribuera Kubernetes i Azure Stack med hjälp av Active Directory Federation Services (AD FS)](azure-stack-solution-template-kubernetes-adfs.md).
 
-## <a name="connect-to-your-cluster"></a>Ansluta till ditt kluster
+## <a name="connect-to-your-cluster"></a>Anslut till klustret
 
 Nu är du redo att ansluta till klustret. Huvudservern finns i klusterresursgruppen och har namnet `k8s-master-<sequence-of-numbers>`. Använda en SSH-klient för att ansluta till huvuddatabasen. Du kan använda i bakgrunden **kubectl**, Kubernetes kommandoradsklient att hantera kluster. Anvisningar finns i [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).
 

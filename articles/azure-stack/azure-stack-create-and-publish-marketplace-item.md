@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ac4366a2e90ea239c650e611b7c4e8dddf5d5106
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243648"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649670"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Skapa och publicera ett Marketplace-objekt
 
@@ -129,28 +129,28 @@ ms.locfileid: "55243648"
 
 ### <a name="identity-information"></a>ID-information
 
-| Name | Krävs | Type | Villkor | Beskrivning |
+| Namn | Krävs | Type | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Name |X |Sträng |[A-Za-z0-9]+ | |
-| Utgivare |X |Sträng |[A-Za-z0-9]+ | |
-| Version |X |Sträng |[SemVer v2](https://semver.org/) | |
+| Namn |X |String |[A-Za-z0-9]+ | |
+| Utgivare |X |String |[A-Za-z0-9]+ | |
+| Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| Name | Krävs | Type | Villkor | Beskrivning |
+| Namn | Krävs | Type | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Sträng |Rekommendation på 80 tecken |Portalen kanske inte visar dina objektnamn utan problem om det är mer än 80 tecken. |
-| PublisherDisplayName |X |Sträng |Rekommendationen 30 tecken |Portalen kanske inte visar utgivarens namn utan problem om det är längre än 30 tecken. |
-| PublisherLegalName |X |Sträng |Maximalt 256 tecken | |
-| Sammanfattning |X |Sträng |60 och 100 tecken | |
-| LongSummary |X |Sträng |140 till 256 tecken |Inte ännu är tillämpliga i Azure Stack. |
+| DisplayName |X |String |Rekommendation på 80 tecken |Portalen kanske inte visar dina objektnamn utan problem om det är mer än 80 tecken. |
+| PublisherDisplayName |X |String |Rekommendationen 30 tecken |Portalen kanske inte visar utgivarens namn utan problem om det är längre än 30 tecken. |
+| PublisherLegalName |X |String |Maximalt 256 tecken | |
+| Sammanfattning |X |String |60 och 100 tecken | |
+| LongSummary |X |String |140 till 256 tecken |Inte ännu är tillämpliga i Azure Stack. |
 | Beskrivning |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 5 000 tecken | |
 
 ### <a name="images"></a>Avbildningar
 
 Marketplace använder följande ikoner:
 
-| Name | Bredd | Höjd | Anteckningar |
+| Namn | Bredd | Höjd | Anteckningar |
 | --- | --- | --- | --- |
 | Brett |255 px |115 px |Krävs alltid |
 | Stor |115 px |115 px |Krävs alltid |
@@ -166,19 +166,19 @@ Varje Marketplace-objekt bör taggas med en kategori som identifierar där objek
 
 Varje Marketplace-objekt kan innehålla olika länkar till ytterligare innehåll. Länkarna har angetts som en lista med namn och URI: er:
 
-| Name | Krävs | Type | Villkor | Beskrivning |
+| Namn | Krävs | Type | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Sträng |Högst 64 tecken | |
+| DisplayName |X |String |Högst 64 tecken | |
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>Ytterligare egenskaper
 
 Utöver föregående metadata, kan Marketplace författare ge anpassad nyckel/värde-par data i följande format:
 
-| Name | Krävs | Type | Villkor | Beskrivning |
+| Namn | Krävs | Type | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Sträng |Högst 25 tecken | |
-| Value |X |Sträng |Maximalt 30 tecken | |
+| DisplayName |X |String |Högst 25 tecken | |
+| Värde |X |String |Maximalt 30 tecken | |
 
 ### <a name="html-sanitization"></a>Gemensamt för HTML
 
@@ -192,8 +192,8 @@ Ikoner och text för Marketplace-objekt som visas i Azure Stack-portalen är som
 
 ### <a name="create-blade"></a>Bladet Skapa
 
-![Bladet Skapa](media/azure-stack-marketplace-item-ui-reference/image1.png)
+![Bladet Skapa](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Informationsblad för Marketplace-objekt
 
-![Informationsblad för Marketplace-objekt](media/azure-stack-marketplace-item-ui-reference/image3.png)
+![Informationsblad för Marketplace-objekt](media/azure-stack-create-and-publish-marketplace-item/image3.png)

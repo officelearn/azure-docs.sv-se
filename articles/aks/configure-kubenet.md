@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6d2b6ce2804fce35af9c184c4a7c72c0b332f6fb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7975516e80576a9d79b35da816d049f47ebc7d3a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701795"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650197"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använd kubenet nätverk med dina egna IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -126,7 +126,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Nu tilldela tjänstens huvudnamn för AKS-klustret *deltagare* behörigheter på virtuellt nätverk med hjälp av den [az-rolltilldelning skapa] [ az-role-assignment-create] kommando. Ange din egen */ <appId/>* som visas i utdata från det föregående kommandot för att skapa tjänstens huvudnamn:
+Nu tilldela tjänstens huvudnamn för AKS-klustret *deltagare* behörigheter på virtuellt nätverk med hjälp av den [az-rolltilldelning skapa] [ az-role-assignment-create] kommando. Ange din egen  *\<appId >* som visas i utdata från det föregående kommandot för att skapa tjänstens huvudnamn:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -134,7 +134,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
 
-Du har nu skapat ett virtuellt nätverk och undernät, och skapas och behörigheter för ett huvudnamn för tjänsten för att kunna använda dessa nätverksresurser. Nu skapa ett AKS-kluster i ditt virtuella nätverk och undernät med hjälp av den [az aks skapa] [ az-aks-create] kommando. Definiera dina egna huvudnamn för tjänsten */ <appId/>* och */ <password/>*, vilket visas i utdata från det föregående kommandot för att skapa tjänstens huvudnamn.
+Du har nu skapat ett virtuellt nätverk och undernät, och skapas och behörigheter för ett huvudnamn för tjänsten för att kunna använda dessa nätverksresurser. Nu skapa ett AKS-kluster i ditt virtuella nätverk och undernät med hjälp av den [az aks skapa] [ az-aks-create] kommando. Definiera dina egna huvudnamn för tjänsten  *\<appId >* och  *\<lösenord >*, vilket visas i utdata från det föregående kommandot för att skapa tjänstens huvudnamn.
 
 Följande IP-adressintervall också definieras som en del av klustret skapa processen:
 

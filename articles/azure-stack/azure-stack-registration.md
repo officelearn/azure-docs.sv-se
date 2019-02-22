@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 62fde78cce05e62489931868da3d21c8b2e16928
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: ebf8066139df93aefe1cfa21f2dc80ab57ca84bb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430360"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652458"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -53,11 +53,13 @@ Innan du registrerar Azure Stack med Azure, måste du ha:
 
 - Användarnamn och lösenord för ett konto som är ägare till prenumerationen.
 
-- Användarkontot måste ha åtkomst till Azure-prenumerationen och har behörighet att skapa program med identiteter och tjänstens huvudnamn i katalogen som är associerade med den aktuella prenumerationen. Vi rekommenderar att du registrerar Azure Stack med Azure med lägsta behörighet administration av [skapar ett tjänstkonto som ska användas för registrering](azure-stack-registration-role.md) i stället för autentiseringsuppgifterna för global administratör.
+- Användarkontot måste ha åtkomst till Azure-prenumerationen och har behörighet att skapa program med identiteter och tjänstens huvudnamn i katalogen som är associerade med den aktuella prenumerationen. Vi rekommenderar att du registrerar Azure Stack med Azure lägsta behörighet administration. Läs mer om hur du skapar en anpassad rolldefinition som begränsar åtkomsten till din prenumeration för registrering, [skapa en roll för registrering för Azure Stack](azure-stack-registration-role.md).
 
 - Registrerad resursprovider för Azure Stack (se avsnittet nedan registrera Azure Stack Resource Provider för mer information).
 
 Efter registreringen krävs inte behörighet för Azure Active Directory global administratör. Vissa åtgärder kan dock kräva autentiseringsuppgifter för global administratör. Till exempel ett resource provider installer skript eller en ny funktion som kräver en behörighet som ska beviljas. Du kan tillfälligt återställa kontots behörigheter som global administratör eller använda ett separat globalt administratörskonto som äger den *standard providerprenumeration*.
+
+Den användare som registrerar Azure Stack är ägare till tjänstens huvudnamn i Azure Active Directory. Endast den användare som registrerade Azure Stack kan ändra Azure Stack-registrering. Om en icke-administratörsanvändare som inte är ägare till registreringen tjänstens huvudnamn försöker registrera eller registrera Azure Stack, de kan stöta på ett 403-svar. Ett 403 svaret anger att användaren har inte behörighet att slutföra åtgärden.
 
 Om du inte har en Azure-prenumeration som uppfyller dessa krav, kan du [skapa ett kostnadsfritt konto här](https://azure.microsoft.com/free/?b=17.06). Registrera Azure Stack medför utan kostnad på din Azure-prenumeration.
 
@@ -479,6 +481,13 @@ Get-AzsRegistrationToken genererar en registreringstoken från indataparametrarn
 | UsageReportingEnabled | SANT/FALSKT | Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering. Tillåtna värden för den här parametern är: True, False. |
 | AgreementNumber | String |  |
 
+## <a name="registration-failures"></a>Registreringsfel
+
+En av nedanstående felmeddelanden kan visas vid försök registrering av Azure Stack:
+1. Kunde inte hämta obligatorisk maskinvara info för $hostName. Kontrollera fysisk värd och anslutning och försök köra registreringen.
+2. Det går inte att ansluta till $hostName att få information om maskinvara – Kontrollera fysisk värd och anslutning och sedan försöka köra registreringen.
+
+Orsak: Detta är vanligtvis eftersom vi försöker hämta information om maskinvara, till exempel UUID, Bios och processor från värdarna att försöka aktivera och kunde inte på grund av att det inte går att ansluta till den fysiska värden.
 
 ## <a name="next-steps"></a>Nästa steg
 

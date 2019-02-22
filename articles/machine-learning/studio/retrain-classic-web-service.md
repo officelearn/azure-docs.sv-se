@@ -10,12 +10,12 @@ author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 73ab816c7043c7fb0f572677c6ceeb722653dec1
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456562"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650778"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Träna och distribuera en klassiska Studio-webbtjänst
 
@@ -60,7 +60,7 @@ Följ dessa steg för att få rätt KORRIGERA URL programmässigt kan:
 1. Kör den [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) exempelkoden.
 1. Från utdata från AddEndpoint, hitta den *HelpLocation* värde och kopiera URL: en.
 
-   ![HelpLocation i utdata från addEndpoint-exemplet.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
+   ![HelpLocation i utdata från addEndpoint-exemplet.](./media/retrain-classic/addEndpoint-output.png)
 1. Klistra in URL: en i en webbläsare och navigera till en sida som innehåller länkar för webbtjänsten.
 1. Klicka på den **resursuppdatering** länk för att öppna sidan patch hjälp.
 
@@ -81,7 +81,7 @@ Följ dessa steg för att få rätt KORRIGERA URL: en med hjälp av webbportalen
 
 PATCH-hjälpsidan innehåller KORRIGERA URL: en måste du använda och visar exempelkod som du kan använda för att anropa den.
 
-![Patch-URL.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
+![Patch-URL.](./media/retrain-classic/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>Uppdatera slutpunkten
 

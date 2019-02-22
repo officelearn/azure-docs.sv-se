@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 882724c5f45cc2c5b3debb8fa80538239a98b749
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aa467910cfa2dad84af3905db3592657cae85be9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240700"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594363"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Ansluta Azure Stack till Azure med VPN
 
@@ -56,7 +56,7 @@ Network configuration exempel tabell visar de värden som används för exemplen
 
 ## <a name="create-the-network-resources-in-azure"></a>Skapa nätverksresurser i Azure
 
-Först skapar du till nätverksresurser för Azure. Följande instruktioner visar hur du skapar resurser med hjälp av den [Azure-portalen](https://portal.azure.com/).
+Skapa först till nätverksresurser för Azure. Följande instruktioner visar hur du skapar resurser med hjälp av den [Azure-portalen](https://portal.azure.com/).
 
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>Skapa virtuellt nätverk och undernät för virtuell dator (VM)
 
@@ -70,7 +70,7 @@ Först skapar du till nätverksresurser för Azure. Följande instruktioner visa
 8. Välj **fäst till instrumentpanelen**.
 9. Välj **Skapa**.
 
-### <a name="create-the-gateway-subnet"></a>Skapa gateway-undernätet
+### <a name="create-the-gateway-subnet"></a>Skapa Gateway-undernätet
 
 1. Öppna den virtuella nätverksresurs du skapade (**AzureVNet**) från instrumentpanelen.
 2. På den **inställningar** väljer **undernät**.
@@ -305,4 +305,4 @@ Om du vill veta hur mycket data passerar genom plats-till-plats-anslutning kan d
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera appar till Azure och Azure Stack](azure-stack-solution-pipeline.md)
+* [Distribuera appar till Azure och Azure Stack](azure-stack-solution-pipeline.md)

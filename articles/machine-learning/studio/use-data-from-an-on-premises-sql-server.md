@@ -10,18 +10,18 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 61feb1365a5007a55d18f0f4366bd5c69148e88d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0d7b7ce4d79b078b389ff80727f2b233afe0da5a
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511164"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587301"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio med hjälp av en lokal SQL Server-databas
 
-Ofta företag som fungerar med lokala data vill dra nytta av skalan och flexibilitet med molnet för sina maskininlärningsarbetsbelastningar. Men de vill inte störa deras aktuella affärsprocesser och arbetsflöden genom att flytta sina lokala data till molnet. Azure Machine Learning har nu stöd för att läsa data från en lokal SQL Server-databas och sedan utbildning och bedömning av en modell med dessa data. Du har inte längre att manuellt kopiera och synkronisera data mellan molnet och den lokala servern. I stället den **importdata** modul i Azure Machine Learning Studio kan nu läsa direkt från din lokala SQL Server-databas för utbildning och bedömning jobb.
+Ofta företag som fungerar med lokala data vill dra nytta av skalan och flexibilitet med molnet för sina maskininlärningsarbetsbelastningar. Men de vill inte störa deras aktuella affärsprocesser och arbetsflöden genom att flytta sina lokala data till molnet. Azure Machine Learning Studio stöder nu dina data läses från en lokal SQL Server-databas och sedan träning och bedömning av en modell med dessa data. Du har inte längre att manuellt kopiera och synkronisera data mellan molnet och den lokala servern. I stället den **importdata** modul i Azure Machine Learning Studio kan nu läsa direkt från din lokala SQL Server-databas för utbildning och bedömning jobb.
 
-Den här artikeln innehåller en översikt över hur du ingående lokala SQL server-data till Azure Machine Learning Studio. Det förutsätts att du är bekant med Azure Machine Learning-begrepp som arbetsytor, moduler, datauppsättningar, experiment, *etc*.
+Den här artikeln innehåller en översikt över hur du ingående lokala SQL server-data till Azure Machine Learning Studio. Det förutsätts att du är bekant med Studio begrepp som arbetsytor, moduler, datauppsättningar, experiment, *etc.*.
 
 > [!NOTE]
 > Den här funktionen är inte tillgänglig för kostnadsfria arbetsytor. Läs mer om Machine Learning-priser och nivåer [Azure Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/).
@@ -33,7 +33,7 @@ Den här artikeln innehåller en översikt över hur du ingående lokala SQL ser
 
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Installera Data Factory lokal Integration Runtime
-För att komma åt en lokal SQL Server-databas i Azure Machine Learning, måste du ladda ned och installera den Data Factory lokal Integration Runtime, tidigare känd som Data Management Gateway. När du konfigurerar anslutningen i Machine Learning Studio, har du möjlighet att ladda ned och installera Integration Runtime (IR) med den **nedladdning och registrera datagateway** dialogrutan som beskrivs nedan.
+För att komma åt en lokal SQL Server-databas i Azure Machine Learning Studio, måste du ladda ned och installera den Data Factory lokal Integration Runtime, tidigare känd som Data Management Gateway. När du konfigurerar anslutningen i Machine Learning Studio, har du möjlighet att ladda ned och installera Integration Runtime (IR) med den **nedladdning och registrera datagateway** dialogrutan som beskrivs nedan.
 
 
 Du kan också installera IR förväg genom att hämta och köra MSI-installationspaketet från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). MSI kan också användas för att uppgradera en befintlig IR till den senaste versionen med alla inställningar som bevaras.
@@ -54,13 +54,13 @@ Tänk på följande när du ställer in och använder en Data Factory lokal Inte
 * Du kan konfigurera en IRs för endast en arbetsyta i taget. IRs kan för närvarande inte delas mellan arbetsytor.
 * Du kan konfigurera flera IRs för en enda arbetsyta. Du kan till exempel vill använda en IR som är ansluten till dina datakällor för test under utveckling och produktion IR när du är redo att utföra åtgärder.
 * IR behöver inte finnas på samma dator som datakällan. Men att närmare datakällan minskar tid som gatewayen ska ansluta till datakällan. Vi rekommenderar att du installerar IR på en dator som skiljer sig från det som är värd för den lokala datakällan, så att gatewayen och datakällan inte konkurrerar om resurser.
-* Om du redan har en IR som installerats på datorn som betjänar Power BI eller Azure Data Factory scenarier kan du installera ett separat IR för Azure Machine Learning på en annan dator.
+* Om du redan har en IR som installerats på datorn som betjänar Power BI eller Azure Data Factory scenarier kan du installera ett separat IR för Azure Machine Learning Studio på en annan dator.
 
   > [!NOTE]
   > Du kan inte köra Data Factory lokal Integration Runtime och Power BI Gateway på samma dator.
   >
   >
-* Du måste använda Data Factory lokal Integration Runtime för Azure Machine Learning, även om du använder Azure ExpressRoute för andra data. Du bör hantera din datakälla som en lokal datakälla (som finns bakom en brandvägg) även när du använder ExpressRoute. Använd Data Factory lokal Integration Runtime för att upprätta en anslutning mellan Machine Learning och datakällan.
+* Du måste använda Data Factory lokal Integration Runtime för Azure Machine Learning Studio, även om du använder Azure ExpressRoute för andra data. Du bör hantera din datakälla som en lokal datakälla (som finns bakom en brandvägg) även när du använder ExpressRoute. Använd Data Factory lokal Integration Runtime för att upprätta en anslutning mellan Machine Learning och datakällan.
 
 Du hittar detaljerad information om installationskraven installationsstegen och felsökningstips i artikeln [Integration Runtime i Data Factory](../../data-factory/concepts-integration-runtime.md).
 
@@ -115,17 +115,17 @@ Det första steget är att skapa och konfigurera gatewayen för att få åtkomst
 
     ![Aktivera utförlig loggning](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
-Nu är du klar med installationen gateway i Azure Machine Learning.
+Nu är du klar med installationen gateway i Azure Machine Learning Studio.
 Du är nu redo att använda dina lokala data.
 
-Du kan skapa och konfigurera flera gateways i Studio för varje arbetsyta. Du kan till exempel ha en gateway som du vill ansluta till dina datakällor för test under utvecklingen och en annan gateway för dina datakällor för produktion. Azure Machine Learning ger dig flexibiliteten att ställa in flera gateways beroende på din företagsmiljö. För närvarande du kan inte dela en gateway mellan arbetsytor och endast en gateway kan installeras på en dator. Mer information finns i [flytta data mellan lokala källor och molnet med Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
+Du kan skapa och konfigurera flera gateways i Studio för varje arbetsyta. Du kan till exempel ha en gateway som du vill ansluta till dina datakällor för test under utvecklingen och en annan gateway för dina datakällor för produktion. Azure Machine Learning Studio ger dig flexibiliteten att ställa in flera gateways beroende på din företagsmiljö. För närvarande du kan inte dela en gateway mellan arbetsytor och endast en gateway kan installeras på en dator. Mer information finns i [flytta data mellan lokala källor och molnet med Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Steg 2: Använda gatewayen för att läsa data från en lokal datakälla
 När du har konfigurerat gatewayen kan du lägga till en **importdata** modul till ett experiment som indata data från en lokal SQL Server-databasen.
 
 1. I Machine Learning Studio, väljer du den **EXPERIMENT** fliken **+ ny** i nedre vänstra hörnet och välj **tomt Experiment** (eller välja en av flera exempel experiment tillgänglig).
 2. Leta upp och dra den **importdata** modulen till experimentarbetsytan.
-3. Klicka på **Spara som** under arbetsytan. Ange ”Azure en lokal SQL Server självstudie om Machine Learning” för experiment namn, Välj arbetsytan och klicka på den **OK** kryssmarkeringen.
+3. Klicka på **Spara som** under arbetsytan. Ange ”Azure Studio lokala SQL Server självstudie om Machine Learning” för experiment namn, Välj arbetsytan och klicka på den **OK** kryssmarkeringen.
 
    ![Spara experiment med ett nytt namn](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
 4. Klicka på den **importera Data** modul för att markera den sedan i den **egenskaper** rutan till höger om arbetsytan och välj ”lokala SQL-databas” i den **datakälla** listrutan.
@@ -137,7 +137,7 @@ När du har konfigurerat gatewayen kan du lägga till en **importdata** modul ti
 
    ![Ange autentiseringsuppgifterna för databasens](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
-   Meddelandet ”values krävs” ändringarna (värden set) med en grön bockmarkering. Du behöver bara ange autentiseringsuppgifterna som en gång, såvida inte databasinformation eller lösenord ändras. Azure Machine Learning använder det certifikat som du angav när du har installerat gatewayen att kryptera autentiseringsuppgifterna i molnet. Azure lagrar aldrig lokala autentiseringsuppgifter utan kryptering.
+   Meddelandet ”values krävs” ändringarna (värden set) med en grön bockmarkering. Du behöver bara ange autentiseringsuppgifterna som en gång, såvida inte databasinformation eller lösenord ändras. Azure Machine Learning Studio använder det certifikat som du angav när du har installerat gatewayen att kryptera autentiseringsuppgifterna i molnet. Azure lagrar aldrig lokala autentiseringsuppgifter utan kryptering.
 
    ![Importera modulen dataegenskaper](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. Klicka på **kör** att köra experimentet.

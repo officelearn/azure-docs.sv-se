@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
-ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 2/17/2019
+ms.author: monhaber
+ms.openlocfilehash: 7931caa985bc5dea98ca36bd15e0e634855ab2c5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343518"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650639"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -99,6 +99,20 @@ Du kan redigera standardsäkerhetsprincipen för var och en av dina Azure-prenum
 Instruktioner om hur du redigerar en säkerhetsprincip i Azure Policy finns och [skapa och hantera principer för att tvinga kompatibilitet](../governance/policy/tutorials/create-and-manage.md).
 
 Du kan redigera säkerhetsprinciper via Azure Policy-portalen via REST API eller med hjälp av Windows PowerShell. I följande exempel innehåller instruktioner för redigering med REST API.
+
+
+## <a name="disable-security-policies"></a>Inaktivera säkerhetsprinciper
+Om standard-säkerhetsprincipen ger dig en rekommendation som inte är relevanta för din miljö kan hindra du den genom att inaktivera principdefinitionen som skickar rekommendationen. Detta görs via Azure Policy-portal (och inte på Security Center-portalen), som beskrivs här.
+Mer information om rekommendationer finns [hantera säkerhetsrekommendationer](security-center-recommendations.md). 
+1. Gå till Azure Policy och klicka **tilldelningar**.
+2. I den **ASC-standard** rad, klicka på de tre punkterna och klickar på **View definition**. Den **Initiativdefinition** öppnas.
+   ![Visa definition](./media/tutorial-security-policy/view-definition.png)
+3. Klicka på **redigera intitiative**. Den **redigera Initiativdefinition** öppnas.
+   ![Redigera initiativ](./media/tutorial-security-policy/edit-initiative.png)
+4. I den **principer och parametrar** , sökning för principen som anropar rekommendationen som du vill inaktivera och i listrutan väljer du **inaktiverad**.
+   ![Inaktivera princip](./media/tutorial-security-policy/disable-policy.png)
+1. Klicka på **spara** (som finns längst ned på sidan).
+
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Konfigurera en säkerhetsprincip med hjälp av REST-API
 

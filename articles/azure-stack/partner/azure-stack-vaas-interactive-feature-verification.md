@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 01/07/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 880f28a6f6e0029812e50dd97ff96d149c956b33
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 20a48e67a24763af7bcce9e8831e2a1d1846d094
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252259"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594312"
 ---
 # <a name="interactive-feature-verification-testing"></a>Interaktiva funktionen verifiering testning  
 
@@ -30,116 +30,87 @@ Du kan använda interaktiva funktionen verifiering testning framework för att b
 
 Den här artikeln beskriver ett enkelt scenario för manuell. Testet kontrollerar ersätta en disk i Azure Stack. Ramverket samlar diagnostikloggar i varje steg. Du kan felsöka problem som du hittar dem. Ramverket också tillåter delning av loggar som producerats av andra verktyg eller processer och gör att du kan ge feedback på scenariot.
 
-## <a name="overview-of-a-test-pass"></a>Översikt över en testet
+> [!Important]  
+> Den här artikeln refererar till stegen för att utföra identifiering av Disk. Detta är bara en demonstration eftersom inga resultat som samlats in från testet arbetsflödet inte kan användas för den nya lösningen verifiering.
+
+## <a name="overview-of-interactive-testing"></a>Översikt över interaktiva testning
 
 Ett test för diskbyte är ett vanligt scenario. I det här exemplet har testet sju steg:
 
-1.  Skapa en ny **testet** arbetsflöde.
-2.  Välj den **Disk identifiering Test**.
-3.  Starta testet.
-4.  Välj åtgärderna i interaktiva verifiering scenario.
-5.  Kontrollera resultatet av scenariot.
-6.  Skicka testresultatet till Microsoft.
-7.  Kontrollera status på portalen VaaS.
+1. Skapa en ny **testet** arbetsflöde
+1. Välj den **Disk identifiering Test**
+1. Slutför den manuella åtgärden när du uppmanas
+1. Kontrollera resultatet för scenariot
+1. Skicka testresultatet till Microsoft
 
 ## <a name="create-a-new-test-pass"></a>Skapa en ny testet
 
-1.  Navigera till den [verifiering för Azure Stack portal](https://www.azurestackvalidation.com) och logga in.
+Om du inte har en befintlig testversion av skicka tillgängliga följer du anvisningarna för [schemaläggning av ett test](azure-stack-vaas-schedule-test-pass.md).
 
-2.  Skapa en ny lösning eller välj en befintlig.
+## <a name="schedule-the-test"></a>Schemalägga testet
 
-3.  Välj **starta** på den **testet** panelen.
-
-    ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image1.png)
-
-4.  Ange ett namn för den **testet** arbetsflöde.
-
-5.  Ange miljö och gemensamma testparametrar genom att följa anvisningarna i den [arbetsflödets gemensamma parametrar för Azure Stack-verifiering som en tjänst](azure-stack-vaas-parameters.md) artikeln.
-
-6.  Diagnostik-anslutningssträngen måste följa det format som anges i den [parametrarna för Webbtestet](azure-stack-vaas-parameters.md#test-parameters) i avsnittet den [gemensamma arbetsflödesparametrar](azure-stack-vaas-parameters.md) artikeln.
-
-7.  Ange de obligatoriska parametrarna för testet.
-
-8.  Välj agent att köra den interaktiva test-körningen.
-
-> [!Note]  
-> Domain admin-användare och lösenord måste anges för disk identifiering interaktiva funktionen verifieringstest.
-
-![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image2.png)
-
-## <a name="select-the-test"></a>Välj testet
-
-1.  Välj **Disk identifiering Test\<version >**.
+1. Välj **Disk identifiering Test**.
 
     > [!Note]  
     > Versionen av testet kommer räkna upp när förbättringar av test-säkerheter görs. Den senaste versionen ska alltid användas om inte Microsoft anger annars.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
-2.  Ange domain admin-användare och lösenord genom att välja **redigera**.
+1. Ange domänen administratörens användarnamn och lösenord genom att välja **redigera**.
 
-3.  Välj den annan lämplig testning körning agent/DVM starta testet i.
+1. Välj den annan lämplig testning körning agent/DVM starta testet i.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
-4.  Välj **skicka** att starta testet.
+1. Välj **skicka** att starta testet.
 
-![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
+    ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
-## <a name="start-the-test"></a>Starta testet
+1. Komma åt Användargränssnittet för interaktiva testet från agenten valde i föregående steg.
 
-Disk identifiering Test anvisningarna visar på den dator som kör agenten VaaS. Detta är vanligtvis DVM eller Jumpbox för Azure Stack-instansen.
+    ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
-![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
-
-## <a name="choose-the-actions"></a>Välj åtgärderna
-
-1.  Följ den **dokumentation** och **verifiering** länkar till instruktioner från Microsoft om hur du utför det här scenariot.
+1. Följ den **dokumentation** och **verifiering** länkar till instruktioner från Microsoft om hur du utför det här scenariot.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
-2.  Välj **Nästa**.
+1. Välj **Nästa**.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
-3.  Följ anvisningarna för att köra skriptet precheck.
+1. Följ anvisningarna för att köra skriptet precheck.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-4.  När skriptet precheck har slutförts, köra manuell scenariot (diskbyte) enligt den **dokumentation** och **verifiering** länkar från den **Information**fliken.
+1. När skriptet precheck har slutförts, köra manuell scenariot (diskbyte) enligt den **dokumentation** och **verifiering** länkar från den **Information**fliken.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
-5.  Stäng inte dialogrutan medan du utför manuella scenariot.
+    > [!Important]  
+    > Stäng inte dialogrutan medan du utför manuella scenariot.
 
-6.  När du är klar med att utföra manuell scenariot, följ instruktionerna för att köra skriptet efter kontrollen.
+1. När du är klar med att utföra manuell scenariot, följ instruktionerna för att köra skriptet efter kontrollen.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
-7.  När åtgärden har slutförts av manuell scenariot (diskbyte), Välj **nästa**.
+1. När åtgärden har slutförts av manuell scenariot (diskbyte), Välj **nästa**.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
-> [!Important]  
-> Om du stänger fönstret avbryts testet innan det är klart.
+    > [!Important]  
+    > Om du stänger fönstret avbryts testet innan det är klart.
 
-## <a name="check-the-status"></a>Kontrollera status
-
-1.  När testet är klart, blir du ombedd att lämna feedback.
+1. Ge feedback för test-upplevelse. Dessa frågor hjälper Microsoft att bedöma lyckades pris- och jobbpubliceringsaktiviteter kvaliteten på scenariot.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
-2.  Dessa frågor hjälper Microsoft att bedöma lyckades pris- och jobbpubliceringsaktiviteter kvaliteten på scenariot.
-
-## <a name="send-the-test-result"></a>Skicka testresultat
-
-1.  Bifoga alla loggfiler som du vill skicka till Microsoft.
+1. Bifoga alla loggfiler som du vill skicka till Microsoft.
 
     ![Alternativ text](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
-2.  Acceptera överföringen EULA feedback.
+1. Acceptera överföringen EULA feedback.
 
-3.  Välj **skicka** att skicka resultaten till Microsoft.
+1. Välj **skicka** att skicka resultaten till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 

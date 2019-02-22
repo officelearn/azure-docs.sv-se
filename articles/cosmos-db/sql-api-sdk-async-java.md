@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/8/2019
+ms.date: 2/20/2019
 ms.author: moderakh
-ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a090f40bcbc0dab1f685c02308243aff8fbac9fd
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416283"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588474"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -43,6 +43,11 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 | **Lägsta stödda körningar**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* Fast vissa buggar i direkt-läge.
+* Förbättrad loggning i direkt-läge.
+* Förbättrad hantering.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * Direkt-läge anslutningen är nu allmänt Available(GA). Ett exempel som använder direkt läge anslutning, se [azure cosmosdb java](https://github.com/Azure/azure-cosmosdb-java) GitHub-lagringsplatsen.
@@ -135,6 +140,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |20 februari 2019|--- |
 | [2.4.0](#2.4.0) |Den 8 februari 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 februari 2019|--- |
 | [2.3.1](#2.3.1) |15 jan 2019|--- |

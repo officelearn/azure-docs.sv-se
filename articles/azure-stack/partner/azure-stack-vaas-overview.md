@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 12/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0694a3839ae6b843abd1ddc8b67d1f3e3322e0e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6126bacf50d47029c29772b35f6dc1d552d47029
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246049"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592646"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Vad är verifiering som en tjänst för Azure Stack?
 
@@ -43,19 +43,19 @@ Mer information finns i [verifiera en ny Azure Stack-lösning](azure-stack-vaas-
 
 ## <a name="validate-changes-to-the-azure-stack-software"></a>Validera ändringar av Azure Stack-programvaran
 
-Partner använda den **lösning verifiering** arbetsflöde för att kontrollera att lösningen fungerar med de senaste Azure Stack-programuppdateringarna. Lösningen valideringsarbetsflödet måste köras på en Microsoft-rekommenderad maskinvarumiljö där korrigeringar och uppdateringar (P & U) användes för att installera uppdateringen. Vi rekommenderar att även köra arbetsflödet på baslinje-version.
+Partner använda den **Paketvalideringen** arbetsflöde för att kontrollera att lösningen fungerar med de senaste Azure Stack-programuppdateringarna. Paketvalideringen arbetsflödet måste köras på en Microsoft-rekommenderad maskinvarumiljö där korrigeringar och uppdateringar (P & U) användes för att installera uppdateringen. Vi rekommenderar att även köra arbetsflödet på baslinje-version.
 
 Mer information finns i [Validera programuppdateringar från Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Hämta digitalt signerat lösningen partner-paket
 
-Förutom validerar Azure Stack-uppdateringar, partner använda den **lösning verifiering** arbetsflöde för att verifiera uppdateringar av OEM-anpassning paket, bland annat Azure Stack-partner-specifika drivrutiner, inbyggd programvara och annan programvara används vid distribution av Azure Stack-programvaran. Distribuera paketet du validerar på den aktuella versionen av Azure Stack-programvaran som använder minst lösningen minsta storlek som stöds. Paketet skickas till VaaS innan du kör testerna. Om testerna lyckas meddelar [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) att paketet har slutfört testningen och bör vara digitalt signerade med den digitala signaturen för Azure Stack. Microsoft registrerar paketet och meddelar Azure Stack-partner att paketet är tillgänglig för hämtning i VaaS-portalen.
+Förutom validerar Azure Stack-uppdateringar, partner använda den **Paketvalideringen** arbetsflöde för att verifiera uppdateringar av OEM-anpassning paket, bland annat Azure Stack-partner-specifika drivrutiner, inbyggd programvara och annan programvara används vid distribution av Azure Stack-programvaran. Distribuera paketet du validerar på den aktuella versionen av Azure Stack-programvaran som använder minst lösningen minsta storlek som stöds. Paketet skickas till VaaS innan du kör testerna. Om testerna lyckas meddelar [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) att paketet har slutfört testningen och bör vara digitalt signerade med den digitala signaturen för Azure Stack. Microsoft registrerar paketet och meddelar Azure Stack-partner att paketet är tillgänglig för hämtning i VaaS-portalen.
 
 Mer information finns i [Validera OEM-paket](azure-stack-vaas-validate-oem-package.md).
 
 ## <a name="preview-vaas-test-collateral"></a>Förhandsgranska VaaS testa säkerheter
 
-Microsoft gör regelbundet nya funktioner tillgängliga i Azure Stack. Som en del av utvecklingsprocessen för att leverera dessa funktioner på marknaden, nya test säkerheter är tillgänglig i den **testet** arbetsflöde. Testet arbetsflödet innehåller test säkerheter från andra arbetsflöden för att tillåta inofficiella testkörning av. Använd inte testet arbetsflödet för att skicka resultaten för godkännande. Använd lösning validering och lösningen verifiering arbetsflöden för att få officiella godkännande för din lösning.
+Microsoft gör regelbundet nya funktioner tillgängliga i Azure Stack. Som en del av utvecklingsprocessen för att leverera dessa funktioner på marknaden, nya test säkerheter är tillgänglig i den **testet** arbetsflöde. Testet arbetsflödet innehåller test säkerheter från andra arbetsflöden för att tillåta inofficiella testkörning av. Använd inte testet arbetsflödet för att skicka resultaten för godkännande. Använda arbetsflöden för lösningen validering och verifiera paketet officiella godkännande för din lösning.
 
 Mer information finns i [ Snabbstart: Använda verifieringen som en tjänst-portal för att schemalägga första testet](azure-stack-vaas-schedule-test-pass.md).
 

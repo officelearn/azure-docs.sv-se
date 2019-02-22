@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8b51a4b8690d2184223bf33c7e863287de431d62
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853161"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593394"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Länkning av Service Bus-entiteter med autoforwarding
 
-Service Bus *autoforwarding* funktionen kan du länka en kö eller prenumeration till en annan kö eller ett ämne som ingår i samma namnområde. När autoforwarding aktiveras, tar bort meddelanden som är placerade i första kö eller prenumeration (källa) automatiskt i Service Bus och placerar dem i andra kön eller ämnet (mål). Det är fortfarande möjligt att skicka ett meddelande till målentitet direkt. Dessutom går det inte att länka en underkö, till exempel en kö för obeställbara, till en annan kö eller ett ämne.
+Service Bus *autoforwarding* funktionen kan du länka en kö eller prenumeration till en annan kö eller ett ämne som ingår i samma namnområde. När autoforwarding aktiveras, tar bort meddelanden som är placerade i första kö eller prenumeration (källa) automatiskt i Service Bus och placerar dem i andra kön eller ämnet (mål). Det är fortfarande möjligt att skicka ett meddelande till målentitet direkt.
 
 ## <a name="using-autoforwarding"></a>Med hjälp av autoforwarding
 

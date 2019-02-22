@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0a85c5e90be465b324248f961fd297b15c008d02
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36543bf50cb015993841267fdac61ed42297d27e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075878"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594380"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Skapa en intern lastbalanserare med hjälp av Azure PowerShell-modulen
 
@@ -28,6 +28,7 @@ ms.locfileid: "53075878"
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -41,11 +42,11 @@ I den här artikeln finns en beskrivning av hur du skapar en intern lastbalanser
 
 Om du vill kunna distribuera en lastbalanserare måste du först skapa följande objekt:
 
-* IP-adresspool på klientsidan: Den privata IP-adressen för all inkommande nätverkstrafik.
-* Serverdelsadresspool: De nätverksgränssnitt som tar emot belastningsutjämnad trafik från IP-adressen på klientsidan.
-* Lastbalanseringsregler: Käll- och lokalportkonfiguration för lastbalanseraren.
+* IP-adresspool på klientsidan: Privata IP-adressen för all inkommande nätverkstrafik.
+* Backend adresspoolen: Nätverksgränssnitt som tar emot belastningsutjämnad trafik från klientdelens IP-adress.
+* Regler för belastningsutjämning: (Käll- och local)-portkonfigurationen för belastningsutjämnaren.
 * Avsökningskonfiguration: Avsökningar som kontrollerar hälsotillståndet för virtuella datorer.
-* Regler för ingående NAT: Portregler för direkt åtkomst till virtuella datorer.
+* Ingående NAT-regler: Portregler för direkt åtkomst till virtuella datorer.
 
 Mer information om komponenterna i lastbalanseraren finns i [Azure Resource Manager-stöd för lastbalanseraren](load-balancer-arm.md).
 
@@ -60,7 +61,7 @@ Kontrollera att du har den senaste produktionsversionen av Azure PowerShell-modu
 Starta PowerShell-modulen för Azure Resource Manager.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ### <a name="step-2-view-your-subscriptions"></a>Steg 2: Visa dina prenumerationer
@@ -68,25 +69,25 @@ Connect-AzureRmAccount
 Kontrollera vilka Azure-prenumerationer som är tillgängliga.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Ange dina autentiseringsuppgifter när du uppmanas göra detta.
 
-### <a name="step-3-select-the-subscription-to-use"></a>Steg 3: Välj den prenumeration som du vill använda
+### <a name="step-3-select-the-subscription-to-use"></a>Steg 3: Välj prenumerationen som du använder
 
 Välj vilken av dina Azure-prenumerationer som ska användas för att distribuera lastbalanseraren.
 
 ```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
-### <a name="step-4-choose-the-resource-group-for-the-load-balancer"></a>Steg 4: Välj resursgrupp för lastbalanseraren
+### <a name="step-4-choose-the-resource-group-for-the-load-balancer"></a>Steg 4: Välj resursgruppen för belastningsutjämnaren
 
 Skapa en ny resursgrupp för lastbalanseraren. Hoppa över det här steget om du använder en befintlig resursgrupp.
 
 ```powershell
-New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
 Azure Resource Manager kräver att alla resursgrupper anger en plats. Den här platsen används som standard för alla resurser i resursgruppen. Använd alltid samma resursgrupp för alla kommandon som används när du skapar en lastbalanserare.
@@ -98,13 +99,13 @@ I exemplet ovan skapade vi resursgruppen **NRP-RG** och platsen USA, västra.
 Skapar ett undernät för det virtuella nätverket som tilldelas till variabeln **$backendSubnet**.
 
 ```powershell
-$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
+$backendSubnet = New-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 ```
 
 Skapa ett virtuellt nätverk.
 
 ```powershell
-$vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
+$vnet= New-AzVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 ```
 
 Det virtuella nätverket skapas. Undernätet **LB-Subnet-BE** läggs till i det virtuella nätverket **NRPVNet**. Värdena tilldelas till variabeln **$vnet**.
@@ -118,15 +119,15 @@ Skapa en IP-adresspool på klientsidan för inkommande trafik och en serverdelsa
 Skapa en IP-adresspool på klientsidan med den privata IP-adressen 10.0.2.5 för undernätet 10.0.2.0/24. Den här adressen utgör slutpunkten för all inkommande nätverkstrafik.
 
 ```powershell
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
+$frontendIP = New-AzLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 ```
 
-### <a name="step-2-create-a-back-end-address-pool"></a>Steg 2: Skapa en serverdelsadresspool
+### <a name="step-2-create-a-back-end-address-pool"></a>Steg 2: Skapa en backend-adresspool
 
 Konfigurera en serverdelsadresspool som används för att ta emot inkommande trafik från IP-adresspoolen på klientsidan:
 
 ```powershell
-$beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+$beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 ```
 
 ## <a name="create-the-configuration-rules-probe-and-load-balancer"></a>Skapa konfigurationsregler, avsökning och lastbalanserare
@@ -138,18 +139,18 @@ Ange regler för lastbalanseringsresursen efter att IP-adresspoolen på klientsi
 I exemplet skapas följande fyra regelobjekt:
 
 * En inkommande NAT-regel för Remote Desktop Protocol (RDP): Omdirigerar all inkommande trafik på port 3441 till port 3389.
-* En andra inkommande NAT-regel för RDP: Omdirigerar all inkommande trafik på port 3442 till port 3389.
+* En andra inkommande NAT-regeln för RDP: Omdirigerar all inkommande trafik på port 3442 till port 3389.
 * En hälsoavsökningsregel: Kontrollerar hälsotillståndet för sökvägen HealthProbe.aspx.
-* En lastbalanseringsregel: Lastbalanserar all inkommande trafik på den offentliga porten 80 till den lokala porten 80 i serverdelsadresspoolen.
+* En belastningsutjämningsregel: Belastningsutjämnar all inkommande trafik på den offentliga porten 80 till den lokala porten 80 i backend-adresspoolen.
 
 ```powershell
-$inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
+$inboundNATRule1= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
 
-$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
+$inboundNATRule2= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
-$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+$healthProbe = New-AzLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+$lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
 ### <a name="step-2-create-the-load-balancer"></a>Steg 2: Skapa lastbalanseraren
@@ -157,7 +158,7 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguratio
 Skapa lastbalanseraren och kombinera regelobjekten (inkommande NAT-regel för RDP, lastbalanserare och hälsoavsökning):
 
 ```powershell
-$NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
+$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 ```
 
 ## <a name="create-the-network-interfaces"></a>Skapa nätverksgränssnitt
@@ -169,15 +170,15 @@ När du har skapat den interna lastbalanseraren måste du definiera vilka nätve
 Hitta det virtuella nätverket och undernätet för resursen. Dessa värden används för att skapa nätverksgränssnitten:
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
+$vnet = Get-AzVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 
-$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
+$backendSubnet = Get-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
 ```
 
 Skapa det första nätverksgränssnittet med namnet **lb-nic1-be**. Tilldela gränssnittet till lastbalanseraren för serverdelsadresspoolen. Koppla den första NAT-regeln för RDP till det här nätverkskortet:
 
 ```powershell
-$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
+$backendnic1= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 ```
 
 ### <a name="step-2-create-the-second-network-interface"></a>Steg 2: Skapa det andra nätverksgränssnittet
@@ -185,7 +186,7 @@ $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 Skapa det andra nätverksgränssnittet med namnet **lb-nic2-be**. Tilldela det andra gränssnittet till samma lastbalanserare för serverdelsadresspoolen som användes till det första gränssnittet. Koppla det andra nätverkskortet till den andra NAT-regeln för RDP:
 
 ```powershell
-$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+$backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
 Granska konfigurationen:
@@ -197,7 +198,7 @@ Inställningarna bör vara följande:
     Name                 : lb-nic1-be
     ResourceGroupName    : NRP-RG
     Location             : westus
-    Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+    Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
     Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
     ProvisioningState    : Succeeded
     Tags                 :
@@ -207,25 +208,25 @@ Inställningarna bör vara följande:
                            "PrivateIpAddress": "10.0.2.6",
                            "PrivateIpAllocationMethod": "Static",
                            "Subnet": {
-                             "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
+                             "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
                            },
                            "PublicIpAddress": {
                              "Id": null
                            },
                            "LoadBalancerBackendAddressPools": [
                              {
-                               "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
+                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
                              }
                            ],
                            "LoadBalancerInboundNatRules": [
                              {
-                               "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
+                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
                              }
                            ],
                            "ProvisioningState": "Succeeded",
                            "Name": "ipconfig1",
                            "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                           "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
                          }
                        ]
     DnsSettings          : {
@@ -240,7 +241,7 @@ Inställningarna bör vara följande:
 
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>Steg 3: Tilldela nätverkskortet till en virtuell dator
 
-Tilldela nätverkskortet till en virtuell dator med hjälp av kommandot `Add-AzureRmVMNetworkInterface`.
+Tilldela nätverkskortet till en virtuell dator med hjälp av kommandot `Add-AzVMNetworkInterface`.
 
 Stegvisa anvisningar för att skapa en virtuell dator och tilldela den till ett nätverkskort finns i [Skapa en virtuell Azure-dator med PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
@@ -248,31 +249,31 @@ Stegvisa anvisningar för att skapa en virtuell dator och tilldela den till ett 
 
 När den virtuella datorn har skapats kan du lägga till nätverksgränssnittet.
 
-### <a name="step-1-store-the-load-balancer-resource"></a>Steg 1: Lagra lastbalanseringsresursen
+### <a name="step-1-store-the-load-balancer-resource"></a>Steg 1: Store belastningsutjämningsresursen
 
 Lagra lastbalanseringsresursen i en variabel (om du inte har gjort det redan). Här använder vi variabelnamnet **$lb**. Använd samma namn för attributvärdena i skriptet som för lastbalanseringsresurserna som skapades i föregående steg.
 
 ```powershell
-$lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+$lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 ```
 
-### <a name="step-2-store-the-back-end-configuration"></a>Steg 2: Lagra serverdelskonfigurationen
+### <a name="step-2-store-the-back-end-configuration"></a>Steg 2: Store backend konfigurationen
 
 Lagra serverdelskonfigurationen i variabeln **$backend**.
 
 ```powershell
-$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
+$backend = Get-AzLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
-### <a name="step-3-store-the-network-interface"></a>Steg 3: Lagra nätverksgränssnittet
+### <a name="step-3-store-the-network-interface"></a>Steg 3: Store nätverksgränssnittet
 
 Lagra nätverksgränssnittet i en annan variabel. Det här gränssnittet skapades i ”Skapa nätverksgränssnitt, steg 1”. Här använder vi variabelnamnet **$nic1**. Använd samma namn på nätverksgränssnittet som i föregående exempel.
 
 ```powershell
-$nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+$nic = Get-AzNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 ```
 
-### <a name="step-4-change-the-back-end-configuration"></a>Steg 4: Ändra serverdelskonfigurationen
+### <a name="step-4-change-the-back-end-configuration"></a>Steg 4: Ändra backend konfigurationen
 
 Ändra backend-konfigurationen för nätverksgränssnittet.
 
@@ -285,19 +286,19 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 Spara objektet för nätverksgränssnittet.
 
 ```powershell
-Set-AzureRmNetworkInterface -NetworkInterface $nic
+Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 När gränssnittet har lagts till i serverdelspoolen kan nätverkstrafiken belastningsutjämnas enligt reglerna. Reglerna konfigurerades under ”Skapa konfigurationsregler, avsökning och lastbalanserare”.
 
 ## <a name="update-an-existing-load-balancer"></a>Uppdatera en befintlig lastbalanserare
 
-### <a name="step-1-assign-the-load-balancer-object-to-a-variable"></a>Steg 1: Tilldela ett lastbalanseringsobjekt till en variabel
+### <a name="step-1-assign-the-load-balancer-object-to-a-variable"></a>Steg 1: Tilldela belastningsutjämningsobjektet till en variabel
 
-Tilldela lastbalanseringsobjektet (från det föregående exemplet) till variabeln **$slb** med hjälp av kommandot `Get-AzureRmLoadBalancer`:
+Tilldela lastbalanseringsobjektet (från det föregående exemplet) till variabeln **$slb** med hjälp av kommandot `Get-AzLoadBalancer`:
 
 ```powershell
-$slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+$slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 ### <a name="step-2-add-a-nat-rule"></a>Steg 2: Lägg till en NAT-regel
@@ -305,7 +306,7 @@ $slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 Lägg till en ny NAT-regel för inkommande i en befintlig lastbalanserare. Använd port 81 till IP-adresspoolen på klientsidan och port 8181 till serverdelsadresspoolen:
 
 ```powershell
-$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+$slb | Add-AzLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 ```
 
 ### <a name="step-3-save-the-configuration"></a>Steg 3: Spara konfigurationen
@@ -313,15 +314,15 @@ $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConf
 Spara den nya konfigurationen med hjälp av kommandot `Set-AzureLoadBalancer`:
 
 ```powershell
-$slb | Set-AzureRmLoadBalancer
+$slb | Set-AzLoadBalancer
 ```
 
 ## <a name="remove-an-existing-load-balancer"></a>Ta bort en befintlig lastbalanserare
 
-Ta bort lastbalanseraren **NRP-LB** i resursgruppen **NRP-RG** med hjälp av kommandot `Remove-AzureRmLoadBalancer`:
+Ta bort lastbalanseraren **NRP-LB** i resursgruppen **NRP-RG** med hjälp av kommandot `Remove-AzLoadBalancer`:
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]

@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 5e5a6f32eeac674a6527d333b981bbdac20a9958
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 8a660de0502a6ab215d3a23615f6a53813f1695e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309769"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649211"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
-Den här artikeln förklarar hur du säkerhetskopierar virtuella VMware-datorer som körs på VMware ESXi-värdar/vCenter-Server till Azure med hjälp av Azure Backup Server. 
+Den här artikeln förklarar hur du säkerhetskopierar virtuella VMware-datorer som körs på VMware ESXi-värdar/vCenter-Server till Azure med hjälp av Azure Backup Server.
 
 Den här artikeln förklarar hur du:
 
@@ -28,13 +28,13 @@ Den här artikeln förklarar hur du:
 - Konfigurera en skyddsgrupp som innehåller VMware virtuella datorer som du vill säkerhetskopiera, ange inställningar för säkerhetskopiering och schemalägga säkerhetskopieringen.
 
 ## <a name="before-you-start"></a>Innan du börjar
-- Kontrollera att du kör en version av vCenter/ESXi som stöds för säkerhetskopiering - version 6.5, 6.0 och 5.5. 
+- Kontrollera att du kör en version av vCenter/ESXi som stöds för säkerhetskopiering - version 6.5, 6.0 och 5.5.
 - Kontrollera att du har konfigurerat Azure Backup Server. Om du inte gjort [gör](backup-azure-microsoft-azure-backup.md) innan du börjar. Du bör köra Azure Backup Server med de senaste uppdateringarna.
 
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Skapa en säker anslutning till vCenter-servern
 
-Som standard kommunicerar Azure Backup Server med VMware-servrar via HTTPS. Om du vill konfigurera HTTPS-anslutning, ladda ned certifikatet för VMware certifikatutfärdaren (CA) och importera det på Azure Backup Server. 
+Som standard kommunicerar Azure Backup Server med VMware-servrar via HTTPS. Om du vill konfigurera HTTPS-anslutning, ladda ned certifikatet för VMware certifikatutfärdaren (CA) och importera det på Azure Backup Server.
 
 
 ### <a name="before-you-start"></a>Innan du börjar
@@ -46,7 +46,7 @@ Som standard kommunicerar Azure Backup Server med VMware-servrar via HTTPS. Om d
     - Azure Backup Server sedan säkerhetskopierar från lokalt diskutrymme till Azure.
     - [Få hjälp](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) att ta reda på hur mycket lagringsutrymme du behöver. Informationen är för DPM, men kan användas för Azure Backup Server för.
 
-### <a name="set-up-the-certificate"></a>Ställ in certifikatet 
+### <a name="set-up-the-certificate"></a>Ställ in certifikatet
 
 Konfigurera en säker kanal enligt följande:
 
@@ -54,7 +54,7 @@ Konfigurera en säker kanal enligt följande:
 
     ![vSphere-webbklienten](./media/backup-azure-backup-server-vmware/vsphere-web-client.png)
 
-2. Klicka på inloggningssidan för vSphere-webbklienten **Download betrodda rotcertifikatutfärdare**. 
+2. Klicka på inloggningssidan för vSphere-webbklienten **Download betrodda rotcertifikatutfärdare**.
 
     ![Hämta certifikat från betrodd rotcertifikatutfärdare](./media/backup-azure-backup-server-vmware/vmware-download-ca-cert-prompt.png)
 
@@ -76,12 +76,12 @@ Konfigurera en säker kanal enligt följande:
 
 6. Ändra det rotcertifikatet tillägget till .crt och bekräfta. Filikonen ändras till ett som representerar ett rotcertifikat.
 
-7. Högerklicka på rotcertifikatet och popup-menyn, Välj **installera certifikat**. 
+7. Högerklicka på rotcertifikatet och popup-menyn, Välj **installera certifikat**.
 
 8. I **guiden Importera certifikat**väljer **lokal dator** som mål för den certifikatet och sedan på **nästa**. Bekräfta om du blir tillfrågad om du vill tillåta ändringar på datorn.
 
     ![Välkommen till guiden](./media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
- 
+
 
 9. På den **Certificate Store** väljer **placera alla certifikat i nedanstående arkiv**, och klicka sedan på **Bläddra** välja certifikatarkivet.
 
@@ -95,11 +95,11 @@ Konfigurera en säker kanal enligt följande:
 
     ![Kontrollera att certifikatet är i rätt mapp](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
-    
+
 12. Logga in på vCenter-servern för att kontrollera att anslutningen är säker när Importera certifikat har bekräftats.
 
 
-  
+
 
 ### <a name="disable-default-https"></a>Inaktivera standard HTTPS
 
@@ -130,7 +130,7 @@ Azure Backup Server behöver ett användarkonto med behörighet att komma åt v 
 
     ![Lägg till roll](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-    
+
 4. I **skapa roll** > **rollnamn**, ange *BackupAdminRole*. Rollnamnet kan vara vad du vill, men det bör vara att känna igen för rollens ändamål.
 
 5. Välj behörigheterna som sammanfattas i tabellen nedan och klicka sedan på **OK**.  Den nya rollen visas i listan i den **roller** panelen.
@@ -145,22 +145,22 @@ Azure Backup Server behöver ett användarkonto med behörighet att komma åt v 
 --- | ---
 Datastore.AllocateSpace | Datastore.AllocateSpace
 Global.ManageCustomFields | Global.ManageCustomFields
-Global.SetCustomField | 
-Host.Local.CreateVM | Network.Assign 
-Network.Assign | 
-Resource.AssignVMToPool | 
+Global.SetCustomField |
+Host.Local.CreateVM | Network.Assign
+Network.Assign |
+Resource.AssignVMToPool |
 VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk   
 VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
-VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking 
-VirtualMachine.Config.HostUSBDevice | 
-VirtualMachine.Config.QueryUnownedFiles | 
-VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement 
-VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff 
-VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create 
-VirtualMachine.Provisioning.DiskRandomAccess | 
+VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
+VirtualMachine.Config.HostUSBDevice |
+VirtualMachine.Config.QueryUnownedFiles |
+VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement
+VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff
+VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create
+VirtualMachine.Provisioning.DiskRandomAccess |
 VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
 VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
-VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot 
+VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 
 
@@ -231,7 +231,7 @@ På den **hantera** fliken i den **globala behörigheter** panelen, det nya anv�
     ![Dialogrutan för Azure Backup Server hantera autentiseringsuppgifter](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 
-## <a name="add-the-vcenter-server"></a>Lägg till vCenter-servern 
+## <a name="add-the-vcenter-server"></a>Lägg till vCenter-servern
 
 Lägg till vCenter-servern i Azure Backup Server.
 
@@ -239,7 +239,7 @@ Lägg till vCenter-servern i Azure Backup Server.
 1. I Azure Backup Server-konsolen klickar du på **Management** > **produktionsservrar** > **Lägg till**.
 
     ![Guiden lägga till Open produktionsserver](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
-   
+
 
 2. I **guiden lägga till produktionsserver** > **väljer produktion servertyp** väljer **VMware-servrar**, och klicka sedan på **nästa**.
 
@@ -267,14 +267,14 @@ Lägg till vCenter-servern i Azure Backup Server.
 
   ![Sidan Slutför](./media/backup-azure-backup-server-vmware/summary-screen.png)
 
-Om du har flera ESXi-värdar som inte hanteras av vCenter-server, eller du har flera instanser av vCenter Server, måste du köra guiden för att lägga till servrar. 
+Om du har flera ESXi-värdar som inte hanteras av vCenter-server, eller du har flera instanser av vCenter Server, måste du köra guiden för att lägga till servrar.
 
 
 
 
 ## <a name="configure-a-protection-group"></a>Konfigurera en skyddsgrupp
 
-Lägg till virtuella VMware-datorer för säkerhetskopiering. Skyddsgrupper samla flera virtuella datorer och använda samma kvarhållning av data och inställningar för säkerhetskopiering för alla virtuella datorer i gruppen. 
+Lägg till virtuella VMware-datorer för säkerhetskopiering. Skyddsgrupper samla flera virtuella datorer och använda samma kvarhållning av data och inställningar för säkerhetskopiering för alla virtuella datorer i gruppen.
 
 
 1. I Azure Backup Server-konsolen klickar du på **Protection**, > **New**.
@@ -300,7 +300,7 @@ Lägg till virtuella VMware-datorer för säkerhetskopiering. Skyddsgrupper saml
     ![Välj dataskyddsmetod](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
 5. I **ange kortsiktiga mål**, ange hur länge du vill behålla data som säkerhetskopieras till disk.
-    - I **Kvarhållningsintervall**, ange hur många dagar som diskåterställningspunkter bör hållas. 
+    - I **Kvarhållningsintervall**, ange hur många dagar som diskåterställningspunkter bör hållas.
     - I **Synkroniseringsfrekvens**, anger du hur ofta återställningspunkter för disken skapas.
         - Om du inte vill ange en säkerhetskopiering intervall kan du kontrollera **precis innan en återställningspunkt** så att en säkerhetskopiering körs precis innan varje återställningspunkt schemaläggs.
         - Kortsiktig säkerhetskopiering är fullständiga säkerhetskopior som inte är inkrementell.
@@ -337,8 +337,8 @@ Lägg till virtuella VMware-datorer för säkerhetskopiering. Skyddsgrupper saml
 10. På den **Ange schema för Online Backup** anger du hur ofta du vill säkerhetskopiera data från lokal lagring till Azure.
 
     - Återställningspunkter i molnet för data skapas enligt schemat. Klicka sedan på **Nästa**.
-    - När återställningspunkten har skapats, överförs den till Recovery Services-valv i Azure. 
-    
+    - När återställningspunkten har skapats, överförs den till Recovery Services-valv i Azure.
+
     ![Ange onlinesäkerhetskopieringsschema](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
 11. På den **ange bevarandeprincip** kan ange hur länge du vill behålla återställningspunkter som skapats från säkerhetskopior varje dag/vecka/månad/år till Azure. Klicka sedan på **nästa**.
@@ -348,10 +348,31 @@ Lägg till virtuella VMware-datorer för säkerhetskopiering. Skyddsgrupper saml
 
     ![Ange princip för onlinebevarande](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
-   
+
 12. På den **sammanfattning** sidan, granskar du inställningarna och klicka sedan på **Skapa grupp**.
 
     ![Medlem i skyddsgruppen och inställningen sammanfattning](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+
+## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
+
+Att säkerhetskopiera vSphere 6.7 göra följande:
+
+- Aktivera TLS 1.2 på DPM-Server
+  >[!Note]
+  >VMWare 6.7 och senare hade aktiverat TLS som kommunikationsprotokoll.
+
+- Ange registernycklar på följande sätt:  
+
+  Windows Registry Editor Version 5.00
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v2.0.50727] ”SystemDefaultTlsVersions” = DWORD: 00000001 ”SchUseStrongCrypto” = DWORD: 00000001
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v2.0.50727] ”SystemDefaultTlsVersions” = DWORD: 00000001 ”SchUseStrongCrypto” = DWORD: 00000001
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319] ”SystemDefaultTlsVersions” = DWORD: 00000001 s ”SchUseStrongCrypto” = DWORD: 00000001
+
 
 ## <a name="next-steps"></a>Nästa steg
 

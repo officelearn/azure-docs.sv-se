@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2115ad1a88c819e0ee1da34d9d332a0b013b96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb2329a2a67e2e54084d2289cb8cb1a18663b329
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174358"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593683"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protokoll – OAuth 2.0-auktoriseringskodflöde
 
@@ -319,6 +319,6 @@ Ett lyckat svar för token kommer att se ut:
 | `error_codes` |En lista över STS-specifika felkoder som kan hjälpa i diagnostik. |
 | `timestamp` | Den tid då felet inträffade. |
 | `trace_id` | En unik identifierare för begäran som kan hjälpa i diagnostik. |
-| c`orrelation_id` | En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter. |
+| `correlation_id` | En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter. |
 
 En beskrivning av felkoder och rekommenderade klientåtgärd i [felkoder för tokenslutpunkt fel](#error-codes-for-token-endpoint-errors).

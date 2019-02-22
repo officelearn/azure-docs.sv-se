@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6530e86f59124e324953e4ca082c247ebec3bc91
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098346"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650928"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum proof of work consortium lösningsmallen
 
@@ -43,9 +43,9 @@ Medlem consortium har också en uppsättning noder för Utjämning av nätverksb
 
 Transaktionen noder är Utjämning av nätverksbelastning i en tillgänglighetsuppsättning för att bibehålla en hög tillgänglighet. Mallen har stöd för upp till fem transaktion noderna vara etablerade med hjälp av VM-skalningsuppsättningar.
 
-### <a name="log-analytics-details"></a>Log analytics-information
+### <a name="azure-monitor-logs-details"></a>Azure Monitor loggar information
 
-Varje distribution även skapar en ny Log analytics-instans eller kan ansluta till en befintlig instans. Logganalys tillåter övervakning av olika prestandamått för alla virtuella datorer som utgör det distribuerade nätverket.
+Varje distribution även skapar en ny instans av Azure Monitor-loggar eller kan ansluta till en befintlig instans. Azure Monitor-loggar tillåter övervakning av olika prestandamått för alla virtuella datorer som utgör det distribuerade nätverket.
 
 ## <a name="deployment-architecture"></a>Distributionsarkitektur för
 
@@ -96,7 +96,7 @@ Operations Management Suite (OMS) kan du konfigurera en OMS-resurs för nätverk
 
 Parameternamn|Beskrivning| Tillåtna värden|Standardvärden
 ---|---|---|---
-Anslut till befintliga OMS|Skapa en ny Log Analytics-instans eller Anslut till en befintlig instans|Skapa ny koppling befintliga|Skapa ny Log Analytics-plats|Regionen där det nya Log Analytics ska distribueras (synliga om *Skapa ny* har valts)
+Anslut till befintliga OMS|Skapa en ny instans av Azure Monitor-loggar eller Anslut till en befintlig instans|Skapa ny koppling befintliga|Skapa ny plats i Azure Monitor-loggar|Den region där de nya Azure Monitor-loggarna ska distribueras (synliga om *Skapa ny* har valts)
 Befintliga OMS arbetsyte-Id|Arbetsyte-ID för den befintliga instansen (synliga om *ansluta befintliga* har valts) OMS tjänstnivå|Välj prisnivå för den nya instansen. Mer information på https://azure.microsoft.com/pricing/details/log-analytics/ (synliga om *ansluta befintliga* har valts)|Kostnadsfria fristående Per nod|Kostnadsfri
 Befintliga OMS primär nyckel|Den primära nyckeln som används för att ansluta till den befintliga OMS-instansen (synliga om *ansluta befintliga* har valts)
 

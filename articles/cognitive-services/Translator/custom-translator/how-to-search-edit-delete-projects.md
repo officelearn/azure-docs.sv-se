@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 922f64f3e9588b3bfcfeedf7602df781c8ee6172
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f91ac8e8a6a71f2a5eb5c686aa5bc5b83be36545
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226612"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586618"
 ---
 # <a name="search-edit-and-delete-projects"></a>Sök, redigera och ta bort projekt
 
@@ -39,7 +39,7 @@ Verktyget filter kan du söka projekt av olika filtervillkor. Filtreras som proj
 
 ## <a name="edit-a-project"></a>Redigera ett projekt
 
-Anpassade Translator ger möjlighet att redigera namnet och beskrivningen för ett projekt. Andra projekt metadata som kategori, källa, målspråk är inte tillgängliga för redigering. Stegen nedan Beskriv hur du redigerar ett projekt.
+Anpassade Translator ger dig möjligheten att redigera namnet och beskrivningen för ett projekt. Andra projekt metadata som kategori, källspråk och målspråk inte är tillgängliga för redigera. Stegen nedan beskriver hur du redigerar ett projekt.
 
 1.  Klicka på pennikonen som visas när du hovrar över ett projekt.
 

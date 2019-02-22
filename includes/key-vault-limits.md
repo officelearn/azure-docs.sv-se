@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 9a39abf77a7396302f93e5a423271402b7c3edb3
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a8979edf94c0dd0271293feb28c18530faeba09c
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084012"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56660472"
 ---
-Transaktioner-nyckeln (maximalt antal transaktioner som är tillåtna om 10 sekunder valv per region<sup>1</sup>):
+## <a name="key-transactions-max-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transaktioner-nyckeln (maximalt antal transaktioner som är tillåtna om 10 sekunder valv per region<sup>1</sup>):
 
 |Nyckeltyp|HSM-key<br>SKAPA nyckel|HSM-key<br>Alla andra transaktioner|Programvara-nyckel<br>SKAPA nyckel|Programvara-nyckel<br>Alla andra transaktioner|
 |:---|---:|---:|---:|---:|
@@ -20,32 +20,22 @@ Transaktioner-nyckeln (maximalt antal transaktioner som är tillåtna om 10 seku
 |RSA 4096-bitars|5|125|10|250|
 |ECC P-256|5|1000|10|2000|
 |ECC P-384|5|1000|10|2000|
-|ECC P 521|5|1000|10|2000|
+|ECC P-521|5|1000|10|2000|
 |ECC SECP256K1|5|1000|10|2000|
-|
 
 > [!NOTE]
-> Tröskelvärdena ovan viktas och tvingande finns på deras summa. Du kan göra 125 RSA-HSM - 4k-åtgärder och 0 RSA-HSM - 2k, eller 124 RSA-HSM - 4k och 16 RSA-HSM - 2 kB. Därefter, i samma 10 sekunder intervall genereras andra åtgärder ett AKV-klienten.
+> I tabellen ovan visas att för RSA 2048-bitars-programvarunycklar vi tillåter 2000 GET transaktioner per 10: e sekund och att för RSA 2048-bitars HSM-nycklar, vi tillåter 1000 GET transaktioner per 10 sekunder.
+>
+> Observera att tröskelvärden för begränsningar viktas och tvingande finns på deras summa. Till exempel i tabellen ovan, vi kan se att när du utför GET-åtgärder på HSM-RSA-nycklar, det är 8 gånger dyrare att använda 4 096-bitars nycklar jämfört med 2048-bitars nycklar (sedan 1000/125 = 8). Därför i ett givet intervall om 10 sekunder, en AKV-klient kan göra exakt ett av följande innan du påträffar en `429` begränsning HTTP-statuskod:
+> - 2000 RSA 2048-bitars programvarunyckel GET-transaktioner, **eller**
+> - 1000 RSA 2048-bitars HSM-nyckel GET transaktioner **eller**
+> - 125 RSA 4096-bitars HSM-nyckel GET-transaktioner, **eller**
+> - 124 RSA 4096-bitars HSM-nyckel GET-transaktioner och 8 RSA 2048-bitars HSM-nyckel GET-transaktioner.
 
-> [!NOTE]
-> Om du tittar på tabellen nedan, ser du att för programvara-baserade nycklar tillåter vi 2000 transaktioner per 10 sekunder och för HSM-skyddade nycklar som tillåter vi 1000 transaktioner per 10 sekunder. Förhållandet mellan backas upp av programvara transaktioner för 3072 nycklar till 2048 nycklar är 500/2000 eller 0.4. Det innebär att de når sin gräns på högst om en kund gör 500 3072 viktiga transaktioner om 10 sekunder, och att du tar inte kan göra andra viktiga åtgärder. 
-   
-|Nyckeltyp  | Programnyckel |HSM-key  |
-|---------|---------|---------|
-|RSA 2048-bitars     |    2000     |   1000    |
-|RSA 3072-bitars     |     500    |    250     |
-|RSA 4096-bitars     |    125     |    250     |
-|ECC P-256     |    2000     |  1000     |
-|ECC P-384     |    2000     |  1000     |
-|ECC P 521     |    2000     |  1000     |
-|ECC SECP256K1     |    2000     |  1000     |
-
-
-Hemligheter, hanterade Lagringskontonycklar och vault-transaktioner:
+## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Hemligheter, hanterade Lagringskontonycklar och vault-transaktioner:
 | Transaktioner-typ | Maximalt antal transaktioner som är tillåtna om 10 sekunder valv per region<sup>1</sup> |
 | --- | --- |
 | Alla transaktioner |2000 |
-|
 
 Se [Azure Key Vault-begränsning vägledning](../articles/key-vault/key-vault-ovw-throttling.md) information om hur du hanterar begränsning när gränserna överskrids.
 

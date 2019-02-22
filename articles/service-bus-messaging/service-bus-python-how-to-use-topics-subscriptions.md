@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: aschhab
-ms.openlocfilehash: 280901c4b7af9cc65163ebc453a54fb7ec5d5111
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 4726143559a91c1b8b911d8538efa32c6bf19c2e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849404"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587590"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Hur du använder Service Bus-ämnen och prenumerationer med Python
 
@@ -31,6 +31,8 @@ I den här artikeln beskrivs hur du använder Service Bus-ämnen och -prenumerat
 
 > [!NOTE] 
 > Om du vill installera Python eller [Azure Python-paketet][Azure Python package], finns i den [Python installationsguide](../python-how-to-install.md).
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-topic"></a>Skapa ett ämne
 

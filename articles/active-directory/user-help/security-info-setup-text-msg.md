@@ -1,5 +1,5 @@
 ---
-title: Konfigurera säkerhetsinformation (förhandsversion) att använda en textmeddelanden - Azure Active Directory | Microsoft Docs
+title: Konfigurera säkerhetsinformation (förhandsversion) du använder textmeddelanden - Azure Active Directory | Microsoft Docs
 description: Hur du ställer in din säkerhetsinformation för att verifiera din identitet med hjälp av textmeddelanden och din mobila enhet.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a130113c7e6052befdc61927589c1151a062bdb9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 00236a810fb85be6af914021acec2d2b87698e1d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456103"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588593"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Konfigurera säkerhetsinformation (förhandsversion) för att använda textmeddelanden
 Du kan följa stegen nedan för att lägga till två faktorer verifieringen och metoder för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.

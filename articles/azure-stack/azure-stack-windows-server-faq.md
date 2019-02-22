@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b498283ee117935438c55e5162e92acdb0f5ebfe
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249688"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649908"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server i Azure Stack Marketplace vanliga frågor och svar
 
@@ -38,7 +38,7 @@ Sedan om alla Virtual Machine Scale Sets refererar till en specifik version, bö
 
 Microsoft erbjuder två versioner av Windows Server-avbildningar i Azure Stack Marketplace:
 
-- **Betala för det du använder**: Dessa avbildningar kör Windows-mätare fullt pris. 
+- **Betala för det du använder**: Dessa avbildningar kör Windows-mätare fullt pris.
    Vem ska använda: Enterprise Agreement (EA)-kunder som använder den *förbrukning faktureringsmodellen*; CSP: er som inte vill använda SPLA licensiering.
 - **Använd din egen licens (BYOL)**: Dessa avbildningar som kör grundläggande taxor.
    Vem ska använda: EA-kunder med en Windows Server-licens; CSP: er som använder SPLA licensiering.
@@ -74,23 +74,23 @@ Om du vill aktivera en Windows Server-dator på Azure Stack, måste följande vi
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Hur kan jag kontrollera att min virtuella dator har aktiverats?
 
-Kör följande kommando från en upphöjd kommandotolk: 
+Kör följande kommando från en upphöjd kommandotolk:
 
 ```shell
 slmgr /dlv
-``` 
+```
 
 Om den aktiveras korrekt, visas det här tydligt anges och värdnamnet visas i den `slmgr` utdata. Inte bero på vattenstämplar på skärmen som de inte kanske är uppdaterad, eller visar från en annan virtuell dator bakom själv.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>Den virtuella datorn har inte ställts in att använda AVMA, hur kan jag åtgärda det?
 
-Kör följande kommando från en upphöjd kommandotolk: 
+Kör följande kommando från en upphöjd kommandotolk:
 
 ```shell
-slmgr /ipk <AVMA key> 
+slmgr /ipk <AVMA key>
 ```
 
-Finns i artikeln [automatisk aktivering av virtuell dator](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) för nycklarna som ska användas för din avbildning.
+Se den [automatisk aktivering av virtuell dator](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) artikel för nycklarna som ska användas för din avbildning.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Jag skapa min egen Windows Server-avbildningar, hur kan jag kontrollera att de använder AVMA?
 

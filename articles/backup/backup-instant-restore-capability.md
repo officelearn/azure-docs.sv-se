@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 566faaef4e91237bd0a0f915ea39f4bd389120d8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452822"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593088"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
@@ -41,7 +41,7 @@ En återställningspunkt anses skapas endast efter faser 1 och 2 har slutförts.
 
 ![Säkerhetskopieringsjobbet på VM säkerhetskopieringsstack distributionsmodellen Resource Manager – lagring och valv](./media/backup-azure-vms/instant-rp-flow.png)
 
-Ögonblicksbilder bevaras i sju dagar. Den här funktionen kan återställningar åtgärden från de här ögonblicksbilderna det genom att stopptider återställning. Det minskar den tid som krävs för att omvandla och kopiera data från valvet till användarens storage-konto för ohanterade diskar scenarier och för användare av hanterad disk, skapar den hanterade diskar utanför säkerhetskopierade data.
+Som standard behålls ögonblicksbilder i två dagar. Den här funktionen kan återställningar åtgärden från de här ögonblicksbilderna det genom att stopptider återställning. Det minskar den tid som krävs för att omvandla och kopiera data från valvet till användarens storage-konto för ohanterade diskar scenarier och för användare av hanterad disk, skapar den hanterade diskar från Recovery Services-data.
 
 ## <a name="feature-considerations"></a>Överväganden för funktionernas
 

@@ -9,18 +9,18 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 87ea4edd9bb548701d6bcf63dd542ed6e35d9f7f
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212417"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585561"
 ---
 # <a name="what-is-a-dictionary"></a>Vad är en ordlista?
 
 En ordlista är en justerade par dokument som specificerar en lista med fraser eller meningar och deras motsvarande översättningar. Skapa en ordlista i din utbildning, när du vill att Microsoft Translator att alltid översätta alla instanser av den källa fras eller en mening, med hjälp av översättning som du har angett i ordlistan. Ordlistor kallas ibland ordlistorna eller termen baser. Du kan se ordlistan som en brute force ”kopia och Ersätt” för alla villkor du lista.
 
-Ordlistor fungerar endast för projekt i språkpar som har ett fullständigt stöd Microsoft neural maskinöversättning (NMT) system bakom dem. Se http://www.aka.ms/translatorlanguages för en fullständig lista över språk.
+Ordlistor fungerar endast för projekt i språkpar som har ett fullständigt stöd Microsoft neural maskinöversättning (NMT) system bakom dem. [Visa en fullständig lista över språk som](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="phrase-dictionary"></a>Fras ordlista 
 När du inkluderar en fras ordlista i träna din modell, översätts ord eller fraser som visas på det sätt som du har angett. Resten av meningen översätts som vanligt. Du kan använda en fras ordlista för att ange fraser som inte ska översättas genom att tillhandahålla samma Oöversatt fras i filen källa och mål i ordlistan.

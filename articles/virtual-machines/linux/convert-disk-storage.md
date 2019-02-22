@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 10dc7a2c7e4de44979ec72b1d292c69866e1faae
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6b78027191d72c10b20c9d09a92c82be4a9e3e05
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326416"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650809"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Konvertera Azure managed disks-lagring från standard till premium, och vice versa
 
@@ -134,17 +134,20 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 az vm start --ids $vmId 
 ```
 
-## <a name="convert-using-the-azure-portal"></a>Konvertera med hjälp av Azure portal
+## <a name="convert-managed-disks-between-standard-and-premium-in-azure-portal"></a>Konvertera hanterade diskar mellan standard och premium i Azure-portalen
 
-Du kan också konvertera ohanterade diskar till hanterade diskar med Azure portal.
+Du kan konvertera hanterade diskar mellan standard och premium i Azure-portalen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj den virtuella datorn från listan över virtuella datorer i portalen.
+2. Välj den virtuella datorn från listan över **virtuella datorer** i portalen.
+3. Om den virtuella datorn inte har stoppats, klickar du på **stoppa** överst i översikt över VM-bladet och vänta tills den virtuella datorn att stoppa.
 3. I bladet för den virtuella datorn, väljer **diskar** på menyn.
-4. Överst på den **diskar** bladet väljer **migrera till managed disks**.
-5. Om den virtuella datorn är i en tillgänglighetsuppsättning, är en varning på den **migrera till managed disks** bladet som du vill omvandla tillgänglighetsuppsättningen först. Varningen ska ha en länk som du kan klicka på för att omvandla tillgänglighetsuppsättningen. När tillgänglighetsuppsättningen har omvandlats eller om den virtuella datorn inte är i en tillgänglighetsuppsättning klickar du på **migrera** att starta processen med att migrera dina diskar till hanterade diskar. 
+4. Välj den disk som du vill konvertera.
+5. Välj **Configuration** på menyn.
+6. Ändra den **kontotyp** från **Standard HDD** till **Premium SSD**, och vice versa.
+7. Klicka på **spara** och Stäng bladet disk.
 
-Den virtuella datorn stoppas och startas om när migreringen är klar.
+Uppdatering av disktypen är effektiva omedelbara. Du kan starta om den virtuella datorn efter konverteringen.
 
 ## <a name="next-steps"></a>Nästa steg
 

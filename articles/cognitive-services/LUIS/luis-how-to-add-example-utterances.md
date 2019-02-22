@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3f08e2b2fab03ed7f2cccfe251e125033d55b30a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 16bff038b21658d29f3ab5a4b135af7f8a9e640c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860634"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593938"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Lägga till en entitet till exempel yttranden 
 
@@ -35,21 +35,17 @@ Vara det går inte att taggade vissa entitetstyper, till exempel förskapade ent
 I följande procedur skapar du och tagga en anpassad entitet i följande uttryck på sidan avsikt:
 
 ```text
-Does John Smith work in Seattle?
+Are there any SQL server jobs?
 ```
 
-1. Välj `Seattle` i uttryck till att det är en enkel enhet.
+1. Välj `SQL server` i uttryck till att det är en enkel enhet. I entiteten listrutan rutan som visas kan du väljer en befintlig entitet eller lägga till en ny entitet. Om du vill lägga till en ny entitet, skriver du namnet `Job` i textrutan och välj sedan **Skapa ny entitet**.
 
-    [![Skärmbild över att välja text i uttryck för enkel enhet](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
+    ![Skärmbild av hur du anger entitetsnamn](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > När du väljer ord att taggen som enheter:
     > * För ett enstaka ord bara välja den. 
     > * För en uppsättning med två eller flera ord, väljer du i början och slutet av uppsättningen.
-
-1. I entiteten listrutan rutan som visas kan du väljer en befintlig entitet eller lägga till en ny entitet. Om du vill lägga till en ny entitet, skriver du namnet i textrutan och välj sedan **Skapa ny entitet**. 
-
-    ![Skärmbild av hur du anger entitetsnamn](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
 1. I den **vilken typ av enhet vill du skapa?** popup-rutan, verifiera enhetens namn och välj den **enkel** entitetstypen och välj sedan **klar**.
 
@@ -57,14 +53,11 @@ Does John Smith work in Seattle?
 
 ## <a name="add-a-list-entity"></a>Lägg till en entitet i listan
 
-Lista över entiteter representerar en fast, stängda uppsättning (exakt denna matchar) närstående ord i systemet. 
+Lista över entiteter representerar en uppsättning exakt denna matchningar av närstående ord i systemet. 
 
 Ett företag avdelning lista du kan ha normalized värden: `Accounting` och `Human Resources`. Varje normaliserade namn har synonymer. För en avdelning, kan dessa synonymer innehåller alla avdelning förkortningar, tal eller slang. Du behöver veta alla värden när du har skapat entiteten. Du kan lägga till fler när du har granskat hur användarna yttranden med synonymer.
 
-1. Välj i listan exempel uttryck för en specifik uttryck ordet eller frasen som du vill ha i den nya listan. Sedan anger du namnet på listan i textrutan längst upp och välj sedan **Skapa ny entitet**.   
-
-    ![Skärmbild av hur du anger lista entitetsnamn](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
-
+1. I en exempel-uttryck på den **avsikter** väljer ord eller fraser som du vill i den nya listan. När entiteten listrutan visas anger du namnet för den nya entiteten i listan i textrutan längst upp och välj sedan **Skapa ny entitet**.   
 
 1. I den **vilken typ av enhet vill du skapa?** popup-rutan, namn på entiteten och väljer **lista** som typ av. Lägga till synonymer för det här listobjektet och välj sedan **klar**. 
 
@@ -76,21 +69,15 @@ Ett företag avdelning lista du kan ha normalized värden: `Accounting` och `Hum
 
 Sammansatta entiteter skapas från befintliga **entiteter** till den överordnade-enheten. 
 
-Om vi antar att uttryck, `Does John Smith work in Seattle?`, ett sammansatt uttryck kan returnera entitetsinformation medarbetarnamn och plats i ett enda överordnat objekt. 
+Om vi antar att uttryck, `Does John Smith work in Seattle?`, ett sammansatt uttryck kan returnera entitetsinformation av medarbetarnamn `John Smith`, och platsen `Seattle` i en sammansatt entitet. Underordnade entiteter måste redan finnas i appen och markeras i exempel-uttryck innan du skapar sammansatta entiteten.
 
-Medarbetarnamn, John Smith, är en fördefinierade [personName](luis-reference-prebuilt-person.md) entitet. Plats, Seattle, är en enkel anpassad entitet. När dessa två entiteter har skapats och taggas i en exempel-uttryck, kan dessa entiteter inneslutas i en sammansatt entitet. 
+1. Om du vill radbryta underordnade entiteter i en sammansatt entitet, Välj den **första** märkta entitet (vänster) i uttryck för sammansatt entiteten. En listrutan visas alternativen för det här alternativet.
 
-1. Om du vill radbryta enskilda enheter till en sammansatta, Välj den **första** märkta entitet (vänster) i uttryck för sammansatt entiteten. En listrutan visas alternativen för det här alternativet.
+1. Välj **omsluta i sammansatt entitet** från den nedrullningsbara listan. 
 
-1. Välj **omsluta sammansatt entitet** från den nedrullningsbara listan. 
-
-    ![Skärmbild av Välj ”radbyte i sammansatt entitet”](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
-
-1. Välj det sista ordet sammansatta entitetens (höger – de flesta). Observera att en grön linje följer sammansatta entiteten.
+1. Välj det sista ordet sammansatta entitetens (höger – de flesta). Observera att en grön linje följer sammansatta entiteten. Detta är en visuell indikering för en sammansatt entitet och bör vara under alla ord i sammansatt entiteten från vänster underordnade entiteten till höger underordnad entitet.
 
 1. Ange sammansatta enhetens namn i den nedrullningsbara listan.
-
-    ![Skärmbild av ange sammansatta enhetens namn i den nedrullningsbara listan](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     När du omsluter entiteterna korrekt är en grön linje under hela frasen.
 
@@ -110,15 +97,11 @@ I uttryck `Move John Smith from Seattle to Cairo`, Seattle är ursprungsplatsen 
 
 1. På sidan avsikt i uttryck, Välj `Seattle`, ange entitetsnamnet `Location`, och tryck sedan på RETUR på tangentbordet.
 
-    ![Skärmbild av skapa hierarkiska entitet märkning dialogrutan](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
-
 1. I den **vilken typ av enhet vill du skapa?** popup-rutan, väljer _hierarkiska_ för **entitetstypen**, Lägg sedan till `Origin` och `Destination` som barn, Välj sedan **klar**.
 
     ![Skärmbild av avsikter detaljsidan med ToLocation entitet markerat](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
 1. Ordet i uttryck etiketterades med den överordnade hierarkiska entiteten. Du måste tilldela ordet till en underordnad entitet. Gå tillbaka till uttryck på sidan med avsikt. Markera ord, och sedan välja entitetsnamn som du skapade från den nedrullningsbara listan och följ på menyn till höger för att välja rätt underordnad entitet.
-
-    ![Skärmbild av avsikter informationssidan där du måste tilldela ordet till en underordnad entitet](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Namn på underordnade entiteter måste vara unikt inom alla entiteter i samma app. Två olika hierarkiska entiteter får inte innehålla underordnade entiteter med samma namn. 
@@ -135,7 +118,7 @@ Välj de ord som är understruket i rött i uttryck.
 
 Rutan entiteten visar den **status för enheter** med ett rött utropstecken om det finns en diskrepans förutsägelse. Om du vill se status för enheter med information om skillnaden mellan taggade och förväntade entiteter **status för enheter** Välj ett objekt till höger.
 
-![Skärmbild över att välja rätt objekt för att åtgärda förutsägelse avvikelse](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Skärmbild av entiteten statusvalet](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 Röd-rad visas på någon av följande tidpunkter:
 
@@ -153,6 +136,9 @@ På följande sätt att lösa entitet förutsägelse avvikelse:
 |Korrekt taggade text|Markera blå entitet, röd understrykning|Felaktig förutsägelse|Ger mer yttranden med entiteten korrekt taggade på olika platser och användningsområden. De aktuella yttranden är inte tillräckliga för att lära LUIS att detta är entiteten är eller liknande entiteterna visas i samma kontext. Liknande entitet ska kombineras till en enda entitet så LUIS är inte blandas ihop. En annan lösning är att lägga till en fras lista för att höja betydelsen av orden. |
 |Felaktigt taggade text|Markera blå entitet, röd understrykning|Rätt förutsägelse| Ger mer yttranden med entiteten korrekt taggade på olika platser och användningsområden. 
 
+> [!Note]
+> När en röd ram runt taggade avsikten i raden i exempel-uttryck ett [avsikt förutsägelse fel](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) har inträffat. Du måste korrigera den. 
+
 ## <a name="other-actions"></a>Andra åtgärder
 
 Du kan utföra åtgärder på exempel yttranden som en vald grupp eller som ett enskilt objekt. Grupper med valda exempel yttranden ändra popup-menyn ovanför listan. Enstaka objekt kan använda både popup-menyn ovanför listan och enskilda sammanhangsberoende ellipsen i slutet av varje rad i uttryck. 
@@ -162,8 +148,6 @@ Du kan utföra åtgärder på exempel yttranden som en vald grupp eller som ett 
 Du kan ta bort datorn lärt dig entitet etiketter från ett uttryck på sidan avsikt. Om enheten inte är datorn lärt dig, kan inte tas bort från ett uttryck. Om du vill ta bort en entitet som icke-machine-lärt dig från uttryck kan behöva du ta bort enheten från hela appen. 
 
 Om du vill ta bort en etikett för datorn lärt dig entitet från ett uttryck, väljer du entitet i uttryck. Välj sedan **ta bort etiketten** i den nedrullningsbara listrutan för entiteten som visas.
-
-![Skärmbild av avsikter detaljsidan med ta bort etiketten markerat](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
 ### <a name="add-prebuilt-entity-label"></a>Lägg till fördefinierade entitet etikett
 

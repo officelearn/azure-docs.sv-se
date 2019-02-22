@@ -15,12 +15,12 @@ ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6f2a2eb9902e8567b5fa27ed93dd8be2fe3a01b3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002062"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587080"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Hantera klienten registrering i Azure Stack
 
@@ -60,7 +60,7 @@ Läs mer om Azure Stack och API-profiler, [hantera API-versionsprofiler i Azure 
 
 ### <a name="powershell"></a>PowerShell
 
-Använd cmdleten New-AzureRmResource för att lägga till en klient. [Ansluta till Azure Stack](/azure-stack-powershell-configure-admin.md), och sedan använda följande cmdlet från en upphöjd kommandotolk:
+Använd cmdleten New-AzureRmResource för att lägga till en klient. [Ansluta till Azure Stack](azure-stack-powershell-configure-admin.md), och sedan använda följande cmdlet från en upphöjd kommandotolk:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -91,7 +91,7 @@ Hämta en lista över alla klienter som har lagts till en registrering.
 
 ### <a name="powershell"></a>PowerShell
 
-Använd cmdleten Get-AzureRmResource att lista alla registrerade klienter. [Ansluta till Azure Stack](/azure-stack-powershell-configure-admin.md), och sedan använda följande cmdlet från en upphöjd kommandotolk:
+Använd cmdleten Get-AzureRmResource att lista alla registrerade klienter. [Ansluta till Azure Stack](azure-stack-powershell-configure-admin.md), och sedan använda följande cmdlet från en upphöjd kommandotolk:
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -142,7 +142,7 @@ Du kan ta bort en klient som har lagts till en registrering. Om klienten fortfar
 
 ### <a name="powershell"></a>PowerShell
 
-Ta bort en klient med hjälp av cmdleten Remove-AzureRmResource. [Ansluta till Azure Stack](/azure-stack-powershell-configure-admin.md), och sedan använda följande cmdlet från en upphöjd kommandotolk:
+Ta bort en klient med hjälp av cmdleten Remove-AzureRmResource. [Ansluta till Azure Stack](azure-stack-powershell-configure-admin.md), och sedan använda följande cmdlet från en upphöjd kommandotolk:
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: a3ec74d0b22bfafb4353eca400b389b07a58ba39
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8dbe282b919c988d5cb997a66914d81ce1981f88
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246360"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592425"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 Microsoft hjälper sänka på ingångsnivå kostnaden för att köra ett data warehouse kan hantera krävande frågor genom att lägga till lägre beräkningsnivåer för Azure SQL Data Warehouse till Läs hela tillkännagivandet om [lägre compute nivå av support för Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Nytt erbjudande är redan tillgängligt i de regioner som anges i tabellen nedan. För regioner som stöds, kan befintliga Gen1 informationslager uppgraderas till Gen2 via antingen:
@@ -29,8 +29,6 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 
 | **Region** | **Lägre Gen2 som är tillgängliga** | **Automatiska uppgraderingar börjar** |
 |:--- |:--- |:--- |
-| Centrala Australien 1 |Den 1 mars 2019 |Den 15 juni 2019 |
-| Australien, centrala 2 |Den 1 mars 2019 |Den 15 juni 2019 |
 | Östra Australien |Tillgängligt |Den 1 maj 2019 |
 | Sydöstra Australien |Den 1 mars 2019 |Den 15 juni 2019 |
 | Södra Brasilien |\* |\* |

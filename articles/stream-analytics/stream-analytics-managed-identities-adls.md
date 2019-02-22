@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 194f43a0005f17a22b3a60d6decd049444e56c20
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 02d3cd3688f3b34c92422168b79cb4da5a93d970
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745784"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587998"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter (förhandsversion)
 
@@ -29,7 +29,7 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
 
    ![Konfigurera förhandsversionen av Stream Analytics-hanterad identitet](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Välj **Använd systemtilldelade hanterad tjänstidentitet (förhandsversion)** från fönstret som visas till höger. Klicka på **spara** att skapa ett huvudnamn för tjänsten identitet för Stream Analytics-jobb i Azure Active Directory. Livscykeln för den nyligen skapade identiteten ska hanteras av Azure. När Stream Analytics-jobbet tas bort, raderas automatiskt associerade identiteten (det vill säga tjänstens huvudnamn) av Azure.
+2. Välj **Använd systemtilldelade hanterad tjänstidentitet (förhandsversion)** från fönstret som visas till höger. Klicka på **spara** till ett huvudnamn för tjänsten identitet för Stream Analytics-jobb i Azure Active Directory. Livscykeln för den nyligen skapade identiteten ska hanteras av Azure. När Stream Analytics-jobbet tas bort, raderas automatiskt associerade identiteten (det vill säga tjänstens huvudnamn) av Azure.
 
    När konfigurationen är sparad anges i objekt-ID (OID) för tjänstens huvudnamn som ägar-ID som visas nedan:
 
@@ -171,6 +171,14 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
    ```
 
    Mer information om kommandot ovan PowerShell avser den [Set-AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) dokumentation.
+
+## <a name="limitations"></a>Begränsningar
+Den här funktionen stöder inte följande:
+
+1.  **Flera innehavare åtkomst**: Tjänstens huvudnamn som skapats för en viss Stream Analytics-jobbet kommer att finnas på Azure Active Directory-klient som jobbet har skapats och kan inte användas mot en resurs som finns på en annan Azure Active Directory-klient. Du kan därför bara använda MSI på ADLS Gen 1-resurser som ligger inom samma Azure Active Directory-klient som din Azure Stream Analytics-jobb. 
+
+2.  **[Tilldelade användaridentitet](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka/)**: stöds inte detta innebär att användaren inte kan ange sina egna tjänstens huvudnamn som ska användas av deras Stream Analytics-jobb. Tjänstens huvudnamn genereras av Azure Stream Analytics. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871022"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649449"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Ordlista för QnA Maker knowledge base och service
 
@@ -42,4 +42,4 @@ En användarfråga är frågan som slutanvändaren eller tester frågar i knowle
 Svaret är svaret som hämtats från kunskapsbasen, baserat på bästa möjliga matchning för en viss användare-fråga.
 
 ## <a name="confidence-score"></a>Förtroendepoäng
-Förtroendepoäng i svaret är ett numeriskt värde mellan 0 och 100, 100 som en exakt fråga matchning mellan användarfråga och en fråga i kunskapsbas som hanteras av svaret är rätt, rätt svar på en viss användare-fråga. Svaren är vanligtvis rankade efter förtroendepoäng och med högre förtroendepoäng skickas som Standardsvaret.
+Förtroendepoäng i svaret är ett numeriskt värde mellan 0 och 100, 100 som en exakt fråga matchning mellan användarfråga och en fråga i kunskapsbas som hanteras av svaret är rätt, rätt svar på en viss användare-fråga. Svaren är vanligtvis rankade efter förtroendepoäng och med högre förtroendepoäng hanteras som den [Standardsvar](concepts/confidence-score.md#change-default-answer).

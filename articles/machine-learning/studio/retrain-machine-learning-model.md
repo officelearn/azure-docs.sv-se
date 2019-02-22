@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9a43a382c1f45f0bf0fb7e93322fcbeef58cb99d
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330519"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651183"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Träna och distribuera en modell för maskininlärning
 
@@ -42,7 +42,7 @@ Använd följande steg för att distribuera en omtränings webbtjänst:
 
     När du har kört experimentet bör resulterande arbetsflödet likna följande bild:
 
-    ![Resulterande arbetsflöde](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![Resulterande arbetsflöde](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     Nu kan distribuera du träningsexperimentet som en omtränings webbtjänst som returnerar en tränad modell och utvärderingsresultat av modellen.
 
@@ -68,7 +68,7 @@ Lägg till NuGet-paketet system.NET.http.Formatting, enligt vad som anges i komm
 
 Följande skärmbild visar de **förbruka** i Azure Machine Learning Web Services-portalen.
 
-![Använda sidan](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![Använda sidan](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>Uppdatera apikey deklaration
 
@@ -114,7 +114,7 @@ När du anger platsen i begäran-nyttolasten, tillägg till den fil som har ange
 
 Här är ett exempel på omtränings utdata:
 
-![Omtränings utdata](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Omtränings utdata](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>Utvärdera omtränings resultaten
 

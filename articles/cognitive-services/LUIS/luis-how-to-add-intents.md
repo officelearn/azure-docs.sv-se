@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: e6ab51d568c950ca7fd503150557df288d84174f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d6813c11b5b9ed4aef666f5eb3dc75d8c9de770
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867740"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593430"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Lägg till avsikter att fastställa användarens avsikt är att yttranden
 
@@ -50,21 +50,14 @@ Ett uttryck i ett intent som kan ha en avsiktlig förutsägelse avvikelse mellan
 
 I det övre navigeringsfältet väljer **träna**. Avvikelse för förutsägelse är nu borta.
 
+> [!Note]
+> När en röd linje är under ett ord eller fraser i exempel-uttryck ett [entitet förutsägelse fel](luis-how-to-add-example-utterances.md#entity-status-predictions) har inträffat. Du måste korrigera den. 
+
 ## <a name="add-a-custom-entity"></a>Lägg till en anpassad entitet
 
 När ett uttryck har lagts till en avsikt, kan du välja text från uttryck att skapa en anpassad entitet. En anpassad entitet är ett sätt att tagga text för extrahering, tillsammans med rätt avsikten. 
 
-1. Markera ord, `Seattle`, i uttryck. Hakparenteser ritas runt texten och en nedrullningsbar meny. 
-
-    ![Skärmbild av avsikter informationssidan anpassad entitet skapas](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    Det här exemplet väljer ett enstaka ord för att markera som en entitet. Du kan markera enstaka fungerar och fraser som entiteter.
-
-1. Ange i översta textrutan-menyn, `Location`och välj sedan **Skapa ny entitet**. 
-
-    ![Skärmbild av avsikter informationssidan skapar anpassade entitetsnamn](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. I den **vilken typ av enhet vill du skapa?** popup-fönstret för att skapa en entitet, kontrollera att den **entitetsnamn** är _plats_, och **entitetstyp**  är _enkel_. Välj **Done** (Klar).
+Se [lägga till entitet i uttryck](luis-how-to-add-example-utterances.md) vill veta mer.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Entiteten förutsägelse avvikelse fel 
 
@@ -80,7 +73,7 @@ Mer information finns i [fördefinierade entitet](luis-how-to-add-entities.md#ad
 
 ## <a name="using-the-contextual-toolbar"></a>Med hjälp av sammanhangsbaserad verktygsfältet
 
-När en eller flera exempel yttranden väljs i listan genom att markera kryssrutan till vänster om ett uttryck kan i verktygsfältet ovanför listan uttryck du utföra följande åtgärder:
+När en eller flera exempel yttranden har markerats i listan genom att markera kryssrutan till vänster om ett uttryck kan i verktygsfältet ovanför listan uttryck du utföra följande åtgärder:
 
 * Omtilldela avsikt: flytta utterance(s) till olika avsikt
 * Ta bort utterance(s)

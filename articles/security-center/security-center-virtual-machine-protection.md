@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: 8dcaa9b98292e66d81daf3d115159b0c0c1124af
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0b548acc92ab1efedab963e9bd3318e8525ffee4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106740"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649568"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -159,6 +159,24 @@ Det finns tre typer av ikoner i den här listan:
  -  Välj en skickade utvärdering från listan för en beskrivning av utvärderingen, en lista över feltillstånd och felfria resurser och en lista över ej genomsökta resurser. Det finns en flik för skadade resurser men listan är alltid tomt eftersom utvärderingen skickades.
 
     ![App Service-reparation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+
+## <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för virtuella datorer
+Security Center identifierar automatiskt om du har skalor uppsättningar och rekommenderar att du installerar Microsoft Monitoring Agent på de här skalningsuppsättningar. 
+
+Installera Microsoft Monitoring Agent: 
+
+1. Välj rekommendationen **installera övervakningsagenten på virtual machine scale Sets**. Du får en lista över oövervakade skalningsuppsättningar.
+2. Välj en defekt skalningsuppsättning. Följ anvisningarna för att installera övervakningsagenten med hjälp av en befintlig fylls i automatiskt arbetsyta eller skapa en ny. Se till att ange arbetsytan [prisnivån](security-center-pricing.md) om den inte har angetts.
+
+ ![Installera MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Om du vill ange skalningsuppsättningar nya för att automatiskt installera Microsoft Monitoring Agent:
+1. Gå till Azure Policy och klicka **definitioner**.
+2. Sök efter principen **distribuerar Log Analytics-agenten för Windows VM scale sets** och klicka på den.
+3. Klicka på **Tilldela**.
+4. Ange den **omfång** och **Log Analytics-arbetsyta** och klicka på **tilldela**.
+
+Om du vill ange alla befintliga skalningsuppsättningar för att installera Microsoft Monitoring Agent i Azure Policy, går du till **reparation** och tillämpa den befintliga principen på befintliga skalningsuppsättningar.
 
 
 ## <a name="compute-and-app-recommendations"></a>Rekommendationer för beräknings- och app

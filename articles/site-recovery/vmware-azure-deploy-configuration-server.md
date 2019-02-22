@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4260aaf814b344c1a30106651959d4e4e9ad2335
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235894"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594227"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -31,6 +31,25 @@ Konfigurationsservern måste ställas in som en högtillgänglig VMware VM med v
 Maskinvarukraven för en konfigurationsserver sammanfattas i tabellen nedan.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
+## <a name="azure-active-directory-permission-requirements"></a>Krav för Azure Active Directory-behörighet
+
+Du behöver en användare med **något av följande** behörighet i AAD (Azure Active Directory) för att kunna registrera konfigurationsservern med Azure Site Recovery-tjänster.
+
+1. Användare ska ha ”programutvecklare” roll för att skapa program.
+   1. Om du vill kontrollera, logga in på Azure-portalen</br>
+   1. Gå till Azure Active Directory > roller och administratörer</br>
+   1. Kontrollera om ”programutvecklare” rollen tilldelas användaren. Om den inte använda en användare med den här behörigheten, eller kontakta [administratör för att ge behörigheten](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    
+1. Om inte kan tilldelas rollen ”programutvecklare”, se till att ”användare kan registrera program” flaggan anges till true för användare att skapa identitet. Aktivera ovan behörigheter
+   1. Logga in på Azure-portalen
+   1. Gå till Azure Active Directory > användarinställningar
+   1. Under ** appregistreringar ”,” användare kan registrera program ”ska väljas som” Ja ”.
+
+    ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+
+> [!NOTE]
+> Active Directory Federation Services(ADFS) är **stöds inte**. Använd ett konto som hanteras via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## <a name="capacity-planning"></a>Kapacitetsplanering
 
@@ -94,31 +113,35 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in, inom några sekunder Azure Site Recovery-konfigurationsverktyget startar.
 5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
-6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in på din Azure-prenumeration. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.
+6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration.
+    a. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.
+    b. Kontrollera att valda användarkontot har behörighet att skapa ett program i Azure. Om du vill aktivera behörigheter som krävs, följer du riktlinjerna [här](#azure-active-directory-permission-requirements).
 7. Verktyget utför vissa konfigurationsåtgärder och startar sedan om datorn.
 8. Logga in på datorn igen. I guiden Konfigurera serverhantering startar **automatiskt** i några sekunder.
 
 ### <a name="configure-settings"></a>Konfigurera inställningar
 
 1. I konfigurationsguiden för serverhantering väljer du **Ställ in anslutning** och väljer sedan det nätverkskort som processervern använder för att ta emot replikeringstrafik från virtuella datorer. Välj sedan **Spara**. Du kan inte ändra den här inställningen när den har konfigurerats. Det rekommenderas starkt att inte ändra IP-adressen för en konfigurationsserver. Se till att IP-Adressen som tilldelats till konfigurationsservern är statisk IP-adress och inte DHCP IP.
-2. I **Välj Recovery Services-valv**, logga in på Microsoft Azure, Välj din Azure-prenumeration samt relevant resursgrupp och valv.
+2. I **Välj Recovery Services-valv**, logga in på Microsoft Azure med autentiseringsuppgifter som används i **steg 6** av ”[registrera konfigurationsservern med Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services)” .
+3. Efter inloggningen, väljer du din Azure-prenumeration samt relevant resursgrupp och valv.
 
     > [!NOTE]
     > När du registrerat, finns det ingen möjlighet att ändra recovery services-valvet.
+    > Föränderliga recovery services-valv kräver disassociation av konfigurationsservern från aktuella valvet och replikering av alla skyddade virtuella datorer under configuration server har stoppats. Läs [mer](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
 
-3. I **installera programvara från tredje part**,
+4. I **installera programvara från tredje part**,
 
     |Scenario   |Steg att följa  |
     |---------|---------|
     |Kan jag hämta och installera MySQL manuellt?     |  Ja. Ladda ned MySQL-program och placera den i mappen **C:\Temp\ASRSetup**, installerar manuellt. Nu när du godkänner licensvillkoren > Klicka på **ladda ned och installera**, portalen säger *redan installerat*. Du kan gå vidare till nästa steg.       |
     |Kan jag undvika att ladda ned MySQL online?     |   Ja. Placera din MySQL-installationsprogrammet i mappen **C:\Temp\ASRSetup**. Acceptera villkoren > Klicka på **ladda ned och installera**, portalen använder du lägger till installationsprogrammet och installerar programmet. Du kan fortsätta till nästa steg efter installationen.    |
     |Jag vill hämta och installera MySQL via Azure Site Recovery     |  Godkänn licensavtalet och klicka på **ladda ned och installera**. Du kan sedan fortsätta till nästa steg efter installationen.       |
-4. I **Verifiera installationskonfiguration** verifieras förutsättningarna innan du fortsätter.
-5. I **Konfigurera vCenter Server/vSphere ESXi-server** anger du FQDN eller IP-adress för vCenter-servern eller vSphere-värden där de virtuella datorer som du vill replikera är placerade. Ange porten som servern lyssnar på. Ange ett eget namn som ska användas för VMware-servern i valvet.
-6. Ange de autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **lägga till**, och sedan **fortsätta**. De autentiseringsuppgifter som anges här sparas lokalt.
-7. I **konfigurera autentiseringsuppgifter för virtuell dator**, ange användarnamn och lösenord för virtuella datorer för att automatiskt installera Mobilitetstjänsten under replikeringen. För **Windows** datorer, kontot måste ha lokal administratörsbehörighet på de datorer som du vill replikera. För **Linux**, ange information för rotkontot.
-8. Välj **Slutför konfigurationen** för att slutföra registreringen.
-9. När registreringen är klar öppnar du Azure-portalen, kontrollerar du att konfigurationsservern och VMware-servern visas på **Recovery Services-valv** > **hantera**  >  **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
+5. I **Verifiera installationskonfiguration** verifieras förutsättningarna innan du fortsätter.
+6. I **Konfigurera vCenter Server/vSphere ESXi-server** anger du FQDN eller IP-adress för vCenter-servern eller vSphere-värden där de virtuella datorer som du vill replikera är placerade. Ange porten som servern lyssnar på. Ange ett eget namn som ska användas för VMware-servern i valvet.
+7. Ange de autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **lägga till**, och sedan **fortsätta**. De autentiseringsuppgifter som anges här sparas lokalt.
+8. I **konfigurera autentiseringsuppgifter för virtuell dator**, ange användarnamn och lösenord för virtuella datorer för att automatiskt installera Mobilitetstjänsten under replikeringen. För **Windows** datorer, kontot måste ha lokal administratörsbehörighet på de datorer som du vill replikera. För **Linux**, ange information för rotkontot.
+9. Välj **Slutför konfigurationen** för att slutföra registreringen.
+10. När registreringen är klar öppnar du Azure-portalen, kontrollerar du att konfigurationsservern och VMware-servern visas på **Recovery Services-valv** > **hantera**  >  **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
 
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: effb00a4ebde857e06e34e5f83ca01fc5d74017b
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447573"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594193"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services-valv
 
@@ -63,7 +63,7 @@ Säkerhetskopieringstillägget som körs på den virtuella datorn måste ha utg�
 - Ingen åtkomst explicit utgående nätverkstrafik måste anges för virtuella Azure-datorn att kommunicera med Azure Backup-tjänsten.
 - Men vissa äldre virtuella datorer kan få problem med att och misslyckas med fel **ExtensionSnapshotFailedNoNetwork** vid försök att ansluta. I så fall använda något av följande alternativ så att säkerhetskopieringstillägget kan kommunicera med Azure offentliga IP-adresser för säkerhetskopieringen.
 
-   **Alternativ** | **Åtgärd** ** | **Fördelar** | **Nackdelar**
+   **Alternativ** | **Åtgärd** | **Fördelar** | **Nackdelar**
    --- | --- | --- | ---
    **Konfigurera NSG-regler** | Tillåt den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  Du kan lägga till en regel som tillåter åtkomst till Azure Backup-tjänsten med en [servicetagg](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), i stället för enskilt så att och hantera varje adressintervall. [Läs mer](../virtual-network/security-overview.md#service-tags) om tjänsttaggar. | Inga ytterligare kostnader. Enkelt att hantera med tjänsttaggar
    **Distribuera en proxy** | Distribuera en HTTP-proxyserver dirigeras trafiken. | Ger åtkomst till hela Azure och inte bara lagring. Detaljerad kontroll över storage-URL: er tillåts.<br/><br/> Enskild punkt för Internetåtkomst för virtuella datorer.<br/><br/> Ytterligare kostnader för proxy.<br/><br/> 

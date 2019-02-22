@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e52d5f3b30490227541e99e067c096a7df6dd911
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6706da978195cff65a3454e6b2d71dfea3b414c4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566198"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651421"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Tjänsten Azure Import/Export: vanliga frågor och svar 
 Här följer frågor och svar som du kan ha när du använder Azure Import/Export-tjänsten för att överföra data till Azure storage. Frågor och svar är ordnade i följande kategorier:
@@ -87,8 +87,18 @@ Du kan leverera enheter till Azure-datacentret med hjälp av några kända opera
 - En FedEx kontonummer i USA och EU, eller
 - DHL kontonummer i regionerna östra och Australien.
 
+> [!NOTE]
+> Datacenter i Indien kräver en deklaration bokstav på brevhuvudet (delivery challan) att returnera enheterna. Om du vill ordna passet nödvändiga posten måste du också boka plocka med din valda operatör och dela information med datacentret.
+
 ### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Finns det några begränsningar med leverans enheten internationellt?
 Observera att fysiska media som du levererar kan behöva korsa internationella gränser. Du ansvarar för att säkerställa att dina fysiska media och data har importerats och/eller exporteras i enlighet med tillämpliga lagar. Före leverans kontrollera det fysiska mediet, med din rådgivare att kontrollera att ditt medieinnehåll och data kan vi inte ålagts levereras till identifierade datacenter. Detta hjälper för att säkerställa att den når Microsoft i god tid.
+
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Finns det några särskilda krav för att leverera Mina diskar till ett datacenter?
+
+Kraven beror på begränsningar för specifika Azure-datacenter.
+- Det finns några klass C webbplatser (till exempel Frankfurt) som kräver ett Microsoft-datacenter inkommande ID-nummer som ska skrivas på skifte av säkerhetsskäl. Innan du skickar dina enheter eller diskar i datacentret, kontakta Azure DataBox åtgärder (adbops@microsoft.com) att hämta det här antalet. Utan det här talet avvisas paketet.
+- Datacenter i Indien kräver personlig information om drivrutin, t.ex Government ID-kort eller bevis Nej. bakterier nummer för att få en gate post pass (till exempel PAN, AADHAR, DL), namn och kontakta bilen. Informera din operatör om kraven för att undvika leveransförseningar.
+
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>När du skapar ett jobb är en plats som skiljer sig från min lagringskontoplatsen leveransadressen. Vad ska jag göra?
 

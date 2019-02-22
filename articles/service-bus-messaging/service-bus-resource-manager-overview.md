@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: e23173b006fcc83f0e4b30b59a65e772b68a612d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b444dadb47f406cdf8d6d532bbc15f6f40e692e7
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062017"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592918"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Skapa Service Bus-resurser med hjälp av Azure Resource Manager-mallar
 
@@ -181,7 +181,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Ange resursgruppens namn
 
-Om du inte har en befintlig resurs, skapa en ny resursgrupp med det ** New-AzureRmResourceGroup ** kommando. Ange namnet på resursgruppen och den plats som du vill använda. Exempel:
+Om du inte har en befintlig resurs, skapa en ny resursgrupp med det **New-AzureRmResourceGroup** kommando. Ange namnet på resursgruppen och den plats som du vill använda. Exempel:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"

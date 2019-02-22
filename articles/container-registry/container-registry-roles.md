@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 02/20/2019
 ms.author: danlep
-ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193398"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593632"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry roller och behörigheter
 
 Azure Container Registry-tjänsten stöder en uppsättning Azure-roller som kan ger olika nivåer av behörigheter till ett Azure container registry. Använd Azure [rollbaserad åtkomstkontroll](../role-based-access-control/index.yml) (RBAC) för att tilldela specifika behörigheter till användare eller tjänsthuvudnamn som måste interagera med ett register.
 
-| Rollbehörighet /       | [Access Resource Manager](#access-resource-manager)| [Skapa/ta bort registret](#create-and-delete-registry) | [Push-överför avbildningen](#push-image) | [Hämta avbildning](#pull-image) | [Ändra principer](#change-policies) |   [Logga avbildningar](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
-| Ägare | X | X | X | X | X |  |  
-| Deltagare | X | X | X | X | X |  |  
-| Läsare | X |  |  | X |  |  | 
-| AcrPush |  |  | X | X |  |  |  
-| AcrPull |  |  |  | X |  |  |  
-| AcrImageSigner |  |  |  |  |  | X |
+| Rollbehörighet /       | [Access Resource Manager](#access-resource-manager) | [Skapa/ta bort registret](#create-and-delete-registry) | [Push-överför avbildningen](#push-image) | [Hämta avbildning](#pull-image) | [Ta bort avbildningsdata](#delete-image-data) | [Ändra principer](#change-policies) |   [Logga avbildningar](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| Ägare | X | X | X | X | X | X |  |  
+| Deltagare | X | X | X |  X | X | X |  |  
+| Läsare | X |  |  | X |  |  |  |
+| AcrPush |  |  | X | X | X |  |  |  
+| AcrPull |  |  |  | X |  |  |  |  
+| AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Skilja mellan användare och tjänster
 
@@ -58,6 +58,10 @@ Möjligheten att `docker push` en avbildning, eller skicka en annan [stöds arte
 ## <a name="pull-image"></a>Hämta avbildning
 
 Möjligheten att `docker pull` en icke-i karantän bild eller för att hämta en annan [stöds artefakt](container-registry-image-formats.md) , till exempel ett Helm-diagram från ett register. Kräver [autentisering](container-registry-authentication.md) med registret med behöriga identitet.
+
+## <a name="delete-image-data"></a>Ta bort avbildningsdata
+
+Möjligheten att [ta bort behållaravbildningar eller databaser](container-registry-delete.md).
 
 ## <a name="change-policies"></a>Ändra principer
 

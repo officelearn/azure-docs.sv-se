@@ -12,11 +12,11 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316302"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593972"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Felsökningstips för kognitiv sökning
 
@@ -94,7 +94,7 @@ Bildanalys är beräkningsmässigt-intensiva även enkla fall, så när bilderna
 
 Maximal körtid varierar beroende på nivån: flera minuter på kostnadsfritt nivån, 24 timmars indexering på faktureringsbar nivå. Om bearbetningen kan inte slutföras inom en 24-timmarsperiod för bearbetning på begäran, växla till ett schema för att låta indexeraren fortsatte bearbetning där den avbröts. 
 
-Indexera återupptas på schema senaste kända dokumentet för schemalagda indexerare. Med hjälp av ett återkommande schema, fungerar indexeraren genom eftersläpningen avbildningen över ett antal timmar eller dagar, tills alla icke bearbetade avbildningar behandlas. Mer information om schema-syntax finns i [steg3: Skapa en indexerare](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Indexera återupptas på schema senaste kända dokumentet för schemalagda indexerare. Med hjälp av ett återkommande schema, fungerar indexeraren genom eftersläpningen avbildningen över ett antal timmar eller dagar, tills alla icke bearbetade avbildningar behandlas. Mer information om schema-syntax finns i [steg3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 
 För portalbaserad indexering (enligt beskrivningen i snabbstarten), välja ”köras en gång”-indexeraren alternativet gränser bearbetning till 1 timme (`"maxRunTime": "PT1H"`). Du kanske vill utöka fönstret bearbetning till något längre tid.
 
@@ -105,7 +105,7 @@ Mer information finns i [indexering stora datauppsättningar](search-howto-index
 
 ## <a name="see-also"></a>Se också
 + [Snabbstart: Skapa en pipeline för kognitiv sökning i portalen](cognitive-search-quickstart-blob.md)
-+ [Självstudiekurs: Lär dig cognitive search REST API: er](cognitive-search-tutorial-blob.md)
++ [Självstudier: Lär dig cognitive search REST API: er](cognitive-search-tutorial-blob.md)
 + [Att ange autentiseringsuppgifter för datakälla](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexering av stora datauppsättningar](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 18258bf8ac9d241fd8a01957d903b1db882c2d36
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 14b6559420fad22cfc2294817cbefd23a6c47a70
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326882"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650112"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagringstypen för en hanterad disk
 
@@ -118,6 +118,21 @@ Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
+
+## <a name="convert-managed-disks-from-standard-to-premium-in-azure-portal"></a>Konvertera hanterade diskar från standard till premium i Azure-portalen
+
+Du kan konvertera en hanterad disk från standard till premium i Azure-portalen.
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj den virtuella datorn från listan över **virtuella datorer** i portalen.
+3. Om den virtuella datorn inte har stoppats, klickar du på **stoppa** överst i översikt över VM-bladet och vänta tills den virtuella datorn att stoppa.
+3. I bladet för den virtuella datorn, väljer **diskar** på menyn.
+4. Välj den disk som du vill konvertera.
+5. Välj **Configuration** på menyn.
+6. Ändra den **kontotyp** från **Standard HDD** till **Premium SSD**.
+7. Klicka på **spara** och Stäng bladet disk.
+
+Uppdatering av disktypen är effektiva omedelbara. Du kan starta om den virtuella datorn efter konverteringen.
 
 ## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd"></a>Konvertera en hanterad disk från standard HDD till standard SSD
 

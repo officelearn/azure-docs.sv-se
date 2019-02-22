@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d2ae1d1846506424aa14cca0f597c8888eb903d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341036"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649177"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsresurser för att förhindra oväntade ändringar 
 
@@ -36,7 +36,7 @@ När du använder ett lås på en överordnad omfattning, ärver alla resurser i
 
 Till skillnad från rollbaserad åtkomstkontroll använder du hanteringslås för att tillämpa en begränsning för alla användare och roller. Läs om att ange behörigheter för användare och roller i [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager-Lås gäller endast för åtgärder som sker i Hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsar inte hur resurser utföra egna funktioner. Resursändringar är begränsade, men resursåtgärder är inte begränsade. Till exempel ett ReadOnly-lås på en SQL Database gör att du inte tar bort eller ändrar databasen, men det innebär inte att du inte skapa, uppdatera eller ta bort data i databasen. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
+Resource Manager-Lås gäller endast för åtgärder som sker i Hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsa inte hur resurser utföra egna funktioner. Resursändringar är begränsade men resursåtgärder är inte begränsade. Till exempel ett ReadOnly-lås på en SQL Database gör att du inte tar bort eller ändrar databasen, men det hindrar inte dig från att skapa, uppdatera eller ta bort data i databasen. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
 
 Tillämpa **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärder som verkar vara läsa åtgärder faktiskt kräver ytterligare åtgärder. Till exempel placera en **ReadOnly** låset på ett lagringskonto som förhindrar att alla användare lista nycklarna. Listan med nycklar åtgärden hanteras via en POST-begäran eftersom de returnerade nycklarna är tillgängliga för skrivåtgärder. För ett annat exempel är att placera en **ReadOnly** lås på en App Service-resurs som förhindrar att Visual Studio Server Explorer visar filer för resursen eftersom den interaktionen kräver skrivbehörighet.
 
@@ -47,6 +47,19 @@ För att skapa eller ta bort hanteringslås, måste du ha åtkomst till `Microso
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Mall
+
+När du använder Resource Manager-mall för att distribuera ett lås kan använda du olika värden för namn och typ beroende på omfattningen av låset.
+
+När du använder ett lås till en **resource**, Använd följande format:
+
+* namn – `{resourceName}/Microsoft.Authorization/{lockName}`
+* typ- `{resourceProviderNamespace}/{resourceType}/providers/locks`
+
+När du använder ett lås till en **resursgrupp** eller **prenumeration**, Använd följande format:
+
+* namn – `{lockName}`
+* typ- `Microsoft.Authorization/locks`
+
 I följande exempel visas en mall som skapar en app service-plan, en webbplats och ett lås på webbplatsen. Resurstypen för låset är resurstypen för resurs att låsa och **/providers/ Lås**. Namnet på låset har skapats genom att sammanfoga resursnamnet med **/Microsoft.Authorization/** och namnet på låset.
 
 ```json
@@ -104,19 +117,7 @@ I följande exempel visas en mall som skapar en app service-plan, en webbplats o
 }
 ```
 
-Om du vill distribuera den här exempelmall med PowerShell använder du:
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name sitegroup -Location southcentralus
-New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
-```
-
-Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
-
-```azurecli
-az group create --name sitegroup --location southcentralus
-az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
-```
+Ett exempel på hur ett lås på en resursgrupp, se [skapa en resursgrupp och låsa det](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
 
 ## <a name="powershell"></a>PowerShell
 Du Lås distribuerade resurser med Azure PowerShell med hjälp av den [New AzResourceLock](/powershell/module/az.resources/new-azresourcelock) kommando.
@@ -206,7 +207,7 @@ Om du vill skapa ett lås, kör du:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-Omfånget kan vara en prenumeration, resursgrupp eller resurs. Lås-namnet är vad du vill anropa låset. Api-versionen, använda **2015-01-01**.
+Omfånget kan vara en prenumeration, resursgrupp eller resurs. Lås-namnet är vad du vill anropa låset. Api-versionen, använda **2016-09-01**.
 
 På begäran, innehåller ett JSON-objekt som anger egenskaperna för låset.
 
@@ -219,7 +220,6 @@ På begäran, innehåller ett JSON-objekt som anger egenskaperna för låset.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs om hur du ordnar dina resurser i [med taggar för att organisera dina resurser](resource-group-using-tags.md)
-* Om du vill ändra vilken resursgrupp som en resurs som finns i Se [flytta resurser till ny resursgrupp](resource-group-move-resources.md)
 * Du kan använda begränsningar och konventioner i din prenumeration med anpassade principer. Mer information finns i [Vad är Azure Policy?](../governance/policy/overview.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

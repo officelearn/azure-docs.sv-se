@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f18a1c90d3378831824542fabb884d36d12bddd4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270376"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652118"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -130,7 +130,7 @@ Automatisk skalning kan du har rätt mängd resurser som körs för att hantera 
 Ofta har du kravet på att integrera Azure Monitor med andra system och för att skapa anpassade lösningar som använder dina övervakningsdata. Andra Azure-tjänster fungerar med Azure Monitor för att tillhandahålla den här integreringen.
 
 ### <a name="event-hub"></a>Händelsehubb
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) är en strömmande plattform och händelseinmatningstjänst som kan omvandla och lagra data med valfri leverantör av realtidsanalys eller batchbearbetnings-/ lagringsadapter. Använda Event Hubs till [strömma loggdata från Azure Monitor](platform/stream-monitoring-data-event-hubs.md) att samarbeta SIEM och övervakningsverktyg.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) är en strömmande plattform och händelseinmatningstjänst som kan omvandla och lagra data med valfri leverantör av realtidsanalys eller batchbearbetnings-/ lagringsadapter. Använda Event Hubs till [strömma Azure Monitor data](platform/stream-monitoring-data-event-hubs.md) att samarbeta SIEM och övervakningsverktyg.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

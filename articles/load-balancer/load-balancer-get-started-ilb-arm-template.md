@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d029de11c7101e961506f1fa46f5a71c6efb103e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: MT
+ms.openlocfilehash: aa1df4811bfe1a59671e8e696958bed9c5ebff45
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044016"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593039"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Skapa en intern lastbalanserare med hjälp av en mall
 
@@ -28,6 +28,7 @@ ms.locfileid: "54044016"
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -44,10 +45,10 @@ Följ stegen nedan om du vill distribuera mallen som du hämtat med hjälp av Po
 1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](/powershell/azure/overview) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
 2. Hämta parameterfilen till din lokala disk.
 3. Redigera filen och spara den.
-4. Kör cmdleten **New-AzureRmResourceGroupDeployment** för att skapa en resursgrupp med hjälp av mallen.
+4. Kör den **New AzResourceGroupDeployment** cmdlet för att skapa en resursgrupp med hjälp av mallen.
 
-    ```azurecli
-    New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
+    ```powershell
+    New-AzResourceGroupDeployment -Name TestRG -Location westus `
         -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
     ```

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 3daea64d9c9c94b334a57b81c47dd298f7ae4d78
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cf856a680601edd950cd0a5fddbc1241782478e2
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658071"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648905"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Lägga till nätverksgränssnitt till eller ta bort nätverksgränssnitt från virtuella datorer
 
@@ -30,11 +30,13 @@ Om du behöver för att lägga till, ändra eller ta bort IP-adresser för ett n
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [kostnadsfritt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppnar du https://portal.azure.com, och logga in med ditt Azure-konto.
-- Om du utför uppgifterna i den här artikeln med hjälp av PowerShell-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudien kräver Azure PowerShell-Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du utför uppgifterna i den här artikeln med hjälp av PowerShell-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudien kräver Azure PowerShell-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här självstudien krävs Azure CLI version 2.0.26 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Lägga till befintliga nätverksgränssnitt till en ny virtuell dator
@@ -48,29 +50,30 @@ Innan du skapar den virtuella datorn måste du skapa ett nätverksgränssnitt me
 |Verktyget|Kommando|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzVM](/powershell/module/az.compute/new-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Lägga till ett nätverksgränssnitt i en befintlig virtuell dator
 
 1. Logga in på Azure Portal.
 2. I sökrutan högst upp i portalen skriver du namnet på den virtuella datorn som du vill lägga till nätverksgränssnittet eller bläddra till den virtuella datorn genom att välja **alla tjänster**, och sedan **virtuella datorer**. När du har hittat den virtuella datorn, markerar du den. Den virtuella datorn måste ha stöd för antalet nätverksgränssnitt som du vill lägga till. För att ta reda på hur många nätverksgränssnitt varje VM-storleken stöder, finns i [storlekar för Linux-datorer i Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [storlekar för Windows-datorer i Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Välj **översikt**under **inställningar**. Välj **stoppa**, och sedan vänta tills den **Status** för den virtuella datorn ändras till **Stoppad (frigjord)**. 
+3. Välj **översikt**under **inställningar**. Välj **stoppa**, och sedan vänta tills den **Status** för den virtuella datorn ändras till **Stoppad (frigjord)**.
 4. Välj **nätverk**under **inställningar**.
-5. Välj **bifoga nätverksgränssnittet**. Välj det som du vill koppla från listan över nätverksgränssnitt som inte är anslutna till en annan virtuell dator. 
+5. Välj **bifoga nätverksgränssnittet**. Välj det som du vill koppla från listan över nätverksgränssnitt som inte är anslutna till en annan virtuell dator.
 
-    >[!NOTE]
-    Nätverksgränssnittet som du väljer inte har accelererat nätverk aktiverat kan inte ha en IPv6-adress som tilldelats och måste finnas i samma virtuella nätverk som det som innehåller nätverksgränssnitt som är anslutna till den virtuella datorn. 
+   >[!NOTE]
+   >Nätverksgränssnittet som du väljer inte har accelererat nätverk aktiverat kan inte ha en IPv6-adress som tilldelats och måste finnas i samma virtuella nätverk som det som innehåller nätverksgränssnitt som är anslutna till den virtuella datorn.
 
-    Om du inte har en befintlig nätverksgränssnitt, måste du först skapa en. Om du vill göra det, Välj **skapa nätverksgränssnittet**. Mer information om hur du skapar ett nätverksgränssnitt finns [skapa ett nätverksgränssnitt](virtual-network-network-interface.md#create-a-network-interface). Läs mer om ytterligare begränsningar när du lägger till nätverksgränssnitt för virtuella datorer i [begränsningar](#constraints).
+   Om du inte har en befintlig nätverksgränssnitt, måste du först skapa en. Om du vill göra det, Välj **skapa nätverksgränssnittet**. Mer information om hur du skapar ett nätverksgränssnitt finns [skapa ett nätverksgränssnitt](virtual-network-network-interface.md#create-a-network-interface). Läs mer om ytterligare begränsningar när du lägger till nätverksgränssnitt för virtuella datorer i [begränsningar](#constraints).
 
 6. Välj **OK**.
 7. Välj **översikt**under **inställningar**, och sedan **starta** att starta den virtuella datorn.
 8. Konfigurera VM-operativsystem om du vill använda flera nätverksgränssnitt korrekt. Lär dig hur du konfigurerar [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) eller [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) för flera nätverksgränssnitt.
 
+### <a name="commands"></a>Kommandon
 |Verktyget|Kommando|
 |---|---|
-|CLI|[Lägg till AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Lägg till-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|CLI|[Lägg till AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_add) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|PowerShell|[Lägg till AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>Visa flera nätverksgränssnitt för en virtuell dator
 
@@ -85,27 +88,27 @@ Du kan visa de nätverksgränssnitt som är anslutna till en virtuell dator att 
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_show)|
+|PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-a-network-interface-from-a-vm"></a>Ta bort ett nätverksgränssnitt från en virtuell dator
 
 1. Logga in på Azure Portal.
 2. I sökrutan högst upp i portalen, söker du efter namnet på den virtuella datorn som du vill ta bort (koppla från) nätverksgränssnitt från eller bläddra efter den virtuella datorn genom att välja **alla tjänster**, och sedan **virtuella datorer**. När du har hittat den virtuella datorn, markerar du den.
-3. Välj **översikt**under **inställningar**, och sedan **stoppa**. Vänta tills den **Status** för den virtuella datorn ändras till **Stoppad (frigjord)**. 
+3. Välj **översikt**under **inställningar**, och sedan **stoppa**. Vänta tills den **Status** för den virtuella datorn ändras till **Stoppad (frigjord)**.
 4. Välj **nätverk**under **inställningar**.
-5. Välj **koppla från nätverksgränssnittet**. Välj nätverksgränssnittet som du vill koppla bort från listan över nätverksgränssnitt som är anslutna till den virtuella datorn. 
+5. Välj **koppla från nätverksgränssnittet**. Välj nätverksgränssnittet som du vill koppla bort från listan över nätverksgränssnitt som är anslutna till den virtuella datorn.
 
-    >[!NOTE]
-    Om det bara ett nätverksgränssnitt, kan du koppla bort det, eftersom en virtuell dator måste alltid ha minst ett nätverksgränssnitt som är kopplat till den.
+   >[!NOTE]
+   >Om det bara ett nätverksgränssnitt, kan du koppla bort det, eftersom en virtuell dator måste alltid ha minst ett nätverksgränssnitt som är kopplat till den.
 6. Välj **OK**.
 
 ### <a name="commands"></a>Kommandon
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[ta bort AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|CLI|[ta bort AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_remove) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|PowerShell|[Ta bort AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>Villkor
 
@@ -123,14 +126,10 @@ Du kan visa de nätverksgränssnitt som är anslutna till en virtuell dator att 
 - Precis som med IPv6, kan inte du koppla ett nätverksgränssnitt med accelererat nätverk aktiverat till en virtuell dator när du har skapat. Dessutom för att dra nytta av accelererat nätverk, måste du också slutföra stegen i VM-operativsystem. Lär dig mer om accelererat nätverk och andra begränsningar när du använder den för [Windows](create-vm-accelerated-networking-powershell.md) eller [Linux](create-vm-accelerated-networking-cli.md) virtuella datorer.
 
 ## <a name="next-steps"></a>Nästa steg
-Skapa en virtuell dator med flera nätverksgränssnitt eller IP-adresser genom att läsa följande artiklar:
-
-### <a name="commands"></a>Kommandon
+Om du vill skapa en virtuell dator med flera nätverksgränssnitt eller IP-adresser finns i följande artiklar:
 
 |Aktivitet|Verktyget|
 |---|---|
 |Skapa en virtuell dator med flera nätverkskort|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Skapa en enda NIC-VM med flera IPv4-adresser|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Skapa en enda NIC-VM med en privat IPv6-adress (bakom en belastningsutjämnare för Azure)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager-mall](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
-

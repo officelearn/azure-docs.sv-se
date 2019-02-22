@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 2/20/2019
 ms.author: raiye
-ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 063834af9b56e9959883c00bb58c70f0d333c455
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751522"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588576"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsöversikten
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgraderingsväg innan en gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* gäst-OS uppdateras enligt beskrivningen i [Azure Guest OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -77,6 +77,15 @@ Gäst-OS juli har publicerat.
 > [!NOTE]
 > Windows Azure SDK för .NET - 3.0 kan laddas ned [här][Windows Azure SDK].
 >
+>Installationssteg:
+>1. Avinstallera alla äldre versioner av MicrosoftAzureAuthoringTools*.msi
+>2. Installera den [Azure SDK för .NET - 3.0][Windows Azure SDK]
+>3. Starta om datorn
+>4. Skapa ett nytt Cloud Service-projekt och Lägg till en enda Worker-roll
+>5. Ändra OS-familj på 6 och skapa ett paket
+>6. Distribuera paketet till Azure med hjälp av Azure portal eller Visual Studio
+>
+
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
@@ -92,6 +101,7 @@ Gäst-OS juli har publicerat.
 > [!NOTE]
 > RDP-lösenord för OS-familj 5 måste vara minst 10 tecken.
 >
+
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |

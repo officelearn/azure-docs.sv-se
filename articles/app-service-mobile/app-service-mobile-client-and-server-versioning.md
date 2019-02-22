@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: dfdabed95d89e02b5a4b23ba23949cd0aaf838f3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 56c5e0582afe55dcd63aa056817898d3d4942419
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959403"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594074"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Versionshantering för klienter och server i Mobile Apps och Mobile Services
 Den senaste versionen av Azure mobiltjänster är den **Mobile Apps** funktionen i Azure App Service.
@@ -36,7 +36,7 @@ Nyckeln `ZUMO-API-VERSION` kan anges i HTTP-rubriken eller frågesträngen. Vär
 
 Exempel:
 
-HÄMTA https://service.azurewebsites.net/tables/TodoItem
+GET https://service.azurewebsites.net/tables/TodoItem
 
 RUBRIKER: ZUMO-API-VERSION: 2.0.0
 
@@ -80,7 +80,7 @@ Obs: Mobile Services-klient SDK: er *inte* skicka ett huvudvärde för `ZUMO-API
 ### <a name="mobile-services-server-sdks"></a>Mobile *Services* server SDK: er
 | Serverplattform | Version | Godkänd version-huvud |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |** Inga versionshuvudet ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Inga versionshuvudet** |
 | Node.js |(kommer snart) |**Inga versionshuvudet** |
 
 <!-- TODO: add Node npm version -->

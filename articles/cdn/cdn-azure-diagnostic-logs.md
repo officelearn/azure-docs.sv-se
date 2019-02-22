@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2b73deb18b518f257e1de6125ef6d4e35eb0e7b7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 6ce10cd9947acbb74807a5288fc1753e794e69c7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236286"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652305"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
@@ -35,7 +35,7 @@ Azure-diagnostikloggar kan du exportera grundläggande användningsstatistik fr�
 
 - Exportera data till blob-lagring, exportera till CSV och skapa diagram i Excel.
 - Exportera data till Event Hubs och jämföra med data från andra Azure-tjänster.
-- Exportera data till Log Analytics och visa data i din egen Log Analytics-arbetsyta
+- Exportera data till Azure Monitor-loggar och visa data i din egen Log Analytics-arbetsyta
 
 I följande diagram visas en typisk CDN core analytics-vy över data.
 
@@ -85,15 +85,15 @@ Följ dessa steg om du vill använda ett lagringskonto för att spara loggarna:
 
 5. När du är nöjd med din diagnostiklogginställningar väljer **spara**.
 
-### <a name="logging-with-log-analytics"></a>Loggning med Log Analytics
+### <a name="logging-with-azure-monitor"></a>Loggning med Azure Monitor
 
-Följ dessa steg om du vill använda Log Analytics för att lagra loggarna:
+Följ dessa steg för att använda Azure Monitor för att lagra loggarna måste:
 
 1. Från den **diagnostikloggar** väljer **skicka till Log Analytics**. 
 
     ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Välj **konfigurera** konfigurera Log Analytics-loggning. 
+2. Välj **konfigurera** konfigurera Azure Monitor-loggning. 
 
    Den **Log Analytics-arbetsytor** visas.
 
@@ -133,7 +133,7 @@ Följ dessa steg om du vill använda Log Analytics för att lagra loggarna:
 
     ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    Log Analytics-arbetsytan är nu redo att logga data. För att kunna använda data, måste du använda en [Log Analytics-lösningen](#consuming-diagnostics-logs-from-a-log-analytics-workspace), tas upp senare i den här artikeln.
+    Log Analytics-arbetsytan är nu redo att logga data. För att kunna använda data, måste du använda en [Azure Monitor loggar lösningen](#consuming-diagnostics-logs-from-a-log-analytics-workspace), tas upp senare i den här artikeln.
 
 Läs mer om log data fördröjningar [logga data fördröjningar](#log-data-delays).
 
@@ -211,9 +211,9 @@ Här är hur du kan använda verktyget:
 5.  Den resulterande CSV-filen visar analytics-data i en enkel fast hierarki.
 
 ## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Använda diagnostikloggar från en Log Analytics-arbetsyta
-Log Analytics är en Azure-tjänst som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. 
+Azure Monitor är en Azure-tjänst som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. 
 
-Om du vill använda Log Analytics, måste du [aktivera loggning](#enable-logging-with-azure-storage) till Azure Log Analytics-arbetsyta som beskrivs tidigare i den här artikeln.
+Om du vill använda Azure Monitor, måste du [aktivera loggning](#enable-logging-with-azure-storage) till Azure Log Analytics-arbetsyta som beskrivs tidigare i den här artikeln.
 
 ### <a name="using-the-log-analytics-workspace"></a>Använda Log Analytics-arbetsyta
 
@@ -227,9 +227,9 @@ Du kan visa data i en mängd olika sätt med hjälp av lösningar för hantering
 
 Du kan installera hanteringslösningar från Azure marketplace genom att välja den **Hämta nu** länken längst ned i varje lösning.
 
-### <a name="add-a-log-analytics-cdn-management-solution"></a>Lägg till en hanteringslösning för Log Analytics CDN
+### <a name="add-a-azure-monitor-cdn-management-solution"></a>Lägg till en hanteringslösning för Azure Monitor CDN
 
-Följ dessa steg för att lägga till en hanteringslösning för Log Analytics:
+Följ dessa steg för att lägga till en hanteringslösning för Azure Monitor:
 
 1.   Logga in på Azure portal med din Azure-prenumeration och gå till instrumentpanelen.
     ![Azure-instrumentpanelen](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
@@ -443,7 +443,7 @@ Exempel-egenskaper:
 
 * [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Grundläggande analys via Azure CDN kompletterande portalen](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Monitor-loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

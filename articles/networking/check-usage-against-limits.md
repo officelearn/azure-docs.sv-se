@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8546897de029a1df4563a9d2a3353762d5495096
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421614"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652322"
 ---
 # <a name="check-resource-usage-against-limits"></a>Kontrollera resursanvändningen mot gränser
 
@@ -47,12 +47,14 @@ I den här artikeln du lär dig att se hur många av varje typ av resurs som du 
 
 ## <a name="powershell"></a>PowerShell
 
-Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste den *AzureRM* PowerShell-modulen version 6.0.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` på datorn, hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt, måste du också köra `Login-AzureRmAccount` att logga in på Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Visa din användning mot gränser med [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). I följande exempel hämtas användningen av resurser där minst en resurs är distribuerad i platsen East USA:
+Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste du Azure PowerShell-modulen, version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` på datorn, hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt, måste du också köra `Login-AzAccount` att logga in på Azure.
+
+Visa din användning mot gränser med [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). I följande exempel hämtas användningen av resurser där minst en resurs är distribuerad i platsen East USA:
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkUsage `
+Get-AzNetworkUsage `
   -Location eastus `
   | Where-Object {$_.CurrentValue -gt 0} `
   | Format-Table ResourceType, CurrentValue, Limit

@@ -3,7 +3,7 @@ title: Vanliga frågor (och svar FAQ) för Azure Security Center | Microsoft Doc
 description: Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
-ms.author: rkarlin
-ms.openlocfilehash: 61dac6bea6878630c05339778c717f7818c1c662
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/19/2019
+ms.author: monhaber
+ms.openlocfilehash: 6696935cf23fa7286f23ae9b7d0e8a278e31403d
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106655"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652670"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -274,6 +274,9 @@ Azure Security Center automatiskt samlar in, analyserar och Smältsäkringar log
 * Avancerad skadlig kod har identifierats med hjälp av Windows Felrapportering
 * nyckelsökningsangrepp mot virtuella datorer
 * Säkerhetsaviseringar från integrerade partnerlösningar säkerhetslösningar som skadlig eller brandväggar för webbprogram
+
+### <a name="why-did-secure-scores-values-change"></a>Varför säker poäng ändras?
+Från och med februari 2019 justeras poängen för några rekommendationer för att bättre passa för deras allvarlighetsgrad i Security Center. Till följd av den här justering, det kan finnas ändringar i övergripande skyddar score värden.  Läs mer om säker poäng [skydda poängberäkningen](security-center-secure-score.md).
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Vad är skillnaden mellan hot identifieras och rapporteras på av Microsoft Security Response Center jämfört med Azure Security Center?
 Microsoft Security Response Center (MSRC) utför väljer säkerhetsövervakning för Azure-nätverk och infrastruktur och tar emot threat intelligence och missbruk klagomål från tredje part. När MSRC blir medveten om att kunddata har använts av en obehörig part eller att kundens användning av Azure inte uppfyller villkoren för godkända använder en incident säkerhetshanteraren meddelar kunden. -Meddelande sker vanligtvis genom att skicka ett e-postmeddelande till säkerhetskontakter som angetts i Azure Security Center eller Azure-prenumerationsägare om en säkerhetskontakt inte har angetts.
